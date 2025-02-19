@@ -83,7 +83,7 @@ OBJECT.InterfaceContainer.prototype = {
     },
     //********************************************  ACTIONS  **************************************************//
     doActionAfterContentChildren  : function ( event_name, param_1, param_2, param_3 ) {
-        for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
+        for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].doActionAfter( event_name, param_1, param_2, param_3 );
         }
     },
@@ -160,9 +160,9 @@ OBJECT.InterfaceContainer.prototype = {
         }
     },
     extractContentUuidIfHasCounter: function ( counter_type ) {
-        let to_return = [];
-        let current;
-        for ( let i = this.getSize() - 1; i >= 0; i-- ) {
+        var to_return = [];
+        var current;
+        for ( var i = this.getSize() - 1; i >= 0; i-- ) {
             current = this.getContent( i );
             if ( current.hasCounter( counter_type ) ) {
                 to_return.push( current.getUUID() );
@@ -172,9 +172,9 @@ OBJECT.InterfaceContainer.prototype = {
         return to_return;
     },
     getContentUuidIfHasCounter    : function ( counter_type ) {
-        let to_return = [];
-        let current;
-        for ( let i = this.getSize() - 1; i >= 0; i-- ) {
+        var to_return = [];
+        var current;
+        for ( var i = this.getSize() - 1; i >= 0; i-- ) {
             current = this.getContent( i );
             if ( current.hasCounter( counter_type ) ) {
                 to_return.push( current.getUUID() );
@@ -184,8 +184,8 @@ OBJECT.InterfaceContainer.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return = [];
-        for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
+        var to_return = [];
+        for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             to_return.push( this.contents[ i ].getDataToSave() );
         }
         return to_return;

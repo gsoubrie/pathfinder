@@ -1,4 +1,5 @@
-let SERVICE = {};
-let OBJECT = {};
-let CONTROLLER = {};
-let AREA = {};
+"use strict";
+var SERVICE = {};
+var OBJECT = {};
+var CONTROLLER = {};
+var AREA = {};

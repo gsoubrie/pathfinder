@@ -1,4 +1,5 @@
-let CARAC    = {
+"use strict";
+var CARAC    = {
     FOR : "FOR",
     DEX : "DEX",
     CON : "CON",
@@ -7,11 +8,11 @@ let CARAC    = {
     CHA : "CHA",
     FREE: "FREE"
 };
-let SIZE     = {
+var SIZE     = {
     P: "P",
     M: "M"
 };
-let LANGUAGE = {
+var LANGUAGE = {
     COMMON    : "commun",
     ELF       : "elfique",
     CELESTE   : "celeste",
@@ -22,12 +23,12 @@ let LANGUAGE = {
     ORQUIEN   : "orquien",
     SYLVESTRE : "sylvestre"
 };
-let TRAIT    = {
+var TRAIT    = {
     ELFE     : "elfe",
     HUMANOIDE: "humanoide",
     GOBELIN  : "gobelin"
 };
-let VM       = {
+var VM       = {
     _0: "aucun",
     _1: "faible",
     _2: "sombre"

@@ -1,4 +1,5 @@
-let RACES = {
+"use strict";
+var RACES = {
     ENUM: [
         {
             key           : "elfe",

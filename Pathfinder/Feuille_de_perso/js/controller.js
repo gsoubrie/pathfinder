@@ -1,3 +1,4 @@
+"use strict";
 CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init            = function () {
