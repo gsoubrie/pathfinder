@@ -1,0 +1,107 @@
+body {
+    background-color : black;
+}
+.sheet {
+    width            : 1240px;
+    height           : 1754px;
+    background-color : white;
+    margin           : auto;
+}
+.property_horizontal {
+    border          : 2px solid rgb(90, 10, 0);
+    margin          : 2px;
+    padding         : 2px;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    height          : 50px;
+}
+.property_horizontal .label {
+    height      : 100%;
+    display     : flex;
+    align-items : center;
+}
+.property_horizontal .value {
+    background-color : rgb(241, 244, 255);
+    height           : 100%;
+    display          : flex;
+    align-items      : center;
+}
+/*********************	TITLE   ******************************************/
+.sheet-1 .title {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    padding         : 10px;
+}
+/*********************	TITLE - LEFT   ******************************************/
+.sheet-1 .title .left-zone {
+    width : 250px;
+}
+.sheet-1 .title .left-zone .logo-pathfinder {
+    background-image    : url("../img/logo.png");
+    background-size     : cover;
+    background-repeat   : no-repeat;
+    background-position : center center;
+    width               : 100%;
+    height              : 60px;
+}
+.sheet-1 .title .left-zone .page-name {
+    /*font-family               : "Georgia";*/
+    font-size                 : 25px;
+    color                     : #ECDEB7;
+    font-weight               : bold;
+    text-align                : center;
+    -webkit-text-stroke-width : 0.5px;
+    -webkit-text-fill-color   : #5A0A00;
+    position                  : relative;
+    top                       : -10px;
+    line-height               : 18px;
+}
+/*********************	TITLE - MIDDLE   ******************************************/
+.sheet-1 .title .middle-zone {
+    width           : calc(100% - 400px);
+    height          : 100px;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+.sheet-1 .title .middle-zone .middle-left-zone {
+    width  : 50%;
+    height : 100%;
+}
+.property_horizontal {
+    border          : 2px solid rgb(90, 10, 0);
+    margin          : 2px;
+    padding         : 2px;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    height          : 50px;
+}
+.sheet-1 .title .middle-zone .middle-left-zone .name .label,
+.sheet-1 .title .middle-zone .middle-left-zone .player .label {
+    color                     : rgb(19, 38, 95);
+    -webkit-text-stroke-width : 0.5px;
+    -webkit-text-fill-color   : #5A0A00;
+    width                     : 100px;
+}
+.sheet-1 .title .middle-zone .middle-left-zone .name .value,
+.sheet-1 .title .middle-zone .middle-left-zone .player .value {
+    color                     : rgb(19, 38, 95);
+    -webkit-text-stroke-width : 0.5px;
+    -webkit-text-fill-color   : #5A0A00;
+    width                     : calc(100% - 100px);
+}
+.sheet-1 .title .middle-zone .middle-right-zone {
+    width            : 50%;
+    background-color : red;
+    height           : 100%;
+}
+/*********************	TITLE - RIGHT   ******************************************/
+.sheet-1 .title .right-zone {
+    width            : 150px;
+    background-color : yellow;
+    height           : 100px;
+}
+
