@@ -8,6 +8,15 @@ body {
     margin           : auto;
 }
 /*********************	TITLE   ******************************************/
+.container-property {
+    display : flex;
+    justify-content : center;
+    align-items     : center;
+    width: 100%;
+}
+.container-property .property  {
+    width: 100%;
+}
 .property {
     border  : 1px solid rgb(90, 10, 0);
     margin  : 2px;

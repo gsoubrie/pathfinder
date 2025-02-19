@@ -27,10 +27,16 @@ AREA.Title.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "ascendance", "", "Ascendance" ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "historique", "", "Historique" ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "classe", "", "Classe" ), right_zone );
+        var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {class : "container-property "} ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "size", "", "Taille" ), container_1 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement" ), container_1 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "trait", "", "Trait" ), container_1 );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité" ), right_zone );
     },
     computeHtml__right : function () {
-        var right = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.getDomElement() );
+        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "level", "1", "Niveau" ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "heroisme", "1", "Point d'heroisme" ), right_zone );
     }
 };
 
