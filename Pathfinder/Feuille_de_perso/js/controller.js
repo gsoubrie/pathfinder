@@ -11,17 +11,19 @@ CONTROLLER.Main = (function ( self ) {
         self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
-    self.doActionAfter            = function (event_name) {
-        switch ( event_name ) {
-            case "save":
-                self.save();
+    self.openEdition            = function (property_name) {
+        switch ( property_name ) {
+            case RACES.key:
+                this.edition_popup = new POPUP.PropertyEdition(property_name);
                 break;
+    
         }
     };
     //********************************************  SAVE  **************************************************//
     self.save            = function (event_name) {
         let to_return = {};
         to_return["area__title"] = self.area__title.getDataToSave();
+        console.log("to_return", to_return)
         return to_return;
     };
     //********************************************  HTML  **************************************************//
