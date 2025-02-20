@@ -9,13 +9,13 @@ body {
 }
 /*********************	TITLE   ******************************************/
 .container-property {
-    display : flex;
+    display         : flex;
     justify-content : center;
     align-items     : center;
-    width: 100%;
+    width           : 100%;
 }
-.container-property .property  {
-    width: 100%;
+.container-property .property {
+    width : 100%;
 }
 .property {
     border  : 1px solid rgb(90, 10, 0);
@@ -50,6 +50,7 @@ body {
 .property .value {
     background-color          : rgb(241, 244, 255);
     display                   : flex;
+    justify-content           : space-around;
     align-items               : center;
     color                     : rgb(19, 38, 95);
     -webkit-text-stroke-width : 0.5px;
@@ -91,6 +92,15 @@ body {
     top                       : -10px;
     line-height               : 18px;
 }
+.sheet-1 .title .left-zone .save-button {
+    background-color : red;
+    width            : 20px;
+    height           : 20px;
+    background       : url("../img/save.png");
+    position         : relative;
+    top              : -30px;
+    left             : 8px;
+}
 /*********************	TITLE - MIDDLE   ******************************************/
 .sheet-1 .title .middle-zone {
     width           : calc(100% - 400px);
@@ -109,8 +119,10 @@ body {
 }
 /*********************	TITLE - RIGHT   ******************************************/
 .sheet-1 .title .right-zone {
-    width            : 150px;
-    background-color : yellow;
-    height           : 100px;
+    width  : 150px;
+    height : 100px;
+}
+.sheet-1 .title .right-zone .property .value {
+    text-align : center;
 }
 

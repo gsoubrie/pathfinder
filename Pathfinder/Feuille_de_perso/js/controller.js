@@ -2,6 +2,8 @@
 CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init            = function () {
+        let params = new URLSearchParams(location.search)
+        self.current_data = eval(params.get("id"));
         self.initTitle();
         self.computeHtml();
     };
@@ -9,6 +11,19 @@ CONTROLLER.Main = (function ( self ) {
         self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
+    self.doActionAfter            = function (event_name) {
+        switch ( event_name ) {
+            case "save":
+                self.save();
+                break;
+        }
+    };
+    //********************************************  SAVE  **************************************************//
+    self.save            = function (event_name) {
+        let to_return = {};
+        to_return["area__title"] = self.area__title.getDataToSave();
+        return to_return;
+    };
     //********************************************  HTML  **************************************************//
     self.computeHtml            = function () {
         self.area__title.computeHtml();
@@ -20,7 +35,6 @@ CONTROLLER.Main = (function ( self ) {
     return self;
 })
 ( CONTROLLER.Main || {} );
-
 
 
 document.addEventListener( "DOMContentLoaded", function ( e ) {
