@@ -23,6 +23,8 @@
   "funcscope": true,
   "laxbreak": true,
   "globals": {
+    "PHASE": false,
+    "POPUP": false,
     "RACES": false,
     "CONTROLLER": false,
     "AREA": false,

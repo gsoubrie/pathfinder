@@ -1,37 +1,42 @@
 "use strict";
 CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
-    self.init            = function () {
-        let params = new URLSearchParams(location.search)
-        self.current_data = eval(params.get("id"));
+    self.init               = function () {
+        let params        = new URLSearchParams( location.search );
+        self.current_uuid = params.get( "id" );
+        self.current_data = eval( self.current_uuid );
         self.initTitle();
         self.computeHtml();
     };
-    self.initTitle       = function () {
+    self.initTitle          = function () {
         self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
-    self.openEdition            = function (property_name) {
+    self.openEdition        = function ( property_name ) {
         switch ( property_name ) {
             case RACES.key:
-                this.edition_popup = new POPUP.PropertyEdition(property_name);
+                this.edition_popup = new POPUP.PropertyEdition( RACES );
                 break;
-    
+            
         }
     };
     //********************************************  SAVE  **************************************************//
-    self.save            = function (event_name) {
-        let to_return = {};
-        to_return["area__title"] = self.area__title.getDataToSave();
-        console.log("to_return", to_return)
+    self.save               = function ( event_name ) {
+        let to_return = self.area__title.getDataToSave();
+        const link    = document.createElement( "a" );
+        const file    = new Blob( ["let " + self.current_uuid + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
+        link.href     = URL.createObjectURL( file );
+        link.download = self.current_uuid + ".js";
+        link.click();
+        URL.revokeObjectURL( link.href );
         return to_return;
     };
     //********************************************  HTML  **************************************************//
-    self.computeHtml            = function () {
+    self.computeHtml        = function () {
         self.area__title.computeHtml();
-        SERVICE.DOM.addElementTo(  self.area__title.getDomElement(), document.querySelector(".sheet-1") );
+        SERVICE.DOM.addElementTo( self.area__title.getDomElement(), document.querySelector( ".sheet-1" ) );
     };
-    self.computeHtml__title     = function () {
+    self.computeHtml__title = function () {
         self.computeHtml__title();
     };
     return self;
