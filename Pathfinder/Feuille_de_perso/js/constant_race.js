@@ -20,6 +20,7 @@ var RACES = {
                 murmure    : {},
                 visionnaire: {}
             },
+            info : "ddddd",
             dons          : {}
         },
         {

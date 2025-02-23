@@ -20,6 +20,9 @@ CONTROLLER.Main = (function ( self ) {
             
         }
     };
+    self.changeTabPopup        = function ( tab_name ) {
+        this.edition_popup.changeTabPopup(tab_name);
+    };
     //********************************************  SAVE  **************************************************//
     self.save               = function ( event_name ) {
         let to_return = self.area__title.getDataToSave();

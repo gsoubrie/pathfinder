@@ -1,0 +1,20 @@
+.popup {
+    position: fixed;
+    background-color: green;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    right: 0;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+}
+/*********************	TITLE   ******************************************/
+.popup .edition-property-popup{
+    background-color: red;
+    width: 1200px;
+}
+/*********************	TABS   ******************************************/
+.tab.active {
+    background-color: aqua;
+}
