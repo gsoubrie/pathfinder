@@ -1,7 +1,7 @@
 "use strict";
-var SERVICE = {};
-var OBJECT = {};
+var SERVICE    = {};
+var OBJECT     = {};
 var CONTROLLER = {};
-var AREA = {};
-var POPUP = {};
-var TABS = {};
+var AREA       = {};
+var POPUP      = {};
+var TABS       = {};

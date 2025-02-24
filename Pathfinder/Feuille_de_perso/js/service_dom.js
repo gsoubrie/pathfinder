@@ -36,15 +36,15 @@ SERVICE.DOM = (function ( self ) {
     };
     //********************************************  PROPERTY   **************************************************//
     self.createPropertyHorizontal = function ( property_name, value, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal", "data-name" : property_name } );
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable }, value ), toReturn );
         return toReturn;
     };
-    self.createPropertyVertical = function ( property_name, value, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name" : property_name } );
+    self.createPropertyVertical   = function ( property_name, value, label, is_editable ) {
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, onclick : "CONTROLLER.Main.openEdition('" + property_name + "')" }, value ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, onclick: "CONTROLLER.Main.openEdition('" + property_name + "')" }, value ), toReturn );
         return toReturn;
     };
     

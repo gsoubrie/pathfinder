@@ -8,7 +8,7 @@ body {
     margin           : auto;
 }
 .hidden {
-    display: none;
+    display : none;
 }
 /*********************	TITLE   ******************************************/
 .container-property {
@@ -29,7 +29,7 @@ body {
 .property.horizontal {
     justify-content : center;
     align-items     : center;
-    height          : 30px;
+    height          : 38px;
 }
 .property.vertical {
     height          : 25px;
@@ -59,7 +59,7 @@ body {
     -webkit-text-stroke-width : 0.5px;
     -webkit-text-fill-color   : #5A0A00;
     overflow                  : hidden;
-    min-height: 12px;
+    min-height                : 12px;
 }
 .property.horizontal .value {
     height : 100%;

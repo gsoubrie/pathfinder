@@ -1,5 +1,5 @@
 "use strict";
-SERVICE.STRING             = (function ( self ) {
+SERVICE.STRING = (function ( self ) {
     return self;
 })( SERVICE.STRING || {} );
 

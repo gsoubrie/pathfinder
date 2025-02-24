@@ -8,7 +8,7 @@ var PHASE = {
     RUNNING_TO_STRING: "RUNNING"
 };
 
-PHASE.Phase = function ( parent_object ) {
+PHASE.Phase           = function ( parent_object ) {
     this.previous_phase             = null;
     this.current_phase              = PHASE.INIT;
     this.next_phase                 = null;
@@ -95,7 +95,7 @@ PHASE.Phase.prototype = {
 PHASE.PhaseInterface           = function () {
 };
 PHASE.PhaseInterface.prototype = {
-    initPhase                          : function ( phase_value, dom_element ) {
+    initPhase             : function ( phase_value, dom_element ) {
         this.phase = new PHASE.Phase( this );
         if ( dom_element ) {
             this.phase.setDomElement( dom_element );
@@ -104,10 +104,10 @@ PHASE.PhaseInterface.prototype = {
             this.setPhase( phase_value );
         }
     },
-    isPhase                            : function ( to_test ) {
+    isPhase               : function ( to_test ) {
         return this.phase.isPhase( to_test );
     },
-    isInPhase                          : function ( array_to_test ) {
+    isInPhase             : function ( array_to_test ) {
         for ( let i = 0, _size_i = array_to_test.length; i < _size_i; i++ ) {
             if ( this.phase.isPhase( array_to_test[ i ] ) ) {
                 return true;
@@ -115,45 +115,45 @@ PHASE.PhaseInterface.prototype = {
         }
         return false;
     },
-    setPhase                           : function ( to_set ) {
+    setPhase              : function ( to_set ) {
         this.phase.setPhase( to_set );
     },
-    setPhaseOrPhase                    : function ( boolean, to_set_true, to_set_false ) {
+    setPhaseOrPhase       : function ( boolean, to_set_true, to_set_false ) {
         this.setPhase( boolean ? to_set_true : to_set_false );
     },
-    setPhaseIfDifferent                : function ( to_set ) {
+    setPhaseIfDifferent   : function ( to_set ) {
         if ( to_set !== this.getCurrentPhase() ) {
             this.phase.setPhase( to_set );
         }
     },
-    togglePhase                        : function ( phase_1, phase_2 ) {
+    togglePhase           : function ( phase_1, phase_2 ) {
         this.phase.togglePhase( phase_1, phase_2 );
     },
-    setPhaseParent                     : function ( to_set ) {
+    setPhaseParent        : function ( to_set ) {
         this.phase.setParent( to_set );
     },
-    setPhaseDomElement                 : function ( to_set, data_name ) {
+    setPhaseDomElement    : function ( to_set, data_name ) {
         this.phase.setDomElement( to_set, data_name );
     },
-    setPhaseIfPhase                    : function ( to_set, if_is ) {
+    setPhaseIfPhase       : function ( to_set, if_is ) {
         return this.phase.setPhaseIfPhase( to_set, if_is );
     },
-    setPhaseWithTimeOut                : function ( to_set, timeout ) {
+    setPhaseWithTimeOut   : function ( to_set, timeout ) {
         this.phase.setPhaseWithTimeOut( to_set, timeout );
     },
-    getCurrentPhase                    : function () {
+    getCurrentPhase       : function () {
         return this.phase.current_phase;
     },
-    getPreviousPhase                   : function () {
+    getPreviousPhase      : function () {
         return this.phase.previous_phase;
     },
-    setPreviousPhaseForced             : function ( to_set ) {
+    setPreviousPhaseForced: function ( to_set ) {
         this.phase.previous_phase = to_set;
     },
-    isPreviousPhase                    : function ( to_test ) {
+    isPreviousPhase       : function ( to_test ) {
         return this.phase.isPreviousPhase( to_test );
     },
-    isPreviousPhaseInPhase             : function ( array_to_test ) {
+    isPreviousPhaseInPhase: function ( array_to_test ) {
         for ( let i = 0, _size_i = array_to_test.length; i < _size_i; i++ ) {
             if ( this.phase.isPreviousPhase( array_to_test[ i ] ) ) {
                 return true;
@@ -161,7 +161,7 @@ PHASE.PhaseInterface.prototype = {
         }
         return false;
     },
-    callbackForPhase                   : function () {
+    callbackForPhase      : function () {
     }
 };
 SERVICE.CLASS.addPrototype( PHASE.PhaseInterface, OBJECT.InterfaceHtml );

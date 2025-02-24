@@ -1,10 +1,10 @@
 "use strict";
 var RACES = {
-    key : "ascendance",
-    label : "Ascendance",
-    ENUM: [
+    key  : "ascendance",
+    label: "Ascendance",
+    ENUM : [
         {
-            key           : "elfe",
+            name          : "elfe",
             start_life    : 6,
             size          : SIZE.M,
             speed         : 9,
@@ -20,11 +20,11 @@ var RACES = {
                 murmure    : {},
                 visionnaire: {}
             },
-            info : "ddddd",
+            info          : "ddddd",
             dons          : {}
         },
         {
-            key           : "gobelin",
+            name          : "gobelin",
             start_life    : 6,
             size          : SIZE.P,
             speed         : 7.5,

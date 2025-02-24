@@ -1,10 +1,10 @@
 "use strict";
 
-OBJECT.InterfaceHtml           = function () {
+OBJECT.InterfaceHtml                = function () {
 };
-OBJECT.InterfaceHtml.prototype = {
+OBJECT.InterfaceHtml.prototype      = {
     //********************************************  SETTER GETTER   **************************************************//
-    addClass                  : function ( to_add ) {
+    addClass     : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
         }
@@ -15,18 +15,18 @@ OBJECT.InterfaceHtml.prototype = {
             this.getDomElement().classList.add( to_add );
         }
     },
-    removeClass               : function ( to_remove ) {
+    removeClass  : function ( to_remove ) {
         this.class = SHINKEN.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
         if ( this.getDomElement() ) {
             this.getDomElement().classList.remove( to_remove );
         }
     },
-    setDomElement             : function ( to_set ) {
+    setDomElement: function ( to_set ) {
         this.dom_element = to_set;
     },
-    getDomElement             : function () {
+    getDomElement: function () {
         return this.dom_element;
-    },
+    }
 };
 OBJECT.InterfaceContainer           = function () {
     this.initContents();

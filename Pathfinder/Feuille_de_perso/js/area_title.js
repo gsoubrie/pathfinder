@@ -7,10 +7,10 @@ AREA.Title.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return = {};
-        let properties = this.getDomElement().querySelectorAll(".property");
-        for (var i = 0; i < properties.length; i++) {
-            to_return[properties[i].dataset.name] = properties[i].querySelector(".value").innerText;
+        let to_return  = {};
+        let properties = this.getDomElement().querySelectorAll( ".property" );
+        for ( var i = 0; i < properties.length; i++ ) {
+            to_return[ properties[ i ].dataset.name ] = properties[ i ].querySelector( ".value" ).innerText;
         }
         return to_return;
     },

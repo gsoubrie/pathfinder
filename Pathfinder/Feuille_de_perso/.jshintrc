@@ -23,9 +23,11 @@
   "funcscope": true,
   "laxbreak": true,
   "globals": {
+    "WINDOW_V2": false,
     "PHASE": false,
     "POPUP": false,
     "RACES": false,
+    "TABS": false,
     "CONTROLLER": false,
     "AREA": false,
     "CARAC": false,

@@ -1,1 +1,3 @@
-let a9b2dfe206c0Ab01Dc3c75a66230924b = { "name": "Tapadami", "player": "G", "ascendance": "", "historique": "", "classe": "", "size": "", "alignement": "", "trait": "", "divinite": "", "level": "4", "heroisme": "5" };
+let a9b2dfe206c0Ab01Dc3c75a66230924b = {
+    "name": "Tapadami", "player": "G", "ascendance": "", "historique": "", "classe": "", "size": "", "alignement": "", "trait": "", "divinite": "", "level": "4", "heroisme": "5"
+};
