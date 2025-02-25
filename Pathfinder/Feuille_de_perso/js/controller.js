@@ -3,6 +3,7 @@ CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function () {
         let params        = new URLSearchParams( location.search );
+        self.races = new RACES.Races();
         self.current_uuid = params.get( "id" );
         self.current_data = eval( self.current_uuid );
         self.initTitle();

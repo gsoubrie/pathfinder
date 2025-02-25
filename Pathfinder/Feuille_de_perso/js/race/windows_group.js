@@ -1,11 +1,13 @@
 "use strict";
-RACES.Race           = function ( data_array ) {
-    this.data_array = data_array;
-    this.init();
+RACES.WindowGroup           = function () {
+    this.init( "race_window_group" );
 };
-RACES.Race.prototype = {
-    init: function () {
-        
+RACES.WindowGroup.prototype = {
+    init      : function ( group_name ) {
+        this.initCommon( group_name );
+        console.log("GSOU", "[WindowGroup - init]", this );
+        this.initWithData( CONTROLLER.Main.races.contents );
+        //this.initTarget(  );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     changeTabPopup: function ( tab_name ) {
@@ -45,4 +47,4 @@ RACES.Race.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( TABS.Edition, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( RACES.WindowGroup, WINDOW_V2.ElementGroupFromData );

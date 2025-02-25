@@ -3,6 +3,18 @@
 OBJECT.InterfaceHtml                = function () {
 };
 OBJECT.InterfaceHtml.prototype      = {
+    updateData: function ( data ) {
+        if ( !data ) {
+            return;
+        }
+        var _keys     = Object.keys( data );
+        var _sizeData = _keys.length;
+        var _currentKey;
+        for ( var i = 0; i < _sizeData; i++ ) {
+            _currentKey = _keys[ i ];
+            this.setData( _currentKey, data[ _currentKey ] );
+        }
+    },
     //********************************************  SETTER GETTER   **************************************************//
     addClass     : function ( to_add ) {
         if ( !this.class ) {

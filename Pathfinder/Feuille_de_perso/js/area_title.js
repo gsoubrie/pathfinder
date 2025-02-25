@@ -38,7 +38,7 @@ AREA.Title.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "historique", "", "Historique", false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "classe", "", "Classe", false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "size", "", "Taille", false ), container_1 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "body_size", "", "Taille", false ), container_1 );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );

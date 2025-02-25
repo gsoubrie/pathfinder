@@ -5,8 +5,8 @@ POPUP.PropertyEdition           = function ( property ) {
 };
 POPUP.PropertyEdition.prototype = {
     init: function () {
-        this.windows = new WINDOW_V2.ElementGroupFromData( "tabs" );
-        this.windows.initWithData( this.current_property.ENUM );
+        this.windows = new RACES.WindowGroup();
+        
         this.windows.setActiveWindow( "elfe" );
         
         console.log( "GSOU", "[PropertyEdition - init]", this.windows );

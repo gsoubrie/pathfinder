@@ -1728,7 +1728,6 @@ WINDOW_V2.ElementGroupFromData.prototype = {
     init        : WINDOW_V2.ElementGroup.prototype.init,
     initWithData: function ( data_windows ) {
         for ( let i = 0, _size_i = data_windows.length; i < _size_i; i++ ) {
-            console.log("GSOU", "[ElementGroupFromData - initWithData]", data_windows[ i ] );
             let added = this.addSpecific( this.getChildConstructor( data_windows[ i ].name, this.getName() ) );
             if ( data_windows[ i ].is_active ) {
                 this.setActiveWindow( data_windows[ i ].name );
