@@ -20,7 +20,7 @@ RACES.Race.prototype = {
             case "characteristic_bonus":
             case "characteristic_malus":
             case "language":
-            case "trait":
+            case "traits":
             case "night_vision":
             case "heritage":
             case "info":
@@ -34,7 +34,14 @@ RACES.Race.prototype = {
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
-        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "race-name" }, this.name ), this.getDomElement());
+        let traits_row = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "traits" }), this.getDomElement());
+        for (let index = 0; index < this.traits.length; index++) {
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "trait" },this.traits[index]),traits_row);
+            
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.start_life, "Point de vie" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "life" }, "Point de vie : " + this.start_life), this.getDomElement());
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "body_size" }, "Taille : " + this.body_size), this.getDomElement());
         return this.getDomElement();
     }
 };

@@ -47,7 +47,14 @@ SERVICE.DOM = (function ( self ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, onclick: "CONTROLLER.Main.openEdition('" + property_name + "')" }, value ), toReturn );
         return toReturn;
     };
-    
+        //********************************************  EDITION POP UP   **************************************************//
+        self.createEditionPropertyHorizontal = function ( value, label ) {
+            var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property horizontal"} );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
+            return toReturn;
+        };
+        
     return self;
 })( SERVICE.DOM || {} );
 

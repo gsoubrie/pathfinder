@@ -11,7 +11,7 @@ var RACES = {
             characteristic_bonus: [CARAC.DEX, CARAC.INT, CARAC.FREE],
             characteristic_malus: [CARAC.CON],
             language            : [LANGUAGE.COMMON, LANGUAGE.COMMON],
-            trait               : [TRAIT.ELFE, TRAIT.HUMANOIDE],
+            traits               : [TRAIT.ELFE, TRAIT.HUMANOIDE],
             night_vision        : VM._1,
             heritage            : {
                 arctique   : {},
@@ -31,7 +31,26 @@ var RACES = {
             characteristic_bonus: [CARAC.DEX, CARAC.CHA, CARAC.FREE],
             characteristic_malus: [CARAC.SAG],
             language            : [LANGUAGE.COMMON, LANGUAGE.GOBELIN],
-            trait               : [TRAIT.GOBELIN, TRAIT.HUMANOIDE],
+            traits               : [TRAIT.GOBELIN, TRAIT.HUMANOIDE],
+            night_vision        : VM._1,
+            heritage            : {
+                boyaud_fer  : {},
+                dent_rasoir : {},
+                neige       : {},
+                incassable  : {},
+                peau_charbon: {}
+            },
+            dons                : {}
+        },
+        {
+            name                : "humain",
+            start_life          : 8,
+            body_size           : SIZE.M,
+            speed               : 7.5,
+            characteristic_bonus: [CARAC.FREE, CARAC.FREE],
+            characteristic_malus: [],
+            language            : [LANGUAGE.COMMON],
+            traits               : [TRAIT.HUMANOIDE],
             night_vision        : VM._1,
             heritage            : {
                 boyaud_fer  : {},
