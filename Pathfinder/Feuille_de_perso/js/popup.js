@@ -6,10 +6,7 @@ POPUP.PropertyEdition           = function ( property ) {
 POPUP.PropertyEdition.prototype = {
     init: function () {
         this.windows = new RACES.WindowGroup();
-        
         this.windows.setActiveWindow( "elfe" );
-        
-        console.log( "GSOU", "[PropertyEdition - init]", this.windows );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -25,13 +22,6 @@ POPUP.PropertyEdition.prototype = {
         SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
         
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
-        
-        for ( var i = 0, _size_i = this.windows.getSize(); i < _size_i; i++ ) {
-            this.windows.getContent(i).setContentDomElementTarget();
-        }
-        for ( let i = 0, _size_i = _list.length; i < _size_i; i++ ) {
-        
-        }
         this.windows.computeHtmlTargets( this.container );
     }
 };
