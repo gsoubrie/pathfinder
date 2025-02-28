@@ -20,13 +20,18 @@ RACES.Race.prototype = {
             case "characteristic_bonus":
             case "characteristic_malus":
             case "language":
+            case "name_example":
             case "traits":
             case "night_vision":
             case "physical_desc":
+            case "society_desc":
+            case "believe_desc":
+            case "general_desc":
+            case "anathema_desc":
+            case "edit_desc":
             case "heritage":
-            case "info":
             case "dons":
-                this[key] = value;
+                this[ key ] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -35,9 +40,9 @@ RACES.Race.prototype = {
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
-        let traits_row = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "traits" }), this.getDomElement());
-        for (let index = 0; index < this.traits.length; index++) {
-            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "trait" },this.traits[index]),traits_row);
+        let traits_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "traits" } ), this.getDomElement() );
+        for ( let index = 0; index < this.traits.length; index++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "trait" }, this.traits[ index ] ), traits_row );
             
         }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.start_life, "Point de vie" ), this.getDomElement() );
@@ -47,7 +52,13 @@ RACES.Race.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.characteristic_malus, "Pénalité d'attribut" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.language, "Langues" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.night_vision, "Vision nocturne" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.physical_desc, "Description physique" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.society_desc, "Description en société" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.believe_desc, "Croyances" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.edit_desc, "Édits populaires" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.anathema_desc, "Anathèmes populaires" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.name_example, "Exemples de noms" ), this.getDomElement() );
         return this.getDomElement();
     }
 };

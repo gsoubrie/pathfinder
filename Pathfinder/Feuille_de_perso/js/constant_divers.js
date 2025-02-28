@@ -25,6 +25,7 @@ var LANGUAGE = {
 };
 var TRAIT    = {
     ELFE     : "elfe",
+    HUMAIN   : "humain",
     HUMANOIDE: "humanoide",
     GOBELIN  : "gobelin"
 };

@@ -9,12 +9,20 @@
     justify-content  : center;
     background-color : rgb(143 141 141 / 86%);
 }
+.popup .shinken-window-targets-V2 {
+    height : 92%;
+}
+.popup .shinken-tab-pane {
+    height   : 100%;
+    overflow : auto;
+}
 /*********************	TITLE   ******************************************/
 .popup .edition-property-popup {
     margin-top       : 70px;
     width            : 1200px;
     background-color : aliceblue;
     padding          : 10px;
+    margin-bottom    : 20px;
 }
 .popup .edition-property-popup .title {
     font-size                 : 20px;
@@ -42,9 +50,6 @@
     margin  : 2px;
     padding : 2px 4px;
 }
-.popup .edition-property:hover {
-    background-color : rgba(0, 0, 0, 0.1);
-}
 .edition-property.horizontal {
     display         : flex;
     justify-content : center;
@@ -52,9 +57,8 @@
     width           : fit-content;
 }
 .edition-property.description {
-    height          : 25px;
-    flex-direction  : column;
-    display         : flex;
+    flex-direction : column;
+    display        : flex;
 }
 .edition-property .label {
     color                     : rgb(19, 38, 95);
@@ -72,10 +76,21 @@
 .edition-property.vertical .label {
     font-size : 10px;
 }
-.edition-property .value {
+.edition-property.horizontal .value {
     background-color : rgb(241, 244, 255);
-    display          : flex;
-    justify-content  : space-around;
-    align-items      : center;
     color            : rgb(72, 94, 164);
+}
+.edition-property.horizontal .value {
+    display         : flex;
+    justify-content : space-around;
+    align-items     : center;
+}
+.edition-property.description .value {
+    background-color : white;
+    border-radius    : 5px;
+    padding          : 3px 10px;
+    margin           : 3px 40px;
+}
+.edition-property.description .value p {
+    text-indent : 30px;
 }
