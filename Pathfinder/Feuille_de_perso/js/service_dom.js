@@ -54,6 +54,12 @@ SERVICE.DOM = (function ( self ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
             return toReturn;
         };
+        self.createEditionPropertyDescription = function ( value, label ) {
+            var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property description"} );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
+            return toReturn;
+        };
         
     return self;
 })( SERVICE.DOM || {} );

@@ -22,6 +22,7 @@ RACES.Race.prototype = {
             case "language":
             case "traits":
             case "night_vision":
+            case "physical_desc":
             case "heritage":
             case "info":
             case "dons":
@@ -40,8 +41,13 @@ RACES.Race.prototype = {
             
         }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.start_life, "Point de vie" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "life" }, "Point de vie : " + this.start_life), this.getDomElement());
-        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "body_size" }, "Taille : " + this.body_size), this.getDomElement());
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.body_size, "Taille moyenne" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.speed + " mètres", "Vitesse" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.characteristic_bonus, "Primes d'attributs" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.characteristic_malus, "Pénalité d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.language, "Langues" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.night_vision, "Vision nocturne" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.physical_desc, "Description physique" ), this.getDomElement() );
         return this.getDomElement();
     }
 };
