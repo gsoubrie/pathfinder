@@ -13,16 +13,27 @@ CONTROLLER.Main = (function ( self ) {
         self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
+    self.doActionAfter        = function ( event_name, params ) {
+        console.log(event_name, params);
+        switch ( event_name ) {
+            case "open_edition_popup":
+                this.edition_popup = new POPUP.PropertyEdition( params["property_name"] );
+                break;
+            
+        }
+    };    
     self.openEdition        = function ( property_name ) {
         switch ( property_name ) {
             case RACES.key:
                 this.edition_popup = new POPUP.PropertyEdition( RACES );
-                break;
+               break;
             
         }
-    };
+    }; 
     self.validPopupEdition  = function () {
         self.area__title.validPopupEdition( this.edition_popup );
+        this.edition_popup.close();
+        this.edition_popup = null;
     };
     self.cancelPopupEdition  = function () {
         this.edition_popup.close();

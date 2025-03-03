@@ -5,7 +5,6 @@ RACES.WindowGroup           = function () {
 RACES.WindowGroup.prototype = {
     init      : function ( group_name ) {
         this.initCommon( group_name );
-        console.log("GSOU", "[WindowGroup - init]", this );
         this.initWithData();
     },
     initWithData: function ( data_windows ) {
@@ -13,8 +12,6 @@ RACES.WindowGroup.prototype = {
             let current = CONTROLLER.Main.races.getContent(i);
             let added = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
-            console.log("GSOU", "[WindowGroup - initWithData]", current.computeHTMLEdition() );
-            console.log("GSOU", added );
         }
     },
     //********************************************  EVENT LISTENER  **************************************************//

@@ -1,12 +1,16 @@
 "use strict";
-POPUP.PropertyEdition           = function ( property ) {
-    this.current_property = property;
-    this.init();
+POPUP.PropertyEdition           = function ( property_name, property_value ) {    
+    this.init(property_name, property_value);
 };
 POPUP.PropertyEdition.prototype = {
-    init: function () {
-        this.windows = new RACES.WindowGroup();
-        this.windows.setActiveWindow( "elfe" );
+    init: function (property_name, property_value) {
+        switch ( property_name){
+            case RACES.key:   
+                this.current_property    = RACES;     
+                this.windows = new RACES.WindowGroup();                              
+                break;
+        }
+        this.windows.setActiveWindow( property_value );  
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//

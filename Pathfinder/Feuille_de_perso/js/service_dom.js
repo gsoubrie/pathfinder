@@ -44,7 +44,8 @@ SERVICE.DOM = (function ( self ) {
     self.createPropertyVertical           = function ( property_name, value, label, is_editable ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, onclick: "CONTROLLER.Main.openEdition('" + property_name + "')" }, value ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, 
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})" }, value ), toReturn );        
         return toReturn;
     };
     //********************************************  EDITION POP UP   **************************************************//

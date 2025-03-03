@@ -7,7 +7,8 @@ AREA.Title.prototype = {
     },
     //********************************************  EVENTS MANAGER   **************************************************//
     validPopupEdition     : function ( edition_popup ) {
-        console.log("GSOU", "[Title - validPopupEdition]", edition_popup );
+        this.getDomElement().querySelector(".property[data-name='" + edition_popup.current_property.key + "'] .value").innerText = edition_popup.windows.getActiveWindow().getName();
+
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
