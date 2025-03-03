@@ -5,6 +5,10 @@ AREA.Title           = function () {
 AREA.Title.prototype = {
     init: function () {
     },
+    //********************************************  EVENTS MANAGER   **************************************************//
+    validPopupEdition     : function ( edition_popup ) {
+        console.log("GSOU", "[Title - validPopupEdition]", edition_popup );
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return  = {};

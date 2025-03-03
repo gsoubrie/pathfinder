@@ -3,7 +3,7 @@ CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function () {
         let params        = new URLSearchParams( location.search );
-        self.races = new RACES.Races();
+        self.races        = new RACES.Races();
         self.current_uuid = params.get( "id" );
         self.current_data = eval( self.current_uuid );
         self.initTitle();
@@ -21,8 +21,12 @@ CONTROLLER.Main = (function ( self ) {
             
         }
     };
-    self.changeTabPopup     = function ( tab_name ) {
-        this.edition_popup.changeTabPopup( tab_name );
+    self.validPopupEdition  = function () {
+        self.area__title.validPopupEdition( this.edition_popup );
+    };
+    self.cancelPopupEdition  = function () {
+        this.edition_popup.close();
+        this.edition_popup = null;
     };
     //********************************************  SAVE  **************************************************//
     self.save               = function ( event_name ) {
@@ -47,6 +51,9 @@ CONTROLLER.Main = (function ( self ) {
 })
 ( CONTROLLER.Main || {} );
 
+CONTROLLER.DistributorControllerManager.getController = function () {
+    return CONTROLLER.Main;
+};
 
 document.addEventListener( "DOMContentLoaded", function ( e ) {
     CONTROLLER.Main.init();

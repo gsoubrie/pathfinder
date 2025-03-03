@@ -30,6 +30,29 @@
     -webkit-text-stroke-width : 0.2px;
     -webkit-text-fill-color   : #5A0A00;
     text-align                : center;
+    position                  : relative;
+
+}
+.popup .edition-property-popup .title .popup-up-actions {
+    position : absolute;
+    right    : 10px;
+    top      : 0px;
+}
+.popup .edition-property-popup .title .popup-up-actions .button {
+    border        : 1px solid;
+    border-radius : 3px;
+    display       : inline-block;
+    margin        : 0 5px;
+    font-size     : 13px;
+    padding       : 2px 5px;
+}
+.popup .edition-property-popup .title .popup-up-actions .button.popup-up-valid {
+    background-color : #0AC5C5;
+    border-color     : #02A2A2;
+}
+.popup .edition-property-popup .title .popup-up-actions .button.popup-up-cancel {
+    background-color : #C65D1E;
+    border-color     : #A84303;
 }
 .popup .edition-property-popup .shinken-window-targets-V2 {
     padding : 10px;
