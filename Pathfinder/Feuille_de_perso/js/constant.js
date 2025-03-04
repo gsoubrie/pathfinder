@@ -4,4 +4,3 @@ var OBJECT     = {};
 var CONTROLLER = CONTROLLER || {};
 var AREA       = {};
 var POPUP      = {};
-var TABS       = {};
