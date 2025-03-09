@@ -3,11 +3,14 @@ POPUP.PropertyEdition           = function ( property_name, property_value ) {
     this.init(property_name, property_value);
 };
 POPUP.PropertyEdition.prototype = {
-    init: function (property_name, property_value) {
-        switch ( property_name){
+    init: function (params) {
+        let property_value = "";
+        console.log(params);
+        switch ( params["property_name"]){            
             case RACES.key:   
                 this.current_property    = RACES;     
-                this.windows = new RACES.WindowGroup();                              
+                this.windows = new RACES.WindowGroup();
+                property_value = params["data_save"][params["property_name"]];                             
                 break;
         }
         this.windows.setActiveWindow( property_value );  

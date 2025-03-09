@@ -17,19 +17,12 @@ CONTROLLER.Main = (function ( self ) {
         console.log(event_name, params);
         switch ( event_name ) {
             case "open_edition_popup":
-                this.edition_popup = new POPUP.PropertyEdition( params["property_name"] );
+                params["data_save"] = self.area__title.getDataToSave();
+                this.edition_popup = new POPUP.PropertyEdition( params);
                 break;
             
         }
     };    
-    self.openEdition        = function ( property_name ) {
-        switch ( property_name ) {
-            case RACES.key:
-                this.edition_popup = new POPUP.PropertyEdition( RACES );
-               break;
-            
-        }
-    }; 
     self.validPopupEdition  = function () {
         self.area__title.validPopupEdition( this.edition_popup );
         this.edition_popup.close();
