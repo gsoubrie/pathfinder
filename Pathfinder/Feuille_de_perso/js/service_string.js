@@ -1,5 +1,8 @@
 "use strict";
 SERVICE.STRING = (function ( self ) {
+    self.replaceAll                              = function ( string, target, replacement ) {
+        return string.split( target ).join( replacement || '' );
+    };
     return self;
 })( SERVICE.STRING || {} );
 

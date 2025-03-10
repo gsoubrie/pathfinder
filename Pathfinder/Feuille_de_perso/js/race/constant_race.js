@@ -1,6 +1,6 @@
 "use strict";
 var RACES = {
-    key  : "races",
+    key  : "ancestries",
     label: "Ascendance",
     ENUM : [
         {
