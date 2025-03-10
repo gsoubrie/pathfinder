@@ -11,6 +11,7 @@ var RACES = {
             characteristic_bonus: [CARAC.DEX, CARAC.INT, CARAC.FREE],
             characteristic_malus: [CARAC.CON],
             language            : [LANGUAGE.COMMON, LANGUAGE.COMMON],
+            language_sup        : [],
             traits              : [TRAIT.ELFE, TRAIT.HUMANOIDE],
             night_vision        : VM._1,
             heritage            : {

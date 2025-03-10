@@ -7,8 +7,8 @@ var SCRIPT_RACES = (function ( self ) {
         let doms       = self.getAllRacesDOM();
         self.to_return = [];
         let timeout    = 0;
-        for ( let i = 0, _size_i = doms.length; i < 1; i++ ) {
-            //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
+        //for ( let i = 0, _size_i = doms.length; i < 1; i++ ) {
+        for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( () => {
                 self.parseRaceDom( doms[ i ], self.to_return );
             }, timeout );
@@ -18,6 +18,7 @@ var SCRIPT_RACES = (function ( self ) {
     self.parseRaceDom      = function ( dom_element, array_to_push_in ) {
         let to_return       = {};
         to_return[ "name" ] = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
+        console.log(to_return[ "name" ]);
         array_to_push_in.push( to_return );
         dom_element.querySelector( ".cdk-column-name_trans" ).click();
         setTimeout( () => {
@@ -46,7 +47,11 @@ var SCRIPT_RACES = (function ( self ) {
                     switch ( current_param ) {
                         case "Vous":
                         case "Les autres":
+                        case "Vous pourriez...":       
+                        case "Les autres pourraient…":                     
                             to_return[ "general_desc" ].push( current_param + " : " + self.replaceAll( dom_descriptions[ i ].outerHTML, "\n", "" ) );
+                            break;                        
+                        case "noms":
                             break;
                         case "believe_desc":
                             switch ( dom_descriptions[ i ].innerText ) {
@@ -71,9 +76,63 @@ var SCRIPT_RACES = (function ( self ) {
                             break;
                         case "mecanic":
                             switch ( dom_descriptions[ i ].querySelector("strong").innerText ) {
-                                case "Points de vie":
-                                    to_return[ "start_life" ] = dom_descriptions[ i ].innerText;
+                                case "Points de vie":                                    
+                                    to_return[ "start_life" ] = parseInt(self.replaceAll(dom_descriptions[ i ].innerText, "Points de vie ", ""));
                                     break;
+                                case "Taille":
+                                    switch( self.replaceAll(dom_descriptions[ i ].innerText, "Taille ", "") ){
+                                        case "Moyenne":
+                                            to_return[ "body_size" ] = "M";
+                                            break;
+                                        case "Petite":
+                                            to_return[ "body_size" ] = "P";
+                                            break;  
+                                        case "Très petite":
+                                            to_return[ "body_size" ] = "TP";
+                                            break;                                              
+                                        case "Grande":
+                                            to_return[ "body_size" ] = "G";
+                                            break;  
+                                        case "Très grande":
+                                            to_return[ "body_size" ] = "TG";
+                                            break;  
+                                        case "Gigantesque":
+                                            to_return[ "body_size" ] = "T";
+                                            break;                                                                                                                                                                       
+                                        default:
+                                            console.warn( "GSOU", "[SIZE UNKNOWN]", "NOT MANAGED", self.replaceAll(dom_descriptions[ i ].innerText, "Taille ", "") );
+                                            break;                     
+                                    }                                    
+                                    break;    
+                                case "Vitesse":
+                                    to_return[ "speed" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Vitesse ", "");
+                                    to_return[ "speed" ] = parseInt(self.replaceAll(to_return[ "speed" ], "mètres", ""));                                  
+                                    break;     
+                                case "Primes d'attributs":
+                                    to_return[ "characteristic_bonus" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Primes d'attributs ", "");
+                                    to_return[ "characteristic_bonus" ] = to_return[ "characteristic_bonus" ].split(", ");                                  
+                                    break;     
+                                case "Pénalité d'attribut":
+                                    to_return[ "characteristic_malus" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "");
+                                    to_return[ "characteristic_malus" ] = to_return[ "characteristic_malus" ].split(", ");                                  
+                                    break; 
+                                case "Pénalité d'attribut":
+                                    to_return[ "characteristic_malus" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "");
+                                    to_return[ "characteristic_malus" ] = to_return[ "characteristic_malus" ].split(", ");                                  
+                                    break;  
+                                case "Langues":
+                                    to_return[ "language" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Langues ", "");
+                                    to_return[ "language" ] = to_return[ "language" ].split(", ");                                  
+                                    break;  
+                                case "Langues supplémentaires":
+                                    to_return[ "language_sup" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Langues supplémentaires égal à votre modificateur d'Intelligence (si positif). Choisissez parmi ", "");
+                                    to_return[ "language_sup" ] = self.replaceAll(to_return[ "language_sup" ], "Langues supplémentaires égal à votre modificateur d'Intelligence (s'il est positif). Choisissez parmi ", "");                                   
+                                    to_return[ "language_sup" ] = self.replaceAll(to_return[ "language_sup" ], " et toute autre langue à laquelle vous avez accès (telles que les langues prévalentes dans votre région).", "");                                      
+                                    to_return[ "language_sup" ] = to_return[ "language_sup" ].split(", ");                                  
+                                    break;    
+                                case "Sens":
+                                    to_return[ "sens" ] = self.replaceAll(dom_descriptions[ i ].innerText, "Sens ", "");                                 
+                                    break;                                                                                                                                                                                                                                                                                    
                                 default:
                                     to_return[ current_param ].push( dom_descriptions[ i ].innerText );
                                     break;
@@ -88,12 +147,27 @@ var SCRIPT_RACES = (function ( self ) {
         }, 200 );
     };
     self.parseTitleToParam = function ( dom_element ) {
-        switch ( dom_element.innerText ) {
+        let text = dom_element.innerText;
+        if ( text.startsWith("Méchaniques") ){
+            return "mecanic"; 
+        }        
+        if ( text.startsWith("Mécaniques") ){
+            return "mecanic"; 
+        }
+        if ( text.startsWith("Héritages") ){
+            return "heritages"; 
+        }
+        switch ( text ) {
             case "Vous...":
                 return "Vous";
             case "Probablement que les autres...":
                 return "Les autres";
+            case "Vous pourriez...":
+                return "Vous pourriez...";     
+            case "Les autres pourraient…":
+                return "Les autres pourraient…";                            
             case "Description physique":
+            case "Description Physique":                            
                 return "physical_desc";
             case "Société":
                 return "society_desc";
@@ -103,6 +177,8 @@ var SCRIPT_RACES = (function ( self ) {
                 return "mecanic";
             case "Héritages elfiques":
                 return "heritages";
+            case "Noms":
+                return "noms";                
             default :
                 console.warn( "GSOU", "[SCRIPT_RACES - parseTitleToParam]", "NOT MANAGED", dom_element.innerText );
             
@@ -119,4 +195,4 @@ var SCRIPT_RACES = (function ( self ) {
 SCRIPT_RACES.getAllRaces();
 setTimeout( function () {
     console.log( "GSOU", "[ - ]", SCRIPT_RACES.to_return );
-}, 500 );
+}, 5000 );
