@@ -24,9 +24,9 @@ var SCRIPT_RACES = (function ( self ) {
         setTimeout( () => {
             let dom_sibling      = dom_element.nextElementSibling;
             let traits_dom       = dom_sibling.querySelectorAll( ".trait" );
-            to_return[ "trait" ] = [];
+            to_return[ "traits" ] = [];
             for ( let i = 0, _size_i = traits_dom.length; i < _size_i; i++ ) {
-                to_return[ "trait" ].push( traits_dom[ i ].innerText );
+                to_return[ "traits" ].push( traits_dom[ i ].innerText );
             }
             let dom_descriptions       = dom_sibling.querySelector( ".description" ).children;
             let current_param          = "general_desc";
@@ -37,6 +37,7 @@ var SCRIPT_RACES = (function ( self ) {
                     switch ( current_param ) {
                         case "Vous":
                         case "Les autres":
+                        case "Vous pourriez...":                              
                             break;
                         default:
                             to_return[ current_param ] = [];
@@ -195,4 +196,4 @@ var SCRIPT_RACES = (function ( self ) {
 SCRIPT_RACES.getAllRaces();
 setTimeout( function () {
     console.log( "GSOU", "[ - ]", SCRIPT_RACES.to_return );
-}, 5000 );
+}, 30000 );
