@@ -20,16 +20,17 @@ RACES.Race.prototype = {
             case "characteristic_bonus":
             case "characteristic_malus":
             case "language":
+            case "language_sup":
             case "name_example":
             case "traits":
-            case "night_vision":
+            case "sens":
             case "physical_desc":
             case "society_desc":
             case "believe_desc":
             case "general_desc":
             case "anathema_desc":
             case "edit_desc":
-            case "heritage":
+            case "heritages":
             case "dons":
                 this[ key ] = value;
                 break;

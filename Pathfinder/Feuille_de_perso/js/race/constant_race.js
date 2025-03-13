@@ -20,11 +20,12 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Négocier entre les sociétés humanoïdes et les créatures du monde naturel.</li><li>Osciller entre la rumination et agir avec une agressivité sauvage.</li></ul>",
                 "Les autres : <ul>    <li>Pensent que vous êtes une bête qui est provoquée facilement.</li>    <li>Veulent vous étudier comme une curiosité sans respect pour vos souhaits ou votre confort.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les animaux éveillés ressemblent beaucoup aux animaux qu'ils étaient autrefois. Au premier coup d'œil, il est difficile pour les humanoïdes de distinguer un animal éveillé des autres animaux de son espèce. En y regardant de plus près, la plupart des humanoïdes remarquent quelque chose de différent dans les yeux et les mouvements d'un animal éveillé. L'animal éveillé se comporte d'une manière qui marque qu'il a consciente de soi et même ceux qui ne savent pas que l'animal est éveillé ressentent cette différence. Souvent, les animaux éveillés prennent l'habitude de porter des vêtements et d'autres ornements et d'utiliser des outils qui rendent leur nature éveillée évidente.",
                 "Les animaux reconnaissent instantanément les animaux éveillés et réagissent d'abord avec inquiétude. S'il est bien accueilli, l'animal finira par s'apaiser et s'approcher de l'animal éveillé. Il faut beaucoup de temps pour qu'un animal se sente vraiment à l'aise avec ses congénères éveillés mais, avec le temps, cela peut arriver.",
-                "Les réveils traumatiques entraînent parfois des différences visuelles étonnantes chez l'animal réveillé. On raconte que des ours se sont réveillés avec un pelage rouge flamme et des oiseaux avec des plumes fantomatiques."
+                "Les réveils traumatiques entraînent parfois des différences visuelles étonnantes chez l'animal réveillé. On raconte que des ours se sont réveillés avec un pelage rouge flamme et des oiseaux avec des plumes fantomatiques.",
+                                "Forme éveillée L'éveil a altéré votre forme, vous permettant de parler et de vous tenir sur deux jambes. Vous pouvez manier, porter, tenir et utiliser les objets. La nature et le nombre de membres que vous utilisez pour manipuler les objets sont déterminés avec votre MJ, mais vis-à-vis des règles, vous fonctionnez comme un humanoïde avec deux mains.",
+                "Esprit éveillé L'éveil a altéré votre esprit. Vous n'êtes plus un animal, mais vous pouvez toujours poser des questions, recevoir des réponses et utiliser Diplomatie avec les animaux de votre espèce. En vous remémorant vos instincts, vous pouvez vous permettre d'être affecté par des sorts et d'autres effets comme si vous étiez un animal."
             ],
             "society_desc": [
                 "Les animaux éveillés sont suffisamment rares et isolés pour que peu d'entre eux se retrouvent pour voyager ensemble et encore moins pour fonder leur propre société. Les animaux éveillés s'installent souvent dans les sociétés voisines, s'intégrant sous le déguisement d'un animal « typique » ou ouvertement en tant qu'artisans et ouvriers. Si un animal éveillé peut décider que la société humanoïde n'est pas faite pour lui, ceux qui restent n'ont pas trop de mal à s'adapter. La plupart des endroits de Golarion en ont vu suffisamment pour que les gens surmontent rapidement leur choc initial à la vue d'un chat domestique ou d'un oiseau chanteur qui parle.",
@@ -42,29 +43,23 @@ var RACES = {
                 "Anathème populaire",
                 "revert to purely animalistic behaviors"
             ],
-            "mecanic": [
-                "Rareté Rare",
-                "Primes d'attribut Constitution, Sagesse, Libre",
-                "Faiblesse d'attribut Intelligence",
-                "Traits Animal éveillé, bête",
-                "Forme éveillée L'éveil a altéré votre forme, vous permettant de parler et de vous tenir sur deux jambes. Vous pouvez manier, porter, tenir et utiliser les objets. La nature et le nombre de membres que vous utilisez pour manipuler les objets sont déterminés avec votre MJ, mais vis-à-vis des règles, vous fonctionnez comme un humanoïde avec deux mains.",
-                "Esprit éveillé L'éveil a altéré votre esprit. Vous n'êtes plus un animal, mais vous pouvez toujours poser des questions, recevoir des réponses et utiliser Diplomatie avec les animaux de votre espèce. En vous remémorant vos instincts, vous pouvez vous permettre d'être affecté par des sorts et d'autres effets comme si vous étiez un animal."
+            "characteristic_bonus": [
+                "Constitution", "Sagesse", "Libre"
             ],
-            "start_life": null,
+            "characteristic_malus": [
+                "Intelligence"
+            ],
+            "start_life": "?",
             "language": [
-                "commun",
-                "supplémentaires égales à votre modificateur d'Intelligence (s'il est positif). Choisissez parmi les langues courantes et toutes les autres auxquelles vous avez accès (telles que les langues qui prévalent dans votre région)."
+                "commun"                
             ],
+            "language_sup": [
+            ],            
             "heritages": [
-                "Les animaux possèdent des formes corporelles très variées et des capacités qui leur sont propres. Choisissez l'un des héritages d'animaux éveillés suivants au niveau 1.",
                 "Animal coureur",
                 "Animal grimpeur",
                 "Animal nageur",
-                "Animal volant",
-                "Si vous êtes un animal éveillé disposant d'un héritage polyvalent, vous choisissez toujours un héritage d'animal éveillé pour la biographie de votre personnage et définir sa forme cosmétique, mais vous ne bénéficiez d'aucun de ses effets mécaniques, bien que vous ayez une vitesse de déplacement de 6 mètres, à moins que vous ne choisissiez d'être aquatique, auquel cas vous avez une vitesse de nage de 6 mètres. Vous pouvez prendre le don military_techÉveil tardif pour obtenir le reste des effets de votre héritage et vous qualifier pour les dons qui requièrent un héritage animal éveillé spécifique."
-            ],
-            "undefined": [
-                "Alors que dans le monde réel, un ours parlant en armure serait un spectacle incongru, dans Golarion, les gens sont régulièrement exposés au fantastique. Lorsque vous jouez pour un animal éveillé, il n'y a pas de mal à ce que les gens soient surpris par la rencontre d'un animal éveillé - ils sont rares ! Mais laissez vos PNJ s'adapter rapidement à cette situation pour que cela ne devienne pas un fardeau ou une taxe pour le joueur de l'animal éveillé."
+                "Animal volant"
             ]
         },
         {
@@ -82,7 +77,6 @@ var RACES = {
                 "Vous pourriez... : <ul>    <li>Accorder une importance primordiale à votre communauté.</li>    <li>Approcher les étrangers avec une curiosité chaleureuse.</li></ul>",
                 "Les autres : <ul>    <li>Partent du principe que vous êtes bien servi dans la Survie sous-marine.</li>    <li>Croient qu'il faut vous blamer pour les odeurs fétides.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les athamarus possèdent une apparence distinctive qui ressemble à celle d'un poisson. Leur peau brillament colorée correspond souvent à celle des récifs où ils ont bâti leurs communautés. Des volants, des barbillons et des nageoires crêtées ajoutent à leur apparence flamboyante. La grande variété de formes de crêtes, d'écailles et de styles de nageoires permet de distinguer les individus, même si les communautés partagent des traits communs. Ces similitudes sont souvent avantageuses au regard de leur environnement, comme des écailles qui leur permettent de se fondre dans les algues ou des orteils plus longs dans les zones où les fonds marins sont rocailleux.",
                 "Les étrangers notent souvent que les athamarus possèdent une odeur distinctive, qui provient de leurs phéromones, utilisé à la fois pour la communication et la défense. Alors que le niveau de contrôle varie, tous les athamarus peuvent communiquer les émotions basiques chimiquement et chaque communauté possèden des variations uniques à leurs phéromones qui servent comme l'empreinte d'une communauté. Les maîtres de l'expression phéromonale peuvent communiquer des concepts philosophiques complexes purement chimiques, occupant un rôle similaire aux maîtres de chants des autres communautés.",
@@ -104,29 +98,26 @@ var RACES = {
                 "Rechercher de nouvelles expériences en dehors de votre lieu de naissance, conduire votre communauté vers un avenir meilleur",
                 "Anathème populaire",
                 "trahir votre communauté ou lui faire sciemment du tort"
-            ],
-            "mecanic": [
-                "Rareté Peu courant",
-                "Faiblesse d'attribut Intelligence",
-                "Traits amphibie, athamaru, humanoïde",
-                "Vision nocturne Vous pouvez voir dans la lumière faible comme s'il s'agissait de lumière vive, de sorte que vous ignorez l'état Masqué à cause de la lumière faible."
-            ],
+            ],            
+            "sens":                 "Vision nocturne",
             "start_life": 8,
             "body_size": "M",
             "speed": 6,
             "characteristic_bonus": [
-                "Force Sagesse Libre"
+                "Force",  "Sagesse" , "Libre"
+            ],
+            "characteristic_malus": [
+                "Intelligence"
             ],
             "language": [
                 "Commun",
-                "thalassique",
-                "supplémentaires égales à votre modifiateur d'Intelligence (s'il est positif). Choisissez parmi l'alghollthu",
+                "thalassique"
+            ],
+            "language_sup": [
                 "l'azlante",
-                "le féérique",
-                "le Tien et n'importe quelle langue à laquelle vous avez accès (telles que les langues qui prévalent dans votre région)."
+                "le féérique"
             ],
             "heritages": [
-                "Les adaptations des athamarus se sont développées au cours de siècles de vie sous-marine, alors qu'ils faisaient face aux attaques de dangereux prédateurs. Choisissez l'un des héritages athamarus suivants au niveau 1.",
                 "Athamaru à piquants",
                 "Athamaru coralien",
                 "Athamaru kaléïdoscopique",
@@ -151,20 +142,14 @@ var RACES = {
                 "Les automates partagent une construction commune - un mélange de métaux et de pierres traité par la magie. Cette conception permet aux automates de résister aux rigueurs du combat direct et les rend particulièrement robustes. Leurs corps lourds peuvent se déplacer aussi rapidement que les autres combattants, ce qui fait des automates des ennemis intimidants. La conception d'un automate varie en fonction des besoins nécessaires à son rôle. La plupart des automates possèdent une forme humanoïde de base, bien que certains aient des formes qui ressemblent davantage à celles d'animaux. La majorité des automates n'ont qu'un seul œil qui brille d'une faible lumière magique. Chacun d'entre eux contient également un puissant artefact qui abrite son âme individuelle et utilise une combinaison d'énergie vitale et planaire pour fonctionner. Ces noyaux d'automates sont des merveilles d'ingénierie magique dont la méthode de création s'est perdue dans la nuit des temps.",
                 "En tant que créatures artificielles, les automates n'ont généralement pas besoin de respirer, de manger ou de dormir. Cependant, le corps d'un automate doit laisser échapper la magie de manière imperceptible à un rythme constant. Ce processus d'évacuation nécessite de l'air respirable afin d'éviter une accumulation de gaz d'échappement susceptible d'obstruer les systèmes de l'automate avec parfois un effet fatal. Ainsi, les automates peuvent toujours suffoquer comme les créatures vivantes. Bien qu'ils ne dorment pas, les automates ont besoin d'une période de recalibrage et de récupération magique qui stabilise les énergies au sein de leur noyau. Sans ce processus, le noyau d'un automate est incapable d'alimenter pleinement l'automate et il entre dans un état d'inefficacité (similaire à celui d'un humanoïde qui n'aurait pas bénéficié de 8 heures de sommeil).",
                 "Les automates ne vieillissent pas et la conception de leurs noyaux leur confère une source d'énergie apparemment inépuisable. De nombreux automates qui existent aujourd'hui ont des milliers d'années, leur corps est aussi efficace que le jour de leur création, même si leur esprit a pu se détériorer sous la pression des années. Les automates perdus au fil du temps ont généralement connu une fin violente. Le corps d'un automate est tout aussi vulnérable à la destruction que n'importe quelle autre créature artficielle, bien que la destruction d'un noyau d'automate soit plus difficile. Ainsi, l'âme d'un automate peut rester piégée dans son noyau pendant des années après la destruction de son corps. C'était l'intention de ses créateurs originaux qui espéraient fournir une immortalité fonctionnelle. Cependant, en réalité, la destruction du corps entraîne plus souvent un dysfonctionnement, nécessitant une intervention magique telle que la magie de résurrection pour restaurer complètement l'automate. En cas de destruction du noyau ou si son dysfonctionnement est suffisamment grave pour qu'il ne puisse plus contenir l'âme, le noyau libère l'esprit dans la Rivière des âmes.",
-                "Dans certains cas, un automate peut apprendre à influencer consciemment ou inconsciemment son noyau. Ces automates finissent par apprendre à libérer leur âme de leur noyau, ce qui leur permet de le quitter lorsqu'ils estiment avoir eu une vie satisfaisante. Cet acte laisse l'automate à l'état de créature artificielle dénuée d'intelligence, généralement encore actif mais incapable de faire autre chose que d'errer sans but et d'accomplir des actes d'autodéfense occasionnels."
+                "Dans certains cas, un automate peut apprendre à influencer consciemment ou inconsciemment son noyau. Ces automates finissent par apprendre à libérer leur âme de leur noyau, ce qui leur permet de le quitter lorsqu'ils estiment avoir eu une vie satisfaisante. Cet acte laisse l'automate à l'état de créature artificielle dénuée d'intelligence, généralement encore actif mais incapable de faire autre chose que d'errer sans but et d'accomplir des actes d'autodéfense occasionnels.",
+                "Noyau automate Votre corps contient un noyau d'automate imprégné de quintessence planaire qui vous donne le pouvoir d'effectuer diverses tâches et abrite votre âme et votre énergie vitale. Cette énergie vitale circule en vous comme le sang des humanoïdes. Par conséquent, vous êtes une créature vivante. Vous n'avez pas les immunités typiques des créatures artificielles. Vous pouvez être affecté par des effets qui ciblent une créature vivante et vous pouvez récupérer des Points de vie normalement grâce à l'énergie positive. De plus, vous n'êtes pas détruit lorsque vous êtes réduit à 0 Point de vie. Au lieu de cela, votre énergie vitale tente de vous maintenir actif, même dans des conditions difficiles ; vous êtes mis hors d'usage et commencez à mourir lorsque vous êtes réduit à 0 Point de vie.",
+                "Corps artificiel Vos besoins physiologiques sont différents de ceux des créatures vivantes. Vous n'avez pas besoin de manger ou de boire. Vous n'avez pas besoin de dormir mais vous avez quand même besoin d'une période de repos quotidien. Durant cette période de repos, vous devez entrer dans un état de veille pour récupérer pendant 2 heures, ce qui est similaire au sommeil sauf que vous restez conscient de votre environnement et que vous ne subissez aucune pénalité du fait d'être Inconscient. Un peu comme avec le sommeil, si vous restez trop longtemps sans entrer dans votre état de veille, vous devenez Fatigué et ne pouvez récupérer jusqu'à ce que vous entriez en veille pendant 2 heures."
             ],
             "society_desc": [
                 "En raison des destins disparates des automates, beaucoup d'entre eux mènent une vie solitaire. Il existe quelques cas d'automates conçus à l'origine pour travailler ensemble, comme les groupes de guerriers, qui restent en équipe et vivent ensemble dans des cachettes ou voyagent ensemble comme des vagabonds. Ces groupes sont cependant rares et les colonies d'automates le sont encore davantage. Les seules poches d'automates qui ressemblent à des colonies se cachent généralement dans les ruines du Jistka. Ces groupes peuvent contenir des dizaines d'automates mais toute tentative pour les contacter ou leur rendre visite est généralement infructueuse. Ces rassemblements sont particulièrement secrets et les automates qui y résident protègent leurs maisons à tout prix.",
                 "Les automates sont beaucoup plus susceptibles de rencontrer d'autres ascendances. Selon la personnalité de l'automate, cette rencontre peut prendre plusieurs formes, allant de l'extrême discrétion à la visite ouverte. L'apparence unique d'un automate le fait remarquer, quel que soit l'endroit où il se trouve mais la plupart des gens le regardent avec crainte ou curiosité plutôt qu'avec peur. Les créatures artificielles magiques ne sont pas un concept étranger à Golarion mais beaucoup d'entre elles sont dénuées d'intelligence. Une fois passé le choc initial d'une créature artificielle pensante, il n'est pas difficile pour la plupart des gens de comprendre comment se comporter avec un automate. Cependant, les automates ont plus de chances de trouver un semblant de vie quotidienne dans les grandes villes comme Absalom, Azir ou Quantium. Où qu'il aille, un automate doit rester à l'affût de ceux qui tenteraient de s'emparer de son corps pour l'étudier ou accéder à son noyau."
-            ],
-            "undefined": [
-                "Le peuple de l'Empire du Jistka considérait les aéons de l'Axis comme des êtres idéaux dont le comportement était digne d'être imité, si bien que de nombreux Jistkans étaient loyaux neutres. Étant donné que de nombreux automates contiennent des âmes de Jistkans, la plupart des automates sont neutres sur le plan juridique ou du moins loyaux dans une certaine mesure. Au fil des siècles, cependant, un bon nombre d'automates ont dérivé vers des alignements neutres en raison de l'évolution de leurs perspectives sans société principale ou ensemble d'idéaux auxquels se raccrocher. Les automates ont tendance à vénérer des dieux de la technologie ou de la magie comme Brigh et Néthys ou divers demi-dieux de la surveillance. Le culte d'Irori et de Pharasma sont également assez courants chez les automates. Les automates de Pharasma peuvent apprendre à libérer leurs âmes de leurs noyaux et choisissent souvent de le faire. Bien qu'il s'agisse d'êtres anciens, bien avant l'époque de Casandalee, un petit nombre d'automates ont reconnu la nouvelle déesse artificielle comme une âme sœur."
-            ],
-            "noms": [],
-            "mecanic": [
-                "Noyau automate Votre corps contient un noyau d'automate imprégné de quintessence planaire qui vous donne le pouvoir d'effectuer diverses tâches et abrite votre âme et votre énergie vitale. Cette énergie vitale circule en vous comme le sang des humanoïdes. Par conséquent, vous êtes une créature vivante. Vous n'avez pas les immunités typiques des créatures artificielles. Vous pouvez être affecté par des effets qui ciblent une créature vivante et vous pouvez récupérer des Points de vie normalement grâce à l'énergie positive. De plus, vous n'êtes pas détruit lorsque vous êtes réduit à 0 Point de vie. Au lieu de cela, votre énergie vitale tente de vous maintenir actif, même dans des conditions difficiles ; vous êtes mis hors d'usage et commencez à mourir lorsque vous êtes réduit à 0 Point de vie.",
-                "Corps artificiel Vos besoins physiologiques sont différents de ceux des créatures vivantes. Vous n'avez pas besoin de manger ou de boire. Vous n'avez pas besoin de dormir mais vous avez quand même besoin d'une période de repos quotidien. Durant cette période de repos, vous devez entrer dans un état de veille pour récupérer pendant 2 heures, ce qui est similaire au sommeil sauf que vous restez conscient de votre environnement et que vous ne subissez aucune pénalité du fait d'être Inconscient. Un peu comme avec le sommeil, si vous restez trop longtemps sans entrer dans votre état de veille, vous devenez Fatigué et ne pouvez récupérer jusqu'à ce que vous entriez en veille pendant 2 heures."
-            ],
+            ],    
             "start_life": 8,
             "speed": 7,
             "characteristic_bonus": [
@@ -183,9 +168,7 @@ var RACES = {
                 "pierreux",
                 "pyrique",
                 "sussuran",
-                "thalassique À la discrétion du MJ",
-                "si vous disposez toujours de souvenirs de votre temps au Jistka",
-                "vous pourriez parler Jistka au lieu de Commun."
+                "thalassique À la discrétion du MJ"                
             ],
             "sens": "Vision nocturne",
             "heritages": [
@@ -211,9 +194,9 @@ var RACES = {
                 "Vous pourriez... : <ul>    <li>Vous donner beaucoup de mal pour protéger votre foyer et les personnes que vous aimez.</li>    <li>Apprécier la compétition, particulièrement pour les sports organisés et les tests de force ou d'endurance.</li>    <li>Respecter et donner de la valeur au monde naturel.</li></ul>",
                 "Les autres : <ul>    <li>Partent du principe que vous êtes un archer expert ou un féroce combattant.</li>    <li>Pensent que vous comprenez les chevaux.</li>    <li>Vous trouvent agressifs et trop compétitif.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
-                "Les centaures ont la forme d'humains musclés avec un corps de cheval à partir de la taille. Ils sont robustes et stables, capables de porter de lourds fardeaux et des charges encombrantes pendant de longues périodes. La taille, les cheveux et la coloration des centaures varient considérablement. La plupart d'entre eux mesurent en moyenne 2,10 m et pèsent plus de 1 tonne. Si leur coloration est souvent héréditaire, les marques du pelage d'un centaure sont imprévisibles et beaucoup sont fiers des motifs, des emplacements et des changements chromatiques distincts de leur pelage. Ces marques sont présentes à la naissance et ne changent pas au cours de la vie du centaure. Autrefois, les marques d'un centaure étaient utilisées pour prédire son avenir. Bien que cette tradition soit tombée en désuétude depuis la fin des prophéties, certaines marques particulièrement rares sont encore aujourd'hui considérées comme chanceuses ou de mauvais augure."
+                "Les centaures ont la forme d'humains musclés avec un corps de cheval à partir de la taille. Ils sont robustes et stables, capables de porter de lourds fardeaux et des charges encombrantes pendant de longues périodes. La taille, les cheveux et la coloration des centaures varient considérablement. La plupart d'entre eux mesurent en moyenne 2,10 m et pèsent plus de 1 tonne. Si leur coloration est souvent héréditaire, les marques du pelage d'un centaure sont imprévisibles et beaucoup sont fiers des motifs, des emplacements et des changements chromatiques distincts de leur pelage. Ces marques sont présentes à la naissance et ne changent pas au cours de la vie du centaure. Autrefois, les marques d'un centaure étaient utilisées pour prédire son avenir. Bien que cette tradition soit tombée en désuétude depuis la fin des prophéties, certaines marques particulièrement rares sont encore aujourd'hui considérées comme chanceuses ou de mauvais augure.",
+                "Robuste Vous augmentez les limites maximum d'Encombrement et de surcharge de 2."
             ],
             "society_desc": [
                 "Les centaures sont originaires du continent du Casmaron et la plupart y résident encore aujourd'hui, en particulier à Iblydos et en Iobarie. À Iblydos, de nombreux centaures sont des cultivateurs qui s'occupent avec soin et de manière durable des terres agricoles et des jardins, en particulier des fleurs sauvages, des olives, des figues et des raisins, à partir desquels ils vinifient un vin local apprécié (et puissant). Grâce aux contes populaires concernant les centaures quasi-mythiques Elthavus et Ventriadi, célèbres mentors de nombreux anciens héros-dieux iblydiens, on croit traditionnellement que les centaures excellent dans la formation des héros. Les centaures n'ont rien fait pour contredire cette idée. La plupart des centaures apprécient le mentorat et les chefs militaires, guérisseurs, astronomes, ingénieurs et autres experts vieillissants sont souvent ravis de transmettre leur savoir aux jeunes générations. Grâce à leur nature compétitive, certains enseignants centaures rivalisent entre eux pour former les étudiants, les soldats et les intellectuels les plus prometteurs.",
@@ -237,30 +220,31 @@ var RACES = {
                 "Anathème populaire",
                 "ne pas pouvoir circuler, contribuer à la destruction gratuite d'un paysage naturel"
             ],
-            "mecanic": [
-                "Rareté Peu courant",
-                "Primes d'attribut Force, Sagesse, Libre",
-                "Faiblesse d'attribut Charisme",
-                "Traits bête, centaure, humanoïde",
-                "Robuste Vous augmentez les limites maximum d'Encombrement et de surcharge de 2."
+            "characteristic_bonus": [
+                "Force",
+                "Sagesse",
+                "Libre"
+            ],
+            "characteristic_malus": [
+                "Charisme"
             ],
             "start_life": 8,
             "body_size": "TG",
             "speed": 9,
             "language": [
                 "Commun",
-                "Féerique",
-                "supplémentaires égale à votre modificateur d'Intelligence (s'il est positif). Choisissez entre arboréen",
+                "Féerique"
+            ],
+            "language_sup": [
                 "cyclope",
                 "nanique",
                 "elfique",
                 "gnomien",
                 "halfelin",
-                "jotun et n'importe quelle autre langue à laquelle vous avez accès (telles que les langues qui prévalent dans votre région)."
+                "jotun"
             ],
             "sens": "Vision dans le noir",
             "heritages": [
-                "Les centaures sont un peuple diversifié qui s'adapte à son environnement et aux travaux qu'il effectue. Choisissez un des héritages centaures suivants au niveau 1.",
                 "Centaure allure de poney",
                 "Centaure aspirant orateur",
                 "Centaure au coeur robuste",
@@ -298,7 +282,6 @@ var RACES = {
                 "<h4><strong>Anathèmes populaires</strong></h4>",
                 "abandonner sa voie, forcer une autre créature à faire quelque chose"
             ],
-            "mecanic": [],
             "start_life": 6,
             "body_size": "M",
             "speed": 9,
@@ -363,7 +346,6 @@ var RACES = {
                 "Anathème populaire",
                 "Ralentir pour s'expliquer, priver quelqu'un de toute stimulation"
             ],
-            "mecanic": [],
             "start_life": 8,
             "body_size": "P",
             "speed": 7,
@@ -428,7 +410,6 @@ var RACES = {
                 "Anathème populaire",
                 "faire confiance à un chien ou un cheval, apprendre à écrire"
             ],
-            "mecanic": [],
             "start_life": 6,
             "body_size": "P",
             "speed": 7,
@@ -479,7 +460,8 @@ var RACES = {
             "physical_desc": [
                 "Les halfelins sont de courts humanoïdes qui ressemblent vaguement à des humains en plus petit. Ils atteignent rarement plus de 90 cm de hauteur. Les proportions des halfelins sont variables et certains ressemblent ainsi à de petits humains adultes avec une tête légèrement plus grosse et d'autres ont des proportions plus proches de celles d'un enfant humain.",
                 "Les halfelins préfèrent généralement marcher pieds nus plutôt que de porter des chaussures et ceux qui le fond développent ainsi d'épaisses callosités sous leurs pieds au fil du temps. Des touffes de poils épais, souvent bouclés, réchauffent le dessus de leurs larges pieds bronzés. Le teint des halfelins tend vers des tons riches et fauves comme l'ambre ou le chêne et la couleur de leurs cheveux va du blond doré clair au noir corbeau.",
-                "Les halfelins atteignent leur taille adulte vers 20 ans. Un halfelin typique peut vivre environ 150 ans."
+                "Les halfelins atteignent leur taille adulte vers 20 ans. Un halfelin typique peut vivre environ 150 ans.",
+                "Yeux perçants Votre vue perçante vous permet de distinguer des détails concernant des créatures masquées ou invisibles que d'autres pourraient ne pas remarquer. Vous obtenez un bonus de circonstances de +2 quand vous utilisez l'action Chercher pour trouver des créatures Cachées ou Non détectées dans un rayon de 9 mètres autour de vous. Quand vous prenez pour cible un adversaire Masqué ou Caché, réduisez le DD du test nu à 3 pour une cible masquée ou à 9 pour une cible cachée."
             ],
             "society_desc": [
                 "Malgré leur nature joviale et amicale, les halfelins n'ont pas tendance à se regrouper. Ils ont peu de centres culturels dans la région de la Mer Intérieure et ont plutôt tendance à se mélanger aux sociétés du monde entier. Les halfelins se débrouillent comme ils peuvent pour gagner leur vie, beaucoup d'entre eux se contentant d'accomplir des travaux subalternes ou d'occuper des emplois de service simples. Certains halfelins rejettent la vie urbaine, préférant prendre la route et voyager d'un endroit à l'autre à la recherche de la fortune et de la célébrité. Ces halflings nomades voyagent souvent en petits groupes, partageant les difficultés et les plaisirs simples avec leurs amis proches et leur famille. Les noms des halfelins sont généralement composés de deux ou trois syllabes, avec une sonorité douce qui évite les consonnes dures. Préférant que leurs noms soient humbles, les halfelins considèrent les noms trop longs ou trop complexes comme un signe d'arrogance de la part de leur peuple. Ils comprennent toutefois que les elfes et les humains puissent avoir des noms plus longs pour satisfaire leur propre esthétique.",
@@ -492,9 +474,6 @@ var RACES = {
                 "partager de bons repas avec des amis comme des étrangers, s'opposer à ceux qui intimident et oppriment, rester dans l'ombre des plus grands",
                 "Anathème populaire",
                 "tenir la chance pour acquise"
-            ],
-            "mecanic": [
-                "Yeux perçants Votre vue perçante vous permet de distinguer des détails concernant des créatures masquées ou invisibles que d'autres pourraient ne pas remarquer. Vous obtenez un bonus de circonstances de +2 quand vous utilisez l'action Chercher pour trouver des créatures Cachées ou Non détectées dans un rayon de 9 mètres autour de vous. Quand vous prenez pour cible un adversaire Masqué ou Caché, réduisez le DD du test nu à 3 pour une cible masquée ou à 9 pour une cible cachée."
             ],
             "start_life": 6,
             "body_size": "M",
@@ -539,7 +518,6 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Chercher les solutions les plus efficaces et pragmatiques à tout problème.</li><li>Favoriser une chaîne de commandement bien définie au sein du groupe avec lequel vous voyagez, en suivant les ordres même si vous n'êtes pas d'accord avec eux.</li></ul>",
                 "Les autres : <ul><li>Vous considèrent comme dangereux, à cause de votre réputation et de votre apparence intimidante.</li><li>Reconnaissent votre endurance, votre dévouement et votre rigueur incroyables.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les hobgobelins ont des têtes larges et chauves, des yeux globuleux et une peau grise qui devient bleu acier lorsqu'elle est bronzée. Ils sont particulièrement robustes. Les hobgobelins récupèrent facilement de la maladie et sont capables de se dépenser sans compter pendant de longues périodes sans trop de difficultés.",
                 "Les hobgobelins deviennent vite adultes et la plupart sont capables de marcher, parler et tenir une arme au cours de leur première année, ils deviennent adolescents entre 8 et 12 ans et sont adultes à l'âge de 14 ans. Les hobgobelins vivent en général jusqu'à 70 ans."
@@ -557,7 +535,6 @@ var RACES = {
                 "Anathème populaire",
                 "désobéir à des ordres militaires"
             ],
-            "mecanic": [],
             "start_life": 8,
             "body_size": "M",
             "speed": 7,
@@ -606,10 +583,10 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Démontrer un intérêt véritable en posant beaucoup de questions enthousiastes.</li><li>Éviter le conflit interpersonnel en snobant l'autre ou simplement en quittant la zone.</li></ul>",
                 "Les autres : <ul><li>Pensent que vous monopolisez les conversations avec vos questionnements incessants ou l'expression de vos opinions.</li><li>Vous attribuent plus d'émotion que vous n'en ressentez lorsque vous feulez ou ronronnez de manière involontaire.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Bien que tous les hommes-félins marchent debout et possèdent de douces fourrures, une queue, de grandes oreilles et des pupilles verticales, ils se présentent dans une au moins aussi grande diversité que les félins ordinaires. Les hommes-félins possèdent des doigts agiles avec des griffes courtes qui sont habituellement rétractables.",
-                "Les hommes-félins grandissent rapidement et sont capables de marcher à l'âge de quelques mois mais autrement, ils débutent leur carrière approximativement au même âge que le font les humains et vivent entre 60 et 70 ans."
+                "Les hommes-félins grandissent rapidement et sont capables de marcher à l'âge de quelques mois mais autrement, ils débutent leur carrière approximativement au même âge que le font les humains et vivent entre 60 et 70 ans.",
+                "Retomber sur vos pattes Lorsque vous chutez, vous ne subissez que la moitié des dégâts normaux et vous ne vous retrouvez pas À terre."
             ],
             "society_desc": [
                 "Les hommes-félins s'appellent eux-mêmes les amurruns, bien que beaucoup considèrent que ce nom soit privé. Ils élèvent leurs enfants dans des familles largement étendues, où leur est donnée une latitude éprouvante lorsqu'il s'agit d'explorer et de se retrouver dans les ennuis à un particulièrement jeune âge. Les hommes-félins apprennent un métier par le biais d'un apprentissage lâche et la majorité d'entre eux apprend plusieurs métiers tout au long de leurs vies.",
@@ -622,9 +599,6 @@ var RACES = {
                 "voyager par le monde, protéger les endroits naturels, entretenir soigneusement son apparence",
                 "Anathème populaire",
                 "laisser des questions sans réponse"
-            ],
-            "mecanic": [
-                "Retomber sur vos pattes Lorsque vous chutez, vous ne subissez que la moitié des dégâts normaux et vous ne vous retrouvez pas À terre."
             ],
             "start_life": 8,
             "body_size": "M",
@@ -676,9 +650,10 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Tenir l'histoire de votre peuple en haute estime et chercher dans le passé des solutions aux problèmes du présent.</li><li>Lutter pour vous adapter à votre environnement tout en préservant votre culture et vos coutumes.</li></ul>",
                 "Les autres : <ul><li>Partent du principe que vous êtes ancré dans votre tradition et que vous détenez d'anciennes connaissances.</li><li>Vous voient comme une créature impitoyable au sang-froid du fit de vos réactions physiques discrètes.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
-                "Les hommes-lézards diffèrent en fonction de leur environnement, même si tous possèdent un long museau denté et une puissante queue. Nombreux sont ceux qui possèdent des pointes dorsales ou des collerettes criardes autour du cou qui sont un indice de la lignée de leur clan. Les hommes-lézards atteignent l'âge adulte à 15 ans et vivent jusqu'à 120 ans. Un homme-lézard mesure en moyenne entre 1,8 mètre et 2,1 m, grandissant tout au long de sa vie et gagnant en taille et en musculature au fil des ans."
+                "Les hommes-lézards diffèrent en fonction de leur environnement, même si tous possèdent un long museau denté et une puissante queue. Nombreux sont ceux qui possèdent des pointes dorsales ou des collerettes criardes autour du cou qui sont un indice de la lignée de leur clan. Les hommes-lézards atteignent l'âge adulte à 15 ans et vivent jusqu'à 120 ans. Un homme-lézard mesure en moyenne entre 1,8 mètre et 2,1 m, grandissant tout au long de sa vie et gagnant en taille et en musculature au fil des ans.",
+                "Griffes Vos griffes aiguisées vous offrent une alternative aux poings que d'autres humanoïdes utilisent pour se battre. Vous disposez d'une attaque à mains nues de griffe qui inflige 1d4 dégâts tranchants et possède les traits agile et finesse.",
+                "Adaptation aquatique Votre biologie reptilienne vous permet de retenir votre souffle pendant très longtemps. Vous obtenez le don général Contrôle de la respiration comme don supplémentaire."
             ],
             "society_desc": [
                 "Les hommes-lézards, qui s'appellent entre eux les iruxis, sont élevés en communauté dès qu'ils sortent de leur coquille. Ils possèdent une tradition orale qui s'étend sur des milliers d'années, racontée à travers des poèmes épiques, des gravures évocatrices et des rites ancestraux accomplis au milieu de champs d'os fossilisés. Les hommes-lézards sont des astrologues passionnés qui ont toujours un œil sur l'avenir. S'ils peuvent sembler lent à agir, c'est parce que leur longue histoire leur a enseigné la valeur de la patience.",
@@ -693,10 +668,6 @@ var RACES = {
                 "Conserver les souvenirs du passé vivants, attendre votre proie, adapter vos plans pour qu'ils s'intègrent à l'environnement",
                 "Anathème populaire",
                 "Défier la volonté des étoiles"
-            ],
-            "mecanic": [
-                "Griffes Vos griffes aiguisées vous offrent une alternative aux poings que d'autres humanoïdes utilisent pour se battre. Vous disposez d'une attaque à mains nues de griffe qui inflige 1d4 dégâts tranchants et possède les traits agile et finesse.",
-                "Adaptation aquatique Votre biologie reptilienne vous permet de retenir votre souffle pendant très longtemps. Vous obtenez le don général Contrôle de la respiration comme don supplémentaire."
             ],
             "start_life": 8,
             "body_size": "M",
@@ -750,11 +721,12 @@ var RACES = {
                 "Vous pourriez... : <ul>    <li>Considérez comme magique un outil ordinaire, quelque chose de ourant et d'utile au lieu d'un mystère sublime.</li>    <li>avoir un sens de supériorité lorsqu'il est à l'eau, qu'il s'agisse d'un mépris arrogant pour quiconque nage ou navigue ou d'une inquiétude parentale quant à la possibilité qu'ils se blessent.</li></ul>",
                 "Les autres : <ul>    <li>Sont impressionnés par vos talents musicaux et mystiques.</li>    <li>Partent du principe que cette vie sous les vagues est très différente de la vie à la surface.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les hommes-poissons sont parmi les ascendances les plus distinctes sur Golarion. On ne peut réellement prendre un homme-poisson pour aucune autre. À partir de la taille, les hommes-poissons présentent le corps d'un humanoïde, avec un corps puissant et des traits aquadynamiques prononcés. Leurs yeux sont un peu plus grands que ceux des humains et beaucoup ont des oreilles légèrement pointues, semblables à celles des aiuvarins. Au-dessous de la taille, les hommes-poissons possèdent le corps de grands poissons, chacun avec une longue queue écailleuse se terminant par une nageoire ou une paire de nageoires.",
                 "Les hommes-poissons sont de toutes les couleurs de peau et d'écailles imaginables. Le plus souvent, leur corps ont des teintes similaires à celles d'humains ou d'elfes vivant dans la même zone, les hommes-poissons des Entraves, par exemple, arborent une certaine similarité avec les lirgenis, alors que ceux de la mer de Vapeur ressemblent davantage à leurs voisins ulfes. Les hommes-poissons qui vivent loin de la terre arborent des couleurs plus proches de celles des poissons, avec des tons bleus, gris ou même verts. Les hommes-poissons des abysses ont une peau gris foncé, bleu nuit, voire translucide.",
-                "Les queues de poisson des hommes-poissons sont colorées de la même manière que les populations de poissons locales. Dans les zones tempérées où vivent la plupart des hommes-poissons, leur corps est irrisé et argenté, avec des traces de gris ou de bleu. Les hommes-poissons tropicaux peuvent arborer des motifs de couleurs brillantes, tandis que ceux qui sont nés dans les profondeurs peuvent avoir des écailles translucides ou des rayures faiblement bioluminescentes."
+                "Les queues de poisson des hommes-poissons sont colorées de la même manière que les populations de poissons locales. Dans les zones tempérées où vivent la plupart des hommes-poissons, leur corps est irrisé et argenté, avec des traces de gris ou de bleu. Les hommes-poissons tropicaux peuvent arborer des motifs de couleurs brillantes, tandis que ceux qui sont nés dans les profondeurs peuvent avoir des écailles translucides ou des rayures faiblement bioluminescentes.",
+                "Grace aquatique Lorsque vous obtenez un succès sur un jet de sauvegarde contre un effet d'eau, il devient un succès critique.",
+                "Hydratation Votre corps nécessite que vous retourniez dans un environnement aquatique au moins une fois au cours d'une période de 24 heures. Après les 24 premières heures hors de l'eau, vous subissez une pénalité de statut de -1 aux jets de Vigueur. Après 48 heures, vous avez du mal à respirer de l'air et commencez à suffoquer jusqu'à ce que vous retourniez à l'eau."
             ],
             "society_desc": [
                 "On peut trouver des hommes-poissons aux quatre coins de chaque océan, mais les plus grandes concentrations vivent dans des royaumes aquatiques tentaculaires sur les plateaux continentaux, généralement dans des eaux tempérées regorgeant de poissons. Les hommes-poissons considèrent les eaux profondes à peu près de la même manière que les habitants de la surface considèrent les montagnes ou les déserts : certaines personnes peuvent y vivre, mais ce n'est pas exactement le terrain idéal. Les territoires des hommes-poissons sont constitués de plusieurs villages et villes, parfois organisés en familles aristocratiques dont les politiques de cour rivalisent avec celles de n'importe quelle monarchie de la mer Intérieure. Ces entités politiques poursuivent une diplomatie active les unes avec les autres, concluant des alliances et des traités commerciaux. Nombre d'entre elles ont tendance à se montrer plus distantes à l'égard des habitants de la surface, mais certaines sont fascinées par cette dernière et cherchent activement à la connaître, que ce soit en utilisant des engins de déplacement spécialisés remplis d'eau pour se rendre sur la terre ferme ou en recourant à d'anciennes magies de transformation.",
@@ -771,13 +743,6 @@ var RACES = {
                 "Anathème populaire",
                 "combattre le courant de front, utiliser la magie pour blesser des innocents ou amasser des richesses"
             ],
-            "mecanic": [
-                "Rareté Peu courant",
-                "Faiblesse d'attribut Constitution",
-                "Traits Amphibie, humanoïde, homme-poisson",
-                "Grace aquatique Lorsque vous obtenez un succès sur un jet de sauvegarde contre un effet d'eau, il devient un succès critique.",
-                "Hydratation Votre corps nécessite que vous retourniez dans un environnement aquatique au moins une fois au cours d'une période de 24 heures. Après les 24 premières heures hors de l'eau, vous subissez une pénalité de statut de -1 aux jets de Vigueur. Après 48 heures, vous avez du mal à respirer de l'air et commencez à suffoquer jusqu'à ce que vous retourniez à l'eau."
-            ],
             "start_life": 8,
             "body_size": "M",
             "speed": 1,
@@ -785,6 +750,9 @@ var RACES = {
                 "Dextérité",
                 "Charisme",
                 "Libre"
+            ],
+            "characteristic_malus": [
+                "Constitution"
             ],
             "language": [
                 "Commun",
@@ -817,10 +785,10 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Tirer fierté de votre immense famille étendue et rester en contact avec tout un chacun en son sein.</li><li>Aimer voyager ici et là à la recherche de nouvelles expériences, en adorant collectionner les babioles au long du chemin.</li></ul>",
                 "Les autres : <ul><li>Sont surpris par votre toilettage soigneux et vos autres habitudes maniaques.</li><li>Pensent que vous êtes collant et que vous envahissez leur espace personnel.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les hommes-rats ont des museaux avec des moustaches, de grandes oreilles et des queues dépourvues de poils et ils ont habituellement les yeux rouges et une fourrure rase marron ou noire. Un homme-rat banal mesure environ 1,20 mètre et pèse approximativement 40 kilos. Les hommes-rats varient considérablement quoi qu'il en soit. Même un unique groupe familial peut présenter des variations considérables dans la couleur des poils, des yeux ou de taille.",
-                "L'instinct conduit les hommes-rats à maintenir la propreté, bien que ce trait soit aussi renforcé par leur structure sociale forte. Comme leur apparence est souvent considérée comme perturbante — et que les autres gens les prennent pour des rats-garous — les hommes-rats cachent souvent leurs traits physiques avec des capuches, des gants, des chaussures, des tuniques à manches longues, des robes et d'autres couches de vêtements lorsqu'ils se déplacent dans les lieux dominés par d'autres ascendances."
+                "L'instinct conduit les hommes-rats à maintenir la propreté, bien que ce trait soit aussi renforcé par leur structure sociale forte. Comme leur apparence est souvent considérée comme perturbante — et que les autres gens les prennent pour des rats-garous — les hommes-rats cachent souvent leurs traits physiques avec des capuches, des gants, des chaussures, des tuniques à manches longues, des robes et d'autres couches de vêtements lorsqu'ils se déplacent dans les lieux dominés par d'autres ascendances.",
+                "Dents aiguisées Vos incisives proéminentes offrent une alternative aux poings que les autres humanoïdes utilisent dans un combat. Vous disposez d'une attaque à mains nues qui inflige 1d4 points de dégâts perforants, fait partie du groupe pugilat et possède les traits agile et finesse."
             ],
             "society_desc": [
                 "La culture ysokie met l'accent sur la coopération et la communauté. Chaque ysoki apprend — à travers des jeux communautaires, des évènements sociaux et les sports — à se forger rapidement des amitiés et des relations avec les ysokis étrangers à leurs familles. Avec une longue tradition de marchands et de bricoleurs, les ysokis voyagent fréquemment d'une ville à une autre. Leurs chariots sont habituellement regroupés en caravanes comptant jusqu'à une demi-douzaine de véhicules. Les chariots ysokis sont tirés par des rats géants exceptionnellement grands et de nombreux hommes-rats peuvent parler à de tels animaux.",
@@ -835,10 +803,7 @@ var RACES = {
                 "placer les intérêts de sa communauté au-dessus de la sienne, maintenir une apparence propre, être honnête dans ses affaires",
                 "Anathème populaire",
                 "jeter ce qui pourrait être utile"
-            ],
-            "mecanic": [
-                "Dents aiguisées Vos incisives proéminentes offrent une alternative aux poings que les autres humanoïdes utilisent dans un combat. Vous disposez d'une attaque à mains nues qui inflige 1d4 points de dégâts perforants, fait partie du groupe pugilat et possède les traits agile et finesse."
-            ],
+            ],    
             "start_life": 6,
             "body_size": "P",
             "speed": 7,
@@ -863,7 +828,7 @@ var RACES = {
                 "Gobelin",
                 "Halfelin",
                 "Orquien",
-                "Sakvroth ou toute autre langue à laquelle vous avez accès (telles que les langues prévalentes dans votre région)."
+                "Sakvroth"
             ],
             "sens": "Vision nocturne",
             "heritages": [
@@ -891,8 +856,7 @@ var RACES = {
             ],
             "physical_desc": [
                 "Physiquement, les caractéristiques des humains sont aussi différentes que le nombre de climats dans le monde. Les humains présentent une grande variété de couleur de peau et de cheveux, de types de corpulence et de traits faciaux. Généralement parlant, leur peau a une teinte plus sombre lorsqu'ils vivent ou leurs ancêtres ont vécu près de l'équateur.",
-                "Les humains atteignent l'âge adulte autour de 15 ans, bien qu'ils n'atteignent une maturité mentale que quelques après. Un humain typique peut vivre environ 90 ans. Les humains présentent des caractéristiques physiques exceptionnellement variables par rapport à d'autres ascendances, avec une plus grande variabilité en taille, en poids et d'autres paramètres physiques.",
-                ""
+                "Les humains atteignent l'âge adulte autour de 15 ans, bien qu'ils n'atteignent une maturité mentale que quelques après. Un humain typique peut vivre environ 90 ans. Les humains présentent des caractéristiques physiques exceptionnellement variables par rapport à d'autres ascendances, avec une plus grande variabilité en taille, en poids et d'autres paramètres physiques."
             ],
             "believe_desc": [
                 "La diversité humaine se manifeste également au niveau de leurs gouvernements, de leur attitude et des normes sociales. Bien que les cultures humaines les plus anciennes puissent faire remonter leur histoire partager sur des milliers d'années, comparées aux sociétés des elfes ou des nains, les civilisations humaines semblent dans un état de constante évolution, leurs empires se fragmentant et de nouveaux royaumes supplantant les anciens.",
@@ -901,8 +865,6 @@ var RACES = {
                 "<h4><strong>Anathèmes populaires</strong></h4>",
                 "gâcher le peu de temps dont vous disposez"
             ],
-            "noms": [],
-            "mecanic": [],
             "start_life": 8,
             "body_size": "M",
             "speed": 7,
@@ -913,7 +875,6 @@ var RACES = {
                 "Commun"
             ],
             "language_sup": [
-                "Langues supplémentaires égale à 1 + votre modificateur d'Intelligence (s'il est positif). Choisissez parmi la liste des langues courantes et parmi toutes les langues auxquelles vous avez accès (telles que les langues prévalentes dans votre région)."
             ],
             "heritages": [
                 "Aiuvarin",
@@ -933,10 +894,10 @@ var RACES = {
                 "Tout aussi incomprise est la pratique kholo du culte des ancêtres et de l'endocannibalisme. Les kholos consomment leurs morts en signe de respect, organisant un grand festin et ils transforment leurs os en objets d'art ou en armes. Les kholos étendent cet honneur aux ennemis respectés, dans l'espoir d'apporter la ruse ou la force de leur ennemi dans leur clan.",
                 "Vous pourriez... : <ul><li>Être très démonstratif physiquement - en étreignant, en frappant ou en léchant vos amis.</li><li>Conserver un os d'un parent révéré pour lui demander conseil.</li></ul>",
                 "Les autres : <ul><li>Sont intimidés par votre taille, vos dents et votre rire lugubre.</li><li>Respectent l'efficacité brutale de votre style de chasse.</li></ul>"
-            ],
-            "Vous pourriez...": [],
+            ],            
             "physical_desc": [
-                "Les kholos sont de grands humanoïdes ressemblant à des hyènes, dotés d'un museau court, de dents acérées et de grandes oreilles rondes et expressives. Leur corps est recouvert d'une fourrure hirsute, plus rêche sur le dos et plus douce et claire sur le ventre et la gorge, généralement dans une nuance blanc cassé, beige ou marron - les taches et les rayures sont toutes deux courantes. Les kholos mesurent généralement entre 1,80 et 2,50 mètres. Les femmes sont généralement plus grandes d'une tête que les hommes et donc plus fortes. Les kholos sont considérés comme des adultes à quinze ans et vivent environ 60 ans en moyenne."
+                "Les kholos sont de grands humanoïdes ressemblant à des hyènes, dotés d'un museau court, de dents acérées et de grandes oreilles rondes et expressives. Leur corps est recouvert d'une fourrure hirsute, plus rêche sur le dos et plus douce et claire sur le ventre et la gorge, généralement dans une nuance blanc cassé, beige ou marron - les taches et les rayures sont toutes deux courantes. Les kholos mesurent généralement entre 1,80 et 2,50 mètres. Les femmes sont généralement plus grandes d'une tête que les hommes et donc plus fortes. Les kholos sont considérés comme des adultes à quinze ans et vivent environ 60 ans en moyenne.",
+                "Morsure Vos dents acérées et vos puissantes mâchoires sont des armes redoutables. Vous disposez d'une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants. Vos mâchoires font partie du groupe pugilat."
             ],
             "society_desc": [
                 "Les kholos vivent généralement en clans composés de 10 à 20 groupes familiaux interdépendants, contenant entre 100 et 200 kholos. Ils sont dirigés par un conseil de femmes kholos, généralement sélectionnées parmi les membres les plus âgées de chaque famille.",
@@ -952,10 +913,7 @@ var RACES = {
                 "renforcer vos alliés et votre meute, reconter les contes de vos ancètres, neutraliser les ennemis avec des tactiques et la ruse",
                 "Anathème populaire",
                 "prendre des risques pour vous ou votre meute sans raison, laisser un kholo mort ou un être aimé pourrir comme une charogne"
-            ],
-            "mecanic": [
-                "Morsure Vos dents acérées et vos puissantes mâchoires sont des armes redoutables. Vous disposez d'une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants. Vos mâchoires font partie du groupe pugilat."
-            ],
+            ],            
             "start_life": 8,
             "body_size": "M",
             "speed": 7,
@@ -1003,7 +961,6 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Analyser votre environnement, toujours à la recherche des embuscades, des terrains avantageux et de chemins pour déguerpir.</li><li>Observer, adopter et respecter naturellement les dynamiques de groupe, que ce soit comme dirigeant, subordonné ou comme égal.</li></ul>",
                 "Les autres : <ul><li>Partent du principe que vous êtes couard et n'allez pas tenir votre place face au danger.</li><li>Apprécient votre ingéniosité et votre capacité à trouver des ressources, plus particulièrement lorsqu'il s'agit de concevoir des moyens de défense.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les kobolds sont de petits humanoïdes reptiliens (environ 1 mètre de haut) avec des corps minces, une longue queue et des cornes robustes. Leurs traits reflètent souvent la nature du biebfaiteur de leur terrier, sous la forme de vestiges d'ailes draconiques ou d'excroissances cristallines lumineuses. Ces différences permettent de distinguer les terriers, bien que tous les kobolds soient généralement facilement identifiables comme tels.",
                 "Les kobolds grandissent rapidement, atteignant l'âge adulte vers 12 ans et ils vivent à peu près 60 ans. De rares kobolds vivent même plus longtemps après avoir maîtrisé le pouvoir d'un bienfaiteur magique."
@@ -1022,7 +979,6 @@ var RACES = {
                 "Anathème populaire",
                 "faire face seul à une menace, ne pas prendre de précautions"
             ],
-            "mecanic": [],
             "start_life": 6,
             "body_size": "P",
             "speed": 7,
@@ -1046,7 +1002,7 @@ var RACES = {
                 "fée",
                 "gnomien",
                 "nanique",
-                "pierreux et toute autre langue à laquelle vous avez accès (telles que les langues qui prévalent dans votre région)."
+                "pierreux"
             ],
             "sens": "Vision dans le noir",
             "heritages": [
@@ -1075,7 +1031,8 @@ var RACES = {
                 "Les autres : <ul><li>pensent que vous êtes une curiosité du fait de vos origines spirituelles.</li><li>Pensent que vous ne connaissez que ce qui a trait à la nature et que vous ignorez tout de la civilisation et de la société.</li></ul>"
             ],
             "physical_desc": [
-                "Les léchis sont aussi variés que le matériau utilisé pour la construction de leur réceptacle, apparaissant souvent comme un méli-mélo bizarre de plantes ou de champignons. Leurs corps ont une forme vaguement humanoïde, empruntant de nombreuses caractéristiques à la plante ou au champignon dont ils sont composés. Un léchi mesure environ 90 cm de haut. Les léchis commencent leur vie en étant adultes et ne vieillissent pas."
+                "Les léchis sont aussi variés que le matériau utilisé pour la construction de leur réceptacle, apparaissant souvent comme un méli-mélo bizarre de plantes ou de champignons. Leurs corps ont une forme vaguement humanoïde, empruntant de nombreuses caractéristiques à la plante ou au champignon dont ils sont composés. Un léchi mesure environ 90 cm de haut. Les léchis commencent leur vie en étant adultes et ne vieillissent pas.",
+                "Alimentation des plantes Vous obtenez de quoi vous alimenter de la même manière que les plantes ou les champignons qui correspondent à votre type de corps, au travers d'une combinaison de photosynthèse, d'absorption des minéraux par vos racines ou de récupération de matière en décomposition. Vous n'avez généralement pas besoin de payer pour votre nourriture. Si vous dépendez normalement de la photosynthèse et que vous ne voyez pas la lumière du soleil pendant une semaine, vous commencez à dépérir. Vous pouvez obtenir une alimentation à partir de bouteilles spécialement formulées à base de lumière du soleil en remplacement de la lumière du soleil naturelle mais ces bouteilles coûtent 10 fois plus que des rations ordinaires (ou 40 pa)."
             ],
             "society_desc": [
                 "Pour la plupart des léchis, le concept de famille n'a aucun lien avec la naissance, mais est plutôt déterminé par les liens de loyauté et d'amitié. Les léchis sont des alliés fidèles, mais ne sont que peu tolérants envers ceux qui dégradent la nature. Autant ils sont heureux d'accepter dans leur famille quelqu'un qui gagne leur confiance, autant ils attendent des membres de leur famille qu'ils prennent soin d'eux et de leurs protégés naturels en retour. Les léchis sont regroupés au sein de catégories semblables à des ethnies, mais ces dernières ne sont pas définies par des traits physiques. Elles regroupent davantage de grandes catégories des caractéristiques de leurs esprits. Certains esprits vont avoir tendance à s'intéresser à certains corps physiques, bien qu'une telle prédisposition ne soit pas absolue. Le genre d'un léchi est déterminé par l'esprit qui habite son corps. Certains léchis sont exclusivement mâles ou femelles, alors que la grande majorité se considère comme appartenant aux deux genres. D'autres, et en particulier les léchis fongiques, tendent vers une expression plus complexe du genre, quand ils n'y renoncent pas totalement. Les léchis choisissent et changent de noms plusieurs fois au cours de leurs vies.",
@@ -1088,9 +1045,6 @@ var RACES = {
                 "faire l'expérience du monde physique, former une famille grâce à la loyauté et la confiance, protéger les parties de la nature que vous incarnez",
                 "<h4><strong>Anathèmes populaires</strong></h4>",
                 "embrasser la magie ou les influences non naturelles"
-            ],
-            "mecanic": [
-                "Alimentation des plantes Vous obtenez de quoi vous alimenter de la même manière que les plantes ou les champignons qui correspondent à votre type de corps, au travers d'une combinaison de photosynthèse, d'absorption des minéraux par vos racines ou de récupération de matière en décomposition. Vous n'avez généralement pas besoin de payer pour votre nourriture. Si vous dépendez normalement de la photosynthèse et que vous ne voyez pas la lumière du soleil pendant une semaine, vous commencez à dépérir. Vous pouvez obtenir une alimentation à partir de bouteilles spécialement formulées à base de lumière du soleil en remplacement de la lumière du soleil naturelle mais ces bouteilles coûtent 10 fois plus que des rations ordinaires (ou 40 pa)."
             ],
             "start_life": 8,
             "body_size": "P",
@@ -1146,18 +1100,17 @@ var RACES = {
                 "Vous pourriez... : <ul>    <li>Décorer vos sabots et vos cornes avec des dessins ou des couleurs ayant une signification personnelle.</li>    <li>Être adepte de la navigation et des énigmes.</li></ul>",
                 "Les autres pourraient… : <ul>    <li>Être intimidé par votre taille ou penser que vous calculez.</li>    <li>Pener que vous pouvez voir à travers la pierre.</li></ul>"
             ],
-            "Vous pourriez...": [],
-            "Les autres pourraient…": [],
             "physical_desc": [
                 "Les minotaures sont de grands et corpulents humanoïdes qui présentent des traits bovins tels que des cornes, des sabots et des visages allongés. Leur fourrure est souvent monochrome, d'un brun profond ou d'un noir profond, bien que le blanc ou le gris ne soient pas rares. Bien que la grande taille des minotaures puisse laisser penser qu'ils sont maladroits, la vérité est tout autre. Les sabots des minotaures reposent sur un point d'équilibre délicat, ce qui rend leurs pas silencieux et précis. Cependant, lorsqu'il faut se faire entendre, les pas d'un minotaure peuvent retentir comme un coup de tonnerre.",
-                "Les cornes d'un minotaure sont une source de fierté et sont souvent rehaussées par des accessoires de mode. Ceux qui ont des cornes plus longues les entourent d'anneaux et de chaînes, coulés dans les métaux rares les plus abordables ou les teignent ou y gravent des motifs. Ceux qui n'ont pas de longues cornes se rasent la fourrure autour de la base des cornes, en ajoutant éventuellement des tatouages circulaires élégants sur la peau environnante ou en enfilant des embouts métalliques à leur extrémité. Cela permet d'attirer l'attention sur une caractéristique qui serait autrement délaissée."
+                "Les cornes d'un minotaure sont une source de fierté et sont souvent rehaussées par des accessoires de mode. Ceux qui ont des cornes plus longues les entourent d'anneaux et de chaînes, coulés dans les métaux rares les plus abordables ou les teignent ou y gravent des motifs. Ceux qui n'ont pas de longues cornes se rasent la fourrure autour de la base des cornes, en ajoutant éventuellement des tatouages circulaires élégants sur la peau environnante ou en enfilant des embouts métalliques à leur extrémité. Cela permet d'attirer l'attention sur une caractéristique qui serait autrement délaissée.",
+                "Cornes Vos cornes pointues sont aussi mortelles que des épieux. Vous disposez d'une attaque à mains nues de cornes qui infligent 1d8 dégâts perforants. Vos cornes appartiennent au groupe pugilat et possèdent le trait à mains nues."
             ],
             "society_desc": [
                 "Les minotaures résident généralement dans des enclaves communautaires insulaires et souterraines. Ils sont très fiers de leurs prouesses architecturales, taillant des bâtiments aussi bien dans la pierre que dans les grottes naturelles. Une enclave possède souvent deux fois plus de bâtiments qu'il n'est nécessaire, les structures supplémentaires formant des oeuvres d'art fonctionnelles. Les jeunes minotaures s'exercent à la chasse et à la traque dans les bâtiments vides et chaque génération ajoute une petite extension ou une fresque sur les murs. Les extensions telles que les couloirs tortueux, les surplombs inattendus, les jardins partagés et toute une série d'autres artifices de ce genre créent de nombreux espaces sociaux et des zones de calme propices à la réflexion, pour autant que le voyageur soit capable de ne pas se perdre dans les flux architecturaux inhabituels.",
                 "Les mythes entourant les minotaures conduisent la plupart des gens à croire qu'il s'agit de féroces carnivores, voire de cannibales dans les légendes les plus sombres. En réalité, la plupart des sociétés de minotaures sont des chasseurs-cueilleurs qui se nourrissent de lichen et d'autres plantes. Leur réputation de chasseurs féroces découle de rituels mensuels, au cours desquels les traqueurs les plus accomplis s'aventurent et ramènent des proies dangereuses. Le retour de ces chasseurs est l'une des rares occasions pour les minotaures de manger de la viande, se régalant de leurs prises en signe de gratitude et de révérence pour leurs talents.",
                 "Les minotaures ont tendance à être francs et directs, s'engageant rarement dans des jeux de mots, des sarcasmes ou de l'ironie. Les narines qui s'ouvrent et les yeux qui roulent peuvent être des expressions intimidantes pour les non-minotaures, mais pour un minotaure, ils peuvent transmettre une histoire complexe avec des éléments émotionnels et même spirituels. Les minotaures qui souhaitent souligner une certaine émotion utilisent parfois des piercings et des tatouages, bien que les minotaures qui s'appuient trop sur ces ornements pour paraître féroces passent souvent pour des imbéciles aux yeux de leurs pairs. Le dicton du minotaure « un taureau en colère frappe une fois et ronge deux fois » est à la fois un avertissement contre les manifestations trop agressives et un rappel que la créature qu'il faut vraiment craindre est celle qui parle avec ses actes.",
                 "Les minotaurs Iblydiens portent souvent des noms similaires à ceux des humains de cet archipel. Les noms de famille des minotaures changent constamment et reflètent généralement l'accomplissement le plus mémorable d'un individu. Jusqu'à l'âge adulte, un minotaure iblydien porte le nom de Tavdrinos (d'après le premier minotaure). Une fois qu'il a atteint la maturité, ses amis d'enfance et ses alliés lui attribuent collectivement un nom de famille approprié. Les minotaures des groupes d'aventuriers peuvent être renommés plusieurs fois par leurs alliés.",
-                "<h3>Exemples de noms</h3>",
+                    "<h3>Exemples de noms</h3>",
                 "Actiléa, Iraiasos, Paxaidio, Rotherion, Zavmandris"
             ],
             "believe_desc": [
@@ -1168,12 +1121,6 @@ var RACES = {
                 "Anathème populaire",
                 "laisser le destin aux mains des divinités plutôt qu'à l'initiative d'un mortel, laisser passer l'occasion d'enquêter sur un mystère"
             ],
-            "mecanic": [
-                "Rareté Peu courant",
-                "Faiblesse d'attribut Charisme",
-                "Traits bête, humanoïde, minotaure",
-                "Cornes Vos cornes pointues sont aussi mortelles que des épieux. Vous disposez d'une attaque à mains nues de cornes qui infligent 1d8 dégâts perforants. Vos cornes appartiennent au groupe pugilat et possèdent le trait à mains nues."
-            ],
             "start_life": 10,
             "body_size": "G",
             "speed": 7,
@@ -1182,18 +1129,21 @@ var RACES = {
                 "Constitution",
                 "Libre"
             ],
+            "characteristic_malus": [
+                "Charisme"
+            ],
             "language": [
                 "commun",
-                "jotun",
-                "supplémentaires égales à votre modificateur d'Intelligence (s'il est positif). Choisissez parmi cyclope",
+                "jotun"
+            ],
+            "language_sup": [
                 "nanique",
                 "féerique",
                 "pierreux",
-                "sakvroth et n'importe quelle langue à laquelle vous avez accès (Comme les langues qui prévalent dans votre région)."
+                "sakvroth"
             ],
             "sens": "Vision dans le noir.",
-            "heritages": [
-                "Les minotaures se distinguent souvent par la région de leur enclave ou de l'enclave de leurs ancêtres. Choisissez l'un des héritages de minotaure suivants au niveau 1.",
+            "heritages": [            
                 "Minotaure blocâme",
                 "Minotaure des cavernes de glace",
                 "Minotaure itinérant",
@@ -1222,7 +1172,8 @@ var RACES = {
                 "Bien que les antiques empires des nains soient tombés il y a bien longtemps, submergés par les assauts de des ennemis orcs et gobelinoïdes, les nains d'aujourd'hui ont conservé nombre de qualités qui les ont propulsés vers la grandeur : le courage, le bon sens et une opiniâtreté dans leurs entreprises. Les nains vivent dans des Citadelles célestes réparties à la surface. Presque tous les nains partagent la passion pour le travail de la pierre, du métal et de leur famille.",
                 "Peu de nains sont aperçus sans leur dague de leur clan passée à la ceinture. Cette dague est forgée juste avant leur naissance et propre à leur clan. Les nains honorent leurs enfants en leur donnant le nom de leurs ancêtres ou des héros nains. Lorsqu'ils se présentent, les nains ont tendance à indiquer leur famille et leur clan, plus tout nombre de liens familiaux et honorifiques.",
                 "<h3>Exemples de noms</h3>",
-                "Agna, Bodill, Dolgrin, Edrukk, Grunyar, Ingra, Kazmuk, Kotri, Lupp, Morgrym, Rogar, Rusilka, Torra, Yangrit"
+                "Agna, Bodill, Dolgrin, Edrukk, Grunyar, Ingra, Kazmuk, Kotri, Lupp, Morgrym, Rogar, Rusilka, Torra, Yangrit",
+                "Dague de clan Vous obtenez gratuitement une Dague de clan car elle vous a été donnée à votre naissance par votre clan. La vente de cet objet est un tabou terrible et vous vaudrait le dédain des autres nains."
             ],
             "believe_desc": [
                 "Les nains tendent à accorder de la valeur à l'honneur et suivent fermement les traditions de leurs clans et royaumes. Ils ont un fort sens de l'amitié et de la justice, abien qu'ils soient souvent très particuliers à propos de ceux qu'ils considèrent comme un ami. Ils travaillent dur et jouent plus dur encore — surtout lorsque de la bière forte est impliquées. Torag, dieu du peuple nain, est la divinité primaire des nains bien que vénérer les membres de la famille de Torag soit aussi courant.",
@@ -1230,10 +1181,7 @@ var RACES = {
                 "créer de l'art qui soit utile, protéger votre communauté contre ceux qui voudraient s'en prendre à elle, garder sa dague de clan à proximité",
                 "Anathème populaire",
                 "laisser une activité ou une promesse non achevée, abandonner sa famille"
-            ],
-            "mecanic": [
-                "Dague de clan Vous obtenez gratuitement une Dague de clan car elle vous a été donnée à votre naissance par votre clan. La vente de cet objet est un tabou terrible et vous vaudrait le dédain des autres nains."
-            ],
+            ],           
             "start_life": 10,
             "body_size": "M",
             "speed": 6,
@@ -1282,7 +1230,6 @@ var RACES = {
                 "Vous pourriez... : <ul><li>Attendre impatiemment n'importe quelle chance de prouver votre force dans un défi physique.</li><li>Penser que mourir lors d'un combat glorieux est préférable à une mort de vieillesse ou de maladie.</li></ul>",
                 "Les autres : <ul><li>Vous voient comme violent ou manquant de discipline.</li><li>Admirent votre franc-parler et votre franche honnêteté.</li></ul>"
             ],
-            "Vous pourriez...": [],
             "physical_desc": [
                 "Les orcs sont grands et puissamment bâtis, avec des bras longs et des jambes trapues. De nombreux orcs atteignent 2,1 m de hauteur, bien qu'ils tendent à adopter des postures avec leurs jambes largement arquées et en étant avachis au niveau des épaules. Les orcs ont une peau rugueuse, des os épais et des muscles durs comme la pierre, ce qui les rend particulièrement aptes à la guerre et à d'autres tâches physiquement exigeantes. La couleur de la peau d'un orc est habituellement verte, bien que d'autres orcs présentent d'autres couleurs de peau qui reflètent leur adaptation à leur environnement.",
                 "Les orcs considèrent que des constitutions puissantes, une peau pleine de balafres, de grandes défenses et des tatouages, sont attirantes, quel que soit leur genre. Les orcs atteingent la maturité physique aux alentours de 17 ans,mais beaucoup d'entre eux parviennent à vivre jusqu'à 60 ans."
@@ -1300,7 +1247,6 @@ var RACES = {
                 "<h4>Anathèmes populaires</h4>",
                 "accepter la défaite sans épreuve de force, refaçonner ou réanimer une créature en quelque chose d'inférieur"
             ],
-            "mecanic": [],
             "start_life": 10,
             "body_size": "M",
             "speed": 7,
@@ -1345,20 +1291,15 @@ var RACES = {
                 "Les autres : <ul><li>supposent que vous êtes le serviteur d'un nécromancien, travaillant pour faire avancer ses desseins.</li><li>ont des difficultés à avoir de l'empathie pour vous.</li><li>considèrent votre état de mort-vivant avec pitié ou envie.</li></ul>"
             ],
             "physical_desc": [
-                "En dehors de leur absence totale de chair et d'organes, les squelettes ont une apparence très variable, reflétant la grande diversité de toutes les formes d'êtres vivants. Ils peuvent être grands, petits ou entre les deux. Les squelettes des créatures dotées de cornes, d'ailes ou de queues les conservent, bien qu'elles soient généralement inutiles à l'état de squelette. Les squelettes issus d'un cadavre frais ont tendance à avoir des os d'un blanc éclatant alors que ceux des squelettes plus anciens ont tendance à être gris ou jaunis. Les squelettes qui se sont aventurés pendant un certain temps possèdent souvent de légères lignes qui sillonnent leurs os comme des cicatrices, indiquant les endroits où ils ont été blessés lors de batailles précédentes."
+                "En dehors de leur absence totale de chair et d'organes, les squelettes ont une apparence très variable, reflétant la grande diversité de toutes les formes d'êtres vivants. Ils peuvent être grands, petits ou entre les deux. Les squelettes des créatures dotées de cornes, d'ailes ou de queues les conservent, bien qu'elles soient généralement inutiles à l'état de squelette. Les squelettes issus d'un cadavre frais ont tendance à avoir des os d'un blanc éclatant alors que ceux des squelettes plus anciens ont tendance à être gris ou jaunis. Les squelettes qui se sont aventurés pendant un certain temps possèdent souvent de légères lignes qui sillonnent leurs os comme des cicatrices, indiquant les endroits où ils ont été blessés lors de batailles précédentes.",
+                "Mort-vivance Vous disposez des Avantages de mort-vivant basiques . Pour apaiser votre faim de mort-vivant, vous ne mangez pas de chair comme les goules et ne buvez pas de sang comme les vampires mais vous collectez des os que vous pouvez utiliser pour vous aider à vous réparer."
             ],
             "society_desc": [
                 "Sur Golarion, les squelettes intelligents se regroupent rarement en nombre important pour constituer une forme de communauté. Même en Geb, où leur nombre est le plus élevé, ils se mélangent typiquement avec d'autres morts-vivants plutôt que de se regrouper ensemble. Nombre de squelettes préfèreront tenir compagnie à ceux qui se souviennent d'eux lors de leur vie antérieure (bien que de tels souvenirs puissent les conduire aussi facilement à de la révulsion consécutivement à l'énergie négative qui les a imprégné). Les squelettes du Geb sont habituellement considérés comme des membres de la classe des serviteurs et parviennent rarement à se hisser vers des positions sociales plus enviables.",
-                "En dehors du Geb, les squelettes dont beaucoup plus souvent solitaires. Certains peuvent se cacher dans les marges de la société ou se déplacer en son sein en se déguisant, mais il leur est difficile de se faire accepter parmi les vivants. Lorsqu'ils ne sont pas craints dans les lieux comme le Nidal ou la Sékamine, ils ne sont pas non plus près d'être respectés."
-            ],
-            "undefined": [
+                "En dehors du Geb, les squelettes dont beaucoup plus souvent solitaires. Certains peuvent se cacher dans les marges de la société ou se déplacer en son sein en se déguisant, mais il leur est difficile de se faire accepter parmi les vivants. Lorsqu'ils ne sont pas craints dans les lieux comme le Nidal ou la Sékamine, ils ne sont pas non plus près d'être respectés.",
                 "Si les morts-vivants sont presque toujours maléfiques, certains squelettes intelligents parviennent à ne pas succomber à la corruption de l'énergie négative qui les alimente. Mis à part la tendance à tendre vers le mal avec le temps, les squelettes penchent généralement vers les alignements de leurs créateurs ou de leurs anciennes personnalités. Les squelettes qui n'ont pas de loyauté ou d'allégeance particulière tendent vers un alignement neutre mauvais ou neutre s'ils peuvent éviter le mal.",
                 "Les squelettes qui acceptent pleinement leur état de mort-vivant vénèrent souvent des dieux de la mort, comme Urgathoa, alors que ceux qui la rejettent se tournent généralement vers les dieux de la vie et de la rédemption. Les divinités libérales dépourvus d'un zèle dogmatique anti-morts-vivants, comme Shélyn, sont populaires parmi ceux qui souhaitent lutter contre leurs influences destructrices et s'élever pour devenir quelque chose de supérieur au but pour lequel ils ont pu être créés."
-            ],
-            "noms": [],
-            "mecanic": [
-                "Mort-vivance Vous disposez des Avantages de mort-vivant basiques . Pour apaiser votre faim de mort-vivant, vous ne mangez pas de chair comme les goules et ne buvez pas de sang comme les vampires mais vous collectez des os que vous pouvez utiliser pour vous aider à vous réparer."
-            ],
+            ],                      
             "start_life": 6,
             "body_size": "M",
             "speed": 7,
@@ -1375,12 +1316,12 @@ var RACES = {
                 "Nécril"
             ],
             "language_sup": [
-                "Langues supplémentaires Un nombre égal à votre modificateur d'Intelligence (s'il est positif). Choisissez parmi les langues suivantes : aklo",
+                "aklo",
                 "diabolique",
                 "elfique",
                 "nanique",
                 "orquien",
-                "sakvroth ainsi que toutes les autres langues auxquelles vous avez accès (comme les langues les plus répandues dans votre région)"
+                "sakvroth"
             ],
             "heritages": [
                 "Squelette compact",
@@ -1403,13 +1344,13 @@ var RACES = {
                 "Si vous voulez jouer un personnage qui explore Golarion pour la première fois, avec une capacité d'adaptation illimitée et un lien fort avec la magie, vous devriez jouer un surki.",
                 "Vous pourriez... : <ul>    <li>Ressentir un lien puissant  avec le monde qui vous entoure, percevnat la magie latente en toute chose.</li>    <li>Être poussé à voyager loin ou apprendre autant que vous pouvez à propos de votre foyer.</li>    <li>Prêter une attention particulière à la manière dont les autres vivent dans des environnements qui ne vous sont pas familiers.</li></ul>",
                 "Les autres : <ul>    <li>Confonde l'enthousiasme que vous éprouvez envers vos adaptations avec de l'orgueil vantard.</li>    <li>Trouvent votre enthousiasme pour les nouveaux peuples, les nouveaux lieux et kes choses attachant et stimulant.</li>    <li>Ont confiance en vos perceptions magiques plutôt qu'à leurs propres atouts dans les situations délicates.</li></ul>"
-            ],
-            "Vous pourriez...": [],
+            ],            
             "physical_desc": [
                 "Les trois stades de vie des surkis sont très différents les uns des autres. Les larves de surkis passent les 10 à 100 premières années de leur vie en sommeil à l'intérieur de leurs œufs, attendant de sortir lorsqu'elles ont accumulé suffisamment de magie latente et que les conditions environnementales sont remplies. Les larves de surkis mesurent environ 60 centimètres de long et ressemblent à des larves avec plusieurs nodules luminescents visibles à travers leur chair translucide. Leur tête est chitineuse, ronde et dépourvue d'yeux et ils se dirigent principalement grâce à leur capacité à percevoir la magie. Quatre de leurs six pattes sont petites, mais celles antérieures sont de grandes et puissantes griffes fouisseuses qu'elles utilisent pour creuser des tunnels dans la terre et pour communiquer avec les autres larves de leur génération lorsqu'elles s'éloignent de leur nid. Une fois qu'elles ont voyagé loin et accumulé suffisamment de magie, elles entrent dans un cocon pendant plusieurs jours et en ressortent sous la forme adulte que l'on voit le plus souvent à la surface.",
                 "Les surkis adultes ont une forme à peu près bipède, se tenant sur deux membres à articulations multiples et ayant deux bras qui se terminent par des griffes à trois doigts utilisées à la fois pour creuser et pour produire des sons percussifs utilisés dans la langue des surkis. Ils possèdent deux antennes à plumeau et deux longs barbillons sensoriels situés de part et d'autre de leurs mandibules. Les surkis ont une forme arrondie caractéristique avec plusieurs plaques chitineuses brun rouille ou orange le long de leur dos et les vêtements et la mode surki ont tendance à incorporer des formes arrondies ou des ceintures autour et sous leurs plaques. Leurs nodules magiques sont répartis sur l'ensemble de leur corps, regroupés au niveau de l'abdomen, des épaules et de chaque membre.",
                 "Ces nodules continuent à accumuler la magie au fil de leur vie, en l'utilisant pour créer de nouvelles adaptations, souvent annoncées par des schémas intriqués luminescents dans la chitine entourant le lieu du changement.",
-                "La dernière étape du cycle de vie du surki est connue sous le nom de forme évoluée, une fois que le surki a entamé sa grande métamorphose. Un surki adulte forme une chrysalide et se transforme rapidement au cours d'une seule soirée. Moins spectaculaire physiquement que le passage de la larve à l'âge adulte, la forme évoluée apporte avec elle de profondes capacités magiques résultant d'une vie entière d'absorption et de raffinement de la magie. Les nodules des surkis évolués se métamorphosent en organes complexes capables de projeter une magie tangible à des fins diverses, qu'il s'agisse d'appareils de fouille faits de force pure ou d'ailes lumineuses qui défient la gravité. Cette forme finale est l'expression ultime de l'individualité et des adaptations de chaque surki, une forme parfaitement adaptée à l'environnement qu'il choisit d'habiter ou au rôle qu'il souhaite remplir."
+                "La dernière étape du cycle de vie du surki est connue sous le nom de forme évoluée, une fois que le surki a entamé sa grande métamorphose. Un surki adulte forme une chrysalide et se transforme rapidement au cours d'une seule soirée. Moins spectaculaire physiquement que le passage de la larve à l'âge adulte, la forme évoluée apporte avec elle de profondes capacités magiques résultant d'une vie entière d'absorption et de raffinement de la magie. Les nodules des surkis évolués se métamorphosent en organes complexes capables de projeter une magie tangible à des fins diverses, qu'il s'agisse d'appareils de fouille faits de force pure ou d'ailes lumineuses qui défient la gravité. Cette forme finale est l'expression ultime de l'individualité et des adaptations de chaque surki, une forme parfaitement adaptée à l'environnement qu'il choisit d'habiter ou au rôle qu'il souhaite remplir.",
+                "Magiphage Les nodules variés à travers votre corps aspirent la magie latente du monde qui vous entoure. Vous n'avez pas besoin de manger et de boire à moins d'être dans un environnement spécialement pauvre en magie (comme dans la Désolation de mana). Choisissez quelle est la tradition magique que vous avez le plus consommé sous votre forme larvaire. Ce type de magie est devenu si enraciné dans votre corps qu'il change la tradition de tous les sorts et les actions magiques de surki qui appartiennent à cette tradition."
             ],
             "society_desc": [
                 "La société surkie accorde une grande importance à l'individualité et à l'expression personnelle. Chaque surki est censé trouver sa propre façon de faire les choses et l'innovation est un accomplissement très apprécié. Les surkis sont également très proches de leur environnement. Ils ne font aucune distinction entre les plantes et les animaux, reconnaissant que chaque être remplit une part importante pour l'environnement. Cette qualité a conduit les surkis à créer des communautés qui ont le moins d'impact possible sur l'environnement, en tissant des soies autour des plantes et des champignons pour les inciter à pousser et former des abris et des murs. Le bois et les autres ressources végétales sont rarement récoltés d'une manière considérée comme traditionnelle par la plupart des autres sociétés de Golarion. Ces ressources sont réparties en sections stratégiquement cultivées et récoltées avec suffisamment de précision pour ne pas tuer la plante, lorsque c'est possible.",
@@ -1429,19 +1370,22 @@ var RACES = {
                 "Anathème populaire",
                 "forcer quelqu'un à changer avant qu'il ne soit prêt"
             ],
-            "undefined": [
-                "Rareté Rare",
-                "Points de vie 8",
-                "Taille Moyenne",
-                "Vitesse 7,50 mètres",
-                "Primes d'attributs Constitution, Libre",
-                "Langues Commun, Surki, Langues supplémentaires égal à votre modificateur d'Intelligence (s'il est positif). Choisissez entre elfique, Féerique, Sakvroth et n'importe qu'elle langue à laquelle vous avez accès (telles que les langues qui prévalent dans votre région).",
-                "Traits Humanoïde, Surki",
-                "Vision dans le noir",
-                "Magiphage Les nodules variés à travers votre corps aspirent la magie latente du monde qui vous entoure. Vous n'avez pas besoin de manger et de boire à moins d'être dans un environnement spécialement pauvre en magie (comme dans la Désolation de mana). Choisissez quelle est la tradition magique que vous avez le plus consommé sous votre forme larvaire. Ce type de magie est devenu si enraciné dans votre corps qu'il change la tradition de tous les sorts et les actions magiques de surki qui appartiennent à cette tradition."
+            "start_life": 8,
+            "body_size": "M",
+            "speed": 7.5,
+            "characteristic_bonus": [
+                "Constitution",
+                "Libre"
             ],
-            "heritages": [
-                "Les surkis sortent de leur stade larvaire avec quelques adaptations déjà en place. Bien qu'ils ne soient pas tous identiques, les adaptations présentées ci-dessous sont parmi les plus courantes. Les héritages surkis ont de multiples possibilités d'évolution, auxquelles on accède en prenant le don Grande métamorphose.",
+            "language": [
+                "Commun",
+                "Surki"
+            ],
+            "language_sup": [
+                "elfique", "Féerique", "Sakvroth"
+            ],
+            "sens" : "Vision dans le noir",
+            "heritages": [                
                 "Surki à carapace dure",
                 "Surki à élytre",
                 "Surki briseur",
@@ -1461,10 +1405,10 @@ var RACES = {
                 "Si vous voulez jouer un personnage ayant un riche passé en artisanat et en tradition mais qui s'approprie avec joie de nouvelles pratiques, vous devriez jouer un tengu.",
                 "Vous pourriez... : <ul><li>Être grégaire et prompt à trouver une compagnie qui vous soit propre.</li><li>Absorber avec voracité les pratiques de ceux qui vous entourent, quelque fois même en oubliant d'où elles proviennent.</li></ul>",
                 "Les autres : <ul><li>Sont troublés par votre respect et votre dédain simultanés des traditions.</li><li>Ont du mal à lire vos expressions ou vous regardent avec suspicion et superstition.</li></ul>"
-            ],
-            "Vous pourriez...": [],
+            ],        
             "physical_desc": [
-                "Les tengus ont nombre de caractéristiques aviaires. Leurs visages sont pourvus d'un bec aiguisé, leurs poignets couvert d'écailles et le bas de leurs jambes se termine par des serres. Comme les chaussures fermées ont tendance à mal leur aller, à moins qu'elles ne soient taillées sur mesure, nombre de tengus portent des sandales ouvertes ou se déplacent pieds nus. Les tengus mesurent rarement plus de 1,80 mètre et ils sont même plus légers que leur frêle stature ne le suggère, car ils ont les os creux. Un petit nombre de tengus possèdent des vestiges d'ailes."
+                "Les tengus ont nombre de caractéristiques aviaires. Leurs visages sont pourvus d'un bec aiguisé, leurs poignets couvert d'écailles et le bas de leurs jambes se termine par des serres. Comme les chaussures fermées ont tendance à mal leur aller, à moins qu'elles ne soient taillées sur mesure, nombre de tengus portent des sandales ouvertes ou se déplacent pieds nus. Les tengus mesurent rarement plus de 1,80 mètre et ils sont même plus légers que leur frêle stature ne le suggère, car ils ont les os creux. Un petit nombre de tengus possèdent des vestiges d'ailes.",
+                "Bec aiguisé Avec votre bec aiguisé, vous n'êtes jamais dépourvu d'une arme. Vous disposez d'une attaque à mains nues de bec qui inflige 1d6 dégâts perforants. Votre bec est dans le groupe d'arme pugilat et possède les traits finesse et à mains nues."
             ],
             "society_desc": [
                 "La plus importante division de la société tengu est entre les tengus qui sont restés dans leur foyer ancestral et ceux qui se sont dispersés à travers le monde. Les tengus se réfèrent à ces deux groupes, respectivement, comme ceux restés 'sur le perchoir' et les 'migrateurs'. Les tengus sur le perchoir tendent à être les plus traditionalistes et conservateurs et sont concentrés sur la préservation de leur culture face à des années d'érosion liée à l'oppression. Les tengus migrateurs, à l'inverse, absorbent voracement la culture des nations variées et des implantations qu'ils considèrent désormais comme leur foyer.",
@@ -1478,9 +1422,6 @@ var RACES = {
                 "protéger les traditions des tengus, adopter les leçons des autres cultures, rechercher les merveilles naturelles",
                 "Anathème populaire",
                 "perdre le contrôle de vos émotions"
-            ],
-            "mecanic": [
-                "Bec aiguisé Avec votre bec aiguisé, vous n'êtes jamais dépourvu d'une arme. Vous disposez d'une attaque à mains nues de bec qui inflige 1d6 dégâts perforants. Votre bec est dans le groupe d'arme pugilat et possède les traits finesse et à mains nues."
             ],
             "start_life": 6,
             "body_size": "M",
@@ -1498,7 +1439,7 @@ var RACES = {
                 "fée",
                 "halfelin",
                 "gnomien",
-                "nanique et n'importe quelle autre langue à laquelle vous avez accès (telles que les langues prévalentes dans votre région)."
+                "nanique"
             ],
             "sens": "Vision nocturne",
             "heritages": [
@@ -1524,16 +1465,14 @@ var RACES = {
                 "Si vous voulez un personnage qui est d'une stature petite mais grand en esprit et possède des qualités d'une grenouille arboricole, vous devriez jouer un tripkee.",
                 "Vous pourriez... : <ul><li>Rechercher des moyens astucieux d'exploiter votre environnement pour surmonter les difficultés.</li><li>Vous faire des amis lentement, préoccupé par les récits édifiants d'étrangers exploiteurs.</li></ul>",
                 "Les autres : <ul><li>Font confiance à votre approche impartiale et mesurée pour comprendre les situations et résoudre les problèmes.</li><li>S'écartent de vous craignant que vous toucher puisse s'avérer toxique.</li></ul>"
-            ],
-            "Vous pourriez...": [],
+            ],    
             "physical_desc": [
-                "Les tripkees ressemblent à des grenouilles arboricoles humanoïdes, avec des yeux surdimensionnés, une large bouche et un physique frêle. Leur frêle ossature et leurs gros orteils leur procurent une excellente adhérence lorsqu'ils grimpent, tandis que leur peau colorée constitue un camouflage fiable qui varie selon leur environnement d'origine - vert et brun pour les groupes vivants dans la jungle, bleu et orange pour les communautés lacustres et de nombreuses autres couleurs entre les deux. Un tripkee grandit rapidement, atteignant une taille adulte d'environ 70 cm de haut environ 3 ans après son éclosion, bien qu'il ne soit considéré comme adulte que vers l'âge de 12 ans. Les tripkees vivent rarement plus de 60 ans, bien que des individus exceptionnels vivent quelques fois jusqu'à un siècle."
+                "Les tripkees ressemblent à des grenouilles arboricoles humanoïdes, avec des yeux surdimensionnés, une large bouche et un physique frêle. Leur frêle ossature et leurs gros orteils leur procurent une excellente adhérence lorsqu'ils grimpent, tandis que leur peau colorée constitue un camouflage fiable qui varie selon leur environnement d'origine - vert et brun pour les groupes vivants dans la jungle, bleu et orange pour les communautés lacustres et de nombreuses autres couleurs entre les deux. Un tripkee grandit rapidement, atteignant une taille adulte d'environ 70 cm de haut environ 3 ans après son éclosion, bien qu'il ne soit considéré comme adulte que vers l'âge de 12 ans. Les tripkees vivent rarement plus de 60 ans, bien que des individus exceptionnels vivent quelques fois jusqu'à un siècle.",
+                "Grimpeur naturel Vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour Escalader."
             ],
             "society_desc": [
                 "Les tripkees mènent un mode de vie sophistiqué de chasseur-cueilleur grâce auquel ils remodèlent le paysage en fonction de leurs besoins : construction de déversoirs pour piéger les poissons, ensemencement d'arbres fruitiers, semis d'une couverture de feuillus pour les chasses futures et d'autres techniques qui échappent souvent à l'œil de l'agriculteur. Ces stratégies reposent sur la coopération communautaire ainsi que sur la dispersion des populations, de sorte que les tripkees vivent généralement dans de petits villages, chacun faisant partie d'un réseau complexe d'alliances et de relations. L'isolement a préservé la vie et le mode de vie des tripkees pendant des millénaires mais ils se trouvent de plus en plus menacés par des maux anciens comme par de nouveaux explorateurs.",
-                "<h3>Exemples de noms</h3>",
-                "",
-                ""
+                "<h3>Exemples de noms</h3>"                
             ],
             "believe_desc": [
                 "Ayant appris à attendre, observer et respecter les processus naturels de la vie et de la mort, nombre de tripkees adoptent des attitudes patientes. Ceux qui jouent un rôle plus actif dans la répression de la cruauté peuvent rejoindre des organisations qui mêlent religion et philosophie, comme les gardiens de fiélons tripkee qui absorbent un être impie dans leur âme pour contenir et éventuellement transformer sa méchanceté par leurs propres actes vertueux. Les divinités de la nature comme Gozreh ou Érastil obtiennent souvent le respect des tripkees, mais les communautés préfèrent généralement des divinités moins importantes et plus intimes comme les seigneurs empyréens, les huissiers psychopompes ou les aînés des fées.",
@@ -1541,10 +1480,7 @@ var RACES = {
                 "améliorer sa partie du monde sans nuire aux autres, pratiquer la patience lorsque c'est possible",
                 "Anathème populaire",
                 "créer une architecture qui supplante le monde naturel, prendre des mesures irréfléchies qui font courir des risques à votre communauté"
-            ],
-            "mecanic": [
-                "Grimpeur naturel Vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour Escalader."
-            ],
+            ],            
             "start_life": 6,
             "body_size": "P",
             "speed": 7,
