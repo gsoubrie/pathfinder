@@ -10,9 +10,16 @@ POPUP.PropertyEdition.prototype = {
             case RACES.key:   
                 this.current_property    = RACES;     
                 this.windows = new RACES.WindowGroup();
-                property_value = params["data_save"][params["property_name"]];                             
+                break;
+            case LEGACIES.key:
+                this.current_property    = LEGACIES;
+                this.windows = new LEGACIES.WindowGroup();
+                break;
+            default:
+                console.log("GSOU", "[PropertyEdition - init]", "not managed", params["property_name"] );
                 break;
         }
+        property_value = params["data_save"][params["property_name"]];
         this.windows.setActiveWindow( property_value );  
         this.computeHtml();
     },

@@ -2,10 +2,9 @@
 CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function () {
-        let params        = new URLSearchParams( location.search );
-        self.races        = new RACES.Races();
-        self.current_uuid = params.get( "id" );
-        self.current_data = eval( self.current_uuid );
+        let params             = new URLSearchParams( location.search );
+        self.current_uuid      = params.get( "id" );
+        self.current_character = new CHARACTER.Current( self.current_uuid );
         self.initTitle();
         self.computeHtml();
     };
@@ -13,22 +12,22 @@ CONTROLLER.Main = (function ( self ) {
         self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
-    self.doActionAfter        = function ( event_name, params ) {
-        console.log(event_name, params);
+    self.doActionAfter      = function ( event_name, params ) {
+        console.log( event_name, params );
         switch ( event_name ) {
             case "open_edition_popup":
-                params["data_save"] = self.area__title.getDataToSave();
-                this.edition_popup = new POPUP.PropertyEdition( params);
+                params[ "data_save" ] = self.area__title.getDataToSave();
+                this.edition_popup    = new POPUP.PropertyEdition( params );
                 break;
             
         }
-    };    
+    };
     self.validPopupEdition  = function () {
         self.area__title.validPopupEdition( this.edition_popup );
         this.edition_popup.close();
         this.edition_popup = null;
     };
-    self.cancelPopupEdition  = function () {
+    self.cancelPopupEdition = function () {
         this.edition_popup.close();
         this.edition_popup = null;
     };

@@ -1,1 +1,1 @@
-let a9b2dfe206c0Ab01Dc3c75a66230924b={"name":"Tapadami","player":"Greg","ancestries":"Gobelin","historique":"","classe":"","body_size":"","alignement":"","trait":"","divinite":"","level":"4","heroisme":"5"}
+let a9b2dfe206c0Ab01Dc3c75a66230924b = { "name": "Tapadami", "player": "Greg", "race": "Gobelin", "historique": "", "classe": "", "body_size": "", "alignement": "", "divinite": "", "level": "4", "heroisme": "5" };
