@@ -7,8 +7,7 @@ AREA.Title.prototype = {
     },
     //********************************************  EVENTS MANAGER   **************************************************//
     validPopupEdition: function ( edition_popup ) {
-        this.getDomElement().querySelector( ".property[data-name='" + edition_popup.current_property.key + "'] .value" ).innerText = edition_popup.windows.getActiveWindow().getName();
-        
+        this.getDomElement().querySelector( ".property[data-name='" + edition_popup.current_property.key_element + "'] .value" ).innerText = edition_popup.windows.getActiveWindow().getName();
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
@@ -40,7 +39,7 @@ AREA.Title.prototype = {
         
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, CONTROLLER.Main.current_character[ RACES.key_element ], RACES.label_element, false ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key, "", "Historique", false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, "", "Historique", false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "classe", "", "Classe", false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "body_size", "", "Taille", false ), container_1 );

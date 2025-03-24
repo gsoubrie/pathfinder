@@ -1,6 +1,6 @@
 "use strict";
-var SHINKEN_VALIDATION = {};
-SHINKEN_VALIDATION.CONST = {
+var SHINKEN_VALIDATION                             = {};
+SHINKEN_VALIDATION.CONST                           = {
     BOOLEAN: {
         _KEY: "boolean"
     },
@@ -31,24 +31,24 @@ SHINKEN_VALIDATION.CONST = {
         DEFINE_STRING_OR_INTEGER_POSITIVE_AND_SMALLER_THAN_MAX: "define_string_or_integer_positive_and_smaller_than_max"
     }
 };
-var SHINKEN = SHINKEN || {};
-SHINKEN.DOM = SHINKEN.DOM || {};
-SHINKEN.MODAL            = SHINKEN.MODAL || {};
-SHINKEN.NAVIGATOR        = SHINKEN.NAVIGATOR || {};
-SHINKEN.PAGE             = SHINKEN.PAGE || {};
-SHINKEN.CALLBACK         = SHINKEN.CALLBACK || {};
-SHINKEN.TOOLS            = SHINKEN.TOOLS || {};
-SHINKEN.TOOLS.ARRAY      = SHINKEN.TOOLS.ARRAY || {};
-SHINKEN.TOOLS.ENCRYPTION = SHINKEN.TOOLS.ENCRYPTION || {};
-SHINKEN.OBJECT           = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.CONST     = SHINKEN.OBJECT.CONST || {};
-SHINKEN.OBJECT.CONST.EVENT_PARAM ={
-    PARENT_PARAMS_OBJECT : "parent___params_object"
+var SHINKEN                                        = SHINKEN || {};
+SHINKEN.DOM                                        = SHINKEN.DOM || {};
+SHINKEN.MODAL                                      = SHINKEN.MODAL || {};
+SHINKEN.NAVIGATOR                                  = SHINKEN.NAVIGATOR || {};
+SHINKEN.PAGE                                       = SHINKEN.PAGE || {};
+SHINKEN.CALLBACK                                   = SHINKEN.CALLBACK || {};
+SHINKEN.TOOLS                                      = SHINKEN.TOOLS || {};
+SHINKEN.TOOLS.ARRAY                                = SHINKEN.TOOLS.ARRAY || {};
+SHINKEN.TOOLS.ENCRYPTION                           = SHINKEN.TOOLS.ENCRYPTION || {};
+SHINKEN.OBJECT                                     = SHINKEN.OBJECT || {};
+SHINKEN.OBJECT.CONST                               = SHINKEN.OBJECT.CONST || {};
+SHINKEN.OBJECT.CONST.EVENT_PARAM                   = {
+    PARENT_PARAMS_OBJECT: "parent___params_object"
 };
-SHINKEN.ELEMENT          = SHINKEN.ELEMENT || {};
-var DOM   = DOM || {};
-DOM.CONST = DOM.CONST || {};
-SHINKEN.CONST               = {
+SHINKEN.ELEMENT                                    = SHINKEN.ELEMENT || {};
+var DOM                                            = DOM || {};
+DOM.CONST                                          = DOM.CONST || {};
+SHINKEN.CONST                                      = {
     KEY_CODE        : {
         TAB      : 9,
         ENTER    : 13,
@@ -95,12 +95,12 @@ SHINKEN.CONST               = {
         CALLBACK_FUNCTION       : "callback_function",
         CALLBACK_DO_ACTION_AFTER: "callback_do_action_after",
         KEY_CODE                : "key_code",
-        EVENT_PARAM : {
-            AVOID_DO_ACTION_AFTER : "avoid_do_action_after"
+        EVENT_PARAM             : {
+            AVOID_DO_ACTION_AFTER: "avoid_do_action_after"
         }
     }
 };
-SHINKEN.CONST.CONFIGURATION = {
+SHINKEN.CONST.CONFIGURATION                        = {
     ELEMENT_UNIQUE_ADDRESS_BEHAVIOUR: {
         DUPLICATED_ACCEPTED: "duplicated_accepted",
         WARNING_DISPLAYED  : "warning_displayed",
@@ -108,7 +108,7 @@ SHINKEN.CONST.CONFIGURATION = {
         SAVE_FORBIDDEN     : "save_forbidden"
     }
 };
-SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin = function ( link, id, label, _class, tooltip ) {
+SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin     = function ( link, id, label, _class, tooltip ) {
     if ( MANAGER.__instance_element_distributor.current_user.is_admin && link && id ) {
         return SHINKEN.TOOLS.buildLinkDomElement( link, id, label, _class, tooltip );
     }
@@ -119,7 +119,7 @@ SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin = function ( link, id, label, _cl
     DOM.Service.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-SHINKEN.TOOLS.buildLinkDomElement              = function ( link, id, label, _class, tooltip ) {
+SHINKEN.TOOLS.buildLinkDomElement                  = function ( link, id, label, _class, tooltip ) {
     var _href = "/elements/" + link + '/' + id;
     if ( !_class ) {
         _class = "title shinken-link shinken-space";
@@ -128,7 +128,7 @@ SHINKEN.TOOLS.buildLinkDomElement              = function ( link, id, label, _cl
     DOM.Service.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-SHINKEN.TOOLS.buildLinkShinkenElement          = function ( element, label, _class, tooltip ) {
+SHINKEN.TOOLS.buildLinkShinkenElement              = function ( element, label, _class, tooltip ) {
     var _uuid = element.uuid;
     if ( element.isNew() ) {
         _uuid += '?new=1';
@@ -138,25 +138,25 @@ SHINKEN.TOOLS.buildLinkShinkenElement          = function ( element, label, _cla
     }
     return SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin( element.getType(), _uuid, label, _class, tooltip );
 };
-var COMMUNICATION                        = {};
-COMMUNICATION.MESSAGE                    = {};
-COMMUNICATION.QUERY                      = {};
-COMMUNICATION.MESSAGE.SUCCESS            = 'success';
-COMMUNICATION.MESSAGE.ERROR              = 'error';
-COMMUNICATION.MESSAGE.WARNING            = 'warning';
-COMMUNICATION.CODE                       = {};
-COMMUNICATION.CODE.SUCCESS               = 200;
-COMMUNICATION.CODE.WARNING               = 202;
-COMMUNICATION.CODE.RESET_CONTENT         = 205;
-COMMUNICATION.CODE.ERROR                 = 400;
-COMMUNICATION.CODE.UNAUTHORIZED          = 401;
-COMMUNICATION.CODE.FORBIDDEN             = 403;
-COMMUNICATION.CODE.NOT_FOUND             = 404;
-COMMUNICATION.CODE.INTERNAL_SERVER_ERROR = 500;
-COMMUNICATION.RETURN_CODE                = {
+var COMMUNICATION                                  = {};
+COMMUNICATION.MESSAGE                              = {};
+COMMUNICATION.QUERY                                = {};
+COMMUNICATION.MESSAGE.SUCCESS                      = 'success';
+COMMUNICATION.MESSAGE.ERROR                        = 'error';
+COMMUNICATION.MESSAGE.WARNING                      = 'warning';
+COMMUNICATION.CODE                                 = {};
+COMMUNICATION.CODE.SUCCESS                         = 200;
+COMMUNICATION.CODE.WARNING                         = 202;
+COMMUNICATION.CODE.RESET_CONTENT                   = 205;
+COMMUNICATION.CODE.ERROR                           = 400;
+COMMUNICATION.CODE.UNAUTHORIZED                    = 401;
+COMMUNICATION.CODE.FORBIDDEN                       = 403;
+COMMUNICATION.CODE.NOT_FOUND                       = 404;
+COMMUNICATION.CODE.INTERNAL_SERVER_ERROR           = 500;
+COMMUNICATION.RETURN_CODE                          = {
     ELEMENT_UNKNOWN: "element-unknown"
 };
-COMMUNICATION.QUERY.GET  = {
+COMMUNICATION.QUERY.GET                            = {
     SEPARATOR             : {
         GET_BEGINNER: '?',
         GET_ADD     : '&',
@@ -266,16 +266,16 @@ COMMUNICATION.QUERY.GET  = {
         GET_INFORMATION_FOR_WEATHER_EXTERNAL_LINKS: "/get_information_for_weather_external_links"
     }
 };
-COMMUNICATION.QUERY.POST = {
+COMMUNICATION.QUERY.POST                           = {
     SYNCHRONIZER: {
         COMPUTE_THRESHOLD_DISPLAY: "/element/compute_threshold_display"
     }
 };
-COMMUNICATION.PAGE_TYPE  = {
+COMMUNICATION.PAGE_TYPE                            = {
     LIST_ALL_ELEMENT : "list-all-element",
     LIST_WORKING_AREA: "list-working-area"
 };
-SHINKEN.TOOLS.STRING             = (function ( self ) {
+SHINKEN.TOOLS.STRING                               = (function ( self ) {
     self.CONST = {
         REGEX                   : {
             HTML_TAG        : /<(?:.|\n)*?>/gm,
@@ -428,7 +428,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
             dom_element.innerHTML = self.cleanXssForTooltip( dom_element.innerHTML );
         }
     };
-    self.cleanJavaScript             = function ( string ) {
+    self.cleanJavaScript                         = function ( string ) {
         if ( typeof string !== 'string' ) {
             return string;
         }
@@ -440,14 +440,14 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         index_close = index_close + "</script>".length;
         return self.cleanJavaScript( string.substring( 0, index_open ) + string.substring( index_close, string.length ) );
     };
-    self.uncleanBeforecleanXss       = function ( string ) {
+    self.uncleanBeforecleanXss                   = function ( string ) {
         if ( typeof string !== 'string' ) {
             return string;
         }
         var _string = self.unescape_xss( string + "" );
         return self.cleanXss( _string );
     };
-    self.unescape_xss                = function ( string ) {
+    self.unescape_xss                            = function ( string ) {
         if ( typeof string !== 'string' ) {
             return string;
         }
@@ -461,26 +461,26 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         string = string.replace( /&#x2F;/g, "/" );
         return string;
     };
-    self.escapeBackslash             = function ( string ) {
+    self.escapeBackslash                         = function ( string ) {
         if ( !string ) {
             return string;
         }
         return SHINKEN.TOOLS.STRING.replaceAll( string, "\\", "___SHINKEN_BACKSLASH___" );
     };
-    self.getRandomInt                = function ( max ) {
+    self.getRandomInt                            = function ( max ) {
         return Math.floor( Math.random() * Math.floor( max ) );
     };
-    self.trim                        = function ( string ) {
+    self.trim                                    = function ( string ) {
         return string.trim();
     };
-    self.trimExtented                = function ( string ) {
+    self.trimExtented                            = function ( string ) {
         var _to_return = string.trim();
         if ( _to_return === string ) {
             return string;
         }
         return self.trimExtented( _to_return );
     };
-    self.format                      = function () {
+    self.format                                  = function () {
         var s = arguments[ 0 ];
         for ( var i = 0; i < arguments.length - 1; i++ ) {
             var reg = new RegExp( "\\{" + i + "\\}", "gm" );
@@ -488,7 +488,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return s;
     };
-    self.getNumberOccurence          = function ( string, to_find ) {
+    self.getNumberOccurence                      = function ( string, to_find ) {
         if ( to_find.length <= 0 ) {
             return (string.length + 1);
         }
@@ -509,35 +509,35 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return n;
     };
-    self.startsWith                  = function ( string, to_find ) {
+    self.startsWith                              = function ( string, to_find ) {
         if ( !string ) {
             return false;
         }
         return string.substr( 0, to_find.length ) === to_find;
     };
-    self.endsWith                    = function ( string, to_find ) {
+    self.endsWith                                = function ( string, to_find ) {
         if ( !string ) {
             return false;
         }
         var _start_index = string.length - to_find.length;
         return string.substr( _start_index ) === to_find;
     };
-    self.hashCode                    = function ( string ) {
+    self.hashCode                                = function ( string ) {
         return string.split( "" ).reduce( function ( a, b ) {
             a = ((a << 5) - a) + b.charCodeAt( 0 );
             return a & a;
         }, 0 );
     };
-    self.buildS4                     = function () {
+    self.buildS4                                 = function () {
         return Math.floor( (1 + Math.random()) * 0x10000 )
                    .toString( 16 )
                    .substring( 1 );
     };
-    self.buildUUID                   = function () {
+    self.buildUUID                               = function () {
         return self.buildS4() + self.buildS4() + '-' + self.buildS4() + '-' + self.buildS4() + '-' +
                self.buildS4() + '-' + self.buildS4() + self.buildS4() + self.buildS4();
     };
-    self.getCharCodes                = function ( string ) {
+    self.getCharCodes                            = function ( string ) {
         var _size      = string.length;
         var _to_return = [];
         for ( var i = 0; i < _size; i++ ) {
@@ -545,20 +545,20 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return _to_return;
     };
-    self.b64Encode                   = function ( str ) {
+    self.b64Encode                               = function ( str ) {
         return btoa( encodeURIComponent( str ).replace( /%([0-9A-F]{2})/g, function ( match, p1 ) {
             return String.fromCharCode( parseInt( p1, 16 ) );
         } ) );
     };
-    self.b64Decode                   = function ( str ) {
+    self.b64Decode                               = function ( str ) {
         return decodeURIComponent( Array.prototype.map.call( atob( str ), function ( c ) {
             return '%' + ('00' + c.charCodeAt( 0 ).toString( 16 )).slice( -2 );
         } ).join( '' ) );
     };
-    self.urlEncode                   = function ( str ) {
+    self.urlEncode                               = function ( str ) {
         return encodeURIComponent( str );
     };
-    self.urlEncodeForEscapeNavigator = function ( str ) {
+    self.urlEncodeForEscapeNavigator             = function ( str ) {
         var to_return = encodeURIComponent( str );
         to_return     = self.replaceAll( to_return, '%', '__' );
         to_return     = self.replaceAll( to_return, '!', '__21' );
@@ -568,24 +568,24 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         to_return     = self.replaceAll( to_return, '~', '__7E' );
         return to_return;
     };
-    self.urlDecode                   = function ( str ) {
+    self.urlDecode                               = function ( str ) {
         return decodeURIComponent( str );
     };
-    self.isEmpty                     = function ( string ) {
+    self.isEmpty                                 = function ( string ) {
         if ( !string ) {
             return true;
         }
         var s = string.replace( /\s/g, '' );
         return s.length === 0;
     };
-    self.isEmptyHtml                 = function ( string ) {
+    self.isEmptyHtml                             = function ( string ) {
         if ( !string ) {
             return true;
         }
         var dom = DOM.Service.createElement( 'div', '', string );
         return self.isEmpty( dom.innerText );
     };
-    self.indexesOf                   = function ( string, to_find ) {
+    self.indexesOf                               = function ( string, to_find ) {
         var _to_return = [];
         
         var _length         = string.length;
@@ -600,11 +600,11 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return _to_return;
     };
-    self.indexesOfNotBetween         = function ( string, to_find, to_ignore ) {
+    self.indexesOfNotBetween                     = function ( string, to_find, to_ignore ) {
         var _to_return = self.indexesOf( string, to_find );
         return self.splicesindexesOfNotBetween( _to_return, to_ignore );
     };
-    self.splicesindexesOfNotBetween  = function ( indexes, to_ignore ) {
+    self.splicesindexesOfNotBetween              = function ( indexes, to_ignore ) {
         var _to_return = indexes;
         var _current_index;
         for ( var i = _to_return.length - 1; i >= 0; i-- ) {
@@ -618,7 +618,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return _to_return;
     };
-    self.extraTextNotBetween         = function ( text, indexes_to_ignore ) {
+    self.extraTextNotBetween                     = function ( text, indexes_to_ignore ) {
         var _to_return = [];
         if ( !Array.isArray( indexes_to_ignore ) || !indexes_to_ignore.length ) {
             return _to_return;
@@ -633,11 +633,11 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return _to_return;
     };
-    self.isInteger                   = function ( string ) {
+    self.isInteger                               = function ( string ) {
         var pattern = /^\d+$/;
         return pattern.test( string );
     };
-    self.splitWithIndexes            = function ( string, indexes, size_split_label ) {
+    self.splitWithIndexes                        = function ( string, indexes, size_split_label ) {
         var _to_return = [];
         if ( !size_split_label ) {
             size_split_label = 1;
@@ -663,15 +663,15 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         return _to_return;
         
     };
-    self.prefix_by_zero              = function ( str, max ) {
+    self.prefix_by_zero                          = function ( str, max ) {
         str = str.toString();
         return str.length < max ? self.prefix_by_zero( "0" + str, max ) : str;
     };
-    self.getSubStringUntil           = function ( string, start, end ) {
+    self.getSubStringUntil                       = function ( string, start, end ) {
         var _size = string.length;
         return string.substr( start, _size - end );
     };
-    self.getAllIndexOf               = function ( string, to_find, to_return, start_index ) {
+    self.getAllIndexOf                           = function ( string, to_find, to_return, start_index ) {
         if ( !to_return ) {
             to_return   = [];
             start_index = 0;
@@ -683,10 +683,10 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return to_return;
     };
-    self.escapeRegExp                = function ( string ) {
+    self.escapeRegExp                            = function ( string ) {
         return string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
     };
-    self.isMatchingStarRegexTab      = function ( to_test, tab_to_test ) {
+    self.isMatchingStarRegexTab                  = function ( to_test, tab_to_test ) {
         for ( var i = 0, _size_i = tab_to_test.length; i < _size_i; i++ ) {
             if ( self.isMatchingStarRegex( to_test, tab_to_test[ i ].trim() ) ) {
                 return true;
@@ -694,7 +694,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return false;
     };
-    self.isMatchingStarRegex         = function ( to_test, regex_star ) {
+    self.isMatchingStarRegex                     = function ( to_test, regex_star ) {
         var _contains_star = self.getAllIndexOf( regex_star, "*" );
         if ( !_contains_star.length ) {
             return to_test.trim() === regex_star.trim();
@@ -711,20 +711,20 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return false;
     };
-    self.toBool                      = function ( value ) {
+    self.toBool                                  = function ( value ) {
         if ( value !== "false" && value !== "true" ) {
             return null;
         }
         return value === "true";
     };
-    self.splitShinken                = function ( string, separator ) {
+    self.splitShinken                            = function ( string, separator ) {
         var _to_return = string.split( separator );
         for ( var i = 0, _size_i = _to_return.length; i < _size_i; i++ ) {
             _to_return[ i ] = _to_return[ i ].trim();
         }
         return _to_return;
     };
-    self.splitAtMaximum              = function ( string, separator, max_split ) {
+    self.splitAtMaximum                          = function ( string, separator, max_split ) {
         if ( !string ) {
             return [];
         }
@@ -745,7 +745,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         }
         return _to_return;
     };
-    self.splitAndJoinExceptLastOne   = function ( string, separator ) {
+    self.splitAndJoinExceptLastOne               = function ( string, separator ) {
         if ( !string ) {
             return string;
         }
@@ -753,14 +753,14 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
         split_string.pop();
         return split_string.join( separator );
     };
-    self.splitForGetLastOne          = function ( string, separator ) {
+    self.splitForGetLastOne                      = function ( string, separator ) {
         if ( !string ) {
             return string;
         }
         let split_string = string.split( separator );
         return split_string.pop();
     };
-    self.splitForGetFirstOne        = function ( string, separator ) {
+    self.splitForGetFirstOne                     = function ( string, separator ) {
         if ( !string ) {
             return string;
         }
@@ -769,7 +769,7 @@ SHINKEN.TOOLS.STRING             = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.STRING || {} );
-SHINKEN.TOOLS.STRING.PARENTHESIS = (function ( self ) {
+SHINKEN.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
     self.isValid          = function ( indexes_opening, indexes_closing ) {
         var _size_open  = indexes_opening.length;
         var _size_close = indexes_closing.length;
@@ -821,7 +821,7 @@ SHINKEN.TOOLS.STRING.PARENTHESIS = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.STRING.PARENTHESIS || {} );
-SHINKEN.TOOLS.STRING.JSON        = (function ( self ) {
+SHINKEN.TOOLS.STRING.JSON                          = (function ( self ) {
     self.isFormatJsonInvalid    = function ( json_to_test ) {
         try {
             JSON.parse( json_to_test );
@@ -839,7 +839,7 @@ SHINKEN.TOOLS.STRING.JSON        = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.STRING.JSON || {} );
-SHINKEN.TOOLS.STRING_FILTER      = (function ( self ) {
+SHINKEN.TOOLS.STRING_FILTER                        = (function ( self ) {
     self.containsIgnoreCase = function ( string, to_find ) {
         if ( !string ) {
             return false;
@@ -854,7 +854,7 @@ SHINKEN.TOOLS.STRING_FILTER      = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.STRING_FILTER || {} );
-SHINKEN.TOOLS.STRING_EVAL        = (function ( self ) {
+SHINKEN.TOOLS.STRING_EVAL                          = (function ( self ) {
     self.parseToDict = function ( to_parse ) {
         try {
             return eval( to_parse );
@@ -865,7 +865,7 @@ SHINKEN.TOOLS.STRING_EVAL        = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.STRING_EVAL || {} );
-SHINKEN.TOOLS.MD5 = (function ( self ) {
+SHINKEN.TOOLS.MD5                                  = (function ( self ) {
     self.MD5 = function ( d ) {
         var result = M( V( Y( X( d ), 8 * d.length ) ) );
         return result.toLowerCase();
@@ -938,14 +938,14 @@ SHINKEN.TOOLS.MD5 = (function ( self ) {
     
     return self;
 })( SHINKEN.TOOLS.MD5 || {} );
-String.prototype.startsWith = String.prototype.startsWith || function ( pattern ) {
+String.prototype.startsWith                        = String.prototype.startsWith || function ( pattern ) {
     return this.indexOf( pattern ) === 0;
 };
-String.prototype.endsWith   = String.prototype.endsWith || function ( pattern ) {
+String.prototype.endsWith                          = String.prototype.endsWith || function ( pattern ) {
     var d = this.length - pattern.length;
     return d >= 0 && this.lastIndexOf( pattern ) === d;
 };
-SHINKEN.TOOLS.CLASS = (function ( self ) {
+SHINKEN.TOOLS.CLASS                                = (function ( self ) {
     self.CONST        = {
         COMPONENT: {
             SELECT: "component-select"
@@ -963,26 +963,26 @@ SHINKEN.TOOLS.CLASS = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.CLASS || {} );
-SHINKEN.TOOLS.Link = (function ( self ) {
+SHINKEN.TOOLS.Link                                 = (function ( self ) {
     self.parse_to_link = function ( item_type, item_name, item_uuid ) {
         return "<a href='/elements/" + item_type + "/" + item_uuid + "' class='shinken-link'>" + item_name + "</a>";
     };
     return self;
 })( SHINKEN.TOOLS.Link || {} );
-var SHINKEN         = SHINKEN || {};
-SHINKEN.OBJECT      = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.COLLAPSE = {
-    PARAM : {
-        NAME : "collapse_folder__name",
-        NAME_FOR_HIDDEN_PREVIEW : "collapse_folder_name_for_hide_preview",
-        IS_OPEN : "is_open"
+var SHINKEN                                        = SHINKEN || {};
+SHINKEN.OBJECT                                     = SHINKEN.OBJECT || {};
+SHINKEN.OBJECT.COLLAPSE                            = {
+    PARAM: {
+        NAME                   : "collapse_folder__name",
+        NAME_FOR_HIDDEN_PREVIEW: "collapse_folder_name_for_hide_preview",
+        IS_OPEN                : "is_open"
     }
 };
-var COMPONENT = COMPONENT || {};
-COMPONENT.CONST = {
+var COMPONENT                                      = COMPONENT || {};
+COMPONENT.CONST                                    = {
     PARAM                   : {
-        STATUS               : "component_status",
-        TEXT_DEFAULT_SELECTOR: "text_default_selector",
+        STATUS                : "component_status",
+        TEXT_DEFAULT_SELECTOR : "text_default_selector",
         TEXT_PLACEHOLDER_INPUT: "text_placeholder_input"
     },
     NOT_FOUND               : -1,
@@ -1105,8 +1105,8 @@ COMPONENT.CONST = {
         }
     }
 };
-var SHINKEN_LIST = SHINKEN_LIST || {};
-SHINKEN_LIST.CONST = SHINKEN_LIST.CONST || {
+var SHINKEN_LIST                                   = SHINKEN_LIST || {};
+SHINKEN_LIST.CONST                                 = SHINKEN_LIST.CONST || {
     MASS_ACTION     : {
         NAME          : 'mass-action',
         WORK_AREA_NAME: 'mass-action-work-area'
@@ -1164,8 +1164,8 @@ SHINKEN_LIST.CONST = SHINKEN_LIST.CONST || {
         CELL_UUID             : "shinken_list_cell_uuid"
     }
 };
-var MANAGER = MANAGER || {};
-MANAGER.CONST = MANAGER.CONST || {
+var MANAGER                                        = MANAGER || {};
+MANAGER.CONST                                      = MANAGER.CONST || {
     STATE          : {
         WORK_FLOW: {
             STAGING     : "save-direct-in-staging",
@@ -1207,17 +1207,17 @@ MANAGER.CONST = MANAGER.CONST || {
         }
     }
 };
-SHINKEN.CARTO = {};
-SHINKEN.CARTO.CONST = {
+SHINKEN.CARTO                                      = {};
+SHINKEN.CARTO.CONST                                = {
     NAME    : "name",
     URL     : "url",
     IS_VALID: "is_valid"
 };
-SHINKEN.OBJECT.ShinkenObject           = function () {
+SHINKEN.OBJECT.ShinkenObject                       = function () {
     this.__class_name__ = "SHINKEN.OBJECT.ShinkenObject";
 };
-SHINKEN.OBJECT.ShinkenObject.prototype = {
-    setShinkenDebug : function ( to_set ) {
+SHINKEN.OBJECT.ShinkenObject.prototype             = {
+    setShinkenDebug            : function ( to_set ) {
         this.is_shinken_debug = to_set;
         var _components       = this.getChildrenObject();
         for ( var i = 0, _size_i = _components.length; i < _size_i; i++ ) {
@@ -1226,13 +1226,13 @@ SHINKEN.OBJECT.ShinkenObject.prototype = {
             }
         }
     },
-    isShinkenDebugOn: function () {
+    isShinkenDebugOn           : function () {
         return this.is_shinken_debug;
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter              : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon        : function ( event_name, param ) {
     },
     getChildrenObject          : function () {
         return [];
@@ -1297,14 +1297,14 @@ SHINKEN.OBJECT.ShinkenObject.prototype = {
     getDefaultKey              : function () {
         return this.default_key;
     },
-    setNeedValidation: function ( to_set ) {
+    setNeedValidation          : function ( to_set ) {
         this.need_validation = to_set;
         var _components      = this.getChildrenObject();
         for ( var i = 0, _size_i = _components.length; i < _size_i; i++ ) {
             _components[ i ].setNeedValidation( to_set );
         }
     },
-    addParamsForEvents     : function ( param_events ) {
+    addParamsForEvents         : function ( param_events ) {
         if ( !param_events ) {
             return;
         }
@@ -1314,24 +1314,24 @@ SHINKEN.OBJECT.ShinkenObject.prototype = {
             this.addParamForEvents( _keys[ i ], param_events[ _keys[ i ] ] );
         }
     },
-    addParamForEvents      : function ( key, value ) {
+    addParamForEvents          : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
     },
-    addParamForEventsCommon: function ( key, value ) {
+    addParamForEventsCommon    : function ( key, value ) {
         this._param_for_events        = this._param_for_events || {};
         this._param_for_events[ key ] = value;
     },
-    getParamForEvents      : function ( key ) {
+    getParamForEvents          : function ( key ) {
         let to_return = this._param_for_events || {};
         if ( key ) {
             return to_return[ key ];
         }
         return to_return;
     },
-    getObjectClassName: function () {
+    getObjectClassName         : function () {
         return this.__class_name__;
     },
-    isObjectClassName : function ( to_test ) {
+    isObjectClassName          : function ( to_test ) {
         return to_test === this.__class_name__;
     }
 };
@@ -1355,9 +1355,9 @@ SHINKEN.OBJECT.ShinkenObjectForContainer.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectForContainer, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.InterfaceHtml           = function () {
+SHINKEN.OBJECT.InterfaceHtml               = function () {
 };
-SHINKEN.OBJECT.InterfaceHtml.prototype = {
+SHINKEN.OBJECT.InterfaceHtml.prototype     = {
     addClass   : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
@@ -1473,24 +1473,24 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         }
         return true;
     },
-    parseParamForEventsToHtml: function () {
+    parseParamForEventsToHtml : function () {
         return SHINKEN.TOOLS.DICT.parseToHTMLParam( this.getParamForEvents() );
     },
-    onClick     : function ( event ) {
+    onClick                   : function ( event ) {
     },
-    hidePopup   : function ( event ) {
+    hidePopup                 : function ( event ) {
     },
-    askHidePopup: function ( dom_element ) {
+    askHidePopup              : function ( dom_element ) {
         if ( dom_element === this.getDomElement() ) {
             return false;
         }
         this.hidePopup( dom_element );
         return true;
     },
-    askAddClass : function ( to_add, time_out ) {
+    askAddClass               : function ( to_add, time_out ) {
         DOM.Service.askAddClass( this.getDomElement(), to_add, time_out );
     },
-    askComputeSizes    : function ( param ) {
+    askComputeSizes           : function ( param ) {
         if ( this.timeout_ask_compute_size ) {
             clearTimeout( this.timeout_ask_compute_size );
         }
@@ -1498,17 +1498,17 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
             this.computeSizes( param );
         }, 200 );
     },
-    setTooltipHtml     : function ( to_set, tooltip_type ) {
+    setTooltipHtml            : function ( to_set, tooltip_type ) {
         this.tooltip_html = to_set;
         this.tooltip_type = tooltip_type;
         this.computeHtml_tooltip();
     },
-    removeTooltipHtml  : function () {
+    removeTooltipHtml         : function () {
         this.tooltip_html = null;
         this.tooltip_type = null;
         this.computeHtml_tooltip();
     },
-    computeHtml_tooltip: function () {
+    computeHtml_tooltip       : function () {
         var _dom = this.getDomElementForTooltip();
         if ( !_dom ) {
             return;
@@ -1532,14 +1532,14 @@ SHINKEN.OBJECT.ShinkenObjectContainer           = function () {
     this.initContents();
 };
 SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
-    initContents: function () {
+    initContents                  : function () {
         this.contents = [];
         this.mapping  = {};
     },
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter                 : function ( event_name, param_1, param_2, param_3 ) {
         this.doActionAfterCommon( event_name, param_1, param_2, param_3 );
     },
-    doActionAfterCommon: function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfterCommon           : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             default:
                 for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -1548,35 +1548,35 @@ SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
                 break;
         }
     },
-    getSize            : function () {
+    getSize                       : function () {
         return this.contents.length;
     },
-    getContents        : function () {
+    getContents                   : function () {
         return this.contents;
     },
-    getContent         : function ( index ) {
+    getContent                    : function ( index ) {
         return this.contents[ index ];
     },
-    getContentByUUID   : function ( uuid ) {
+    getContentByUUID              : function ( uuid ) {
         var _index = this.mapping[ uuid ];
         if ( _index === undefined ) {
             return null;
         }
         return this.contents[ _index ];
     },
-    getMappingIndex    : function ( uuid ) {
+    getMappingIndex               : function ( uuid ) {
         return this.mapping[ uuid ];
     },
-    getNextLoopingIndex: function ( current_index ) {
+    getNextLoopingIndex           : function ( current_index ) {
         if ( this.getSize() > current_index + 1 ) {
             return current_index + 1;
         }
         return 0;
     },
-    getObjectsType     : function () {
+    getObjectsType                : function () {
         return "";
     },
-    isEmpty            : function () {
+    isEmpty                       : function () {
         return this.getSize() === 0;
     },
     doActionAfterContentChildren  : function ( event_name, param_1, param_2, param_3 ) {
@@ -1679,21 +1679,21 @@ SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
         }
         return to_return;
     },
-    getDataToSave: function () {
+    getDataToSave                 : function () {
         let to_return = [];
         for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             to_return.push( this.contents[ i ].getDataToSave() );
         }
         return to_return;
     },
-    addParamForEvents           : function ( key, value ) {
+    addParamForEvents             : function ( key, value ) {
         this.addParamForEventsCommonChild( key, value );
     },
-    addParamForEventsCommonChild: function ( key, value ) {
+    addParamForEventsCommonChild  : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         this.addChildrenParamForEvents( key, value );
     },
-    addChildrenParamForEvents   : function ( key, value ) {
+    addChildrenParamForEvents     : function ( key, value ) {
         if ( !this.contents ) {
             return;
         }
@@ -1706,10 +1706,10 @@ SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectContainer, SHINKEN
 SHINKEN.OBJECT.ShinkenObjectContainerHtml           = function () {
 };
 SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype = {
-    onClick     : function ( event ) {
+    onClick          : function ( event ) {
         this.askHidePopup( this.getDomByEvent( event ) );
     },
-    askHidePopup: function ( dom_element ) {
+    askHidePopup     : function ( dom_element ) {
         if ( dom_element === this.getDomElement() ) {
             return false;
         }
@@ -1762,14 +1762,14 @@ SHINKEN.OBJECT.ConfirmationPopupInterface.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopupInterface, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.SERVER = {};
-SHINKEN.SERVER.CONST = {
+SHINKEN.SERVER                          = {};
+SHINKEN.SERVER.CONST                    = {
     NAME              : "name",
     LIST_SHINKEN_CARTO: "shinken_cartos"
 };
-SHINKEN.ELEMENT.USER = {
+SHINKEN.ELEMENT.USER                    = {
     PARAM : {
-        ACL: {
+        ACL                                                          : {
             KEY             : "acl",
             MAKE_DOWNTIME   : "make_downtime",
             MAKE_ACKNOWLEDGE: "make_acknowledge",
@@ -1797,39 +1797,39 @@ SHINKEN.ELEMENT.USER = {
         },
         GROUPS                                                       : "groups",
         PREFS                                                        : {
-            NAME                        : "prefs",
-            DEFAULT_SCREEN              : {
+            NAME                   : "prefs",
+            DEFAULT_SCREEN         : {
                 NAME: "defaultScreen",
                 TYPE: "type",
                 UUID: "uuid"
             },
-            DEFAULT_LIST                : {
+            DEFAULT_LIST           : {
                 NAME         : "defaultLists",
                 ROOT_PROBLEMS: "rootProblems",
                 ALL          : "all"
             },
-            PANELS                      : {
+            PANELS                 : {
                 NAME: "panels"
             },
-            DETAIL_GRAPH_HOST_WIDTH     : "detail_graph_host_width",
-            DEFAULT_EVENTS_TUB          : {
+            DETAIL_GRAPH_HOST_WIDTH: "detail_graph_host_width",
+            DEFAULT_EVENTS_TUB     : {
                 NAME: "defaultEventsTub",
                 ALL : "all_events"
             },
-            HISTORIC_TAB                : {
+            HISTORIC_TAB           : {
                 NAME               : "historicTab",
                 SHOW_OUTPUTS       : "show_historic_outputs",
                 COLLAPSE_ALL_OUTPUT: "collapse_all_historic_outputs",
                 SIZE_SLA_COLUMNN   : "size_sla_column"
             },
-            WEATHER_SERVICE             : {
-                NAME                  : "weather_service",
-                FORM_POSITION         : "form_position",
+            WEATHER_SERVICE        : {
+                NAME         : "weather_service",
+                FORM_POSITION: "form_position"
             },
-            NOTIFICATION_OF_CHANGE      : {
+            NOTIFICATION_OF_CHANGE : {
                 NAME: "notifications_of_change"
             },
-            OTHERS                      : {
+            OTHERS                 : {
                 NAME: "others"
             }
         },
@@ -1886,7 +1886,7 @@ SHINKEN.ELEMENT.USER = {
         ON : 1
     }
 };
-SHINKEN.SCREEN       = {
+SHINKEN.SCREEN                          = {
     TYPE      : {
         HIVE             : "hive",
         LIST             : "list",
@@ -1908,7 +1908,7 @@ SHINKEN.SCREEN       = {
         DELETED      : 4
     }
 };
-SHINKEN.OBJECT.VIEW = {
+SHINKEN.OBJECT.VIEW                     = {
     PARAM    : {
         NAME              : "name",
         NB_ERRORS         : "nb_errors",
@@ -1967,8 +1967,8 @@ SHINKEN.OBJECT.VIEW = {
         }
     }
 };
-var OBJECT = OBJECT || {};
-OBJECT.CONST = OBJECT.CONST || {
+var OBJECT                              = OBJECT || {};
+OBJECT.CONST                            = OBJECT.CONST || {
     TEMPLATE             : {
         FIELD : {
             UUID             : "uuid",
@@ -2000,13 +2000,13 @@ OBJECT.CONST = OBJECT.CONST || {
         }
     },
     ELEMENT_LIST         : {
-        TYPE: {
+        TYPE         : {
             USER       : "user",
             INHERITANCE: "inheritance",
             SEARCHING  : "searching"
         },
         FILTER_OPTION: {
-            IGNORED  : "ignored_during_filter"
+            IGNORED: "ignored_during_filter"
         }
     },
     MACRO                : {
@@ -2154,10 +2154,10 @@ OBJECT.CONST = OBJECT.CONST || {
         BY_NAME: "2"
     }
 };
-var SHINKEN                     = SHINKEN || {};
-SHINKEN.OBJECT                  = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.CONST            = SHINKEN.OBJECT.CONST || {};
-SHINKEN.OBJECT.CONST.VALIDATION = SHINKEN.OBJECT.CONST.VALIDATION || {
+var SHINKEN                             = SHINKEN || {};
+SHINKEN.OBJECT                          = SHINKEN.OBJECT || {};
+SHINKEN.OBJECT.CONST                    = SHINKEN.OBJECT.CONST || {};
+SHINKEN.OBJECT.CONST.VALIDATION         = SHINKEN.OBJECT.CONST.VALIDATION || {
     FIELD: {
         MESSAGES                : "validation_messages",
         ERRORS                  : "errors",
@@ -2166,15 +2166,15 @@ SHINKEN.OBJECT.CONST.VALIDATION = SHINKEN.OBJECT.CONST.VALIDATION || {
         _KEY_MESSAGE            : "message",
         PATH_VALIDATION_FOR_JSON: "path_validation_for_json"
     },
-    PARAM : {
-        CURRENT_OBJECT : "current_object"
+    PARAM: {
+        CURRENT_OBJECT: "current_object"
     }
 };
-SHINKEN.TOOLS.DICT = (function ( self ) {
-    self.contains                                 = function ( dict, key_to_find ) {
+SHINKEN.TOOLS.DICT                      = (function ( self ) {
+    self.contains                              = function ( dict, key_to_find ) {
         return dict.hasOwnProperty( key_to_find );
     };
-    self.assign                                   = function ( dest, src ) {
+    self.assign                                = function ( dest, src ) {
         var _keys = Object.keys( src );
         var _current_key;
         for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
@@ -2183,19 +2183,19 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         }
         return dest;
     };
-    self.assigns                                  = function ( dest, srcs ) {
+    self.assigns                               = function ( dest, srcs ) {
         return srcs.reduce( self.assign, dest );
     };
-    self.clone                                    = function ( to_clone ) {
+    self.clone                                 = function ( to_clone ) {
         var json = JSON.stringify( to_clone );
         return JSON.parse( json );
     };
-    self.deleteEntry                              = function ( dict_object, key_to_delete ) {
+    self.deleteEntry                           = function ( dict_object, key_to_delete ) {
         var to_return = dict_object[ key_to_delete ];
         delete dict_object[ key_to_delete ];
         return to_return;
     };
-    self.deleteKeyEntries                         = function ( dict_object, key_to_delete ) {
+    self.deleteKeyEntries                      = function ( dict_object, key_to_delete ) {
         delete dict_object[ key_to_delete ];
         var _keys = Object.keys( dict_object );
         var _current_key;
@@ -2205,7 +2205,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
             }
         }
     };
-    self.parseToHTMLParam                         = function ( dict_object ) {
+    self.parseToHTMLParam                      = function ( dict_object ) {
         let to_return = "{";
         var _keys     = Object.keys( dict_object );
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
@@ -2217,7 +2217,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         to_return += "}";
         return to_return;
     };
-    self.replaceValuesForGivenKeyInDict           = function ( dict_object, key, value_to_replace, new_value ) {
+    self.replaceValuesForGivenKeyInDict        = function ( dict_object, key, value_to_replace, new_value ) {
         if ( typeof dict_object !== 'object' || dict_object === null ) {
             return dict_object;
         }
@@ -2236,7 +2236,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         }
         return dict_object;
     };
-    self.updateWithDict                           = function ( dict_dest, dict_src ) {
+    self.updateWithDict                        = function ( dict_dest, dict_src ) {
         if ( typeof dict_src !== 'object' || dict_src === null ) {
             return dict_dest;
         }
@@ -2253,7 +2253,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         }
         return dict_dest;
     };
-    self.isEquals                                 = function ( dict_object_1, dict_object_2 ) {
+    self.isEquals                              = function ( dict_object_1, dict_object_2 ) {
         const keys_1 = Object.keys( dict_object_1 );
         const keys_2 = Object.keys( dict_object_2 );
         
@@ -2278,7 +2278,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         
         return true;
     };
-    self.parseKeyComposedToKey                    = function ( dict_object, key_composed, value ) {
+    self.parseKeyComposedToKey                 = function ( dict_object, key_composed, value ) {
         const key_composed_split = key_composed.split( "." );
         if ( key_composed_split.length === 1 ) {
             dict_object[ key_composed_split ] = value;
@@ -2287,7 +2287,7 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         dict_object[ key_composed_split[ 0 ] ] = dict_object[ key_composed_split[ 0 ] ] || {};
         self.parseKeyComposedToKey( dict_object[ key_composed_split[ 0 ] ], key_composed_split.slice( 1 ).join( "." ), value );
     };
-    self.getObjectWithComposedKey                 = function ( dict_object, key_composed ) {
+    self.getObjectWithComposedKey              = function ( dict_object, key_composed ) {
         if ( !key_composed ) {
             return dict_object;
         }
@@ -2298,19 +2298,19 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
         }
         return self.getObjectWithComposedKey( dict_object[ key_composed_split[ 0 ] ] || dict_object, new_key_composed );
     };
-    self.getObjectWithComposedKey_fromStartKey    = function ( dict_object, key_composed, start_key ) {
+    self.getObjectWithComposedKey_fromStartKey = function ( dict_object, key_composed, start_key ) {
         const key_composed_split = key_composed.split( "." );
         const new_key_composed   = key_composed_split.slice( key_composed_split.indexOf( start_key ) + 1 ).join( "." );
         return self.getObjectWithComposedKey( dict_object, new_key_composed );
     };
-    self.getValueWithComposedKey                  = function ( dict_object, key ) {
+    self.getValueWithComposedKey               = function ( dict_object, key ) {
         const split_keys = key.split( "." );
         if ( split_keys.length === 1 ) {
             return dict_object[ key ];
         }
         return self.getValueWithComposedKey( dict_object[ split_keys[ 0 ] ] || dict_object, split_keys.slice( 1 ).join( "." ) );
     };
-    self.getValueWithComposedKey_WithValue        = function ( dict_object, key_composed ) {
+    self.getValueWithComposedKey_WithValue     = function ( dict_object, key_composed ) {
         const _keys = Object.keys( dict_object );
         if ( _keys.length === 1 && _keys[ 0 ] === SHINKEN.OBJECT.CONST.PARAM.VALUE ) {
             return self.getValueWithComposedKey_WithValue( dict_object[ SHINKEN.OBJECT.CONST.PARAM.VALUE ], key_composed );
@@ -2324,9 +2324,9 @@ SHINKEN.TOOLS.DICT = (function ( self ) {
     return self;
 })
 ( SHINKEN.TOOLS.DICT || {} );
-var WINDOW = {};
-WINDOW.CONST = {
-    ELEMENT   : {
+var WINDOW                              = {};
+WINDOW.CONST                            = {
+    ELEMENT: {
         GENERIC      : "generic",
         DATAS        : "datas",
         CHECKS       : "checks",
@@ -2338,21 +2338,21 @@ WINDOW.CONST = {
         PROPOSED     : "proposed",
         CHANGES      : "changes"
     },
-    CLASS     : {
+    CLASS  : {
         WINDOW_GROUP: "shinken-window-group",
         WINDOW_TAB  : "shinken-window-element"
     },
-    ID        : {
-        WINDOW_TAB: "id-shinken-window-",
+    ID     : {
+        WINDOW_TAB   : "id-shinken-window-",
         WINDOW_TAB_V2: "id-shinken-window-V2",
-        TAB_PANE  : "tab-pane-"
+        TAB_PANE     : "tab-pane-"
     },
-    GROUP     : {
+    GROUP  : {
         MASS_CHANGE: "mass-change"
     }
 };
-var CONTROLLER   = CONTROLLER || {};
-CONTROLLER.CONST = CONTROLLER.CONST || {
+var CONTROLLER                          = CONTROLLER || {};
+CONTROLLER.CONST                        = CONTROLLER.CONST || {
     PARAM_EVENT            : {
         CONTROLLER_OBJECT: "param_event__controller__object"
     },
@@ -2497,7 +2497,7 @@ CONTROLLER.DistributorControllerManager = (function ( self ) {
     };
     return self;
 })( CONTROLLER.DistributorControllerManager || {} );
-var SHINKEN_TOOLTIP = (function ( self ) {
+var SHINKEN_TOOLTIP                     = (function ( self ) {
     "use strict";
     
     self.PLACEMENT                       = {};
@@ -3034,7 +3034,7 @@ var SHINKEN_TOOLTIP = (function ( self ) {
     return self;
     
 })( {} );
-var common_ui_en = {
+var common_ui_en                        = {
     "common"             : {
         "clone_tag"             : " (copy)",
         "error"                 : "Error",
@@ -3175,23 +3175,23 @@ var common_ui_en = {
             "form_widget": {
                 "separator_widget": {
                     "title"          : "Separator widget",
-                    "height": {
+                    "height"         : {
                         "label": "Height",
                         "input": {
                             "placeholder": "Enter a height"
                         }
                     },
-                    "width" : {
+                    "width"          : {
                         "label" : "Width",
                         "radios": {
-                            "all"        : "Full width",
+                            "all": "Full width"
                         },
-                        "input": {
+                        "input" : {
                             "placeholder": "Enter a width"
                         }
                     },
-                    "content"     : {
-                        "layout"    : {
+                    "content"        : {
+                        "layout": {
                             "information_to_display": {
                                 "left_area" : {
                                     "displayed"    : {
@@ -3212,8 +3212,8 @@ var common_ui_en = {
                                     "displayed"    : {
                                         "label" : "Right part",
                                         "radios": {
-                                            "true": "Displayed",
-                                            "false"   : "Hidden"
+                                            "true" : "Displayed",
+                                            "false": "Hidden"
                                         }
                                     },
                                     "width_percent": {
@@ -3264,23 +3264,23 @@ var common_ui_en = {
                 },
                 "title_widget"    : {
                     "title"          : "Title widget",
-                    "height": {
+                    "height"         : {
                         "label": "Height",
                         "input": {
                             "placeholder": "Enter a height"
                         }
                     },
-                    "width" : {
+                    "width"          : {
                         "label" : "Width",
                         "radios": {
-                            "all"        : "Full width",
+                            "all": "Full width"
                         },
-                        "input": {
+                        "input" : {
                             "placeholder": "Enter a width"
                         }
                     },
-                    "content"     : {
-                        "layout"    : {
+                    "content"        : {
+                        "layout": {
                             "information_to_display": {
                                 "title_area": {
                                     "label"            : {
@@ -3290,7 +3290,7 @@ var common_ui_en = {
                                         }
                                     },
                                     "text_color"       : {
-                                        "label" : "Text color",
+                                        "label": "Text color",
                                         "input": {
                                             "placeholder": "Enter a color"
                                         }
@@ -3320,23 +3320,23 @@ var common_ui_en = {
                 },
                 "weather_widget"  : {
                     "title"            : "Weather widget",
-                    "height": {
+                    "height"           : {
                         "label": "Height",
                         "input": {
                             "placeholder": "Enter a height"
                         }
                     },
-                    "width" : {
+                    "width"            : {
                         "label" : "Width",
                         "radios": {
-                            "all"        : "Full width",
+                            "all": "Full width"
                         },
-                        "input": {
+                        "input" : {
                             "placeholder": "Enter a width"
                         }
                     },
                     "content"          : {
-                        "item"      : {
+                        "item"  : {
                             "default_label_selector": "To be defined",
                             "or_label"              : "or",
                             "label"                 : {
@@ -3345,7 +3345,7 @@ var common_ui_en = {
                                 "visualisation_name": "Visualization name"
                             }
                         },
-                        "layout"    : {
+                        "layout": {
                             "background"            : {
                                 "label" : "Background",
                                 "radios": {
@@ -3609,7 +3609,7 @@ var common_ui_en = {
         }
     }
 };
-var common_ui_fr = {
+var common_ui_fr                        = {
     "common"             : {
         "clone_tag"             : " (copie)",
         "error"                 : "Erreur",
@@ -3750,23 +3750,23 @@ var common_ui_fr = {
             "form_widget": {
                 "separator_widget": {
                     "title"          : "Widget séparateur",
-                    "height": {
+                    "height"         : {
                         "label": "Hauteur",
                         "input": {
                             "placeholder": "Saisir une hauteur"
                         }
                     },
-                    "width" : {
+                    "width"          : {
                         "label" : "Largeur",
                         "radios": {
-                            "all"        : "Toute la largeur",
+                            "all": "Toute la largeur"
                         },
-                        "input":{
+                        "input" : {
                             "placeholder": "Saisir une largeur"
                         }
                     },
                     "content"        : {
-                        "layout"    : {
+                        "layout": {
                             "information_to_display": {
                                 "left_area" : {
                                     "displayed"    : {
@@ -3787,8 +3787,8 @@ var common_ui_fr = {
                                     "displayed"    : {
                                         "label" : "A droite",
                                         "radios": {
-                                            "true": "Affiché",
-                                            "false"   : "Caché"
+                                            "true" : "Affiché",
+                                            "false": "Caché"
                                         }
                                     },
                                     "width_percent": {
@@ -3839,23 +3839,23 @@ var common_ui_fr = {
                 },
                 "title_widget"    : {
                     "title"          : "Widget titre",
-                    "height": {
+                    "height"         : {
                         "label": "Hauteur",
                         "input": {
                             "placeholder": "Saisir une hauteur"
                         }
                     },
-                    "width" : {
+                    "width"          : {
                         "label" : "Largeur",
                         "radios": {
-                            "all"        : "Toute la largeur",
+                            "all": "Toute la largeur"
                         },
-                        "input":{
+                        "input" : {
                             "placeholder": "Saisir une largeur"
                         }
                     },
                     "content"        : {
-                        "layout"    : {
+                        "layout": {
                             "information_to_display": {
                                 "title_area": {
                                     "label"            : {
@@ -3865,7 +3865,7 @@ var common_ui_fr = {
                                         }
                                     },
                                     "text_color"       : {
-                                        "label" : "Couleur du texte",
+                                        "label": "Couleur du texte",
                                         "input": {
                                             "placeholder": "Saisir une couleur"
                                         }
@@ -3895,23 +3895,23 @@ var common_ui_fr = {
                 },
                 "weather_widget"  : {
                     "title"            : "Widget météo",
-                    "height": {
+                    "height"           : {
                         "label": "Hauteur",
                         "input": {
                             "placeholder": "Saisir une hauteur"
                         }
                     },
-                    "width" : {
+                    "width"            : {
                         "label" : "Largeur",
                         "radios": {
-                            "all"        : "Toute la largeur",
+                            "all": "Toute la largeur"
                         },
-                        "input":{
+                        "input" : {
                             "placeholder": "Saisir une largeur"
                         }
                     },
                     "content"          : {
-                        "item"      : {
+                        "item"  : {
                             "default_label_selector": "À définir",
                             "or_label"              : "ou",
                             "label"                 : {
@@ -3920,7 +3920,7 @@ var common_ui_fr = {
                                 "visualisation_name": "Nom de Visualisation"
                             }
                         },
-                        "layout"    : {
+                        "layout": {
                             "background"            : {
                                 "label" : "Fond",
                                 "radios": {
@@ -4184,7 +4184,7 @@ var common_ui_fr = {
         }
     }
 };
-SHINKEN.OBJECT.COUNTER_V2_CONST = {
+SHINKEN.OBJECT.COUNTER_V2_CONST         = {
     TYPE: {
         ERRORS      : "errors",
         WARNINGS    : "warnings",
@@ -4198,12 +4198,12 @@ SHINKEN.OBJECT.COUNTER_V2_CONST = {
         WIDGET_TOTAL: "widget_total"
     }
 };
-SHINKEN.OBJECT.CounterV2           = function ( type ) {
+SHINKEN.OBJECT.CounterV2                = function ( type ) {
     this.__class_name__ = 'SHINKEN.OBJECT.CounterV2';
     this.init( type );
 };
-SHINKEN.OBJECT.CounterV2.prototype = {
-    init: function ( type ) {
+SHINKEN.OBJECT.CounterV2.prototype      = {
+    init                          : function ( type ) {
         this._counter_final       = 0;
         this.label                = "";
         this._is_label_before     = false;
@@ -4219,33 +4219,33 @@ SHINKEN.OBJECT.CounterV2.prototype = {
         this._has_animation       = false;
         this.class                = "shinken-counter shinken-" + this.type + "-counter";
     },
-    getValue                  : function () {
+    getValue                      : function () {
         return this._counter_final;
     },
-    getType                   : function () {
+    getType                       : function () {
         return this.type;
     },
-    hasCounter                : function () {
+    hasCounter                    : function () {
         return !!this._counter_final;
     },
-    setShowIfNull             : function ( to_set ) {
+    setShowIfNull                 : function ( to_set ) {
         this._show_if_null = !!to_set;
     },
-    setAnimation              : function ( to_set ) {
+    setAnimation                  : function ( to_set ) {
         this._has_animation = !!to_set;
     },
-    reset                     : function () {
+    reset                         : function () {
         this._elements_mapping = {};
         this._counter_final    = 0;
         this.showForParent( true );
         this.updateTargetsDomElement();
         this._updateHTML();
     },
-    showForParent             : function ( show ) {
+    showForParent                 : function ( show ) {
         this._show_to_parent = !!show;
         this.updateParents();
     },
-    updateParents             : function () {
+    updateParents                 : function () {
         if ( this.is_patient ) {
             return;
         }
@@ -4253,7 +4253,7 @@ SHINKEN.OBJECT.CounterV2.prototype = {
             this._counter_parent_list[ i ].update( this.uuid, this._show_to_parent ? this._counter_final : 0 );
         }
     },
-    update                    : function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
+    update                        : function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
         if ( !nb_counter ) {
             delete this._elements_mapping[ name ];
         }
@@ -4271,7 +4271,7 @@ SHINKEN.OBJECT.CounterV2.prototype = {
         this._counter_final = this._is_string ? "" : 0;
         this.finalUpdate( retry_update_html );
     },
-    askFinalUpdate            : function ( retry_update_html ) {
+    askFinalUpdate                : function ( retry_update_html ) {
         if ( this.timeout_final_update ) {
             clearTimeout( this.timeout_final_update );
         }
@@ -4280,7 +4280,7 @@ SHINKEN.OBJECT.CounterV2.prototype = {
             this.timeout_final_update = null;
         }, 10 );
     },
-    finalUpdate               : function ( retry_update_html ) {
+    finalUpdate                   : function ( retry_update_html ) {
         let _keys = Object.keys( this._elements_mapping );
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
             this._counter_final = this._counter_final + this._elements_mapping[ _keys[ i ] ];
@@ -4289,45 +4289,45 @@ SHINKEN.OBJECT.CounterV2.prototype = {
         this.updateParents();
         return this._askUpdateHTML( retry_update_html );
     },
-    setParent                 : function ( to_add ) {
+    setParent                     : function ( to_add ) {
         if ( !to_add ) {
             return;
         }
         SHINKEN.TOOLS.ARRAY.addElement( this._counter_parent_list, to_add );
         this.updateParents();
     },
-    setDataTargetName         : function ( to_set ) {
+    setDataTargetName             : function ( to_set ) {
         this._data_target_name = to_set;
     },
-    doActionAfterSetDomElement: function () {
+    doActionAfterSetDomElement    : function () {
         if ( !this.dom_element_label ) {
             this.dom_element_label = this.getDomElement().querySelector( ".shinken-counter-label" );
         }
     },
-    setDomElementLabel        : function ( to_set ) {
+    setDomElementLabel            : function ( to_set ) {
         this.dom_element_label = to_set;
         this._updateHTML();
     },
-    addTargetsDomElement      : function ( to_set, data_target_name ) {
+    addTargetsDomElement          : function ( to_set, data_target_name ) {
         if ( data_target_name ) {
             this.setDataTargetName( data_target_name );
         }
         SHINKEN.TOOLS.ARRAY.addElement( this._targets_dom_element, to_set );
         this.updateTargetsDomElement();
     },
-    updateTargetsDomElement   : function () {
+    updateTargetsDomElement       : function () {
         for ( let i = 0, _size_i = this._targets_dom_element.length; i < _size_i; i++ ) {
             DOM.Service.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
         }
     },
-    setLabel                  : function ( to_set, is_before ) {
+    setLabel                      : function ( to_set, is_before ) {
         this.label            = DOM.Service.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
         this._is_label_before = !!is_before;
     },
-    isString                  : function ( to_set ) {
+    isString                      : function ( to_set ) {
         this._is_string = to_set;
     },
-    _askUpdateHTML            : function ( retry_update_html ) {
+    _askUpdateHTML                : function ( retry_update_html ) {
         if ( this.timeout_html ) {
             clearTimeout( this.timeout_html );
         }
@@ -4336,7 +4336,7 @@ SHINKEN.OBJECT.CounterV2.prototype = {
             this.timeout_html = null;
         }, 50 );
     },
-    _updateHTML               : function ( retry_update_html ) {
+    _updateHTML                   : function ( retry_update_html ) {
         if ( !this.dom_element_label && !this.dom_element ) {
             return;
         }
@@ -4382,7 +4382,7 @@ SHINKEN.OBJECT.CounterV2.prototype = {
         }
         return null;
     },
-    computeHtml: function () {
+    computeHtml                   : function () {
         let _value = this._counter_final;
         if ( !_value ) {
             if ( this._show_if_null ) {
@@ -4557,7 +4557,7 @@ SHINKEN.OBJECT.CounterInterfaceV2_patient.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceV2, SHINKEN.OBJECT.ShinkenObjectHtml );
 SHINKEN.OBJECT.Counter           = function ( dom_element, show_if_null ) {
-    this.__class_name__ = 'SHINKEN.OBJECT.Counter';
+    this.__class_name__         = 'SHINKEN.OBJECT.Counter';
     this._counter_final         = 0;
     this.label                  = "";
     this._is_label_before       = false;
@@ -4579,7 +4579,7 @@ SHINKEN.OBJECT.Counter           = function ( dom_element, show_if_null ) {
     }
 };
 SHINKEN.OBJECT.Counter.prototype = {
-    init            : function ( dom_element, update_with_dom ) {
+    init                  : function ( dom_element, update_with_dom ) {
         this.dom_element = dom_element;
         this.setDiscreet( !this.dom_element );
         if ( this.dom_element ) {
@@ -4608,10 +4608,10 @@ SHINKEN.OBJECT.Counter.prototype = {
             }
         }
     },
-    initFromParent  : function ( parent, update_with_dom ) {
+    initFromParent        : function ( parent, update_with_dom ) {
         this.init( DOM.Service.askFindChildElementWithClass( parent.dom_element, this.getDomSelector(), 'shinken-counter-candidate', 30 ), update_with_dom );
     },
-    initValueWithDom: function () {
+    initValueWithDom      : function () {
         if ( !this.dom_element ) {
             return;
         }
@@ -4620,44 +4620,44 @@ SHINKEN.OBJECT.Counter.prototype = {
         }
         this.update( "init_with_dom" + this.uuid, parseInt( this.dom_element.dataset.number ) );
     },
-    getValue                    : function () {
+    getValue              : function () {
         return this._counter_final;
     },
-    has                         : function ( name ) {
+    has                   : function ( name ) {
         return !!this._elements_mapping[ name ];
     },
-    setDiscreet                 : function ( to_set ) {
+    setDiscreet           : function ( to_set ) {
         this.is_discreet = !!to_set;
     },
-    hasCounter                  : function () {
+    hasCounter            : function () {
         return !!this._counter_final;
     },
-    setShowIfNull               : function ( to_set ) {
+    setShowIfNull         : function ( to_set ) {
         this._show_if_null = !!to_set;
     },
-    setAnimation                : function ( to_set ) {
+    setAnimation          : function ( to_set ) {
         this._has_animation = !!to_set;
     },
-    reset                       : function () {
+    reset                 : function () {
         this._elements_mapping = {};
         this._counter_final    = 0;
         this.showForParent( true );
         this.updateTargetDomElement();
         this._updateHTML();
     },
-    showForParent               : function ( show ) {
+    showForParent         : function ( show ) {
         this._show_to_parent = !!show;
         this.updateParents();
     },
-    removeAllParents            : function () {
+    removeAllParents      : function () {
         this._counter_parent_list = [];
     },
-    updateParents               : function () {
+    updateParents         : function () {
         for ( var i = 0, _size_i = this._counter_parent_list.length; i < _size_i; i++ ) {
             this._counter_parent_list[ i ].update( this.uuid, this._show_to_parent ? this._counter_final : 0 );
         }
     },
-    update                      : function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
+    update                : function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
         if ( !nb_counter ) {
             delete this._elements_mapping[ name ];
         }
@@ -4681,7 +4681,7 @@ SHINKEN.OBJECT.Counter.prototype = {
         this.updateParents();
         return this._askUpdateHTML( retry_update_html );
     },
-    setParent                   : function ( to_add ) {
+    setParent             : function ( to_add ) {
         if ( !to_add ) {
             return;
         }
@@ -4690,34 +4690,34 @@ SHINKEN.OBJECT.Counter.prototype = {
         this.updateParents();
         this._updateHTML();
     },
-    setDataTargetName           : function ( to_set ) {
+    setDataTargetName     : function ( to_set ) {
         this._data_target_name = to_set;
     },
-    setDomElementLabel          : function ( to_set ) {
+    setDomElementLabel    : function ( to_set ) {
         this.dom_element_label = to_set;
         this.is_discreet       = false;
         this._updateHTML();
     },
-    addTargetsDomElement        : function ( to_set, data_target_name ) {
+    addTargetsDomElement  : function ( to_set, data_target_name ) {
         if ( data_target_name ) {
             this.setDataTargetName( data_target_name );
         }
         this._targets_dom_element.push( to_set );
         this.updateTargetDomElement();
     },
-    updateTargetDomElement      : function () {
+    updateTargetDomElement: function () {
         for ( var i = 0, _size_i = this._targets_dom_element.length; i < _size_i; i++ ) {
             DOM.Service.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
         }
     },
-    setLabel                    : function ( to_set, is_before ) {
+    setLabel              : function ( to_set, is_before ) {
         this.label            = DOM.Service.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
         this._is_label_before = !!is_before;
     },
-    isString                    : function ( to_set ) {
+    isString              : function ( to_set ) {
         this._is_string = to_set;
     },
-    _askUpdateHTML              : function ( retry_update_html ) {
+    _askUpdateHTML        : function ( retry_update_html ) {
         if ( this.timeout_html ) {
             clearTimeout( this.timeout_html );
         }
@@ -4727,7 +4727,7 @@ SHINKEN.OBJECT.Counter.prototype = {
             self.timeout_html = null;
         }, 50 );
     },
-    _updateHTML                 : function ( retry_update_html ) {
+    _updateHTML           : function ( retry_update_html ) {
         if ( this.is_discreet ) {
             return false;
         }
@@ -4773,7 +4773,7 @@ SHINKEN.OBJECT.Counter.prototype = {
         }
         return true;
     },
-    getDomSelector              : function () {
+    getDomSelector        : function () {
         switch ( this.type ) {
             case "error":
                 return ".shinken-error-counter";
@@ -4787,7 +4787,7 @@ SHINKEN.OBJECT.Counter.prototype = {
                 return this.dom_class_selector;
         }
     },
-    computeHtml: function () {
+    computeHtml           : function () {
         var _value = this._counter_final;
         if ( !_value ) {
             if ( this._show_if_null ) {
@@ -4804,7 +4804,7 @@ SHINKEN.OBJECT.Counter.prototype = {
         this.dom_element_label = DOM.Service.createElement( "span", { class: "shinken-counter-label" }, _value );
         DOM.Service.addElementTo( this.dom_element_label, this.dom_element );
     },
-    pulsate: function () {
+    pulsate               : function () {
         if ( !this.hasCounter() ) {
             return;
         }
@@ -5040,7 +5040,7 @@ SHINKEN.OBJECT.CounterInterface.prototype = {
             }
         }
     },
-    computeCountersHtml: function () {
+    computeCountersHtml           : function () {
         this.warnings.computeHtml();
         this.errors.computeHtml();
         this.user_set.computeHtml();
@@ -5064,9 +5064,9 @@ SHINKEN.OBJECT.Sorting           = function () {
     this._counter       = new SHINKEN.OBJECT.Counter();
 };
 SHINKEN.OBJECT.Sorting.prototype = {
-    init: function () {
+    init                      : function () {
     },
-    changeToNextStatus: function () {
+    changeToNextStatus        : function () {
         switch ( this._status ) {
             case SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE:
                 return;
@@ -5081,7 +5081,7 @@ SHINKEN.OBJECT.Sorting.prototype = {
                 break;
         }
     },
-    doActionAfter     : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter             : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "click-on-header-popup":
                 this.changePopUpStatus();
@@ -5098,14 +5098,14 @@ SHINKEN.OBJECT.Sorting.prototype = {
                 break;
         }
     },
-    changePopUpStatus : function ( to_set ) {
+    changePopUpStatus         : function ( to_set ) {
         if ( !to_set ) {
             to_set = this._pop_up_status === SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE ? SHINKEN.OBJECT.SORTING.POPUP_STATUS.OPEN : SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE;
         }
         this._pop_up_status = to_set;
         this.updateDomParent();
     },
-    hidePopup         : function () {
+    hidePopup                 : function () {
         this.changePopUpStatus( SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE );
     },
     getStatus                 : function () {
@@ -5219,10 +5219,10 @@ SHINKEN.OBJECT.SortingInterface.prototype = {
     setDomParentForSorting : function ( to_set ) {
         this.sorting_object.setDomParent( to_set );
     },
-    hidePopupSorting    : function () {
+    hidePopupSorting       : function () {
         this.sorting_object.hidePopup();
     },
-    clickOnButtonSorting: function ( event, event_name, param ) {
+    clickOnButtonSorting   : function ( event, event_name, param ) {
         switch ( event_name ) {
             case "click-on-header-popup":
             case "click-on-option-header-popup":
@@ -5231,21 +5231,21 @@ SHINKEN.OBJECT.SortingInterface.prototype = {
                 break;
         }
     },
-    getSortingIndex     : function () {
+    getSortingIndex        : function () {
         return this.sorting_object.getIndex();
     },
-    getSortingStatus    : function () {
+    getSortingStatus       : function () {
         return this.sorting_object.getStatus();
     },
-    setSortingIndex     : function ( to_set ) {
+    setSortingIndex        : function ( to_set ) {
         return this.sorting_object.setIndex( to_set );
     },
-    setSortingStatus    : function ( to_set ) {
+    setSortingStatus       : function ( to_set ) {
         return this.sorting_object.setStatus( to_set );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SortingInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.SORTING = {
+SHINKEN.OBJECT.SORTING                   = {
     NO_INDEX    : 0,
     STATUS      : {
         UNAVAILABLE: "UNAVAILABLE",
@@ -5258,7 +5258,7 @@ SHINKEN.OBJECT.SORTING = {
         OPEN : "OPEN"
     }
 };
-SHINKEN.TOOLS.ARRAY = (function ( self ) {
+SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
     "use strict";
     
     self.cleanEmpty                      = function ( array ) {
@@ -5833,7 +5833,7 @@ SHINKEN.TOOLS.ARRAY = (function ( self ) {
         }
         return false;
     };
-    self.areEqual                       = function ( array1, array2 ) {
+    self.areEqual                        = function ( array1, array2 ) {
         return JSON.stringify( array1 ) === JSON.stringify( array2 );
     };
     self.getMedianIndex                  = function ( array, round_up ) {
@@ -5939,9 +5939,9 @@ SHINKEN.TOOLS.ARRAY = (function ( self ) {
     return self;
 })
 ( SHINKEN.TOOLS.ARRAY || {} );
-SHINKEN.TOOLS.ARRAY.NOT_FOUND = -1;
-SHINKEN.TOOLS.BOOLEAN = (function ( self ) {
-    self.isBoolean               = function ( value ) {
+SHINKEN.TOOLS.ARRAY.NOT_FOUND            = -1;
+SHINKEN.TOOLS.BOOLEAN                    = (function ( self ) {
+    self.isBoolean      = function ( value ) {
         return value === false || value === true || value === "false" || value === "true";
     };
     self.parseToBoolean = function ( value ) {
@@ -5955,9 +5955,9 @@ SHINKEN.TOOLS.BOOLEAN = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.BOOLEAN || {} );
-var DATE_TIME    = DATE_TIME || {};
+var DATE_TIME                            = DATE_TIME || {};
 var __translation;
-DATE_TIME.FORMAT = {
+DATE_TIME.FORMAT                         = {
     TIME           : {
         DEFAULT: "HH:MM:SS",
         HH_MM  : "HH:MM"
@@ -6018,33 +6018,33 @@ DATE_TIME.FORMAT = {
         MIN : "min"
     }
 };
-DATE_TIME.now                        = function () {
+DATE_TIME.now                            = function () {
     return new Date();
 };
-DATE_TIME.getCurrentYear             = function () {
+DATE_TIME.getCurrentYear                 = function () {
     return new Date().getFullYear();
 };
-DATE_TIME.isCurrentYear              = function ( year ) {
+DATE_TIME.isCurrentYear                  = function ( year ) {
     return parseInt( year ) === DATE_TIME.getCurrentYear();
 };
-DATE_TIME.isCurrentDay               = function ( date_string ) {
+DATE_TIME.isCurrentDay                   = function ( date_string ) {
     return date_string === DATE_TIME.FORMAT.get_date( DATE_TIME.now() );
 };
-DATE_TIME.isInThePast                = function ( date_string ) {
+DATE_TIME.isInThePast                    = function ( date_string ) {
     return date_string < DATE_TIME.FORMAT.get_date( DATE_TIME.now() );
 };
-DATE_TIME.buildDate                  = function ( day_delta ) {
+DATE_TIME.buildDate                      = function ( day_delta ) {
     var _to_return = new Date();
     _to_return.setDate( _to_return.getDate() + day_delta );
     return _to_return;
 };
-DATE_TIME.getTimestampNow            = function () {
+DATE_TIME.getTimestampNow                = function () {
     return Date.now();
 };
-DATE_TIME.getTimestampNow_format_sec = function () {
+DATE_TIME.getTimestampNow_format_sec     = function () {
     return parseInt( Date.now() / 1000 );
 };
-DATE_TIME.FORMAT.getTime = function ( date, format ) {
+DATE_TIME.FORMAT.getTime                 = function ( date, format ) {
     if ( !format ) {
         format = DATE_TIME.FORMAT.TIME.DEFAULT;
     }
@@ -6082,7 +6082,7 @@ DATE_TIME.FORMAT.get_date_from_timestamp = function ( timestamp, format ) {
 DATE_TIME.FORMAT.get_time_from_timestamp = function ( timestamp, format ) {
     return DATE_TIME.FORMAT.getTime( new Date( timestamp * 1000 ), format );
 };
-DATE_TIME.initTraduction = function () {
+DATE_TIME.initTraduction                 = function () {
     __translation = [];
     var keys      = Object.keys( DATE_TIME.FORMAT.TIME_PERIOD );
     var _key,
@@ -6097,13 +6097,13 @@ DATE_TIME.initTraduction = function () {
     }
     __translation[ DATE_TIME.NOW ] = [_( 'date_time.now', [DICTIONARY_COMMON_UI] ), ''];
 };
-DATE_TIME.getTraduction    = function ( key, is_plural ) {
+DATE_TIME.getTraduction                  = function ( key, is_plural ) {
     if ( !__translation ) {
         this.initTraduction();
     }
     return __translation[ key ][ is_plural ? 1 : 0 ];
 };
-DATE_TIME.durationToString = function ( timestamp, is_short_name, limit, escape_extra_text ) {
+DATE_TIME.durationToString               = function ( timestamp, is_short_name, limit, escape_extra_text ) {
     if ( !timestamp ) {
         return DATE_TIME.getTraduction( DATE_TIME.NOW, false );
     }
@@ -6161,7 +6161,7 @@ DATE_TIME.durationToString = function ( timestamp, is_short_name, limit, escape_
     }
     return toReturn;
 };
-DATE_TIME.relativeTime = function ( elapsed ) {
+DATE_TIME.relativeTime                   = function ( elapsed ) {
     if ( elapsed < 0 ) {
         return DATE_TIME.relativeTime( -elapsed ) + ' ago';
     }
@@ -6191,7 +6191,7 @@ DATE_TIME.relativeTime = function ( elapsed ) {
         return Math.round( elapsed / msPerYear );
     }
 };
-DATE_TIME.isValid                = function ( type, string_value ) {
+DATE_TIME.isValid                        = function ( type, string_value ) {
     var _value_splitted = string_value.split( '' );
     var _size           = _value_splitted.length;
     var value;
@@ -6254,10 +6254,10 @@ DATE_TIME.isValid                = function ( type, string_value ) {
     }
     return true;
 };
-DATE_TIME.isValidRangeTimeperiod = function ( time1, time2 ) {
+DATE_TIME.isValidRangeTimeperiod         = function ( time1, time2 ) {
     return (DATE_TIME.getTimeperiodLabel( PROPERTY.CONST.TIMEPERIOD.FORMAT_LABEL.HOUR, time1 ) <= DATE_TIME.getTimeperiodLabel( PROPERTY.CONST.TIMEPERIOD.FORMAT_LABEL.HOUR, time2 ));
 };
-DATE_TIME.splitTimeperiodDay         = function ( value ) {
+DATE_TIME.splitTimeperiodDay             = function ( value ) {
     var _to_return         = [];
     var _timeperiod_ranges = value.split( PROPERTY.CONST.TIMEPERIOD.SEPARATOR.RANGES );
     for ( var i = 0, _size = _timeperiod_ranges.length; i < _size; i++ ) {
@@ -6265,7 +6265,7 @@ DATE_TIME.splitTimeperiodDay         = function ( value ) {
     }
     return _to_return;
 };
-DATE_TIME.splitTimeperiodRanges      = function ( value ) {
+DATE_TIME.splitTimeperiodRanges          = function ( value ) {
     var ranges       = value.split( PROPERTY.CONST.TIMEPERIOD.SEPARATOR.HOURS );
     var _size_ranges = ranges.length;
     var _to_return   = [];
@@ -6274,7 +6274,7 @@ DATE_TIME.splitTimeperiodRanges      = function ( value ) {
     }
     return _to_return;
 };
-DATE_TIME.splitTimeperiodTime        = function ( value ) {
+DATE_TIME.splitTimeperiodTime            = function ( value ) {
     var _to_return     = {};
     var _time_splitted = value.split( PROPERTY.CONST.TIMEPERIOD.SEPARATOR.HOUR_MIN );
     if ( _time_splitted.length !== 2 ) {
@@ -6286,7 +6286,7 @@ DATE_TIME.splitTimeperiodTime        = function ( value ) {
     
     return _to_return;
 };
-DATE_TIME.getTimeperiodLabel         = function ( type, value ) {
+DATE_TIME.getTimeperiodLabel             = function ( type, value ) {
     switch ( type ) {
         case PROPERTY.CONST.TIMEPERIOD.FORMAT_LABEL.HOUR:
             return value.hour + PROPERTY.CONST.TIMEPERIOD.SEPARATOR.HOUR_MIN + value.min;
@@ -6306,17 +6306,17 @@ DATE_TIME.getTimeperiodLabel         = function ( type, value ) {
             return _to_return;
     }
 };
-DATE_TIME.initHistoricArrayTimeStamp = function ( length ) {
+DATE_TIME.initHistoricArrayTimeStamp     = function ( length ) {
     var toReturn = [];
     for ( var i = length - 1; i >= 0; i-- ) {
         toReturn.push( DATE_TIME.buildDate( -i ).getTime() / 1000 );
     }
     return toReturn;
 };
-DATE_TIME.getTimezoneOffsetInHour = function( value ) {
+DATE_TIME.getTimezoneOffsetInHour        = function ( value ) {
     return value.getTimezoneOffset() / 60;
 };
-DATE_TIME.getDateAndTimeToHtml  = function ( timestamp ) {
+DATE_TIME.getDateAndTimeToHtml           = function ( timestamp ) {
     var toReturn = "<span class='shinken-date'>";
     toReturn += DATE_TIME.FORMAT.get_date_from_timestamp( timestamp );
     toReturn += "</span>";
@@ -6325,13 +6325,13 @@ DATE_TIME.getDateAndTimeToHtml  = function ( timestamp ) {
     toReturn += "</span>";
     return toReturn;
 };
-DATE_TIME.getDateToHtml         = function ( timestamp ) {
+DATE_TIME.getDateToHtml                  = function ( timestamp ) {
     var toReturn = "<span class='shinken-date'>";
     toReturn += DATE_TIME.FORMAT.get_date_from_timestamp( timestamp );
     toReturn += "</span>";
     return toReturn;
 };
-DATE_TIME.parseSecondToString   = function ( seconds_to_parse ) {
+DATE_TIME.parseSecondToString            = function ( seconds_to_parse ) {
     var sec_num = parseInt( seconds_to_parse, 10 ); // don't forget the second param
     var hours   = Math.floor( sec_num / 3600 );
     var minutes = Math.floor( (sec_num - (hours * 3600)) / 60 );
@@ -6348,7 +6348,7 @@ DATE_TIME.parseSecondToString   = function ( seconds_to_parse ) {
     }
     return hours + ':' + minutes + ':' + seconds;
 };
-DATE_TIME.parseSecondToString_2 = function ( seconds_to_parse ) {
+DATE_TIME.parseSecondToString_2          = function ( seconds_to_parse ) {
     var sec_num  = parseInt( seconds_to_parse, 10 ); // don't forget the second param
     var days_man = Math.floor( sec_num / (3600 * 7) );
     var hours    = Math.floor( (sec_num - (days_man * 3600 * 7)) / 3600 );
@@ -6366,7 +6366,7 @@ DATE_TIME.parseSecondToString_2 = function ( seconds_to_parse ) {
     }
     return days_man + 'j/h ' + hours + ':' + minutes + ':' + seconds;
 };
-DATE_TIME.getTimeBetweenToDate = function ( start_to_hour, end_to_hour, timestamp_to_remove ) {
+DATE_TIME.getTimeBetweenToDate           = function ( start_to_hour, end_to_hour, timestamp_to_remove ) {
     var _timestamp_start = new Date();
     var _timestamp_end   = new Date();
     var _split_start     = start_to_hour.split( ":" );
@@ -6379,21 +6379,21 @@ DATE_TIME.getTimeBetweenToDate = function ( start_to_hour, end_to_hour, timestam
     }
     return DATE_TIME.durationToString_2( _duration, true );
 };
-DATE_TIME.getWeekNumber = function ( date ) {
+DATE_TIME.getWeekNumber                  = function ( date ) {
     date = new Date( Date.UTC( date.getFullYear(), date.getMonth(), date.getDate() ) );
     date.setUTCDate( date.getUTCDate() + 4 - (date.getUTCDay() || 7) );
     var yearStart = new Date( Date.UTC( date.getUTCFullYear(), 0, 1 ) );
     return Math.ceil( (((date - yearStart) / 86400000) + 1) / 7 );
 };
-DATE_TIME.isTimeEqualsWithDelta = function ( time_string_to_test, time_string_to_compare, delta_minute ) {
+DATE_TIME.isTimeEqualsWithDelta          = function ( time_string_to_test, time_string_to_compare, delta_minute ) {
     let to_test    = DATE_TIME.parseStringToTime( time_string_to_test );
     let to_compare = DATE_TIME.parseStringToTime( time_string_to_compare );
     return Math.abs( to_compare - to_test ) <= delta_minute * DATE_TIME.FORMAT.TIME_PERIOD.MINUTE.NB_MS;
 };
-DATE_TIME.parseStringToDate = function ( date_string ) {
+DATE_TIME.parseStringToDate              = function ( date_string ) {
     return new Date( Date.parse( date_string ) );
 };
-DATE_TIME.parseStringToTime = function ( time_string ) {
+DATE_TIME.parseStringToTime              = function ( time_string ) {
     var split     = time_string.split( ":" );
     let to_return = new Date();
     to_return.setHours( split[ 0 ] );
@@ -6406,7 +6406,7 @@ DATE_TIME.parseStringToTime = function ( time_string ) {
     }
     return to_return;
 };
-Date.prototype.getWeek   = function () {
+Date.prototype.getWeek                   = function () {
     var date = new Date( this.getTime() );
     date.setHours( 0, 0, 0, 0 );
     date.setDate( date.getDate() + 3 - (date.getDay() + 6) % 7 );
@@ -6414,7 +6414,7 @@ Date.prototype.getWeek   = function () {
     return 1 + Math.round( ((date.getTime() - week1.getTime()) / 86400000
                             - 3 + (week1.getDay() + 6) % 7) / 7 );
 };
-Date.prototype.isWeekEnd = function () {
+Date.prototype.isWeekEnd                 = function () {
     if ( this.getDay() === 0 ) {
         return true;
     }
@@ -6423,10 +6423,10 @@ Date.prototype.isWeekEnd = function () {
     }
     return false;
 };
-DATE_TIME.getTimezoneOffsetInHour = function( value ) {
+DATE_TIME.getTimezoneOffsetInHour        = function ( value ) {
     return value.getTimezoneOffset() / 60;
 };
-DOM.BodyService = (function ( self ) {
+DOM.BodyService                          = (function ( self ) {
     "use strict";
     
     var __body_element;
@@ -6434,19 +6434,19 @@ DOM.BodyService = (function ( self ) {
     var __time_out_add;
     var __bouding_rect;
     
-    self.load            = function () {
+    self.load               = function () {
         if ( !__body_element ) {
             __body_element = document.querySelector( "body" );
         }
     };
-    self.hasChildWithID  = function ( id ) {
+    self.hasChildWithID     = function ( id ) {
         var _child = self.getDomElement().querySelector( "#" + id );
         return _child;
     };
-    self.addOrRemoveClasses                       = function ( boolean, _class ) {
-        DOM.Service.addOrRemoveClasses(self.getDomElement(), boolean, _class);
+    self.addOrRemoveClasses = function ( boolean, _class ) {
+        DOM.Service.addOrRemoveClasses( self.getDomElement(), boolean, _class );
     };
-    self.askAddClass     = function ( to_add, time_out ) {
+    self.askAddClass        = function ( to_add, time_out ) {
         self.getDomElement().classList.add( to_add );
         if ( time_out ) {
             __list_to_remove[ to_add ] = true;
@@ -6460,46 +6460,46 @@ DOM.BodyService = (function ( self ) {
             }, time_out );
         }
     };
-    self.removeClass     = function ( to_remove ) {
+    self.removeClass        = function ( to_remove ) {
         self.getDomElement().classList.remove( to_remove );
         __list_to_remove[ to_remove ] = false;
     };
-    self.addChild        = function ( dom_element ) {
+    self.addChild           = function ( dom_element ) {
         DOM.Service.addElementTo( dom_element, self.getDomElement() );
     };
-    self.getDomElement   = function () {
+    self.getDomElement      = function () {
         if ( !__body_element ) {
             self.load();
         }
         return __body_element;
     };
-    self.cleanDomElement = function () {
+    self.cleanDomElement    = function () {
         __body_element = null;
     };
-    self.getWidth = function () {
-        if ( !__bouding_rect ){
-            __bouding_rect = DOM.Service.getBoundingClientRect(this.getDomElement());
+    self.getWidth           = function () {
+        if ( !__bouding_rect ) {
+            __bouding_rect = DOM.Service.getBoundingClientRect( this.getDomElement() );
         }
-        return __bouding_rect[DOM.CONST.STYLE.WIDTH] ;
+        return __bouding_rect[ DOM.CONST.STYLE.WIDTH ];
     };
-    self.reset = function () {
+    self.reset              = function () {
         __bouding_rect = undefined;
     };
     return self;
 })( DOM.BodyService || {} );
 window.addEventListener( "resize", function () {
-    DOM.BodyService.reset()
+    DOM.BodyService.reset();
 } );
-DOM.ScrollService = (function ( self ) {
+DOM.ScrollService                       = (function ( self ) {
     "use strict";
     
-    self.getMiddleScrollPosition           = function ( dom_element_container ) {
+    self.getMiddleScrollPosition       = function ( dom_element_container ) {
         var _top    = DOM.Service.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.TOP );
         var _bottom = DOM.Service.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.BOTTOM );
         
         return ((_bottom - _top) / 2) + _top;
     };
-    self.getFirstVisibleDom                = function ( dom_element_container, css_selector_children, move_down ) {
+    self.getFirstVisibleDom            = function ( dom_element_container, css_selector_children, move_down ) {
         var _position = DOM.Service.getBoundingClientRect( dom_element_container, move_down ? DOM.CONST.STYLE.TOP : DOM.CONST.STYLE.BOTTOM );
         var _list     = SHINKEN.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
         var _size     = _list.length;
@@ -6508,7 +6508,7 @@ DOM.ScrollService = (function ( self ) {
         }
         return self.getCloserVisibleDomFrom( _list, _position, move_down, dom_element_container );
     };
-    self.getCloserVisibleDomFromMiddle     = function ( dom_element_container, css_selector_children, move_down ) {
+    self.getCloserVisibleDomFromMiddle = function ( dom_element_container, css_selector_children, move_down ) {
         var _middle_pos = DOM.ScrollService.getMiddleScrollPosition( dom_element_container );
         var _list       = SHINKEN.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
         var _size       = _list.length;
@@ -6517,7 +6517,7 @@ DOM.ScrollService = (function ( self ) {
         }
         return self.getCloserVisibleDomFrom( _list, _middle_pos, move_down, dom_element_container );
     };
-    self.getCloserVisibleDomFrom           = function ( list, position, move_down, dom_element_container ) {
+    self.getCloserVisibleDomFrom       = function ( list, position, move_down, dom_element_container ) {
         var _size  = list.length;
         var _index = move_down ? _size - 1 : 0;
         var _delta = move_down ? -1 : 1;
@@ -6545,7 +6545,7 @@ DOM.ScrollService = (function ( self ) {
         }
         return list[ _closer_index ];
     };
-    self.isVisible                         = function ( dom_element_container, dom_element_to_test, marge, action_type ) {
+    self.isVisible                     = function ( dom_element_container, dom_element_to_test, marge, action_type ) {
         if ( !dom_element_to_test ) {
             return false;
         }
@@ -6566,7 +6566,7 @@ DOM.ScrollService = (function ( self ) {
             return _rect_to_test.bottom - _rect_container.top >= marge && _rect_container.bottom - _rect_to_test.top >= marge;
         }
     };
-    self.bindWith                          = function ( dom_element, dom_element_to_bind_with, previous_position_vertical, action_type ) {
+    self.bindWith                      = function ( dom_element, dom_element_to_bind_with, previous_position_vertical, action_type ) {
         switch ( action_type ) {
             case DOM.CONST.ATTRIBUTE.SCROLL_TOP:
             case DOM.CONST.ATTRIBUTE.SCROLL_DOWN:
@@ -6583,17 +6583,17 @@ DOM.ScrollService = (function ( self ) {
                 break;
         }
     };
-    self.changeVerticaly                   = function ( dom_element, delta, action_type ) {
+    self.changeVerticaly               = function ( dom_element, delta, action_type ) {
         dom_element[ DOM.CONST.ATTRIBUTE.SCROLL_TOP ] = Math.ceil( dom_element[ DOM.CONST.ATTRIBUTE.SCROLL_TOP ] - delta );
     };
-    self.scrollVertically = function ( dom_element, delta ) {
+    self.scrollVertically              = function ( dom_element, delta ) {
         dom_element.scrollBy( {
             top     : delta,
             left    : 0,
             behavior: 'instant'
         } );
     };
-    self.scrollToTop = function ( dom_element, top ) {
+    self.scrollToTop                   = function ( dom_element, top ) {
         dom_element.scrollTo( {
             top     : top,
             left    : 0,
@@ -6604,7 +6604,7 @@ DOM.ScrollService = (function ( self ) {
     
     return self;
 })( DOM.ScrollService || {} );
-DOM.ServiceEllipsis = (function ( self ) {
+DOM.ServiceEllipsis                     = (function ( self ) {
     "use strict";
     var __canvas  = document.createElement( "canvas" );
     var __context = __canvas.getContext( "2d" );
@@ -6708,7 +6708,7 @@ DOM.ServiceEllipsis = (function ( self ) {
     };
     return self;
 })( DOM.ServiceEllipsis || {} );
-DOM.Service        = (function ( self ) {
+DOM.Service                             = (function ( self ) {
     self.findParentElementWithDataSet              = function ( element, key, deepLimit ) {
         if ( !element || deepLimit < 0 ) {
             return null;
@@ -7732,9 +7732,9 @@ DOM.Service        = (function ( self ) {
         dom_element.focus();
     };
     self.isElementOnScreen                                 = function ( dom_element ) {
-        const rect         = dom_element.getBoundingClientRect();
-        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        const windowWidth  = (window.innerWidth || document.documentElement.clientWidth);
+        const rect                = dom_element.getBoundingClientRect();
+        const windowHeight        = (window.innerHeight || document.documentElement.clientHeight);
+        const windowWidth         = (window.innerWidth || document.documentElement.clientWidth);
         const verticallyVisible   = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
         const horizontallyVisible = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
         return verticallyVisible && horizontallyVisible;
@@ -7763,7 +7763,7 @@ DOM.Service        = (function ( self ) {
     };
     return self;
 })( DOM.Service || {} );
-DOM.Service.Toggle = (function ( self ) {
+DOM.Service.Toggle                      = (function ( self ) {
     self.CONST     = {
         PARAM_EVENT: {
             TOGGL_SERVICE__IS_OPEN: "toggl_service__is_open"
@@ -7791,7 +7791,7 @@ DOM.Service.Toggle = (function ( self ) {
     };
     return self;
 })( DOM.Service.Toggle || {} );
-DOM.CONST = {
+DOM.CONST                               = {
     STYLE                   : {
         LEFT            : "left",
         RIGHT           : "right",
@@ -7826,17 +7826,17 @@ DOM.CONST = {
         INPUT: 200
     }
 };
-DOM.Service.Animation = function ( type, timer ) {
+DOM.Service.Animation                   = function ( type, timer ) {
     this.type  = type;
     this.timer = timer;
 };
-SHINKEN.TOOLS.FORM = (function ( self ) {
+SHINKEN.TOOLS.FORM                      = (function ( self ) {
     "use strict";
     self.buildGetUrl = function ( form ) {
         var _to_return = "";
         var _value;
         for ( var i = 0, _size_i = form.elements.length; i < _size_i; i++ ) {
-            if ( i ){
+            if ( i ) {
                 _to_return += "&";
             }
             if ( form.elements[ i ].tagName === "INPUT" && form.elements[ i ].type === "checkbox" ) {
@@ -7845,14 +7845,14 @@ SHINKEN.TOOLS.FORM = (function ( self ) {
             else {
                 _value = form.elements[ i ].value;
             }
-             _to_return += form.elements[ i ].name + "=" + _value;
+            _to_return += form.elements[ i ].name + "=" + _value;
         }
         return _to_return;
     };
     return self;
 })( SHINKEN.TOOLS.FORM || {} );
-SHINKEN.TOOLS.LOADING_FRAME = (function ( self ) {
-    self.getDomElement = function ( id ) {
+SHINKEN.TOOLS.LOADING_FRAME             = (function ( self ) {
+    self.getDomElement    = function ( id ) {
         if ( id ) {
             return DOM.Service.createElement( "div", {
                 class: "shinken-loading-frame", id: id
@@ -7872,7 +7872,7 @@ SHINKEN.TOOLS.LOADING_FRAME = (function ( self ) {
             class: "shinken-loading-frame shinken-layout-center-h-v"
         }, '<div class="shinken-loading-frame-container"><h1><div class="shinken-pulsate">' + _( 'loading_frame.load_in_progress', [DICTIONARY_COMMON_UI] ) + '</div></h1></div>' );
     };
-    self.getHtml       = function ( id ) {
+    self.getHtml          = function ( id ) {
         return self.getDomElement( id ).outerHTML;
     };
     return self;
@@ -7881,15 +7881,15 @@ SHINKEN.TOOLS.BACKEND_NO_RESPONSE_FRAME = (function ( self ) {
     self.getDomElement = function () {
         return DOM.Service.createElement( "div", {
             class: "shinken-no-backend-response-frame shinken-layout-center-h-v"
-        }, '<div class="shinken-no-backend-response-frame-container"><h1><div> ' + _("communication.no_backend_response", [DICTIONARY_COMMON_UI]) + '</div></h1><div class="shinken-contact-admin"> ' + _("communication.contact_admin_shinken", [DICTIONARY_COMMON_UI]) + '</div></div>' );
+        }, '<div class="shinken-no-backend-response-frame-container"><h1><div> ' + _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ) + '</div></h1><div class="shinken-contact-admin"> ' + _( "communication.contact_admin_shinken", [DICTIONARY_COMMON_UI] ) + '</div></div>' );
     };
     self.getHtml       = function () {
         return self.getDomElement().outerHTML;
     };
     return self;
 })( SHINKEN.TOOLS.BACKEND_NO_RESPONSE_FRAME || {} );
-SHINKEN.TOOLS.MOUSE = (function ( self ) {
-    self.getWheelDelta = function ( event ) {
+SHINKEN.TOOLS.MOUSE                     = (function ( self ) {
+    self.getWheelDelta       = function ( event ) {
         if ( event.wheelDelta === 0 ) {
             return 0;
         }
@@ -7900,7 +7900,7 @@ SHINKEN.TOOLS.MOUSE = (function ( self ) {
             return -1;
         }
     };
-    self.setLastMouseEvent = function ( event ) {
+    self.setLastMouseEvent   = function ( event ) {
         this.mousePosition = event;
     };
     self.unsetLastMouseEvent = function () {
@@ -7912,7 +7912,7 @@ SHINKEN.TOOLS.MOUSE = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.MOUSE || {} );
-SHINKEN.NAVIGATOR = (function ( self ) {
+SHINKEN.NAVIGATOR                       = (function ( self ) {
     "use strict";
     
     var navigator = {
@@ -7978,7 +7978,7 @@ SHINKEN.NAVIGATOR = (function ( self ) {
     return self;
 })( SHINKEN.NAVIGATOR || {} );
 SHINKEN.NAVIGATOR.init( 50 );
-SHINKEN.TOOLS.NUMBER = (function ( self ) {
+SHINKEN.TOOLS.NUMBER           = (function ( self ) {
     self.roundTo                      = function ( number, precision ) {
         if ( !precision ) {
             precision = 0;
@@ -8054,7 +8054,7 @@ SHINKEN.TOOLS.NUMBER = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.NUMBER || {} );
-var CLIPBOARD_SERVICE = (function ( self ) {
+var CLIPBOARD_SERVICE          = (function ( self ) {
     self.PARAM            = {
         EVENT_NAME_COPY: "copy_to_clipboard",
         EVENT_NAME_EDIT: "edit_to_clipboard_target"
@@ -8221,6 +8221,7 @@ var CLIPBOARD_SERVICE = (function ( self ) {
             }
         }
     }
+    
     self.setContent__Angular_Old = function ( dom_element, type ) {
         self.initDomElement_old( dom_element );
         if ( !self.dom_parent || !self.dom_text_to_copy ) {
@@ -8261,12 +8262,13 @@ var CLIPBOARD_SERVICE = (function ( self ) {
     return self;
     
 })( {} );
-var __lang_obj             = {};
-var DICTIONARY_COMMON      = "common";
-var DICTIONARY_COMMON_UI   = "common_ui";
-var DICTIONARY_VISU_UI     = "ui_visu_lang";
-var DICTIONARY_SOURCE_CONF = "lang_source";
+var __lang_obj                 = {};
+var DICTIONARY_COMMON          = "common";
+var DICTIONARY_COMMON_UI       = "common_ui";
+var DICTIONARY_VISU_UI         = "ui_visu_lang";
+var DICTIONARY_SOURCE_CONF     = "lang_source";
 var __dictionary_active_name__ = __dictionary_active_name__ || "lang_";
+
 function __gup ( name, url ) {
     if ( !url ) {
         url = location.href;
@@ -8277,18 +8279,20 @@ function __gup ( name, url ) {
     var results = regex.exec( url );
     return results == null ? null : results[ 1 ];
 }
+
 function _load_lang_obj_array ( dictionary_origin_array ) {
     for ( var i = 0, _size_i = dictionary_origin_array.length; i < _size_i; i++ ) {
         _load_lang_obj( dictionary_origin_array[ i ] );
     }
 }
+
 function _load_lang_obj ( dictionary_origin ) {
     if ( __lang_obj[ dictionary_origin ] ) {
         return;
     }
-    var lang       = __gup( 'lang' );
-    lang           = !lang ? __shinken_lang__ : lang;
-    var _to_return = dictionary_origin === DICTIONARY_COMMON ? __dictionary_active_name__ : dictionary_origin + '_';
+    var lang                        = __gup( 'lang' );
+    lang                            = !lang ? __shinken_lang__ : lang;
+    var _to_return                  = dictionary_origin === DICTIONARY_COMMON ? __dictionary_active_name__ : dictionary_origin + '_';
     _to_return += lang === 'fr' ? lang : 'en';
     __lang_obj[ dictionary_origin ] = eval( _to_return );
     if ( typeof overridden_translations === "undefined" ) {
@@ -8298,6 +8302,7 @@ function _load_lang_obj ( dictionary_origin ) {
         __lang_obj [ dictionary_origin ] = SHINKEN.TOOLS.DICT.updateWithDict( __lang_obj [ dictionary_origin ], overridden_translations[ _to_return ] );
     }
 }
+
 function _load_extra_lang_obj ( dictionary_origin ) {
     if ( __lang_obj[ dictionary_origin ] ) {
         return;
@@ -8308,6 +8313,7 @@ function _load_extra_lang_obj ( dictionary_origin ) {
     _to_return += lang === 'fr' ? lang : 'en';
     __lang_obj[ dictionary_origin ] = eval( _to_return );
 }
+
 function _ ( to_trad, dictionary_origin ) {
     var elts                    = to_trad.split( '.' );
     var dictionary_origin_array = !dictionary_origin ? [DICTIONARY_COMMON] : dictionary_origin;
@@ -8329,6 +8335,7 @@ function _ ( to_trad, dictionary_origin ) {
     }
     return 'TO_TRAD(' + to_trad + ')';
 }
+
 function isTranslateKeyExisting ( to_trad, dictionary_origin ) {
     var elts                    = to_trad.split( '.' );
     var dictionary_origin_array = !dictionary_origin ? [DICTIONARY_COMMON] : dictionary_origin;
@@ -8350,12 +8357,13 @@ function isTranslateKeyExisting ( to_trad, dictionary_origin ) {
     }
     return false;
 }
+
 SHINKEN.TOOLS.InterfaceRefreshComponent           = function () {
 };
 SHINKEN.TOOLS.InterfaceRefreshComponent.prototype = {
-    update      : function () {
+    update            : function () {
     },
-    phaseUpdated: function ( phase, parent_object ) {
+    phaseUpdated      : function ( phase, parent_object ) {
         switch ( phase ) {
             case SHINKEN.OBJECT.CONST.PHASE.READY :
                 this.eventIsReady( parent_object );
@@ -8376,20 +8384,20 @@ SHINKEN.TOOLS.InterfaceRefreshComponent.prototype = {
     },
     setLastComputeDate: function ( to_set ) {
     },
-    eventIsReady     : function ( parent_object ) {
+    eventIsReady      : function ( parent_object ) {
     },
-    eventIsStarting  : function ( parent_object ) {
+    eventIsStarting   : function ( parent_object ) {
     },
-    eventIsRunning   : function ( parent_object ) {
+    eventIsRunning    : function ( parent_object ) {
     },
-    eventIsRefreshing: function ( parent_object ) {
+    eventIsRefreshing : function ( parent_object ) {
     },
-    eventIsStopping  : function ( parent_object ) {
+    eventIsStopping   : function ( parent_object ) {
     },
-    updateCountdown  : function ( parent_object ) {
+    updateCountdown   : function ( parent_object ) {
     }
 };
-SHINKEN.OBJECT.JSON_EDITOR = {
+SHINKEN.OBJECT.JSON_EDITOR                        = {
     SHINKEN_JSON_UUID_ANCHOR: "__SHINKEN_JSON_UUID_ANCHOR_ANCHOR__",
     JSON_FORMAT_INFORMATION : "__JSON_FORMAT_INFORMATION__",
     JSON_INDEX_ALREADY_WRITE: "__JSON_INDEX_ALREADY_WRITE__",
@@ -8408,7 +8416,7 @@ SHINKEN.OBJECT.JSON_EDITOR = {
         JSON_FORM_OBJECT: "json_form__object"
     }
 };
-SHINKEN.OBJECT.JsonEditor           = function ( dom_element, json, default_tag ) {
+SHINKEN.OBJECT.JsonEditor                         = function ( dom_element, json, default_tag ) {
     this.__class_name__ = 'SHINKEN.OBJECT.JsonEditor';
     this.dom_element    = dom_element;
     this.json           = json;
@@ -8416,23 +8424,23 @@ SHINKEN.OBJECT.JsonEditor           = function ( dom_element, json, default_tag 
     this.default_tag    = default_tag;
     this.init();
 };
-SHINKEN.OBJECT.JsonEditor.prototype = {
+SHINKEN.OBJECT.JsonEditor.prototype               = {
     init: function () {
         this.content = DOM.Service.createElement( "span", {}, this.parseToHtml( null, this.json ) );
         this.computeErrorContent();
     },
     
-    doActionAfter                : function ( event_name, param ) {
+    doActionAfter                       : function ( event_name, param ) {
         switch ( event_name ) {
             case "change_default_value_to_value":
                 this.changeDefaultValueToValue( param.data_to_change_default_value, param.default_grid_value, param.widget_type );
                 break;
         }
     },
-    getCurrentContent            : function () {
+    getCurrentContent                   : function () {
         return this.dom_element.innerText;
     },
-    getCurrentElementOfJsonEditor: function () {
+    getCurrentElementOfJsonEditor       : function () {
         let element;
         const selection = window.getSelection();
         if ( selection.rangeCount > 0 ) {
@@ -8446,7 +8454,7 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
         }
         return element;
     },
-    computeErrorContent: function () {
+    computeErrorContent                 : function () {
         this.data_with_error  = {};
         const _error_contents = this.content.querySelectorAll( "." + SHINKEN.OBJECT.JSON_EDITOR.CLASS_ERROR );
         for ( let i = 0, _size_i = _error_contents.length; i < _size_i; i++ ) {
@@ -8674,7 +8682,7 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
     isLabelOfEditableKey                : function () {
         return false;
     },
-    buildUlEntry : function ( key, to_parse ) {
+    buildUlEntry                        : function ( key, to_parse ) {
         let _to_return = "";
         if ( to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
             if ( to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length ) {
@@ -8691,34 +8699,34 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
         }
         return _to_return;
     },
-    buildKeyEntry: function ( key ) {
+    buildKeyEntry                       : function ( key ) {
         if ( this.isLabelOfEditableKey( key ) ) {
             return '<span data-label-key="' + key + '" class="k">"' + SHINKEN.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
         }
         return '<span class="k">"' + SHINKEN.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
     },
-    buildLiEntry : function ( key, to_parse ) {
+    buildLiEntry                        : function ( key, to_parse ) {
         return '<li><div class="' + this.parseJsonTagToClassCss( key, to_parse ) + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>';
     },
-    buildDivEntry: function ( to_parse, index ) {
+    buildDivEntry                       : function ( to_parse, index ) {
         return '<div class="z' + this.parseJsonTagToClassCss( '', to_parse, index ) + '" ' + this.parseJsonTagToAttribute( '    ', to_parse, index ) + '>';
     },
-    updateHtml            : function () {
+    updateHtml                          : function () {
         DOM.Service.addElementToAfterEmpty( this.content, this.dom_element );
         this.dom_element.classList.add( "shinken-json-editor-container" );
         this.dom_element.setAttribute( "contenteditable", "true" );
     },
-    cleanHtmlAfterEdition : function () {
+    cleanHtmlAfterEdition               : function () {
         this.updateDefaultValueHtml();
         this.removeErrorAfterUpdate();
     },
-    updateDefaultValueHtml: function () {
+    updateDefaultValueHtml              : function () {
         const _default_value_doms = this.dom_element.querySelectorAll( "[data-dft-val]" );
         for ( let i = 0, _size_i = _default_value_doms.length; i < _size_i; i++ ) {
             DOM.Service.addOrRemoveClasses( _default_value_doms[ i ], _default_value_doms[ i ].innerText === '"' + _default_value_doms[ i ].dataset.dftVal + '"', "X" );
         }
     },
-    removeErrorAfterUpdate: function () {
+    removeErrorAfterUpdate              : function () {
         const _keys                         = Object.keys( this.data_with_error );
         const uuid_error_modified_for_cells = [];
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
@@ -8735,13 +8743,13 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
             }
         }
     },
-    _is_same_text         : function ( text_1, text_2 ) {
+    _is_same_text                       : function ( text_1, text_2 ) {
         return SHINKEN.TOOLS.STRING.replaceAll( text_1, "\n", "" ) === SHINKEN.TOOLS.STRING.replaceAll( text_2, "\n", "" );
     },
-    getController         : function () {
+    getController                       : function () {
         return CONTROLLER.CommonUI;
     },
-    changeDefaultValueToValue            : function ( array_data_to_change, default_grid_values, widget_type ) {
+    changeDefaultValueToValue           : function ( array_data_to_change, default_grid_values, widget_type ) {
         array_data_to_change.forEach( data_to_change => {
             switch ( data_to_change.property_name ) {
                 case SHINKEN_GRID.CONST.PARAM.GRID_CELL.HEIGHT:
@@ -8759,7 +8767,7 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
             data_to_change.dom_element.innerHTML = this.buildKeyEntry( data_to_change.property_name ) + this.parseToHtml( data_to_change.property_name, data_to_change.property_data ) + ',';
         } );
     },
-    changeGridHeightValue                : function ( label_key, new_value, default_value ) {
+    changeGridHeightValue               : function ( label_key, new_value, default_value ) {
         let new_element_html = this.buildKeyEntry( label_key );
         if ( new_value === default_value ) {
             new_element_html += this.parseStringToHtml( '', this.default_tag );
@@ -8772,7 +8780,7 @@ SHINKEN.OBJECT.JsonEditor.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.JsonEditor, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.JsonEditorService = (function ( self ) {
+SHINKEN.OBJECT.JsonEditorService           = (function ( self ) {
     var __LINE_TAG__       = "__SHINKEN_LINE_TAG__";
     self.computeValidation = function ( dom_element ) {
         let _text_parsed = _parseJsonDomElementToText( dom_element );
@@ -8816,18 +8824,18 @@ SHINKEN.OBJECT.JsonEditorService = (function ( self ) {
     
     return self;
 })( SHINKEN.OBJECT.JsonEditorService || {} );
-SHINKEN.OBJECT.JsonForm           = function ( dom_element ) {
+SHINKEN.OBJECT.JsonForm                    = function ( dom_element ) {
     this.__class_name__ = 'SHINKEN.OBJECT.JsonForm';
     this.init( dom_element );
 };
-SHINKEN.OBJECT.JsonForm.prototype = {
-    init         : function ( dom_element ) {
+SHINKEN.OBJECT.JsonForm.prototype          = {
+    init                : function ( dom_element ) {
         this.dom_element                     = dom_element;
         this.message_invalid                 = "";
         this.timeout_computeEditorLineNumber = null;
         this.line_invalid                    = 0;
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter       : function ( event_name, param ) {
         switch ( event_name ) {
             case "focus-on-anchor-json":
                 let grid_cell_uuid = param[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELL_UUID ] || param[ SHINKEN_GRID.CONST.PARAM.EVENT.FOCUSED_WIDGET ].getUUID();
@@ -8849,10 +8857,10 @@ SHINKEN.OBJECT.JsonForm.prototype = {
                 break;
         }
     },
-    isValid: function () {
+    isValid             : function () {
         return !this.error_syntax;
     },
-    getText: function () {
+    getText             : function () {
         return this.text;
     },
     askComputeLineNumber: function ( timeout ) {
@@ -8893,7 +8901,7 @@ SHINKEN.OBJECT.ShinkenObjectJson           = function () {
     this.__class_name__ = 'SHINKEN.OBJECT.ShinkenObjectJson';
 };
 SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
-    getDataForJson    : function ( format_data__20241115 ) {
+    getDataForJson        : function ( format_data__20241115 ) {
         const _to_return  = this.getObjectToJson( format_data__20241115 );
         const _components = this.getChildrenObjectDict();
         
@@ -8925,7 +8933,7 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
         }
         return _to_return;
     },
-    getObjectToJson   : function ( format_data__20241115 ) {
+    getObjectToJson       : function ( format_data__20241115 ) {
         const _to_return = this._getObjectToJson( format_data__20241115 ) || {};
         if ( this.unknown_property_keys ) {
             for ( let j = 0, _size_j = this.unknown_property_keys.length; j < _size_j; j++ ) {
@@ -8950,17 +8958,17 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
         }
         return _to_return;
     },
-    addJSONInformation: function ( format_data__20241115 ) {
+    addJSONInformation    : function ( format_data__20241115 ) {
         let _to_return = null;
         if ( this.messages && this.messages.hasStatus() ) {
             _to_return = this.messages._getObjectToJson( format_data__20241115 );
         }
         return _to_return;
     },
-    _getObjectToJson  : function ( format_data__20241115 ) {
+    _getObjectToJson      : function ( format_data__20241115 ) {
         return {};
     },
-    addJsonAnchor: function ( uuid_anchor ) {
+    addJsonAnchor         : function ( uuid_anchor ) {
         this._json_anchor = this._json_anchor || [];
         this._json_anchor.push( uuid_anchor );
     },
@@ -9002,14 +9010,14 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
             }
         }
     },
-    updateJsonIfNeeded          : function ( params ) {
+    updateJsonIfNeeded    : function ( params ) {
         if ( params && params[ SHINKEN_PAGE.CONST.EVENTS.PARAM.ACTIVE_WINDOW_NAME_IS_JSON ] ) {
             this.linkJsonDomElement();
             let json_editor = this.getJsonEditorInstance( null, this.getDataForJson(), SHINKEN_PAGE.CONST.DEFAULT_VALUE );
             DOM.Service.replaceElement( this.dom_element__json, json_editor.content.firstChild );
             this.dom_element__json = null;
         }
-    },
+    }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectJson, SHINKEN.OBJECT.ShinkenObject );
 SHINKEN.OBJECT.NOTIFICATION       = SHINKEN.OBJECT.NOTIFICATION || {};
@@ -9051,24 +9059,24 @@ SHINKEN.OBJECT.NOTIFICATION.CONST = SHINKEN.OBJECT.NOTIFICATION.CONST || {
         }
     }
 };
-COMPONENT.Interface = function () {
+COMPONENT.Interface               = function () {
 };
-COMPONENT.Interface.prototype = {
-    initInterface: function () {
+COMPONENT.Interface.prototype     = {
+    initInterface     : function () {
         this.url_param_key = this.dom_element.dataset.urlParamKey;
     },
-    doExtraAction: function () {
+    doExtraAction     : function () {
         if ( this.url_param_key ) {
             this.updateUrlWithValue();
         }
     },
     updateUrlWithValue: function () {
     },
-    setTooltipByState: function ( state, text_tooltip ) {
+    setTooltipByState : function ( state, text_tooltip ) {
         this.tooltip_text          = this.tooltip_text || {};
         this.tooltip_text[ state ] = text_tooltip;
     },
-    getTooltipByState: function () {
+    getTooltipByState : function () {
         if ( !this.tooltip_text ) {
             return;
         }
@@ -9076,24 +9084,24 @@ COMPONENT.Interface.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Interface, SHINKEN.OBJECT.CounterInterface );
-COMPONENT.Interface_V3 = function () {
+COMPONENT.Interface_V3           = function () {
 };
 COMPONENT.Interface_V3.prototype = {
-    initInterface: function () {
+    initInterface     : function () {
         this.url_param_key = this.dom_element.dataset.urlParamKey;
     },
-    doExtraAction: function () {
+    doExtraAction     : function () {
         if ( this.url_param_key ) {
             this.updateUrlWithValue();
         }
     },
     updateUrlWithValue: function () {
     },
-    setTooltipByState: function ( state, text_tooltip ) {
+    setTooltipByState : function ( state, text_tooltip ) {
         this.tooltip_text          = this.tooltip_text || {};
         this.tooltip_text[ state ] = text_tooltip;
     },
-    getTooltipByState: function () {
+    getTooltipByState : function () {
         if ( !this.tooltip_text ) {
             return;
         }
@@ -9101,7 +9109,7 @@ COMPONENT.Interface_V3.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Interface_V3, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.OBJECT.DoActionsAfter = function () {
+SHINKEN.OBJECT.DoActionsAfter           = function () {
     this.init();
 };
 SHINKEN.OBJECT.DoActionsAfter.prototype = {
@@ -9119,7 +9127,7 @@ SHINKEN.OBJECT.DoActionsAfter.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DoActionsAfter, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.DoActionAfter = function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
+SHINKEN.OBJECT.DoActionAfter           = function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
     this.init( parent_object, to_test, event_name, param_1, param_2, param_3 );
 };
 SHINKEN.OBJECT.DoActionAfter.prototype = {
@@ -9142,7 +9150,7 @@ SHINKEN.OBJECT.DoActionAfter.prototype = {
     getUUID      : function ( to_test ) {
         return this.uuid;
     },
-    remove      : function () {
+    remove       : function () {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DoActionAfter, SHINKEN.OBJECT.ShinkenObject );
@@ -9198,7 +9206,7 @@ SHINKEN.OBJECT.CONST.PHASE                  = {
     LOADING_DATA            : "LOADING_DATA"
 };
 SHINKEN.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT = 0;
-SHINKEN.OBJECT.Phase = function ( parent_object ) {
+SHINKEN.OBJECT.Phase                        = function ( parent_object ) {
     this.previous_phase                 = null;
     this.current_phase                  = SHINKEN.OBJECT.CONST.PHASE.INIT;
     this.next_phase                     = null;
@@ -9209,7 +9217,7 @@ SHINKEN.OBJECT.Phase = function ( parent_object ) {
     this.action_to_do_on_phase          = new SHINKEN.OBJECT.DoActionsAfter();
     this.action_to_do_callback_on_phase = new SHINKEN.OBJECT.DoActionsAfter();
 };
-SHINKEN.OBJECT.Phase.prototype = {
+SHINKEN.OBJECT.Phase.prototype              = {
     setPhase                       : function ( to_set ) {
         if ( this.timeout_phase ) {
             clearTimeout( this.timeout_phase );
@@ -9297,9 +9305,9 @@ SHINKEN.OBJECT.Phase.prototype = {
         this._setPhaseInDomElement();
     }
 };
-SHINKEN.OBJECT.PhaseInterface           = function () {
+SHINKEN.OBJECT.PhaseInterface               = function () {
 };
-SHINKEN.OBJECT.PhaseInterface.prototype = {
+SHINKEN.OBJECT.PhaseInterface.prototype     = {
     initPhase                          : function ( phase_value, dom_element ) {
         this.phase = new SHINKEN.OBJECT.Phase( this );
         if ( dom_element ) {
@@ -9384,7 +9392,7 @@ SHINKEN.OBJECT.PhaseInterface.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.PhaseInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.SLIDE_PANEL = {
+SHINKEN.OBJECT.SLIDE_PANEL          = {
     TYPE    : {
         HORIZONTAL_RIGHT: "HORIZONTAL_RIGHT",
         HORIZONTAL_LEFT : "HORIZONTAL_LEFT",
@@ -9416,25 +9424,25 @@ SHINKEN.OBJECT.SlidePanel           = function ( name, dom_element__part_existin
     this.init( name, dom_element__part_existing );
 };
 SHINKEN.OBJECT.SlidePanel.prototype = {
-    init      : function ( name, dom_element__part_existing ) {
+    init                     : function ( name, dom_element__part_existing ) {
         this.initCommon( name, dom_element__part_existing );
     },
-    initCommon: function ( name, dom_element__part_existing ) {
+    initCommon               : function ( name, dom_element__part_existing ) {
         this.type = this.type || SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT;
         this.initPhase();
         this.setName( name );
         this.setExistingDomElement( dom_element__part_existing );
     },
-    open__20240925     : function () {
+    open__20240925           : function () {
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
     },
-    close__20240925    : function () {
+    close__20240925          : function () {
         this.setPhaseIfDifferent( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter            : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon      : function ( event_name, param ) {
         switch ( event_name ) {
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
@@ -9580,12 +9588,12 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
                 return window.innerHeight;
         }
     },
-    onDragStart: function ( origin_x, origin_y ) {
+    onDragStart              : function ( origin_x, origin_y ) {
         this.origin_x   = origin_x;
         this.origin_y   = origin_y;
         this.is_drag_on = true;
     },
-    onDragMove : function ( delta_x, delta_y ) {
+    onDragMove               : function ( delta_x, delta_y ) {
         switch ( this.type ) {
             case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
                 this.setSize__20240926( this.getSize__partAdded() + delta_x, true );
@@ -9601,19 +9609,19 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
                 break;
         }
     },
-    onDragStop : function () {
+    onDragStop               : function () {
         this.size__part_added = this.getCurrentSize__partAdded();
         this.is_drag_on       = false;
     },
-    computeSize__parent   : function () {
+    computeSize__parent      : function () {
         this.size_parent = DOM.Service.getBoundingClientRect( this.dom_element_parent__20240925, this.getStyleKey() );
     },
-    computeStatePinButtons: function () {
+    computeStatePinButtons   : function () {
         let size__part_added = this.getCurrentSize__partAdded();
         DOM.Service.addOrRemoveClasses( this.dom_element__part_buttons, this.getMaxSize__partAdded() === size__part_added, "shinken-max-on" );
         DOM.Service.addOrRemoveClasses( this.dom_element__part_buttons, this.getMinSize__partAdded() === size__part_added, "shinken-min-on" );
     },
-    computeInitialSize    : function () {
+    computeInitialSize       : function () {
         if ( this.initial_pixel ) {
             this.size__part_added = this.initial_pixel;
         }
@@ -9624,7 +9632,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
             this.size__part_added = this.getSize__parent() * this.initial_ratio;
         }
     },
-    computeSizes__20240926: function ( force_compute ) {
+    computeSizes__20240926   : function ( force_compute ) {
         if ( !this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING ) ) {
             return;
         }
@@ -9639,10 +9647,10 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         this.setSize__20240926( this.getSize__partAdded() * ratio_resize );
         this.size_window = new_window_size;
     },
-    callbackForPhase      : function () {
+    callbackForPhase         : function () {
         this.callbackForPhaseCommon();
     },
-    callbackForPhaseCommon: function () {
+    callbackForPhaseCommon   : function () {
         const _current = this.getCurrentPhase();
         if ( this.getPreviousPhase() === _current ) {
             return;
@@ -9656,7 +9664,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
                 break;
         }
     },
-    computeHtml      : function () {
+    computeHtml              : function () {
         if ( this.getDomElement() ) {
             return;
         }
@@ -9666,7 +9674,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         this.addDomElement( this.dom_element__part_existing );
         this.doActionAfter( "compute_html_done" );
     },
-    _computeHtml     : function () {
+    _computeHtml             : function () {
         this.setDomElement( DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-slide-panel-container", "data-type": this.type } ), this.dom_element_parent__20240925 ) );
         this.dom_element__part_added = DOM.Service.createElement( "div", {
             class: "shinken-slide-panel-content"
@@ -9676,7 +9684,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         }
         this.dom_element__part_buttons = this.computeButtonHtml();
     },
-    computeButtonHtml: function () {
+    computeButtonHtml        : function () {
         let _to_return = DOM.Service.createElement( "div", { class: "shinken-slide-panel-buttons-part shinken-user-select-none" } );
         let _div       = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-slide-panel-buttons-containers" } ), _to_return );
         
@@ -9699,7 +9707,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         
         return _to_return;
     },
-    restoreStructure : function () {
+    restoreStructure         : function () {
         this.initial_pixel = this.getCurrentSize__partAdded();
         DOM.Service.setStyle( this.dom_element__part_existing, this.getStyleKey(), "" );
         DOM.Service.addElementToAfterEmpty( this.dom_element__part_existing, this.dom_element_parent__20240925 );
@@ -9712,7 +9720,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanel, SHINKEN.OBJECT.ShinkenObjectHtml );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanel, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.COMUNICATION = (function ( self ) {
+SHINKEN.COMUNICATION                                      = (function ( self ) {
     self.requestGet_withTimeout = function ( timeout, url, success, error, not_found_callback, unauthorized_callback ) {
         setTimeout( () => {
             self.requestGet( url, success, error, not_found_callback, unauthorized_callback );
@@ -9792,7 +9800,7 @@ SHINKEN.COMUNICATION = (function ( self ) {
     };
     return self;
 })( SHINKEN.COMUNICATION || {} );
-SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT = (function ( self ) {
+SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
     self.console                     = function ( ...arg ) {
     };
     self.informParentIframeUrlChange = function ( controller_name ) {
@@ -9855,7 +9863,7 @@ SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT = (function ( self ) {
     
     return self;
 })( SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT || {} );
-SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD = (function ( self ) {
+SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD                   = (function ( self ) {
     self.doActionAfter = function ( id_iframe, event_name, callback_to_eval ) {
         try {
             var _iframe          = DOM.BodyService.getDomElement().querySelector( "#" + id_iframe );
@@ -9870,7 +9878,7 @@ SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD = (function ( self ) {
     
     return self;
 })( SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD || {} );
-SHINKEN.COMUNICATION.CONST = {
+SHINKEN.COMUNICATION.CONST                                = {
     QUERY: {
         SEPARATOR: {
             GET_BEGINNER: '?',
@@ -9969,7 +9977,7 @@ SHINKEN.COMUNICATION.CONST = {
         }
     }
 };
-SHINKEN.NETWORK            = {
+SHINKEN.NETWORK                                           = {
     HTTP_CODE : {
         NONE                       : -1,
         _200_SUCCESS               : 200,
@@ -9997,13 +10005,13 @@ SHINKEN.NETWORK            = {
     }
     
 };
-console.shinken = {};
-console.shinken.debug = function ( ...args ) {
-    if ( __shinken_is_dev__ ){
-        console.warn( "[DEBUG]", ...args  );
+console.shinken                                           = {};
+console.shinken.debug                                     = function ( ...args ) {
+    if ( __shinken_is_dev__ ) {
+        console.warn( "[DEBUG]", ...args );
     }
 };
-SHINKEN.HIGHWAY = (function ( self ) {
+SHINKEN.HIGHWAY                                           = (function ( self ) {
     "use strict";
     self.goToParentUrl                  = function () {
         var _floors        = location.pathname.split( '/' );
@@ -10227,35 +10235,35 @@ SHINKEN.HIGHWAY = (function ( self ) {
     };
     return self;
 })( SHINKEN.HIGHWAY || {} );
-SHINKEN.HIGHWAY.CONST = {
+SHINKEN.HIGHWAY.CONST                                     = {
     NAVIGATION_TYPE: {
         TARGET_BLANK: "TARGET_BLANK",
         NORMAL      : "NORMAL",
         NONE        : "NONE"
     }
 };
-SHINKEN.OBJECT.NotificationsOfChange = {};
-SHINKEN.OBJECT.NotificationsOfChange._interface = function () {
+SHINKEN.OBJECT.NotificationsOfChange                      = {};
+SHINKEN.OBJECT.NotificationsOfChange._interface           = function () {
 };
 SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
-    init     : function ( data ) {
+    init              : function ( data ) {
         this.timeout_ask_play_notification = null;
         if ( data ) {
             this.updateData( data );
         }
     },
-    initPhase: function () {
+    initPhase         : function () {
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( "init_phase" );
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( "reset_object" );
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].initPhase();
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter     : function ( event_name, param ) {
         switch ( event_name ) {
             case "ask_play_notifications":
                 if ( this.timeout_ask_play_notification ) {
                     clearTimeout( this.timeout_ask_play_notification );
                 }
-                this.timeout_ask_play_notification = setTimeout(  () => {
+                this.timeout_ask_play_notification = setTimeout( () => {
                     this.doActionAfter( "ask_play_notification_visual_blink", param );
                     this.doActionAfter( "ask_play_notification_of_sound", param );
                 }, 200 );
@@ -10286,7 +10294,7 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
                 break;
         }
     },
-    updateData: function ( data ) {
+    updateData        : function ( data ) {
         var _keys     = Object.keys( data );
         var _sizeData = _keys.length;
         var _currentKey;
@@ -10295,7 +10303,7 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData           : function ( key, value ) {
         switch ( key ) {
             case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND:
             case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL:
@@ -10322,18 +10330,18 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
     getSoundDomElement: function () {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDomElement();
     },
-    getDataToSave: function () {
+    getDataToSave     : function () {
         var _to_return                                                         = {};
         _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDataToSave();
         _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getDataToSave();
         return _to_return;
     }
 };
-SHINKEN.OBJECT.Dropdown = SHINKEN.OBJECT.Dropdown || {};
-SHINKEN.OBJECT.Dropdown._interface           = function () {
+SHINKEN.OBJECT.Dropdown                                   = SHINKEN.OBJECT.Dropdown || {};
+SHINKEN.OBJECT.Dropdown._interface                        = function () {
 };
-SHINKEN.OBJECT.Dropdown._interface.prototype = {
-    init: function ( dom_element_target, dom_element_content, placement ) {
+SHINKEN.OBJECT.Dropdown._interface.prototype              = {
+    init     : function ( dom_element_target, dom_element_content, placement ) {
         this.initPhase();
         this.setDomTargetElement( dom_element_target );
         this.dom_element_content = dom_element_content;
@@ -10588,7 +10596,7 @@ SHINKEN.OBJECT.Dropdown._interface.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Dropdown._interface, SHINKEN.OBJECT.ShinkenObjectHtml );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Dropdown._interface, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.Dropdown.CONST = {
+SHINKEN.OBJECT.Dropdown.CONST                      = {
     PLACEMENT        : {
         LEFT        : 'left',
         RIGHT       : 'right',
@@ -10630,7 +10638,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange           = function ( data ) {
     this.init( data );
 };
 SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
-    init: function ( data ) {
+    init               : function ( data ) {
         if ( data ) {
             this.updateData( data );
         }
@@ -10686,13 +10694,13 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
     doActionAfter      : function ( event_name, param ) {
         this.doActionAfterCommun( event_name, param );
     },
-    getValue         : function () {
+    getValue           : function () {
         if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
             return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
     },
-    playAudio        : function () {
+    playAudio          : function () {
         var audio    = MANAGER.DistributorResourcesManager.getInstance().getResource( "global_sound_notification" ).getContent();
         var _self    = this;
         audio.volume = this.flat_user_volume / 100;
@@ -10705,14 +10713,14 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                 _self.setPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR );
             } );
     },
-    simulatePlayAudio: function ( value ) {
+    simulatePlayAudio  : function ( value ) {
         var audio    = MANAGER.DistributorResourcesManager.getInstance().getResource( "global_sound_notification" ).getContent();
         audio.volume = value / 100;
         audio.pause();
         audio.currentTime = 0;
         audio.play();
     },
-    updateData: function ( data ) {
+    updateData         : function ( data ) {
         var _keys     = Object.keys( data );
         var _sizeData = _keys.length;
         var _currentKey;
@@ -10721,7 +10729,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData            : function ( key, value ) {
         switch ( key ) {
             case "value":
                 var _keys = Object.keys( value );
@@ -10740,7 +10748,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                 break;
         }
     },
-    setPhaseSpecific: function ( to_set ) {
+    setPhaseSpecific   : function ( to_set ) {
         if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR ) ) {
             this.setPreviousPhaseForced( to_set );
         }
@@ -10748,7 +10756,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
             this.setPhase( to_set );
         }
     },
-    callbackForPhase: function () {
+    callbackForPhase   : function () {
         var _current = this.getCurrentPhase();
         this.setTooltipHtml( "" );
         switch ( _current ) {
@@ -10766,16 +10774,16 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                 break;
         }
     },
-    getDataToSave: function () {
+    getDataToSave      : function () {
         var _to_return                                                          = {};
         _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
-    updateHtmlWithData: function () {
+    updateHtmlWithData : function () {
         var _dom     = document.querySelector( "#shinken-modal-container #sound-" + this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
         _dom.checked = true;
     },
-    isEnabled         : function () {
+    isEnabled          : function () {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
     }
 };
@@ -10796,7 +10804,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange__fromData.prototype = {
         }
         this.doActionAfterCommun( event_name, param );
     },
-    computeHtml: function () {
+    computeHtml  : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-sound-notification-container shinken-notification-container" } ) );
         DOM.Service.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
         let div_sound_notification_content = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-notification-content" } ), this.getDomElement() );
@@ -10809,14 +10817,14 @@ SHINKEN_LIST.Pagination_V3           = function ( page_size, parent_name ) {
     this.init( page_size, parent_name );
 };
 SHINKEN_LIST.Pagination_V3.prototype = {
-    init                : function ( page_size, parent_name ) {
+    init                   : function ( page_size, parent_name ) {
         this.page_size          = page_size || 100;
         this.parent_name        = parent_name;
         this.total_page         = 0;
         this.current_page_index = 0;
         this.initSpecificContents();
     },
-    initSpecificContents: function () {
+    initSpecificContents   : function () {
         this.initContents();
         this.add( new SHINKEN_LIST.PaginationNavigation_V3( COMPONENT.CONST.PAGINATION_NAVIGATION.FIRST ) );
         this.add( new SHINKEN_LIST.PaginationNavigation_V3( COMPONENT.CONST.PAGINATION_NAVIGATION.PREVIOUS ) );
@@ -10824,7 +10832,7 @@ SHINKEN_LIST.Pagination_V3.prototype = {
         this.add( new SHINKEN_LIST.PaginationNavigation_V3( COMPONENT.CONST.PAGINATION_NAVIGATION.NEXT ) );
         this.add( new SHINKEN_LIST.PaginationNavigation_V3( COMPONENT.CONST.PAGINATION_NAVIGATION.LAST ) );
     },
-    doActionAfter: function ( event_name, param, param_2, param_3 ) {
+    doActionAfter          : function ( event_name, param, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
@@ -10854,7 +10862,7 @@ SHINKEN_LIST.Pagination_V3.prototype = {
                 break;
         }
     },
-    onClick      : function ( event ) {
+    onClick                : function ( event ) {
         this.getSelector().onClick();
     },
     getSelector            : function () {
@@ -10885,12 +10893,12 @@ SHINKEN_LIST.Pagination_V3.prototype = {
     setPageSize            : function ( to_set ) {
         this.page_size = to_set;
     },
-    add: function ( to_add ) {
+    add                    : function ( to_add ) {
         this.addCommon( to_add );
         to_add.addParamForEvents( SHINKEN_LIST.CONST.PARAM.PAGINATION_PARENT_NAME, this.parent_name );
         return to_add;
     },
-    computeHtml : function () {
+    computeHtml            : function () {
         if ( this.getDomElement() ) {
             DOM.Service.empty( this.getDomElement() );
         }
@@ -10905,7 +10913,7 @@ SHINKEN_LIST.Pagination_V3.prototype = {
         }
         this.computeClass();
     },
-    computeClass: function () {
+    computeClass           : function () {
         if ( !this.getDomElement() ) {
             return;
         }
@@ -10925,7 +10933,7 @@ SHINKEN.OBJECT.CollapseFolder           = function ( name, label ) {
     this.init( name, label );
 };
 SHINKEN.OBJECT.CollapseFolder.prototype = {
-    init: function ( name, label ) {
+    init               : function ( name, label ) {
         this.setName( name );
         this.label = label;
         this.initContents();
@@ -10957,19 +10965,19 @@ SHINKEN.OBJECT.CollapseSet           = function () {
     this.init();
 };
 SHINKEN.OBJECT.CollapseSet.prototype = {
-    init: function () {
+    init          : function () {
         this.initContents();
     },
     doActionAfter : function ( event_name, param_1, param_2, param_3 ) {
-        this._doActionAfter(event_name, param_1, param_2, param_3);
+        this._doActionAfter( event_name, param_1, param_2, param_3 );
     },
-    _doActionAfter : function ( event_name, param_1, param_2, param_3 ) {
+    _doActionAfter: function ( event_name, param_1, param_2, param_3 ) {
     },
- 
     
     
-    getDataToSave  : function ( type ) {
-    },
+    
+    getDataToSave: function ( type ) {
+    }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseSet, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
 SHINKEN.OBJECT.CollapseFolderFromData           = function ( name, label ) {
@@ -11022,7 +11030,7 @@ SHINKEN.OBJECT.CollapseFolderFromData.prototype = {
     },
     computeSpecificHtml     : function () {
     },
-    getDataToSave: function ( type ) {
+    getDataToSave           : function ( type ) {
     }
     
 };
@@ -11055,14 +11063,14 @@ SHINKEN.OBJECT.CollapseFolderFromData_V3           = function ( name, label ) {
     this.initSpecific( name, label );
 };
 SHINKEN.OBJECT.CollapseFolderFromData_V3.prototype = {
-    initSpecific : SHINKEN.OBJECT.CollapseFolderFromData.prototype.initSpecific,
-    doActionAfter: function ( event_name, param ) {
+    initSpecific   : SHINKEN.OBJECT.CollapseFolderFromData.prototype.initSpecific,
+    doActionAfter  : function ( event_name, param ) {
         switch ( event_name ) {
             case "toggl_collapse_folder__is_open":
                 param[ DOM.Service.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = DOM.Service.Toggle.toggle_V3( this.getDomElement() );
                 break;
             case "toggl_collapse_folder__is_open__or__close_others":
-                if ( this.getUUID() === param[SHINKEN.OBJECT.COLLAPSE.PARAM.NAME] ){
+                if ( this.getUUID() === param[ SHINKEN.OBJECT.COLLAPSE.PARAM.NAME ] ) {
                     param[ DOM.Service.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = DOM.Service.Toggle.toggle_V3( this.getDomElement() );
                 }
                 else {
@@ -11073,12 +11081,12 @@ SHINKEN.OBJECT.CollapseFolderFromData_V3.prototype = {
         }
         this.doActionAfterCommon( event_name, param );
     },
-    getUserPref: function () {
+    getUserPref    : function () {
         return {
-            [SHINKEN.USER_PREFS.KEY]  : SHINKEN.OBJECT.COLLAPSE.PARAM.IS_OPEN,
-            [SHINKEN.USER_PREFS.VALUE]: DOM.Service.Toggle.isOpen( this.getDomElement() )
+            [ SHINKEN.USER_PREFS.KEY ]  : SHINKEN.OBJECT.COLLAPSE.PARAM.IS_OPEN,
+            [ SHINKEN.USER_PREFS.VALUE ]: DOM.Service.Toggle.isOpen( this.getDomElement() )
         };
-    } ,
+    },
     getOnClickEvent: function () {
         return this.onclick_event || "MANAGER.EventManagerV2.doActionAfter(event, 'toggl_collapse_folder__is_open', " + this.parseParamForEventsToHtml() + ")";
     }
@@ -11089,10 +11097,10 @@ SHINKEN_LIST.Filter           = function ( type ) {
     this.init();
 };
 SHINKEN_LIST.Filter.prototype = {
-    init          : function () {
+    init                   : function () {
         this._is_active = false;
     },
-    initComponents: function () {
+    initComponents         : function () {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.SINGLE_SELECT:
                 this.component = new COMPONENT.Select( this.dom_element, this.type, false, this );
@@ -11108,7 +11116,7 @@ SHINKEN_LIST.Filter.prototype = {
                 break;
         }
     },
-    setType          : function ( to_set ) {
+    setType                : function ( to_set ) {
         switch ( to_set ) {
             case SHINKEN_LIST.CONST.TYPE.CHECK_IN_HOST:
                 to_set = COMPONENT.CONST.TYPE.SINGLE_SELECT;
@@ -11116,29 +11124,29 @@ SHINKEN_LIST.Filter.prototype = {
         }
         this.type = to_set;
     },
-    getUUID          : function () {
+    getUUID                : function () {
         return this.getName();
     },
-    isValid          : function () {
+    isValid                : function () {
         return (this.name && this.type);
     },
-    isSet            : function () {
+    isSet                  : function () {
         this._computeState();
         return this.isActive();
     },
-    getParentName    : function () {
+    getParentName          : function () {
         return this.name;
     },
-    getValue         : function () {
+    getValue               : function () {
         return this.component ? this.component.getValue() : "";
     },
-    getName          : function () {
+    getName                : function () {
         return this.name;
     },
-    getFinalValue    : function () {
+    getFinalValue          : function () {
         return this.component.getFinalValue();
     },
-    setActive        : function ( to_set ) {
+    setActive              : function ( to_set ) {
         to_set = !!to_set;
         if ( to_set ) {
             this.dom_element.classList.add( 'shinken-active' );
@@ -11148,25 +11156,25 @@ SHINKEN_LIST.Filter.prototype = {
         }
         this._is_active = to_set;
     },
-    isActive         : function () {
+    isActive               : function () {
         return !!this._is_active;
     },
-    setValue         : function ( to_set ) {
+    setValue               : function ( to_set ) {
         this.component.setValueFromJs( to_set );
     },
-    getListElement   : function () {
+    getListElement         : function () {
         return this.component.getListElement();
     },
-    getChildrenObject: function () {
+    getChildrenObject      : function () {
         if ( !this.component ) {
             return [];
         }
         return [this.component];
     },
-    getComponent     : function () {
+    getComponent           : function () {
         return this.component;
     },
-    initWhenInputReady: function () {
+    initWhenInputReady     : function () {
         var self = this;
         setTimeout( function () {
             self.component.validateValueInput();
@@ -11272,7 +11280,7 @@ SHINKEN_LIST.Filter.prototype = {
                 this.component.keydown( event, key_code );
         }
     },
-    applySiblingSettings: function ( list_filter ) {
+    applySiblingSettings   : function ( list_filter ) {
         this.component.applySiblingSettings( list_filter.component );
     }
 };
@@ -11282,10 +11290,10 @@ SHINKEN_LIST.Filters           = function () {
     this.init();
 };
 SHINKEN_LIST.Filters.prototype = {
-    init: function () {
+    init                 : function () {
         this.initContents();
     },
-    getActiveFilters: function () {
+    getActiveFilters     : function () {
         var _to_return = [];
         var _keys      = Object.keys( this.contents );
         var _current_key;
@@ -11340,16 +11348,16 @@ SHINKEN_LIST.Filters.prototype = {
             _filter.clickOnInput();
         }
     },
-    getObjectsType      : function () {
+    getObjectsType       : function () {
         return "shinken-list-filter";
     },
-    applySiblingSettings: function ( list_filters ) {
+    applySiblingSettings : function ( list_filters ) {
         var _keys = Object.keys( this.contents );
         for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
             this.contents[ _keys[ i ] ].applySiblingSettings( list_filters.contents[ _keys[ i ] ] );
         }
     },
-    hidePopup           : function ( filter_exception ) {
+    hidePopup            : function ( filter_exception ) {
         var _keys = Object.keys( this.contents );
         for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
             this.contents[ _keys[ i ] ].hidePopup( filter_exception );
@@ -11361,10 +11369,10 @@ SHINKEN_LIST.Header           = function () {
     this.init();
 };
 SHINKEN_LIST.Header.prototype = {
-    init     : function () {
+    init               : function () {
         this.initCommon();
     },
-    initCommon: function () {
+    initCommon         : function () {
         this.initCounterCommon();
     },
     doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
@@ -11372,15 +11380,15 @@ SHINKEN_LIST.Header.prototype = {
     },
     doActionAfterCommon: function ( event_name, param_1, param_2, param_3 ) {
     },
-    hidePopup: function () {
+    hidePopup          : function () {
     },
-    getUUID        : function () {
+    getUUID            : function () {
         return this.uuid || this.name;
     },
-    getObjectType  : function () {
+    getObjectType      : function () {
         return "shinken-list-header";
     },
-    getDataToExport: function () {
+    getDataToExport    : function () {
         return this.getLabel();
     }
 };
@@ -11390,10 +11398,10 @@ SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, SHINKEN.OBJECT.CounterInt
 SHINKEN_LIST.Headers           = function () {
 };
 SHINKEN_LIST.Headers.prototype = {
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter          : function ( event_name, param_1, param_2, param_3 ) {
         this.doActionAfterCommon( event_name, param_1, param_2, param_3 );
     },
-    doActionAfterCommon: function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfterCommon    : function ( event_name, param_1, param_2, param_3 ) {
     },
     getActiveSortingHeaders: function () {
         var _to_return = [];
@@ -11405,13 +11413,13 @@ SHINKEN_LIST.Headers.prototype = {
         }
         return _to_return;
     },
-    getChildConstructor: function () {
+    getChildConstructor    : function () {
         return new SHINKEN_LIST.Header();
     },
-    getObjectsType : function () {
+    getObjectsType         : function () {
         return "shinken-list-header";
     },
-    getDataToExport: function () {
+    getDataToExport        : function () {
         var _to_return = [];
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             _to_return.push( this.contents[ i ].getDataToExport() );
@@ -11424,78 +11432,79 @@ SHINKEN_LIST.LineCell           = function () {
     this.init();
 };
 SHINKEN_LIST.LineCell.prototype = {
-    init      : function () {
+    init                   : function () {
         this.initCommon();
     },
-    initCommon: function () {
+    initCommon             : function () {
         this.initCounterCommon();
         this.setUUID( this.name );
     },
-    initCounterCommon           : function () {
+    initCounterCommon      : function () {
         this.counters = {};
     },
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter          : function ( event_name, param_1, param_2, param_3 ) {
         this.doActionAfterCommon( event_name, param_1, param_2, param_3 );
     },
-    doActionAfterCommon: function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfterCommon    : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "compute_html_done":
                 this.addCountersTargetDomElement( this.getDomElement() );
                 break;
         }
     },
-    getUUID               : function () {
+    getUUID                : function () {
         return this.name;
     },
-    getForFilter          : function () {
+    getForFilter           : function () {
         return this.value || SHINKEN_LIST.CONST.FILTER.EMPTY;
     },
-    getValue              : function () {
+    getValue               : function () {
         return this.value;
     },
-    getValueForSum        : function () {
+    getValueForSum         : function () {
         return this.value || 0;
     },
-    getDataToExport       : function () {
+    getDataToExport        : function () {
         let to_return;
         if ( this.getDomElement() ) {
             to_return = this.getDomElement().innerText.replaceAll( "\n", " " );
-        } else {
+        }
+        else {
             to_return = this.value || "";
         }
-        to_return = to_return.replace(/<\/?(span|div)[^>]*>/g, '');
+        to_return = to_return.replace( /<\/?(span|div)[^>]*>/g, '' );
         return to_return;
     },
-    getLabel              : function () {
+    getLabel               : function () {
         return this.label;
     },
-    setUUID               : function ( to_set ) {
+    setUUID                : function ( to_set ) {
         this.uuid = to_set;
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.CELL_UUID, this.uuid );
     },
-    setValue              : function ( to_set ) {
+    setValue               : function ( to_set ) {
         this.value = to_set;
         if ( this.getDomElement() ) {
             this.changeDomElementContent();
         }
     },
-    getValueForApplyFilter: function () {
+    getValueForApplyFilter : function () {
         return this.getValue();
     },
-    setSortingValue       : function ( value ) {
+    setSortingValue        : function ( value ) {
         this.sorting_value = value;
     },
-    getSortingValue       : function () {
+    getSortingValue        : function () {
         return this.sorting_value;
     },
-    cleanCellIfHasProblem: function ( line_object ) {
+    cleanCellIfHasProblem  : function ( line_object ) {
         if ( this.hasCounterProblems() ) {
             this.cleanCellWithProblem( line_object );
         }
     },
-    cleanCellWithProblem : function ( line_object ) {
+    cleanCellWithProblem   : function ( line_object ) {
     },
-    getDataToSave: function () {
+    getDataToSave          : function () {
         return this.getValue();
     },
     changeDomElementContent: function () {
@@ -11514,29 +11523,29 @@ SHINKEN_LIST.Line           = function () {
     this.init();
 };
 SHINKEN_LIST.Line.prototype = {
-    init                 : function () {
+    init                              : function () {
         this.initCommon();
     },
-    initCommon           : function () {
+    initCommon                        : function () {
         this.initCounterCommon();
         this.initContents();
         this.initPhase();
     },
-    initCounterCommon    : function () {
+    initCounterCommon                 : function () {
         this.counters = {};
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
-    initLineCountersValue: function () {
+    initLineCountersValue             : function () {
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.getUUID(), 1 );
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.getUUID(), 1 );
     },
-    doActionAfter                  : function ( event_name, param ) {
+    doActionAfter                     : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon            : function ( event_name, param ) {
+    doActionAfterCommon               : function ( event_name, param ) {
         switch ( event_name ) {
             case "compute_html_done":
                 this.addCountersTargetDomElement( this.getDomElement() );
@@ -11559,34 +11568,34 @@ SHINKEN_LIST.Line.prototype = {
                 break;
         }
     },
-    doActionAfterSpecific__20240909: function ( event_name, param ) {
+    doActionAfterSpecific__20240909   : function ( event_name, param ) {
     },
-    clickOnInput                   : function ( event ) {
+    clickOnInput                      : function ( event ) {
         var _cell = this.getContentByEvent( event );
         if ( _cell ) {
             _cell.clickOnInput();
         }
     },
-    askComputeAfterChange          : function ( dom_element, parent ) {
+    askComputeAfterChange             : function ( dom_element, parent ) {
         var _cell = this.getContentByDomElement( dom_element );
         if ( _cell ) {
             _cell.askComputeAfterChange( dom_element, parent );
         }
     },
-    clickOnItemSelector            : function ( event ) {
+    clickOnItemSelector               : function ( event ) {
         var _cell = this.getContentByEvent( event );
         if ( _cell ) {
             _cell.clickOnItemSelector( event );
         }
     },
-    getContentByDomElement: function ( dom_element ) {
+    getContentByDomElement            : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, 'shinken-list-cell', 20 );
         if ( !_parent_dom_element ) {
             return null;
         }
         return this.getContentByUUID( _parent_dom_element.dataset.uuid );
     },
-    getContentByEvent     : function ( event ) {
+    getContentByEvent                 : function ( event ) {
         return this.getContentByDomElement( event.target );
     },
     applyFilter                       : function ( filters, params_filter_by_line ) {
@@ -11715,20 +11724,20 @@ SHINKEN_LIST.Line.prototype = {
     isFiltered                        : function () {
         return this.is_filtered === SHINKEN_LIST.CONST.FILTER.STATUS.ON;
     },
-    getChildConstructor       : function () {
+    getChildConstructor               : function () {
         return new SHINKEN_LIST.LineCell();
     },
-    setUUID                   : function ( to_set ) {
+    setUUID                           : function ( to_set ) {
         this.uuid = to_set;
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.LINE_UUID, this.uuid );
     },
-    getUUID                   : function () {
+    getUUID                           : function () {
         if ( !this.uuid ) {
             this.setUUID( SHINKEN.TOOLS.STRING.buildUUID() );
         }
         return this.uuid;
     },
-    toggleSelect              : function () {
+    toggleSelect                      : function () {
         switch ( this.is_selected ) {
             case SHINKEN_LIST.CONST.SELECTION.STATUS.ON:
                 this.setIsSelected( SHINKEN_LIST.CONST.SELECTION.STATUS.OFF );
@@ -11738,7 +11747,7 @@ SHINKEN_LIST.Line.prototype = {
                 break;
         }
     },
-    setIsSelected             : function ( to_set ) {
+    setIsSelected                     : function ( to_set ) {
         if ( this.is_filtered ) {
             return;
         }
@@ -11778,7 +11787,7 @@ SHINKEN_LIST.Line.prototype = {
         }
         
     },
-    updateSelectionCounter    : function () {
+    updateSelectionCounter            : function () {
         switch ( this.type ) {
             case SHINKEN_LIST.CONST.TYPE.CHECK_IN_HOST:
             case SHINKEN_LIST.CONST.TYPE.MASS_CHANGE_SUM_FULL:
@@ -11786,7 +11795,7 @@ SHINKEN_LIST.Line.prototype = {
                 break;
         }
     },
-    setDataSet                : function ( datakey, data_value, if_key, if_values, else_data_value, if_function ) {
+    setDataSet                        : function ( datakey, data_value, if_key, if_values, else_data_value, if_function ) {
         if ( if_key ) {
             if ( if_function === "matching_regex" ) {
                 if ( !SHINKEN.TOOLS.STRING.isMatchingStarRegexTab( this.getCellValue( if_key ), if_values ) ) {
@@ -11801,10 +11810,10 @@ SHINKEN_LIST.Line.prototype = {
         }
         DOM.Service.setDataSet( this.dom_element, datakey, data_value );
     },
-    isSelected                : function () {
+    isSelected                        : function () {
         return this.is_selected === SHINKEN_LIST.CONST.SELECTION.STATUS.ON;
     },
-    isSelectedOrFiltered      : function () {
+    isSelectedOrFiltered              : function () {
         if ( this.is_filtered ) {
             return SHINKEN_LIST.CONST.SELECTION.STATUS.DISABLED;
         }
@@ -11813,50 +11822,50 @@ SHINKEN_LIST.Line.prototype = {
         }
         return this.is_selected;
     },
-    isCollapsedOrFiltered     : function () {
+    isCollapsedOrFiltered             : function () {
         if ( this.is_filtered ) {
             return true;
         }
         return this.is_collapse;
     },
-    getData                   : function ( key ) {
+    getData                           : function ( key ) {
         return this.dom_element.dataset[ key ];
     },
-    getCellValue              : function ( key ) {
+    getCellValue                      : function ( key ) {
         return this.getContentByUUID( key ).getValue();
     },
-    getCellValueForSum        : function ( key ) {
+    getCellValueForSum                : function ( key ) {
         return this.getContentByUUID( key ).getValueForSum();
     },
-    getCellValueForApplyFilter: function ( key ) {
+    getCellValueForApplyFilter        : function ( key ) {
         return this.getContentByUUID( key ).getValueForApplyFilter();
     },
-    changeElementValue        : function ( key, to_set ) {
+    changeElementValue                : function ( key, to_set ) {
         if ( this.getContentByUUID( key ) !== undefined ) {
             this.dom_element.querySelector( '.shinken-list-cell[data-filter="' + key + '"]' ).innerHTML = to_set;
         }
     },
-    simulateToggleSelect      : function () {
+    simulateToggleSelect              : function () {
         this.dom_element.click();
     },
-    isSibling                 : function ( list_line ) {
+    isSibling                         : function ( list_line ) {
         return (list_line.parent_uuid === this.parent_uuid && list_line.uuid === this.uuid);
     },
-    setIndexOriginal          : function ( to_set ) {
+    setIndexOriginal                  : function ( to_set ) {
         this.index_origin = to_set;
     },
-    getIndexOriginal          : function () {
+    getIndexOriginal                  : function () {
         return this.index_origin;
     },
-    getDomElementBind         : function () {
+    getDomElementBind                 : function () {
         return null;
     },
-    add                       : function ( to_add ) {
+    add                               : function ( to_add ) {
         let to_return = this.addCommon( to_add );
         to_return.addParamsForEvents( this.getParamForEvents() );
         return to_return;
     },
-    updateCellsValue: function ( data ) {
+    updateCellsValue                  : function ( data ) {
         var _keys = Object.keys( data );
         var current_cell;
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
@@ -11866,13 +11875,13 @@ SHINKEN_LIST.Line.prototype = {
             }
         }
     },
-    toggleCollapse        : function ( children ) {
+    toggleCollapse                    : function ( children ) {
         this.setIsCollapsed( !this.is_collapse );
         for ( var i = 0, _size_i = children.length; i < _size_i; i++ ) {
             children[ i ].setIsCollapsed( this.is_collapse );
         }
     },
-    setIsCollapsed        : function ( to_set, children ) {
+    setIsCollapsed                    : function ( to_set, children ) {
         this.is_collapse = to_set;
         if ( this.is_collapse ) {
             this.dom_element.classList.add( "shinken-collapsed" );
@@ -11886,25 +11895,25 @@ SHINKEN_LIST.Line.prototype = {
             }
         }
     },
-    simulateToggleCollapse: function () {
+    simulateToggleCollapse            : function () {
         DOM.Service.SimulateAction.click( this.dom_element.querySelector( ".shinken-collapse-listener" ) );
     },
-    cleanCellsWithProblem       : function () {
+    cleanCellsWithProblem             : function () {
         for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].cleanCellIfHasProblem( this );
         }
     },
-    getInitialDataToSave        : function () {
+    getInitialDataToSave              : function () {
         return {};
     },
-    getDataToSave               : function () {
+    getDataToSave                     : function () {
         var to_return = this.getInitialDataToSave();
         for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             to_return[ this.contents[ i ].getUUID() ] = this.contents[ i ].getDataToSave();
         }
         return to_return;
     },
-    getDataToExport             : function ( headers ) {
+    getDataToExport                   : function ( headers ) {
         var _to_return = [];
         var _current;
         for ( var i = 0, _size_i = headers.contents.length; i < _size_i; i++ ) {
@@ -11912,25 +11921,25 @@ SHINKEN_LIST.Line.prototype = {
         }
         return _to_return;
     },
-    updateAfterActionDoneOK     : function ( action ) {
+    updateAfterActionDoneOK           : function ( action ) {
         this.setMessages();
         var _current = this.getContentByUUID( this.parseToFindCellUuid( action.key ) );
         _current.updateAfterActionDoneOK( action );
         this.addMessages( _current.getMessages() );
         this.extraActionAfterActionDoneOK( action );
     },
-    extraActionAfterActionDoneOK: function ( action ) {
+    extraActionAfterActionDoneOK      : function ( action ) {
     },
-    updateAfterActionDoneNOK    : function ( action ) {
+    updateAfterActionDoneNOK          : function ( action ) {
         this.setMessages();
         var _current = this.getContentByUUID( this.parseToFindCellUuid( action.key ) );
         _current.updateAfterActionDoneNOK( action );
         this.addMessages( _current.getMessages() );
     },
-    parseToFindCellUuid         : function ( key ) {
+    parseToFindCellUuid               : function ( key ) {
         return key;
     },
-    applySiblingSettings: function ( list_line ) {
+    applySiblingSettings              : function ( list_line ) {
         if ( this.isSelected() !== list_line.isSelected() ) {
             this.simulateToggleSelect();
         }
@@ -11939,81 +11948,81 @@ SHINKEN_LIST.Line.prototype = {
         }
         DOM.Service.applySiblingSettings( this.dom_element, list_line.dom_element );
     },
-    remove              : function () {
+    remove                            : function () {
         this.removeDomElement();
         this.resetContentsCounters();
         this.resetCounters();
     },
-    removeDomElement    : function () {
+    removeDomElement                  : function () {
         if ( this.dom_element ) {
             DOM.Service.removeElement( this.dom_element );
         }
     },
-    getObjectsType      : function () {
+    getObjectsType                    : function () {
         return "shinken-list-cell";
     },
-    askHidePopup        : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.askHidePopup,
-    addParamForEvents   : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.addParamForEvents
+    askHidePopup                      : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.askHidePopup,
+    addParamForEvents                 : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.addParamForEvents
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, SHINKEN.OBJECT.PhaseInterface );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer );
 SHINKEN_LIST.Lines           = function () {
 };
 SHINKEN_LIST.Lines.prototype = {
-    init             : function () {
+    init                         : function () {
         this.initCommon();
     },
-    initCommon       : function () {
+    initCommon                   : function () {
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.LINES_UUID, "main_lines_list" );
         this.initCounterCommon();
         this.initContents();
         this.initPhase();
     },
-    initCounterCommon: function () {
+    initCounterCommon            : function () {
         this.counters = {};
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
-    addSpecific      : function ( to_add ) {
+    addSpecific                  : function ( to_add ) {
         this.add( to_add );
         to_add.setCountersParent( this );
         to_add.addParamsForEvents( this.getParamForEvents() );
     },
-    insertAtIndex    : function ( to_add, index ) {
+    insertAtIndex                : function ( to_add, index ) {
         SHINKEN.TOOLS.ARRAY.insert( this.contents, to_add, index );
         to_add.setCountersParent( this );
         this.computeMapping();
     },
-    clickOnSelector      : function ( event ) {
+    clickOnSelector              : function ( event ) {
         var _line = this.getContentByEvent( event );
         if ( _line ) {
             _line.clickOnSelector( event );
         }
     },
-    clickOnInput         : function ( event ) {
+    clickOnInput                 : function ( event ) {
         var _line = this.getContentByEvent( event );
         if ( _line ) {
             _line.clickOnInput( event );
         }
     },
-    askComputeAfterChange: function ( dom_element, parent ) {
+    askComputeAfterChange        : function ( dom_element, parent ) {
         var _line = this.getContentByDomElement( dom_element );
         if ( _line ) {
             _line.askComputeAfterChange( dom_element, parent );
         }
     },
-    clickOnItemSelector  : function ( event ) {
+    clickOnItemSelector          : function ( event ) {
         var _line = this.getContentByEvent( event );
         if ( _line ) {
             _line.clickOnItemSelector( event );
         }
     },
-    doActionAfter        : function ( event_name, param, param_2, param_3 ) {
+    doActionAfter                : function ( event_name, param, param_2, param_3 ) {
         this.doActionAfterCommon( event_name, param, param_2, param_3 );
     },
-    doActionAfterCommon  : function ( event_name, param, param_2, param_3 ) {
+    doActionAfterCommon          : function ( event_name, param, param_2, param_3 ) {
         switch ( event_name ) {
             case "on-key-down-specific":
                 this.getContentByEvent( param ).doActionAfter( event_name, param, param_2, param_3 );
@@ -12139,15 +12148,15 @@ SHINKEN_LIST.Lines.prototype = {
     getChildConstructor          : function () {
         return new SHINKEN_LIST.Line();
     },
-    setSelectAllData       : function ( to_set ) {
+    setSelectAllData             : function ( to_set ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].setIsSelected( to_set );
         }
     },
-    getNbSelected          : function () {
+    getNbSelected                : function () {
         return this.getSelected().length;
     },
-    getSelected            : function () {
+    getSelected                  : function () {
         var _to_return = [];
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             if ( this.contents[ i ].isSelected() ) {
@@ -12156,7 +12165,7 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return _to_return;
     },
-    getNotSelected         : function () {
+    getNotSelected               : function () {
         var _to_return = [];
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             if ( this.contents[ i ].is_selected !== SHINKEN_LIST.CONST.SELECTION.STATUS.ON ) {
@@ -12165,15 +12174,15 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return _to_return;
     },
-    getSizeNotFiltered     : function () {
+    getSizeNotFiltered           : function () {
         return this.getNotFiltered().length;
     },
-    setAllLinesDataSet     : function ( datakey, data_value, if_key, if_values, else_data_value, if_function ) {
+    setAllLinesDataSet           : function ( datakey, data_value, if_key, if_values, else_data_value, if_function ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].setDataSet( datakey, data_value, if_key, if_values, else_data_value, if_function );
         }
     },
-    isAllActiveLineSelected: function () {
+    isAllActiveLineSelected      : function () {
         var _nb_active = 0;
         var _current;
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -12188,17 +12197,17 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return !!_nb_active;
     },
-    applyFilter   : function ( filters, params_filter_by_line ) {
+    applyFilter                  : function ( filters, params_filter_by_line ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].applyFilter( filters, params_filter_by_line );
         }
     },
-    hideAllLines  : function () {
+    hideAllLines                 : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].setFilter( SHINKEN_LIST.CONST.FILTER.STATUS.ON );
         }
     },
-    getNotFiltered: function () {
+    getNotFiltered               : function () {
         var _to_return = [];
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             if ( !this.contents[ i ].isFiltered() ) {
@@ -12207,7 +12216,7 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return _to_return;
     },
-    applySorting     : function ( active_headers ) {
+    applySorting                 : function ( active_headers ) {
         if ( active_headers.length ) {
             var _current_is_increasing;
             var _value_1;
@@ -12237,12 +12246,12 @@ SHINKEN_LIST.Lines.prototype = {
         this.displayDomByOrder();
         this.computeMapping();
     },
-    displayDomByOrder: function () {
+    displayDomByOrder            : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             DOM.Service.addElementWithIndex( this.contents[ i ].getDomElement(), this.getDomElement(), i );
         }
     },
-    getDataToExport: function ( headers ) {
+    getDataToExport              : function ( headers ) {
         var _to_return = [];
         var _current;
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -12254,7 +12263,7 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return _to_return;
     },
-    addLoadingFrame: function ( dom_loading ) {
+    addLoadingFrame              : function ( dom_loading ) {
         dom_loading = dom_loading || SHINKEN.TOOLS.LOADING_FRAME.getDomElement();
         if ( this.dom_element ) {
             DOM.Service.addElementToAfterEmpty( dom_loading, this.dom_element );
@@ -12263,7 +12272,7 @@ SHINKEN_LIST.Lines.prototype = {
             this.dom_element_loading = dom_loading;
         }
     },
-    applySiblingSettings   : function ( list_lines ) {
+    applySiblingSettings         : function ( list_lines ) {
         var _current;
         for ( var i = 0, _size_i = list_lines.contents.length; i < _size_i; i++ ) {
             _current = this.getSiblingElement( list_lines.contents[ i ] );
@@ -12272,7 +12281,7 @@ SHINKEN_LIST.Lines.prototype = {
             }
         }
     },
-    getSiblingElement      : function ( list_line ) {
+    getSiblingElement            : function ( list_line ) {
         for ( var j = 0, _size_j = this.contents.length; j < _size_j; j++ ) {
             if ( this.contents[ j ].isSibling( list_line ) ) {
                 return this.contents[ j ];
@@ -12280,10 +12289,10 @@ SHINKEN_LIST.Lines.prototype = {
         }
         return null;
     },
-    getObjectsType         : function () {
+    getObjectsType               : function () {
         return "shinken-list-line";
     },
-    changeOriginalIndexFrom: function ( original_index_to_start, delta ) {
+    changeOriginalIndexFrom      : function ( original_index_to_start, delta ) {
         let current;
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             current = this.getContent( i );
@@ -12292,7 +12301,7 @@ SHINKEN_LIST.Lines.prototype = {
             }
         }
     },
-    callbackForPhase: function () {
+    callbackForPhase             : function () {
         switch ( this.getCurrentPhase() ) {
             case SHINKEN.OBJECT.CONST.PHASE.REFRESHING:
                 this.addLoadingFrame();
@@ -12307,27 +12316,27 @@ SHINKEN_LIST.Set           = function ( name ) {
     this.init( name );
 };
 SHINKEN_LIST.Set.prototype = {
-    init             : function ( name ) {
+    init                  : function ( name ) {
         this.name = name;
         this.initCommon();
     },
-    initCommon       : function () {
+    initCommon            : function () {
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.SET_UUID, this.name );
         this.initCounterCommon();
         this.initPhase();
     },
-    initCounterCommon: function () {
+    initCounterCommon     : function () {
         this.counters = {};
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
     },
-    askComputeAfterChange: function ( dom_element ) {
+    askComputeAfterChange : function ( dom_element ) {
         this.filters.askComputeAfterChange( dom_element, this );
         this.lines.askComputeAfterChange( dom_element, this );
     },
-    doActionAfterChange  : function ( args ) {
+    doActionAfterChange   : function ( args ) {
         var _type = args[ "type" ];
         switch ( _type ) {
             case "shinken-list-filter":
@@ -12341,10 +12350,10 @@ SHINKEN_LIST.Set.prototype = {
                 break;
         }
     },
-    doActionAfter        : function ( event_name, param, param_2, param_3 ) {
+    doActionAfter         : function ( event_name, param, param_2, param_3 ) {
         this.doActionAfterCommon( event_name, param, param_2, param_3 );
     },
-    doActionAfterCommon  : function ( event_name, param, param_2, param_3 ) {
+    doActionAfterCommon   : function ( event_name, param, param_2, param_3 ) {
         this.doActionAfterSpecific( event_name, param, param_2, param_3 );
         switch ( event_name ) {
             case "compute_html_done":
@@ -12378,9 +12387,9 @@ SHINKEN_LIST.Set.prototype = {
                 break;
         }
     },
-    doActionAfterSpecific: function ( event_name, param, param_2, param_3 ) {
+    doActionAfterSpecific : function ( event_name, param, param_2, param_3 ) {
     },
-    clickOnCheckboxInput : function ( name ) {
+    clickOnCheckboxInput  : function ( name ) {
         if ( name === "shinken-all-elements" ) {
             this.selectAllData( this.is_all_data_selected === SHINKEN_LIST.CONST.SELECTION.STATUS.ON ? SHINKEN_LIST.CONST.SELECTION.STATUS.OFF : SHINKEN_LIST.CONST.SELECTION.STATUS.ON );
             return;
@@ -12388,7 +12397,7 @@ SHINKEN_LIST.Set.prototype = {
         this.lines.getContentByUUID( name ).toggleSelect();
         this.setSelectAllStatus();
     },
-    clickOnCollapseButton: function ( uuid ) {
+    clickOnCollapseButton : function ( uuid ) {
         if ( uuid === "shinken-all-elements" ) {
             this.collapseAllData( !this.is_all_data_collapsed );
             return;
@@ -12396,30 +12405,30 @@ SHINKEN_LIST.Set.prototype = {
         this.lines.toggleCollapse( uuid );
         this.setIsCollapseAllData( this.lines.isAllActiveLineCollapsed() );
     },
-    clickOnSelector      : function ( event, param ) {
+    clickOnSelector       : function ( event, param ) {
         this._clickOnSelector( event, param );
     },
-    _clickOnSelector     : function ( event, param ) {
+    _clickOnSelector      : function ( event, param ) {
         this.filters.clickOnSelector( event, param );
         this.lines.clickOnSelector( event, param );
     },
-    clickOnInput         : function ( event ) {
+    clickOnInput          : function ( event ) {
         this.filters.clickOnInput( event );
         this.lines.clickOnInput( event );
     },
-    clickOnItemSelector  : function ( event, parent_name, element ) {
+    clickOnItemSelector   : function ( event, parent_name, element ) {
         this._clickOnItemSelector( event, parent_name, element );
     },
-    _clickOnItemSelector : function ( event, parent_name, element ) {
+    _clickOnItemSelector  : function ( event, parent_name, element ) {
         this.filters.clickOnItemSelector( event, parent_name, element );
         this.lines.clickOnItemSelector( event, parent_name, element );
         var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, "name", 20 );
         this.doActionAfterChange( { "type": _parent_dom_element.dataset.objectType } );
     },
-    onClick              : function ( event ) {
+    onClick               : function ( event ) {
         this._onClick( event );
     },
-    _onClick             : function ( event ) {
+    _onClick              : function ( event ) {
         if ( this.lines ) {
             this.lines.onClick( event );
         }
@@ -12430,11 +12439,11 @@ SHINKEN_LIST.Set.prototype = {
             this.filters.onClick( event );
         }
     },
-    applyFilter      : function ( params_filter_by_line ) {
+    applyFilter           : function ( params_filter_by_line ) {
         this.applyFilterCommon( params_filter_by_line );
         this.setSelectAllStatus();
     },
-    applyFilterCommon: function ( params_filter_by_line ) {
+    applyFilterCommon     : function ( params_filter_by_line ) {
         let active_filter = this.filters.getActiveFilters();
         if ( this.getDomElement() ) {
             DOM.Service.addOrRemoveClasses( this.getDomElement(), active_filter.length, "shinken-has-active-filter" );
@@ -12566,7 +12575,7 @@ SHINKEN_LIST.Set.prototype = {
         this.addMessages( this.lines.getMessages() );
         return to_return;
     },
-    hidePopup           : function ( _filter ) {
+    hidePopup             : function ( _filter ) {
         if ( this.headers ) {
             this.headers.hidePopup( _filter );
         }
@@ -12577,18 +12586,18 @@ SHINKEN_LIST.Set.prototype = {
             this.lines.hidePopup( _filter );
         }
     },
-    updateHtml          : function () {
+    updateHtml            : function () {
         DOM.Service.setDataSet( this.dom_element, "numberLines", this.lines.contents.length );
     },
-    applySiblingSettings: function ( list_set ) {
+    applySiblingSettings  : function ( list_set ) {
         this.filters.applySiblingSettings( list_set.filters );
         this.lines.applySiblingSettings( list_set.lines );
     },
-    getDataToExport: function () {
+    getDataToExport       : function () {
         var _to_return = [this.headers.getDataToExport()];
         return SHINKEN.TOOLS.ARRAY.concat( _to_return, this.lines.getDataToExport( this.headers ) );
     },
-    getDataToSave: function ( type ) {
+    getDataToSave         : function ( type ) {
         return this.lines.getDataToSave( type );
     }
     
@@ -12596,7 +12605,7 @@ SHINKEN_LIST.Set.prototype = {
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.ShinkenObjectHtml );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.CounterInterfaceV2 );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.PhaseInterface );
-CONTROLLER.CommonUI = (function ( self ) {
+CONTROLLER.CommonUI                 = (function ( self ) {
     self.controller_name = CONTROLLER.CONST.COMMON_UI.NAME;
     self.init            = function () {
     };
@@ -12638,7 +12647,7 @@ CONTROLLER.CommonUI = (function ( self ) {
     return self;
 })
 ( CONTROLLER.CommonUI || {} );
-COMPONENT.BUTTON = {
+COMPONENT.BUTTON                    = {
     PARAM: {
         BUTTON_NAME: "button_name"
     }
@@ -12646,7 +12655,7 @@ COMPONENT.BUTTON = {
 COMPONENT.InterfaceButton           = function () {
 };
 COMPONENT.InterfaceButton.prototype = {
-    init: function () {
+    init             : function () {
     },
     setState         : function ( to_set ) {
         this.state = to_set;
@@ -12725,7 +12734,7 @@ COMPONENT.InterfaceButton.prototype = {
     setOnClickEvent  : function ( to_set ) {
         this.onclick_event = to_set;
     },
-    computeCounters: function () {
+    computeCounters  : function () {
         switch ( this.status ) {
             case COMPONENT.CONST.BTN_STATUS.ERROR:
                 this.getCounterError().update( this.uuid, 1 );
@@ -12741,7 +12750,7 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, COMPONENT.Interface
 COMPONENT.InterfaceButton_V3           = function () {
 };
 COMPONENT.InterfaceButton_V3.prototype = {
-    init: function () {
+    init             : function () {
     },
     setState         : function ( to_set ) {
         this.state = to_set;
@@ -12817,7 +12826,7 @@ COMPONENT.InterfaceButton_V3.prototype = {
     setOnClickEvent  : function ( to_set ) {
         this.onclick_event = to_set;
     },
-    computeCounters: function () {
+    computeCounters  : function () {
         switch ( this.status ) {
             case COMPONENT.CONST.BTN_STATUS.ERROR:
                 this.getCounterError().update( this.uuid, 1 );
@@ -12832,11 +12841,11 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, SHINKEN.OBJECT.S
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, COMPONENT.Interface_V3 );
 COMPONENT.Button           = function ( dom_element, name ) {
     this.__class_name__ = 'COMPONENT.Button';
-    this.uuid   = SHINKEN.TOOLS.STRING.buildUUID();
-    this.state  = COMPONENT.CONST.BTN_STATE.OFF;
-    this.status = COMPONENT.CONST.BTN_STATUS.NONE;
-    this.name   = name;
-    this.value  = '';
+    this.uuid           = SHINKEN.TOOLS.STRING.buildUUID();
+    this.state          = COMPONENT.CONST.BTN_STATE.OFF;
+    this.status         = COMPONENT.CONST.BTN_STATUS.NONE;
+    this.name           = name;
+    this.value          = '';
     this.init( dom_element );
 };
 COMPONENT.Button.prototype = {
@@ -12899,13 +12908,13 @@ COMPONENT.ButtonFromData_V2           = function ( event_name, label ) {
     
 };
 COMPONENT.ButtonFromData_V2.prototype = {
-    init   : function ( event_name, label ) {
+    init       : function ( event_name, label ) {
         this.name          = event_name;
         this.label         = label;
         this.class         = "shinken-button shinken-button-V2";
         this.onclick_event = "MANAGER.EventManagerV2.clickButtonV2(event, '" + this.name + "')";
     },
-    getUUID: function () {
+    getUUID    : function () {
         return this.name;
     },
     computeHtml: function () {
@@ -12929,19 +12938,19 @@ COMPONENT.ButtonFromData_V3           = function ( event_name, label ) {
     
 };
 COMPONENT.ButtonFromData_V3.prototype = {
-    init   : function ( event_name, label ) {
-        this.name             = event_name;
+    init              : function ( event_name, label ) {
+        this.name = event_name;
         this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.name );
         this.label = label;
         this.class = "shinken-button shinken-button-V3 shinken-layout-center-h-v";
     },
-    getUUID: function () {
+    getUUID           : function () {
         return this.name;
     },
     setLabelDomElement: function ( dom_element_label ) {
         DOM.Service.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
     },
-    computeHtml: function () {
+    computeHtml       : function () {
         let onclick_event = "MANAGER.EventManagerV2.clickButton_V3(event, " + this.parseParamForEventsToHtml() + ")";
         this.setDomElement( DOM.Service.createElement( "div", {
             class                  : this.getClass(),
@@ -12963,14 +12972,14 @@ COMPONENT.ButtonWithCounter           = function ( event_name, label ) {
     
 };
 COMPONENT.ButtonWithCounter.prototype = {
-    init             : function ( event_name, label ) {
-        this.name             = event_name;
+    init              : function ( event_name, label ) {
+        this.name = event_name;
         this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.name );
         this.label = label;
         this.class = "shinken-button shinken-button-V3";
         this.initCounterCommon();
     },
-    initCounterCommon: function () {
+    initCounterCommon : function () {
         this.counters = {};
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
         this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).setShowIfNull( true );
@@ -12978,7 +12987,7 @@ COMPONENT.ButtonWithCounter.prototype = {
     setLabelDomElement: function ( dom_element_label ) {
         DOM.Service.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
     },
-    computeHtml: function () {
+    computeHtml       : function () {
         let onclick_event = "MANAGER.EventManagerV2.clickButton_V3(event, " + this.parseParamForEventsToHtml() + ")";
         this.setDomElement( DOM.Service.createElement( "div", {
             class                  : this.getClass(),
@@ -13082,10 +13091,10 @@ COMPONENT.RadioButtonFromData_V3.prototype = {
         this.button_dom_element.classList.remove( "shinken-enabled-with-errors" );
     },
     initSpecific   : function ( value, label, property_name ) {
-        this.property_name    = property_name;
-        this.value            = value;
-        this.label            = label || this.value;
-        this.state            = COMPONENT.CONST.BTN_STATE.OFF;
+        this.property_name = property_name;
+        this.value         = value;
+        this.label         = label || this.value;
+        this.state         = COMPONENT.CONST.BTN_STATE.OFF;
         this.addParamForEvents( PROPERTY.COMMON.PARAM.PROPERTY_NAME, property_name );
         this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.value );
     },
@@ -13104,7 +13113,7 @@ COMPONENT.RadioButtonFromData_V3.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonFromData_V3, COMPONENT.ButtonFromData );
-COMPONENT.RadioButtonClassicFromData_V3 = function ( value, label, property_name ) {
+COMPONENT.RadioButtonClassicFromData_V3           = function ( value, label, property_name ) {
     this.__class_name__ = 'COMPONENT.RadioButtonClassicFromData_V3';
     this.initSpecific( value, label, property_name );
 };
@@ -13134,7 +13143,7 @@ COMPONENT.RadioButtonClassicFromData_V3.prototype = {
         this.resetStateClass();
         switch ( this.state ) {
             case COMPONENT.CONST.BTN_STATE.ON:
-                DOM.Service.addAttribute(this.dom_element, 'checked');
+                DOM.Service.addAttribute( this.dom_element, 'checked' );
                 break;
             case COMPONENT.CONST.BTN_STATE.DISABLED:
                 this.dom_element.classList.add( "shinken-disabled" );
@@ -13155,7 +13164,7 @@ COMPONENT.Checkbox           = function ( dom_element, parent ) {
     this.init( dom_element, parent );
 };
 COMPONENT.Checkbox.prototype = {
-    init                       : function ( dom_element, parent ) {
+    init                 : function ( dom_element, parent ) {
         this.dom_element = dom_element;
         this.initCounters( parent );
         this.checkbox_user      = new OBJECT.ElementCheckbox( dom_element.querySelector( ".shinken-checkbox-user" ), this );
@@ -13163,30 +13172,30 @@ COMPONENT.Checkbox.prototype = {
         this.checkbox_default   = new OBJECT.ElementCheckbox( dom_element.querySelector( ".shinken-checkbox-default" ), this );
         this.initInterface();
     },
-    toggleCheckedUser          : function () {
+    toggleCheckedUser    : function () {
         var _value = !this.isCheckedUser();
         this.setCheckedUser( _value );
     },
-    isCheckedUser              : function () {
+    isCheckedUser        : function () {
         return this.checkbox_user.isChecked();
     },
-    isCheckedInheritance       : function () {
+    isCheckedInheritance : function () {
         return this.checkbox_inherited.isChecked();
     },
-    isCheckedDefault           : function () {
+    isCheckedDefault     : function () {
         return this.checkbox_default.isChecked();
     },
-    setCheckedUser             : function ( to_set ) {
+    setCheckedUser       : function ( to_set ) {
         this.checkbox_user.setChecked( to_set );
         this.doExtraAction();
     },
-    setCheckedInheritance      : function ( to_set ) {
+    setCheckedInheritance: function ( to_set ) {
         this.checkbox_inherited.setChecked( to_set );
     },
-    getChildrenObject              : function () {
+    getChildrenObject    : function () {
         return [this.checkbox_user, this.checkbox_inherited, this.checkbox_default];
     },
-    updateUrlWithValue         : function () {
+    updateUrlWithValue   : function () {
         var _value = this.isCheckedUser() ? '1' : '';
         SHINKEN.HIGHWAY.setParam( this.url_param_key, _value );
     }
@@ -13198,9 +13207,9 @@ COMPONENT.FinderObjectAbstract           = function () {
     this.init();
 };
 COMPONENT.FinderObjectAbstract.prototype = {
-    init: function () {
+    init           : function () {
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter  : function ( event_name, param ) {
         switch ( event_name ) {
             case "apply_filter_check_in_page_host":
                 if ( param === undefined ) {
@@ -13252,7 +13261,7 @@ COMPONENT.Generic           = function ( dom_element ) {
     this.init( dom_element );
 };
 COMPONENT.Generic.prototype = {
-    init          : function ( dom_element ) {
+    init             : function ( dom_element ) {
         this.dom_element = dom_element;
         if ( this.dom_element ) {
             this.initDomElement();
@@ -13262,16 +13271,16 @@ COMPONENT.Generic.prototype = {
         }
         this._computeState();
     },
-    initDomElement: function () {
+    initDomElement   : function () {
         this.value = this.dom_element.dataset.value;
     },
-    _computeState : function () {
+    _computeState    : function () {
         if ( this.state === COMPONENT.CONST.BTN_STATE.DISABLED ) {
             return;
         }
         this.setState( this.dom_element.classList.contains( "shinken-active" ) ? COMPONENT.CONST.BTN_STATE.ON : COMPONENT.CONST.BTN_STATE.OFF );
     },
-    getUUID       : function () {
+    getUUID          : function () {
         return this.getValue();
     },
     setState         : function ( to_set ) {
@@ -13322,7 +13331,7 @@ COMPONENT.Generic.prototype = {
     isOn             : function () {
         return this.state === COMPONENT.CONST.BTN_STATE.ON;
     },
-    computeCounters: function () {
+    computeCounters  : function () {
         switch ( this.status ) {
             case COMPONENT.CONST.BTN_STATUS.ERROR:
                 this.getCounterError().update( this.uuid, 1 );
@@ -13339,7 +13348,7 @@ COMPONENT.InputRange           = function ( dom_element, property ) {
     this.init( dom_element, property );
 };
 COMPONENT.InputRange.prototype = {
-    init: function ( dom_element ) {
+    init                 : function ( dom_element ) {
         this.dom_element_parent    = dom_element;
         this.dom_input_range       = dom_element.querySelector( ".shinken-range-container input" );
         this.component_label_input = new COMPONENT.Label( dom_element.querySelector( ".shinken-label-input-range" ) );
@@ -13348,30 +13357,30 @@ COMPONENT.InputRange.prototype = {
         this.max                   = this.dom_input_range.max;
         this.unit                  = dom_element.dataset.unit;
     },
-    doActionAfter   : function ( event_name, param ) {
+    doActionAfter        : function ( event_name, param ) {
         switch ( event_name ) {
             case "value_changed":
                 this.setValue( this.dom_input_range.value );
                 break;
         }
     },
-    setValue        : function ( to_set ) {
+    setValue             : function ( to_set ) {
         this.value = to_set;
         this.updateLabel();
         DOM.Service.setDataSet( this.dom_element_parent, "value", to_set );
     },
-    setValueFromUser: function ( to_set ) {
+    setValueFromUser     : function ( to_set ) {
         this.dom_input_range.value = to_set;
         this.setValue( to_set );
     },
-    updateLabel     : function () {
+    updateLabel          : function () {
         var _to_set = this.value + this.unit;
         this.component_label_input.updateLabel( _to_set );
     },
-    getValue: function () {
+    getValue             : function () {
         return this.value;
     },
-    getUnit : function () {
+    getUnit              : function () {
         return this.unit || "";
     },
     setDefaultKeyAndValue: function ( to_set ) {
@@ -13382,9 +13391,9 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputRange, SHINKEN.OBJECT.CounterIn
 COMPONENT.InterfaceInputWithDropDown           = function () {
 };
 COMPONENT.InterfaceInputWithDropDown.prototype = {
-    init: function () {
+    init                       : function () {
     },
-    keydown              : function ( event, key_code ) {
+    keydown                    : function ( event, key_code ) {
         switch ( key_code ) {
             case SHINKEN.CONST.KEY_CODE.DOWN:
                 this.select.moveAutoSelectCursor( true );
@@ -13406,10 +13415,10 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
                 }
         }
     },
-    askComputeAfterChange: function ( dom_element, parent, args ) {
+    askComputeAfterChange      : function ( dom_element, parent, args ) {
         this.input.askComputeAfterChange( dom_element, parent || this, args );
     },
-    clickOnItemSelector  : function ( parent_name, key_name, event ) {
+    clickOnItemSelector        : function ( parent_name, key_name, event ) {
         if ( event ) {
             event.stopPropagation();
         }
@@ -13437,46 +13446,46 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
         }
         this.setCurrentFilter( true );
     },
-    clickOnInput         : function () {
+    clickOnInput               : function () {
         this.setCurrentFilter();
     },
-    setIsProtected    : function ( to_set ) {
+    setIsProtected             : function ( to_set ) {
         this.is_protected = to_set;
         this.dom_element.setAttribute( "type", (this.is_protected && SHINKEN.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "password" : this.type );
     },
-    setPlaceholder    : function ( to_set ) {
+    setPlaceholder             : function ( to_set ) {
         if ( !to_set ) {
             to_set = this.placeholder_no_template || '';
         }
         this.placeholder = to_set;
         this.input.setPlaceholder( to_set );
     },
-    setValidationRules: function ( _to_set ) {
+    setValidationRules         : function ( _to_set ) {
         this.input.setValidationRules( _to_set );
     },
-    hasBeenChanged    : function () {
+    hasBeenChanged             : function () {
         return this.current_value !== this.original_value;
     },
-    getParentName     : function () {
+    getParentName              : function () {
         return this.parent.getParentName();
     },
-    getChildrenObject : function () {
+    getChildrenObject          : function () {
         return [this.input];
     },
-    getValue          : function () {
+    getValue                   : function () {
         return this.input.getValue();
     },
-    setValueFromJs    : function ( to_set ) {
+    setValueFromJs             : function ( to_set ) {
         this.input.setValueFromJs( to_set );
     },
-    getFinalValue     : function () {
+    getFinalValue              : function () {
         if ( this.timeout_ask_compute_after_change ) {
             clearTimeout( this.timeout_ask_compute_after_change );
             this.computeAfterChange();
         }
         return this.getValue();
     },
-    setCurrentFilter  : function ( focus_on_last_separator, bypass_do_filter, validation_done ) {
+    setCurrentFilter           : function ( focus_on_last_separator, bypass_do_filter, validation_done ) {
         if ( this.select.list_element.list.length > 0 ) {
             this.select.openSelector();
         }
@@ -13529,25 +13538,25 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
             this.validateValueInput();
         }
     },
-    hasAutoSelect     : function () {
+    hasAutoSelect              : function () {
         return this.select.hasAutoSelect();
     },
-    getDataSetLink    : function () {
+    getDataSetLink             : function () {
         return this.select.getDataSetLink();
     },
-    getListElement    : function () {
+    getListElement             : function () {
         return this.select.getListElement();
     },
-    getStatus         : function () {
+    getStatus                  : function () {
         return this.input.getStatus();
     },
-    addValidationRule : function ( to_add, type ) {
+    addValidationRule          : function ( to_add, type ) {
         this.input.addValidationRule( to_add, type );
     },
-    computeAfterChange: function ( validation_done ) {
+    computeAfterChange         : function ( validation_done ) {
         this.setCurrentFilter( false, !this.input.need_validation, validation_done );
     },
-    hidePopup: function () {
+    hidePopup                  : function () {
         this.select.hidePopup();
     },
     validSelectedOrFirstElement: function () {
@@ -13565,7 +13574,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     isReallyInQuotes           : function ( in_quotes ) {
         return this.use_quotes ? in_quotes : false;
     },
-    applySiblingSettings: function ( component ) {
+    applySiblingSettings       : function ( component ) {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, SHINKEN.OBJECT.ShinkenObjectHtml );
@@ -13596,7 +13605,7 @@ COMPONENT.InputWithDropDownFomData           = function ( type ) {
     this.init();
 };
 COMPONENT.InputWithDropDownFomData.prototype = {
-    init: function () {
+    init               : function () {
         this.uuid      = SHINKEN.TOOLS.STRING.buildUUID();
         this.input     = new COMPONENT.InputFromData();
         this.select    = new COMPONENT.SelectFromData( COMPONENT.CONST.TYPE.SINGLE_SELECT );
@@ -13611,7 +13620,7 @@ COMPONENT.InputWithDropDownFomData.prototype = {
     setPlaceholder     : function ( to_set ) {
         this.input.setPlaceholder( to_set );
     },
-    computeHtml: function () {
+    computeHtml        : function () {
         this.input.computeHtml();
         this.select.computeHtml();
         this.dom_element = DOM.Service.createElement( "div",
@@ -13627,7 +13636,7 @@ COMPONENT.InputWithDropDownFomData.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputWithDropDownFomData, COMPONENT.InterfaceInputWithDropDown );
-COMPONENT.INPUT = {
+COMPONENT.INPUT                    = {
     PARAM: {
         NAME: "input_name"
     }
@@ -13637,29 +13646,29 @@ COMPONENT.InterfaceInput           = function ( value ) {
     this.init( value );
 };
 COMPONENT.InterfaceInput.prototype = {
-    init: function ( value ) {
+    init                          : function ( value ) {
         this.current_value = value || "";
     },
-    clickOnInput: function () {
+    clickOnInput                  : function () {
     },
-    hasFocus             : function () {
+    hasFocus                      : function () {
         return DOM.Service.hasFocus( this.dom_element_input );
     },
-    getDomValue          : function () {
+    getDomValue                   : function () {
         if ( this.dom_element_input ) {
             return this.dom_element_input.value;
         }
     },
-    getValue             : function () {
+    getValue                      : function () {
         return this.current_value;
     },
-    setValue             : function ( keep_cursor_pos ) {
+    setValue                      : function ( keep_cursor_pos ) {
         this.computeNeedValidation();
         this.current_value = this.getDomValue();
         this.askComputeHeight();
         this.updateBroomButton();
     },
-    setValueFromJs       : function ( to_set ) {
+    setValueFromJs                : function ( to_set ) {
         this.current_value = to_set;
         this.computeNeedValidation();
         if ( this.dom_element_input ) {
@@ -13670,7 +13679,7 @@ COMPONENT.InterfaceInput.prototype = {
         }
         this.updateBroomButton();
     },
-    setValueFromInput    : function () {
+    setValueFromInput             : function () {
         this.computeNeedValidation();
         this.current_value = this.getDomValue();
         if ( this.need_validation ) {
@@ -13679,18 +13688,18 @@ COMPONENT.InterfaceInput.prototype = {
         this.doExtraAction();
         this.updateBroomButton();
     },
-    setStatus            : function ( to_set ) {
+    setStatus                     : function ( to_set ) {
         this.status = to_set;
         DOM.Service.setDataSet( this.dom_element, 'status', to_set );
     },
-    getStatus            : function () {
+    getStatus                     : function () {
         return this.status;
     },
-    setIsProtected       : function ( to_set ) {
+    setIsProtected                : function ( to_set ) {
         this.is_protected = to_set;
         this.dom_element_input.setAttribute( "type", (this.is_protected && SHINKEN.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "shinken-password" : this.type );
     },
-    setDisabled          : function ( to_set ) {
+    setDisabled                   : function ( to_set ) {
         if ( to_set ) {
             this.dom_element_input.setAttribute( "readonly", '' );
         }
@@ -13698,7 +13707,7 @@ COMPONENT.InterfaceInput.prototype = {
             this.dom_element_input.removeAttribute( "readonly", '' );
         }
     },
-    setPlaceholder       : function ( to_set ) {
+    setPlaceholder                : function ( to_set ) {
         if ( !to_set ) {
             to_set = this.placeholder_no_template || "";
         }
@@ -13708,25 +13717,25 @@ COMPONENT.InterfaceInput.prototype = {
             this.dom_element_input.placeholder = this.placeholder;
         }
     },
-    skipValidation       : function ( to_set ) {
+    skipValidation                : function ( to_set ) {
         this.skip_validation = to_set;
     },
-    hasBeenChanged       : function () {
+    hasBeenChanged                : function () {
         return this.getValue() !== this.original_value;
     },
-    setNeedValidation    : function ( to_set, parent_name ) {
+    setNeedValidation             : function ( to_set, parent_name ) {
         this.need_validation = to_set;
     },
-    setType__20241003    : function ( to_set ) {
+    setType__20241003             : function ( to_set ) {
         this.type = to_set;
     },
-    setTimeoutAfterChange: function ( to_set ) {
+    setTimeoutAfterChange         : function ( to_set ) {
         this.time_out_compute_after_change = to_set;
     },
-    setExtraTooltip  : function ( to_set ) {
+    setExtraTooltip               : function ( to_set ) {
         this.extra_tooltip = to_set;
     },
-    addShinkenTooltip: function ( type, text ) {
+    addShinkenTooltip             : function ( type, text ) {
         this.dom_element.setAttribute( "onmouseenter", "SHINKEN_TOOLTIP.showTooltip(this)" );
         this.dom_element.setAttribute( "onmouseleave", "SHINKEN_TOOLTIP.hideTooltip()" );
         if ( this.extra_tooltip && this.hasBeenChanged() ) {
@@ -13743,7 +13752,7 @@ COMPONENT.InterfaceInput.prototype = {
         
         text && this.hasFocus() ? SHINKEN_TOOLTIP.showTooltip( this.dom_element ) : SHINKEN_TOOLTIP.hideTooltip();
     },
-    setMessage       : function ( message ) {
+    setMessage                    : function ( message ) {
         var _status  = COMPONENT.CONST.STATUS.NONE;
         this.message = message;
         if ( message ) {
@@ -13770,12 +13779,12 @@ COMPONENT.InterfaceInput.prototype = {
         this.setError( this.uuid, _counter[ 0 ] );
         this.setWarning( this.uuid, _counter[ 1 ] );
     },
-    updateBroomButton    : function () {
+    updateBroomButton             : function () {
         if ( this.broom_button ) {
             DOM.Service.addOrRemoveClasses( this.broom_button.getDomElement(), !this.current_value, "shinken-hidden" );
         }
     },
-    restoreCursorLocation: function ( location ) {
+    restoreCursorLocation         : function ( location ) {
         this.dom_element_input.focus();
         if ( location ) {
             this.last_cursor_location = location;
@@ -13786,13 +13795,13 @@ COMPONENT.InterfaceInput.prototype = {
         this.dom_element_input.selectionStart = this.last_cursor_location;
         this.dom_element_input.selectionEnd   = this.last_cursor_location;
     },
-    saveCursorLocation   : function () {
+    saveCursorLocation            : function () {
         this.last_cursor_location = this.getCursorLocation();
     },
-    getCursorLocation    : function () {
+    getCursorLocation             : function () {
         return this.dom_element_input.selectionStart;
     },
-    updateView           : function ( is_inherited, update, keep_cursor_pos, has_inheritance ) {
+    updateView                    : function ( is_inherited, update, keep_cursor_pos, has_inheritance ) {
         var _to_write = this.current_value;
         if ( this.current_value === 'null' && has_inheritance ) {
             _to_write = '';
@@ -13822,7 +13831,7 @@ COMPONENT.InterfaceInput.prototype = {
             DOM.Service.addOrRemoveClasses( this.dom_element_input_broom, !this.current_value, "shinken-hidden" );
         }
     },
-    askComputeHeight     : function () {
+    askComputeHeight              : function () {
         var self = this;
         if ( self.timeout_ask_compute_height ) {
             clearTimeout( self.timeout_ask_compute_height );
@@ -13833,7 +13842,7 @@ COMPONENT.InterfaceInput.prototype = {
             }
         }, 200 );
     },
-    askComputeAfterChange   : function ( dom_element, parent, arg ) {
+    askComputeAfterChange         : function ( dom_element, parent, arg ) {
         var self = this;
         if ( self.timeout_ask_compute_after_change ) {
             clearTimeout( self.timeout_ask_compute_after_change );
@@ -13842,12 +13851,12 @@ COMPONENT.InterfaceInput.prototype = {
             self.computeAfterChange( dom_element, parent, arg );
         }, self.time_out_compute_after_change );
     },
-    finishActionBeforeReload: function () {
+    finishActionBeforeReload      : function () {
         if ( this.timeout_ask_compute_after_change ) {
             this.computeAfterChange();
         }
     },
-    computeAfterChange      : function ( dom_element, parent, args ) {
+    computeAfterChange            : function ( dom_element, parent, args ) {
         this.setValueFromInput();
         if ( !args ) {
             args = {};
@@ -13860,7 +13869,7 @@ COMPONENT.InterfaceInput.prototype = {
             parent.doActionAfterChange( args );
         }
     },
-    validateValueInput         : function ( forced, ignore_focus ) {
+    validateValueInput            : function ( forced, ignore_focus ) {
         if ( !SHINKEN.TOOLS.SHINKEN_VALIDATOR ) {
             if ( this.validation_parameter ) {
                 return this.validateValueInputNewFormat( forced, ignore_focus );
@@ -13885,7 +13894,7 @@ COMPONENT.InterfaceInput.prototype = {
         }
         return false;
     },
-    validateValueInputNewFormat: function () {
+    validateValueInputNewFormat   : function () {
         if ( this.need_validation ) {
             var _to_set = COMPONENT.CONST.STATUS.NONE;
             if ( !SHINKEN_VALIDATION.Service.isValid( this.getValue(), this.validation_parameter ) ) {
@@ -13897,7 +13906,7 @@ COMPONENT.InterfaceInput.prototype = {
         }
         return false;
     },
-    addValidationRule          : function ( to_add, type ) {
+    addValidationRule             : function ( to_add, type ) {
         switch ( type ) {
             case COMPONENT.CONST.FILTER.TYPES_VALIDATION.HAS_FOCUS:
                 if ( !this.validation_rules ) {
@@ -13914,7 +13923,7 @@ COMPONENT.InterfaceInput.prototype = {
         }
         
     },
-    setValidationRules         : function ( to_set, type ) {
+    setValidationRules            : function ( to_set, type ) {
         switch ( type ) {
             case COMPONENT.CONST.FILTER.TYPES_VALIDATION.HAS_FOCUS:
                 this.validation_rules = to_set;
@@ -13924,7 +13933,7 @@ COMPONENT.InterfaceInput.prototype = {
                 break;
         }
     },
-    computeNeedValidation      : function () {
+    computeNeedValidation         : function () {
         if ( this.skip_validation ) {
             return;
         }
@@ -13935,7 +13944,7 @@ COMPONENT.InterfaceInput.prototype = {
             this.setNeedValidation( true );
         }
     },
-    getValidationRules         : function ( ignore_focus ) {
+    getValidationRules            : function ( ignore_focus ) {
         if ( !this.validation_rules && !this.validation_rules_not_focus ) {
             return null;
         }
@@ -13947,10 +13956,10 @@ COMPONENT.InterfaceInput.prototype = {
         }
         return this.validation_rules;
     },
-    setValidationParameter     : function ( validation_parameter ) {
+    setValidationParameter        : function ( validation_parameter ) {
         this.validation_parameter = validation_parameter;
     },
-    updateUrlWithValue: function () {
+    updateUrlWithValue            : function () {
         var _value = this.current_value ? this.current_value : '';
         SHINKEN.HIGHWAY.setParam( this.url_param_key, _value );
     },
@@ -13991,17 +14000,17 @@ COMPONENT.InterfaceInput_V3.prototype = {
                 break;
         }
     },
-    getUUID          : function ( event_name, param ) {
+    getUUID            : function ( event_name, param ) {
         return this.getName();
     },
-    addShinkenTooltip: function ( type, text ) {
+    addShinkenTooltip  : function ( type, text ) {
         this.dom_element.setAttribute( "onmouseenter", "SHINKEN_TOOLTIP.showTooltip(this)" );
         this.dom_element.setAttribute( "onmouseleave", "SHINKEN_TOOLTIP.hideTooltip()" );
         this.dom_element.setAttribute( 'shi-tip-type', type );
         this.dom_element.setAttribute( 'shi-tip-text', text );
         text && this.hasFocus() ? SHINKEN_TOOLTIP.showTooltip( this.dom_element ) : SHINKEN_TOOLTIP.hideTooltip();
     },
-    setMessage       : function ( message ) {
+    setMessage         : function ( message ) {
         var _status  = COMPONENT.CONST.STATUS.NONE;
         this.message = message;
         if ( message ) {
@@ -14065,7 +14074,7 @@ COMPONENT.InputFromData           = function ( value ) {
     this.init( value );
 };
 COMPONENT.InputFromData.prototype = {
-    init: function ( value ) {
+    init       : function ( value ) {
         this.event_name    = "";
         this.param_name    = "";
         this.current_value = value || "";
@@ -14110,7 +14119,7 @@ COMPONENT.InputFromDataV2.prototype = {
         this.property_name = property_name;
         this.parent_uuid   = parent_uuid;
     },
-    computeHtml: function () {
+    computeHtml : function () {
         this.setDomElement( DOM.Service.createElement( "table", {
                 class       : "shinken-input-table",
                 onmouseenter: "SHINKEN_TOOLTIP.showTooltip(this)",
@@ -14149,7 +14158,7 @@ COMPONENT.InputFromData_V3           = function ( name, value, params ) {
     this.initSpecific( name, value, params );
 };
 COMPONENT.InputFromData_V3.prototype = {
-    initSpecific: function ( name, value, params ) {
+    initSpecific                 : function ( name, value, params ) {
         this.setTimeoutAfterChange( 200 );
         this.name = name;
         this.init( value );
@@ -14159,7 +14168,7 @@ COMPONENT.InputFromData_V3.prototype = {
         this.class = "shinken-input-component-container shinken-layout-center-h-v shinken-input-has-broom";
         this.initCounterCommon();
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter                : function ( event_name, param ) {
         switch ( event_name ) {
             case "add_message_validation":
                 this.setMessage( param[ PROPERTY.COMMON.PARAM.PROPERTY_MESSAGES ] );
@@ -14180,7 +14189,7 @@ COMPONENT.InputFromData_V3.prototype = {
         }
         return this.doActionAfterCommon( event_name, param );
     },
-    addParamForEvents: function ( key, value ) {
+    addParamForEvents            : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         this.broom_button.addParamForEvents( key, value );
     },
@@ -14194,7 +14203,7 @@ COMPONENT.InputFromData_V3.prototype = {
             "message": this.message || ""
         };
     },
-    computeHtml: function () {
+    computeHtml                  : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass() } ) );
         const _on_change = "MANAGER.EventManagerV2.onChangeInput_V3(event," + this.parseParamForEventsToHtml() + ")";
         
@@ -14223,9 +14232,9 @@ COMPONENT.InterfaceLabel           = function () {
     this.init();
 };
 COMPONENT.InterfaceLabel.prototype = {
-    init: function () {
+    init         : function () {
     },
-    setLabel   : function ( to_set ) {
+    setLabel     : function ( to_set ) {
         this.label = to_set;
         if ( this.dom_element_label ) {
             this.dom_element_label.innerHTML = this.label;
@@ -14238,26 +14247,26 @@ COMPONENT.InterfaceLabel.prototype = {
                 break;
         }
     },
-    getValue   : function () {
+    getValue     : function () {
         return "";
     },
-    hasLabel   : function () {
+    hasLabel     : function () {
         return !!this.label;
     },
-    updateLabel: function ( to_set ) {
+    updateLabel  : function ( to_set ) {
         this.label = to_set;
         if ( this.dom_element ) {
             this.dom_element.innerHTML = this.label;
         }
     },
-    getUUID: function () {
+    getUUID      : function () {
         return this.label;
     },
-    setStatus            : function ( to_set ) {
+    setStatus    : function ( to_set ) {
         this.status = to_set;
         DOM.Service.setDataSet( this.dom_element, 'status', to_set );
     },
-    setMessage       : function ( message ) {
+    setMessage   : function ( message ) {
         var _status  = COMPONENT.CONST.STATUS.NONE;
         this.message = message;
         if ( message ) {
@@ -14280,7 +14289,7 @@ COMPONENT.InterfaceLabel.prototype = {
         }
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.uuid, _counter[ 0 ] );
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.uuid, _counter[ 1 ] );
-    },
+    }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, SHINKEN.OBJECT.CounterInterfaceV2 );
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, SHINKEN.OBJECT.CounterInterface );
@@ -14301,7 +14310,7 @@ COMPONENT.LabelFromData           = function ( label ) {
     this.initSpecific( label );
 };
 COMPONENT.LabelFromData.prototype = {
-    initSpecific: function ( label ) {
+    initSpecific  : function ( label ) {
         this.label = label;
         this.initCounterCommon();
     },
@@ -14314,24 +14323,24 @@ COMPONENT.LabelFromData.prototype = {
     getValue      : function () {
         return this.label;
     },
-    computeHtml: function () {
+    computeHtml   : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-label-container " + this.getClass() } ) );
         this.dom_element_label = this.addDomElement( DOM.Service.createElement( "span", { class: "shinken-label" }, this.label ), this.dom_element );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, SHINKEN.OBJECT.ShinkenObjectHtml );
-COMPONENT.ListSelectElement           = function ( dom_element ) {
+COMPONENT.ListSelectElement                       = function ( dom_element ) {
     this.init( dom_element );
 };
-COMPONENT.ListSelectElement.prototype = {
+COMPONENT.ListSelectElement.prototype             = {
     init               : function ( dom_element ) {
-        this.dom_element = dom_element;
+        this.dom_element   = dom_element;
         this.is_filtered   = false;
         this.reason_to_set = [];
-        this.element = new OBJECT.ElementList();
+        this.element       = new OBJECT.ElementList();
         if ( dom_element ) {
-            this.dom_title   = dom_element.querySelector( '.' + 'shinken-option-title' );
+            this.dom_title = dom_element.querySelector( '.' + 'shinken-option-title' );
             this.initElement();
             this.is_selected = dom_element.classList.contains( 'shinken-selected' );
         }
@@ -14347,7 +14356,7 @@ COMPONENT.ListSelectElement.prototype = {
         this.element.setUUID( this.dom_element.dataset.uuid );
         this.element.setItemType( this.dom_element.dataset.itemType );
         this.element.setIsHiddenForAdminSi( this.dom_element.dataset.isHiddenForAdminSi );
-        this.element.setIsLock(this.dom_element.classList.contains("shinken-option-locked"));
+        this.element.setIsLock( this.dom_element.classList.contains( "shinken-option-locked" ) );
         this.element.setErrorMessage( this.dom_element.dataset.errorMessage );
     },
     getElement         : function () {
@@ -14512,10 +14521,10 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
             this.dom_element.classList.remove( COMPONENT.CONST.LIST_SELECT_ELEMENT.CLASS.HIDDEN );
         }
     },
-    setFilteringOption: function ( to_set ) {
+    setFilteringOption : function ( to_set ) {
         this.filtering_option = to_set;
     },
-    doFilter          : function ( filter ) {
+    doFilter           : function ( filter ) {
         if ( !filter ) {
             this.setIsFiltered( false );
             return this.element.type === OBJECT.CONST.ELEMENT_LIST.TYPE.USER;
@@ -14537,7 +14546,7 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
             return false;
         }
     },
-    updateHtmlLabel: function ( label ) {
+    updateHtmlLabel    : function ( label ) {
         this.element.setLabel( label );
         this.dom_element.innerHTML = this.getLabel();
     }
@@ -14554,7 +14563,7 @@ COMPONENT.ListSelectElementFromData_V2.prototype = {
         this.getElement().setName( key_name );
         this.getElement().setLabel( label || key_name );
     },
-    computeHtml: function () {
+    computeHtml : function () {
         this.setDomElement( DOM.Service.createElement( "div", {
             class           : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION, "data-key-name": this.getName(),
             onmouseup       : "MANAGER.EventManagerV2.clickItemSelector(event,'" + this.property_name + "','" + this.selector_name + "', '" + this.getElement().getName() + "')",
@@ -14576,7 +14585,7 @@ COMPONENT.ListSelectElementFromData_V3.prototype = {
         this.getElement().setName( key_name );
         this.getElement().setLabel( label || key_name );
     },
-    computeHtml: function () {
+    computeHtml : function () {
         this.setDomElement( DOM.Service.createElement( "div", {
             class           : this.class,
             "data-key-name" : this.getName(),
@@ -14591,9 +14600,9 @@ COMPONENT.InterfaceListSelect           = function () {
     this.init();
 };
 COMPONENT.InterfaceListSelect.prototype = {
-    init                     : function () {
+    init                                : function () {
     },
-    toggleStateSelectedInList: function ( key_name, class_to_add ) {
+    toggleStateSelectedInList           : function ( key_name, class_to_add ) {
         var _list_select_element = this.list[ this._getIndexElementInMapping( key_name ) ];
         if ( !_list_select_element ) {
             var _to_return = new COMPONENT.ListSelectElement();
@@ -14603,17 +14612,17 @@ COMPONENT.InterfaceListSelect.prototype = {
         _list_select_element.setSelected( !_list_select_element.is_selected, class_to_add );
         return _list_select_element.getElement();
     },
-    unselectAllElement       : function ( extra_class ) {
+    unselectAllElement                  : function ( extra_class ) {
         var _current;
         for ( var i = 0; i < this.size_list; i++ ) {
             _current = this.list[ i ];
             _current.setSelected( false, extra_class );
         }
     },
-    doChangeFilterSelect     : function () {
+    doChangeFilterSelect                : function () {
     
     },
-    addNewElementUnknown     : function ( key_name, prop_name ) {
+    addNewElementUnknown                : function ( key_name, prop_name ) {
         var _to_add    = DOM.Service.createElement( 'div', {
                 class               : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION,
                 "data-state"        : "unknown",
@@ -14631,15 +14640,15 @@ COMPONENT.InterfaceListSelect.prototype = {
         this.addNewElement( key_name, _to_return );
         return _to_return;
     },
-    addNewElement            : function ( key_name, list_select_element ) {
-        this.list[ this.size_list ]                            = list_select_element;
-        this.list_mapping[ key_name ]                          = this.size_list;
-        if ( typeof key_name === "string" ){
+    addNewElement                       : function ( key_name, list_select_element ) {
+        this.list[ this.size_list ]   = list_select_element;
+        this.list_mapping[ key_name ] = this.size_list;
+        if ( typeof key_name === "string" ) {
             this.list_mapping_lower_case[ key_name.toLowerCase() ] = this.size_list;
         }
         this.size_list++;
     },
-    _getIndexElementInMapping: function ( key_name ) {
+    _getIndexElementInMapping           : function ( key_name ) {
         if ( !key_name ) {
             return;
         }
@@ -14649,18 +14658,18 @@ COMPONENT.InterfaceListSelect.prototype = {
         }
         return _index;
     },
-    getElement               : function ( key_name ) {
+    getElement                          : function ( key_name ) {
         var _index = this._getIndexElementInMapping( key_name );
         if ( _index === undefined ) {
             return null;
         }
         return this.list[ _index ].getElement();
     },
-    getListSelectElement     : function ( key_name ) {
+    getListSelectElement                : function ( key_name ) {
         var _index = this._getIndexElementInMapping( key_name );
         return this.list[ _index ];
     },
-    getSelectedElements      : function () {
+    getSelectedElements                 : function () {
         var _to_return = [];
         var _current_element;
         for ( var i = 0; i < this.size_list; i++ ) {
@@ -14671,7 +14680,7 @@ COMPONENT.InterfaceListSelect.prototype = {
         }
         return _to_return;
     },
-    getFirstSelectedElement  : function ( exclude_hidden ) {
+    getFirstSelectedElement             : function ( exclude_hidden ) {
         var _current_element;
         for ( var i = 0; i < this.size_list; i++ ) {
             _current_element = this.list[ i ];
@@ -14684,12 +14693,12 @@ COMPONENT.InterfaceListSelect.prototype = {
         }
         return null;
     },
-    setState                 : function ( state ) {
+    setState                            : function ( state ) {
         this.state = state;
         this.setLastAutoSelectElement( false );
         return this.state;
     },
-    focusOnResearchInput: function () {
+    focusOnResearchInput                : function () {
         if ( this.dom_element_input_research ) {
             this.dom_element_input_research.focus();
             if ( this.state === COMPONENT.CONST.BTN_STATE.ON ) {
@@ -14697,12 +14706,12 @@ COMPONENT.InterfaceListSelect.prototype = {
             }
         }
     },
-    setResearchDisplay  : function ( value ) {
+    setResearchDisplay                  : function ( value ) {
         if ( this.dom_element_display_research ) {
             this.dom_element_display_research.innerHTML = value;
         }
     },
-    toggleState         : function () {
+    toggleState                         : function () {
         switch ( this.state ) {
             case COMPONENT.CONST.BTN_STATE.ON:
                 this.setState( COMPONENT.CONST.BTN_STATE.OFF );
@@ -14717,7 +14726,7 @@ COMPONENT.InterfaceListSelect.prototype = {
         }
         return this.state;
     },
-    doFilter         : function ( filter ) {
+    doFilter                            : function ( filter ) {
         if ( this.current_filter && filter === this.current_filter ) {
             return;
         }
@@ -14748,11 +14757,11 @@ COMPONENT.InterfaceListSelect.prototype = {
         this.setLastAutoSelectElement( false );
         
     },
-    cleanFilter      : function () {
+    cleanFilter                         : function () {
         this.dom_element_input_research.value = "";
         this.doFilter( '' );
     },
-    addNewElementList: function ( value ) {
+    addNewElementList                   : function ( value ) {
         var _to_add = new COMPONENT.ListSelectElement( _list_element[ i ] );
     },
     hasAutoSelect                       : function () {
@@ -14871,10 +14880,10 @@ COMPONENT.InterfaceListSelect.prototype = {
         this.setLastAutoSelectElement( true, _type );
     }
 };
-COMPONENT.ListSelect           = function ( dom_element, parent_name, allow_multiple_select ) {
+COMPONENT.ListSelect                    = function ( dom_element, parent_name, allow_multiple_select ) {
     this.init( dom_element, parent_name, allow_multiple_select );
 };
-COMPONENT.ListSelect.prototype = {
+COMPONENT.ListSelect.prototype          = {
     init           : function ( dom_element, parent_name, allow_multiple_select ) {
         allow_multiple_select = !!allow_multiple_select;
         this.dom_element      = dom_element;
@@ -14905,7 +14914,7 @@ COMPONENT.ListSelect.prototype = {
             this.list_mapping_lower_case[ this.list[ i ].getName().toLowerCase() ] = i;
         }
     },
-    addNewElement: function ( key_name, list_select_element ) {
+    addNewElement  : function ( key_name, list_select_element ) {
         this.list[ this.size_list ]                            = list_select_element;
         this.list_mapping[ key_name ]                          = this.size_list;
         this.list_mapping_lower_case[ key_name.toLowerCase() ] = this.size_list;
@@ -14931,7 +14940,7 @@ COMPONENT.ListSelectFromData.prototype = {
         this.nbr_in_list_after_filter = 0;
         this.size_list                = 0;
     },
-    addFromString: function ( key_name, label, filtering_option ) {
+    addFromString  : function ( key_name, label, filtering_option ) {
         var _dom_element = DOM.Service.createElement( 'div', {
                 class               : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION,
                 "data-key-name"     : key_name,
@@ -14945,11 +14954,11 @@ COMPONENT.ListSelectFromData.prototype = {
             "<span class='shinken-space'>" + label + "</span>"
         );
         var _to_return   = new COMPONENT.ListSelectElement( _dom_element );
-        _to_return.setFilteringOption(filtering_option);
+        _to_return.setFilteringOption( filtering_option );
         this.addNewElement( key_name, _to_return );
     },
-    computeHtml: function () {
-        this.dom_element = DOM.Service.createElement( "div", { class: "shinken-list-select" } );
+    computeHtml    : function () {
+        this.dom_element                = DOM.Service.createElement( "div", { class: "shinken-list-select" } );
         this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
         DOM.Service.addElementTo( this.dom_element_select_content, this.dom_element );
     }
@@ -14958,7 +14967,7 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData, COMPONENT.Interf
 COMPONENT.InterfaceListSelect_V2           = function () {
 };
 COMPONENT.InterfaceListSelect_V2.prototype = {
-    init: function () {
+    init       : function () {
     },
     setState   : function ( state ) {
         this.state = state;
@@ -14988,7 +14997,7 @@ COMPONENT.ListSelectFromData_V2           = function ( property_name, selector_n
     this.init( property_name, selector_name );
 };
 COMPONENT.ListSelectFromData_V2.prototype = {
-    init: function ( property_name, selector_name ) {
+    init         : function ( property_name, selector_name ) {
         this.property_name = property_name;
         this.selector_name = selector_name;
         this.initContents();
@@ -14998,14 +15007,14 @@ COMPONENT.ListSelectFromData_V2.prototype = {
         var _to_return = new COMPONENT.ListSelectElementFromData_V2( key_name, label, this.property_name, this.selector_name );
         this.add( _to_return );
     },
-    reset: function () {
+    reset        : function () {
         this.resetHtml();
         this.initContents();
     },
-    resetHtml  : function () {
+    resetHtml    : function () {
         DOM.Service.removeElement( this.getDomElement() );
     },
-    computeHtml: function () {
+    computeHtml  : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-select" } ) );
         this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
         this.addDomElement( this.dom_element_select_content );
@@ -15022,7 +15031,7 @@ COMPONENT.ListSelectFromData_V3_deprecated           = function ( property_name,
     this.init( property_name, selector_name );
 };
 COMPONENT.ListSelectFromData_V3_deprecated.prototype = {
-    init: COMPONENT.ListSelectFromData_V2.prototype.init,
+    init         : COMPONENT.ListSelectFromData_V2.prototype.init,
     addFromString: function ( key_name, label ) {
         var _to_return = new COMPONENT.ListSelectElementFromData_V3( key_name, label, this.property_name, this.selector_name );
         this.add( _to_return );
@@ -15033,7 +15042,7 @@ COMPONENT.ListSelectFromData_V3           = function ( property_name, selector_n
     this.initSpecific( property_name, selector_name );
 };
 COMPONENT.ListSelectFromData_V3.prototype = {
-    initSpecific: function ( property_name, selector_name ) {
+    initSpecific : function ( property_name, selector_name ) {
         this.init( property_name, selector_name );
         this.addParamForEvents( PROPERTY.COMMON.PARAM.PROPERTY_NAME, property_name );
         this.addParamForEvents( PROPERTY.SELECT.PARAM.SELECTOR_NAME, selector_name );
@@ -15042,7 +15051,7 @@ COMPONENT.ListSelectFromData_V3.prototype = {
         var _to_return = new COMPONENT.ListSelectElementFromData_V3( key_name, label, this.getParamForEvents() );
         this.add( _to_return );
     },
-    computeHtml: function () {
+    computeHtml  : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-select shinken-list-select-V3" } ) );
         this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
         this.addDomElement( this.dom_element_select_content );
@@ -15058,22 +15067,22 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V3, COMPONENT.Lis
 COMPONENT.InterfaceSelect           = function () {
 };
 COMPONENT.InterfaceSelect.prototype = {
-    init        : function () {
+    init                          : function () {
     },
-    hidePopup   : function () {
+    hidePopup                     : function () {
         DOM.Service.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
         this.list_element.setState( COMPONENT.CONST.BTN_STATE.OFF );
     },
-    openSelector: function () {
+    openSelector                  : function () {
         if ( this.list_element.state === COMPONENT.CONST.BTN_STATE.OFF ) {
             this.clickOnSelector();
         }
     },
-    clickOnSelector          : function () {
+    clickOnSelector               : function () {
         DOM.Service.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
         this.list_element.focusOnResearchInput();
     },
-    clickOnItemSelector      : function ( parent_name, key_name, class_to_add ) {
+    clickOnItemSelector           : function ( parent_name, key_name, class_to_add ) {
         this.setLastSelectedElementName( key_name );
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
@@ -15093,35 +15102,35 @@ COMPONENT.InterfaceSelect.prototype = {
             MANAGER.__instance_property_distributor.hidePopups();
         }
     },
-    clickOnDeleteItemSelector: function ( key_name ) {
+    clickOnDeleteItemSelector     : function ( key_name ) {
         var _element = this.list_element.toggleStateSelectedInList( key_name );
         this.getActiveListForUser().deleteTag( _element );
     },
-    askComputeAfterChange    : function ( dom_element ) {
+    askComputeAfterChange         : function ( dom_element ) {
         switch ( dom_element.name ) {
             case 'multi-search':
                 this.component_input_search.askComputeAfterChange( dom_element, this );
                 break;
         }
     },
-    doActionAfterChange      : function ( args ) {
+    doActionAfterChange           : function ( args ) {
         if ( args[ 'validation_done' ] ) {
             this.doFilter( this.component_input_search.getValue() );
         }
     },
-    simulateClickOnItem      : function ( key_name ) {
+    simulateClickOnItem           : function ( key_name ) {
         DOM.Service.SimulateAction.mouseUp( this.list_element.getListSelectElement( key_name ).dom_element );
     },
-    dragStartShinken: function ( type_element, key_name ) {
+    dragStartShinken              : function ( type_element, key_name ) {
         switch ( type_element ) {
             case PROPERTY.CONST.DRAG_N_DROP.TYPE.SELECTED_ITEM:
                 return this.getActiveListForUser().dragStartShinken( key_name );
         }
     },
-    resetDragging   : function () {
+    resetDragging                 : function () {
         this.list_element_selected.resetDragging();
     },
-    setTitle                  : function ( _to_set ) {
+    setTitle                      : function ( _to_set ) {
         if ( !this.is_editable ) {
             return;
         }
@@ -15129,16 +15138,16 @@ COMPONENT.InterfaceSelect.prototype = {
         this.title          = _to_set;
         _dom_text.innerHTML = this.title;
     },
-    setResearchDisplay        : function ( _to_set ) {
+    setResearchDisplay            : function ( _to_set ) {
         this.list_element.setResearchDisplay( _to_set );
     },
-    isSet                     : function () {
+    isSet                         : function () {
         return !this.getActiveListForUser().isEmpty();
     },
-    cleanAllTags              : function () {
+    cleanAllTags                  : function () {
         this.getActiveListForUser().emptyList();
     },
-    getActiveListForUser      : function () {
+    getActiveListForUser          : function () {
         if ( this.is_override ) {
             return this.list_element_override;
         }
@@ -15146,10 +15155,10 @@ COMPONENT.InterfaceSelect.prototype = {
             return this.list_element_selected;
         }
     },
-    cleanAllItemsSelected     : function ( extra_class ) {
+    cleanAllItemsSelected         : function ( extra_class ) {
         this.list_element.unselectAllElement( extra_class );
     },
-    getValue                  : function () {
+    getValue                      : function () {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
             case COMPONENT.CONST.TYPE.MULTI_SELECT_BASIC:
@@ -15159,7 +15168,7 @@ COMPONENT.InterfaceSelect.prototype = {
                 return this.getLastSelectedElementName();
         }
     },
-    getValueToSave            : function () {
+    getValueToSave                : function () {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
             case COMPONENT.CONST.TYPE.MULTI_SELECT_BASIC:
@@ -15172,7 +15181,7 @@ COMPONENT.InterfaceSelect.prototype = {
                 return;
         }
     },
-    getTagsValueToSave        : function () {
+    getTagsValueToSave            : function () {
         var _to_return = [];
         var _tags      = this.getActiveListForUser().getTags();
         for ( var i = 0, size = _tags.length; i < size; i++ ) {
@@ -15180,7 +15189,7 @@ COMPONENT.InterfaceSelect.prototype = {
         }
         return _to_return;
     },
-    computeTitle              : function ( add_extra, extra_label ) {
+    computeTitle                  : function ( add_extra, extra_label ) {
         if ( this.last_selected_key_name === undefined ) {
             var _selected = this.list_element.getSelectedElements();
             if ( _selected[ 0 ] !== undefined ) {
@@ -15197,43 +15206,43 @@ COMPONENT.InterfaceSelect.prototype = {
         }
         this.setTitle( _title_to_set );
     },
-    getLastSelectedElement    : function () {
+    getLastSelectedElement        : function () {
         return this.list_element.getListSelectElement( this.last_selected_key_name );
     },
-    getLastSelectedElementName: function () {
+    getLastSelectedElementName    : function () {
         return this.last_selected_key_name || '';
     },
-    setLastSelectedElementName: function ( to_set ) {
+    setLastSelectedElementName    : function ( to_set ) {
         if ( this.last_selected_key_name ) {
             this.previous_selected_key_name = this.last_selected_key_name;
         }
         this.last_selected_key_name = to_set;
     },
-    hasTag                    : function ( name ) {
+    hasTag                        : function ( name ) {
         return !this.list_element_selected.hasTag( name ) || !this.list_elements_inherited.hasTag( name );
     },
-    getMissingItemSelectorWith: function ( property ) {
+    getMissingItemSelectorWith    : function ( property ) {
         return this.list_element_selected.getMissingItemSelectorWith( property );
     },
-    getExtraItemSelectorWith  : function ( property ) {
+    getExtraItemSelectorWith      : function ( property ) {
         return this.list_element_selected.getExtraItemSelectorWith( property );
     },
-    setMaximumSelected        : function ( to_set ) {
+    setMaximumSelected            : function ( to_set ) {
         this.maximum_selected = to_set;
     },
-    getMaximumSelected        : function () {
+    getMaximumSelected            : function () {
         return this.maximum_selected;
     },
-    isLimitReached            : function () {
+    isLimitReached                : function () {
         return (this.getActiveListForUser().getSizeTags() + this.list_elements_inherited.getSizeTags() - this.maximum_selected);
     },
-    isLimitReachedForSelected : function () {
+    isLimitReachedForSelected     : function () {
         return (this.getActiveListForUser().getSizeTags() - this.maximum_selected);
     },
-    disabledTagsOutOfLimit    : function ( limit ) {
+    disabledTagsOutOfLimit        : function ( limit ) {
         this.list_elements_inherited.disabledTagsOutOfLimit( limit );
     },
-    getErrors                 : function ( state, prop_name ) {
+    getErrors                     : function ( state, prop_name ) {
         var _to_return = 0;
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
@@ -15260,7 +15269,7 @@ COMPONENT.InterfaceSelect.prototype = {
         _to_return += this.getCounterError().getValue();
         return _to_return;
     },
-    getWarnings               : function ( state, prop_name ) {
+    getWarnings                   : function ( state, prop_name ) {
         var _to_return = 0;
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
@@ -15287,7 +15296,7 @@ COMPONENT.InterfaceSelect.prototype = {
         _to_return += this.getCounterWarning().getValue();
         return _to_return;
     },
-    setMessage                : function ( message ) {
+    setMessage                    : function ( message ) {
         var _status = COMPONENT.CONST.STATUS.NONE;
         if ( typeof message === 'string' ) {
             _status = COMPONENT.CONST.STATUS.INFO;
@@ -15319,31 +15328,31 @@ COMPONENT.InterfaceSelect.prototype = {
         this.setError( this.uuid, _counter[ 0 ] );
         this.setWarning( this.uuid, _counter[ 1 ] );
     },
-    addShinkenTooltip         : function ( type, message ) {
+    addShinkenTooltip             : function ( type, message ) {
         this.dom_element.setAttribute( 'shi-tip-type', type );
         this.dom_element.setAttribute( 'shi-tip-text', message );
         message ? SHINKEN_TOOLTIP.showTooltip( this.dom_element ) : SHINKEN_TOOLTIP.hideTooltip();
     },
-    setStatus                 : function ( to_set ) {
+    setStatus                     : function ( to_set ) {
         this.status = to_set;
         DOM.Service.setDataSet( this.dom_element, 'status', to_set );
     },
-    setDataSetLink            : function ( to_set ) {
+    setDataSetLink                : function ( to_set ) {
         this.dataSetLink = to_set;
         if ( this.dataSetLink ) {
             this.computeTitle();
         }
     },
-    getDataSetLink            : function () {
+    getDataSetLink                : function () {
         return this.dataSetLink;
     },
-    getListElement            : function () {
+    getListElement                : function () {
         return this.list_element;
     },
-    doFilter            : function ( filter ) {
+    doFilter                      : function ( filter ) {
         this.list_element.doFilter( filter );
     },
-    doChangeFilterSelect: function () {
+    doChangeFilterSelect          : function () {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.MULTI_SELECT:
             case COMPONENT.CONST.TYPE.MULTI_SELECT_BASIC:
@@ -15355,21 +15364,21 @@ COMPONENT.InterfaceSelect.prototype = {
                 break;
         }
     },
-    cleanFilter         : function () {
+    cleanFilter                   : function () {
         this.list_element.cleanFilter();
     },
-    validOrCreateTag    : function ( name_element, prop_name ) {
+    validOrCreateTag              : function ( name_element, prop_name ) {
         var _existing = this.list_element.getListSelectElement( name_element );
         if ( _existing ) {
             return _existing;
         }
         return this.list_element.addNewElementUnknown( name_element, prop_name );
     },
-    buildLinkOpenNewTab: function ( link, id ) {
+    buildLinkOpenNewTab           : function ( link, id ) {
         var _span_link                         = '<span class="shinken-link-icon-button"><span class="shinken-link-icon shinicon shinicon-open"></span></span>';
         this.dom_link_icon_container.innerHTML = SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin( link, id, _span_link, "shinken-link" ).outerHTML;
     },
-    pulsateTag: function ( name ) {
+    pulsateTag                    : function ( name ) {
         var _existing = this.getActiveListForUser().getTagByName( name );
         if ( _existing ) {
             _existing.pulsateTag();
@@ -15403,7 +15412,7 @@ COMPONENT.InterfaceSelect.prototype = {
         this.list_element.selectSelectedOrFirstFilteredElement();
         this.validAutoSelect();
     },
-    applySiblingSettings: function ( select_comp ) {
+    applySiblingSettings          : function ( select_comp ) {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.SINGLE_SELECT:
             case COMPONENT.CONST.TYPE.SINGLE_SELECT_WITH_INPUT:
@@ -15421,7 +15430,7 @@ COMPONENT.InterfaceSelect.prototype = {
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, SHINKEN.OBJECT.CounterInterface );
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, SHINKEN.OBJECT.ShinkenObjectHtml );
 COMPONENT.Select           = function ( dom_element, type, is_override, parent, datasetLink, allow_multiple_select ) {
-    this.__class_name__ = 'COMPONENT.Select';
+    this.__class_name__        = 'COMPONENT.Select';
     this.type                  = type;
     this.is_override           = is_override;
     this.allow_multiple_select = !!allow_multiple_select;
@@ -15473,32 +15482,32 @@ COMPONENT.Select.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Select, COMPONENT.InterfaceSelect );
 COMPONENT.SelectFromData           = function ( type ) {
-    this.__class_name__ = 'COMPONENT.SelectFromData';
-    this.type           = type;
-    this.is_editable    = true;
-    this.default_label_for_select  = '-- --';
+    this.__class_name__           = 'COMPONENT.SelectFromData';
+    this.type                     = type;
+    this.is_editable              = true;
+    this.default_label_for_select = '-- --';
     this.init();
 };
 COMPONENT.SelectFromData.prototype = {
-    init: function () {
+    init                      : function () {
         this.uuid         = SHINKEN.TOOLS.STRING.buildUUID();
         this.list_element = new COMPONENT.ListSelectFromData();
     },
     setDefaultLabelForSelector: function ( to_set ) {
         this.default_label_for_select = to_set;
     },
-    setOptionsFromArray: function ( to_set ) {
+    setOptionsFromArray       : function ( to_set ) {
         for ( var i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
             this.addOption( to_set[ i ] );
         }
     },
-    addOption          : function ( to_add ) {
+    addOption                 : function ( to_add ) {
         this.list_element.addFromString( to_add.name, to_add.label, to_add.filtering_option );
         if ( to_add.is_selected ) {
             this.setLastSelectedElementName( to_add.name );
         }
     },
-    computeHtml: function () {
+    computeHtml               : function () {
         this.list_element.computeHtml();
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
         
@@ -15506,7 +15515,7 @@ COMPONENT.SelectFromData.prototype = {
             {
                 class  : "shinken-select-selector shinken-user-select-none",
                 onclick: "MANAGER.EventManager.clickOnSelector(event)"
-            }, '<span class="shinken-selector-label shinken-space">' + this.default_label_for_select  + '</span><span class="caret"></span>' );
+            }, '<span class="shinken-selector-label shinken-space">' + this.default_label_for_select + '</span><span class="caret"></span>' );
         if ( this.getLastSelectedElement() ) {
             this.dom_select.innerHTML = '<span class="shinken-selector-label shinken-space">' + this.getLastSelectedElement().getLabel() + '</span><span class="caret"></span>';
         }
@@ -15522,7 +15531,7 @@ SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SelectFromData, COMPONENT.InterfaceS
 COMPONENT.RenderInterface           = function () {
 };
 COMPONENT.RenderInterface.prototype = {
-    init: function () {
+    init            : function () {
         this.initPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING, this.getDomElement() );
     },
     updateLabel     : function ( _to_set ) {
@@ -15558,7 +15567,7 @@ COMPONENT.RenderWithInheritanceFromHtml.prototype = {
         this.setDomElement( dom_element );
         this.init();
         try {
-            this.component_label = new COMPONENT.Label( this.dom_element.querySelector( ".shinken-render-value" ) );
+            this.component_label             = new COMPONENT.Label( this.dom_element.querySelector( ".shinken-render-value" ) );
             this.component_label_inheritance = new COMPONENT.Label( this.dom_element.querySelector( ".shinken-render-value-from-template" ) );
         }
         catch ( e ) {
@@ -15583,33 +15592,33 @@ COMPONENT.RenderFromData.prototype = {
         this.init();
         this.component_label = new COMPONENT.LabelFromData( value );
     },
-    computeHtml: function () {
+    computeHtml : function () {
         this.component_label.computeHtml();
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-render-value-container" } ) );
         var _div_1 = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-container-of-render-value" } ) );
         var _div_2 = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-render-value-content shinken-render-value" } ), _div_1 );
         DOM.Service.addElementTo( this.component_label.getDomElement(), _div_2 );
         this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-title-of-render-value-container" }, _( "components.thresholds_display.render_label" ) ) );
-        this.updateLabel(this.component_label.getLabel());
+        this.updateLabel( this.component_label.getLabel() );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderFromData, COMPONENT.RenderInterface );
 COMPONENT.InterfaceSingleSelect           = function () {
 };
 COMPONENT.InterfaceSingleSelect.prototype = {
-    init     : function () {
+    init                      : function () {
         this.last_selected_key_name   = "";
         this.default_label_for_select = '--';
         this.uuid                     = SHINKEN.TOOLS.STRING.buildUUID();
     },
-    hidePopup: function () {
+    hidePopup                 : function () {
         DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
         this.list_element.setState( COMPONENT.CONST.BTN_STATE.OFF );
     },
-    clickOnSelector    : function () {
+    clickOnSelector           : function () {
         DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
     },
-    clickOnItemSelector: function ( key_name, parent ) {
+    clickOnItemSelector       : function ( key_name, parent ) {
         this.resetStatus();
         this.setLastSelectedElementName( key_name );
         this.hidePopup();
@@ -15617,7 +15626,7 @@ COMPONENT.InterfaceSingleSelect.prototype = {
             parent.doActionAfter( "click_on_item_selector_done", this );
         }
     },
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter             : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_selector":
                 this.clickOnSelector();
@@ -15682,29 +15691,29 @@ COMPONENT.SingleSelectFromData           = function ( property_name, selector_na
     this.initSpecific();
 };
 COMPONENT.SingleSelectFromData.prototype = {
-    initSpecific: function () {
+    initSpecific          : function () {
         this.init();
         this.list_element = new COMPONENT.ListSelectFromData_V2( this.property_name, this.selector_name );
         this._onclick     = "MANAGER.EventManagerV2.clickSelector(event,'" + this.property_name + "')";
     },
-    setOptionsFromArray: function ( to_set ) {
+    setOptionsFromArray   : function ( to_set ) {
         if ( to_set ) {
             for ( var i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
                 this.addOption( to_set[ i ] );
             }
         }
     },
-    addOption          : function ( to_add ) {
+    addOption             : function ( to_add ) {
         this.list_element.addFromString( to_add.name, to_add.label );
         if ( to_add.is_selected ) {
             this.setLastSelectedElementName( to_add.name );
         }
     },
-    setClickEventName  : function ( to_set ) {
+    setClickEventName     : function ( to_set ) {
         this.specific_event_name = to_set;
         this._onclick            = "MANAGER.EventManagerV2.clickSelector(event,'" + this.property_name + "','" + this.specific_event_name + "')";
     },
-    setParentName      : function ( to_set ) {
+    setParentName         : function ( to_set ) {
         this.property_name = to_set;
         
     },
@@ -15717,7 +15726,7 @@ COMPONENT.SingleSelectFromData.prototype = {
     resetOptions          : function () {
         this.list_element.reset();
     },
-    computeHtml: function () {
+    computeHtml           : function () {
         this.list_element.computeHtml();
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
         
@@ -15749,7 +15758,7 @@ COMPONENT.SingleSelectFromDataV2.prototype = {
         this.specific_event_name = to_set;
         this._onclick            = "MANAGER.EventManagerV2.clickSelectorV2(event,'" + this.property_name + "','" + this.specific_event_name + "')";
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter    : function ( event_name, param ) {
         switch ( event_name ) {
             case "click_on_selector":
                 DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
@@ -15772,7 +15781,7 @@ COMPONENT.SingleSelectFromData_V3           = function ( property_name, selector
     this.initSpecific( property_name, selector_name );
 };
 COMPONENT.SingleSelectFromData_V3.prototype = {
-    initSpecific: function ( property_name, selector_name ) {
+    initSpecific                 : function ( property_name, selector_name ) {
         this.init();
         this.is_editable   = true;
         this.property_name = property_name;
@@ -15782,10 +15791,10 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
         this.addParamForEvents( PROPERTY.SELECT.PARAM.SELECTOR_NAME, this.selector_name );
         this.class = "shinken-select-container";
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter                : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon          : function ( event_name, param ) {
         switch ( event_name ) {
             case "add_message_validation":
                 this.setMessage__2024_12_16( param[ PROPERTY.COMMON.PARAM.PROPERTY_MESSAGES ] );
@@ -15820,13 +15829,13 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
                 break;
         }
     },
-    addParamForEvents  : function ( key, value ) {
+    addParamForEvents            : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         if ( this.list_element ) {
             this.list_element.addParamForEvents( key, value );
         }
     },
-    setMessage__2024_12_16    : function ( to_set ) {
+    setMessage__2024_12_16       : function ( to_set ) {
         let _status              = COMPONENT.CONST.STATUS.NONE;
         this.message__2024_12_16 = to_set;
         if ( this.message__2024_12_16 ) {
@@ -15845,20 +15854,20 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
             }
         }
     },
-    getMessage__2024_12_16    : function () {
+    getMessage__2024_12_16       : function () {
         return this.message__2024_12_16;
     },
-    getDomElementForTooltip   : function () {
+    getDomElementForTooltip      : function () {
         return this.dom_select;
     },
-    getLabel                  : function () {
+    getLabel                     : function () {
         let to_return = this.getLastSelectedElement();
         if ( to_return ) {
             return to_return.getLabel();
         }
         return this.last_selected_key_name;
     },
-    setLastSelectedElementName: function ( to_set ) {
+    setLastSelectedElementName   : function ( to_set ) {
         let last_element = this.getLastSelectedElement();
         if ( last_element && last_element.getDomElement() ) {
             last_element.getDomElement().classList.remove( "shinken-option-selected" );
@@ -15881,7 +15890,7 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
             "message"                               : this.getMessage__2024_12_16()
         };
     },
-    computeHtml         : function () {
+    computeHtml                  : function () {
         this.list_element.computeHtml();
         this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
         this.dom_select = DOM.Service.createElement( "div", {
@@ -15893,7 +15902,7 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
         this.addDomElement( this.dom_select );
         this.addDomElement( this.list_element.getDomElement() );
     },
-    computeListPlacement: function ( param ) {
+    computeListPlacement         : function ( param ) {
         DOM.Service.removeClasses( this.list_element.getDomElement(), "shinken-display-on-top" );
         if ( this.list_element.getState() === COMPONENT.CONST.BTN_STATE.OFF ) {
             return;
@@ -15909,7 +15918,7 @@ COMPONENT.SingleSelectWithResearchFromData_V3           = function ( property_na
     this.initSpecific( property_name, selector_name, extra_columns );
 };
 COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
-    initSpecific: function ( property_name, selector_name, extra_columns ) {
+    initSpecific              : function ( property_name, selector_name, extra_columns ) {
         this.extra_columns = this.parseExtraColumn( extra_columns );
         this.init();
         this.is_editable   = true;
@@ -15923,7 +15932,7 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
         this.list_element.setHeaders( new SHINKEN_LIST.HeadersFromData( SHINKEN.TOOLS.ARRAY.concat( [{ name: this.property_name }], this.extra_columns ) ) );
         this.list_element.setFilters( new SHINKEN_LIST.FiltersFromData_V3( this.list_element.headers.getContents(), this.list_element.getParamForEvents() ) );
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter             : function ( event_name, param ) {
         switch ( event_name ) {
             case "add_message_validation":
                 this.setMessage__2024_12_16( param[ PROPERTY.COMMON.PARAM.PROPERTY_MESSAGES ] );
@@ -15980,7 +15989,7 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
         }
         this.doActionAfterCommon( event_name, param );
     },
-    hidePopup    : function () {
+    hidePopup                 : function () {
         this.list_element.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
         DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
     },
@@ -16003,18 +16012,18 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
             this.selected_line__20241114.setIsSelected__20241219( true );
         }
     },
-    computeTitle    : function () {
+    computeTitle              : function () {
         let to_set = this.selected_line__20241114 ? this.selected_line__20241114.getContentByUUID( this.property_name ).getValue() : this.default_label_for_select;
         this.setTitle( to_set );
     },
-    parseExtraColumn: function ( extra_columns ) {
+    parseExtraColumn          : function ( extra_columns ) {
         let to_return = [];
         for ( let i = 0, _size_i = extra_columns.length; i < _size_i; i++ ) {
             to_return.push( { "name": extra_columns[ i ] } );
         }
         return to_return;
     },
-    computeHtml: function () {
+    computeHtml               : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
         this.dom_select = DOM.Service.createElement( "div",
             {
@@ -16027,7 +16036,7 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectWithResearchFromData_V3, COMPONENT.SingleSelectFromData_V3 );
-SHINKEN.OBJECT.CONST.LAST_MODIFICATION = {
+SHINKEN.OBJECT.CONST.LAST_MODIFICATION                     = {
     INITIAL_STEP: -1,
     ACTION      : {
         CREATE               : "CREATE",
@@ -16061,10 +16070,10 @@ SHINKEN.OBJECT.CONST.LAST_MODIFICATION = {
         PARAM_FOR_EVENT  : "param_for_event"
     }
 };
-SHINKEN.OBJECT.EditableElementInterface           = function () {
+SHINKEN.OBJECT.EditableElementInterface                    = function () {
     throw new TypeError( "Interface EditableElementInterface cant be constructed." );
 };
-SHINKEN.OBJECT.EditableElementInterface.prototype = {
+SHINKEN.OBJECT.EditableElementInterface.prototype          = {
     undoLastModification          : function ( modification_data ) {
         throw new TypeError( "Function undoLastModification from EditableElementInterface have to be surcharged" );
     },
@@ -16096,7 +16105,7 @@ SHINKEN.OBJECT.LastModificationElement           = function ( type_modification,
     this.init( type_modification, element_modified, previous, next );
 };
 SHINKEN.OBJECT.LastModificationElement.prototype = {
-    init: function ( type_modification, element_modified, previous, next ) {
+    init               : function ( type_modification, element_modified, previous, next ) {
         this.uuid              = SHINKEN.TOOLS.STRING.buildUUID();
         this.type_modification = type_modification;
         this.addParamsForEvents( element_modified.getParamForEvents() );
@@ -16147,7 +16156,7 @@ SHINKEN.OBJECT.LastModification           = function () {
     this.init();
 };
 SHINKEN.OBJECT.LastModification.prototype = {
-    init: function () {
+    init                       : function () {
         this.initContents();
         this.setTimestamp();
         
@@ -16176,7 +16185,7 @@ SHINKEN.OBJECT.LastModification.prototype = {
     getAllUuidOfImpactedElement: function () {
         return this.getContents().map( last_modification_element => last_modification_element.getParamForEvents( SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELL_UUID ) );
     },
-    addSpecific: function ( last_modification_element ) {
+    addSpecific                : function ( last_modification_element ) {
         if ( !last_modification_element.isValid() ) {
             return;
         }
@@ -16188,11 +16197,11 @@ SHINKEN.OBJECT.LastModifications           = function () {
     this.init();
 };
 SHINKEN.OBJECT.LastModifications.prototype = {
-    init: function () {
+    init          : function () {
         this.initContents();
         this.current_step = -1;
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter : function ( event_name, param ) {
         switch ( event_name ) {
             case "add_last_modification":
                 return this.addSpecific( param[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ] );
@@ -16219,7 +16228,7 @@ SHINKEN.OBJECT.LastModifications.prototype = {
     getCurrentStep: function () {
         return this.current_step;
     },
-    addSpecific: function ( last_modification ) {
+    addSpecific   : function ( last_modification ) {
         if ( !last_modification || !last_modification.isValid() ) {
             return false;
         }
@@ -16231,7 +16240,7 @@ SHINKEN.OBJECT.LastModifications.prototype = {
         }
         return true;
     },
-    gotoStep   : function ( target_step, object_parent ) {
+    gotoStep      : function ( target_step, object_parent ) {
         let action_event = target_step < this.current_step ? "undo_last_modification" : "redo_last_modification";
         while ( this.getCurrentStep() !== target_step ) {
             if ( action_event === "undo_last_modification" ) {
@@ -16258,12 +16267,12 @@ SHINKEN_LIST.FilterFromData           = function ( type, name ) {
     this.init();
 };
 SHINKEN_LIST.FilterFromData.prototype = {
-    init          : function ( params ) {
+    init               : function ( params ) {
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.FILTER_UUID, this.name );
         this.addParamsForEvents( params );
         this.initComponents();
     },
-    initComponents: function () {
+    initComponents     : function () {
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.SINGLE_SELECT:
                 this.component = new COMPONENT.SelectFromData( this.type );
@@ -16285,7 +16294,7 @@ SHINKEN_LIST.FilterFromData.prototype = {
                 return _( "filter.message_placeholder", [DICTIONARY_COMMON_UI] );
         }
     },
-    computeHtml: function () {
+    computeHtml        : function () {
         this.dom_element = DOM.Service.createElement( "td", { class: "shinken-list-filter", "data-name": this.name, "data-object-type": "shinken-list-filter", "data-type": this.type } );
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.HIDDEN:
@@ -16325,7 +16334,7 @@ SHINKEN_LIST.FiltersFromData           = function ( headers_array ) {
     this.init( headers_array );
 };
 SHINKEN_LIST.FiltersFromData.prototype = {
-    init: function ( headers_array ) {
+    init               : function ( headers_array ) {
         this.initContents();
         for ( var i = 0, _size_i = headers_array.length; i < _size_i; i++ ) {
             this.add( this.getChildConstructor( COMPONENT.CONST.TYPE.STRING_INPUT, headers_array[ i ].name ) );
@@ -16349,7 +16358,7 @@ SHINKEN_LIST.FiltersFromData_V3           = function ( headers_array, params ) {
     this.initSpecific( headers_array, params );
 };
 SHINKEN_LIST.FiltersFromData_V3.prototype = {
-    initSpecific: function ( headers_array, params ) {
+    initSpecific       : function ( headers_array, params ) {
         this.addParamForEvents( SHINKEN_LIST.CONST.PARAM.FILTERS_UUID, "main_filters_list" );
         this.addParamsForEvents( params );
         this.init( headers_array );
@@ -16360,17 +16369,17 @@ SHINKEN_LIST.FiltersFromData_V3.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromData_V3, SHINKEN_LIST.FiltersFromData );
 SHINKEN_LIST.HeaderFromData           = function ( name, label ) {
-    this.init(name, label);
+    this.init( name, label );
 };
 SHINKEN_LIST.HeaderFromData.prototype = {
-    init: function (name, label) {
-        this.name = name;
+    init       : function ( name, label ) {
+        this.name  = name;
         this.label = label || name;
         this.initCommon();
     },
     computeHtml: function () {
-        this.setDomElement(DOM.Service.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-object-type": this.getObjectType() } ));
-        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-list-cell-content" }, this.label ));
+        this.setDomElement( DOM.Service.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-object-type": this.getObjectType() } ) );
+        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-list-cell-content" }, this.label ) );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromData, SHINKEN_LIST.Header );
@@ -16378,12 +16387,12 @@ SHINKEN_LIST.HeaderFromDataWithSort           = function ( name, label ) {
     this.initSpecific( name, label );
 };
 SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
-    initSpecific: function ( name, label ) {
+    initSpecific   : function ( name, label ) {
         this.init( name, label );
         this.initSorting();
         this.initSortingAvailability();
     },
-    doActionAfter: function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter  : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_button":
                 switch ( param_1 ) {
@@ -16397,9 +16406,9 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
         }
         this.doActionAfterCommon( event_name, param_1, param_2, param_3 );
     },
-    addHtmlCounters: function ( dom_element_parent) {
+    addHtmlCounters: function ( dom_element_parent ) {
     },
-    computeHtml        : function () {
+    computeHtml    : function () {
         this.setDomElement( DOM.Service.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-display-sort-popup": true, "data-object-type": this.getObjectType() } ) );
         this.cell_content            = DOM.Service.createElement( "div", { class: "shinken-list-cell-content", onclick: "MANAGER.EventManagerV2.clickButton(event, 'click-on-header', '" + this.name + "',event)" } );
         var _table                   = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-header-table" } );
@@ -16410,14 +16419,14 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
         
         DOM.Service.addElementTo( _label_cell, _line );
         
-        this.addHtmlCounters(_line);
+        this.addHtmlCounters( _line );
         DOM.Service.addElementTo( this.dom_sort_priority_cell, _line );
         DOM.Service.addElementTo( this.dom_actions_button_cell, _line );
         DOM.Service.addElementTo( _line, _table );
         DOM.Service.addElementTo( _table, this.cell_content );
         DOM.Service.addElementTo( this.cell_content, this.dom_element );
         
-        if ( this.sorting_object.getStatus() !== SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE ){
+        if ( this.sorting_object.getStatus() !== SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE ) {
             this.computeHtmlSorting();
             DOM.Service.addElementTo( this.sorting_object.sort_priority_dom_element, this.dom_sort_priority_cell );
             DOM.Service.addElementTo( this.sorting_object.sort_popup_button, this.dom_actions_button_cell );
@@ -16425,27 +16434,27 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
             this.setDomParentForSorting( this.dom_element );
         }
     },
-    hidePopup          : function () {
+    hidePopup      : function () {
         this.hidePopupSorting();
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, SHINKEN_LIST.HeaderFromData );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, SHINKEN.OBJECT.SortingInterface );
 SHINKEN_LIST.HeadersFromData           = function ( headers_array ) {
-    this.init(headers_array);
+    this.init( headers_array );
     
 };
 SHINKEN_LIST.HeadersFromData.prototype = {
-    init: function (headers_array) {
+    init               : function ( headers_array ) {
         this.initContents();
         for ( var i = 0, _size_i = headers_array.length; i < _size_i; i++ ) {
-            this.add( this.getChildConstructor( headers_array[i].name, headers_array[i].label ) );
+            this.add( this.getChildConstructor( headers_array[ i ].name, headers_array[ i ].label ) );
         }
     },
-    getChildConstructor: function (name, label) {
-        return new SHINKEN_LIST.HeaderFromData(name, label);
+    getChildConstructor: function ( name, label ) {
+        return new SHINKEN_LIST.HeaderFromData( name, label );
     },
-    computeHtml: function () {
+    computeHtml        : function () {
         this.dom_element = DOM.Service.createElement( "tr", { class: "shinken-header-line" } );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtml();
@@ -16460,10 +16469,10 @@ SHINKEN_LIST.HeadersWithSortFromData           = function () {
 SHINKEN_LIST.HeadersWithSortFromData.prototype = {
     init                       : function () {
     },
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter              : function ( event_name, param_1, param_2, param_3 ) {
         switch ( param_1 ) {
             case "click-on-option-header-popup":
-                this.clickOnOptionHeaderSorting(event_name, param_1, param_2, param_3);
+                this.clickOnOptionHeaderSorting( event_name, param_1, param_2, param_3 );
                 break;
             case "click-on-header":
                 this.doActionAfterHeaderSorting( event_name, param_1, param_2, param_3 );
@@ -16483,7 +16492,7 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
             _active_headers[ i ].setSortingStatus( SHINKEN.OBJECT.SORTING.STATUS.NONE );
         }
     },
-    doActionAfterHeaderSorting       : function ( event_name, param_1, param_2, event ) {
+    doActionAfterHeaderSorting : function ( event_name, param_1, param_2, event ) {
         let _header = this.getContentByUUID( param_2 );
         if ( !event.shiftKey && (_header.getSortingStatus() === SHINKEN.OBJECT.SORTING.STATUS.NONE || this.current_index_sorting > 1) ) {
             this.cleanSorting();
@@ -16502,16 +16511,16 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
         for ( var i = 0, size_i = _active_headers.length; i < size_i; i++ ) {
             _active_headers[ i ].setSortingIndex( i + 1 );
         }
-        if ( !size_i ){
+        if ( !size_i ) {
             this.current_index_sorting = 0;
         }
     },
-    clickOnOptionHeaderSorting : function ( event_name, param_1, param_2, event  ) {
+    clickOnOptionHeaderSorting : function ( event_name, param_1, param_2, event ) {
         let _option_dom = DOM.Service.findParentElementWithClass( event.target, "shinken-list-header-sort-popup-option" );
         let _header     = this.getContentByUUID( param_2 );
         let _to_set     = {};
         if ( _option_dom.dataset.status === SHINKEN.OBJECT.SORTING.STATUS.NONE ) {
-            let _index = _header.getSortingIndex();
+            let _index    = _header.getSortingIndex();
             _to_set.index = 0;
         }
         else {
@@ -16536,7 +16545,7 @@ SHINKEN_LIST.LineCellFromData           = function ( name, value ) {
     this.init();
 };
 SHINKEN_LIST.LineCellFromData.prototype = {
-    init: SHINKEN_LIST.LineCell.prototype.init,
+    init                        : SHINKEN_LIST.LineCell.prototype.init,
     computeFilterValue          : function () {
         this.data_filter_html = "";
     },
@@ -16562,13 +16571,13 @@ SHINKEN_LIST.LineFromData           = function ( data, headers ) {
     this.init( data, headers );
 };
 SHINKEN_LIST.LineFromData.prototype = {
-    init          : function ( data, headers ) {
+    init                : function ( data, headers ) {
         this.unused_data = {};
         this.initCommon();
         this.initCellsValue( data, headers );
         this.initLineCountersValue();
     },
-    initCellsValue: function ( data, headers ) {
+    initCellsValue      : function ( data, headers ) {
         var _current_name;
         for ( var i = 0, _size_i = headers.contents.length; i < _size_i; i++ ) {
             _current_name = headers.contents[ i ].name;
@@ -16584,10 +16593,10 @@ SHINKEN_LIST.LineFromData.prototype = {
         }
         this.doActionAfter( "init_cells_value_done" );
     },
-    getChildConstructor: function ( name, value ) {
+    getChildConstructor : function ( name, value ) {
         return new SHINKEN_LIST.LineCellFromData( name, value );
     },
-    getData__20241114  : function ( key ) {
+    getData__20241114   : function ( key ) {
         let to_return = this.getContentByUUID( key );
         if ( to_return ) {
             return to_return.getValue();
@@ -16597,13 +16606,13 @@ SHINKEN_LIST.LineFromData.prototype = {
     getInitialDataToSave: function () {
         return this.unused_data;
     },
-    getAttributeHtml: function () {
+    getAttributeHtml    : function () {
         return {
             class    : "shinken-list-line",
             "onclick": "MANAGER.EventManagerV2.doActionAfter(event,'line_list_content__clicked'," + this.parseParamForEventsToHtml() + ")"
         };
     },
-    computeHtml     : function () {
+    computeHtml         : function () {
         this.setDomElement( DOM.Service.createElement( "tr", this.getAttributeHtml() ) );
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).computeHtml();
@@ -16617,14 +16626,14 @@ SHINKEN_LIST.LineForPropertyResearch           = function ( data, headers ) {
     this.init( data, headers );
 };
 SHINKEN_LIST.LineForPropertyResearch.prototype = {
-    init             : SHINKEN_LIST.LineFromData.prototype.init,
-    initCounterCommon: function () {
+    init                   : SHINKEN_LIST.LineFromData.prototype.init,
+    initCounterCommon      : function () {
         this.counters = {};
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
-    initCounter      : SHINKEN.OBJECT.CounterInterfaceV2_patient.prototype.initCounter,
-    doActionAfter: function ( event_name, param ) {
+    initCounter            : SHINKEN.OBJECT.CounterInterfaceV2_patient.prototype.initCounter,
+    doActionAfter          : function ( event_name, param ) {
         switch ( event_name ) {
             case "clean_selected_element" :
                 if ( this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED ) ) {
@@ -16673,10 +16682,10 @@ SHINKEN_LIST.LinesFromData.prototype = {
         }
         this.doActionAfter( "compute_content_with_data_done" );
     },
-    getChildConstructor: function ( data, headers ) {
+    getChildConstructor   : function ( data, headers ) {
         return new SHINKEN_LIST.LineFromData( data, headers );
     },
-    addLineWithData: function ( data, headers, index ) {
+    addLineWithData       : function ( data, headers, index ) {
         var _to_add = this.getChildConstructor( data, headers );
         if ( index !== undefined ) {
             this.insertAtIndex( _to_add, index );
@@ -16720,16 +16729,16 @@ SHINKEN_LIST.SetFromData           = function ( name ) {
     this.init( name );
 };
 SHINKEN_LIST.SetFromData.prototype = {
-    init            : SHINKEN_LIST.Set.prototype.init,
-    initLinesObjects: function () {
+    init               : SHINKEN_LIST.Set.prototype.init,
+    initLinesObjects   : function () {
         return new SHINKEN_LIST.LinesFromData();
     },
-    computeLines    : function ( data ) {
+    computeLines       : function ( data ) {
         var lines = this.initLinesObjects();
         lines.computeContentWithData( data, this.headers );
         this.setLines( lines );
     },
-    addLineWithData : function ( data, index ) {
+    addLineWithData    : function ( data, index ) {
         this.lines.addLineWithData( data, this.headers, index );
     },
     computeHtml        : function () {
@@ -16774,7 +16783,7 @@ SHINKEN_LIST.SetFromDataWithFixHeaderFilter           = function ( name ) {
     this.init( name );
 };
 SHINKEN_LIST.SetFromDataWithFixHeaderFilter.prototype = {
-    init: SHINKEN_LIST.SetFromData.prototype.init,
+    init       : SHINKEN_LIST.SetFromData.prototype.init,
     computeHtml: function () {
         this.headers.computeHtml();
         this.computeLinesHtml();
@@ -16863,7 +16872,7 @@ SHINKEN_LIST.LinesForPropertyResearch.prototype = {
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
-    doActionAfter: function ( event_name, param, param_2, param_3 ) {
+    doActionAfter      : function ( event_name, param, param_2, param_3 ) {
         switch ( event_name ) {
             case "update_counter__with_children":
             case "apply_filter_done":
@@ -16873,16 +16882,16 @@ SHINKEN_LIST.LinesForPropertyResearch.prototype = {
                 var _current_key;
                 for ( let i = 0; i < this.getSize(); i++ ) {
                     current_line = this.getContent( i );
-                    _keys = Object.keys( current_line.counters );
-                    for( let j = 0, _size = _keys.length ; j < _size; j++ ) {
-                        value_to_set[_keys[j]] =  value_to_set[_keys[j]] || 0;
-                        value_to_set[_keys[j]] += current_line.counters[_keys[j]].getValue();
+                    _keys        = Object.keys( current_line.counters );
+                    for ( let j = 0, _size = _keys.length; j < _size; j++ ) {
+                        value_to_set[ _keys[ j ] ] = value_to_set[ _keys[ j ] ] || 0;
+                        value_to_set[ _keys[ j ] ] += current_line.counters[ _keys[ j ] ].getValue();
                     }
                 }
                 _keys = Object.keys( value_to_set );
-                for( let i = 0, _size = _keys.length ; i < _size; i++ ) {
-                    _current_key = _keys[i];
-                    this.setCounterValue( _current_key, this.uuid, value_to_set[_current_key] );
+                for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
+                    _current_key = _keys[ i ];
+                    this.setCounterValue( _current_key, this.uuid, value_to_set[ _current_key ] );
                 }
                 break;
             case "clean_selected_element":
@@ -16899,14 +16908,14 @@ SHINKEN_LIST.SetFromDataWithPagination           = function ( name, pagination_s
     this.initSpecific( name, pagination_size );
 };
 SHINKEN_LIST.SetFromDataWithPagination.prototype = {
-    initSpecific    : function ( name, pagination_size ) {
+    initSpecific             : function ( name, pagination_size ) {
         this.init( name );
         this.setPagination( new SHINKEN_LIST.Pagination_V3( pagination_size, this.getName() ) );
     },
-    initLinesObjects: function () {
+    initLinesObjects         : function () {
         return new SHINKEN_LIST.LinesFromDataWithPagination();
     },
-    doActionAfter: function ( event_name, param, param_2, param_3 ) {
+    doActionAfter            : function ( event_name, param, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_selector_V3":
             case "click_on_item_selector_V3":
@@ -16922,27 +16931,27 @@ SHINKEN_LIST.SetFromDataWithPagination.prototype = {
         this.doActionAfterCommon( event_name, param, param_2, param_3 );
         this.doActionAfterSpecific( event_name, param, param_2, param_3 );
     },
-    applyFilter  : function ( params_filter_by_line ) {
+    applyFilter              : function ( params_filter_by_line ) {
         this.applyFilterCommon( params_filter_by_line );
         this.pagination.setTotalElement( this.lines.getSizeNotFiltered() );
         this.computeLinesHtml();
         this.setSelectAllStatus();
     },
-    onClick      : function ( event ) {
+    onClick                  : function ( event ) {
         this.pagination.onClick( event );
         this._onClick( event );
     },
-    setPagination    : function ( to_set ) {
+    setPagination            : function ( to_set ) {
         this.pagination = to_set;
         this.pagination.addParamsForEvents( this.getParamForEvents() );
     },
-    getPagination    : function () {
+    getPagination            : function () {
         return this.pagination;
     },
-    setPageSize      : function ( to_set ) {
+    setPageSize              : function ( to_set ) {
         this.pagination.setPageSize( to_set );
     },
-    addParamForEvents: function ( key, value ) {
+    addParamForEvents        : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         if ( this.pagination ) {
             this.pagination.addParamForEvents( key, value );
@@ -16979,7 +16988,7 @@ SHINKEN_LIST.FilterFromHtml           = function ( dom_element, type ) {
     this.init( dom_element );
 };
 SHINKEN_LIST.FilterFromHtml.prototype = {
-    init          : function ( dom_element ) {
+    init: function ( dom_element ) {
         this.dom_element = dom_element;
         this.name        = this.dom_element.dataset.name;
         this._is_active  = false;
@@ -17068,7 +17077,7 @@ SHINKEN_LIST.LineCellFromHtml.prototype = {
                 break;
         }
     },
-    getUUID: function () {
+    getUUID    : function () {
         return this.name;
     }
 };
@@ -17178,12 +17187,12 @@ SHINKEN_LIST.LinesFromHtml           = function ( dom_element, type ) {
     this.init( dom_element );
 };
 SHINKEN_LIST.LinesFromHtml.prototype = {
-    init               : function ( dom_element ) {
+    init                      : function ( dom_element ) {
         this.initCommon();
         this.mapping_parents = {};
         this.initContentsWithDom( DOM.Service.querySelectorAllWithOutChild( dom_element, "shinken-list-line", "shinken-list-table" ) );
     },
-    initContentsWithDom: function ( dom_elements ) {
+    initContentsWithDom       : function ( dom_elements ) {
         var _current;
         for ( var i = 0, _size_i = dom_elements.length; i < _size_i; i++ ) {
             _current = new SHINKEN_LIST.LineFromHtml( dom_elements[ i ], this.type );
@@ -17191,7 +17200,7 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
             this.addMappingParent( _current.parent_uuid, _current.uuid );
         }
     },
-    addMappingParent   : function ( parent_uuid, uuid ) {
+    addMappingParent          : function ( parent_uuid, uuid ) {
         if ( !parent_uuid ) {
             if ( !this.mapping_parents[ uuid ] ) {
                 this.mapping_parents[ uuid ] = [];
@@ -17204,26 +17213,26 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
             this.mapping_parents[ parent_uuid ].push( this.getContentByUUID( uuid ) );
         }
     },
-    removeMappingParent: function ( parent_uuid, _to_remove ) {
+    removeMappingParent       : function ( parent_uuid, _to_remove ) {
         if ( parent_uuid ) {
             SHINKEN.TOOLS.ARRAY.removeElement( this.mapping_parents[ parent_uuid ], _to_remove );
         }
     },
-    remove             : function ( uuid ) {
+    remove                    : function ( uuid ) {
         var _to_remove = this.mapping[ uuid ];
         delete this.mapping[ uuid ];
         this.removeMappingParent( _to_remove.parent_uuid, _to_remove );
         SHINKEN.TOOLS.ARRAY.removeElement( this.contents, _to_remove );
     },
-    addLineWithDom: function ( dom_element ) {
+    addLineWithDom            : function ( dom_element ) {
         var _to_add = new SHINKEN_LIST.LineFromHtml( dom_element, this.type );
         this.add( _to_add );
         this.addMappingParent( _to_add.parent_uuid, _to_add.uuid );
     },
-    toggleCollapse          : function ( uuid ) {
+    toggleCollapse            : function ( uuid ) {
         this.getContentByUUID( uuid ).toggleCollapse( this.mapping_parents[ uuid ] );
     },
-    setIsCollapseAllData    : function ( to_set ) {
+    setIsCollapseAllData      : function ( to_set ) {
         var _keys = Object.keys( this.mapping_parents );
         var _current_key;
         for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
@@ -17231,7 +17240,7 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
             this.getContentByUUID( _current_key ).setIsCollapsed( to_set, this.mapping_parents[ _current_key ] );
         }
     },
-    isAllActiveLineCollapsed: function () {
+    isAllActiveLineCollapsed  : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             if ( !this.contents[ i ].isCollapsedOrFiltered() ) {
                 return false;
@@ -17270,7 +17279,7 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
             _current.setFilter( _filter );
         }
     },
-    getDataToSave: function ( type ) {
+    getDataToSave             : function ( type ) {
         var _to_return = type === CONTROLLER.CONST.MASS_CHANGE.TYPE.CHECKS_EXCLUDE ? {} : [];
         var _current;
         var _current_data;
@@ -17310,7 +17319,7 @@ SHINKEN_LIST.SetFromHtml           = function ( dom_element, type, structure_for
     this.edit_mode = false;
 };
 SHINKEN_LIST.SetFromHtml.prototype = {
-    init               : function ( dom_element ) {
+    init          : function ( dom_element ) {
         this.initCommon();
         this.setDomElement( dom_element );
         this.initHeaders();
@@ -17333,10 +17342,10 @@ SHINKEN_LIST.SetFromHtml.prototype = {
     initHeaders: function () {
         this.headers = new SHINKEN_LIST.HeadersFromHtml( this.dom_element.querySelector( ".shinken-header-line" ) );
     },
-    initFilters        : function () {
+    initFilters: function () {
         this.filters = new SHINKEN_LIST.FiltersFromHtml( this.dom_element.querySelector( ".shinken-filter-line" ), this.type );
     },
-    initLines          : function () {
+    initLines  : function () {
         var dom_element = this.dom_element;
         switch ( this.structure_format ) {
             case SHINKEN_LIST.CONST.STRUCTURE_FORMAT.GENERIC:
@@ -17353,22 +17362,22 @@ SHINKEN_LIST.SetFromHtml.prototype = {
         }
         this.setLines( new SHINKEN_LIST.LinesFromHtml( dom_element, this.type ) );
     },
-    setLines : function ( to_set ) {
+    setLines   : function ( to_set ) {
         if ( this.lines ) {
             this.lines.resetContents();
-    }
+        }
         this.lines = to_set;
         this.addSynchronizedPhase( this.lines.phase );
         to_set.setCountersParent( this );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromHtml, SHINKEN_LIST.Set );
-SHINKEN_LIST.PaginationNavigation_V3 = function ( type ) {
+SHINKEN_LIST.PaginationNavigation_V3           = function ( type ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationNavigation_V3";
     this.init( type );
 };
 SHINKEN_LIST.PaginationNavigation_V3.prototype = {
-    init: function ( type ) {
+    init             : function ( type ) {
         this.type        = type;
         this.is_disabled = false;
         this.computeLabel();
@@ -17377,19 +17386,19 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
     addParamForEvents: function ( key, value ) {
         this.button.addParamForEvents( key, value );
     },
-    getType    : function () {
+    getType          : function () {
         return this.type;
     },
-    getUUID    : function () {
+    getUUID          : function () {
         return this.getType();
     },
-    setDisabled: function ( to_set ) {
+    setDisabled      : function ( to_set ) {
         this.is_disabled = to_set;
         if ( this.getDomElement() ) {
             DOM.Service.addOrRemoveClasses( this.getDomElement(), this.is_disabled, "shinken-disabled" );
         }
     },
-    computeLabel: function () {
+    computeLabel     : function () {
         var dom_class;
         switch ( this.type ) {
             case COMPONENT.CONST.PAGINATION_NAVIGATION.FIRST :
@@ -17407,7 +17416,7 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
         }
         this.label = "<span class='" + dom_class + "'></span>";
     },
-    computeClass: function () {
+    computeClass     : function () {
         this.class = "shinken-pagination-navigation";
         switch ( this.type ) {
             case COMPONENT.CONST.PAGINATION_NAVIGATION.FIRST :
@@ -17421,7 +17430,7 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
         }
         
     },
-    computeHtml: function () {
+    computeHtml      : function () {
         if ( this.getDomElement() ) {
             return;
         }
@@ -17435,7 +17444,7 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationNavigation_V3, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN_LIST.PaginationSelector = function ( total_page, current_page, parent_name ) {
+SHINKEN_LIST.PaginationSelector           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector";
     this.init( total_page, current_page, parent_name );
 };
@@ -17459,17 +17468,17 @@ SHINKEN_LIST.PaginationSelector.prototype = {
         }
         return _to_return;
     },
-    clickOnSelector    : function ( event, param ) {
+    clickOnSelector     : function ( event, param ) {
         this.selector.clickOnSelector( event );
     },
-    clickOnItemSelector: function ( key_name, parent ) {
+    clickOnItemSelector : function ( key_name, parent ) {
         this.selector.clickOnItemSelector( key_name, parent );
         this.selector.computeTitle();
     },
-    onClick            : function ( event ) {
+    onClick             : function ( event ) {
         this.selector.hidePopup();
     },
-    doActionAfter      : function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter       : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_selector":
             case "click_on_item_selector":
@@ -17477,27 +17486,27 @@ SHINKEN_LIST.PaginationSelector.prototype = {
                 break;
         }
     },
-    setTotalPage  : function ( to_set ) {
+    setTotalPage        : function ( to_set ) {
         this.total_page = Math.max( 1, to_set );
         this.selector.setOptionsFromArray( this.computeFilterOptions() );
     },
-    setCurrentPage: function ( to_set ) {
+    setCurrentPage      : function ( to_set ) {
         this.current_page = to_set;
         if ( this.total_page ) {
             this.selector.setLastSelectedElementName( this.current_page );
         }
     },
-    getUUID       : function () {
+    getUUID             : function () {
         return "pagination_selector";
     },
-    setParentName : function ( to_set ) {
+    setParentName       : function ( to_set ) {
         this.parent_name = to_set;
         this.selector.setParentName( this.parent_name );
     },
-    computeClass: function () {
+    computeClass        : function () {
         this.class = "shinken-pagination-selector";
     },
-    computeHtml: function () {
+    computeHtml         : function () {
         if ( this.getDomElement() ) {
             DOM.Service.empty( this.getDomElement() );
         }
@@ -17514,19 +17523,19 @@ SHINKEN_LIST.PaginationSelector.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN_LIST.PaginationSelector_V3 = function ( total_page, current_page, parent_name ) {
+SHINKEN_LIST.PaginationSelector_V3           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector_V3";
     this.init( total_page, current_page, parent_name );
 };
 SHINKEN_LIST.PaginationSelector_V3.prototype = {
-    init: function ( total_page, current_page, parent_name ) {
+    init             : function ( total_page, current_page, parent_name ) {
         this.selector = new COMPONENT.SingleSelectForPagination( parent_name );
         this.selector.setParentName( parent_name );
         
         this.setTotalPage( total_page );
         this.setCurrentPage( current_page );
     },
-    doActionAfter: function ( event_name, param_1, param_2, param_3 ) {
+    doActionAfter    : function ( event_name, param_1, param_2, param_3 ) {
         switch ( event_name ) {
             case "click_on_selector_V3":
             case "click_on_item_selector_V3":
@@ -17537,10 +17546,10 @@ SHINKEN_LIST.PaginationSelector_V3.prototype = {
     addParamForEvents: function ( key, value ) {
         this.selector.addParamForEvents( key, value );
     },
-    computeClass: function () {
+    computeClass     : function () {
         this.class = "shinken-pagination-selector-V3 shinken-layout-center-h-v";
     },
-    computeHtml: function () {
+    computeHtml      : function () {
         if ( this.getDomElement() ) {
             DOM.Service.empty( this.getDomElement() );
         }
@@ -17563,7 +17572,7 @@ COMPONENT.SingleSelectForPagination           = function ( property_name, select
 };
 COMPONENT.SingleSelectForPagination.prototype = {
     initSpecific: COMPONENT.SingleSelectFromData_V3.prototype.initSpecific,
-    computeHtml: function () {
+    computeHtml : function () {
         this.addClass( "shinken-for-pagination" );
         this.list_element.computeHtml();
         this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
@@ -17579,24 +17588,24 @@ COMPONENT.SingleSelectForPagination.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectForPagination, COMPONENT.SingleSelectFromData_V3 );
-MANAGER.DistributorCounterManagerV2           = function () {
+MANAGER.DistributorCounterManagerV2             = function () {
     this.counters = {};
-    this.objects = {};
+    this.objects  = {};
 };
-MANAGER.DistributorCounterManagerV2.prototype = {
+MANAGER.DistributorCounterManagerV2.prototype   = {
     createCounter: function ( name, type ) {
-        let _to_return = new SHINKEN.OBJECT.CounterV2(type);
-        this.setCounter(name, _to_return);
+        let _to_return = new SHINKEN.OBJECT.CounterV2( type );
+        this.setCounter( name, _to_return );
         return _to_return;
     },
-    deleteCounter       : function ( name ) {
+    deleteCounter: function ( name ) {
         delete this.counters[ name ];
     },
-    deleteObject       : function ( name ) {
+    deleteObject : function ( name ) {
         delete this.objects[ name ];
     },
     
-    findCounter  : function ( name, type ) {
+    findCounter: function ( name, type ) {
         if ( !name ) {
             return;
         }
@@ -17606,51 +17615,51 @@ MANAGER.DistributorCounterManagerV2.prototype = {
         }
         return _to_return;
     },
-    findObject  : function ( name ) {
+    findObject : function ( name ) {
         if ( !name ) {
             return;
         }
         return this.getObject( name );
     },
     
-    setCounter   : function ( name, to_set ) {
+    setCounter      : function ( name, to_set ) {
         this.counters[ name ] = to_set;
     },
-    setParentCounter   : function ( name_parent, counter_child ) {
-        let _parent = this.getCounter(name_parent);
-        if ( _parent ){
-            counter_child.setParent(_parent);
+    setParentCounter: function ( name_parent, counter_child ) {
+        let _parent = this.getCounter( name_parent );
+        if ( _parent ) {
+            counter_child.setParent( _parent );
         }
         else {
         }
     },
-    setObject   : function ( name, to_set ) {
+    setObject       : function ( name, to_set ) {
         this.objects[ name ] = to_set;
     },
-    getCounter   : function ( name ) {
+    getCounter      : function ( name ) {
         return this.counters[ name ];
     },
-    getObject   : function ( name ) {
+    getObject       : function ( name ) {
         return this.objects[ name ];
     },
-    reset       : function () {
+    reset           : function () {
         this.counters = {};
-        this.objects = {};
+        this.objects  = {};
     }
 };
-MANAGER.__instance_counter_distributorV2      = new MANAGER.DistributorCounterManagerV2();
-MANAGER.DistributorElementManager           = function () {
+MANAGER.__instance_counter_distributorV2        = new MANAGER.DistributorCounterManagerV2();
+MANAGER.DistributorElementManager               = function () {
     this.elements        = {};
     this.mapping_by_name = {};
 };
-MANAGER.DistributorElementManager.prototype = {
-    createElement                 : function ( data ) {
+MANAGER.DistributorElementManager.prototype     = {
+    createElement   : function ( data ) {
         var _to_return = new SHINKEN.OBJECT.ShinkenElement();
         _to_return.updateData( data );
         this.addElement( _to_return );
         return _to_return;
     },
-    findElement                   : function ( uuid, data ) {
+    findElement     : function ( uuid, data ) {
         if ( !uuid ) {
             return;
         }
@@ -17663,22 +17672,22 @@ MANAGER.DistributorElementManager.prototype = {
         }
         return _to_return;
     },
-    getElement                    : function ( uuid ) {
+    getElement      : function ( uuid ) {
         return this.elements[ uuid ];
     },
-    addElement                    : function ( element ) {
-        this.elements[ element.getUUID() ]      = element;
+    addElement      : function ( element ) {
+        this.elements[ element.getUUID() ]        = element;
         this.mapping_by_name[ element.getName() ] = element.getUUID();
     },
-    getElementByName                    : function (name) {
+    getElementByName: function ( name ) {
         return this.elements[ this.mapping_by_name[ name ] ];
-    },
+    }
 };
-MANAGER.__instance_element_distributor      = new MANAGER.DistributorElementManager();
-MANAGER.DistributorResourcesManager           = function () {
+MANAGER.__instance_element_distributor          = new MANAGER.DistributorElementManager();
+MANAGER.DistributorResourcesManager             = function () {
     this.contents = {};
 };
-MANAGER.DistributorResourcesManager.prototype = {
+MANAGER.DistributorResourcesManager.prototype   = {
     createResource: function ( uuid, data ) {
         var _to_return = new SHINKEN.OBJECT.Resource();
         _to_return.updateData( data );
@@ -17705,8 +17714,8 @@ MANAGER.DistributorResourcesManager.prototype = {
         this.contents[ resource.getUUID() ] = resource;
     }
 };
-MANAGER.__instance_resources_distributor      = new MANAGER.DistributorResourcesManager();
-MANAGER.DistributorResourcesManager.factory = function ( key, data ) {
+MANAGER.__instance_resources_distributor        = new MANAGER.DistributorResourcesManager();
+MANAGER.DistributorResourcesManager.factory     = function ( key, data ) {
     switch ( key ) {
         case "resources":
             var _keys = Object.keys( data );
@@ -17740,11 +17749,11 @@ MANAGER.DistributorResourcesManager.getInstance = function () {
     }
     return MANAGER.__instance_resources_distributor;
 };
-MANAGER.DistributorWindowManager           = function () {
+MANAGER.DistributorWindowManager                = function () {
     this.windows        = {};
     this.parent_windows = {};
 };
-MANAGER.DistributorWindowManager.prototype = {
+MANAGER.DistributorWindowManager.prototype      = {
     createWindow                      : function ( name, is_menu, has_properties ) {
         var _id          = WINDOW.CONST.ID.WINDOW_TAB + name;
         var _dom_element = document.getElementById( _id );
@@ -17807,8 +17816,8 @@ MANAGER.DistributorWindowManager.prototype = {
         this.parent_windows = {};
     }
 };
-MANAGER.__instance_window_distributor      = new MANAGER.DistributorWindowManager();
-MANAGER.DragNDropManager             = (function ( self ) {
+MANAGER.__instance_window_distributor           = new MANAGER.DistributorWindowManager();
+MANAGER.DragNDropManager                        = (function ( self ) {
     self.last_element_hovered          = null;
     self.current_parent_name           = null;
     self.type_drag_start               = null;
@@ -18042,50 +18051,50 @@ MANAGER.DragNDropManager             = (function ( self ) {
     return self;
 })
 ( MANAGER.DragNDropManager || {} );
-MANAGER.DragNDropManager.EVENT_PARAM = {
+MANAGER.DragNDropManager.EVENT_PARAM            = {
     ELEMENT_NAME: "element_name",
     ORIGIN_X    : "origin_x",
     ORIGIN_Y    : "origin_y",
     DELTA_X     : "delta_x",
     DELTA_Y     : "delta_y"
 };
-MANAGER.EventManager = {
-    last_element_hovered: null,
-    stop_propagation    : false,
-    mouse_down_target   : null,
-    mouse_on_target     : null,
-    openIframeModal      : function ( url, id ) {
-        if ( !MANAGER.__instance_window_modal_manager ){
+MANAGER.EventManager                            = {
+    last_element_hovered            : null,
+    stop_propagation                : false,
+    mouse_down_target               : null,
+    mouse_on_target                 : null,
+    openIframeModal                 : function ( url, id ) {
+        if ( !MANAGER.__instance_window_modal_manager ) {
             MANAGER.__instance_window_modal_manager = new MANAGER.WindowModalManager();
         }
         MANAGER.__instance_window_modal_manager.setIframe( url, id );
     },
-    closeModal           : function () {
+    closeModal                      : function () {
         if ( MANAGER.__instance_window_modal_manager ) {
             MANAGER.__instance_window_modal_manager.askDoClose();
         }
     },
-    closeNotify          : function ( notify_id ) {
+    closeNotify                     : function ( notify_id ) {
         MANAGER.__instance_notify_manager.close( notify_id );
     },
-    clickOnToggleCollapse: function ( dom_element ) {
+    clickOnToggleCollapse           : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, "shinken-toggle-parent", 25 );
         if ( !_parent_dom_element ) {
             return;
         }
         _parent_dom_element.classList.toggle( "shinken-collapsed" );
     },
-    logout: function () {
+    logout                          : function () {
         window.location = '/logout';
         sessionStorage.removeItem( "user_id" );
     },
-    onFocus        : function ( dom_element ) {
+    onFocus                         : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.onFocus();
     },
-    onFocusIn      : function ( event, event_name ) {
+    onFocusIn                       : function ( event, event_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( !_controller ) {
             console.warn( "[EventManager - onFocusIn]", "Controller not found", event.target );
@@ -18093,11 +18102,11 @@ MANAGER.EventManager = {
         }
         _controller.onFocusIn( event, event_name );
     },
-    onFocusOut     : function ( event ) {
+    onFocusOut                      : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.onFocusOut( event );
     },
-    stopPropagation: function ( event ) {
+    stopPropagation                 : function ( event ) {
         if ( event ) {
             event.stopPropagation();
         }
@@ -18109,11 +18118,11 @@ MANAGER.EventManager = {
             }, 50 );
         }
     },
-    clickOnRadioBtn: function ( event, event_name, param ) {
+    clickOnRadioBtn                 : function ( event, event_name, param ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.clickOnRadioBtn( event, event_name, param );
     },
-    clickOnButton  : function ( event, event_name, param ) {
+    clickOnButton                   : function ( event, event_name, param ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( !_controller ) {
             console.warn( "[EventManager - clickOnButton]", "Controller not found", event.target );
@@ -18132,86 +18141,86 @@ MANAGER.EventManager = {
         event.stopPropagation();
         _controller.clickOnButton( event, event_name, param );
     },
-    onKeyUp        : function ( event ) {
+    onKeyUp                         : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.onKeyUp( event );
     },
-    onKeyDown      : function ( event ) {
+    onKeyDown                       : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.onKeyDown( event );
     },
-    onPaste        : function ( event ) {
+    onPaste                         : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.onPaste( event );
     },
-    onDragStart: function ( _controller_name, element_name, origin_x, origin_y ) {
+    onDragStart                     : function ( _controller_name, element_name, origin_x, origin_y ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onDragStart( element_name, origin_x, origin_y );
         }
     },
-    onDragMove : function ( _controller_name, element_name, delta_x, delta_y ) {
+    onDragMove                      : function ( _controller_name, element_name, delta_x, delta_y ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onDragMove( element_name, delta_x, delta_y );
         }
     },
-    onDragStop : function ( _controller_name, element_name ) {
+    onDragStop                      : function ( _controller_name, element_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onDragStop( element_name );
         }
     },
-    onResizeStart: function ( _controller_name, element_name, width, height ) {
+    onResizeStart                   : function ( _controller_name, element_name, width, height ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onResizeStart( element_name );
         }
     },
-    onResizeMove : function ( _controller_name, element_name, width, height ) {
+    onResizeMove                    : function ( _controller_name, element_name, width, height ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onResizeMove( element_name, width, height );
         }
     },
-    onResizeStop : function ( _controller_name, element_name ) {
+    onResizeStop                    : function ( _controller_name, element_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.getController( _controller_name );
         if ( _controller ) {
             _controller.onResizeStop( element_name );
         }
     },
-    onChangeOnInputKey           : function ( event ) {
+    onChangeOnInputKey              : function ( event ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( event.target, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.askComputeKeyAfterChange( event.target );
     },
-    clickOnAddNewLocalMacro      : function () {
+    clickOnAddNewLocalMacro         : function () {
         return App.Elements.DataTab.addNewData();
     },
-    clickOnDeletePropertyBtn     : function ( dom_element ) {
+    clickOnDeletePropertyBtn        : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var _name               = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( _name );
         _object.delete();
     },
-    clickDataCollapseButtonGlobal: function () {
+    clickDataCollapseButtonGlobal   : function () {
         App.Elements.DataTab.toggleCollapseButtonGlobal();
     },
-    clickDataCollapseButton      : function ( dom_element ) {
+    clickDataCollapseButton         : function ( dom_element ) {
         App.Elements.DataTab.toggleCollapseButton( dom_element );
     },
-    goToDataView           : function ( data_name ) {
+    goToDataView                    : function ( data_name ) {
         MANAGER.EventManager.clickOnWindowNavigation( null, MANAGER.__instance_element_distributor.current_element.uuid, true, WINDOW.CONST.ELEMENT.DATAS );
         var _prop = MANAGER.__instance_property_distributor.getDataWithName( data_name );
         if ( _prop && _prop.group_data ) {
             MANAGER.EventManager.clickOnDataNavigation( _prop.group_data.uuid );
         }
     },
-    clickOnDataNavigation  : function ( group_uuid ) {
+    clickOnDataNavigation           : function ( group_uuid ) {
         App.Elements.DataTab.clickOnDataNavigation( group_uuid );
     },
-    clickOnWindowNavigation: function ( event, name, update_url, window_name ) {
+    clickOnWindowNavigation         : function ( event, name, update_url, window_name ) {
         if ( !window_name ) {
             var _nav_tab = DOM.Service.findParentElementWithClass( event.target, WINDOW.CONST.CLASS.WINDOW_TAB, 10 );
             if ( !_nav_tab ) {
@@ -18220,7 +18229,7 @@ MANAGER.EventManager = {
             window_name = _nav_tab.dataset.name;
         }
         var _parent_window = MANAGER.__instance_window_distributor.findParentWindow( name );
-        var _click_done = _parent_window.clickOnWindow( window_name );
+        var _click_done    = _parent_window.clickOnWindow( window_name );
         if ( !_click_done ) {
             return;
         }
@@ -18238,72 +18247,72 @@ MANAGER.EventManager = {
             }
         }
     },
-    clickOnCheckboxInput: function ( event ) {
+    clickOnCheckboxInput            : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.clickOnCheckboxInput( event );
     },
-    onChangeOnInput: function ( event, event_name, param ) {
+    onChangeOnInput                 : function ( event, event_name, param ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.onChangeOnInput( event, event_name, param );
     },
-    onResize       : function ( dom_element ) {
+    onResize                        : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.onResize( dom_element );
     },
-    onMoveRangeCursor: function ( parent_name, ask_after_action, event ) {
+    onMoveRangeCursor               : function ( parent_name, ask_after_action, event ) {
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.onMoveRangeCursor( null, event );
         if ( ask_after_action ) {
             MANAGER.ListenerEventManager.askAfterActionProperty( _object );
         }
     },
-    clickOnBtnPlus           : function ( parent_name, event ) {
+    clickOnBtnPlus                  : function ( parent_name, event ) {
         this.stopPropagation();
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.clickOnBtnPlus( event );
         MANAGER.ListenerEventManager.askAfterActionProperty( _object );
     },
-    clickOnSelector          : function ( event, param, controller_name ) {
+    clickOnSelector                 : function ( event, param, controller_name ) {
         event.stopPropagation();
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         _controller.clickOnSelector( event, param );
     },
-    clickOnAllItemsSelector  : function ( parent_name, limit ) {
+    clickOnAllItemsSelector         : function ( parent_name, limit ) {
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.clickOnAllItemsSelector( limit );
         MANAGER.ListenerEventManager.askAfterActionProperty( _object );
     },
-    clickOnItemSelector      : function ( event, parent_name, element, controller_name ) {
+    clickOnItemSelector             : function ( event, parent_name, element, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         _controller.clickOnItemSelector( event, parent_name, element );
     },
-    clickOnDeleteItemSelector: function ( parent_name, key_name ) {
+    clickOnDeleteItemSelector       : function ( parent_name, key_name ) {
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.clickOnDeleteItemSelector( key_name );
         MANAGER.ListenerEventManager.askAfterActionProperty( _object );
     },
-    clickOnBtnInheritance: function ( parent_name ) {
+    clickOnBtnInheritance           : function ( parent_name ) {
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.clickOnBtnInheritance();
     },
-    clickOnInput         : function ( event ) {
+    clickOnInput                    : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.clickOnInput( event );
     },
-    muteEvent            : function ( event ) {
+    muteEvent                       : function ( event ) {
         event.preventDefault();
         event.stopPropagation();
     },
-    mutePropagation      : function ( event ) {
+    mutePropagation                 : function ( event ) {
         event.stopPropagation();
     },
-    clickOnToggleViewSource        : function ( event ) {
+    clickOnToggleViewSource         : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.clickOnToggleViewSource( event );
     },
-    clickOnActivatedSource         : function ( name ) {
+    clickOnActivatedSource          : function ( name ) {
         if ( !MANAGER.__instance_element_distributor.current_user.is_admin ) {
             console.warn( "[clickOnActivatedSource]", "[not admin]", "refused" );
             return;
@@ -18311,7 +18320,7 @@ MANAGER.EventManager = {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.toggleSourceEnable( event );
     },
-    clickOnActivatedDiscoverySource: function ( source_name, discovery_id ) {
+    clickOnActivatedDiscoverySource : function ( source_name, discovery_id ) {
         if ( MANAGER.__instance_element_distributor.current_user && !MANAGER.__instance_element_distributor.current_user.is_admin ) {
             console.warn( "[clickOnActivatedDiscoverySource]", "[not admin]", "refused" );
             return;
@@ -18320,7 +18329,7 @@ MANAGER.EventManager = {
         var _discovery = _source[ SOURCE.CONST.FIELD.IP_RANGES ].getRangeById( discovery_id );
         _discovery.toggleEnable();
     },
-    clickOnForceSource             : function ( name ) {
+    clickOnForceSource              : function ( name ) {
         if ( MANAGER.__instance_element_distributor.current_user && !MANAGER.__instance_element_distributor.current_user.is_admin ) {
             console.warn( "[clickOnForceSource]", "[not admin]", "refused" );
             return;
@@ -18328,7 +18337,7 @@ MANAGER.EventManager = {
         var _source = MANAGER.__instance_source_distributor.findSource( name );
         _source.askForceImport();
     },
-    clickOnCleanSource             : function ( name ) {
+    clickOnCleanSource              : function ( name ) {
         if ( MANAGER.__instance_element_distributor.current_user && !MANAGER.__instance_element_distributor.current_user.is_admin ) {
             console.warn( "[clickOnCleanSource]", "[not admin]", "refused" );
             return;
@@ -18336,7 +18345,7 @@ MANAGER.EventManager = {
         var _source = MANAGER.__instance_source_distributor.findSource( name );
         _source.cleanImport();
     },
-    clickOnLastExecutionSource     : function ( name ) {
+    clickOnLastExecutionSource      : function ( name ) {
         if ( MANAGER.__instance_element_distributor.current_user && !MANAGER.__instance_element_distributor.current_user.is_admin ) {
             console.warn( "[clickOnLastExecutionSource]", "[not admin]", "refused" );
             return;
@@ -18344,12 +18353,12 @@ MANAGER.EventManager = {
         var _source = MANAGER.__instance_source_distributor.findSource( name );
         _source.redirectToSourceLastExecution();
     },
-    clickOnWorkflowTab       : function ( name ) {
+    clickOnWorkflowTab              : function ( name ) {
         var dom_element = document.querySelector( "#shinken-workflow-container" );
         DOM.Service.setDataSet( dom_element, 'selected', name );
         dom_element.classList.toggle( 'PATCH_IE' );
     },
-    clickOpenNewWindow       : function ( event, link, id ) {
+    clickOpenNewWindow              : function ( event, link, id ) {
         var _path = "/elements/";
         _path += link + '/';
         _path += id;
@@ -18360,7 +18369,7 @@ MANAGER.EventManager = {
             window.location = _path;
         }
     },
-    clickOnLinkForWorkingArea: function ( event, id ) { //NE MARCHE QUE POUR LES HOSTS
+    clickOnLinkForWorkingArea       : function ( event, id ) { //NE MARCHE QUE POUR LES HOSTS
         var _path = "/elements/working_area/hosts/" + id;
         if ( event.ctrlKey ) {
             window.open( _path, '_blank' );
@@ -18369,7 +18378,7 @@ MANAGER.EventManager = {
             window.location = _path;
         }
     },
-    keydown                     : function ( event ) {
+    keydown                         : function ( event ) {
         var _key_code = event.keyCode;
         switch ( _key_code ) {
             case SHINKEN.CONST.KEY_CODE.F1:
@@ -18382,43 +18391,43 @@ MANAGER.EventManager = {
             _controller.keydown( event, _key_code );
         }
     },
-    mouseEnter                  : function ( event ) {
+    mouseEnter                      : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( _controller ) {
             _controller.mouseEnter( event );
         }
     },
-    mouseLeave                  : function ( event ) {
+    mouseLeave                      : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( _controller ) {
             _controller.mouseLeave( event );
         }
     },
-    mouseMove                   : function ( event, controller_name ) {
+    mouseMove                       : function ( event, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.mouseMove( event );
         }
     },
-    mouseWheel                  : function ( event, controller_name ) {
+    mouseWheel                      : function ( event, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.mouseWheel( event );
         }
     },
-    mouseDown                   : function ( event, controller_name ) {
+    mouseDown                       : function ( event, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.mouseDown( event );
         }
     },
-    mouseUp                   : function ( event, controller_name ) {
+    mouseUp                         : function ( event, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.mouseUp( event );
         }
     },
-    onClick                     : function ( event ) {
+    onClick                         : function ( event ) {
         if ( this.stop_propagation ) {
             this.stop_propagation = false;
             return;
@@ -18428,13 +18437,13 @@ MANAGER.EventManager = {
             _controller.onClick( event );
         }
     },
-    onScroll                    : function ( event, controller_name, param ) {
+    onScroll                        : function ( event, controller_name, param ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.onScroll( event, param );
         }
     },
-    clickOnForcedHelpButton     : function ( event, dom_element ) {
+    clickOnForcedHelpButton         : function ( event, dom_element ) {
         event.preventDefault();
         event.stopPropagation();
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 20 );
@@ -18442,18 +18451,18 @@ MANAGER.EventManager = {
         var _object             = MANAGER.__instance_property_distributor.findElement( name );
         _object.clickOnForcedHelpButton();
     },
-    clickOnForcedHelpButtonCheck: function ( event, dom_element ) {
+    clickOnForcedHelpButtonCheck    : function ( event, dom_element ) {
         event.preventDefault();
         event.stopPropagation();
         MANAGER.HelpManager.setForced( 'help_title_try_checks', dom_element, true );
     },
-    clickOnPaste                : function ( event ) {
+    clickOnPaste                    : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( _controller ) {
             _controller.clickOnPaste( event );
         }
     },
-    clickOnCopy                 : function ( event ) {
+    clickOnCopy                     : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         if ( _controller ) {
             _controller.clickOnCopy( event );
@@ -18478,11 +18487,11 @@ MANAGER.EventManager = {
         MANAGER.__instance_navigator_size.tab_data_exclude();
     },
     chooseOverrideValueFromDuplicate: function ( event, value, property ) {
-        MANAGER.__instance_element_distributor.current_element.override_value_choosed = {};
+        MANAGER.__instance_element_distributor.current_element.override_value_choosed             = {};
         MANAGER.__instance_element_distributor.current_element.override_value_choosed[ property ] = value;
     },
     validateErrorOverrideValue      : function ( event, property, property_link_name ) {
-        MANAGER.__instance_element_distributor.current_element[ property_link_name ].setValueFromUser( MANAGER.__instance_element_distributor.current_element.override_value_choosed[property] );
+        MANAGER.__instance_element_distributor.current_element[ property_link_name ].setValueFromUser( MANAGER.__instance_element_distributor.current_element.override_value_choosed[ property ] );
     },
     clickOnSetOverride              : function ( dom_uuid ) {
         var _element = document.getElementById( 'id-shinken-window-checks-target' );
@@ -18505,11 +18514,11 @@ MANAGER.EventManager = {
             _check_in_host.changeExcludeStatus();
         }
     },
-    clickOnDeleteInvalidOverride: function ( type, name ) {
+    clickOnDeleteInvalidOverride    : function ( type, name ) {
         MANAGER.__instance_override_unvalid.deleteOverride( type, name );
         App.Elements.ChecksTab.askUpdateOverrideFormatCfg();
     },
-    clickOnCleanCheckOverrides: function ( event, check_uuid ) {
+    clickOnCleanCheckOverrides      : function ( event, check_uuid ) {
         event.stopPropagation();
         var _confirm = confirm( _( 'element.confirm_remove_override' ) );
         if ( _confirm ) {
@@ -18518,30 +18527,30 @@ MANAGER.EventManager = {
             App.Elements.ChecksTab.askUpdateOverrideFormatCfg();
         }
     },
-    clickOnFocusOnDuplicateCheck: function ( check_uuid ) {
+    clickOnFocusOnDuplicateCheck    : function ( check_uuid ) {
         var _check_in_page_host = App.Elements.ChecksTab.getCheckByID( check_uuid );
         _check_in_page_host.dom_element.scrollIntoView( false );
         DOM.Service.askAddClass( _check_in_page_host.dom_element.querySelector( '.shinken-tab-check-col-name' ), 'shinken-pulsate-focus', 3000 );
     },
-    clickOnTryCheck     : function ( check_uuid, is_exec, is_on_poller ) {
+    clickOnTryCheck                 : function ( check_uuid, is_exec, is_on_poller ) {
         var _check_in_page_host = App.Elements.ChecksTab.getCheckInHostElement( check_uuid );
         _check_in_page_host.askTryCheck( is_exec, is_on_poller );
     },
-    clickOnCleanTryCheck: function ( check_uuid ) {
+    clickOnCleanTryCheck            : function ( check_uuid ) {
         var _check_in_page_host = App.Elements.ChecksTab.getCheckInHostElement( check_uuid );
         _check_in_page_host.hide_eval_check();
     },
-    clickOnMultiLineObjectAdd: function ( parent_name ) {
+    clickOnMultiLineObjectAdd       : function ( parent_name ) {
         var _object = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.clickOnAddLine();
     },
-    clickOnDeleteLine        : function ( dom_element ) {
+    clickOnDeleteLine               : function ( dom_element ) {
         var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var _name               = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( _name );
         _object.deleteLine( dom_element );
     },
-    clickOnHooksPopup: function ( event, element ) {
+    clickOnHooksPopup               : function ( event, element ) {
         event.stopImmediatePropagation();
         var target    = element;
         var parent    = target.parentNode;
@@ -18555,15 +18564,15 @@ MANAGER.EventManager = {
             parent.classList.add( "shinken-force-display-block" );
         }
     },
-    clickOnCollapseButton: function ( event ) {
+    clickOnCollapseButton           : function ( event ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.clickOnCollapseButton( event );
     },
-    simulateClickOnFilter: function ( event, header_name, value ) {
+    simulateClickOnFilter           : function ( event, header_name, value ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
         _controller.simulateClickOnFilter( event, header_name, value );
     },
-    clickOnForceImportInSource: function ( source_name ) {
+    clickOnForceImportInSource      : function ( source_name ) {
         $.ajax( {
             url    : COMMUNICATION.QUERY.GET.SOURCE.FORCE_IMPORT.URL
                      + source_name
@@ -18578,14 +18587,14 @@ MANAGER.EventManager = {
             }
         } );
     },
-    shinkenBroadcast: function ( key, value_object, event, controller_name ) {
+    shinkenBroadcast                : function ( key, value_object, event, controller_name ) {
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event, controller_name );
         if ( _controller ) {
             _controller.shinkenBroadcast( key, value_object );
         }
     }
 };
-MANAGER.ResizeManager = (function ( self ) {
+MANAGER.ResizeManager                           = (function ( self ) {
     "use strict";
     self.dom_element_resize      = null;
     self._bounding_origin        = null;
@@ -18641,13 +18650,13 @@ MANAGER.ResizeManager = (function ( self ) {
                 _width = (self._width_origin - event.clientX + self._mouse_x_origin);
                 break;
             case MANAGER.CONST.RESIZE.TYPE.RIGHT:
-                _width  = (self._width_origin + event.clientX - self._mouse_x_origin);
+                _width = (self._width_origin + event.clientX - self._mouse_x_origin);
                 break;
             case MANAGER.CONST.RESIZE.TYPE.TOP:
                 _height = (self._height_origin - event.clientY + self._mouse_y_origin);
                 break;
             case MANAGER.CONST.RESIZE.TYPE.BOTTOM:
-                _height  = (self._height_origin + event.clientY - self._mouse_y_origin);
+                _height = (self._height_origin + event.clientY - self._mouse_y_origin);
                 break;
             case MANAGER.CONST.RESIZE.TYPE.BOTTOM_RIGHT:
                 _width  = (self._width_origin + event.clientX - self._mouse_x_origin);
@@ -18683,7 +18692,7 @@ MANAGER.ResizeManager = (function ( self ) {
                 break;
         }
         
-        self._callbackResizeMove(_width, _height);
+        self._callbackResizeMove( _width, _height );
     };
     self.resizeEnd                 = function () {
         document.documentElement.removeEventListener( 'mousemove', self.doResize, false );
@@ -18713,7 +18722,7 @@ MANAGER.ResizeManager = (function ( self ) {
             MANAGER.EventManager.onResizeStart( self._name_origin_controller, self._getResizeNameForCallback() );
         }
     };
-    self._callbackResizeMove       = function (width, height) {
+    self._callbackResizeMove       = function ( width, height ) {
         if ( self._name_origin_controller && MANAGER && MANAGER.EventManager ) {
             MANAGER.EventManager.onResizeMove( self._name_origin_controller, self._getResizeNameForCallback(), width, height );
         }
@@ -18726,7 +18735,7 @@ MANAGER.ResizeManager = (function ( self ) {
     return self;
 })
 ( MANAGER.ResizeManager || {} );
-MANAGER.WindowModalManager           = function () {
+MANAGER.WindowModalManager                      = function () {
     this.dom_element         = document.getElementById( 'id-shinken-window-modal' );
     this.dom_element_content = this.dom_element.querySelector( '.shinken-window-modal-content' );
     this.dom_element_loading = this.dom_element.querySelector( '.shinken-loading-text' );
@@ -18734,7 +18743,7 @@ MANAGER.WindowModalManager           = function () {
     this.class_added         = "";
     this.is_open             = false;
 };
-MANAGER.WindowModalManager.prototype = {
+MANAGER.WindowModalManager.prototype            = {
     setContent        : function ( to_set ) {
         this.dom_element_content.innerHTML = to_set;
         this.dom_element.classList.remove( "shinken-hidden" );
@@ -18835,21 +18844,21 @@ SHINKEN.OBJECT.callbackAfterCloseModal.prototype  = {
         this.method( this.param_1, this.param_2 );
     }
 };
-SHINKEN.OBJECT.ConfirmationPopup           = function () {
+SHINKEN.OBJECT.ConfirmationPopup                  = function () {
     this.init();
 };
-SHINKEN.OBJECT.ConfirmationPopup.prototype = {
-    init: function () {
+SHINKEN.OBJECT.ConfirmationPopup.prototype        = {
+    init                  : function () {
         this.dom_element           = null;
         this.dom_element_popup     = null;
         this.validate_button_label = "";
         this.initPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
     },
-    show: function () {
+    show                  : function () {
         this.dom_element.classList.remove( "shinken-hidden" );
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
-    hide: function () {
+    hide                  : function () {
         this.dom_element.classList.add( "shinken-hidden" );
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
         this.reset();
@@ -18882,7 +18891,7 @@ SHINKEN.OBJECT.ConfirmationPopup.prototype = {
         DOM.Service.removeElement( this.dom_element );
         this.dom_element = null;
     },
-    computeHtmlDomElement: function () {
+    computeHtmlDomElement : function () {
         this.setDomElement( DOM.Service.createElement( "div", {
             "class"          : "shinken-parent-event-listener shinken-hidden",
             "id"             : "id-shinken-confirmation-popup-container",
@@ -18891,13 +18900,13 @@ SHINKEN.OBJECT.ConfirmationPopup.prototype = {
         this.computeHtmlPopup();
         DOM.Service.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
     },
-    computeHtmlPopup     : function () {
+    computeHtmlPopup      : function () {
         this.dom_element_popup = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-confirmation-popup" } ) );
         this.computeHtmlHeader();
         this.computeHtmlContent();
         this.computeHtmlFooter();
     },
-    computeHtmlHeader    : function () {
+    computeHtmlHeader     : function () {
         var _container               = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-header-confirmation-popup" } ), this.dom_element_popup );
         var _table                   = DOM.Service.addElementTo( DOM.Service.createElement( "table", { "class": "shinken-width-100" } ), _container );
         var _tr                      = DOM.Service.addElementTo( DOM.Service.createElement( "tr", { "class": "shinken-header-confirmation-popup" } ), _table );
@@ -18905,11 +18914,11 @@ SHINKEN.OBJECT.ConfirmationPopup.prototype = {
         var _onclick_attribute_close = 'MANAGER.EventManager.clickOnButton(event, "click-on-cancel-confirmation-popup")';
         DOM.Service.addElementTo( DOM.Service.createElement( "td", { "class": "shinken-confirmation-popup-cell-close", "onclick": _onclick_attribute_close }, "<span class='shinkon-times'></span>" ), _tr );
     },
-    computeHtmlContent   : function () {
+    computeHtmlContent    : function () {
         this.dom_element_content = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-content-confirmation-popup" } ), this.dom_element_popup );
         DOM.Service.addElementTo( this.content, this.dom_element_content );
     },
-    computeHtmlFooter    : function () {
+    computeHtmlFooter     : function () {
         this.validate_button_label = this.validate_button_label || _( "confirmation_popup.validate_button", [DICTIONARY_COMMON_UI] );
         var _container             = DOM.Service.createElement( "div", { "class": "shinken-footer-confirmation-popup" } );
         var _table                 = DOM.Service.createElement( "table", { "class": "shinken-footer-table-confirmation-popup" } );
@@ -18946,7 +18955,7 @@ SHINKEN.OBJECT.ConfirmationPopup.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopup, SHINKEN.OBJECT.PhaseInterface );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopup, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.CONFIRMATIONPOPUP = {
+SHINKEN.OBJECT.CONFIRMATIONPOPUP              = {
     PARAM: {
         NAME                   : "confirmation_pop_up_name",
         EVENT_NAME_CONFIRMATION: "event_name_after_apply_confirmation_pop_up"
@@ -18956,9 +18965,9 @@ SHINKEN.OBJECT.ConfirmationPopup_V3           = function () {
     this.init();
 };
 SHINKEN.OBJECT.ConfirmationPopup_V3.prototype = {
-    init: function ( name, event_name_validation_popup ) {
-        this.uuid             = "id-shinken-confirmation-popup-container";
-        this.name             = name;
+    init             : function ( name, event_name_validation_popup ) {
+        this.uuid = "id-shinken-confirmation-popup-container";
+        this.name = name;
         this.addParamForEvents( SHINKEN.OBJECT.CONFIRMATIONPOPUP.PARAM.NAME, this.uuid );
         this.addParamForEvents( SHINKEN.OBJECT.CONFIRMATIONPOPUP.PARAM.EVENT_NAME_CONFIRMATION, event_name_validation_popup );
         this.dom_element       = null;
@@ -18967,7 +18976,7 @@ SHINKEN.OBJECT.ConfirmationPopup_V3.prototype = {
         this.button_validate = new COMPONENT.ButtonFromData_V3( "valid_popup__20240904", _( "confirmation_popup.validate_button", [DICTIONARY_COMMON_UI] ) );
         this.button_cancel   = new COMPONENT.ButtonFromData_V3( "cancel_popup__20240904", _( "confirmation_popup.cancel_button", [DICTIONARY_COMMON_UI] ) );
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter    : function ( event_name, param ) {
         switch ( event_name ) {
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
@@ -18982,26 +18991,26 @@ SHINKEN.OBJECT.ConfirmationPopup_V3.prototype = {
                 break;
         }
     },
-    show         : function () {
+    show             : function () {
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
-    hide         : function () {
+    hide             : function () {
         this.reset();
     },
-    reset         : function ( name, event_name_validation_popup ) {
+    reset            : function ( name, event_name_validation_popup ) {
         DOM.Service.removeElement( this.dom_element );
         this.init( name, event_name_validation_popup );
     },
-    setController : function ( to_set ) {
+    setController    : function ( to_set ) {
         this.controller = to_set;
         if ( this.getDomElement() ) {
             DOM.Service.setDataSet( this.getDomElement(), "controller", this.controller.controller_name );
         }
     },
-    setValidButton: function ( to_set ) {
+    setValidButton   : function ( to_set ) {
         this.button_validate = to_set;
     },
-    isVisible     : function () {
+    isVisible        : function () {
         return this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
     computeHtml      : function () {
@@ -19043,11 +19052,11 @@ SHINKEN.OBJECT.ConfirmationPopup_V3.getInstance = function () {
     }
     return MANAGER.__instance_confirmation_popup_V3;
 };
-MANAGER.__instance_confirmation_popup    = new SHINKEN.OBJECT.ConfirmationPopup();
-SHINKEN.OBJECT.DataHistoric                = function () {
+MANAGER.__instance_confirmation_popup           = new SHINKEN.OBJECT.ConfirmationPopup();
+SHINKEN.OBJECT.DataHistoric                     = function () {
     this.init();
 };
-SHINKEN.OBJECT.DataHistoric.prototype      = {
+SHINKEN.OBJECT.DataHistoric.prototype           = {
     init               : function () {
         this._original = null;
         this.resetPreviews();
@@ -19059,7 +19068,7 @@ SHINKEN.OBJECT.DataHistoric.prototype      = {
     resetInvalidPreview: function () {
         this._invalid_preview = null;
     },
-    getLastValid     : function () {
+    getLastValid       : function () {
         if ( this._invalid_preview ) {
             this.resetInvalidPreview();
             if ( this.hasValidPreview() ) {
@@ -19075,28 +19084,28 @@ SHINKEN.OBJECT.DataHistoric.prototype      = {
         }
         return this._original;
     },
-    hasValidPreview  : function () {
+    hasValidPreview    : function () {
         return this._valid_previewing.length;
     },
-    setOriginal      : function ( to_set ) {
+    setOriginal        : function ( to_set ) {
         this._original = new SHINKEN.OBJECT.DataEntryHistoric( to_set );
     },
-    getOriginal      : function () {
+    getOriginal        : function () {
         return this._original;
     },
-    addValidPreview  : function ( to_add ) {
+    addValidPreview    : function ( to_add ) {
         this.resetInvalidPreview();
         this._valid_previewing.push( new SHINKEN.OBJECT.DataEntryHistoric( to_add ) );
     },
-    setInvalidPreview: function ( to_set ) {
+    setInvalidPreview  : function ( to_set ) {
         this._invalid_preview = to_set;
     }
 };
-SHINKEN.OBJECT.DataEntryHistoric           = function ( data ) {
+SHINKEN.OBJECT.DataEntryHistoric                = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.DataEntryHistoric.prototype = {
-    init: function ( data ) {
+SHINKEN.OBJECT.DataEntryHistoric.prototype      = {
+    init      : function ( data ) {
         this.setData( data );
     },
     getData   : function () {
@@ -19114,22 +19123,22 @@ SHINKEN.OBJECT.DataEntryHistoric.prototype = {
         }
     }
 };
-SHINKEN.OBJECT.DefaultConfiguration           = function ( default_configuration ) {
+SHINKEN.OBJECT.DefaultConfiguration             = function ( default_configuration ) {
     this.init( default_configuration );
 };
-SHINKEN.OBJECT.DefaultConfiguration.prototype = {
-    init        : function ( default_configuration ) {
+SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
+    init                        : function ( default_configuration ) {
         this.initInternal();
         this.updateData( default_configuration );
     },
-    initInternal: function () {
+    initInternal                : function () {
         this.own_children_keys     = [];
         this.own_property_keys     = [];
         this.unknown_property_keys = [];
         this.initMessages();
         this.initCounterCommon();
     },
-    initMessages: function () {
+    initMessages                : function () {
         this.messages = this.getObjectMessagesConstructor();
     },
     getValidOwnProperty         : function ( property_name ) {
@@ -19287,7 +19296,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty           = function ( data )
     this.init( data );
 };
 SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
-    _setDataDefaultObject: function ( key, value_object ) {
+    _setDataDefaultObject           : function ( key, value_object ) {
         var _current = this.getValidOwnChildren().getConfigurationChild( key );
         if ( _current ) {
             if ( this[ key ] ) {
@@ -19308,13 +19317,13 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         }
         return false;
     },
-    _getValidOwnProperty : function () {
+    _getValidOwnProperty            : function () {
         return new SHINKEN_VALIDATION.Parameters();
     },
-    _getValidOwnChildren : function () {
+    _getValidOwnChildren            : function () {
         return new SHINKEN.OBJECT.DefaultConfigurationChildren();
     },
-    getChildrenObject    : function () {
+    getChildrenObject               : function () {
         var _to_return             = [];
         var _own_own_children_keys = this._getValidOwnChildren().getKeys();
         var _to_add                = null;
@@ -19326,7 +19335,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         }
         return _to_return;
     },
-    getChildrenObjectDict: function () {
+    getChildrenObjectDict           : function () {
         var _to_return             = {};
         var _own_own_children_keys = this._getValidOwnChildren().getKeys();
         var _to_add                = null;
@@ -19338,28 +19347,28 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         }
         return _to_return;
     },
-    getChild             : function ( key ) {
+    getChild                        : function ( key ) {
         if ( !this[ key ] || typeof this[ key ] === 'string' ) {
             this._setDataDefaultObject( key );
         }
         return this[ key ];
     },
-    getValue             : function ( key ) {
+    getValue                        : function ( key ) {
         if ( !this[ key ] ) {
             this.setValueDefault( key );
         }
         return this[ key ].getValue();
     },
-    getBooleanValue      : function ( key ) {
+    getBooleanValue                 : function ( key ) {
         return SHINKEN.TOOLS.BOOLEAN.parseToBoolean( this.getValue( key ) );
     },
-    isValid              : function ( key ) {
+    isValid                         : function ( key ) {
         if ( !this[ key ] ) {
             this.setValueDefault( key );
         }
         return !this[ key ].hasCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
     },
-    setDataKey           : function ( key, value ) {
+    setDataKey                      : function ( key, value ) {
         this[ key ] = this.getObjectParamConstructor( key, value, this.getValidOwnProperty().getParameter( key ), this.getDefaultValueLabel(), this.is_belonging_to_grid_cell_object );
         this[ key ].setCountersParent( this );
         SHINKEN.TOOLS.ARRAY.addElement( this.own_property_keys, key );
@@ -19400,7 +19409,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         }
         return _to_return;
     },
-    getAllObjectWithMessages: function () {
+    getAllObjectWithMessages        : function () {
         var to_return = [];
         if ( this.messages && this.messages.hasStatus() ) {
             to_return.push( this );
@@ -19453,17 +19462,17 @@ SHINKEN.OBJECT.DefaultConfigurationChildren.prototype = {
         return this.content;
     }
 };
-SHINKEN.OBJECT.DefaultConfigurationChild           = function ( args ) {
+SHINKEN.OBJECT.DefaultConfigurationChild              = function ( args ) {
     this.key               = args[ 0 ];
     this.class_constructor = args[ 1 ];
     this.extra_action      = args[ 2 ];
 };
-SHINKEN.OBJECT.DefaultConfigurationChild.prototype = {};
-OBJECT.ElementCheckbox           = function ( dom_element, parent ) {
+SHINKEN.OBJECT.DefaultConfigurationChild.prototype    = {};
+OBJECT.ElementCheckbox                                = function ( dom_element, parent ) {
     this.uuid = SHINKEN.TOOLS.STRING.buildUUID();
     this.init( dom_element, parent );
 };
-OBJECT.ElementCheckbox.prototype = {
+OBJECT.ElementCheckbox.prototype                      = {
     init           : function ( dom_element, parent ) {
         this.initCounters( parent );
         this.dom_element = dom_element;
@@ -19487,7 +19496,7 @@ OBJECT.ElementCheckbox.prototype = {
     },
     computeCounters: function () {
         if ( !this.dom_element ) {
-            return ;
+            return;
         }
         var _number_error   = this.dom_element.classList.contains( "shinken-error" ) ? 0 : 0;
         var _number_warning = this.dom_element.classList.contains( "shinken-warning" ) ? 0 : 0;
@@ -19504,10 +19513,10 @@ OBJECT.ElementCheckbox.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( OBJECT.ElementCheckbox, SHINKEN.OBJECT.CounterInterface );
-OBJECT.ElementList           = function () {
+OBJECT.ElementList                      = function () {
     this.init();
 };
-OBJECT.ElementList.prototype = {
+OBJECT.ElementList.prototype            = {
     init                 : function () {
         this.is_disabled = false;
         this.is_useless  = false;
@@ -19569,10 +19578,10 @@ OBJECT.ElementList.prototype = {
         }
         this.is_hidden_for_admin_si = !!to_set;
     },
-    setIsLock: function ( to_set ) {
+    setIsLock            : function ( to_set ) {
         this.is_lock = to_set;
     },
-    setErrorMessage: function ( to_set ) {
+    setErrorMessage      : function ( to_set ) {
         this.error_message = to_set;
     },
     setUUID              : function ( to_set ) {
@@ -19707,7 +19716,7 @@ OBJECT.ElementList.prototype = {
         return _to_return;
     }
 };
-SHINKEN.OBJECT.MESSAGE = {
+SHINKEN.OBJECT.MESSAGE                  = {
     ICON       : {
         ERROR  : '<span class="shinken-icon-error shinkon-warning"></span>',
         WARNING: '<span class="shinken-icon-warning shinkon-warning"></span>',
@@ -19716,10 +19725,10 @@ SHINKEN.OBJECT.MESSAGE = {
     MAX_ERROR  : 5,
     MAX_WARNING: 5
 };
-SHINKEN.OBJECT.Messages           = function ( footer ) {
+SHINKEN.OBJECT.Messages                 = function ( footer ) {
     this.init( footer );
 };
-SHINKEN.OBJECT.Messages.prototype = {
+SHINKEN.OBJECT.Messages.prototype       = {
     init                : function ( footer ) {
         this.__class_name__ = "SHINKEN.OBJECT.Messages";
         this.resetMessages();
@@ -19980,11 +19989,11 @@ SHINKEN.OBJECT.MessagesConfig.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.MessagesConfig, SHINKEN.OBJECT.Messages );
-SHINKEN.OBJECT.Message           = function ( type, text, line_index ) {
+SHINKEN.OBJECT.Message                 = function ( type, text, line_index ) {
     this._type = type;
     this._text = text;
 };
-SHINKEN.OBJECT.Message.prototype = {
+SHINKEN.OBJECT.Message.prototype       = {
     buildHtml: function () {
         return '<li class=\'' + this._type + '\'>' + this._text + '</li>';
     },
@@ -20036,7 +20045,7 @@ SHINKEN.OBJECT.MessageConfig.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.MessageConfig, SHINKEN.OBJECT.Message );
-SHINKEN.OBJECT.Messageservice = (function ( self ) {
+SHINKEN.OBJECT.Messageservice                   = (function ( self ) {
     self.parseBackendStatus = function ( status ) {
         switch ( status ) {
             case SHINKEN.OBJECT.CONST.VALIDATION.FIELD.WARNINGS:
@@ -20084,7 +20093,7 @@ SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
     },
     createNotificationContainer: function ( skip_close ) {
         if ( !skip_close ) {
-            this.dom_element = DOM.Service.createElement( "div", { id: "id-shinken-notification-popup-container" });
+            this.dom_element = DOM.Service.createElement( "div", { id: "id-shinken-notification-popup-container" } );
             DOM.BodyService.addChild( this.dom_element );
         }
         else {
@@ -20098,20 +20107,20 @@ SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NOTIFICATION.Container, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.VisualNotificationOfChange = function ( data ) {
+SHINKEN.OBJECT.VisualNotificationOfChange                     = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.VisualNotificationOfChange.prototype = {
-    init: function ( data ) {
+SHINKEN.OBJECT.VisualNotificationOfChange.prototype           = {
+    init                      : function ( data ) {
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = new SHINKEN.OBJECT.BlinkNotificationOfChange();
         if ( data ) {
             this.updateData( data );
         }
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter             : function ( event_name, param ) {
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].doActionAfter( event_name, param );
     },
-    updateData: function ( data ) {
+    updateData                : function ( data ) {
         var _keys     = Object.keys( data );
         var _sizeData = _keys.length;
         var _currentKey;
@@ -20120,7 +20129,7 @@ SHINKEN.OBJECT.VisualNotificationOfChange.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData                   : function ( key, value ) {
         switch ( key ) {
             case "value":
                 var _keys = Object.keys( value );
@@ -20134,10 +20143,10 @@ SHINKEN.OBJECT.VisualNotificationOfChange.prototype = {
                 break;
         }
     },
-    getBlinkValue     : function () {
+    getBlinkValue             : function () {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getValue();
     },
-    getBlinkDomElement: function () {
+    getBlinkDomElement        : function () {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDomElement();
     },
     getDataToSave             : function () {
@@ -20149,7 +20158,7 @@ SHINKEN.OBJECT.VisualNotificationOfChange.prototype = {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].isEnabled();
     }
 };
-SHINKEN.OBJECT.VisualNotificationOfChange__fromData = function ( data ) {
+SHINKEN.OBJECT.VisualNotificationOfChange__fromData           = function ( data ) {
     this.init( data );
 };
 SHINKEN.OBJECT.VisualNotificationOfChange__fromData.prototype = {
@@ -20161,11 +20170,11 @@ SHINKEN.OBJECT.VisualNotificationOfChange__fromData.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.VisualNotificationOfChange__fromData, SHINKEN.OBJECT.VisualNotificationOfChange );
-SHINKEN.OBJECT.BlinkNotificationOfChange = function ( data ) {
+SHINKEN.OBJECT.BlinkNotificationOfChange           = function ( data ) {
     this.init( data );
 };
 SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
-    init: function ( data ) {
+    init               : function ( data ) {
         if ( data ) {
             this.updateData( data );
         }
@@ -20217,13 +20226,13 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
     doActionAfter      : function ( event_name, param ) {
         this.doActionAfterCommun( event_name, param );
     },
-    getValue: function () {
+    getValue           : function () {
         if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
             return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
     },
-    updateData: function ( data ) {
+    updateData         : function ( data ) {
         var _keys     = Object.keys( data );
         var _sizeData = _keys.length;
         var _currentKey;
@@ -20232,7 +20241,7 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData            : function ( key, value ) {
         switch ( key ) {
             case "value":
                 var _keys = Object.keys( value );
@@ -20251,12 +20260,12 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
                 break;
         }
     },
-    getDataToSave: function () {
+    getDataToSave      : function () {
         var _to_return                                                          = {};
         _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
-    callbackForPhase: function () {
+    callbackForPhase   : function () {
         var _current = this.getCurrentPhase();
         this.setTooltipHtml( "" );
         switch ( _current ) {
@@ -20273,21 +20282,21 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
                 break;
         }
     },
-    updateHtmlWithData: function () {
+    updateHtmlWithData : function () {
         var _dom     = document.querySelector( "#shinken-modal-container #visual-blink-" + this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
         _dom.checked = true;
     },
-    isEnabled         : function () {
+    isEnabled          : function () {
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange, SHINKEN.OBJECT.PhaseInterface );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.BlinkNotificationOfChange__fromData = function ( data ) {
+SHINKEN.OBJECT.BlinkNotificationOfChange__fromData           = function ( data ) {
     this.init( data );
 };
 SHINKEN.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
-    init: function () {
+    init         : function () {
         this.button = new COMPONENT.ButtonFromData_V3( "ask_play_notification_visual_blink", DOM.Service.cloneElement( document.querySelector( '#id-shinken-template-view .shinken-blink-icon' ) ).outerHTML );
         this.button.addClass( "shinken-notification-content" );
     },
@@ -20300,7 +20309,7 @@ SHINKEN.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
         }
         this.doActionAfterCommun( event_name, param );
     },
-    computeHtml: function () {
+    computeHtml  : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-blink-notification-container shinken-notification-container" } ) );
         DOM.Service.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
         this.button.computeHtml();
@@ -20308,16 +20317,16 @@ SHINKEN.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange__fromData, SHINKEN.OBJECT.BlinkNotificationOfChange );
-SHINKEN.OBJECT.VolumeNotificationOfChange = function ( data ) {
+SHINKEN.OBJECT.VolumeNotificationOfChange                   = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.VolumeNotificationOfChange.prototype = {
-    init: function ( data ) {
+SHINKEN.OBJECT.VolumeNotificationOfChange.prototype         = {
+    init              : function ( data ) {
         if ( data ) {
             this.updateData( data );
         }
     },
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter     : function ( event_name, param ) {
         switch ( event_name ) {
             case "notification-configuration-set-dom-element-with-data":
                 this.updateHtmlWithData();
@@ -20327,13 +20336,13 @@ SHINKEN.OBJECT.VolumeNotificationOfChange.prototype = {
                 break;
         }
     },
-    getValue: function () {
+    getValue          : function () {
         if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] === undefined ) {
             return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
         return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ];
     },
-    updateData: function ( data ) {
+    updateData        : function ( data ) {
         var _keys     = Object.keys( data );
         var _sizeData = _keys.length;
         var _currentKey;
@@ -20342,14 +20351,14 @@ SHINKEN.OBJECT.VolumeNotificationOfChange.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData           : function ( key, value ) {
         switch ( key ) {
             case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME:
                 this[ key ] = value;
                 break;
         }
     },
-    getDataToSave: function () {
+    getDataToSave     : function () {
         var _to_return                                                         = {};
         _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] = this.getValue();
         return _to_return;
@@ -20366,7 +20375,7 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues           = function ( data ) 
     this.init( data );
 };
 SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
-    init: function ( data ) {
+    init                     : function ( data ) {
         this.users  = new SHINKEN.OBJECT.NotificationsOfChangeUser();
         this.hives  = new SHINKEN.OBJECT.NotificationsOfChangeView();
         this.lists  = new SHINKEN.OBJECT.NotificationsOfChangeView();
@@ -20481,10 +20490,10 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
         return this.users.getBlinkValue();
     }
 };
-SHINKEN.OBJECT.NotificationsOfChangeUser = function ( data ) {
+SHINKEN.OBJECT.NotificationsOfChangeUser                    = function ( data ) {
     this.initSpecific( data );
 };
-SHINKEN.OBJECT.NotificationsOfChangeUser.prototype = {
+SHINKEN.OBJECT.NotificationsOfChangeUser.prototype          = {
     initSpecific: function ( data ) {
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = new SHINKEN.OBJECT.VolumeNotificationOfChange();
         this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = new SHINKEN.OBJECT.VisualNotificationOfChange();
@@ -20492,7 +20501,7 @@ SHINKEN.OBJECT.NotificationsOfChangeUser.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NotificationsOfChangeUser, SHINKEN.OBJECT.NotificationsOfChange._interface );
-SHINKEN.OBJECT.NotificationsOfChangeView = function ( data ) {
+SHINKEN.OBJECT.NotificationsOfChangeView           = function ( data ) {
     this.initSpecific( data );
 };
 SHINKEN.OBJECT.NotificationsOfChangeView.prototype = {
@@ -20509,7 +20518,7 @@ SHINKEN.OBJECT.NotificationsOfChangeView.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NotificationsOfChangeView, SHINKEN.OBJECT.NotificationsOfChange._interface );
-SHINKEN.OBJECT.NotificationsOfChangeView__fromData = function ( data ) {
+SHINKEN.OBJECT.NotificationsOfChangeView__fromData           = function ( data ) {
     this.initSpecific( data );
 };
 SHINKEN.OBJECT.NotificationsOfChangeView__fromData.prototype = {
@@ -20640,7 +20649,7 @@ SHINKEN.OBJECT.NOTIFICATION.User.prototype = {
     
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NOTIFICATION.User, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.OVERLAYFRAME = {
+SHINKEN.OBJECT.OVERLAYFRAME           = {
     CONST: {
         EVENT: {
             DELTA_X          : "delta_x__overlay_frame",
@@ -20653,7 +20662,7 @@ SHINKEN.OBJECT.OverlayFrame           = function () {
     this.__class_name__ = "SHINKEN.OBJECT.OverlayFrame";
 };
 SHINKEN.OBJECT.OverlayFrame.prototype = {
-    init: function ( start_x, start_y, dom_relative_position_container ) {
+    init                     : function ( start_x, start_y, dom_relative_position_container ) {
         this.dom_element        = null;
         this.dom_element_parent = dom_relative_position_container;
         this.start_x            = start_x;
@@ -20670,7 +20679,7 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
         }
         this.current_scroll_top = this.initial_scroll_top;
     },
-    doActionAfter      : function ( event_name, params ) {
+    doActionAfter            : function ( event_name, params ) {
         switch ( event_name ) {
             case "mouse_down":
                 if ( !params ) {
@@ -20697,13 +20706,13 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
                 return this.getImpactedElement( params );
         }
     },
-    makeMouseMoveAction: function ( params ) {
+    makeMouseMoveAction      : function ( params ) {
         this.updateSize();
         this.updateContent( params );
     },
-    getImpactedElement : function () {
+    getImpactedElement       : function () {
     },
-    makeMouseUpAction  : function () {
+    makeMouseUpAction        : function () {
     },
     remove                   : function () {
         this.resetHTML();
@@ -20724,29 +20733,29 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
         DOM.BodyService.addOrRemoveClasses( add_or_remove, "shinken-has-drag-in-progress-overlay-frame" );
         this.drag_in_progress = add_or_remove;
     },
-    getDelta__parseToParams: function ( params ) {
+    getDelta__parseToParams  : function ( params ) {
         params                                                    = params || {};
         params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_X ] = this.getDelta_x();
         params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = this.getDelta_y();
         return params;
     },
-    getDelta_x             : function () {
+    getDelta_x               : function () {
         return this.end_x - this.start_x;
     },
-    getDelta_y             : function () {
+    getDelta_y               : function () {
         return this.getComputedEndY() - this.getComputedStartY();
     },
-    getComputedStartY      : function () {
+    getComputedStartY        : function () {
         return this.start_y + this.initial_scroll_top;
     },
-    getComputedEndY        : function () {
+    getComputedEndY          : function () {
         return this.end_y + this.current_scroll_top;
     },
-    computeHtml      : function () {
+    computeHtml              : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-selection-frame" } ) );
         DOM.Service.setStyles( this.getDomElement(), this.getInitStyle() );
     },
-    getInitStyle     : function () {
+    getInitStyle             : function () {
         return {
             top   : this.getComputedStartY() - this.offset_y,
             left  : this.start_x - this.offset_x,
@@ -20754,15 +20763,15 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
             height: 0
         };
     },
-    updateSize       : function () {
+    updateSize               : function () {
         if ( !this.getDomElement() ) {
             this.computeHtml();
         }
         DOM.Service.setStyles( this.getDomElement(), this.computeFrameDisplayStyle() );
     },
-    updateContent    : function () {
+    updateContent            : function () {
     },
-    resetZoneToRemove: function () {
+    resetZoneToRemove        : function () {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.OverlayFrame, SHINKEN.OBJECT.ShinkenObjectHtml );
@@ -20771,7 +20780,7 @@ SHINKEN.OBJECT.OverlayFrameForGrid           = function ( tile_pixel_size ) {
     this.tile_pixel_size = tile_pixel_size;
 };
 SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
-    getImpactedElement: function ( shinken_grid_cells ) {
+    getImpactedElement       : function ( shinken_grid_cells ) {
         let bounding_zone = this.getBoundingZone();
         return this.findCellMatchingZone( shinken_grid_cells, bounding_zone );
     },
@@ -20792,7 +20801,7 @@ SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
     addOrRemoveDragInProgress: function ( add_or_remove ) {
         DOM.BodyService.addOrRemoveClasses( add_or_remove, "shinken-has-drag-in-progress-overlay-frame" );
     },
-    getBoundingZone   : function () {
+    getBoundingZone          : function () {
         return {
             left  : Math.min( this.parsePixelToGrid_x( this.start_x ), this.parsePixelToGrid_x( this.end_x ) ),
             right : Math.max( this.parsePixelToGrid_x( this.start_x ), this.parsePixelToGrid_x( this.end_x ) ),
@@ -20800,13 +20809,13 @@ SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
             bottom: Math.max( this.parsePixelToGrid_y( this.getComputedStartY() ), this.parsePixelToGrid_y( this.getComputedEndY() ) )
         };
     },
-    parsePixelToGrid_x: function ( pos_pixel ) {
+    parsePixelToGrid_x       : function ( pos_pixel ) {
         return Math.round( (pos_pixel - this.offset_x) / this.tile_pixel_size );
     },
-    parsePixelToGrid_y: function ( pos_pixel ) {
+    parsePixelToGrid_y       : function ( pos_pixel ) {
         return Math.round( (pos_pixel - this.offset_y) / this.tile_pixel_size );
     },
-    parseGridToPixel_y: function ( pos_grid ) {
+    parseGridToPixel_y       : function ( pos_grid ) {
         return pos_grid * this.tile_pixel_size;
     }
 };
@@ -20867,7 +20876,7 @@ SHINKEN.OBJECT.GenericResizer.prototype = {
     isCursorOnLeft: function () {
         return this.type_resize.includes( "left" );
     },
-    remove: function () {
+    remove        : function () {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.GenericResizer, SHINKEN.OBJECT.OverlayFrame );
@@ -20950,7 +20959,7 @@ SHINKEN.OBJECT.SpaceBox           = function ( type, max_width ) {
     this.max_width      = max_width;
 };
 SHINKEN.OBJECT.SpaceBox.prototype = {
-    addOrRemoveDragInProgress: function ( add_or_remove ) {
+    addOrRemoveDragInProgress     : function ( add_or_remove ) {
         DOM.BodyService.addOrRemoveClasses( add_or_remove, "shinken-has-drag-in-progress-overlay-frame" );
     },
     computeHtml                   : function () {
@@ -21099,7 +21108,7 @@ SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SpaceBoxCreation, SHINKEN.OBJECT.SpaceBox );
-SHINKEN.OBJECT.SpaceBoxDeletion = function ( grid ) {
+SHINKEN.OBJECT.SpaceBoxDeletion           = function ( grid ) {
     this.__class_name__ = "SHINKEN.OBJECT.SpaceBoxDeletion";
     this.type           = SHINKEN.OBJECT.SPACEBOX.CONST.TYPE.DELETION;
     this.initSpaceBox( grid );
@@ -21223,7 +21232,7 @@ SHINKEN.OBJECT.SPACEBOX.factoryForGrid = function ( grid_object, params ) {
     to_return.computeHtml();
     return to_return;
 };
-SHINKEN.OBJECT.CONST.PARAM     = {
+SHINKEN.OBJECT.CONST.PARAM             = {
     VALUE       : "value",
     CFG_VALUE   : "cfg_value",
     SOURCE_VALUE: "source_value",
@@ -21232,12 +21241,12 @@ SHINKEN.OBJECT.CONST.PARAM     = {
         PARAM_DATA    : "param_object__data"
     }
 };
-SHINKEN.OBJECT.Param           = function ( key, value_object, parameter, default_value ) {
+SHINKEN.OBJECT.Param                   = function ( key, value_object, parameter, default_value ) {
     this.init( key, value_object, parameter, default_value );
 };
-SHINKEN.OBJECT.Param.prototype = {
-    __class_name__: 'SHINKEN.OBJECT.Param',
-    init          : function ( key, value_object, parameter, default_value ) {
+SHINKEN.OBJECT.Param.prototype         = {
+    __class_name__            : 'SHINKEN.OBJECT.Param',
+    init                      : function ( key, value_object, parameter, default_value ) {
         this.initCounterCommon();
         if ( !value_object ) {
             return;
@@ -21249,7 +21258,7 @@ SHINKEN.OBJECT.Param.prototype = {
             this.user_value = this.default_value;
         }
     },
-    initValueObject: function ( value_object ) {
+    initValueObject           : function ( value_object ) {
         if ( value_object.validation_messages ) {
             this.setMessagesSpecific( value_object.validation_messages );
         }
@@ -21260,7 +21269,7 @@ SHINKEN.OBJECT.Param.prototype = {
         this.setUserValueFromInit( value_object );
         this._initial_user_value = value_object._initial_user_value !== undefined ? value_object._initial_user_value : this.getUserValue();
     },
-    doActionAfter: function ( event_name, params ) {
+    doActionAfter             : function ( event_name, params ) {
         switch ( event_name ) {
             case "value__param__configured__from_form":
                 this.addParamForEvents( PROPERTY.COMMON.PARAM.COMPOSED_KEY, params[ PROPERTY.COMMON.PARAM.COMPOSED_KEY ] );
@@ -21280,14 +21289,14 @@ SHINKEN.OBJECT.Param.prototype = {
                 break;
         }
     },
-    setMessagesSpecific     : function ( message ) {
+    setMessagesSpecific       : function ( message ) {
         this.setMessages( message );
     },
-    doActionAfterAddMessages: function () {
+    doActionAfterAddMessages  : function () {
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), this.messages.getNumberWarnings() );
         this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.getObjectClassName(), this.messages.getNumberErrors() );
     },
-    _getObjectToJson        : function ( format_data__20241115 ) {
+    _getObjectToJson          : function ( format_data__20241115 ) {
         switch ( format_data__20241115 ) {
             case SHINKEN.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_ONLY:
                 return this.getValue();
@@ -21300,10 +21309,10 @@ SHINKEN.OBJECT.Param.prototype = {
         }
         return this;
     },
-    changeUserValueByValue  : function () {
+    changeUserValueByValue    : function () {
         this.user_value = this.value;
     },
-    setUserValueFromInit    : function ( value_object ) {
+    setUserValueFromInit      : function ( value_object ) {
         let to_set = "";
         if ( value_object[ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ] !== undefined ) {
             to_set = value_object[ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ];
@@ -21313,32 +21322,32 @@ SHINKEN.OBJECT.Param.prototype = {
         }
         this.setUserValue( to_set );
     },
-    setUserValue            : function ( to_set ) {
+    setUserValue              : function ( to_set ) {
         this.user_value = to_set;
     },
-    setUserValueAndValue    : function ( to_set ) {
+    setUserValueAndValue      : function ( to_set ) {
         this.setValue( to_set );
         this.setUserValue( to_set );
     },
-    getUserInitialValue     : function () {
+    getUserInitialValue       : function () {
         return this._initial_user_value;
     },
-    getUserValue            : function () {
+    getUserValue              : function () {
         return this.user_value;
     },
-    setValue                : function ( to_set ) {
+    setValue                  : function ( to_set ) {
         this.value = to_set;
     },
-    getValue                : function () {
+    getValue                  : function () {
         return this.value;
     },
-    getCfgValue             : function () {
+    getCfgValue               : function () {
         return this.cfg_value;
     },
-    getUUID                 : function () {
+    getUUID                   : function () {
         return this.uuid;
     },
-    clone__20250108         : function () {
+    clone__20250108           : function () {
         let to_return                 = new SHINKEN.OBJECT.Param( this.key );
         to_return.user_value          = this.user_value;
         to_return.value               = this.value;
@@ -21365,7 +21374,7 @@ SHINKEN.OBJECT.Param.prototype = {
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.CounterInterfaceValidation );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.ShinkenObjectJson );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.EditableElementInterface );
-SHINKEN.OBJECT.PROGRESS_BAR_CONST = {
+SHINKEN.OBJECT.PROGRESS_BAR_CONST    = {
     SAVING_DEFAULT                  : {
         PREPARATION_CALL        : 1,
         CALL_IN_PROGRESS        : 2,
@@ -21388,18 +21397,18 @@ SHINKEN.OBJECT.Progressbar           = function ( parent, nb_steps, min_timeout,
     this.init( dom_element_parent );
 };
 SHINKEN.OBJECT.Progressbar.prototype = {
-    init     : function ( dom_element_parent ) {
+    init                : function ( dom_element_parent ) {
         this.computeHtml();
         this.setDomElementParent( dom_element_parent );
         this.initPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, this.getDomElement() );
     },
-    reset    : function () {
+    reset               : function () {
         this._timeout_run  = null;
         this._current_step = 0;
         this.setMessagesDisplayed( false );
         this.initSteps();
     },
-    initSteps: function () {
+    initSteps           : function () {
         this._steps = [];
         for ( var i = 0; i <= this._nb_steps; i++ ) {
             this._steps.push( new SHINKEN.OBJECT.ProgressbarStep( i ) );
@@ -21437,7 +21446,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
                 break;
         }
     },
-    doProgress: function ( expected_step, phase, param, message, title ) {
+    doProgress          : function ( expected_step, phase, param, message, title ) {
         if ( expected_step === 1 ) {
             this.reset();
             this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
@@ -21450,7 +21459,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         _step.askForRun();
         this._run();
     },
-    _run      : function () {
+    _run                : function () {
         if ( this._timeout_run ) {
             return;
         }
@@ -21477,7 +21486,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
             }
         }, this._min_timeout );
     },
-    computeHtml    : function () {
+    computeHtml         : function () {
         this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-popup-progress-bar-container shinken-parent-event-listener", "data-controller": "common_ui", "data-message-displayed": "0" } ) );
         
         this._dom_title = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-popup-title" } ) );
@@ -21488,7 +21497,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         let collapseButtonContainer = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-collapse-button-container" } ) );
         let buttonContainer         = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-progress-bar-button-container" } ), collapseButtonContainer );
         let button                  = new COMPONENT.ButtonFromData_V3( "toggle_display_popup_progress_bar_message", _( "progress_bar.toggle_display_message_label", [DICTIONARY_COMMON_UI] ) );
-        button.addClass("shinken-popup-message-detail-collapse");
+        button.addClass( "shinken-popup-message-detail-collapse" );
         button.computeHtml();
         DOM.Service.addElementTo( button.getDomElement(), buttonContainer );
         
@@ -21500,7 +21509,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         
         this._dom_message = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-progress-bar-message" } ) );
     },
-    _updateHtml    : function ( current_step ) {
+    _updateHtml         : function ( current_step ) {
         if ( current_step.getPhase() ) {
             this.setPhase( current_step.getPhase() );
         }
@@ -21512,17 +21521,17 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         }
         this._updateBarHtml();
     },
-    _updateBarHtml : function () {
+    _updateBarHtml      : function () {
         DOM.Service.setStyle( this._dom_progress_bar, DOM.CONST.STYLE.WIDTH, (this._current_step / this._nb_steps * 100) + "%" );
         DOM.Service.setDataSet( this.getDomElement(), "isComplete", (this._current_step === this._nb_steps) ? "1" : "0" );
     },
-    updateTitleHtml: function ( to_set ) {
+    updateTitleHtml     : function ( to_set ) {
         this._dom_title.innerHTML = to_set;
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Progressbar, SHINKEN.OBJECT.PhaseInterface );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Progressbar, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.ProgressbarStep           = function ( index ) {
+SHINKEN.OBJECT.ProgressbarStep                = function ( index ) {
     this._index        = index;
     this._phase        = null;
     this._title        = null;
@@ -21530,7 +21539,7 @@ SHINKEN.OBJECT.ProgressbarStep           = function ( index ) {
     this._param        = null;
     this._run_expected = false;
 };
-SHINKEN.OBJECT.ProgressbarStep.prototype = {
+SHINKEN.OBJECT.ProgressbarStep.prototype      = {
     setPhase   : function ( to_set ) {
         if ( to_set !== undefined ) {
             this._phase = to_set;
@@ -21599,9 +21608,9 @@ SHINKEN.OBJECT.ProgressbarInterface.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ProgressbarInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.Resource           = function () {
+SHINKEN.OBJECT.Resource                 = function () {
 };
-SHINKEN.OBJECT.Resource.prototype = {
+SHINKEN.OBJECT.Resource.prototype       = {
     reset     : function () {
         this.content = null;
     },
@@ -21653,10 +21662,10 @@ SHINKEN.OBJECT.Resource.prototype = {
         }
     }
 };
-SHINKEN.CARTO.ShinkenCarto = function ( data ) {
+SHINKEN.CARTO.ShinkenCarto              = function ( data ) {
     this.init( data );
 };
-SHINKEN.CARTO.ShinkenCarto.prototype = {
+SHINKEN.CARTO.ShinkenCarto.prototype    = {
     init           : function ( data ) {
         if ( data ) {
             this.updateData( data );
@@ -21693,13 +21702,13 @@ SHINKEN.CARTO.ShinkenCarto.prototype = {
     hasLocalHostUrl: function () {
         return SHINKEN.TOOLS.STRING.startsWith( this.url, "http://localhost" );
     },
-    computeHtml: function () {
-            var _css_selector = this.hasLocalHostUrl() ? "#shinken-architecture-template .shinken-template-architecture-cartos-start-with-localhost" : "#shinken-architecture-template .shinken-template-architecture-cartos";
-            var _template     = document.querySelector( _css_selector ).outerHTML;
-            _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_name_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.name ) );
-            _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_url_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.url ) );
-            var _temp         = DOM.Service.createElement( "div", {}, _template );
-            this.dom_element  = _temp.firstChild;
+    computeHtml    : function () {
+        var _css_selector = this.hasLocalHostUrl() ? "#shinken-architecture-template .shinken-template-architecture-cartos-start-with-localhost" : "#shinken-architecture-template .shinken-template-architecture-cartos";
+        var _template     = document.querySelector( _css_selector ).outerHTML;
+        _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_name_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.name ) );
+        _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_url_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.url ) );
+        var _temp         = DOM.Service.createElement( "div", {}, _template );
+        this.dom_element  = _temp.firstChild;
         
     }
 };
@@ -21707,7 +21716,7 @@ SHINKEN.OBJECT.ShinkenElement           = function () {
     this.sla_value_status = OBJECT.CONST.ELEMENT.SLA.STATUS.UNKNOWN;
 };
 SHINKEN.OBJECT.ShinkenElement.prototype = {
-    init: function ( data ) {
+    init                              : function ( data ) {
         this.updateData( data );
     },
     isConfigured                      : function () {
@@ -21849,7 +21858,7 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
         }
         return this.sla_quality;
     },
-    getDataForLastModification: function ( _to_return ) {
+    getDataForLastModification        : function ( _to_return ) {
         _to_return = _to_return || {};
         
         _to_return[ OBJECT.CONST.ELEMENT.FIELD_UI.IS_EXISTING ] = this[ OBJECT.CONST.ELEMENT.FIELD_UI.IS_EXISTING ];
@@ -21871,7 +21880,7 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
         }
         return _to_return;
     },
-    updateData: function ( data ) {
+    updateData                        : function ( data ) {
         if ( !data ) {
             return;
         }
@@ -21883,7 +21892,7 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData                           : function ( key, value ) {
         switch ( key ) {
             case "item_uuid":
             case OBJECT.CONST.ELEMENT.FIELD_UI.UUID:
@@ -21935,7 +21944,7 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenElement, SHINKEN.OBJECT.ShinkenObjectJson );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenElement, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.Refresh = function ( countdown, parent, do_once ) {
+SHINKEN.OBJECT.Refresh           = function ( countdown, parent, do_once ) {
     this.parent_object     = parent;
     this.countdown         = countdown || 60000;
     this.countdown_tic     = 1000;
@@ -21945,7 +21954,7 @@ SHINKEN.OBJECT.Refresh = function ( countdown, parent, do_once ) {
     this.phase             = new SHINKEN.OBJECT.Phase( this );
     this.interval_tic_tac  = null;
 };
-SHINKEN.OBJECT.Refresh.CONST = {
+SHINKEN.OBJECT.Refresh.CONST     = {
     UPDATE_AT: "UpdateAt",
     CLOCK    : "Clock"
 };
@@ -21968,7 +21977,7 @@ SHINKEN.OBJECT.Refresh.prototype = {
             }
         }
     },
-    computeHtml: function () {
+    computeHtml          : function () {
         for ( var i = 0, _size_i = this.ui_components.length; i < _size_i; i++ ) {
             this.ui_components[ i ].computeHtml();
         }
@@ -21981,7 +21990,7 @@ SHINKEN.OBJECT.Refresh.prototype = {
             this.ui_components[ i ].phaseUpdated( this.phase.current_phase, this );
         }
     },
-    updateCountdown: function () {
+    updateCountdown      : function () {
         if ( this.phase.isPhase( SHINKEN.OBJECT.CONST.PHASE.STUCK ) ) {
             return;
         }
@@ -21992,11 +22001,11 @@ SHINKEN.OBJECT.Refresh.prototype = {
             this.ui_components[ i ].updateCountdown( this );
         }
     },
-    reset          : function () {
+    reset                : function () {
         clearInterval( this.interval_tic_tac );
         this.current_countdown = this.countdown;
     },
-    tictac         : function () {
+    tictac               : function () {
         var _phase_value = this.getCurrentPhase();
         this.updateCountdown();
         if ( this.current_countdown <= 0 ) {
@@ -22012,7 +22021,7 @@ SHINKEN.OBJECT.Refresh.prototype = {
             }
         }
     },
-    callbackForPhase: function () {
+    callbackForPhase     : function () {
         this.askParentPhaseUpdated();
         switch ( this.phase.current_phase ) {
             case SHINKEN.OBJECT.CONST.PHASE.RUNNING :
@@ -22047,7 +22056,7 @@ SHINKEN.TOOLS.ClockComponent           = function () {
 };
 SHINKEN.TOOLS.ClockComponent.prototype = {
     
-    init: function () {
+    init    : function () {
         this.color = '#5C5C5C';
         this.name  = SHINKEN.OBJECT.Refresh.CONST.CLOCK;
     },
@@ -22061,8 +22070,8 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
         return this.dom_element;
     },
     computeHtml             : function () {
-        this.dom_element                   = DOM.Service.createElement( "div", { class: "shinken-container-clock" } );
-        this.dom_element_container_clock_2 = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-container-clock-2 shinken-centered-icon-container" } ), this.dom_element );
+        this.dom_element                             = DOM.Service.createElement( "div", { class: "shinken-container-clock" } );
+        this.dom_element_container_clock_2           = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-container-clock-2 shinken-centered-icon-container" } ), this.dom_element );
         this.dom_element_container_clock_2.innerHTML = "<svg width='100%' height='100%' class='shinken-clock shinken-clock-refresh' viewbox='0 0 121 121'>" +
                                                        "<circle cx='60' cy='60' r='59' stroke='#5C5C5C' stroke-width='2' fill='none' />" +
                                                        "<path id='id-shinken-clock-path' fill='#5C5C5C' transform='translate(60,60)'></path>" +
@@ -22078,7 +22087,7 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
     updateHtml              : function ( parent_object ) {
         this.dom_element_path.setAttribute( "d", this.computePathAttribute( parent_object.percent_computed ) );
     },
-    computePathAttribute: function ( percent ) {
+    computePathAttribute    : function ( percent ) {
         percent   = percent || 0;
         var angle = (360 * percent / 100) % 360;
         
@@ -22088,17 +22097,17 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
         var mid = angle > 180 ? 1 : 0;
         return "M 0 0 v -60 A 60 60 1 " + mid + " 1 " + x + " " + y + " z";
     },
-    eventIsRunning   : function ( parent_object ) {
+    eventIsRunning          : function ( parent_object ) {
         this.unset_refreshing_content();
         this.updateCountdown( parent_object );
     },
-    eventIsRefreshing: function ( parent_object ) {
+    eventIsRefreshing       : function ( parent_object ) {
         this.set_refreshing_content();
     },
-    updateCountdown  : function ( parent_object ) {
+    updateCountdown         : function ( parent_object ) {
         this.updateHtml( parent_object );
     },
-    eventIsStopping  : function ( parent_object ) {
+    eventIsStopping         : function ( parent_object ) {
         this.set_refreshing_content();
     }
 };
@@ -22129,10 +22138,10 @@ SHINKEN.TOOLS.UpdateAtComponent.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.TOOLS.UpdateAtComponent, SHINKEN.TOOLS.InterfaceRefreshComponent );
-SHINKEN.SERVER.ShinkenServer = function ( data ) {
+SHINKEN.SERVER.ShinkenServer                    = function ( data ) {
     this.init( data );
 };
-SHINKEN.SERVER.ShinkenServer.prototype = {
+SHINKEN.SERVER.ShinkenServer.prototype          = {
     init          : function ( data ) {
         this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ] = [];
         if ( data ) {
@@ -22168,7 +22177,7 @@ SHINKEN.SERVER.ShinkenServer.prototype = {
             this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ].push( new SHINKEN.CARTO.ShinkenCarto( data[ i ] ) );
         }
     },
-    computeHtml: function () {
+    computeHtml   : function () {
         var _template         = document.querySelector( '#shinken-architecture-template .shinken-template-architecture-map' ).outerHTML;
         _template             = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_architecture_name_$$$", this.name );
         var _temp             = DOM.Service.createElement( "ul", {}, _template );
@@ -22181,33 +22190,33 @@ SHINKEN.SERVER.ShinkenServer.prototype = {
         
     }
 };
-SHINKEN.SERVER.ShinkenServers = function ( data ) {
+SHINKEN.SERVER.ShinkenServers                   = function ( data ) {
     this.init( data );
 };
-SHINKEN.SERVER.ShinkenServers.prototype = {
-    init: function ( data ) {
-        this.size    = 0;
-        this.list    = [];
+SHINKEN.SERVER.ShinkenServers.prototype         = {
+    init       : function ( data ) {
+        this.size              = 0;
+        this.list              = [];
         this.need_compute_html = false;
         if ( !data ) {
             return;
         }
         this.updateData( data );
     },
-    updateData: function ( datas ) {
-        this.size              = datas.length;
-        var _current_hash =  SHINKEN.TOOLS.STRING.hashCode( JSON.stringify( datas ) );
-        if(this.hash === _current_hash) {
+    updateData : function ( datas ) {
+        this.size         = datas.length;
+        var _current_hash = SHINKEN.TOOLS.STRING.hashCode( JSON.stringify( datas ) );
+        if ( this.hash === _current_hash ) {
             return;
         }
-        this.list = [];
-        this.hash = _current_hash;
+        this.list              = [];
+        this.hash              = _current_hash;
         this.need_compute_html = true;
         for ( var i = 0; i < this.size; i++ ) {
             this.list.push( new SHINKEN.SERVER.ShinkenServer( datas[ i ] ) );
         }
     },
-    hasServers: function () {
+    hasServers : function () {
         return !!this.size;
     },
     computeHtml: function () {
@@ -22219,7 +22228,7 @@ SHINKEN.SERVER.ShinkenServers.prototype = {
         }
     }
 };
-SHINKEN.SlaQualityService = (function ( self ) {
+SHINKEN.SlaQualityService                       = (function ( self ) {
     "use strict";
     self.templates            = {};
     self.getTemplateInnerHtml = function ( sla_quality ) {
@@ -22231,7 +22240,7 @@ SHINKEN.SlaQualityService = (function ( self ) {
             }
             else {
                 self.templates[ _name ] = "";
-                console.warn("[StatusService - getTemplateInnerHtml]", "Missing resources template : " + _name );
+                console.warn( "[StatusService - getTemplateInnerHtml]", "Missing resources template : " + _name );
             }
         }
         return self.templates[ _name ];
@@ -22239,10 +22248,10 @@ SHINKEN.SlaQualityService = (function ( self ) {
     
     return self;
 })( SHINKEN.StatusService || {} );
-SHINKEN.SlaQuality = function ( status_code, sla_status_code ) {
+SHINKEN.SlaQuality                              = function ( status_code, sla_status_code ) {
     this.init( status_code, sla_status_code );
 };
-SHINKEN.SlaQuality.prototype = {
+SHINKEN.SlaQuality.prototype                    = {
     init                   : function ( status_code, sla_status_code ) {
         this.status_code     = status_code;
         this.sla_status_code = sla_status_code;
@@ -22268,15 +22277,15 @@ SHINKEN.SlaQuality.prototype = {
         }
     }
 };
-SHINKEN.SLA_QUALITY = {
-    MAPPING    : [
+SHINKEN.SLA_QUALITY                             = {
+    MAPPING: [
         ["sun", "cloud_sunny", "cloud", "sun"],
         ["sun_cloudy", "dark_cloud", "storm", "cloud"],
         ["cloud", "dark_cloud", "storm", "storm"]
     ],
-    LOCK : "lock"
+    LOCK   : "lock"
 };
-SHINKEN.SLA_TENDENCY = {
+SHINKEN.SLA_TENDENCY                            = {
     ARROW_UP_OK            : "arrow-up-ok",
     ARROW_UP_45_OK         : "arrow-up-45-ok",
     ARROW_STAGNANT_OK      : "arrow-stagnant-ok",
@@ -22306,7 +22315,7 @@ SHINKEN.OBJECT.SlidePanelLeftFromHtml.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanelLeftFromHtml, SHINKEN.OBJECT.SlidePanel );
-SHINKEN.OBJECT.Squares = function () {
+SHINKEN.OBJECT.Squares           = function () {
     this.__class_name__ = 'SHINKEN.OBJECT.Squares';
     this.init();
     
@@ -22390,7 +22399,7 @@ SHINKEN.OBJECT.Square           = function ( bottom_left_point, top_right_point,
     this.init();
 };
 SHINKEN.OBJECT.Square.prototype = {
-    init: function () {
+    init              : function () {
         this.addClass( "shinken-square" );
     },
     isOverlapping     : function ( square ) {
@@ -22408,13 +22417,13 @@ SHINKEN.OBJECT.Square.prototype = {
     isOutsideOfDisplay: function ( nb_tiles_in_width, nb_tiles_in_height ) {
         return this.bottom_left_point.x < 0 || this.top_right_point.y < 0 || this.top_right_point.x > nb_tiles_in_width || this.bottom_left_point.y > nb_tiles_in_height;
     },
-    getUUID          : function () {
+    getUUID           : function () {
         return this.uuid;
     },
-    addPointToDisplay: function ( point_to_add ) {
+    addPointToDisplay : function ( point_to_add ) {
         this.point_to_display.push( point_to_add );
     },
-    reset      : function () {
+    reset             : function () {
         this.top_right_point.reset_original();
         this.bottom_left_point.reset_original();
         for ( var i = 0, _size_i = this.point_to_display.length; i < _size_i; i++ ) {
@@ -22422,14 +22431,14 @@ SHINKEN.OBJECT.Square.prototype = {
         }
         DOM.Service.removeElement( this.getDomElement() );
     },
-    addDelta   : function ( delta_x, delta_y ) {
+    addDelta          : function ( delta_x, delta_y ) {
         this.top_right_point.addDelta( delta_x, delta_y );
         this.bottom_left_point.addDelta( delta_x, delta_y );
         for ( var i = 0, _size_i = this.point_to_display.length; i < _size_i; i++ ) {
             this.point_to_display[ i ].addDelta( delta_x, delta_y );
         }
     },
-    computeHtml: function () {
+    computeHtml       : function () {
         if ( this.getDomElement() ) {
             return false;
         }
@@ -22445,7 +22454,7 @@ SHINKEN.OBJECT.Square.prototype = {
     
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Square, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.StatusService = (function( self ) {
+SHINKEN.StatusService               = (function ( self ) {
     "use strict";
     
     self.buildPaths     = function ( status, context ) {
@@ -22466,7 +22475,7 @@ SHINKEN.StatusService = (function( self ) {
         return _to_return;
     };
     self.buildTilePaths = function ( status, context ) {
-        return  {
+        return {
             path      : status.getPath(),
             path_extra: context.getPath()
         };
@@ -22543,10 +22552,10 @@ SHINKEN.StatusService = (function( self ) {
     };
     
     return self;
-})( SHINKEN.StatusService  || {} );
-SHINKEN.Status = function () {
+})( SHINKEN.StatusService || {} );
+SHINKEN.Status                      = function () {
 };
-SHINKEN.Status.prototype = {
+SHINKEN.Status.prototype            = {
     setCode      : function ( toSet ) {
         this.code = toSet;
         this.key  = SHINKEN.STATUS.CODE_TO_KEY[ this.code ];
@@ -22612,7 +22621,7 @@ SHINKEN.Status.prototype = {
         if ( this.name === SHINKEN.STATUS.NOTHING.NAME ) {
             this.path = '';
         }
-        else  {
+        else {
             this.path = '/static/' + __SHINKEN_HTTP_START_TIME__ + '/img/icons/' + this.name + '.svg';
         }
     },
@@ -22645,7 +22654,7 @@ SHINKEN.Status.prototype = {
         return this.name;
     }
 };
-SHINKEN.STATUS = {
+SHINKEN.STATUS                      = {
     OK                        : {
         CODE    : 0,
         NAME    : 'ok',
@@ -22814,7 +22823,7 @@ SHINKEN.STATUS = {
     }
     
 };
-SHINKEN.ELEMENT.UiUserAcl = function ( data ) {
+SHINKEN.ELEMENT.UiUserAcl           = function ( data ) {
     this.make_downtime                = true;
     this.make_acknowledge             = true;
     this.force_result_check           = true;
@@ -22921,7 +22930,7 @@ SHINKEN.ELEMENT.UiUserAcl.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUserAcl, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUserAclShareExtend = function () {
+SHINKEN.ELEMENT.UiUserAclShareExtend           = function () {
     this.read     = false;
     this.create   = false;
     this.organize = false;
@@ -22951,7 +22960,7 @@ SHINKEN.ELEMENT.UiUserAclShareExtend.prototype = {
     
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUserAclShareExtend, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUserPrefs = function () {
+SHINKEN.ELEMENT.UiUserPrefs           = function () {
     this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = {};
     this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = {};
     this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = {};
@@ -22962,7 +22971,7 @@ SHINKEN.ELEMENT.UiUserPrefs = function () {
     this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ] = new SHINKEN.OBJECT.NotificationsOfChangeUser();
 };
 SHINKEN.ELEMENT.UiUserPrefs.prototype = {
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter          : function ( event_name, param ) {
         switch ( event_name ) {
             case "change_value_notification_of_change_sound":
             case "change_value_notification_of_change_visual_blink":
@@ -23020,18 +23029,18 @@ SHINKEN.ELEMENT.UiUserPrefs.prototype = {
         return this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ];
     }
 };
-SHINKEN.USER_PREFS = {
+SHINKEN.USER_PREFS                    = {
     PARAM_EVENT: {
         DATA: "user_prefs__data"
     },
     KEY        : "key",
     VALUE      : "value"
 };
-SHINKEN.UserPrefs_V3 = function ( data ) {
+SHINKEN.UserPrefs_V3                  = function ( data ) {
     this.init( data );
 };
-SHINKEN.UserPrefs_V3.prototype = {
-    init: function ( data ) {
+SHINKEN.UserPrefs_V3.prototype        = {
+    init         : function ( data ) {
         this.initContents();
         if ( data ) {
             this.updateData( data );
@@ -23063,7 +23072,7 @@ SHINKEN.UserPref_V3           = function ( data ) {
     this.init( data );
 };
 SHINKEN.UserPref_V3.prototype = {
-    init: function ( data ) {
+    init         : function ( data ) {
         this[ SHINKEN.USER_PREFS.KEY ]   = data[ SHINKEN.USER_PREFS.KEY ];
         this[ SHINKEN.USER_PREFS.VALUE ] = SHINKEN.USER_PREFS.factory( data[ SHINKEN.USER_PREFS.VALUE ] );
     },
@@ -23078,7 +23087,7 @@ SHINKEN.UserPref_V3.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.UserPrefs_V3, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.USER_PREFS.factory = function ( data ) {
+SHINKEN.USER_PREFS.factory       = function ( data ) {
     if ( typeof data === "object" ) {
         var _keys = Object.keys( data );
         if ( SHINKEN.TOOLS.ARRAY.areEqual( _keys, [SHINKEN.USER_PREFS.KEY, SHINKEN.USER_PREFS.VALUE] ) ) {
@@ -23088,11 +23097,11 @@ SHINKEN.USER_PREFS.factory = function ( data ) {
     }
     return data;
 };
-SHINKEN.ELEMENT.UiUser = function ( data ) {
+SHINKEN.ELEMENT.UiUser           = function ( data ) {
     this.init( data );
 };
 SHINKEN.ELEMENT.UiUser.prototype = {
-    getDataForSelector: function () {
+    getDataForSelector           : function () {
         return { name: this.getName(), label: this.getName() };
     },
     getDefaultUrlFromSettings    : function () {
@@ -23322,8 +23331,8 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         return this.uuid === item.owner.uuid;
     },
     setIsAdmin                   : function ( to_set ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ]                 = to_set;
-        this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_TOOLTIP ]  = this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ] ? this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION ] : '';
+        this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ]                = to_set;
+        this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_TOOLTIP ] = this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ] ? this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION ] : '';
     },
     setShinkenShortVersion       : function ( to_set ) {
         this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_SHORT ] = to_set;
@@ -23386,7 +23395,7 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         delete toReturn[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
         return toReturn;
     },
-    getLabel: function ( default_label_if_no_name ) {
+    getLabel                     : function ( default_label_if_no_name ) {
         if ( !this.getName() ) {
             if ( default_label_if_no_name ) {
                 return "<div class='shinken-label'>" + default_label_if_no_name + "</div>";
@@ -23400,11 +23409,11 @@ SHINKEN.ELEMENT.UiUser.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUser, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUsers = function () {
+SHINKEN.ELEMENT.UiUsers           = function () {
     this.init();
 };
 SHINKEN.ELEMENT.UiUsers.prototype = {
-    init: function () {
+    init              : function () {
         this.initContents();
     },
     getDataForSelector: function () {
@@ -23422,7 +23431,7 @@ SHINKEN.ELEMENT.UiUsers.prototype = {
         }
         return null;
     },
-    exists         : function ( name_to_find ) {
+    exists            : function ( name_to_find ) {
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             if ( this.getContent( i ).getName() === name_to_find ) {
                 return true;
@@ -23430,7 +23439,7 @@ SHINKEN.ELEMENT.UiUsers.prototype = {
         }
         return false;
     },
-    existsPartially: function ( name_to_find ) {
+    existsPartially   : function ( name_to_find ) {
         if ( !name_to_find ) {
             return true;
         }
@@ -23464,10 +23473,10 @@ SHINKEN.OBJECT.ViewBehaviour           = function () {
     this.init();
 };
 SHINKEN.OBJECT.ViewBehaviour.prototype = {
-    init      : function ( data ) {
+    init             : function ( data ) {
         this.initPhase();
     },
-    updateData: function ( data ) {
+    updateData       : function ( data ) {
         if ( !data ) {
             return;
         }
@@ -23479,7 +23488,7 @@ SHINKEN.OBJECT.ViewBehaviour.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData          : function ( key, value ) {
         switch ( key ) {
             case SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE:
                 this.setPhase( value );
@@ -23494,19 +23503,19 @@ SHINKEN.OBJECT.ViewBehaviour.prototype = {
                 break;
         }
     },
-    changePhaseAction              : function ( to_set ) {
+    changePhaseAction: function ( to_set ) {
         this.setPhase( to_set );
-        this[SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE] = DATE_TIME.getTimestampNow_format_sec();
+        this[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = DATE_TIME.getTimestampNow_format_sec();
     },
-    getDataToSave        : function () {
+    getDataToSave    : function () {
         var _to_return                                                = {};
-        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE ]                = this.getCurrentPhase();
-        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ]          = this[SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE];
+        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE ]       = this.getCurrentPhase();
+        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = this[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ];
         return _to_return;
-    },
+    }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewBehaviour, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.VIEW_HISTORY = {
+SHINKEN.OBJECT.VIEW_HISTORY          = {
     PARAM: {
         NAME: "view_history_name"
     }
@@ -23515,12 +23524,12 @@ SHINKEN.OBJECT.ViewHistory           = function ( name, pagination ) {
     this.init( name, pagination );
 };
 SHINKEN.OBJECT.ViewHistory.prototype = {
-    init                        : function ( name, pagination ) {
+    init                                 : function ( name, pagination ) {
         this.initPhase();
         this.name            = name;
         this.pagination_size = pagination;
     },
-    initList                    : function () {
+    initList                             : function () {
         this.list__20240822 = new SHINKEN_LIST.SetFromDataWithPagination( "list_history", this.pagination_size );
         this.list__20240822.setHeaders( new SHINKEN_LIST.HeadersFromData(
             [
@@ -23530,7 +23539,7 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
             ] ) );
         this.list__20240822.getPagination().addChildrenParamForEvents( SHINKEN.OBJECT.VIEW_HISTORY.PARAM.NAME, this.getName() );
     },
-    getDataFromBackend__20241001: function ( url ) {
+    getDataFromBackend__20241001         : function ( url ) {
         this.addLoading();
         url          = url || this.getBackendUrl();
         var _success = ( _status, data ) => {
@@ -23543,14 +23552,14 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
         };
         SHINKEN.COMUNICATION.requestGet( url, _success, _error );
     },
-    formatAndApplyData          : function ( data ) {
+    formatAndApplyData                   : function ( data ) {
         this.list__20240822.computeLines( this.parseBackendData( data ) );
         this.parent.doActionAfter( "history_backend_loaded_done" );
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter                        : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon                  : function ( event_name, param ) {
         switch ( event_name ) {
             case "click_on_selector_V3":
             case "click_on_item_selector_V3":
@@ -23619,7 +23628,7 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
     },
     parseBackendDataLineForActionDeletion: function () {
     },
-    initCurrentChangesDataLineParser   : function ( data ) {
+    initCurrentChangesDataLineParser     : function ( data ) {
         let _to_return                                                     = {};
         _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.timestamp / 1000 );
         _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = _( "history.user", [DICTIONARY_VISU_UI] );
@@ -23632,48 +23641,48 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
         
         return _to_return;
     },
-    parseLastModificationDataLine      : function ( data ) {
+    parseLastModificationDataLine        : function ( data ) {
         return this.parseLastModificationDataLineCommon( data );
     },
-    parseLastModificationDataLineCommon: function ( data ) {
+    parseLastModificationDataLineCommon  : function ( data ) {
     },
-    getList__20240822: function () {
+    getList__20240822                    : function () {
         return this.list__20240822;
     },
-    getDataToExport: function () {
+    getDataToExport                      : function () {
         return this.list__20240822.getDataToExport();
     },
-    reset: function () {
+    reset                                : function () {
         this.resetHTML();
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.INIT );
     },
-    computeHtml        : function () {
+    computeHtml                          : function () {
         this.list__20240822.computeHtml();
         this.setDomElement( DOM.Service.createElement( 'div', { class: "shinken-view-history" } ) );
         this.addDomElement( this.list__20240822.getDomElement() );
         this.computeClipboard();
     },
-    addLoading         : function ( text_to_add ) {
+    addLoading                           : function ( text_to_add ) {
         if ( !this.dom_element_parent__20240822 ) {
             return;
         }
         DOM.Service.addLoadingFrameV2( this.dom_element_parent__20240822, text_to_add );
     },
-    clickOnItemSelector: function ( event, parent_name, element ) {
+    clickOnItemSelector                  : function ( event, parent_name, element ) {
         this.list__20240822.clickOnItemSelector( event, parent_name, element );
         this.computeSizes();
     },
-    computeClipboard   : function () {
+    computeClipboard                     : function () {
         this.addDomElement( CLIPBOARD_SERVICE.buildHtmlButtons_V3( true, false, { [ SHINKEN.OBJECT.VIEW_HISTORY.PARAM.NAME ]: this.getName() } ) );
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewHistory, SHINKEN.OBJECT.ShinkenObjectHtml );
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewHistory, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.View           = function ( data ) {
+SHINKEN.OBJECT.View            = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.View.prototype = {
-    init      : function ( data ) {
+SHINKEN.OBJECT.View.prototype  = {
+    init                           : function ( data ) {
         this.shares_uuid                              = [];
         this[ SHINKEN.OBJECT.VIEW.PARAM.NB_ERRORS ]   = 0;
         this[ SHINKEN.OBJECT.VIEW.PARAM.NB_WARNINGS ] = 0;
@@ -23681,7 +23690,7 @@ SHINKEN.OBJECT.View.prototype = {
             this.updateData( data );
         }
     },
-    updateData: function ( data ) {
+    updateData                     : function ( data ) {
         if ( !data ) {
             return;
         }
@@ -23693,7 +23702,7 @@ SHINKEN.OBJECT.View.prototype = {
             this.setData( _currentKey, data[ _currentKey ] );
         }
     },
-    setData   : function ( key, value ) {
+    setData                        : function ( key, value ) {
         switch ( key ) {
             case SHINKEN.OBJECT.VIEW.PARAM.NAME:
                 this.setName( value );
@@ -23726,7 +23735,7 @@ SHINKEN.OBJECT.View.prototype = {
                 break;
         }
     },
-    updateUsers: function ( data ) {
+    updateUsers                    : function ( data ) {
         if ( !data ) {
             return;
         }
@@ -23738,7 +23747,7 @@ SHINKEN.OBJECT.View.prototype = {
             this.addUserInfo( _currentKey, data[ _currentKey ] );
         }
     },
-    addUserInfo: function ( key, value ) {
+    addUserInfo                    : function ( key, value ) {
         
         switch ( key ) {
             case SHINKEN.OBJECT.VIEW.PARAM.USERS.OWNER:
@@ -23818,7 +23827,7 @@ SHINKEN.OBJECT.View.prototype = {
     setCreator                     : function ( value ) {
         this.creator_user = new SHINKEN.ELEMENT.UiUser( value );
     },
-    setWeatherLinks               : function ( value ) {
+    setWeatherLinks                : function ( value ) {
         SHINKEN.TOOLS.DICT.deleteKeyEntries( value, "validation_messages" );
         this.weather_links = new WEATHER.Links( value );
     },
@@ -23850,7 +23859,7 @@ SHINKEN.OBJECT.View.prototype = {
     }
     
 };
-SHINKEN.OBJECT.ViewParser     = function ( data ) {
+SHINKEN.OBJECT.ViewParser      = function ( data ) {
     var _data_valid_for_screen                                          = {};
     _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.UUID ]            = data[ SHINKEN.OBJECT.VIEW.PARAM.UUID ];
     _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.NAME ]            = data[ SHINKEN.OBJECT.VIEW.PARAM.NAME ];
@@ -23880,7 +23889,7 @@ SHINKEN.OBJECT.Views.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Views, SHINKEN.OBJECT.ShinkenObjectContainer );
-CONTROLLER.Help = (function ( self ) {
+CONTROLLER.Help                          = (function ( self ) {
     "use strict";
     self._dom_element_help = null;
     self.toggleHelp        = function ( event ) {
@@ -23901,11 +23910,11 @@ CONTROLLER.Help = (function ( self ) {
     };
     return self;
 })( CONTROLLER.Help || {} );
-MANAGER.HelpGenerator = (function ( self ) {
+MANAGER.HelpGenerator                    = (function ( self ) {
     "use strict";
     self.content                   = [];
     self.size                      = 0;
-    self.init                              = function (type_trad) {
+    self.init                      = function ( type_trad ) {
         self.type_trad = type_trad;
         self.initContent();
         if ( !self.size ) {
@@ -23922,7 +23931,7 @@ MANAGER.HelpGenerator = (function ( self ) {
             DOM.Service.removeElement( _found[ i ] );
         }
         self.size    = self.content.length;
-        self.content = SHINKEN.TOOLS.ARRAY.sortArrayMultiple( self.content, [ "order_tab", "name_tab", "order" ] );
+        self.content = SHINKEN.TOOLS.ARRAY.sortArrayMultiple( self.content, ["order_tab", "name_tab", "order"] );
     };
     self.initEventListener         = function () {
         document.addEventListener( 'keydown', function ( event ) {
@@ -23934,7 +23943,7 @@ MANAGER.HelpGenerator = (function ( self ) {
         _button_f1.innerHTML = '<button class="shinken-button"><table><tr><td><span class="key">F1</span></td><td>' + _( 'common.help.label', self.type_trad ) + '</td></tr></table></button>';
         document.body.appendChild( _button_f1 );
     };
-    self.buildContentHtml          = function (class_to_add) {
+    self.buildContentHtml          = function ( class_to_add ) {
         var _content_to_html  = DOM.Service.createElement( 'div', {
             id     : "id-shinken-help-pop-up",
             class  : "shinken-hidden " + class_to_add,
@@ -23967,7 +23976,7 @@ MANAGER.HelpGenerator = (function ( self ) {
             "data-name": "help-group",
             onclick    : "MANAGER.EventManager.clickOnWindowNavigation(event,'help-group')"
         } );
-        var _tab_list  = SHINKEN.TOOLS.ARRAY.extractKeys( this.content, [ 'tab', 'name_tab' ], true, true );
+        var _tab_list  = SHINKEN.TOOLS.ARRAY.extractKeys( this.content, ['tab', 'name_tab'], true, true );
         _tab_list      = SHINKEN.TOOLS.ARRAY.removeDuplicateArray( _tab_list );
         _tab_list      = self.concatDuplicationWindowID( _tab_list );
         var _current;
@@ -23998,31 +24007,31 @@ MANAGER.HelpGenerator = (function ( self ) {
     };
     return self;
 })( MANAGER.HelpGenerator || {} );
-OBJECT.Help = function ( dom_element ) {
+OBJECT.Help                              = function ( dom_element ) {
     this.dom_element = dom_element;
     this.tab         = dom_element.dataset.tab;
     this.order       = parseInt( dom_element.dataset.order ) || 1;
     this.order_tab   = parseInt( dom_element.dataset.tabOrder ) || 1;
     this.name_tab    = dom_element.dataset.tabName || "??";
 };
-OBJECT.Help.prototype = {
+OBJECT.Help.prototype                    = {
     getHtml: function () {
         return this.dom_element;
     }
 };
-SHINKEN.TOOLS.IFRAME = (function ( self ) {
+SHINKEN.TOOLS.IFRAME                     = (function ( self ) {
     "use strict";
-    self.getIframeJs            = function ( element_css_selector ) {
+    self.getIframeJs   = function ( element_css_selector ) {
         var iframe = document.querySelector( element_css_selector );
-    
+        
         if ( !iframe ) {
             return;
         }
-    
+        
         return iframe.contentWindow || iframe;
     };
-    self.doActionAfter            = function ( element_css_selector, event_name, param ) {
-        var iframe = self.getIframeJs(element_css_selector);
+    self.doActionAfter = function ( element_css_selector, event_name, param ) {
+        var iframe = self.getIframeJs( element_css_selector );
         try {
             iframe.EXTERNAL.COMMUNICATION.doAction( event_name, param );
         }
@@ -24031,8 +24040,8 @@ SHINKEN.TOOLS.IFRAME = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.IFRAME || {} );
-SHINKEN.TOOLS = SHINKEN.TOOLS || {};
-SHINKEN.TOOLS.NOTIFICATION = (function ( self ) {
+SHINKEN.TOOLS                            = SHINKEN.TOOLS || {};
+SHINKEN.TOOLS.NOTIFICATION               = (function ( self ) {
     
     var __instance_notification_container = new SHINKEN.OBJECT.NOTIFICATION.Container();
     
@@ -24064,8 +24073,8 @@ SHINKEN.TOOLS.NOTIFICATION = (function ( self ) {
     };
     return self;
 })( SHINKEN.TOOLS.NOTIFICATION || {} );
-var SHINKEN_GRID                      = {};
-SHINKEN_GRID.CONST                    = {
+var SHINKEN_GRID                         = {};
+SHINKEN_GRID.CONST                       = {
     PARAM        : {
         GRID     : {
             SHINKEN_GRID_UUID              : "shinken_grid_uuid",
@@ -24114,8 +24123,8 @@ SHINKEN_GRID.CONST                    = {
         ALL                                  : "all"
     }
 };
-SHINKEN_GRID.BelongGridCell           = {};
-SHINKEN_GRID.BelongGridCell.prototype = {
+SHINKEN_GRID.BelongGridCell              = {};
+SHINKEN_GRID.BelongGridCell.prototype    = {
     is_belonging_to_grid_cell_object: true
 };
 SHINKEN_GRID.CONST.PARAM.isSizesProperty = function ( property_name ) {
@@ -24129,17 +24138,17 @@ SHINKEN_GRID.CONST.PARAM.isSizesProperty = function ( property_name ) {
     }
     return false;
 };
-SHINKEN_GRID.ViewHistory           = function () {
+SHINKEN_GRID.ViewHistory                 = function () {
 };
-SHINKEN_GRID.ViewHistory.prototype = {
+SHINKEN_GRID.ViewHistory.prototype       = {
     
     
     
     
-    parseBackendDataLine                 : function ( data ) {
+    parseBackendDataLine                    : function ( data ) {
         return this.parseBackendDataLineGrid( data );
     },
-    parseBackendDataLineGrid             : function ( data ) {
+    parseBackendDataLineGrid                : function ( data ) {
         switch ( data.action.type ) {
             case "UPDATE":
                 return this.parseBackendDataLineForActionUpdate( data );
@@ -24149,14 +24158,14 @@ SHINKEN_GRID.ViewHistory.prototype = {
                 return this.parseBackendDataLineCommon( data );
         }
     },
-    parseBackendDataLineForActionDeletion: function ( data ) {
+    parseBackendDataLineForActionDeletion   : function ( data ) {
         let to_return = this.initBackendDataLineParser( data );
         to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += _( "history.action.delete", [DICTIONARY_COMMON_UI] );
         to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.shared_links_removed_from_groups", [DICTIONARY_VISU_UI] ) ) + "</div>";
         
         return to_return;
     },
-    parseBackendDataLineForActionUpdate  : function ( data ) {
+    parseBackendDataLineForActionUpdate     : function ( data ) {
         let to_return           = this.initBackendDataLineParser( data );
         let text_history_update = "";
         if ( data.action.context.published.new && !data.action.context.published.old ) {
@@ -24269,13 +24278,13 @@ SHINKEN_GRID.ViewHistory.prototype = {
     }
 };
 SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_GRID.ViewHistory, SHINKEN.OBJECT.ViewHistory );
-SHINKEN_VALIDATION.Parameters           = function ( parameters ) {
+SHINKEN_VALIDATION.Parameters                         = function ( parameters ) {
     this.content = [];
     if ( parameters ) {
         this.init( parameters );
     }
 };
-SHINKEN_VALIDATION.Parameters.prototype = {
+SHINKEN_VALIDATION.Parameters.prototype               = {
     init        : function ( parameters ) {
         for ( var i = 0, _size_i = parameters.length; i < _size_i; i++ ) {
             this.content.push( new SHINKEN_VALIDATION.Parameter( parameters[ i ] ) );
@@ -24296,20 +24305,20 @@ SHINKEN_VALIDATION.Parameters.prototype = {
         return this.content;
     }
 };
-SHINKEN_VALIDATION.Parameter           = function ( args ) {
+SHINKEN_VALIDATION.Parameter                          = function ( args ) {
     this.key              = args[ 0 ];
     this.validation_type  = args[ 1 ];
     this.validation_value = args[ 2 ];
     this.is_mandatory     = args[ 3 ];
 };
-SHINKEN_VALIDATION.Parameter.prototype = {
+SHINKEN_VALIDATION.Parameter.prototype                = {
     updateMaximumValue: function ( value_max ) {
         if ( this.validation_value && this.validation_value[ 1 ] === SHINKEN_VALIDATION.CONST.NUMBER.MAX ) {
             this.validation_value[ 1 ] = value_max;
         }
     }
 };
-SHINKEN_VALIDATION.Service = (function ( self ) {
+SHINKEN_VALIDATION.Service                            = (function ( self ) {
     "use strict";
     self.isValid            = function ( value, validation_parameter ) {
         if ( value === "default" && !validation_parameter.is_mandatory ) {
@@ -24440,14 +24449,14 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject           = function () {
     this.init();
 };
 SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
-    init: function ( controller ) {
+    init                             : function ( controller ) {
         this._controller = controller;
         this.initCounterCommon();
         this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.USER );
         this.initPhase();
         this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
     },
-    clickOnButton   : function ( event, event_name, param ) {
+    clickOnButton                    : function ( event, event_name, param ) {
         switch ( event_name ) {
             case "click-on-apply-button":
                 this.setPhase( SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_SAVING );
@@ -24478,7 +24487,7 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
                 break;
         }
     },
-    doActionAfter   : function ( event_name ) {
+    doActionAfter                    : function ( event_name ) {
         switch ( event_name ) {
             case "ask-for-pop-up-close-event":
                 if ( !this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.USER ).hasCounter() ) {
@@ -24490,7 +24499,7 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
                 break;
         }
     },
-    callbackForPhase: function () {
+    callbackForPhase                 : function () {
         const _current = this.getCurrentPhase();
         switch ( _current ) {
             case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_SAVING:
@@ -24510,10 +24519,10 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
                 break;
         }
     },
-    getController_20240426: function () {
+    getController_20240426           : function () {
         return this._controller;
     },
-    _doActionWhenProgressStart: function ( current_step, param ) {
+    _doActionWhenProgressStart       : function ( current_step, param ) {
         switch ( current_step ) {
             case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
                 this.saving_progress_bar.setTitleStep( current_step, _( "progress_bar.saving_in_progress", [DICTIONARY_COMMON_UI] ) );
@@ -24535,7 +24544,7 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
                 break;
         }
     },
-    _doActionWhenProgressEnd  : function ( current_step, param ) {
+    _doActionWhenProgressEnd         : function ( current_step, param ) {
         switch ( current_step ) {
             case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
                 this.saving_progress_bar.doProgress( SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.CALL_IN_PROGRESS );
@@ -24551,11 +24560,11 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
                 break;
         }
     },
-    _doActionWhenSaveEnd      : function () {
+    _doActionWhenSaveEnd             : function () {
     },
-    doTreatment               : function ( param ) {
+    doTreatment                      : function ( param ) {
     },
-    _askForSave               : function () {
+    _askForSave                      : function () {
     },
     computeHtml                      : function () {
         this.dom_element                = DOM.Service.createElement( "table", { "class": "shinken-window-group-save-table-action-button" } );
@@ -24613,14 +24622,14 @@ WINDOW.ElementGroup           = function ( name ) {
     this.init( name );
 };
 WINDOW.ElementGroup.prototype = {
-    init       : function ( name ) {
+    init                              : function ( name ) {
         this.initContents();
         this.initCounters();
         this.initPhase();
         this.active_window = null;
         this.name          = SHINKEN.TOOLS.STRING.escapeBackslash( name );
     },
-    initWindows: function () {
+    initWindows                       : function () {
     },
     setActiveWindow                   : function ( window_name ) {
         var _current;
@@ -24634,7 +24643,7 @@ WINDOW.ElementGroup.prototype = {
                 }
             }
         }
-        this.setPhase(window_name);
+        this.setPhase( window_name );
         this._doExtraActionAfterSetActiveWindow();
     },
     getActiveWindow                   : function () {
@@ -24656,7 +24665,7 @@ WINDOW.ElementGroup.prototype = {
         var _current_window = this.getWindowByName( window_name );
         if ( _current_window && !_current_window.isClickable() ) {
             return false;
-            }
+        }
         this.setActiveWindow( window_name );
         return true;
     },
@@ -24671,36 +24680,36 @@ WINDOW.ElementGroup.prototype = {
         return null;
     },
     
-    setParentCounter                  : function ( parent ) {
+    setParentCounter          : function ( parent ) {
         
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].setParentCounter( parent );
         }
     },
-    setContentDomElementTarget        : function ( window_name, to_set ) {
+    setContentDomElementTarget: function ( window_name, to_set ) {
         var _to_return = this.getWindowByName( window_name );
         this.getWindowByName( window_name ).setContentDomElementTarget( to_set );
         return _to_return;
     },
-    hasProblems                       : function ( window_name ) {
+    hasProblems               : function ( window_name ) {
         return this.getWindowByName( window_name ).hasProblems();
     },
-    setVisibilityWindowState          : function ( to_set, window_name ) {
+    setVisibilityWindowState  : function ( to_set, window_name ) {
         var _window = this.getWindowByName( window_name );
         if ( _window ) {
             _window.setVisibilityState( to_set );
             _window.doActionAfter( "set_visibility_state" );
         }
     },
-    pulsateElementIfNotActive: function ( window_name ) {
+    pulsateElementIfNotActive : function ( window_name ) {
         if ( this.getActiveWindow().getName() !== window_name ) {
             DOM.Service.askAddClass( this.getElementByName( window_name ).dom_element, 'shinken-pulsate', 2000 );
         }
     },
-    getDataToSave: function () {
+    getDataToSave             : function () {
         return this.getActiveWindow().getDataToSave();
     },
-    getUrlToSave           : function () {
+    getUrlToSave              : function () {
         return this.getActiveWindow().getUrlToSave();
     }
 };
@@ -24711,7 +24720,7 @@ WINDOW.ElementGroupWithCommaAbstract           = function ( name ) {
 };
 WINDOW.ElementGroupWithCommaAbstract.prototype = {
     _doExtraActionAfterSetActiveWindow: function () {
-        if ( !this.getDomElement() ){
+        if ( !this.getDomElement() ) {
             return;
         }
         var _current;
@@ -24739,7 +24748,7 @@ WINDOW.ElementGroupWithCommaAbstract.prototype = {
         }
     }
 };
-WINDOW.ElementService = (function ( self ) {
+WINDOW.ElementService                          = (function ( self ) {
     self.getWindowTargetHtml = function ( dom_tag, tab_name, is_active ) {
         var _class_to_add = is_active ? "shinken-window-target" : "shinken-window-target shinken-hidden";
         var _to_return    = DOM.Service.createElement( dom_tag, { id: "id-shinken-window-" + tab_name + "-target", class: _class_to_add } );
@@ -24757,18 +24766,18 @@ WINDOW.ElementService = (function ( self ) {
     };
     return self;
 })( WINDOW.ElementService || {} );
-WINDOW.Element           = function ( name, dom_element, is_menu ) {
+WINDOW.Element                                 = function ( name, dom_element, is_menu ) {
     this.__class_name__ = "WINDOW.Element";
-    this.name        = name;
-    this.dom_element = dom_element;
-    this.is_menu     = !!is_menu;
+    this.name           = name;
+    this.dom_element    = dom_element;
+    this.is_menu        = !!is_menu;
     this.init();
 };
-WINDOW.Element.prototype = {
-    init          : function () {
+WINDOW.Element.prototype                       = {
+    init                      : function () {
         this.initCounters();
     },
-    initDomElement: function () {
+    initDomElement            : function () {
     },
     getName                   : function () {
         return this.name;
@@ -24827,10 +24836,10 @@ WINDOW.Element.prototype = {
     hasProblems               : function ( window_name ) {
         return !!(this.hasError() || this.hasWarning());
     },
-    updateCounter: function ( name, value ) {
+    updateCounter             : function ( name, value ) {
         this.counters[ name ].update( "counter", value );
     },
-    getDataToSave: function () {
+    getDataToSave             : function () {
         return [];
     }
 };
@@ -24857,19 +24866,19 @@ WINDOW.ElementFromData           = function ( name, parent_name ) {
     this.init();
 };
 WINDOW.ElementFromData.prototype = {
-    init          : function () {
+    init             : function () {
         this.initCounters();
         this.initId();
     },
-    initId        : function () {
+    initId           : function () {
         this.id = "id-shinken-window-" + this.name + this.parent_name;
     },
-    initController: function () {
+    initController   : function () {
     },
-    getController : function () {
+    getController    : function () {
         return "";
     },
-    resizeDone: function () {
+    resizeDone       : function () {
         if ( this.getController() ) {
             this.getController().resizeDone();
         }
@@ -24950,19 +24959,19 @@ SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementFromDataWithComma, WINDOW.Elemen
 WINDOW.ElementGroupFromDataAbstract           = function () {
 };
 WINDOW.ElementGroupFromDataAbstract.prototype = {
-    init           : WINDOW.ElementGroup.prototype.init,
-    initSpecific   : function () {
+    init                : WINDOW.ElementGroup.prototype.init,
+    initSpecific        : function () {
         this.init();
         this.initName();
         this.initWindows();
         MANAGER.__instance_window_distributor.setParentWindow( this.name, this );
     },
-    initWindows    : function () {
+    initWindows         : function () {
     },
-    initName       : function () {
+    initName            : function () {
         this.name = SHINKEN.TOOLS.STRING.buildUUID();
     },
-    initControllers: function () {
+    initControllers     : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].initController();
         }
@@ -24970,12 +24979,12 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
     getDomElementTargets: function () {
         return this.dom_element_targets;
     },
-    resizeDone: function () {
+    resizeDone          : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].resizeDone();
         }
     },
-    computeHtml       : function () {
+    computeHtml         : function () {
         this.setDomElement( DOM.Service.createElement( "table", this.getMainAttribute() ) );
         var _onclick_attribute = this.getEventMangerHtml();
         var _dom_tr            = this.addDomElement( DOM.Service.createElement( "tr", {
@@ -24990,12 +24999,12 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
         this.computeHtmlTargets();
         this.computeHtml_lvl_1();
     },
-    getEventMangerHtml: function () {
+    getEventMangerHtml  : function () {
         return "MANAGER.EventManager.clickOnWindowNavigation(event, '" + this.name + "')";
     },
-    computeHtml_lvl_1 : function () {
+    computeHtml_lvl_1   : function () {
     },
-    computeHtmlTargets: function ( dom_parent ) {
+    computeHtmlTargets  : function ( dom_parent ) {
         this.dom_element_targets = DOM.Service.createElement( "div", {
             "class": "shinken-window-targets"
         } );
@@ -25006,21 +25015,21 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
             this.addDomElement( dom_parent );
         }
     },
-    getMainAttribute  : function () {
+    getMainAttribute    : function () {
         var _to_return = { "class": this.getMainClass() };
         if ( this.controller_name ) {
             _to_return[ "data-controller" ] = this.controller_name;
         }
         return _to_return;
     },
-    getMainClass      : function () {
+    getMainClass        : function () {
         var _to_return = "shinken-window-element-table shinken-table " + this.getClass();
         if ( this.controller_name ) {
             _to_return += " shinken-parent-event-listener";
         }
         return _to_return;
     },
-    onClick: function ( event ) {
+    onClick             : function ( event ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].onClick( event );
         }
@@ -25031,7 +25040,7 @@ WINDOW.ElementGroupFromDataWithCommaAbstract           = function () {
     this.initSpecific();
 };
 WINDOW.ElementGroupFromDataWithCommaAbstract.prototype = {
-    initSpecific: WINDOW.ElementGroupFromDataAbstract.prototype.initSpecific,
+    initSpecific     : WINDOW.ElementGroupFromDataAbstract.prototype.initSpecific,
     computeHtml_lvl_1: function () {
         this._doExtraActionAfterSetActiveWindow();
     }
@@ -25040,9 +25049,9 @@ SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, 
 SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, WINDOW.ElementGroupFromDataAbstract );
 WINDOW.ElementFromHtml           = function ( name, dom_element, is_menu ) {
     this.__class_name__ = 'WINDOW.ElementFromHtml';
-    this.name        = name;
-    this.dom_element = dom_element;
-    this.is_menu     = !!is_menu;
+    this.name           = name;
+    this.dom_element    = dom_element;
+    this.is_menu        = !!is_menu;
     this.init();
 };
 WINDOW.ElementFromHtml.prototype = {
@@ -25083,11 +25092,11 @@ WINDOW.ElementGroupFromHtml           = function ( name ) {
     this.init();
 };
 WINDOW.ElementGroupFromHtml.prototype = {
-    init                     : function () {
+    init       : function () {
         this.dom_element = document.querySelector( '.' + WINDOW.CONST.CLASS.WINDOW_GROUP + '[data-name="' + this.name + '"]' );
         this.initWindows();
     },
-    initWindows              : function () {
+    initWindows: function () {
         var _dom_elements = this.dom_element.querySelectorAll( '.' + WINDOW.CONST.CLASS.WINDOW_TAB + '[data-group-name="' + this.name + '"]' );
         this.size         = _dom_elements.length;
         var _current;

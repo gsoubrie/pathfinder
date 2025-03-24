@@ -11,13 +11,14 @@ CHARACTER.Current.prototype = {
     getUUID: function () {
         return this.name;
     },
-    //********************************************  HTML   **************************************************//
+    //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
-        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
+            case RACES.key_element:
+                this.setRace( value );
+                break;
             case "name":
             case "player":
-            case RACES.key_element:
             case LEGACIES.key_element:
             case "historique":
             case "classe":
@@ -31,6 +32,10 @@ CHARACTER.Current.prototype = {
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
+    },
+    setRace: function ( value ) {
+        this[ RACES.key_element ] = value;
+        this.available_legacies   = RACES.getLegacies( this[ RACES.key_element ] );
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {

@@ -8,12 +8,13 @@ LEGACIES.Legacy.prototype = {
     },
     //********************************************  EVENT LISTENER  **************************************************//
     getUUID: function () {
-        return this.name;
+        return this.name_lower_case;
     },
     //********************************************  HTML   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {
             case "name":
+            case "name_lower_case":
             case "general_desc":
                 this[ key ] = value;
                 break;

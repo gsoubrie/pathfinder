@@ -56,7 +56,7 @@ var RACES = {
                 "commun"
             ],
             "language_sup"        : [],
-            "heritages"           : [
+            "legacies"            : [
                 "Animal coureur",
                 "Animal grimpeur",
                 "Animal nageur",
@@ -118,7 +118,7 @@ var RACES = {
                 "l'azlante",
                 "le féérique"
             ],
-            "heritages"           : [
+            "legacies"            : [
                 "Athamaru à piquants",
                 "Athamaru coralien",
                 "Athamaru kaléïdoscopique",
@@ -172,7 +172,7 @@ var RACES = {
                 "thalassique À la discrétion du MJ"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Automate chasseur",
                 "Automate combattant",
                 "Automate tireur de précision",
@@ -245,7 +245,7 @@ var RACES = {
                 "jotun"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Centaure allure de poney",
                 "Centaure aspirant orateur",
                 "Centaure au coeur robuste",
@@ -308,7 +308,7 @@ var RACES = {
                 "fée"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Elfe ancien",
                 "Elfe arctique",
                 "Elfe des bois",
@@ -372,7 +372,7 @@ var RACES = {
                 "Orquien,"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Gnome béni des fées",
                 "Gnome caméléon",
                 "Gnome kijimuna",
@@ -435,7 +435,7 @@ var RACES = {
                 "orquien"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Gobelin à queue",
                 "Gobelin arboricole",
                 "Gobelin boyaud'fer",
@@ -497,7 +497,7 @@ var RACES = {
                 "Gnomien",
                 "Gobelin"
             ],
-            "heritages"           : [
+            "legacies"            : [
                 "Halfelin des collines",
                 "Halfelin du crépuscule",
                 "Halfelin flegmatique",
@@ -560,7 +560,7 @@ var RACES = {
                 "orquien"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Hobgobelin commandant d'avortons",
                 "Hobgobelin courtespattes",
                 "Hobgobelin fléau elfique",
@@ -627,7 +627,7 @@ var RACES = {
                 "féerique et n'importe quelle autre langue à laquelle vous avez accès (telles que les langues qui prévalent dans votre région)."
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Homme-félin aux neufs vies",
                 "Homme-félin aux oreilles pointues",
                 "Homme-félin chasseur",
@@ -695,7 +695,7 @@ var RACES = {
                 "jotun",
                 "thalassique"
             ],
-            "heritages"           : [
+            "legacies"            : [
                 "Homme-lézard à collerette",
                 "Homme-lézard arpenteur des sables",
                 "Homme-lézard des terres humides",
@@ -763,7 +763,7 @@ var RACES = {
                 "draconique",
                 "elfique et féerique et n'importe quelle autre langue à laquelle vous avez accès (comme les langues qui prévalent dans votre région)."
             ],
-            "heritages"           : [
+            "legacies"            : [
                 "Les héritages des hommes-poissons reflètent souvent les océans dans lesquels ils vivent. Choisissez un des hértiages des hommes-poissons au niveau 1.",
                 "Homme-poisson abyssal",
                 "Homme-poisson carcharodon",
@@ -832,7 +832,7 @@ var RACES = {
                 "Sakvroth"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Rat à long museau",
                 "Rat d'égouts",
                 "Rat de l'ombre",
@@ -876,7 +876,7 @@ var RACES = {
                 "Commun"
             ],
             "language_sup"        : [],
-            "heritages"           : [
+            "legacies"            : [
                 "Aiuvarin",
                 "Dromaar"
             ]
@@ -938,7 +938,7 @@ var RACES = {
                 "fée"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Grand kholo",
                 "Kholo à haleine douce",
                 "Kholo cavernicole",
@@ -1005,7 +1005,7 @@ var RACES = {
                 "pierreux"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Kobold à écailles de dragon",
                 "Kobold à forte mâchoire",
                 "Kobold à queue venimeuse",
@@ -1070,7 +1070,7 @@ var RACES = {
                 "sakvroth"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Léchi algue",
                 "Léchi cactus",
                 "Léchi calebasse",
@@ -1143,7 +1143,7 @@ var RACES = {
                 "sakvroth"
             ],
             "sens"                : "Vision dans le noir.",
-            "heritages"           : [
+            "legacies"            : [
                 "Minotaure blocâme",
                 "Minotaure des cavernes de glace",
                 "Minotaure itinérant",
@@ -1206,7 +1206,7 @@ var RACES = {
                 "sakvroth"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Nain béni-de-la-forge",
                 "Nain coeurélémentaire",
                 "Nain de l'enclume",
@@ -1265,7 +1265,7 @@ var RACES = {
                 "sakvroth"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Orc batailleur",
                 "Orc des badlands",
                 "Orc hivernal",
@@ -1323,7 +1323,7 @@ var RACES = {
                 "orquien",
                 "sakvroth"
             ],
-            "heritages"           : [
+            "legacies"            : [
                 "Squelette compact",
                 "Squelette fluctuant",
                 "Squelette générique",
@@ -1385,7 +1385,7 @@ var RACES = {
                 "elfique", "Féerique", "Sakvroth"
             ],
             "sens"                : "Vision dans le noir",
-            "heritages"           : [
+            "legacies"            : [
                 "Surki à carapace dure",
                 "Surki à élytre",
                 "Surki briseur",
@@ -1442,7 +1442,7 @@ var RACES = {
                 "nanique"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Tengu à serres",
                 "Tengu battu par les vents",
                 "Tengu dent de chien",
@@ -1506,7 +1506,7 @@ var RACES = {
                 "thalassique"
             ],
             "sens"                : "Vision nocturne",
-            "heritages"           : [
+            "legacies"            : [
                 "Tripkee à longue langue",
                 "Tripkee à palmes",
                 "Tripkee à peau empoisonnée",
@@ -1516,4 +1516,13 @@ var RACES = {
             ]
         }
     ]
+};
+
+RACES.getLegacies = function ( race_name ) {
+    for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {
+        if ( RACES.ENUM[ i ].name === race_name ) {
+            return RACES.ENUM[ i ][ LEGACIES.key ];
+        }
+    }
+    return null;
 };

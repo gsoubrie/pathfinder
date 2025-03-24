@@ -23,6 +23,7 @@ CONTROLLER.Main = (function ( self ) {
         }
     };
     self.validPopupEdition  = function () {
+        self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
         self.area__title.validPopupEdition( this.edition_popup );
         this.edition_popup.close();
         this.edition_popup = null;

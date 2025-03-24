@@ -8,7 +8,7 @@ RACES.WindowGroup.prototype = {
         CONTROLLER.Main.races = new RACES.Races();
         this.initWithData();
     },
-    initWithData: function ( data_windows ) {
+    initWithData: function () {
         for ( let i = 0, _size_i = CONTROLLER.Main.races.getSize(); i < _size_i; i++ ) {
             let current = CONTROLLER.Main.races.getContent( i );
             let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
@@ -32,8 +32,8 @@ LEGACIES.WindowGroup.prototype = {
         this.initWithData();
     },
     initWithData: function ( data_windows ) {
-        for ( let i = 0, _size_i = CONTROLLER.Main.legacies.getSize(); i < _size_i; i++ ) {
-            let current = CONTROLLER.Main.legacies.getContent( i );
+        for ( let i = 0, _size_i = CONTROLLER.Main.current_character.available_legacies.length; i < _size_i; i++ ) {
+            let current = CONTROLLER.Main.legacies.getContentByUUID( CONTROLLER.Main.current_character.available_legacies[ i ].toLowerCase() );
             let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }

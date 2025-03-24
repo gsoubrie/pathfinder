@@ -1,31 +1,31 @@
 "use strict";
-POPUP.PropertyEdition           = function ( property_name, property_value ) {    
-    this.init(property_name, property_value);
+POPUP.PropertyEdition           = function ( property_name, property_value ) {
+    this.init( property_name, property_value );
 };
 POPUP.PropertyEdition.prototype = {
-    init: function (params) {
+    init: function ( params ) {
         let property_value = "";
-        console.log(params);
-        switch ( params["property_name"]){            
-            case RACES.key:   
-                this.current_property    = RACES;     
-                this.windows = new RACES.WindowGroup();
+        console.log( params );
+        switch ( params[ "property_name" ] ) {
+            case RACES.key_element:
+                this.current_property = RACES;
+                this.windows          = new RACES.WindowGroup();
                 break;
-            case LEGACIES.key:
-                this.current_property    = LEGACIES;
-                this.windows = new LEGACIES.WindowGroup();
+            case LEGACIES.key_element:
+                this.current_property = LEGACIES;
+                this.windows          = new LEGACIES.WindowGroup();
                 break;
             default:
-                console.log("GSOU", "[PropertyEdition - init]", "not managed", params["property_name"] );
+                console.log( "GSOU", "[PropertyEdition - init]", "not managed", params[ "property_name" ] );
                 break;
         }
-        property_value = params["data_save"][params["property_name"]];
-        this.windows.setActiveWindow( property_value );  
+        property_value = params[ "data_save" ][ params[ "property_name" ] ];
+        this.windows.setActiveWindow( property_value );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//
     close: function () {
-        SERVICE.DOM.removeElement(this.getDomElement());
+        SERVICE.DOM.removeElement( this.getDomElement() );
     },
     //********************************************  SAVE   **************************************************//
     
