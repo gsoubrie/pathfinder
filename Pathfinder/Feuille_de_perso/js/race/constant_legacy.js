@@ -1,8 +1,8 @@
 "use strict";
 var LEGACIES = {
-    key          : "heritages",
+    key          : "legacies",
     label        : "Héritages",
-    key_element  : "heritage",
+    key_element  : "legacy",
     label_element: "Héritage",
     ENUM         : [
         
