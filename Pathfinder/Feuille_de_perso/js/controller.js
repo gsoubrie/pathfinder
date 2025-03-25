@@ -5,18 +5,13 @@ CONTROLLER.Main = (function ( self ) {
         let params             = new URLSearchParams( location.search );
         self.current_uuid      = params.get( "id" );
         self.current_character = new CHARACTER.Current( self.current_uuid );
-        self.initTitle();
         self.computeHtml();
-    };
-    self.initTitle          = function () {
-        self.area__title = new AREA.Title();
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
         console.log( event_name, params );
         switch ( event_name ) {
             case "open_edition_popup":
-                params[ "data_save" ] = self.area__title.getDataToSave();
                 this.edition_popup    = new POPUP.PropertyEdition( params );
                 break;
             
@@ -24,7 +19,6 @@ CONTROLLER.Main = (function ( self ) {
     };
     self.validPopupEdition  = function () {
         self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
-        self.area__title.validPopupEdition( this.edition_popup );
         this.edition_popup.close();
         this.edition_popup = null;
     };
@@ -34,7 +28,7 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  SAVE  **************************************************//
     self.save               = function ( event_name ) {
-        let to_return = self.area__title.getDataToSave();
+        let to_return = self.current_character.getDataToSave();
         const link    = document.createElement( "a" );
         const file    = new Blob( ["let " + self.current_uuid + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
         link.href     = URL.createObjectURL( file );
@@ -45,8 +39,8 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  HTML  **************************************************//
     self.computeHtml        = function () {
-        self.area__title.computeHtml();
-        SERVICE.DOM.addElementTo( self.area__title.getDomElement(), document.querySelector( ".sheet-1" ) );
+        self.current_character.computePageHTML();
+        SERVICE.DOM.addElementTo( self.current_character.getDomElement(), document.querySelector( ".sheet-1" ) );
     };
     self.computeHtml__title = function () {
         self.computeHtml__title();

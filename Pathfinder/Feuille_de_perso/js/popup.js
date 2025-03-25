@@ -1,6 +1,6 @@
 "use strict";
-POPUP.PropertyEdition           = function ( property_name, property_value ) {
-    this.init( property_name, property_value );
+POPUP.PropertyEdition           = function ( params ) {
+    this.init( params );
 };
 POPUP.PropertyEdition.prototype = {
     init: function ( params ) {
@@ -19,8 +19,8 @@ POPUP.PropertyEdition.prototype = {
                 console.log( "GSOU", "[PropertyEdition - init]", "not managed", params[ "property_name" ] );
                 break;
         }
-        property_value = params[ "data_save" ][ params[ "property_name" ] ];
-        this.windows.setActiveWindow( property_value );
+
+        this.windows.setActiveWindow( params[ "property_value" ] );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//
