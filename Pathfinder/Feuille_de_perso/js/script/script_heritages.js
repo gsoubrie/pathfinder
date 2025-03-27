@@ -1,9 +1,9 @@
 "use strict";
 var SCRIPT_HERITAGES = (function ( self ) {
-    self.getAllDOM = function ( race_name ) {
+    self.getAllDOM = function () {
         return document.querySelectorAll( ".mat-mdc-row.mdc-data-table__row.cdk-row.element-row" );
     };
-    self.getAll    = function ( race_name ) {
+    self.getAll    = function () {
         let doms = self.getAllDOM();
         console.log( doms );
         self.to_return = [];
