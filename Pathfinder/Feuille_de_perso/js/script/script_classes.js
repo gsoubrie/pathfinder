@@ -6,7 +6,7 @@ var SCRIPT_CLASSES = (function ( self ) {
     self.getAll               = function () {
         let doms       = self.getAllDOM();
         self.to_return = [];
-        let timeout    = 0;
+        let timeout    = 1000;
         for ( let i = 0, _size_i = doms.length; i < 1; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
@@ -160,16 +160,37 @@ var SCRIPT_CLASSES = (function ( self ) {
                 if ( SERVICE.STRING.contains( current_child.innerText, "Attribut essentiel" ) ) {
                     object_to_complete[ "prime_attribute" ] = SERVICE.STRING.splitAndTrim( current_child.innerText, ":", 1 );
                 }
+                if ( SERVICE.STRING.contains( current_child.innerText, "Points de vie" ) ) {
+                    object_to_complete[ "life_point_by_level" ] = SERVICE.STRING.parseStringToPositiveInteger( current_child.innerText );
+                }
+                break;
+            case "basics-content":
                 break;
             case "basics-container":
+            case "starting-info-container":
                 self.parseChildrenByClass( current_child.children, object_to_complete );
+                break;
+            case "pf2e remaster":
+                self.parseTableCapacity( current_child, object_to_complete );
                 break;
             case "":
                 break;
             default:
-                console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByClass]", "[NOT MANAGED]", current_child.className );
+                console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByClass]", "[NOT MANAGED]", current_child.className, current_child );
                 break;
         }
+    };
+    self.parseTableCapacity    = function ( current_child, object_to_complete ) {
+        console.log(current_child);
+        object_to_complete["capacity_by_level"] = [];
+        let dom_lines_td = current_child.querySelectorAll("td");
+        console.log(dom_lines_td, dom_lines_td.length);
+        for ( let i = 1, _size_i = dom_lines_td.length; i < _size_i; i++ ) {
+            console.log(dom_lines_td[i]);
+            object_to_complete["capacity_by_level"].push(dom_lines_td[i].innerText);
+            i++
+        }
+
     };
     self.parseTitleToParam    = function ( dom_element ) {
         let text = dom_element.innerText;
@@ -215,7 +236,29 @@ var SCRIPT_CLASSES = (function ( self ) {
     return self;
 })( SCRIPT_CLASSES || {} );
 
+let SERVICE = {};
+SERVICE.STRING = (function ( self ) {
+    self.replaceAll   = function ( string, target, replacement ) {
+        return string.split( target ).join( replacement || '' );
+    };
+    self.contains     = function ( string, to_find ) {
+        if ( !string || !to_find ) {
+            return false;
+        }
+        return string.indexOf( to_find ) !== -1;
+    };
+    self.splitAndTrim = function ( string_to_split, separator, index_to_return ) {
+        let to_return = string_to_split.split( separator );
+        return to_return[ index_to_return ].trim();
+    };
+    self.parseStringToPositiveInteger = function ( value ) {
+        return parseInt( value.replace( /[^\d]/g, '' ) );
+    };    
+    return self;
+})( SERVICE.STRING || {} );
+
+
 SCRIPT_CLASSES.getAll();
 setTimeout( function () {
     console.log( "GSOU", "[ - ]", SCRIPT_CLASSES.to_return );
-}, 2000 );
+}, 3000 );
