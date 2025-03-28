@@ -68,6 +68,7 @@ body {
 /*********************	TITLE   ******************************************/
 .sheet-1 .title {
     display         : flex;
+    flex-direction: column;
     justify-content : center;
     align-items     : center;
     padding         : 10px;
@@ -106,13 +107,13 @@ body {
     left             : 8px;
 }
 /*********************	TITLE - MIDDLE   ******************************************/
-.sheet-1 .title .middle-zone {
+/* .sheet-1 .title .middle-zone {
     width           : calc(100% - 400px);
     height          : 100px;
     display         : flex;
     justify-content : center;
     align-items     : center;
-}
+} */
 .sheet-1 .title .middle-zone .middle-left-zone {
     width  : 50%;
     height : 100%;
@@ -122,11 +123,14 @@ body {
     height : 100%;
 }
 /*********************	TITLE - RIGHT   ******************************************/
-.sheet-1 .title .right-zone {
+/* .sheet-1 .title .right-zone {
     width  : 150px;
     height : 100px;
-}
+} */
 .sheet-1 .title .right-zone .property .value {
     text-align : center;
 }
 
+.path-label {
+    width: 120px;
+}

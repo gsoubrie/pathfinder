@@ -77,18 +77,18 @@ CHARACTER.Current.prototype = {
         this.computeHtml__right();
     },
     computeHtml__left  : function () {
-        var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone" } ), this.getDomElement() );
+        var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone container" } ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "page-name" }, "Feuille de<br>personnage" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Main.save()" } ), to_return );
     },
     computeHtml__middle: function () {
-        var middle    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-zone input-group" } ), this.getDomElement() );
+        var middle    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-zone input-group container" } ), this.getDomElement() );
         var left_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-left-zone" } ), middle );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "name", CONTROLLER.Main.current_character.name, "Nom du <br>personnage", true ), left_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "player", CONTROLLER.Main.current_character.player, "Nom du <br>joueur", true ), left_zone );
         
-        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone input-group" } ), middle );
+        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone input-group container" } ), middle );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this[ RACES.key_element ], this[ RACES.key_element + "_html" ], RACES.label_element, false ), right_zone );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this[ LEGACIES.key_element ], this[ LEGACIES.key_element + "_html" ], LEGACIES.label_element, false ), right_zone );
         //  SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "class", this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], "Classe", false ), right_zone );
@@ -99,7 +99,7 @@ CHARACTER.Current.prototype = {
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );
     },
     computeHtml__right : function () {
-        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.getDomElement() );
+        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone container d-flex" } ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "level", CONTROLLER.Main.current_character.level, "Niveau", true ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "point_heroism", CONTROLLER.Main.current_character.point_heroism, "Point d'heroisme", true ), right_zone );
     }

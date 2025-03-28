@@ -8,6 +8,8 @@
     display          : flex;
     justify-content  : center;
     background-color : rgb(143 141 141 / 86%);
+    z-index: 150;
+
 }
 .popup .shinken-window-targets-V2 {
     height : 92%;
@@ -19,10 +21,13 @@
 /*********************	TITLE   ******************************************/
 .popup .edition-property-popup {
     margin-top       : 70px;
-    width            : 1200px;
+    /* width            : 1200px; */
     background-color : aliceblue;
     padding          : 10px;
     margin-bottom    : 20px;
+    z-index: 3;
+    position: absolute;
+    top: 20%;
 }
 .popup .edition-property-popup .title {
     font-size                 : 20px;
@@ -46,14 +51,14 @@
     font-size     : 13px;
     padding       : 2px 5px;
 }
-.popup .edition-property-popup .title .popup-up-actions .button.popup-up-valid {
+/* .popup .edition-property-popup .title .popup-up-actions .button.popup-up-valid {
     background-color : #0AC5C5;
     border-color     : #02A2A2;
 }
 .popup .edition-property-popup .title .popup-up-actions .button.popup-up-cancel {
     background-color : #C65D1E;
     border-color     : #A84303;
-}
+} */
 .popup .edition-property-popup .shinken-window-targets-V2 {
     padding : 10px;
 }

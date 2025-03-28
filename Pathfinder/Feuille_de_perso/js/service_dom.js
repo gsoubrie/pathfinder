@@ -36,15 +36,15 @@ SERVICE.DOM = (function ( self ) {
     };
     //********************************************  PROPERTY   **************************************************//
     self.createPropertyHorizontal         = function ( property_name, value, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal mb-3 p-3", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " form-label m-3" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", { class: "value form-control", contentEditable: is_editable }, value ), toReturn );
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal m-1", "data-name": property_name } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "path-label form-label m-1" }, label ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", { class: " form-control", contentEditable: is_editable }, value ), toReturn );
         return toReturn;
     };
     self.createPropertyVertical           = function ( property_name, value, value_html, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical mb-3 p-3", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " form-label  m-3" }, label ), toReturn );
-        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value btn btn-primary", contentEditable: is_editable, 
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical  p-1", "data-name": property_name } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "path-label form-label  m-1" }, label ), toReturn );
+        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " btn btn-primary", contentEditable: is_editable, 
             onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})" }, "Ascendance" ), toReturn );        
         SERVICE.DOM.addElementTo( value_html, value_dom );    
         return toReturn;
@@ -52,13 +52,13 @@ SERVICE.DOM = (function ( self ) {
     //********************************************  EDITION POP UP   **************************************************//
     self.createEditionPropertyHorizontal  = function ( value, label ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property horizontal" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "path-label form-label " }, label ), toReturn );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
         return toReturn;
     };
     self.createEditionPropertyDescription = function ( value, label ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property description" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "form-label" }, label ), toReturn );
         let label_desc = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" } ), toReturn );
         if ( value ) {
             for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
