@@ -118,13 +118,18 @@ body {
     left             : 8px;
 }
 /*********************	TITLE - MIDDLE   ******************************************/
-/* .sheet-1 .title .middle-zone {
+.sheet-1 .title .middle-zone {
     width           : calc(100% - 400px);
-    height          : 100px;
+    /* height          : 100px; */
     display         : flex;
-    justify-content : center;
-    align-items     : center;
-} */
+    justify-content : left;
+    /* align-items     : center; */
+}
+.sheet-1 .title .right-zone {
+    width           : calc(100% - 400px);
+    display         : flex;
+    justify-content : left;
+}
 .sheet-1 .title .middle-zone .middle-left-zone {
     width  : 50%;
     height : 100%;

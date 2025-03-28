@@ -80,7 +80,7 @@ CHARACTER.Current.prototype = {
     computeHtml__left  : function () {
         var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone container" } ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), to_return );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "page-name col-6" }, "Feuille de personnage" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "page-name" }, "Feuille de personnage" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Main.save()" } ), to_return );
 
     },
