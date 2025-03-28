@@ -75,12 +75,14 @@ CHARACTER.Current.prototype = {
         this.computeHtml__left();
         this.computeHtml__middle();
         this.computeHtml__right();
+        this.computeHtml__bottom();
     },
     computeHtml__left  : function () {
         var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone container" } ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "page-name" }, "Feuille de<br>personnage" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Main.save()" } ), to_return );
+
     },
     computeHtml__middle: function () {
         var middle    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-zone input-group container" } ), this.getDomElement() );
@@ -102,6 +104,10 @@ CHARACTER.Current.prototype = {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone container d-flex" } ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "level", CONTROLLER.Main.current_character.level, "Niveau", true ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "point_heroism", CONTROLLER.Main.current_character.point_heroism, "Point d'heroisme", true ), right_zone );
+    },
+    computeHtml__bottom : function () {
+        var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "bottom container" } ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button-2 btn btn-success", onclick: "CONTROLLER.Main.save()" }, "Télécharger votre fiche 👌" ), to_return );
     }
 };
 

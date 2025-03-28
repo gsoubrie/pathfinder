@@ -72,6 +72,9 @@ body {
     overflow-y: auto;
 }
 /*********************	TITLE   ******************************************/
+.sheet-1 {
+    position: relative;
+}
 .sheet-1 .title {
     display         : flex;
     flex-direction: column;
@@ -142,4 +145,14 @@ body {
 }
 .shinken-window-element-V2 {
     border: none !important;
+}
+.save-button-2 {
+    position: absolute;
+    bottom: 0 ;
+    margin: 10px;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
