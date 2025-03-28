@@ -36,16 +36,16 @@ SERVICE.DOM = (function ( self ) {
     };
     //********************************************  PROPERTY   **************************************************//
     self.createPropertyHorizontal         = function ( property_name, value, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable }, value ), toReturn );
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal mb-3 p-3", "data-name": property_name } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " form-label m-3" }, label ), toReturn );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", { class: "value form-control", contentEditable: is_editable }, value ), toReturn );
         return toReturn;
     };
     self.createPropertyVertical           = function ( property_name, value, value_html, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable, 
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})" } ), toReturn );        
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical mb-3 p-3", "data-name": property_name } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " form-label  m-3" }, label ), toReturn );
+        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value btn btn-primary", contentEditable: is_editable, 
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})" }, "Ascendance" ), toReturn );        
         SERVICE.DOM.addElementTo( value_html, value_dom );    
         return toReturn;
     };

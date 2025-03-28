@@ -21,7 +21,7 @@ body {
     width : 100%;
 }
 .property {
-    border  : 1px solid rgb(90, 10, 0);
+    /* border  : 1px solid rgb(90, 10, 0); */
     margin  : 2px;
     padding : 2px;
     display : flex;
@@ -29,10 +29,10 @@ body {
 .property.horizontal {
     justify-content : center;
     align-items     : center;
-    height          : 38px;
+    /* height          : 38px; */
 }
 .property.vertical {
-    height          : 25px;
+    /* height          : 25px; */
     flex-direction  : column;
     justify-content : center;
 }
