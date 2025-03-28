@@ -20,14 +20,17 @@
 }
 /*********************	TITLE   ******************************************/
 .popup .edition-property-popup {
-    margin-top       : 70px;
+    /* margin-top       : 70px; */
     /* width            : 1200px; */
     background-color : aliceblue;
     padding          : 10px;
     margin-bottom    : 20px;
     z-index: 3;
     position: absolute;
-    top: 20%;
+    top: 5%;
+    max-height: 90%;
+    overflow-y: auto;
+    border-radius: 8px;
 }
 .popup .edition-property-popup .title {
     font-size                 : 20px;

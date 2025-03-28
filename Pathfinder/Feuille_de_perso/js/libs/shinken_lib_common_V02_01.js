@@ -1682,7 +1682,7 @@ WINDOW_V2.ElementFromData.prototype = {
             "data-name"            : this.getName(),
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.main_div_dom_element = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-div-tab shinken-layout-center-h-v" } ) );
+        this.main_div_dom_element = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-div-tab shinken-layout-center-h-v btn btn-dark" } ) );
         DOM.Service.addElementTo( this.getLabelCellHtml(), this.main_div_dom_element );
         this.doActionAfter( "compute_html_done" );
         this.computeHtml_tooltip();
