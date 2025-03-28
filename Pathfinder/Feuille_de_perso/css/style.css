@@ -74,6 +74,8 @@ body {
 /*********************	TITLE   ******************************************/
 .sheet-1 {
     position: relative;
+    border-radius: 8px;
+    border: 2px solid black;
 }
 .sheet-1 .title {
     display         : flex;
