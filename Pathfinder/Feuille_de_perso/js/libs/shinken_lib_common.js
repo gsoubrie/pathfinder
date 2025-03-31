@@ -31,24 +31,24 @@ SHINKEN_VALIDATION.CONST                           = {
         DEFINE_STRING_OR_INTEGER_POSITIVE_AND_SMALLER_THAN_MAX: "define_string_or_integer_positive_and_smaller_than_max"
     }
 };
-var SHINKEN                                        = SHINKEN || {};
-SHINKEN.DOM                                        = SHINKEN.DOM || {};
-SHINKEN.MODAL                                      = SHINKEN.MODAL || {};
-SHINKEN.NAVIGATOR                                  = SHINKEN.NAVIGATOR || {};
-SHINKEN.PAGE                                       = SHINKEN.PAGE || {};
-SHINKEN.CALLBACK                                   = SHINKEN.CALLBACK || {};
-SHINKEN.TOOLS                                      = SHINKEN.TOOLS || {};
-SHINKEN.TOOLS.ARRAY                                = SHINKEN.TOOLS.ARRAY || {};
-SHINKEN.TOOLS.ENCRYPTION                           = SHINKEN.TOOLS.ENCRYPTION || {};
-SHINKEN.OBJECT                                     = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.CONST                               = SHINKEN.OBJECT.CONST || {};
-SHINKEN.OBJECT.CONST.EVENT_PARAM                   = {
+var GS                                        = GS || {};
+GS.DOM                                        = GS.DOM || {};
+GS.MODAL                                      = GS.MODAL || {};
+GS.NAVIGATOR                                  = GS.NAVIGATOR || {};
+GS.PAGE                                       = GS.PAGE || {};
+GS.CALLBACK                                   = GS.CALLBACK || {};
+GS.TOOLS                                      = GS.TOOLS || {};
+GS.TOOLS.ARRAY                                = GS.TOOLS.ARRAY || {};
+GS.TOOLS.ENCRYPTION                           = GS.TOOLS.ENCRYPTION || {};
+GS.OBJECT                                     = GS.OBJECT || {};
+GS.OBJECT.CONST                               = GS.OBJECT.CONST || {};
+GS.OBJECT.CONST.EVENT_PARAM                   = {
     PARENT_PARAMS_OBJECT: "parent___params_object"
 };
-SHINKEN.ELEMENT                                    = SHINKEN.ELEMENT || {};
+GS.ELEMENT                                    = GS.ELEMENT || {};
 var DOM                                            = DOM || {};
 DOM.CONST                                          = DOM.CONST || {};
-SHINKEN.CONST                                      = {
+GS.CONST                                      = {
     KEY_CODE        : {
         TAB      : 9,
         ENTER    : 13,
@@ -100,7 +100,7 @@ SHINKEN.CONST                                      = {
         }
     }
 };
-SHINKEN.CONST.CONFIGURATION                        = {
+GS.CONST.CONFIGURATION                        = {
     ELEMENT_UNIQUE_ADDRESS_BEHAVIOUR: {
         DUPLICATED_ACCEPTED: "duplicated_accepted",
         WARNING_DISPLAYED  : "warning_displayed",
@@ -108,27 +108,27 @@ SHINKEN.CONST.CONFIGURATION                        = {
         SAVE_FORBIDDEN     : "save_forbidden"
     }
 };
-SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin     = function ( link, id, label, _class, tooltip ) {
+GS.TOOLS.buildLinkDomElementDependIfAdmin     = function ( link, id, label, _class, tooltip ) {
     if ( MANAGER.__instance_element_distributor.current_user.is_admin && link && id ) {
-        return SHINKEN.TOOLS.buildLinkDomElement( link, id, label, _class, tooltip );
+        return GS.TOOLS.buildLinkDomElement( link, id, label, _class, tooltip );
     }
     if ( !_class ) {
         _class = "title shinken-space";
     }
-    var _to_return = DOM.Service.createElement( 'span', { class: _class }, label );
-    DOM.Service.addTooltip( _to_return, tooltip );
+    var _to_return = SERVICE.DOM.createElement( 'span', { class: _class }, label );
+    SERVICE.DOM.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-SHINKEN.TOOLS.buildLinkDomElement                  = function ( link, id, label, _class, tooltip ) {
+GS.TOOLS.buildLinkDomElement                  = function ( link, id, label, _class, tooltip ) {
     var _href = "/elements/" + link + '/' + id;
     if ( !_class ) {
         _class = "title shinken-link shinken-space";
     }
-    var _to_return = DOM.Service.createElement( 'a', { class: _class, href: _href, draggable: 'false', target: "_blank", onclick: "MANAGER.EventManager.mutePropagation(event)" }, '<span class="shinken-tag-label">' + label + '</span>' );
-    DOM.Service.addTooltip( _to_return, tooltip );
+    var _to_return = SERVICE.DOM.createElement( 'a', { class: _class, href: _href, draggable: 'false', target: "_blank", onclick: "MANAGER.EventManager.mutePropagation(event)" }, '<span class="shinken-tag-label">' + label + '</span>' );
+    SERVICE.DOM.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-SHINKEN.TOOLS.buildLinkShinkenElement              = function ( element, label, _class, tooltip ) {
+GS.TOOLS.buildLinkShinkenElement              = function ( element, label, _class, tooltip ) {
     var _uuid = element.uuid;
     if ( element.isNew() ) {
         _uuid += '?new=1';
@@ -136,7 +136,7 @@ SHINKEN.TOOLS.buildLinkShinkenElement              = function ( element, label, 
     if ( !label ) {
         label = element.getName();
     }
-    return SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin( element.getType(), _uuid, label, _class, tooltip );
+    return GS.TOOLS.buildLinkDomElementDependIfAdmin( element.getType(), _uuid, label, _class, tooltip );
 };
 var COMMUNICATION                                  = {};
 COMMUNICATION.MESSAGE                              = {};
@@ -275,7 +275,7 @@ COMMUNICATION.PAGE_TYPE                            = {
     LIST_ALL_ELEMENT : "list-all-element",
     LIST_WORKING_AREA: "list-working-area"
 };
-SHINKEN.TOOLS.STRING                               = (function ( self ) {
+GS.TOOLS.STRING                               = (function ( self ) {
     self.CONST = {
         REGEX                   : {
             HTML_TAG        : /<(?:.|\n)*?>/gm,
@@ -333,8 +333,8 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         return _to_return;
     };
     self.splitMultiselectValueWithNoPlus         = function ( str ) {
-        var _to_return = SHINKEN.TOOLS.STRING.replaceAll( str, PROPERTY.CONST.STATE_VALUE_PLUS.ON + ",", "" );
-        _to_return     = SHINKEN.TOOLS.STRING.replaceAll( _to_return, PROPERTY.CONST.STATE_VALUE_PLUS.ON, "" );
+        var _to_return = GS.TOOLS.STRING.replaceAll( str, PROPERTY.CONST.STATE_VALUE_PLUS.ON + ",", "" );
+        _to_return     = GS.TOOLS.STRING.replaceAll( _to_return, PROPERTY.CONST.STATE_VALUE_PLUS.ON, "" );
         return _to_return ? _to_return.split( ',' ) : [];
     };
     self.splitComposedString                     = function ( string, index, separator ) {
@@ -363,7 +363,7 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
             return false;
         }
         var _codes = this.getCharCodes( string );
-        return SHINKEN.TOOLS.ARRAY.contains( _codes, char_code );
+        return GS.TOOLS.ARRAY.contains( _codes, char_code );
     };
     self.containsIgnoreCase                      = function ( string, to_find ) {
         if ( !string ) {
@@ -410,7 +410,7 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         return to_return;
     };
     self.cleanXssForTooltipWithUserData          = function ( string ) {
-        var to_return  = DOM.Service.createElement( "div", {}, this.unescape_xss( string ) );
+        var to_return  = SERVICE.DOM.createElement( "div", {}, this.unescape_xss( string ) );
         var user_datas = to_return.querySelectorAll( ".shinken-data-user,.shinken-bad-data-user" );
         for ( var i = 0, _size_i = user_datas.length; i < _size_i; i++ ) {
             self.cleanXssForTooltipWithUserData_internal( user_datas[ i ] );
@@ -465,7 +465,7 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         if ( !string ) {
             return string;
         }
-        return SHINKEN.TOOLS.STRING.replaceAll( string, "\\", "___SHINKEN_BACKSLASH___" );
+        return GS.TOOLS.STRING.replaceAll( string, "\\", "___SHINKEN_BACKSLASH___" );
     };
     self.getRandomInt                            = function ( max ) {
         return Math.floor( Math.random() * Math.floor( max ) );
@@ -582,7 +582,7 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         if ( !string ) {
             return true;
         }
-        var dom = DOM.Service.createElement( 'div', '', string );
+        var dom = SERVICE.DOM.createElement( 'div', '', string );
         return self.isEmpty( dom.innerText );
     };
     self.indexesOf                               = function ( string, to_find ) {
@@ -699,12 +699,12 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         if ( !_contains_star.length ) {
             return to_test.trim() === regex_star.trim();
         }
-        var _replaced = SHINKEN.TOOLS.STRING.replaceAll( regex_star, "**", "*" );
+        var _replaced = GS.TOOLS.STRING.replaceAll( regex_star, "**", "*" );
         if ( regex_star !== _replaced ) {
             return self.isMatchingStarRegex( to_test, _replaced );
         }
         regex_star         = self.escapeRegExp( regex_star );
-        var _current       = new RegExp( SHINKEN.TOOLS.STRING.replaceAll( SHINKEN.TOOLS.STRING.trim( regex_star ), "\\*", ".*" ) );
+        var _current       = new RegExp( GS.TOOLS.STRING.replaceAll( GS.TOOLS.STRING.trim( regex_star ), "\\*", ".*" ) );
         var _current_match = to_test.match( _current );
         if ( _current_match && _current_match[ 0 ] === to_test ) {
             return true;
@@ -768,8 +768,8 @@ SHINKEN.TOOLS.STRING                               = (function ( self ) {
         return split_string[ 0 ];
     };
     return self;
-})( SHINKEN.TOOLS.STRING || {} );
-SHINKEN.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
+})( GS.TOOLS.STRING || {} );
+GS.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
     self.isValid          = function ( indexes_opening, indexes_closing ) {
         var _size_open  = indexes_opening.length;
         var _size_close = indexes_closing.length;
@@ -792,7 +792,7 @@ SHINKEN.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
         for ( var i = 0; i < _size; i++ ) {
             _concat.push( { index: indexes_closing[ i ], is_open: false } );
         }
-        _concat = SHINKEN.TOOLS.ARRAY.sortArray( _concat, "index" );
+        _concat = GS.TOOLS.ARRAY.sortArray( _concat, "index" );
         if ( !_concat.length ) {
             return _to_return;
         }
@@ -820,8 +820,8 @@ SHINKEN.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
         return _to_return;
     };
     return self;
-})( SHINKEN.TOOLS.STRING.PARENTHESIS || {} );
-SHINKEN.TOOLS.STRING.JSON                          = (function ( self ) {
+})( GS.TOOLS.STRING.PARENTHESIS || {} );
+GS.TOOLS.STRING.JSON                          = (function ( self ) {
     self.isFormatJsonInvalid    = function ( json_to_test ) {
         try {
             JSON.parse( json_to_test );
@@ -832,29 +832,29 @@ SHINKEN.TOOLS.STRING.JSON                          = (function ( self ) {
         return false;
     };
     self.getFormattedLineNumber = function ( dict ) {
-        return SHINKEN.TOOLS.STRING.getNumberOccurence( JSON.stringify( dict, null, 2 ), "\n" );
+        return GS.TOOLS.STRING.getNumberOccurence( JSON.stringify( dict, null, 2 ), "\n" );
     };
     self.hasJsonCharacters      = function ( text ) {
-        return SHINKEN.TOOLS.STRING.containsAny( text, ['{', '}', ',', ':', '[', ']', '"'] );
+        return GS.TOOLS.STRING.containsAny( text, ['{', '}', ',', ':', '[', ']', '"'] );
     };
     return self;
-})( SHINKEN.TOOLS.STRING.JSON || {} );
-SHINKEN.TOOLS.STRING_FILTER                        = (function ( self ) {
+})( GS.TOOLS.STRING.JSON || {} );
+GS.TOOLS.STRING_FILTER                        = (function ( self ) {
     self.containsIgnoreCase = function ( string, to_find ) {
         if ( !string ) {
             return false;
         }
         var _split = to_find.split( "|" );
         for ( var i = 0, _size_i = _split.length; i < _size_i; i++ ) {
-            if ( SHINKEN.TOOLS.STRING.containsIgnoreCase( string, _split[ i ] ) ) {
+            if ( GS.TOOLS.STRING.containsIgnoreCase( string, _split[ i ] ) ) {
                 return true;
             }
         }
         return false;
     };
     return self;
-})( SHINKEN.TOOLS.STRING_FILTER || {} );
-SHINKEN.TOOLS.STRING_EVAL                          = (function ( self ) {
+})( GS.TOOLS.STRING_FILTER || {} );
+GS.TOOLS.STRING_EVAL                          = (function ( self ) {
     self.parseToDict = function ( to_parse ) {
         try {
             return eval( to_parse );
@@ -864,8 +864,8 @@ SHINKEN.TOOLS.STRING_EVAL                          = (function ( self ) {
         }
     };
     return self;
-})( SHINKEN.TOOLS.STRING_EVAL || {} );
-SHINKEN.TOOLS.MD5                                  = (function ( self ) {
+})( GS.TOOLS.STRING_EVAL || {} );
+GS.TOOLS.MD5                                  = (function ( self ) {
     self.MD5 = function ( d ) {
         var result = M( V( Y( X( d ), 8 * d.length ) ) );
         return result.toLowerCase();
@@ -937,7 +937,7 @@ SHINKEN.TOOLS.MD5                                  = (function ( self ) {
     }
     
     return self;
-})( SHINKEN.TOOLS.MD5 || {} );
+})( GS.TOOLS.MD5 || {} );
 String.prototype.startsWith                        = String.prototype.startsWith || function ( pattern ) {
     return this.indexOf( pattern ) === 0;
 };
@@ -945,7 +945,7 @@ String.prototype.endsWith                          = String.prototype.endsWith |
     var d = this.length - pattern.length;
     return d >= 0 && this.lastIndexOf( pattern ) === d;
 };
-SHINKEN.TOOLS.CLASS                                = (function ( self ) {
+GS.TOOLS.CLASS                                = (function ( self ) {
     self.CONST        = {
         COMPONENT: {
             SELECT: "component-select"
@@ -962,16 +962,16 @@ SHINKEN.TOOLS.CLASS                                = (function ( self ) {
         }
     };
     return self;
-})( SHINKEN.TOOLS.CLASS || {} );
-SHINKEN.TOOLS.Link                                 = (function ( self ) {
+})( GS.TOOLS.CLASS || {} );
+GS.TOOLS.Link                                 = (function ( self ) {
     self.parse_to_link = function ( item_type, item_name, item_uuid ) {
         return "<a href='/elements/" + item_type + "/" + item_uuid + "' class='shinken-link'>" + item_name + "</a>";
     };
     return self;
-})( SHINKEN.TOOLS.Link || {} );
-var SHINKEN                                        = SHINKEN || {};
-SHINKEN.OBJECT                                     = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.COLLAPSE                            = {
+})( GS.TOOLS.Link || {} );
+var GS                                        = GS || {};
+GS.OBJECT                                     = GS.OBJECT || {};
+GS.OBJECT.COLLAPSE                            = {
     PARAM: {
         NAME                   : "collapse_folder__name",
         NAME_FOR_HIDDEN_PREVIEW: "collapse_folder_name_for_hide_preview",
@@ -1207,16 +1207,16 @@ MANAGER.CONST                                      = MANAGER.CONST || {
         }
     }
 };
-SHINKEN.CARTO                                      = {};
-SHINKEN.CARTO.CONST                                = {
+GS.CARTO                                      = {};
+GS.CARTO.CONST                                = {
     NAME    : "name",
     URL     : "url",
     IS_VALID: "is_valid"
 };
-SHINKEN.OBJECT.ShinkenObject                       = function () {
-    this.__class_name__ = "SHINKEN.OBJECT.ShinkenObject";
+GS.OBJECT.ShinkenObject                       = function () {
+    this.__class_name__ = "GS.OBJECT.ShinkenObject";
 };
-SHINKEN.OBJECT.ShinkenObject.prototype             = {
+GS.OBJECT.ShinkenObject.prototype             = {
     setShinkenDebug            : function ( to_set ) {
         this.is_shinken_debug = to_set;
         var _components       = this.getChildrenObject();
@@ -1241,7 +1241,7 @@ SHINKEN.OBJECT.ShinkenObject.prototype             = {
         return {};
     },
     initMessages               : function () {
-        this.messages = new SHINKEN.OBJECT.Messages();
+        this.messages = new GS.OBJECT.Messages();
     },
     setMessages                : function ( to_set ) {
         this.initMessages();
@@ -1249,7 +1249,7 @@ SHINKEN.OBJECT.ShinkenObject.prototype             = {
             this.doActionAfterAddMessages();
             return;
         }
-        if ( to_set.__class_name__ === "SHINKEN.OBJECT.Messages" ) {
+        if ( to_set.__class_name__ === "GS.OBJECT.Messages" ) {
             this.messages = to_set;
             this.doActionAfterAddMessages();
             return;
@@ -1260,7 +1260,7 @@ SHINKEN.OBJECT.ShinkenObject.prototype             = {
         var _current_status;
         for ( var i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
             _current_key    = _keys[ i ];
-            _current_status = SHINKEN.OBJECT.Messageservice.parseBackendStatus( _current_key );
+            _current_status = GS.OBJECT.Messageservice.parseBackendStatus( _current_key );
             for ( var j = 0, _size_j = to_set[ _current_key ].length; j < _size_j; j++ ) {
                 this.messages.addMessage( _current_status, to_set[ _current_key ][ j ] );
             }
@@ -1272,7 +1272,7 @@ SHINKEN.OBJECT.ShinkenObject.prototype             = {
     },
     addMessage                 : function ( status, text ) {
         if ( !this.messages ) {
-            this.messages = new SHINKEN.OBJECT.Messages();
+            this.messages = new GS.OBJECT.Messages();
         }
         this.messages.addMessage( status, text );
     },
@@ -1335,12 +1335,12 @@ SHINKEN.OBJECT.ShinkenObject.prototype             = {
         return to_test === this.__class_name__;
     }
 };
-SHINKEN.OBJECT.ShinkenObjectForContainer           = function ( uuid ) {
-    this.__class_name__ = "SHINKEN.OBJECT.ShinkenObjectForContainer";
+GS.OBJECT.ShinkenObjectForContainer           = function ( uuid ) {
+    this.__class_name__ = "GS.OBJECT.ShinkenObjectForContainer";
     this.uuid           = uuid;
     this.data_to_save   = {};
 };
-SHINKEN.OBJECT.ShinkenObjectForContainer.prototype = {
+GS.OBJECT.ShinkenObjectForContainer.prototype = {
     getUUID           : function () {
         return this.uuid;
     },
@@ -1354,10 +1354,10 @@ SHINKEN.OBJECT.ShinkenObjectForContainer.prototype = {
         this.data_to_save[ key ] = value;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectForContainer, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.InterfaceHtml               = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectForContainer, GS.OBJECT.ShinkenObject );
+GS.OBJECT.InterfaceHtml               = function () {
 };
-SHINKEN.OBJECT.InterfaceHtml.prototype     = {
+GS.OBJECT.InterfaceHtml.prototype     = {
     addClass   : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
@@ -1367,18 +1367,18 @@ SHINKEN.OBJECT.InterfaceHtml.prototype     = {
         }
     },
     removeClass: function ( to_remove ) {
-        this.class = SHINKEN.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
+        this.class = GS.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
     },
     hasClass   : function ( to_find ) {
-        return SHINKEN.TOOLS.STRING.contains( this.class, to_find );
+        return GS.TOOLS.STRING.contains( this.class, to_find );
     },
     getClass   : function ( to_add ) {
         return this.class || "";
     }
 };
-SHINKEN.OBJECT.ShinkenObjectHtml           = function () {
+GS.OBJECT.ShinkenObjectHtml           = function () {
 };
-SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
+GS.OBJECT.ShinkenObjectHtml.prototype = {
     addClass                  : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
@@ -1391,7 +1391,7 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         }
     },
     removeClass               : function ( to_remove ) {
-        this.class = SHINKEN.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
+        this.class = GS.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
         if ( this.getDomElement() ) {
             this.getDomElement().classList.remove( to_remove );
         }
@@ -1418,13 +1418,13 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         return this.getDomElement();
     },
     setDomElementStyle        : function ( style_param, style_value ) {
-        DOM.Service.setStyle( this.getDomElement(), style_param, style_value );
+        SERVICE.DOM.setStyle( this.getDomElement(), style_param, style_value );
     },
     addDomElement             : function ( to_add ) {
-        return DOM.Service.addElementTo( to_add, this.getDomElement() );
+        return SERVICE.DOM.addElementTo( to_add, this.getDomElement() );
     },
     changeContentDomElement   : function ( new_content ) {
-        DOM.Service.empty( this.getDomElement() );
+        SERVICE.DOM.empty( this.getDomElement() );
         this.addDomElement( new_content );
     },
     askUpdateHtml             : function () {
@@ -1442,7 +1442,7 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         this.resetHTMLCommon();
     },
     resetHTMLCommon           : function () {
-        DOM.Service.removeElement( this.getDomElement() );
+        SERVICE.DOM.removeElement( this.getDomElement() );
         this.setDomElement();
     },
     computeHtml               : function () {
@@ -1459,7 +1459,7 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
     setVisibilityState        : function ( to_set ) {
         this.visibility_state = to_set;
         if ( this.getDomElement() ) {
-            DOM.Service.setDataSet( this.getDomElement(), "visibilityState", this.getVisibilityState() );
+            SERVICE.DOM.setDataSet( this.getDomElement(), "visibilityState", this.getVisibilityState() );
         }
     },
     getVisibilityState        : function () {
@@ -1467,14 +1467,14 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
     },
     isVisible                 : function () {
         switch ( this.visibility_state ) {
-            case SHINKEN.CONST.VISIBILITY_STATE.HIDDEN:
-            case SHINKEN.CONST.VISIBILITY_STATE.TOTALLY_FORM_EXCLUDE:
+            case GS.CONST.VISIBILITY_STATE.HIDDEN:
+            case GS.CONST.VISIBILITY_STATE.TOTALLY_FORM_EXCLUDE:
                 return false;
         }
         return true;
     },
     parseParamForEventsToHtml : function () {
-        return SHINKEN.TOOLS.DICT.parseToHTMLParam( this.getParamForEvents() );
+        return GS.TOOLS.DICT.parseToHTMLParam( this.getParamForEvents() );
     },
     onClick                   : function ( event ) {
     },
@@ -1488,7 +1488,7 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         return true;
     },
     askAddClass               : function ( to_add, time_out ) {
-        DOM.Service.askAddClass( this.getDomElement(), to_add, time_out );
+        SERVICE.DOM.askAddClass( this.getDomElement(), to_add, time_out );
     },
     askComputeSizes           : function ( param ) {
         if ( this.timeout_ask_compute_size ) {
@@ -1526,12 +1526,12 @@ SHINKEN.OBJECT.ShinkenObjectHtml.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectHtml, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectHtml, SHINKEN.OBJECT.InterfaceHtml );
-SHINKEN.OBJECT.ShinkenObjectContainer           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectHtml, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectHtml, GS.OBJECT.InterfaceHtml );
+GS.OBJECT.ShinkenObjectContainer           = function () {
     this.initContents();
 };
-SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
+GS.OBJECT.ShinkenObjectContainer.prototype = {
     initContents                  : function () {
         this.contents = [];
         this.mapping  = {};
@@ -1605,7 +1605,7 @@ SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
         return to_add;
     },
     insertAtIndex                 : function ( to_add, index ) {
-        SHINKEN.TOOLS.ARRAY.insert( this.contents, to_add, index );
+        GS.TOOLS.ARRAY.insert( this.contents, to_add, index );
         this.computeMapping();
     },
     removeContent                 : function ( uuid_to_remove, params, avoid_revert_content ) {
@@ -1616,22 +1616,22 @@ SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
         if ( !avoid_revert_content ) {
             _to_remove.remove( params );
         }
-        SHINKEN.TOOLS.ARRAY.removeElementByIndex( this.contents, this.mapping[ uuid_to_remove ] );
+        GS.TOOLS.ARRAY.removeElementByIndex( this.contents, this.mapping[ uuid_to_remove ] );
         this.computeMapping();
     },
     removeContentByIndex          : function ( index_to_remove, avoid_revert_content ) {
         if ( !avoid_revert_content ) {
             this.getContent( index_to_remove ).remove();
         }
-        SHINKEN.TOOLS.ARRAY.removeElementByIndex( this.contents, index_to_remove );
+        GS.TOOLS.ARRAY.removeElementByIndex( this.contents, index_to_remove );
         this.computeMapping();
     },
     removeAllContentFromIndex     : function ( index_to_remove ) {
-        SHINKEN.TOOLS.ARRAY.removeAllElementsFromIndex( this.contents, index_to_remove );
+        GS.TOOLS.ARRAY.removeAllElementsFromIndex( this.contents, index_to_remove );
         this.computeMapping();
     },
     removeFirstXContent           : function ( nb_to_remove ) {
-        SHINKEN.TOOLS.ARRAY.removeXElementsFromIndex( this.contents, 0, nb_to_remove );
+        GS.TOOLS.ARRAY.removeXElementsFromIndex( this.contents, 0, nb_to_remove );
         this.computeMapping();
     },
     resetContents                 : function () {
@@ -1702,10 +1702,10 @@ SHINKEN.OBJECT.ShinkenObjectContainer.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectContainer, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.ShinkenObjectContainerHtml           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainer, GS.OBJECT.ShinkenObject );
+GS.OBJECT.ShinkenObjectContainerHtml           = function () {
 };
-SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype = {
+GS.OBJECT.ShinkenObjectContainerHtml.prototype = {
     onClick          : function ( event ) {
         this.askHidePopup( this.getDomByEvent( event ) );
     },
@@ -1724,7 +1724,7 @@ SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype = {
         if ( !event ) {
             return null;
         }
-        var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, "name", 10 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 10 );
         if ( !_parent_dom_element ) {
             return null;
         }
@@ -1737,16 +1737,16 @@ SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype = {
         if ( !event ) {
             return null;
         }
-        return DOM.Service.findParentElementWithDataSet( event.target, "name", 10 );
+        return SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 10 );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectContainerHtml, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectContainerHtml, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.ConfirmationPopupInterface           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainerHtml, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainerHtml, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.ConfirmationPopupInterface           = function () {
 };
-SHINKEN.OBJECT.ConfirmationPopupInterface.prototype = {
+GS.OBJECT.ConfirmationPopupInterface.prototype = {
     computeConfirmationPopup                 : function ( name, event_name_validation_popup ) {
-        const instance = SHINKEN.OBJECT.ConfirmationPopup_V3.getInstance();
+        const instance = GS.OBJECT.ConfirmationPopup_V3.getInstance();
         instance.reset( name, event_name_validation_popup );
         this.updateComputeConfirmationPopupValidButton();
         instance.setTitle( this.buildHtmlTitleDeletePopup() );
@@ -1761,13 +1761,13 @@ SHINKEN.OBJECT.ConfirmationPopupInterface.prototype = {
         return _( "confirmation_popup.deletable_content.title", [DICTIONARY_COMMON_UI] );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopupInterface, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.SERVER                          = {};
-SHINKEN.SERVER.CONST                    = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopupInterface, GS.OBJECT.ShinkenObjectHtml );
+GS.SERVER                          = {};
+GS.SERVER.CONST                    = {
     NAME              : "name",
     LIST_SHINKEN_CARTO: "shinken_cartos"
 };
-SHINKEN.ELEMENT.USER                    = {
+GS.ELEMENT.USER                    = {
     PARAM : {
         ACL                                                          : {
             KEY             : "acl",
@@ -1886,7 +1886,7 @@ SHINKEN.ELEMENT.USER                    = {
         ON : 1
     }
 };
-SHINKEN.SCREEN                          = {
+GS.SCREEN                          = {
     TYPE      : {
         HIVE             : "hive",
         LIST             : "list",
@@ -1908,7 +1908,7 @@ SHINKEN.SCREEN                          = {
         DELETED      : 4
     }
 };
-SHINKEN.OBJECT.VIEW                     = {
+GS.OBJECT.VIEW                     = {
     PARAM    : {
         NAME              : "name",
         NB_ERRORS         : "nb_errors",
@@ -2154,10 +2154,10 @@ OBJECT.CONST                            = OBJECT.CONST || {
         BY_NAME: "2"
     }
 };
-var SHINKEN                             = SHINKEN || {};
-SHINKEN.OBJECT                          = SHINKEN.OBJECT || {};
-SHINKEN.OBJECT.CONST                    = SHINKEN.OBJECT.CONST || {};
-SHINKEN.OBJECT.CONST.VALIDATION         = SHINKEN.OBJECT.CONST.VALIDATION || {
+var GS                             = GS || {};
+GS.OBJECT                          = GS.OBJECT || {};
+GS.OBJECT.CONST                    = GS.OBJECT.CONST || {};
+GS.OBJECT.CONST.VALIDATION         = GS.OBJECT.CONST.VALIDATION || {
     FIELD: {
         MESSAGES                : "validation_messages",
         ERRORS                  : "errors",
@@ -2170,7 +2170,7 @@ SHINKEN.OBJECT.CONST.VALIDATION         = SHINKEN.OBJECT.CONST.VALIDATION || {
         CURRENT_OBJECT: "current_object"
     }
 };
-SHINKEN.TOOLS.DICT                      = (function ( self ) {
+GS.TOOLS.DICT                      = (function ( self ) {
     self.contains                              = function ( dict, key_to_find ) {
         return dict.hasOwnProperty( key_to_find );
     };
@@ -2312,8 +2312,8 @@ SHINKEN.TOOLS.DICT                      = (function ( self ) {
     };
     self.getValueWithComposedKey_WithValue     = function ( dict_object, key_composed ) {
         const _keys = Object.keys( dict_object );
-        if ( _keys.length === 1 && _keys[ 0 ] === SHINKEN.OBJECT.CONST.PARAM.VALUE ) {
-            return self.getValueWithComposedKey_WithValue( dict_object[ SHINKEN.OBJECT.CONST.PARAM.VALUE ], key_composed );
+        if ( _keys.length === 1 && _keys[ 0 ] === GS.OBJECT.CONST.PARAM.VALUE ) {
+            return self.getValueWithComposedKey_WithValue( dict_object[ GS.OBJECT.CONST.PARAM.VALUE ], key_composed );
         }
         const key_composed_split = key_composed.split( "." );
         if ( key_composed_split.length === 1 ) {
@@ -2323,7 +2323,7 @@ SHINKEN.TOOLS.DICT                      = (function ( self ) {
     };
     return self;
 })
-( SHINKEN.TOOLS.DICT || {} );
+( GS.TOOLS.DICT || {} );
 var WINDOW                              = {};
 WINDOW.CONST                            = {
     ELEMENT: {
@@ -2339,12 +2339,12 @@ WINDOW.CONST                            = {
         CHANGES      : "changes"
     },
     CLASS  : {
-        WINDOW_GROUP: "shinken-window-group",
-        WINDOW_TAB  : "shinken-window-element"
+        WINDOW_GROUP: "gs-window-group",
+        WINDOW_TAB  : "gs-window-element"
     },
     ID     : {
-        WINDOW_TAB   : "id-shinken-window-",
-        WINDOW_TAB_V2: "id-shinken-window-V2",
+        WINDOW_TAB   : "id-gs-window-",
+        WINDOW_TAB_V2: "id-gs-window-V2",
         TAB_PANE     : "tab-pane-"
     },
     GROUP  : {
@@ -2447,7 +2447,7 @@ CONTROLLER.DistributorControllerManager = (function ( self ) {
             return;
         }
         var _target             = dom_element || event.target;
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( _target, "shinken-parent-event-listener", 500 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( _target, "shinken-parent-event-listener", 500 );
         if ( !_parent_dom_element ) {
             return;
         }
@@ -2489,7 +2489,7 @@ CONTROLLER.DistributorControllerManager = (function ( self ) {
                 return CONTROLLER.PageController;
             case CONTROLLER.CONST.SHARE.NAME:
                 return CONTROLLER.Share;
-            case "SHINKEN-TODO":
+            case "GS-TODO":
                 break;
             default:
                 console.warn( "NO CONTROLLER FOUND FOR ", "[" + _controller + "]" );
@@ -2632,7 +2632,7 @@ var SHINKEN_TOOLTIP                     = (function ( self ) {
         }
     };
     self.updateTooltip = function ( element ) {
-        if ( !DOM.Service.isVisible( __container ) ) {
+        if ( !SERVICE.DOM.isVisible( __container ) ) {
             self.showTooltip( element );
             return;
         }
@@ -2954,7 +2954,7 @@ var SHINKEN_TOOLTIP                     = (function ( self ) {
         __innerHtml = element.getAttribute( "shi-tip-html" );
         if ( __innerHtml ) {
             let text                   = replaceAll( __innerHtml, "___", "&" );
-            text                       = SHINKEN.TOOLS.STRING.unescape_xss( text );
+            text                       = GS.TOOLS.STRING.unescape_xss( text );
             __text_container.innerHTML = text;
         }
     }
@@ -4184,7 +4184,7 @@ var common_ui_fr                        = {
         }
     }
 };
-SHINKEN.OBJECT.COUNTER_V2_CONST         = {
+GS.OBJECT.COUNTER_V2_CONST         = {
     TYPE: {
         ERRORS      : "errors",
         WARNINGS    : "warnings",
@@ -4198,11 +4198,11 @@ SHINKEN.OBJECT.COUNTER_V2_CONST         = {
         WIDGET_TOTAL: "widget_total"
     }
 };
-SHINKEN.OBJECT.CounterV2                = function ( type ) {
-    this.__class_name__ = 'SHINKEN.OBJECT.CounterV2';
+GS.OBJECT.CounterV2                = function ( type ) {
+    this.__class_name__ = 'GS.OBJECT.CounterV2';
     this.init( type );
 };
-SHINKEN.OBJECT.CounterV2.prototype      = {
+GS.OBJECT.CounterV2.prototype      = {
     init                          : function ( type ) {
         this._counter_final       = 0;
         this.label                = "";
@@ -4214,7 +4214,7 @@ SHINKEN.OBJECT.CounterV2.prototype      = {
         this._data_target_name    = "number";
         this._counter_parent_list = [];
         this._elements_mapping    = {};
-        this.uuid                 = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid                 = GS.TOOLS.STRING.buildUUID();
         this._targets_dom_element = [];
         this._has_animation       = false;
         this.class                = "shinken-counter shinken-" + this.type + "-counter";
@@ -4293,7 +4293,7 @@ SHINKEN.OBJECT.CounterV2.prototype      = {
         if ( !to_add ) {
             return;
         }
-        SHINKEN.TOOLS.ARRAY.addElement( this._counter_parent_list, to_add );
+        GS.TOOLS.ARRAY.addElement( this._counter_parent_list, to_add );
         this.updateParents();
     },
     setDataTargetName             : function ( to_set ) {
@@ -4312,16 +4312,16 @@ SHINKEN.OBJECT.CounterV2.prototype      = {
         if ( data_target_name ) {
             this.setDataTargetName( data_target_name );
         }
-        SHINKEN.TOOLS.ARRAY.addElement( this._targets_dom_element, to_set );
+        GS.TOOLS.ARRAY.addElement( this._targets_dom_element, to_set );
         this.updateTargetsDomElement();
     },
     updateTargetsDomElement       : function () {
         for ( let i = 0, _size_i = this._targets_dom_element.length; i < _size_i; i++ ) {
-            DOM.Service.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
+            SERVICE.DOM.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
         }
     },
     setLabel                      : function ( to_set, is_before ) {
-        this.label            = DOM.Service.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
+        this.label            = SERVICE.DOM.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
         this._is_label_before = !!is_before;
     },
     isString                      : function ( to_set ) {
@@ -4354,12 +4354,12 @@ SHINKEN.OBJECT.CounterV2.prototype      = {
             this.dom_element_label.innerHTML = _html;
         }
         if ( this.dom_element ) {
-            DOM.Service.setDataSet( this.dom_element, 'number', _data_value );
+            SERVICE.DOM.setDataSet( this.dom_element, 'number', _data_value );
         }
         if ( this._has_animation ) {
-            var _parent_dom_element = DOM.Service.findParentElementWithClass( this.dom_element, 'shinken-pulsate-parent', 10 );
+            var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( this.dom_element, 'shinken-pulsate-parent', 10 );
             if ( _parent_dom_element ) {
-                DOM.Service.askAddClass( _parent_dom_element, 'shinken-pulsate', 1600 );
+                SERVICE.DOM.askAddClass( _parent_dom_element, 'shinken-pulsate', 1600 );
             }
         }
     },
@@ -4393,18 +4393,18 @@ SHINKEN.OBJECT.CounterV2.prototype      = {
             }
         }
         
-        this.setDomElement( DOM.Service.createElement( "span", {
+        this.setDomElement( SERVICE.DOM.createElement( "span", {
             class        : this.getClass(),
             "data-number": _value
         } ) );
-        this.dom_element_label = DOM.Service.createElement( "span", { class: "shinken-counter-label" }, _value );
-        DOM.Service.addElementTo( this.dom_element_label, this.dom_element );
+        this.dom_element_label = SERVICE.DOM.createElement( "span", { class: "shinken-counter-label" }, _value );
+        SERVICE.DOM.addElementTo( this.dom_element_label, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterV2, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.CounterInterfaceV2           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterV2, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.CounterInterfaceV2           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceV2.prototype = {
+GS.OBJECT.CounterInterfaceV2.prototype = {
     initCounterCommon           : function () {
         this.counters = {};
     },
@@ -4412,7 +4412,7 @@ SHINKEN.OBJECT.CounterInterfaceV2.prototype = {
         if ( this.counters[ type ] ) {
             console.shinken.debug( "[CounterInterfaceV2 - initCounter]", "Already Exists", type, this );
         }
-        this.counters[ type ] = new SHINKEN.OBJECT.CounterV2( type );
+        this.counters[ type ] = new GS.OBJECT.CounterV2( type );
         if ( name_for_distributor ) {
             MANAGER.__instance_counter_distributorV2.setCounter( name_for_distributor, this.counters[ type ] );
         }
@@ -4458,7 +4458,7 @@ SHINKEN.OBJECT.CounterInterfaceV2.prototype = {
         return this.counters[ type ].hasCounter();
     },
     hasCounterProblems          : function () {
-        return !!(this.hasCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ) || this.hasCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ));
+        return !!(this.hasCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ) || this.hasCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ));
     },
     setCounterValue             : function ( type, data_name, nb ) {
         if ( !this.counters || !this.counters[ type ] ) {
@@ -4487,13 +4487,13 @@ SHINKEN.OBJECT.CounterInterfaceV2.prototype = {
             return;
         }
         this.counters[ type ].computeHtml();
-        DOM.Service.addElementTo( this.counters[ type ].getDomElement(), dom_element_parent );
+        SERVICE.DOM.addElementTo( this.counters[ type ].getDomElement(), dom_element_parent );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceV2, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement.prototype = {
+GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement.prototype = {
     setCounterValue: function ( type, data_name, nb, parent ) {
         if ( !this.counters || !this.counters[ type ] ) {
             this.initCounter( type );
@@ -4503,10 +4503,10 @@ SHINKEN.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement.prototype = {
         this.counters[ type ].update( data_name, nb );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement, GS.OBJECT.CounterInterfaceV2 );
+GS.OBJECT.CounterInterfaceWithShinkenObjectContainer           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer.prototype = {
+GS.OBJECT.CounterInterfaceWithShinkenObjectContainer.prototype = {
     resetChildCountersByType: function ( array_type ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].resetCountersByType( array_type );
@@ -4518,46 +4518,46 @@ SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer.prototype = {
         return to_add;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.OBJECT.CounterInterfaceValidation           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithShinkenObjectContainer, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithShinkenObjectContainer, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.OBJECT.CounterInterfaceValidation           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceValidation.prototype = {
+GS.OBJECT.CounterInterfaceValidation.prototype = {
     initCounterCommon       : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     doActionAfterAddMessages: function () {
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), this.messages.getNumberWarnings() );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.getObjectClassName(), this.messages.getNumberErrors() );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), this.messages.getNumberWarnings() );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.getObjectClassName(), this.messages.getNumberErrors() );
     },
     initCounter             : function ( type, name_for_distributor ) {
         if ( this.counters[ type ] ) {
             console.shinken.debug( "[CounterInterfaceV2 - initCounter]", "Already Exists", type, this );
         }
-        this.counters[ type ]                  = new SHINKEN.OBJECT.CounterV2( type );
+        this.counters[ type ]                  = new GS.OBJECT.CounterV2( type );
         this.counters[ type ].object_parent_v2 = this;
         if ( name_for_distributor ) {
             MANAGER.__instance_counter_distributorV2.setCounter( name_for_distributor, this.counters[ type ] );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceValidation, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.OBJECT.CounterInterfaceV2_patient           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceValidation, GS.OBJECT.CounterInterfaceV2 );
+GS.OBJECT.CounterInterfaceV2_patient           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceV2_patient.prototype = {
+GS.OBJECT.CounterInterfaceV2_patient.prototype = {
     initCounter: function ( type ) {
         if ( this.counters[ type ] ) {
             console.shinken.debug( "[CounterInterfaceV2 - initCounter]", "Already Exists", type, this );
         }
-        this.counters[ type ]            = new SHINKEN.OBJECT.CounterV2( type );
+        this.counters[ type ]            = new GS.OBJECT.CounterV2( type );
         this.counters[ type ].is_patient = true;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceV2, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.Counter           = function ( dom_element, show_if_null ) {
-    this.__class_name__         = 'SHINKEN.OBJECT.Counter';
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.Counter           = function ( dom_element, show_if_null ) {
+    this.__class_name__         = 'GS.OBJECT.Counter';
     this._counter_final         = 0;
     this.label                  = "";
     this._is_label_before       = false;
@@ -4566,7 +4566,7 @@ SHINKEN.OBJECT.Counter           = function ( dom_element, show_if_null ) {
     this._is_string             = false;
     this._counter_parent_list   = [];
     this._elements_mapping      = {};
-    this.uuid                   = SHINKEN.TOOLS.STRING.buildUUID();
+    this.uuid                   = GS.TOOLS.STRING.buildUUID();
     this.timeout_html           = null;
     this.type                   = '';
     this.dom_class_selector     = '';
@@ -4578,7 +4578,7 @@ SHINKEN.OBJECT.Counter           = function ( dom_element, show_if_null ) {
         this.init( dom_element );
     }
 };
-SHINKEN.OBJECT.Counter.prototype = {
+GS.OBJECT.Counter.prototype = {
     init                  : function ( dom_element, update_with_dom ) {
         this.dom_element = dom_element;
         this.setDiscreet( !this.dom_element );
@@ -4609,7 +4609,7 @@ SHINKEN.OBJECT.Counter.prototype = {
         }
     },
     initFromParent        : function ( parent, update_with_dom ) {
-        this.init( DOM.Service.askFindChildElementWithClass( parent.dom_element, this.getDomSelector(), 'shinken-counter-candidate', 30 ), update_with_dom );
+        this.init( SERVICE.DOM.askFindChildElementWithClass( parent.dom_element, this.getDomSelector(), 'shinken-counter-candidate', 30 ), update_with_dom );
     },
     initValueWithDom      : function () {
         if ( !this.dom_element ) {
@@ -4707,11 +4707,11 @@ SHINKEN.OBJECT.Counter.prototype = {
     },
     updateTargetDomElement: function () {
         for ( var i = 0, _size_i = this._targets_dom_element.length; i < _size_i; i++ ) {
-            DOM.Service.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
+            SERVICE.DOM.setDataSet( this._targets_dom_element[ i ], this._data_target_name, this._counter_final || '' );
         }
     },
     setLabel              : function ( to_set, is_before ) {
-        this.label            = DOM.Service.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
+        this.label            = SERVICE.DOM.createElement( 'span', { class: 'shinken-counter-extra-label' }, to_set ).outerHTML;
         this._is_label_before = !!is_before;
     },
     isString              : function ( to_set ) {
@@ -4743,25 +4743,25 @@ SHINKEN.OBJECT.Counter.prototype = {
         
         if ( this._counter_final ) {
             this.dom_element_label.innerHTML = (this.label ? this._is_label_before ? this.label + this._counter_final : this._counter_final + this.label : this._counter_final);
-            DOM.Service.setDataSet( this.dom_element, 'number', this._counter_final );
+            SERVICE.DOM.setDataSet( this.dom_element, 'number', this._counter_final );
         }
         else if ( this._show_if_null ) {
             this.dom_element_label.innerHTML = '0';
-            DOM.Service.setDataSet( this.dom_element, 'number', '0' );
+            SERVICE.DOM.setDataSet( this.dom_element, 'number', '0' );
         }
         else {
             this.dom_element_label.innerHTML = '';
-            DOM.Service.setDataSet( this.dom_element, 'number', '' );
+            SERVICE.DOM.setDataSet( this.dom_element, 'number', '' );
         }
         var _parent_dom_element;
         if ( this._has_animation ) {
-            _parent_dom_element = DOM.Service.findParentElementWithClass( this.dom_element, 'shinken-pulsate-parent', 10 );
+            _parent_dom_element = SERVICE.DOM.findParentElementWithClass( this.dom_element, 'shinken-pulsate-parent', 10 );
             if ( _parent_dom_element ) {
-                DOM.Service.askAddClass( _parent_dom_element, 'shinken-pulsate', 1600 );
+                SERVICE.DOM.askAddClass( _parent_dom_element, 'shinken-pulsate', 1600 );
             }
         }
         if ( this.toggle_parent_activity ) {
-            _parent_dom_element = DOM.Service.findParentElementWithClass( this.dom_element, 'shinken-counter-parent', 10 );
+            _parent_dom_element = SERVICE.DOM.findParentElementWithClass( this.dom_element, 'shinken-counter-parent', 10 );
             if ( _parent_dom_element ) {
                 if ( this._counter_final ) {
                     _parent_dom_element.classList.add( 'shinken-active' );
@@ -4782,7 +4782,7 @@ SHINKEN.OBJECT.Counter.prototype = {
             case "user_set":
                 return ".shinken-user-set-counter";
             case "total":
-                return ".shinken-window-total-counter";
+                return ".gs-window-total-counter";
             default:
                 return this.dom_class_selector;
         }
@@ -4797,32 +4797,32 @@ SHINKEN.OBJECT.Counter.prototype = {
                 _value = "";
             }
         }
-        this.setDomElement( DOM.Service.createElement( "span", {
+        this.setDomElement( SERVICE.DOM.createElement( "span", {
             class        : "shinken-counter shinken-" + this.type + "-counter",
             "data-number": _value
         } ) );
-        this.dom_element_label = DOM.Service.createElement( "span", { class: "shinken-counter-label" }, _value );
-        DOM.Service.addElementTo( this.dom_element_label, this.dom_element );
+        this.dom_element_label = SERVICE.DOM.createElement( "span", { class: "shinken-counter-label" }, _value );
+        SERVICE.DOM.addElementTo( this.dom_element_label, this.dom_element );
     },
     pulsate               : function () {
         if ( !this.hasCounter() ) {
             return;
         }
         if ( this.object_parent && this.object_parent.dom_element ) {
-            DOM.Service.askAddClass( this.object_parent.dom_element, 'shinken-pulsate', 1600 );
+            SERVICE.DOM.askAddClass( this.object_parent.dom_element, 'shinken-pulsate', 1600 );
         }
         else {
-            DOM.Service.askAddClass( this.dom_element, 'shinken-pulsate', 1600 );
+            SERVICE.DOM.askAddClass( this.dom_element, 'shinken-pulsate', 1600 );
         }
         for ( var i = 0, _size_i = this._counter_parent_list.length; i < _size_i; i++ ) {
             this._counter_parent_list[ i ].pulsate();
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Counter, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.CounterInterface           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Counter, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.CounterInterface           = function () {
 };
-SHINKEN.OBJECT.CounterInterface.prototype = {
+GS.OBJECT.CounterInterface.prototype = {
     addExtraCounter               : function ( to_add, type, dom_class_selector, data_target_name, dom_element ) {
         to_add.type                 = type;
         to_add.object_parent        = this;
@@ -4840,21 +4840,21 @@ SHINKEN.OBJECT.CounterInterface.prototype = {
         return to_add;
     },
     initCounters                  : function ( parent, update_with_dom ) {
-        this.errors                      = new SHINKEN.OBJECT.Counter();
+        this.errors                      = new GS.OBJECT.Counter();
         this.errors.type                 = "error";
         this.errors.container_class_name = this.getObjectClassName();
         this.errors.object_parent        = this;
         
         
-        this.warnings                      = new SHINKEN.OBJECT.Counter();
+        this.warnings                      = new GS.OBJECT.Counter();
         this.warnings.type                 = "warning";
         this.warnings.container_class_name = this.getObjectClassName();
         
-        this.user_set                      = new SHINKEN.OBJECT.Counter();
+        this.user_set                      = new GS.OBJECT.Counter();
         this.user_set.type                 = "user_set";
         this.user_set.container_class_name = this.getObjectClassName();
         
-        this.total                      = new SHINKEN.OBJECT.Counter();
+        this.total                      = new GS.OBJECT.Counter();
         this.total.type                 = "total";
         this.total.container_class_name = this.getObjectClassName();
         this.initCountersDom( update_with_dom );
@@ -4991,7 +4991,7 @@ SHINKEN.OBJECT.CounterInterface.prototype = {
         if ( _counter ) {
             return _counter;
         }
-        this.addExtraCounter( new SHINKEN.OBJECT.Counter(), name );
+        this.addExtraCounter( new GS.OBJECT.Counter(), name );
         return this.getExtraCounterByName( name );
     },
     setParentCounter              : function ( to_set ) {
@@ -5022,7 +5022,7 @@ SHINKEN.OBJECT.CounterInterface.prototype = {
             if ( parent ) {
                 parent_counter                    = parent.findExtraCounter( _current_key );
                 parent_counter.dom_class_selector = _current.dom_class_selector;
-                parent_dom_counter                = DOM.Service.askFindChildElementWithClass( parent.dom_element, parent_counter.getDomSelector(), 'shinken-counter-candidate', 20 );
+                parent_dom_counter                = SERVICE.DOM.askFindChildElementWithClass( parent.dom_element, parent_counter.getDomSelector(), 'shinken-counter-candidate', 20 );
                 if ( parent_dom_counter ) {
                     parent_counter.init( parent_dom_counter, false );
                 }
@@ -5051,33 +5051,33 @@ SHINKEN.OBJECT.CounterInterface.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.CounterInterfaceHtml           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterface, GS.OBJECT.ShinkenObject );
+GS.OBJECT.CounterInterfaceHtml           = function () {
 };
-SHINKEN.OBJECT.CounterInterfaceHtml.prototype = {};
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceHtml, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CounterInterfaceHtml, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.Sorting           = function () {
-    this.__class_name__ = 'SHINKEN.OBJECT.Sorting';
-    this._status        = SHINKEN.OBJECT.SORTING.STATUS.NONE;
-    this._pop_up_status = SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE;
-    this._counter       = new SHINKEN.OBJECT.Counter();
+GS.OBJECT.CounterInterfaceHtml.prototype = {};
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceHtml, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceHtml, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.Sorting           = function () {
+    this.__class_name__ = 'GS.OBJECT.Sorting';
+    this._status        = GS.OBJECT.SORTING.STATUS.NONE;
+    this._pop_up_status = GS.OBJECT.SORTING.POPUP_STATUS.CLOSE;
+    this._counter       = new GS.OBJECT.Counter();
 };
-SHINKEN.OBJECT.Sorting.prototype = {
+GS.OBJECT.Sorting.prototype = {
     init                      : function () {
     },
     changeToNextStatus        : function () {
         switch ( this._status ) {
-            case SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE:
+            case GS.OBJECT.SORTING.STATUS.UNAVAILABLE:
                 return;
-            case SHINKEN.OBJECT.SORTING.STATUS.NONE:
-                this.setStatus( SHINKEN.OBJECT.SORTING.STATUS.INCREASING );
+            case GS.OBJECT.SORTING.STATUS.NONE:
+                this.setStatus( GS.OBJECT.SORTING.STATUS.INCREASING );
                 break;
-            case SHINKEN.OBJECT.SORTING.STATUS.INCREASING:
-                this.setStatus( SHINKEN.OBJECT.SORTING.STATUS.DECREASING );
+            case GS.OBJECT.SORTING.STATUS.INCREASING:
+                this.setStatus( GS.OBJECT.SORTING.STATUS.DECREASING );
                 break;
-            case SHINKEN.OBJECT.SORTING.STATUS.DECREASING:
-                this.setStatus( SHINKEN.OBJECT.SORTING.STATUS.NONE );
+            case GS.OBJECT.SORTING.STATUS.DECREASING:
+                this.setStatus( GS.OBJECT.SORTING.STATUS.NONE );
                 break;
         }
     },
@@ -5089,7 +5089,7 @@ SHINKEN.OBJECT.Sorting.prototype = {
             case "click-on-option-header-popup":
                 this.setStatus( param_1.status );
                 this.setIndex( param_1.index );
-                this.changePopUpStatus( SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE );
+                this.changePopUpStatus( GS.OBJECT.SORTING.POPUP_STATUS.CLOSE );
                 break;
             case "click-on-header":
                 this.changeToNextStatus();
@@ -5100,13 +5100,13 @@ SHINKEN.OBJECT.Sorting.prototype = {
     },
     changePopUpStatus         : function ( to_set ) {
         if ( !to_set ) {
-            to_set = this._pop_up_status === SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE ? SHINKEN.OBJECT.SORTING.POPUP_STATUS.OPEN : SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE;
+            to_set = this._pop_up_status === GS.OBJECT.SORTING.POPUP_STATUS.CLOSE ? GS.OBJECT.SORTING.POPUP_STATUS.OPEN : GS.OBJECT.SORTING.POPUP_STATUS.CLOSE;
         }
         this._pop_up_status = to_set;
         this.updateDomParent();
     },
     hidePopup                 : function () {
-        this.changePopUpStatus( SHINKEN.OBJECT.SORTING.POPUP_STATUS.CLOSE );
+        this.changePopUpStatus( GS.OBJECT.SORTING.POPUP_STATUS.CLOSE );
     },
     getStatus                 : function () {
         return this._status;
@@ -5119,22 +5119,22 @@ SHINKEN.OBJECT.Sorting.prototype = {
         this.updateDomParent();
     },
     updateDomParent           : function () {
-        DOM.Service.setDataSet( this._dom_parent, 'sortingStatus', this._status );
-        DOM.Service.setDataSet( this._dom_parent, 'sortingPopUpStatus', this._pop_up_status );
+        SERVICE.DOM.setDataSet( this._dom_parent, 'sortingStatus', this._status );
+        SERVICE.DOM.setDataSet( this._dom_parent, 'sortingPopUpStatus', this._pop_up_status );
     },
     setIndex                  : function ( to_set ) {
-        if ( this._status === SHINKEN.OBJECT.SORTING.STATUS.NONE ) {
-            to_set = SHINKEN.OBJECT.SORTING.NO_INDEX;
+        if ( this._status === GS.OBJECT.SORTING.STATUS.NONE ) {
+            to_set = GS.OBJECT.SORTING.NO_INDEX;
         }
         this._counter.update( "index_sorting", to_set );
     },
     setStatus                 : function ( to_set ) {
         this._status = to_set;
         switch ( this._status ) {
-            case SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE:
+            case GS.OBJECT.SORTING.STATUS.UNAVAILABLE:
                 break;
-            case SHINKEN.OBJECT.SORTING.STATUS.NONE:
-                this.setIndex( SHINKEN.OBJECT.SORTING.NO_INDEX );
+            case GS.OBJECT.SORTING.STATUS.NONE:
+                this.setIndex( GS.OBJECT.SORTING.NO_INDEX );
                 break;
             default:
                 break;
@@ -5142,30 +5142,30 @@ SHINKEN.OBJECT.Sorting.prototype = {
         this.updateDomParent();
     },
     computeHtml               : function ( name_parent ) {
-        if ( this._status === SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE || this.getDomElement() ) {
+        if ( this._status === GS.OBJECT.SORTING.STATUS.UNAVAILABLE || this.getDomElement() ) {
             return;
         }
-        this.sort_popup_button         = DOM.Service.createElement( "div",
+        this.sort_popup_button         = SERVICE.DOM.createElement( "div",
             {
                 class  : "shinken-sort-popup-button shinken-2023-arrow-down",
                 onclick: "MANAGER.EventManagerV2.clickButton(event, 'click-on-header-popup', '" + name_parent + "',event)"
             } );
-        this.sort_priority_dom_element = DOM.Service.createElement( "div", { class: "shinken-list-header-sort-priority" } );
-        this.popup_sort_container      = DOM.Service.createElement( "div", { class: "shinken-list-header-sort-popup" } );
+        this.sort_priority_dom_element = SERVICE.DOM.createElement( "div", { class: "shinken-list-header-sort-priority" } );
+        this.popup_sort_container      = SERVICE.DOM.createElement( "div", { class: "shinken-list-header-sort-popup" } );
         this.computeHtmlSortPriority();
         this.computeHtmlSortPopup( name_parent );
     },
     computeHtmlSortPopup      : function ( name_parent ) {
-        DOM.Service.empty( this.popup_sort_container );
-        var _increase_option    = this.computeHtmlSortPopupOption( SHINKEN.OBJECT.SORTING.STATUS.INCREASING, "shinicon shinicon-sort-increase", _( "shinken_list.sort.increase", [DICTIONARY_COMMON_UI] ), name_parent );
-        var _decrease_option    = this.computeHtmlSortPopupOption( SHINKEN.OBJECT.SORTING.STATUS.DECREASING, "shinicon shinicon-sort-decrease", _( "shinken_list.sort.decrease", [DICTIONARY_COMMON_UI] ), name_parent );
-        var _delete_sort_option = this.computeHtmlSortPopupOption( SHINKEN.OBJECT.SORTING.STATUS.NONE, "shinkon shinkon-times-bold", _( "shinken_list.sort.remove", [DICTIONARY_COMMON_UI] ), name_parent );
-        DOM.Service.addElementTo( _increase_option, this.popup_sort_container );
-        DOM.Service.addElementTo( _decrease_option, this.popup_sort_container );
-        DOM.Service.addElementTo( _delete_sort_option, this.popup_sort_container );
+        SERVICE.DOM.empty( this.popup_sort_container );
+        var _increase_option    = this.computeHtmlSortPopupOption( GS.OBJECT.SORTING.STATUS.INCREASING, "shinicon shinicon-sort-increase", _( "shinken_list.sort.increase", [DICTIONARY_COMMON_UI] ), name_parent );
+        var _decrease_option    = this.computeHtmlSortPopupOption( GS.OBJECT.SORTING.STATUS.DECREASING, "shinicon shinicon-sort-decrease", _( "shinken_list.sort.decrease", [DICTIONARY_COMMON_UI] ), name_parent );
+        var _delete_sort_option = this.computeHtmlSortPopupOption( GS.OBJECT.SORTING.STATUS.NONE, "shinkon shinkon-times-bold", _( "shinken_list.sort.remove", [DICTIONARY_COMMON_UI] ), name_parent );
+        SERVICE.DOM.addElementTo( _increase_option, this.popup_sort_container );
+        SERVICE.DOM.addElementTo( _decrease_option, this.popup_sort_container );
+        SERVICE.DOM.addElementTo( _delete_sort_option, this.popup_sort_container );
     },
     computeHtmlSortPopupOption: function ( status, icon, label, name_parent ) {
-        var to_return   = DOM.Service.createElement( "div",
+        var to_return   = SERVICE.DOM.createElement( "div",
             {
                 class        : "shinken-list-header-sort-popup-option",
                 "data-status": status,
@@ -5173,45 +5173,45 @@ SHINKEN.OBJECT.Sorting.prototype = {
                 onclick      : "MANAGER.EventManagerV2.clickButton(event, 'click-on-option-header-popup', '" + name_parent + "', event)"
             }
         );
-        var table       = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-header-sort-popup-option-table" } );
-        var tr          = DOM.Service.createElement( "tr", {} );
-        var _icon_cell  = DOM.Service.createElement( "td", { class: "shinken-list-header-sort-popup-option-icon-cell" } );
-        var _label_cell = DOM.Service.createElement( "td", {}, label );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: icon } ), _icon_cell );
-        DOM.Service.addElementTo( _icon_cell, tr );
-        DOM.Service.addElementTo( _label_cell, tr );
-        DOM.Service.addElementTo( tr, table );
-        DOM.Service.addElementTo( table, to_return );
+        var table       = SERVICE.DOM.createElement( "table", { class: "shinken-width-100 shinken-list-header-sort-popup-option-table" } );
+        var tr          = SERVICE.DOM.createElement( "tr", {} );
+        var _icon_cell  = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-sort-popup-option-icon-cell" } );
+        var _label_cell = SERVICE.DOM.createElement( "td", {}, label );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: icon } ), _icon_cell );
+        SERVICE.DOM.addElementTo( _icon_cell, tr );
+        SERVICE.DOM.addElementTo( _label_cell, tr );
+        SERVICE.DOM.addElementTo( tr, table );
+        SERVICE.DOM.addElementTo( table, to_return );
         return to_return;
     },
     computeHtmlSortPriority   : function () {
-        var _table                      = DOM.Service.createElement( "table", { class: "shinken-list-header-sort-priority-table shinken-width-100 shinken-user-select-none" } );
-        var _tr                         = DOM.Service.createElement( "tr", {} );
-        this._counter.dom_element_label = DOM.Service.createElement( "td", { class: "shinken-list-header-sort-priority-number" } );
-        var _icon                       = DOM.Service.createElement( "td", { class: "shinken-list-header-sort-priority-icon-cell" } );
-        var _icon_decrease              = DOM.Service.createElement( "span", { class: "shinicon shinicon-sort-decrease" } );
-        var _icon_increase              = DOM.Service.createElement( "span", { class: "shinicon shinicon-sort-increase" } );
+        var _table                      = SERVICE.DOM.createElement( "table", { class: "shinken-list-header-sort-priority-table shinken-width-100 shinken-user-select-none" } );
+        var _tr                         = SERVICE.DOM.createElement( "tr", {} );
+        this._counter.dom_element_label = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-sort-priority-number" } );
+        var _icon                       = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-sort-priority-icon-cell" } );
+        var _icon_decrease              = SERVICE.DOM.createElement( "span", { class: "shinicon shinicon-sort-decrease" } );
+        var _icon_increase              = SERVICE.DOM.createElement( "span", { class: "shinicon shinicon-sort-increase" } );
         
-        DOM.Service.addElementTo( _icon_decrease, _icon );
-        DOM.Service.addElementTo( _icon_increase, _icon );
-        DOM.Service.addElementTo( this._counter.dom_element_label, _tr );
-        DOM.Service.addElementTo( _icon, _tr );
-        DOM.Service.addElementTo( _tr, _table );
-        DOM.Service.addElementTo( _table, this.sort_priority_dom_element );
+        SERVICE.DOM.addElementTo( _icon_decrease, _icon );
+        SERVICE.DOM.addElementTo( _icon_increase, _icon );
+        SERVICE.DOM.addElementTo( this._counter.dom_element_label, _tr );
+        SERVICE.DOM.addElementTo( _icon, _tr );
+        SERVICE.DOM.addElementTo( _tr, _table );
+        SERVICE.DOM.addElementTo( _table, this.sort_priority_dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Sorting, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.SortingInterface           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Sorting, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.SortingInterface           = function () {
 };
-SHINKEN.OBJECT.SortingInterface.prototype = {
+GS.OBJECT.SortingInterface.prototype = {
     initSorting            : function () {
-        this.sorting_object = new SHINKEN.OBJECT.Sorting();
+        this.sorting_object = new GS.OBJECT.Sorting();
         this.sorting_object.init();
     },
     initSortingAvailability: function () {
     },
     makeSortingUnavailable : function () {
-        this.sorting_object._status = SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE;
+        this.sorting_object._status = GS.OBJECT.SORTING.STATUS.UNAVAILABLE;
     },
     computeHtmlSorting     : function () {
         this.sorting_object.computeHtml( this.name );
@@ -5244,8 +5244,8 @@ SHINKEN.OBJECT.SortingInterface.prototype = {
         return this.sorting_object.setStatus( to_set );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SortingInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.SORTING                   = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SortingInterface, GS.OBJECT.ShinkenObject );
+GS.OBJECT.SORTING                   = {
     NO_INDEX    : 0,
     STATUS      : {
         UNAVAILABLE: "UNAVAILABLE",
@@ -5258,7 +5258,7 @@ SHINKEN.OBJECT.SORTING                   = {
         OPEN : "OPEN"
     }
 };
-SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
+GS.TOOLS.ARRAY                      = (function ( self ) {
     "use strict";
     
     self.cleanEmpty                      = function ( array ) {
@@ -5350,10 +5350,10 @@ SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
     };
     self.sortArrayByUsingInteger         = function ( array, reverse ) {
         return array.sort( function ( a, b ) {
-            if ( SHINKEN.TOOLS.NUMBER.parseStringToPositiveInteger( a ) < SHINKEN.TOOLS.NUMBER.parseStringToPositiveInteger( b ) ) {
+            if ( GS.TOOLS.NUMBER.parseStringToPositiveInteger( a ) < GS.TOOLS.NUMBER.parseStringToPositiveInteger( b ) ) {
                 return reverse ? 1 : -1;
             }
-            else if ( SHINKEN.TOOLS.NUMBER.parseStringToPositiveInteger( a ) > SHINKEN.TOOLS.NUMBER.parseStringToPositiveInteger( b ) ) {
+            else if ( GS.TOOLS.NUMBER.parseStringToPositiveInteger( a ) > GS.TOOLS.NUMBER.parseStringToPositiveInteger( b ) ) {
                 return reverse ? -1 : 1;
             }
             return 0;
@@ -5442,7 +5442,7 @@ SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
         if ( _size === 1 ) {
             return _to_return;
         }
-        return self.findValueDeeply( _to_return, SHINKEN.TOOLS.ARRAY.clone( keys ).splice( -1, 1 ) );
+        return self.findValueDeeply( _to_return, GS.TOOLS.ARRAY.clone( keys ).splice( -1, 1 ) );
     };
     self.findFirstElementWith            = function ( array, key, value ) {
         if ( !array || !key || typeof value === 'undefined' ) {
@@ -5838,7 +5838,7 @@ SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
     };
     self.getMedianIndex                  = function ( array, round_up ) {
         if ( !array ) {
-            return SHINKEN.TOOLS.ARRAY.NOT_FOUND;
+            return GS.TOOLS.ARRAY.NOT_FOUND;
         }
         return round_up ? Math.ceil( array.length / 2 ) : Math.floor( array.length / 2 );
     };
@@ -5938,9 +5938,9 @@ SHINKEN.TOOLS.ARRAY                      = (function ( self ) {
     };
     return self;
 })
-( SHINKEN.TOOLS.ARRAY || {} );
-SHINKEN.TOOLS.ARRAY.NOT_FOUND            = -1;
-SHINKEN.TOOLS.BOOLEAN                    = (function ( self ) {
+( GS.TOOLS.ARRAY || {} );
+GS.TOOLS.ARRAY.NOT_FOUND            = -1;
+GS.TOOLS.BOOLEAN                    = (function ( self ) {
     self.isBoolean      = function ( value ) {
         return value === false || value === true || value === "false" || value === "true";
     };
@@ -5954,7 +5954,7 @@ SHINKEN.TOOLS.BOOLEAN                    = (function ( self ) {
         return !!value;
     };
     return self;
-})( SHINKEN.TOOLS.BOOLEAN || {} );
+})( GS.TOOLS.BOOLEAN || {} );
 var DATE_TIME                            = DATE_TIME || {};
 var __translation;
 DATE_TIME.FORMAT                         = {
@@ -6051,11 +6051,11 @@ DATE_TIME.FORMAT.getTime                 = function ( date, format ) {
     format = format.toUpperCase();
     switch ( format ) {
         case DATE_TIME.FORMAT.TIME.DEFAULT:
-            return SHINKEN.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 ) + ':' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getSeconds(), 2 );
+            return GS.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + GS.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 ) + ':' + GS.TOOLS.STRING.prefix_by_zero( date.getSeconds(), 2 );
         case DATE_TIME.FORMAT.TIME.HH_MM:
-            return SHINKEN.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 );
+            return GS.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + GS.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 );
         default:
-            return SHINKEN.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 ) + ':' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getSeconds(), 2 );
+            return GS.TOOLS.STRING.prefix_by_zero( date.getHours(), 2 ) + ':' + GS.TOOLS.STRING.prefix_by_zero( date.getMinutes(), 2 ) + ':' + GS.TOOLS.STRING.prefix_by_zero( date.getSeconds(), 2 );
     }
     
 };
@@ -6066,13 +6066,13 @@ DATE_TIME.FORMAT.get_date                = function ( date, format ) {
     
     switch ( format ) {
         case DATE_TIME.FORMAT.DATE.DEFAULT:
-            return date.getFullYear() + '-' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
+            return date.getFullYear() + '-' + GS.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + GS.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
         case DATE_TIME.FORMAT.DATE.NO_YEAR:
-            return SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
+            return GS.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + GS.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
         case DATE_TIME.FORMAT.DATE.WITH_SLASH:
-            return date.getFullYear() + '/' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '/' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
+            return date.getFullYear() + '/' + GS.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '/' + GS.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
         default:
-            return date.getFullYear() + '-' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + SHINKEN.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
+            return date.getFullYear() + '-' + GS.TOOLS.STRING.prefix_by_zero( date.getMonth() + 1, 2 ) + '-' + GS.TOOLS.STRING.prefix_by_zero( date.getDate(), 2 );
     }
     
 };
@@ -6444,7 +6444,7 @@ DOM.BodyService                          = (function ( self ) {
         return _child;
     };
     self.addOrRemoveClasses = function ( boolean, _class ) {
-        DOM.Service.addOrRemoveClasses( self.getDomElement(), boolean, _class );
+        SERVICE.DOM.addOrRemoveClasses( self.getDomElement(), boolean, _class );
     };
     self.askAddClass        = function ( to_add, time_out ) {
         self.getDomElement().classList.add( to_add );
@@ -6465,7 +6465,7 @@ DOM.BodyService                          = (function ( self ) {
         __list_to_remove[ to_remove ] = false;
     };
     self.addChild           = function ( dom_element ) {
-        DOM.Service.addElementTo( dom_element, self.getDomElement() );
+        SERVICE.DOM.addElementTo( dom_element, self.getDomElement() );
     };
     self.getDomElement      = function () {
         if ( !__body_element ) {
@@ -6478,7 +6478,7 @@ DOM.BodyService                          = (function ( self ) {
     };
     self.getWidth           = function () {
         if ( !__bouding_rect ) {
-            __bouding_rect = DOM.Service.getBoundingClientRect( this.getDomElement() );
+            __bouding_rect = SERVICE.DOM.getBoundingClientRect( this.getDomElement() );
         }
         return __bouding_rect[ DOM.CONST.STYLE.WIDTH ];
     };
@@ -6494,14 +6494,14 @@ DOM.ScrollService                       = (function ( self ) {
     "use strict";
     
     self.getMiddleScrollPosition       = function ( dom_element_container ) {
-        var _top    = DOM.Service.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.TOP );
-        var _bottom = DOM.Service.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.BOTTOM );
+        var _top    = SERVICE.DOM.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.TOP );
+        var _bottom = SERVICE.DOM.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.BOTTOM );
         
         return ((_bottom - _top) / 2) + _top;
     };
     self.getFirstVisibleDom            = function ( dom_element_container, css_selector_children, move_down ) {
-        var _position = DOM.Service.getBoundingClientRect( dom_element_container, move_down ? DOM.CONST.STYLE.TOP : DOM.CONST.STYLE.BOTTOM );
-        var _list     = SHINKEN.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
+        var _position = SERVICE.DOM.getBoundingClientRect( dom_element_container, move_down ? DOM.CONST.STYLE.TOP : DOM.CONST.STYLE.BOTTOM );
+        var _list     = GS.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
         var _size     = _list.length;
         if ( !_size ) {
             return null;
@@ -6510,7 +6510,7 @@ DOM.ScrollService                       = (function ( self ) {
     };
     self.getCloserVisibleDomFromMiddle = function ( dom_element_container, css_selector_children, move_down ) {
         var _middle_pos = DOM.ScrollService.getMiddleScrollPosition( dom_element_container );
-        var _list       = SHINKEN.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
+        var _list       = GS.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
         var _size       = _list.length;
         if ( !_size ) {
             return null;
@@ -6527,13 +6527,13 @@ DOM.ScrollService                       = (function ( self ) {
         var _current;
         for ( ; _index < _size && _index >= 0; _index = _index + _delta ) {
             _current = list[ _index ];
-            if ( !DOM.Service.isVisible( _current ) ) {
+            if ( !SERVICE.DOM.isVisible( _current ) ) {
                 continue;
             }
-            if ( DOM.Service.getMissingScrollPositionToBeVisible( _current, dom_element_container ) ) {
+            if ( SERVICE.DOM.getMissingScrollPositionToBeVisible( _current, dom_element_container ) ) {
                 continue;
             }
-            var _median = DOM.Service.getBoundingClientRect( _current, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
+            var _median = SERVICE.DOM.getBoundingClientRect( _current, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
             if ( Math.abs( _median - position ) < _last_closer_diff ) {
                 _last_closer_diff = Math.abs( _median - position );
                 _closer_index     = _index;
@@ -6570,13 +6570,13 @@ DOM.ScrollService                       = (function ( self ) {
         switch ( action_type ) {
             case DOM.CONST.ATTRIBUTE.SCROLL_TOP:
             case DOM.CONST.ATTRIBUTE.SCROLL_DOWN:
-                if ( self.isVisible( dom_element, dom_element_to_bind_with, 3 * DOM.Service.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT ), action_type ) ) {
+                if ( self.isVisible( dom_element, dom_element_to_bind_with, 3 * SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT ), action_type ) ) {
                     return;
                 }
                 else {
-                    var _delta = DOM.Service.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT );
+                    var _delta = SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT );
                     if ( previous_position_vertical ) {
-                        _delta = previous_position_vertical - DOM.Service.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
+                        _delta = previous_position_vertical - SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
                     }
                     self.changeVerticaly( dom_element, _delta, action_type );
                 }
@@ -6615,10 +6615,10 @@ DOM.ServiceEllipsis                     = (function ( self ) {
         return __size_distributor;
     };
     self.ellipsis             = function ( dom_element, text, font, nb_line ) {
-        DOM.Service.empty( dom_element );
+        SERVICE.DOM.empty( dom_element );
         var _to_return = {
-            width       : DOM.Service.getBoundingClientRect( dom_element, DOM.CONST.STYLE.WIDTH ),
-            height      : DOM.Service.getBoundingClientRect( dom_element.parentElement, DOM.CONST.STYLE.HEIGHT ),
+            width       : SERVICE.DOM.getBoundingClientRect( dom_element, DOM.CONST.STYLE.WIDTH ),
+            height      : SERVICE.DOM.getBoundingClientRect( dom_element.parentElement, DOM.CONST.STYLE.HEIGHT ),
             text        : "",
             has_ellipsis: false,
             line_number : 1
@@ -6642,7 +6642,7 @@ DOM.ServiceEllipsis                     = (function ( self ) {
             _to_return.line_number  = nb_line;
         }
         dom_element.innerText = _to_return.text;
-        if ( _to_return.height < DOM.Service.getBoundingClientRect( dom_element, DOM.CONST.STYLE.HEIGHT ) && nb_line > 1 ) {
+        if ( _to_return.height < SERVICE.DOM.getBoundingClientRect( dom_element, DOM.CONST.STYLE.HEIGHT ) && nb_line > 1 ) {
             return self.ellipsis( dom_element, text, font, nb_line - 1 );
         }
         return _to_return;
@@ -6708,1129 +6708,8 @@ DOM.ServiceEllipsis                     = (function ( self ) {
     };
     return self;
 })( DOM.ServiceEllipsis || {} );
-DOM.Service                             = (function ( self ) {
-    self.findParentElementWithDataSet              = function ( element, key, deepLimit ) {
-        if ( !element || deepLimit < 0 ) {
-            return null;
-        }
-        if ( self.hasKeyInDataSet( element, key ) ) {
-            return element;
-        }
-        deepLimit--;
-        return this.findParentElementWithDataSet( element.parentElement, key, deepLimit );
-    };
-    self.findParentElementWithClass                = function ( element, class_tag, deepLimit, data_set_name, data_set_value ) {
-        if ( !element || deepLimit < 0 ) {
-            return null;
-        }
-        if ( SHINKEN.NAVIGATOR.isNavigator( "isIE" ) && (element.tagName === "path" || element.tagName === "svg") ) {
-            deepLimit--;
-            return this.findParentElementWithClass( element.parentElement, class_tag, deepLimit, data_set_name, data_set_value );
-        }
-        if ( element.classList.contains( class_tag ) ) {
-            if ( !data_set_name ) {
-                return element;
-            }
-            else {
-                if ( element.dataset[ data_set_name ] === data_set_value ) {
-                    return element;
-                }
-            }
-        }
-        deepLimit--;
-        return this.findParentElementWithClass( element.parentElement, class_tag, deepLimit, data_set_name, data_set_value );
-    };
-    self.findParentElementWithTagName              = function ( element, tagName, deepLimit ) {
-        if ( !element || deepLimit < 0 ) {
-            return null;
-        }
-        if ( element.tagName === tagName ) {
-            return element;
-        }
-        deepLimit--;
-        return this.findParentElementWithTagName( element.parentElement, tagName, deepLimit );
-    };
-    self.findParentElementWithID                   = function ( element, id, deepLimit ) {
-        if ( !element || deepLimit < 0 ) {
-            return null;
-        }
-        if ( SHINKEN.NAVIGATOR.isNavigator( "isIE" ) && (element.tagName === "path" || element.tagName === "svg") ) {
-            deepLimit--;
-            return this.findParentElementWithID( element.parentElement, id, deepLimit );
-        }
-        if ( element.id === id ) {
-            return element;
-        }
-        deepLimit--;
-        return this.findParentElementWithID( element.parentElement, id, deepLimit );
-    };
-    self.findParentElementByClassWithClassExcluded = function ( element, class_tag, class_exclude, deepLimit ) {
-        if ( deepLimit < 0 || !element ) {
-            return null;
-        }
-        if ( element.classList.contains( class_exclude ) ) {
-            return null;
-        }
-        if ( element.classList.contains( class_tag ) ) {
-            return element;
-        }
-        deepLimit--;
-        return this.findParentElementByClassWithClassExcluded( element.parentElement, class_tag, class_exclude, deepLimit );
-    };
-    self.askFindChildElementWithClass              = function ( element, class_tag, class_exclude, deepLimit ) {
-        if ( deepLimit < 0 || !element || !class_tag ) {
-            return null;
-        }
-        if ( SHINKEN.TOOLS.STRING.startsWith( class_tag, "." ) ) {
-            class_tag = class_tag.substring( 1 );
-        }
-        if ( SHINKEN.TOOLS.STRING.startsWith( class_exclude, "." ) ) {
-            class_exclude = class_exclude.substring( 1 );
-        }
-        if ( element.classList.contains( class_tag ) ) {
-            return element;
-        }
-        return this.findChildElementWithClass( element.children, class_tag, class_exclude, deepLimit );
-    };
-    self.findChildElementWithClass                 = function ( elements, class_tag, class_exclude, deepLimit ) {
-        if ( deepLimit < 0 || !elements.length ) {
-            return null;
-        }
-        let children = [];
-        for ( let i = 0, _size = elements.length; i < _size; i++ ) {
-            try {
-                if ( elements[ i ].classList.contains( class_tag ) ) {
-                    return elements[ i ];
-                }
-                if ( !elements[ i ].classList.contains( class_exclude ) || !elements[ i ].childElementCount ) {
-                    children = SHINKEN.TOOLS.ARRAY.concat( children, SHINKEN.TOOLS.ARRAY.parseToArray( elements[ i ].children ) );
-                }
-            }
-            catch ( e ) {
-            
-            }
-        }
-        deepLimit--;
-        return this.findChildElementWithClass( children, class_tag, class_exclude, deepLimit );
-        
-    };
-    self.querySelectorAll                          = function ( dom_element, css_selector ) {
-        return dom_element.querySelectorAll( css_selector );
-    };
-    self.findChildWithCssSelector                  = function ( dom_element, css_selector ) {
-        return dom_element.querySelector( css_selector );
-    };
-    self.querySelectorAllWithOutChild              = function ( dom_element, class_tag, class_exclude ) {
-        let _to_return = [];
-        let _current;
-        if ( dom_element ) {
-            for ( let i = 0, _size_i = dom_element.children.length; i < _size_i; i++ ) {
-                _current = dom_element.children[ i ];
-                if ( _current.classList.contains( class_exclude ) ) {
-                    continue;
-                }
-                if ( _current.classList.contains( class_tag ) ) {
-                    _to_return.push( _current );
-                    continue;
-                }
-                _to_return = SHINKEN.TOOLS.ARRAY.concat( _to_return, self.querySelectorAllWithOutChild( _current, class_tag, class_exclude ) );
-            }
-        }
-        return _to_return;
-    };
-    self.isExisting                                = function ( dom_element ) {
-        const elements = document.querySelectorAll( self.getSelector( dom_element ) );
-        for ( let i = 0, _size_i = elements.length; i < _size_i; i++ ) {
-            if ( elements[ i ] === dom_element ) {
-                return true;
-            }
-        }
-        return false;
-    };
-    self.isInDom                                   = function ( dom_element ) {
-        return dom_element.getRootNode
-               ? dom_element.getRootNode( { composed: true } ) === document
-               : document.body.contains( dom_element );
-    };
-    self.getSelector                               = function ( dom_element ) {
-        let _class_selector = SHINKEN.TOOLS.ARRAY.join( dom_element.classList, "." );
-        if ( _class_selector ) {
-            _class_selector = "." + _class_selector;
-        }
-        return dom_element.tagName + _class_selector;
-    };
-    self.setPageTitle                              = function ( to_set ) {
-        document.title = to_set;
-    };
-    self.hasKeyInDataSet                           = function ( element, key ) {
-        return typeof element.dataset[ key ] !== "undefined";
-    };
-    self.hasKeyInDataSetAndKeyNotEmpty             = function ( element, key ) {
-        return self.hasKeyInDataSet( element, key ) && element.dataset[ key ];
-    };
-    self.createTable                               = function ( cells_dom ) {
-        const toReturn = document.createElement( "table", { class: "shinken-table" } );
-        let _current_row;
-        let _current_cell;
-        for ( let i = 0, _size_i = cells_dom.length; i < _size_i; i++ ) {
-            _current_row = document.createElement( "tr" );
-            for ( let j = 0, _size_j = cells_dom[ i ].length; j < _size_j; j++ ) {
-                _current_cell = document.createElement( "td" );
-                _current_cell.appendChild( cells_dom[ i ][ j ] );
-                _current_row.appendChild( _current_cell );
-            }
-            toReturn.appendChild( _current_row );
-        }
-        return toReturn;
-    };
-    self.createElement                             = function ( tag, attributes, innerHTML ) {
-        const toReturn = document.createElement( tag );
-        if ( attributes ) {
-            const keys = Object.keys( attributes );
-            const size = keys.length;
-            for ( let i = 0; i < size; i++ ) {
-                toReturn.setAttribute( keys[ i ], attributes[ keys[ i ] ] );
-            }
-        }
-        if ( innerHTML !== undefined && innerHTML !== null ) {
-            toReturn.innerHTML = innerHTML;
-        }
-        return toReturn;
-    };
-    self.createTextNode                            = function ( text ) {
-        return document.createTextNode( text );
-    };
-    self.cloneElement                              = function ( dom_element_to_clone, attributes ) {
-        const _to_return = dom_element_to_clone.cloneNode( true );
-        if ( attributes ) {
-            const keys = Object.keys( attributes );
-            const size = keys.length;
-            for ( let i = 0; i < size; i++ ) {
-                _to_return.setAttribute( keys[ i ], attributes[ keys[ i ] ] );
-            }
-        }
-        return _to_return;
-    };
-    self.addTooltip                                = function ( element, attributes, on_mouse_enter ) {
-        if ( !attributes ) {
-            return;
-        }
-        element.setAttribute( "onmouseenter", on_mouse_enter || "SHINKEN_TOOLTIP.showTooltip(this)" );
-        element.setAttribute( "onmouseleave", "SHINKEN_TOOLTIP.hideTooltip()" );
-        const _keys = Object.keys( attributes );
-        for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
-            element.setAttribute( _keys[ i ], attributes[ _keys[ i ] ] );
-        }
-        return element;
-    };
-    self.removeTooltip                             = function ( element ) {
-        element.setAttribute( "onmouseenter", "" );
-        element.setAttribute( "onmouseleave", "" );
-    };
-    self.removeElement                             = function ( element ) {
-        if ( !element ) {
-            return;
-        }
-        const parent = element.parentNode;
-        try {
-            const _to_return = parent.removeChild( element );
-            return _to_return;
-        }
-        catch ( e ) {
-            return false;
-        }
-    };
-    self.removeParentIfHasClassOrElement           = function ( element, class_to_test ) {
-        if ( !element ) {
-            return;
-        }
-        const parent = element.parentNode;
-        if ( !parent ) {
-            return;
-        }
-        
-        if ( parent.classList.contains( class_to_test ) ) {
-            const _grand_parent = parent.parentNode;
-            if ( !_grand_parent ) {
-                return;
-            }
-            _grand_parent.removeChild( parent );
-        }
-        
-        return parent.removeChild( element );
-    };
-    self.getInnerText                              = function ( element ) {
-        if ( !element ) {
-            return;
-        }
-        return element.innerText.trim();
-    };
-    self.toggleClass                               = function ( element, to_toggle ) {
-        if ( element.classList.contains( to_toggle ) ) {
-            element.classList.remove( to_toggle );
-            return false;
-        }
-        else {
-            element.classList.add( to_toggle );
-            return true;
-        }
-    };
-    self.removeElementIfHasClass                   = function ( element, class_to_test ) {
-        if ( !element ) {
-            return;
-        }
-        if ( !element.classList.contains( class_to_test ) ) {
-            return false;
-        }
-        const parent = element.parentNode;
-        return parent.removeChild( element );
-    };
-    self.addElementWithIndex                       = function ( element, parent, index ) {
-        if ( !index ) {
-            index = 0;
-        }
-        if ( index >= parent.children.length ) {
-            parent.appendChild( element );
-        }
-        else {
-            parent.insertBefore( element, parent.children[ index ] );
-        }
-    };
-    self.addElementAtIndex                         = function ( element, parent, index ) {
-        if ( !parent || !element ) {
-            return;
-        }
-        if ( !index ) {
-            index = 0;
-        }
-        if ( parent.childElementCount <= index ) {
-            return self.addElementTo( element, parent );
-        }
-        else {
-            self.insertElementBefore( parent.children[ index ], element );
-        }
-        return element;
-    };
-    self.addAllChildrenTo                          = function ( element_with_children, parent ) {
-        if ( parent && element_with_children ) {
-            const _children = element_with_children.children;
-            for ( let i = 0, _size_i = _children.length; i < _size_i; i++ ) {
-                self.addElementTo( _children[ i ], parent );
-            }
-            parent.appendChild( element_with_children );
-        }
-        
-    };
-    self.addElementTo                              = function ( element, parent ) {
-        if ( parent && element ) {
-            parent.appendChild( element );
-            return element;
-        }
-        return null;
-    };
-    self.addElementToAfterEmpty                    = function ( element, parent ) {
-        self.empty( parent );
-        self.addElementTo( element, parent );
-    };
-    self.addElementAfterTo                         = function ( element, target ) {
-        const _next = target.nextSibling;
-        if ( _next ) {
-            target.parentNode.insertBefore( element, _next );
-        }
-        else {
-            self.addElementTo( element, target.parentNode );
-        }
-    };
-    self.addElementBeforeToAfterEmpty              = function ( element, target ) {
-        self.empty( target );
-        target.parentNode.insertBefore( element, target );
-        
-    };
-    self.switchElementParent                       = function ( element_1, element_2 ) {
-        if ( !element_1 || !element_2 ) {
-            return;
-        }
-        const parent_1 = element_1.parentNode;
-        const parent_2 = element_2.parentNode;
-        
-        parent_1.removeChild( element_1 );
-        parent_2.removeChild( element_2 );
-        
-        parent_1.appendChild( element_2 );
-        parent_2.appendChild( element_1 );
-    };
-    self.switchElement                             = function ( element_1, element_2 ) {
-        if ( !element_1 || !element_2 ) {
-            return;
-        }
-        const parent_1 = element_1.parentNode;
-        const parent_2 = element_2.parentNode;
-        
-        const _index_1 = SHINKEN.TOOLS.ARRAY.indexOfCollection( parent_1.children, element_1 );
-        const _index_2 = SHINKEN.TOOLS.ARRAY.indexOfCollection( parent_2.children, element_2 );
-        self.insertElementBefore( element_2, element_1 );
-        self.addElementAtIndex( element_1, parent_2, _index_2 );
-    };
-    self.insertElementBefore                       = function ( element_existing, element_to_insert ) {
-        if ( !element_existing || !element_to_insert ) {
-            return;
-        }
-        const _parent = element_existing.parentNode;
-        _parent.insertBefore( element_to_insert, element_existing );
-    };
-    self.addLoadingFrame                           = function ( dom_parent, text, parent_scrollable ) {
-        if ( !dom_parent ) {
-            return;
-        }
-        if ( DOM.Service.getComputedStyle( dom_parent, DOM.CONST.STYLE.POSITION ) === "absolute" ) {
-            console.error( "NOT SUPPORTED addLoadingFrame" );
-            return;
-        }
-        self.setStyle( dom_parent, DOM.CONST.STYLE.POSITION, "relative" );
-        const _to_add = self.createElement( "div", { class: "shinken-loading-frame" }, "" );
-        if ( text ) {
-            var _dom_text = self.createElement( "div", { class: "shinken-loading-frame-text" }, text );
-            self.addElementTo( _dom_text, _to_add );
-            
-            var _interval = setInterval( function () {
-                if ( self.isExisting( _to_add ) ) {
-                    if ( !parent_scrollable ) {
-                        var _new_top = (self.getBoundingClientRect( _to_add )[ "height" ] - self.getBoundingClientRect( _dom_text )[ "height" ]) / 2;
-                        self.setStyle( _dom_text, DOM.CONST.STYLE.TOP, _new_top );
-                    }
-                    else {
-                        var _scrolling_needed = self.getMissingScrollPositionToBeVisible( _dom_text, parent_scrollable );
-                        if ( _scrolling_needed ) {
-                            self.setStyle( _dom_text, DOM.CONST.STYLE.TOP, Math.max( 0, self.getComputedStyle( _dom_text, DOM.CONST.STYLE.TOP ) + _scrolling_needed ) );
-                        }
-                    }
-                }
-                else {
-                    clearInterval( _interval );
-                }
-            }, 200 );
-        }
-        self.addElementTo( _to_add, dom_parent );
-    };
-    self.addLoadingFrameV2                         = function ( dom_parent, text, parent_scrollable ) {
-        if ( !dom_parent ) {
-            return;
-        }
-        if ( DOM.Service.getComputedStyle( dom_parent, DOM.CONST.STYLE.POSITION ) === "absolute" ) {
-            console.error( "NOT SUPPORTED addLoadingFrame" );
-            return;
-        }
-        self.setStyle( dom_parent, DOM.CONST.STYLE.POSITION, "relative" );
-        var _to_add = self.createElement( "div", { class: "shinken-loading-frame" }, SHINKEN.TOOLS.LOADING_FRAME.getHtml( "id-shinken-loading-ui-panel" ) );
-        
-        if ( text ) {
-            var _dom_text = self.createElement( "div", { class: "shinken-loading-frame-text" }, text );
-            self.addElementTo( _dom_text, _to_add );
-            
-            var _interval = setInterval( function () {
-                if ( self.isExisting( _to_add ) ) {
-                    if ( !parent_scrollable ) {
-                        var _new_top = (self.getBoundingClientRect( _to_add )[ "height" ] - self.getBoundingClientRect( _dom_text )[ "height" ]) / 2;
-                        self.setStyle( _dom_text, DOM.CONST.STYLE.TOP, _new_top );
-                    }
-                    else {
-                        var _scrolling_needed = self.getMissingScrollPositionToBeVisible( _dom_text, parent_scrollable );
-                        if ( _scrolling_needed ) {
-                            self.setStyle( _dom_text, DOM.CONST.STYLE.TOP, Math.max( 0, self.getComputedStyle( _dom_text, DOM.CONST.STYLE.TOP ) + _scrolling_needed ) );
-                        }
-                    }
-                }
-                else {
-                    clearInterval( _interval );
-                }
-            }, 200 );
-        }
-        self.addElementTo( _to_add, dom_parent );
-    };
-    self.addServerDown                             = function ( dom_parent, text, parent_scrollable ) {
-        if ( !dom_parent ) {
-            return;
-        }
-        if ( DOM.Service.getComputedStyle( dom_parent, DOM.CONST.STYLE.POSITION ) === "absolute" ) {
-            console.error( "NOT SUPPORTED addServerDown" );
-            return;
-        }
-        self.setStyle( dom_parent, DOM.CONST.STYLE.POSITION, "relative" );
-        
-        self.addElementTo( self.createElement( "div", {}, SHINKEN.TOOLS.BACKEND_NO_RESPONSE_FRAME.getHtml( "id-shinken-loading-ui-panel" ) ), dom_parent );
-    };
-    self.getPositionToPercentFull                  = function ( dom_element, forbid_negative_value ) {
-        var _rect = self.getBoundingClientRect( dom_element );
-        DOM.Service.removeStyles( dom_element, [DOM.CONST.STYLE.HEIGHT, DOM.CONST.STYLE.WIDTH] );
-        var _to_return                       = {};
-        _to_return[ DOM.CONST.STYLE.TOP ]    = self.getPercentCompareToWindowHeight( _rect[ DOM.CONST.STYLE.TOP ], forbid_negative_value );
-        _to_return[ DOM.CONST.STYLE.BOTTOM ] = self.getPercentCompareToWindowHeight( window.innerHeight - _rect[ DOM.CONST.STYLE.TOP ] - _rect[ DOM.CONST.STYLE.HEIGHT ], forbid_negative_value );
-        _to_return[ DOM.CONST.STYLE.LEFT ]   = self.getPercentCompareToWindowWidth( _rect[ DOM.CONST.STYLE.LEFT ], forbid_negative_value );
-        _to_return[ DOM.CONST.STYLE.RIGHT ]  = self.getPercentCompareToWindowWidth( window.innerWidth - _rect[ DOM.CONST.STYLE.LEFT ] - _rect[ DOM.CONST.STYLE.WIDTH ], forbid_negative_value );
-        return _to_return;
-    };
-    self.parsePositionToPercent                    = function ( dom_element, forbid_negative_value ) {
-        var _rect                         = self.getBoundingClientRect( dom_element );
-        var _styles                       = {};
-        _styles[ DOM.CONST.STYLE.TOP ]    = "auto";
-        _styles[ DOM.CONST.STYLE.BOTTOM ] = "auto";
-        _styles[ DOM.CONST.STYLE.LEFT ]   = "auto";
-        _styles[ DOM.CONST.STYLE.RIGHT ]  = "auto";
-        
-        _rect.left < window.innerWidth / 2 ?
-        _styles[ DOM.CONST.STYLE.LEFT ] = self.getPercentCompareToWindowWidth( _rect[ DOM.CONST.STYLE.LEFT ], forbid_negative_value ) :
-        _styles[ DOM.CONST.STYLE.RIGHT ] = self.getPercentCompareToWindowWidth( window.innerWidth - _rect[ DOM.CONST.STYLE.LEFT ] - _rect[ DOM.CONST.STYLE.WIDTH ], forbid_negative_value );
-        
-        _rect.top < window.innerHeight / 2 ?
-        _styles[ DOM.CONST.STYLE.TOP ] = self.getPercentCompareToWindowHeight( _rect[ DOM.CONST.STYLE.TOP ], forbid_negative_value ) :
-        _styles[ DOM.CONST.STYLE.BOTTOM ] = self.getPercentCompareToWindowHeight( window.innerHeight - _rect[ DOM.CONST.STYLE.TOP ] - _rect[ DOM.CONST.STYLE.HEIGHT ], forbid_negative_value );
-        
-        DOM.Service.setStyles( dom_element, _styles );
-    };
-    self.getPercentCompareToWindowHeight           = function ( value, forbid_negative_value ) {
-        var _to_return = (value * 100) / window.innerHeight;
-        if ( forbid_negative_value && _to_return < 0 ) {
-            _to_return = 0;
-        }
-        return _to_return + "%";
-    };
-    self.getPercentCompareToWindowWidth            = function ( value, forbid_negative_value ) {
-        var _to_return = (value * 100) / window.innerWidth;
-        if ( forbid_negative_value && _to_return < 0 ) {
-            _to_return = 0;
-        }
-        return _to_return + "%";
-    };
-    self.parsePositionForDragStart                 = function ( dom_element, ignore_size ) {
-        var _rect = DOM.Service.getBoundingClientRect( dom_element );
-        DOM.Service.removeStyles( dom_element, [DOM.CONST.STYLE.BOTTOM, DOM.CONST.STYLE.RIGHT] );
-        var _new_styles                     = {};
-        _new_styles[ DOM.CONST.STYLE.TOP ]  = _rect[ DOM.CONST.STYLE.TOP ];
-        _new_styles[ DOM.CONST.STYLE.LEFT ] = _rect[ DOM.CONST.STYLE.LEFT ];
-        if ( !ignore_size ) {
-            _new_styles[ DOM.CONST.STYLE.WIDTH ]  = _rect[ DOM.CONST.STYLE.WIDTH ];
-            _new_styles[ DOM.CONST.STYLE.HEIGHT ] = _rect[ DOM.CONST.STYLE.HEIGHT ];
-        }
-        DOM.Service.setStyles( dom_element, _new_styles );
-    };
-    self.getPositionsForSaveInPercent              = function ( dom_element, keys ) {
-        var _to_return = {};
-        var _current_key;
-        for ( var i = 0, _size = keys.length; i < _size; i++ ) {
-            _current_key                = keys[ i ];
-            _to_return [ _current_key ] = self.getPositionForSaveInPercent( dom_element, _current_key );
-        }
-        return _to_return;
-    };
-    self.getPositionForSaveInPercent               = function ( dom_element, key ) {
-        var _value = self.getBoundingClientRect( dom_element, key );
-        switch ( key ) {
-            case DOM.CONST.STYLE.TOP:
-            case DOM.CONST.STYLE.BOTTOM:
-            case DOM.CONST.STYLE.HEIGHT:
-                return self.getPercentCompareToWindowHeight( _value );
-            case DOM.CONST.STYLE.LEFT:
-            case DOM.CONST.STYLE.RIGHT:
-            case DOM.CONST.STYLE.WIDTH:
-                return self.getPercentCompareToWindowWidth( _value );
-        }
-    };
-    
-    self.setDataSet                          = function ( element, data_name, value ) {
-        if ( !element ) {
-            return;
-        }
-        element.dataset[ data_name ] = value;
-    };
-    self.querySelectorAllWithData            = function ( css_selector, data_name, dom_element ) {
-        dom_element    = dom_element || document;
-        var _all_doms  = dom_element.querySelectorAll( css_selector );
-        var _to_return = [];
-        for ( var i = 0, _size_i = _all_doms.length; i < _size_i; i++ ) {
-            if ( _all_doms[ i ].dataset[ data_name ] ) {
-                _to_return.push( _all_doms[ i ] );
-            }
-        }
-        return _to_return;
-    };
-    self.addControllerAnchor                 = function ( dom_element, controller_name ) {
-        dom_element.classList.add( "shinken-parent-event-listener" );
-        dom_element.dataset.controller = controller_name;
-    };
-    self.updateWithComputedWidthClass        = function ( dom_element ) {
-        var _class_to_add = self.computedWidthClass( self.getBoundingClientRect( dom_element, DOM.CONST.STYLE.WIDTH ) );
-        var _classes      = dom_element.classList;
-        for ( var i = 0, _size_i = _classes.length; i < _size_i; i++ ) {
-            if ( SHINKEN.TOOLS.STRING.startsWith( _classes[ i ], "shinken-width-for-responsive-" ) ) {
-                dom_element.classList.remove( _classes[ i ] );
-            }
-        }
-        dom_element.classList.add( _class_to_add );
-    };
-    self.computedWidthClass                  = function ( width ) {
-        var _width_compute = Math.floor( width / 50 );
-        return "shinken-width-for-responsive-" + _width_compute * 50;
-    };
-    self.askAddClass                         = function ( element, to_add, time_out ) {
-        if ( !element ) {
-            return;
-        }
-        element.classList.add( to_add );
-        if ( time_out ) {
-            setTimeout( function () {
-                element.classList.remove( to_add );
-            }, time_out );
-        }
-    };
-    self.addClasses                          = function ( dom_element, class_to_add ) {
-        if ( !dom_element ) {
-            return;
-        }
-        if ( typeof class_to_add === "string" ) {
-            class_to_add = class_to_add.split( " " );
-        }
-        for ( var i = 0, _size_i = class_to_add.length; i < _size_i; i++ ) {
-            dom_element.classList.add( class_to_add[ i ] );
-        }
-    };
-    self.removeClasses                       = function ( dom_element, class_to_remove ) {
-        if ( !dom_element ) {
-            return;
-        }
-        if ( typeof class_to_remove === "string" ) {
-            class_to_remove = class_to_remove.split( " " );
-        }
-        for ( var i = 0, _size_i = class_to_remove.length; i < _size_i; i++ ) {
-            dom_element.classList.remove( class_to_remove[ i ] );
-        }
-    };
-    self.addOrRemoveClasses                  = function ( dom_element, boolean, _class ) {
-        boolean ? self.addClasses( dom_element, _class ) : self.removeClasses( dom_element, _class );
-    };
-    self.applySiblingSettings                = function ( dom_element, dom_element_ref ) {
-        dom_element.className = dom_element_ref.className;
-    };
-    self.getComputedStyle                    = function ( dom_element, key ) {
-        if ( !dom_element ) {
-            return {};
-        }
-        var _to_return = dom_element.currentStyle || getComputedStyle( dom_element );
-        if ( key ) {
-            _to_return = _to_return[ key ];
-            if ( SHINKEN.TOOLS.STRING.endsWith( _to_return, "px" ) ) {
-                _to_return = parseInt( _to_return );
-            }
-        }
-        return _to_return;
-    };
-    self.getComputedStyles                   = function ( dom_element, keys ) {
-        if ( !keys || !dom_element ) {
-            return self.getComputedStyle( dom_element );
-        }
-        var _computed  = self.getComputedStyle( dom_element );
-        var _to_return = {};
-        var _to_add;
-        for ( var i = 0, _size_i = keys.length; i < _size_i; i++ ) {
-            _to_add = _computed[ keys[ i ] ];
-            if ( SHINKEN.TOOLS.STRING.endsWith( _to_add, "px" ) ) {
-                _to_add = parseInt( _to_add );
-            }
-            _to_return[ keys[ i ] ] = _to_add;
-        }
-        return _to_return;
-    };
-    self.cleanAllStyles                      = function ( dom_element ) {
-        dom_element.removeAttribute( "style" );
-    };
-    self.attributeStyleToDict                = function ( dom_element ) {
-        var attribute_style = dom_element.getAttribute( "style" );
-        var _to_return      = {};
-        var split_1         = attribute_style.split( ";" );
-        for ( var i = 0, _size_i = split_1.length; i < _size_i; i++ ) {
-            if ( !split_1[ i ] ) {
-                continue;
-            }
-            var split_2                = split_1[ i ].split( ":" );
-            _to_return[ split_2[ 0 ] ] = split_2[ 1 ];
-        }
-        return _to_return;
-    };
-    self.cleanAllStyles                      = function ( dom_element ) {
-        dom_element.removeAttribute( "style" );
-    };
-    self.setStyle                            = function ( dom_element, key, value ) {
-        if ( !dom_element || !key ) {
-            return;
-        }
-        if ( value !== "" ) {
-            dom_element.style[ key ] = self._parseStyle( key, value );
-        }
-        else {
-            self.removeStyle( dom_element, key );
-        }
-    };
-    self._parseStyle                         = function ( key, value ) {
-        switch ( key ) {
-            case DOM.CONST.STYLE.LEFT:
-            case DOM.CONST.STYLE.TOP:
-            case DOM.CONST.STYLE.HEIGHT:
-            case DOM.CONST.STYLE.WIDTH:
-            case DOM.CONST.STYLE.LINE_HEIGHT:
-            case DOM.CONST.STYLE.MAX_HEIGHT:
-            case DOM.CONST.STYLE.MAX_WIDTH:
-            case DOM.CONST.STYLE.BORDER_RADIUS:
-                if ( !isNaN( value ) ) {
-                    value = value + "px";
-                }
-                break;
-            default:
-                break;
-        }
-        return value;
-    };
-    self.setStyles                           = function ( dom_element, styles ) {
-        var keys = Object.keys( styles );
-        for ( var i = 0, size = keys.length; i < size; i++ ) {
-            self.setStyle( dom_element, keys[ i ], styles[ keys[ i ] ] );
-        }
-    };
-    self.removeStyles                        = function ( dom_element, styles ) {
-        for ( var i = 0, size = styles.length; i < size; i++ ) {
-            self.removeStyle( dom_element, styles[ i ] );
-        }
-    };
-    self.removeStyle                         = function ( dom_element, style ) {
-        if ( !dom_element ) {
-            return;
-        }
-        dom_element.style.removeProperty( style );
-    };
-    self.styleToHtml                         = function ( styles ) {
-        var _keys      = Object.keys( styles );
-        var _current_key;
-        var _to_return = "";
-        for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
-            _current_key = _keys[ i ];
-            _to_return += _current_key + ":" + self._parseStyle( _current_key, styles[ _current_key ] ) + ";";
-        }
-        return _to_return;
-    };
-    self.setStyleInHard                      = function ( dom_element, style ) {
-        self.removeStyle( dom_element, style );
-        var _hard_value = self.getBoundingClientRect( dom_element, style );
-        self.setStyle( dom_element, style, _hard_value );
-    };
-    self.ChangeUserSelect                    = function ( dom_element, add_or_remove ) {
-        if ( !add_or_remove ) {
-            DOM.Service.setStyles( dom_element, { userSelect: "none" } );
-            for ( let _dom_element of dom_element.querySelectorAll( ".shinken-user-select-text" ) ) {
-                _dom_element.style.cssText += "user-select: none !important;";
-            }
-        }
-        else {
-            DOM.Service.setStyles( dom_element, { userSelect: "" } );
-            for ( let _dom_element of dom_element.querySelectorAll( ".shinken-user-select-text" ) ) {
-                DOM.Service.setStyles( _dom_element, { userSelect: "" } );
-            }
-        }
-    };
-    self.getBoundingClientRect               = function ( dom_element, key ) {
-        if ( !dom_element ) {
-            return;
-        }
-        var _rect = dom_element.getBoundingClientRect();
-        if ( !key ) {
-            return _rect;
-        }
-        if ( key === DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM ) {
-            return parseInt( (_rect[ DOM.CONST.STYLE.TOP ] + _rect[ DOM.CONST.STYLE.BOTTOM ]) / 2 );
-        }
-        return parseInt( _rect[ key ] );
-    };
-    self.hasScrollHeight                     = function ( dom_element ) {
-        return dom_element.clientHeight < dom_element.scrollHeight;
-    };
-    self.hasScrollWidth                      = function ( dom_element ) {
-        return dom_element.clientWidth < dom_element.scrollWidth;
-    };
-    self.setHtmlOrHide                       = function ( dom_element, to_set ) {
-        if ( !dom_element ) {
-            return;
-        }
-        if ( to_set ) {
-            dom_element.innerHTML = to_set;
-            dom_element.classList.remove( "shinken-hidden" );
-        }
-        else {
-            dom_element.classList.add( "shinken-hidden" );
-        }
-    };
-    self.replaceElement                      = function ( element_to_replace, element_replace_with ) {
-        var _parent_node = element_to_replace.parentNode;
-        _parent_node.replaceChild( element_replace_with, element_to_replace );
-    };
-    self.empty                               = function ( dom_element ) {
-        if ( !dom_element ) {
-            return;
-        }
-        while ( dom_element.firstChild ) {
-            dom_element.removeChild( dom_element.firstChild );
-        }
-    };
-    self.addAttribute                        = function ( dom_element, attribute_name, to_set ) {
-        dom_element.setAttribute( attribute_name, to_set );
-    };
-    self.removeAttribute                     = function ( dom_element, attribute_name ) {
-        dom_element.removeAttribute( attribute_name );
-    };
-    self.getHeight                           = function ( dom_element ) {
-        if ( !dom_element ) {
-            return 0;
-        }
-        return dom_element.offsetHeight;
-    };
-    self.getHeightWithMargin                 = function ( dom_element ) {
-        if ( !dom_element ) {
-            return 0;
-        }
-        return dom_element.offsetHeight + self.getComputedStyle( dom_element, "marginTop" ) + self.getComputedStyle( dom_element, "marginBottom" );
-    };
-    self.isVisible                           = function ( elem, deepness ) {
-        if ( !elem ) {
-            return false;
-        }
-        if ( !deepness ) {
-            deepness = 0;
-        }
-        try {
-            var styles = self.getComputedStyle( elem );
-        }
-        catch ( ex ) {
-            throw Error( "DOM.Service: elem is not an element." );
-        }
-        
-        if ( styles.display === "none" ) {
-            return false;
-        }
-        if ( styles.visibility !== "visible" && styles.visibility !== "inherit" ) {
-            return false;
-        }
-        if ( styles.opacity < 0.1 ) {
-            return false;
-        }
-        if ( elem.parentElement && deepness > 0 ) {
-            return self.isVisible( elem.parentElement, --deepness );
-        }
-        return true;
-    };
-    self.getMissingScrollPositionToBeVisible = function ( dom_element, dom_parent ) {
-        var _parent_rect  = self.getBoundingClientRect( dom_parent );
-        var _element_rect = self.getBoundingClientRect( dom_element );
-        if ( _element_rect[ DOM.CONST.STYLE.TOP ] < _parent_rect[ DOM.CONST.STYLE.TOP ] ) {
-            return _parent_rect[ DOM.CONST.STYLE.TOP ] - _element_rect[ DOM.CONST.STYLE.TOP ];
-        }
-        if ( _element_rect[ DOM.CONST.STYLE.BOTTOM ] > _parent_rect[ DOM.CONST.STYLE.BOTTOM ] ) {
-            return _parent_rect[ DOM.CONST.STYLE.BOTTOM ] - _element_rect[ DOM.CONST.STYLE.BOTTOM ];
-        }
-        return 0;
-    };
-    
-    self.setInputValue                                     = function ( dom_element, to_set ) {
-        if ( SHINKEN.NAVIGATOR.isNavigator( "isIE" ) ) {
-            dom_element.setAttribute( "value", to_set );
-            dom_element.value = to_set;
-            return;
-        }
-        dom_element.value = to_set;
-    };
-    self.setCheckBoxValue                                  = function ( dom_element, to_set ) {
-        dom_element.checked = !!to_set;
-    };
-    self.hasFocus                                          = function ( dom_element ) {
-        return dom_element === document.activeElement;
-    };
-    self.generateDomElementFromString                      = function ( string ) {
-        var _to_return = self.createElement( "div", "", string );
-        return _to_return.children;
-    };
-    self.isMatchingMedianDomElementTopWith                 = function ( list, y ) {
-        var _median_index = SHINKEN.TOOLS.ARRAY.getMedianIndex( list, true );
-        if ( _median_index === SHINKEN.TOOLS.ARRAY.NOT_FOUND ) {
-            return DOM.CONST.VALUE.NONE;
-        }
-        var _median  = list[ _median_index ];
-        var _compare = self.compareCoordinates( _median, null, y );
-        if ( _compare === 0 ) {
-            return _median;
-        }
-        return _compare;
-    };
-    self.compareCoordinates                                = function ( dom_element, x, y ) {
-        var _rect = self.getBoundingClientRect( dom_element );
-        if ( x ) {
-            if ( _rect.left < x ) {
-                return -1;
-            }
-            if ( _rect.left + _rect.width > x ) {
-                return 1;
-            }
-        }
-        if ( y ) {
-            if ( _rect.top > y ) {
-                return -1;
-            }
-            if ( _rect.top + _rect.height < y ) {
-                return 1;
-            }
-        }
-        return 0;
-    };
-    self.show                                              = function ( dom_element ) {
-        dom_element.classList.remove( "shinken-hidden" );
-    };
-    self.hide                                              = function ( dom_element ) {
-        dom_element.classList.add( "shinken-hidden" );
-    };
-    self.setEditable                                       = function ( edit_content, dom_container, dom_to_edit ) {
-        dom_to_edit.contentEditable = edit_content;
-        if ( edit_content === true ) {
-            self.focusAtTheEnd( dom_to_edit );
-        }
-        self.setDataSet( dom_container, "statusEdit", edit_content ? "1" : "0" );
-    };
-    self.focusAtTheEnd                                     = function ( dom_element ) {
-        dom_element.focus();
-        var range = document.createRange();
-        range.selectNodeContents( dom_element );
-        range.collapse( false );
-        var sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange( range );
-    };
-    self.scrollbarIsVisible                                = function ( dom_element, axe ) {
-        switch ( axe ) {
-            case "height":
-                return dom_element.scrollHeight > dom_element.clientHeight;
-            case "width":
-                return dom_element.scrollWidth > dom_element.clientWidth;
-        }
-    };
-    self.scrollIntoElementIfNotVisible                     = function ( dom_element ) {
-        dom_element.scrollIntoView( { block: "nearest" } );
-    };
-    self.scrollIntoElementStart                            = function ( dom_element ) {
-        dom_element.scrollIntoView( { block: "start" } );
-    };
-    self.getNavigatorZoom                                  = function () {
-        return Math.round( window.devicePixelRatio * 100 );
-    };
-    self.getFontZoomed                                     = function ( font_size, zoom_percent ) {
-        if ( !zoom_percent || zoom_percent === 100 ) {
-            return font_size;
-        }
-        return parseInt( font_size * zoom_percent / 100 );
-    };
-    self.isActiveElementEditable                           = function () {
-        return Boolean( document.activeElement.isContentEditable );
-    };
-    self.saveCursorPosition                                = function ( dom_element ) {
-        return dom_element.selectionStart;
-    };
-    self.focusAndSetCursorPosition                         = function ( dom_element, cursor_position ) {
-        if ( !cursor_position ) {
-            return;
-        }
-        dom_element.selectionStart = cursor_position;
-        dom_element.selectionEnd   = cursor_position;
-        dom_element.blur();
-        dom_element.focus();
-    };
-    self.isMouseOnScrollBar                                = function ( event, dom_element, zoom ) {
-        let value_X = event.clientX;
-        let value_y = event.clientY;
-        if ( zoom ) {
-            const scale = zoom / 100;
-            value_X     = event.clientX * scale;
-            value_y     = event.clientY * scale;
-        }
-        return value_X >= dom_element.clientWidth || value_y >= dom_element.clientHeight;
-    };
-    self.changeCursorIcon                                  = function ( dom_element, url_icon ) {
-        if ( url_icon ) {
-            dom_element.style.cursor = `url("${url_icon}") 16 16, auto`;
-        }
-        else {
-            this.getDomElement().style.cursor = "default";
-        }
-    };
-    self.SimulateAction                                    = {
-        _doDispatch: function ( event_name, dom_element ) {
-            if ( !dom_element ) {
-                return;
-            }
-            var evt = document.createEvent( "HTMLEvents" );
-            evt.initEvent( event_name, false, true );
-            dom_element.dispatchEvent( evt );
-        },
-        mouseDown  : function ( dom_element ) {
-            self.SimulateAction._doDispatch( "mousedown", dom_element );
-        },
-        mouseUp    : function ( dom_element ) {
-            self.SimulateAction._doDispatch( "mouseup", dom_element );
-        },
-        keyUp      : function ( dom_element ) {
-            self.SimulateAction._doDispatch( "keyup", dom_element );
-        },
-        click      : function ( dom_element ) {
-            self.SimulateAction._doDispatch( "click", dom_element );
-        }
-    };
-    self.computeHasScrollVertical                          = function ( dom_element ) {
-        if ( !dom_element ) {
-            return;
-        }
-        self.addOrRemoveClasses( dom_element, self.hasScrollHeight( dom_element ), "shinken-scroll-vertical-active" );
-    };
-    self.computeHasScrollVerticals                         = function ( selector, dom_element ) {
-        if ( !selector ) {
-            return;
-        }
-        if ( !dom_element ) {
-            dom_element = document;
-        }
-        var _dom_s = dom_element.querySelectorAll( selector );
-        for ( var i = 0, _size_i = _dom_s.length; i < _size_i; i++ ) {
-            self.computeHasScrollVertical( _dom_s[ i ] );
-        }
-    };
-    self.focusOnAnchor                                     = function ( selector_css, parent_dom, animation, extra_size_for_top ) {
-        return selector_css.focusOnAnchor_withDom( document.querySelector( selector_css ), parent_dom, new DOM.Service.Animation( animation, 2000 ), extra_size_for_top );
-    };
-    self.focusOnAnchor_withDom                             = function ( dom_element, parent_dom, animation_object, extra_size_for_top ) {
-        if ( !dom_element ) {
-            return;
-        }
-        if ( parent_dom ) {
-            parent_dom.classList.add( "shinken-scroll-behavior-smooth" );
-            extra_size_for_top   = extra_size_for_top || 5; //-5 USED TO NOT BE STUCK ON THE TOP
-            parent_dom.scrollTop = dom_element.offsetTop - extra_size_for_top;
-        }
-        else {
-            dom_element.scrollIntoView();
-        }
-        if ( animation_object ) {
-            switch ( animation_object.type ) {
-                case 'shinken-pulsate':
-                    DOM.Service.askAddClass( dom_element, 'shinken-pulsate', animation_object.timer );
-            }
-        }
-    };
-    self.focus                                             = function ( dom_element ) {
-        if ( !dom_element ) {
-            return;
-        }
-        dom_element.focus();
-    };
-    self.isElementOnScreen                                 = function ( dom_element ) {
-        const rect                = dom_element.getBoundingClientRect();
-        const windowHeight        = (window.innerHeight || document.documentElement.clientHeight);
-        const windowWidth         = (window.innerWidth || document.documentElement.clientWidth);
-        const verticallyVisible   = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
-        const horizontallyVisible = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
-        return verticallyVisible && horizontallyVisible;
-    };
-    self.isPartiallyVisibleIntoScrollingVerticalParent_Box = function ( box_dom, box_parent ) {
-        return box_dom.bottom >= box_parent.top && box_dom.top <= box_parent.bottom;
-    };
-    self.isInScreenVertically                              = function ( dom_element ) {
-        const _element_rect = self.getBoundingClientRect( dom_element );
-        const body_rect     = self.getBoundingClientRect( DOM.BodyService.getDomElement() );
-        return _element_rect[ DOM.CONST.STYLE.BOTTOM ] >= body_rect[ DOM.CONST.STYLE.BOTTOM ];
-    };
-    self.addResizeCursorsTo                                = function ( dom_container, positions_list ) {
-        if ( !positions_list ) {
-            positions_list = ["top-left", "top-right", "bottom-left", "bottom-right"];
-        }
-        for ( let i = 0; i < positions_list.length; i++ ) {
-            let current_position   = positions_list[ i ];
-            let css_classes        = `shinken-${current_position} shinken-2024-${current_position}-triangle shinken-resize-cursor`;
-            let dom_cursor_element = DOM.Service.createElement( "span", { class: css_classes, "data-position": current_position } );
-            DOM.Service.addElementTo( dom_cursor_element, dom_container );
-        }
-    };
-    self.reloadIframe                                      = function ( css_selector ) {
-        document.querySelector( css_selector ).src += "";
-    };
-    return self;
-})( DOM.Service || {} );
-DOM.Service.Toggle                      = (function ( self ) {
-    self.CONST     = {
-        PARAM_EVENT: {
-            TOGGL_SERVICE__IS_OPEN: "toggl_service__is_open"
-        }
-    };
-    self.toggle    = function ( dom_element, level ) {
-        var dom_parent;
-        if ( level ) {
-            dom_parent = DOM.Service.findParentElementWithClass( dom_element, "shinken-toggle-container-lvl", 50, "lvl", level );
-        }
-        else {
-            dom_parent = DOM.Service.findParentElementWithClass( dom_element, "shinken-toggle-container", 50 );
-        }
-        DOM.Service.toggleClass( dom_parent, "shinken-close" );
-    };
-    self.toggle_V3 = function ( dom_element ) {
-        DOM.Service.toggleClass( dom_element, "shinken-close" );
-        return dom_element.classList.contains( "shinken-close" );
-    };
-    self.close     = function ( dom_element ) {
-        dom_element.classList.add( "shinken-close" );
-    };
-    self.isOpen    = function ( dom_element ) {
-        return !dom_element.classList.contains( "shinken-close" );
-    };
-    return self;
-})( DOM.Service.Toggle || {} );
-DOM.CONST                               = {
-    STYLE                   : {
-        LEFT            : "left",
-        RIGHT           : "right",
-        TOP             : "top",
-        BOTTOM          : "bottom",
-        HEIGHT          : "height",
-        MAX_HEIGHT      : "max-height",
-        MAX_WIDTH       : "max-width",
-        LINE_HEIGHT     : "line-height",
-        WIDTH           : "width",
-        Z_INDEX         : "z-index",
-        DISPLAY         : "display",
-        POSITION        : "position",
-        BACKGROUND_COLOR: "background-color",
-        PADDING         : "padding",
-        MARGIN          : "margin",
-        BORDER_RADIUS   : "border-radius",
-        FONT_SIZE       : "font-size"
-    },
-    ATTRIBUTE               : {
-        SCROLL_DOWN: "scrollDown",
-        SCROLL_TOP : "scrollTop",
-        SCROLL_LEFT: "scrollLeft"
-    },
-    VALUE                   : {
-        NONE: "none"
-    },
-    SPECIAL                 : {
-        MEDIAN_TOP_BOTTOM: "MEDIAN_TOP_BOTTOM"
-    },
-    WAITING_TIME_BEFORE_EXEC: {
-        INPUT: 200
-    }
-};
-DOM.Service.Animation                   = function ( type, timer ) {
-    this.type  = type;
-    this.timer = timer;
-};
-SHINKEN.TOOLS.FORM                      = (function ( self ) {
+
+GS.TOOLS.FORM                      = (function ( self ) {
     "use strict";
     self.buildGetUrl = function ( form ) {
         var _to_return = "";
@@ -7850,45 +6729,45 @@ SHINKEN.TOOLS.FORM                      = (function ( self ) {
         return _to_return;
     };
     return self;
-})( SHINKEN.TOOLS.FORM || {} );
-SHINKEN.TOOLS.LOADING_FRAME             = (function ( self ) {
+})( GS.TOOLS.FORM || {} );
+GS.TOOLS.LOADING_FRAME             = (function ( self ) {
     self.getDomElement    = function ( id ) {
         if ( id ) {
-            return DOM.Service.createElement( "div", {
+            return SERVICE.DOM.createElement( "div", {
                 class: "shinken-loading-frame", id: id
             }, '<div class="shinken-loading-frame-container"><h1><div class="shinken-pulsate">' + _( 'loading_frame.load_in_progress', [DICTIONARY_COMMON_UI] ) + '</div></h1></div>' );
         }
-        return DOM.Service.createElement( "div", {
+        return SERVICE.DOM.createElement( "div", {
             class: "shinken-loading-frame"
         }, '<div class="shinken-loading-frame-container"><h1><div class="shinken-pulsate">' + _( 'loading_frame.load_in_progress', [DICTIONARY_COMMON_UI] ) + '</div></h1></div>' );
     };
     self.getDomElement_V3 = function ( id ) {
         if ( id ) {
-            return DOM.Service.createElement( "div", {
-                class: "shinken-loading-frame shinken-layout-center-h-v", id: id
+            return SERVICE.DOM.createElement( "div", {
+                class: "shinken-loading-frame flex-layout-center-h-v", id: id
             }, '<div class="shinken-loading-frame-container"><h1><div class="shinken-pulsate">' + _( 'loading_frame.load_in_progress', [DICTIONARY_COMMON_UI] ) + '</div></h1></div>' );
         }
-        return DOM.Service.createElement( "div", {
-            class: "shinken-loading-frame shinken-layout-center-h-v"
+        return SERVICE.DOM.createElement( "div", {
+            class: "shinken-loading-frame flex-layout-center-h-v"
         }, '<div class="shinken-loading-frame-container"><h1><div class="shinken-pulsate">' + _( 'loading_frame.load_in_progress', [DICTIONARY_COMMON_UI] ) + '</div></h1></div>' );
     };
     self.getHtml          = function ( id ) {
         return self.getDomElement( id ).outerHTML;
     };
     return self;
-})( SHINKEN.TOOLS.LOADING_FRAME || {} );
-SHINKEN.TOOLS.BACKEND_NO_RESPONSE_FRAME = (function ( self ) {
+})( GS.TOOLS.LOADING_FRAME || {} );
+GS.TOOLS.BACKEND_NO_RESPONSE_FRAME = (function ( self ) {
     self.getDomElement = function () {
-        return DOM.Service.createElement( "div", {
-            class: "shinken-no-backend-response-frame shinken-layout-center-h-v"
+        return SERVICE.DOM.createElement( "div", {
+            class: "shinken-no-backend-response-frame flex-layout-center-h-v"
         }, '<div class="shinken-no-backend-response-frame-container"><h1><div> ' + _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ) + '</div></h1><div class="shinken-contact-admin"> ' + _( "communication.contact_admin_shinken", [DICTIONARY_COMMON_UI] ) + '</div></div>' );
     };
     self.getHtml       = function () {
         return self.getDomElement().outerHTML;
     };
     return self;
-})( SHINKEN.TOOLS.BACKEND_NO_RESPONSE_FRAME || {} );
-SHINKEN.TOOLS.MOUSE                     = (function ( self ) {
+})( GS.TOOLS.BACKEND_NO_RESPONSE_FRAME || {} );
+GS.TOOLS.MOUSE                     = (function ( self ) {
     self.getWheelDelta       = function ( event ) {
         if ( event.wheelDelta === 0 ) {
             return 0;
@@ -7911,8 +6790,8 @@ SHINKEN.TOOLS.MOUSE                     = (function ( self ) {
         return this.mousePosition;
     };
     return self;
-})( SHINKEN.TOOLS.MOUSE || {} );
-SHINKEN.NAVIGATOR                       = (function ( self ) {
+})( GS.TOOLS.MOUSE || {} );
+GS.NAVIGATOR                       = (function ( self ) {
     "use strict";
     
     var navigator = {
@@ -7953,7 +6832,7 @@ SHINKEN.NAVIGATOR                       = (function ( self ) {
         else if ( nb_try ) {
             setTimeout( function () {
                 nb_try = nb_try - 1;
-                SHINKEN.NAVIGATOR.init( nb_try );
+                GS.NAVIGATOR.init( nb_try );
             }, 1000 );
         }
     };
@@ -7976,9 +6855,9 @@ SHINKEN.NAVIGATOR                       = (function ( self ) {
     
     
     return self;
-})( SHINKEN.NAVIGATOR || {} );
-SHINKEN.NAVIGATOR.init( 50 );
-SHINKEN.TOOLS.NUMBER           = (function ( self ) {
+})( GS.NAVIGATOR || {} );
+GS.NAVIGATOR.init( 50 );
+GS.TOOLS.NUMBER           = (function ( self ) {
     self.roundTo                      = function ( number, precision ) {
         if ( !precision ) {
             precision = 0;
@@ -8053,7 +6932,7 @@ SHINKEN.TOOLS.NUMBER           = (function ( self ) {
         return parseInt( value.replace( /[^\d]/g, '' ) );
     };
     return self;
-})( SHINKEN.TOOLS.NUMBER || {} );
+})( GS.TOOLS.NUMBER || {} );
 var CLIPBOARD_SERVICE          = (function ( self ) {
     self.PARAM            = {
         EVENT_NAME_COPY: "copy_to_clipboard",
@@ -8070,7 +6949,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
     self.TYPE.HTML = 'html';
     
     self.setContent       = function ( dom_event, value, displayResultCallBack ) {
-        var _dom_button = DOM.Service.findParentElementWithClass( dom_event, 'shinken-button', 10 );
+        var _dom_button = SERVICE.DOM.findParentElementWithClass( dom_event, 'shinken-button', 10 );
         setValueTextArea( value );
         self.dom_textarea.select();
         
@@ -8085,11 +6964,11 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
         }
     };
     self.buildHtmlButtons = function ( hasCopyButton, hasEditButton, event_name, param ) {
-        var table_buttons = DOM.Service.createElement( "table", { class: "shinken-copy-buttons-container" } );
-        var line_buttons  = DOM.Service.createElement( "tr", {} );
+        var table_buttons = SERVICE.DOM.createElement( "table", { class: "shinken-copy-buttons-container" } );
+        var line_buttons  = SERVICE.DOM.createElement( "tr", {} );
         if ( hasCopyButton ) {
-            var button_copy_cell = DOM.Service.createElement( "td", { class: "shinken-btn-copy-cell" } );
-            var button_copy      = DOM.Service.createElement( "td", {
+            var button_copy_cell = SERVICE.DOM.createElement( "td", { class: "shinken-btn-copy-cell" } );
+            var button_copy      = SERVICE.DOM.createElement( "td", {
                 class             : "shinken-button shinken-btn-copy shinken-btn-copy-text",
                 onclick           : 'MANAGER.EventManager.clickOnButton(event)',
                 'data-status-copy': '0',
@@ -8099,15 +6978,15 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
                 onmouseleave      : 'SHINKEN_TOOLTIP.hideTooltip();',
                 'shi-tip-html'    : _( 'copy_service.tooltip_text_copy' )
             } );
-            var icon_button_copy = DOM.Service.createElement( "span", { class: "shinken-copy-default-message shinicon-copy" } );
+            var icon_button_copy = SERVICE.DOM.createElement( "span", { class: "shinken-copy-default-message shinicon-copy" } );
             
             button_copy.appendChild( icon_button_copy );
             button_copy_cell.appendChild( button_copy );
             line_buttons.appendChild( button_copy_cell );
         }
         if ( hasEditButton ) {
-            var button_edit_cell = DOM.Service.createElement( "td", { class: "shinken-btn-edit-cell" } );
-            var button_edit      = DOM.Service.createElement( "td", {
+            var button_edit_cell = SERVICE.DOM.createElement( "td", { class: "shinken-btn-edit-cell" } );
+            var button_edit      = SERVICE.DOM.createElement( "td", {
                 class             : "shinken-btn-copy",
                 onclick           : 'MANAGER.EventManager.clickOnPaste(event)',
                 'data-status-copy': '0',
@@ -8115,7 +6994,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
                 onmouseleave      : 'SHINKEN_TOOLTIP.hideTooltip();',
                 'shi-tip-html'    : _( 'copy_service.tooltip_edition' )
             } );
-            var icon_button_edit = DOM.Service.createElement( "span", { class: "shinken-copy-default-message shinken-icons-url shinken-icons-url-write" } );
+            var icon_button_edit = SERVICE.DOM.createElement( "span", { class: "shinken-copy-default-message shinken-icons-url shinken-icons-url-write" } );
             
             button_edit.appendChild( icon_button_edit );
             button_edit_cell.appendChild( button_edit );
@@ -8126,14 +7005,14 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
     };
     
     self.buildHtmlButtons_V3 = function ( has_copy_button, has_edit_button, params ) {
-        let to_return = DOM.Service.createElement( "div", { class: "shinken-clipboard-container shinken-layout-inline-center-h-v" } );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "shinken-clipboard-container flex-layout-inline-center-h-v" } );
         if ( has_copy_button ) {
             let copy_button = new COMPONENT.ButtonFromData_V3( CLIPBOARD_SERVICE.PARAM.EVENT_NAME_COPY, "<span class='shinicon shinicon-copy'></span>" );
             copy_button.addParamsForEvents( params );
             copy_button.addClass( "shinken-btn-copy shinken-btn-copy-text" );
             copy_button.computeHtml();
             copy_button.setTooltipHtml( _( 'copy_service.tooltip_text_copy', [DICTIONARY_COMMON_UI] ) );
-            DOM.Service.addElementTo( copy_button.getDomElement(), to_return );
+            SERVICE.DOM.addElementTo( copy_button.getDomElement(), to_return );
         }
         if ( has_edit_button ) {
             let edit_button = new COMPONENT.ButtonFromData_V3( CLIPBOARD_SERVICE.PARAM.EVENT_NAME_EDIT, "<span class='shinken-icons-url shinken-icons-url-write'></span>" );
@@ -8141,7 +7020,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
             edit_button.addClass( "shinken-btn-copy" );
             edit_button.computeHtml();
             edit_button.setTooltipHtml( _( 'copy_service.tooltip_edition' ) );
-            DOM.Service.addElementTo( edit_button.getDomElement(), to_return );
+            SERVICE.DOM.addElementTo( edit_button.getDomElement(), to_return );
         }
         return to_return;
     };
@@ -8151,7 +7030,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
         var clipboardData = event.clipboardData || window.clipboardData;
         var to_return     = window.clipboardData ? clipboardData.getData( 'Text' ) : clipboardData.getData( "text/plain" );
         to_return         = to_return.trim();
-        document.execCommand( "insertHTML", false, SHINKEN.TOOLS.STRING.cleanXss( to_return ) );
+        document.execCommand( "insertHTML", false, GS.TOOLS.STRING.cleanXss( to_return ) );
         return to_return;
     };
     
@@ -8185,9 +7064,9 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
     
     function displayResult ( status, dom_button ) {
         var _text     = status ? _( 'copy_service.copySuccess', [DICTIONARY_COMMON_UI] ) : _( 'copy_service.copyFail', [DICTIONARY_COMMON_UI] );
-        var _state    = status ? SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.COPY_SUCCESS : SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.COPY_FAILED;
-        var _position = status ? SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_SUCCESS : SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_FAILED;
-        SHINKEN.TOOLS.NOTIFICATION.addNotification( _text, _state, dom_button, _position, 2000 );
+        var _state    = status ? GS.OBJECT.NOTIFICATION.CONST.STATUS.COPY_SUCCESS : GS.OBJECT.NOTIFICATION.CONST.STATUS.COPY_FAILED;
+        var _position = status ? GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_SUCCESS : GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_FAILED;
+        GS.TOOLS.NOTIFICATION.addNotification( _text, _state, dom_button, _position, 2000 );
     }
     
     function pasteHtmlForIE ( text_to_paste ) {
@@ -8200,7 +7079,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
                 range = sel.getRangeAt( 0 );
                 range.deleteContents();
                 
-                var _div = DOM.Service.createElement( "div", {}, text_to_paste );
+                var _div = SERVICE.DOM.createElement( "div", {}, text_to_paste );
                 
                 var frag = document.createDocumentFragment(),
                     node,
@@ -8253,7 +7132,7 @@ var CLIPBOARD_SERVICE          = (function ( self ) {
     
     self.initDomElement_old = function ( dom_element ) {
         self.dom_button = dom_element;
-        self.dom_parent = DOM.Service.findParentElementWithClass( dom_element, "shinken-parent-text-to-copy", 5 );
+        self.dom_parent = SERVICE.DOM.findParentElementWithClass( dom_element, "shinken-parent-text-to-copy", 5 );
         if ( !self.dom_parent ) {
             return;
         }
@@ -8299,7 +7178,7 @@ function _load_lang_obj ( dictionary_origin ) {
         return;
     }
     if ( _to_return in overridden_translations ) {
-        __lang_obj [ dictionary_origin ] = SHINKEN.TOOLS.DICT.updateWithDict( __lang_obj [ dictionary_origin ], overridden_translations[ _to_return ] );
+        __lang_obj [ dictionary_origin ] = GS.TOOLS.DICT.updateWithDict( __lang_obj [ dictionary_origin ], overridden_translations[ _to_return ] );
     }
 }
 
@@ -8358,26 +7237,26 @@ function isTranslateKeyExisting ( to_trad, dictionary_origin ) {
     return false;
 }
 
-SHINKEN.TOOLS.InterfaceRefreshComponent           = function () {
+GS.TOOLS.InterfaceRefreshComponent           = function () {
 };
-SHINKEN.TOOLS.InterfaceRefreshComponent.prototype = {
+GS.TOOLS.InterfaceRefreshComponent.prototype = {
     update            : function () {
     },
     phaseUpdated      : function ( phase, parent_object ) {
         switch ( phase ) {
-            case SHINKEN.OBJECT.CONST.PHASE.READY :
+            case GS.OBJECT.CONST.PHASE.READY :
                 this.eventIsReady( parent_object );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.STARTING :
+            case GS.OBJECT.CONST.PHASE.STARTING :
                 this.eventIsStarting( parent_object );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING :
+            case GS.OBJECT.CONST.PHASE.RUNNING :
                 this.eventIsRunning( parent_object );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.REFRESHING :
+            case GS.OBJECT.CONST.PHASE.REFRESHING :
                 this.eventIsRefreshing( parent_object );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.STOPPING :
+            case GS.OBJECT.CONST.PHASE.STOPPING :
                 this.eventIsStopping( parent_object );
                 break;
         }
@@ -8397,7 +7276,7 @@ SHINKEN.TOOLS.InterfaceRefreshComponent.prototype = {
     updateCountdown   : function ( parent_object ) {
     }
 };
-SHINKEN.OBJECT.JSON_EDITOR                        = {
+GS.OBJECT.JSON_EDITOR                        = {
     SHINKEN_JSON_UUID_ANCHOR: "__SHINKEN_JSON_UUID_ANCHOR_ANCHOR__",
     JSON_FORMAT_INFORMATION : "__JSON_FORMAT_INFORMATION__",
     JSON_INDEX_ALREADY_WRITE: "__JSON_INDEX_ALREADY_WRITE__",
@@ -8416,17 +7295,17 @@ SHINKEN.OBJECT.JSON_EDITOR                        = {
         JSON_FORM_OBJECT: "json_form__object"
     }
 };
-SHINKEN.OBJECT.JsonEditor                         = function ( dom_element, json, default_tag ) {
-    this.__class_name__ = 'SHINKEN.OBJECT.JsonEditor';
+GS.OBJECT.JsonEditor                         = function ( dom_element, json, default_tag ) {
+    this.__class_name__ = 'GS.OBJECT.JsonEditor';
     this.dom_element    = dom_element;
     this.json           = json;
     this.content        = null;
     this.default_tag    = default_tag;
     this.init();
 };
-SHINKEN.OBJECT.JsonEditor.prototype               = {
+GS.OBJECT.JsonEditor.prototype               = {
     init: function () {
-        this.content = DOM.Service.createElement( "span", {}, this.parseToHtml( null, this.json ) );
+        this.content = SERVICE.DOM.createElement( "span", {}, this.parseToHtml( null, this.json ) );
         this.computeErrorContent();
     },
     
@@ -8456,7 +7335,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     computeErrorContent                 : function () {
         this.data_with_error  = {};
-        const _error_contents = this.content.querySelectorAll( "." + SHINKEN.OBJECT.JSON_EDITOR.CLASS_ERROR );
+        const _error_contents = this.content.querySelectorAll( "." + GS.OBJECT.JSON_EDITOR.CLASS_ERROR );
         for ( let i = 0, _size_i = _error_contents.length; i < _size_i; i++ ) {
             if ( _error_contents[ i ].dataset.jsonUuidPart ) {
                 this.data_with_error[ _error_contents[ i ].dataset.jsonUuidPart ] = _error_contents[ i ].innerText;
@@ -8465,7 +7344,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     parseToHtml                         : function ( key, to_parse ) {
         let _to_return = '';
-        if ( to_parse.__class_name__ === "SHINKEN.OBJECT.Param" ) {
+        if ( to_parse.__class_name__ === "GS.OBJECT.Param" ) {
             let _value = to_parse.getUserValue() === undefined ? "" : to_parse.getUserValue();
             
             if ( typeof _value === 'string' ) {
@@ -8507,10 +7386,10 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
             return this.parseArrayToHtml( key, to_parse.json_list_content, to_parse );
         }
         let uuid_of_element = "";
-        if ( to_parse[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] ) {
-            uuid_of_element = ' data-json-uuid-part="' + to_parse[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ][ 0 ] + '"';
+        if ( to_parse[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] ) {
+            uuid_of_element = ' data-json-uuid-part="' + to_parse[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ][ 0 ] + '"';
         }
-        delete to_parse[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ];
+        delete to_parse[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ];
         let _to_return = '<span ' + uuid_of_element + ' class="' + this.parseJsonTagToClassCss( key, object_with_json_information ) + '" ' + this.parseJsonTagToAttribute( key, object_with_json_information ) + '>{';
         let _keys      = Object.keys( to_parse );
         if ( _keys.length ) {
@@ -8534,10 +7413,10 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     parseArrayToHtmlWithListKeys        : function ( to_parse, object_with_json_information ) {
         let _to_return = "";
-        for ( let i = 0, _size_i = object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length; i < _size_i; i++ ) {
+        for ( let i = 0, _size_i = object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length; i < _size_i; i++ ) {
             _to_return += "<div>";
             _to_return += this.buildDivEntry( i, object_with_json_information );
-            const _current_list_keys = object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key[ i ] ].list_keys;
+            const _current_list_keys = object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key[ i ] ].list_keys;
             if ( !_current_list_keys ) {
                 continue;
             }
@@ -8549,13 +7428,13 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         return _to_return;
     },
     parseArrayToHtmlWithListKeys_forKey : function ( key, to_parse ) {
-        if ( to_parse[ key ][ SHINKEN.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] ) {
+        if ( to_parse[ key ][ GS.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] ) {
             return "";
         }
         let _to_return = this.buildLiEntry( key );
         _to_return += this.parseToHtml( key, to_parse[ key ] );
         if ( typeof to_parse[ key ] === "object" ) {
-            to_parse[ key ][ SHINKEN.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] = true;
+            to_parse[ key ][ GS.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] = true;
         }
         if ( !this.isLastIndexArrayDisplayed( to_parse ) ) {
             _to_return += ",";
@@ -8565,7 +7444,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     isLastIndexArrayDisplayed           : function ( array ) {
         for ( let i = 0, _size_i = array.length; i < _size_i; i++ ) {
-            if ( !array[ i ][ SHINKEN.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] ) {
+            if ( !array[ i ][ GS.OBJECT.JSON_EDITOR.JSON_INDEX_ALREADY_WRITE ] ) {
                 return false;
             }
         }
@@ -8573,10 +7452,10 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     parseObjectToHtmlWithListKeys       : function ( key, to_parse ) {
         let _to_return = "";
-        for ( let i = 0, _size_i = to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length; i < _size_i; i++ ) {
+        for ( let i = 0, _size_i = to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length; i < _size_i; i++ ) {
             _to_return += "<div>";
             _to_return += this.buildDivEntry( to_parse, i );
-            const _current_list_keys = to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key[ i ] ].list_keys;
+            const _current_list_keys = to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key[ i ] ].list_keys;
             if ( !_current_list_keys ) {
                 continue;
             }
@@ -8592,7 +7471,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
             return ""; //PATCH if a key was already used, it is not anymore available (deleted)
         }
         let _to_return = this.buildLiEntry( key );
-        _to_return += '<span class="k">"' + SHINKEN.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
+        _to_return += '<span class="k">"' + GS.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
         _to_return += this.parseToHtml( key, to_parse[ key ] );
         delete to_parse[ key ];
         if ( Object.keys( to_parse ).length > 1 ) { // AT THIS MOMENT THERE IS AT LEAST THE PROPERTY JSON_FORMAT_INFORMATION
@@ -8603,17 +7482,17 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     parseArrayToHtml                    : function ( key, to_parse, object_with_json_information ) {
         let uuid_of_element = "";
-        if ( object_with_json_information && object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] ) {
-            uuid_of_element = ' data-json-uuid-part="' + object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ][ 0 ] + '"';
-            delete object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ];
+        if ( object_with_json_information && object_with_json_information[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] ) {
+            uuid_of_element = ' data-json-uuid-part="' + object_with_json_information[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ][ 0 ] + '"';
+            delete object_with_json_information[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ];
         }
         let _to_return = '<span ' + uuid_of_element + 'class="' + this.parseJsonTagToClassCss( key, to_parse ) + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>[';
-        if ( object_with_json_information && object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
+        if ( object_with_json_information && object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
             _to_return = '<span class="' + this.parseJsonTagToClassCss( key, object_with_json_information ) + '" ' + this.parseJsonTagToAttribute( key, object_with_json_information ) + '>[';
         }
         if ( to_parse.length ) {
             _to_return += "<ol class='A'>";
-            if ( object_with_json_information && object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] && object_with_json_information[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length ) {
+            if ( object_with_json_information && object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] && object_with_json_information[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length ) {
                 _to_return += this.parseArrayToHtmlWithListKeys( to_parse, object_with_json_information );
             }
             for ( let i = 0, _size_i = to_parse.length; i < _size_i; i++ ) {
@@ -8625,10 +7504,10 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         return _to_return;
     },
     parseStringToHtml                   : function ( key, string, to_parse ) {
-        if ( string === this.default_tag && !(to_parse && to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ]) ) {
+        if ( string === this.default_tag && !(to_parse && to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ]) ) {
             return '<span class="X ' + this.parseJsonTagToClassCss( key, to_parse ) + '" data-dft-val="' + this.default_tag + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>"' + this.default_tag + '"</span>';
         }
-        const string_escape = SHINKEN.TOOLS.STRING.cleanXss( string );
+        const string_escape = GS.TOOLS.STRING.cleanXss( string );
         return '<span class="' + this.parseJsonTagToClassCss( key, to_parse ) + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>"' + string_escape + '"</span>';
     },
     parseBooleanToHtml                  : function ( key, boolean, to_parse ) {
@@ -8644,12 +7523,12 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
                 _to_return = "sk-json-edit-val";
             }
         }
-        if ( to_parse && to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
-            for ( let i = 0, _size_i = to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents.length; i < _size_i; i++ ) {
+        if ( to_parse && to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
+            for ( let i = 0, _size_i = to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents.length; i < _size_i; i++ ) {
                 if ( index !== undefined && index !== i ) {
                     continue;
                 }
-                _to_return += " " + (to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].class || "");
+                _to_return += " " + (to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].class || "");
             }
         }
         return _to_return;
@@ -8661,17 +7540,17 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
                 _to_return = 'data-key="' + key + '"';
             }
         }
-        if ( to_parse && to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
+        if ( to_parse && to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
             let _tooltip = "";
-            for ( let i = 0, _size_i = to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents.length; i < _size_i; i++ ) {
+            for ( let i = 0, _size_i = to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents.length; i < _size_i; i++ ) {
                 if ( index !== undefined && index !== i ) {
                     continue;
                 }
-                _to_return += ' data-json-uuid-part="' + to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].uuid + '"';
-                _tooltip += to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].tooltip;
+                _to_return += ' data-json-uuid-part="' + to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].uuid + '"';
+                _tooltip += to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].contents[ i ].tooltip;
             }
             if ( _tooltip ) {
-                _to_return += ' onmouseenter="SHINKEN_TOOLTIP.showTooltip(this)" onmouseleave="SHINKEN_TOOLTIP.hideTooltip()" shi-tip-type="shinken-warning" shi-tip-html="' + SHINKEN.TOOLS.STRING.cleanXssForTooltipWithUserData( _tooltip ) + '"';
+                _to_return += ' onmouseenter="SHINKEN_TOOLTIP.showTooltip(this)" onmouseleave="SHINKEN_TOOLTIP.hideTooltip()" shi-tip-type="shinken-warning" shi-tip-html="' + GS.TOOLS.STRING.cleanXssForTooltipWithUserData( _tooltip ) + '"';
             }
         }
         return _to_return;
@@ -8684,15 +7563,15 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     buildUlEntry                        : function ( key, to_parse ) {
         let _to_return = "";
-        if ( to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
-            if ( to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length ) {
+        if ( to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] ) {
+            if ( to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ].with_list_key.length ) {
                 _to_return += '<ul class="D">';
                 _to_return += this.parseObjectToHtmlWithListKeys( key, to_parse );
             }
             else {
                 _to_return += '<ul class="D ' + this.parseJsonTagToClassCss( key, to_parse ) + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>';
             }
-            delete to_parse[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ];
+            delete to_parse[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ];
         }
         else {
             _to_return += '<ul class="D">';
@@ -8701,9 +7580,9 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     },
     buildKeyEntry                       : function ( key ) {
         if ( this.isLabelOfEditableKey( key ) ) {
-            return '<span data-label-key="' + key + '" class="k">"' + SHINKEN.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
+            return '<span data-label-key="' + key + '" class="k">"' + GS.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
         }
-        return '<span class="k">"' + SHINKEN.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
+        return '<span class="k">"' + GS.TOOLS.STRING.cleanXss( key ) + '"</span> : ';
     },
     buildLiEntry                        : function ( key, to_parse ) {
         return '<li><div class="' + this.parseJsonTagToClassCss( key, to_parse ) + '" ' + this.parseJsonTagToAttribute( key, to_parse ) + '>';
@@ -8712,7 +7591,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         return '<div class="z' + this.parseJsonTagToClassCss( '', to_parse, index ) + '" ' + this.parseJsonTagToAttribute( '    ', to_parse, index ) + '>';
     },
     updateHtml                          : function () {
-        DOM.Service.addElementToAfterEmpty( this.content, this.dom_element );
+        SERVICE.DOM.addElementToAfterEmpty( this.content, this.dom_element );
         this.dom_element.classList.add( "shinken-json-editor-container" );
         this.dom_element.setAttribute( "contenteditable", "true" );
     },
@@ -8723,7 +7602,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
     updateDefaultValueHtml              : function () {
         const _default_value_doms = this.dom_element.querySelectorAll( "[data-dft-val]" );
         for ( let i = 0, _size_i = _default_value_doms.length; i < _size_i; i++ ) {
-            DOM.Service.addOrRemoveClasses( _default_value_doms[ i ], _default_value_doms[ i ].innerText === '"' + _default_value_doms[ i ].dataset.dftVal + '"', "X" );
+            SERVICE.DOM.addOrRemoveClasses( _default_value_doms[ i ], _default_value_doms[ i ].innerText === '"' + _default_value_doms[ i ].dataset.dftVal + '"', "X" );
         }
     },
     removeErrorAfterUpdate              : function () {
@@ -8731,12 +7610,12 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         const uuid_error_modified_for_cells = [];
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
             const _current_key = _keys[ i ];
-            const _current_dom = this.dom_element.querySelector( '.' + SHINKEN.OBJECT.JSON_EDITOR.CLASS_ERROR + '[data-json-uuid-part="' + _current_key + '"]' );
+            const _current_dom = this.dom_element.querySelector( '.' + GS.OBJECT.JSON_EDITOR.CLASS_ERROR + '[data-json-uuid-part="' + _current_key + '"]' );
             if ( _current_dom && !this._is_same_text( _current_dom.innerText, this.data_with_error[ _current_key ] ) ) {
-                _current_dom.classList.remove( SHINKEN.OBJECT.JSON_EDITOR.CLASS_ERROR );
-                DOM.Service.removeTooltip( _current_dom );
+                _current_dom.classList.remove( GS.OBJECT.JSON_EDITOR.CLASS_ERROR );
+                SERVICE.DOM.removeTooltip( _current_dom );
                 delete this.data_with_error[ _current_key ];
-                let parent_for_cell = DOM.Service.findParentElementWithDataSet( _current_dom.parentElement, 'jsonUuidPart', 50 );
+                let parent_for_cell = SERVICE.DOM.findParentElementWithDataSet( _current_dom.parentElement, 'jsonUuidPart', 50 );
                 if ( parent_for_cell ) {
                     uuid_error_modified_for_cells.push( parent_for_cell.getAttribute( 'data-json-uuid-part' ) );
                 }
@@ -8744,7 +7623,7 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         }
     },
     _is_same_text                       : function ( text_1, text_2 ) {
-        return SHINKEN.TOOLS.STRING.replaceAll( text_1, "\n", "" ) === SHINKEN.TOOLS.STRING.replaceAll( text_2, "\n", "" );
+        return GS.TOOLS.STRING.replaceAll( text_1, "\n", "" ) === GS.TOOLS.STRING.replaceAll( text_2, "\n", "" );
     },
     getController                       : function () {
         return CONTROLLER.CommonUI;
@@ -8779,16 +7658,16 @@ SHINKEN.OBJECT.JsonEditor.prototype               = {
         dom_element_height.parentElement.innerHTML = new_element_html + ',';
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.JsonEditor, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.JsonEditorService           = (function ( self ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.JsonEditor, GS.OBJECT.ShinkenObject );
+GS.OBJECT.JsonEditorService           = (function ( self ) {
     var __LINE_TAG__       = "__SHINKEN_LINE_TAG__";
     self.computeValidation = function ( dom_element ) {
         let _text_parsed = _parseJsonDomElementToText( dom_element );
-        _text_parsed     = SHINKEN.TOOLS.STRING.replaceAll( _text_parsed, __LINE_TAG__, "\n" );
-        return [_text_parsed, SHINKEN.TOOLS.STRING.JSON.isFormatJsonInvalid( _text_parsed )];
+        _text_parsed     = GS.TOOLS.STRING.replaceAll( _text_parsed, __LINE_TAG__, "\n" );
+        return [_text_parsed, GS.TOOLS.STRING.JSON.isFormatJsonInvalid( _text_parsed )];
     };
     self.computeLineNumber = function ( dom_element, error_line ) {
-        const _computed_style = DOM.Service.getComputedStyles( dom_element, ["padding-bottom", "padding-top", "line-height", "height"] );
+        const _computed_style = SERVICE.DOM.getComputedStyles( dom_element, ["padding-bottom", "padding-top", "line-height", "height"] );
         const number_line     = (dom_element.scrollHeight - _computed_style[ "padding-bottom" ] - _computed_style[ "padding-top" ]) / _computed_style[ "line-height" ];
         let _html             = '';
         for ( let i = 1, _size = number_line; i <= _size; i++ ) {
@@ -8807,28 +7686,28 @@ SHINKEN.OBJECT.JsonEditorService           = (function ( self ) {
         _container.style.transform = "translateY(-" + dom_element.scrollTop + "px)";
     };
     self.scrollToError     = function ( dom_element, error_line ) {
-        const _computed_style = DOM.Service.getComputedStyles( dom_element, ["padding-bottom", "padding-top", "line-height", "height"] );
+        const _computed_style = SERVICE.DOM.getComputedStyles( dom_element, ["padding-bottom", "padding-top", "line-height", "height"] );
         dom_element.scrollTo( 0, (error_line) * _computed_style[ "line-height" ] - _computed_style[ "height" ] / 2 );
     };
     
     var _parseJsonDomElementToText = function ( dom_element ) {
-        const clone    = DOM.Service.cloneElement( dom_element );
+        const clone    = SERVICE.DOM.cloneElement( dom_element );
         let _text      = clone.innerHTML;
-        _text          = SHINKEN.TOOLS.STRING.replaceAll( _text, "<li", __LINE_TAG__ + "<li" );
-        _text          = SHINKEN.TOOLS.STRING.replaceAll( _text, "</ol>", __LINE_TAG__ + "</ol>" );
-        _text          = SHINKEN.TOOLS.STRING.replaceAll( _text, "</ul>", __LINE_TAG__ + "</ul>" );
-        const _new_dom = DOM.Service.createElement( "div", {}, _text );
+        _text          = GS.TOOLS.STRING.replaceAll( _text, "<li", __LINE_TAG__ + "<li" );
+        _text          = GS.TOOLS.STRING.replaceAll( _text, "</ol>", __LINE_TAG__ + "</ol>" );
+        _text          = GS.TOOLS.STRING.replaceAll( _text, "</ul>", __LINE_TAG__ + "</ul>" );
+        const _new_dom = SERVICE.DOM.createElement( "div", {}, _text );
         const _text_2  = _new_dom.innerText;
-        return SHINKEN.TOOLS.STRING.replaceAll( _text_2, __LINE_TAG__, "\n" );
+        return GS.TOOLS.STRING.replaceAll( _text_2, __LINE_TAG__, "\n" );
     };
     
     return self;
-})( SHINKEN.OBJECT.JsonEditorService || {} );
-SHINKEN.OBJECT.JsonForm                    = function ( dom_element ) {
-    this.__class_name__ = 'SHINKEN.OBJECT.JsonForm';
+})( GS.OBJECT.JsonEditorService || {} );
+GS.OBJECT.JsonForm                    = function ( dom_element ) {
+    this.__class_name__ = 'GS.OBJECT.JsonForm';
     this.init( dom_element );
 };
-SHINKEN.OBJECT.JsonForm.prototype          = {
+GS.OBJECT.JsonForm.prototype          = {
     init                : function ( dom_element ) {
         this.dom_element                     = dom_element;
         this.message_invalid                 = "";
@@ -8840,7 +7719,7 @@ SHINKEN.OBJECT.JsonForm.prototype          = {
             case "focus-on-anchor-json":
                 let grid_cell_uuid = param[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELL_UUID ] || param[ SHINKEN_GRID.CONST.PARAM.EVENT.FOCUSED_WIDGET ].getUUID();
                 let _to_return     = this.dom_element.querySelector( "[data-json-uuid-part='" + grid_cell_uuid + "']" );
-                DOM.Service.focusOnAnchor_withDom( _to_return, this.dom_element, new DOM.Service.Animation( "shinken-pulsate", 1600 ), 5 );
+                SERVICE.DOM.focusOnAnchor_withDom( _to_return, this.dom_element, new SERVICE.DOM.Animation( "shinken-pulsate", 1600 ), 5 );
                 return _to_return;
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
@@ -8872,35 +7751,35 @@ SHINKEN.OBJECT.JsonForm.prototype          = {
         self.timeout_computeEditorLineNumber = setTimeout( function () {
             const _interval_done = setInterval( function () {
                 if ( self.dom_element.scrollHeight ) {
-                    SHINKEN.OBJECT.JsonEditorService.computeLineNumber( self.dom_element, self.line_invalid );
+                    GS.OBJECT.JsonEditorService.computeLineNumber( self.dom_element, self.line_invalid );
                     clearInterval( _interval_done );
                 }
             }, 100 );
         }, timeout );
     },
     scrollToError       : function () {
-        SHINKEN.OBJECT.JsonEditorService.scrollToError( this.dom_element, this.line_invalid );
+        GS.OBJECT.JsonEditorService.scrollToError( this.dom_element, this.line_invalid );
     },
     computeIsValid      : function () {
         this.line_invalid = 0;
-        const _analyze    = SHINKEN.OBJECT.JsonEditorService.computeValidation( this.dom_element );
+        const _analyze    = GS.OBJECT.JsonEditorService.computeValidation( this.dom_element );
         this.text         = _analyze[ 0 ];
         this.error_syntax = _analyze[ 1 ];
         if ( !this.isValid() ) {
-            if ( SHINKEN.NAVIGATOR.isNavigator( 'isFireFox' ) ) {
-                this.line_invalid = parseInt( SHINKEN.TOOLS.STRING.extractBetween( this.error_syntax.toString(), 'at line ', ' column' ) );
+            if ( GS.NAVIGATOR.isNavigator( 'isFireFox' ) ) {
+                this.line_invalid = parseInt( GS.TOOLS.STRING.extractBetween( this.error_syntax.toString(), 'at line ', ' column' ) );
             }
             else {
-                this.line_invalid = parseInt( SHINKEN.TOOLS.STRING.extractBetween( this.error_syntax.toString(), 'line ', ' column' ) );
+                this.line_invalid = parseInt( GS.TOOLS.STRING.extractBetween( this.error_syntax.toString(), 'line ', ' column' ) );
             }
-            this.message_invalid = SHINKEN.TOOLS.STRING.format( _( "json_editor.invalid_json", [DICTIONARY_COMMON_UI] ), this.line_invalid );
+            this.message_invalid = GS.TOOLS.STRING.format( _( "json_editor.invalid_json", [DICTIONARY_COMMON_UI] ), this.line_invalid );
         }
     }
 };
-SHINKEN.OBJECT.ShinkenObjectJson           = function () {
-    this.__class_name__ = 'SHINKEN.OBJECT.ShinkenObjectJson';
+GS.OBJECT.ShinkenObjectJson           = function () {
+    this.__class_name__ = 'GS.OBJECT.ShinkenObjectJson';
 };
-SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
+GS.OBJECT.ShinkenObjectJson.prototype = {
     getDataForJson        : function ( format_data__20241115 ) {
         const _to_return  = this.getObjectToJson( format_data__20241115 );
         const _components = this.getChildrenObjectDict();
@@ -8923,7 +7802,7 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
                         _to_return[ _current_key ].push( _components[ _current_key ][ j ].getDataForJson( format_data__20241115 ) );
                     }
                 }
-                else if ( _components[ _current_key ].__class_name__ === "SHINKEN.OBJECT.Param" ) {
+                else if ( _components[ _current_key ].__class_name__ === "GS.OBJECT.Param" ) {
                     _to_return[ _current_key ] = _components[ _current_key ].user_value;
                 }
                 else if ( _components[ _current_key ] ) {
@@ -8940,7 +7819,7 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
                 _to_return[ this.unknown_property_keys[ j ] ] = this[ this.unknown_property_keys[ j ] ].getObjectToJson( format_data__20241115 );
             }
         }
-        if ( this.__class_name__ !== "SHINKEN.OBJECT.Param" ) {
+        if ( this.__class_name__ !== "GS.OBJECT.Param" ) {
             const _valid_own_property = this.getValidOwnProperty().getContent();
             for ( let i = 0, _size = _valid_own_property.length; i < _size; i++ ) {
                 if ( _valid_own_property[ i ].is_mandatory && typeof this[ _valid_own_property[ i ].key ] === 'undefined' ) {
@@ -8950,11 +7829,11 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
         }
         
         if ( this._json_anchor && !format_data__20241115 ) {
-            _to_return[ SHINKEN.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] = this._json_anchor;
+            _to_return[ GS.OBJECT.JSON_EDITOR.SHINKEN_JSON_UUID_ANCHOR ] = this._json_anchor;
         }
         const _information = this.addJSONInformation( format_data__20241115 );
         if ( _information ) {
-            _to_return[ SHINKEN.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] = _information;
+            _to_return[ GS.OBJECT.JSON_EDITOR.JSON_FORMAT_INFORMATION ] = _information;
         }
         return _to_return;
     },
@@ -8993,13 +7872,13 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
             return;
         }
         this.dom_element__json.innerHTML = to_set === this.default_value ? '"' + to_set + '"' : to_set;
-        DOM.Service.addOrRemoveClasses( this.dom_element__json, to_set !== this.getUserInitialValue(), "shinken-modified" );
+        SERVICE.DOM.addOrRemoveClasses( this.dom_element__json, to_set !== this.getUserInitialValue(), "shinken-modified" );
         this.updateDefaultValueHtml();
     },
     updateDefaultValueHtml: function () {
         const _default_value_doms = this.dom_element__json.parentElement.querySelectorAll( "[data-dft-val]" );
         for ( let i = 0, _size_i = _default_value_doms.length; i < _size_i; i++ ) {
-            DOM.Service.addOrRemoveClasses( _default_value_doms[ i ], _default_value_doms[ i ].innerText === '"' + _default_value_doms[ i ].dataset.dftVal + '"', "X" );
+            SERVICE.DOM.addOrRemoveClasses( _default_value_doms[ i ], _default_value_doms[ i ].innerText === '"' + _default_value_doms[ i ].dataset.dftVal + '"', "X" );
         }
     },
     linkJsonDomElement    : function ( property_list ) {
@@ -9014,14 +7893,14 @@ SHINKEN.OBJECT.ShinkenObjectJson.prototype = {
         if ( params && params[ SHINKEN_PAGE.CONST.EVENTS.PARAM.ACTIVE_WINDOW_NAME_IS_JSON ] ) {
             this.linkJsonDomElement();
             let json_editor = this.getJsonEditorInstance( null, this.getDataForJson(), SHINKEN_PAGE.CONST.DEFAULT_VALUE );
-            DOM.Service.replaceElement( this.dom_element__json, json_editor.content.firstChild );
+            SERVICE.DOM.replaceElement( this.dom_element__json, json_editor.content.firstChild );
             this.dom_element__json = null;
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenObjectJson, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.NOTIFICATION       = SHINKEN.OBJECT.NOTIFICATION || {};
-SHINKEN.OBJECT.NOTIFICATION.CONST = SHINKEN.OBJECT.NOTIFICATION.CONST || {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectJson, GS.OBJECT.ShinkenObject );
+GS.OBJECT.NOTIFICATION       = GS.OBJECT.NOTIFICATION || {};
+GS.OBJECT.NOTIFICATION.CONST = GS.OBJECT.NOTIFICATION.CONST || {
     CONTAINER: {
         ID: 'shinken-notification-popup-container'
     },
@@ -9083,7 +7962,7 @@ COMPONENT.Interface.prototype     = {
         return this.tooltip_text[ this.state ] || "";
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Interface, SHINKEN.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Interface, GS.OBJECT.CounterInterface );
 COMPONENT.Interface_V3           = function () {
 };
 COMPONENT.Interface_V3.prototype = {
@@ -9108,11 +7987,11 @@ COMPONENT.Interface_V3.prototype = {
         return this.tooltip_text[ this.state ] || "";
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Interface_V3, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.OBJECT.DoActionsAfter           = function () {
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Interface_V3, GS.OBJECT.CounterInterfaceV2 );
+GS.OBJECT.DoActionsAfter           = function () {
     this.init();
 };
-SHINKEN.OBJECT.DoActionsAfter.prototype = {
+GS.OBJECT.DoActionsAfter.prototype = {
     init         : function () {
         this.initContents();
     },
@@ -9126,13 +8005,13 @@ SHINKEN.OBJECT.DoActionsAfter.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DoActionsAfter, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.DoActionAfter           = function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionsAfter, GS.OBJECT.ShinkenObjectContainer );
+GS.OBJECT.DoActionAfter           = function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
     this.init( parent_object, to_test, event_name, param_1, param_2, param_3 );
 };
-SHINKEN.OBJECT.DoActionAfter.prototype = {
+GS.OBJECT.DoActionAfter.prototype = {
     init         : function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
-        this.uuid          = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid          = GS.TOOLS.STRING.buildUUID();
         this.parent_object = parent_object;
         this.to_test       = to_test;
         this.event_name    = event_name;
@@ -9153,8 +8032,8 @@ SHINKEN.OBJECT.DoActionAfter.prototype = {
     remove       : function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DoActionAfter, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.CONST.PHASE                  = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionAfter, GS.OBJECT.ShinkenObject );
+GS.OBJECT.CONST.PHASE                  = {
     RUNNING                 : 0,
     REFRESHING              : 1,
     INIT                    : 2,
@@ -9205,19 +8084,19 @@ SHINKEN.OBJECT.CONST.PHASE                  = {
     HOVER                   : "HOVER",
     LOADING_DATA            : "LOADING_DATA"
 };
-SHINKEN.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT = 0;
-SHINKEN.OBJECT.Phase                        = function ( parent_object ) {
+GS.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT = 0;
+GS.OBJECT.Phase                        = function ( parent_object ) {
     this.previous_phase                 = null;
-    this.current_phase                  = SHINKEN.OBJECT.CONST.PHASE.INIT;
+    this.current_phase                  = GS.OBJECT.CONST.PHASE.INIT;
     this.next_phase                     = null;
     this.parent_object                  = parent_object;
     this.timeout_set_phase_callback     = null;
     this.timeout_phase                  = null;
     this.synchrnonized_phase_object     = [];
-    this.action_to_do_on_phase          = new SHINKEN.OBJECT.DoActionsAfter();
-    this.action_to_do_callback_on_phase = new SHINKEN.OBJECT.DoActionsAfter();
+    this.action_to_do_on_phase          = new GS.OBJECT.DoActionsAfter();
+    this.action_to_do_callback_on_phase = new GS.OBJECT.DoActionsAfter();
 };
-SHINKEN.OBJECT.Phase.prototype              = {
+GS.OBJECT.Phase.prototype              = {
     setPhase                       : function ( to_set ) {
         if ( this.timeout_phase ) {
             clearTimeout( this.timeout_phase );
@@ -9236,7 +8115,7 @@ SHINKEN.OBJECT.Phase.prototype              = {
                 this.parent_object.callbackForPhase();
                 this.action_to_do_callback_on_phase.doActionAfter( this.current_phase );
                 this.timeout_set_phase_callback = null;
-            }, SHINKEN.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT );
+            }, GS.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT );
         }
         if ( this.synchrnonized_phase_object.length ) {
             for ( let i = 0, _size_i = this.synchrnonized_phase_object.length; i < _size_i; i++ ) {
@@ -9247,12 +8126,12 @@ SHINKEN.OBJECT.Phase.prototype              = {
     },
     _setPhaseInDomElement          : function () {
         if ( this.dom_element_data_name ) {
-            DOM.Service.setDataSet( this.dom_element, this.dom_element_data_name + 'CurrentPhase', this.current_phase );
-            DOM.Service.setDataSet( this.dom_element, this.dom_element_data_name + 'PreviousPhase', this.previous_phase );
+            SERVICE.DOM.setDataSet( this.dom_element, this.dom_element_data_name + 'CurrentPhase', this.current_phase );
+            SERVICE.DOM.setDataSet( this.dom_element, this.dom_element_data_name + 'PreviousPhase', this.previous_phase );
         }
         else {
-            DOM.Service.setDataSet( this.dom_element, 'currentPhase', this.current_phase );
-            DOM.Service.setDataSet( this.dom_element, 'previousPhase', this.previous_phase );
+            SERVICE.DOM.setDataSet( this.dom_element, 'currentPhase', this.current_phase );
+            SERVICE.DOM.setDataSet( this.dom_element, 'previousPhase', this.previous_phase );
         }
     },
     setPhaseIfPhase                : function ( to_set, if_is ) {
@@ -9305,11 +8184,11 @@ SHINKEN.OBJECT.Phase.prototype              = {
         this._setPhaseInDomElement();
     }
 };
-SHINKEN.OBJECT.PhaseInterface               = function () {
+GS.OBJECT.PhaseInterface               = function () {
 };
-SHINKEN.OBJECT.PhaseInterface.prototype     = {
+GS.OBJECT.PhaseInterface.prototype     = {
     initPhase                          : function ( phase_value, dom_element ) {
-        this.phase = new SHINKEN.OBJECT.Phase( this );
+        this.phase = new GS.OBJECT.Phase( this );
         if ( dom_element ) {
             this.phase.setDomElement( dom_element );
         }
@@ -9351,7 +8230,7 @@ SHINKEN.OBJECT.PhaseInterface.prototype     = {
         }
     },
     addDoActionAfterCallBackPhaseBecome: function ( phase_to_test, event_name, param_1, param_2, param_3 ) {
-        this.phase.action_to_do_callback_on_phase.add( new SHINKEN.OBJECT.DoActionAfter( this, phase_to_test, event_name, param_1, param_2, param_3 ) );
+        this.phase.action_to_do_callback_on_phase.add( new GS.OBJECT.DoActionAfter( this, phase_to_test, event_name, param_1, param_2, param_3 ) );
     },
     togglePhase                        : function ( phase_1, phase_2 ) {
         this.phase.togglePhase( phase_1, phase_2 );
@@ -9391,8 +8270,8 @@ SHINKEN.OBJECT.PhaseInterface.prototype     = {
     callbackForPhase                   : function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.PhaseInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.SLIDE_PANEL          = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.PhaseInterface, GS.OBJECT.ShinkenObject );
+GS.OBJECT.SLIDE_PANEL          = {
     TYPE    : {
         HORIZONTAL_RIGHT: "HORIZONTAL_RIGHT",
         HORIZONTAL_LEFT : "HORIZONTAL_LEFT",
@@ -9420,24 +8299,24 @@ SHINKEN.OBJECT.SLIDE_PANEL          = {
         SIZE_ADDED   : "size_added_slide_panel"
     }
 };
-SHINKEN.OBJECT.SlidePanel           = function ( name, dom_element__part_existing ) {
+GS.OBJECT.SlidePanel           = function ( name, dom_element__part_existing ) {
     this.init( name, dom_element__part_existing );
 };
-SHINKEN.OBJECT.SlidePanel.prototype = {
+GS.OBJECT.SlidePanel.prototype = {
     init                     : function ( name, dom_element__part_existing ) {
         this.initCommon( name, dom_element__part_existing );
     },
     initCommon               : function ( name, dom_element__part_existing ) {
-        this.type = this.type || SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT;
+        this.type = this.type || GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT;
         this.initPhase();
         this.setName( name );
         this.setExistingDomElement( dom_element__part_existing );
     },
     open__20240925           : function () {
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
     },
     close__20240925          : function () {
-        this.setPhaseIfDifferent( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+        this.setPhaseIfDifferent( GS.OBJECT.CONST.PHASE.HIDDEN, GS.OBJECT.CONST.PHASE.HIDDEN );
     },
     doActionAfter            : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
@@ -9446,10 +8325,10 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         switch ( event_name ) {
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
-                    case SHINKEN.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_ADDED:
+                    case GS.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_ADDED:
                         this.setSize__20240926( this.getMinSize__partAdded() );
                         break;
-                    case SHINKEN.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_EXISTING:
+                    case GS.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_EXISTING:
                         this.setSize__20240926( this.getMaxSize__partAdded() );
                         break;
                 }
@@ -9472,26 +8351,26 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         }
     },
     setSize__20240926        : function ( size__part_added, is_drag_n_drop ) {
-        if ( !this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING ) ) {
+        if ( !this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ) {
             return;
         }
         size__part_added         = Math.max( size__part_added, this.getMinSize__partAdded() );
         size__part_added         = Math.min( size__part_added, this.getMaxSize__partAdded() );
         let size__part_existing  = this.getSize__parent() - size__part_added - this.getSizeButtons();
-        const is_part_size_small = size__part_existing < SHINKEN.OBJECT.SLIDE_PANEL.WIDTH.SMALL;
-        DOM.Service.setStyle( this.dom_element__part_added, this.getStyleKey(), size__part_added );
-        DOM.Service.setStyle( this.dom_element__part_existing, this.getStyleKey(), size__part_existing );
-        DOM.Service.addOrRemoveClasses( this.dom_element__part_existing, is_part_size_small, "shinken-slide-panel-main-part-is-small" );
+        const is_part_size_small = size__part_existing < GS.OBJECT.SLIDE_PANEL.WIDTH.SMALL;
+        SERVICE.DOM.setStyle( this.dom_element__part_added, this.getStyleKey(), size__part_added );
+        SERVICE.DOM.setStyle( this.dom_element__part_existing, this.getStyleKey(), size__part_existing );
+        SERVICE.DOM.addOrRemoveClasses( this.dom_element__part_existing, is_part_size_small, "shinken-slide-panel-main-part-is-small" );
         if ( !is_drag_n_drop ) {
             this.size__part_added = size__part_added;
         }
         this.computeStatePinButtons();
         this.computeSize__parent();
         this.getController_20241003().doActionAfter( "slide_panel__size__has_changed", {
-            [ SHINKEN.OBJECT.SLIDE_PANEL.PARAM.OBJECT ]       : this,
-            [ SHINKEN.OBJECT.SLIDE_PANEL.PARAM.DRAG_N_DROP ]  : !!is_drag_n_drop,
-            [ SHINKEN.OBJECT.SLIDE_PANEL.PARAM.SIZE_ADDED ]   : size__part_added,
-            [ SHINKEN.OBJECT.SLIDE_PANEL.PARAM.SIZE_EXISTING ]: size__part_existing
+            [ GS.OBJECT.SLIDE_PANEL.PARAM.OBJECT ]       : this,
+            [ GS.OBJECT.SLIDE_PANEL.PARAM.DRAG_N_DROP ]  : !!is_drag_n_drop,
+            [ GS.OBJECT.SLIDE_PANEL.PARAM.SIZE_ADDED ]   : size__part_added,
+            [ GS.OBJECT.SLIDE_PANEL.PARAM.SIZE_EXISTING ]: size__part_existing
         } );
     },
     getSizeButtons           : function () {
@@ -9531,13 +8410,13 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
             return;
         }
         if ( !this.dom_element_loading ) {
-            this.dom_element_loading         = DOM.Service.createElement( "div", { class: "shinken-panel-loading-container" } );
-            var _content                     = DOM.Service.createElement( "div", { class: "shinken-panel-loading-content" } );
-            this.dom_element_loading_message = DOM.Service.createElement( "div", { class: "shinken-panel-loading-message" } );
-            var _icon                        = DOM.Service.createElement( "div", { class: "shinken-panel-loading-icon" }, '<span class="shinkon shinkon-reload"></span>' );
-            DOM.Service.addElementTo( this.dom_element_loading_message, _content );
-            DOM.Service.addElementTo( _icon, _content );
-            DOM.Service.addElementTo( _content, this.dom_element_loading );
+            this.dom_element_loading         = SERVICE.DOM.createElement( "div", { class: "shinken-panel-loading-container" } );
+            var _content                     = SERVICE.DOM.createElement( "div", { class: "shinken-panel-loading-content" } );
+            this.dom_element_loading_message = SERVICE.DOM.createElement( "div", { class: "shinken-panel-loading-message" } );
+            var _icon                        = SERVICE.DOM.createElement( "div", { class: "shinken-panel-loading-icon" }, '<span class="shinkon shinkon-reload"></span>' );
+            SERVICE.DOM.addElementTo( this.dom_element_loading_message, _content );
+            SERVICE.DOM.addElementTo( _icon, _content );
+            SERVICE.DOM.addElementTo( _content, this.dom_element_loading );
         }
         this.dom_element_loading_message.innerHTML = to_set;
         this.setContent__20240925( this.dom_element_loading );
@@ -9545,12 +8424,12 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
     setContent__20240925     : function ( to_set, is_loading ) {
         this.content_html = to_set;
         if ( this.dom_element__part_added ) {
-            DOM.Service.addElementToAfterEmpty( this.content_html, this.dom_element__part_added );
+            SERVICE.DOM.addElementToAfterEmpty( this.content_html, this.dom_element__part_added );
         }
         this.doActionAfter( "slide_panel__set_content__done", {
-            [ SHINKEN.OBJECT.SLIDE_PANEL.PARAM.OBJECT ]: this
+            [ GS.OBJECT.SLIDE_PANEL.PARAM.OBJECT ]: this
         } );
-        this.addDoActionAfterCallBackPhaseBecome( SHINKEN.OBJECT.CONST.PHASE.RUNNING, "slide_panel__size__has_changed", {} );
+        this.addDoActionAfterCallBackPhaseBecome( GS.OBJECT.CONST.PHASE.RUNNING, "slide_panel__size__has_changed", {} );
     },
     setName                  : function ( to_set ) {
         this.name = to_set;
@@ -9566,25 +8445,25 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         this.dom_element_parent__20240925 = this.dom_element__part_existing.parentElement;
     },
     getCurrentSize__partAdded: function () {
-        return DOM.Service.getBoundingClientRect( this.dom_element__part_added, this.getStyleKey() );
+        return SERVICE.DOM.getBoundingClientRect( this.dom_element__part_added, this.getStyleKey() );
     },
     getStyleKey              : function () {
         switch ( this.type ) {
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
                 return DOM.CONST.STYLE.WIDTH;
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
                 return DOM.CONST.STYLE.HEIGHT;
         }
     },
     getCurrentSize__window   : function () {
         switch ( this.type ) {
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
                 return window.innerWidth;
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
                 return window.innerHeight;
         }
     },
@@ -9595,16 +8474,16 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
     },
     onDragMove               : function ( delta_x, delta_y ) {
         switch ( this.type ) {
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT:
                 this.setSize__20240926( this.getSize__partAdded() + delta_x, true );
                 break;
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_RIGHT:
                 this.setSize__20240926( this.getSize__partAdded() - delta_x, true );
                 break;
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_TOP:
                 this.setSize__20240926( this.getSize__partAdded() + delta_y, true );
                 break;
-            case SHINKEN.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
+            case GS.OBJECT.SLIDE_PANEL.TYPE.VERTICAL_BOTTOM:
                 this.setSize__20240926( this.getSize__partAdded() - delta_y, true );
                 break;
         }
@@ -9614,12 +8493,12 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         this.is_drag_on       = false;
     },
     computeSize__parent      : function () {
-        this.size_parent = DOM.Service.getBoundingClientRect( this.dom_element_parent__20240925, this.getStyleKey() );
+        this.size_parent = SERVICE.DOM.getBoundingClientRect( this.dom_element_parent__20240925, this.getStyleKey() );
     },
     computeStatePinButtons   : function () {
         let size__part_added = this.getCurrentSize__partAdded();
-        DOM.Service.addOrRemoveClasses( this.dom_element__part_buttons, this.getMaxSize__partAdded() === size__part_added, "shinken-max-on" );
-        DOM.Service.addOrRemoveClasses( this.dom_element__part_buttons, this.getMinSize__partAdded() === size__part_added, "shinken-min-on" );
+        SERVICE.DOM.addOrRemoveClasses( this.dom_element__part_buttons, this.getMaxSize__partAdded() === size__part_added, "shinken-max-on" );
+        SERVICE.DOM.addOrRemoveClasses( this.dom_element__part_buttons, this.getMinSize__partAdded() === size__part_added, "shinken-min-on" );
     },
     computeInitialSize       : function () {
         if ( this.initial_pixel ) {
@@ -9633,7 +8512,7 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         }
     },
     computeSizes__20240926   : function ( force_compute ) {
-        if ( !this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING ) ) {
+        if ( !this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ) {
             return;
         }
         this.getDomElement().classList.add( "shinken-hidden" ); //NEEDED IN ORDER TO IGNORE SIZE HARD SET.
@@ -9656,10 +8535,10 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
             return;
         }
         switch ( _current ) {
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING:
+            case GS.OBJECT.CONST.PHASE.RUNNING:
                 this.computeHtml();
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.HIDDEN:
+            case GS.OBJECT.CONST.PHASE.HIDDEN:
                 this.restoreStructure();
                 break;
         }
@@ -9675,52 +8554,52 @@ SHINKEN.OBJECT.SlidePanel.prototype = {
         this.doActionAfter( "compute_html_done" );
     },
     _computeHtml             : function () {
-        this.setDomElement( DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-slide-panel-container", "data-type": this.type } ), this.dom_element_parent__20240925 ) );
-        this.dom_element__part_added = DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-slide-panel-container", "data-type": this.type } ), this.dom_element_parent__20240925 ) );
+        this.dom_element__part_added = SERVICE.DOM.createElement( "div", {
             class: "shinken-slide-panel-content"
         } );
         if ( this.content_html ) {
-            DOM.Service.addElementTo( this.content_html, this.dom_element__part_added );
+            SERVICE.DOM.addElementTo( this.content_html, this.dom_element__part_added );
         }
         this.dom_element__part_buttons = this.computeButtonHtml();
     },
     computeButtonHtml        : function () {
-        let _to_return = DOM.Service.createElement( "div", { class: "shinken-slide-panel-buttons-part shinken-user-select-none" } );
-        let _div       = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-slide-panel-buttons-containers" } ), _to_return );
+        let _to_return = SERVICE.DOM.createElement( "div", { class: "shinken-slide-panel-buttons-part shinken-user-select-none" } );
+        let _div       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-slide-panel-buttons-containers" } ), _to_return );
         
-        let _button_min_added = new COMPONENT.ButtonFromData_V3( SHINKEN.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_ADDED, "<span class='shinken-slide-panel-button shinkon shinkon-double-chevron-up'></span>" );
-        _button_min_added.addParamForEvents( SHINKEN.OBJECT.SLIDE_PANEL.PARAM.NAME, this.getName() );
+        let _button_min_added = new COMPONENT.ButtonFromData_V3( GS.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_ADDED, "<span class='shinken-slide-panel-button shinkon shinkon-double-chevron-up'></span>" );
+        _button_min_added.addParamForEvents( GS.OBJECT.SLIDE_PANEL.PARAM.NAME, this.getName() );
         _button_min_added.computeHtml();
-        DOM.Service.addElementTo( _button_min_added.getDomElement(), _div );
+        SERVICE.DOM.addElementTo( _button_min_added.getDomElement(), _div );
         
-        DOM.Service.addElementTo( DOM.Service.createElement( "div", {
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
             class                          : "shinken-slide-panel-button shinkon shinkon-resize-horizontal shinken-draggable",
             "data-drag-is-in-screen"       : true,
             "data-drag-resize-element-name": this.name,
             onmousedown                    : "MANAGER.DragNDropManager.dragStartSingle(event)"
         } ), _div );
         
-        let _button_min_existing = new COMPONENT.ButtonFromData_V3( SHINKEN.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_EXISTING, "<span class='shinken-slide-panel-button shinkon shinkon-double-chevron-down'></span>" );
-        _button_min_existing.addParamForEvents( SHINKEN.OBJECT.SLIDE_PANEL.PARAM.NAME, this.getName() );
+        let _button_min_existing = new COMPONENT.ButtonFromData_V3( GS.OBJECT.SLIDE_PANEL.ACTION.PIN_TO_MIN_SIZE_PART_EXISTING, "<span class='shinken-slide-panel-button shinkon shinkon-double-chevron-down'></span>" );
+        _button_min_existing.addParamForEvents( GS.OBJECT.SLIDE_PANEL.PARAM.NAME, this.getName() );
         _button_min_existing.computeHtml();
-        DOM.Service.addElementTo( _button_min_existing.getDomElement(), _div );
+        SERVICE.DOM.addElementTo( _button_min_existing.getDomElement(), _div );
         
         return _to_return;
     },
     restoreStructure         : function () {
         this.initial_pixel = this.getCurrentSize__partAdded();
-        DOM.Service.setStyle( this.dom_element__part_existing, this.getStyleKey(), "" );
-        DOM.Service.addElementToAfterEmpty( this.dom_element__part_existing, this.dom_element_parent__20240925 );
-        DOM.Service.removeElement( this.getDomElement() );
-        DOM.Service.removeElement( this.dom_element__part_buttons );
-        DOM.Service.removeElement( this.dom_element__part_added );
+        SERVICE.DOM.setStyle( this.dom_element__part_existing, this.getStyleKey(), "" );
+        SERVICE.DOM.addElementToAfterEmpty( this.dom_element__part_existing, this.dom_element_parent__20240925 );
+        SERVICE.DOM.removeElement( this.getDomElement() );
+        SERVICE.DOM.removeElement( this.dom_element__part_buttons );
+        SERVICE.DOM.removeElement( this.dom_element__part_added );
         this.setDomElement();
         this.doActionAfter( "slide-panel-restore-structure-done" );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanel, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanel, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.COMUNICATION                                      = (function ( self ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.PhaseInterface );
+GS.COMUNICATION                                      = (function ( self ) {
     self.requestGet_withTimeout = function ( timeout, url, success, error, not_found_callback, unauthorized_callback ) {
         setTimeout( () => {
             self.requestGet( url, success, error, not_found_callback, unauthorized_callback );
@@ -9754,7 +8633,7 @@ SHINKEN.COMUNICATION                                      = (function ( self ) {
         request.send( data );
     };
     self.onRequestError         = function () {
-        SHINKEN.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
+        GS.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
     };
     
     self.onRequestSuccess = function ( success, not_found_callback, unauthorized_callback ) {
@@ -9796,11 +8675,11 @@ SHINKEN.COMUNICATION                                      = (function ( self ) {
         }
     };
     var _do_action_500    = function ( data ) {
-        SHINKEN.TOOLS.NOTIFICATION.addNotification( data, SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
+        GS.TOOLS.NOTIFICATION.addNotification( data, GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
     };
     return self;
-})( SHINKEN.COMUNICATION || {} );
-SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
+})( GS.COMUNICATION || {} );
+GS.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
     self.console                     = function ( ...arg ) {
     };
     self.informParentIframeUrlChange = function ( controller_name ) {
@@ -9822,7 +8701,7 @@ SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
             need_redirect = true;
         }
         if ( need_redirect ) {
-            SHINKEN.HIGHWAY.goTo( window.location.href.replace( window.location.origin, window.location.origin + "/static/ui/index.html#" ) );
+            GS.HIGHWAY.goTo( window.location.href.replace( window.location.origin, window.location.origin + "/static/ui/index.html#" ) );
         }
     };
     self.clickDone                   = function ( event ) {
@@ -9862,8 +8741,8 @@ SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
     };
     
     return self;
-})( SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT || {} );
-SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD                   = (function ( self ) {
+})( GS.COMMUNICATION_WITH_IFRAME_PARENT || {} );
+GS.COMMUNICATION_WITH_IFRAME_CHILD                   = (function ( self ) {
     self.doActionAfter = function ( id_iframe, event_name, callback_to_eval ) {
         try {
             var _iframe          = DOM.BodyService.getDomElement().querySelector( "#" + id_iframe );
@@ -9877,8 +8756,8 @@ SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD                   = (function ( self ) {
     };
     
     return self;
-})( SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD || {} );
-SHINKEN.COMUNICATION.CONST                                = {
+})( GS.COMMUNICATION_WITH_IFRAME_CHILD || {} );
+GS.COMUNICATION.CONST                                = {
     QUERY: {
         SEPARATOR: {
             GET_BEGINNER: '?',
@@ -9977,7 +8856,7 @@ SHINKEN.COMUNICATION.CONST                                = {
         }
     }
 };
-SHINKEN.NETWORK                                           = {
+GS.NETWORK                                           = {
     HTTP_CODE : {
         NONE                       : -1,
         _200_SUCCESS               : 200,
@@ -10005,13 +8884,7 @@ SHINKEN.NETWORK                                           = {
     }
     
 };
-console.shinken                                           = {};
-console.shinken.debug                                     = function ( ...args ) {
-    if ( __shinken_is_dev__ ) {
-        console.warn( "[DEBUG]", ...args );
-    }
-};
-SHINKEN.HIGHWAY                                           = (function ( self ) {
+GS.HIGHWAY                                           = (function ( self ) {
     "use strict";
     self.goToParentUrl                  = function () {
         var _floors        = location.pathname.split( '/' );
@@ -10038,7 +8911,7 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
                     delete _params[ 'conf-id' ];
                     delete _params[ 'synchronizer-id' ];
                     delete _params[ 'source-name' ];
-                    _new_path_name = this.getPathWithoutOrigin() + window.SHINKEN.HIGHWAY.buildParamsToUrl( _params );
+                    _new_path_name = this.getPathWithoutOrigin() + window.GS.HIGHWAY.buildParamsToUrl( _params );
                 }
                 break;
             case "/elements/add/working_area":
@@ -10167,22 +9040,22 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
     };
     self.getNavigationType              = function ( event ) {
         if ( !event ) {
-            return SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL;
+            return GS.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL;
         }
         switch ( event.which ) {
             case 1:
-                return event.ctrlKey ? SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK : SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL;
+                return event.ctrlKey ? GS.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK : GS.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL;
             case 2:
-                return SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK;
+                return GS.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK;
         }
-        return SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.NONE;
+        return GS.HIGHWAY.CONST.NAVIGATION_TYPE.NONE;
     };
     self.goTo                           = function ( url, event ) {
         var _navigation_type = self.getNavigationType( event );
         switch ( _navigation_type ) {
-            case SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK:
+            case GS.HIGHWAY.CONST.NAVIGATION_TYPE.TARGET_BLANK:
                 return self.goToBlank( url, event );
-            case SHINKEN.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL:
+            case GS.HIGHWAY.CONST.NAVIGATION_TYPE.NORMAL:
                 if ( event ) {
                     event.stopPropagation();
                     event.preventDefault();
@@ -10205,7 +9078,7 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
         var histories = App.HistoryManager.histories();
         for ( var i = histories.length - 1; i >= 0; i-- ) {
             var _previousUrl = histories[ i ];
-            if ( SHINKEN.TOOLS.STRING.contains( _previousUrl, item_id ) ) {
+            if ( GS.TOOLS.STRING.contains( _previousUrl, item_id ) ) {
                 histories.splice( i, 1 );
             }
         }
@@ -10214,7 +9087,7 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
     self.setParam                       = function ( param_key, param_value ) {
         var params = self.getParams();
         if ( param_value ) {
-            params[ param_key ] = SHINKEN.TOOLS.STRING.urlEncode( param_value );
+            params[ param_key ] = GS.TOOLS.STRING.urlEncode( param_value );
         }
         else {
             delete params[ param_key ];
@@ -10224,7 +9097,7 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
     self.handleResponse                 = function ( status ) {
         switch ( status ) {
             case COMMUNICATION.CODE.UNAUTHORIZED:
-                SHINKEN.HIGHWAY.goTo( '/user/login?error=' + _( 'login.invalid_user' ) );
+                GS.HIGHWAY.goTo( '/user/login?error=' + _( 'login.invalid_user' ) );
                 break;
             default:
                 break;
@@ -10234,18 +9107,18 @@ SHINKEN.HIGHWAY                                           = (function ( self ) {
         return false;
     };
     return self;
-})( SHINKEN.HIGHWAY || {} );
-SHINKEN.HIGHWAY.CONST                                     = {
+})( GS.HIGHWAY || {} );
+GS.HIGHWAY.CONST                                     = {
     NAVIGATION_TYPE: {
         TARGET_BLANK: "TARGET_BLANK",
         NORMAL      : "NORMAL",
         NONE        : "NONE"
     }
 };
-SHINKEN.OBJECT.NotificationsOfChange                      = {};
-SHINKEN.OBJECT.NotificationsOfChange._interface           = function () {
+GS.OBJECT.NotificationsOfChange                      = {};
+GS.OBJECT.NotificationsOfChange._interface           = function () {
 };
-SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
+GS.OBJECT.NotificationsOfChange._interface.prototype = {
     init              : function ( data ) {
         this.timeout_ask_play_notification = null;
         if ( data ) {
@@ -10253,9 +9126,9 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
         }
     },
     initPhase         : function () {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( "init_phase" );
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( "reset_object" );
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].initPhase();
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( "init_phase" );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( "reset_object" );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].initPhase();
     },
     doActionAfter     : function ( event_name, param ) {
         switch ( event_name ) {
@@ -10272,22 +9145,22 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
             case "init_with_dom_element":
             case "init_phase_with_dom_element":
             case "click_done":
-                this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( event_name, param );
-                this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( event_name, param );
+                this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( event_name, param );
+                this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( event_name, param );
                 break;
             case "change_value_notification_of_change_visual_blink":
             case "user_has_disabled_blink_notification":
             case "ask_play_notification_visual_blink":
             case "shinken_view_has_disabled_blink_notification":
             case "set_phase_blink_depending_number_of_change":
-                this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( event_name, param );
+                this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].doActionAfter( event_name, param );
                 break;
             case "ask_play_notification_of_sound":
             case "change_value_notification_of_change_sound":
             case "shinken_view_has_disabled_sound_notification":
             case "user_has_volume_muted_notification":
             case "set_phase_sound_depending_number_of_change":
-                this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( event_name, param );
+                this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].doActionAfter( event_name, param );
                 break;
             default:
                 console.log( "[_interface - doActionAfter]", "[not managed case]", event_name, param );
@@ -10305,8 +9178,8 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
     },
     setData           : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND:
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL:
                 this[ key ].updateData( value );
                 break;
             case "timeout_ask_play_notification":
@@ -10316,43 +9189,43 @@ SHINKEN.OBJECT.NotificationsOfChange._interface.prototype = {
         }
     },
     getSoundValue     : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getValue();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getValue();
     },
     getVolumeValue    : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getValue();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getValue();
     },
     getBlinkValue     : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getBlinkValue();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getBlinkValue();
     },
     getBlinkDomElement: function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getBlinkDomElement();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getBlinkDomElement();
     },
     getSoundDomElement: function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDomElement();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDomElement();
     },
     getDataToSave     : function () {
         var _to_return                                                         = {};
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDataToSave();
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getDataToSave();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDataToSave();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getDataToSave();
         return _to_return;
     }
 };
-SHINKEN.OBJECT.Dropdown                                   = SHINKEN.OBJECT.Dropdown || {};
-SHINKEN.OBJECT.Dropdown._interface                        = function () {
+GS.OBJECT.Dropdown                                   = GS.OBJECT.Dropdown || {};
+GS.OBJECT.Dropdown._interface                        = function () {
 };
-SHINKEN.OBJECT.Dropdown._interface.prototype              = {
+GS.OBJECT.Dropdown._interface.prototype              = {
     init     : function ( dom_element_target, dom_element_content, placement ) {
         this.initPhase();
         this.setDomTargetElement( dom_element_target );
         this.dom_element_content = dom_element_content;
-        this.placement           = placement || SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
-        this.uuid                = SHINKEN.TOOLS.STRING.buildUUID();
+        this.placement           = placement || GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
+        this.uuid                = GS.TOOLS.STRING.buildUUID();
     },
     getUUID  : function () {
         return this.uuid;
     },
     getMaxTry: function () {
-        return SHINKEN.OBJECT.Dropdown.CONST.MAX_TRY_IN_SCREEN;
+        return GS.OBJECT.Dropdown.CONST.MAX_TRY_IN_SCREEN;
     },
     getClass : function () {
         return "shinken-dropdown-container";
@@ -10371,10 +9244,10 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
     },
     
     initDomElement: function () {
-        this.setDomElement( DOM.Service.createElement( "div", { "id": this.getUUID(), "class": this.getClass() }, SHINKEN.OBJECT.Dropdown.CONST.HTML ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { "id": this.getUUID(), "class": this.getClass() }, GS.OBJECT.Dropdown.CONST.HTML ) );
         this.setPhaseDomElement( this.getDomElement() );
         DOM.BodyService.addChild( this.getDomElement() );
-        DOM.Service.addElementTo( this.dom_element_content, this.getDomElement().querySelector( ".shi-tip-text" ) );
+        SERVICE.DOM.addElementTo( this.dom_element_content, this.getDomElement().querySelector( ".shi-tip-text" ) );
         this.doActionAfter( "do_action_after_init_dom_element" );
     },
     
@@ -10398,7 +9271,7 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
             this.timeout_pop = setTimeout( function () {
                 self.getDomElement().style.top  = self.pos_top + 'px';
                 self.getDomElement().style.left = self.pos_left + 'px';
-                DOM.Service.setDataSet( self.getDomElement(), "dataPlacement", self.placement );
+                SERVICE.DOM.setDataSet( self.getDomElement(), "dataPlacement", self.placement );
                 self.getDomElement().classList.remove( "shinken-no-opacity" );
                 self.doPlacementArrow();
             }, 10 );
@@ -10422,42 +9295,42 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
         this.dom_element_target = to_set;
     },
     computeAfterResize    : function () {
-        if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING ) ) {
+        if ( this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ) {
             this.setPositionAfterResize();
         }
     },
     computePosition       : function ( _rect, _width_rect ) {
         switch ( this.placement ) {
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
-                this.pos_top  = (_rect.top - this.height + SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
+                this.pos_top  = (_rect.top - this.height + GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
                 this.pos_left = (_rect.left + _width_rect / 2 - this.width / 2);
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
-                this.pos_top  = (_rect.top - this.height + SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
-                this.pos_left = _rect.left - this.width + _width_rect + 2 * SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
+                this.pos_top  = (_rect.top - this.height + GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
+                this.pos_left = _rect.left - this.width + _width_rect + 2 * GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
-                this.pos_top  = (_rect.top - this.height + SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
-                this.pos_left = _rect.left - 2 * SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
+                this.pos_top  = (_rect.top - this.height + GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
+                this.pos_left = _rect.left - 2 * GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
                 this.pos_top  = (_rect.top + _rect.height / 2 - this.height / 2);
                 this.pos_left = (_rect.left - this.width);
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
                 this.pos_top  = (_rect.top + _rect.height / 2 - this.height / 2);
                 this.pos_left = (_rect.left + _width_rect);
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
-                this.pos_top  = (_rect.bottom - SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
+                this.pos_top  = (_rect.bottom - GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
                 this.pos_left = (_rect.left + _width_rect / 2 - this.width / 2);
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
-                this.pos_top  = (_rect.bottom - SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
-                this.pos_left = _rect.left - 2 * SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
+                this.pos_top  = (_rect.bottom - GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE);
+                this.pos_left = _rect.left - 2 * GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
                 break;
-            case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
-                this.pos_top  = _rect.top + _rect.height + SHINKEN.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
+            case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
+                this.pos_top  = _rect.top + _rect.height + GS.OBJECT.Dropdown.CONST.STYLE.ARROW_SIZE;
                 this.pos_left = _rect.left + _width_rect / 2 - this.width;
                 break;
             default:
@@ -10476,78 +9349,78 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
         if ( this.pos_left < _left_parent ) {
             _to_return = false;
             switch ( this.placement ) {
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
                     break;
             }
         }
         else if ( (this.pos_left + this.width) > _right_parent ) {
             _to_return = false;
             switch ( this.placement ) {
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.LEFT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.LEFT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
                     break;
             }
         }
         else if ( this.pos_top < _top_parent ) {
             _to_return = false;
             switch ( this.placement ) {
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT;
                     break;
             }
         }
         else if ( (this.pos_top + this.height) > _bottom_parent ) {
             _to_return = false;
             switch ( this.placement ) {
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.LEFT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_LEFT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_LEFT;
                     break;
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
-                case SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
-                    this.placement = SHINKEN.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT;
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.BOTTOM_RIGHT:
+                case GS.OBJECT.Dropdown.CONST.PLACEMENT.RIGHT:
+                    this.placement = GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP_RIGHT;
                     break;
             }
         }
@@ -10565,7 +9438,7 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
         if ( to_set === "OFF" ) {
             return false;
         }
-        return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
+        return GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
     },
     parseObjectToForm: function ( to_set ) {
         if ( to_set === true ) {
@@ -10574,7 +9447,7 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
         if ( to_set === false ) {
             return "OFF";
         }
-        return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
+        return GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
     },
     
     
@@ -10585,18 +9458,18 @@ SHINKEN.OBJECT.Dropdown._interface.prototype              = {
     callbackForPhase: function () {
         var _current_phase = this.getCurrentPhase();
         switch ( _current_phase ) {
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING:
+            case GS.OBJECT.CONST.PHASE.RUNNING:
                 this.show();
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.HIDDEN:
+            case GS.OBJECT.CONST.PHASE.HIDDEN:
                 break;
         }
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Dropdown._interface, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Dropdown._interface, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.Dropdown.CONST                      = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Dropdown._interface, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Dropdown._interface, GS.OBJECT.PhaseInterface );
+GS.OBJECT.Dropdown.CONST                      = {
     PLACEMENT        : {
         LEFT        : 'left',
         RIGHT       : 'right',
@@ -10634,10 +9507,10 @@ SHINKEN.OBJECT.Dropdown.CONST                      = {
           '</tr>' +
           '</table>'
 };
-SHINKEN.OBJECT.SoundNotificationOfChange           = function ( data ) {
+GS.OBJECT.SoundNotificationOfChange           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
+GS.OBJECT.SoundNotificationOfChange.prototype = {
     init               : function ( data ) {
         if ( data ) {
             this.updateData( data );
@@ -10656,23 +9529,23 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                 this.setPhaseDomElement( param, "soundNotification" );
                 break;
             case "change_value_notification_of_change_sound":
-                this.setData( SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED, param );
+                this.setData( GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED, param );
                 break;
             case "notification-configuration-set-dom-element-with-data":
                 this.updateHtmlWithData();
                 break;
             case "shinken_view_has_disabled_sound_notification":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+                this.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
                 break;
             case "user_has_volume_muted_notification":
-                this.setPhaseSpecific( SHINKEN.OBJECT.CONST.PHASE.DISCREET_USER );
+                this.setPhaseSpecific( GS.OBJECT.CONST.PHASE.DISCREET_USER );
                 break;
             case "set_phase_sound_depending_number_of_change":
-                this.setPhaseSpecific( param ? SHINKEN.OBJECT.CONST.PHASE.READY : SHINKEN.OBJECT.CONST.PHASE.STOPPING );
+                this.setPhaseSpecific( param ? GS.OBJECT.CONST.PHASE.READY : GS.OBJECT.CONST.PHASE.STOPPING );
                 break;
             case "ask_play_notification_of_sound":
                 this.flat_user_volume = param;
-                this.setPhaseIfPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING, SHINKEN.OBJECT.CONST.PHASE.READY );
+                this.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.RUNNING, GS.OBJECT.CONST.PHASE.READY );
                 break;
             case "ask_simulate_play_notification_of_sound":
                 this.simulatePlayAudio( param );
@@ -10684,7 +9557,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                 if ( param && param.target.parentElement && param.target.parentElement.classList.value !== "shinken-external-link-name-cell" ) {
                     SHINKEN_TOOLTIP.hideTooltip();
                 }
-                if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR ) ) {
+                if ( this.isPhase( GS.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR ) ) {
                     this.setPhase( this.getPreviousPhase() );
                     return;
                 }
@@ -10695,10 +9568,10 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
         this.doActionAfterCommun( event_name, param );
     },
     getValue           : function () {
-        if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
-            return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
+        if ( this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
+            return GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
     },
     playAudio          : function () {
         var audio    = MANAGER.DistributorResourcesManager.getInstance().getResource( "global_sound_notification" ).getContent();
@@ -10706,11 +9579,11 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
         audio.volume = this.flat_user_volume / 100;
         audio.play().then(
             function success ( response ) {
-                _self.setPhase( SHINKEN.OBJECT.CONST.PHASE.READY );
+                _self.setPhase( GS.OBJECT.CONST.PHASE.READY );
             },
             function error ( response ) {
                 console.error( response );
-                _self.setPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR );
+                _self.setPhase( GS.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR );
             } );
     },
     simulatePlayAudio  : function ( value ) {
@@ -10738,7 +9611,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
                     this.setData( _keys[ i ], value[ _keys[ i ] ] );
                 }
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED:
                 if ( typeof value === "object" ) {
                     this[ key ] = value.value;
                 }
@@ -10749,7 +9622,7 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
         }
     },
     setPhaseSpecific   : function ( to_set ) {
-        if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR ) ) {
+        if ( this.isPhase( GS.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR ) ) {
             this.setPreviousPhaseForced( to_set );
         }
         else {
@@ -10760,13 +9633,13 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
         var _current = this.getCurrentPhase();
         this.setTooltipHtml( "" );
         switch ( _current ) {
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING:
+            case GS.OBJECT.CONST.PHASE.RUNNING:
                 this.playAudio();
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.DISCREET_USER:
+            case GS.OBJECT.CONST.PHASE.DISCREET_USER:
                 this.setTooltipHtml( _( "notification.sound_user_warning", [DICTIONARY_COMMON_UI] ) );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR:
+            case GS.OBJECT.CONST.PHASE.DISCREET_NAVIGATOR:
                 this.setTooltipHtml( _( "notification.sound_navigator_warning", [DICTIONARY_COMMON_UI] ) );
                 SHINKEN_TOOLTIP.showTooltip( this.getDomElement() );
                 break;
@@ -10776,23 +9649,23 @@ SHINKEN.OBJECT.SoundNotificationOfChange.prototype = {
     },
     getDataToSave      : function () {
         var _to_return                                                          = {};
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
     updateHtmlWithData : function () {
-        var _dom     = document.querySelector( "#shinken-modal-container #sound-" + this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
+        var _dom     = document.querySelector( "#shinken-modal-container #sound-" + this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
         _dom.checked = true;
     },
     isEnabled          : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SoundNotificationOfChange, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SoundNotificationOfChange, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.SoundNotificationOfChange__fromData           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.SoundNotificationOfChange__fromData           = function () {
     this.init();
 };
-SHINKEN.OBJECT.SoundNotificationOfChange__fromData.prototype = {
+GS.OBJECT.SoundNotificationOfChange__fromData.prototype = {
     init         : function () {
     },
     doActionAfter: function ( event_name, param ) {
@@ -10805,13 +9678,13 @@ SHINKEN.OBJECT.SoundNotificationOfChange__fromData.prototype = {
         this.doActionAfterCommun( event_name, param );
     },
     computeHtml  : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-sound-notification-container shinken-notification-container" } ) );
-        DOM.Service.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
-        let div_sound_notification_content = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-notification-content" } ), this.getDomElement() );
-        DOM.Service.addElementTo( DOM.Service.cloneElement( document.querySelector( '#id-shinken-template-view .shinken-sound-svg' ) ), div_sound_notification_content );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-sound-notification-container shinken-notification-container" } ) );
+        SERVICE.DOM.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
+        let div_sound_notification_content = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-notification-content" } ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.cloneElement( document.querySelector( '#id-shinken-template-view .shinken-sound-svg' ) ), div_sound_notification_content );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SoundNotificationOfChange__fromData, SHINKEN.OBJECT.SoundNotificationOfChange );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange__fromData, GS.OBJECT.SoundNotificationOfChange );
 SHINKEN_LIST.Pagination_V3           = function ( page_size, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.Pagination_V3";
     this.init( page_size, parent_name );
@@ -10900,16 +9773,16 @@ SHINKEN_LIST.Pagination_V3.prototype = {
     },
     computeHtml            : function () {
         if ( this.getDomElement() ) {
-            DOM.Service.empty( this.getDomElement() );
+            SERVICE.DOM.empty( this.getDomElement() );
         }
         else {
-            this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-pagination-V3 shinken-layout-center-h-v" } ) );
+            this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-pagination-V3 flex-layout-center-h-v" } ) );
         }
-        var _div = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-pagination-container shinken-layout-inline-center-h-v" } ) );
+        var _div = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-pagination-container flex-layout-inline-center-h-v" } ) );
         
         for ( var i = 0; i < this.getSize(); i++ ) {
             this.getContent( i ).computeHtml();
-            DOM.Service.addElementTo( this.getContent( i ).getDomElement(), _div );
+            SERVICE.DOM.addElementTo( this.getContent( i ).getDomElement(), _div );
         }
         this.computeClass();
     },
@@ -10928,11 +9801,11 @@ SHINKEN_LIST.Pagination_V3.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Pagination_V3, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.OBJECT.CollapseFolder           = function ( name, label ) {
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Pagination_V3, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.OBJECT.CollapseFolder           = function ( name, label ) {
     this.init( name, label );
 };
-SHINKEN.OBJECT.CollapseFolder.prototype = {
+GS.OBJECT.CollapseFolder.prototype = {
     init               : function ( name, label ) {
         this.setName( name );
         this.label = label;
@@ -10947,7 +9820,7 @@ SHINKEN.OBJECT.CollapseFolder.prototype = {
     
     setName: function ( to_set ) {
         this.name = to_set;
-        this.addParamForEvents( SHINKEN.OBJECT.COLLAPSE.PARAM.NAME, this.name );
+        this.addParamForEvents( GS.OBJECT.COLLAPSE.PARAM.NAME, this.name );
     },
     getName: function () {
         return this.name;
@@ -10960,11 +9833,11 @@ SHINKEN.OBJECT.CollapseFolder.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseFolder, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.OBJECT.CollapseSet           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolder, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.OBJECT.CollapseSet           = function () {
     this.init();
 };
-SHINKEN.OBJECT.CollapseSet.prototype = {
+GS.OBJECT.CollapseSet.prototype = {
     init          : function () {
         this.initContents();
     },
@@ -10979,11 +9852,11 @@ SHINKEN.OBJECT.CollapseSet.prototype = {
     getDataToSave: function ( type ) {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseSet, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.OBJECT.CollapseFolderFromData           = function ( name, label ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseSet, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.OBJECT.CollapseFolderFromData           = function ( name, label ) {
     this.initSpecific( name, label );
 };
-SHINKEN.OBJECT.CollapseFolderFromData.prototype = {
+GS.OBJECT.CollapseFolderFromData.prototype = {
     initSpecific     : function ( name, label ) {
         this.class = "shinken-collapse-folder shinken-toggle-container";
         this.init( name, label );
@@ -11000,26 +9873,26 @@ SHINKEN.OBJECT.CollapseFolderFromData.prototype = {
         this.computeSpecificHtml();
     },
     computeCommonHtml       : function () {
-        this.setDomElement( DOM.Service.createElement( "div", this.computeHtml_getAttribute() ) );
-        var _button        = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-toggle-button", onclick: this.getOnClickEvent() } ) );
-        this._button_label = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-toggle-button-label shinken-layout-center-h-v shinken-layout-justify-between" } ), _button );
-        let label          = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-label" }, this.label ), this._button_label );
-        var _div           = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-collapse-icon-cell" } ), this._button_label );
-        DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-toggle-icon shinken-hidden-if-toggle-close shinken-2023-arrow-down" } ), _div );
-        DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-toggle-icon shinken-hidden-if-toggle-open shinken-2023-arrow-up" } ), _div );
+        this.setDomElement( SERVICE.DOM.createElement( "div", this.computeHtml_getAttribute() ) );
+        var _button        = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-toggle-button", onclick: this.getOnClickEvent() } ) );
+        this._button_label = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-toggle-button-label flex-layout-center-h-v flex-layout-justify-between" } ), _button );
+        let label          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-label" }, this.label ), this._button_label );
+        var _div           = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-collapse-icon-cell" } ), this._button_label );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-toggle-icon shinken-hidden-if-toggle-close shinken-2023-arrow-down" } ), _div );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-toggle-icon shinken-hidden-if-toggle-open shinken-2023-arrow-up" } ), _div );
         
-        this.dom_content_target = DOM.Service.createElement( "div", { class: "shinken-toggle-target" } );
+        this.dom_content_target = SERVICE.DOM.createElement( "div", { class: "shinken-toggle-target" } );
         this.addDomElement( this.dom_content_target );
         
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).computeHtml();
-            DOM.Service.addElementTo( this.getContent( i ).getDomElement(), this.dom_content_target );
+            SERVICE.DOM.addElementTo( this.getContent( i ).getDomElement(), this.dom_content_target );
         }
         this.computeHtmlExtra();
-        this.addCounterComputeHtmlIfExist( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WIDGET_TOTAL, label );
+        this.addCounterComputeHtmlIfExist( GS.OBJECT.COUNTER_V2_CONST.TYPE.WIDGET_TOTAL, label );
     },
     getOnClickEvent         : function () {
-        return this.onclick_event || "DOM.Service.Toggle.toggle(this)";
+        return this.onclick_event || "SERVICE.DOM.Toggle.toggle(this)";
     },
     computeHtml_getAttribute: function () {
         var _to_return                        = {};
@@ -11034,12 +9907,12 @@ SHINKEN.OBJECT.CollapseFolderFromData.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseFolderFromData, SHINKEN.OBJECT.CollapseFolder );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseFolderFromData, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.OBJECT.CollapseFolderForProperties           = function ( name, label ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolderFromData, GS.OBJECT.CollapseFolder );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolderFromData, GS.OBJECT.CounterInterfaceV2 );
+GS.OBJECT.CollapseFolderForProperties           = function ( name, label ) {
     this.initSpecific( name, label );
 };
-SHINKEN.OBJECT.CollapseFolderForProperties.prototype = {
+GS.OBJECT.CollapseFolderForProperties.prototype = {
     initSpecific     : function ( name, label ) {
         this.class = "shinken-collapse-folder shinken-toggle-container";
         this.init( name, label );
@@ -11047,8 +9920,8 @@ SHINKEN.OBJECT.CollapseFolderForProperties.prototype = {
     },
     initCounterCommon: function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     
     add: function ( to_add ) {
@@ -11058,24 +9931,24 @@ SHINKEN.OBJECT.CollapseFolderForProperties.prototype = {
     
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseFolderForProperties, SHINKEN.OBJECT.CollapseFolderFromData );
-SHINKEN.OBJECT.CollapseFolderFromData_V3           = function ( name, label ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolderForProperties, GS.OBJECT.CollapseFolderFromData );
+GS.OBJECT.CollapseFolderFromData_V3           = function ( name, label ) {
     this.initSpecific( name, label );
 };
-SHINKEN.OBJECT.CollapseFolderFromData_V3.prototype = {
-    initSpecific   : SHINKEN.OBJECT.CollapseFolderFromData.prototype.initSpecific,
+GS.OBJECT.CollapseFolderFromData_V3.prototype = {
+    initSpecific   : GS.OBJECT.CollapseFolderFromData.prototype.initSpecific,
     doActionAfter  : function ( event_name, param ) {
         switch ( event_name ) {
             case "toggl_collapse_folder__is_open":
-                param[ DOM.Service.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = DOM.Service.Toggle.toggle_V3( this.getDomElement() );
+                param[ SERVICE.DOM.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = SERVICE.DOM.Toggle.toggle_V3( this.getDomElement() );
                 break;
             case "toggl_collapse_folder__is_open__or__close_others":
-                if ( this.getUUID() === param[ SHINKEN.OBJECT.COLLAPSE.PARAM.NAME ] ) {
-                    param[ DOM.Service.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = DOM.Service.Toggle.toggle_V3( this.getDomElement() );
+                if ( this.getUUID() === param[ GS.OBJECT.COLLAPSE.PARAM.NAME ] ) {
+                    param[ SERVICE.DOM.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = SERVICE.DOM.Toggle.toggle_V3( this.getDomElement() );
                 }
                 else {
-                    DOM.Service.Toggle.close( this.getDomElement() );
-                    param[ DOM.Service.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = false;
+                    SERVICE.DOM.Toggle.close( this.getDomElement() );
+                    param[ SERVICE.DOM.Toggle.CONST.PARAM_EVENT.TOGGL_SERVICE__IS_OPEN ] = false;
                 }
                 break;
         }
@@ -11083,15 +9956,15 @@ SHINKEN.OBJECT.CollapseFolderFromData_V3.prototype = {
     },
     getUserPref    : function () {
         return {
-            [ SHINKEN.USER_PREFS.KEY ]  : SHINKEN.OBJECT.COLLAPSE.PARAM.IS_OPEN,
-            [ SHINKEN.USER_PREFS.VALUE ]: DOM.Service.Toggle.isOpen( this.getDomElement() )
+            [ GS.USER_PREFS.KEY ]  : GS.OBJECT.COLLAPSE.PARAM.IS_OPEN,
+            [ GS.USER_PREFS.VALUE ]: SERVICE.DOM.Toggle.isOpen( this.getDomElement() )
         };
     },
     getOnClickEvent: function () {
         return this.onclick_event || "MANAGER.EventManagerV2.doActionAfter(event, 'toggl_collapse_folder__is_open', " + this.parseParamForEventsToHtml() + ")";
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.CollapseFolderFromData_V3, SHINKEN.OBJECT.CollapseFolderFromData );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolderFromData_V3, GS.OBJECT.CollapseFolderFromData );
 SHINKEN_LIST.Filter           = function ( type ) {
     this.type = type;
     this.init();
@@ -11179,7 +10052,7 @@ SHINKEN_LIST.Filter.prototype = {
         setTimeout( function () {
             self.component.validateValueInput();
             self._computeState();
-            DOM.Service.setDataSet( self.dom_element, 'inputStatus', self.component.getStatus() );
+            SERVICE.DOM.setDataSet( self.dom_element, 'inputStatus', self.component.getStatus() );
         }, 300 );
     },
     doActionAfter          : function ( event_name, param ) {
@@ -11222,7 +10095,7 @@ SHINKEN_LIST.Filter.prototype = {
         this._computeState();
         if ( this.component ) {
             this.component.computeAfterChange();
-            DOM.Service.setDataSet( this.dom_element, 'inputStatus', this.component.getStatus() );
+            SERVICE.DOM.setDataSet( this.dom_element, 'inputStatus', this.component.getStatus() );
         }
         switch ( args.controller_name ) {
             case CONTROLLER.CONST.LIST_ALL.NAME:
@@ -11265,7 +10138,7 @@ SHINKEN_LIST.Filter.prototype = {
     },
     keydown                : function ( event, key_code ) {
         switch ( key_code ) {
-            case SHINKEN.CONST.KEY_CODE.ENTER:
+            case GS.CONST.KEY_CODE.ENTER:
                 if ( this.component.hasAutoSelect() ) {
                     event.stopPropagation();
                     event.preventDefault();
@@ -11284,8 +10157,8 @@ SHINKEN_LIST.Filter.prototype = {
         this.component.applySiblingSettings( list_filter.component );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, GS.OBJECT.ShinkenObjectHtml );
 SHINKEN_LIST.Filters           = function () {
     this.init();
 };
@@ -11313,7 +10186,7 @@ SHINKEN_LIST.Filters.prototype = {
         this.doActionAfterCommon( event_name, param, param_2, param_3 );
     },
     askComputeAfterChange: function ( dom_element, parent ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithDataSet( dom_element, 'name', 10 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( dom_element, 'name', 10 );
         var _type               = _parent_dom_element.dataset.objectType;
         switch ( _type ) {
             case 'shinken-list-filter':
@@ -11333,8 +10206,8 @@ SHINKEN_LIST.Filters.prototype = {
         }
     },
     clickOnItemSelector  : function ( event ) {
-        var _option             = DOM.Service.findParentElementWithDataSet( event.target, 'keyName', 10 );
-        var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, 'name', 20 );
+        var _option             = SERVICE.DOM.findParentElementWithDataSet( event.target, 'keyName', 10 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( event.target, 'name', 20 );
         var _type               = _parent_dom_element.dataset.objectType;
         switch ( _type ) {
             case 'shinken-list-filter':
@@ -11364,7 +10237,7 @@ SHINKEN_LIST.Filters.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filters, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filters, GS.OBJECT.ShinkenObjectContainerHtml );
 SHINKEN_LIST.Header           = function () {
     this.init();
 };
@@ -11392,9 +10265,9 @@ SHINKEN_LIST.Header.prototype = {
         return this.getLabel();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, SHINKEN.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.CounterInterfaceV2 );
 SHINKEN_LIST.Headers           = function () {
 };
 SHINKEN_LIST.Headers.prototype = {
@@ -11427,7 +10300,7 @@ SHINKEN_LIST.Headers.prototype = {
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Headers, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Headers, GS.OBJECT.ShinkenObjectContainerHtml );
 SHINKEN_LIST.LineCell           = function () {
     this.init();
 };
@@ -11518,7 +10391,7 @@ SHINKEN_LIST.LineCell.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCell, SHINKEN.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCell, GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement );
 SHINKEN_LIST.Line           = function () {
     this.init();
 };
@@ -11533,14 +10406,14 @@ SHINKEN_LIST.Line.prototype = {
     },
     initCounterCommon                 : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
     initLineCountersValue             : function () {
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.getUUID(), 1 );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.getUUID(), 1 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.getUUID(), 1 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.getUUID(), 1 );
     },
     doActionAfter                     : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
@@ -11557,12 +10430,12 @@ SHINKEN_LIST.Line.prototype = {
             case "click_on_button":
                 switch ( param ) {
                     case "restore-deleting-view":
-                        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.TO_BE_RESTORED );
+                        this.setPhase( GS.OBJECT.CONST.PHASE.TO_BE_RESTORED );
                         break;
                 }
                 break;
             case "cancel_user_orders":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+                this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
                 this.doActionAfterContentChildren( event_name, param );
                 this.doActionAfterSpecific__20240909( "cancel_user_orders_specific", param );
                 break;
@@ -11589,7 +10462,7 @@ SHINKEN_LIST.Line.prototype = {
         }
     },
     getContentByDomElement            : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, 'shinken-list-cell', 20 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, 'shinken-list-cell', 20 );
         if ( !_parent_dom_element ) {
             return null;
         }
@@ -11610,7 +10483,7 @@ SHINKEN_LIST.Line.prototype = {
                         }
                         break;
                     case "filter_by_line_has_error":
-                        if ( !this.hasCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ) ) {
+                        if ( !this.hasCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ) ) {
                             this.setFilter( SHINKEN_LIST.CONST.FILTER.STATUS.ON );
                             return;
                         }
@@ -11648,7 +10521,7 @@ SHINKEN_LIST.Line.prototype = {
         }
         else if ( _value_filter === SHINKEN_LIST.CONST.FILTER.NOT_EMPTY ) {
             if ( Array.isArray( _value_cell ) ) {
-                if ( SHINKEN.TOOLS.ARRAY.contains( _value_cell, SHINKEN_LIST.CONST.FILTER.EMPTY ) ) {
+                if ( GS.TOOLS.ARRAY.contains( _value_cell, SHINKEN_LIST.CONST.FILTER.EMPTY ) ) {
                     _filter = SHINKEN_LIST.CONST.FILTER.STATUS.ON;
                 }
             }
@@ -11658,7 +10531,7 @@ SHINKEN_LIST.Line.prototype = {
             return _filter;
         }
         if ( Array.isArray( _value_cell ) ) {
-            if ( !SHINKEN.TOOLS.ARRAY.contains( _value_cell, _value_filter ) ) {
+            if ( !GS.TOOLS.ARRAY.contains( _value_cell, _value_filter ) ) {
                 _filter = SHINKEN_LIST.CONST.FILTER.STATUS.ON;
             }
         }
@@ -11668,11 +10541,11 @@ SHINKEN_LIST.Line.prototype = {
         return _filter;
     },
     getFilterStatusForInputString     : function ( _value_filter, _value_cell, _filter ) {
-        if ( SHINKEN.TOOLS.STRING.contains( _value_filter, "&" ) ) {
+        if ( GS.TOOLS.STRING.contains( _value_filter, "&" ) ) {
             var _values_filters = _value_filter.split( "&" );
             var _found          = false;
             for ( var j = 0, _size_j = _values_filters.length; j < _size_j; j++ ) {
-                if ( SHINKEN.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _values_filters[ j ] ) ) {
+                if ( GS.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _values_filters[ j ] ) ) {
                     _found = true;
                 }
             }
@@ -11690,12 +10563,12 @@ SHINKEN_LIST.Line.prototype = {
                 _filter = SHINKEN_LIST.CONST.FILTER.STATUS.ON;
             }
         }
-        else if ( SHINKEN.TOOLS.STRING.startsWith( _value_filter, "!" ) ) {
-            if ( SHINKEN.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _value_filter.substr( 1 ) ) ) {
+        else if ( GS.TOOLS.STRING.startsWith( _value_filter, "!" ) ) {
+            if ( GS.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _value_filter.substr( 1 ) ) ) {
                 _filter = SHINKEN_LIST.CONST.FILTER.STATUS.ON;
             }
         }
-        else if ( !SHINKEN.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _value_filter ) ) {
+        else if ( !GS.TOOLS.STRING_FILTER.containsIgnoreCase( _value_cell + "", _value_filter ) ) {
             _filter = SHINKEN_LIST.CONST.FILTER.STATUS.ON;
         }
         return _filter;
@@ -11718,7 +10591,7 @@ SHINKEN_LIST.Line.prototype = {
     },
     setFilter                         : function ( to_set ) {
         this.is_filtered = to_set;
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.getUUID(), this.isFiltered() ? 0 : 1 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.getUUID(), this.isFiltered() ? 0 : 1 );
         this.doActionAfter( "do_action_after_filter_change", this.is_filtered );
     },
     isFiltered                        : function () {
@@ -11733,7 +10606,7 @@ SHINKEN_LIST.Line.prototype = {
     },
     getUUID                           : function () {
         if ( !this.uuid ) {
-            this.setUUID( SHINKEN.TOOLS.STRING.buildUUID() );
+            this.setUUID( GS.TOOLS.STRING.buildUUID() );
         }
         return this.uuid;
     },
@@ -11798,17 +10671,17 @@ SHINKEN_LIST.Line.prototype = {
     setDataSet                        : function ( datakey, data_value, if_key, if_values, else_data_value, if_function ) {
         if ( if_key ) {
             if ( if_function === "matching_regex" ) {
-                if ( !SHINKEN.TOOLS.STRING.isMatchingStarRegexTab( this.getCellValue( if_key ), if_values ) ) {
+                if ( !GS.TOOLS.STRING.isMatchingStarRegexTab( this.getCellValue( if_key ), if_values ) ) {
                     data_value = else_data_value;
                 }
             }
             else {
-                if ( !SHINKEN.TOOLS.STRING.containsAny( this.getCellValue( if_key ), if_values ) ) {
+                if ( !GS.TOOLS.STRING.containsAny( this.getCellValue( if_key ), if_values ) ) {
                     data_value = else_data_value;
                 }
             }
         }
-        DOM.Service.setDataSet( this.dom_element, datakey, data_value );
+        SERVICE.DOM.setDataSet( this.dom_element, datakey, data_value );
     },
     isSelected                        : function () {
         return this.is_selected === SHINKEN_LIST.CONST.SELECTION.STATUS.ON;
@@ -11896,7 +10769,7 @@ SHINKEN_LIST.Line.prototype = {
         }
     },
     simulateToggleCollapse            : function () {
-        DOM.Service.SimulateAction.click( this.dom_element.querySelector( ".shinken-collapse-listener" ) );
+        SERVICE.DOM.SimulateAction.click( this.dom_element.querySelector( ".shinken-collapse-listener" ) );
     },
     cleanCellsWithProblem             : function () {
         for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -11946,7 +10819,7 @@ SHINKEN_LIST.Line.prototype = {
         if ( this.is_collapse !== list_line.is_collapse ) {
             this.simulateToggleCollapse();
         }
-        DOM.Service.applySiblingSettings( this.dom_element, list_line.dom_element );
+        SERVICE.DOM.applySiblingSettings( this.dom_element, list_line.dom_element );
     },
     remove                            : function () {
         this.removeDomElement();
@@ -11955,17 +10828,17 @@ SHINKEN_LIST.Line.prototype = {
     },
     removeDomElement                  : function () {
         if ( this.dom_element ) {
-            DOM.Service.removeElement( this.dom_element );
+            SERVICE.DOM.removeElement( this.dom_element );
         }
     },
     getObjectsType                    : function () {
         return "shinken-list-cell";
     },
-    askHidePopup                      : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.askHidePopup,
-    addParamForEvents                 : SHINKEN.OBJECT.ShinkenObjectContainerHtml.prototype.addParamForEvents
+    askHidePopup                      : GS.OBJECT.ShinkenObjectContainerHtml.prototype.askHidePopup,
+    addParamForEvents                 : GS.OBJECT.ShinkenObjectContainerHtml.prototype.addParamForEvents
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, SHINKEN.OBJECT.CounterInterfaceWithShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, GS.OBJECT.CounterInterfaceWithShinkenObjectContainer );
 SHINKEN_LIST.Lines           = function () {
 };
 SHINKEN_LIST.Lines.prototype = {
@@ -11980,10 +10853,10 @@ SHINKEN_LIST.Lines.prototype = {
     },
     initCounterCommon            : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
     addSpecific                  : function ( to_add ) {
         this.add( to_add );
@@ -11991,7 +10864,7 @@ SHINKEN_LIST.Lines.prototype = {
         to_add.addParamsForEvents( this.getParamForEvents() );
     },
     insertAtIndex                : function ( to_add, index ) {
-        SHINKEN.TOOLS.ARRAY.insert( this.contents, to_add, index );
+        GS.TOOLS.ARRAY.insert( this.contents, to_add, index );
         to_add.setCountersParent( this );
         this.computeMapping();
     },
@@ -12070,7 +10943,7 @@ SHINKEN_LIST.Lines.prototype = {
         return null;
     },
     getContentByDomElement       : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, 'shinken-list-line', 60 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, 'shinken-list-line', 60 );
         if ( !_parent_dom_element ) {
             return null;
         }
@@ -12101,18 +10974,18 @@ SHINKEN_LIST.Lines.prototype = {
     updateAfterActionDoneOK      : function ( action, data ) {
         var _current = this.getContentByUUID( data[ "uuid" ] );
         switch ( action.key ) {
-            case SHINKEN.UI.VIEW.ACTIONS.REMOVE:
-            case SHINKEN.UI.VIEW.ACTIONS.REMOVE_FORCED:
-            case SHINKEN.UI.VIEW.ACTIONS.CLONE_VIEW:
+            case GS.UI.VIEW.ACTIONS.REMOVE:
+            case GS.UI.VIEW.ACTIONS.REMOVE_FORCED:
+            case GS.UI.VIEW.ACTIONS.CLONE_VIEW:
                 
                 this.removeContent( data[ "uuid" ] );
                 CONTROLLER.UiViewWeatherManager.doActionAfter( "ask-reload-data-for-current-panel" );
                 break;
-            case SHINKEN.UI.VIEW.ACTIONS.CHANGE_OWNER:
+            case GS.UI.VIEW.ACTIONS.CHANGE_OWNER:
                 _current.updateAfterActionDoneOK( action );
                 this.addMessages( _current.getMessages() );
                 break;
-            case SHINKEN.UI.VIEW.ACTIONS.RESTORED:
+            case GS.UI.VIEW.ACTIONS.RESTORED:
                 CONTROLLER.UiViewWeatherManager.doActionAfter( "ask-reload-data-for-current-panel" );
                 break;
             default:
@@ -12124,20 +10997,20 @@ SHINKEN_LIST.Lines.prototype = {
     },
     updateAfterActionDoneNOK     : function ( action, data ) {
         var _current = this.getContentByUUID( data[ "uuid" ] );
-        if ( action.critical[ 0 ] === SHINKEN.UI.VIEW.ACTIONS.ERRORS.CANNOT_PERFORM_ACTION ) {
+        if ( action.critical[ 0 ] === GS.UI.VIEW.ACTIONS.ERRORS.CANNOT_PERFORM_ACTION ) {
             this.addMessage( COMPONENT.CONST.STATUS.ERROR, _( "views.manager.common.backend_errors.cannot_perform_action" ) );
             return;
         }
         switch ( action.key ) {
-            case SHINKEN.UI.VIEW.ACTIONS.CHANGE_OWNER:
+            case GS.UI.VIEW.ACTIONS.CHANGE_OWNER:
                 _current.updateAfterActionDoneNOK( action );
-                if ( _current.isPhase( SHINKEN.OBJECT.CONST.PHASE.TO_BE_DELETED ) ) {
+                if ( _current.isPhase( GS.OBJECT.CONST.PHASE.TO_BE_DELETED ) ) {
                     this.removeContent( data[ "uuid" ] );
                 }
                 this.addMessages( _current.getMessages() );
                 break;
-            case SHINKEN.UI.VIEW.ACTIONS.REMOVE:
-            case SHINKEN.UI.VIEW.ACTIONS.REMOVE_FORCED:
+            case GS.UI.VIEW.ACTIONS.REMOVE:
+            case GS.UI.VIEW.ACTIONS.REMOVE_FORCED:
                 _current.updateAfterActionDoneNOK( action );
                 this.addMessages( _current.getMessages() );
                 break;
@@ -12222,7 +11095,7 @@ SHINKEN_LIST.Lines.prototype = {
             var _value_1;
             var _value_2;
             for ( var i = active_headers.length - 1; i >= 0; i-- ) {
-                _current_is_increasing = active_headers[ i ].getSortingStatus() === SHINKEN.OBJECT.SORTING.STATUS.INCREASING;
+                _current_is_increasing = active_headers[ i ].getSortingStatus() === GS.OBJECT.SORTING.STATUS.INCREASING;
                 this.contents.sort( function ( a, b ) {
                     _value_1 = _current_is_increasing ? b : a;
                     _value_2 = _current_is_increasing ? a : b;
@@ -12248,7 +11121,7 @@ SHINKEN_LIST.Lines.prototype = {
     },
     displayDomByOrder            : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
-            DOM.Service.addElementWithIndex( this.contents[ i ].getDomElement(), this.getDomElement(), i );
+            SERVICE.DOM.addElementWithIndex( this.contents[ i ].getDomElement(), this.getDomElement(), i );
         }
     },
     getDataToExport              : function ( headers ) {
@@ -12264,9 +11137,9 @@ SHINKEN_LIST.Lines.prototype = {
         return _to_return;
     },
     addLoadingFrame              : function ( dom_loading ) {
-        dom_loading = dom_loading || SHINKEN.TOOLS.LOADING_FRAME.getDomElement();
+        dom_loading = dom_loading || GS.TOOLS.LOADING_FRAME.getDomElement();
         if ( this.dom_element ) {
-            DOM.Service.addElementToAfterEmpty( dom_loading, this.dom_element );
+            SERVICE.DOM.addElementToAfterEmpty( dom_loading, this.dom_element );
         }
         else {
             this.dom_element_loading = dom_loading;
@@ -12303,15 +11176,15 @@ SHINKEN_LIST.Lines.prototype = {
     },
     callbackForPhase             : function () {
         switch ( this.getCurrentPhase() ) {
-            case SHINKEN.OBJECT.CONST.PHASE.REFRESHING:
+            case GS.OBJECT.CONST.PHASE.REFRESHING:
                 this.addLoadingFrame();
                 break;
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, SHINKEN.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.PhaseInterface );
 SHINKEN_LIST.Set           = function ( name ) {
     this.init( name );
 };
@@ -12327,10 +11200,10 @@ SHINKEN_LIST.Set.prototype = {
     },
     initCounterCommon     : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
     },
     askComputeAfterChange : function ( dom_element ) {
         this.filters.askComputeAfterChange( dom_element, this );
@@ -12422,7 +11295,7 @@ SHINKEN_LIST.Set.prototype = {
     _clickOnItemSelector  : function ( event, parent_name, element ) {
         this.filters.clickOnItemSelector( event, parent_name, element );
         this.lines.clickOnItemSelector( event, parent_name, element );
-        var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, "name", 20 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 20 );
         this.doActionAfterChange( { "type": _parent_dom_element.dataset.objectType } );
     },
     onClick               : function ( event ) {
@@ -12446,7 +11319,7 @@ SHINKEN_LIST.Set.prototype = {
     applyFilterCommon     : function ( params_filter_by_line ) {
         let active_filter = this.filters.getActiveFilters();
         if ( this.getDomElement() ) {
-            DOM.Service.addOrRemoveClasses( this.getDomElement(), active_filter.length, "shinken-has-active-filter" );
+            SERVICE.DOM.addOrRemoveClasses( this.getDomElement(), active_filter.length, "shinken-has-active-filter" );
         }
         this.lines.applyFilter( active_filter, params_filter_by_line );
         this.lines.doActionAfter( "apply_filter_done" );
@@ -12469,7 +11342,7 @@ SHINKEN_LIST.Set.prototype = {
         if ( this.getDomElement() && to_set.getDomElement() ) {
             var _content_list = this.getDomElement().querySelector( ".shinken-list-tbody" );
             if ( _content_list ) {
-                DOM.Service.replaceElement( _content_list, to_set.getDomElement() );
+                SERVICE.DOM.replaceElement( _content_list, to_set.getDomElement() );
             }
         }
     },
@@ -12587,7 +11460,7 @@ SHINKEN_LIST.Set.prototype = {
         }
     },
     updateHtml            : function () {
-        DOM.Service.setDataSet( this.dom_element, "numberLines", this.lines.contents.length );
+        SERVICE.DOM.setDataSet( this.dom_element, "numberLines", this.lines.contents.length );
     },
     applySiblingSettings  : function ( list_set ) {
         this.filters.applySiblingSettings( list_set.filters );
@@ -12595,16 +11468,16 @@ SHINKEN_LIST.Set.prototype = {
     },
     getDataToExport       : function () {
         var _to_return = [this.headers.getDataToExport()];
-        return SHINKEN.TOOLS.ARRAY.concat( _to_return, this.lines.getDataToExport( this.headers ) );
+        return GS.TOOLS.ARRAY.concat( _to_return, this.lines.getDataToExport( this.headers ) );
     },
     getDataToSave         : function ( type ) {
         return this.lines.getDataToSave( type );
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, SHINKEN.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.PhaseInterface );
 CONTROLLER.CommonUI                 = (function ( self ) {
     self.controller_name = CONTROLLER.CONST.COMMON_UI.NAME;
     self.init            = function () {
@@ -12628,13 +11501,13 @@ CONTROLLER.CommonUI                 = (function ( self ) {
                 let _dom_element_parent;
                 switch ( params[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
                     case "close_popup_progress_bar":
-                        _dom_element_parent = DOM.Service.findParentElementWithClass( event.target, "shinken-popup-progress-bar-container", 10 );
-                        DOM.Service.setDataSet( _dom_element_parent, 'currentPhase', SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+                        _dom_element_parent = SERVICE.DOM.findParentElementWithClass( event.target, "shinken-popup-progress-bar-container", 10 );
+                        SERVICE.DOM.setDataSet( _dom_element_parent, 'currentPhase', GS.OBJECT.CONST.PHASE.HIDDEN );
                         break;
                     case "toggle_display_popup_progress_bar_message":
-                        _dom_element_parent       = DOM.Service.findParentElementWithClass( event.target, "shinken-popup-progress-bar-container", 10 );
+                        _dom_element_parent       = SERVICE.DOM.findParentElementWithClass( event.target, "shinken-popup-progress-bar-container", 10 );
                         var _is_message_displayed = _dom_element_parent.dataset.messageDisplayed === "1";
-                        DOM.Service.setDataSet( _dom_element_parent, 'messageDisplayed', _is_message_displayed ? "0" : "1" );
+                        SERVICE.DOM.setDataSet( _dom_element_parent, 'messageDisplayed', _is_message_displayed ? "0" : "1" );
                         break;
                 }
                 break;
@@ -12745,8 +11618,8 @@ COMPONENT.InterfaceButton.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, COMPONENT.Interface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, COMPONENT.Interface );
 COMPONENT.InterfaceButton_V3           = function () {
 };
 COMPONENT.InterfaceButton_V3.prototype = {
@@ -12837,11 +11710,11 @@ COMPONENT.InterfaceButton_V3.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, COMPONENT.Interface_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, COMPONENT.Interface_V3 );
 COMPONENT.Button           = function ( dom_element, name ) {
     this.__class_name__ = 'COMPONENT.Button';
-    this.uuid           = SHINKEN.TOOLS.STRING.buildUUID();
+    this.uuid           = GS.TOOLS.STRING.buildUUID();
     this.state          = COMPONENT.CONST.BTN_STATE.OFF;
     this.status         = COMPONENT.CONST.BTN_STATUS.NONE;
     this.name           = name;
@@ -12877,7 +11750,7 @@ COMPONENT.Button.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Button, COMPONENT.InterfaceButton );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Button, COMPONENT.InterfaceButton );
 COMPONENT.ButtonFromData           = function ( event_name, class_to_add, label ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData';
     this.init( event_name, class_to_add, label );
@@ -12890,7 +11763,7 @@ COMPONENT.ButtonFromData.prototype = {
         this.state        = COMPONENT.CONST.BTN_STATE.OFF;
     },
     computeHtml: function () {
-        this.setDomElement( DOM.Service.createElement( "button", {
+        this.setDomElement( SERVICE.DOM.createElement( "button", {
             class                  : "shinken-label " + this.class_to_add,
             onclick                : "MANAGER.EventManager.clickOnButton(event, '" + this.name + "','" + this.extra_param + "' )",
             "data-visibility-state": this.getVisibilityState()
@@ -12901,7 +11774,7 @@ COMPONENT.ButtonFromData.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData, COMPONENT.InterfaceButton );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData, COMPONENT.InterfaceButton );
 COMPONENT.ButtonFromData_V2           = function ( event_name, label ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData';
     this.init( event_name, label );
@@ -12918,20 +11791,20 @@ COMPONENT.ButtonFromData_V2.prototype = {
         return this.name;
     },
     computeHtml: function () {
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             class                  : this.getClass(),
             onclick                : this.getOnClickEvent(),
             "data-name"            : this.name,
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-label" }, this.label ) );
+        this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-label" }, this.label ) );
         var _tooltip_by_state = this.getTooltipByState();
         if ( _tooltip_by_state ) {
             this.setTooltipHtml( _tooltip_by_state );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V2, COMPONENT.InterfaceButton );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V2, COMPONENT.InterfaceButton );
 COMPONENT.ButtonFromData_V3           = function ( event_name, label ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData';
     this.init( event_name, label );
@@ -12942,30 +11815,30 @@ COMPONENT.ButtonFromData_V3.prototype = {
         this.name = event_name;
         this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.name );
         this.label = label;
-        this.class = "shinken-button shinken-button-V3 shinken-layout-center-h-v";
+        this.class = "shinken-button shinken-button-V3 flex-layout-center-h-v";
     },
     getUUID           : function () {
         return this.name;
     },
     setLabelDomElement: function ( dom_element_label ) {
-        DOM.Service.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
+        SERVICE.DOM.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
     },
     computeHtml       : function () {
         let onclick_event = "MANAGER.EventManagerV2.clickButton_V3(event, " + this.parseParamForEventsToHtml() + ")";
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             class                  : this.getClass(),
             onclick                : onclick_event,
             "data-name"            : this.name,
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.label_dom_element = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-label" }, this.label ) );
+        this.label_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-label" }, this.label ) );
         let _tooltip_by_state  = this.getTooltipByState();
         if ( _tooltip_by_state ) {
             this.setTooltipHtml( _tooltip_by_state );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V3, COMPONENT.InterfaceButton_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V3, COMPONENT.InterfaceButton_V3 );
 COMPONENT.ButtonWithCounter           = function ( event_name, label ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData';
     this.init( event_name, label );
@@ -12981,31 +11854,31 @@ COMPONENT.ButtonWithCounter.prototype = {
     },
     initCounterCommon : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
-        this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).setShowIfNull( true );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).setShowIfNull( true );
     },
     setLabelDomElement: function ( dom_element_label ) {
-        DOM.Service.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
+        SERVICE.DOM.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
     },
     computeHtml       : function () {
         let onclick_event = "MANAGER.EventManagerV2.clickButton_V3(event, " + this.parseParamForEventsToHtml() + ")";
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             class                  : this.getClass(),
             onclick                : onclick_event,
             "data-name"            : this.name,
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.label_dom_element = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-label" }, this.label ) );
-        this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).computeHtml();
-        this.addCounterTargetDomElement( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.getDomElement(), "total" );
-        DOM.Service.addElementTo( this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).getDomElement(), this.label_dom_element );
+        this.label_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-label" }, this.label ) );
+        this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).computeHtml();
+        this.addCounterTargetDomElement( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.getDomElement(), "total" );
+        SERVICE.DOM.addElementTo( this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL ).getDomElement(), this.label_dom_element );
         let _tooltip_by_state = this.getTooltipByState();
         if ( _tooltip_by_state ) {
             this.setTooltipHtml( _tooltip_by_state );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ButtonWithCounter, COMPONENT.ButtonFromData_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonWithCounter, COMPONENT.ButtonFromData_V3 );
 COMPONENT.RadioButtonFromData           = function ( value, label, property_name ) {
     this.__class_name__ = 'COMPONENT.RadioButtonFromData';
     this.initSpecific( value, label, property_name );
@@ -13045,20 +11918,20 @@ COMPONENT.RadioButtonFromData.prototype = {
         this.state         = COMPONENT.CONST.BTN_STATE.OFF;
     },
     computeHtml    : function () {
-        this.setDomElement( DOM.Service.createElement( "td", { class: "shinken-btn-cell shinken-btn-user-cell", "data-visibility-state": this.getVisibilityState() } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "td", { class: "shinken-btn-cell shinken-btn-user-cell", "data-visibility-state": this.getVisibilityState() } ) );
         var _class_button       = this.isOn() ? "shinken-radio-btn shinken-active" : "shinken-radio-btn";
-        this.button_dom_element = this.addDomElement( DOM.Service.createElement( "button", {
+        this.button_dom_element = this.addDomElement( SERVICE.DOM.createElement( "button", {
             class  : _class_button,
             value  : this.getValue(),
             onclick: "MANAGER.EventManagerV2.clickRadioButton(event,'" + this.property_name + "', '" + this.param_name + "')"
         } ) );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-label" }, this.label ), this.button_dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-label" }, this.label ), this.button_dom_element );
         if ( this.tooltip_html ) {
             this.setTooltipHtml( this.tooltip_html, this.tooltip_type );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonFromData, COMPONENT.ButtonFromData );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonFromData, COMPONENT.ButtonFromData );
 COMPONENT.RadioButtonFromData_V3           = function ( value, label, property_name ) {
     this.__class_name__ = 'COMPONENT.RadioButtonFromData_V3';
     this.initSpecific( value, label, property_name );
@@ -13099,20 +11972,20 @@ COMPONENT.RadioButtonFromData_V3.prototype = {
         this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.value );
     },
     computeHtml    : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-btn-container", "data-visibility-state": this.getVisibilityState() } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-btn-container", "data-visibility-state": this.getVisibilityState() } ) );
         var _class_button       = this.isOn() ? "shinken-radio-btn-V3 shinken-active" : "shinken-radio-btn-V3";
-        this.button_dom_element = this.addDomElement( DOM.Service.createElement( "button", {
+        this.button_dom_element = this.addDomElement( SERVICE.DOM.createElement( "button", {
             class  : _class_button,
             value  : this.getValue(),
             onclick: "MANAGER.EventManagerV2.clickRadioButton_V3(event," + this.parseParamForEventsToHtml() + ")"
         } ) );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-label" }, this.label ), this.button_dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-label" }, this.label ), this.button_dom_element );
         if ( this.tooltip_html ) {
             this.setTooltipHtml( this.tooltip_html, this.tooltip_type );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonFromData_V3, COMPONENT.ButtonFromData );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonFromData_V3, COMPONENT.ButtonFromData );
 COMPONENT.RadioButtonClassicFromData_V3           = function ( value, label, property_name ) {
     this.__class_name__ = 'COMPONENT.RadioButtonClassicFromData_V3';
     this.initSpecific( value, label, property_name );
@@ -13120,9 +11993,9 @@ COMPONENT.RadioButtonClassicFromData_V3           = function ( value, label, pro
 COMPONENT.RadioButtonClassicFromData_V3.prototype = {
     initSpecific: COMPONENT.RadioButtonFromData_V3.prototype.initSpecific,
     computeHtml : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-btn-container", "data-visibility-state": this.getVisibilityState() } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-btn-container", "data-visibility-state": this.getVisibilityState() } ) );
         var _class_button       = this.isChecked() ? "shinken-radio-btn-V3 shinken-active" : "shinken-radio-btn-V3";
-        this.button_dom_element = this.addDomElement( DOM.Service.createElement( "input", {
+        this.button_dom_element = this.addDomElement( SERVICE.DOM.createElement( "input", {
             class  : _class_button,
             type   : "radio",
             id     : this.value,
@@ -13130,7 +12003,7 @@ COMPONENT.RadioButtonClassicFromData_V3.prototype = {
             value  : this.getValue(),
             onclick: "MANAGER.EventManagerV2.clickRadioButton_V3(event," + this.parseParamForEventsToHtml() + ")"
         } ) );
-        DOM.Service.addElementAfterTo( DOM.Service.createElement( "label", { class: "shinken-label", for: this.value }, this.label ), this.button_dom_element );
+        SERVICE.DOM.addElementAfterTo( SERVICE.DOM.createElement( "label", { class: "shinken-label", for: this.value }, this.label ), this.button_dom_element );
         if ( this.tooltip_html ) {
             this.setTooltipHtml( this.tooltip_html, this.tooltip_type );
         }
@@ -13143,7 +12016,7 @@ COMPONENT.RadioButtonClassicFromData_V3.prototype = {
         this.resetStateClass();
         switch ( this.state ) {
             case COMPONENT.CONST.BTN_STATE.ON:
-                DOM.Service.addAttribute( this.dom_element, 'checked' );
+                SERVICE.DOM.addAttribute( this.dom_element, 'checked' );
                 break;
             case COMPONENT.CONST.BTN_STATE.DISABLED:
                 this.dom_element.classList.add( "shinken-disabled" );
@@ -13159,7 +12032,7 @@ COMPONENT.RadioButtonClassicFromData_V3.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonClassicFromData_V3, COMPONENT.RadioButtonFromData_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RadioButtonClassicFromData_V3, COMPONENT.RadioButtonFromData_V3 );
 COMPONENT.Checkbox           = function ( dom_element, parent ) {
     this.init( dom_element, parent );
 };
@@ -13197,11 +12070,11 @@ COMPONENT.Checkbox.prototype = {
     },
     updateUrlWithValue   : function () {
         var _value = this.isCheckedUser() ? '1' : '';
-        SHINKEN.HIGHWAY.setParam( this.url_param_key, _value );
+        GS.HIGHWAY.setParam( this.url_param_key, _value );
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Checkbox, COMPONENT.Interface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Checkbox, COMPONENT.Interface );
 COMPONENT.FinderObjectAbstract           = function () {
     this.__class_name__ = 'COMPONENT.FinderObject';
     this.init();
@@ -13221,16 +12094,16 @@ COMPONENT.FinderObjectAbstract.prototype = {
                 this.input_search.askComputeAfterChange( null, this.parent_object );
                 break;
             case "compute_phase_depending_input_value":
-                this.setPhase( this.input_search.getValue() ? SHINKEN.OBJECT.CONST.PHASE.RUNNING : SHINKEN.OBJECT.CONST.PHASE.STOPPING );
+                this.setPhase( this.input_search.getValue() ? GS.OBJECT.CONST.PHASE.RUNNING : GS.OBJECT.CONST.PHASE.STOPPING );
                 break;
             case "input-clean-button":
                 this.input_search.setValueFromJs( "" );
                 break;
             case "toggle_search_activity":
-                this.togglePhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING, SHINKEN.OBJECT.CONST.PHASE.STOPPING );
+                this.togglePhase( GS.OBJECT.CONST.PHASE.RUNNING, GS.OBJECT.CONST.PHASE.STOPPING );
                 break;
             case "focus-on-filtered-check":
-                this.setPhase( param ? SHINKEN.OBJECT.CONST.PHASE.STOPPING : SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+                this.setPhase( param ? GS.OBJECT.CONST.PHASE.STOPPING : GS.OBJECT.CONST.PHASE.RUNNING );
                 break;
         }
     },
@@ -13239,8 +12112,8 @@ COMPONENT.FinderObjectAbstract.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.FinderObjectAbstractFromHtml           = function ( dom_element, parent, dom_element_phase ) {
     this.__class_name__ = 'COMPONENT.FinderObject';
     this.init( dom_element, parent, dom_element_phase );
@@ -13253,10 +12126,10 @@ COMPONENT.FinderObjectAbstractFromHtml.prototype = {
         this.input_search = new COMPONENT.Input( this.getDomElement().querySelector( ".shinken-input" ) );
         this.input_search.setValueFromJs( "" );
         this.setParentObject( parent );
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstractFromHtml, COMPONENT.FinderObjectAbstract );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstractFromHtml, COMPONENT.FinderObjectAbstract );
 COMPONENT.Generic           = function ( dom_element ) {
     this.init( dom_element );
 };
@@ -13342,8 +12215,8 @@ COMPONENT.Generic.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Generic, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Generic, COMPONENT.Interface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Generic, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Generic, COMPONENT.Interface );
 COMPONENT.InputRange           = function ( dom_element, property ) {
     this.init( dom_element, property );
 };
@@ -13367,7 +12240,7 @@ COMPONENT.InputRange.prototype = {
     setValue             : function ( to_set ) {
         this.value = to_set;
         this.updateLabel();
-        DOM.Service.setDataSet( this.dom_element_parent, "value", to_set );
+        SERVICE.DOM.setDataSet( this.dom_element_parent, "value", to_set );
     },
     setValueFromUser     : function ( to_set ) {
         this.dom_input_range.value = to_set;
@@ -13387,7 +12260,7 @@ COMPONENT.InputRange.prototype = {
         this.dom_element_parent.setAttribute( "data-default-value", to_set );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputRange, SHINKEN.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputRange, GS.OBJECT.CounterInterface );
 COMPONENT.InterfaceInputWithDropDown           = function () {
 };
 COMPONENT.InterfaceInputWithDropDown.prototype = {
@@ -13395,21 +12268,21 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     },
     keydown                    : function ( event, key_code ) {
         switch ( key_code ) {
-            case SHINKEN.CONST.KEY_CODE.DOWN:
+            case GS.CONST.KEY_CODE.DOWN:
                 this.select.moveAutoSelectCursor( true );
                 event.preventDefault();
                 break;
-            case SHINKEN.CONST.KEY_CODE.UP:
+            case GS.CONST.KEY_CODE.UP:
                 this.select.moveAutoSelectCursor( false );
                 event.preventDefault();
                 break;
-            case SHINKEN.CONST.KEY_CODE.ENTER:
+            case GS.CONST.KEY_CODE.ENTER:
                 this.select.validSelectedOrFirstElement();
                 event.preventDefault();
                 event.stopPropagation();
                 break;
             default:
-                if ( SHINKEN.TOOLS.ARRAY.contains( this.separators, key_code ) ) {
+                if ( GS.TOOLS.ARRAY.contains( this.separators, key_code ) ) {
                     event.preventDefault();
                     event.stopPropagation();
                 }
@@ -13423,7 +12296,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
             event.stopPropagation();
         }
         if ( !key_name && event ) {
-            var _dom_parent = DOM.Service.findParentElementWithClass( event.target, "shinken-option", 20 );
+            var _dom_parent = SERVICE.DOM.findParentElementWithClass( event.target, "shinken-option", 20 );
             if ( _dom_parent ) {
                 key_name = _dom_parent.dataset.keyName;
             }
@@ -13433,7 +12306,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
         var second_part         = _previous_value.substring( this.last_separator, _previous_value.length );
         var _is_specific_option = false;
         if ( event ) {
-            var _parent_dom = DOM.Service.findParentElementWithDataSet( event.target, 'type', 10 );
+            var _parent_dom = SERVICE.DOM.findParentElementWithDataSet( event.target, 'type', 10 );
             if ( _parent_dom && _parent_dom.dataset.type === 'is-always-visible' ) {
                 _is_specific_option = true;
             }
@@ -13451,7 +12324,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     },
     setIsProtected             : function ( to_set ) {
         this.is_protected = to_set;
-        this.dom_element.setAttribute( "type", (this.is_protected && SHINKEN.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "password" : this.type );
+        this.dom_element.setAttribute( "type", (this.is_protected && GS.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "password" : this.type );
     },
     setPlaceholder             : function ( to_set ) {
         if ( !to_set ) {
@@ -13497,7 +12370,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
         
         var _in_quotes = false;
         for ( var i = 0; i < _cursor_position; i++ ) {
-            if ( SHINKEN.TOOLS.ARRAY.contains( this.separators, _value[ i ] ) && !this.isReallyInQuotes( _in_quotes ) ) {
+            if ( GS.TOOLS.ARRAY.contains( this.separators, _value[ i ] ) && !this.isReallyInQuotes( _in_quotes ) ) {
                 this.first_separator = i + 1;
             }
             if ( _value[ i ] === '"' ) {
@@ -13505,7 +12378,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
             }
         }
         for ( i = _cursor_position; i < _value.length; i++ ) {
-            if ( SHINKEN.TOOLS.ARRAY.contains( this.separators, _value[ i ] ) && !this.isReallyInQuotes( _in_quotes ) ) {
+            if ( GS.TOOLS.ARRAY.contains( this.separators, _value[ i ] ) && !this.isReallyInQuotes( _in_quotes ) ) {
                 this.last_separator = i;
                 break;
             }
@@ -13524,7 +12397,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
             this.input.restoreCursorLocation( this.last_separator );
         }
         
-        if ( SHINKEN.TOOLS.STRING.startsWith( this.current_filter, "=" ) ) {
+        if ( GS.TOOLS.STRING.startsWith( this.current_filter, "=" ) ) {
             this.current_filter = this.current_filter.substring( 1 );
         }
         if ( this.use_quotes ) {
@@ -13577,8 +12450,8 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     applySiblingSettings       : function ( component ) {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, SHINKEN.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, GS.OBJECT.CounterInterface );
 COMPONENT.InputWithDropDown           = function ( dom_element, parent, use_quotes, type ) {
     this.init( dom_element, parent, use_quotes, type );
 };
@@ -13588,7 +12461,7 @@ COMPONENT.InputWithDropDown.prototype = {
         this.initCounters( parent );
         this.type            = type;
         this.dom_element     = dom_element;
-        this.uuid            = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid            = GS.TOOLS.STRING.buildUUID();
         this.input           = new COMPONENT.Input( this.dom_element.querySelector( '.shinken-input-table' ), parent || this, true );
         this.select          = new COMPONENT.Select( this.dom_element.querySelector( '.shinken-select-container' ), COMPONENT.CONST.TYPE.SINGLE_SELECT, false, this, false, true );
         this.separators      = this.dom_element.dataset.separator.split( "$^$" );
@@ -13599,14 +12472,14 @@ COMPONENT.InputWithDropDown.prototype = {
         this.use_quotes = !!use_quotes;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputWithDropDown, COMPONENT.InterfaceInputWithDropDown );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputWithDropDown, COMPONENT.InterfaceInputWithDropDown );
 COMPONENT.InputWithDropDownFomData           = function ( type ) {
     this.type = type;
     this.init();
 };
 COMPONENT.InputWithDropDownFomData.prototype = {
     init               : function () {
-        this.uuid      = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid      = GS.TOOLS.STRING.buildUUID();
         this.input     = new COMPONENT.InputFromData();
         this.select    = new COMPONENT.SelectFromData( COMPONENT.CONST.TYPE.SINGLE_SELECT );
         this.data_name = "";
@@ -13623,7 +12496,7 @@ COMPONENT.InputWithDropDownFomData.prototype = {
     computeHtml        : function () {
         this.input.computeHtml();
         this.select.computeHtml();
-        this.dom_element = DOM.Service.createElement( "div",
+        this.dom_element = SERVICE.DOM.createElement( "div",
             {
                 class              : "shinken-list-select-input shinken-list-filter-container",
                 "data-type"        : "input-string-with-dropdown",
@@ -13631,11 +12504,11 @@ COMPONENT.InputWithDropDownFomData.prototype = {
                 "data-input-status": "shinken-no-status"
             }
         );
-        DOM.Service.addElementTo( this.input.dom_element, this.dom_element );
-        DOM.Service.addElementTo( this.select.dom_element, this.dom_element );
+        SERVICE.DOM.addElementTo( this.input.dom_element, this.dom_element );
+        SERVICE.DOM.addElementTo( this.select.dom_element, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputWithDropDownFomData, COMPONENT.InterfaceInputWithDropDown );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputWithDropDownFomData, COMPONENT.InterfaceInputWithDropDown );
 COMPONENT.INPUT                    = {
     PARAM: {
         NAME: "input_name"
@@ -13652,7 +12525,7 @@ COMPONENT.InterfaceInput.prototype = {
     clickOnInput                  : function () {
     },
     hasFocus                      : function () {
-        return DOM.Service.hasFocus( this.dom_element_input );
+        return SERVICE.DOM.hasFocus( this.dom_element_input );
     },
     getDomValue                   : function () {
         if ( this.dom_element_input ) {
@@ -13672,7 +12545,7 @@ COMPONENT.InterfaceInput.prototype = {
         this.current_value = to_set;
         this.computeNeedValidation();
         if ( this.dom_element_input ) {
-            DOM.Service.setInputValue( this.dom_element_input, to_set );
+            SERVICE.DOM.setInputValue( this.dom_element_input, to_set );
             this.validateValueInput();
             this.updateView();
             this.doExtraAction();
@@ -13690,14 +12563,14 @@ COMPONENT.InterfaceInput.prototype = {
     },
     setStatus                     : function ( to_set ) {
         this.status = to_set;
-        DOM.Service.setDataSet( this.dom_element, 'status', to_set );
+        SERVICE.DOM.setDataSet( this.dom_element, 'status', to_set );
     },
     getStatus                     : function () {
         return this.status;
     },
     setIsProtected                : function ( to_set ) {
         this.is_protected = to_set;
-        this.dom_element_input.setAttribute( "type", (this.is_protected && SHINKEN.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "shinken-password" : this.type );
+        this.dom_element_input.setAttribute( "type", (this.is_protected && GS.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "shinken-password" : this.type );
     },
     setDisabled                   : function ( to_set ) {
         if ( to_set ) {
@@ -13711,7 +12584,7 @@ COMPONENT.InterfaceInput.prototype = {
         if ( !to_set ) {
             to_set = this.placeholder_no_template || "";
         }
-        to_set           = SHINKEN.TOOLS.STRING.unescape_xss( to_set );
+        to_set           = GS.TOOLS.STRING.unescape_xss( to_set );
         this.placeholder = to_set;
         if ( this.dom_element_input ) {
             this.dom_element_input.placeholder = this.placeholder;
@@ -13781,7 +12654,7 @@ COMPONENT.InterfaceInput.prototype = {
     },
     updateBroomButton             : function () {
         if ( this.broom_button ) {
-            DOM.Service.addOrRemoveClasses( this.broom_button.getDomElement(), !this.current_value, "shinken-hidden" );
+            SERVICE.DOM.addOrRemoveClasses( this.broom_button.getDomElement(), !this.current_value, "shinken-hidden" );
         }
     },
     restoreCursorLocation         : function ( location ) {
@@ -13812,7 +12685,7 @@ COMPONENT.InterfaceInput.prototype = {
         
         if ( update ) {
             this.computeNeedValidation();
-            DOM.Service.setInputValue( this.dom_element_input, is_inherited ? '' : _to_write );
+            SERVICE.DOM.setInputValue( this.dom_element_input, is_inherited ? '' : _to_write );
         }
         else {
             this.current_value = this.getDomValue();
@@ -13828,7 +12701,7 @@ COMPONENT.InterfaceInput.prototype = {
             this.restoreCursorLocation();
         }
         if ( this.dom_element_input_broom ) {
-            DOM.Service.addOrRemoveClasses( this.dom_element_input_broom, !this.current_value, "shinken-hidden" );
+            SERVICE.DOM.addOrRemoveClasses( this.dom_element_input_broom, !this.current_value, "shinken-hidden" );
         }
     },
     askComputeHeight              : function () {
@@ -13837,7 +12710,7 @@ COMPONENT.InterfaceInput.prototype = {
             clearTimeout( self.timeout_ask_compute_height );
         }
         self.timeout_ask_compute_height = setTimeout( function () {
-            if ( self.is_resizable && DOM.Service.hasScrollHeight( self.dom_element_input ) && DOM.Service.getBoundingClientRect( self.dom_element_input, 'height' ) < 150 ) {
+            if ( self.is_resizable && SERVICE.DOM.hasScrollHeight( self.dom_element_input ) && SERVICE.DOM.getBoundingClientRect( self.dom_element_input, 'height' ) < 150 ) {
                 self.dom_element_input.style.height = Math.min( 150, self.dom_element_input.scrollHeight + 6 ) + 'px';
             }
         }, 200 );
@@ -13870,7 +12743,7 @@ COMPONENT.InterfaceInput.prototype = {
         }
     },
     validateValueInput            : function ( forced, ignore_focus ) {
-        if ( !SHINKEN.TOOLS.SHINKEN_VALIDATOR ) {
+        if ( !GS.TOOLS.SHINKEN_VALIDATOR ) {
             if ( this.validation_parameter ) {
                 return this.validateValueInputNewFormat( forced, ignore_focus );
             }
@@ -13880,10 +12753,10 @@ COMPONENT.InterfaceInput.prototype = {
             var _validation_rules = this.getValidationRules( ignore_focus );
             var _validator;
             if ( _validation_rules ) {
-                _validator = SHINKEN.TOOLS.SHINKEN_VALIDATOR._compute_validation( _validation_rules, SHINKEN.TOOLS.STRING.trimExtented( this.getValue() ) );
+                _validator = GS.TOOLS.SHINKEN_VALIDATOR._compute_validation( _validation_rules, GS.TOOLS.STRING.trimExtented( this.getValue() ) );
             }
             else if ( this.key_validation ) {
-                _validator = SHINKEN.TOOLS.SHINKEN_VALIDATOR.init_with_name( this.key_validation, this.getValue() );
+                _validator = GS.TOOLS.SHINKEN_VALIDATOR.init_with_name( this.key_validation, this.getValue() );
             }
             else {
                 return false;
@@ -13961,7 +12834,7 @@ COMPONENT.InterfaceInput.prototype = {
     },
     updateUrlWithValue            : function () {
         var _value = this.current_value ? this.current_value : '';
-        SHINKEN.HIGHWAY.setParam( this.url_param_key, _value );
+        GS.HIGHWAY.setParam( this.url_param_key, _value );
     },
     applySiblingSettings          : function ( input ) {
         if ( this.current_value === input.current_value ) {
@@ -13972,12 +12845,12 @@ COMPONENT.InterfaceInput.prototype = {
     simulateUserInteractionWriting: function ( value ) {
         this.setValueFromJs( value );
         this.time_out_compute_after_change = 0;
-        DOM.Service.SimulateAction.keyUp( this.dom_element_input );
+        SERVICE.DOM.SimulateAction.keyUp( this.dom_element_input );
         this.time_out_compute_after_change = 200;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput, COMPONENT.Interface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput, COMPONENT.Interface );
 COMPONENT.InterfaceInput_V3           = function () {
 };
 COMPONENT.InterfaceInput_V3.prototype = {
@@ -14031,12 +12904,12 @@ COMPONENT.InterfaceInput_V3.prototype = {
                 this.setTooltipHtml( message ? message.buildMessageGeneric() : "", "" );
                 break;
         }
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.uuid, _counter[ 0 ] );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.uuid, _counter[ 1 ] );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.uuid, _counter[ 0 ] );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.uuid, _counter[ 1 ] );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput_V3, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput_V3, COMPONENT.InterfaceInput );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput_V3, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInput_V3, COMPONENT.InterfaceInput );
 COMPONENT.Input           = function ( dom_element, parent, no_auto_valid, extra_key_validation ) {
     this.__class_name__ = 'COMPONENT.Input';
     this.init( dom_element, parent, extra_key_validation );
@@ -14052,7 +12925,7 @@ COMPONENT.Input.prototype = {
         else {
             this.dom_element_input = dom_element.querySelector( '.shinken-input' );
         }
-        this.uuid                    = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid                    = GS.TOOLS.STRING.buildUUID();
         this.current_value           = this.dom_element_input.getAttribute( 'value' ) || this.dom_element_input.value;
         this.type                    = this.dom_element_input.getAttribute( 'type' );
         this.original_value          = this.current_value;
@@ -14068,7 +12941,7 @@ COMPONENT.Input.prototype = {
         this.time_out_compute_after_change = 200;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Input, COMPONENT.InterfaceInput );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Input, COMPONENT.InterfaceInput );
 COMPONENT.InputFromData           = function ( value ) {
     this.__class_name__ = 'COMPONENT.InputFromData';
     this.init( value );
@@ -14080,17 +12953,17 @@ COMPONENT.InputFromData.prototype = {
         this.current_value = value || "";
     },
     computeHtml: function () {
-        this.dom_element       = DOM.Service.createElement( "table", {
+        this.dom_element       = SERVICE.DOM.createElement( "table", {
                 class       : "shinken-input-table",
                 onmouseenter: "SHINKEN_TOOLTIP.showTooltip(this)",
                 onmouseleave: "SHINKEN_TOOLTIP.hideTooltip()"
             }
         );
-        var tr                 = DOM.Service.createElement( "tr" );
-        var td                 = DOM.Service.createElement( "td", { class: "shinken-input-container-cell" } );
-        var div                = DOM.Service.createElement( "div", { class: "shinken-input-container" } );
+        var tr                 = SERVICE.DOM.createElement( "tr" );
+        var td                 = SERVICE.DOM.createElement( "td", { class: "shinken-input-container-cell" } );
+        var div                = SERVICE.DOM.createElement( "div", { class: "shinken-input-container" } );
         var _on_change         = "MANAGER.EventManager.onChangeOnInput(event, '" + this.event_name + "', '" + this.param_name + "')";
-        this.dom_element_input = DOM.Service.createElement( "input", {
+        this.dom_element_input = SERVICE.DOM.createElement( "input", {
             class      : "shinken-input",
             type       : "text",
             value      : this.current_value,
@@ -14101,14 +12974,14 @@ COMPONENT.InputFromData.prototype = {
             placeholder: this.placeholder
         } );
         
-        DOM.Service.addElementTo( this.dom_element_input, div );
-        DOM.Service.addElementTo( div, td );
-        DOM.Service.addElementTo( td, tr );
-        DOM.Service.addElementTo( tr, this.dom_element );
+        SERVICE.DOM.addElementTo( this.dom_element_input, div );
+        SERVICE.DOM.addElementTo( div, td );
+        SERVICE.DOM.addElementTo( td, tr );
+        SERVICE.DOM.addElementTo( tr, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, COMPONENT.InterfaceInput );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, COMPONENT.InterfaceInput );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.InputFromDataV2           = function ( value, property_name, parent_uuid ) {
     this.__class_name__ = 'COMPONENT.InputFromDataV2';
     this.initSpecific( value, property_name, parent_uuid );
@@ -14120,18 +12993,18 @@ COMPONENT.InputFromDataV2.prototype = {
         this.parent_uuid   = parent_uuid;
     },
     computeHtml : function () {
-        this.setDomElement( DOM.Service.createElement( "table", {
+        this.setDomElement( SERVICE.DOM.createElement( "table", {
                 class       : "shinken-input-table",
                 onmouseenter: "SHINKEN_TOOLTIP.showTooltip(this)",
                 onmouseleave: "SHINKEN_TOOLTIP.hideTooltip()"
             }
         ) );
-        const _tr        = this.addDomElement( DOM.Service.createElement( "tr" ) );
-        const _td        = DOM.Service.addElementTo( DOM.Service.createElement( "td", { class: "shinken-input-container-cell" } ), _tr );
-        const _div       = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-input-container container-with-broom" } ), _td );
+        const _tr        = this.addDomElement( SERVICE.DOM.createElement( "tr" ) );
+        const _td        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", { class: "shinken-input-container-cell" } ), _tr );
+        const _div       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-input-container container-with-broom" } ), _td );
         const _on_change = "MANAGER.EventManagerV2.onChangeInput(event,'" + this.property_name + "', '" + this.parent_uuid + "')";
         
-        this.dom_element_input   = DOM.Service.addElementTo( DOM.Service.createElement( "input", {
+        this.dom_element_input   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class      : "shinken-input",
             type       : "text",
             value      : this.current_value,
@@ -14145,14 +13018,14 @@ COMPONENT.InputFromDataV2.prototype = {
         if ( !this.current_value ) {
             _class_shinken_broom += " shinken-hidden";
         }
-        this.dom_element_input_broom = DOM.Service.addElementTo( DOM.Service.createElement( "span", {
+        this.dom_element_input_broom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : _class_shinken_broom,
             onclick: "MANAGER.EventManagerV2.clickButton(event,'clean_input_value','" + this.property_name + "','" + this.parent_uuid + "')"
         } ), _div );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, COMPONENT.InterfaceInput );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, COMPONENT.InterfaceInput );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.InputFromData_V3           = function ( name, value, params ) {
     this.__class_name__ = 'COMPONENT.InputFromData_V3';
     this.initSpecific( name, value, params );
@@ -14165,7 +13038,7 @@ COMPONENT.InputFromData_V3.prototype = {
         this.broom_button = new COMPONENT.ButtonFromData_V3( "clean_input_value", "<span class='shinken-icon-delete-input shinkon shinkon-broom'></span>" );
         this.addParamForEvents( COMPONENT.INPUT.PARAM.NAME, this.getName() );
         this.addParamsForEvents( params );
-        this.class = "shinken-input-component-container shinken-layout-center-h-v shinken-input-has-broom";
+        this.class = "shinken-input-component-container flex-layout-center-h-v shinken-input-has-broom";
         this.initCounterCommon();
     },
     doActionAfter                : function ( event_name, param ) {
@@ -14204,10 +13077,10 @@ COMPONENT.InputFromData_V3.prototype = {
         };
     },
     computeHtml                  : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass() } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.getClass() } ) );
         const _on_change = "MANAGER.EventManagerV2.onChangeInput_V3(event," + this.parseParamForEventsToHtml() + ")";
         
-        this.dom_element_input = this.addDomElement( DOM.Service.createElement( "input", {
+        this.dom_element_input = this.addDomElement( SERVICE.DOM.createElement( "input", {
             class      : "shinken-input-V3",
             type       : this.type || "text",
             value      : this.current_value,
@@ -14225,8 +13098,8 @@ COMPONENT.InputFromData_V3.prototype = {
         this.computeHtml_tooltip();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, COMPONENT.InterfaceInput_V3 );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, COMPONENT.InterfaceInput_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.InterfaceLabel           = function () {
     this.__class_name__ = 'COMPONENT.Label';
     this.init();
@@ -14264,7 +13137,7 @@ COMPONENT.InterfaceLabel.prototype = {
     },
     setStatus    : function ( to_set ) {
         this.status = to_set;
-        DOM.Service.setDataSet( this.dom_element, 'status', to_set );
+        SERVICE.DOM.setDataSet( this.dom_element, 'status', to_set );
     },
     setMessage   : function ( message ) {
         var _status  = COMPONENT.CONST.STATUS.NONE;
@@ -14287,13 +13160,13 @@ COMPONENT.InterfaceLabel.prototype = {
                 this.setTooltipHtml( message ? message.buildMessageGeneric() : "", "" );
                 break;
         }
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.uuid, _counter[ 0 ] );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.uuid, _counter[ 1 ] );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.uuid, _counter[ 0 ] );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.uuid, _counter[ 1 ] );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, SHINKEN.OBJECT.CounterInterfaceV2 );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, COMPONENT.Interface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceLabel, COMPONENT.Interface );
 COMPONENT.Label           = function ( dom_element ) {
     this.init( dom_element );
 };
@@ -14304,7 +13177,7 @@ COMPONENT.Label.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Label, COMPONENT.InterfaceLabel );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Label, COMPONENT.InterfaceLabel );
 COMPONENT.LabelFromData           = function ( label ) {
     this.__class_name__ = 'COMPONENT.LabelFromData';
     this.initSpecific( label );
@@ -14324,12 +13197,12 @@ COMPONENT.LabelFromData.prototype = {
         return this.label;
     },
     computeHtml   : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-label-container " + this.getClass() } ) );
-        this.dom_element_label = this.addDomElement( DOM.Service.createElement( "span", { class: "shinken-label" }, this.label ), this.dom_element );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-label-container " + this.getClass() } ) );
+        this.dom_element_label = this.addDomElement( SERVICE.DOM.createElement( "span", { class: "shinken-label" }, this.label ), this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.ListSelectElement                       = function ( dom_element ) {
     this.init( dom_element );
 };
@@ -14385,14 +13258,14 @@ COMPONENT.ListSelectElement.prototype             = {
             reason = "shinken-main-selector";
         }
         if ( _to_set ) {
-            SHINKEN.TOOLS.ARRAY.addElement( this.reason_to_set, reason );
+            GS.TOOLS.ARRAY.addElement( this.reason_to_set, reason );
             this.dom_element.classList.add( 'shinken-selected' );
             if ( extra_class ) {
-                DOM.Service.addClasses( this.dom_element, extra_class );
+                SERVICE.DOM.addClasses( this.dom_element, extra_class );
             }
         }
         else {
-            SHINKEN.TOOLS.ARRAY.removeElement( this.reason_to_set, reason );
+            GS.TOOLS.ARRAY.removeElement( this.reason_to_set, reason );
             if ( this.reason_to_set.length ) {
                 return;
             }
@@ -14400,7 +13273,7 @@ COMPONENT.ListSelectElement.prototype             = {
             this.dom_element.classList.remove( 'shinken-select-focused' );
             this.dom_element.classList.remove( 'shinken-select-no-events' );
             if ( extra_class ) {
-                DOM.Service.removeClasses( this.dom_element, extra_class );
+                SERVICE.DOM.removeClasses( this.dom_element, extra_class );
             }
         }
         this.is_selected = _to_set;
@@ -14439,7 +13312,7 @@ COMPONENT.ListSelectElement.prototype             = {
             this.setIsFiltered( true );
             return false;
         }
-        if ( SHINKEN.TOOLS.STRING.containsIgnoreCase( this.element.getName(), filter ) ) {
+        if ( GS.TOOLS.STRING.containsIgnoreCase( this.element.getName(), filter ) ) {
             this.setIsFiltered( false );
             return true;
         }
@@ -14489,14 +13362,14 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
             reason = "shinken-main-selector";
         }
         if ( _to_set ) {
-            SHINKEN.TOOLS.ARRAY.addElement( this.reason_to_set, reason );
+            GS.TOOLS.ARRAY.addElement( this.reason_to_set, reason );
             this.dom_element.classList.add( 'shinken-selected' );
             if ( extra_class ) {
-                DOM.Service.addClasses( this.dom_element, extra_class );
+                SERVICE.DOM.addClasses( this.dom_element, extra_class );
             }
         }
         else {
-            SHINKEN.TOOLS.ARRAY.removeElement( this.reason_to_set, reason );
+            GS.TOOLS.ARRAY.removeElement( this.reason_to_set, reason );
             if ( this.reason_to_set.length ) {
                 return;
             }
@@ -14504,7 +13377,7 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
             this.dom_element.classList.remove( 'shinken-select-focused' );
             this.dom_element.classList.remove( 'shinken-select-no-events' );
             if ( extra_class ) {
-                DOM.Service.removeClasses( this.dom_element, extra_class );
+                SERVICE.DOM.removeClasses( this.dom_element, extra_class );
             }
         }
         this.is_selected = _to_set;
@@ -14537,7 +13410,7 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
             this.setIsFiltered( true );
             return false;
         }
-        if ( SHINKEN.TOOLS.STRING.containsIgnoreCase( this.element.getName(), filter ) ) {
+        if ( GS.TOOLS.STRING.containsIgnoreCase( this.element.getName(), filter ) ) {
             this.setIsFiltered( false );
             return true;
         }
@@ -14551,7 +13424,7 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
         this.dom_element.innerHTML = this.getLabel();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelectElement_V2, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelectElement_V2, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.ListSelectElementFromData_V2           = function ( key_name, label, property_name, selector_name ) {
     this.initSpecific( key_name, label, property_name, selector_name );
 };
@@ -14564,15 +13437,15 @@ COMPONENT.ListSelectElementFromData_V2.prototype = {
         this.getElement().setLabel( label || key_name );
     },
     computeHtml : function () {
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             class           : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION, "data-key-name": this.getName(),
             onmouseup       : "MANAGER.EventManagerV2.clickItemSelector(event,'" + this.property_name + "','" + this.selector_name + "', '" + this.getElement().getName() + "')",
             "data-key-label": this.getLabel()
         } ) );
-        this.addDomElement( DOM.Service.createElement( "span", { class: "shinken-space" }, this.getLabel() ) );
+        this.addDomElement( SERVICE.DOM.createElement( "span", { class: "shinken-space" }, this.getLabel() ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectElementFromData_V2, COMPONENT.InterfaceListSelectElement_V2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectElementFromData_V2, COMPONENT.InterfaceListSelectElement_V2 );
 COMPONENT.ListSelectElementFromData_V3           = function ( key_name, label, param_events ) {
     this.initSpecific( key_name, label, param_events );
 };
@@ -14586,16 +13459,16 @@ COMPONENT.ListSelectElementFromData_V3.prototype = {
         this.getElement().setLabel( label || key_name );
     },
     computeHtml : function () {
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             class           : this.class,
             "data-key-name" : this.getName(),
             onmouseup       : "MANAGER.EventManagerV2.clickItemSelector_V3(event," + this.parseParamForEventsToHtml() + ")",
             "data-key-label": this.getLabel()
         } ) );
-        this.addDomElement( DOM.Service.createElement( "span", { class: "shinken-space" }, this.getLabel() ) );
+        this.addDomElement( SERVICE.DOM.createElement( "span", { class: "shinken-space" }, this.getLabel() ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectElementFromData_V3, COMPONENT.ListSelectElementFromData_V2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectElementFromData_V3, COMPONENT.ListSelectElementFromData_V2 );
 COMPONENT.InterfaceListSelect           = function () {
     this.init();
 };
@@ -14623,7 +13496,7 @@ COMPONENT.InterfaceListSelect.prototype = {
     
     },
     addNewElementUnknown                : function ( key_name, prop_name ) {
-        var _to_add    = DOM.Service.createElement( 'div', {
+        var _to_add    = SERVICE.DOM.createElement( 'div', {
                 class               : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION,
                 "data-state"        : "unknown",
                 "data-key-name"     : key_name,
@@ -14779,7 +13652,7 @@ COMPONENT.InterfaceListSelect.prototype = {
             }
             if ( this.current_index_auto_select_element !== COMPONENT.CONST.NOT_FOUND ) {
                 if ( !avoid ) {
-                    this.previous_position_vertical = DOM.Service.getBoundingClientRect( this.list[ this.current_index_auto_select_element ].dom_element, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
+                    this.previous_position_vertical = SERVICE.DOM.getBoundingClientRect( this.list[ this.current_index_auto_select_element ].dom_element, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
                 }
                 this.list[ this.current_index_auto_select_element ].dom_element.classList.remove( 'shinken-select-focused' );
             }
@@ -14788,14 +13661,14 @@ COMPONENT.InterfaceListSelect.prototype = {
     },
     selectSelectedOrFirstFilteredElement: function () {
         if ( this.current_index_auto_select_element === COMPONENT.CONST.NOT_FOUND ) {
-            this.updateLastAutoSelectIndex( SHINKEN.TOOLS.ARRAY.findFirstIndexWith( this.list, "is_filtered", false ), COMPONENT.CONST.AUTO_SELECT_ACTION_TYPE.KEY_INPUT );
+            this.updateLastAutoSelectIndex( GS.TOOLS.ARRAY.findFirstIndexWith( this.list, "is_filtered", false ), COMPONENT.CONST.AUTO_SELECT_ACTION_TYPE.KEY_INPUT );
         }
     },
     validAutoSelect                     : function () {
         if ( this.current_index_auto_select_element === COMPONENT.CONST.NOT_FOUND ) {
             return false;
         }
-        DOM.Service.SimulateAction.mouseUp( this.list[ this.current_index_auto_select_element ].dom_element );
+        SERVICE.DOM.SimulateAction.mouseUp( this.list[ this.current_index_auto_select_element ].dom_element );
         this.setLastAutoSelectElement( false );
         return true;
     },
@@ -14818,7 +13691,7 @@ COMPONENT.InterfaceListSelect.prototype = {
                 _dom_element = DOM.ScrollService.getCloserVisibleDomFromMiddle( this.dom_element_select_content, ".shinken-option:not(.shinken-hidden):not(.shinken-selected)", move_down );
             }
             if ( _dom_element ) {
-                this.previous_position_vertical = DOM.Service.getBoundingClientRect( this.dom_element_select_content, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
+                this.previous_position_vertical = SERVICE.DOM.getBoundingClientRect( this.dom_element_select_content, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
                 this.updateLastAutoSelectIndex( this._getIndexElementInMapping( _dom_element.dataset.keyName ), action_type, true );
             }
             return;
@@ -14834,7 +13707,7 @@ COMPONENT.InterfaceListSelect.prototype = {
                 this.updateLastAutoSelectIndex( this.current_index_auto_select_element, action_type );
                 continue;
             }
-            var _display = DOM.Service.getComputedStyle( _current.dom_element, DOM.CONST.STYLE.DISPLAY );
+            var _display = SERVICE.DOM.getComputedStyle( _current.dom_element, DOM.CONST.STYLE.DISPLAY );
             if ( _display === DOM.CONST.VALUE.NONE ) {
                 continue;
             }
@@ -14923,7 +13796,7 @@ COMPONENT.ListSelect.prototype          = {
         this.dom_element_select_content.appendChild( list_select_element.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelect, COMPONENT.InterfaceListSelect );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelect, COMPONENT.InterfaceListSelect );
 COMPONENT.ListSelectFromData           = function () {
     this.init();
 };
@@ -14941,7 +13814,7 @@ COMPONENT.ListSelectFromData.prototype = {
         this.size_list                = 0;
     },
     addFromString  : function ( key_name, label, filtering_option ) {
-        var _dom_element = DOM.Service.createElement( 'div', {
+        var _dom_element = SERVICE.DOM.createElement( 'div', {
                 class               : COMPONENT.CONST.SELECT.SELECTOR_LIST_OPTION,
                 "data-key-name"     : key_name,
                 "data-key-label"    : label,
@@ -14958,12 +13831,12 @@ COMPONENT.ListSelectFromData.prototype = {
         this.addNewElement( key_name, _to_return );
     },
     computeHtml    : function () {
-        this.dom_element                = DOM.Service.createElement( "div", { class: "shinken-list-select" } );
-        this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
-        DOM.Service.addElementTo( this.dom_element_select_content, this.dom_element );
+        this.dom_element                = SERVICE.DOM.createElement( "div", { class: "shinken-list-select" } );
+        this.dom_element_select_content = SERVICE.DOM.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
+        SERVICE.DOM.addElementTo( this.dom_element_select_content, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData, COMPONENT.InterfaceListSelect );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData, COMPONENT.InterfaceListSelect );
 COMPONENT.InterfaceListSelect_V2           = function () {
 };
 COMPONENT.InterfaceListSelect_V2.prototype = {
@@ -14992,7 +13865,7 @@ COMPONENT.InterfaceListSelect_V2.prototype = {
         return this.state;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelect_V2, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelect_V2, GS.OBJECT.ShinkenObjectContainerHtml );
 COMPONENT.ListSelectFromData_V2           = function ( property_name, selector_name ) {
     this.init( property_name, selector_name );
 };
@@ -15012,21 +13885,21 @@ COMPONENT.ListSelectFromData_V2.prototype = {
         this.initContents();
     },
     resetHtml    : function () {
-        DOM.Service.removeElement( this.getDomElement() );
+        SERVICE.DOM.removeElement( this.getDomElement() );
     },
     computeHtml  : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-select" } ) );
-        this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-list-select" } ) );
+        this.dom_element_select_content = SERVICE.DOM.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
         this.addDomElement( this.dom_element_select_content );
         var _current;
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             _current = this.getContent( i );
             _current.computeHtml();
-            DOM.Service.addElementTo( _current.getDomElement(), this.dom_element_select_content );
+            SERVICE.DOM.addElementTo( _current.getDomElement(), this.dom_element_select_content );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V2, COMPONENT.InterfaceListSelect_V2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V2, COMPONENT.InterfaceListSelect_V2 );
 COMPONENT.ListSelectFromData_V3_deprecated           = function ( property_name, selector_name ) {
     this.init( property_name, selector_name );
 };
@@ -15037,7 +13910,7 @@ COMPONENT.ListSelectFromData_V3_deprecated.prototype = {
         this.add( _to_return );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V3_deprecated, COMPONENT.ListSelectFromData_V2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V3_deprecated, COMPONENT.ListSelectFromData_V2 );
 COMPONENT.ListSelectFromData_V3           = function ( property_name, selector_name ) {
     this.initSpecific( property_name, selector_name );
 };
@@ -15052,25 +13925,25 @@ COMPONENT.ListSelectFromData_V3.prototype = {
         this.add( _to_return );
     },
     computeHtml  : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-select shinken-list-select-V3" } ) );
-        this.dom_element_select_content = DOM.Service.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-list-select shinken-list-select-V3" } ) );
+        this.dom_element_select_content = SERVICE.DOM.createElement( "div", { class: "list-select-content shinken-user-select-none" } );
         this.addDomElement( this.dom_element_select_content );
         var _current;
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             _current = this.getContent( i );
             _current.computeHtml();
-            DOM.Service.addElementTo( _current.getDomElement(), this.dom_element_select_content );
+            SERVICE.DOM.addElementTo( _current.getDomElement(), this.dom_element_select_content );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V3, COMPONENT.ListSelectFromData_V2 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ListSelectFromData_V3, COMPONENT.ListSelectFromData_V2 );
 COMPONENT.InterfaceSelect           = function () {
 };
 COMPONENT.InterfaceSelect.prototype = {
     init                          : function () {
     },
     hidePopup                     : function () {
-        DOM.Service.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+        SERVICE.DOM.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
         this.list_element.setState( COMPONENT.CONST.BTN_STATE.OFF );
     },
     openSelector                  : function () {
@@ -15079,7 +13952,7 @@ COMPONENT.InterfaceSelect.prototype = {
         }
     },
     clickOnSelector               : function () {
-        DOM.Service.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
+        SERVICE.DOM.setDataSet( this.dom_element, COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
         this.list_element.focusOnResearchInput();
     },
     clickOnItemSelector           : function ( parent_name, key_name, class_to_add ) {
@@ -15119,7 +13992,7 @@ COMPONENT.InterfaceSelect.prototype = {
         }
     },
     simulateClickOnItem           : function ( key_name ) {
-        DOM.Service.SimulateAction.mouseUp( this.list_element.getListSelectElement( key_name ).dom_element );
+        SERVICE.DOM.SimulateAction.mouseUp( this.list_element.getListSelectElement( key_name ).dom_element );
     },
     dragStartShinken              : function ( type_element, key_name ) {
         switch ( type_element ) {
@@ -15335,7 +14208,7 @@ COMPONENT.InterfaceSelect.prototype = {
     },
     setStatus                     : function ( to_set ) {
         this.status = to_set;
-        DOM.Service.setDataSet( this.dom_element, 'status', to_set );
+        SERVICE.DOM.setDataSet( this.dom_element, 'status', to_set );
     },
     setDataSetLink                : function ( to_set ) {
         this.dataSetLink = to_set;
@@ -15376,7 +14249,7 @@ COMPONENT.InterfaceSelect.prototype = {
     },
     buildLinkOpenNewTab           : function ( link, id ) {
         var _span_link                         = '<span class="shinken-link-icon-button"><span class="shinken-link-icon shinicon shinicon-open"></span></span>';
-        this.dom_link_icon_container.innerHTML = SHINKEN.TOOLS.buildLinkDomElementDependIfAdmin( link, id, _span_link, "shinken-link" ).outerHTML;
+        this.dom_link_icon_container.innerHTML = GS.TOOLS.buildLinkDomElementDependIfAdmin( link, id, _span_link, "shinken-link" ).outerHTML;
     },
     pulsateTag                    : function ( name ) {
         var _existing = this.getActiveListForUser().getTagByName( name );
@@ -15427,8 +14300,8 @@ COMPONENT.InterfaceSelect.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.Select           = function ( dom_element, type, is_override, parent, datasetLink, allow_multiple_select ) {
     this.__class_name__        = 'COMPONENT.Select';
     this.type                  = type;
@@ -15437,11 +14310,11 @@ COMPONENT.Select           = function ( dom_element, type, is_override, parent, 
     this.is_editable           = true;
     this.init( dom_element, parent );
     this.setDataSetLink( datasetLink );
-    this.__class = SHINKEN.TOOLS.CLASS.CONST.COMPONENT.SELECT;
+    this.__class = GS.TOOLS.CLASS.CONST.COMPONENT.SELECT;
 };
 COMPONENT.Select.prototype = {
     init                      : function ( dom_element, parent ) {
-        this.uuid        = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid        = GS.TOOLS.STRING.buildUUID();
         this.dom_element = dom_element;
         this.dom_select  = dom_element.querySelector( '.' + COMPONENT.CONST.SELECT.SELECTOR );
         if ( this.dom_select ) {
@@ -15480,7 +14353,7 @@ COMPONENT.Select.prototype = {
         this.list_elements_inherited.addTags( tags );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.Select, COMPONENT.InterfaceSelect );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Select, COMPONENT.InterfaceSelect );
 COMPONENT.SelectFromData           = function ( type ) {
     this.__class_name__           = 'COMPONENT.SelectFromData';
     this.type                     = type;
@@ -15490,7 +14363,7 @@ COMPONENT.SelectFromData           = function ( type ) {
 };
 COMPONENT.SelectFromData.prototype = {
     init                      : function () {
-        this.uuid         = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid         = GS.TOOLS.STRING.buildUUID();
         this.list_element = new COMPONENT.ListSelectFromData();
     },
     setDefaultLabelForSelector: function ( to_set ) {
@@ -15509,9 +14382,9 @@ COMPONENT.SelectFromData.prototype = {
     },
     computeHtml               : function () {
         this.list_element.computeHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
         
-        this.dom_select = DOM.Service.createElement( "div",
+        this.dom_select = SERVICE.DOM.createElement( "div",
             {
                 class  : "shinken-select-selector shinken-user-select-none",
                 onclick: "MANAGER.EventManager.clickOnSelector(event)"
@@ -15521,18 +14394,18 @@ COMPONENT.SelectFromData.prototype = {
         }
         
         for ( var i = 0, _size_i = this.list_element.size_list; i < _size_i; i++ ) {
-            DOM.Service.addElementTo( this.list_element.list[ i ].dom_element, this.list_element.dom_element_select_content );
+            SERVICE.DOM.addElementTo( this.list_element.list[ i ].dom_element, this.list_element.dom_element_select_content );
         }
-        DOM.Service.addElementTo( this.dom_select, this.dom_element );
-        DOM.Service.addElementTo( this.list_element.dom_element, this.dom_element );
+        SERVICE.DOM.addElementTo( this.dom_select, this.dom_element );
+        SERVICE.DOM.addElementTo( this.list_element.dom_element, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SelectFromData, COMPONENT.InterfaceSelect );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SelectFromData, COMPONENT.InterfaceSelect );
 COMPONENT.RenderInterface           = function () {
 };
 COMPONENT.RenderInterface.prototype = {
     init            : function () {
-        this.initPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING, this.getDomElement() );
+        this.initPhase( GS.OBJECT.CONST.PHASE.RUNNING, this.getDomElement() );
     },
     updateLabel     : function ( _to_set ) {
         if ( _to_set !== "___SHINKEN_DONT_CHANGE___" ) {
@@ -15541,13 +14414,13 @@ COMPONENT.RenderInterface.prototype = {
         this.computeClassHtml();
     },
     computeClassHtml: function () {
-        DOM.Service.addOrRemoveClasses( this.getDomElement(), !this.component_label.hasLabel(), "shinken-empty" );
+        SERVICE.DOM.addOrRemoveClasses( this.getDomElement(), !this.component_label.hasLabel(), "shinken-empty" );
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.RenderFromHtml           = function ( dom_element ) {
     this.initSpecific( dom_element );
 };
@@ -15558,7 +14431,7 @@ COMPONENT.RenderFromHtml.prototype = {
         this.component_label = new COMPONENT.Label( this.dom_element.querySelector( ".shinken-render-value" ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderFromHtml, COMPONENT.RenderInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderFromHtml, COMPONENT.RenderInterface );
 COMPONENT.RenderWithInheritanceFromHtml           = function ( dom_element ) {
     this.initSpecific( dom_element );
 };
@@ -15571,7 +14444,7 @@ COMPONENT.RenderWithInheritanceFromHtml.prototype = {
             this.component_label_inheritance = new COMPONENT.Label( this.dom_element.querySelector( ".shinken-render-value-from-template" ) );
         }
         catch ( e ) {
-            this.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+            this.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
         }
     },
     updateLabel : function ( to_set_value, _to_set_value_inheritance ) {
@@ -15583,7 +14456,7 @@ COMPONENT.RenderWithInheritanceFromHtml.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderWithInheritanceFromHtml, COMPONENT.RenderFromHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderWithInheritanceFromHtml, COMPONENT.RenderFromHtml );
 COMPONENT.RenderFromData           = function ( value ) {
     this.initSpecific( value );
 };
@@ -15594,29 +14467,29 @@ COMPONENT.RenderFromData.prototype = {
     },
     computeHtml : function () {
         this.component_label.computeHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-render-value-container" } ) );
-        var _div_1 = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-container-of-render-value" } ) );
-        var _div_2 = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-render-value-content shinken-render-value" } ), _div_1 );
-        DOM.Service.addElementTo( this.component_label.getDomElement(), _div_2 );
-        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-title-of-render-value-container" }, _( "components.thresholds_display.render_label" ) ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-render-value-container" } ) );
+        var _div_1 = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-container-of-render-value" } ) );
+        var _div_2 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-render-value-content shinken-render-value" } ), _div_1 );
+        SERVICE.DOM.addElementTo( this.component_label.getDomElement(), _div_2 );
+        this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-title-of-render-value-container" }, _( "components.thresholds_display.render_label" ) ) );
         this.updateLabel( this.component_label.getLabel() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.RenderFromData, COMPONENT.RenderInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderFromData, COMPONENT.RenderInterface );
 COMPONENT.InterfaceSingleSelect           = function () {
 };
 COMPONENT.InterfaceSingleSelect.prototype = {
     init                      : function () {
         this.last_selected_key_name   = "";
         this.default_label_for_select = '--';
-        this.uuid                     = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid                     = GS.TOOLS.STRING.buildUUID();
     },
     hidePopup                 : function () {
-        DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+        SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
         this.list_element.setState( COMPONENT.CONST.BTN_STATE.OFF );
     },
     clickOnSelector           : function () {
-        DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
+        SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
     },
     clickOnItemSelector       : function ( key_name, parent ) {
         this.resetStatus();
@@ -15669,7 +14542,7 @@ COMPONENT.InterfaceSingleSelect.prototype = {
     },
     setStatus                 : function ( to_set ) {
         this.status = to_set;
-        DOM.Service.setDataSet( this.getDomElement(), 'status', to_set );
+        SERVICE.DOM.setDataSet( this.getDomElement(), 'status', to_set );
     },
     resetStatus               : function () {
         this.setStatus( "" );
@@ -15681,8 +14554,8 @@ COMPONENT.InterfaceSingleSelect.prototype = {
         this.default_label_for_select = to_set;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, GS.OBJECT.ShinkenObjectHtml );
 COMPONENT.SingleSelectFromData           = function ( property_name, selector_name ) {
     this.__class_name__ = 'COMPONENT.SingleSelectFromData';
     this.is_editable    = true;
@@ -15728,9 +14601,9 @@ COMPONENT.SingleSelectFromData.prototype = {
     },
     computeHtml           : function () {
         this.list_element.computeHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
         
-        this.dom_select = DOM.Service.createElement( "div",
+        this.dom_select = SERVICE.DOM.createElement( "div",
             {
                 class  : "shinken-select-selector shinken-user-select-none",
                 onclick: this._onclick
@@ -15740,7 +14613,7 @@ COMPONENT.SingleSelectFromData.prototype = {
         this.addDomElement( this.list_element.getDomElement() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData, COMPONENT.InterfaceSingleSelect );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData, COMPONENT.InterfaceSingleSelect );
 COMPONENT.SingleSelectFromDataV2           = function ( property_name, selector_name ) {
     this.__class_name__ = 'COMPONENT.SingleSelectFromData';
     this.is_editable    = true;
@@ -15761,7 +14634,7 @@ COMPONENT.SingleSelectFromDataV2.prototype = {
     doActionAfter    : function ( event_name, param ) {
         switch ( event_name ) {
             case "click_on_selector":
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
                 break;
             case "click_on_item_selector":
                 this.resetStatus();
@@ -15775,7 +14648,7 @@ COMPONENT.SingleSelectFromDataV2.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromDataV2, COMPONENT.SingleSelectFromData );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromDataV2, COMPONENT.SingleSelectFromData );
 COMPONENT.SingleSelectFromData_V3           = function ( property_name, selector_name ) {
     this.__class_name__ = 'COMPONENT.SingleSelectFromData';
     this.initSpecific( property_name, selector_name );
@@ -15811,7 +14684,7 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
                 break;
             case "click_on_selector_V3":
                 SHINKEN_TOOLTIP.hideTooltip();
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.toggleState() );
                 this.computeListPlacement( param );
                 break;
             case "click_on_item_selector_V3":
@@ -15823,7 +14696,7 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
             case "ask_hide_pop_up":
             case "click_done":
                 this.list_element.setState( COMPONENT.CONST.BTN_STATE.OFF );
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
                 break;
             default:
                 break;
@@ -15892,9 +14765,9 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
     },
     computeHtml                  : function () {
         this.list_element.computeHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
-        this.dom_select = DOM.Service.createElement( "div", {
-            class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none shinken-layout-center-h-v shinken-layout-justify-between",
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
+        this.dom_select = SERVICE.DOM.createElement( "div", {
+            class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none flex-layout-center-h-v flex-layout-justify-between",
             "data-name": this.selector_name,
             onclick    : "MANAGER.EventManagerV2.clickSelector_V3(event," + this.parseParamForEventsToHtml() + ")"
         }, '<span class="shinken-selector-label shinken-space">' + this.default_label_for_select + '</span><span class="shinkon shinken-header-chevron shinken-2023-arrow-down"></span>' );
@@ -15903,16 +14776,16 @@ COMPONENT.SingleSelectFromData_V3.prototype = {
         this.addDomElement( this.list_element.getDomElement() );
     },
     computeListPlacement         : function ( param ) {
-        DOM.Service.removeClasses( this.list_element.getDomElement(), "shinken-display-on-top" );
+        SERVICE.DOM.removeClasses( this.list_element.getDomElement(), "shinken-display-on-top" );
         if ( this.list_element.getState() === COMPONENT.CONST.BTN_STATE.OFF ) {
             return;
         }
-        DOM.Service.addOrRemoveClasses( this.list_element.getDomElement(), DOM.Service.isInScreenVertically( this.list_element.getDomElement() ),
+        SERVICE.DOM.addOrRemoveClasses( this.list_element.getDomElement(), SERVICE.DOM.isInScreenVertically( this.list_element.getDomElement() ),
             "shinken-display-on-top" );
         
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData_V3, COMPONENT.SingleSelectFromData );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData_V3, COMPONENT.SingleSelectFromData );
 COMPONENT.SingleSelectWithResearchFromData_V3           = function ( property_name, selector_name, extra_columns ) {
     this.__class_name__ = 'COMPONENT.SingleSelectFromData';
     this.initSpecific( property_name, selector_name, extra_columns );
@@ -15929,7 +14802,7 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
         
         this.list_element = new SHINKEN_LIST.SetForPropertyResearch( "list_for_research" );
         this.list_element.addParamsForEvents( this.getParamForEvents() );
-        this.list_element.setHeaders( new SHINKEN_LIST.HeadersFromData( SHINKEN.TOOLS.ARRAY.concat( [{ name: this.property_name }], this.extra_columns ) ) );
+        this.list_element.setHeaders( new SHINKEN_LIST.HeadersFromData( GS.TOOLS.ARRAY.concat( [{ name: this.property_name }], this.extra_columns ) ) );
         this.list_element.setFilters( new SHINKEN_LIST.FiltersFromData_V3( this.list_element.headers.getContents(), this.list_element.getParamForEvents() ) );
     },
     doActionAfter             : function ( event_name, param ) {
@@ -15938,8 +14811,8 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
                 this.setMessage__2024_12_16( param[ PROPERTY.COMMON.PARAM.PROPERTY_MESSAGES ] );
                 return;
             case "reset_display":
-                this.list_element.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+                this.list_element.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
                 return;
             case "property_value__set__by_js":
                 this.setLastSelectedElementName( this.list_element.getLineByCellValue( this.property_name, param[ PROPERTY.COMMON.PARAM.PROPERTY_VALUE ] ) );
@@ -15956,8 +14829,8 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
                     this.list_element.doActionAfter( event_name, param );
                     return;
                 }
-                this.list_element.togglePhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, SHINKEN.OBJECT.CONST.PHASE.RUNNING );
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING ) ? COMPONENT.CONST.BTN_STATE.ON : COMPONENT.CONST.BTN_STATE.OFF );
+                this.list_element.togglePhase( GS.OBJECT.CONST.PHASE.HIDDEN, GS.OBJECT.CONST.PHASE.RUNNING );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, this.list_element.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ? COMPONENT.CONST.BTN_STATE.ON : COMPONENT.CONST.BTN_STATE.OFF );
                 return;
             case "click_on_item_selector_V3":
                 if ( param[ SHINKEN_LIST.CONST.PARAM.SET_UUID ] ) {
@@ -15981,8 +14854,8 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
                 this.list_element.doActionAfter( event_name, param );
                 return;
             case "click_done":
-                this.list_element.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
-                DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+                this.list_element.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
+                SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
                 return;
             case "ask_hide_pop_up": //WARNING THE HIDE POP UP close the selection when changing pagination
                 return;
@@ -15990,8 +14863,8 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
         this.doActionAfterCommon( event_name, param );
     },
     hidePopup                 : function () {
-        this.list_element.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
-        DOM.Service.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
+        this.list_element.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
+        SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
     },
     getValue                  : function () {
         if ( this.selected_line__20241114 ) {
@@ -16024,19 +14897,19 @@ COMPONENT.SingleSelectWithResearchFromData_V3.prototype = {
         return to_return;
     },
     computeHtml               : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
-        this.dom_select = DOM.Service.createElement( "div",
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-select-container", "data-state-selector": 0 } ) );
+        this.dom_select = SERVICE.DOM.createElement( "div",
             {
-                class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none shinken-layout-center-h-v shinken-layout-justify-between",
+                class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none flex-layout-center-h-v flex-layout-justify-between",
                 "data-name": this.selector_name,
                 onclick    : "MANAGER.EventManagerV2.clickSelector_V3(event," + this.parseParamForEventsToHtml() + ")"
             }, '<span class="shinken-selector-label shinken-space">' + (this.title || this.default_label_for_select) + '</span><span class="shinkon shinken-header-chevron shinken-2023-arrow-down"></span>' );
         this.addDomElement( this.dom_select );
-        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-spinner" } ) );
+        this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-spinner" } ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectWithResearchFromData_V3, COMPONENT.SingleSelectFromData_V3 );
-SHINKEN.OBJECT.CONST.LAST_MODIFICATION                     = {
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectWithResearchFromData_V3, COMPONENT.SingleSelectFromData_V3 );
+GS.OBJECT.CONST.LAST_MODIFICATION                     = {
     INITIAL_STEP: -1,
     ACTION      : {
         CREATE               : "CREATE",
@@ -16070,10 +14943,10 @@ SHINKEN.OBJECT.CONST.LAST_MODIFICATION                     = {
         PARAM_FOR_EVENT  : "param_for_event"
     }
 };
-SHINKEN.OBJECT.EditableElementInterface                    = function () {
+GS.OBJECT.EditableElementInterface                    = function () {
     throw new TypeError( "Interface EditableElementInterface cant be constructed." );
 };
-SHINKEN.OBJECT.EditableElementInterface.prototype          = {
+GS.OBJECT.EditableElementInterface.prototype          = {
     undoLastModification          : function ( modification_data ) {
         throw new TypeError( "Function undoLastModification from EditableElementInterface have to be surcharged" );
     },
@@ -16087,26 +14960,26 @@ SHINKEN.OBJECT.EditableElementInterface.prototype          = {
         this.previous_modication_data = this.getDataForLastModification( params );
     }
 };
-SHINKEN.OBJECT.EditableElementContainerInterface           = function () {
+GS.OBJECT.EditableElementContainerInterface           = function () {
     throw new TypeError( "Interface EditableElementContainerInterface cant be constructed." );
 };
-SHINKEN.OBJECT.EditableElementContainerInterface.prototype = {
+GS.OBJECT.EditableElementContainerInterface.prototype = {
     getDataForLastModification: function () {
-        var _to_return = { "contents": [], "mapping": SHINKEN.TOOLS.DICT.clone( this.mapping ) };
+        var _to_return = { "contents": [], "mapping": GS.TOOLS.DICT.clone( this.mapping ) };
         for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             _to_return[ "contents" ].push( this.contents[ i ].getDataForLastModification() );
         }
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.EditableElementContainerInterface, SHINKEN.OBJECT.EditableElementInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.EditableElementContainerInterface, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.LastModificationElement           = function ( type_modification, element_modified, previous, next ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.EditableElementContainerInterface, GS.OBJECT.EditableElementInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.EditableElementContainerInterface, GS.OBJECT.ShinkenObjectContainer );
+GS.OBJECT.LastModificationElement           = function ( type_modification, element_modified, previous, next ) {
     this.init( type_modification, element_modified, previous, next );
 };
-SHINKEN.OBJECT.LastModificationElement.prototype = {
+GS.OBJECT.LastModificationElement.prototype = {
     init               : function ( type_modification, element_modified, previous, next ) {
-        this.uuid              = SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid              = GS.TOOLS.STRING.buildUUID();
         this.type_modification = type_modification;
         this.addParamsForEvents( element_modified.getParamForEvents() );
         this.setPrevious( previous );
@@ -16117,7 +14990,7 @@ SHINKEN.OBJECT.LastModificationElement.prototype = {
     },
     isValid            : function () {
         if ( this.previous && this.next ) {
-            return !SHINKEN.TOOLS.DICT.isEquals( this.previous, this.next );
+            return !GS.TOOLS.DICT.isEquals( this.previous, this.next );
         }
         return this.previous !== this.next;
     },
@@ -16151,11 +15024,11 @@ SHINKEN.OBJECT.LastModificationElement.prototype = {
         return this.uuid;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.LastModificationElement, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.LastModification           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationElement, GS.OBJECT.ShinkenObject );
+GS.OBJECT.LastModification           = function () {
     this.init();
 };
-SHINKEN.OBJECT.LastModification.prototype = {
+GS.OBJECT.LastModification.prototype = {
     init                       : function () {
         this.initContents();
         this.setTimestamp();
@@ -16192,11 +15065,11 @@ SHINKEN.OBJECT.LastModification.prototype = {
         return this.add( last_modification_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.LastModification, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.LastModifications           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModification, GS.OBJECT.ShinkenObjectContainer );
+GS.OBJECT.LastModifications           = function () {
     this.init();
 };
-SHINKEN.OBJECT.LastModifications.prototype = {
+GS.OBJECT.LastModifications.prototype = {
     init          : function () {
         this.initContents();
         this.current_step = -1;
@@ -16204,21 +15077,21 @@ SHINKEN.OBJECT.LastModifications.prototype = {
     doActionAfter : function ( event_name, param ) {
         switch ( event_name ) {
             case "add_last_modification":
-                return this.addSpecific( param[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ] );
+                return this.addSpecific( param[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ] );
             case "reset_all__20240909":
                 this.init();
                 break;
             case "on_key_up":
                 let current_key_code = param[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].keyCode;
                 switch ( current_key_code ) {
-                    case SHINKEN.CONST.KEY_CODE.Z:
+                    case GS.CONST.KEY_CODE.Z:
                         if ( this.getCurrentStep() >= 0 ) {
-                            this.gotoStep( this.getCurrentStep() - 1, param[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.PARENT_OBJECT ] );
+                            this.gotoStep( this.getCurrentStep() - 1, param[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.PARENT_OBJECT ] );
                         }
                         break;
-                    case SHINKEN.CONST.KEY_CODE.Y:
+                    case GS.CONST.KEY_CODE.Y:
                         if ( this.getCurrentStep() + 1 < this.getSize() ) {
-                            this.gotoStep( this.getCurrentStep() + 1, param[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.PARENT_OBJECT ] );
+                            this.gotoStep( this.getCurrentStep() + 1, param[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.PARENT_OBJECT ] );
                         }
                         break;
                 }
@@ -16233,7 +15106,7 @@ SHINKEN.OBJECT.LastModifications.prototype = {
             return false;
         }
         last_modification.setIndex( ++this.current_step );
-        last_modification.uuid = SHINKEN.TOOLS.STRING.buildUUID();
+        last_modification.uuid = GS.TOOLS.STRING.buildUUID();
         this.add( last_modification );
         if ( this.current_step < this.getSize() ) { //REMOVE EXISTING MODIFICATIONS OVER THE STEP
             this.removeAllContentFromIndex( this.current_step + 1 );
@@ -16244,23 +15117,23 @@ SHINKEN.OBJECT.LastModifications.prototype = {
         let action_event = target_step < this.current_step ? "undo_last_modification" : "redo_last_modification";
         while ( this.getCurrentStep() !== target_step ) {
             if ( action_event === "undo_last_modification" ) {
-                object_parent.doActionAfter( action_event, { [ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ]: this.getContent( this.current_step-- ) } );
+                object_parent.doActionAfter( action_event, { [ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ]: this.getContent( this.current_step-- ) } );
             }
             else {
-                object_parent.doActionAfter( action_event, { [ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ]: this.getContent( ++this.current_step ) } );
+                object_parent.doActionAfter( action_event, { [ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ]: this.getContent( ++this.current_step ) } );
             }
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.LastModifications, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.OBJECT.LastModificationsInterface           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModifications, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.OBJECT.LastModificationsInterface           = function () {
 };
-SHINKEN.OBJECT.LastModificationsInterface.prototype = {
+GS.OBJECT.LastModificationsInterface.prototype = {
     initLastModifications: function () {
-        this.last_modifications = new SHINKEN.OBJECT.LastModifications();
+        this.last_modifications = new GS.OBJECT.LastModifications();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.LastModificationsInterface, SHINKEN.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationsInterface, GS.OBJECT.ShinkenObject );
 SHINKEN_LIST.FilterFromData           = function ( type, name ) {
     this.type = type;
     this.name = name;
@@ -16295,11 +15168,11 @@ SHINKEN_LIST.FilterFromData.prototype = {
         }
     },
     computeHtml        : function () {
-        this.dom_element = DOM.Service.createElement( "td", { class: "shinken-list-filter", "data-name": this.name, "data-object-type": "shinken-list-filter", "data-type": this.type } );
+        this.dom_element = SERVICE.DOM.createElement( "td", { class: "shinken-list-filter", "data-name": this.name, "data-object-type": "shinken-list-filter", "data-type": this.type } );
         switch ( this.type ) {
             case COMPONENT.CONST.TYPE.HIDDEN:
                 this.dom_element.classList.add( "shinken-text-centred" );
-                this.addDomElement( DOM.Service.createElement( "span", {}, "--" ) );
+                this.addDomElement( SERVICE.DOM.createElement( "span", {}, "--" ) );
                 break;
             default:
                 this.getComponent().computeHtml();
@@ -16308,7 +15181,7 @@ SHINKEN_LIST.FilterFromData.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromData, SHINKEN_LIST.Filter );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromData, SHINKEN_LIST.Filter );
 SHINKEN_LIST.FilterFromData_V3           = function ( type, name, params ) {
     this.type = type;
     this.name = name;
@@ -16329,7 +15202,7 @@ SHINKEN_LIST.FilterFromData_V3.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromData_V3, SHINKEN_LIST.FilterFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromData_V3, SHINKEN_LIST.FilterFromData );
 SHINKEN_LIST.FiltersFromData           = function ( headers_array ) {
     this.init( headers_array );
 };
@@ -16346,14 +15219,14 @@ SHINKEN_LIST.FiltersFromData.prototype = {
     
     
     computeHtml: function () {
-        this.dom_element = DOM.Service.createElement( "tr", { class: "shinken-filter-line" } );
+        this.dom_element = SERVICE.DOM.createElement( "tr", { class: "shinken-filter-line" } );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtml();
-            DOM.Service.addElementTo( this.contents[ i ].getDomElement(), this.dom_element );
+            SERVICE.DOM.addElementTo( this.contents[ i ].getDomElement(), this.dom_element );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromData, SHINKEN_LIST.Filters );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromData, SHINKEN_LIST.Filters );
 SHINKEN_LIST.FiltersFromData_V3           = function ( headers_array, params ) {
     this.initSpecific( headers_array, params );
 };
@@ -16367,7 +15240,7 @@ SHINKEN_LIST.FiltersFromData_V3.prototype = {
         return new SHINKEN_LIST.FilterFromData_V3( type, name, this.getParamForEvents() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromData_V3, SHINKEN_LIST.FiltersFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromData_V3, SHINKEN_LIST.FiltersFromData );
 SHINKEN_LIST.HeaderFromData           = function ( name, label ) {
     this.init( name, label );
 };
@@ -16378,11 +15251,11 @@ SHINKEN_LIST.HeaderFromData.prototype = {
         this.initCommon();
     },
     computeHtml: function () {
-        this.setDomElement( DOM.Service.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-object-type": this.getObjectType() } ) );
-        this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-list-cell-content" }, this.label ) );
+        this.setDomElement( SERVICE.DOM.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-object-type": this.getObjectType() } ) );
+        this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-list-cell-content" }, this.label ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromData, SHINKEN_LIST.Header );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromData, SHINKEN_LIST.Header );
 SHINKEN_LIST.HeaderFromDataWithSort           = function ( name, label ) {
     this.initSpecific( name, label );
 };
@@ -16409,28 +15282,28 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
     addHtmlCounters: function ( dom_element_parent ) {
     },
     computeHtml    : function () {
-        this.setDomElement( DOM.Service.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-display-sort-popup": true, "data-object-type": this.getObjectType() } ) );
-        this.cell_content            = DOM.Service.createElement( "div", { class: "shinken-list-cell-content", onclick: "MANAGER.EventManagerV2.clickButton(event, 'click-on-header', '" + this.name + "',event)" } );
-        var _table                   = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-header-table" } );
-        var _line                    = DOM.Service.createElement( "tr", {} );
-        var _label_cell              = DOM.Service.createElement( "td", { class: "shinken-list-header-name-cell" }, "<div class='shinken-list-header-name'>" + this.label + "</div>" );
-        this.dom_sort_priority_cell  = DOM.Service.createElement( "td", { class: "shinken-list-header-sort-priority-cell" } );
-        this.dom_actions_button_cell = DOM.Service.createElement( "td", { class: "shinken-list-header-sort-button-cell" } );
+        this.setDomElement( SERVICE.DOM.createElement( "td", { class: "shinken-list-header", "data-name": this.name, "data-display-sort-popup": true, "data-object-type": this.getObjectType() } ) );
+        this.cell_content            = SERVICE.DOM.createElement( "div", { class: "shinken-list-cell-content", onclick: "MANAGER.EventManagerV2.clickButton(event, 'click-on-header', '" + this.name + "',event)" } );
+        var _table                   = SERVICE.DOM.createElement( "table", { class: "shinken-width-100 shinken-list-header-table" } );
+        var _line                    = SERVICE.DOM.createElement( "tr", {} );
+        var _label_cell              = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-name-cell" }, "<div class='shinken-list-header-name'>" + this.label + "</div>" );
+        this.dom_sort_priority_cell  = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-sort-priority-cell" } );
+        this.dom_actions_button_cell = SERVICE.DOM.createElement( "td", { class: "shinken-list-header-sort-button-cell" } );
         
-        DOM.Service.addElementTo( _label_cell, _line );
+        SERVICE.DOM.addElementTo( _label_cell, _line );
         
         this.addHtmlCounters( _line );
-        DOM.Service.addElementTo( this.dom_sort_priority_cell, _line );
-        DOM.Service.addElementTo( this.dom_actions_button_cell, _line );
-        DOM.Service.addElementTo( _line, _table );
-        DOM.Service.addElementTo( _table, this.cell_content );
-        DOM.Service.addElementTo( this.cell_content, this.dom_element );
+        SERVICE.DOM.addElementTo( this.dom_sort_priority_cell, _line );
+        SERVICE.DOM.addElementTo( this.dom_actions_button_cell, _line );
+        SERVICE.DOM.addElementTo( _line, _table );
+        SERVICE.DOM.addElementTo( _table, this.cell_content );
+        SERVICE.DOM.addElementTo( this.cell_content, this.dom_element );
         
-        if ( this.sorting_object.getStatus() !== SHINKEN.OBJECT.SORTING.STATUS.UNAVAILABLE ) {
+        if ( this.sorting_object.getStatus() !== GS.OBJECT.SORTING.STATUS.UNAVAILABLE ) {
             this.computeHtmlSorting();
-            DOM.Service.addElementTo( this.sorting_object.sort_priority_dom_element, this.dom_sort_priority_cell );
-            DOM.Service.addElementTo( this.sorting_object.sort_popup_button, this.dom_actions_button_cell );
-            DOM.Service.addElementTo( this.sorting_object.popup_sort_container, this.cell_content );
+            SERVICE.DOM.addElementTo( this.sorting_object.sort_priority_dom_element, this.dom_sort_priority_cell );
+            SERVICE.DOM.addElementTo( this.sorting_object.sort_popup_button, this.dom_actions_button_cell );
+            SERVICE.DOM.addElementTo( this.sorting_object.popup_sort_container, this.cell_content );
             this.setDomParentForSorting( this.dom_element );
         }
     },
@@ -16438,8 +15311,8 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
         this.hidePopupSorting();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, SHINKEN_LIST.HeaderFromData );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, SHINKEN.OBJECT.SortingInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, SHINKEN_LIST.HeaderFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromDataWithSort, GS.OBJECT.SortingInterface );
 SHINKEN_LIST.HeadersFromData           = function ( headers_array ) {
     this.init( headers_array );
     
@@ -16455,14 +15328,14 @@ SHINKEN_LIST.HeadersFromData.prototype = {
         return new SHINKEN_LIST.HeaderFromData( name, label );
     },
     computeHtml        : function () {
-        this.dom_element = DOM.Service.createElement( "tr", { class: "shinken-header-line" } );
+        this.dom_element = SERVICE.DOM.createElement( "tr", { class: "shinken-header-line" } );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtml();
-            DOM.Service.addElementTo( this.contents[ i ].getDomElement(), this.dom_element );
+            SERVICE.DOM.addElementTo( this.contents[ i ].getDomElement(), this.dom_element );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersFromData, SHINKEN_LIST.Headers );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersFromData, SHINKEN_LIST.Headers );
 SHINKEN_LIST.HeadersWithSortFromData           = function () {
     this.current_index_sorting = 0;
 };
@@ -16489,12 +15362,12 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
     cleanSorting               : function () {
         let _active_headers = this.getActiveSortingHeaders();
         for ( let i = 0, size_i = _active_headers.length; i < size_i; i++ ) {
-            _active_headers[ i ].setSortingStatus( SHINKEN.OBJECT.SORTING.STATUS.NONE );
+            _active_headers[ i ].setSortingStatus( GS.OBJECT.SORTING.STATUS.NONE );
         }
     },
     doActionAfterHeaderSorting : function ( event_name, param_1, param_2, event ) {
         let _header = this.getContentByUUID( param_2 );
-        if ( !event.shiftKey && (_header.getSortingStatus() === SHINKEN.OBJECT.SORTING.STATUS.NONE || this.current_index_sorting > 1) ) {
+        if ( !event.shiftKey && (_header.getSortingStatus() === GS.OBJECT.SORTING.STATUS.NONE || this.current_index_sorting > 1) ) {
             this.cleanSorting();
         }
         if ( _header.getSortingIndex() ) {
@@ -16507,7 +15380,7 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
         this._computeAllIndexes();
     },
     _computeAllIndexes         : function () {
-        let _active_headers = SHINKEN.TOOLS.ARRAY.cleanEmpty( this.getActiveSortingHeaders() );
+        let _active_headers = GS.TOOLS.ARRAY.cleanEmpty( this.getActiveSortingHeaders() );
         for ( var i = 0, size_i = _active_headers.length; i < size_i; i++ ) {
             _active_headers[ i ].setSortingIndex( i + 1 );
         }
@@ -16516,10 +15389,10 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
         }
     },
     clickOnOptionHeaderSorting : function ( event_name, param_1, param_2, event ) {
-        let _option_dom = DOM.Service.findParentElementWithClass( event.target, "shinken-list-header-sort-popup-option" );
+        let _option_dom = SERVICE.DOM.findParentElementWithClass( event.target, "shinken-list-header-sort-popup-option" );
         let _header     = this.getContentByUUID( param_2 );
         let _to_set     = {};
-        if ( _option_dom.dataset.status === SHINKEN.OBJECT.SORTING.STATUS.NONE ) {
+        if ( _option_dom.dataset.status === GS.OBJECT.SORTING.STATUS.NONE ) {
             let _index    = _header.getSortingIndex();
             _to_set.index = 0;
         }
@@ -16538,7 +15411,7 @@ SHINKEN_LIST.HeadersWithSortFromData.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersWithSortFromData, SHINKEN_LIST.HeadersFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersWithSortFromData, SHINKEN_LIST.HeadersFromData );
 SHINKEN_LIST.LineCellFromData           = function ( name, value ) {
     this.name  = name;
     this.value = value;
@@ -16552,7 +15425,7 @@ SHINKEN_LIST.LineCellFromData.prototype = {
     computeContentHtml__20241107: function () {
         this.computeLabel();
         this.computeFilterValue();
-        this.dom_element_content = DOM.Service.createElement( "div", {
+        this.dom_element_content = SERVICE.DOM.createElement( "div", {
             class        : "shinken-list-cell-content",
             "data-filter": this.name
         }, this.label );
@@ -16560,13 +15433,13 @@ SHINKEN_LIST.LineCellFromData.prototype = {
     computeHtml                 : function () {
         this.addClass( "shinken-list-cell" );
         this.computeContentHtml__20241107();
-        this.setDomElement( DOM.Service.createElement( "td", { class: this.getClass(), "data-name": this.name } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "td", { class: this.getClass(), "data-name": this.name } ) );
         this.addDomElement( this.dom_element_content );
         this.doActionAfter( "compute_html_done" );
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCellFromData, SHINKEN_LIST.LineCell );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCellFromData, SHINKEN_LIST.LineCell );
 SHINKEN_LIST.LineFromData           = function ( data, headers ) {
     this.init( data, headers );
 };
@@ -16613,7 +15486,7 @@ SHINKEN_LIST.LineFromData.prototype = {
         };
     },
     computeHtml         : function () {
-        this.setDomElement( DOM.Service.createElement( "tr", this.getAttributeHtml() ) );
+        this.setDomElement( SERVICE.DOM.createElement( "tr", this.getAttributeHtml() ) );
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).computeHtml();
             this.addDomElement( this.getContent( i ).getDomElement() );
@@ -16621,7 +15494,7 @@ SHINKEN_LIST.LineFromData.prototype = {
         this.doActionAfter( "compute_html_done" );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromData, SHINKEN_LIST.Line );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromData, SHINKEN_LIST.Line );
 SHINKEN_LIST.LineForPropertyResearch           = function ( data, headers ) {
     this.init( data, headers );
 };
@@ -16629,15 +15502,15 @@ SHINKEN_LIST.LineForPropertyResearch.prototype = {
     init                   : SHINKEN_LIST.LineFromData.prototype.init,
     initCounterCommon      : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
-    initCounter            : SHINKEN.OBJECT.CounterInterfaceV2_patient.prototype.initCounter,
+    initCounter            : GS.OBJECT.CounterInterfaceV2_patient.prototype.initCounter,
     doActionAfter          : function ( event_name, param ) {
         switch ( event_name ) {
             case "clean_selected_element" :
-                if ( this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED ) ) {
-                    this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getUUID(), 0 );
+                if ( this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED ) ) {
+                    this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getUUID(), 0 );
                 }
                 return;
         }
@@ -16645,17 +15518,17 @@ SHINKEN_LIST.LineForPropertyResearch.prototype = {
     },
     setIsSelected__20241219: function ( to_set ) {
         if ( to_set ) {
-            if ( !this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED ) ) {
-                this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED );
+            if ( !this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED ) ) {
+                this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED );
                 if ( this.getDomElement() ) {
-                    this.addCounterTargetDomElement( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getDomElement() );
+                    this.addCounterTargetDomElement( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getDomElement() );
                 }
             }
         }
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getUUID(), to_set ? 1 : 0 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.SELECTED, this.getUUID(), to_set ? 1 : 0 );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineForPropertyResearch, SHINKEN_LIST.LineFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineForPropertyResearch, SHINKEN_LIST.LineFromData );
 SHINKEN_LIST.LinesFromData           = function () {
     this.init();
 };
@@ -16698,33 +15571,33 @@ SHINKEN_LIST.LinesFromData.prototype = {
     
     
     computeHtml          : function () {
-        this.setDomElement( DOM.Service.createElement( "tbody", { class: "shinken-list-tbody" } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "tbody", { class: "shinken-list-tbody" } ) );
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).computeHtml();
             this.addDomElement( this.getContent( i ).getDomElement() );
             this.addDomElement( this.getContent( i ).getDomElementBind() );
         }
         this.computeTextNoElements();
-        if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.REFRESHING ) && this.dom_element_loading ) {
+        if ( this.isPhase( GS.OBJECT.CONST.PHASE.REFRESHING ) && this.dom_element_loading ) {
             this.addDomElement( this.dom_element_loading );
         }
         this.addCountersTargetDomElement( this.getDomElement() );
     },
     computeTextNoElements: function () {
         if ( this.text_no_element ) {
-            this.dom_element_text_no_elements = DOM.Service.createElement( "tbody", { class: "shinken-text-no-element-container" } );
-            const _tr                         = DOM.Service.addElementTo( DOM.Service.createElement( "tr", { class: "shinken-list-text-line" } ), this.dom_element_text_no_elements );
-            const _td                         = DOM.Service.addElementTo( DOM.Service.createElement( "td", { class: "shinken-list-text-cell", colspan: 99 } ), _tr );
-            const _list_text_container        = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-list-text-container shinken-layout-center-h-v" } ), _td );
-            DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-no-element" }, this.text_no_element ), _list_text_container );
+            this.dom_element_text_no_elements = SERVICE.DOM.createElement( "tbody", { class: "shinken-text-no-element-container" } );
+            const _tr                         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr", { class: "shinken-list-text-line" } ), this.dom_element_text_no_elements );
+            const _td                         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", { class: "shinken-list-text-cell", colspan: 99 } ), _tr );
+            const _list_text_container        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-list-text-container flex-layout-center-h-v" } ), _td );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-no-element" }, this.text_no_element ), _list_text_container );
             if ( this.text_no_element_after_filter ) {
-                DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-no-element-after-filter" }, this.text_no_element_after_filter ), _list_text_container );
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-no-element-after-filter" }, this.text_no_element_after_filter ), _list_text_container );
             }
             this.setPhaseDomElement( this.dom_element_text_no_elements );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromData, SHINKEN_LIST.Lines );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromData, SHINKEN_LIST.Lines );
 SHINKEN_LIST.SetFromData           = function ( name ) {
     this.init( name );
 };
@@ -16747,21 +15620,21 @@ SHINKEN_LIST.SetFromData.prototype = {
     },
     computeCommonHtml  : function () {
         this.computeLinesHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-container" } ) );
-        var _table = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-table shinken-table" } );
-        var _thead = DOM.Service.createElement( "thead" );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-list-container" } ) );
+        var _table = SERVICE.DOM.createElement( "table", { class: "shinken-width-100 shinken-list-table shinken-table" } );
+        var _thead = SERVICE.DOM.createElement( "thead" );
         
         this.headers.computeHtml();
-        DOM.Service.addElementTo( this.headers.getDomElement(), _thead );
+        SERVICE.DOM.addElementTo( this.headers.getDomElement(), _thead );
         
         if ( this.filters ) {
             this.filters.computeHtml();
-            DOM.Service.addElementTo( this.filters.getDomElement(), _thead );
+            SERVICE.DOM.addElementTo( this.filters.getDomElement(), _thead );
         }
         
-        DOM.Service.addElementTo( _thead, _table );
+        SERVICE.DOM.addElementTo( _thead, _table );
         if ( this.lines ) {
-            DOM.Service.addElementTo( this.lines.getDomElement(), _table );
+            SERVICE.DOM.addElementTo( this.lines.getDomElement(), _table );
         }
         this.addDomElement( _table );
         this.computeHtmlExtra();
@@ -16778,7 +15651,7 @@ SHINKEN_LIST.SetFromData.prototype = {
     computeHtmlExtra   : function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromData, SHINKEN_LIST.Set );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromData, SHINKEN_LIST.Set );
 SHINKEN_LIST.SetFromDataWithFixHeaderFilter           = function ( name ) {
     this.init( name );
 };
@@ -16787,39 +15660,39 @@ SHINKEN_LIST.SetFromDataWithFixHeaderFilter.prototype = {
     computeHtml: function () {
         this.headers.computeHtml();
         this.computeLinesHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-list-container shinken-list-with-fix-header" } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-list-container shinken-list-with-fix-header" } ) );
         if ( this.filters ) {
             this.filters.computeHtml();
             this.getDomElement().classList.add( "shinken-list-has-filters" );
         }
-        var _container_header_filter   = DOM.Service.createElement( "div", {
+        var _container_header_filter   = SERVICE.DOM.createElement( "div", {
             class: "shinken-list-container-fix-header-filter"
         } );
-        var _table_header_filter       = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-table shinken-table" } );
-        var _thead_table_header_filter = DOM.Service.createElement( "thead" );
+        var _table_header_filter       = SERVICE.DOM.createElement( "table", { class: "shinken-width-100 shinken-list-table shinken-table" } );
+        var _thead_table_header_filter = SERVICE.DOM.createElement( "thead" );
         
-        DOM.Service.addElementTo( this.headers.getDomElement(), _thead_table_header_filter );
+        SERVICE.DOM.addElementTo( this.headers.getDomElement(), _thead_table_header_filter );
         if ( this.filters ) {
-            DOM.Service.addElementTo( this.filters.getDomElement(), _thead_table_header_filter );
+            SERVICE.DOM.addElementTo( this.filters.getDomElement(), _thead_table_header_filter );
         }
-        DOM.Service.addElementTo( _thead_table_header_filter, _table_header_filter );
-        DOM.Service.addElementTo( _table_header_filter, _container_header_filter );
+        SERVICE.DOM.addElementTo( _thead_table_header_filter, _table_header_filter );
+        SERVICE.DOM.addElementTo( _table_header_filter, _container_header_filter );
         this.addDomElement( _container_header_filter );
         
-        var _container_header_list = DOM.Service.createElement( "div", { class: "shinken-list-container-with-scroll" } );
-        var _table_list            = DOM.Service.createElement( "table", { class: "shinken-width-100 shinken-list-table" } );
-        DOM.Service.addElementTo( this.lines.dom_element_text_no_elements, _table_list );
-        DOM.Service.addElementTo( this.lines.getDomElement(), _table_list );
+        var _container_header_list = SERVICE.DOM.createElement( "div", { class: "shinken-list-container-with-scroll" } );
+        var _table_list            = SERVICE.DOM.createElement( "table", { class: "shinken-width-100 shinken-list-table" } );
+        SERVICE.DOM.addElementTo( this.lines.dom_element_text_no_elements, _table_list );
+        SERVICE.DOM.addElementTo( this.lines.getDomElement(), _table_list );
         
         
-        DOM.Service.addElementTo( _table_list, _container_header_list );
+        SERVICE.DOM.addElementTo( _table_list, _container_header_list );
         this.addDomElement( _container_header_list );
         
         this.computeSpecificHtml();
         this.doActionAfter( "compute_html_done" );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromDataWithFixHeaderFilter, SHINKEN_LIST.SetFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromDataWithFixHeaderFilter, SHINKEN_LIST.SetFromData );
 SHINKEN_LIST.LinesFromDataWithPagination           = function ( type ) {
     this.type = type;
     this.init();
@@ -16833,10 +15706,10 @@ SHINKEN_LIST.LinesFromDataWithPagination.prototype = {
     
     computeHtml: function ( pagination ) {
         if ( this.getDomElement() ) {
-            DOM.Service.empty( this.getDomElement() );
+            SERVICE.DOM.empty( this.getDomElement() );
         }
         else {
-            this.setDomElement( DOM.Service.createElement( "tbody", { class: "shinken-list-tbody" } ) );
+            this.setDomElement( SERVICE.DOM.createElement( "tbody", { class: "shinken-list-tbody" } ) );
         }
         var _first_element_to_display = pagination.getDisplayStartingIndex();
         var _size_end_display         = Math.min( pagination.getDisplayEndingIndex(), this.getSize() );
@@ -16857,7 +15730,7 @@ SHINKEN_LIST.LinesFromDataWithPagination.prototype = {
         this.computeTextNoElements();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromDataWithPagination, SHINKEN_LIST.LinesFromData );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromDataWithPagination, SHINKEN_LIST.LinesFromData );
 SHINKEN_LIST.LinesForPropertyResearch           = function ( type ) {
     this.type = type;
     this.init();
@@ -16869,8 +15742,8 @@ SHINKEN_LIST.LinesForPropertyResearch.prototype = {
     },
     initCounterCommon  : function () {
         this.counters = {};
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL );
     },
     doActionAfter      : function ( event_name, param, param_2, param_3 ) {
         switch ( event_name ) {
@@ -16903,7 +15776,7 @@ SHINKEN_LIST.LinesForPropertyResearch.prototype = {
         this.doActionAfterCommon( event_name, param, param_2, param_3 );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesForPropertyResearch, SHINKEN_LIST.LinesFromDataWithPagination );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesForPropertyResearch, SHINKEN_LIST.LinesFromDataWithPagination );
 SHINKEN_LIST.SetFromDataWithPagination           = function ( name, pagination_size ) {
     this.initSpecific( name, pagination_size );
 };
@@ -16972,7 +15845,7 @@ SHINKEN_LIST.SetFromDataWithPagination.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromDataWithPagination, SHINKEN_LIST.SetFromDataWithFixHeaderFilter );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromDataWithPagination, SHINKEN_LIST.SetFromDataWithFixHeaderFilter );
 SHINKEN_LIST.SetForPropertyResearch           = function ( name, pagination_size ) {
     this.initSpecific( name, pagination_size );
 };
@@ -16982,7 +15855,7 @@ SHINKEN_LIST.SetForPropertyResearch.prototype = {
         return new SHINKEN_LIST.LinesForPropertyResearch();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetForPropertyResearch, SHINKEN_LIST.SetFromDataWithPagination );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetForPropertyResearch, SHINKEN_LIST.SetFromDataWithPagination );
 SHINKEN_LIST.FilterFromHtml           = function ( dom_element, type ) {
     this.setType( type );
     this.init( dom_element );
@@ -16998,7 +15871,7 @@ SHINKEN_LIST.FilterFromHtml.prototype = {
         this.initComponents();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromHtml, SHINKEN_LIST.Filter );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FilterFromHtml, SHINKEN_LIST.Filter );
 SHINKEN_LIST.FiltersFromHtml           = function ( dom_element, type ) {
     this.type = type;
     this.init( dom_element );
@@ -17006,7 +15879,7 @@ SHINKEN_LIST.FiltersFromHtml           = function ( dom_element, type ) {
 SHINKEN_LIST.FiltersFromHtml.prototype = {
     init               : function ( dom_element ) {
         this.initContents();
-        this.initContentsWithDom( DOM.Service.querySelectorAllWithOutChild( dom_element, "shinken-list-filter", "shinken-list-table" ) );
+        this.initContentsWithDom( SERVICE.DOM.querySelectorAllWithOutChild( dom_element, "shinken-list-filter", "shinken-list-table" ) );
     },
     initContentsWithDom: function ( dom_elements ) {
         var _current;
@@ -17020,7 +15893,7 @@ SHINKEN_LIST.FiltersFromHtml.prototype = {
     
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromHtml, SHINKEN_LIST.Filters );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.FiltersFromHtml, SHINKEN_LIST.Filters );
 SHINKEN_LIST.HeaderFromHtml           = function ( dom_element, type ) {
     this.type        = type;
     this.dom_element = dom_element;
@@ -17032,7 +15905,7 @@ SHINKEN_LIST.HeaderFromHtml.prototype = {
         this.label = this.dom_element.innerText;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromHtml, SHINKEN_LIST.Header );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeaderFromHtml, SHINKEN_LIST.Header );
 SHINKEN_LIST.HeadersFromHtml           = function ( dom_element, type ) {
     this.dom_element = dom_element;
     this.type        = type;
@@ -17044,13 +15917,13 @@ SHINKEN_LIST.HeadersFromHtml.prototype = {
         this.initHeaders();
     },
     initHeaders: function () {
-        var dom_elements = DOM.Service.querySelectorAllWithOutChild( this.dom_element, "shinken-list-header", "shinken-list-table" );
+        var dom_elements = SERVICE.DOM.querySelectorAllWithOutChild( this.dom_element, "shinken-list-header", "shinken-list-table" );
         for ( var i = 0, _size_i = dom_elements.length; i < _size_i; i++ ) {
             this.add( new SHINKEN_LIST.HeaderFromHtml( dom_elements[ i ], this.type ) );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersFromHtml, SHINKEN_LIST.Headers );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.HeadersFromHtml, SHINKEN_LIST.Headers );
 SHINKEN_LIST.LineCellFromHtml           = function ( dom_element, type ) {
     this.init( dom_element );
     this.type = type;
@@ -17069,7 +15942,7 @@ SHINKEN_LIST.LineCellFromHtml.prototype = {
             this.value = this.dom_element.dataset.filterValue;
         }
         else {
-            this.value = DOM.Service.getInnerText( this.dom_element );
+            this.value = SERVICE.DOM.getInnerText( this.dom_element );
         }
         switch ( this.type ) {
             case SHINKEN_LIST.CONST.TYPE.DATA_PROP:
@@ -17081,7 +15954,7 @@ SHINKEN_LIST.LineCellFromHtml.prototype = {
         return this.name;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCellFromHtml, SHINKEN_LIST.LineCell );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineCellFromHtml, SHINKEN_LIST.LineCell );
 SHINKEN_LIST.LineFromHtml           = function ( dom_element, type ) {
     this.type = type;
     this.init( dom_element );
@@ -17091,7 +15964,7 @@ SHINKEN_LIST.LineFromHtml.prototype = {
         this.initCommon();
         this.dom_element = dom_element;
         this.is_collapse = false;
-        this.uuid        = this.dom_element.dataset.uuid || SHINKEN.TOOLS.STRING.buildUUID();
+        this.uuid        = this.dom_element.dataset.uuid || GS.TOOLS.STRING.buildUUID();
         switch ( this.type ) {
             case SHINKEN_LIST.CONST.TYPE.CHECK_IN_HOST:
                 this.host    = MANAGER.__instance_element_distributor.getElement( OBJECT.ShinkenElement.generateSEUUID( this.dom_element.dataset.typeItem, this.dom_element.dataset.uuidItem ) );
@@ -17101,7 +15974,7 @@ SHINKEN_LIST.LineFromHtml.prototype = {
                 break;
             case SHINKEN_LIST.CONST.TYPE.MASS_CHANGE_SUM_FULL:
                 this.parent_uuid           = this.dom_element.dataset.uuidParent;
-                this.parent_select_element = DOM.Service.findParentElementWithClass( this.dom_element, this.dom_element.dataset.parentSelectClass, 20 );
+                this.parent_select_element = SERVICE.DOM.findParentElementWithClass( this.dom_element, this.dom_element.dataset.parentSelectClass, 20 );
                 break;
             case SHINKEN_LIST.CONST.TYPE.DATA_PROP:
                 this.uuid = this.dom_element.dataset.name;
@@ -17109,9 +15982,9 @@ SHINKEN_LIST.LineFromHtml.prototype = {
         }
         this.initIsSelected();
         this.initCellsValue();
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.uuid, 1 );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.uuid, 1 );
-        this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING ).shinken_debug = true;
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.TOTAL, this.uuid, 1 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING, this.uuid, 1 );
+        this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.FILTERING ).shinken_debug = true;
         
         this.addCountersTargetDomElement( this.getDomElement() );
     },
@@ -17125,7 +15998,7 @@ SHINKEN_LIST.LineFromHtml.prototype = {
         else {
             this.is_selected = SHINKEN_LIST.CONST.SELECTION.STATUS.OFF;
         }
-        this.is_selected_counter = new SHINKEN.OBJECT.Counter();
+        this.is_selected_counter = new GS.OBJECT.Counter();
         switch ( this.type ) {
             case SHINKEN_LIST.CONST.TYPE.MASS_CHANGE_SUM_FULL:
                 if ( !this.parent_uuid ) {
@@ -17140,13 +16013,13 @@ SHINKEN_LIST.LineFromHtml.prototype = {
                 this.is_selected_counter.setParent( CONTROLLER.MassChange.mass_change_checks_selected );
                 break;
         }
-        var _check_box = DOM.Service.askFindChildElementWithClass( this.dom_element, "shinken-list-line-checkbox", "shinken-list-table" );
+        var _check_box = SERVICE.DOM.askFindChildElementWithClass( this.dom_element, "shinken-list-line-checkbox", "shinken-list-table" );
         if ( _check_box ) {
             this.checkbox = new OBJECT.ElementCheckbox( _check_box.querySelector( ".shinken-checkbox" ) );
         }
     },
     initCellsValue: function () {
-        var _cells = DOM.Service.querySelectorAllWithOutChild( this.dom_element, "shinken-list-cell", "shinken-list-table" );
+        var _cells = SERVICE.DOM.querySelectorAllWithOutChild( this.dom_element, "shinken-list-cell", "shinken-list-table" );
         var _current;
         for ( var i = 0, _size_i = _cells.length; i < _size_i; i++ ) {
             this.add( new SHINKEN_LIST.LineCellFromHtml( _cells[ i ], this.type ) );
@@ -17180,8 +16053,8 @@ SHINKEN_LIST.LineFromHtml.prototype = {
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromHtml, SHINKEN_LIST.Line );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromHtml, SHINKEN.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromHtml, SHINKEN_LIST.Line );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LineFromHtml, GS.OBJECT.CounterInterface );
 SHINKEN_LIST.LinesFromHtml           = function ( dom_element, type ) {
     this.type = type;
     this.init( dom_element );
@@ -17190,7 +16063,7 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
     init                      : function ( dom_element ) {
         this.initCommon();
         this.mapping_parents = {};
-        this.initContentsWithDom( DOM.Service.querySelectorAllWithOutChild( dom_element, "shinken-list-line", "shinken-list-table" ) );
+        this.initContentsWithDom( SERVICE.DOM.querySelectorAllWithOutChild( dom_element, "shinken-list-line", "shinken-list-table" ) );
     },
     initContentsWithDom       : function ( dom_elements ) {
         var _current;
@@ -17215,14 +16088,14 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
     },
     removeMappingParent       : function ( parent_uuid, _to_remove ) {
         if ( parent_uuid ) {
-            SHINKEN.TOOLS.ARRAY.removeElement( this.mapping_parents[ parent_uuid ], _to_remove );
+            GS.TOOLS.ARRAY.removeElement( this.mapping_parents[ parent_uuid ], _to_remove );
         }
     },
     remove                    : function ( uuid ) {
         var _to_remove = this.mapping[ uuid ];
         delete this.mapping[ uuid ];
         this.removeMappingParent( _to_remove.parent_uuid, _to_remove );
-        SHINKEN.TOOLS.ARRAY.removeElement( this.contents, _to_remove );
+        GS.TOOLS.ARRAY.removeElement( this.contents, _to_remove );
     },
     addLineWithDom            : function ( dom_element ) {
         var _to_add = new SHINKEN_LIST.LineFromHtml( dom_element, this.type );
@@ -17311,7 +16184,7 @@ SHINKEN_LIST.LinesFromHtml.prototype = {
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromHtml, SHINKEN_LIST.Lines );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.LinesFromHtml, SHINKEN_LIST.Lines );
 SHINKEN_LIST.SetFromHtml           = function ( dom_element, type, structure_format ) {
     this.type             = type;
     this.structure_format = structure_format || SHINKEN_LIST.CONST.STRUCTURE_FORMAT.GENERIC;
@@ -17328,7 +16201,7 @@ SHINKEN_LIST.SetFromHtml.prototype = {
         this.is_all_data_selected  = this.dom_element.classList.contains( "shinken-selected" ) ? SHINKEN_LIST.CONST.SELECTION.STATUS.ON : SHINKEN_LIST.CONST.SELECTION.STATUS.OFF;
         this.is_all_data_collapsed = false;
         this.updateHtml();
-        var _check_box = DOM.Service.askFindChildElementWithClass( this.dom_element, "shinken-all-elements-check-box-filter", "shinken-list-table" );
+        var _check_box = SERVICE.DOM.askFindChildElementWithClass( this.dom_element, "shinken-all-elements-check-box-filter", "shinken-list-table" );
         if ( _check_box ) {
             this.checkbox = new OBJECT.ElementCheckbox( _check_box.querySelector( ".shinken-checkbox" ) );
         }
@@ -17350,7 +16223,7 @@ SHINKEN_LIST.SetFromHtml.prototype = {
         switch ( this.structure_format ) {
             case SHINKEN_LIST.CONST.STRUCTURE_FORMAT.GENERIC:
                 if ( !dom_element.classList.contains( "shinken-list-table" ) ) {
-                    var temp_dom_element = DOM.Service.askFindChildElementWithClass( dom_element, "shinken-list-table", "shinken-list-line" );
+                    var temp_dom_element = SERVICE.DOM.askFindChildElementWithClass( dom_element, "shinken-list-table", "shinken-list-line" );
                     if ( temp_dom_element ) {
                         dom_element = temp_dom_element;
                     }
@@ -17371,7 +16244,7 @@ SHINKEN_LIST.SetFromHtml.prototype = {
         to_set.setCountersParent( this );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromHtml, SHINKEN_LIST.Set );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.SetFromHtml, SHINKEN_LIST.Set );
 SHINKEN_LIST.PaginationNavigation_V3           = function ( type ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationNavigation_V3";
     this.init( type );
@@ -17395,7 +16268,7 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
     setDisabled      : function ( to_set ) {
         this.is_disabled = to_set;
         if ( this.getDomElement() ) {
-            DOM.Service.addOrRemoveClasses( this.getDomElement(), this.is_disabled, "shinken-disabled" );
+            SERVICE.DOM.addOrRemoveClasses( this.getDomElement(), this.is_disabled, "shinken-disabled" );
         }
     },
     computeLabel     : function () {
@@ -17439,11 +16312,11 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
         this.button.addClass( "shinken-pagination-arrow-content" );
         this.button.computeHtml();
         
-        this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass() } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.getClass() } ) );
         this.addDomElement( this.button.getDomElement() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationNavigation_V3, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationNavigation_V3, GS.OBJECT.ShinkenObjectHtml );
 SHINKEN_LIST.PaginationSelector           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector";
     this.init( total_page, current_page, parent_name );
@@ -17508,21 +16381,21 @@ SHINKEN_LIST.PaginationSelector.prototype = {
     },
     computeHtml         : function () {
         if ( this.getDomElement() ) {
-            DOM.Service.empty( this.getDomElement() );
+            SERVICE.DOM.empty( this.getDomElement() );
         }
         else {
             this.computeClass();
-            this.setDomElement( DOM.Service.createElement( "td", { class: this.class } ) );
+            this.setDomElement( SERVICE.DOM.createElement( "td", { class: this.class } ) );
         }
         this.selector.computeHtml();
         this.computeClass();
-        var _to_add = DOM.Service.createElement( "div", { class: "shinken-pagination-cell-content", "data-name": "shinken-list-pagination" } );
-        DOM.Service.addElementTo( this.selector.getDomElement(), _to_add );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-total-pagination" }, " / " + this.total_page ), _to_add );
+        var _to_add = SERVICE.DOM.createElement( "div", { class: "shinken-pagination-cell-content", "data-name": "shinken-list-pagination" } );
+        SERVICE.DOM.addElementTo( this.selector.getDomElement(), _to_add );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-total-pagination" }, " / " + this.total_page ), _to_add );
         this.addDomElement( _to_add );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector, GS.OBJECT.ShinkenObjectHtml );
 SHINKEN_LIST.PaginationSelector_V3           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector_V3";
     this.init( total_page, current_page, parent_name );
@@ -17547,25 +16420,25 @@ SHINKEN_LIST.PaginationSelector_V3.prototype = {
         this.selector.addParamForEvents( key, value );
     },
     computeClass     : function () {
-        this.class = "shinken-pagination-selector-V3 shinken-layout-center-h-v";
+        this.class = "shinken-pagination-selector-V3 flex-layout-center-h-v";
     },
     computeHtml      : function () {
         if ( this.getDomElement() ) {
-            DOM.Service.empty( this.getDomElement() );
+            SERVICE.DOM.empty( this.getDomElement() );
         }
         else {
             this.computeClass();
-            this.setDomElement( DOM.Service.createElement( "div", { class: this.class } ) );
+            this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.class } ) );
         }
         this.selector.computeHtml();
         this.computeClass();
-        var _to_add = DOM.Service.createElement( "div", { class: "shinken-pagination-cell-content shinken-layout-inline-center-h-v", "data-name": "shinken-list-pagination" } );
-        DOM.Service.addElementTo( this.selector.getDomElement(), _to_add );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-total-pagination" }, " /<span class='shinken-value'>" + this.total_page + "</span>" ), _to_add );
+        var _to_add = SERVICE.DOM.createElement( "div", { class: "shinken-pagination-cell-content flex-layout-inline-center-h-v", "data-name": "shinken-list-pagination" } );
+        SERVICE.DOM.addElementTo( this.selector.getDomElement(), _to_add );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-total-pagination" }, " /<span class='shinken-value'>" + this.total_page + "</span>" ), _to_add );
         this.addDomElement( _to_add );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector_V3, SHINKEN_LIST.PaginationSelector );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector_V3, SHINKEN_LIST.PaginationSelector );
 COMPONENT.SingleSelectForPagination           = function ( property_name, selector_name ) {
     this.__class_name__ = 'COMPONENT.SingleSelectForPagination';
     this.initSpecific( property_name, selector_name );
@@ -17575,10 +16448,10 @@ COMPONENT.SingleSelectForPagination.prototype = {
     computeHtml : function () {
         this.addClass( "shinken-for-pagination" );
         this.list_element.computeHtml();
-        this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.getClass(), "data-state-selector": 0 } ) );
         
-        this.dom_select = DOM.Service.createElement( "div", {
-            class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none shinken-layout-center-h-v shinken-layout-justify-around shinken-for-pagination",
+        this.dom_select = SERVICE.DOM.createElement( "div", {
+            class      : "shinken-select-selector-V3 shinken-select-selector shinken-user-select-none flex-layout-center-h-v flex-layout-justify-around shinken-for-pagination",
             "data-name": this.selector_name,
             onclick    : "MANAGER.EventManagerV2.clickSelector_V3(event," + this.parseParamForEventsToHtml() + ")"
         }, '<span class="shinken-selector-label shinken-space shinken-for-pagination">' + this.default_label_for_select + '</span><span class="shinkon shinken-header-chevron shinken-2023-arrow-down"></span>' );
@@ -17587,14 +16460,14 @@ COMPONENT.SingleSelectForPagination.prototype = {
         this.addDomElement( this.list_element.getDomElement() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectForPagination, COMPONENT.SingleSelectFromData_V3 );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectForPagination, COMPONENT.SingleSelectFromData_V3 );
 MANAGER.DistributorCounterManagerV2             = function () {
     this.counters = {};
     this.objects  = {};
 };
 MANAGER.DistributorCounterManagerV2.prototype   = {
     createCounter: function ( name, type ) {
-        let _to_return = new SHINKEN.OBJECT.CounterV2( type );
+        let _to_return = new GS.OBJECT.CounterV2( type );
         this.setCounter( name, _to_return );
         return _to_return;
     },
@@ -17654,7 +16527,7 @@ MANAGER.DistributorElementManager               = function () {
 };
 MANAGER.DistributorElementManager.prototype     = {
     createElement   : function ( data ) {
-        var _to_return = new SHINKEN.OBJECT.ShinkenElement();
+        var _to_return = new GS.OBJECT.ShinkenElement();
         _to_return.updateData( data );
         this.addElement( _to_return );
         return _to_return;
@@ -17689,7 +16562,7 @@ MANAGER.DistributorResourcesManager             = function () {
 };
 MANAGER.DistributorResourcesManager.prototype   = {
     createResource: function ( uuid, data ) {
-        var _to_return = new SHINKEN.OBJECT.Resource();
+        var _to_return = new GS.OBJECT.Resource();
         _to_return.updateData( data );
         this.addResource( _to_return );
         return _to_return;
@@ -17829,7 +16702,7 @@ MANAGER.DragNDropManager                        = (function ( self ) {
     self.parent_element_relative_pos_Y = null;
     
     self.initDragNDropSingle   = function ( event ) {
-        self.single_element_drag = DOM.Service.findParentElementByClassWithClassExcluded( event.target, "shinken-draggable", 'shinken-drag-exclude', 50 );
+        self.single_element_drag = SERVICE.DOM.findParentElementByClassWithClassExcluded( event.target, "shinken-draggable", 'shinken-drag-exclude', 50 );
         if ( !self.single_element_drag ) {
             return;
         }
@@ -17855,9 +16728,9 @@ MANAGER.DragNDropManager                        = (function ( self ) {
         window.getSelection().removeAllRanges();
         self.parent_element_relative_pos_X     = 0;
         self.parent_element_relative_pos_Y     = 0;
-        let dom_element_with_position_relative = DOM.Service.findParentElementWithClass( self.single_element_drag, "shinken-css-relative-position", 50 );
+        let dom_element_with_position_relative = SERVICE.DOM.findParentElementWithClass( self.single_element_drag, "shinken-css-relative-position", 50 );
         if ( dom_element_with_position_relative ) {
-            let _rect                          = DOM.Service.getBoundingClientRect( dom_element_with_position_relative );
+            let _rect                          = SERVICE.DOM.getBoundingClientRect( dom_element_with_position_relative );
             self.parent_element_relative_pos_X = _rect[ "left" ];
             self.parent_element_relative_pos_Y = _rect[ "top" ];
         }
@@ -17865,7 +16738,7 @@ MANAGER.DragNDropManager                        = (function ( self ) {
     
     
     self.dragStartSingle = function ( event ) {
-        self.single_element_drag = DOM.Service.findParentElementByClassWithClassExcluded( event.target, "shinken-draggable", 'shinken-drag-exclude', 50 );
+        self.single_element_drag = SERVICE.DOM.findParentElementByClassWithClassExcluded( event.target, "shinken-draggable", 'shinken-drag-exclude', 50 );
         if ( !self.single_element_drag ) {
             return;
         }
@@ -17884,9 +16757,9 @@ MANAGER.DragNDropManager                        = (function ( self ) {
         window.getSelection().removeAllRanges();
         self.parent_element_relative_pos_X     = 0;
         self.parent_element_relative_pos_Y     = 0;
-        let dom_element_with_position_relative = DOM.Service.findParentElementWithClass( self.single_element_drag, "shinken-css-relative-position", 50 );
+        let dom_element_with_position_relative = SERVICE.DOM.findParentElementWithClass( self.single_element_drag, "shinken-css-relative-position", 50 );
         if ( dom_element_with_position_relative ) {
-            let _rect                          = DOM.Service.getBoundingClientRect( dom_element_with_position_relative );
+            let _rect                          = SERVICE.DOM.getBoundingClientRect( dom_element_with_position_relative );
             self.parent_element_relative_pos_X = _rect[ "left" ];
             self.parent_element_relative_pos_Y = _rect[ "top" ];
         }
@@ -17900,7 +16773,7 @@ MANAGER.DragNDropManager                        = (function ( self ) {
             _position_x = _result.x;
             _position_y = _result.y;
         }
-        DOM.Service.setStyles( self.single_element_drag, { "top": _position_y + 'px', "left": _position_x + 'px' } );
+        SERVICE.DOM.setStyles( self.single_element_drag, { "top": _position_y + 'px', "left": _position_x + 'px' } );
         self._callbackDragMove( parseInt( event.clientX ) - self._mouse_x_origin, parseInt( event.clientY ) - self._mouse_y_origin );
     };
     self.dragEndSingle   = function () {
@@ -17942,21 +16815,21 @@ MANAGER.DragNDropManager                        = (function ( self ) {
         if ( !self.single_element_drag ) {
             return;
         }
-        if ( !DOM.Service.hasKeyInDataSet( self.single_element_drag, 'dragIsInScreen' ) ) {
+        if ( !SERVICE.DOM.hasKeyInDataSet( self.single_element_drag, 'dragIsInScreen' ) ) {
             return;
         }
         self.options._is_in_screen.is_active = true;
         let css_selector                     = "body";
-        if ( DOM.Service.hasKeyInDataSet( self.single_element_drag, "dragIsInScreenId" ) ) {
+        if ( SERVICE.DOM.hasKeyInDataSet( self.single_element_drag, "dragIsInScreenId" ) ) {
             css_selector = self.single_element_drag.dataset[ "dragIsInScreenId" ];
         }
         let dom_element                       = document.querySelector( css_selector );
-        let rect                              = DOM.Service.getBoundingClientRect( dom_element );
+        let rect                              = SERVICE.DOM.getBoundingClientRect( dom_element );
         self.options._is_in_screen.parameters = {
             window_width      : rect.width,
             window_height     : rect.height,
-            scrollbar_x_width : DOM.Service.scrollbarIsVisible( dom_element, 'width' ) ? 8 : 0,
-            scrollbar_y_height: DOM.Service.scrollbarIsVisible( dom_element, 'height' ) ? 8 : 0
+            scrollbar_x_width : SERVICE.DOM.scrollbarIsVisible( dom_element, 'width' ) ? 8 : 0,
+            scrollbar_y_height: SERVICE.DOM.scrollbarIsVisible( dom_element, 'height' ) ? 8 : 0
         };
     };
     self._getDragNameForCallback      = function () {
@@ -18078,7 +16951,7 @@ MANAGER.EventManager                            = {
         MANAGER.__instance_notify_manager.close( notify_id );
     },
     clickOnToggleCollapse           : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, "shinken-toggle-parent", 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, "shinken-toggle-parent", 25 );
         if ( !_parent_dom_element ) {
             return;
         }
@@ -18089,7 +16962,7 @@ MANAGER.EventManager                            = {
         sessionStorage.removeItem( "user_id" );
     },
     onFocus                         : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.onFocus();
@@ -18129,7 +17002,7 @@ MANAGER.EventManager                            = {
             return;
         }
         if ( !event_name ) {
-            var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, 'name', 50 );
+            var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( event.target, 'name', 50 );
             if ( _parent_dom_element ) {
                 event_name = _parent_dom_element.dataset.name;
             }
@@ -18190,7 +17063,7 @@ MANAGER.EventManager                            = {
         }
     },
     onChangeOnInputKey              : function ( event ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( event.target, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( event.target, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.askComputeKeyAfterChange( event.target );
@@ -18199,7 +17072,7 @@ MANAGER.EventManager                            = {
         return App.Elements.DataTab.addNewData();
     },
     clickOnDeletePropertyBtn        : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var _name               = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( _name );
         _object.delete();
@@ -18222,7 +17095,7 @@ MANAGER.EventManager                            = {
     },
     clickOnWindowNavigation         : function ( event, name, update_url, window_name ) {
         if ( !window_name ) {
-            var _nav_tab = DOM.Service.findParentElementWithClass( event.target, WINDOW.CONST.CLASS.WINDOW_TAB, 10 );
+            var _nav_tab = SERVICE.DOM.findParentElementWithClass( event.target, WINDOW.CONST.CLASS.WINDOW_TAB, 10 );
             if ( !_nav_tab ) {
                 return;
             }
@@ -18234,7 +17107,7 @@ MANAGER.EventManager                            = {
             return;
         }
         if ( update_url ) {
-            SHINKEN.HIGHWAY.goToElementTab( window_name );
+            GS.HIGHWAY.goToElementTab( window_name );
         }
         
         var _controller = CONTROLLER.DistributorControllerManager.findControllerByEvent( event );
@@ -18256,7 +17129,7 @@ MANAGER.EventManager                            = {
         _controller.onChangeOnInput( event, event_name, param );
     },
     onResize                        : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var parent_name         = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( parent_name, true );
         _object.onResize( dom_element );
@@ -18355,7 +17228,7 @@ MANAGER.EventManager                            = {
     },
     clickOnWorkflowTab              : function ( name ) {
         var dom_element = document.querySelector( "#shinken-workflow-container" );
-        DOM.Service.setDataSet( dom_element, 'selected', name );
+        SERVICE.DOM.setDataSet( dom_element, 'selected', name );
         dom_element.classList.toggle( 'PATCH_IE' );
     },
     clickOpenNewWindow              : function ( event, link, id ) {
@@ -18381,7 +17254,7 @@ MANAGER.EventManager                            = {
     keydown                         : function ( event ) {
         var _key_code = event.keyCode;
         switch ( _key_code ) {
-            case SHINKEN.CONST.KEY_CODE.F1:
+            case GS.CONST.KEY_CODE.F1:
                 event.preventDefault();
                 event.stopPropagation();
                 break;
@@ -18446,7 +17319,7 @@ MANAGER.EventManager                            = {
     clickOnForcedHelpButton         : function ( event, dom_element ) {
         event.preventDefault();
         event.stopPropagation();
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 20 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 20 );
         var name                = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( name );
         _object.clickOnForcedHelpButton();
@@ -18469,10 +17342,10 @@ MANAGER.EventManager                            = {
         }
     },
     clickOnModeTab                  : function ( element, do_blink_animation ) {
-        var _parent = document.getElementById( 'id-shinken-window-checks-target' );
-        DOM.Service.setDataSet( _parent, 'tabSelected', element.dataset.value );
+        var _parent = document.getElementById( 'id-gs-window-checks-target' );
+        SERVICE.DOM.setDataSet( _parent, 'tabSelected', element.dataset.value );
         if ( do_blink_animation ) {
-            DOM.Service.askAddClass( element, 'shinken-pulsate', 2000 );
+            SERVICE.DOM.askAddClass( element, 'shinken-pulsate', 2000 );
         }
         if ( element.dataset.value !== OBJECT.CONST.MODE_OVERRIDE_EXCLUDE.OVERRIDE ) {
             var _elements = document.querySelectorAll( '.shinken-tab-check-col-tags' );
@@ -18494,7 +17367,7 @@ MANAGER.EventManager                            = {
         MANAGER.__instance_element_distributor.current_element[ property_link_name ].setValueFromUser( MANAGER.__instance_element_distributor.current_element.override_value_choosed[ property ] );
     },
     clickOnSetOverride              : function ( dom_uuid ) {
-        var _element = document.getElementById( 'id-shinken-window-checks-target' );
+        var _element = document.getElementById( 'id-gs-window-checks-target' );
         if ( _element.dataset.tabSelected !== OBJECT.CONST.MODE_OVERRIDE_EXCLUDE.OVERRIDE ) {
             this.clickOnModeTab( _element.querySelector( '.shinken-check-mode-menu-tab[data-value="' + OBJECT.CONST.MODE_OVERRIDE_EXCLUDE.OVERRIDE + '"]' ), true );
         }
@@ -18505,7 +17378,7 @@ MANAGER.EventManager                            = {
         if ( event ) {
             event.stopPropagation();
         }
-        var _element = document.getElementById( 'id-shinken-window-checks-target' );
+        var _element = document.getElementById( 'id-gs-window-checks-target' );
         if ( _element.dataset.tabSelected !== OBJECT.CONST.MODE_OVERRIDE_EXCLUDE.EXCLUDE ) {
             this.clickOnModeTab( _element.querySelector( '.shinken-check-mode-menu-tab[data-value="' + OBJECT.CONST.MODE_OVERRIDE_EXCLUDE.EXCLUDE + '"]' ), true );
         }
@@ -18530,7 +17403,7 @@ MANAGER.EventManager                            = {
     clickOnFocusOnDuplicateCheck    : function ( check_uuid ) {
         var _check_in_page_host = App.Elements.ChecksTab.getCheckByID( check_uuid );
         _check_in_page_host.dom_element.scrollIntoView( false );
-        DOM.Service.askAddClass( _check_in_page_host.dom_element.querySelector( '.shinken-tab-check-col-name' ), 'shinken-pulsate-focus', 3000 );
+        SERVICE.DOM.askAddClass( _check_in_page_host.dom_element.querySelector( '.shinken-tab-check-col-name' ), 'shinken-pulsate-focus', 3000 );
     },
     clickOnTryCheck                 : function ( check_uuid, is_exec, is_on_poller ) {
         var _check_in_page_host = App.Elements.ChecksTab.getCheckInHostElement( check_uuid );
@@ -18545,7 +17418,7 @@ MANAGER.EventManager                            = {
         _object.clickOnAddLine();
     },
     clickOnDeleteLine               : function ( dom_element ) {
-        var _parent_dom_element = DOM.Service.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithClass( dom_element, PROPERTY.CONST.CLASS.SKINKEN_LINE, 25 );
         var _name               = _parent_dom_element.dataset.name;
         var _object             = MANAGER.__instance_property_distributor.findElement( _name );
         _object.deleteLine( dom_element );
@@ -18620,8 +17493,8 @@ MANAGER.ResizeManager                           = (function ( self ) {
     };
     self.resizeStart               = function ( event, dom_element_target ) {
         var _dom_target         = dom_element_target || event.target;
-        self.dom_element_resize = DOM.Service.findParentElementWithClass( _dom_target, "shinken-resizable", 50 );
-        self._bounding_origin   = DOM.Service.getBoundingClientRect( self.dom_element_resize );
+        self.dom_element_resize = SERVICE.DOM.findParentElementWithClass( _dom_target, "shinken-resizable", 50 );
+        self._bounding_origin   = SERVICE.DOM.getBoundingClientRect( self.dom_element_resize );
         self._min_width         = parseInt( _dom_target.dataset[ 'resizeMinWidth' ] );
         self._max_width         = parseInt( _dom_target.dataset[ 'resizeMaxWidth' ] );
         self._min_height        = parseInt( _dom_target.dataset[ 'resizeMinHeight' ] );
@@ -18680,15 +17553,15 @@ MANAGER.ResizeManager                           = (function ( self ) {
         switch ( self._type ) {
             case MANAGER.CONST.RESIZE.TYPE.LEFT:
             case MANAGER.CONST.RESIZE.TYPE.RIGHT:
-                DOM.Service.setStyles( self.dom_element_resize, { width: _width + 'px' } );
+                SERVICE.DOM.setStyles( self.dom_element_resize, { width: _width + 'px' } );
                 break;
             case MANAGER.CONST.RESIZE.TYPE.TOP:
             case MANAGER.CONST.RESIZE.TYPE.BOTTOM:
-                DOM.Service.setStyles( self.dom_element_resize, { height: _height + 'px' } );
+                SERVICE.DOM.setStyles( self.dom_element_resize, { height: _height + 'px' } );
                 
                 break;
             case MANAGER.CONST.RESIZE.TYPE.BOTTOM_RIGHT:
-                DOM.Service.setStyles( self.dom_element_resize, { width: _width + 'px', height: _height + 'px' } );
+                SERVICE.DOM.setStyles( self.dom_element_resize, { width: _width + 'px', height: _height + 'px' } );
                 break;
         }
         
@@ -18736,10 +17609,10 @@ MANAGER.ResizeManager                           = (function ( self ) {
 })
 ( MANAGER.ResizeManager || {} );
 MANAGER.WindowModalManager                      = function () {
-    this.dom_element         = document.getElementById( 'id-shinken-window-modal' );
-    this.dom_element_content = this.dom_element.querySelector( '.shinken-window-modal-content' );
+    this.dom_element         = document.getElementById( 'id-gs-window-modal' );
+    this.dom_element_content = this.dom_element.querySelector( '.gs-window-modal-content' );
     this.dom_element_loading = this.dom_element.querySelector( '.shinken-loading-text' );
-    this.dom_element_close   = this.dom_element.querySelector( '#id-shinken-window-modal-close' );
+    this.dom_element_close   = this.dom_element.querySelector( '#id-gs-window-modal-close' );
     this.class_added         = "";
     this.is_open             = false;
 };
@@ -18781,7 +17654,7 @@ MANAGER.WindowModalManager.prototype            = {
     },
     askDoClose        : function () {
         if ( this.close_event ) {
-            SHINKEN.COMMUNICATION_WITH_IFRAME_CHILD.doActionAfter( this._id, this.close_event );
+            GS.COMMUNICATION_WITH_IFRAME_CHILD.doActionAfter( this._id, this.close_event );
         }
         else {
             MANAGER.__instance_window_modal_manager.close();
@@ -18807,16 +17680,16 @@ MANAGER.WindowModalManager.prototype            = {
     }
 };
 MANAGER.__instance_window_modal_manager; //INIT IN LOADING MANAGER
-SHINKEN.OBJECT.callbacksAfterCloseModal           = function () {
-    this.__class_name__ = "SHINKEN.OBJECT.callbacksAfterCloseModal";
+GS.OBJECT.callbacksAfterCloseModal           = function () {
+    this.__class_name__ = "GS.OBJECT.callbacksAfterCloseModal";
     this.init();
 };
-SHINKEN.OBJECT.callbacksAfterCloseModal.prototype = {
+GS.OBJECT.callbacksAfterCloseModal.prototype = {
     init        : function () {
         this.resetActions();
     },
     addCallback : function ( method, param_1, param_2 ) {
-        this.contents.push( new SHINKEN.OBJECT.callbackAfterCloseModal( method, param_1, param_2 ) );
+        this.contents.push( new GS.OBJECT.callbackAfterCloseModal( method, param_1, param_2 ) );
     },
     doActions   : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -18830,37 +17703,37 @@ SHINKEN.OBJECT.callbacksAfterCloseModal.prototype = {
         this.contents = [];
     }
 };
-SHINKEN.OBJECT.callbackAfterCloseModal            = function ( method, param_1, param_2 ) {
-    this.__class_name__ = "SHINKEN.OBJECT.callbackAfterCloseModal";
+GS.OBJECT.callbackAfterCloseModal            = function ( method, param_1, param_2 ) {
+    this.__class_name__ = "GS.OBJECT.callbackAfterCloseModal";
     this.method         = method;
     this.param_1        = param_1;
     this.param_2        = param_2;
     this.init();
 };
-SHINKEN.OBJECT.callbackAfterCloseModal.prototype  = {
+GS.OBJECT.callbackAfterCloseModal.prototype  = {
     init    : function () {
     },
     doAction: function () {
         this.method( this.param_1, this.param_2 );
     }
 };
-SHINKEN.OBJECT.ConfirmationPopup                  = function () {
+GS.OBJECT.ConfirmationPopup                  = function () {
     this.init();
 };
-SHINKEN.OBJECT.ConfirmationPopup.prototype        = {
+GS.OBJECT.ConfirmationPopup.prototype        = {
     init                  : function () {
         this.dom_element           = null;
         this.dom_element_popup     = null;
         this.validate_button_label = "";
-        this.initPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
+        this.initPhase( GS.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
     },
     show                  : function () {
         this.dom_element.classList.remove( "shinken-hidden" );
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
     hide                  : function () {
         this.dom_element.classList.add( "shinken-hidden" );
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
         this.reset();
     },
     setValidateButtonLabel: function ( to_set ) {
@@ -18878,101 +17751,101 @@ SHINKEN.OBJECT.ConfirmationPopup.prototype        = {
     setController         : function ( to_set ) {
         this.controller = to_set;
         if ( this.dom_element ) {
-            DOM.Service.setDataSet( this.dom_element, "controller", this.controller );
+            SERVICE.DOM.setDataSet( this.dom_element, "controller", this.controller );
         }
     },
     setContent            : function ( to_set ) {
         this.content = to_set;
         if ( this.dom_element_content ) {
-            DOM.Service.addElementToAfterEmpty( this.content, this.dom_element_content );
+            SERVICE.DOM.addElementToAfterEmpty( this.content, this.dom_element_content );
         }
     },
     reset                 : function () {
-        DOM.Service.removeElement( this.dom_element );
+        SERVICE.DOM.removeElement( this.dom_element );
         this.dom_element = null;
     },
     computeHtmlDomElement : function () {
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             "class"          : "shinken-parent-event-listener shinken-hidden",
             "id"             : "id-shinken-confirmation-popup-container",
             "data-controller": this.controller
         } ) );
         this.computeHtmlPopup();
-        DOM.Service.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
+        SERVICE.DOM.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
     },
     computeHtmlPopup      : function () {
-        this.dom_element_popup = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-confirmation-popup" } ) );
+        this.dom_element_popup = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "shinken-confirmation-popup" } ) );
         this.computeHtmlHeader();
         this.computeHtmlContent();
         this.computeHtmlFooter();
     },
     computeHtmlHeader     : function () {
-        var _container               = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-header-confirmation-popup" } ), this.dom_element_popup );
-        var _table                   = DOM.Service.addElementTo( DOM.Service.createElement( "table", { "class": "shinken-width-100" } ), _container );
-        var _tr                      = DOM.Service.addElementTo( DOM.Service.createElement( "tr", { "class": "shinken-header-confirmation-popup" } ), _table );
-        this.dom_element_title       = DOM.Service.addElementTo( DOM.Service.createElement( "td", { "class": "shinken-title-confirmation-popup" }, this.title ), _tr );
+        var _container               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-header-confirmation-popup" } ), this.dom_element_popup );
+        var _table                   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { "class": "shinken-width-100" } ), _container );
+        var _tr                      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr", { "class": "shinken-header-confirmation-popup" } ), _table );
+        this.dom_element_title       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", { "class": "shinken-title-confirmation-popup" }, this.title ), _tr );
         var _onclick_attribute_close = 'MANAGER.EventManager.clickOnButton(event, "click-on-cancel-confirmation-popup")';
-        DOM.Service.addElementTo( DOM.Service.createElement( "td", { "class": "shinken-confirmation-popup-cell-close", "onclick": _onclick_attribute_close }, "<span class='shinkon-times'></span>" ), _tr );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", { "class": "shinken-confirmation-popup-cell-close", "onclick": _onclick_attribute_close }, "<span class='shinkon-times'></span>" ), _tr );
     },
     computeHtmlContent    : function () {
-        this.dom_element_content = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-content-confirmation-popup" } ), this.dom_element_popup );
-        DOM.Service.addElementTo( this.content, this.dom_element_content );
+        this.dom_element_content = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-content-confirmation-popup" } ), this.dom_element_popup );
+        SERVICE.DOM.addElementTo( this.content, this.dom_element_content );
     },
     computeHtmlFooter     : function () {
         this.validate_button_label = this.validate_button_label || _( "confirmation_popup.validate_button", [DICTIONARY_COMMON_UI] );
-        var _container             = DOM.Service.createElement( "div", { "class": "shinken-footer-confirmation-popup" } );
-        var _table                 = DOM.Service.createElement( "table", { "class": "shinken-footer-table-confirmation-popup" } );
-        var _tr                    = DOM.Service.createElement( "tr", {} );
-        var _td                    = DOM.Service.createElement( "td", {} );
-        var _table_buttons         = DOM.Service.createElement( "table", { "class": "shinken-action-button-table-confirmation-popup" } );
-        var _tr_buttons            = DOM.Service.createElement( "tr", {} );
-        var _td_validate           = DOM.Service.createElement( "td", {} );
-        this.validate_button       = DOM.Service.createElement( "div", {
+        var _container             = SERVICE.DOM.createElement( "div", { "class": "shinken-footer-confirmation-popup" } );
+        var _table                 = SERVICE.DOM.createElement( "table", { "class": "shinken-footer-table-confirmation-popup" } );
+        var _tr                    = SERVICE.DOM.createElement( "tr", {} );
+        var _td                    = SERVICE.DOM.createElement( "td", {} );
+        var _table_buttons         = SERVICE.DOM.createElement( "table", { "class": "shinken-action-button-table-confirmation-popup" } );
+        var _tr_buttons            = SERVICE.DOM.createElement( "tr", {} );
+        var _td_validate           = SERVICE.DOM.createElement( "td", {} );
+        this.validate_button       = SERVICE.DOM.createElement( "div", {
             "class"  : "shinken-action-button-confirmation-popup shinken-validate-button",
             "onclick": "MANAGER.EventManager.clickOnButton(event, 'click-on-validate-confirmation-popup')"
         }, this.validate_button_label );
-        var _td_cancel             = DOM.Service.createElement( "td", {} );
+        var _td_cancel             = SERVICE.DOM.createElement( "td", {} );
         var _onclick_cancel        = 'MANAGER.EventManager.clickOnButton(event, "click-on-cancel-confirmation-popup")';
-        var _cancel_button         = DOM.Service.createElement( "div", {
+        var _cancel_button         = SERVICE.DOM.createElement( "div", {
             "class"  : "shinken-action-button-confirmation-popup shinken-cancel-button",
             "onclick": _onclick_cancel
         }, _( "confirmation_popup.cancel_button", [DICTIONARY_COMMON_UI] ) );
         
         
-        DOM.Service.addElementTo( this.validate_button, _td_validate );
-        DOM.Service.addElementTo( _td_validate, _tr_buttons );
+        SERVICE.DOM.addElementTo( this.validate_button, _td_validate );
+        SERVICE.DOM.addElementTo( _td_validate, _tr_buttons );
         
-        DOM.Service.addElementTo( _cancel_button, _td_cancel );
-        DOM.Service.addElementTo( _td_cancel, _tr_buttons );
+        SERVICE.DOM.addElementTo( _cancel_button, _td_cancel );
+        SERVICE.DOM.addElementTo( _td_cancel, _tr_buttons );
         
-        DOM.Service.addElementTo( _tr_buttons, _table_buttons );
-        DOM.Service.addElementTo( _table_buttons, _td );
-        DOM.Service.addElementTo( _td, _tr );
-        DOM.Service.addElementTo( _tr, _table );
-        DOM.Service.addElementTo( _table, _container );
-        DOM.Service.addElementTo( _container, this.dom_element_popup );
+        SERVICE.DOM.addElementTo( _tr_buttons, _table_buttons );
+        SERVICE.DOM.addElementTo( _table_buttons, _td );
+        SERVICE.DOM.addElementTo( _td, _tr );
+        SERVICE.DOM.addElementTo( _tr, _table );
+        SERVICE.DOM.addElementTo( _table, _container );
+        SERVICE.DOM.addElementTo( _container, this.dom_element_popup );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopup, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopup, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.CONFIRMATIONPOPUP              = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.CONFIRMATIONPOPUP              = {
     PARAM: {
         NAME                   : "confirmation_pop_up_name",
         EVENT_NAME_CONFIRMATION: "event_name_after_apply_confirmation_pop_up"
     }
 };
-SHINKEN.OBJECT.ConfirmationPopup_V3           = function () {
+GS.OBJECT.ConfirmationPopup_V3           = function () {
     this.init();
 };
-SHINKEN.OBJECT.ConfirmationPopup_V3.prototype = {
+GS.OBJECT.ConfirmationPopup_V3.prototype = {
     init             : function ( name, event_name_validation_popup ) {
         this.uuid = "id-shinken-confirmation-popup-container";
         this.name = name;
-        this.addParamForEvents( SHINKEN.OBJECT.CONFIRMATIONPOPUP.PARAM.NAME, this.uuid );
-        this.addParamForEvents( SHINKEN.OBJECT.CONFIRMATIONPOPUP.PARAM.EVENT_NAME_CONFIRMATION, event_name_validation_popup );
+        this.addParamForEvents( GS.OBJECT.CONFIRMATIONPOPUP.PARAM.NAME, this.uuid );
+        this.addParamForEvents( GS.OBJECT.CONFIRMATIONPOPUP.PARAM.EVENT_NAME_CONFIRMATION, event_name_validation_popup );
         this.dom_element       = null;
         this.dom_element_popup = null;
-        this.initPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
+        this.initPhase( GS.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );
         this.button_validate = new COMPONENT.ButtonFromData_V3( "valid_popup__20240904", _( "confirmation_popup.validate_button", [DICTIONARY_COMMON_UI] ) );
         this.button_cancel   = new COMPONENT.ButtonFromData_V3( "cancel_popup__20240904", _( "confirmation_popup.cancel_button", [DICTIONARY_COMMON_UI] ) );
     },
@@ -18985,78 +17858,78 @@ SHINKEN.OBJECT.ConfirmationPopup_V3.prototype = {
                         this.hide();
                         break;
                     case "valid_popup__20240904":
-                        this.controller.doActionAfter( param[ SHINKEN.OBJECT.CONFIRMATIONPOPUP.PARAM.EVENT_NAME_CONFIRMATION ], param );
+                        this.controller.doActionAfter( param[ GS.OBJECT.CONFIRMATIONPOPUP.PARAM.EVENT_NAME_CONFIRMATION ], param );
                         break;
                 }
                 break;
         }
     },
     show             : function () {
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
     hide             : function () {
         this.reset();
     },
     reset            : function ( name, event_name_validation_popup ) {
-        DOM.Service.removeElement( this.dom_element );
+        SERVICE.DOM.removeElement( this.dom_element );
         this.init( name, event_name_validation_popup );
     },
     setController    : function ( to_set ) {
         this.controller = to_set;
         if ( this.getDomElement() ) {
-            DOM.Service.setDataSet( this.getDomElement(), "controller", this.controller.controller_name );
+            SERVICE.DOM.setDataSet( this.getDomElement(), "controller", this.controller.controller_name );
         }
     },
     setValidButton   : function ( to_set ) {
         this.button_validate = to_set;
     },
     isVisible        : function () {
-        return this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+        return this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
     },
     computeHtml      : function () {
-        this.setDomElement( DOM.Service.createElement( "div", {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
             "class"          : "shinken-parent-event-listener",
             "id"             : this.uuid,
             "data-name"      : this.name,
             "data-controller": this.controller.controller_name
         } ) );
         this.setPhaseDomElement( this.getDomElement() );
-        this.dom_element_popup = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-confirmation-popup" } ) );
+        this.dom_element_popup = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "shinken-confirmation-popup" } ) );
         this.computeHtmlHeader();
         this.computeHtmlContent();
         this.computeHtmlFooter();
-        DOM.Service.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
+        SERVICE.DOM.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
     },
     computeHtmlHeader: function () {
-        var _container         = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-header-confirmation-popup shinken-layout-center-h-v shinken-layout-justify-between" } ), this.dom_element_popup );
-        this.dom_element_title = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-title-confirmation-popup" }, this.title ), _container );
+        var _container         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-header-confirmation-popup flex-layout-center-h-v flex-layout-justify-between" } ), this.dom_element_popup );
+        this.dom_element_title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-title-confirmation-popup" }, this.title ), _container );
         let button_close       = new COMPONENT.ButtonFromData_V3( "close_popup__20240904", "<span class='shinkon-times'></span>" );
         button_close.addParamsForEvents( this.getParamForEvents() );
         button_close.computeHtml();
-        DOM.Service.addElementTo( button_close.getDomElement(), _container );
+        SERVICE.DOM.addElementTo( button_close.getDomElement(), _container );
     },
     computeHtmlFooter: function () {
-        var footer = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-footer-confirmation-popup shinken-layout-right-h-center-v" } ), this.dom_element_popup );
+        var footer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-footer-confirmation-popup flex-layout-right-h-center-v" } ), this.dom_element_popup );
         this.button_validate.addParamsForEvents( this.getParamForEvents() );
         this.button_validate.computeHtml();
         this.button_cancel.addParamsForEvents( this.getParamForEvents() );
         this.button_cancel.computeHtml();
-        DOM.Service.addElementTo( this.button_validate.getDomElement(), footer );
-        DOM.Service.addElementTo( this.button_cancel.getDomElement(), footer );
+        SERVICE.DOM.addElementTo( this.button_validate.getDomElement(), footer );
+        SERVICE.DOM.addElementTo( this.button_cancel.getDomElement(), footer );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ConfirmationPopup_V3, SHINKEN.OBJECT.ConfirmationPopup );
-SHINKEN.OBJECT.ConfirmationPopup_V3.getInstance = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup_V3, GS.OBJECT.ConfirmationPopup );
+GS.OBJECT.ConfirmationPopup_V3.getInstance = function () {
     if ( !MANAGER.__instance_confirmation_popup_V3 ) {
-        MANAGER.__instance_confirmation_popup_V3 = new SHINKEN.OBJECT.ConfirmationPopup_V3();
+        MANAGER.__instance_confirmation_popup_V3 = new GS.OBJECT.ConfirmationPopup_V3();
     }
     return MANAGER.__instance_confirmation_popup_V3;
 };
-MANAGER.__instance_confirmation_popup           = new SHINKEN.OBJECT.ConfirmationPopup();
-SHINKEN.OBJECT.DataHistoric                     = function () {
+MANAGER.__instance_confirmation_popup           = new GS.OBJECT.ConfirmationPopup();
+GS.OBJECT.DataHistoric                     = function () {
     this.init();
 };
-SHINKEN.OBJECT.DataHistoric.prototype           = {
+GS.OBJECT.DataHistoric.prototype           = {
     init               : function () {
         this._original = null;
         this.resetPreviews();
@@ -19088,23 +17961,23 @@ SHINKEN.OBJECT.DataHistoric.prototype           = {
         return this._valid_previewing.length;
     },
     setOriginal        : function ( to_set ) {
-        this._original = new SHINKEN.OBJECT.DataEntryHistoric( to_set );
+        this._original = new GS.OBJECT.DataEntryHistoric( to_set );
     },
     getOriginal        : function () {
         return this._original;
     },
     addValidPreview    : function ( to_add ) {
         this.resetInvalidPreview();
-        this._valid_previewing.push( new SHINKEN.OBJECT.DataEntryHistoric( to_add ) );
+        this._valid_previewing.push( new GS.OBJECT.DataEntryHistoric( to_add ) );
     },
     setInvalidPreview  : function ( to_set ) {
         this._invalid_preview = to_set;
     }
 };
-SHINKEN.OBJECT.DataEntryHistoric                = function ( data ) {
+GS.OBJECT.DataEntryHistoric                = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.DataEntryHistoric.prototype      = {
+GS.OBJECT.DataEntryHistoric.prototype      = {
     init      : function ( data ) {
         this.setData( data );
     },
@@ -19123,10 +17996,10 @@ SHINKEN.OBJECT.DataEntryHistoric.prototype      = {
         }
     }
 };
-SHINKEN.OBJECT.DefaultConfiguration             = function ( default_configuration ) {
+GS.OBJECT.DefaultConfiguration             = function ( default_configuration ) {
     this.init( default_configuration );
 };
-SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
+GS.OBJECT.DefaultConfiguration.prototype   = {
     init                        : function ( default_configuration ) {
         this.initInternal();
         this.updateData( default_configuration );
@@ -19190,13 +18063,13 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
         this.unknown_property_keys.push( key );
     },
     getObjectParamConstructor   : function ( key, value, parameter, default_value ) {
-        return new SHINKEN.OBJECT.Param( key, value, parameter, default_value );
+        return new GS.OBJECT.Param( key, value, parameter, default_value );
     },
     getObjectMessagesConstructor: function () {
-        return new SHINKEN.OBJECT.MessagesConfig();
+        return new GS.OBJECT.MessagesConfig();
     },
     isObjectParamConstructor    : function ( value_object ) {
-        return value_object instanceof SHINKEN.OBJECT.Param;
+        return value_object instanceof GS.OBJECT.Param;
     },
     setIsNotTheExpectedObject   : function ( key, value_object ) {
         if ( !this.not_valid_format_property ) {
@@ -19229,11 +18102,11 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
     setDataKey                  : function ( key, value ) {
         this[ key ] = this.getObjectParamConstructor( key, value );
         this[ key ].setCountersParent( this );
-        SHINKEN.TOOLS.ARRAY.addElement( this.own_property_keys, key );
+        GS.TOOLS.ARRAY.addElement( this.own_property_keys, key );
     },
     _setData                    : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.OBJECT.CONST.VALIDATION.FIELD.MESSAGES:
+            case GS.OBJECT.CONST.VALIDATION.FIELD.MESSAGES:
                 this.setMessages( value );
                 break;
             default:
@@ -19250,7 +18123,7 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
         }
     },
     _setDataDefaultObject       : function ( key, value ) {
-        this[ key ] = new SHINKEN.OBJECT.DefaultConfiguration( value );
+        this[ key ] = new GS.OBJECT.DefaultConfiguration( value );
         this[ key ].setCountersParent( this );
         return true;
     },
@@ -19262,7 +18135,7 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
             var _parameter = _valid_own_properties.getParameter( key );
             if ( !_parameter ) {
                 var _valid_own_own_children_keys = this.getValidOwnChildren();
-                if ( _valid_own_own_children_keys && SHINKEN.TOOLS.ARRAY.contains( _valid_own_own_children_keys.getKeys(), key ) ) {
+                if ( _valid_own_own_children_keys && GS.TOOLS.ARRAY.contains( _valid_own_own_children_keys.getKeys(), key ) ) {
                     this.setIsNotTheExpectedObject( key, this[ key ] );
                 }
                 else {
@@ -19274,7 +18147,7 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
                 this.changeToDefaultValueIfNeeded( key, value, _parameter );
             }
         }
-        SHINKEN.TOOLS.ARRAY.addElement( this.own_property_keys, key );
+        GS.TOOLS.ARRAY.addElement( this.own_property_keys, key );
     },
     changeToDefaultValueIfNeeded: function ( key, value, parameter ) {
         if ( value && value !== "" ) {
@@ -19283,19 +18156,19 @@ SHINKEN.OBJECT.DefaultConfiguration.prototype   = {
         if ( parameter.is_mandatory ) {
             return;
         }
-        if ( parameter.validation_value && !SHINKEN.TOOLS.ARRAY.contains( parameter.validation_value, this.getDefaultValueLabel() ) ) {
+        if ( parameter.validation_value && !GS.TOOLS.ARRAY.contains( parameter.validation_value, this.getDefaultValueLabel() ) ) {
             return;
         }
         this[ key ].setValue( this.getDefaultValueLabel() );
         this[ key ].setUserValue( this.getDefaultValueLabel() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DefaultConfiguration, SHINKEN.OBJECT.CounterInterfaceValidation );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DefaultConfiguration, SHINKEN.OBJECT.ShinkenObjectJson );
-SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfiguration, GS.OBJECT.CounterInterfaceValidation );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfiguration, GS.OBJECT.ShinkenObjectJson );
+GS.OBJECT.DefaultConfigurationWithOwnProperty           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
+GS.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
     _setDataDefaultObject           : function ( key, value_object ) {
         var _current = this.getValidOwnChildren().getConfigurationChild( key );
         if ( _current ) {
@@ -19311,7 +18184,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
             if ( _current.extra_action ) {
                 eval( "this[ key ]." + _current.extra_action );
             }
-            SHINKEN.TOOLS.ARRAY.addElement( this.own_children_keys, key );
+            GS.TOOLS.ARRAY.addElement( this.own_children_keys, key );
             this[ key ].setCountersParent( this );
             return true;
         }
@@ -19321,7 +18194,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         return new SHINKEN_VALIDATION.Parameters();
     },
     _getValidOwnChildren            : function () {
-        return new SHINKEN.OBJECT.DefaultConfigurationChildren();
+        return new GS.OBJECT.DefaultConfigurationChildren();
     },
     getChildrenObject               : function () {
         var _to_return             = [];
@@ -19360,18 +18233,18 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         return this[ key ].getValue();
     },
     getBooleanValue                 : function ( key ) {
-        return SHINKEN.TOOLS.BOOLEAN.parseToBoolean( this.getValue( key ) );
+        return GS.TOOLS.BOOLEAN.parseToBoolean( this.getValue( key ) );
     },
     isValid                         : function ( key ) {
         if ( !this[ key ] ) {
             this.setValueDefault( key );
         }
-        return !this[ key ].hasCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        return !this[ key ].hasCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
     },
     setDataKey                      : function ( key, value ) {
         this[ key ] = this.getObjectParamConstructor( key, value, this.getValidOwnProperty().getParameter( key ), this.getDefaultValueLabel(), this.is_belonging_to_grid_cell_object );
         this[ key ].setCountersParent( this );
-        SHINKEN.TOOLS.ARRAY.addElement( this.own_property_keys, key );
+        GS.TOOLS.ARRAY.addElement( this.own_property_keys, key );
     },
     getDataToSave                   : function () {
         var _to_return = {};
@@ -19393,7 +18266,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
     },
     getDataForLastModificationCommon: function ( params ) {
         let _to_return = {};
-        let param_list = params ? params[ SHINKEN.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_LIST_KEY ] : false;
+        let param_list = params ? params[ GS.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_LIST_KEY ] : false;
         if ( param_list ) {
             for ( let i = 0, _size_i = param_list.length; i < _size_i; i++ ) {
                 _to_return[ param_list[ i ] ] = this[ param_list[ i ] ].getDataForLastModification();
@@ -19404,7 +18277,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
                 _to_return[ this.own_property_keys[ i ] ] = this[ this.own_property_keys[ i ] ].getDataForLastModification();
             }
             for ( let i = 0, _size_i = this.own_children_keys.length; i < _size_i; i++ ) {
-                _to_return[ this.own_children_keys[ i ] ] = { [ SHINKEN.OBJECT.CONST.PARAM.VALUE ]: this[ this.own_children_keys[ i ] ].getDataForLastModification() };
+                _to_return[ this.own_children_keys[ i ] ] = { [ GS.OBJECT.CONST.PARAM.VALUE ]: this[ this.own_children_keys[ i ] ].getDataForLastModification() };
             }
         }
         return _to_return;
@@ -19422,7 +18295,7 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
             }
         }
         for ( var j = 0, _size_j = this.own_children_keys.length; j < _size_j; j++ ) {
-            to_return = SHINKEN.TOOLS.ARRAY.concat( to_return, this[ this.own_children_keys[ j ] ].getAllObjectWithMessages() );
+            to_return = GS.TOOLS.ARRAY.concat( to_return, this[ this.own_children_keys[ j ] ].getAllObjectWithMessages() );
         }
         if ( this.unknown_property_keys ) {
             for ( let i = 0, _size_i = this.unknown_property_keys.length; i < _size_i; i++ ) {
@@ -19434,17 +18307,17 @@ SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty.prototype = {
         return to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.DefaultConfigurationWithOwnProperty, SHINKEN.OBJECT.DefaultConfiguration );
-SHINKEN.OBJECT.DefaultConfigurationChildren           = function ( parameters ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfigurationWithOwnProperty, GS.OBJECT.DefaultConfiguration );
+GS.OBJECT.DefaultConfigurationChildren           = function ( parameters ) {
     this.content = [];
     if ( parameters ) {
         this.init( parameters );
     }
 };
-SHINKEN.OBJECT.DefaultConfigurationChildren.prototype = {
+GS.OBJECT.DefaultConfigurationChildren.prototype = {
     init                 : function ( parameters ) {
         for ( var i = 0, _size_i = parameters.length; i < _size_i; i++ ) {
-            this.content.push( new SHINKEN.OBJECT.DefaultConfigurationChild( parameters[ i ] ) );
+            this.content.push( new GS.OBJECT.DefaultConfigurationChild( parameters[ i ] ) );
         }
     },
     getConfigurationChild: function ( key ) {
@@ -19456,20 +18329,20 @@ SHINKEN.OBJECT.DefaultConfigurationChildren.prototype = {
         return null;
     },
     getKeys              : function () {
-        return SHINKEN.TOOLS.ARRAY.extractKey( this.content, 'key' );
+        return GS.TOOLS.ARRAY.extractKey( this.content, 'key' );
     },
     getContent           : function () {
         return this.content;
     }
 };
-SHINKEN.OBJECT.DefaultConfigurationChild              = function ( args ) {
+GS.OBJECT.DefaultConfigurationChild              = function ( args ) {
     this.key               = args[ 0 ];
     this.class_constructor = args[ 1 ];
     this.extra_action      = args[ 2 ];
 };
-SHINKEN.OBJECT.DefaultConfigurationChild.prototype    = {};
+GS.OBJECT.DefaultConfigurationChild.prototype    = {};
 OBJECT.ElementCheckbox                                = function ( dom_element, parent ) {
-    this.uuid = SHINKEN.TOOLS.STRING.buildUUID();
+    this.uuid = GS.TOOLS.STRING.buildUUID();
     this.init( dom_element, parent );
 };
 OBJECT.ElementCheckbox.prototype                      = {
@@ -19512,7 +18385,7 @@ OBJECT.ElementCheckbox.prototype                      = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( OBJECT.ElementCheckbox, SHINKEN.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( OBJECT.ElementCheckbox, GS.OBJECT.CounterInterface );
 OBJECT.ElementList                      = function () {
     this.init();
 };
@@ -19545,7 +18418,7 @@ OBJECT.ElementList.prototype            = {
     },
     setLabel             : function ( to_set ) {
         if ( this.canHaveXssFailure ) {
-            this.label = SHINKEN.TOOLS.STRING.cleanXss( to_set );
+            this.label = GS.TOOLS.STRING.cleanXss( to_set );
         }
         else {
             this.label = to_set;
@@ -19692,7 +18565,7 @@ OBJECT.ElementList.prototype            = {
             if ( _to_return ) {
                 _to_return += "<br>";
             }
-            _to_return += SHINKEN.TOOLS.STRING.format( _( 'element.double_link_long_warning' ), this.getLabel() );
+            _to_return += GS.TOOLS.STRING.format( _( 'element.double_link_long_warning' ), this.getLabel() );
         }
         return _to_return;
     },
@@ -19716,7 +18589,7 @@ OBJECT.ElementList.prototype            = {
         return _to_return;
     }
 };
-SHINKEN.OBJECT.MESSAGE                  = {
+GS.OBJECT.MESSAGE                  = {
     ICON       : {
         ERROR  : '<span class="shinken-icon-error shinkon-warning"></span>',
         WARNING: '<span class="shinken-icon-warning shinkon-warning"></span>',
@@ -19725,12 +18598,12 @@ SHINKEN.OBJECT.MESSAGE                  = {
     MAX_ERROR  : 5,
     MAX_WARNING: 5
 };
-SHINKEN.OBJECT.Messages                 = function ( footer ) {
+GS.OBJECT.Messages                 = function ( footer ) {
     this.init( footer );
 };
-SHINKEN.OBJECT.Messages.prototype       = {
+GS.OBJECT.Messages.prototype       = {
     init                : function ( footer ) {
-        this.__class_name__ = "SHINKEN.OBJECT.Messages";
+        this.__class_name__ = "GS.OBJECT.Messages";
         this.resetMessages();
         this.is_dfe           = false;
         this.is_dfe_protected = false;
@@ -19740,16 +18613,16 @@ SHINKEN.OBJECT.Messages.prototype       = {
     addMessage          : function ( type_message, text ) {
         switch ( type_message ) {
             case COMPONENT.CONST.STATUS.ERROR:
-                this.messages_error.push( new SHINKEN.OBJECT.Message( type_message, text ) );
+                this.messages_error.push( new GS.OBJECT.Message( type_message, text ) );
                 break;
             case COMPONENT.CONST.STATUS.WARNING:
-                this.messages_warning.push( new SHINKEN.OBJECT.Message( type_message, text ) );
+                this.messages_warning.push( new GS.OBJECT.Message( type_message, text ) );
                 break;
             case COMPONENT.CONST.STATUS.BEWARE:
-                this.messages_beware.push( new SHINKEN.OBJECT.Message( type_message, text ) );
+                this.messages_beware.push( new GS.OBJECT.Message( type_message, text ) );
                 break;
             default:
-                this.messages_info.push( new SHINKEN.OBJECT.Message( type_message, text ) );
+                this.messages_info.push( new GS.OBJECT.Message( type_message, text ) );
                 break;
         }
     },
@@ -19813,19 +18686,19 @@ SHINKEN.OBJECT.Messages.prototype       = {
             if ( !skip_invalid_syntax ) {
                 _to_return += '<span class="text-underline">' + _( 'messages.invalid_syntax', [DICTIONARY_COMMON_UI] ) + '</span><br>';
             }
-            _to_return += SHINKEN.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_error', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
-            _to_return += this.buildMessageForList( this.messages_error, has_no_max ? '' : SHINKEN.OBJECT.MESSAGE.MAX_ERROR );
+            _to_return += GS.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_error', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
+            _to_return += this.buildMessageForList( this.messages_error, has_no_max ? '' : GS.OBJECT.MESSAGE.MAX_ERROR );
             _to_return += '</ol>';
         }
         if ( this.hasWarning() ) {
             _show_extra_message = true;
-            _to_return += SHINKEN.OBJECT.MESSAGE.ICON.WARNING + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
-            _to_return += this.buildMessageForList( this.messages_warning, has_no_max ? '' : SHINKEN.OBJECT.MESSAGE.MAX_WARNING );
+            _to_return += GS.OBJECT.MESSAGE.ICON.WARNING + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
+            _to_return += this.buildMessageForList( this.messages_warning, has_no_max ? '' : GS.OBJECT.MESSAGE.MAX_WARNING );
             _to_return += '</ol>';
         }
         if ( !this.is_dfe_protected && _show_extra_message && this.is_dfe ) {
             const _format_to_follow        = is_default ? _( 'messages.tooltip_dfe_common_default_value' ) : _( 'element.tooltip_dfe_common' );
-            const _note_to_update_template = template_name ? '<div class=\'container-legend \'>' + SHINKEN.TOOLS.STRING.format( _( 'element.tooltip_dfe_common_go_tpl' ), template_name ) + '</div>' : "";
+            const _note_to_update_template = template_name ? '<div class=\'container-legend \'>' + GS.TOOLS.STRING.format( _( 'element.tooltip_dfe_common_go_tpl' ), template_name ) + '</div>' : "";
             _to_return                     = _to_return +
                                              '<div class=\'container-legend\'>' + _format_to_follow + '</div>' +
                                              _note_to_update_template;
@@ -19835,12 +18708,12 @@ SHINKEN.OBJECT.Messages.prototype       = {
             if ( !this.is_dfe_protected && _show_extra_message ) {
                 _to_return += '<hr>';
             }
-            _to_return += '<ol>' + SHINKEN.OBJECT.MESSAGE.ICON.BEWARE + SHINKEN.TOOLS.STRING.format( _( 'element.tooltip_dfe_deleted_part_1' ), this.property_name );
+            _to_return += '<ol>' + GS.OBJECT.MESSAGE.ICON.BEWARE + GS.TOOLS.STRING.format( _( 'element.tooltip_dfe_deleted_part_1' ), this.property_name );
             _to_return += this.buildMessageForList( this.messages_beware, 999 );
             _to_return += '</ol>';
         }
         else if ( this.hasBeware() ) {
-            _to_return += SHINKEN.OBJECT.MESSAGE.ICON.BEWARE + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br>';
+            _to_return += GS.OBJECT.MESSAGE.ICON.BEWARE + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br>';
             _to_return += this.buildMessageForList( this.messages_beware, 999 );
         }
         if ( this.footer ) {
@@ -19857,12 +18730,12 @@ SHINKEN.OBJECT.Messages.prototype       = {
         }
         let _to_return = '<div class="shinken-message-container">';
         if ( this.hasError() ) {
-            _to_return += SHINKEN.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_error', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
+            _to_return += GS.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_error', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
             _to_return += this.buildMessageForList( this.messages_error );
             _to_return += '</ol>';
         }
         if ( this.hasWarning() ) {
-            _to_return += SHINKEN.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
+            _to_return += GS.OBJECT.MESSAGE.ICON.ERROR + _( 'messages.tag_warning', [DICTIONARY_COMMON_UI] ) + '<br><ol>';
             _to_return += this.buildMessageForList( this.messages_warning );
             _to_return += '</ol>';
         }
@@ -19880,7 +18753,7 @@ SHINKEN.OBJECT.Messages.prototype       = {
         for ( let i = 0; i < _size; i++ ) {
             _to_add = list[ i ].buildHtml();
             if ( this.no_duplicate ) {
-                let _md5 = SHINKEN.TOOLS.MD5.MD5( _to_add );
+                let _md5 = GS.TOOLS.MD5.MD5( _to_add );
                 if ( _duplicate[ _md5 ] ) {
                     continue;
                 }
@@ -19892,10 +18765,10 @@ SHINKEN.OBJECT.Messages.prototype       = {
     },
     getAllMessages      : function () {
         let to_return = [];
-        to_return     = SHINKEN.TOOLS.ARRAY.concat( to_return, this.messages_error );
-        to_return     = SHINKEN.TOOLS.ARRAY.concat( to_return, this.messages_warning );
-        to_return     = SHINKEN.TOOLS.ARRAY.concat( to_return, this.messages_info );
-        to_return     = SHINKEN.TOOLS.ARRAY.concat( to_return, this.messages_beware );
+        to_return     = GS.TOOLS.ARRAY.concat( to_return, this.messages_error );
+        to_return     = GS.TOOLS.ARRAY.concat( to_return, this.messages_warning );
+        to_return     = GS.TOOLS.ARRAY.concat( to_return, this.messages_info );
+        to_return     = GS.TOOLS.ARRAY.concat( to_return, this.messages_beware );
         return to_return;
     },
     _getObjectToJson    : function ( format_data__20241115 ) {
@@ -19921,7 +18794,7 @@ SHINKEN.OBJECT.Messages.prototype       = {
         const messages_length = messages.length;
         
         for ( let i = 0; i < messages_length; i++ ) {
-            if ( SHINKEN.TOOLS.STRING.contains( messages[ i ]._text, text ) ) {
+            if ( GS.TOOLS.STRING.contains( messages[ i ]._text, text ) ) {
                 _to_return++;
             }
         }
@@ -19943,30 +18816,30 @@ SHINKEN.OBJECT.Messages.prototype       = {
         this.messages_error = [];
     }
 };
-SHINKEN.OBJECT.MessagesConfig           = function () {
+GS.OBJECT.MessagesConfig           = function () {
     this.init();
 };
-SHINKEN.OBJECT.MessagesConfig.prototype = {
-    init            : SHINKEN.OBJECT.Messages.prototype.init,
+GS.OBJECT.MessagesConfig.prototype = {
+    init            : GS.OBJECT.Messages.prototype.init,
     getUUID         : function () {
         if ( !this.uuid ) {
-            this.uuid = SHINKEN.TOOLS.STRING.buildUUID();
+            this.uuid = GS.TOOLS.STRING.buildUUID();
         }
         return this.uuid;
     },
     addMessage      : function ( type_message, object_message ) {
         switch ( type_message ) {
             case COMPONENT.CONST.STATUS.ERROR:
-                this.messages_error.push( new SHINKEN.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
+                this.messages_error.push( new GS.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
                 break;
             case COMPONENT.CONST.STATUS.WARNING:
-                this.messages_warning.push( new SHINKEN.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
+                this.messages_warning.push( new GS.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
                 break;
             case COMPONENT.CONST.STATUS.BEWARE:
-                this.messages_beware.push( new SHINKEN.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
+                this.messages_beware.push( new GS.OBJECT.MessageConfig( type_message, object_message, this.getUUID() ) );
                 break;
             default:
-                this.messages_info.push( new SHINKEN.OBJECT.MessageConfig( type_message, object_message, this.uuid ) );
+                this.messages_info.push( new GS.OBJECT.MessageConfig( type_message, object_message, this.uuid ) );
                 break;
         }
     },
@@ -19988,12 +18861,12 @@ SHINKEN.OBJECT.MessagesConfig.prototype = {
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.MessagesConfig, SHINKEN.OBJECT.Messages );
-SHINKEN.OBJECT.Message                 = function ( type, text, line_index ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.MessagesConfig, GS.OBJECT.Messages );
+GS.OBJECT.Message                 = function ( type, text, line_index ) {
     this._type = type;
     this._text = text;
 };
-SHINKEN.OBJECT.Message.prototype       = {
+GS.OBJECT.Message.prototype       = {
     buildHtml: function () {
         return '<li class=\'' + this._type + '\'>' + this._text + '</li>';
     },
@@ -20001,30 +18874,30 @@ SHINKEN.OBJECT.Message.prototype       = {
         return this._text;
     }
 };
-SHINKEN.OBJECT.MessageConfig           = function ( type, object_message, uuid ) {
+GS.OBJECT.MessageConfig           = function ( type, object_message, uuid ) {
     this._type       = type;
     this._text       = object_message.text;
     this._list_keys  = object_message.list_keys;
     this.parent_uuid = uuid;
 };
-SHINKEN.OBJECT.MessageConfig.prototype = {
+GS.OBJECT.MessageConfig.prototype = {
     buildHtml       : function () {
-        let _to_return = DOM.Service.createElement( "li", { class: this._type } );
-        let _table     = DOM.Service.createElement( "table", { class: "shinken-table" } );
-        let _tr        = DOM.Service.createElement( "tr" );
-        let _td_1      = DOM.Service.createElement( "td", { class: "shinken-text-cell" }, "<div>" + this._text + "</div>" );
-        DOM.Service.addElementTo( _table, _to_return );
-        DOM.Service.addElementTo( _tr, _table );
-        DOM.Service.addElementTo( _td_1, _tr );
+        let _to_return = SERVICE.DOM.createElement( "li", { class: this._type } );
+        let _table     = SERVICE.DOM.createElement( "table", { class: "shinken-table" } );
+        let _tr        = SERVICE.DOM.createElement( "tr" );
+        let _td_1      = SERVICE.DOM.createElement( "td", { class: "shinken-text-cell" }, "<div>" + this._text + "</div>" );
+        SERVICE.DOM.addElementTo( _table, _to_return );
+        SERVICE.DOM.addElementTo( _tr, _table );
+        SERVICE.DOM.addElementTo( _td_1, _tr );
         
         if ( this._list_keys !== "__SHINKEN_NONE__" ) {
-            let _td_2 = DOM.Service.createElement( "td", { class: "shinken-json-link-cell" } );
+            let _td_2 = SERVICE.DOM.createElement( "td", { class: "shinken-json-link-cell" } );
             let param = { [ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELL_UUID ]: this.parent_uuid };
-            let _link = DOM.Service.createElement( "span", {
-                class: "shinken-data-user shinken-json-link", onclick: "MANAGER.EventManagerV2.doActionAfter(event, 'focus-on-anchor-json', " + SHINKEN.TOOLS.DICT.parseToHTMLParam( param ) + ")"
+            let _link = SERVICE.DOM.createElement( "span", {
+                class: "shinken-data-user shinken-json-link", onclick: "MANAGER.EventManagerV2.doActionAfter(event, 'focus-on-anchor-json', " + GS.TOOLS.DICT.parseToHTMLParam( param ) + ")"
             }, 'JSON' );
-            DOM.Service.addElementTo( _td_2, _tr );
-            DOM.Service.addElementTo( _link, _td_2 );
+            SERVICE.DOM.addElementTo( _td_2, _tr );
+            SERVICE.DOM.addElementTo( _link, _td_2 );
         }
         return _to_return.outerHTML;
     },
@@ -20038,31 +18911,31 @@ SHINKEN.OBJECT.MessageConfig.prototype = {
         switch ( this._type ) {
             case COMPONENT.CONST.STATUS.ERROR:
             case COMPONENT.CONST.STATUS.WARNING:
-                _to_return.class = SHINKEN.OBJECT.JSON_EDITOR.CLASS_ERROR;
+                _to_return.class = GS.OBJECT.JSON_EDITOR.CLASS_ERROR;
                 break;
         }
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.MessageConfig, SHINKEN.OBJECT.Message );
-SHINKEN.OBJECT.Messageservice                   = (function ( self ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.MessageConfig, GS.OBJECT.Message );
+GS.OBJECT.Messageservice                   = (function ( self ) {
     self.parseBackendStatus = function ( status ) {
         switch ( status ) {
-            case SHINKEN.OBJECT.CONST.VALIDATION.FIELD.WARNINGS:
+            case GS.OBJECT.CONST.VALIDATION.FIELD.WARNINGS:
                 return COMPONENT.CONST.STATUS.WARNING;
-            case SHINKEN.OBJECT.CONST.VALIDATION.FIELD.CRITICAL:
-            case SHINKEN.OBJECT.CONST.VALIDATION.FIELD.ERRORS:
+            case GS.OBJECT.CONST.VALIDATION.FIELD.CRITICAL:
+            case GS.OBJECT.CONST.VALIDATION.FIELD.ERRORS:
                 return COMPONENT.CONST.STATUS.ERROR;
         }
     };
     return self;
-})( SHINKEN.OBJECT.Messageservice || {} );
-SHINKEN.OBJECT.NOTIFICATION.Container           = function () {
-    this.__class_name__ = 'SHINKEN.OBJECT.NOTIFICATION.CONTAINER';
+})( GS.OBJECT.Messageservice || {} );
+GS.OBJECT.NOTIFICATION.Container           = function () {
+    this.__class_name__ = 'GS.OBJECT.NOTIFICATION.CONTAINER';
     this.dom_element    = null;
     this.notifications  = null;
 };
-SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
+GS.OBJECT.NOTIFICATION.Container.prototype = {
     init: function () {
         this.notifications = [];
     },
@@ -20071,7 +18944,7 @@ SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
         if ( !this.dom_element ) {
             this.createNotificationContainer( skip_close );
         }
-        var _user_notification = new SHINKEN.OBJECT.NOTIFICATION.User();
+        var _user_notification = new GS.OBJECT.NOTIFICATION.User();
         
         this.cleanAllNotification();
         _user_notification.init();
@@ -20081,7 +18954,7 @@ SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
             _user_notification.bindToElement( element_to_bind_with, notification_placement );
         }
         this.notifications.push( _user_notification );
-        DOM.Service.addElementTo( _user_notification.dom_element, this.dom_element );
+        SERVICE.DOM.addElementTo( _user_notification.dom_element, this.dom_element );
         return _user_notification;
     },
     addNotificationStyled      : function ( message, status, styles, time_before_remove ) {
@@ -20093,32 +18966,32 @@ SHINKEN.OBJECT.NOTIFICATION.Container.prototype = {
     },
     createNotificationContainer: function ( skip_close ) {
         if ( !skip_close ) {
-            this.dom_element = DOM.Service.createElement( "div", { id: "id-shinken-notification-popup-container" } );
+            this.dom_element = SERVICE.DOM.createElement( "div", { id: "id-shinken-notification-popup-container" } );
             DOM.BodyService.addChild( this.dom_element );
         }
         else {
-            this.dom_element = DOM.Service.createElement( "div", { id: "id-shinken-notification-popup-container", "onclick": "this.firstChild.classList.add('shinken-removed');event.stopPropagation();" } );
+            this.dom_element = SERVICE.DOM.createElement( "div", { id: "id-shinken-notification-popup-container", "onclick": "this.firstChild.classList.add('shinken-removed');event.stopPropagation();" } );
             DOM.BodyService.addChild( this.dom_element );
         }
         
     },
     cleanAllNotification       : function () {
-        DOM.Service.empty( this.dom_element );
+        SERVICE.DOM.empty( this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NOTIFICATION.Container, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.VisualNotificationOfChange                     = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.Container, GS.OBJECT.ShinkenObject );
+GS.OBJECT.VisualNotificationOfChange                     = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.VisualNotificationOfChange.prototype           = {
+GS.OBJECT.VisualNotificationOfChange.prototype           = {
     init                      : function ( data ) {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = new SHINKEN.OBJECT.BlinkNotificationOfChange();
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = new GS.OBJECT.BlinkNotificationOfChange();
         if ( data ) {
             this.updateData( data );
         }
     },
     doActionAfter             : function ( event_name, param ) {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].doActionAfter( event_name, param );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].doActionAfter( event_name, param );
     },
     updateData                : function ( data ) {
         var _keys     = Object.keys( data );
@@ -20138,42 +19011,42 @@ SHINKEN.OBJECT.VisualNotificationOfChange.prototype           = {
                     this.setData( _keys[ i ], value[ _keys[ i ] ] );
                 }
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK:
                 this[ key ].updateData( value );
                 break;
         }
     },
     getBlinkValue             : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getValue();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getValue();
     },
     getBlinkDomElement        : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDomElement();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDomElement();
     },
     getDataToSave             : function () {
         var _to_return                                                        = {};
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDataToSave();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDataToSave();
         return _to_return;
     },
     isBlinkNotificationEnabled: function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].isEnabled();
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].isEnabled();
     }
 };
-SHINKEN.OBJECT.VisualNotificationOfChange__fromData           = function ( data ) {
+GS.OBJECT.VisualNotificationOfChange__fromData           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.VisualNotificationOfChange__fromData.prototype = {
+GS.OBJECT.VisualNotificationOfChange__fromData.prototype = {
     init: function ( data ) {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = new SHINKEN.OBJECT.BlinkNotificationOfChange__fromData( data );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = new GS.OBJECT.BlinkNotificationOfChange__fromData( data );
         if ( data ) {
             this.updateData( data );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.VisualNotificationOfChange__fromData, SHINKEN.OBJECT.VisualNotificationOfChange );
-SHINKEN.OBJECT.BlinkNotificationOfChange           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.VisualNotificationOfChange__fromData, GS.OBJECT.VisualNotificationOfChange );
+GS.OBJECT.BlinkNotificationOfChange           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
+GS.OBJECT.BlinkNotificationOfChange.prototype = {
     init               : function ( data ) {
         if ( data ) {
             this.updateData( data );
@@ -20196,25 +19069,25 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
                 this.setPhaseDomElement( param, "blinkNotification" );
                 break;
             case "change_value_notification_of_change_visual_blink":
-                this.setData( SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED, param );
+                this.setData( GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED, param );
                 break;
             case "notification-configuration-set-dom-element-with-data":
                 this.updateHtmlWithData();
                 break;
             case "shinken_view_has_disabled_blink_notification":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+                this.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
                 break;
             case "play_blink_notification":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+                this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
                 break;
             case "user_has_disabled_blink_notification":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.DISCREET_USER );
+                this.setPhase( GS.OBJECT.CONST.PHASE.DISCREET_USER );
                 break;
             case "set_phase_blink_depending_number_of_change":
-                this.setPhase( param ? SHINKEN.OBJECT.CONST.PHASE.READY : SHINKEN.OBJECT.CONST.PHASE.STOPPING );
+                this.setPhase( param ? GS.OBJECT.CONST.PHASE.READY : GS.OBJECT.CONST.PHASE.STOPPING );
                 break;
             case "ask_play_notification_visual_blink":
-                this.setPhaseIfPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING, SHINKEN.OBJECT.CONST.PHASE.READY );
+                this.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.RUNNING, GS.OBJECT.CONST.PHASE.READY );
                 break;
             case "reset_object":
                 this.setDomElement();
@@ -20227,10 +19100,10 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
         this.doActionAfterCommun( event_name, param );
     },
     getValue           : function () {
-        if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
-            return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
+        if ( this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === undefined ) {
+            return GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ];
     },
     updateData         : function ( data ) {
         var _keys     = Object.keys( data );
@@ -20250,7 +19123,7 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
                     this.setData( _keys[ i ], value[ _keys[ i ] ] );
                 }
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED:
                 if ( typeof value === "object" ) {
                     this[ key ] = value.value;
                 }
@@ -20262,20 +19135,20 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
     },
     getDataToSave      : function () {
         var _to_return                                                          = {};
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
     callbackForPhase   : function () {
         var _current = this.getCurrentPhase();
         this.setTooltipHtml( "" );
         switch ( _current ) {
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING:
-                this.setPhaseWithTimeOut( SHINKEN.OBJECT.CONST.PHASE.READY, 3000 );
+            case GS.OBJECT.CONST.PHASE.RUNNING:
+                this.setPhaseWithTimeOut( GS.OBJECT.CONST.PHASE.READY, 3000 );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.DISCREET_USER:
+            case GS.OBJECT.CONST.PHASE.DISCREET_USER:
                 this.setTooltipHtml( _( "notification.blink_user_warning", [DICTIONARY_COMMON_UI] ) );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.STOPPING:
+            case GS.OBJECT.CONST.PHASE.STOPPING:
                 this.setTooltipHtml( _( "notification.no_change", [DICTIONARY_COMMON_UI] ) );
                 break;
             default:
@@ -20283,21 +19156,21 @@ SHINKEN.OBJECT.BlinkNotificationOfChange.prototype = {
         }
     },
     updateHtmlWithData : function () {
-        var _dom     = document.querySelector( "#shinken-modal-container #visual-blink-" + this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
+        var _dom     = document.querySelector( "#shinken-modal-container #visual-blink-" + this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
         _dom.checked = true;
     },
     isEnabled          : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.BlinkNotificationOfChange__fromData           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.BlinkNotificationOfChange__fromData           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
+GS.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
     init         : function () {
-        this.button = new COMPONENT.ButtonFromData_V3( "ask_play_notification_visual_blink", DOM.Service.cloneElement( document.querySelector( '#id-shinken-template-view .shinken-blink-icon' ) ).outerHTML );
+        this.button = new COMPONENT.ButtonFromData_V3( "ask_play_notification_visual_blink", SERVICE.DOM.cloneElement( document.querySelector( '#id-shinken-template-view .shinken-blink-icon' ) ).outerHTML );
         this.button.addClass( "shinken-notification-content" );
     },
     doActionAfter: function ( event_name, param ) {
@@ -20310,17 +19183,17 @@ SHINKEN.OBJECT.BlinkNotificationOfChange__fromData.prototype = {
         this.doActionAfterCommun( event_name, param );
     },
     computeHtml  : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-blink-notification-container shinken-notification-container" } ) );
-        DOM.Service.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-blink-notification-container shinken-notification-container" } ) );
+        SERVICE.DOM.addTooltip( this.getDomElement(), { "shi-tip-html": "" } );
         this.button.computeHtml();
-        DOM.Service.addElementTo( this.button.getDomElement(), this.getDomElement() );
+        SERVICE.DOM.addElementTo( this.button.getDomElement(), this.getDomElement() );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.BlinkNotificationOfChange__fromData, SHINKEN.OBJECT.BlinkNotificationOfChange );
-SHINKEN.OBJECT.VolumeNotificationOfChange                   = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange__fromData, GS.OBJECT.BlinkNotificationOfChange );
+GS.OBJECT.VolumeNotificationOfChange                   = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.VolumeNotificationOfChange.prototype         = {
+GS.OBJECT.VolumeNotificationOfChange.prototype         = {
     init              : function ( data ) {
         if ( data ) {
             this.updateData( data );
@@ -20332,15 +19205,15 @@ SHINKEN.OBJECT.VolumeNotificationOfChange.prototype         = {
                 this.updateHtmlWithData();
                 break;
             case "change_value_notification_of_change_sound":
-                this.setData( SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME, param );
+                this.setData( GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME, param );
                 break;
         }
     },
     getValue          : function () {
-        if ( this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] === undefined ) {
-            return SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
+        if ( this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] === undefined ) {
+            return GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT;
         }
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ];
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ];
     },
     updateData        : function ( data ) {
         var _keys     = Object.keys( data );
@@ -20353,33 +19226,33 @@ SHINKEN.OBJECT.VolumeNotificationOfChange.prototype         = {
     },
     setData           : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME:
+            case GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME:
                 this[ key ] = value;
                 break;
         }
     },
     getDataToSave     : function () {
         var _to_return                                                         = {};
-        _to_return[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] = this.getValue();
+        _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] = this.getValue();
         return _to_return;
     },
     updateHtmlWithData: function () {
-        var _dom     = document.querySelector( "#shinken-modal-container #sound-" + this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
+        var _dom     = document.querySelector( "#shinken-modal-container #sound-" + this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] );
         _dom.checked = true;
     },
     isEnabled         : function () {
-        return this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
+        return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] === true;
     }
 };
-SHINKEN.OBJECT.NotificationsOfChangeDefaultValues           = function ( data ) {
+GS.OBJECT.NotificationsOfChangeDefaultValues           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
+GS.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
     init                     : function ( data ) {
-        this.users  = new SHINKEN.OBJECT.NotificationsOfChangeUser();
-        this.hives  = new SHINKEN.OBJECT.NotificationsOfChangeView();
-        this.lists  = new SHINKEN.OBJECT.NotificationsOfChangeView();
-        this.events = new SHINKEN.OBJECT.NotificationsOfChangeView();
+        this.users  = new GS.OBJECT.NotificationsOfChangeUser();
+        this.hives  = new GS.OBJECT.NotificationsOfChangeView();
+        this.lists  = new GS.OBJECT.NotificationsOfChangeView();
+        this.events = new GS.OBJECT.NotificationsOfChangeView();
         if ( data ) {
             this.updateData( data );
         }
@@ -20437,7 +19310,7 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
         shinken_view.visual_notification_of_change_enabled = this.computeViewSettingsBlink( shinken_view );
     },
     computeViewSettingsBlink : function ( shinken_view ) {
-        if ( shinken_view.bar_info.getBlinkValue() !== SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
+        if ( shinken_view.bar_info.getBlinkValue() !== GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
             return shinken_view.bar_info.getBlinkValue();
         }
         switch ( shinken_view.type ) {
@@ -20454,7 +19327,7 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
         }
     },
     computeViewSettingsSound : function ( shinken_view ) {
-        if ( shinken_view.bar_info.getSoundValue() !== SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
+        if ( shinken_view.bar_info.getSoundValue() !== GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
             return shinken_view.bar_info.getSoundValue();
         }
         switch ( shinken_view.type ) {
@@ -20471,14 +19344,14 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
     },
     getFlatUserVolume        : function ( notification_of_change_from_user ) {
         var _to_return = notification_of_change_from_user.getVolumeValue();
-        if ( _to_return === SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
+        if ( _to_return === GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
             _to_return = this.getUserVolumeValue();
         }
         return _to_return;
     },
     getFlatUserBlink         : function ( notification_of_change_from_user ) {
         var _to_return = notification_of_change_from_user.getBlinkValue();
-        if ( _to_return === SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
+        if ( _to_return === GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.VALUE.DEFAULT ) {
             _to_return = this.getUserBlinkValue();
         }
         return _to_return;
@@ -20490,60 +19363,60 @@ SHINKEN.OBJECT.NotificationsOfChangeDefaultValues.prototype = {
         return this.users.getBlinkValue();
     }
 };
-SHINKEN.OBJECT.NotificationsOfChangeUser                    = function ( data ) {
+GS.OBJECT.NotificationsOfChangeUser                    = function ( data ) {
     this.initSpecific( data );
 };
-SHINKEN.OBJECT.NotificationsOfChangeUser.prototype          = {
+GS.OBJECT.NotificationsOfChangeUser.prototype          = {
     initSpecific: function ( data ) {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = new SHINKEN.OBJECT.VolumeNotificationOfChange();
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = new SHINKEN.OBJECT.VisualNotificationOfChange();
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = new GS.OBJECT.VolumeNotificationOfChange();
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = new GS.OBJECT.VisualNotificationOfChange();
         this.init( data );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NotificationsOfChangeUser, SHINKEN.OBJECT.NotificationsOfChange._interface );
-SHINKEN.OBJECT.NotificationsOfChangeView           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NotificationsOfChangeUser, GS.OBJECT.NotificationsOfChange._interface );
+GS.OBJECT.NotificationsOfChangeView           = function ( data ) {
     this.initSpecific( data );
 };
-SHINKEN.OBJECT.NotificationsOfChangeView.prototype = {
+GS.OBJECT.NotificationsOfChangeView.prototype = {
     initSpecific               : function ( data ) {
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this.getChildConstructor__sound( data );
-        this[ SHINKEN.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this.getChildConstructor__visual( data );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this.getChildConstructor__sound( data );
+        this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this.getChildConstructor__visual( data );
         this.init( data );
     },
     getChildConstructor__sound : function ( data ) {
-        return new SHINKEN.OBJECT.SoundNotificationOfChange();
+        return new GS.OBJECT.SoundNotificationOfChange();
     },
     getChildConstructor__visual: function ( data ) {
-        return new SHINKEN.OBJECT.VisualNotificationOfChange();
+        return new GS.OBJECT.VisualNotificationOfChange();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NotificationsOfChangeView, SHINKEN.OBJECT.NotificationsOfChange._interface );
-SHINKEN.OBJECT.NotificationsOfChangeView__fromData           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NotificationsOfChangeView, GS.OBJECT.NotificationsOfChange._interface );
+GS.OBJECT.NotificationsOfChangeView__fromData           = function ( data ) {
     this.initSpecific( data );
 };
-SHINKEN.OBJECT.NotificationsOfChangeView__fromData.prototype = {
-    initSpecific               : SHINKEN.OBJECT.NotificationsOfChangeView.prototype.initSpecific,
+GS.OBJECT.NotificationsOfChangeView__fromData.prototype = {
+    initSpecific               : GS.OBJECT.NotificationsOfChangeView.prototype.initSpecific,
     getChildConstructor__sound : function () {
-        return new SHINKEN.OBJECT.SoundNotificationOfChange__fromData();
+        return new GS.OBJECT.SoundNotificationOfChange__fromData();
     },
     getChildConstructor__visual: function () {
-        return new SHINKEN.OBJECT.VisualNotificationOfChange__fromData();
+        return new GS.OBJECT.VisualNotificationOfChange__fromData();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NotificationsOfChangeView__fromData, SHINKEN.OBJECT.NotificationsOfChangeView );
-SHINKEN.OBJECT.NOTIFICATION.User           = function () {
-    this.__class_name__                = 'SHINKEN.OBJECT.NOTIFICATION.USER';
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NotificationsOfChangeView__fromData, GS.OBJECT.NotificationsOfChangeView );
+GS.OBJECT.NOTIFICATION.User           = function () {
+    this.__class_name__                = 'GS.OBJECT.NOTIFICATION.USER';
     this.dom_element                   = null;
     this.message                       = null;
     this.timeout_to_close_notification = null;
 };
-SHINKEN.OBJECT.NOTIFICATION.User.prototype = {
+GS.OBJECT.NOTIFICATION.User.prototype = {
     init                       : function () {
     },
     createNotification         : function ( message, status, skip_close ) {
         this.createMessageDom();
         if ( !skip_close ) {
-            var _cross = DOM.Service.createElement( 'div', { class: "shinkon shinkon-times-bold" } );
+            var _cross = SERVICE.DOM.createElement( 'div', { class: "shinkon shinkon-times-bold" } );
             this.dom_element.appendChild( _cross );
             var self = this;
             _cross.addEventListener( 'click', function () {
@@ -20555,37 +19428,37 @@ SHINKEN.OBJECT.NOTIFICATION.User.prototype = {
         if ( status ) {
             this.addTypeToNotification( status );
         }
-        var _dom_text_notification = DOM.Service.createElement( 'span', {}, this.message );
-        DOM.Service.addElementTo( _dom_text_notification, this.dom_element );
+        var _dom_text_notification = SERVICE.DOM.createElement( 'span', {}, this.message );
+        SERVICE.DOM.addElementTo( _dom_text_notification, this.dom_element );
         
     },
     addTypeToNotification      : function ( status ) {
-        var _icon = DOM.Service.createElement( 'span', { 'class': "shinkon" } );
+        var _icon = SERVICE.DOM.createElement( 'span', { 'class': "shinkon" } );
         switch ( status ) {
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.ERROR:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR:
                 _icon.classList.add( 'shinkon-warning' );
                 this.dom_element.classList.add( "notification-error" );
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.WARNING:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.WARNING:
                 _icon.classList.add( 'shinkon-warning' );
                 this.dom_element.classList.add( "notification-warning" );
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.INFO:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.INFO:
                 _icon.classList.add( 'info-circle' );
                 this.dom_element.classList.add( "notification-info" );
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.SUCCESS:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.SUCCESS:
                 _icon.classList.add( 'info-circle' );
                 this.dom_element.classList.add( "notification-success" );
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.COPY_SUCCESS:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.COPY_SUCCESS:
                 this.dom_element.classList.add( "shinken-notification-copy-success" );
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.COPY_FAILED:
+            case GS.OBJECT.NOTIFICATION.CONST.STATUS.COPY_FAILED:
                 this.dom_element.classList.add( "shinken-notification-copy-failed" );
                 break;
         }
-        DOM.Service.addElementTo( _icon, this.dom_element );
+        SERVICE.DOM.addElementTo( _icon, this.dom_element );
     },
     setTimerToCloseNotification: function ( parent_element, time_before_remove ) {
         time_before_remove              = time_before_remove || 8000;
@@ -20598,34 +19471,34 @@ SHINKEN.OBJECT.NOTIFICATION.User.prototype = {
         var _size   = element.getBoundingClientRect();
         var _styles = {};
         switch ( notification_placement ) {
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.TOP:
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.TOP:
                 _styles[ DOM.CONST.STYLE.TOP ]  = _size[ DOM.CONST.STYLE.TOP ] - 60;
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ] - 50;
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.BOTTOM:
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.BOTTOM:
                 _styles[ DOM.CONST.STYLE.TOP ]  = _size[ DOM.CONST.STYLE.TOP ] + 60;
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ] - 50;
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_TITLE_HIVE: // TODO Repenser le placement des notifs
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_TITLE_HIVE: // TODO Repenser le placement des notifs
                 _styles[ DOM.CONST.STYLE.TOP ]  = _size[ DOM.CONST.STYLE.TOP ] + 60;
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ];
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_TITLE_LIST: // TODO Repenser le placement des notifs
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_TITLE_LIST: // TODO Repenser le placement des notifs
                 _styles[ DOM.CONST.STYLE.TOP ]  = _size[ DOM.CONST.STYLE.TOP ] + 55;
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ];
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_COPY_GRID_PAGE_JSON:
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.SPECIFIC_COPY_GRID_PAGE_JSON:
                 _styles[ DOM.CONST.STYLE.TOP ]  = _size[ DOM.CONST.STYLE.TOP ] + 35;
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ] - 20;
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_SUCCESS: // TODO Repenser le placement des notifs
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_SUCCESS: // TODO Repenser le placement des notifs
                 _styles[ DOM.CONST.STYLE.TOP ] = _size[ DOM.CONST.STYLE.TOP ] - 35;
                 if ( _styles[ DOM.CONST.STYLE.TOP ] < 0 ) {
                     _styles[ DOM.CONST.STYLE.TOP ] = _size[ DOM.CONST.STYLE.TOP ] + 35;
                 }
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ] - 25;
                 break;
-            case SHINKEN.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_FAILED:// TODO Repenser le placement des notifs
+            case GS.OBJECT.NOTIFICATION.CONST.PLACEMENT.COPY_NOTIFICATION_FAILED:// TODO Repenser le placement des notifs
                 _styles[ DOM.CONST.STYLE.TOP ] = _size[ DOM.CONST.STYLE.TOP ] - 35;
                 if ( _styles[ DOM.CONST.STYLE.TOP ] < 0 ) {
                     _styles[ DOM.CONST.STYLE.TOP ] = _size[ DOM.CONST.STYLE.TOP ] + 35;
@@ -20637,19 +19510,19 @@ SHINKEN.OBJECT.NOTIFICATION.User.prototype = {
                 _styles[ DOM.CONST.STYLE.LEFT ] = _size[ DOM.CONST.STYLE.LEFT ] + 50;
                 break;
         }
-        DOM.Service.setStyles( this.dom_element, _styles );
+        SERVICE.DOM.setStyles( this.dom_element, _styles );
     },
     createMessageDom           : function () {
-        this.dom_element = DOM.Service.createElement( "div", { class: "shinken-notification-popup" } );
+        this.dom_element = SERVICE.DOM.createElement( "div", { class: "shinken-notification-popup" } );
     },
     close                      : function () {
         clearTimeout( this.timeoutToCloseNotification );
-        DOM.Service.removeElement( this.dom_element );
+        SERVICE.DOM.removeElement( this.dom_element );
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.NOTIFICATION.User, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.OVERLAYFRAME           = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.User, GS.OBJECT.ShinkenObject );
+GS.OBJECT.OVERLAYFRAME           = {
     CONST: {
         EVENT: {
             DELTA_X          : "delta_x__overlay_frame",
@@ -20658,10 +19531,10 @@ SHINKEN.OBJECT.OVERLAYFRAME           = {
         }
     }
 };
-SHINKEN.OBJECT.OverlayFrame           = function () {
-    this.__class_name__ = "SHINKEN.OBJECT.OverlayFrame";
+GS.OBJECT.OverlayFrame           = function () {
+    this.__class_name__ = "GS.OBJECT.OverlayFrame";
 };
-SHINKEN.OBJECT.OverlayFrame.prototype = {
+GS.OBJECT.OverlayFrame.prototype = {
     init                     : function ( start_x, start_y, dom_relative_position_container ) {
         this.dom_element        = null;
         this.dom_element_parent = dom_relative_position_container;
@@ -20673,8 +19546,8 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
         this.offset_x           = 0;
         this.offset_y           = 0;
         if ( dom_relative_position_container ) {
-            this.offset_x           = DOM.Service.getBoundingClientRect( dom_relative_position_container, DOM.CONST.STYLE.LEFT );
-            this.offset_y           = DOM.Service.getBoundingClientRect( dom_relative_position_container, DOM.CONST.STYLE.TOP );
+            this.offset_x           = SERVICE.DOM.getBoundingClientRect( dom_relative_position_container, DOM.CONST.STYLE.LEFT );
+            this.offset_y           = SERVICE.DOM.getBoundingClientRect( dom_relative_position_container, DOM.CONST.STYLE.TOP );
             this.initial_scroll_top = dom_relative_position_container.scrollTop;
         }
         this.current_scroll_top = this.initial_scroll_top;
@@ -20735,8 +19608,8 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
     },
     getDelta__parseToParams  : function ( params ) {
         params                                                    = params || {};
-        params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_X ] = this.getDelta_x();
-        params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = this.getDelta_y();
+        params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_X ] = this.getDelta_x();
+        params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = this.getDelta_y();
         return params;
     },
     getDelta_x               : function () {
@@ -20752,8 +19625,8 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
         return this.end_y + this.current_scroll_top;
     },
     computeHtml              : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-selection-frame" } ) );
-        DOM.Service.setStyles( this.getDomElement(), this.getInitStyle() );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-selection-frame" } ) );
+        SERVICE.DOM.setStyles( this.getDomElement(), this.getInitStyle() );
     },
     getInitStyle             : function () {
         return {
@@ -20767,19 +19640,19 @@ SHINKEN.OBJECT.OverlayFrame.prototype = {
         if ( !this.getDomElement() ) {
             this.computeHtml();
         }
-        DOM.Service.setStyles( this.getDomElement(), this.computeFrameDisplayStyle() );
+        SERVICE.DOM.setStyles( this.getDomElement(), this.computeFrameDisplayStyle() );
     },
     updateContent            : function () {
     },
     resetZoneToRemove        : function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.OverlayFrame, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.OverlayFrameForGrid           = function ( tile_pixel_size ) {
-    this.__class_name__  = "SHINKEN.OBJECT.OverlayFrameForGrid";
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrame, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.OverlayFrameForGrid           = function ( tile_pixel_size ) {
+    this.__class_name__  = "GS.OBJECT.OverlayFrameForGrid";
     this.tile_pixel_size = tile_pixel_size;
 };
-SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
+GS.OBJECT.OverlayFrameForGrid.prototype = {
     getImpactedElement       : function ( shinken_grid_cells ) {
         let bounding_zone = this.getBoundingZone();
         return this.findCellMatchingZone( shinken_grid_cells, bounding_zone );
@@ -20787,9 +19660,9 @@ SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
     findCellMatchingZone     : function ( shinken_grid_cells, bounding_zone ) {
         let cell_in_frame        = [];
         let _has_unselected_cell = false;
-        let bottom_left_point    = new SHINKEN.OBJECT.Point( bounding_zone.left, bounding_zone.bottom, "bottom_left" );
-        let top_right_point      = new SHINKEN.OBJECT.Point( bounding_zone.right, bounding_zone.top, "top_right" );
-        let selection_square     = new SHINKEN.OBJECT.Square( bottom_left_point, top_right_point );
+        let bottom_left_point    = new GS.OBJECT.Point( bounding_zone.left, bounding_zone.bottom, "bottom_left" );
+        let top_right_point      = new GS.OBJECT.Point( bounding_zone.right, bounding_zone.top, "top_right" );
+        let selection_square     = new GS.OBJECT.Square( bottom_left_point, top_right_point );
         for ( let cell of shinken_grid_cells.contents ) {
             cell.computeSquare();
             if ( selection_square.isOverlapping( cell.square ) ) {
@@ -20819,51 +19692,51 @@ SHINKEN.OBJECT.OverlayFrameForGrid.prototype = {
         return pos_grid * this.tile_pixel_size;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.OverlayFrameForGrid, SHINKEN.OBJECT.OverlayFrame );
-SHINKEN.OBJECT.OverlayFrameZoneSelection           = function ( tile_pixel_size ) {
-    this.__class_name__  = "SHINKEN.OBJECT.OverlayFrameZoneSelection";
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrameForGrid, GS.OBJECT.OverlayFrame );
+GS.OBJECT.OverlayFrameZoneSelection           = function ( tile_pixel_size ) {
+    this.__class_name__  = "GS.OBJECT.OverlayFrameZoneSelection";
     this.tile_pixel_size = tile_pixel_size;
 };
-SHINKEN.OBJECT.OverlayFrameZoneSelection.prototype = {
+GS.OBJECT.OverlayFrameZoneSelection.prototype = {
     makeMouseUpAction: function ( shinken_grid_cells ) {
         let impacted_elements    = this.getImpactedElement( shinken_grid_cells );
         let _has_unselected_cell = false;
         for ( let i = 0, _size_i = impacted_elements.length; i < _size_i; i++ ) {
-            if ( !impacted_elements[ i ].isPhase( SHINKEN.OBJECT.CONST.PHASE.SELECTED ) ) {
+            if ( !impacted_elements[ i ].isPhase( GS.OBJECT.CONST.PHASE.SELECTED ) ) {
                 _has_unselected_cell = true;
             }
         }
         for ( let i = 0, _size_i = impacted_elements.length; i < _size_i; i++ ) {
-            let next_phase = impacted_elements[ i ].isPhase( SHINKEN.OBJECT.CONST.PHASE.SELECTED ) ? SHINKEN.OBJECT.CONST.PHASE.EDITING : SHINKEN.OBJECT.CONST.PHASE.SELECTED;
+            let next_phase = impacted_elements[ i ].isPhase( GS.OBJECT.CONST.PHASE.SELECTED ) ? GS.OBJECT.CONST.PHASE.EDITING : GS.OBJECT.CONST.PHASE.SELECTED;
             impacted_elements[ i ].setPhase( next_phase );
         }
         return impacted_elements;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.OverlayFrameZoneSelection, SHINKEN.OBJECT.OverlayFrameForGrid );
-SHINKEN.OBJECT.OverlayFrameMove           = function () {
-    this.__class_name__ = "SHINKEN.OBJECT.OverlayFrameMove";
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrameZoneSelection, GS.OBJECT.OverlayFrameForGrid );
+GS.OBJECT.OverlayFrameMove           = function () {
+    this.__class_name__ = "GS.OBJECT.OverlayFrameMove";
 };
-SHINKEN.OBJECT.OverlayFrameMove.prototype = {};
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.OverlayFrameMove, SHINKEN.OBJECT.OverlayFrame );
-SHINKEN.OBJECT.GenericResizer           = function ( type_resize, shinken_object ) {
-    this.__class_name__ = "SHINKEN.OBJECT.GenericResizer";
+GS.OBJECT.OverlayFrameMove.prototype = {};
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrameMove, GS.OBJECT.OverlayFrame );
+GS.OBJECT.GenericResizer           = function ( type_resize, shinken_object ) {
+    this.__class_name__ = "GS.OBJECT.GenericResizer";
     this.type_resize    = type_resize;
     this.shinken_object = shinken_object;
     this.dom_element    = this.shinken_object.getDomElement();
 };
-SHINKEN.OBJECT.GenericResizer.prototype = {
+GS.OBJECT.GenericResizer.prototype = {
     init          : function ( pos_x, pos_y, dom_scrollable_container ) {
         this.initial_scroll_top = 0;
         this.offset_x           = 0;
         this.offset_y           = 0;
         this.dom_element_parent = dom_scrollable_container;
         if ( dom_scrollable_container ) {
-            this.offset_x           = DOM.Service.getBoundingClientRect( dom_scrollable_container, DOM.CONST.STYLE.LEFT );
-            this.offset_y           = DOM.Service.getBoundingClientRect( dom_scrollable_container, DOM.CONST.STYLE.TOP );
+            this.offset_x           = SERVICE.DOM.getBoundingClientRect( dom_scrollable_container, DOM.CONST.STYLE.LEFT );
+            this.offset_y           = SERVICE.DOM.getBoundingClientRect( dom_scrollable_container, DOM.CONST.STYLE.TOP );
             this.initial_scroll_top = dom_scrollable_container.scrollTop;
         }
-        let rect                = DOM.Service.getBoundingClientRect( this.getDomElement() );
+        let rect                = SERVICE.DOM.getBoundingClientRect( this.getDomElement() );
         this.start_x            = this.isCursorOnLeft() ? rect.right : rect.left;
         this.start_y            = this.isCursorOnTop() ? rect.bottom : rect.top;
         this.end_x              = pos_x;
@@ -20879,17 +19752,17 @@ SHINKEN.OBJECT.GenericResizer.prototype = {
     remove        : function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.GenericResizer, SHINKEN.OBJECT.OverlayFrame );
-SHINKEN.OBJECT.GridCellResizer           = function ( type_resize, grid_cell, tile_pixel_size ) {
-    this.__class_name__  = "SHINKEN.OBJECT.GridCellResizer";
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GenericResizer, GS.OBJECT.OverlayFrame );
+GS.OBJECT.GridCellResizer           = function ( type_resize, grid_cell, tile_pixel_size ) {
+    this.__class_name__  = "GS.OBJECT.GridCellResizer";
     this.type_resize     = type_resize;
     this.shinken_object  = grid_cell;
     this.dom_element     = this.shinken_object.getDomElement();
     this.tile_pixel_size = tile_pixel_size;
 };
-SHINKEN.OBJECT.GridCellResizer.prototype = {
+GS.OBJECT.GridCellResizer.prototype = {
     updateContent             : function ( params ) {
-        params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.POSITION_IN_FRAME ] = this.getComputedPositionInTile();
+        params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.POSITION_IN_FRAME ] = this.getComputedPositionInTile();
         this.shinken_object.doActionAfter( "mouse_resize_selected_grid_cell", params );
     },
     getComputedPositionInTile : function () {
@@ -20935,14 +19808,14 @@ SHINKEN.OBJECT.GridCellResizer.prototype = {
         return this.getComputedPositionInPixel();
     },
     makeMouseUpAction         : function ( params ) {
-        params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.POSITION_IN_FRAME ] = this.getComputedPositionInTile();
+        params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.POSITION_IN_FRAME ] = this.getComputedPositionInTile();
         this.addOrRemoveDragInProgress( false );
         return this.shinken_object.applyResize( params );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.GridCellResizer, SHINKEN.OBJECT.GenericResizer );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.GridCellResizer, SHINKEN.OBJECT.OverlayFrameForGrid );
-SHINKEN.OBJECT.SPACEBOX           = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GridCellResizer, GS.OBJECT.GenericResizer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GridCellResizer, GS.OBJECT.OverlayFrameForGrid );
+GS.OBJECT.SPACEBOX           = {
     CONST: {
         TYPE : {
             CREATION: "shinken-create",
@@ -20953,18 +19826,18 @@ SHINKEN.OBJECT.SPACEBOX           = {
         }
     }
 };
-SHINKEN.OBJECT.SpaceBox           = function ( type, max_width ) {
-    this.__class_name__ = "SHINKEN.OBJECT.SpaceBox";
+GS.OBJECT.SpaceBox           = function ( type, max_width ) {
+    this.__class_name__ = "GS.OBJECT.SpaceBox";
     this.type           = type;
     this.max_width      = max_width;
 };
-SHINKEN.OBJECT.SpaceBox.prototype = {
+GS.OBJECT.SpaceBox.prototype = {
     addOrRemoveDragInProgress     : function ( add_or_remove ) {
         DOM.BodyService.addOrRemoveClasses( add_or_remove, "shinken-has-drag-in-progress-overlay-frame" );
     },
     computeHtml                   : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-space-box " + this.type } ) );
-        DOM.Service.setStyles( this.getDomElement(), this.getInitStyle() );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-space-box " + this.type } ) );
+        SERVICE.DOM.setStyles( this.getDomElement(), this.getInitStyle() );
         this.computeExtraHtml();
     },
     computeExtraHtml              : function () {
@@ -21002,16 +19875,16 @@ SHINKEN.OBJECT.SpaceBox.prototype = {
     doExtraFrameDisplayStyleAction: function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SpaceBox, SHINKEN.OBJECT.OverlayFrameForGrid );
-SHINKEN.OBJECT.SpaceBoxCreation               = function ( grid ) {
-    this.__class_name__ = "SHINKEN.OBJECT.SpaceBoxCreation";
-    this.type           = SHINKEN.OBJECT.SPACEBOX.CONST.TYPE.CREATION;
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SpaceBox, GS.OBJECT.OverlayFrameForGrid );
+GS.OBJECT.SpaceBoxCreation               = function ( grid ) {
+    this.__class_name__ = "GS.OBJECT.SpaceBoxCreation";
+    this.type           = GS.OBJECT.SPACEBOX.CONST.TYPE.CREATION;
     this.initSpecific( grid );
 };
-SHINKEN.OBJECT.SpaceBoxCreation.getCursorIcon = function () {
+GS.OBJECT.SpaceBoxCreation.getCursorIcon = function () {
     return "/static/" + __SHINKEN_HTTP_START_TIME__ + "/service_weather/img/form/icone_create_space.svg";
 };
-SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
+GS.OBJECT.SpaceBoxCreation.prototype     = {
     initSpecific                  : function ( grid ) {
         this.max_width               = grid.nb_tiles_in_width.getValue();
         this.max_height              = grid.nb_tiles_in_height.getValue();
@@ -21035,27 +19908,27 @@ SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
     },
     updateContent                 : function ( params ) {
         this.old_hover_grid_cell.forEach( grid_cell => {
-            grid_cell.setPhase( SHINKEN.OBJECT.CONST.PHASE.EDITING );
+            grid_cell.setPhase( GS.OBJECT.CONST.PHASE.EDITING );
         } );
         this.size_display_element.innerText = this.getDelta_y();
         this.old_hover_grid_cell            = this.findCellMatchingZone( params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELLS_OBJECT ], this.getBoundingZone() );
         this.old_hover_grid_cell.forEach( grid_cell => {
-            grid_cell.setPhase( SHINKEN.OBJECT.CONST.PHASE.HOVER );
+            grid_cell.setPhase( GS.OBJECT.CONST.PHASE.HOVER );
         } );
     },
     getSizeDisplayElement         : function () {
-        let to_return                       = DOM.Service.createElement( "div", { class: "shinken-size-display" }, SHINKEN.TOOLS.STRING.format( _( 'grid.mode_edition.form_visual.overlay_frame.create_space', [DICTIONARY_COMMON_UI] ), 0 ) );
+        let to_return                       = SERVICE.DOM.createElement( "div", { class: "shinken-size-display" }, GS.TOOLS.STRING.format( _( 'grid.mode_edition.form_visual.overlay_frame.create_space', [DICTIONARY_COMMON_UI] ), 0 ) );
         this.size_display_element           = to_return.querySelector( ".shinken-data-user" );
         this.size_display_element.innerText = this.getDelta_y();
         return to_return;
     },
     computeExtraHtml              : function () {
-        this.arrow_spans = [DOM.Service.createElement( "span", { class: "shinicon-arrow-down" } )];
+        this.arrow_spans = [SERVICE.DOM.createElement( "span", { class: "shinicon-arrow-down" } )];
         this.arrow_spans.push( this.arrow_spans[ 0 ].cloneNode() );
         this.addDomElement( this.arrow_spans[ 0 ] );
-        this.addDomElement( DOM.Service.createElement( "HR" ) );
+        this.addDomElement( SERVICE.DOM.createElement( "HR" ) );
         this.addDomElement( this.getSizeDisplayElement() );
-        this.addDomElement( DOM.Service.createElement( "HR" ) );
+        this.addDomElement( SERVICE.DOM.createElement( "HR" ) );
         this.addDomElement( this.arrow_spans[ 1 ] );
     },
     getImpactedElement            : function ( shinken_grid_cells ) {
@@ -21076,7 +19949,7 @@ SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
             return [];
         }
         let shinken_grid_cell_impacted                            = this.getImpactedElement( params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELLS_OBJECT ] );
-        params[ SHINKEN.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = _delta_y;
+        params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = _delta_y;
         let line_to_add_in_grid                                   = _delta_y - this.remaining_space_in_grid;
         let widget_have_move                                      = false;
         for ( let _cell of shinken_grid_cell_impacted ) {
@@ -21092,7 +19965,7 @@ SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
     },
     resetZoneToRemove             : function () {
         this.old_hover_grid_cell.forEach( grid_cell => {
-            grid_cell.setPhase( SHINKEN.OBJECT.CONST.PHASE.EDITING );
+            grid_cell.setPhase( GS.OBJECT.CONST.PHASE.EDITING );
         } );
     },
     
@@ -21107,13 +19980,13 @@ SHINKEN.OBJECT.SpaceBoxCreation.prototype     = {
         return Math.abs( _computed_end_y - _computed_start_y );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SpaceBoxCreation, SHINKEN.OBJECT.SpaceBox );
-SHINKEN.OBJECT.SpaceBoxDeletion           = function ( grid ) {
-    this.__class_name__ = "SHINKEN.OBJECT.SpaceBoxDeletion";
-    this.type           = SHINKEN.OBJECT.SPACEBOX.CONST.TYPE.DELETION;
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SpaceBoxCreation, GS.OBJECT.SpaceBox );
+GS.OBJECT.SpaceBoxDeletion           = function ( grid ) {
+    this.__class_name__ = "GS.OBJECT.SpaceBoxDeletion";
+    this.type           = GS.OBJECT.SPACEBOX.CONST.TYPE.DELETION;
     this.initSpaceBox( grid );
 };
-SHINKEN.OBJECT.SpaceBoxDeletion.prototype = {
+GS.OBJECT.SpaceBoxDeletion.prototype = {
     initSpaceBox        : function ( grid ) {
         this.max_width       = grid.nb_tiles_in_width.getValue();
         this.tile_pixel_size = grid.tile_pixel_size;
@@ -21151,7 +20024,7 @@ SHINKEN.OBJECT.SpaceBoxDeletion.prototype = {
         const to_return        = [];
         let total_line_removed = 0;
         for ( let _cell of params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELLS_OBJECT ].getContents() ) {
-            _cell.setPreviousModificationElement( { [ SHINKEN.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_LIST_KEY ]: [SHINKEN_GRID.CONST.PARAM.GRID_CELL.POSITION_Y, SHINKEN_GRID.CONST.PARAM.GRID_CELL.POSITION_X] } );
+            _cell.setPreviousModificationElement( { [ GS.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_LIST_KEY ]: [SHINKEN_GRID.CONST.PARAM.GRID_CELL.POSITION_Y, SHINKEN_GRID.CONST.PARAM.GRID_CELL.POSITION_X] } );
         }
         
         for ( let i = lines_to_remove.length - 1; i >= 0; i-- ) {
@@ -21185,7 +20058,7 @@ SHINKEN.OBJECT.SpaceBoxDeletion.prototype = {
         this.resetZoneToRemove();
         
         areas_without_cell.forEach( area => {
-            let current = DOM.Service.createElement( "div", { class: "shinken-delete-zone" } );
+            let current = SERVICE.DOM.createElement( "div", { class: "shinken-delete-zone" } );
             this.createDeleteZoneHtml( current, area );
             params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_OBJECT ].addDomElement( current );
             this.zone_to_remove.push( current );
@@ -21193,21 +20066,21 @@ SHINKEN.OBJECT.SpaceBoxDeletion.prototype = {
         this.updateSize();
     },
     createDeleteZoneHtml: function ( element, range ) {
-        this.arrow_spans                     = [DOM.Service.createElement( "span", { class: "shinicon-arrow-up shinicon-arrow-up-red" } )];
+        this.arrow_spans                     = [SERVICE.DOM.createElement( "span", { class: "shinicon-arrow-up shinicon-arrow-up-red" } )];
         this.arrow_spans[ 0 ].style.fontSize = this.parseGridToPixel_y( range.height ) <= 60 ? this.parseGridToPixel_y( range.height ) / 2 : 30;
         this.arrow_spans.push( this.arrow_spans[ 0 ].cloneNode() );
         
-        DOM.Service.addElementTo( this.arrow_spans[ 0 ], element );
-        DOM.Service.addElementTo( DOM.Service.createElement( "HR" ), element );
-        DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-size-display" }, SHINKEN.TOOLS.STRING.format( _( 'grid.mode_edition.form_visual.overlay_frame.delete_space', [DICTIONARY_COMMON_UI] ), range.height ) ), element );
-        DOM.Service.addElementTo( DOM.Service.createElement( "HR" ), element );
-        DOM.Service.addElementTo( this.arrow_spans[ 1 ], element );
-        DOM.Service.setStyles( element, { top: this.parseGridToPixel_y( range.start ), height: this.parseGridToPixel_y( range.height ) } );
+        SERVICE.DOM.addElementTo( this.arrow_spans[ 0 ], element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "HR" ), element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-size-display" }, GS.TOOLS.STRING.format( _( 'grid.mode_edition.form_visual.overlay_frame.delete_space', [DICTIONARY_COMMON_UI] ), range.height ) ), element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "HR" ), element );
+        SERVICE.DOM.addElementTo( this.arrow_spans[ 1 ], element );
+        SERVICE.DOM.setStyles( element, { top: this.parseGridToPixel_y( range.start ), height: this.parseGridToPixel_y( range.height ) } );
     },
     resetZoneToRemove   : function () {
         if ( this.zone_to_remove ) {
             this.zone_to_remove.forEach( zone => {
-                DOM.Service.removeElement( zone );
+                SERVICE.DOM.removeElement( zone );
             } );
         }
         this.zone_to_remove = [];
@@ -21217,22 +20090,22 @@ SHINKEN.OBJECT.SpaceBoxDeletion.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SpaceBoxDeletion, SHINKEN.OBJECT.SpaceBox );
-SHINKEN.OBJECT.SPACEBOX.factoryForGrid = function ( grid_object, params ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SpaceBoxDeletion, GS.OBJECT.SpaceBox );
+GS.OBJECT.SPACEBOX.factoryForGrid = function ( grid_object, params ) {
     let to_return;
     switch ( params[ SHINKEN_PAGE.CONST.EVENTS.PARAM.WIDGET_MODE__PHASE__OBJECT ].current_phase ) {
         case SHINKEN_PAGE.VISUALFORM.COLLAPSE_FOLDER.WIDGETS.RADIO_MODES.WIDGET.SPACE_CREATE:
-            to_return = new SHINKEN.OBJECT.SpaceBoxCreation( grid_object );
+            to_return = new GS.OBJECT.SpaceBoxCreation( grid_object );
             break;
         case SHINKEN_PAGE.VISUALFORM.COLLAPSE_FOLDER.WIDGETS.RADIO_MODES.WIDGET.SPACE_DELETE:
-            to_return = new SHINKEN.OBJECT.SpaceBoxDeletion( grid_object );
+            to_return = new GS.OBJECT.SpaceBoxDeletion( grid_object );
             break;
     }
     to_return.init( params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].clientX, params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].clientY, params[ "dom_relative_position_container_2024_07_18" ] );
     to_return.computeHtml();
     return to_return;
 };
-SHINKEN.OBJECT.CONST.PARAM             = {
+GS.OBJECT.CONST.PARAM             = {
     VALUE       : "value",
     CFG_VALUE   : "cfg_value",
     SOURCE_VALUE: "source_value",
@@ -21241,11 +20114,11 @@ SHINKEN.OBJECT.CONST.PARAM             = {
         PARAM_DATA    : "param_object__data"
     }
 };
-SHINKEN.OBJECT.Param                   = function ( key, value_object, parameter, default_value ) {
+GS.OBJECT.Param                   = function ( key, value_object, parameter, default_value ) {
     this.init( key, value_object, parameter, default_value );
 };
-SHINKEN.OBJECT.Param.prototype         = {
-    __class_name__            : 'SHINKEN.OBJECT.Param',
+GS.OBJECT.Param.prototype         = {
+    __class_name__            : 'GS.OBJECT.Param',
     init                      : function ( key, value_object, parameter, default_value ) {
         this.initCounterCommon();
         if ( !value_object ) {
@@ -21262,9 +20135,9 @@ SHINKEN.OBJECT.Param.prototype         = {
         if ( value_object.validation_messages ) {
             this.setMessagesSpecific( value_object.validation_messages );
         }
-        this.setValue( value_object[ SHINKEN.OBJECT.CONST.PARAM.VALUE ] );
-        if ( value_object[ SHINKEN.OBJECT.CONST.PARAM.CFG_VALUE ] !== undefined ) {
-            this.cfg_value = value_object[ SHINKEN.OBJECT.CONST.PARAM.CFG_VALUE ];
+        this.setValue( value_object[ GS.OBJECT.CONST.PARAM.VALUE ] );
+        if ( value_object[ GS.OBJECT.CONST.PARAM.CFG_VALUE ] !== undefined ) {
+            this.cfg_value = value_object[ GS.OBJECT.CONST.PARAM.CFG_VALUE ];
         }
         this.setUserValueFromInit( value_object );
         this._initial_user_value = value_object._initial_user_value !== undefined ? value_object._initial_user_value : this.getUserValue();
@@ -21274,18 +20147,18 @@ SHINKEN.OBJECT.Param.prototype         = {
             case "value__param__configured__from_form":
                 this.addParamForEvents( PROPERTY.COMMON.PARAM.COMPOSED_KEY, params[ PROPERTY.COMMON.PARAM.COMPOSED_KEY ] );
                 this.setPreviousModificationElement();
-                this.initValueObject( params[ SHINKEN.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_DATA ] );
-                params[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ].addSpecific( this.getLastModificationElement() );
+                this.initValueObject( params[ GS.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_DATA ] );
+                params[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ].addSpecific( this.getLastModificationElement() );
                 break;
             case "undo_last_modification" :
             case "redo_last_modification":
-                this.initValueObject( params[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT_ELEMENT ].getNextOrPrevious( event_name ) );
+                this.initValueObject( params[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT_ELEMENT ].getNextOrPrevious( event_name ) );
                 break;
             case "default__param__configured__from_form":
                 this.addParamForEvents( PROPERTY.COMMON.PARAM.COMPOSED_KEY, params[ PROPERTY.COMMON.PARAM.COMPOSED_KEY ] );
                 this.setPreviousModificationElement();
-                this.setValue( params[ SHINKEN.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_DATA ][ SHINKEN.OBJECT.CONST.PARAM.VALUE ] );
-                params[ SHINKEN.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ].addSpecific( this.getLastModificationElement() );
+                this.setValue( params[ GS.OBJECT.CONST.PARAM.PARAM_EVENT.PARAM_DATA ][ GS.OBJECT.CONST.PARAM.VALUE ] );
+                params[ GS.OBJECT.CONST.LAST_MODIFICATION.PARAM.OBJECT ].addSpecific( this.getLastModificationElement() );
                 break;
         }
     },
@@ -21293,19 +20166,19 @@ SHINKEN.OBJECT.Param.prototype         = {
         this.setMessages( message );
     },
     doActionAfterAddMessages  : function () {
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), this.messages.getNumberWarnings() );
-        this.setCounterValue( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.getObjectClassName(), this.messages.getNumberErrors() );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), this.messages.getNumberWarnings() );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, this.getObjectClassName(), this.messages.getNumberErrors() );
     },
     _getObjectToJson          : function ( format_data__20241115 ) {
         switch ( format_data__20241115 ) {
-            case SHINKEN.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_ONLY:
+            case GS.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_ONLY:
                 return this.getValue();
-            case SHINKEN.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_DEFAULT:
-                return { [ SHINKEN.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.getUserValue() };
-            case SHINKEN.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_DEFAULT_AND_CFG:
-                return { [ SHINKEN.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.getUserValue(), [ SHINKEN.OBJECT.CONST.PARAM.CFG_VALUE ]: this.getCfgValue() };
-            case SHINKEN.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_FORCE_DEFAULT:
-                return { [ SHINKEN.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.default_value };
+            case GS.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_DEFAULT:
+                return { [ GS.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ GS.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.getUserValue() };
+            case GS.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_DEFAULT_AND_CFG:
+                return { [ GS.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ GS.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.getUserValue(), [ GS.OBJECT.CONST.PARAM.CFG_VALUE ]: this.getCfgValue() };
+            case GS.OBJECT.JSON_EDITOR.FORMAT_DATA.VALUE_AND_FORCE_DEFAULT:
+                return { [ GS.OBJECT.CONST.PARAM.VALUE ]: this.getValue(), [ GS.OBJECT.CONST.PARAM.SOURCE_VALUE ]: this.default_value };
         }
         return this;
     },
@@ -21314,8 +20187,8 @@ SHINKEN.OBJECT.Param.prototype         = {
     },
     setUserValueFromInit      : function ( value_object ) {
         let to_set = "";
-        if ( value_object[ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ] !== undefined ) {
-            to_set = value_object[ SHINKEN.OBJECT.CONST.PARAM.SOURCE_VALUE ];
+        if ( value_object[ GS.OBJECT.CONST.PARAM.SOURCE_VALUE ] !== undefined ) {
+            to_set = value_object[ GS.OBJECT.CONST.PARAM.SOURCE_VALUE ];
         }
         else if ( value_object.user_value !== undefined ) {
             to_set = value_object.user_value;
@@ -21348,7 +20221,7 @@ SHINKEN.OBJECT.Param.prototype         = {
         return this.uuid;
     },
     clone__20250108           : function () {
-        let to_return                 = new SHINKEN.OBJECT.Param( this.key );
+        let to_return                 = new GS.OBJECT.Param( this.key );
         to_return.user_value          = this.user_value;
         to_return.value               = this.value;
         to_return._initial_user_value = this._initial_user_value;
@@ -21360,7 +20233,7 @@ SHINKEN.OBJECT.Param.prototype         = {
         let element_modified = this;
         let previous         = this.previous_modication_data;
         let next             = this.getDataForLastModification();
-        return new SHINKEN.OBJECT.LastModificationElement( SHINKEN.OBJECT.CONST.LAST_MODIFICATION.ACTION.PARAM_MODIFICATION, element_modified, previous, next );
+        return new GS.OBJECT.LastModificationElement( GS.OBJECT.CONST.LAST_MODIFICATION.ACTION.PARAM_MODIFICATION, element_modified, previous, next );
     },
     getDataToSave             : function () {
         return this.getValue();
@@ -21371,10 +20244,10 @@ SHINKEN.OBJECT.Param.prototype         = {
         return to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.CounterInterfaceValidation );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.ShinkenObjectJson );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Param, SHINKEN.OBJECT.EditableElementInterface );
-SHINKEN.OBJECT.PROGRESS_BAR_CONST    = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.CounterInterfaceValidation );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.ShinkenObjectJson );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.EditableElementInterface );
+GS.OBJECT.PROGRESS_BAR_CONST    = {
     SAVING_DEFAULT                  : {
         PREPARATION_CALL        : 1,
         CALL_IN_PROGRESS        : 2,
@@ -21389,18 +20262,18 @@ SHINKEN.OBJECT.PROGRESS_BAR_CONST    = {
         END                     : 5
     }
 };
-SHINKEN.OBJECT.Progressbar           = function ( parent, nb_steps, min_timeout, dom_element_parent ) {
-    this.__class_name__ = "SHINKEN.OBJECT.Progressbar";
+GS.OBJECT.Progressbar           = function ( parent, nb_steps, min_timeout, dom_element_parent ) {
+    this.__class_name__ = "GS.OBJECT.Progressbar";
     this._parent        = parent;
     this._nb_steps      = nb_steps;
     this._min_timeout   = min_timeout;
     this.init( dom_element_parent );
 };
-SHINKEN.OBJECT.Progressbar.prototype = {
+GS.OBJECT.Progressbar.prototype = {
     init                : function ( dom_element_parent ) {
         this.computeHtml();
         this.setDomElementParent( dom_element_parent );
-        this.initPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, this.getDomElement() );
+        this.initPhase( GS.OBJECT.CONST.PHASE.HIDDEN, this.getDomElement() );
     },
     reset               : function () {
         this._timeout_run  = null;
@@ -21411,11 +20284,11 @@ SHINKEN.OBJECT.Progressbar.prototype = {
     initSteps           : function () {
         this._steps = [];
         for ( var i = 0; i <= this._nb_steps; i++ ) {
-            this._steps.push( new SHINKEN.OBJECT.ProgressbarStep( i ) );
+            this._steps.push( new GS.OBJECT.ProgressbarStep( i ) );
         }
     },
     setMessagesDisplayed: function ( to_set ) {
-        DOM.Service.setDataSet( this.getDomElement(), 'messageDisplayed', !!to_set ? "1" : "0" );
+        SERVICE.DOM.setDataSet( this.getDomElement(), 'messageDisplayed', !!to_set ? "1" : "0" );
     },
     getCurrentStep      : function () {
         return this._steps[ this._current_step ];
@@ -21432,7 +20305,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
     setDomElementParent : function ( to_set ) {
         this.dom_element_parent = to_set;
         if ( this.getDomElement() ) {
-            DOM.Service.addElementToAfterEmpty( this.getDomElement(), this.dom_element_parent );
+            SERVICE.DOM.addElementToAfterEmpty( this.getDomElement(), this.dom_element_parent );
         }
     },
     setTitleStep        : function ( step, to_set ) {
@@ -21441,7 +20314,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
     callbackForPhase    : function () {
         var _current = this.getCurrentPhase();
         switch ( _current ) {
-            case SHINKEN.OBJECT.CONST.PHASE.HIDDEN:
+            case GS.OBJECT.CONST.PHASE.HIDDEN:
                 this.reset();
                 break;
         }
@@ -21449,7 +20322,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
     doProgress          : function ( expected_step, phase, param, message, title ) {
         if ( expected_step === 1 ) {
             this.reset();
-            this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+            this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
         }
         var _step = this._steps[ expected_step ];
         _step.setPhase( phase );
@@ -21466,7 +20339,7 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         if ( !this._steps[ this._current_step + 1 ].needToBeRun() ) {
             return;
         }
-        if ( this.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_NOK ) ) {
+        if ( this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_NOK ) ) {
             return;
         }
         this._current_step++;
@@ -21487,27 +20360,27 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         }, this._min_timeout );
     },
     computeHtml         : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-popup-progress-bar-container shinken-parent-event-listener", "data-controller": "common_ui", "data-message-displayed": "0" } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-popup-progress-bar-container shinken-parent-event-listener", "data-controller": "common_ui", "data-message-displayed": "0" } ) );
         
-        this._dom_title = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-popup-title" } ) );
+        this._dom_title = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-popup-title" } ) );
         
-        let progressBarContainer = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-progress-bar-container" } ) );
-        this._dom_progress_bar   = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-progress-bar" } ), progressBarContainer );
+        let progressBarContainer = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-progress-bar-container" } ) );
+        this._dom_progress_bar   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-progress-bar" } ), progressBarContainer );
         
-        let collapseButtonContainer = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-collapse-button-container" } ) );
-        let buttonContainer         = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-progress-bar-button-container" } ), collapseButtonContainer );
+        let collapseButtonContainer = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-collapse-button-container" } ) );
+        let buttonContainer         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-progress-bar-button-container" } ), collapseButtonContainer );
         let button                  = new COMPONENT.ButtonFromData_V3( "toggle_display_popup_progress_bar_message", _( "progress_bar.toggle_display_message_label", [DICTIONARY_COMMON_UI] ) );
         button.addClass( "shinken-popup-message-detail-collapse" );
         button.computeHtml();
-        DOM.Service.addElementTo( button.getDomElement(), buttonContainer );
+        SERVICE.DOM.addElementTo( button.getDomElement(), buttonContainer );
         
-        let popupClose           = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-popup-close" } ) );
-        let closeButtonContainer = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-button-container" } ), popupClose );
-        let closeButton          = new COMPONENT.ButtonFromData_V3( "close_popup_progress_bar", DOM.Service.createElement( "span", { class: "shinkon shinkon-times" } ).outerHTML );
+        let popupClose           = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-popup-close" } ) );
+        let closeButtonContainer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-button-container" } ), popupClose );
+        let closeButton          = new COMPONENT.ButtonFromData_V3( "close_popup_progress_bar", SERVICE.DOM.createElement( "span", { class: "shinkon shinkon-times" } ).outerHTML );
         closeButton.computeHtml();
-        DOM.Service.addElementTo( closeButton.getDomElement(), closeButtonContainer );
+        SERVICE.DOM.addElementTo( closeButton.getDomElement(), closeButtonContainer );
         
-        this._dom_message = this.addDomElement( DOM.Service.createElement( "div", { class: "shinken-progress-bar-message" } ) );
+        this._dom_message = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-progress-bar-message" } ) );
     },
     _updateHtml         : function ( current_step ) {
         if ( current_step.getPhase() ) {
@@ -21522,16 +20395,16 @@ SHINKEN.OBJECT.Progressbar.prototype = {
         this._updateBarHtml();
     },
     _updateBarHtml      : function () {
-        DOM.Service.setStyle( this._dom_progress_bar, DOM.CONST.STYLE.WIDTH, (this._current_step / this._nb_steps * 100) + "%" );
-        DOM.Service.setDataSet( this.getDomElement(), "isComplete", (this._current_step === this._nb_steps) ? "1" : "0" );
+        SERVICE.DOM.setStyle( this._dom_progress_bar, DOM.CONST.STYLE.WIDTH, (this._current_step / this._nb_steps * 100) + "%" );
+        SERVICE.DOM.setDataSet( this.getDomElement(), "isComplete", (this._current_step === this._nb_steps) ? "1" : "0" );
     },
     updateTitleHtml     : function ( to_set ) {
         this._dom_title.innerHTML = to_set;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Progressbar, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Progressbar, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.ProgressbarStep                = function ( index ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Progressbar, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Progressbar, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.ProgressbarStep                = function ( index ) {
     this._index        = index;
     this._phase        = null;
     this._title        = null;
@@ -21539,7 +20412,7 @@ SHINKEN.OBJECT.ProgressbarStep                = function ( index ) {
     this._param        = null;
     this._run_expected = false;
 };
-SHINKEN.OBJECT.ProgressbarStep.prototype      = {
+GS.OBJECT.ProgressbarStep.prototype      = {
     setPhase   : function ( to_set ) {
         if ( to_set !== undefined ) {
             this._phase = to_set;
@@ -21582,9 +20455,9 @@ SHINKEN.OBJECT.ProgressbarStep.prototype      = {
         return this._phase === to_test;
     }
 };
-SHINKEN.OBJECT.ProgressbarInterface           = function () {
+GS.OBJECT.ProgressbarInterface           = function () {
 };
-SHINKEN.OBJECT.ProgressbarInterface.prototype = {
+GS.OBJECT.ProgressbarInterface.prototype = {
     doActionWhenProgressStart        : function ( current_step, param, progress_bar_object ) {
         if ( current_step === progress_bar_object._nb_steps ) {
             this.doActionWhenProgressionIsComplete( progress_bar_object );
@@ -21592,7 +20465,7 @@ SHINKEN.OBJECT.ProgressbarInterface.prototype = {
         this._doActionWhenProgressStart( current_step, param );
     },
     doActionWhenProgressEnd          : function ( current_step, param, progress_bar_object ) {
-        if ( (current_step === progress_bar_object._nb_steps - 1) && progress_bar_object.getCurrentStep().isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_OK ) ) {
+        if ( (current_step === progress_bar_object._nb_steps - 1) && progress_bar_object.getCurrentStep().isPhase( GS.OBJECT.CONST.PHASE.RUNNING_OK ) ) {
             progress_bar_object.doProgress( progress_bar_object._nb_steps );
         }
         this._doActionWhenProgressEnd( current_step, param );
@@ -21602,15 +20475,15 @@ SHINKEN.OBJECT.ProgressbarInterface.prototype = {
     _doActionWhenProgressEnd         : function ( current_step, param ) {
     },
     doActionWhenProgressionIsComplete: function ( progress_bar_object ) {
-        if ( progress_bar_object.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_OK ) ) {
-            progress_bar_object.setPhaseWithTimeOut( SHINKEN.OBJECT.CONST.PHASE.HIDDEN, 2000 );
+        if ( progress_bar_object.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_OK ) ) {
+            progress_bar_object.setPhaseWithTimeOut( GS.OBJECT.CONST.PHASE.HIDDEN, 2000 );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ProgressbarInterface, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.OBJECT.Resource                 = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ProgressbarInterface, GS.OBJECT.ShinkenObject );
+GS.OBJECT.Resource                 = function () {
 };
-SHINKEN.OBJECT.Resource.prototype       = {
+GS.OBJECT.Resource.prototype       = {
     reset     : function () {
         this.content = null;
     },
@@ -21662,10 +20535,10 @@ SHINKEN.OBJECT.Resource.prototype       = {
         }
     }
 };
-SHINKEN.CARTO.ShinkenCarto              = function ( data ) {
+GS.CARTO.ShinkenCarto              = function ( data ) {
     this.init( data );
 };
-SHINKEN.CARTO.ShinkenCarto.prototype    = {
+GS.CARTO.ShinkenCarto.prototype    = {
     init           : function ( data ) {
         if ( data ) {
             this.updateData( data );
@@ -21683,39 +20556,39 @@ SHINKEN.CARTO.ShinkenCarto.prototype    = {
     },
     setData        : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.CARTO.CONST.NAME:
-            case SHINKEN.CARTO.CONST.URL:
+            case GS.CARTO.CONST.NAME:
+            case GS.CARTO.CONST.URL:
                 this[ key ] = value;
                 break;
         }
     },
     setIsValid     : function () {
-        if ( SHINKEN.TOOLS.STRING.containsIgnoreCase( this[ SHINKEN.CARTO.CONST.URL ], SHINKEN.NETWORK.ADRESSES.LOCALHOST )
-             || SHINKEN.TOOLS.STRING.containsIgnoreCase( this[ SHINKEN.CARTO.CONST.URL ], SHINKEN.NETWORK.ADRESSES._127_0_0_1 )
+        if ( GS.TOOLS.STRING.containsIgnoreCase( this[ GS.CARTO.CONST.URL ], GS.NETWORK.ADRESSES.LOCALHOST )
+             || GS.TOOLS.STRING.containsIgnoreCase( this[ GS.CARTO.CONST.URL ], GS.NETWORK.ADRESSES._127_0_0_1 )
         ) {
-            this[ SHINKEN.CARTO.CONST.IS_VALID ] = false;
+            this[ GS.CARTO.CONST.IS_VALID ] = false;
         }
         else {
-            this[ SHINKEN.CARTO.CONST.IS_VALID ] = true;
+            this[ GS.CARTO.CONST.IS_VALID ] = true;
         }
     },
     hasLocalHostUrl: function () {
-        return SHINKEN.TOOLS.STRING.startsWith( this.url, "http://localhost" );
+        return GS.TOOLS.STRING.startsWith( this.url, "http://localhost" );
     },
     computeHtml    : function () {
         var _css_selector = this.hasLocalHostUrl() ? "#shinken-architecture-template .shinken-template-architecture-cartos-start-with-localhost" : "#shinken-architecture-template .shinken-template-architecture-cartos";
         var _template     = document.querySelector( _css_selector ).outerHTML;
-        _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_name_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.name ) );
-        _template         = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_cartos_url_$$$", SHINKEN.TOOLS.STRING.cleanXss( this.url ) );
-        var _temp         = DOM.Service.createElement( "div", {}, _template );
+        _template         = GS.TOOLS.STRING.replaceAll( _template, "$$$_cartos_name_$$$", GS.TOOLS.STRING.cleanXss( this.name ) );
+        _template         = GS.TOOLS.STRING.replaceAll( _template, "$$$_cartos_url_$$$", GS.TOOLS.STRING.cleanXss( this.url ) );
+        var _temp         = SERVICE.DOM.createElement( "div", {}, _template );
         this.dom_element  = _temp.firstChild;
         
     }
 };
-SHINKEN.OBJECT.ShinkenElement           = function () {
+GS.OBJECT.ShinkenElement           = function () {
     this.sla_value_status = OBJECT.CONST.ELEMENT.SLA.STATUS.UNKNOWN;
 };
-SHINKEN.OBJECT.ShinkenElement.prototype = {
+GS.OBJECT.ShinkenElement.prototype = {
     init                              : function ( data ) {
         this.updateData( data );
     },
@@ -21783,26 +20656,26 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
         return true;
     },
     setContext                        : function ( to_set ) {
-        this.previous_context = this.previous_context || new SHINKEN.Status();
+        this.previous_context = this.previous_context || new GS.Status();
         if ( this.context ) {
             this.previous_context.setCode( this.context.getCode() );
         }
         if ( this.context && this.context.isByCode( to_set ) ) {
             return false;
         }
-        this.context = this.context || new SHINKEN.Status();
+        this.context = this.context || new GS.Status();
         this.context.setCode( to_set );
         return true;
     },
     setStatus                         : function ( to_set ) {
-        this.previous_status = this.previous_status || new SHINKEN.Status();
+        this.previous_status = this.previous_status || new GS.Status();
         if ( this.status ) {
             this.previous_status.setCode( this.status.getCode() );
         }
         if ( this.status && this.status.isByCode( to_set ) ) {
             return false;
         }
-        this.status = this.status || new SHINKEN.Status();
+        this.status = this.status || new GS.Status();
         this.status.setCode( to_set );
         return true;
     },
@@ -21848,13 +20721,13 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
     },
     getSlaQuality                     : function () {
         if ( this[ OBJECT.CONST.ELEMENT.FIELD_UI.IS_NOT_AUTHORIZED_FOR_USER ] ) {
-            this.sla_quality = new SHINKEN.SlaQuality();
+            this.sla_quality = new GS.SlaQuality();
         }
         else if ( typeof this.sla_value === "undefined" || typeof this.status === 'undefined' ) {
-            this.sla_quality = new SHINKEN.SlaQuality();
+            this.sla_quality = new GS.SlaQuality();
         }
         else if ( !this.sla_quality ) {
-            this.sla_quality = new SHINKEN.SlaQuality( this.status.getCode(), this.getSlaValueStatus() );
+            this.sla_quality = new GS.SlaQuality( this.status.getCode(), this.getSlaValueStatus() );
         }
         return this.sla_quality;
     },
@@ -21942,23 +20815,23 @@ SHINKEN.OBJECT.ShinkenElement.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenElement, SHINKEN.OBJECT.ShinkenObjectJson );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ShinkenElement, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.Refresh           = function ( countdown, parent, do_once ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.ShinkenObjectJson );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.PhaseInterface );
+GS.OBJECT.Refresh           = function ( countdown, parent, do_once ) {
     this.parent_object     = parent;
     this.countdown         = countdown || 60000;
     this.countdown_tic     = 1000;
     this.current_countdown = this.countdown;
     this.do_once           = do_once || true;
     this.ui_components     = [];
-    this.phase             = new SHINKEN.OBJECT.Phase( this );
+    this.phase             = new GS.OBJECT.Phase( this );
     this.interval_tic_tac  = null;
 };
-SHINKEN.OBJECT.Refresh.CONST     = {
+GS.OBJECT.Refresh.CONST     = {
     UPDATE_AT: "UpdateAt",
     CLOCK    : "Clock"
 };
-SHINKEN.OBJECT.Refresh.prototype = {
+GS.OBJECT.Refresh.prototype = {
     addUiComponent       : function ( to_add ) {
         this.ui_components.push( to_add );
     },
@@ -21991,7 +20864,7 @@ SHINKEN.OBJECT.Refresh.prototype = {
         }
     },
     updateCountdown      : function () {
-        if ( this.phase.isPhase( SHINKEN.OBJECT.CONST.PHASE.STUCK ) ) {
+        if ( this.phase.isPhase( GS.OBJECT.CONST.PHASE.STUCK ) ) {
             return;
         }
         this.current_countdown -= this.countdown_tic;
@@ -22010,12 +20883,12 @@ SHINKEN.OBJECT.Refresh.prototype = {
         this.updateCountdown();
         if ( this.current_countdown <= 0 ) {
             switch ( _phase_value ) {
-                case SHINKEN.OBJECT.CONST.PHASE.RUNNING:
-                    this.setPhase( SHINKEN.OBJECT.CONST.PHASE.REFRESHING );
+                case GS.OBJECT.CONST.PHASE.RUNNING:
+                    this.setPhase( GS.OBJECT.CONST.PHASE.REFRESHING );
                     break;
-                case SHINKEN.OBJECT.CONST.PHASE.HIDDEN:
-                    if ( !SHINKEN.NAVIGATOR.isNavigatorHidden() ) {
-                        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.REFRESHING );
+                case GS.OBJECT.CONST.PHASE.HIDDEN:
+                    if ( !GS.NAVIGATOR.isNavigatorHidden() ) {
+                        this.setPhase( GS.OBJECT.CONST.PHASE.REFRESHING );
                     }
                     break;
             }
@@ -22024,18 +20897,18 @@ SHINKEN.OBJECT.Refresh.prototype = {
     callbackForPhase     : function () {
         this.askParentPhaseUpdated();
         switch ( this.phase.current_phase ) {
-            case SHINKEN.OBJECT.CONST.PHASE.RUNNING :
+            case GS.OBJECT.CONST.PHASE.RUNNING :
                 var _self = this;
-                if ( this.phase.previous_phase !== SHINKEN.OBJECT.CONST.PHASE.STOPPING ) {
+                if ( this.phase.previous_phase !== GS.OBJECT.CONST.PHASE.STOPPING ) {
                     this.reset();
                 }
                 this.interval_tic_tac = setInterval( function () {
                     _self.tictac();
                 }, this.countdown_tic );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.REFRESHING :
-                if ( SHINKEN.NAVIGATOR.isNavigatorHidden() ) {
-                    this.phase.setPhase( SHINKEN.OBJECT.CONST.PHASE.HIDDEN );
+            case GS.OBJECT.CONST.PHASE.REFRESHING :
+                if ( GS.NAVIGATOR.isNavigatorHidden() ) {
+                    this.phase.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN );
                 }
                 else {
                     clearInterval( this.interval_tic_tac );
@@ -22044,21 +20917,21 @@ SHINKEN.OBJECT.Refresh.prototype = {
                     }
                 }
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.STOPPING :
+            case GS.OBJECT.CONST.PHASE.STOPPING :
                 clearInterval( this.interval_tic_tac );
                 break;
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Refresh, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.ClockComponent           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Refresh, GS.OBJECT.PhaseInterface );
+GS.TOOLS.ClockComponent           = function () {
     this.init();
 };
-SHINKEN.TOOLS.ClockComponent.prototype = {
+GS.TOOLS.ClockComponent.prototype = {
     
     init    : function () {
         this.color = '#5C5C5C';
-        this.name  = SHINKEN.OBJECT.Refresh.CONST.CLOCK;
+        this.name  = GS.OBJECT.Refresh.CONST.CLOCK;
     },
     setColor: function ( color ) {
         this.color = color;
@@ -22070,8 +20943,8 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
         return this.dom_element;
     },
     computeHtml             : function () {
-        this.dom_element                             = DOM.Service.createElement( "div", { class: "shinken-container-clock" } );
-        this.dom_element_container_clock_2           = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-container-clock-2 shinken-centered-icon-container" } ), this.dom_element );
+        this.dom_element                             = SERVICE.DOM.createElement( "div", { class: "shinken-container-clock" } );
+        this.dom_element_container_clock_2           = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-container-clock-2 shinken-centered-icon-container" } ), this.dom_element );
         this.dom_element_container_clock_2.innerHTML = "<svg width='100%' height='100%' class='shinken-clock shinken-clock-refresh' viewbox='0 0 121 121'>" +
                                                        "<circle cx='60' cy='60' r='59' stroke='#5C5C5C' stroke-width='2' fill='none' />" +
                                                        "<path id='id-shinken-clock-path' fill='#5C5C5C' transform='translate(60,60)'></path>" +
@@ -22079,10 +20952,10 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
         this.dom_element_path                        = this.dom_element_container_clock_2.querySelector( "#id-shinken-clock-path" );
     },
     set_refreshing_content  : function () {
-        DOM.Service.addClasses( this.dom_element_container_clock_2, 'shinken-clock-refreshing' );
+        SERVICE.DOM.addClasses( this.dom_element_container_clock_2, 'shinken-clock-refreshing' );
     },
     unset_refreshing_content: function () {
-        DOM.Service.removeClasses( this.dom_element_container_clock_2, 'shinken-clock-refreshing' );
+        SERVICE.DOM.removeClasses( this.dom_element_container_clock_2, 'shinken-clock-refreshing' );
     },
     updateHtml              : function ( parent_object ) {
         this.dom_element_path.setAttribute( "d", this.computePathAttribute( parent_object.percent_computed ) );
@@ -22111,11 +20984,11 @@ SHINKEN.TOOLS.ClockComponent.prototype = {
         this.set_refreshing_content();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.TOOLS.ClockComponent, SHINKEN.TOOLS.InterfaceRefreshComponent );
-SHINKEN.TOOLS.UpdateAtComponent           = function () {
-    this.name = SHINKEN.OBJECT.Refresh.CONST.UPDATE_AT;
+GS.TOOLS.CLASS.addPrototype( GS.TOOLS.ClockComponent, GS.TOOLS.InterfaceRefreshComponent );
+GS.TOOLS.UpdateAtComponent           = function () {
+    this.name = GS.OBJECT.Refresh.CONST.UPDATE_AT;
 };
-SHINKEN.TOOLS.UpdateAtComponent.prototype = {
+GS.TOOLS.UpdateAtComponent.prototype = {
     getName           : function () {
         return this.name;
     },
@@ -22131,19 +21004,19 @@ SHINKEN.TOOLS.UpdateAtComponent.prototype = {
         return this.dom_element;
     },
     computeHtml: function () {
-        this.dom_element = DOM.Service.createElement( "div", { class: "shinken-container-update-at shinken-hidden-if-draft-phase" } );
-        let div          = DOM.Service.createElement( "div", { class: "shinken-generate-at" }, _( 'info_bar.refresh_component.component_update_at.generate' ) );
-        DOM.Service.addElementTo( DOM.Service.createElement( "span", { class: "shinken-time-label" }, this.time_label ), div );
-        DOM.Service.addElementTo( div, this.dom_element );
+        this.dom_element = SERVICE.DOM.createElement( "div", { class: "shinken-container-update-at shinken-hidden-if-draft-phase" } );
+        let div          = SERVICE.DOM.createElement( "div", { class: "shinken-generate-at" }, _( 'info_bar.refresh_component.component_update_at.generate' ) );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "shinken-time-label" }, this.time_label ), div );
+        SERVICE.DOM.addElementTo( div, this.dom_element );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.TOOLS.UpdateAtComponent, SHINKEN.TOOLS.InterfaceRefreshComponent );
-SHINKEN.SERVER.ShinkenServer                    = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.TOOLS.UpdateAtComponent, GS.TOOLS.InterfaceRefreshComponent );
+GS.SERVER.ShinkenServer                    = function ( data ) {
     this.init( data );
 };
-SHINKEN.SERVER.ShinkenServer.prototype          = {
+GS.SERVER.ShinkenServer.prototype          = {
     init          : function ( data ) {
-        this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ] = [];
+        this[ GS.SERVER.CONST.LIST_SHINKEN_CARTO ] = [];
         if ( data ) {
             this.updateData( data );
         }
@@ -22159,41 +21032,41 @@ SHINKEN.SERVER.ShinkenServer.prototype          = {
     },
     setData       : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.SERVER.CONST.NAME:
+            case GS.SERVER.CONST.NAME:
                 this.setName( value );
                 break;
             
-            case SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO:
+            case GS.SERVER.CONST.LIST_SHINKEN_CARTO:
                 this.addCartoToList( value );
                 break;
         }
     },
     setName       : function ( to_set ) {
-        this[ SHINKEN.SERVER.CONST.NAME ] = to_set;
+        this[ GS.SERVER.CONST.NAME ] = to_set;
     },
     addCartoToList: function ( data ) {
         var _size = data.length;
         for ( var i = 0; i < _size; i++ ) {
-            this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ].push( new SHINKEN.CARTO.ShinkenCarto( data[ i ] ) );
+            this[ GS.SERVER.CONST.LIST_SHINKEN_CARTO ].push( new GS.CARTO.ShinkenCarto( data[ i ] ) );
         }
     },
     computeHtml   : function () {
         var _template         = document.querySelector( '#shinken-architecture-template .shinken-template-architecture-map' ).outerHTML;
-        _template             = SHINKEN.TOOLS.STRING.replaceAll( _template, "$$$_architecture_name_$$$", this.name );
-        var _temp             = DOM.Service.createElement( "ul", {}, _template );
+        _template             = GS.TOOLS.STRING.replaceAll( _template, "$$$_architecture_name_$$$", this.name );
+        var _temp             = SERVICE.DOM.createElement( "ul", {}, _template );
         this.dom_element      = _temp.firstChild;
         var _container_for_li = this.dom_element.querySelector( "ul.shinken-container" );
-        for ( var i = 0, _size_i = this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ].length; i < _size_i; i++ ) {
-            this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ][ i ].computeHtml();
-            DOM.Service.addElementTo( this[ SHINKEN.SERVER.CONST.LIST_SHINKEN_CARTO ][ i ].dom_element, _container_for_li );
+        for ( var i = 0, _size_i = this[ GS.SERVER.CONST.LIST_SHINKEN_CARTO ].length; i < _size_i; i++ ) {
+            this[ GS.SERVER.CONST.LIST_SHINKEN_CARTO ][ i ].computeHtml();
+            SERVICE.DOM.addElementTo( this[ GS.SERVER.CONST.LIST_SHINKEN_CARTO ][ i ].dom_element, _container_for_li );
         }
         
     }
 };
-SHINKEN.SERVER.ShinkenServers                   = function ( data ) {
+GS.SERVER.ShinkenServers                   = function ( data ) {
     this.init( data );
 };
-SHINKEN.SERVER.ShinkenServers.prototype         = {
+GS.SERVER.ShinkenServers.prototype         = {
     init       : function ( data ) {
         this.size              = 0;
         this.list              = [];
@@ -22205,7 +21078,7 @@ SHINKEN.SERVER.ShinkenServers.prototype         = {
     },
     updateData : function ( datas ) {
         this.size         = datas.length;
-        var _current_hash = SHINKEN.TOOLS.STRING.hashCode( JSON.stringify( datas ) );
+        var _current_hash = GS.TOOLS.STRING.hashCode( JSON.stringify( datas ) );
         if ( this.hash === _current_hash ) {
             return;
         }
@@ -22213,7 +21086,7 @@ SHINKEN.SERVER.ShinkenServers.prototype         = {
         this.hash              = _current_hash;
         this.need_compute_html = true;
         for ( var i = 0; i < this.size; i++ ) {
-            this.list.push( new SHINKEN.SERVER.ShinkenServer( datas[ i ] ) );
+            this.list.push( new GS.SERVER.ShinkenServer( datas[ i ] ) );
         }
     },
     hasServers : function () {
@@ -22228,7 +21101,7 @@ SHINKEN.SERVER.ShinkenServers.prototype         = {
         }
     }
 };
-SHINKEN.SlaQualityService                       = (function ( self ) {
+GS.SlaQualityService                       = (function ( self ) {
     "use strict";
     self.templates            = {};
     self.getTemplateInnerHtml = function ( sla_quality ) {
@@ -22247,37 +21120,37 @@ SHINKEN.SlaQualityService                       = (function ( self ) {
     };
     
     return self;
-})( SHINKEN.StatusService || {} );
-SHINKEN.SlaQuality                              = function ( status_code, sla_status_code ) {
+})( GS.StatusService || {} );
+GS.SlaQuality                              = function ( status_code, sla_status_code ) {
     this.init( status_code, sla_status_code );
 };
-SHINKEN.SlaQuality.prototype                    = {
+GS.SlaQuality.prototype                    = {
     init                   : function ( status_code, sla_status_code ) {
         this.status_code     = status_code;
         this.sla_status_code = sla_status_code;
         if ( typeof this.status_code === "undefined" && typeof this.sla_status_code === "undefined" ) {
-            this.name = SHINKEN.SLA_QUALITY.LOCK;
+            this.name = GS.SLA_QUALITY.LOCK;
         }
         else {
-            this.name = SHINKEN.SLA_QUALITY.MAPPING[ sla_status_code ][ status_code ];
+            this.name = GS.SLA_QUALITY.MAPPING[ sla_status_code ][ status_code ];
         }
     },
     getPath                : function () {
         return "img/sla_quality/" + this.name + ".svg";
     },
     getInnerHtmlViaTemplate: function () {
-        if ( this.name === SHINKEN.SLA_QUALITY.LOCK ) {
+        if ( this.name === GS.SLA_QUALITY.LOCK ) {
             return '<div class="shinken-user-no-right-to-see"><span class="shinkon shinkon-lock"\n' +
                    ' onmouseenter="SHINKEN_TOOLTIP.showTooltip(this)"\n' +
                    ' onmouseleave="SHINKEN_TOOLTIP.hideTooltip()"\n' +
                    ' shi-tip-html="' + _( "widget.weather.shinken_element_user_no_right" ) + '"></span></div>';
         }
         else {
-            return SHINKEN.SlaQualityService.getTemplateInnerHtml( this );
+            return GS.SlaQualityService.getTemplateInnerHtml( this );
         }
     }
 };
-SHINKEN.SLA_QUALITY                             = {
+GS.SLA_QUALITY                             = {
     MAPPING: [
         ["sun", "cloud_sunny", "cloud", "sun"],
         ["sun_cloudy", "dark_cloud", "storm", "cloud"],
@@ -22285,7 +21158,7 @@ SHINKEN.SLA_QUALITY                             = {
     ],
     LOCK   : "lock"
 };
-SHINKEN.SLA_TENDENCY                            = {
+GS.SLA_TENDENCY                            = {
     ARROW_UP_OK            : "arrow-up-ok",
     ARROW_UP_45_OK         : "arrow-up-45-ok",
     ARROW_STAGNANT_OK      : "arrow-stagnant-ok",
@@ -22294,12 +21167,12 @@ SHINKEN.SLA_TENDENCY                            = {
     ARROW_DOWN_CRITICAL    : "arrow-down-critical",
     NO_DATA                : "no-data"
 };
-SHINKEN.OBJECT.SlidePanelLeftFromHtml           = function ( name, dom_element ) {
-    this.setType( SHINKEN.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT );
+GS.OBJECT.SlidePanelLeftFromHtml           = function ( name, dom_element ) {
+    this.setType( GS.OBJECT.SLIDE_PANEL.TYPE.HORIZONTAL_LEFT );
     this.initSpecific( name, dom_element );
 };
-SHINKEN.OBJECT.SlidePanelLeftFromHtml.prototype = {
-    setType               : SHINKEN.OBJECT.SlidePanel.prototype.setType,
+GS.OBJECT.SlidePanelLeftFromHtml.prototype = {
+    setType               : GS.OBJECT.SlidePanel.prototype.setType,
     initSpecific          : function ( name, dom_element ) {
         this.initPhase();
         this.setName( name );
@@ -22314,13 +21187,13 @@ SHINKEN.OBJECT.SlidePanelLeftFromHtml.prototype = {
         return CONTROLLER.Apply;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.SlidePanelLeftFromHtml, SHINKEN.OBJECT.SlidePanel );
-SHINKEN.OBJECT.Squares           = function () {
-    this.__class_name__ = 'SHINKEN.OBJECT.Squares';
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanelLeftFromHtml, GS.OBJECT.SlidePanel );
+GS.OBJECT.Squares           = function () {
+    this.__class_name__ = 'GS.OBJECT.Squares';
     this.init();
     
 };
-SHINKEN.OBJECT.Squares.prototype = {
+GS.OBJECT.Squares.prototype = {
     init               : function () {
         this.initContents();
     },
@@ -22348,8 +21221,8 @@ SHINKEN.OBJECT.Squares.prototype = {
         return false;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Squares, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.Point           = function ( x, y, type, max_x, max_y ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Squares, GS.OBJECT.ShinkenObjectContainer );
+GS.OBJECT.Point           = function ( x, y, type, max_x, max_y ) {
     this.x_original   = x;
     this.y_original   = y;
     this.x            = x;
@@ -22359,9 +21232,9 @@ SHINKEN.OBJECT.Point           = function ( x, y, type, max_x, max_y ) {
     this.max_x        = max_x;
     this.max_y        = max_y;
 };
-SHINKEN.OBJECT.Point.prototype = {
+GS.OBJECT.Point.prototype = {
     computeHtml   : function () {
-        this.setDomElement( DOM.Service.createElement( "div", { class: "shinken-point", "data-type": this.type, "data-display-type": this.display_type }, this.getInnerHtml() ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "shinken-point", "data-type": this.type, "data-display-type": this.display_type }, this.getInnerHtml() ) );
     },
     getInnerHtml  : function () {
         switch ( this.display_type ) {
@@ -22389,16 +21262,16 @@ SHINKEN.OBJECT.Point.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Point, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.OBJECT.Square           = function ( bottom_left_point, top_right_point, uuid, max_width ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Point, GS.OBJECT.ShinkenObjectHtml );
+GS.OBJECT.Square           = function ( bottom_left_point, top_right_point, uuid, max_width ) {
     this.top_right_point   = top_right_point;
     this.bottom_left_point = bottom_left_point;
     this.max_width         = max_width;
-    this.uuid              = uuid || SHINKEN.TOOLS.STRING.buildUUID();
+    this.uuid              = uuid || GS.TOOLS.STRING.buildUUID();
     this.point_to_display  = [];
     this.init();
 };
-SHINKEN.OBJECT.Square.prototype = {
+GS.OBJECT.Square.prototype = {
     init              : function () {
         this.addClass( "shinken-square" );
     },
@@ -22429,7 +21302,7 @@ SHINKEN.OBJECT.Square.prototype = {
         for ( var i = 0, _size_i = this.point_to_display.length; i < _size_i; i++ ) {
             this.point_to_display[ i ].reset_original();
         }
-        DOM.Service.removeElement( this.getDomElement() );
+        SERVICE.DOM.removeElement( this.getDomElement() );
     },
     addDelta          : function ( delta_x, delta_y ) {
         this.top_right_point.addDelta( delta_x, delta_y );
@@ -22442,19 +21315,19 @@ SHINKEN.OBJECT.Square.prototype = {
         if ( this.getDomElement() ) {
             return false;
         }
-        this.setDomElement( DOM.Service.createElement( "div", { class: this.getClass() } ) );
-        var div = this.addDomElement( DOM.Service.createElement( "div", { class: 'shinken-relative-div' } ) );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: this.getClass() } ) );
+        var div = this.addDomElement( SERVICE.DOM.createElement( "div", { class: 'shinken-relative-div' } ) );
         
         for ( var i = 0, _size_i = this.point_to_display.length; i < _size_i; i++ ) {
             this.point_to_display[ i ].computeHtml();
-            DOM.Service.addElementTo( this.point_to_display[ i ].getDomElement(), div );
+            SERVICE.DOM.addElementTo( this.point_to_display[ i ].getDomElement(), div );
         }
         return true;
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Square, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.StatusService               = (function ( self ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Square, GS.OBJECT.ShinkenObjectHtml );
+GS.StatusService               = (function ( self ) {
     "use strict";
     
     self.buildPaths     = function ( status, context ) {
@@ -22462,10 +21335,10 @@ SHINKEN.StatusService               = (function ( self ) {
             path      : null,
             path_extra: null
         };
-        if ( context.is( SHINKEN.STATUS.DISABLED ) ) {
+        if ( context.is( GS.STATUS.DISABLED ) ) {
             _to_return.path = context.getPath();
         }
-        else if ( !context.is( SHINKEN.STATUS.NOTHING ) ) {
+        else if ( !context.is( GS.STATUS.NOTHING ) ) {
             _to_return.path       = context.getPath();
             _to_return.path_extra = status.getPath();
         }
@@ -22483,16 +21356,16 @@ SHINKEN.StatusService               = (function ( self ) {
     self.parseToPartial = function ( code ) {
         var _to_return;
         switch ( code ) {
-            case  SHINKEN.STATUS.ACKNOWLEDGED.CODE:
-            case  SHINKEN.STATUS.INHERITED_ACKNOWLEDGED.CODE:
-                _to_return = SHINKEN.STATUS.PARTIAL_ACKNOWLEDGED.CODE;
+            case  GS.STATUS.ACKNOWLEDGED.CODE:
+            case  GS.STATUS.INHERITED_ACKNOWLEDGED.CODE:
+                _to_return = GS.STATUS.PARTIAL_ACKNOWLEDGED.CODE;
                 break;
-            case SHINKEN.STATUS.DOWNTIME.CODE:
-            case SHINKEN.STATUS.INHERITED_DOWNTIME.CODE:
-                _to_return = SHINKEN.STATUS.PARTIAL_DOWNTIME.CODE;
+            case GS.STATUS.DOWNTIME.CODE:
+            case GS.STATUS.INHERITED_DOWNTIME.CODE:
+                _to_return = GS.STATUS.PARTIAL_DOWNTIME.CODE;
                 break;
-            case SHINKEN.STATUS.FLAPPING.CODE:
-                _to_return = SHINKEN.STATUS.PARTIAL_FLAPPING.CODE;
+            case GS.STATUS.FLAPPING.CODE:
+                _to_return = GS.STATUS.PARTIAL_FLAPPING.CODE;
                 break;
             default:
                 _to_return = code;
@@ -22502,9 +21375,9 @@ SHINKEN.StatusService               = (function ( self ) {
     };
     self.isPartial      = function ( code ) {
         switch ( code ) {
-            case SHINKEN.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
-            case SHINKEN.STATUS.PARTIAL_DOWNTIME.CODE:
-            case SHINKEN.STATUS.PARTIAL_FLAPPING.CODE:
+            case GS.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
+            case GS.STATUS.PARTIAL_DOWNTIME.CODE:
+            case GS.STATUS.PARTIAL_FLAPPING.CODE:
                 return true;
         }
         return false;
@@ -22512,38 +21385,38 @@ SHINKEN.StatusService               = (function ( self ) {
     self.isContext      = function ( context, type ) {
         var _code = context.getCode();
         switch ( type ) {
-            case SHINKEN.STATUS.ACKNOWLEDGED:
+            case GS.STATUS.ACKNOWLEDGED:
                 switch ( _code ) {
-                    case SHINKEN.STATUS.ACKNOWLEDGED.CODE:
-                    case SHINKEN.STATUS.INHERITED_ACKNOWLEDGED.CODE:
-                    case SHINKEN.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
+                    case GS.STATUS.ACKNOWLEDGED.CODE:
+                    case GS.STATUS.INHERITED_ACKNOWLEDGED.CODE:
+                    case GS.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
                         return true;
                 }
                 break;
-            case SHINKEN.STATUS.DOWNTIME:
+            case GS.STATUS.DOWNTIME:
                 switch ( _code ) {
-                    case SHINKEN.STATUS.DOWNTIME.CODE:
-                    case SHINKEN.STATUS.INHERITED_DOWNTIME.CODE:
-                    case SHINKEN.STATUS.PARTIAL_DOWNTIME.CODE:
+                    case GS.STATUS.DOWNTIME.CODE:
+                    case GS.STATUS.INHERITED_DOWNTIME.CODE:
+                    case GS.STATUS.PARTIAL_DOWNTIME.CODE:
                         return true;
                 }
                 break;
-            case SHINKEN.STATUS.FLAPPING:
+            case GS.STATUS.FLAPPING:
                 switch ( _code ) {
-                    case SHINKEN.STATUS.FLAPPING.CODE:
-                    case SHINKEN.STATUS.PARTIAL_FLAPPING.CODE:
+                    case GS.STATUS.FLAPPING.CODE:
+                    case GS.STATUS.PARTIAL_FLAPPING.CODE:
                         return true;
                 }
                 break;
-            case SHINKEN.STATUS.DISABLED:
+            case GS.STATUS.DISABLED:
                 switch ( _code ) {
-                    case SHINKEN.STATUS.DISABLED.CODE:
+                    case GS.STATUS.DISABLED.CODE:
                         return true;
                 }
                 break;
-            case SHINKEN.STATUS.NOTHING:
+            case GS.STATUS.NOTHING:
                 switch ( _code ) {
-                    case SHINKEN.STATUS.NOTHING.CODE:
+                    case GS.STATUS.NOTHING.CODE:
                         return true;
                 }
                 break;
@@ -22552,23 +21425,23 @@ SHINKEN.StatusService               = (function ( self ) {
     };
     
     return self;
-})( SHINKEN.StatusService || {} );
-SHINKEN.Status                      = function () {
+})( GS.StatusService || {} );
+GS.Status                      = function () {
 };
-SHINKEN.Status.prototype            = {
+GS.Status.prototype            = {
     setCode      : function ( toSet ) {
         this.code = toSet;
-        this.key  = SHINKEN.STATUS.CODE_TO_KEY[ this.code ];
+        this.key  = GS.STATUS.CODE_TO_KEY[ this.code ];
         this.initEnd();
     },
     setKey       : function ( toSet ) {
         this.key  = toSet;
-        this.code = SHINKEN.STATUS[ this.key ].CODE;
+        this.code = GS.STATUS[ this.key ].CODE;
         this.initEnd();
     },
     initEnd      : function ( toSet ) {
         this.setName();
-        this.priority = SHINKEN.STATUS[ this.key ].PRIORITY;
+        this.priority = GS.STATUS[ this.key ].PRIORITY;
         this.label    = this.name;
         this.buildPath();
     },
@@ -22603,7 +21476,7 @@ SHINKEN.Status.prototype            = {
         return _to_return;
     },
     setName      : function () {
-        this.name = SHINKEN.STATUS[ this.key ].NAME;
+        this.name = GS.STATUS[ this.key ].NAME;
     },
     equals       : function ( status ) {
         if ( !status ) {
@@ -22618,7 +21491,7 @@ SHINKEN.Status.prototype            = {
         return true;
     },
     buildPath    : function () {
-        if ( this.name === SHINKEN.STATUS.NOTHING.NAME ) {
+        if ( this.name === GS.STATUS.NOTHING.NAME ) {
             this.path = '';
         }
         else {
@@ -22629,32 +21502,32 @@ SHINKEN.Status.prototype            = {
     },
     getCodeSample: function () {
         switch ( this.code ) {
-            case  SHINKEN.STATUS.INHERITED_DOWNTIME.CODE:
-            case  SHINKEN.STATUS.PARTIAL_DOWNTIME.CODE:
-                return SHINKEN.STATUS.DOWNTIME.CODE;
-            case  SHINKEN.STATUS.INHERITED_ACKNOWLEDGED.CODE:
-            case  SHINKEN.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
-                return SHINKEN.STATUS.ACKNOWLEDGED.CODE;
-            case  SHINKEN.STATUS.PARTIAL_FLAPPING.CODE:
-                return SHINKEN.STATUS.FLAPPING.CODE;
+            case  GS.STATUS.INHERITED_DOWNTIME.CODE:
+            case  GS.STATUS.PARTIAL_DOWNTIME.CODE:
+                return GS.STATUS.DOWNTIME.CODE;
+            case  GS.STATUS.INHERITED_ACKNOWLEDGED.CODE:
+            case  GS.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
+                return GS.STATUS.ACKNOWLEDGED.CODE;
+            case  GS.STATUS.PARTIAL_FLAPPING.CODE:
+                return GS.STATUS.FLAPPING.CODE;
         }
         return this.code;
     },
     getNameSample: function () {
         switch ( this.code ) {
-            case  SHINKEN.STATUS.INHERITED_DOWNTIME.CODE:
-            case  SHINKEN.STATUS.PARTIAL_DOWNTIME.CODE:
-                return SHINKEN.STATUS.DOWNTIME.NAME;
-            case  SHINKEN.STATUS.INHERITED_ACKNOWLEDGED.CODE:
-            case  SHINKEN.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
-                return SHINKEN.STATUS.ACKNOWLEDGED.NAME;
-            case  SHINKEN.STATUS.PARTIAL_FLAPPING.CODE:
-                return SHINKEN.STATUS.FLAPPING.NAME;
+            case  GS.STATUS.INHERITED_DOWNTIME.CODE:
+            case  GS.STATUS.PARTIAL_DOWNTIME.CODE:
+                return GS.STATUS.DOWNTIME.NAME;
+            case  GS.STATUS.INHERITED_ACKNOWLEDGED.CODE:
+            case  GS.STATUS.PARTIAL_ACKNOWLEDGED.CODE:
+                return GS.STATUS.ACKNOWLEDGED.NAME;
+            case  GS.STATUS.PARTIAL_FLAPPING.CODE:
+                return GS.STATUS.FLAPPING.NAME;
         }
         return this.name;
     }
 };
-SHINKEN.STATUS                      = {
+GS.STATUS                      = {
     OK                        : {
         CODE    : 0,
         NAME    : 'ok',
@@ -22823,7 +21696,7 @@ SHINKEN.STATUS                      = {
     }
     
 };
-SHINKEN.ELEMENT.UiUserAcl           = function ( data ) {
+GS.ELEMENT.UiUserAcl           = function ( data ) {
     this.make_downtime                = true;
     this.make_acknowledge             = true;
     this.force_result_check           = true;
@@ -22833,11 +21706,11 @@ SHINKEN.ELEMENT.UiUserAcl           = function ( data ) {
     this.show_historic_historic_range = true;
     this.init( data );
 };
-SHINKEN.ELEMENT.UiUserAcl.prototype = {
+GS.ELEMENT.UiUserAcl.prototype = {
     init                    : function ( data ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ]   = new SHINKEN.ELEMENT.UiUserAclShareExtend();
-        this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_GROUP ]     = new SHINKEN.ELEMENT.UiUserAclShareExtend();
-        this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY ] = new SHINKEN.ELEMENT.UiUserAclShareExtend();
+        this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ]   = new GS.ELEMENT.UiUserAclShareExtend();
+        this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_GROUP ]     = new GS.ELEMENT.UiUserAclShareExtend();
+        this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY ] = new GS.ELEMENT.UiUserAclShareExtend();
         this.updateData( data );
     },
     updateData              : function ( datas ) {
@@ -22853,25 +21726,25 @@ SHINKEN.ELEMENT.UiUserAcl.prototype = {
     },
     setData                 : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.MAKE_DOWNTIME:
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.MAKE_ACKNOWLEDGE:
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.FORCE_RESULT:
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.RECHECK_NOW:
+            case GS.ELEMENT.USER.PARAM.ACL.MAKE_DOWNTIME:
+            case GS.ELEMENT.USER.PARAM.ACL.MAKE_ACKNOWLEDGE:
+            case GS.ELEMENT.USER.PARAM.ACL.FORCE_RESULT:
+            case GS.ELEMENT.USER.PARAM.ACL.RECHECK_NOW:
                 this[ key ] = value;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW:
                 this.setHistoricShow( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.HISTORIC_RANGE:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.HISTORIC_RANGE:
                 this.show_historic_historic_range = value;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SLA_RANGE:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SLA_RANGE:
                 this.show_historic_sla_range = value;
                 break;
             
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE:
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_GROUP:
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY:
+            case GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE:
+            case GS.ELEMENT.USER.PARAM.ACL.SHARE_GROUP:
+            case GS.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY:
                 this[ key ].init( value );
                 break;
             default:
@@ -22881,69 +21754,69 @@ SHINKEN.ELEMENT.UiUserAcl.prototype = {
     },
     setHistoricShow         : function ( value ) {
         switch ( value ) {
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_BOTH:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_BOTH:
                 this.show_historic_sla      = true;
                 this.show_historic_historic = true;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_HISTORY_ONLY:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_HISTORY_ONLY:
                 this.show_historic_sla      = false;
                 this.show_historic_historic = true;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_SLA_ONLY:
+            case GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_SLA_ONLY:
                 this.show_historic_sla      = true;
                 this.show_historic_historic = false;
                 break;
         }
     },
     setRightToCreateNewShare: function () {
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ] ) {
+        if ( !this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ] ) {
             return;
         }
     },
     hasRightToCreateFavorite: function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].create && this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].read;
+        return this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].create && this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].read;
     },
     canCreateFavorite       : function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].hasRight( "create" );
+        return this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ].hasRight( "create" );
     },
     setDisplayFavoritePanel : function () {
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ] ) {
+        if ( !this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_PRIVATE ] ) {
             return;
         }
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_GROUP ] ) {
+        if ( !this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_GROUP ] ) {
             return;
         }
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY ] ) {
+        if ( !this[ GS.ELEMENT.USER.PARAM.ACL.SHARE_EVERYBODY ] ) {
             return;
         }
     },
     getHistoricDisplayMode  : function () {
         if ( this.show_historic_historic && this.show_historic_sla ) {
-            return SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_BOTH;
+            return GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_BOTH;
         }
         if ( this.show_historic_historic ) {
-            return SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_HISTORY_ONLY;
+            return GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_HISTORY_ONLY;
         }
         if ( this.show_historic_sla ) {
-            return SHINKEN.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_SLA_ONLY;
+            return GS.ELEMENT.USER.PARAM.ACL.HISTORIC.SHOW_SLA_ONLY;
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUserAcl, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUserAclShareExtend           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAcl, GS.OBJECT.ShinkenObject );
+GS.ELEMENT.UiUserAclShareExtend           = function () {
     this.read     = false;
     this.create   = false;
     this.organize = false;
     this.update   = false;
     this.delete   = false;
 };
-SHINKEN.ELEMENT.UiUserAclShareExtend.prototype = {
+GS.ELEMENT.UiUserAclShareExtend.prototype = {
     init    : function ( data ) {
         var _data = data.split( '' );
         var _size = _data.length;
         var _key;
         for ( var i = 0; i < _size; i++ ) {
-            _key = SHINKEN.ELEMENT.USER.PARAM.ACL.SHARE[ i ];
+            _key = GS.ELEMENT.USER.PARAM.ACL.SHARE[ i ];
             if ( !_key ) {
                 console.error( "[UNKNOWN SHARE ACL STRUCTURE]" );
                 continue;
@@ -22959,23 +21832,23 @@ SHINKEN.ELEMENT.UiUserAclShareExtend.prototype = {
     }
     
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUserAclShareExtend, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUserPrefs           = function () {
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ]           = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ]     = 200;
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ]        = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ]                 = {};
-    this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ] = new SHINKEN.OBJECT.NotificationsOfChangeUser();
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAclShareExtend, GS.OBJECT.ShinkenObject );
+GS.ELEMENT.UiUserPrefs           = function () {
+    this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ]           = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ]     = 200;
+    this[ GS.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ]        = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ]                 = {};
+    this[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ] = new GS.OBJECT.NotificationsOfChangeUser();
 };
-SHINKEN.ELEMENT.UiUserPrefs.prototype = {
+GS.ELEMENT.UiUserPrefs.prototype = {
     doActionAfter          : function ( event_name, param ) {
         switch ( event_name ) {
             case "change_value_notification_of_change_sound":
             case "change_value_notification_of_change_visual_blink":
-                this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].doActionAfter( event_name, param );
+                this[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].doActionAfter( event_name, param );
                 break;
         }
     },
@@ -22990,56 +21863,56 @@ SHINKEN.ELEMENT.UiUserPrefs.prototype = {
     },
     setData                : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME:
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH:
+            case GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME:
                 this[ key ] = value;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME:
-                this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].updateData( value );
+            case GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME:
+                this[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].updateData( value );
                 
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.PANELS.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.PANELS.NAME:
                 break;
             default:
-                this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ][ key ] = value;
+                this[ GS.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ][ key ] = value;
                 break;
         }
     },
     getDataToSave          : function () {
         var to_return                                                             = {};
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ]           = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ]        = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ]                 = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ];
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ] = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].getDataToSave();
-        to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.PANELS.NAME ]                 = this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.PANELS.NAME ].getDataToSave();
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ]           = this[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ]        = this[ GS.ELEMENT.USER.PARAM.PREFS.WEATHER_SERVICE.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ]                 = this[ GS.ELEMENT.USER.PARAM.PREFS.OTHERS.NAME ];
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ] = this[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ].getDataToSave();
+        to_return[ GS.ELEMENT.USER.PARAM.PREFS.PANELS.NAME ]                 = this[ GS.ELEMENT.USER.PARAM.PREFS.PANELS.NAME ].getDataToSave();
         if ( EXTERNAL.COMMUNICATION.NEW_DETAIL_WIDTH ) {
-            to_return[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ] = EXTERNAL.COMMUNICATION.NEW_DETAIL_WIDTH;
+            to_return[ GS.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ] = EXTERNAL.COMMUNICATION.NEW_DETAIL_WIDTH;
         }
         return to_return;
     },
     getNotificationOfChange: function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ];
+        return this[ GS.ELEMENT.USER.PARAM.PREFS.NOTIFICATION_OF_CHANGE.NAME ];
     }
 };
-SHINKEN.USER_PREFS                    = {
+GS.USER_PREFS                    = {
     PARAM_EVENT: {
         DATA: "user_prefs__data"
     },
     KEY        : "key",
     VALUE      : "value"
 };
-SHINKEN.UserPrefs_V3                  = function ( data ) {
+GS.UserPrefs_V3                  = function ( data ) {
     this.init( data );
 };
-SHINKEN.UserPrefs_V3.prototype        = {
+GS.UserPrefs_V3.prototype        = {
     init         : function ( data ) {
         this.initContents();
         if ( data ) {
@@ -23058,66 +21931,66 @@ SHINKEN.UserPrefs_V3.prototype        = {
         var _current_key;
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
             _current_key = _keys[ i ];
-            this.addPref( { [ SHINKEN.USER_PREFS.KEY ]: _current_key, [ SHINKEN.USER_PREFS.VALUE ]: data[ _current_key ] } );
+            this.addPref( { [ GS.USER_PREFS.KEY ]: _current_key, [ GS.USER_PREFS.VALUE ]: data[ _current_key ] } );
         }
     },
     addPref      : function ( data ) {
-        this.add( new SHINKEN.UserPref_V3( data ) );
+        this.add( new GS.UserPref_V3( data ) );
     },
     getDataToSave: function () {
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.UserPrefs_V3, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.UserPref_V3           = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.ShinkenObjectContainer );
+GS.UserPref_V3           = function ( data ) {
     this.init( data );
 };
-SHINKEN.UserPref_V3.prototype = {
+GS.UserPref_V3.prototype = {
     init         : function ( data ) {
-        this[ SHINKEN.USER_PREFS.KEY ]   = data[ SHINKEN.USER_PREFS.KEY ];
-        this[ SHINKEN.USER_PREFS.VALUE ] = SHINKEN.USER_PREFS.factory( data[ SHINKEN.USER_PREFS.VALUE ] );
+        this[ GS.USER_PREFS.KEY ]   = data[ GS.USER_PREFS.KEY ];
+        this[ GS.USER_PREFS.VALUE ] = GS.USER_PREFS.factory( data[ GS.USER_PREFS.VALUE ] );
     },
     getUUID      : function () {
-        return this[ SHINKEN.USER_PREFS.KEY ];
+        return this[ GS.USER_PREFS.KEY ];
     },
     getValueByKey: function ( array_keys ) {
-        if ( array_keys.length > 0 && typeof this[ SHINKEN.USER_PREFS.VALUE ] === "object" ) {
-            return this[ SHINKEN.USER_PREFS.VALUE ].getValueByKey( array_keys );
+        if ( array_keys.length > 0 && typeof this[ GS.USER_PREFS.VALUE ] === "object" ) {
+            return this[ GS.USER_PREFS.VALUE ].getValueByKey( array_keys );
         }
-        return this[ SHINKEN.USER_PREFS.VALUE ];
+        return this[ GS.USER_PREFS.VALUE ];
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.UserPrefs_V3, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.USER_PREFS.factory       = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.ShinkenObjectContainer );
+GS.USER_PREFS.factory       = function ( data ) {
     if ( typeof data === "object" ) {
         var _keys = Object.keys( data );
-        if ( SHINKEN.TOOLS.ARRAY.areEqual( _keys, [SHINKEN.USER_PREFS.KEY, SHINKEN.USER_PREFS.VALUE] ) ) {
-            return new SHINKEN.UserPref_V3( data );
+        if ( GS.TOOLS.ARRAY.areEqual( _keys, [GS.USER_PREFS.KEY, GS.USER_PREFS.VALUE] ) ) {
+            return new GS.UserPref_V3( data );
         }
-        return new SHINKEN.UserPrefs_V3( data );
+        return new GS.UserPrefs_V3( data );
     }
     return data;
 };
-SHINKEN.ELEMENT.UiUser           = function ( data ) {
+GS.ELEMENT.UiUser           = function ( data ) {
     this.init( data );
 };
-SHINKEN.ELEMENT.UiUser.prototype = {
+GS.ELEMENT.UiUser.prototype = {
     getDataForSelector           : function () {
         return { name: this.getName(), label: this.getName() };
     },
     getDefaultUrlFromSettings    : function () {
-        return this.getSettings() [ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ];
+        return this.getSettings() [ GS.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ];
     },
     getDefaultView               : function () {
         return this.getDefaultUrlFromSettings() || this.getDefaultUrl();
     },
     init                         : function ( data ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.EXISTS ] = true;
+        this[ GS.ELEMENT.USER.PARAM.EXISTS ] = true;
         if ( data ) {
             this.updateData( data );
         }
     },
     setDefaultUrlToCurrentView   : function () {
-        this.getSettings().default_url = SHINKEN.HIGHWAY.getHash();
+        this.getSettings().default_url = GS.HIGHWAY.getHash();
     },
     updateData                   : function ( data ) {
         var _keys     = Object.keys( data );
@@ -23130,60 +22003,60 @@ SHINKEN.ELEMENT.UiUser.prototype = {
     },
     setData                      : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.ELEMENT.USER.PARAM.ACL.KEY:
+            case GS.ELEMENT.USER.PARAM.ACL.KEY:
                 this.setACL( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME:
+            case GS.ELEMENT.USER.PARAM.PREFS.NAME:
                 this.setPrefs( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.SETTINGS.FIELD:
+            case GS.ELEMENT.USER.PARAM.SETTINGS.FIELD:
                 this.setSettings( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.STATUS:
+            case GS.ELEMENT.USER.PARAM.STATUS:
                 this.setStatus( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.UI:
+            case GS.ELEMENT.USER.PARAM.UI:
                 this.setUI( value );
                 break;
             case "user_name":
-            case SHINKEN.ELEMENT.USER.PARAM.USER_NAME:
+            case GS.ELEMENT.USER.PARAM.USER_NAME:
                 this.setName( value );
                 break;
             case "user_uuid":
-            case SHINKEN.ELEMENT.USER.PARAM.UUID:
+            case GS.ELEMENT.USER.PARAM.UUID:
                 this.setUUID( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.VERSION:
+            case GS.ELEMENT.USER.PARAM.VERSION:
                 this.setVersion( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.VERSION_FULL:
+            case GS.ELEMENT.USER.PARAM.VERSION_FULL:
                 this.setVersionFull( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.KEY_BACKEND:
+            case GS.ELEMENT.USER.PARAM.TILES_FORMAT.KEY_BACKEND:
                 this.setTilesFormat( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.ARCHITECTURE:
+            case GS.ELEMENT.USER.PARAM.ARCHITECTURE:
                 this.setServers( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.KNOWN_MODULES:
+            case GS.ELEMENT.USER.PARAM.KNOWN_MODULES:
                 this.setModules( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN:
+            case GS.ELEMENT.USER.PARAM.IS_ADMIN:
                 this.setIsAdmin( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION:
+            case GS.ELEMENT.USER.PARAM.SHINKEN_VERSION:
                 this.setShinkenVersion( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_SHORT:
+            case GS.ELEMENT.USER.PARAM.SHINKEN_VERSION_SHORT:
                 this.setShinkenShortVersion( value );
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.TIME_ZONE_BACKEND:
+            case GS.ELEMENT.USER.PARAM.TIME_ZONE_BACKEND:
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.EVENT_CONTAINER_DAY_KEEP_DATA:
-            case SHINKEN.ELEMENT.USER.PARAM.EVENTS_CSV_EXPORT_LIMIT:
+            case GS.ELEMENT.USER.PARAM.EVENT_CONTAINER_DAY_KEEP_DATA:
+            case GS.ELEMENT.USER.PARAM.EVENTS_CSV_EXPORT_LIMIT:
                 this[ key ] = value;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.EVENTS_EXPORT_MAX_RETRY:
+            case GS.ELEMENT.USER.PARAM.EVENTS_EXPORT_MAX_RETRY:
                 break;
             case "backend_localtime_epoch":
                 this.setLocalTime( value );
@@ -23191,9 +22064,9 @@ SHINKEN.ELEMENT.UiUser.prototype = {
             case "configuration_id":
                 this[ key ] = value;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.EXISTS:
-            case SHINKEN.ELEMENT.USER.PARAM.DEFAULT_NOTIFICATIONS_SETTINGS__USERS__SOUND__VOLUME_PERCENT:
-            case SHINKEN.ELEMENT.USER.PARAM.DEFAULT_NOTIFICATIONS_SETTINGS__USERS__VISUAL__BLINK__ENABLED:
+            case GS.ELEMENT.USER.PARAM.EXISTS:
+            case GS.ELEMENT.USER.PARAM.DEFAULT_NOTIFICATIONS_SETTINGS__USERS__SOUND__VOLUME_PERCENT:
+            case GS.ELEMENT.USER.PARAM.DEFAULT_NOTIFICATIONS_SETTINGS__USERS__VISUAL__BLINK__ENABLED:
                 this[ key ] = value;
                 break;
             default:
@@ -23210,43 +22083,43 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         }
     },
     setStatus                    : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.STATUS ] = value;
+        this[ GS.ELEMENT.USER.PARAM.STATUS ] = value;
     },
     setUI                        : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.UI ] = value;
+        this[ GS.ELEMENT.USER.PARAM.UI ] = value;
     },
     getName                      : function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.USER_NAME ];
+        return this[ GS.ELEMENT.USER.PARAM.USER_NAME ];
     },
     getUUID                      : function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.UUID ];
+        return this[ GS.ELEMENT.USER.PARAM.UUID ];
     },
     setUUID                      : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.UUID ] = value || "";
+        this[ GS.ELEMENT.USER.PARAM.UUID ] = value || "";
     },
     setName                      : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.USER_NAME ] = value || "";
+        this[ GS.ELEMENT.USER.PARAM.USER_NAME ] = value || "";
     },
     setACL                       : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.ACL.KEY ] = new SHINKEN.ELEMENT.UiUserAcl( value );
+        this[ GS.ELEMENT.USER.PARAM.ACL.KEY ] = new GS.ELEMENT.UiUserAcl( value );
         
     },
     setVersion                   : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.VERSION ] = value;
+        this[ GS.ELEMENT.USER.PARAM.VERSION ] = value;
     },
     setVersionFull               : function ( value ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.VERSION_FULL ] = value;
+        this[ GS.ELEMENT.USER.PARAM.VERSION_FULL ] = value;
     },
     setTilesFormat               : function ( value ) {
         switch ( value ) {
-            case SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.DEFAULT:
-                this[ SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.DEFAULT;
+            case GS.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.DEFAULT:
+                this[ GS.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = GS.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.DEFAULT;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.CONTEXT_UP:
-                this[ SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.CONTEXT_UP;
+            case GS.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.CONTEXT_UP:
+                this[ GS.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = GS.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.CONTEXT_UP;
                 break;
-            case SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.STATUS_UP:
-                this[ SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = SHINKEN.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.STATUS_UP;
+            case GS.ELEMENT.USER.PARAM.TILES_FORMAT.BACKEND_KEY.STATUS_UP:
+                this[ GS.ELEMENT.USER.PARAM.TILES_FORMAT.KEY ] = GS.ELEMENT.USER.PARAM.TILES_FORMAT.TYPE.STATUS_UP;
                 break;
             default:
                 if ( APP_INFO.DEBUG ) {
@@ -23256,21 +22129,21 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         }
     },
     getDefaultUrl                : function () {
-        return "#/hive/" + this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.UUID ];
+        return "#/hive/" + this[ GS.ELEMENT.USER.PARAM.PREFS.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.UUID ];
     },
     getNameDefaultView           : function () {
-        return this.getSettings()[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.NAME_DEFAULT_VIEW ];
+        return this.getSettings()[ GS.ELEMENT.USER.PARAM.SETTINGS.NAME_DEFAULT_VIEW ];
     },
     _validateData                : function () {
-        if ( !this.getSettings()[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] && this.getPrefs().defaultScreen.uuid ) {
+        if ( !this.getSettings()[ GS.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] && this.getPrefs().defaultScreen.uuid ) {
             var _settings                                                = {};
-            _settings[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] = LocationService.getUrlHiveDefaultView( this.getPrefs().defaultScreen.uuid );
+            _settings[ GS.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] = LocationService.getUrlHiveDefaultView( this.getPrefs().defaultScreen.uuid );
             this.setSettings( _settings );
         }
     },
     clean                        : function () {
         return Http.query( {
-            path  : COMMUNICATION.QUERY.GET.SHINKEN.ELEMENT.USER.KEY + '/' + this.uuid + '/clean',
+            path  : COMMUNICATION.QUERY.GET.GS.ELEMENT.USER.KEY + '/' + this.uuid + '/clean',
             method: 'DELETE'
         } );
     },
@@ -23314,10 +22187,10 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         var to_return = $q.defer();
         var _self     = this;
         this.getUserSaveData().then( function ( data ) {
-            if ( data && data[ SHINKEN.ELEMENT.USER.PARAM.VERSION ] === MIGRATION.VERSION.V02_03_03_U1 && !_self[ SHINKEN.ELEMENT.USER.PARAM.VERSION ] ) {
+            if ( data && data[ GS.ELEMENT.USER.PARAM.VERSION ] === MIGRATION.VERSION.V02_03_03_U1 && !_self[ GS.ELEMENT.USER.PARAM.VERSION ] ) {
                 to_return.resolve( MIGRATION.VERSION.V02_03_03_U1 );
             }
-            else if ( data && _self[ SHINKEN.ELEMENT.USER.PARAM.VERSION ] ) {
+            else if ( data && _self[ GS.ELEMENT.USER.PARAM.VERSION ] ) {
                 to_return.resolve( MIGRATION.VERSION.V02_04_00_with_U1_data_to_clean );
             }
             else {
@@ -23331,68 +22204,68 @@ SHINKEN.ELEMENT.UiUser.prototype = {
         return this.uuid === item.owner.uuid;
     },
     setIsAdmin                   : function ( to_set ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ]                = to_set;
-        this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_TOOLTIP ] = this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ] ? this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION ] : '';
+        this[ GS.ELEMENT.USER.PARAM.IS_ADMIN ]                = to_set;
+        this[ GS.ELEMENT.USER.PARAM.SHINKEN_VERSION_TOOLTIP ] = this[ GS.ELEMENT.USER.PARAM.IS_ADMIN ] ? this[ GS.ELEMENT.USER.PARAM.SHINKEN_VERSION ] : '';
     },
     setShinkenShortVersion       : function ( to_set ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION_SHORT ] = to_set;
+        this[ GS.ELEMENT.USER.PARAM.SHINKEN_VERSION_SHORT ] = to_set;
     },
     setShinkenVersion            : function ( to_set ) {
-        this[ SHINKEN.ELEMENT.USER.PARAM.SHINKEN_VERSION ] = to_set;
+        this[ GS.ELEMENT.USER.PARAM.SHINKEN_VERSION ] = to_set;
     },
     setLocalTime                 : function ( to_set ) {
     },
     isAdmin                      : function () {
-        return this[ SHINKEN.ELEMENT.USER.PARAM.IS_ADMIN ];
+        return this[ GS.ELEMENT.USER.PARAM.IS_ADMIN ];
     },
     setServers                   : function ( data ) {
     },
     setModules                   : function ( to_set ) {
     },
     getSettings                  : function () {
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.FIELD ] ) {
-            this[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.FIELD ] = {};
+        if ( !this[ GS.ELEMENT.USER.PARAM.SETTINGS.FIELD ] ) {
+            this[ GS.ELEMENT.USER.PARAM.SETTINGS.FIELD ] = {};
         }
-        return this[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.FIELD ];
+        return this[ GS.ELEMENT.USER.PARAM.SETTINGS.FIELD ];
     },
     getPrefs                     : function () {
-        if ( !this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ] ) {
-            this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ] = new SHINKEN.ELEMENT.UiUserPrefs();
+        if ( !this[ GS.ELEMENT.USER.PARAM.PREFS.NAME ] ) {
+            this[ GS.ELEMENT.USER.PARAM.PREFS.NAME ] = new GS.ELEMENT.UiUserPrefs();
         }
-        return this[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ];
+        return this[ GS.ELEMENT.USER.PARAM.PREFS.NAME ];
     },
     getPref                      : function ( pref_name ) {
         return this.getPrefs()[ pref_name ];
     },
     getDetailGraphHostWidth      : function () {
-        return this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ];
+        return this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.DETAIL_GRAPH_HOST_WIDTH ];
     },
     setShowHistoricOutputs       : function ( to_set ) {
-        this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SHOW_OUTPUTS ] = to_set;
+        this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SHOW_OUTPUTS ] = to_set;
     },
     getShowHistoricOutputs       : function () {
-        return this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SHOW_OUTPUTS ];
+        return this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SHOW_OUTPUTS ];
     },
     setCollapseAllHistoricOutputs: function ( to_set ) {
-        this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.COLLAPSE_ALL_OUTPUT ] = to_set;
+        this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.COLLAPSE_ALL_OUTPUT ] = to_set;
     },
     getCollapseAllHistoricOutputs: function () {
-        return this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.COLLAPSE_ALL_OUTPUT ];
+        return this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.COLLAPSE_ALL_OUTPUT ];
     },
     getSizeSlaColumn             : function () {
-        return this.getPrefs()[ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
+        return this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
     },
     getDataToSave                : function () {
         var toReturn                                          = {};
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.UUID ]           = this[ SHINKEN.ELEMENT.USER.PARAM.UUID ];
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.USER_NAME ]      = this[ SHINKEN.ELEMENT.USER.PARAM.USER_NAME ] || localStorageService.get( 'shinken-ui-user' );
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.VERSION ]        = this[ SHINKEN.ELEMENT.USER.PARAM.VERSION ];
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.VERSION_FULL ]   = APP_INFO.VERSION_FULL;
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ]     = this.getPrefs().getDataToSave();
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.STATUS ]         = this[ SHINKEN.ELEMENT.USER.PARAM.STATUS ];
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.UI ]             = this[ SHINKEN.ELEMENT.USER.PARAM.UI ];
-        toReturn[ SHINKEN.ELEMENT.USER.PARAM.SETTINGS.FIELD ] = this.getSettings();
-        delete toReturn[ SHINKEN.ELEMENT.USER.PARAM.PREFS.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ SHINKEN.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
+        toReturn[ GS.ELEMENT.USER.PARAM.UUID ]           = this[ GS.ELEMENT.USER.PARAM.UUID ];
+        toReturn[ GS.ELEMENT.USER.PARAM.USER_NAME ]      = this[ GS.ELEMENT.USER.PARAM.USER_NAME ] || localStorageService.get( 'shinken-ui-user' );
+        toReturn[ GS.ELEMENT.USER.PARAM.VERSION ]        = this[ GS.ELEMENT.USER.PARAM.VERSION ];
+        toReturn[ GS.ELEMENT.USER.PARAM.VERSION_FULL ]   = APP_INFO.VERSION_FULL;
+        toReturn[ GS.ELEMENT.USER.PARAM.PREFS.NAME ]     = this.getPrefs().getDataToSave();
+        toReturn[ GS.ELEMENT.USER.PARAM.STATUS ]         = this[ GS.ELEMENT.USER.PARAM.STATUS ];
+        toReturn[ GS.ELEMENT.USER.PARAM.UI ]             = this[ GS.ELEMENT.USER.PARAM.UI ];
+        toReturn[ GS.ELEMENT.USER.PARAM.SETTINGS.FIELD ] = this.getSettings();
+        delete toReturn[ GS.ELEMENT.USER.PARAM.PREFS.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
         return toReturn;
     },
     getLabel                     : function ( default_label_if_no_name ) {
@@ -23402,17 +22275,17 @@ SHINKEN.ELEMENT.UiUser.prototype = {
             }
             return "";
         }
-        var _class     = this[ SHINKEN.ELEMENT.USER.PARAM.EXISTS ] ? "shinken-label" : "shinken-label shinken-user-removed";
-        var _user_name = SHINKEN.TOOLS.STRING.cleanXss( this.getName() );
-        var _attribute = this[ SHINKEN.ELEMENT.USER.PARAM.EXISTS ] ? "" : 'onmouseenter="SHINKEN_TOOLTIP.showTooltip(this)" onmouseleave="SHINKEN_TOOLTIP.hideTooltip()" shi-tip-html="' + _( 'users.errors.user_doesnt_exist', [DICTIONARY_COMMON_UI] ) + '"';
+        var _class     = this[ GS.ELEMENT.USER.PARAM.EXISTS ] ? "shinken-label" : "shinken-label shinken-user-removed";
+        var _user_name = GS.TOOLS.STRING.cleanXss( this.getName() );
+        var _attribute = this[ GS.ELEMENT.USER.PARAM.EXISTS ] ? "" : 'onmouseenter="SHINKEN_TOOLTIP.showTooltip(this)" onmouseleave="SHINKEN_TOOLTIP.hideTooltip()" shi-tip-html="' + _( 'users.errors.user_doesnt_exist', [DICTIONARY_COMMON_UI] ) + '"';
         return '<div class="' + _class + '" ' + _attribute + '>' + _user_name + '</div>';
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUser, SHINKEN.OBJECT.ShinkenObject );
-SHINKEN.ELEMENT.UiUsers           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUser, GS.OBJECT.ShinkenObject );
+GS.ELEMENT.UiUsers           = function () {
     this.init();
 };
-SHINKEN.ELEMENT.UiUsers.prototype = {
+GS.ELEMENT.UiUsers.prototype = {
     init              : function () {
         this.initContents();
     },
@@ -23444,7 +22317,7 @@ SHINKEN.ELEMENT.UiUsers.prototype = {
             return true;
         }
         for ( var i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            if ( SHINKEN.TOOLS.STRING.containsIgnoreCase( this.getContent( i ).getName(), name_to_find ) ) {
+            if ( GS.TOOLS.STRING.containsIgnoreCase( this.getContent( i ).getName(), name_to_find ) ) {
                 return true;
             }
         }
@@ -23456,23 +22329,23 @@ SHINKEN.ELEMENT.UiUsers.prototype = {
             switch ( _status ) {
                 case COMMUNICATION.CODE.SUCCESS:
                     for ( var i = 0, _size_i = data[ "output" ][ "users" ].length; i < _size_i; i++ ) {
-                        self.add( new SHINKEN.ELEMENT.UiUser( data[ "output" ][ "users" ][ i ] ) );
+                        self.add( new GS.ELEMENT.UiUser( data[ "output" ][ "users" ][ i ] ) );
                     }
-                    parent_object.doActionAfterCall( "SHINKEN.ELEMENT.UiUsers.getDataFromBackend" );
+                    parent_object.doActionAfterCall( "GS.ELEMENT.UiUsers.getDataFromBackend" );
                     break;
             }
         };
         var _error   = function ( _status, data ) {
         };
-        SHINKEN.COMUNICATION.requestGet( SHINKEN.COMUNICATION.CONST.QUERY.GET.USERS.KEY, _success, _error, null );
+        GS.COMUNICATION.requestGet( GS.COMUNICATION.CONST.QUERY.GET.USERS.KEY, _success, _error, null );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.ELEMENT.UiUsers, SHINKEN.OBJECT.ShinkenObjectContainer );
-SHINKEN.OBJECT.ViewBehaviour           = function () {
-    this.__class_name__ = "SHINKEN.OBJECT.ViewBehaviour";
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUsers, GS.OBJECT.ShinkenObjectContainer );
+GS.OBJECT.ViewBehaviour           = function () {
+    this.__class_name__ = "GS.OBJECT.ViewBehaviour";
     this.init();
 };
-SHINKEN.OBJECT.ViewBehaviour.prototype = {
+GS.OBJECT.ViewBehaviour.prototype = {
     init             : function ( data ) {
         this.initPhase();
     },
@@ -23490,40 +22363,40 @@ SHINKEN.OBJECT.ViewBehaviour.prototype = {
     },
     setData          : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE:
+            case GS.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE:
                 this.setPhase( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE:
+            case GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE:
                 this [ key ] = value;
                 break;
-            case SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE_PREVIOUS:
+            case GS.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE_PREVIOUS:
                 break;
             default:
-                console.warn( "[SHINKEN.OBJECT.ViewBehaviour]", "[IGNORED DATA]", key, value );
+                console.warn( "[GS.OBJECT.ViewBehaviour]", "[IGNORED DATA]", key, value );
                 break;
         }
     },
     changePhaseAction: function ( to_set ) {
         this.setPhase( to_set );
-        this[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = DATE_TIME.getTimestampNow_format_sec();
+        this[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = DATE_TIME.getTimestampNow_format_sec();
     },
     getDataToSave    : function () {
         var _to_return                                                = {};
-        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE ]       = this.getCurrentPhase();
-        _to_return[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = this[ SHINKEN.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ];
+        _to_return[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE ]       = this.getCurrentPhase();
+        _to_return[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = this[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ];
         return _to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewBehaviour, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.VIEW_HISTORY          = {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewBehaviour, GS.OBJECT.PhaseInterface );
+GS.OBJECT.VIEW_HISTORY          = {
     PARAM: {
         NAME: "view_history_name"
     }
 };
-SHINKEN.OBJECT.ViewHistory           = function ( name, pagination ) {
+GS.OBJECT.ViewHistory           = function ( name, pagination ) {
     this.init( name, pagination );
 };
-SHINKEN.OBJECT.ViewHistory.prototype = {
+GS.OBJECT.ViewHistory.prototype = {
     init                                 : function ( name, pagination ) {
         this.initPhase();
         this.name            = name;
@@ -23533,24 +22406,24 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
         this.list__20240822 = new SHINKEN_LIST.SetFromDataWithPagination( "list_history", this.pagination_size );
         this.list__20240822.setHeaders( new SHINKEN_LIST.HeadersFromData(
             [
-                { name: SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY, label: _( "history.title.date", [DICTIONARY_COMMON_UI] ) },
-                { name: SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY, label: _( "history.title.user", [DICTIONARY_COMMON_UI] ) },
-                { name: SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY, label: _( "history.title.action", [DICTIONARY_COMMON_UI] ) }
+                { name: GS.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY, label: _( "history.title.date", [DICTIONARY_COMMON_UI] ) },
+                { name: GS.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY, label: _( "history.title.user", [DICTIONARY_COMMON_UI] ) },
+                { name: GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY, label: _( "history.title.action", [DICTIONARY_COMMON_UI] ) }
             ] ) );
-        this.list__20240822.getPagination().addChildrenParamForEvents( SHINKEN.OBJECT.VIEW_HISTORY.PARAM.NAME, this.getName() );
+        this.list__20240822.getPagination().addChildrenParamForEvents( GS.OBJECT.VIEW_HISTORY.PARAM.NAME, this.getName() );
     },
     getDataFromBackend__20241001         : function ( url ) {
         this.addLoading();
         url          = url || this.getBackendUrl();
         var _success = ( _status, data ) => {
             this.formatAndApplyData( data.output );
-            this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+            this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
         };
         var _error   = () => {
-            SHINKEN.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), SHINKEN.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
+            GS.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
             this.doActionAfter( "communication_no_backend_response" );
         };
-        SHINKEN.COMUNICATION.requestGet( url, _success, _error );
+        GS.COMUNICATION.requestGet( url, _success, _error );
     },
     formatAndApplyData                   : function ( data ) {
         this.list__20240822.computeLines( this.parseBackendData( data ) );
@@ -23568,7 +22441,7 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
             case "click_on_button_V3":
                 switch ( param[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
                     case CLIPBOARD_SERVICE.PARAM.EVENT_NAME_COPY:
-                        var export_data = SHINKEN.TOOLS.ARRAY.parseForClipboardText( this.getDataToExport(), [20, 30, 0] );
+                        var export_data = GS.TOOLS.ARRAY.parseForClipboardText( this.getDataToExport(), [20, 30, 0] );
                         CLIPBOARD_SERVICE.setContent( param[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target, export_data );
                         SHINKEN_TOOLTIP.hideTooltip();
                         break;
@@ -23577,7 +22450,7 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
                 }
                 break;
             case "communication_no_backend_response":
-                DOM.Service.addServerDown( this.dom_element_parent__20240822 );
+                SERVICE.DOM.addServerDown( this.dom_element_parent__20240822 );
                 break;
         }
     },
@@ -23590,9 +22463,9 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
     },
     initBackendDataLineParser            : function ( data ) {
         let _to_return                                                     = {};
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.date );
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = data.instigator_user.user_name;
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.date );
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = data.instigator_user.user_name;
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
         return _to_return;
     },
     parseBackendDataLine                 : function ( data, to_return ) {
@@ -23602,26 +22475,26 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
         to_return = to_return || this.initBackendDataLineParser( data );
         switch ( data.action.type ) {
             case "SAVE":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.update", [DICTIONARY_COMMON_UI] );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.update", [DICTIONARY_COMMON_UI] );
                 break;
             case "CREATION":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.creation", [DICTIONARY_COMMON_UI] );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.creation", [DICTIONARY_COMMON_UI] );
                 break;
             case "CLONE":
-                let sanitized_data_string                                         = SHINKEN.TOOLS.STRING.cleanXss( data.action.context.reference_weather.name );
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = SHINKEN.TOOLS.STRING.format( _( "history.views.copy", [DICTIONARY_VISU_UI] ), sanitized_data_string );
+                let sanitized_data_string                                         = GS.TOOLS.STRING.cleanXss( data.action.context.reference_weather.name );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.copy", [DICTIONARY_VISU_UI] ), sanitized_data_string );
                 break;
             case "NEW_OWNER":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = SHINKEN.TOOLS.STRING.format( _( "history.action.new_owner", [DICTIONARY_COMMON_UI] ), data.action.context.new_owner.user_name );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.action.new_owner", [DICTIONARY_COMMON_UI] ), data.action.context.new_owner.user_name );
                 break;
             case "UPDATE":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = this.parseBackendDataLineForActionUpdate( data );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = this.parseBackendDataLineForActionUpdate( data );
                 break;
             case "DELETION":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += _( "history.action.delete", [DICTIONARY_COMMON_UI] );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += _( "history.action.delete", [DICTIONARY_COMMON_UI] );
                 break;
             case "RESTORATION":
-                to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.restore", [DICTIONARY_COMMON_UI] );
+                to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.restore", [DICTIONARY_COMMON_UI] );
                 break;
         }
         return to_return;
@@ -23630,9 +22503,9 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
     },
     initCurrentChangesDataLineParser     : function ( data ) {
         let _to_return                                                     = {};
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.timestamp / 1000 );
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = _( "history.user", [DICTIONARY_VISU_UI] );
-        _to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.timestamp / 1000 );
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = _( "history.user", [DICTIONARY_VISU_UI] );
+        _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
         _to_return.widget_uuid                                             = [];
         data.contents.forEach( content => {
             _to_return.widget_uuid.push( content.element_uuid );
@@ -23654,11 +22527,11 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
     },
     reset                                : function () {
         this.resetHTML();
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.INIT );
+        this.setPhase( GS.OBJECT.CONST.PHASE.INIT );
     },
     computeHtml                          : function () {
         this.list__20240822.computeHtml();
-        this.setDomElement( DOM.Service.createElement( 'div', { class: "shinken-view-history" } ) );
+        this.setDomElement( SERVICE.DOM.createElement( 'div', { class: "shinken-view-history" } ) );
         this.addDomElement( this.list__20240822.getDomElement() );
         this.computeClipboard();
     },
@@ -23666,26 +22539,26 @@ SHINKEN.OBJECT.ViewHistory.prototype = {
         if ( !this.dom_element_parent__20240822 ) {
             return;
         }
-        DOM.Service.addLoadingFrameV2( this.dom_element_parent__20240822, text_to_add );
+        SERVICE.DOM.addLoadingFrameV2( this.dom_element_parent__20240822, text_to_add );
     },
     clickOnItemSelector                  : function ( event, parent_name, element ) {
         this.list__20240822.clickOnItemSelector( event, parent_name, element );
         this.computeSizes();
     },
     computeClipboard                     : function () {
-        this.addDomElement( CLIPBOARD_SERVICE.buildHtmlButtons_V3( true, false, { [ SHINKEN.OBJECT.VIEW_HISTORY.PARAM.NAME ]: this.getName() } ) );
+        this.addDomElement( CLIPBOARD_SERVICE.buildHtmlButtons_V3( true, false, { [ GS.OBJECT.VIEW_HISTORY.PARAM.NAME ]: this.getName() } ) );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewHistory, SHINKEN.OBJECT.ShinkenObjectHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ViewHistory, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.OBJECT.View            = function ( data ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewHistory, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewHistory, GS.OBJECT.PhaseInterface );
+GS.OBJECT.View            = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.View.prototype  = {
+GS.OBJECT.View.prototype  = {
     init                           : function ( data ) {
         this.shares_uuid                              = [];
-        this[ SHINKEN.OBJECT.VIEW.PARAM.NB_ERRORS ]   = 0;
-        this[ SHINKEN.OBJECT.VIEW.PARAM.NB_WARNINGS ] = 0;
+        this[ GS.OBJECT.VIEW.PARAM.NB_ERRORS ]   = 0;
+        this[ GS.OBJECT.VIEW.PARAM.NB_WARNINGS ] = 0;
         if ( data ) {
             this.updateData( data );
         }
@@ -23704,34 +22577,34 @@ SHINKEN.OBJECT.View.prototype  = {
     },
     setData                        : function ( key, value ) {
         switch ( key ) {
-            case SHINKEN.OBJECT.VIEW.PARAM.NAME:
+            case GS.OBJECT.VIEW.PARAM.NAME:
                 this.setName( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.UUID:
+            case GS.OBJECT.VIEW.PARAM.UUID:
                 this.setUUID( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.USERS._KEY:
+            case GS.OBJECT.VIEW.PARAM.USERS._KEY:
                 this.updateUsers( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.EXTERNAL_LINKS:
+            case GS.OBJECT.VIEW.PARAM.EXTERNAL_LINKS:
                 this.setWeatherLinks( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.FOUND:
-            case SHINKEN.OBJECT.VIEW.PARAM.NOTIFICATIONS:
-            case SHINKEN.OBJECT.VIEW.PARAM.TYPE:
-            case SHINKEN.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM:
-            case SHINKEN.OBJECT.VIEW.PARAM.NB_ERRORS:
-            case SHINKEN.OBJECT.VIEW.PARAM.NB_WARNINGS:
-            case SHINKEN.OBJECT.VIEW.PARAM.NB_SHARED_LINK:
-            case SHINKEN.OBJECT.VIEW.PARAM.GROUPS_SHARES_UUID:
-            case SHINKEN.OBJECT.VIEW.PARAM.OWNER._KEY:
+            case GS.OBJECT.VIEW.PARAM.FOUND:
+            case GS.OBJECT.VIEW.PARAM.NOTIFICATIONS:
+            case GS.OBJECT.VIEW.PARAM.TYPE:
+            case GS.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM:
+            case GS.OBJECT.VIEW.PARAM.NB_ERRORS:
+            case GS.OBJECT.VIEW.PARAM.NB_WARNINGS:
+            case GS.OBJECT.VIEW.PARAM.NB_SHARED_LINK:
+            case GS.OBJECT.VIEW.PARAM.GROUPS_SHARES_UUID:
+            case GS.OBJECT.VIEW.PARAM.OWNER._KEY:
                 this [ key ] = value;
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR:
+            case GS.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR:
                 this.setBehaviourPhase( value );
                 break;
             default:
-                console.warn( "[SHINKEN.OBJECT.VIEW]", "[IGNORED DATA]", key, value );
+                console.warn( "[GS.OBJECT.VIEW]", "[IGNORED DATA]", key, value );
                 break;
         }
     },
@@ -23750,43 +22623,43 @@ SHINKEN.OBJECT.View.prototype  = {
     addUserInfo                    : function ( key, value ) {
         
         switch ( key ) {
-            case SHINKEN.OBJECT.VIEW.PARAM.USERS.OWNER:
+            case GS.OBJECT.VIEW.PARAM.USERS.OWNER:
                 this.setOwner( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.USERS.PREVIOUS_OWNER:
+            case GS.OBJECT.VIEW.PARAM.USERS.PREVIOUS_OWNER:
                 this.setPreviousOwner( value );
                 break;
-            case SHINKEN.OBJECT.VIEW.PARAM.USERS.CREATOR:
+            case GS.OBJECT.VIEW.PARAM.USERS.CREATOR:
                 this.setCreator( value );
                 break;
             default:
-                console.warn( "[SHINKEN.OBJECT.VIEW]", "[IGNORED USER DATA]", key, value );
+                console.warn( "[GS.OBJECT.VIEW]", "[IGNORED USER DATA]", key, value );
                 break;
         }
     },
     setName                        : function ( to_set ) {
-        this[ SHINKEN.OBJECT.VIEW.PARAM.NAME ] = to_set;
+        this[ GS.OBJECT.VIEW.PARAM.NAME ] = to_set;
     },
     setUUID                        : function ( to_set ) {
-        this[ SHINKEN.OBJECT.VIEW.PARAM.UUID ] = to_set;
+        this[ GS.OBJECT.VIEW.PARAM.UUID ] = to_set;
     },
     getUUID                        : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.UUID ];
+        return this[ GS.OBJECT.VIEW.PARAM.UUID ];
     },
     getType                        : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.TYPE ];
+        return this[ GS.OBJECT.VIEW.PARAM.TYPE ];
     },
     getOwnerUUID                   : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.OWNER._KEY ][ SHINKEN.OBJECT.VIEW.PARAM.OWNER.PARAM.UUID._KEY ];
+        return this[ GS.OBJECT.VIEW.PARAM.OWNER._KEY ][ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.UUID._KEY ];
     },
     getOwnerName                   : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.OWNER._KEY ][ SHINKEN.OBJECT.VIEW.PARAM.OWNER.PARAM.NAME._KEY ];
+        return this[ GS.OBJECT.VIEW.PARAM.OWNER._KEY ][ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.NAME._KEY ];
     },
     getScreenType                  : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.TYPE ];
+        return this[ GS.OBJECT.VIEW.PARAM.TYPE ];
     },
     getName                        : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.NAME ];
+        return this[ GS.OBJECT.VIEW.PARAM.NAME ];
     },
     getViewName                    : function () {
         return this.getName();
@@ -23795,49 +22668,49 @@ SHINKEN.OBJECT.View.prototype  = {
         return this.getViewName() + _( "common.clone_tag", [DICTIONARY_COMMON_UI] );
     },
     getShareNumber                 : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.NB_SHARED_LINK ];
+        return this[ GS.OBJECT.VIEW.PARAM.NB_SHARED_LINK ];
     },
     getNumberOfErrors              : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.NB_ERRORS ];
+        return this[ GS.OBJECT.VIEW.PARAM.NB_ERRORS ];
     },
     getNumberOfWarnings            : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.NB_WARNINGS ];
+        return this[ GS.OBJECT.VIEW.PARAM.NB_WARNINGS ];
     },
     getOwner                       : function () {
         return this.owner_user;
     },
     getProblems                    : function () {
         var _problems                                      = {};
-        _problems[ SHINKEN.OBJECT.VIEW.PARAM.NB_ERRORS ]   = this.getNumberOfErrors();
-        _problems[ SHINKEN.OBJECT.VIEW.PARAM.NB_WARNINGS ] = this.getNumberOfWarnings();
+        _problems[ GS.OBJECT.VIEW.PARAM.NB_ERRORS ]   = this.getNumberOfErrors();
+        _problems[ GS.OBJECT.VIEW.PARAM.NB_WARNINGS ] = this.getNumberOfWarnings();
         return _problems;
     },
     setOwner                       : function ( value ) {
-        this.owner_user = new SHINKEN.ELEMENT.UiUser( value );
+        this.owner_user = new GS.ELEMENT.UiUser( value );
     },
     getPreviousOwner               : function () {
         return this.previous_owner_user;
     },
     setPreviousOwner               : function ( value ) {
-        this.previous_owner_user = new SHINKEN.ELEMENT.UiUser( value );
+        this.previous_owner_user = new GS.ELEMENT.UiUser( value );
     },
     getCreator                     : function () {
         return this.creator_user;
     },
     setCreator                     : function ( value ) {
-        this.creator_user = new SHINKEN.ELEMENT.UiUser( value );
+        this.creator_user = new GS.ELEMENT.UiUser( value );
     },
     setWeatherLinks                : function ( value ) {
-        SHINKEN.TOOLS.DICT.deleteKeyEntries( value, "validation_messages" );
+        GS.TOOLS.DICT.deleteKeyEntries( value, "validation_messages" );
         this.weather_links = new WEATHER.Links( value );
     },
     setBehaviourPhase              : function ( value ) {
         var to_set = value;
-        if ( value.__class_name__ !== "SHINKEN.OBJECT.ViewBehaviour" ) {
-            to_set = new SHINKEN.OBJECT.ViewBehaviour();
+        if ( value.__class_name__ !== "GS.OBJECT.ViewBehaviour" ) {
+            to_set = new GS.OBJECT.ViewBehaviour();
             to_set.updateData( value );
         }
-        this[ SHINKEN.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ] = to_set;
+        this[ GS.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ] = to_set;
     },
     getNotifications               : function () {
         return this.notifications;
@@ -23849,37 +22722,37 @@ SHINKEN.OBJECT.View.prototype  = {
         this.delay_before_deletion = delay_before_deletion;
     },
     getViewBehaviourPhase          : function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ];
+        return this[ GS.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ];
     },
     getViewBehaviourPhaseLastUpdate: function () {
-        return this[ SHINKEN.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ].last_update;
+        return this[ GS.OBJECT.VIEW.PARAM.VIEW_BEHAVIOUR ].last_update;
     },
     getViewDeletionTime            : function () {
         return this.getViewBehaviourPhaseLastUpdate() + this.delay_before_deletion;
     }
     
 };
-SHINKEN.OBJECT.ViewParser      = function ( data ) {
+GS.OBJECT.ViewParser      = function ( data ) {
     var _data_valid_for_screen                                          = {};
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.UUID ]            = data[ SHINKEN.OBJECT.VIEW.PARAM.UUID ];
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.NAME ]            = data[ SHINKEN.OBJECT.VIEW.PARAM.NAME ];
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.TYPE ]            = data[ SHINKEN.OBJECT.VIEW.PARAM.TYPE ];
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ] = data[ SHINKEN.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ];
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.FOUND ]           = data[ SHINKEN.OBJECT.VIEW.PARAM.FOUND ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.UUID ]            = data[ GS.OBJECT.VIEW.PARAM.UUID ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.NAME ]            = data[ GS.OBJECT.VIEW.PARAM.NAME ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.TYPE ]            = data[ GS.OBJECT.VIEW.PARAM.TYPE ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ] = data[ GS.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.FOUND ]           = data[ GS.OBJECT.VIEW.PARAM.FOUND ];
     var _owner                                                          = {};
-    _owner[ SHINKEN.OBJECT.VIEW.PARAM.OWNER.PARAM.NAME._KEY ]           = data[ "owner_name" ];
-    _owner[ SHINKEN.OBJECT.VIEW.PARAM.OWNER.PARAM.UUID._KEY ]           = data[ "owner_uuid" ];
-    _data_valid_for_screen[ SHINKEN.OBJECT.VIEW.PARAM.OWNER._KEY ]      = _owner;
-    return new SHINKEN.OBJECT.View( _data_valid_for_screen );
+    _owner[ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.NAME._KEY ]           = data[ "owner_name" ];
+    _owner[ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.UUID._KEY ]           = data[ "owner_uuid" ];
+    _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.OWNER._KEY ]      = _owner;
+    return new GS.OBJECT.View( _data_valid_for_screen );
 };
-SHINKEN.OBJECT.Views           = function ( data ) {
+GS.OBJECT.Views           = function ( data ) {
     this.init( data );
 };
-SHINKEN.OBJECT.Views.prototype = {
+GS.OBJECT.Views.prototype = {
     init                  : function ( data ) {
         this.initContents();
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
-            this.add( new SHINKEN.OBJECT.View( data[ i ] ) );
+            this.add( new GS.OBJECT.View( data[ i ] ) );
         }
     },
     setDelayBeforeDeletion: function ( to_set ) {
@@ -23888,7 +22761,7 @@ SHINKEN.OBJECT.Views.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.Views, SHINKEN.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Views, GS.OBJECT.ShinkenObjectContainer );
 CONTROLLER.Help                          = (function ( self ) {
     "use strict";
     self._dom_element_help = null;
@@ -23928,10 +22801,10 @@ MANAGER.HelpGenerator                    = (function ( self ) {
         var _found = document.querySelectorAll( ".shinken-help-container .shinken-help-content" );
         for ( var i = 0, _size_i = _found.length; i < _size_i; i++ ) {
             self.content.push( new OBJECT.Help( _found[ i ] ) );
-            DOM.Service.removeElement( _found[ i ] );
+            SERVICE.DOM.removeElement( _found[ i ] );
         }
         self.size    = self.content.length;
-        self.content = SHINKEN.TOOLS.ARRAY.sortArrayMultiple( self.content, ["order_tab", "name_tab", "order"] );
+        self.content = GS.TOOLS.ARRAY.sortArrayMultiple( self.content, ["order_tab", "name_tab", "order"] );
     };
     self.initEventListener         = function () {
         document.addEventListener( 'keydown', function ( event ) {
@@ -23939,19 +22812,19 @@ MANAGER.HelpGenerator                    = (function ( self ) {
         } );
     };
     self.buildButtonHtml           = function () {
-        var _button_f1       = DOM.Service.createElement( 'div', { class: "shinken-help-button-container", onclick: "CONTROLLER.Help.toggleHelp(event)", 'data-name': "toggle_help" } );
+        var _button_f1       = SERVICE.DOM.createElement( 'div', { class: "shinken-help-button-container", onclick: "CONTROLLER.Help.toggleHelp(event)", 'data-name': "toggle_help" } );
         _button_f1.innerHTML = '<button class="shinken-button"><table><tr><td><span class="key">F1</span></td><td>' + _( 'common.help.label', self.type_trad ) + '</td></tr></table></button>';
         document.body.appendChild( _button_f1 );
     };
     self.buildContentHtml          = function ( class_to_add ) {
-        var _content_to_html  = DOM.Service.createElement( 'div', {
+        var _content_to_html  = SERVICE.DOM.createElement( 'div', {
             id     : "id-shinken-help-pop-up",
             class  : "shinken-hidden " + class_to_add,
             onclick: "MANAGER.EventManager.stopPropagation(event)"
         } );
-        var _container_html   = DOM.Service.createElement( 'div', { class: "shinken-help-container" } );
-        var _container_html_2 = DOM.Service.createElement( 'div', { class: "shinken-help-container-2" } );
-        var _container_html_3 = DOM.Service.createElement( 'div', { class: "shinken-help-container-3" },
+        var _container_html   = SERVICE.DOM.createElement( 'div', { class: "shinken-help-container" } );
+        var _container_html_2 = SERVICE.DOM.createElement( 'div', { class: "shinken-help-container-2" } );
+        var _container_html_3 = SERVICE.DOM.createElement( 'div', { class: "shinken-help-container-3" },
             "<div class='shinken-text-centred'><div class='shinken-help-title'>" + _( 'common.help.label', self.type_trad ) + "</div></div>" );
         var _current_tab;
         var _current_tab_name = "";
@@ -23971,20 +22844,20 @@ MANAGER.HelpGenerator                    = (function ( self ) {
         document.body.appendChild( _content_to_html );
     };
     self.buildWindowsLineHtml      = function () {
-        var _to_return = DOM.Service.createElement( 'div', {
-            class      : "shinken-help-windows-title-menu shinken-window-group",
+        var _to_return = SERVICE.DOM.createElement( 'div', {
+            class      : "shinken-help-windows-title-menu gs-window-group",
             "data-name": "help-group",
             onclick    : "MANAGER.EventManager.clickOnWindowNavigation(event,'help-group')"
         } );
-        var _tab_list  = SHINKEN.TOOLS.ARRAY.extractKeys( this.content, ['tab', 'name_tab'], true, true );
-        _tab_list      = SHINKEN.TOOLS.ARRAY.removeDuplicateArray( _tab_list );
+        var _tab_list  = GS.TOOLS.ARRAY.extractKeys( this.content, ['tab', 'name_tab'], true, true );
+        _tab_list      = GS.TOOLS.ARRAY.removeDuplicateArray( _tab_list );
         _tab_list      = self.concatDuplicationWindowID( _tab_list );
         var _current;
         for ( var i = 0, _size_i = _tab_list.length; i < _size_i; i++ ) {
             _current = _tab_list[ i ];
             _to_return.appendChild( WINDOW.ElementService.getWindowHtml( "div", _current[ 0 ], _current[ 1 ], "help-group", !i ) );
         }
-        var _button_close = DOM.Service.createElement( 'div', { class: "shinken-help-close-button shinkon-times-bold", onclick: "CONTROLLER.Help.toggleHelp(event)" } );
+        var _button_close = SERVICE.DOM.createElement( 'div', { class: "shinken-help-close-button shinkon-times-bold", onclick: "CONTROLLER.Help.toggleHelp(event)" } );
         _to_return.appendChild( _button_close );
         return _to_return;
     };
@@ -23997,7 +22870,7 @@ MANAGER.HelpGenerator                    = (function ( self ) {
             _current = tab_list[ i ];
             if ( _mapping[ _current[ 0 ] ] ) {
                 _index                    = _mapping[ _current[ 0 ] ] - 1;
-                _to_return[ _index ][ 1 ] = _to_return[ _index ][ 1 ] + SHINKEN.TOOLS.STRING.CONST.WHITE_SPACE + _current[ 1 ];
+                _to_return[ _index ][ 1 ] = _to_return[ _index ][ 1 ] + GS.TOOLS.STRING.CONST.WHITE_SPACE + _current[ 1 ];
             }
             else {
                 _mapping[ _current[ 0 ] ] = _to_return.push( _current );
@@ -24019,7 +22892,7 @@ OBJECT.Help.prototype                    = {
         return this.dom_element;
     }
 };
-SHINKEN.TOOLS.IFRAME                     = (function ( self ) {
+GS.TOOLS.IFRAME                     = (function ( self ) {
     "use strict";
     self.getIframeJs   = function ( element_css_selector ) {
         var iframe = document.querySelector( element_css_selector );
@@ -24039,11 +22912,11 @@ SHINKEN.TOOLS.IFRAME                     = (function ( self ) {
         }
     };
     return self;
-})( SHINKEN.TOOLS.IFRAME || {} );
-SHINKEN.TOOLS                            = SHINKEN.TOOLS || {};
-SHINKEN.TOOLS.NOTIFICATION               = (function ( self ) {
+})( GS.TOOLS.IFRAME || {} );
+GS.TOOLS                            = GS.TOOLS || {};
+GS.TOOLS.NOTIFICATION               = (function ( self ) {
     
-    var __instance_notification_container = new SHINKEN.OBJECT.NOTIFICATION.Container();
+    var __instance_notification_container = new GS.OBJECT.NOTIFICATION.Container();
     
     
     
@@ -24072,7 +22945,7 @@ SHINKEN.TOOLS.NOTIFICATION               = (function ( self ) {
             2500 );
     };
     return self;
-})( SHINKEN.TOOLS.NOTIFICATION || {} );
+})( GS.TOOLS.NOTIFICATION || {} );
 var SHINKEN_GRID                         = {};
 SHINKEN_GRID.CONST                       = {
     PARAM        : {
@@ -24128,7 +23001,7 @@ SHINKEN_GRID.BelongGridCell.prototype    = {
     is_belonging_to_grid_cell_object: true
 };
 SHINKEN_GRID.CONST.PARAM.isSizesProperty = function ( property_name ) {
-    property_name = SHINKEN.TOOLS.STRING.splitForGetLastOne( property_name, "." );
+    property_name = GS.TOOLS.STRING.splitForGetLastOne( property_name, "." );
     switch ( property_name ) {
         case SHINKEN_GRID.CONST.PARAM.GRID_CELL.WIDTH:
         case SHINKEN_GRID.CONST.PARAM.GRID_CELL.HEIGHT:
@@ -24160,8 +23033,8 @@ SHINKEN_GRID.ViewHistory.prototype       = {
     },
     parseBackendDataLineForActionDeletion   : function ( data ) {
         let to_return = this.initBackendDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += _( "history.action.delete", [DICTIONARY_COMMON_UI] );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.shared_links_removed_from_groups", [DICTIONARY_VISU_UI] ) ) + "</div>";
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += _( "history.action.delete", [DICTIONARY_COMMON_UI] );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] += "<div class='shinken-history-action'>" + GS.TOOLS.STRING.format( _( "history.views.weather.shared_links_removed_from_groups", [DICTIONARY_VISU_UI] ) ) + "</div>";
         
         return to_return;
     },
@@ -24177,7 +23050,7 @@ SHINKEN_GRID.ViewHistory.prototype       = {
                 text_history_update += "<div class='shinken-history-action'>" + _( "history.views.weather.update_remove_widget", [DICTIONARY_VISU_UI] ) + "</div>";
             }
             else {
-                text_history_update += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.update_remove_widgets", [DICTIONARY_VISU_UI] ), nb_widgets ) + "</div>";
+                text_history_update += "<div class='shinken-history-action'>" + GS.TOOLS.STRING.format( _( "history.views.weather.update_remove_widgets", [DICTIONARY_VISU_UI] ), nb_widgets ) + "</div>";
             }
         }
         if ( data.action.context.nb_widgets.old < data.action.context.nb_widgets.new ) {
@@ -24186,21 +23059,21 @@ SHINKEN_GRID.ViewHistory.prototype       = {
                 text_history_update += "<div class='shinken-history-action'>" + _( "history.views.weather.update_add_widget", [DICTIONARY_VISU_UI] ) + "</div>";
             }
             else {
-                text_history_update += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.update_add_widgets", [DICTIONARY_VISU_UI] ), nb_widgets ) + "</div>";
+                text_history_update += "<div class='shinken-history-action'>" + GS.TOOLS.STRING.format( _( "history.views.weather.update_add_widgets", [DICTIONARY_VISU_UI] ), nb_widgets ) + "</div>";
             }
         }
         if ( data.action.context.new_links.length > 0 ) {
             for ( let i = 0; i < data.action.context.new_links.length; i++ ) {
-                text_history_update += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.new_link", [DICTIONARY_VISU_UI] ), data.action.context.new_links[ i ].link_name ) + "</div>";
+                text_history_update += "<div class='shinken-history-action'>" + GS.TOOLS.STRING.format( _( "history.views.weather.new_link", [DICTIONARY_VISU_UI] ), data.action.context.new_links[ i ].link_name ) + "</div>";
             }
         }
         if ( data.action.context.removed_links.length > 0 ) {
             for ( let j = 0; j < data.action.context.removed_links.length; j++ ) {
-                text_history_update += "<div class='shinken-history-action'>" + SHINKEN.TOOLS.STRING.format( _( "history.views.weather.remove_link", [DICTIONARY_VISU_UI] ), data.action.context.removed_links[ j ].link_name ) + "</div>";
+                text_history_update += "<div class='shinken-history-action'>" + GS.TOOLS.STRING.format( _( "history.views.weather.remove_link", [DICTIONARY_VISU_UI] ), data.action.context.removed_links[ j ].link_name ) + "</div>";
             }
         }
         
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = text_history_update;
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = text_history_update;
         return to_return;
     },
     parseLastModificationDataLine           : function ( data ) {
@@ -24208,17 +23081,17 @@ SHINKEN_GRID.ViewHistory.prototype       = {
     },
     parseLastModificationDataLineGrid       : function ( data ) {
         switch ( data.type_modification ) {
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.HISTORY.MOVE:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.HISTORY.MOVE:
                 return this.parseLastModificationDataLineMove( data );
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.HISTORY.RESIZE:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.HISTORY.RESIZE:
                 return this.parseLastModificationDataLineResize( data );
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.HISTORY.CREATE:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.HISTORY.CREATE:
                 return this.parseLastModificationDataLineAddChild( data );
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.HISTORY.FORM_WIDGET_VALUE_MODIFICATION:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.HISTORY.FORM_WIDGET_VALUE_MODIFICATION:
                 return this.parseLastModificationDataLineEdit( data );
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.HISTORY.FORM_DEFAULT_VALUE_MODIFICATION:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.HISTORY.FORM_DEFAULT_VALUE_MODIFICATION:
                 return this.parseLastModificationDataLineDefaultEdit( data );
-            case SHINKEN.OBJECT.CONST.LAST_MODIFICATION.ACTION.DELETE:
+            case GS.OBJECT.CONST.LAST_MODIFICATION.ACTION.DELETE:
                 return this.parseLastModificationDataLineDelete( data );
             default:
                 this.parseLastModificationDataLineCommon( data );
@@ -24227,7 +23100,7 @@ SHINKEN_GRID.ViewHistory.prototype       = {
     },
     parseLastModificationDataLineResize     : function ( data ) {
         let to_return                                                     = this.initCurrentChangesDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = SHINKEN.TOOLS.STRING.format( _( "history.views.weather.widget_resized", [DICTIONARY_VISU_UI] ), data.contents[ 0 ].next.width.getUserValue(), data.contents[ 0 ].next.height.getUserValue() );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.weather.widget_resized", [DICTIONARY_VISU_UI] ), data.contents[ 0 ].next.width.getUserValue(), data.contents[ 0 ].next.height.getUserValue() );
         return to_return;
     },
     parseLastModificationDataLineMove       : function ( data ) {
@@ -24238,46 +23111,46 @@ SHINKEN_GRID.ViewHistory.prototype       = {
         let x_next       = data.contents[ 0 ].next.position_x.value;
         let nb_of_widget = 0;
         for ( let i = 0; i < data.contents.length; i++ ) {
-            if ( data.contents[ i ].type_modification === SHINKEN.OBJECT.CONST.LAST_MODIFICATION.ACTION.MOVE ) {
+            if ( data.contents[ i ].type_modification === GS.OBJECT.CONST.LAST_MODIFICATION.ACTION.MOVE ) {
                 nb_of_widget++;
             }
         }
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = SHINKEN.TOOLS.STRING.format( _( "history.views.weather.widget_moved", [DICTIONARY_VISU_UI] ), nb_of_widget, `x:${x_prev} , y:${y_prev}`, `x:${x_next} , y:${y_next}` );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.weather.widget_moved", [DICTIONARY_VISU_UI] ), nb_of_widget, `x:${x_prev} , y:${y_prev}`, `x:${x_next} , y:${y_next}` );
         return to_return;
     },
     parseLastModificationDataLineAddChild   : function ( data ) {
         let to_return                                                     = this.initCurrentChangesDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_created", [DICTIONARY_VISU_UI] );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_created", [DICTIONARY_VISU_UI] );
         return to_return;
     },
     parseLastModificationDataLineEdit       : function ( data ) {
         let to_return                                                     = this.initCurrentChangesDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     },
     parseLastModificationDataLineDefaultEdit: function ( data ) {
         let to_return                                                     = this.initCurrentChangesDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.default_value_edited", [DICTIONARY_VISU_UI] );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.default_value_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     },
     parseLastModificationDataLineDelete     : function ( data ) {
         const nb_of_widget_deleted = data.contents.length;
         let to_return              = this.initCurrentChangesDataLineParser( data );
         if ( nb_of_widget_deleted > 1 ) {
-            to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = SHINKEN.TOOLS.STRING.format( _( "history.views.weather.update_remove_widgets", [DICTIONARY_VISU_UI] ), nb_of_widget_deleted );
+            to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.weather.update_remove_widgets", [DICTIONARY_VISU_UI] ), nb_of_widget_deleted );
         }
         else {
-            to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.update_remove_widget", [DICTIONARY_VISU_UI] );
+            to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.update_remove_widget", [DICTIONARY_VISU_UI] );
         }
         return to_return;
     },
     parseLastModificationDataLineConfig     : function ( data ) {
         let to_return                                                     = this.initCurrentChangesDataLineParser( data );
-        to_return[ SHINKEN.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
+        to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN_GRID.ViewHistory, SHINKEN.OBJECT.ViewHistory );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_GRID.ViewHistory, GS.OBJECT.ViewHistory );
 SHINKEN_VALIDATION.Parameters                         = function ( parameters ) {
     this.content = [];
     if ( parameters ) {
@@ -24299,7 +23172,7 @@ SHINKEN_VALIDATION.Parameters.prototype               = {
         return null;
     },
     getKeys     : function () {
-        return SHINKEN.TOOLS.ARRAY.extractKey( this.content, 'key' );
+        return GS.TOOLS.ARRAY.extractKey( this.content, 'key' );
     },
     getContent  : function () {
         return this.content;
@@ -24350,9 +23223,9 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                 }
                 break;
             case SHINKEN_VALIDATION.CONST.LIST.INCLUDE_IN:
-                return SHINKEN.TOOLS.ARRAY.contains( validation_value, value );
+                return GS.TOOLS.ARRAY.contains( validation_value, value );
             case SHINKEN_VALIDATION.CONST.NUMBER.FLOAT_POSITIVE:
-                if ( !SHINKEN.TOOLS.NUMBER.isNumber( value ) ) {
+                if ( !GS.TOOLS.NUMBER.isNumber( value ) ) {
                     return false;
                 }
                 if ( value < 0 ) {
@@ -24360,7 +23233,7 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                 }
                 break;
             case SHINKEN_VALIDATION.CONST.NUMBER.INTEGER_POSITIVE:
-                if ( !SHINKEN.TOOLS.NUMBER.isInteger( value ) ) {
+                if ( !GS.TOOLS.NUMBER.isInteger( value ) ) {
                     return false;
                 }
                 if ( value < 0 ) {
@@ -24368,7 +23241,7 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                 }
                 break;
             case SHINKEN_VALIDATION.CONST.NUMBER.INTEGER_BETWEEN:
-                if ( !SHINKEN.TOOLS.NUMBER.isInteger( value ) ) {
+                if ( !GS.TOOLS.NUMBER.isInteger( value ) ) {
                     return false;
                 }
                 if ( value < validation_value[ 0 ] ) {
@@ -24391,7 +23264,7 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                     return false;
                 }
                 for ( var i = 0, _size_i = validation_value.length; i < _size_i; i++ ) {
-                    if ( SHINKEN.TOOLS.STRING.contains( value, validation_value[ i ] ) ) {
+                    if ( GS.TOOLS.STRING.contains( value, validation_value[ i ] ) ) {
                         return false;
                     }
                 }
@@ -24400,12 +23273,12 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                 return typeof value === "string";
             
             case SHINKEN_VALIDATION.CONST.OTHERS.DEFINE_STRING_OR_INTEGER_POSITIVE:
-                if ( SHINKEN.TOOLS.ARRAY.contains( validation_value, value ) ) {
+                if ( GS.TOOLS.ARRAY.contains( validation_value, value ) ) {
                     return true;
                 }
                 return _isValid( value, SHINKEN_VALIDATION.CONST.NUMBER.INTEGER_POSITIVE );
             case SHINKEN_VALIDATION.CONST.BOOLEAN._KEY:
-                return SHINKEN.TOOLS.BOOLEAN.isBoolean( value );
+                return GS.TOOLS.BOOLEAN.isBoolean( value );
             case undefined:
             case "":
                 break;
@@ -24426,13 +23299,13 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
                 _parsed_value = parseInt( param_value.getValue() );
                 break;
             case SHINKEN_VALIDATION.CONST.OTHERS.DEFINE_STRING_OR_INTEGER_POSITIVE:
-                if ( SHINKEN.TOOLS.NUMBER.isInteger( param_value.getValue() ) ) {
+                if ( GS.TOOLS.NUMBER.isInteger( param_value.getValue() ) ) {
                     _parsed_value = parseInt( param_value.getValue() );
                 }
                 break;
             case SHINKEN_VALIDATION.CONST.BOOLEAN._KEY:
-                if ( SHINKEN.TOOLS.BOOLEAN.isBoolean( param_value.getValue() ) ) {
-                    _parsed_value = SHINKEN.TOOLS.BOOLEAN.parseToBoolean( param_value.getValue() );
+                if ( GS.TOOLS.BOOLEAN.isBoolean( param_value.getValue() ) ) {
+                    _parsed_value = GS.TOOLS.BOOLEAN.parseToBoolean( param_value.getValue() );
                 }
                 break;
         }
@@ -24442,59 +23315,59 @@ SHINKEN_VALIDATION.Service                            = (function ( self ) {
     };
     return self;
 })( SHINKEN_VALIDATION.Service || {} );
-SHINKEN.OBJECT.ElementWindowGroupSaveObject           = function () {
+GS.OBJECT.ElementWindowGroupSaveObject           = function () {
     this.saving_progress_bar      = null;
     this.dom_saving_bar_container = null;
     this._controller              = null;
     this.init();
 };
-SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
+GS.OBJECT.ElementWindowGroupSaveObject.prototype = {
     init                             : function ( controller ) {
         this._controller = controller;
         this.initCounterCommon();
-        this.initCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.USER );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.USER );
         this.initPhase();
-        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+        this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
     },
     clickOnButton                    : function ( event, event_name, param ) {
         switch ( event_name ) {
             case "click-on-apply-button":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_SAVING );
+                this.setPhase( GS.OBJECT.CONST.PHASE.ASK_FOR_SAVING );
                 break;
             case "click-on-cancel-button":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CANCEL );
+                this.setPhase( GS.OBJECT.CONST.PHASE.ASK_FOR_CANCEL );
                 break;
             case "click-on-validate-confirmation-popup":
                 const _current_phase = this.getCurrentPhase();
                 switch ( _current_phase ) {
-                    case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_SAVING:
-                        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.SAVING );
+                    case GS.OBJECT.CONST.PHASE.ASK_FOR_SAVING:
+                        this.setPhase( GS.OBJECT.CONST.PHASE.SAVING );
                         break;
-                    case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CANCEL:
-                        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.CANCEL );
+                    case GS.OBJECT.CONST.PHASE.ASK_FOR_CANCEL:
+                        this.setPhase( GS.OBJECT.CONST.PHASE.CANCEL );
                         break;
-                    case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CLOSE:
-                        SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-accepted" );
-                        this.setPhase( SHINKEN.OBJECT.CONST.PHASE.CLOSE );
+                    case GS.OBJECT.CONST.PHASE.ASK_FOR_CLOSE:
+                        GS.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-accepted" );
+                        this.setPhase( GS.OBJECT.CONST.PHASE.CLOSE );
                         break;
                 }
                 MANAGER.__instance_confirmation_popup.hide();
                 break;
             case "click-on-cancel-confirmation-popup":
-                this.setPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING );
+                this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
                 MANAGER.__instance_confirmation_popup.hide();
-                SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-refused" );
+                GS.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-refused" );
                 break;
         }
     },
     doActionAfter                    : function ( event_name ) {
         switch ( event_name ) {
             case "ask-for-pop-up-close-event":
-                if ( !this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.USER ).hasCounter() ) {
-                    SHINKEN.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-accepted" );
+                if ( !this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.USER ).hasCounter() ) {
+                    GS.COMMUNICATION_WITH_IFRAME_PARENT.doActionAfter( "ask-for-pop-up-close-accepted" );
                 }
                 else {
-                    this.setPhase( SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CLOSE );
+                    this.setPhase( GS.OBJECT.CONST.PHASE.ASK_FOR_CLOSE );
                 }
                 break;
         }
@@ -24502,18 +23375,18 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
     callbackForPhase                 : function () {
         const _current = this.getCurrentPhase();
         switch ( _current ) {
-            case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_SAVING:
-            case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CANCEL:
-            case SHINKEN.OBJECT.CONST.PHASE.ASK_FOR_CLOSE:
+            case GS.OBJECT.CONST.PHASE.ASK_FOR_SAVING:
+            case GS.OBJECT.CONST.PHASE.ASK_FOR_CANCEL:
+            case GS.OBJECT.CONST.PHASE.ASK_FOR_CLOSE:
                 this.doConfirmationPopup();
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.SAVING:
-                this.saving_progress_bar.doProgress( SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL );
+            case GS.OBJECT.CONST.PHASE.SAVING:
+                this.saving_progress_bar.doProgress( GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.CANCEL:
+            case GS.OBJECT.CONST.PHASE.CANCEL:
                 this.getController_20240426().doActionAfter( "cancel_user_orders", {} );
                 break;
-            case SHINKEN.OBJECT.CONST.PHASE.CLOSE:
+            case GS.OBJECT.CONST.PHASE.CLOSE:
                 break;
             default:
                 break;
@@ -24524,18 +23397,18 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
     },
     _doActionWhenProgressStart       : function ( current_step, param ) {
         switch ( current_step ) {
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
                 this.saving_progress_bar.setTitleStep( current_step, _( "progress_bar.saving_in_progress", [DICTIONARY_COMMON_UI] ) );
                 break;
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.CALL_IN_PROGRESS:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.CALL_IN_PROGRESS:
                 this._askForSave();
                 break;
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.BACKEND_RETURN_ANALYSE:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.BACKEND_RETURN_ANALYSE:
                 this.doTreatment( param );
                 break;
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END:
                 const _current_step = this.saving_progress_bar.getStep( current_step );
-                const _message      = _current_step.isPhase( SHINKEN.OBJECT.CONST.PHASE.RUNNING_OK_WITH_WARNING ) ?
+                const _message      = _current_step.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_OK_WITH_WARNING ) ?
                                       _( 'progress_bar.saving_succeed_with_warning', [DICTIONARY_COMMON_UI] ) :
                                       _( "progress_bar.saving_succeed", [DICTIONARY_COMMON_UI] );
                 this.saving_progress_bar.setTitleStep( current_step, _message );
@@ -24546,16 +23419,16 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
     },
     _doActionWhenProgressEnd         : function ( current_step, param ) {
         switch ( current_step ) {
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
-                this.saving_progress_bar.doProgress( SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.CALL_IN_PROGRESS );
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.PREPARATION_CALL:
+                this.saving_progress_bar.doProgress( GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.CALL_IN_PROGRESS );
                 break;
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.BACKEND_RETURN_TREATMENT:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.BACKEND_RETURN_TREATMENT:
                 switch ( this.saving_progress_bar.getCurrentPhase() ) {
-                    case SHINKEN.OBJECT.CONST.PHASE.RUNNING_NOK:
+                    case GS.OBJECT.CONST.PHASE.RUNNING_NOK:
                         break;
                 }
                 break;
-            case SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END:
+            case GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END:
                 this._doActionWhenSaveEnd();
                 break;
         }
@@ -24567,44 +23440,44 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
     _askForSave                      : function () {
     },
     computeHtml                      : function () {
-        this.dom_element                = DOM.Service.createElement( "table", { "class": "shinken-window-group-save-table-action-button" } );
-        const _tr                       = DOM.Service.createElement( "tr", {} );
-        const _td_saving_bar            = DOM.Service.createElement( "td", { "class": "shinken-window-group-save-progress-bar-cell" } );
-        const _td_apply                 = DOM.Service.createElement( "td", {} );
-        const _td_cancel                = DOM.Service.createElement( "td", {} );
-        this.dom_saving_bar_container   = DOM.Service.createElement( "div", { "class": "shinken-window-group-save-container-saving-bar" } );
-        const _apply_button_container   = DOM.Service.createElement( "div", { "class": "shinken-window-group-save-container-action-button" } );
-        const _cancel_button_container  = DOM.Service.createElement( "div", { "class": "shinken-window-group-save-container-action-button" } );
-        const _apply_button             = DOM.Service.createElement( "div", {
-            "class"  : "shinken-window-group-save-action-button shinken-window-group-save-apply-button",
+        this.dom_element                = SERVICE.DOM.createElement( "table", { "class": "gs-window-group-save-table-action-button" } );
+        const _tr                       = SERVICE.DOM.createElement( "tr", {} );
+        const _td_saving_bar            = SERVICE.DOM.createElement( "td", { "class": "gs-window-group-save-progress-bar-cell" } );
+        const _td_apply                 = SERVICE.DOM.createElement( "td", {} );
+        const _td_cancel                = SERVICE.DOM.createElement( "td", {} );
+        this.dom_saving_bar_container   = SERVICE.DOM.createElement( "div", { "class": "gs-window-group-save-container-saving-bar" } );
+        const _apply_button_container   = SERVICE.DOM.createElement( "div", { "class": "gs-window-group-save-container-action-button" } );
+        const _cancel_button_container  = SERVICE.DOM.createElement( "div", { "class": "gs-window-group-save-container-action-button" } );
+        const _apply_button             = SERVICE.DOM.createElement( "div", {
+            "class"  : "gs-window-group-save-action-button gs-window-group-save-apply-button",
             "onclick": "MANAGER.EventManager.clickOnButton(event, 'click-on-apply-button')"
         }, _( 'window_group_save.action_button.apply', [DICTIONARY_COMMON_UI] ) );
         const _onclick_attribute_cancel = 'MANAGER.EventManager.clickOnButton(event, "click-on-cancel-button")';
-        const _cancel_button            = DOM.Service.createElement( "div", {
-            "class"  : "shinken-window-group-save-action-button shinken-window-group-save-cancel-button",
+        const _cancel_button            = SERVICE.DOM.createElement( "div", {
+            "class"  : "gs-window-group-save-action-button gs-window-group-save-cancel-button",
             "onclick": _onclick_attribute_cancel
         }, _( 'window_group_save.action_button.cancel', [DICTIONARY_COMMON_UI] ) );
         
-        DOM.Service.addElementTo( this.dom_saving_bar_container, _td_saving_bar );
+        SERVICE.DOM.addElementTo( this.dom_saving_bar_container, _td_saving_bar );
         
-        DOM.Service.addElementTo( _apply_button, _apply_button_container );
-        DOM.Service.addElementTo( _apply_button_container, _td_apply );
+        SERVICE.DOM.addElementTo( _apply_button, _apply_button_container );
+        SERVICE.DOM.addElementTo( _apply_button_container, _td_apply );
         
-        DOM.Service.addElementTo( _cancel_button, _cancel_button_container );
-        DOM.Service.addElementTo( _cancel_button_container, _td_cancel );
+        SERVICE.DOM.addElementTo( _cancel_button, _cancel_button_container );
+        SERVICE.DOM.addElementTo( _cancel_button_container, _td_cancel );
         
-        DOM.Service.addElementTo( _td_saving_bar, _tr );
-        DOM.Service.addElementTo( _td_apply, _tr );
-        DOM.Service.addElementTo( _td_cancel, _tr );
-        DOM.Service.addElementTo( _tr, this.dom_element );
-        this.getCounter( SHINKEN.OBJECT.COUNTER_V2_CONST.TYPE.USER ).addTargetsDomElement( this.dom_element );
-        this.saving_progress_bar = new SHINKEN.OBJECT.Progressbar( this, SHINKEN.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END, 500, this.dom_saving_bar_container );
+        SERVICE.DOM.addElementTo( _td_saving_bar, _tr );
+        SERVICE.DOM.addElementTo( _td_apply, _tr );
+        SERVICE.DOM.addElementTo( _td_cancel, _tr );
+        SERVICE.DOM.addElementTo( _tr, this.dom_element );
+        this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.USER ).addTargetsDomElement( this.dom_element );
+        this.saving_progress_bar = new GS.OBJECT.Progressbar( this, GS.OBJECT.PROGRESS_BAR_CONST.SAVING_WITH_TREATMENT_AFTER_CALL.END, 500, this.dom_saving_bar_container );
     },
     buildHtmlTitleConfirmationPopup  : function () {
         return "";
     },
     buildHtmlContentConfirmationPopup: function () {
-        return DOM.Service.createElement( "div", {} );
+        return SERVICE.DOM.createElement( "div", {} );
     },
     doConfirmationPopup              : function () {
         MANAGER.__instance_confirmation_popup.reset();
@@ -24615,9 +23488,9 @@ SHINKEN.OBJECT.ElementWindowGroupSaveObject.prototype = {
         MANAGER.__instance_confirmation_popup.show();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ElementWindowGroupSaveObject, SHINKEN.OBJECT.PhaseInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ElementWindowGroupSaveObject, SHINKEN.OBJECT.ProgressbarInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( SHINKEN.OBJECT.ElementWindowGroupSaveObject, SHINKEN.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ElementWindowGroupSaveObject, GS.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ElementWindowGroupSaveObject, GS.OBJECT.ProgressbarInterface );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ElementWindowGroupSaveObject, GS.OBJECT.CounterInterfaceV2 );
 WINDOW.ElementGroup           = function ( name ) {
     this.init( name );
 };
@@ -24627,7 +23500,7 @@ WINDOW.ElementGroup.prototype = {
         this.initCounters();
         this.initPhase();
         this.active_window = null;
-        this.name          = SHINKEN.TOOLS.STRING.escapeBackslash( name );
+        this.name          = GS.TOOLS.STRING.escapeBackslash( name );
     },
     initWindows                       : function () {
     },
@@ -24703,7 +23576,7 @@ WINDOW.ElementGroup.prototype = {
     },
     pulsateElementIfNotActive : function ( window_name ) {
         if ( this.getActiveWindow().getName() !== window_name ) {
-            DOM.Service.askAddClass( this.getElementByName( window_name ).dom_element, 'shinken-pulsate', 2000 );
+            SERVICE.DOM.askAddClass( this.getElementByName( window_name ).dom_element, 'shinken-pulsate', 2000 );
         }
     },
     getDataToSave             : function () {
@@ -24713,9 +23586,9 @@ WINDOW.ElementGroup.prototype = {
         return this.getActiveWindow().getUrlToSave();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, SHINKEN.OBJECT.ShinkenObjectContainerHtml );
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, SHINKEN.OBJECT.PhaseInterface );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.PhaseInterface );
 WINDOW.ElementGroupWithCommaAbstract           = function ( name ) {
 };
 WINDOW.ElementGroupWithCommaAbstract.prototype = {
@@ -24730,37 +23603,37 @@ WINDOW.ElementGroupWithCommaAbstract.prototype = {
             _current = this.contents[ i ];
             if ( !_is_first && _current.isVisible() ) {
                 _is_first = true;
-                DOM.Service.addOrRemoveClasses( _current.getDomElement(), true, "shinken-is-first-comma" );
+                SERVICE.DOM.addOrRemoveClasses( _current.getDomElement(), true, "shinken-is-first-comma" );
             }
             else {
-                DOM.Service.addOrRemoveClasses( _current.getDomElement(), false, "shinken-is-first-comma" );
+                SERVICE.DOM.addOrRemoveClasses( _current.getDomElement(), false, "shinken-is-first-comma" );
             }
         }
         for ( i = this.contents.length; i > 0; i-- ) {
             _current = this.contents[ i - 1 ];
             if ( !_is_last && _current.isVisible() ) {
                 _is_last = true;
-                DOM.Service.addOrRemoveClasses( _current.getDomElement(), true, "shinken-is-last-comma" );
+                SERVICE.DOM.addOrRemoveClasses( _current.getDomElement(), true, "shinken-is-last-comma" );
             }
             else {
-                DOM.Service.addOrRemoveClasses( _current.getDomElement(), false, "shinken-is-last-comma" );
+                SERVICE.DOM.addOrRemoveClasses( _current.getDomElement(), false, "shinken-is-last-comma" );
             }
         }
     }
 };
 WINDOW.ElementService                          = (function ( self ) {
     self.getWindowTargetHtml = function ( dom_tag, tab_name, is_active ) {
-        var _class_to_add = is_active ? "shinken-window-target" : "shinken-window-target shinken-hidden";
-        var _to_return    = DOM.Service.createElement( dom_tag, { id: "id-shinken-window-" + tab_name + "-target", class: _class_to_add } );
+        var _class_to_add = is_active ? "gs-window-target" : "gs-window-target shinken-hidden";
+        var _to_return    = SERVICE.DOM.createElement( dom_tag, { id: "id-gs-window-" + tab_name + "-target", class: _class_to_add } );
         return _to_return;
     };
     self.getWindowHtml       = function ( dom_tag, window_id, label, group_name, is_active ) {
-        var _class_to_add = is_active ? "shinken-window-element shinken-active" : "shinken-window-element";
-        var _to_return    = DOM.Service.createElement( dom_tag, {
+        var _class_to_add = is_active ? "gs-window-element shinken-active" : "gs-window-element";
+        var _to_return    = SERVICE.DOM.createElement( dom_tag, {
             class            : _class_to_add,
             "data-group-name": group_name,
             "data-name"      : window_id,
-            id               : "id-shinken-window-" + window_id
+            id               : "id-gs-window-" + window_id
         }, label );
         return _to_return;
     };
@@ -24811,17 +23684,17 @@ WINDOW.Element.prototype                       = {
     },
     setDisabled               : function ( to_set ) {
         this.is_disabled = to_set;
-        DOM.Service.addOrRemoveClasses( this.dom_element, this.is_disabled, "shinken-disabled" );
+        SERVICE.DOM.addOrRemoveClasses( this.dom_element, this.is_disabled, "shinken-disabled" );
     },
     isClickable               : function ( to_set ) {
         if ( this.is_disabled ) {
             return false;
         }
         switch ( this.visibility_state ) {
-            case SHINKEN.CONST.VISIBILITY_STATE.HIDDEN:
-            case SHINKEN.CONST.VISIBILITY_STATE.DISABLED:
-            case SHINKEN.CONST.VISIBILITY_STATE.LOCKED:
-            case SHINKEN.CONST.VISIBILITY_STATE.TOTALLY_FORM_EXCLUDE:
+            case GS.CONST.VISIBILITY_STATE.HIDDEN:
+            case GS.CONST.VISIBILITY_STATE.DISABLED:
+            case GS.CONST.VISIBILITY_STATE.LOCKED:
+            case GS.CONST.VISIBILITY_STATE.TOTALLY_FORM_EXCLUDE:
                 return false;
         }
         return true;
@@ -24831,7 +23704,7 @@ WINDOW.Element.prototype                       = {
     },
     setContentDomElementTarget: function ( to_set ) {
         this.content_dom_element_target = to_set;
-        DOM.Service.addElementToAfterEmpty( to_set, this.dom_element_target );
+        SERVICE.DOM.addElementToAfterEmpty( to_set, this.dom_element_target );
     },
     hasProblems               : function ( window_name ) {
         return !!(this.hasError() || this.hasWarning());
@@ -24843,8 +23716,8 @@ WINDOW.Element.prototype                       = {
         return [];
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.Element, SHINKEN.OBJECT.CounterInterface );
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.Element, SHINKEN.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( WINDOW.Element, GS.OBJECT.CounterInterface );
+GS.TOOLS.CLASS.addPrototype( WINDOW.Element, GS.OBJECT.ShinkenObjectHtml );
 WINDOW.ElementWithProperties           = function ( name, dom_element, is_menu ) {
     this.__class_name__ = "WINDOW.ElementWithProperties";
     
@@ -24858,7 +23731,7 @@ WINDOW.ElementWithProperties.prototype = {
         return true;
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementWithProperties, WINDOW.Element );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementWithProperties, WINDOW.Element );
 WINDOW.ElementFromData           = function ( name, parent_name ) {
     this.__class_name__ = 'WINDOW.ElementFromData';
     this.name           = name;
@@ -24871,7 +23744,7 @@ WINDOW.ElementFromData.prototype = {
         this.initId();
     },
     initId           : function () {
-        this.id = "id-shinken-window-" + this.name + this.parent_name;
+        this.id = "id-gs-window-" + this.name + this.parent_name;
     },
     initController   : function () {
     },
@@ -24884,7 +23757,7 @@ WINDOW.ElementFromData.prototype = {
         }
     },
     getMainClass     : function () {
-        var _to_return = "shinken-window-element";
+        var _to_return = "gs-window-element";
         if ( this.isActive() ) {
             _to_return += " shinken-active";
         }
@@ -24895,29 +23768,29 @@ WINDOW.ElementFromData.prototype = {
         return _to_return;
     },
     computeHtml      : function () {
-        this.setDomElement( DOM.Service.createElement( "td", {
+        this.setDomElement( SERVICE.DOM.createElement( "td", {
             "class"                : this.getMainClass(),
             "id"                   : this.id,
             "data-group-name"      : this.parent_name,
             "data-name"            : this.name,
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.main_div_dom_element = this.addDomElement( DOM.Service.createElement( "div", { "class": "shinken-div-tab" } ) );
-        var _div_1                = DOM.Service.addElementTo( DOM.Service.createElement( "div", { "class": "shinken-div-tab-content" } ), this.main_div_dom_element );
-        var _table                = DOM.Service.addElementTo( DOM.Service.createElement( "table", { "class": "shinken-table" } ), _div_1 );
-        var _tr                   = DOM.Service.addElementTo( DOM.Service.createElement( "tr" ), _table );
-        DOM.Service.addElementTo( this.getLabelCellHtml(), _tr );
+        this.main_div_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "shinken-div-tab" } ) );
+        var _div_1                = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "shinken-div-tab-content" } ), this.main_div_dom_element );
+        var _table                = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { "class": "shinken-table" } ), _div_1 );
+        var _tr                   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), _table );
+        SERVICE.DOM.addElementTo( this.getLabelCellHtml(), _tr );
         
         this.computeHtml_lvl_1();
         this.computeHtml_tooltip();
         this.computeHtmlTarget();
     },
     getLabelCellHtml : function () {
-        var _to_return = DOM.Service.createElement( "td", { "class": "shinken-window-element-label" } );
-        var _div       = DOM.Service.addElementTo( DOM.Service.createElement( "div", {}, this.getLabel() ), _to_return );
+        var _to_return = SERVICE.DOM.createElement( "td", { "class": "gs-window-element-label" } );
+        var _div       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {}, this.getLabel() ), _to_return );
         if ( this.total ) {
             this.total.computeHtml();
-            DOM.Service.addElementTo( this.total.getDomElement(), _div );
+            SERVICE.DOM.addElementTo( this.total.getDomElement(), _div );
         }
         return _to_return;
     },
@@ -24928,17 +23801,17 @@ WINDOW.ElementFromData.prototype = {
         if ( !this.is_active ) {
             _class += " shinken-hidden";
         }
-        this.dom_element_target = DOM.Service.createElement( "div", {
+        this.dom_element_target = SERVICE.DOM.createElement( "div", {
             "class"    : _class,
             "id"       : this.id + "-target",
             "data-name": this.name
         } );
         if ( this.content_dom_element_target ) {
-            DOM.Service.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+            SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementFromData, WINDOW.Element );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementFromData, WINDOW.Element );
 WINDOW.ElementFromDataWithComma           = function ( name, parent_name ) {
     this.__class_name__ = 'WINDOW.ElementFromDataWithComma';
     this.name           = name;
@@ -24948,14 +23821,14 @@ WINDOW.ElementFromDataWithComma           = function ( name, parent_name ) {
 WINDOW.ElementFromDataWithComma.prototype = {
     init             : WINDOW.ElementFromData.prototype.init,
     computeHtml_lvl_1: function () {
-        var start_div = DOM.Service.addElementAtIndex( DOM.Service.createElement( "div", { class: "shinken-div-round-part-1" } ), this.main_div_dom_element, 0 );
-        var start_svg = DOM.Service.addElementTo( DOM.Service.cloneElement( document.getElementById( 'id-shinken-window-comma-shadow-left' ).querySelector( ".window-comma-shadow-left" ) ), start_div );
+        var start_div = SERVICE.DOM.addElementAtIndex( SERVICE.DOM.createElement( "div", { class: "shinken-div-round-part-1" } ), this.main_div_dom_element, 0 );
+        var start_svg = SERVICE.DOM.addElementTo( SERVICE.DOM.cloneElement( document.getElementById( 'id-gs-window-comma-shadow-left' ).querySelector( ".window-comma-shadow-left" ) ), start_div );
         
-        var end_div = DOM.Service.addElementTo( DOM.Service.createElement( "div", { class: "shinken-div-round-part-2" } ), this.main_div_dom_element );
-        var end_svg = DOM.Service.addElementTo( DOM.Service.cloneElement( document.getElementById( 'id-shinken-window-comma-shadow-right' ).querySelector( ".window-comma-shadow-right" ) ), end_div );
+        var end_div = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "shinken-div-round-part-2" } ), this.main_div_dom_element );
+        var end_svg = SERVICE.DOM.addElementTo( SERVICE.DOM.cloneElement( document.getElementById( 'id-gs-window-comma-shadow-right' ).querySelector( ".window-comma-shadow-right" ) ), end_div );
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementFromDataWithComma, WINDOW.ElementFromData );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementFromDataWithComma, WINDOW.ElementFromData );
 WINDOW.ElementGroupFromDataAbstract           = function () {
 };
 WINDOW.ElementGroupFromDataAbstract.prototype = {
@@ -24969,7 +23842,7 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
     initWindows         : function () {
     },
     initName            : function () {
-        this.name = SHINKEN.TOOLS.STRING.buildUUID();
+        this.name = GS.TOOLS.STRING.buildUUID();
     },
     initControllers     : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
@@ -24985,16 +23858,16 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
         }
     },
     computeHtml         : function () {
-        this.setDomElement( DOM.Service.createElement( "table", this.getMainAttribute() ) );
+        this.setDomElement( SERVICE.DOM.createElement( "table", this.getMainAttribute() ) );
         var _onclick_attribute = this.getEventMangerHtml();
-        var _dom_tr            = this.addDomElement( DOM.Service.createElement( "tr", {
-            "class"    : "shinken-window-group",
+        var _dom_tr            = this.addDomElement( SERVICE.DOM.createElement( "tr", {
+            "class"    : "gs-window-group",
             "data-name": this.name,
             "onclick"  : _onclick_attribute
         } ) );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtml();
-            DOM.Service.addElementTo( this.contents[ i ].getDomElement(), _dom_tr );
+            SERVICE.DOM.addElementTo( this.contents[ i ].getDomElement(), _dom_tr );
         }
         this.computeHtmlTargets();
         this.computeHtml_lvl_1();
@@ -25005,11 +23878,11 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
     computeHtml_lvl_1   : function () {
     },
     computeHtmlTargets  : function ( dom_parent ) {
-        this.dom_element_targets = DOM.Service.createElement( "div", {
-            "class": "shinken-window-targets"
+        this.dom_element_targets = SERVICE.DOM.createElement( "div", {
+            "class": "gs-window-targets"
         } );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
-            DOM.Service.addElementTo( this.contents[ i ].dom_element_target, this.getDomElementTargets() );
+            SERVICE.DOM.addElementTo( this.contents[ i ].dom_element_target, this.getDomElementTargets() );
         }
         if ( dom_parent ) {
             this.addDomElement( dom_parent );
@@ -25023,7 +23896,7 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
         return _to_return;
     },
     getMainClass        : function () {
-        var _to_return = "shinken-window-element-table shinken-table " + this.getClass();
+        var _to_return = "gs-window-element-table shinken-table " + this.getClass();
         if ( this.controller_name ) {
             _to_return += " shinken-parent-event-listener";
         }
@@ -25035,7 +23908,7 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataAbstract, WINDOW.ElementGroup );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataAbstract, WINDOW.ElementGroup );
 WINDOW.ElementGroupFromDataWithCommaAbstract           = function () {
     this.initSpecific();
 };
@@ -25045,8 +23918,8 @@ WINDOW.ElementGroupFromDataWithCommaAbstract.prototype = {
         this._doExtraActionAfterSetActiveWindow();
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, WINDOW.ElementGroupWithCommaAbstract );
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, WINDOW.ElementGroupFromDataAbstract );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, WINDOW.ElementGroupWithCommaAbstract );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromDataWithCommaAbstract, WINDOW.ElementGroupFromDataAbstract );
 WINDOW.ElementFromHtml           = function ( name, dom_element, is_menu ) {
     this.__class_name__ = 'WINDOW.ElementFromHtml';
     this.name           = name;
@@ -25063,7 +23936,7 @@ WINDOW.ElementFromHtml.prototype = {
             var _current;
             for ( var i = 0, _size_i = _dom_element_counters.length; i < _size_i; i++ ) {
                 _current                                      = _dom_element_counters[ i ];
-                this.counters[ _current.dataset.counterType ] = new SHINKEN.OBJECT.Counter();
+                this.counters[ _current.dataset.counterType ] = new GS.OBJECT.Counter();
                 this.counters[ _current.dataset.counterType ].init( _current );
             }
         }
@@ -25085,7 +23958,7 @@ WINDOW.ElementFromHtml.prototype = {
         }
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementFromHtml, WINDOW.Element );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementFromHtml, WINDOW.Element );
 WINDOW.ElementGroupFromHtml           = function ( name ) {
     this.name = name;
     this.list = {};
@@ -25113,4 +23986,4 @@ WINDOW.ElementGroupFromHtml.prototype = {
     
     }
 };
-SHINKEN.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromHtml, WINDOW.ElementGroup );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroupFromHtml, WINDOW.ElementGroup );

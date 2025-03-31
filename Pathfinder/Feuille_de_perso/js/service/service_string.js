@@ -13,6 +13,13 @@ SERVICE.STRING = (function ( self ) {
         let to_return = string_to_split.split( separator );
         return to_return[ index_to_return ].trim();
     };
+    self.endsWith                                = function ( string, to_find ) {
+        if ( !string ) {
+            return false;
+        }
+        var _start_index = string.length - to_find.length;
+        return string.substr( _start_index ) === to_find;
+    };
     return self;
 })( SERVICE.STRING || {} );
 

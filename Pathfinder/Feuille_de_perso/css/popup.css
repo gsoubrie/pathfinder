@@ -9,7 +9,7 @@
     justify-content  : center;
     background-color : rgb(143 141 141 / 86%);
 }
-.popup .shinken-window-targets-V2 {
+.popup .gs-window-targets-V2 {
     height : 92%;
 }
 .popup .shinken-tab-pane {
@@ -54,7 +54,7 @@
     background-color : #C65D1E;
     border-color     : #A84303;
 }
-.popup .edition-property-popup .shinken-window-targets-V2 {
+.popup .edition-property-popup .gs-window-targets-V2 {
     padding : 10px;
 }
 /*********************	RACE EDITION   ******************************************/

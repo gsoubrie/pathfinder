@@ -91,7 +91,7 @@ CHARACTER.Current.prototype = {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this[ RACES.key_element ], this[ RACES.key_element + "_html" ], RACES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this[ LEGACIES.key_element ], this[ LEGACIES.key_element + "_html" ], LEGACIES.label_element, false ), right_zone );
-         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "class", this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], "Classe", false ), right_zone );
+         //SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "class", this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], "Classe", false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "body_size", "", "Taille", false ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
