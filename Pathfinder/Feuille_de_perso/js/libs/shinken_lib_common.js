@@ -1,6 +1,6 @@
 "use strict";
-var SHINKEN_VALIDATION                             = {};
-SHINKEN_VALIDATION.CONST                           = {
+var SHINKEN_VALIDATION                        = {};
+SHINKEN_VALIDATION.CONST                      = {
     BOOLEAN: {
         _KEY: "boolean"
     },
@@ -39,15 +39,12 @@ GS.PAGE                                       = GS.PAGE || {};
 GS.CALLBACK                                   = GS.CALLBACK || {};
 GS.TOOLS                                      = GS.TOOLS || {};
 GS.TOOLS.ARRAY                                = GS.TOOLS.ARRAY || {};
-GS.TOOLS.ENCRYPTION                           = GS.TOOLS.ENCRYPTION || {};
 GS.OBJECT                                     = GS.OBJECT || {};
 GS.OBJECT.CONST                               = GS.OBJECT.CONST || {};
 GS.OBJECT.CONST.EVENT_PARAM                   = {
     PARENT_PARAMS_OBJECT: "parent___params_object"
 };
 GS.ELEMENT                                    = GS.ELEMENT || {};
-var DOM                                            = DOM || {};
-DOM.CONST                                          = DOM.CONST || {};
 GS.CONST                                      = {
     KEY_CODE        : {
         TAB      : 9,
@@ -138,810 +135,10 @@ GS.TOOLS.buildLinkShinkenElement              = function ( element, label, _clas
     }
     return GS.TOOLS.buildLinkDomElementDependIfAdmin( element.getType(), _uuid, label, _class, tooltip );
 };
-var COMMUNICATION                                  = {};
-COMMUNICATION.MESSAGE                              = {};
-COMMUNICATION.QUERY                                = {};
-COMMUNICATION.MESSAGE.SUCCESS                      = 'success';
-COMMUNICATION.MESSAGE.ERROR                        = 'error';
-COMMUNICATION.MESSAGE.WARNING                      = 'warning';
-COMMUNICATION.CODE                                 = {};
-COMMUNICATION.CODE.SUCCESS                         = 200;
-COMMUNICATION.CODE.WARNING                         = 202;
-COMMUNICATION.CODE.RESET_CONTENT                   = 205;
-COMMUNICATION.CODE.ERROR                           = 400;
-COMMUNICATION.CODE.UNAUTHORIZED                    = 401;
-COMMUNICATION.CODE.FORBIDDEN                       = 403;
-COMMUNICATION.CODE.NOT_FOUND                       = 404;
-COMMUNICATION.CODE.INTERNAL_SERVER_ERROR           = 500;
-COMMUNICATION.RETURN_CODE                          = {
-    ELEMENT_UNKNOWN: "element-unknown"
-};
-COMMUNICATION.QUERY.GET                            = {
-    SEPARATOR             : {
-        GET_BEGINNER: '?',
-        GET_ADD     : '&',
-        PARAM_SETTER: '=',
-        SLASH       : '/'
-    },
-    SOURCE                : {
-        LIST                 : {
-            URL    : "/api/sources",
-            OPTIONS: {
-                TIMESTAMP: "?ts="
-            }
-        },
-        SET_ORDER            : {
-            URL    : "/api/sources/setorder",
-            OPTIONS: {
-                TIMESTAMP: "?ts=",
-                ORDER    : "&order="
-            }
-        },
-        REFRESH              : {
-            URL    : "/api/sources",
-            OPTIONS: {
-                TIMESTAMP: "?ts="
-            }
-        },
-        SET_ENABLED          : {
-            URL    : "/api/sources/setenabled",
-            OPTIONS: {
-                TIMESTAMP  : "?ts=",
-                SOURCE_NAME: "&source_name=",
-                ENABLED    : "&enabled="
-            },
-            CONST  : {
-                ENABLED : '1',
-                DISABLED: '0'
-            }
-        },
-        SET_DISCOVERY_ENABLED: {
-            URL    : "/api/sources/conf/setenabled",
-            OPTIONS: {
-                TIMESTAMP  : "?ts=",
-                SOURCE_NAME: "&source_name=",
-                CONF_ID    : "&conf_id=",
-                ENABLED    : "&enabled="
-            },
-            CONST  : {
-                ENABLED : '1',
-                DISABLED: '0'
-            }
-        },
-        FORCE_IMPORT         : {
-            URL    : "/api/sources/forceimport/",
-            OPTIONS: {
-                TIMESTAMP: "?ts="
-            }
-        },
-        CLEAN_IMPORT         : {
-            URL    : "/api/sources/cleanimport/",
-            OPTIONS: {
-                TIMESTAMP: "?ts="
-            }
-        },
-        REFRESH_UNIQUE       : {
-            URL    : "/api/sources/unique_source/",
-            OPTIONS: {
-                TIMESTAMP: "?ts="
-            }
-        },
-        ANALYZER             : {
-            LAUNCH_BATCH      : "/api/analyzers/launch_analyze_batch",
-            STOP_ANALYSE_BATCH: "/api/analyzers/stop_analyze_batch",
-            GET_RESULTS       : "/api/analyzers/get_analyze_jobs_result"
-        },
-        REDIRECT_DETAIL      : {
-            URL    : "/sources/",
-            OPTIONS: {
-                TAB_DETAIL         : "tab=tab-detail-last-run",
-                TAB_SUMMARY_OLD_RUN: "tab=tab-summary-old-run",
-                FILTER_STATUS      : "filter=status:"
-            }
-        }
-    },
-    OVERRIDE              : {
-        BASE: '/elements/service_overrides/'
-    },
-    MASS_CHANGE           : {
-        BASE        : "/elements/massive_change/",
-        PROGRESS_BAR: "/elements/massive_change_progress/"
-    },
-    USER_MANAGER          : {
-        USER_PREFERENCES: "/user_preferences/"
-    },
-    USER                  : {
-        GET_USER_PREFERENCES: "/user/prefs"
-    },
-    SERVICE_WEATHER       : {
-        WEATHER_SPACE       : 'service-weather',
-        GET_WEATHER         : '/api/V1/get/',
-        GET_EDITABLE_WEATHER: '/api/V1/get-editable/',
-        PREVIEW_WEATHER     : '/api/V1/preview/',
-        SAVE_WEATHER        : '/api/V1/save/',
-        PUBLISH_WEATHER     : '/api/V1/publish/',
-        SAVE_MANY_WEATHER   : '/api/V1/update-many'
-    },
-    NOTIFICATION_OF_CHANGE: {
-        GET_INFORMATION_FOR_WEATHER_EXTERNAL_LINKS: "/get_information_for_weather_external_links"
-    }
-};
-COMMUNICATION.QUERY.POST                           = {
-    SYNCHRONIZER: {
-        COMPUTE_THRESHOLD_DISPLAY: "/element/compute_threshold_display"
-    }
-};
-COMMUNICATION.PAGE_TYPE                            = {
-    LIST_ALL_ELEMENT : "list-all-element",
-    LIST_WORKING_AREA: "list-working-area"
-};
-GS.TOOLS.STRING                               = (function ( self ) {
-    self.CONST = {
-        REGEX                   : {
-            HTML_TAG        : /<(?:.|\n)*?>/gm,
-            ESCAPE_CHARACTER: /\x1b/g
-        },
-        WHITE_SPACE             : ' ',
-        NON_BREAK_SPACE         : '\u00a0',
-        INVISIBLE_CHAR          : '\u200b',
-        COMMA                   : ',',
-        CHAR_CODE_BACK_TO_LINE  : 10,
-        CHAR_CODE_INVISIBLE_CHAR: 8203
-    };
-    
-    self.capitalize                              = function ( str ) {
-        if ( !str ) {
-            return "";
-        }
-        return str.charAt( 0 ).toUpperCase() + str.substring( 1 ).toLowerCase();
-    };
-    self.toUpperCase                             = function ( str ) {
-        return str.toUpperCase();
-    };
-    self.isUpperCase                             = function ( str ) {
-        if ( !str ) {
-            return false;
-        }
-        return str === self.toUpperCase( str );
-    };
-    self.extractBetween                          = function ( string, start_tag, end_tag ) {
-        if ( !string ) {
-            return string;
-        }
-        var _start = string.indexOf( start_tag );
-        if ( _start === -1 ) {
-            return string;
-        }
-        _start   = _start + start_tag.length;
-        var _end = string.indexOf( end_tag, _start );
-        if ( _end === -1 ) {
-            return string;
-        }
-        return string.substring( _start, _end );
-    };
-    self.replaceAll                              = function ( string, target, replacement ) {
-        return string.split( target ).join( replacement || '' );
-    };
-    self.replaceWithRegex                        = function ( text_to_change, regex, change_with ) {
-        return text_to_change.replace( regex, change_with );
-    };
-    self.extractStringIfBeginningBy              = function ( str, search ) {
-        var _to_return = false;
-        if ( str.startsWith( search ) ) {
-            _to_return = str.substr( search.length, str.length );
-        }
-        return _to_return;
-    };
-    self.splitMultiselectValueWithNoPlus         = function ( str ) {
-        var _to_return = GS.TOOLS.STRING.replaceAll( str, PROPERTY.CONST.STATE_VALUE_PLUS.ON + ",", "" );
-        _to_return     = GS.TOOLS.STRING.replaceAll( _to_return, PROPERTY.CONST.STATE_VALUE_PLUS.ON, "" );
-        return _to_return ? _to_return.split( ',' ) : [];
-    };
-    self.splitComposedString                     = function ( string, index, separator ) {
-        return string.split( separator ).slice( index ).join( separator );
-        
-    };
-    self.containsRegex                           = function ( string, regex_to_find ) {
-        return string.match( regex_to_find );
-    };
-    self.contains                                = function ( string, to_find ) {
-        if ( !string || !to_find ) {
-            return false;
-        }
-        return string.indexOf( to_find ) !== -1;
-    };
-    self.containsAny                             = function ( string, to_find_any_of ) {
-        for ( var _i = 0; _i < to_find_any_of.length; _i++ ) {
-            if ( to_find_any_of[ _i ] && self.contains( string, to_find_any_of[ _i ] ) ) {
-                return true;
-            }
-        }
-        return false;
-    };
-    self.containsCharCode                        = function ( string, char_code ) {
-        if ( !string ) {
-            return false;
-        }
-        var _codes = this.getCharCodes( string );
-        return GS.TOOLS.ARRAY.contains( _codes, char_code );
-    };
-    self.containsIgnoreCase                      = function ( string, to_find ) {
-        if ( !string ) {
-            return false;
-        }
-        
-        var _string_to_lower_case  = string.toLowerCase();
-        var _to_find_to_lower_case = to_find.toLowerCase();
-        return self.contains( _string_to_lower_case, _to_find_to_lower_case );
-    };
-    self.cleanMultipleSpaces                     = function ( string ) {
-        string = self.trim( string );
-        return self.replaceWithRegex( string, /\s\s+/g, self.CONST.WHITE_SPACE );
-    };
-    self.removeXss                               = function ( string ) {
-        if ( typeof string !== 'string' ) {
-            return string;
-        }
-        string = string || "";
-        string = string.replace( /&/g, "" );
-        string = string.replace( /</g, "" );
-        string = string.replace( />/g, "" );
-        string = string.replace( /"/g, "" );
-        string = string.replace( /'/g, "" );
-        string = string.replace( /\//g, "" );
-        return string;
-    };
-    self.cleanXss                                = function ( string ) {
-        if ( typeof string !== 'string' ) {
-            return string;
-        }
-        string = string || "";
-        string = string.replace( /&/g, "&amp;" );
-        string = string.replace( /</g, "&lt;" );
-        string = string.replace( />/g, "&gt;" );
-        string = string.replace( /"/g, "&quot;" );
-        string = string.replace( /'/g, "&#x27;" );
-        string = string.replace( /\//g, "&#x2F;" );
-        return string;
-    };
-    self.cleanXssForTooltip                      = function ( string ) {
-        var to_return = this.cleanXss( "" + string );
-        to_return     = to_return.replace( /&/g, "___" );
-        return to_return;
-    };
-    self.cleanXssForTooltipWithUserData          = function ( string ) {
-        var to_return  = SERVICE.DOM.createElement( "div", {}, this.unescape_xss( string ) );
-        var user_datas = to_return.querySelectorAll( ".shinken-data-user,.shinken-bad-data-user" );
-        for ( var i = 0, _size_i = user_datas.length; i < _size_i; i++ ) {
-            self.cleanXssForTooltipWithUserData_internal( user_datas[ i ] );
-        }
-        return self.replaceAll( to_return.innerHTML, '"', "'" );
-    };
-    self.cleanXssForTooltipWithUserData_internal = function ( dom_element ) {
-        var _spans = dom_element.querySelector( "span.shinken-data-user" );
-        if ( _spans ) {
-            for ( var i = 0, _size_i = _spans.length; i < _size_i; i++ ) {
-                self.cleanXssForTooltipWithUserData_internal( _spans[ i ] );
-            }
-        }
-        else {
-            dom_element.innerHTML = self.cleanXssForTooltip( dom_element.innerHTML );
-        }
-    };
-    self.cleanJavaScript                         = function ( string ) {
-        if ( typeof string !== 'string' ) {
-            return string;
-        }
-        var index_open  = string.indexOf( "<script" );
-        var index_close = string.indexOf( "</script>" );
-        if ( index_open === -1 || index_close === -1 || index_close < index_open ) {
-            return string;
-        }
-        index_close = index_close + "</script>".length;
-        return self.cleanJavaScript( string.substring( 0, index_open ) + string.substring( index_close, string.length ) );
-    };
-    self.uncleanBeforecleanXss                   = function ( string ) {
-        if ( typeof string !== 'string' ) {
-            return string;
-        }
-        var _string = self.unescape_xss( string + "" );
-        return self.cleanXss( _string );
-    };
-    self.unescape_xss                            = function ( string ) {
-        if ( typeof string !== 'string' ) {
-            return string;
-        }
-        string = string || "";
-        string = string.replace( /&amp;/g, '&' );
-        string = string.replace( /&lt;/g, '<' );
-        string = string.replace( /&gt;/g, '>' );
-        string = string.replace( /&quot;/g, '"' );
-        string = string.replace( /&#x27;/g, "'" );
-        string = string.replace( /&#39;/g, "'" );
-        string = string.replace( /&#x2F;/g, "/" );
-        return string;
-    };
-    self.escapeBackslash                         = function ( string ) {
-        if ( !string ) {
-            return string;
-        }
-        return GS.TOOLS.STRING.replaceAll( string, "\\", "___SHINKEN_BACKSLASH___" );
-    };
-    self.getRandomInt                            = function ( max ) {
-        return Math.floor( Math.random() * Math.floor( max ) );
-    };
-    self.trim                                    = function ( string ) {
-        return string.trim();
-    };
-    self.trimExtented                            = function ( string ) {
-        var _to_return = string.trim();
-        if ( _to_return === string ) {
-            return string;
-        }
-        return self.trimExtented( _to_return );
-    };
-    self.format                                  = function () {
-        var s = arguments[ 0 ];
-        for ( var i = 0; i < arguments.length - 1; i++ ) {
-            var reg = new RegExp( "\\{" + i + "\\}", "gm" );
-            s       = s.replace( reg, arguments[ i + 1 ] );
-        }
-        return s;
-    };
-    self.getNumberOccurence                      = function ( string, to_find ) {
-        if ( to_find.length <= 0 ) {
-            return (string.length + 1);
-        }
-        
-        var n    = 0;
-        var pos  = 0;
-        var step = to_find.length;
-        
-        while ( true ) {
-            pos = string.indexOf( to_find, pos );
-            if ( pos >= 0 ) {
-                ++n;
-                pos += step;
-            }
-            else {
-                break;
-            }
-        }
-        return n;
-    };
-    self.startsWith                              = function ( string, to_find ) {
-        if ( !string ) {
-            return false;
-        }
-        return string.substr( 0, to_find.length ) === to_find;
-    };
-    self.endsWith                                = function ( string, to_find ) {
-        if ( !string ) {
-            return false;
-        }
-        var _start_index = string.length - to_find.length;
-        return string.substr( _start_index ) === to_find;
-    };
-    self.hashCode                                = function ( string ) {
-        return string.split( "" ).reduce( function ( a, b ) {
-            a = ((a << 5) - a) + b.charCodeAt( 0 );
-            return a & a;
-        }, 0 );
-    };
-    self.buildS4                                 = function () {
-        return Math.floor( (1 + Math.random()) * 0x10000 )
-                   .toString( 16 )
-                   .substring( 1 );
-    };
-    self.buildUUID                               = function () {
-        return self.buildS4() + self.buildS4() + '-' + self.buildS4() + '-' + self.buildS4() + '-' +
-               self.buildS4() + '-' + self.buildS4() + self.buildS4() + self.buildS4();
-    };
-    self.getCharCodes                            = function ( string ) {
-        var _size      = string.length;
-        var _to_return = [];
-        for ( var i = 0; i < _size; i++ ) {
-            _to_return[ i ] = string.charCodeAt( i );
-        }
-        return _to_return;
-    };
-    self.b64Encode                               = function ( str ) {
-        return btoa( encodeURIComponent( str ).replace( /%([0-9A-F]{2})/g, function ( match, p1 ) {
-            return String.fromCharCode( parseInt( p1, 16 ) );
-        } ) );
-    };
-    self.b64Decode                               = function ( str ) {
-        return decodeURIComponent( Array.prototype.map.call( atob( str ), function ( c ) {
-            return '%' + ('00' + c.charCodeAt( 0 ).toString( 16 )).slice( -2 );
-        } ).join( '' ) );
-    };
-    self.urlEncode                               = function ( str ) {
-        return encodeURIComponent( str );
-    };
-    self.urlEncodeForEscapeNavigator             = function ( str ) {
-        var to_return = encodeURIComponent( str );
-        to_return     = self.replaceAll( to_return, '%', '__' );
-        to_return     = self.replaceAll( to_return, '!', '__21' );
-        to_return     = self.replaceAll( to_return, '(', '__28' );
-        to_return     = self.replaceAll( to_return, ')', '__29' );
-        to_return     = self.replaceAll( to_return, '*', '__2A' );
-        to_return     = self.replaceAll( to_return, '~', '__7E' );
-        return to_return;
-    };
-    self.urlDecode                               = function ( str ) {
-        return decodeURIComponent( str );
-    };
-    self.isEmpty                                 = function ( string ) {
-        if ( !string ) {
-            return true;
-        }
-        var s = string.replace( /\s/g, '' );
-        return s.length === 0;
-    };
-    self.isEmptyHtml                             = function ( string ) {
-        if ( !string ) {
-            return true;
-        }
-        var dom = SERVICE.DOM.createElement( 'div', '', string );
-        return self.isEmpty( dom.innerText );
-    };
-    self.indexesOf                               = function ( string, to_find ) {
-        var _to_return = [];
-        
-        var _length         = string.length;
-        var _length_to_find = to_find.length;
-        
-        var _current;
-        for ( var i = 0; i <= _length - _length_to_find; i++ ) {
-            _current = string.substring( i, i + _length_to_find );
-            if ( _current === to_find ) {
-                _to_return.push( i );
-            }
-        }
-        return _to_return;
-    };
-    self.indexesOfNotBetween                     = function ( string, to_find, to_ignore ) {
-        var _to_return = self.indexesOf( string, to_find );
-        return self.splicesindexesOfNotBetween( _to_return, to_ignore );
-    };
-    self.splicesindexesOfNotBetween              = function ( indexes, to_ignore ) {
-        var _to_return = indexes;
-        var _current_index;
-        for ( var i = _to_return.length - 1; i >= 0; i-- ) {
-            _current_index = _to_return[ i ];
-            for ( var j = 0, _size_j = to_ignore.length; j < _size_j; j = j + 2 ) {
-                if ( _current_index > to_ignore[ j ] && _current_index < to_ignore[ j + 1 ] ) {
-                    _to_return.splice( i, 1 );
-                    break;
-                }
-            }
-        }
-        return _to_return;
-    };
-    self.extraTextNotBetween                     = function ( text, indexes_to_ignore ) {
-        var _to_return = [];
-        if ( !Array.isArray( indexes_to_ignore ) || !indexes_to_ignore.length ) {
-            return _to_return;
-        }
-        var _split = self.splitWithIndexes( text, indexes_to_ignore, 1 );
-        var _keep  = true;
-        for ( var i = 0, _size_i = _split.length; i < _size_i; i++ ) {
-            if ( _keep ) {
-                _to_return.push( _split[ i ] );
-            }
-            _keep = !_keep;
-        }
-        return _to_return;
-    };
-    self.isInteger                               = function ( string ) {
-        var pattern = /^\d+$/;
-        return pattern.test( string );
-    };
-    self.splitWithIndexes                        = function ( string, indexes, size_split_label ) {
-        var _to_return = [];
-        if ( !size_split_label ) {
-            size_split_label = 1;
-        }
-        var _size_index = indexes.length;
-        if ( !_size_index ) {
-            _to_return[ 0 ] = string;
-            return _to_return;
-        }
-        
-        for ( var i = 0; i <= _size_index; i++ ) {
-            if ( i === 0 ) {
-                _to_return[ i ] = string.substring( 0, indexes[ i ] );
-            }
-            else if ( i === _size_index ) {
-                _to_return[ i ] = string.substring( indexes[ i - 1 ] + size_split_label );
-            }
-            else {
-                _to_return[ i ] = string.substring( indexes[ i - 1 ] + size_split_label, indexes[ i ] );
-            }
-        }
-        
-        return _to_return;
-        
-    };
-    self.prefix_by_zero                          = function ( str, max ) {
-        str = str.toString();
-        return str.length < max ? self.prefix_by_zero( "0" + str, max ) : str;
-    };
-    self.getSubStringUntil                       = function ( string, start, end ) {
-        var _size = string.length;
-        return string.substr( start, _size - end );
-    };
-    self.getAllIndexOf                           = function ( string, to_find, to_return, start_index ) {
-        if ( !to_return ) {
-            to_return   = [];
-            start_index = 0;
-        }
-        var _index = string.substr( start_index ).indexOf( to_find );
-        if ( _index !== -1 ) {
-            to_return.push( _index + start_index );
-            return self.getAllIndexOf( string, to_find, to_return, _index + to_find.length + start_index );
-        }
-        return to_return;
-    };
-    self.escapeRegExp                            = function ( string ) {
-        return string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' );
-    };
-    self.isMatchingStarRegexTab                  = function ( to_test, tab_to_test ) {
-        for ( var i = 0, _size_i = tab_to_test.length; i < _size_i; i++ ) {
-            if ( self.isMatchingStarRegex( to_test, tab_to_test[ i ].trim() ) ) {
-                return true;
-            }
-        }
-        return false;
-    };
-    self.isMatchingStarRegex                     = function ( to_test, regex_star ) {
-        var _contains_star = self.getAllIndexOf( regex_star, "*" );
-        if ( !_contains_star.length ) {
-            return to_test.trim() === regex_star.trim();
-        }
-        var _replaced = GS.TOOLS.STRING.replaceAll( regex_star, "**", "*" );
-        if ( regex_star !== _replaced ) {
-            return self.isMatchingStarRegex( to_test, _replaced );
-        }
-        regex_star         = self.escapeRegExp( regex_star );
-        var _current       = new RegExp( GS.TOOLS.STRING.replaceAll( GS.TOOLS.STRING.trim( regex_star ), "\\*", ".*" ) );
-        var _current_match = to_test.match( _current );
-        if ( _current_match && _current_match[ 0 ] === to_test ) {
-            return true;
-        }
-        return false;
-    };
-    self.toBool                                  = function ( value ) {
-        if ( value !== "false" && value !== "true" ) {
-            return null;
-        }
-        return value === "true";
-    };
-    self.splitShinken                            = function ( string, separator ) {
-        var _to_return = string.split( separator );
-        for ( var i = 0, _size_i = _to_return.length; i < _size_i; i++ ) {
-            _to_return[ i ] = _to_return[ i ].trim();
-        }
-        return _to_return;
-    };
-    self.splitAtMaximum                          = function ( string, separator, max_split ) {
-        if ( !string ) {
-            return [];
-        }
-        var _split = string.split( separator );
-        if ( _split <= max_split ) {
-            return _split;
-        }
-        var _to_return = [];
-        var index      = -1;
-        for ( var i = 0, _size_i = _split.length; i < _size_i; i++ ) {
-            if ( i < max_split ) {
-                index++;
-                _to_return[ index ] = _split[ i ];
-            }
-            else {
-                _to_return[ index ] = _to_return[ index ] + separator + _split[ i ];
-            }
-        }
-        return _to_return;
-    };
-    self.splitAndJoinExceptLastOne               = function ( string, separator ) {
-        if ( !string ) {
-            return string;
-        }
-        let split_string = string.split( separator );
-        split_string.pop();
-        return split_string.join( separator );
-    };
-    self.splitForGetLastOne                      = function ( string, separator ) {
-        if ( !string ) {
-            return string;
-        }
-        let split_string = string.split( separator );
-        return split_string.pop();
-    };
-    self.splitForGetFirstOne                     = function ( string, separator ) {
-        if ( !string ) {
-            return string;
-        }
-        let split_string = string.split( separator );
-        return split_string[ 0 ];
-    };
-    return self;
-})( GS.TOOLS.STRING || {} );
-GS.TOOLS.STRING.PARENTHESIS                   = (function ( self ) {
-    self.isValid          = function ( indexes_opening, indexes_closing ) {
-        var _size_open  = indexes_opening.length;
-        var _size_close = indexes_closing.length;
-        if ( _size_open !== _size_close ) {
-            return _( "validator.parenthesis.not_same_number" );
-        }
-        for ( var i = 0; i < _size_open; i++ ) {
-            if ( indexes_opening[ i ] > indexes_closing[ i ] ) {
-                return _( "validator.parenthesis.not_good_order" );
-            }
-        }
-    };
-    self.getActiveIndexes = function ( indexes_opening, indexes_closing ) {
-        var _to_return = [];
-        var _size      = indexes_opening.length;
-        var _concat    = [];
-        for ( var i = 0; i < _size; i++ ) {
-            _concat.push( { index: indexes_opening[ i ], is_open: true } );
-        }
-        for ( var i = 0; i < _size; i++ ) {
-            _concat.push( { index: indexes_closing[ i ], is_open: false } );
-        }
-        _concat = GS.TOOLS.ARRAY.sortArray( _concat, "index" );
-        if ( !_concat.length ) {
-            return _to_return;
-        }
-        _to_return.push( _concat[ 0 ].index );
-        var _current;
-        var _search_close = 1;
-        for ( var i = 1, _size_i = _concat.length; i < _size_i; i++ ) {
-            _current = _concat[ i ];
-            if ( _search_close ) {
-                if ( _current.is_open ) {
-                    _search_close++;
-                }
-                else {
-                    _search_close--;
-                    if ( !_search_close ) {
-                        _to_return.push( _current.index );
-                    }
-                }
-            }
-            else {
-                _to_return.push( _current.index );
-                _search_close++;
-            }
-        }
-        return _to_return;
-    };
-    return self;
-})( GS.TOOLS.STRING.PARENTHESIS || {} );
-GS.TOOLS.STRING.JSON                          = (function ( self ) {
-    self.isFormatJsonInvalid    = function ( json_to_test ) {
-        try {
-            JSON.parse( json_to_test );
-        }
-        catch ( json_error ) {
-            return json_error;
-        }
-        return false;
-    };
-    self.getFormattedLineNumber = function ( dict ) {
-        return GS.TOOLS.STRING.getNumberOccurence( JSON.stringify( dict, null, 2 ), "\n" );
-    };
-    self.hasJsonCharacters      = function ( text ) {
-        return GS.TOOLS.STRING.containsAny( text, ['{', '}', ',', ':', '[', ']', '"'] );
-    };
-    return self;
-})( GS.TOOLS.STRING.JSON || {} );
-GS.TOOLS.STRING_FILTER                        = (function ( self ) {
-    self.containsIgnoreCase = function ( string, to_find ) {
-        if ( !string ) {
-            return false;
-        }
-        var _split = to_find.split( "|" );
-        for ( var i = 0, _size_i = _split.length; i < _size_i; i++ ) {
-            if ( GS.TOOLS.STRING.containsIgnoreCase( string, _split[ i ] ) ) {
-                return true;
-            }
-        }
-        return false;
-    };
-    return self;
-})( GS.TOOLS.STRING_FILTER || {} );
-GS.TOOLS.STRING_EVAL                          = (function ( self ) {
-    self.parseToDict = function ( to_parse ) {
-        try {
-            return eval( to_parse );
-        }
-        catch ( e ) {
-            return null;
-        }
-    };
-    return self;
-})( GS.TOOLS.STRING_EVAL || {} );
-GS.TOOLS.MD5                                  = (function ( self ) {
-    self.MD5 = function ( d ) {
-        var result = M( V( Y( X( d ), 8 * d.length ) ) );
-        return result.toLowerCase();
-    };
-    
-    function M ( d ) {
-        for ( var _, m = "0123456789ABCDEF", f = "", r = 0; r < d.length; r++ ) {
-            _ = d.charCodeAt( r ), f += m.charAt( _ >>> 4 & 15 ) + m.charAt( 15 & _ );
-        }
-        return f;
-    }
-    
-    function X ( d ) {
-        for ( var _ = Array( d.length >> 2 ), m = 0; m < _.length; m++ ) {
-            _[ m ] = 0;
-        }
-        for ( m = 0; m < 8 * d.length; m += 8 ) {
-            _[ m >> 5 ] |= (255 & d.charCodeAt( m / 8 )) << m % 32;
-        }
-        return _;
-    }
-    
-    function V ( d ) {
-        for ( var _ = "", m = 0; m < 32 * d.length; m += 8 ) {
-            _ += String.fromCharCode( d[ m >> 5 ] >>> m % 32 & 255 );
-        }
-        return _;
-    }
-    
-    function Y ( d, _ ) {
-        d[ _ >> 5 ] |= 128 << _ % 32, d[ 14 + (_ + 64 >>> 9 << 4) ] = _;
-        for ( var m = 1732584193, f = -271733879, r = -1732584194, i = 271733878, n = 0; n < d.length; n += 16 ) {
-            var h = m,
-                t = f,
-                g = r,
-                e = i;
-            f = md5_ii( f = md5_ii( f = md5_ii( f = md5_ii( f = md5_hh( f = md5_hh( f = md5_hh( f = md5_hh( f = md5_gg( f = md5_gg( f = md5_gg( f = md5_gg( f = md5_ff( f = md5_ff( f = md5_ff( f = md5_ff( f, r = md5_ff( r, i = md5_ff( i, m = md5_ff( m, f, r, i, d[ n + 0 ], 7, -680876936 ), f, r, d[ n + 1 ], 12, -389564586 ), m, f, d[ n + 2 ], 17, 606105819 ), i, m, d[ n + 3 ], 22, -1044525330 ), r = md5_ff( r, i = md5_ff( i, m = md5_ff( m, f, r, i, d[ n + 4 ], 7, -176418897 ), f, r, d[ n + 5 ], 12, 1200080426 ), m, f, d[ n + 6 ], 17, -1473231341 ), i, m, d[ n + 7 ], 22, -45705983 ), r = md5_ff( r, i = md5_ff( i, m = md5_ff( m, f, r, i, d[ n + 8 ], 7, 1770035416 ), f, r, d[ n + 9 ], 12, -1958414417 ), m, f, d[ n + 10 ], 17, -42063 ), i, m, d[ n + 11 ], 22, -1990404162 ), r = md5_ff( r, i = md5_ff( i, m = md5_ff( m, f, r, i, d[ n + 12 ], 7, 1804603682 ), f, r, d[ n + 13 ], 12, -40341101 ), m, f, d[ n + 14 ], 17, -1502002290 ), i, m, d[ n + 15 ], 22, 1236535329 ), r = md5_gg( r, i = md5_gg( i, m = md5_gg( m, f, r, i, d[ n + 1 ], 5, -165796510 ), f, r, d[ n + 6 ], 9, -1069501632 ), m, f, d[ n + 11 ], 14, 643717713 ), i, m, d[ n + 0 ], 20, -373897302 ), r = md5_gg( r, i = md5_gg( i, m = md5_gg( m, f, r, i, d[ n + 5 ], 5, -701558691 ), f, r, d[ n + 10 ], 9, 38016083 ), m, f, d[ n + 15 ], 14, -660478335 ), i, m, d[ n + 4 ], 20, -405537848 ), r = md5_gg( r, i = md5_gg( i, m = md5_gg( m, f, r, i, d[ n + 9 ], 5, 568446438 ), f, r, d[ n + 14 ], 9, -1019803690 ), m, f, d[ n + 3 ], 14, -187363961 ), i, m, d[ n + 8 ], 20, 1163531501 ), r = md5_gg( r, i = md5_gg( i, m = md5_gg( m, f, r, i, d[ n + 13 ], 5, -1444681467 ), f, r, d[ n + 2 ], 9, -51403784 ), m, f, d[ n + 7 ], 14, 1735328473 ), i, m, d[ n + 12 ], 20, -1926607734 ), r = md5_hh( r, i = md5_hh( i, m = md5_hh( m, f, r, i, d[ n + 5 ], 4, -378558 ), f, r, d[ n + 8 ], 11, -2022574463 ), m, f, d[ n + 11 ], 16, 1839030562 ), i, m, d[ n + 14 ], 23, -35309556 ), r = md5_hh( r, i = md5_hh( i, m = md5_hh( m, f, r, i, d[ n + 1 ], 4, -1530992060 ), f, r, d[ n + 4 ], 11, 1272893353 ), m, f, d[ n + 7 ], 16, -155497632 ), i, m, d[ n + 10 ], 23, -1094730640 ), r = md5_hh( r, i = md5_hh( i, m = md5_hh( m, f, r, i, d[ n + 13 ], 4, 681279174 ), f, r, d[ n + 0 ], 11, -358537222 ), m, f, d[ n + 3 ], 16, -722521979 ), i, m, d[ n + 6 ], 23, 76029189 ), r = md5_hh( r, i = md5_hh( i, m = md5_hh( m, f, r, i, d[ n + 9 ], 4, -640364487 ), f, r, d[ n + 12 ], 11, -421815835 ), m, f, d[ n + 15 ], 16, 530742520 ), i, m, d[ n + 2 ], 23, -995338651 ), r = md5_ii( r, i = md5_ii( i, m = md5_ii( m, f, r, i, d[ n + 0 ], 6, -198630844 ), f, r, d[ n + 7 ], 10, 1126891415 ), m, f, d[ n + 14 ], 15, -1416354905 ), i, m, d[ n + 5 ], 21, -57434055 ), r = md5_ii( r, i = md5_ii( i, m = md5_ii( m, f, r, i, d[ n + 12 ], 6, 1700485571 ), f, r, d[ n + 3 ], 10, -1894986606 ), m, f, d[ n + 10 ], 15, -1051523 ), i, m, d[ n + 1 ], 21, -2054922799 ), r = md5_ii( r, i = md5_ii( i, m = md5_ii( m, f, r, i, d[ n + 8 ], 6, 1873313359 ), f, r, d[ n + 15 ], 10, -30611744 ), m, f, d[ n + 6 ], 15, -1560198380 ), i, m, d[ n + 13 ], 21, 1309151649 ), r = md5_ii( r, i = md5_ii( i, m = md5_ii( m, f, r, i, d[ n + 4 ], 6, -145523070 ), f, r, d[ n + 11 ], 10, -1120210379 ), m, f, d[ n + 2 ], 15, 718787259 ), i, m, d[ n + 9 ], 21, -343485551 ), m = safe_add( m, h ), f = safe_add( f, t ), r = safe_add( r, g ), i = safe_add( i, e );
-        }
-        return Array( m, f, r, i );
-    }
-    
-    function md5_cmn ( d, _, m, f, r, i ) {
-        return safe_add( bit_rol( safe_add( safe_add( _, d ), safe_add( f, i ) ), r ), m );
-    }
-    
-    function md5_ff ( d, _, m, f, r, i, n ) {
-        return md5_cmn( _ & m | ~_ & f, d, _, r, i, n );
-    }
-    
-    function md5_gg ( d, _, m, f, r, i, n ) {
-        return md5_cmn( _ & f | m & ~f, d, _, r, i, n );
-    }
-    
-    function md5_hh ( d, _, m, f, r, i, n ) {
-        return md5_cmn( _ ^ m ^ f, d, _, r, i, n );
-    }
-    
-    function md5_ii ( d, _, m, f, r, i, n ) {
-        return md5_cmn( m ^ (_ | ~f), d, _, r, i, n );
-    }
-    
-    function safe_add ( d, _ ) {
-        var m = (65535 & d) + (65535 & _);
-        return (d >> 16) + (_ >> 16) + (m >> 16) << 16 | 65535 & m;
-    }
-    
-    function bit_rol ( d, _ ) {
-        return d << _ | d >>> 32 - _;
-    }
-    
-    return self;
-})( GS.TOOLS.MD5 || {} );
-String.prototype.startsWith                        = String.prototype.startsWith || function ( pattern ) {
+String.prototype.startsWith                   = String.prototype.startsWith || function ( pattern ) {
     return this.indexOf( pattern ) === 0;
 };
-String.prototype.endsWith                          = String.prototype.endsWith || function ( pattern ) {
+String.prototype.endsWith                     = String.prototype.endsWith || function ( pattern ) {
     var d = this.length - pattern.length;
     return d >= 0 && this.lastIndexOf( pattern ) === d;
 };
@@ -978,8 +175,8 @@ GS.OBJECT.COLLAPSE                            = {
         IS_OPEN                : "is_open"
     }
 };
-var COMPONENT                                      = COMPONENT || {};
-COMPONENT.CONST                                    = {
+var COMPONENT                                 = COMPONENT || {};
+COMPONENT.CONST                               = {
     PARAM                   : {
         STATUS                : "component_status",
         TEXT_DEFAULT_SELECTOR : "text_default_selector",
@@ -1105,8 +302,8 @@ COMPONENT.CONST                                    = {
         }
     }
 };
-var SHINKEN_LIST                                   = SHINKEN_LIST || {};
-SHINKEN_LIST.CONST                                 = SHINKEN_LIST.CONST || {
+var SHINKEN_LIST                              = SHINKEN_LIST || {};
+SHINKEN_LIST.CONST                            = SHINKEN_LIST.CONST || {
     MASS_ACTION     : {
         NAME          : 'mass-action',
         WORK_AREA_NAME: 'mass-action-work-area'
@@ -1164,8 +361,8 @@ SHINKEN_LIST.CONST                                 = SHINKEN_LIST.CONST || {
         CELL_UUID             : "shinken_list_cell_uuid"
     }
 };
-var MANAGER                                        = MANAGER || {};
-MANAGER.CONST                                      = MANAGER.CONST || {
+var MANAGER                                   = MANAGER || {};
+MANAGER.CONST                                 = MANAGER.CONST || {
     STATE          : {
         WORK_FLOW: {
             STAGING     : "save-direct-in-staging",
@@ -1762,12 +959,12 @@ GS.OBJECT.ConfirmationPopupInterface.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopupInterface, GS.OBJECT.ShinkenObjectHtml );
-GS.SERVER                          = {};
-GS.SERVER.CONST                    = {
+GS.SERVER                               = {};
+GS.SERVER.CONST                         = {
     NAME              : "name",
     LIST_SHINKEN_CARTO: "shinken_cartos"
 };
-GS.ELEMENT.USER                    = {
+GS.ELEMENT.USER                         = {
     PARAM : {
         ACL                                                          : {
             KEY             : "acl",
@@ -1886,7 +1083,7 @@ GS.ELEMENT.USER                    = {
         ON : 1
     }
 };
-GS.SCREEN                          = {
+GS.SCREEN                               = {
     TYPE      : {
         HIVE             : "hive",
         LIST             : "list",
@@ -1908,7 +1105,7 @@ GS.SCREEN                          = {
         DELETED      : 4
     }
 };
-GS.OBJECT.VIEW                     = {
+GS.OBJECT.VIEW                          = {
     PARAM    : {
         NAME              : "name",
         NB_ERRORS         : "nb_errors",
@@ -2154,10 +1351,10 @@ OBJECT.CONST                            = OBJECT.CONST || {
         BY_NAME: "2"
     }
 };
-var GS                             = GS || {};
-GS.OBJECT                          = GS.OBJECT || {};
-GS.OBJECT.CONST                    = GS.OBJECT.CONST || {};
-GS.OBJECT.CONST.VALIDATION         = GS.OBJECT.CONST.VALIDATION || {
+var GS                                  = GS || {};
+GS.OBJECT                               = GS.OBJECT || {};
+GS.OBJECT.CONST                         = GS.OBJECT.CONST || {};
+GS.OBJECT.CONST.VALIDATION              = GS.OBJECT.CONST.VALIDATION || {
     FIELD: {
         MESSAGES                : "validation_messages",
         ERRORS                  : "errors",
@@ -2170,7 +1367,7 @@ GS.OBJECT.CONST.VALIDATION         = GS.OBJECT.CONST.VALIDATION || {
         CURRENT_OBJECT: "current_object"
     }
 };
-GS.TOOLS.DICT                      = (function ( self ) {
+GS.TOOLS.DICT                           = (function ( self ) {
     self.contains                              = function ( dict, key_to_find ) {
         return dict.hasOwnProperty( key_to_find );
     };
@@ -4184,7 +3381,7 @@ var common_ui_fr                        = {
         }
     }
 };
-GS.OBJECT.COUNTER_V2_CONST         = {
+GS.OBJECT.COUNTER_V2_CONST              = {
     TYPE: {
         ERRORS      : "errors",
         WARNINGS    : "warnings",
@@ -4198,11 +3395,11 @@ GS.OBJECT.COUNTER_V2_CONST         = {
         WIDGET_TOTAL: "widget_total"
     }
 };
-GS.OBJECT.CounterV2                = function ( type ) {
+GS.OBJECT.CounterV2                     = function ( type ) {
     this.__class_name__ = 'GS.OBJECT.CounterV2';
     this.init( type );
 };
-GS.OBJECT.CounterV2.prototype      = {
+GS.OBJECT.CounterV2.prototype           = {
     init                          : function ( type ) {
         this._counter_final       = 0;
         this.label                = "";
@@ -4214,7 +3411,7 @@ GS.OBJECT.CounterV2.prototype      = {
         this._data_target_name    = "number";
         this._counter_parent_list = [];
         this._elements_mapping    = {};
-        this.uuid                 = GS.TOOLS.STRING.buildUUID();
+        this.uuid                 = SERVICE.STRING.buildUUID();
         this._targets_dom_element = [];
         this._has_animation       = false;
         this.class                = "shinken-counter shinken-" + this.type + "-counter";
@@ -4566,7 +3763,7 @@ GS.OBJECT.Counter           = function ( dom_element, show_if_null ) {
     this._is_string             = false;
     this._counter_parent_list   = [];
     this._elements_mapping      = {};
-    this.uuid                   = GS.TOOLS.STRING.buildUUID();
+    this.uuid                   = SERVICE.STRING.buildUUID();
     this.timeout_html           = null;
     this.type                   = '';
     this.dom_class_selector     = '';
@@ -5245,7 +4442,7 @@ GS.OBJECT.SortingInterface.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SortingInterface, GS.OBJECT.ShinkenObject );
-GS.OBJECT.SORTING                   = {
+GS.OBJECT.SORTING                        = {
     NO_INDEX    : 0,
     STATUS      : {
         UNAVAILABLE: "UNAVAILABLE",
@@ -5258,7 +4455,7 @@ GS.OBJECT.SORTING                   = {
         OPEN : "OPEN"
     }
 };
-GS.TOOLS.ARRAY                      = (function ( self ) {
+GS.TOOLS.ARRAY                           = (function ( self ) {
     "use strict";
     
     self.cleanEmpty                      = function ( array ) {
@@ -5939,8 +5136,8 @@ GS.TOOLS.ARRAY                      = (function ( self ) {
     return self;
 })
 ( GS.TOOLS.ARRAY || {} );
-GS.TOOLS.ARRAY.NOT_FOUND            = -1;
-GS.TOOLS.BOOLEAN                    = (function ( self ) {
+GS.TOOLS.ARRAY.NOT_FOUND                 = -1;
+GS.TOOLS.BOOLEAN                         = (function ( self ) {
     self.isBoolean      = function ( value ) {
         return value === false || value === true || value === "false" || value === "true";
     };
@@ -6426,288 +5623,9 @@ Date.prototype.isWeekEnd                 = function () {
 DATE_TIME.getTimezoneOffsetInHour        = function ( value ) {
     return value.getTimezoneOffset() / 60;
 };
-DOM.BodyService                          = (function ( self ) {
-    "use strict";
-    
-    var __body_element;
-    var __list_to_remove = {};
-    var __time_out_add;
-    var __bouding_rect;
-    
-    self.load               = function () {
-        if ( !__body_element ) {
-            __body_element = document.querySelector( "body" );
-        }
-    };
-    self.hasChildWithID     = function ( id ) {
-        var _child = self.getDomElement().querySelector( "#" + id );
-        return _child;
-    };
-    self.addOrRemoveClasses = function ( boolean, _class ) {
-        SERVICE.DOM.addOrRemoveClasses( self.getDomElement(), boolean, _class );
-    };
-    self.askAddClass        = function ( to_add, time_out ) {
-        self.getDomElement().classList.add( to_add );
-        if ( time_out ) {
-            __list_to_remove[ to_add ] = true;
-            clearTimeout( __time_out_add );
-            __time_out_add = setTimeout( function () {
-                var _keys = Object.keys( __list_to_remove );
-                for ( var i = 0, _size = _keys.length; i < _size; i++ ) {
-                    self.getDomElement().classList.remove( _keys[ i ] );
-                }
-                __list_to_remove = {};
-            }, time_out );
-        }
-    };
-    self.removeClass        = function ( to_remove ) {
-        self.getDomElement().classList.remove( to_remove );
-        __list_to_remove[ to_remove ] = false;
-    };
-    self.addChild           = function ( dom_element ) {
-        SERVICE.DOM.addElementTo( dom_element, self.getDomElement() );
-    };
-    self.getDomElement      = function () {
-        if ( !__body_element ) {
-            self.load();
-        }
-        return __body_element;
-    };
-    self.cleanDomElement    = function () {
-        __body_element = null;
-    };
-    self.getWidth           = function () {
-        if ( !__bouding_rect ) {
-            __bouding_rect = SERVICE.DOM.getBoundingClientRect( this.getDomElement() );
-        }
-        return __bouding_rect[ DOM.CONST.STYLE.WIDTH ];
-    };
-    self.reset              = function () {
-        __bouding_rect = undefined;
-    };
-    return self;
-})( DOM.BodyService || {} );
 window.addEventListener( "resize", function () {
     DOM.BodyService.reset();
 } );
-DOM.ScrollService                       = (function ( self ) {
-    "use strict";
-    
-    self.getMiddleScrollPosition       = function ( dom_element_container ) {
-        var _top    = SERVICE.DOM.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.TOP );
-        var _bottom = SERVICE.DOM.getBoundingClientRect( dom_element_container, DOM.CONST.STYLE.BOTTOM );
-        
-        return ((_bottom - _top) / 2) + _top;
-    };
-    self.getFirstVisibleDom            = function ( dom_element_container, css_selector_children, move_down ) {
-        var _position = SERVICE.DOM.getBoundingClientRect( dom_element_container, move_down ? DOM.CONST.STYLE.TOP : DOM.CONST.STYLE.BOTTOM );
-        var _list     = GS.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
-        var _size     = _list.length;
-        if ( !_size ) {
-            return null;
-        }
-        return self.getCloserVisibleDomFrom( _list, _position, move_down, dom_element_container );
-    };
-    self.getCloserVisibleDomFromMiddle = function ( dom_element_container, css_selector_children, move_down ) {
-        var _middle_pos = DOM.ScrollService.getMiddleScrollPosition( dom_element_container );
-        var _list       = GS.TOOLS.ARRAY.parseToArray( dom_element_container.querySelectorAll( css_selector_children ) );
-        var _size       = _list.length;
-        if ( !_size ) {
-            return null;
-        }
-        return self.getCloserVisibleDomFrom( _list, _middle_pos, move_down, dom_element_container );
-    };
-    self.getCloserVisibleDomFrom       = function ( list, position, move_down, dom_element_container ) {
-        var _size  = list.length;
-        var _index = move_down ? _size - 1 : 0;
-        var _delta = move_down ? -1 : 1;
-        
-        var _closer_index     = _index;
-        var _last_closer_diff = 9999;
-        var _current;
-        for ( ; _index < _size && _index >= 0; _index = _index + _delta ) {
-            _current = list[ _index ];
-            if ( !SERVICE.DOM.isVisible( _current ) ) {
-                continue;
-            }
-            if ( SERVICE.DOM.getMissingScrollPositionToBeVisible( _current, dom_element_container ) ) {
-                continue;
-            }
-            var _median = SERVICE.DOM.getBoundingClientRect( _current, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
-            if ( Math.abs( _median - position ) < _last_closer_diff ) {
-                _last_closer_diff = Math.abs( _median - position );
-                _closer_index     = _index;
-                continue;
-            }
-            else {
-                break;
-            }
-        }
-        return list[ _closer_index ];
-    };
-    self.isVisible                     = function ( dom_element_container, dom_element_to_test, marge, action_type ) {
-        if ( !dom_element_to_test ) {
-            return false;
-        }
-        marge               = marge || 0;
-        var _rect_to_test   = dom_element_to_test.getBoundingClientRect();
-        var _rect_container = dom_element_container.getBoundingClientRect();
-        
-        if ( action_type ) {
-            if ( _rect_to_test.bottom - _rect_container.top <= marge ) {
-                return action_type === DOM.CONST.ATTRIBUTE.SCROLL_DOWN;
-            }
-            if ( _rect_container.bottom - _rect_to_test.top <= marge ) {
-                return action_type === DOM.CONST.ATTRIBUTE.SCROLL_TOP;
-            }
-            return true;
-        }
-        else {
-            return _rect_to_test.bottom - _rect_container.top >= marge && _rect_container.bottom - _rect_to_test.top >= marge;
-        }
-    };
-    self.bindWith                      = function ( dom_element, dom_element_to_bind_with, previous_position_vertical, action_type ) {
-        switch ( action_type ) {
-            case DOM.CONST.ATTRIBUTE.SCROLL_TOP:
-            case DOM.CONST.ATTRIBUTE.SCROLL_DOWN:
-                if ( self.isVisible( dom_element, dom_element_to_bind_with, 3 * SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT ), action_type ) ) {
-                    return;
-                }
-                else {
-                    var _delta = SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.STYLE.HEIGHT );
-                    if ( previous_position_vertical ) {
-                        _delta = previous_position_vertical - SERVICE.DOM.getBoundingClientRect( dom_element_to_bind_with, DOM.CONST.SPECIAL.MEDIAN_TOP_BOTTOM );
-                    }
-                    self.changeVerticaly( dom_element, _delta, action_type );
-                }
-                break;
-        }
-    };
-    self.changeVerticaly               = function ( dom_element, delta, action_type ) {
-        dom_element[ DOM.CONST.ATTRIBUTE.SCROLL_TOP ] = Math.ceil( dom_element[ DOM.CONST.ATTRIBUTE.SCROLL_TOP ] - delta );
-    };
-    self.scrollVertically              = function ( dom_element, delta ) {
-        dom_element.scrollBy( {
-            top     : delta,
-            left    : 0,
-            behavior: 'instant'
-        } );
-    };
-    self.scrollToTop                   = function ( dom_element, top ) {
-        dom_element.scrollTo( {
-            top     : top,
-            left    : 0,
-            behavior: 'auto'
-        } );
-    };
-    
-    
-    return self;
-})( DOM.ScrollService || {} );
-DOM.ServiceEllipsis                     = (function ( self ) {
-    "use strict";
-    var __canvas  = document.createElement( "canvas" );
-    var __context = __canvas.getContext( "2d" );
-    
-    var __size_distributor = {};
-    
-    self.getSizeDistributor   = function () {
-        return __size_distributor;
-    };
-    self.ellipsis             = function ( dom_element, text, font, nb_line ) {
-        SERVICE.DOM.empty( dom_element );
-        var _to_return = {
-            width       : SERVICE.DOM.getBoundingClientRect( dom_element, DOM.CONST.STYLE.WIDTH ),
-            height      : SERVICE.DOM.getBoundingClientRect( dom_element.parentElement, DOM.CONST.STYLE.HEIGHT ),
-            text        : "",
-            has_ellipsis: false,
-            line_number : 1
-        };
-        if ( !_to_return.width || !_to_return.height ) {
-            return _to_return;
-        }
-        var _text_to_split     = self.splitByWidth_toArray( text, _to_return.width, font );
-        _to_return.line_number = _text_to_split.length;
-        
-        for ( var i = 0; i < nb_line; i++ ) {
-            if ( _to_return.line_number <= i ) {
-                break;
-            }
-            _to_return.text += _text_to_split[ i ];
-        }
-        if ( _to_return.line_number > nb_line ) {
-            _to_return.text         = _to_return.text.substring( 0, _to_return.text.length - 3 );
-            _to_return.text += "...";
-            _to_return.has_ellipsis = true;
-            _to_return.line_number  = nb_line;
-        }
-        dom_element.innerText = _to_return.text;
-        if ( _to_return.height < SERVICE.DOM.getBoundingClientRect( dom_element, DOM.CONST.STYLE.HEIGHT ) && nb_line > 1 ) {
-            return self.ellipsis( dom_element, text, font, nb_line - 1 );
-        }
-        return _to_return;
-    };
-    self.splitByWidth_toArray = function ( text, width, font ) {
-        var _to_return = [];
-        var _temp_text = text;
-        while ( _temp_text ) {
-            var _split = self.splitByWidth_toLine( _temp_text, width, font );
-            if ( !_split ) {
-                return _to_return;
-            }
-            _to_return.push( _split );
-            if ( _split === _temp_text ) {
-                _temp_text = "";
-            }
-            else {
-                _temp_text = _temp_text.substring( _split.length );
-            }
-        }
-        return _to_return;
-    };
-    self.splitByWidth_toLine  = function ( text, width, font ) {
-        var _to_return     = "";
-        var _current_width = 0;
-        var _split_text    = text.split( "" );
-        for ( var i = 0, _size_i = _split_text.length; i < _size_i; i++ ) {
-            _current_width += self.getCharMeasure( _split_text[ i ], font );
-            if ( _current_width > width ) {
-                return _to_return;
-            }
-            else {
-                _to_return = _to_return + _split_text[ i ];
-            }
-        }
-        return _to_return;
-    };
-    self.getTextMeasure       = function ( text, font ) {
-        var _to_return  = 0;
-        var _split_text = text.split( "" );
-        for ( var i = 0, _size_i = _split_text.length; i < _size_i; i++ ) {
-            _to_return += self.getCharMeasure( _split_text[ i ], font );
-        }
-        return _to_return;
-    };
-    self.getTextMeasureHeight = function ( text, font ) {
-        __context.font = font;
-        return (__context.measureText( text )).fontBoundingBoxAscent;
-    };
-    self.getCharMeasure       = function ( char, font ) {
-        if ( !__size_distributor[ font ] ) {
-            __size_distributor[ font ] = {};
-        }
-        if ( !__size_distributor[ font ][ char ] ) {
-            __size_distributor[ font ][ char ] = self._measureChar( char, font );
-        }
-        return __size_distributor[ font ][ char ];
-    };
-    self._measureChar         = function ( letter, font ) {
-        __context.font = font;
-        return __context.measureText( letter ).width;
-        
-    };
-    return self;
-})( DOM.ServiceEllipsis || {} );
 
 GS.TOOLS.FORM                      = (function ( self ) {
     "use strict";
@@ -6857,7 +5775,7 @@ GS.NAVIGATOR                       = (function ( self ) {
     return self;
 })( GS.NAVIGATOR || {} );
 GS.NAVIGATOR.init( 50 );
-GS.TOOLS.NUMBER           = (function ( self ) {
+GS.TOOLS.NUMBER                = (function ( self ) {
     self.roundTo                      = function ( number, precision ) {
         if ( !precision ) {
             precision = 0;
@@ -7899,8 +6817,8 @@ GS.OBJECT.ShinkenObjectJson.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectJson, GS.OBJECT.ShinkenObject );
-GS.OBJECT.NOTIFICATION       = GS.OBJECT.NOTIFICATION || {};
-GS.OBJECT.NOTIFICATION.CONST = GS.OBJECT.NOTIFICATION.CONST || {
+GS.OBJECT.NOTIFICATION        = GS.OBJECT.NOTIFICATION || {};
+GS.OBJECT.NOTIFICATION.CONST  = GS.OBJECT.NOTIFICATION.CONST || {
     CONTAINER: {
         ID: 'shinken-notification-popup-container'
     },
@@ -7938,9 +6856,9 @@ GS.OBJECT.NOTIFICATION.CONST = GS.OBJECT.NOTIFICATION.CONST || {
         }
     }
 };
-COMPONENT.Interface               = function () {
+COMPONENT.Interface           = function () {
 };
-COMPONENT.Interface.prototype     = {
+COMPONENT.Interface.prototype = {
     initInterface     : function () {
         this.url_param_key = this.dom_element.dataset.urlParamKey;
     },
@@ -8011,7 +6929,7 @@ GS.OBJECT.DoActionAfter           = function ( parent_object, to_test, event_nam
 };
 GS.OBJECT.DoActionAfter.prototype = {
     init         : function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
-        this.uuid          = GS.TOOLS.STRING.buildUUID();
+        this.uuid          = SERVICE.STRING.buildUUID();
         this.parent_object = parent_object;
         this.to_test       = to_test;
         this.event_name    = event_name;
@@ -9204,7 +8122,7 @@ GS.OBJECT.NotificationsOfChange._interface.prototype = {
         return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDomElement();
     },
     getDataToSave     : function () {
-        var _to_return                                                         = {};
+        var _to_return                                                    = {};
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ]  = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.SOUND ].getDataToSave();
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ] = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VISUAL ].getDataToSave();
         return _to_return;
@@ -9219,7 +8137,7 @@ GS.OBJECT.Dropdown._interface.prototype              = {
         this.setDomTargetElement( dom_element_target );
         this.dom_element_content = dom_element_content;
         this.placement           = placement || GS.OBJECT.Dropdown.CONST.PLACEMENT.TOP;
-        this.uuid                = GS.TOOLS.STRING.buildUUID();
+        this.uuid                = SERVICE.STRING.buildUUID();
     },
     getUUID  : function () {
         return this.uuid;
@@ -9648,7 +8566,7 @@ GS.OBJECT.SoundNotificationOfChange.prototype = {
         }
     },
     getDataToSave      : function () {
-        var _to_return                                                          = {};
+        var _to_return                                                     = {};
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
@@ -10606,7 +9524,7 @@ SHINKEN_LIST.Line.prototype = {
     },
     getUUID                           : function () {
         if ( !this.uuid ) {
-            this.setUUID( GS.TOOLS.STRING.buildUUID() );
+            this.setUUID( SERVICE.STRING.buildUUID() );
         }
         return this.uuid;
     },
@@ -11714,7 +10632,7 @@ GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, GS.OBJECT.ShinkenObje
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, COMPONENT.Interface_V3 );
 COMPONENT.Button           = function ( dom_element, name ) {
     this.__class_name__ = 'COMPONENT.Button';
-    this.uuid           = GS.TOOLS.STRING.buildUUID();
+    this.uuid           = SERVICE.STRING.buildUUID();
     this.state          = COMPONENT.CONST.BTN_STATE.OFF;
     this.status         = COMPONENT.CONST.BTN_STATUS.NONE;
     this.name           = name;
@@ -12322,10 +11240,6 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     clickOnInput               : function () {
         this.setCurrentFilter();
     },
-    setIsProtected             : function ( to_set ) {
-        this.is_protected = to_set;
-        this.dom_element.setAttribute( "type", (this.is_protected && GS.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "password" : this.type );
-    },
     setPlaceholder             : function ( to_set ) {
         if ( !to_set ) {
             to_set = this.placeholder_no_template || '';
@@ -12461,7 +11375,7 @@ COMPONENT.InputWithDropDown.prototype = {
         this.initCounters( parent );
         this.type            = type;
         this.dom_element     = dom_element;
-        this.uuid            = GS.TOOLS.STRING.buildUUID();
+        this.uuid            = SERVICE.STRING.buildUUID();
         this.input           = new COMPONENT.Input( this.dom_element.querySelector( '.shinken-input-table' ), parent || this, true );
         this.select          = new COMPONENT.Select( this.dom_element.querySelector( '.shinken-select-container' ), COMPONENT.CONST.TYPE.SINGLE_SELECT, false, this, false, true );
         this.separators      = this.dom_element.dataset.separator.split( "$^$" );
@@ -12479,7 +11393,7 @@ COMPONENT.InputWithDropDownFomData           = function ( type ) {
 };
 COMPONENT.InputWithDropDownFomData.prototype = {
     init               : function () {
-        this.uuid      = GS.TOOLS.STRING.buildUUID();
+        this.uuid      = SERVICE.STRING.buildUUID();
         this.input     = new COMPONENT.InputFromData();
         this.select    = new COMPONENT.SelectFromData( COMPONENT.CONST.TYPE.SINGLE_SELECT );
         this.data_name = "";
@@ -12570,7 +11484,7 @@ COMPONENT.InterfaceInput.prototype = {
     },
     setIsProtected                : function ( to_set ) {
         this.is_protected = to_set;
-        this.dom_element_input.setAttribute( "type", (this.is_protected && GS.TOOLS.ENCRYPTION.isProtectedFieldsActivated()) ? "shinken-password" : this.type );
+        this.dom_element_input.setAttribute( "type", this.type );
     },
     setDisabled                   : function ( to_set ) {
         if ( to_set ) {
@@ -12925,7 +11839,7 @@ COMPONENT.Input.prototype = {
         else {
             this.dom_element_input = dom_element.querySelector( '.shinken-input' );
         }
-        this.uuid                    = GS.TOOLS.STRING.buildUUID();
+        this.uuid                    = SERVICE.STRING.buildUUID();
         this.current_value           = this.dom_element_input.getAttribute( 'value' ) || this.dom_element_input.value;
         this.type                    = this.dom_element_input.getAttribute( 'type' );
         this.original_value          = this.current_value;
@@ -14314,7 +13228,7 @@ COMPONENT.Select           = function ( dom_element, type, is_override, parent, 
 };
 COMPONENT.Select.prototype = {
     init                      : function ( dom_element, parent ) {
-        this.uuid        = GS.TOOLS.STRING.buildUUID();
+        this.uuid        = SERVICE.STRING.buildUUID();
         this.dom_element = dom_element;
         this.dom_select  = dom_element.querySelector( '.' + COMPONENT.CONST.SELECT.SELECTOR );
         if ( this.dom_select ) {
@@ -14363,7 +13277,7 @@ COMPONENT.SelectFromData           = function ( type ) {
 };
 COMPONENT.SelectFromData.prototype = {
     init                      : function () {
-        this.uuid         = GS.TOOLS.STRING.buildUUID();
+        this.uuid         = SERVICE.STRING.buildUUID();
         this.list_element = new COMPONENT.ListSelectFromData();
     },
     setDefaultLabelForSelector: function ( to_set ) {
@@ -14482,7 +13396,7 @@ COMPONENT.InterfaceSingleSelect.prototype = {
     init                      : function () {
         this.last_selected_key_name   = "";
         this.default_label_for_select = '--';
-        this.uuid                     = GS.TOOLS.STRING.buildUUID();
+        this.uuid                     = SERVICE.STRING.buildUUID();
     },
     hidePopup                 : function () {
         SERVICE.DOM.setDataSet( this.getDomElement(), COMPONENT.CONST.SELECT.DATA_STATE_SELECTOR, COMPONENT.CONST.BTN_STATE.OFF );
@@ -14979,7 +13893,7 @@ GS.OBJECT.LastModificationElement           = function ( type_modification, elem
 };
 GS.OBJECT.LastModificationElement.prototype = {
     init               : function ( type_modification, element_modified, previous, next ) {
-        this.uuid              = GS.TOOLS.STRING.buildUUID();
+        this.uuid              = SERVICE.STRING.buildUUID();
         this.type_modification = type_modification;
         this.addParamsForEvents( element_modified.getParamForEvents() );
         this.setPrevious( previous );
@@ -15106,7 +14020,7 @@ GS.OBJECT.LastModifications.prototype = {
             return false;
         }
         last_modification.setIndex( ++this.current_step );
-        last_modification.uuid = GS.TOOLS.STRING.buildUUID();
+        last_modification.uuid = SERVICE.STRING.buildUUID();
         this.add( last_modification );
         if ( this.current_step < this.getSize() ) { //REMOVE EXISTING MODIFICATIONS OVER THE STEP
             this.removeAllContentFromIndex( this.current_step + 1 );
@@ -15964,7 +14878,7 @@ SHINKEN_LIST.LineFromHtml.prototype = {
         this.initCommon();
         this.dom_element = dom_element;
         this.is_collapse = false;
-        this.uuid        = this.dom_element.dataset.uuid || GS.TOOLS.STRING.buildUUID();
+        this.uuid        = this.dom_element.dataset.uuid || SERVICE.STRING.buildUUID();
         switch ( this.type ) {
             case SHINKEN_LIST.CONST.TYPE.CHECK_IN_HOST:
                 this.host    = MANAGER.__instance_element_distributor.getElement( OBJECT.ShinkenElement.generateSEUUID( this.dom_element.dataset.typeItem, this.dom_element.dataset.uuidItem ) );
@@ -17925,7 +16839,7 @@ GS.OBJECT.ConfirmationPopup_V3.getInstance = function () {
     }
     return MANAGER.__instance_confirmation_popup_V3;
 };
-MANAGER.__instance_confirmation_popup           = new GS.OBJECT.ConfirmationPopup();
+MANAGER.__instance_confirmation_popup      = new GS.OBJECT.ConfirmationPopup();
 GS.OBJECT.DataHistoric                     = function () {
     this.init();
 };
@@ -18341,11 +17255,11 @@ GS.OBJECT.DefaultConfigurationChild              = function ( args ) {
     this.extra_action      = args[ 2 ];
 };
 GS.OBJECT.DefaultConfigurationChild.prototype    = {};
-OBJECT.ElementCheckbox                                = function ( dom_element, parent ) {
-    this.uuid = GS.TOOLS.STRING.buildUUID();
+OBJECT.ElementCheckbox                           = function ( dom_element, parent ) {
+    this.uuid = SERVICE.STRING.buildUUID();
     this.init( dom_element, parent );
 };
-OBJECT.ElementCheckbox.prototype                      = {
+OBJECT.ElementCheckbox.prototype                 = {
     init           : function ( dom_element, parent ) {
         this.initCounters( parent );
         this.dom_element = dom_element;
@@ -18386,10 +17300,10 @@ OBJECT.ElementCheckbox.prototype                      = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( OBJECT.ElementCheckbox, GS.OBJECT.CounterInterface );
-OBJECT.ElementList                      = function () {
+OBJECT.ElementList                 = function () {
     this.init();
 };
-OBJECT.ElementList.prototype            = {
+OBJECT.ElementList.prototype       = {
     init                 : function () {
         this.is_disabled = false;
         this.is_useless  = false;
@@ -18823,7 +17737,7 @@ GS.OBJECT.MessagesConfig.prototype = {
     init            : GS.OBJECT.Messages.prototype.init,
     getUUID         : function () {
         if ( !this.uuid ) {
-            this.uuid = GS.TOOLS.STRING.buildUUID();
+            this.uuid = SERVICE.STRING.buildUUID();
         }
         return this.uuid;
     },
@@ -19023,7 +17937,7 @@ GS.OBJECT.VisualNotificationOfChange.prototype           = {
         return this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDomElement();
     },
     getDataToSave             : function () {
-        var _to_return                                                        = {};
+        var _to_return                                                   = {};
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ] = this[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.BLINK ].getDataToSave();
         return _to_return;
     },
@@ -19134,7 +18048,7 @@ GS.OBJECT.BlinkNotificationOfChange.prototype = {
         }
     },
     getDataToSave      : function () {
-        var _to_return                                                          = {};
+        var _to_return                                                     = {};
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.ENABLED ] = this.getValue();
         return _to_return;
     },
@@ -19232,7 +18146,7 @@ GS.OBJECT.VolumeNotificationOfChange.prototype         = {
         }
     },
     getDataToSave     : function () {
-        var _to_return                                                         = {};
+        var _to_return                                                    = {};
         _to_return[ GS.OBJECT.NOTIFICATION.CONST.OF_CHANGE.FIELD.VOLUME ] = this.getValue();
         return _to_return;
     },
@@ -19607,7 +18521,7 @@ GS.OBJECT.OverlayFrame.prototype = {
         this.drag_in_progress = add_or_remove;
     },
     getDelta__parseToParams  : function ( params ) {
-        params                                                    = params || {};
+        params                                               = params || {};
         params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_X ] = this.getDelta_x();
         params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = this.getDelta_y();
         return params;
@@ -19948,10 +18862,10 @@ GS.OBJECT.SpaceBoxCreation.prototype     = {
         if ( _delta_y === 0 ) {
             return [];
         }
-        let shinken_grid_cell_impacted                            = this.getImpactedElement( params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELLS_OBJECT ] );
+        let shinken_grid_cell_impacted                       = this.getImpactedElement( params[ SHINKEN_GRID.CONST.PARAM.EVENT.GRID_CELLS_OBJECT ] );
         params[ GS.OBJECT.OVERLAYFRAME.CONST.EVENT.DELTA_Y ] = _delta_y;
-        let line_to_add_in_grid                                   = _delta_y - this.remaining_space_in_grid;
-        let widget_have_move                                      = false;
+        let line_to_add_in_grid                              = _delta_y - this.remaining_space_in_grid;
+        let widget_have_move                                 = false;
         for ( let _cell of shinken_grid_cell_impacted ) {
             _cell.doActionAfter( "add_space__selected_grid_cell", params );
             widget_have_move = true;
@@ -21267,7 +20181,7 @@ GS.OBJECT.Square           = function ( bottom_left_point, top_right_point, uuid
     this.top_right_point   = top_right_point;
     this.bottom_left_point = bottom_left_point;
     this.max_width         = max_width;
-    this.uuid              = uuid || GS.TOOLS.STRING.buildUUID();
+    this.uuid              = uuid || SERVICE.STRING.buildUUID();
     this.point_to_display  = [];
     this.init();
 };
@@ -21884,7 +20798,7 @@ GS.ELEMENT.UiUserPrefs.prototype = {
         }
     },
     getDataToSave          : function () {
-        var to_return                                                             = {};
+        var to_return                                                        = {};
         to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ];
         to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ];
         to_return[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ]     = this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_EVENTS_TUB.NAME ];
@@ -22136,7 +21050,7 @@ GS.ELEMENT.UiUser.prototype = {
     },
     _validateData                : function () {
         if ( !this.getSettings()[ GS.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] && this.getPrefs().defaultScreen.uuid ) {
-            var _settings                                                = {};
+            var _settings                                           = {};
             _settings[ GS.ELEMENT.USER.PARAM.SETTINGS.DEFAULT_URL ] = LocationService.getUrlHiveDefaultView( this.getPrefs().defaultScreen.uuid );
             this.setSettings( _settings );
         }
@@ -22256,7 +21170,7 @@ GS.ELEMENT.UiUser.prototype = {
         return this.getPrefs()[ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.NAME ][ GS.ELEMENT.USER.PARAM.PREFS.HISTORIC_TAB.SIZE_SLA_COLUMNN ];
     },
     getDataToSave                : function () {
-        var toReturn                                          = {};
+        var toReturn                                     = {};
         toReturn[ GS.ELEMENT.USER.PARAM.UUID ]           = this[ GS.ELEMENT.USER.PARAM.UUID ];
         toReturn[ GS.ELEMENT.USER.PARAM.USER_NAME ]      = this[ GS.ELEMENT.USER.PARAM.USER_NAME ] || localStorageService.get( 'shinken-ui-user' );
         toReturn[ GS.ELEMENT.USER.PARAM.VERSION ]        = this[ GS.ELEMENT.USER.PARAM.VERSION ];
@@ -22381,7 +21295,7 @@ GS.OBJECT.ViewBehaviour.prototype = {
         this[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = DATE_TIME.getTimestampNow_format_sec();
     },
     getDataToSave    : function () {
-        var _to_return                                                = {};
+        var _to_return                                           = {};
         _to_return[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.PHASE ]       = this.getCurrentPhase();
         _to_return[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ] = this[ GS.OBJECT.VIEW.BEHAVIOUR.PARAM.LAST_UPDATE ];
         return _to_return;
@@ -22462,7 +21376,7 @@ GS.OBJECT.ViewHistory.prototype = {
         return _to_return;
     },
     initBackendDataLineParser            : function ( data ) {
-        let _to_return                                                     = {};
+        let _to_return                                                = {};
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.date );
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = data.instigator_user.user_name;
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
@@ -22481,7 +21395,7 @@ GS.OBJECT.ViewHistory.prototype = {
                 to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.action.creation", [DICTIONARY_COMMON_UI] );
                 break;
             case "CLONE":
-                let sanitized_data_string                                         = GS.TOOLS.STRING.cleanXss( data.action.context.reference_weather.name );
+                let sanitized_data_string                                    = GS.TOOLS.STRING.cleanXss( data.action.context.reference_weather.name );
                 to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.copy", [DICTIONARY_VISU_UI] ), sanitized_data_string );
                 break;
             case "NEW_OWNER":
@@ -22502,11 +21416,11 @@ GS.OBJECT.ViewHistory.prototype = {
     parseBackendDataLineForActionDeletion: function () {
     },
     initCurrentChangesDataLineParser     : function ( data ) {
-        let _to_return                                                     = {};
+        let _to_return                                                = {};
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.DATE_HISTORY ] = DATE_TIME.getDateAndTimeToHtml( data.timestamp / 1000 );
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.USER_HISTORY ] = _( "history.user", [DICTIONARY_VISU_UI] );
         _to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = "";
-        _to_return.widget_uuid                                             = [];
+        _to_return.widget_uuid                                        = [];
         data.contents.forEach( content => {
             _to_return.widget_uuid.push( content.element_uuid );
         } );
@@ -22556,7 +21470,7 @@ GS.OBJECT.View            = function ( data ) {
 };
 GS.OBJECT.View.prototype  = {
     init                           : function ( data ) {
-        this.shares_uuid                              = [];
+        this.shares_uuid                         = [];
         this[ GS.OBJECT.VIEW.PARAM.NB_ERRORS ]   = 0;
         this[ GS.OBJECT.VIEW.PARAM.NB_WARNINGS ] = 0;
         if ( data ) {
@@ -22680,7 +21594,7 @@ GS.OBJECT.View.prototype  = {
         return this.owner_user;
     },
     getProblems                    : function () {
-        var _problems                                      = {};
+        var _problems                                 = {};
         _problems[ GS.OBJECT.VIEW.PARAM.NB_ERRORS ]   = this.getNumberOfErrors();
         _problems[ GS.OBJECT.VIEW.PARAM.NB_WARNINGS ] = this.getNumberOfWarnings();
         return _problems;
@@ -22733,13 +21647,13 @@ GS.OBJECT.View.prototype  = {
     
 };
 GS.OBJECT.ViewParser      = function ( data ) {
-    var _data_valid_for_screen                                          = {};
+    var _data_valid_for_screen                                     = {};
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.UUID ]            = data[ GS.OBJECT.VIEW.PARAM.UUID ];
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.NAME ]            = data[ GS.OBJECT.VIEW.PARAM.NAME ];
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.TYPE ]            = data[ GS.OBJECT.VIEW.PARAM.TYPE ];
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ] = data[ GS.OBJECT.VIEW.PARAM.IS_ROOT_PROBLEM ];
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.FOUND ]           = data[ GS.OBJECT.VIEW.PARAM.FOUND ];
-    var _owner                                                          = {};
+    var _owner                                                     = {};
     _owner[ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.NAME._KEY ]           = data[ "owner_name" ];
     _owner[ GS.OBJECT.VIEW.PARAM.OWNER.PARAM.UUID._KEY ]           = data[ "owner_uuid" ];
     _data_valid_for_screen[ GS.OBJECT.VIEW.PARAM.OWNER._KEY ]      = _owner;
@@ -22892,7 +21806,7 @@ OBJECT.Help.prototype                    = {
         return this.dom_element;
     }
 };
-GS.TOOLS.IFRAME                     = (function ( self ) {
+GS.TOOLS.IFRAME                          = (function ( self ) {
     "use strict";
     self.getIframeJs   = function ( element_css_selector ) {
         var iframe = document.querySelector( element_css_selector );
@@ -22913,8 +21827,8 @@ GS.TOOLS.IFRAME                     = (function ( self ) {
     };
     return self;
 })( GS.TOOLS.IFRAME || {} );
-GS.TOOLS                            = GS.TOOLS || {};
-GS.TOOLS.NOTIFICATION               = (function ( self ) {
+GS.TOOLS                                 = GS.TOOLS || {};
+GS.TOOLS.NOTIFICATION                    = (function ( self ) {
     
     var __instance_notification_container = new GS.OBJECT.NOTIFICATION.Container();
     
@@ -23099,7 +22013,7 @@ SHINKEN_GRID.ViewHistory.prototype       = {
         }
     },
     parseLastModificationDataLineResize     : function ( data ) {
-        let to_return                                                     = this.initCurrentChangesDataLineParser( data );
+        let to_return                                                = this.initCurrentChangesDataLineParser( data );
         to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = GS.TOOLS.STRING.format( _( "history.views.weather.widget_resized", [DICTIONARY_VISU_UI] ), data.contents[ 0 ].next.width.getUserValue(), data.contents[ 0 ].next.height.getUserValue() );
         return to_return;
     },
@@ -23119,17 +22033,17 @@ SHINKEN_GRID.ViewHistory.prototype       = {
         return to_return;
     },
     parseLastModificationDataLineAddChild   : function ( data ) {
-        let to_return                                                     = this.initCurrentChangesDataLineParser( data );
+        let to_return                                                = this.initCurrentChangesDataLineParser( data );
         to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_created", [DICTIONARY_VISU_UI] );
         return to_return;
     },
     parseLastModificationDataLineEdit       : function ( data ) {
-        let to_return                                                     = this.initCurrentChangesDataLineParser( data );
+        let to_return                                                = this.initCurrentChangesDataLineParser( data );
         to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     },
     parseLastModificationDataLineDefaultEdit: function ( data ) {
-        let to_return                                                     = this.initCurrentChangesDataLineParser( data );
+        let to_return                                                = this.initCurrentChangesDataLineParser( data );
         to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.default_value_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     },
@@ -23145,19 +22059,19 @@ SHINKEN_GRID.ViewHistory.prototype       = {
         return to_return;
     },
     parseLastModificationDataLineConfig     : function ( data ) {
-        let to_return                                                     = this.initCurrentChangesDataLineParser( data );
+        let to_return                                                = this.initCurrentChangesDataLineParser( data );
         to_return[ GS.OBJECT.VIEW.HISTORY.LIST.HEADER.TEXT_HISTORY ] = _( "history.views.weather.widget_edited", [DICTIONARY_VISU_UI] );
         return to_return;
     }
 };
 GS.TOOLS.CLASS.addPrototype( SHINKEN_GRID.ViewHistory, GS.OBJECT.ViewHistory );
-SHINKEN_VALIDATION.Parameters                         = function ( parameters ) {
+SHINKEN_VALIDATION.Parameters                    = function ( parameters ) {
     this.content = [];
     if ( parameters ) {
         this.init( parameters );
     }
 };
-SHINKEN_VALIDATION.Parameters.prototype               = {
+SHINKEN_VALIDATION.Parameters.prototype          = {
     init        : function ( parameters ) {
         for ( var i = 0, _size_i = parameters.length; i < _size_i; i++ ) {
             this.content.push( new SHINKEN_VALIDATION.Parameter( parameters[ i ] ) );
@@ -23178,20 +22092,20 @@ SHINKEN_VALIDATION.Parameters.prototype               = {
         return this.content;
     }
 };
-SHINKEN_VALIDATION.Parameter                          = function ( args ) {
+SHINKEN_VALIDATION.Parameter                     = function ( args ) {
     this.key              = args[ 0 ];
     this.validation_type  = args[ 1 ];
     this.validation_value = args[ 2 ];
     this.is_mandatory     = args[ 3 ];
 };
-SHINKEN_VALIDATION.Parameter.prototype                = {
+SHINKEN_VALIDATION.Parameter.prototype           = {
     updateMaximumValue: function ( value_max ) {
         if ( this.validation_value && this.validation_value[ 1 ] === SHINKEN_VALIDATION.CONST.NUMBER.MAX ) {
             this.validation_value[ 1 ] = value_max;
         }
     }
 };
-SHINKEN_VALIDATION.Service                            = (function ( self ) {
+SHINKEN_VALIDATION.Service                       = (function ( self ) {
     "use strict";
     self.isValid            = function ( value, validation_parameter ) {
         if ( value === "default" && !validation_parameter.is_mandatory ) {
@@ -23842,7 +22756,7 @@ WINDOW.ElementGroupFromDataAbstract.prototype = {
     initWindows         : function () {
     },
     initName            : function () {
-        this.name = GS.TOOLS.STRING.buildUUID();
+        this.name = SERVICE.STRING.buildUUID();
     },
     initControllers     : function () {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {

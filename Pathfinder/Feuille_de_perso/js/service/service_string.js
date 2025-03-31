@@ -20,6 +20,15 @@ SERVICE.STRING = (function ( self ) {
         var _start_index = string.length - to_find.length;
         return string.substr( _start_index ) === to_find;
     };
+    self.buildS4                                 = function () {
+        return Math.floor( (1 + Math.random()) * 0x10000 )
+                   .toString( 16 )
+                   .substring( 1 );
+    };
+    self.buildUUID                               = function () {
+        return self.buildS4() + self.buildS4() + '-' + self.buildS4() + '-' + self.buildS4() + '-' +
+               self.buildS4() + '-' + self.buildS4() + self.buildS4() + self.buildS4();
+    };
     return self;
 })( SERVICE.STRING || {} );
 

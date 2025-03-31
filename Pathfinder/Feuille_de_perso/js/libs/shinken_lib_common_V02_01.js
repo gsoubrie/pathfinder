@@ -39,7 +39,7 @@ WINDOW_V2.ElementGroup.prototype = {
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     initName  : function ( group_name ) {
-        this.name = group_name || GS.TOOLS.STRING.buildUUID();
+        this.name = group_name || SERVICE.STRING.buildUUID();
         this.addParamForEvents( WINDOW_V2.CONST.PARAM.WINDOW_GROUP_NAME, this.name );
     },
     doActionAfter      : function ( event_name, param ) {
