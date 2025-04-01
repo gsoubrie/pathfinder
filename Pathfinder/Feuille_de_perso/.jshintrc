@@ -23,8 +23,12 @@
   "funcscope": true,
   "laxbreak": true,
   "globals": {
+    "COMPONENT": false,
+    "GS": false,
+    "MANAGER": false,
     "WINDOW_V2": false,
     "PHASE": false,
+    "CLASSES": false,
     "CHARACTER": false,
     "POPUP": false,
     "RACES": false,

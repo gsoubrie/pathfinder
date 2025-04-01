@@ -53,7 +53,7 @@ RACES.Race.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.characteristic_malus, "Pénalité d'attribut" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.language, "Langues" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.sens, "Vision nocturne" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( DOM.Service.createElement( "hr" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "hr" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.physical_desc, "Description physique" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.society_desc, "Description en société" ), this.getDomElement() );
