@@ -12,7 +12,7 @@
 .popup .gs-window-targets-V2 {
     height : 92%;
 }
-.popup .shinken-tab-pane {
+.popup .gs-tab-pane {
     height   : 100%;
     overflow : auto;
 }

@@ -222,10 +222,10 @@ WINDOW_V2.Element.prototype = {
         }
         switch ( current ) {
             case GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING:
-                this.dom_element_target.classList.remove( "shinken-hidden" );
+                this.dom_element_target.classList.remove( "gs-hidden" );
                 break;
             case GS.OBJECT.CONST.PHASE.STOPPING:
-                this.dom_element_target.classList.add( "shinken-hidden" );
+                this.dom_element_target.classList.add( "gs-hidden" );
                 break;
         }
     }
@@ -245,7 +245,7 @@ WINDOW_V2.ElementFromData.prototype = {
         this.label = new COMPONENT.LabelFromData( this.getName() );
     },
     getMainClass     : function () {
-        return WINDOW_V2.CONST.CLASS.WINDOW_TAB + " flex-layout-inline-center-h-v shinken-user-select-none";
+        return WINDOW_V2.CONST.CLASS.WINDOW_TAB + " flex-layout-inline-center-h-v gs-user-select-none";
     },
     computeHtml      : function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", {
@@ -255,7 +255,7 @@ WINDOW_V2.ElementFromData.prototype = {
             "data-name"            : this.getName(),
             "data-visibility-state": this.getVisibilityState()
         } ) );
-        this.main_div_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "shinken-div-tab flex-layout-center-h-v" } ) );
+        this.main_div_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "gs-div-tab flex-layout-center-h-v" } ) );
         SERVICE.DOM.addElementTo( this.getLabelCellHtml(), this.main_div_dom_element );
         this.doActionAfter( "compute_html_done" );
         this.computeHtml_tooltip();
@@ -273,9 +273,9 @@ WINDOW_V2.ElementFromData.prototype = {
         if ( this.dom_element_target ) {
             return;
         }
-        var _class = "shinken-tab-pane property-tab-pane shinken-prop-table shinken-parent-tab-id-parent";
+        var _class = "gs-tab-pane property-tab-pane gs-prop-table gs-parent-tab-id-parent";
         if ( !this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING ) ) {
-            _class += " shinken-hidden";
+            _class += " gs-hidden";
         }
         this.dom_element_target = SERVICE.DOM.createElement( "div", { "class": _class, "id": this.getUUID() + "-target", "data-name": this.getName() } );
         if ( this.content_dom_element_target ) {
@@ -337,7 +337,7 @@ WINDOW_V2.ElementGroupFromData.prototype = {
     getMainClass       : function () {
         var _to_return = WINDOW_V2.CONST.CLASS.WINDOW_GROUP + " " + this.getClass();
         if ( this.controller_name ) {
-            _to_return += " shinken-parent-event-listener";
+            _to_return += " gs-parent-event-listener";
         }
         return _to_return;
     }
@@ -430,7 +430,7 @@ MANAGER.EventManagerV2 = {
     },
     clickButton_V3         : function ( event, param ) {
         param[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ] = event;
-        if ( SERVICE.DOM.findParentElementWithClass( event.srcElement, "shinken-button-V3" ) && SERVICE.DOM.findParentElementWithClass( event.srcElement, "shinken-button-V3" ).classList.contains( "shinken-disabled" ) ) {
+        if ( SERVICE.DOM.findParentElementWithClass( event.srcElement, "gs-button-V3" ) && SERVICE.DOM.findParentElementWithClass( event.srcElement, "gs-button-V3" ).classList.contains( "gs-disabled" ) ) {
             return;
         }
         MANAGER.EventManagerV2.dispatch( event, "do", "click_on_button_V3", param );

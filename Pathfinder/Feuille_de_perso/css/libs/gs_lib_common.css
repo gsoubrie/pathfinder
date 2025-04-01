@@ -1,3 +1,6 @@
+.gs-hidden {
+    display: none !important;
+}
 /*********************         window V2        ****************************************************************************/
 .gs-window-element-V2 {
     position : relative;
@@ -12,9 +15,6 @@
 }
 .gs-window-element-V2[data-current-phase="RUNNING"] {
     background-color : #93D5F3;
-}
-.gs-window-element-V2 .gs-window-element-label .shinken-counter:not([data-number=""]) {
-    padding-left : 3px;
 }
 /*********************         VISIBILITY STATE        ****************************************************************************/
 .gs-window-element[data-visibility-state="hidden"] {

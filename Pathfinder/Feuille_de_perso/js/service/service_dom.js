@@ -393,12 +393,12 @@ SERVICE.DOM = (function ( self ) {
         return _to_return;
     };
     self.addControllerAnchor                               = function ( dom_element, controller_name ) {
-        dom_element.classList.add( "shinken-parent-event-listener" );
+        dom_element.classList.add( "gs-parent-event-listener" );
         dom_element.dataset.controller = controller_name;
     };
     self.computedWidthClass                                = function ( width ) {
         var _width_compute = Math.floor( width / 50 );
-        return "shinken-width-for-responsive-" + _width_compute * 50;
+        return "gs-width-for-responsive-" + _width_compute * 50;
     };
     self.askAddClass                                       = function ( element, to_add, time_out ) {
         if ( !element ) {
@@ -552,13 +552,13 @@ SERVICE.DOM = (function ( self ) {
     self.ChangeUserSelect                                  = function ( dom_element, add_or_remove ) {
         if ( !add_or_remove ) {
             SERVICE.DOM.setStyles( dom_element, { userSelect: "none" } );
-            for ( let _dom_element of dom_element.querySelectorAll( ".shinken-user-select-text" ) ) {
+            for ( let _dom_element of dom_element.querySelectorAll( ".gs-user-select-text" ) ) {
                 _dom_element.style.cssText += "user-select: none !important;";
             }
         }
         else {
             SERVICE.DOM.setStyles( dom_element, { userSelect: "" } );
-            for ( let _dom_element of dom_element.querySelectorAll( ".shinken-user-select-text" ) ) {
+            for ( let _dom_element of dom_element.querySelectorAll( ".gs-user-select-text" ) ) {
                 SERVICE.DOM.setStyles( _dom_element, { userSelect: "" } );
             }
         }
@@ -585,10 +585,10 @@ SERVICE.DOM = (function ( self ) {
         }
         if ( to_set ) {
             dom_element.innerHTML = to_set;
-            dom_element.classList.remove( "shinken-hidden" );
+            dom_element.classList.remove( "gs-hidden" );
         }
         else {
-            dom_element.classList.add( "shinken-hidden" );
+            dom_element.classList.add( "gs-hidden" );
         }
     };
     self.replaceElement                                    = function ( element_to_replace, element_replace_with ) {
@@ -691,10 +691,10 @@ SERVICE.DOM = (function ( self ) {
         return 0;
     };
     self.show                                              = function ( dom_element ) {
-        dom_element.classList.remove( "shinken-hidden" );
+        dom_element.classList.remove( "gs-hidden" );
     };
     self.hide                                              = function ( dom_element ) {
-        dom_element.classList.add( "shinken-hidden" );
+        dom_element.classList.add( "gs-hidden" );
     };
     self.setEditable                                       = function ( edit_content, dom_container, dom_to_edit ) {
         dom_to_edit.contentEditable = edit_content;
@@ -766,7 +766,7 @@ SERVICE.DOM = (function ( self ) {
         if ( !dom_element ) {
             return;
         }
-        self.addOrRemoveClasses( dom_element, self.hasScrollHeight( dom_element ), "shinken-scroll-vertical-active" );
+        self.addOrRemoveClasses( dom_element, self.hasScrollHeight( dom_element ), "gs-scroll-vertical-active" );
     };
     self.computeHasScrollVerticals                         = function ( selector, dom_element ) {
         if ( !selector ) {
@@ -788,7 +788,7 @@ SERVICE.DOM = (function ( self ) {
             return;
         }
         if ( parent_dom ) {
-            parent_dom.classList.add( "shinken-scroll-behavior-smooth" );
+            parent_dom.classList.add( "gs-scroll-behavior-smooth" );
             extra_size_for_top   = extra_size_for_top || 5; //-5 USED TO NOT BE STUCK ON THE TOP
             parent_dom.scrollTop = dom_element.offsetTop - extra_size_for_top;
         }
@@ -797,8 +797,8 @@ SERVICE.DOM = (function ( self ) {
         }
         if ( animation_object ) {
             switch ( animation_object.type ) {
-                case 'shinken-pulsate':
-                    SERVICE.DOM.askAddClass( dom_element, 'shinken-pulsate', animation_object.timer );
+                case 'gs-pulsate':
+                    SERVICE.DOM.askAddClass( dom_element, 'gs-pulsate', animation_object.timer );
             }
         }
     };
@@ -825,7 +825,7 @@ SERVICE.DOM = (function ( self ) {
         }
         for ( let i = 0; i < positions_list.length; i++ ) {
             let current_position   = positions_list[ i ];
-            let css_classes        = `shinken-${current_position} shinken-2024-${current_position}-triangle shinken-resize-cursor`;
+            let css_classes        = `gs-${current_position} gs-2024-${current_position}-triangle gs-resize-cursor`;
             let dom_cursor_element = SERVICE.DOM.createElement( "span", { class: css_classes, "data-position": current_position } );
             SERVICE.DOM.addElementTo( dom_cursor_element, dom_container );
         }
