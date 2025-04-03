@@ -15,6 +15,10 @@ POPUP.PropertyEdition.prototype = {
                 this.current_property = LEGACIES;
                 this.windows          = new LEGACIES.WindowGroup();
                 break;
+            case CLASSES.key_element:
+                this.current_property = CLASSES;
+                this.windows          = new CLASSES.WindowGroup();
+                break;
             default:
                 console.log( "GSOU", "[PropertyEdition - init]", "not managed", params[ "property_name" ] );
                 break;

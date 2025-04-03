@@ -7,8 +7,8 @@ var SCRIPT_CLASSES = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 13, _size_i = doms.length; i < 14; i++ ) {
-            //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
+        // for ( let i = 13, _size_i = doms.length; i < 14; i++ ) {
+            for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
             }, timeout );

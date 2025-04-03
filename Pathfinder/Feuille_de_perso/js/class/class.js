@@ -1,8 +1,8 @@
 "use strict";
-LEGACIES.Legacy           = function ( data ) {
+CLASSES.Class           = function ( data ) {
     this.init( data );
 };
-LEGACIES.Legacy.prototype = {
+CLASSES.Class.prototype = {
     init: function ( data ) {
         this.updateData( data );
     },
@@ -30,4 +30,4 @@ LEGACIES.Legacy.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( LEGACIES.Legacy, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CLASSES.Class, OBJECT.InterfaceHtml );
