@@ -8,7 +8,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         console.log( "GSOU", "[SCRIPT_HISTORIQUES - getAll]", doms );
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 0, _size_i = doms.length; i < 14; i++ ) {
+        for ( let i = 0, _size_i = doms.length; i < 2; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
@@ -50,25 +50,47 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         }
         switch ( current_child.tagName ) {
             case "P":
-                let text = current_child.innerText;
-                if ( SERVICE.STRING.startsWith( text, "Prérequis" ) ) {
-                    object_to_complete[ "requirement" ].push( SERVICE.STRING.replaceAll( text, "Prérequis ", "" ) );
-                }
-                else if ( SERVICE.STRING.containsIgnoreCase( text, "Choisissez deux primes d'attributs" ) ) {
-                    object_to_complete[ "prime_attribute" ] = {
-                        number : 2,
-                        choice :  SERVICE.STRING.parseMatching( text, CHARACTERISTIC )
-                    };
-                }
-                else {
-                    object_to_complete[ "description" ].push( text );
-                    console.log( "GSOU", "[SCRIPT_HISTORIQUES - parseChildByPart]", current_child.innerText );
-                }
+                self.parseChildByText( current_child.innerText, object_to_complete );
                 break;
             default:
                 console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByPart]", "[NOT MANAGED]", current_child.tagName );
                 break;
         }
+    };
+    self.parseChildByText    = function ( text, object_to_complete ) {
+        if ( SERVICE.STRING.startsWith( text, "Prérequis" ) ) {
+            object_to_complete[ "requirement" ].push( SERVICE.STRING.replaceAll( text, "Prérequis ", "" ) );
+        }
+        else if ( SERVICE.STRING.containsIgnoreCase( text, "Choisissez deux primes d'attributs" ) ) {
+            object_to_complete[ "prime_attribute" ] = {
+                number: 2,
+                choice: SERVICE.STRING.parseMatching( text, CHARACTERISTIC )
+            };
+        }
+        else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous êtes qualifié" ) ) {
+            let split = text.split( "." );
+            self.parseTextToSkill( split[ 0 ], "qualify", object_to_complete );
+            for ( let i = 1, _size_i = split.length; i < _size_i; i++ ) {
+                self.parseChildByText( split[ i ], object_to_complete );
+            }
+        }
+        else {
+            object_to_complete[ "description" ].push( text );
+            console.log( "GSOU", "[SCRIPT_HISTORIQUES - parseChildByPart]", text );
+        }
+    };
+    self.parseTextToSkill    = function ( text, rank_skill, object_to_complete ) {
+        object_to_complete[ "skills" ]               = object_to_complete[ "skills" ] || {};
+        object_to_complete[ "skills" ][ rank_skill ] = object_to_complete[ "skills" ][ rank_skill ] || [];
+        let split                                    = text.split( "en" );
+        for ( let i = 1, _size_i = split.length; i < _size_i; i++ ) {
+            object_to_complete[ "skills" ][ rank_skill ].push( self.cleanTextToSkill( split[ i ] ) );
+        }
+    };
+    self.cleanTextToSkill    = function ( text_skill ) {
+        text_skill = SERVICE.STRING.replaceAll( text_skill, "et", "" );
+        text_skill = text_skill.trim();
+        return text_skill;
     };
     
     return self;
@@ -109,12 +131,12 @@ SERVICE.STRING = (function ( self ) {
     };
     self.parseMatching                = function ( text, matching_list ) {
         let to_return = [];
-        var _keys = Object.keys( matching_list  );
+        var _keys     = Object.keys( matching_list );
         var _current_key;
-        for( let i = 0, _size = _keys.length ; i < _size; i++ ) {
-            _current_key = _keys[i];
-              if ( self.containsIgnoreCase( text, matching_list[_current_key].label ) ) {
-                to_return.push( matching_list[_current_key].key );
+        for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
+            _current_key = _keys[ i ];
+            if ( self.containsIgnoreCase( text, matching_list[ _current_key ].label ) ) {
+                to_return.push( matching_list[ _current_key ].key );
             }
         }
         return to_return;
