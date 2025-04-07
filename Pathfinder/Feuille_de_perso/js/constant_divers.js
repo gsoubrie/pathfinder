@@ -1,18 +1,39 @@
 "use strict";
-var CARAC    = {
-    FOR : "FOR",
-    DEX : "DEX",
-    CON : "CON",
-    INT : "INT",
-    SAG : "SAG",
-    CHA : "CHA",
-    FREE: "FREE"
+var CHARACTERISTIC = {
+    FORCE       : {
+        key  : "FOR",
+        label: "Force"
+    },
+    DEXTERITY   : {
+        key  : "DEX",
+        label: "Dextérité"
+    },
+    CONSTITUTION: {
+        key  : "CON",
+        label: "Constitution"
+    },
+    INTELLIGENCE: {
+        key  : "INT",
+        label: "Intelligence"
+    },
+    WISDOM      : {
+        key  : "SAG",
+        label: "Sagesse"
+    },
+    CHARISMA    : {
+        key  : "CHA",
+        label: "Charisme"
+    },
+    FREE        : {
+        key  : "FRE",
+        label: "Libre"
+    }
 };
-var SIZE     = {
+var SIZE           = {
     P: "P",
     M: "M"
 };
-var LANGUAGE = {
+var LANGUAGE       = {
     COMMON    : "commun",
     ELF       : "elfique",
     CELESTE   : "celeste",
@@ -23,13 +44,13 @@ var LANGUAGE = {
     ORQUIEN   : "orquien",
     SYLVESTRE : "sylvestre"
 };
-var TRAIT    = {
+var TRAIT          = {
     ELFE     : "elfe",
     HUMAIN   : "humain",
     HUMANOIDE: "humanoide",
     GOBELIN  : "gobelin"
 };
-var VM       = {
+var VM             = {
     _0: "aucun",
     _1: "faible",
     _2: "sombre"
