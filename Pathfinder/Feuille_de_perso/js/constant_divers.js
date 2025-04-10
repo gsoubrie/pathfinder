@@ -99,7 +99,7 @@ var SKILLS         = {
             characteristic: CHARACTERISTIC.CHARISMA.key
         },
         MEDICINE    : {
-            label         : "Médécine",
+            label         : "Médecine",
             characteristic: CHARACTERISTIC.WISDOM.key
         },
         NATURE      : {

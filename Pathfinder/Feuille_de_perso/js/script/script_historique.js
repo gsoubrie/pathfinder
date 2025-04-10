@@ -4,11 +4,10 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         return document.querySelectorAll( ".mat-mdc-row.mdc-data-table__row.cdk-row.element-row" );
     };
     self.getAll              = function () {
-        let doms = self.getAllDOM();
-        console.log( "GSOU", "[SCRIPT_HISTORIQUES - getAll]", doms );
+        let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 0, _size_i = doms.length; i < 2; i++ ) {
+        for ( let i = 0, _size_i = doms.length; i < 10; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
@@ -19,9 +18,10 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
     self.parseDom            = function ( dom_element, array_to_push_in ) {
         self.previous_title        = "description";
         let to_return              = {};
-        to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
+        to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText.replaceAll('"',"");
         to_return[ "requirement" ] = [];
         to_return[ "description" ] = [];
+        to_return[ "gift_skill" ]  = [];
         self.to_return.push( to_return );
         dom_element.querySelector( ".cdk-column-name_trans" ).click();
         setTimeout( () => {
@@ -50,14 +50,21 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         }
         switch ( current_child.tagName ) {
             case "P":
-                self.parseChildByText( current_child.innerText, object_to_complete );
+                self.parseChildByText( current_child, object_to_complete );
                 break;
             default:
-                console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByPart]", "[NOT MANAGED]", current_child.tagName );
+                console.warn( "GSOU", 1, "[SCRIPT_CLASSES - parseChildByPart]", "[NOT MANAGED]", current_child.tagName );
                 break;
         }
     };
-    self.parseChildByText    = function ( text, object_to_complete ) {
+    self.parseChildByText    = function ( dom_element, object_to_complete, text ) {
+        if ( dom_element ) {
+            text      = text || dom_element.innerText;
+            let links = dom_element.querySelectorAll( "a span" );
+            for ( let i = 0, _size_i = links.length; i < _size_i; i++ ) {
+                object_to_complete[ "gift_skill" ].push( links[ i ].innerText );
+            }
+        }
         if ( SERVICE.STRING.startsWith( text, "Prérequis" ) ) {
             object_to_complete[ "requirement" ].push( SERVICE.STRING.replaceAll( text, "Prérequis ", "" ) );
         }
@@ -71,12 +78,19 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
             let split = text.split( "." );
             self.parseTextToSkill( split[ 0 ], "qualify", object_to_complete );
             for ( let i = 1, _size_i = split.length; i < _size_i; i++ ) {
-                self.parseChildByText( split[ i ], object_to_complete );
+                self.parseChildByText( null, object_to_complete, split[ i ] );
             }
         }
+        else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous obtenez le don de compétence" ) ) {
+        }
+        else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous obtenez le don" ) ) {
+            object_to_complete[ "gift_skill" ].push( text.replace("Vous obtenez le don ", "") );
+        }
+        //else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous êtes expert" ) ) {
+        //}
         else {
             object_to_complete[ "description" ].push( text );
-            console.log( "GSOU", "[SCRIPT_HISTORIQUES - parseChildByPart]", text );
+            console.warn( "GSOU", 2, "[SCRIPT_HISTORIQUES - parseChildByPart]", text );
         }
     };
     self.parseTextToSkill    = function ( text, rank_skill, object_to_complete ) {
@@ -257,7 +271,7 @@ var SKILLS         = {
             if ( is_as_skill.need_qualifier ) {
                 let split_qualifier   = text.split( is_as_skill.label )[ 1 ];
                 split_qualifier       = split_qualifier.split( "." )[ 0 ];
-                is_as_skill.qualifier = split_qualifier;
+                is_as_skill.qualifier = split_qualifier.trim();
             }
         }
         return to_return;
@@ -268,7 +282,7 @@ var SKILLS         = {
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
             _current = SKILLS.LIST[ _keys[ i ] ];
             if ( _current.label.toLowerCase() === word.toLowerCase() ) {
-                return JSON.parse(JSON.stringify(_current));
+                return JSON.parse( JSON.stringify( _current ) );
             }
         }
         return false;
