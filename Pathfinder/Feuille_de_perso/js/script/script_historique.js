@@ -7,7 +7,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 0, _size_i = doms.length; i < 10; i++ ) {
+        for ( let i = 49, _size_i = doms.length; i < 60; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
@@ -88,9 +88,8 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         }
         //else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous êtes expert" ) ) {
         //}
-        else {
+        else if (text) {
             object_to_complete[ "description" ].push( text );
-            console.warn( "GSOU", 2, "[SCRIPT_HISTORIQUES - parseChildByPart]", text );
         }
     };
     self.parseTextToSkill    = function ( text, rank_skill, object_to_complete ) {
@@ -227,7 +226,7 @@ var SKILLS         = {
             characteristic: CHARACTERISTIC.CHARISMA.key
         },
         MEDICINE    : {
-            label         : "Médécine",
+            label         : "Médecine",
             characteristic: CHARACTERISTIC.WISDOM.key
         },
         NATURE      : {
