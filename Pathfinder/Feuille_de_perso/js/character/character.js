@@ -28,7 +28,6 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData  : function ( key, value ) {
-        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
             case RACES.key_element:
                 this.setRace( key, value );
@@ -38,6 +37,8 @@ CHARACTER.Current.prototype = {
                 break;
             case CLASSES.key_element:
                 this.setClass( key, value );
+                break;
+            case "uuid":
                 break;
             case "name":
             case "player":
@@ -58,7 +59,6 @@ CHARACTER.Current.prototype = {
         this.updateHtmlData( key, value );
     },
     setLegacy: function ( key, value ) {
-        console.warn( "GSOU", "[Current - setLegacy]", key, value );
         this[ key ] = value;
         this.updateHtmlData( key, value );
     },
@@ -68,7 +68,6 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData     : function ( key, value ) {
-        console.log( "GSOU", "[Current - updateHtmlData]", key, value, this[ key + "_html" ] );
         if ( !this[ key + "_html" ] ) {
             this[ key + "_html" ] = SERVICE.DOM.createElement( "div", {}, this[ key ] );
         }
