@@ -2270,6 +2270,1413 @@ var HISTORICS = {
                     }
                 ]
             }
+        },{
+            "name": "Éclaireur",
+            "requirement": [],
+            "description": [
+                "La nature a été votre seconde maison lorsque vous découvriez des sentiers et guidiez des voyageurs. C'est peut-être votre soif de voyages qui vous a poussé à partir à l'aventure, ou vous avez découvert, en servant d'éclaireur à des soldats, que vous aviez pris goût aux combats."
+            ],
+            "gift_skill": [
+                "Glaneur"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Survie",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Éclaireur de la Concordance",
+            "requirement": [],
+            "description": [
+                "Vous avez été embauché par la Concordance des éléments pour rechercher des rumeurs de failles planaires ou d'autres preuves de déséquilibres planaires. Lorsque vous les aurez signalées à la Concordance, elle enverra des agents beaucoup mieux équipés pour résoudre la situation. Pourtant, ce travail vous a attiré plus d'ennuis que vos employeurs ne le soupçonnent et vous avez appris à obtenir vos informations rapidement et à vous en sortir relativement indemne."
+            ],
+            "gift_skill": [
+                "Animal social"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Diplomatie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "d'un Plan"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Écuyer",
+            "requirement": [],
+            "description": [
+                "Vous vous êtes entraîné aux pieds d'un Chevalier, fourbissant son équipement et l'encourageant durant les tournois ou les batailles. Maintenant vous recherchez un défi qui prouvera que vous êtes capable d'être fait à votre tour Chevalier ou vous avez repoussé la pompe et le cérémonial pour vous tester dans un combat honnête mais moins formel."
+            ],
+            "gift_skill": [
+                "Aide armure"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de l'héraldique ou de la guerre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Élevé dans la Foi",
+            "requirement": [],
+            "description": [
+                "Que ce soit dans un monastère, une enclave religieuse ou juste comme une partie de votre vie quotidienne, vous avez été éduqué dans les traditions d'une foi ou d'une philosophie. Vous pouvez y rester dévoué ou avoir tourné le dos aux principes de votre enfance mais vos compétences restent toujours fondées sur votre ancienne dévotion."
+            ],
+            "gift_skill": [
+                "Assurance"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "d'Abadar, par exemple"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Élu",
+            "requirement": [],
+            "description": [
+                "Votre naissance a réalisé une prédiction et vos proches comptent sur vous pour réaliser de grandes choses. Une pression intense s'exerce sur vous pour que vous soyez à la hauteur de la tâche et la nature inconstante de la prophétie complique votre chemin.",
+                " Vous obtenez l'action gratuite sports_martial_artsJouet de la prophétie ",
+                "Note: Vous devez sélectionner la compétence manuellement et ajouter l'action Jouet de la Prophétie."
+            ],
+            "gift_skill": [
+                "Jouet de la prophétie"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la voyance"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Émissaire",
+            "requirement": [],
+            "description": [
+                "Remplissant le rôle de diplomate ou de messager, vous avez énormément voyagé. Votre quotidien consistait à communiquer avec de nouvelles personnes et à former des alliances.\n"
+            ],
+            "gift_skill": [
+                "Polyglotte"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "en lien avec une cité dans laquelle vous vous êtes souvent rendu"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Enfant des rues",
+            "requirement": [],
+            "description": [
+                "Vous vous efforciez de survivre en faisant les poches aux passants dans les artères d'une grande ville, sans jamais savoir quand serait votre prochain repas. Si certaines personnes se tournent vers l'aventure pour la gloire, pour vous c'est une question de survie."
+            ],
+            "gift_skill": [
+                "Vol à la tire"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Vol",
+                        "characteristic": "DEX",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Enfant du village de jumeaux",
+            "requirement": [],
+            "description": [
+                "Vous êtes né dans un village où tout le monde possède un jumeau avec un lien spécial. Vous avez déménagé dans le vaste monde pour des raisons personnelles, mais vous avez toujours un lien indéfectible avec votre jumeau à travers vos rêves.",
+                " Vous obtenez la capacité de communiquer avec votre jumeau par le biais de vos rêves",
+                " Vous et votre jumeau obtenez les effets d'un auto_awesomeMessage onirique chaque nuit, seulement entre vous deux ; ceci n'est pas un sort, mais un effet naturel",
+                " À moins que votre jumeau ne soit un autre PJ, votre MJ jour votre jumeau ou résume votre interaction au cours de ces rêves"
+            ],
+            "gift_skill": [
+                "Message onirique"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Diplomatie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du Pays des rêves"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Enfant sauvage",
+            "requirement": [],
+            "description": [
+                "Vous avez passé votre jeunesse dans les étendues sauvages, en vivant à proximité ou en ayant été élevé par des animaux. Vous avez un lien proche et mystique avec ces animaux et obtenu avec eux certaines capacités, bien que cela ait aussi limité votre épanouissement mental.",
+                "Choisissez une prime d'attribut. Elle doit être de Force, de Dextérité ou de Constitution.",
+                " Vous obtenez vision nocturne (ou vision dans le noir si vous possédez déjà vision nocturne), un sens imprécis avec une portée de 9 m et le don de compétence military_techGlaneur "
+            ],
+            "gift_skill": [
+                "Glaneur"
+            ],
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Survie",
+                        "characteristic": "SAG"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Enquêteur de source magique",
+            "requirement": [],
+            "description": [
+                "Des rivières qui charment tous ceux qui s'en approchent aux forêts qui parlent à travers des messages oniriques, vous avez vu et étudié de nombreux types de terrains magiques. Le monde est si riche en magie qu'elle peut affecter la terre elle-même. Comme vous avez beaucoup voyagé pour apprendre, vous avez les moyens d'identifier les bizarreries des terrains magiques où qu'ils se présentent."
+            ],
+            "gift_skill": [
+                "Expertise du terrain"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "des terrains magiques"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Enseignant",
+            "requirement": [],
+            "description": [
+                "Vous êtes incroyablement savant, compétent et peut-être même habilité à enseigner aux enfants et aux adultes le monde et ses merveilles. Des livres aux classes, vous vous êtes donné pour objectif de transmettre vos connaissances à tous. Tout ne peut cependant pas être appris ou enseigné à partir des livres, raison pour laquelle vous êtes devenu un aventurier pour apprendre des sujets plus directement et pour pouvoir rapporter cette compréhension à vos élèves."
+            ],
+            "gift_skill": [
+                "Professionnel expérimenté"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "universitaire"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Ermite",
+            "requirement": [],
+            "description": [
+                "Dans un lieu reculé, que ce soit une caverne, une oasis isolée ou cloîtré dans un manoir, vous avez vécu une vie solitaire. L'aventure peut être un répit bienvenu de la solitude ou un changement non désiré, mais dans tous les cas, il est probable que vous soyez encore un peu rugueux sur les bords."
+            ],
+            "gift_skill": [
+                "Savoir douteux"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "liée au type de terrain où vous avez vécu quand vous étiez un ermite"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Érudit",
+            "requirement": [],
+            "description": [
+                "Vous avez toujours eu des facilités pour apprendre et vous vous êtes ainsi vous-même coupé du monde pour assimiler tout ce que vous pouviez. Vous en avez découvert tant de choses et de lieux merveilleux dans vos lectures, en rêvant toujours du jour où vous pourriez les voir réellement. Finalement, la curiosité vous a conduit à abandonner vos études pour devenir un aventurier.",
+                " Vous êtes également qualifié dans la compétence Connaissance universitaire"
+            ],
+            "gift_skill": [
+                "Assurance"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Religion",
+                        "characteristic": "SAG"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Étudiant en magie",
+            "requirement": [],
+            "description": [
+                "Vous êtes actuellement inscrit dans une école de magie, où vous apprenez les bases de votre tradition magique. Que vos aventures aient lieu pendant les pauses entre les semestres, dans le cadre d'un programme d'alternance ou même dans les couloirs de l'académie elle-même, vous devrez apprendre à jongler avec votre double vie."
+            ],
+            "gift_skill": [
+                "Reconnaître des sorts"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Religion",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "universitaire"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Expérience magique",
+            "requirement": [],
+            "description": [
+                "À un moment de votre vie, des personnes puissantes ont réalisé sur vous des expériences magiques qui vous ont changé de façon permanente. Vous vous êtes peut-être engagé volontairement, mais il se peut que ce soit contre votre volonté. Vous en portez toujours les marques, ainsi que les capacités.",
+                "Choisissez une prime d'attribut.. Elle doit être de Constitution.",
+                " Vous obtenez une capacité spéciale résultant de l'expérience magique réalisée sur vous",
+                " Consultez le Maître de jeu afin de sélectionner une capacité appropriée de la liste suivante ou proposez une autre capacité spéciale"
+            ],
+            "gift_skill": [],
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "universitaire"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Fabricant de jouets",
+            "requirement": [],
+            "description": [
+                "Vous vous délectez à fabriquer de petites babioles pour les enfants de tous âges et voir leur visage s'illuminer grâce à l'une de vos créations vous met le cœur en joie. Peut-être vendez-vous vos marchandises dans une boutique particulière ou à l'arrière d'un chariot lorsque vous voyagez de ville en ville."
+            ],
+            "gift_skill": [
+                "Artisanat spécialisé"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "et en Connaissance commerciale"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "commerciale"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Faux médium",
+            "requirement": [],
+            "description": [
+                "Il existe dans ce monde des personnes qui possèdent la capacité de percer le voile entre le monde des vivants et celui des morts, ce qui leur permet de communiquer avec les esprits. Vous... n'êtes pas l'un d'entre eux. Mais vous en savez assez sur l'occulte ainsi que sur les trucs de mentalistes et les diverses pratiques des religions locales, pour vous frayer un chemin dans les porte-monnaie des gens. À la différence d'un charlatan pur et dur, il y a une véritable méthodologie occulte derrière votre escroquerie, mais c'est probablement un piètre réconfort pour les personnes que vous escroquez. Que vous ayez décidé d'emprunter une voie plus juste, que vous ayez été pris et que vous vous soyez engagé à réparer les dégâts, ou que vous glissiez encore quelques \"séances\" entre deux aventures, vous avez adopté un style de vie d'aventurier en vous déplaçant d'un endroit à l'autre."
+            ],
+            "gift_skill": [
+                "Culte trompeur"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la voyance"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forçat des mers",
+            "requirement": [],
+            "description": [
+                "Aviez vous bu cinq ou six coups ? Ce n'est pas si important en fin de compte car après que ces braves gens vous aient payé à boire, vous vous êtes réveillé tout en bas de l'échelle. Que ce soit comme membre d'équipage, conscrit dans une armée ou pire, vous ne pouvez aller nulle part, sauf vous élever. Cet historique nécessite généralement l'adhésion de l'ensemble du groupe pour partir d'une histoire vous permettant d'incarner un personnage qui part à l'aventure en raison de circonstances indépendantes de sa volonté. Cependant, vous pouvez aussi jouer un personnage qui a été un jour forçat des mers et qui a, depuis, échappé à cette vie. Dans ce cas, l'historique perd le trait peu courant et il garde les mêmes effets en terme de mécaniques."
+            ],
+            "gift_skill": [
+                "Aide armure"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du travail"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Forgeron d'alliage",
+            "requirement": [],
+            "description": [
+                "Si la forge est sans aucun doute une profession ancienne, vous êtes à la pointe du progrès. Vous avez étudié les propriétés des différents métaux, vous les avez expérimentés en les combinant, en les exposant à différents éléments et procédés et vous avez même plongé dans la nature métaphysique du métal dans votre quête pour le maîtriser. Vous êtes peut-être parti à l'aventure pour acquérir davantage de fonds et de matériaux ou pour tester vos créations."
+            ],
+            "gift_skill": [
+                "Artisanat spécialisé"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "et en Connaissance du Plan du Métal"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du Plan du Métal"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Garçon de course",
+            "requirement": [],
+            "description": [
+                "Dans votre jeunesse, vous avez gagné de l'argent en transportant des messages pour des personnes fortunées et d'influence, vous faufilant dans les rues des villes bondées. Votre ténacité à délivrer votre message a été un bon entraînement pour une vie d'aventure."
+            ],
+            "gift_skill": [
+                "Glaner des informations"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la cité dans laquelle vous avez été élevé"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Garde",
+            "requirement": [],
+            "description": [
+                "Vous avez servi dans la garde, par patriotisme ou pour pour la solde. Dans un cas comme dans l'autre, vous avez appris à faire parler un suspect réticent. Après avoir quitté la garde, vous pourriez penser que partir à l'aventure sera l'occasion de mettre en œuvre vos compétences plus largement."
+            ],
+            "gift_skill": [
+                "Contrainte rapide"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Intimidation",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "juridique ou de la guerre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Gardien du feu",
+            "requirement": [],
+            "description": [
+                "Que vous ayez combattu des incendies dans la nature ou dans les rues bondées de la ville, vous avez eu votre lot de flammes incontrôlées. Vous avez lutté contre d'épaisses fumées et des émanations toxiques, vous avez brisé des obstacles pour sauver des personnes prises au piège d'une tombe enflammée et vous avez étudié la nature et la source du feu lui-même pour essayer de mieux apprendre à le combattre."
+            ],
+            "gift_skill": [
+                "Contrôle de la respiration"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du Plan du Feu"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Gladiateur",
+            "requirement": [],
+            "description": [
+                "Vous avez appris à vous battre lors des sanglants jeux de l'arène. Vous avez cependant quitté l'arène (ou vous vous êtes enfui) avant d'y atteindre la gloire. Votre capacité à faire couler le sang et à éveiller l'intérêt des foules vous est utile dans votre nouvelle vie d'aventurier."
+            ],
+            "gift_skill": [
+                "Représentation impressionnante"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Représentation",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "des gladiateurs"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Guérisseur (curandero)",
+            "requirement": [],
+            "description": [
+                "Vous avez appris les arts de la guérison de votre communauté en maniant votre chonta cérémoniale, un outil que vous avez sculpté vous-même et imprégné d'huiles et d'herbes sacrées. Ce processus vous a ouvert les yeux sur des maux de nature plus mystique : esprits maléfiques, hantises, possession, etc. Vous vous êtes probablement lancé dans l'aventure pour combattre ces horreurs ou vous avez peut-être fui un mal que vous n'aviez pas le pouvoir de vaincre."
+            ],
+            "gift_skill": [
+                "Vaccination"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Médecine",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de l'herboristerie"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Guetteur",
+            "requirement": [],
+            "description": [
+                "Un œil pour les détails, le sens du vent et une confiance aiguë en votre intuition. Ces qualités vous distinguent des autres lorsqu'il s'agit de permettre à un tireur d'élite à effectuer le tir parfait contre sa cible. L'élévation, la vitesse et la dissimulation - Ce sont autant de facteurs essentiels qui doivent être pris en compte pour réussir un véritable exploit de tireur et aucun sniper ne pourrait en être capable sans un guetteur expérimenté. Depuis votre plus jeune âge, vous mettez vos compétences de guetteur à profit pour travailler en tant qu'aventurier. Que vous effectuiez désormais vos propres tirs ou que vous soyez le guetteur pour les autres, vos talents vous donnent un avantage dans une carrière d'aventurier."
+            ],
+            "gift_skill": [
+                "Traqueur de terrain"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Discrétion",
+                        "characteristic": "DEX",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du métier d'éclaireur"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Hanté",
+            "requirement": [],
+            "description": [
+                "Vous êtes poursuivi par un esprit ou une entité, soit depuis votre enfance, soit à la suite d'un évènement majeur. Vous et d'autres pourriez avoir vu cette entité. Vous avez étudié des sujets ésotériques en tentant de comprendre votre situation mais cette présence dans votre vie reste un mystère. Quelle que soit cette entité ou ce qu'elle veut, cela influence votre vie de manière subtile, et pas toujours pour le meilleur. Quelques fois, cette entité vous aide, mais à d'autres moments, son influence est malveillante ou dangereuse. L'entité a davantage tendance à faire surface lors de situations stressantes.",
+                " Chaque fois que vous faites un test de compétence avec la compétence accordée par l'entité, le MJ peut vous attribuer un bonus de circonstances au test de +1, comme si l'entité vous sports_martial_artsAidait ",
+                " Si vous acceptez cette aide mais que vous obtenez un échec sur le test, vous êtes sentiment_very_dissatisfiedEffrayé 2 (Effrayé 4 en cas d'échec critique)",
+                " La valeur initiale de l'état Effrayé ne peut être réduite par des effets qui réduiraient ou empêcheraient la manifestation de l'état (comme la bravoure du guerrier)"
+            ],
+            "gift_skill": [
+                "Aidait",
+                "Effrayé 2"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Herboriste",
+            "requirement": [],
+            "description": [
+                "Vous avez suivi une formation officielle d'apothicaire ou avez pratiqué la médecine populaire à la campagne et vous connaissez les propriétés médicinales des herbes. Vous savez récolter les bons remèdes naturels dans toutes sortes d'environnements et les préparer comme il se doit."
+            ],
+            "gift_skill": [
+                "Médecine naturelle"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de l'herboristerie"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Héritage du marteau",
+            "requirement": [],
+            "description": [
+                "Votre introduction à la vie criminelle a été inspirée par un marteau apparemment inoffensif qui vous a fourni toutes sortes d'idées criminelles innovantes. Depuis, vous ne l'avez plus en votre possession, mais de temps en temps, vous entendez un léger murmure qui vous pousse à commettre des crimes."
+            ],
+            "gift_skill": [
+                "Tour de passe-passe"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Vol",
+                        "characteristic": "DEX",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de l'ingénierie"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Homme d'armes",
+            "requirement": [],
+            "description": [
+                "Dans votre jeunesse, vous avez combattu en tant que mercenaire, guerrier défendant un peuple nomade ou membre d'une milice ou d'une armée. Vous avez peut-être eu envie de vous affranchir de la structure hiérarchique de ces forces armées, mais vous pouvez également avoir toujours été un guerrier indépendant."
+            ],
+            "gift_skill": [
+                "Regard intimidant"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Intimidation",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la guerre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Hors-la-loi d'Alkenastre",
+            "requirement": [],
+            "description": [
+                "Vous êtes un hors-la-loi dont le premier crime a été de voler des armes de l'armurerie d'Alkenastre, ce qui vous a permis de commencer une série de crimes aux proportions épiques. Vous ne savez pas où votre route se termine, mais ce sera probablement une affaire sanglante. La vie d'un aventurier pourrait même être un soulagement par rapport à une vie éternellement passée à fuir des autorités d'Alkenastre et de leurs alliés."
+            ],
+            "gift_skill": [
+                "Vol subtil"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Vol",
+                        "characteristic": "DEX",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la pègre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Hôte consentant",
+            "requirement": [],
+            "description": [
+                "Vous parlez à des esprits que vous seuls pouvez percevoir : lambeaux d'âme perdues, gardiens des maisonnées, esprits ancestraux et autres entités. Vous pouvez négocier avec ces êtres, les laisser entrer dans votre corps pour qu'ils vous transmettent des connaissances ou vous aident dans une tâche en échange d'une faveur."
+            ],
+            "gift_skill": [
+                "Accueillir un esprit"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "des esprits"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Imprégné par les éléments",
+            "requirement": [],
+            "description": [
+                "Vous avez été exposé à une violente explosion d'essence élémentaire provenant directement d'un Plan élémentaire, probablement causée par une brèche planaire. Votre corps a absorbé l'essence élémentaire sans effets néfastes et elle se concentre maintenant en vous. Avec le temps, vous avez appris à projeter la puissance élémentaire d'une manière sûre pour vous, mais toujours dangereuse pour les autres.",
+                " Vous obtenez aussi un tour de magie correspondant au plan choisi :"
+            ],
+            "gift_skill": [
+                "Coup de vent",
+    "Lecture de racine",
+    "Jaillissement",
+    "Allumage",
+    "Fléchettes aiguilles",
+    "Projection d'éboulis"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "correspondante a votre élément"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Imprimeur",
+            "requirement": [],
+            "description": [
+                "En prenant le pouls de la ville, vous rédigez un petit journal d'information destiné à être vendu au coin des rues. Vous louez l'usage d'une presse à imprimer pour atteindre cet objectif et vous êtes donc familier avec ces machines. Cependant, les gens et leurs histoires sont votre principal centre d'intérêt et vous partez à l'aventure pour chasser le dernier scoop."
+            ],
+            "gift_skill": [
+                "Polyglotte"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du copiste"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Insurgé",
+            "requirement": [],
+            "description": [
+                "Vous avez été plus qu'un rebelle : vous avez été un révolutionnaire, combattant pour la promesse d'un nouveau ou d'un meilleur pays. Vous croyez encore ou non en cette cause ou peut-être que la victoire ou l'exil vous ont conduit sur cette nouvelle voie pour faire rayonner votre gloire à moins qu'il ne s'agisse d'échapper aux conséquences de votre défaite."
+            ],
+            "gift_skill": [
+                "Diversion interminable"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Duperie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la guerre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Juge itinérant",
+            "requirement": [],
+            "description": [
+                "Vous êtes un juge itinérant, un tribunal à cheval qui dessert un groupe de communautés dans la Désolation de Mana ou une région reculée similaire. Vous vous présentez tous les deux mois, vous entendez les affaires qui se sont empilées depuis votre dernière visite, vous rendez vos verdicts et c'est reparti pour la prochaine ville de votre itinéraire. Ce n'est pas la vie la plus facile du monde, mais c'est une vie intéressante et vous entendez des cas très étranges. Il y a de fortes chances que ce soit l'une de ces affaires qui vous ait mis sur la voie de l'aventure."
+            ],
+            "gift_skill": [
+                "Ose me mentir"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Duperie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "juridique"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Lié avec les fées",
+            "requirement": [],
+            "description": [
+                "Vous avez passé du temps dans le Premier Monde ou un autre royaume des fées et n'êtes plus entièrement la personne que vous étiez auparavant. Peut-être avez vous acquis quelque chose sur le légendaire marché des sorciers ou avez partagé profondément la nourriture et le vin des fées. Quel que soit ce qui vous est arrivé, par inadvertance ou de manière volontaire, vous avez passé un marché avec les fées dont les avantages viennent aussi avec un inconvénient.",
+                " Vous devez en échange suivre une certaine règle ou une limitation comme contrepartie à votre pacte avec les fées",
+                " Si vous violez cette règle, vous perdez Chance féerique jusqu'à ce que vous receviez les effet d'un rituel de auto_awesomePénitence en utilisant la compétence Nature",
+                " La limitation exacte se décide avec votre MJ mais la plus courante est celle qui vous impose de remplir une unique requête de toute fée qui connaît votre nom"
+            ],
+            "gift_skill": [
+                "Chance féerique",
+                "Pénitence"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "des fées"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Lithothérapeute",
+            "requirement": [],
+            "description": [
+                "Les formations minérales peuvent être de belles choses, étincelantes et disposées dans des configurations géométriques. Pour vous, ce sont aussi de puissantes aides naturelles à la guérison. Vous vous êtes peut-être lancé dans l'aventure pour faire vos preuves en soignant les malades ou pour trouver de nouveaux cristaux aux propriétés uniques à ajouter à votre collection grandissante."
+            ],
+            "gift_skill": [
+                "Médecine naturelle"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du plan de la Terre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Manoeuvre",
+            "requirement": [],
+            "description": [
+                "Vous avez passé des années à exercer un pénible travail physique. C'était une période difficile, mais vous avez réussi à survivre. Vous vous êtes peut-être tourné vers l'aventure car vous y voyez une méthode plus simple de vous faire une place dans le monde, ou bien vous accompagnez quelqu'un dont vous êtes sous les ordres."
+            ],
+            "gift_skill": [
+                "Portefaix"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "du travail"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Marchand",
+            "requirement": [],
+            "description": [
+                "Votre précédente activité consistait à vendre des produits et échanger des biens, peut-être dans une boutique poussiéreuse, derrière un étal de marché, ou dans une caravane marchande. Les compétences que vous avez acquises vous servent dans votre nouvelle vocation d'aventurier, dans le cadre de laquelle votre capacité à obtenir une réduction sur le prix d'une bonne armure pourra vous sauver la vie."
+            ],
+            "gift_skill": [
+                "Chasseur de bonnes affaires"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Diplomatie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "commerciale"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Marchand d'armes de la Main d'or",
+            "requirement": [],
+            "description": [
+                "Vous êtes un agent nain de la Loge de la Main d'or, un ensemble de marchands nains basés à Fort Dongun qui cherche à vendre des armes à feu à grande échelle. Le Grand Roi Anong Arunak n'a pas encore donné son accord pour une telle méthode de distribution mais en attendant, vous êtes toujours en déplacement, vantant les mérites de vos produits et faisant occasionnellement des démonstrations palpables de l'écrasante puissance d'arrêt de vos armes à feu. Ces démonstrations et ces ventes vous ont donné le goût de l'aventure et la menace constante de la piraterie vous a convaincu de l'importance de partir à l'aventure en groupe."
+            ],
+            "gift_skill": [
+                "Bonne impression de groupe"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Diplomatie",
+                        "characteristic": "CHA"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "commerciale"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Marchand magique",
+            "requirement": [],
+            "description": [
+                "Vendre des objets magiques n'est pas comme être un marchand ordinaire. Les marchandises que vous achetez et vendez sont coûteuses, ce qui rend chaque vente rare et lucrative. Vous avez développé des connaissances en matière de fabrication experte pour vous assurer de ne pas vous faire arnaquer car l'achat d'un seul article contrefait peut vous conduire à la faillite. Que vous ayez fait faillite et ayez dû trouver un autre emploi ou que vous vous soyez lancé dans l'aventure pour acquérir de nouvelles marchandises, vous vous êtes lancé de vous-même à l'aventure."
+            ],
+            "gift_skill": [
+                "Évaluation de l'artisan"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "et en Connaissance commerciale"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "commerciale"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Marginal de la magie",
+            "requirement": [],
+            "description": [
+                "Vous ne comprenez pas les gens qui prétendent que le talent magique est une sorte de charge qui engendre d'importantes responsabilités. Vous avez toujours utilisé votre magie pour causer des ennuis et en fuir les conséquences. Que devenir aventurier soit votre tentative de vous racheter ou simplement une nouvelle façon de faire des bêtises, vous êtes enthousiaste à l'idée de voir où cela vous mènera et vous prenez toujours plaisir à utiliser vos compétences pour vous sortir d'affaire."
+            ],
+            "gift_skill": [
+                "Usurpation d'objet magique"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Arcanes",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la pègre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Marin",
+            "requirement": [],
+            "description": [
+                "Vous avez entendu l'appel de la mer dès votre jeune âge. Vous avez peut-être rejoint un vaisseau marchand, la marine, ou un équipage de pirates et de vauriens."
+            ],
+            "gift_skill": [
+                "Maraudeur aquatique"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "DEX",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty": true
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "de la navigation maritime"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Maudit",
+            "requirement": [],
+            "description": [
+                "Vous être la victime d'une malédiction personnelle ou héréditaire. Par de grands efforts et l'étude occulte, vous avez appris à repousser les pires effets de la malédiction et, par extension, vous pouvez vous protéger contre d'autres magies nuisibles. Quoi qu'il en soit, la malédiction est une épée de Damoclès et se manifeste parfois de dangereuse manière.",
+                " Vous obtenez la réaction sports_martial_artsSigne de protection ",
+                " Vous et le MJ devriez déterminer les pleins effets de la malédiction, bien que vous soyez parvenu à maîtriser la plupart de ses effets pour le moment",
+                " Le MJ détermine les manifestations persistantes de la malédiction qui vous affecte, lesquelles pourraient notamment inclure au moins un effet thématique constant ou très fréquent et des effets occasionnels dangereux"
+            ],
+            "gift_skill": [
+                "Signe de protection"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills": {
+                "qualify": [
+                    {
+                        "label": "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label": "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier": "des malédictions"
+                    }
+                ]
+            }
         }
     ]
 };
@@ -2282,4 +3689,6 @@ RACES.getLegacies = function ( race_name ) {
     }
     return null;
 };
-let toto          = [];
+let toto          = [
+    
+];

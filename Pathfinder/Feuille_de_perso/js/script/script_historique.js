@@ -7,7 +7,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 80, _size_i = doms.length; i < 90; i++ ) {
+        for ( let i = 55, _size_i = doms.length; i < 100; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
