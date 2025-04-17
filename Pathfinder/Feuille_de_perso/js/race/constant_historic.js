@@ -6,74 +6,6 @@ var HISTORICS = {
     label_element: "Historique",
     ENUM         : [
         {
-            "name"           : "Vif",
-            "requirement"    : [
-                "Région - Terres impossibles"
-            ],
-            "description"    : [
-                "Rester en vie parmi les morts-vivants sournois et affamés du Geb a requis une profonde connaissance de leurs motivations, de leurs capacités et de leurs faiblesses. Bien souvent, cela a aussi nécessité la capacité d'inventer des alibis et des demi-vérités pour influencer leurs cœurs éteints."
-            ],
-            "gift_skill"     : [
-                "Menteur charismatique"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Duperie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des morts-vivants"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "À la recherche de la Perfection",
-            "requirement"    : [
-                "Région - Terres impossibles"
-            ],
-            "description"    : [
-                "Vous aspirez à perfectionner votre corps et votre esprit par la tradition des Écoles de la Perfection de Jalmeray, affûtant vos compétences acrobatiques et vos facultés mentales en préparation d'une vie repoussant les frontières de ce que beaucoup considèrent possible."
-            ],
-            "gift_skill"     : [
-                "Chûte féline"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "INT",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec une cité dans laquelle vous vous êtes souvent rendu"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Acolyte",
             "requirement"    : [],
             "description"    : [
@@ -204,40 +136,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Adhérent du Rivethun",
-            "requirement"    : [
-                "Région - Royaumes étincelants"
-            ],
-            "description"    : [
-                "Vous avez passé du temps à apprendre les pratiques et les traditions des antiques chamans nains du Rivethun et pouvez reconnaître toute sortes de magies. Vous pouvez avoir choisi votre propre voie depuis ou vous pouvez continuer à adhérer à leur philosophie."
-            ],
-            "gift_skill"     : [
-                "Reconnaître des sorts"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des esprits"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Adjoint",
             "requirement"    : [],
             "description"    : [
@@ -265,74 +163,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "de la chasse"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Agent de la Campanule",
-            "requirement"    : [
-                "Région - Ancien Chéliax"
-            ],
-            "description"    : [
-                "Vous avez rejoint une société secrète dédiée à la libération des esclaves halfelins, le plus souvent du règne cruel du Chéliax. Vous savez faire passer en contrebande des gens vers l'intérieur ou l'extérieur des frontières."
-            ],
-            "gift_skill"     : [
-                "Contrebandier expérimenté"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "DEX",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Discrétion",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la pègre"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Amateur de sensations fortes",
-            "requirement"    : [],
-            "description"    : [
-                "Vous avez survécu à une situation de vie ou de mort et l'avez trouvée étonnamment exaltante. Vous recherchez désormais ce sentiment d'invincibilité que l'on n'obtient qu'en flirtant avec la mort. Votre désir d'exaltation vous pousse à escalader des immeubles, à sauter des toits, à franchir des gouffres et à accomplir d'autres cascades qui défient la mort."
-            ],
-            "gift_skill"     : [
-                "Combattant-grimpeur"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "FOR",
-                    "CON",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'ingénierie"
                     }
                 ]
             }
@@ -423,38 +253,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Annonciateur du malheur",
-            "requirement"    : [],
-            "description"    : [
-                "Dans les étoiles, vous ne voyez pas de conseils ou de sagesse mais une porte scintillante vers la fin imminente de toutes choses. Vous avez peut-être été élevé dans cette idéologie, l'avez glanée par superstition ou avez reçu une vision prophétique. Quoi qu'il en soit, vous en êtes venu à considérer les étoiles et le pouvoir qu'elles incarnent comme un chemin vers le malheur, une malédiction pour avertir les masses. Certains peuvent ignorer vos avertissements, d'autres se joindront à vous pour éclairer les ignorants. Pour vous, il n'y a pas de plus grande vérité que la fin à venir et vous savez que, quelle qu'en soit la cause, elle viendra des étoiles - ou peut-être que les étoiles ne sont qu'une porte vers un au-delà plus terrifiant."
-            ],
-            "gift_skill"     : [
-                "Infortune stellaire"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "INT",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des étoiles"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Anti-Magie",
             "requirement"    : [],
             "description"    : [
@@ -510,38 +308,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "de la nécromancie"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Archéologue",
-            "requirement"    : [],
-            "description"    : [
-                "Vous avez exhumé assez de sites pour savoir que les civilisations antiques ne sont pas perdues ; elles sont à peine enterrées et attendent que l'érudit approprié les déterre et raconte leurs histoires. Vous pourriez avoir travaillé comme ouvrier ou guide local avant d'apprendre les techniques archéologiques formelles."
-            ],
-            "gift_skill"     : [
-                "Connaissance supplémentaire"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "INT",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'architecture"
                     }
                 ]
             }
@@ -713,149 +479,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Aspirant Agitateur",
-            "requirement"    : [],
-            "description"    : [
-                "Vous avez été sauvé ou libéré d'une situation désespérée par un groupe d'Agitateurs et depuis lors, vous aspirez à devenir un Agitateur pour poursuivre leur héritage. Vous continuez à suivre les nouvelles de leurs aventures et vous espérez un jour rencontrer vos héros en tant que camarades."
-            ],
-            "gift_skill"     : [
-                "Assurance"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "FOR",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Représentation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des Agitateurs"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Aspirant Capitaine-libre",
-            "requirement"    : [
-                "Région - Hautes mers"
-            ],
-            "description"    : [
-                "Vous cherchez à rejoindre les Capitaines libres des Entraves et avez appris tout ce que vous avez besoin de savoir pour Naviguer et commander les hommes qui vous entourent. Maintenant, vous avez juste besoin d'un navire et d'un équipage."
-            ],
-            "gift_skill"     : [
-                "Contraindre un groupe"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "SAG",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Intimidation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la navigation maritime"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Aspirant Éclaireur",
-            "requirement"    : [
-                "Région - Absalom et Île de la Pierre-Étoile"
-            ],
-            "description"    : [
-                "Vous avez toujours rêvé de rejoindre l'audacieuse Société des Éclaireurs. Vous avez choisi la vie dangereuse d'aventurier dans l'espoir de gagner votre place parmi eux."
-            ],
-            "gift_skill"     : [
-                "Connaissance supplémentaire"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "INT",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la Société des Éclaireurs"
-                    },
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Aspirant Monarque du Fleuve",
-            "requirement"    : [
-                "Région - Terres brisées"
-            ],
-            "description"    : [
-                "De nouveaux royaumes émergent constamment dans les Royaumes du fleuve et vous avez l'intention de diriger l'un d'entre eux. Faire en sorte qu'il dure, quoi qu'il en soit, va requérir à la fois de la force et de la grâce."
-            ],
-            "gift_skill"     : [
-                "Manières courtoises"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "SAG",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la politique"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Astrologue",
             "requirement"    : [],
             "description"    : [
@@ -878,75 +501,6 @@ var HISTORICS = {
                         "label"         : "Occultisme",
                         "characteristic": "INT"
                     },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'astrologie"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Athlète star",
-            "requirement"    : [],
-            "description"    : [
-                "Quel que soit le sport, qu'il s'agisse du basilic, de balle au pied, de lutte, de course à pied, de stickball, de canoë ou de foot-volley, vous l'avez pratiqué ou vous avez envie de l'essayer. Vous avez probablement manqué des cours à cause des entraînements ou des compétitions et des professeurs irrités pourraient vous considérer comme paresseux ou incapable d'apprendre. Ces hypothèses ne tiennent pas compte des innombrables heures que vous avez consacrées à l'excellence sportive.",
-                " Vous êtes aussi qualifié dans la compétence Connaissance ludique ou une compétence de Connaissance en lien avec votreécole"
-            ],
-            "gift_skill"     : [
-                "Assurance"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "FOR",
-                    "DEX",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "FOR",
-                        "need_qualifier": true,
-                        "qualifier"     : "ludique"
-                        
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Augure astrologique",
-            "requirement"    : [],
-            "description"    : [
-                "Au cours de vos années de formation, vous avez appris que les étoiles sont une porte d'entrée vers des pouvoirs mystiques ou des prévisions de l'avenir. Vous avez peut-être grandi dans la culture Iruxie ou dans l'un des derniers sanctuaires Lirgeni. Vous avez étudié les constellations, utilisant leur alignement pour prédire la fortune (ou le malheur) et en obtenant des pouvoirs magiques différents de ceux des autres astrologues que vous connaissez. Vos lectures peuvent se concentrer principalement sur la Caravane cosmique à moins que vous n'utilisiez d'autres étoiles pour vous guider, comme le zodiaque du Tian Xia.",
-                " Vous pouvez lancer Augure comme un sort divin inné une fois par semaine et les effets du sorts peuvent voir jusqu'à une heure dans l'avenir plutôt que dans les 30 minutes"
-            ],
-            "free_spell"     : [
-                {
-                    name     : "Augure",
-                    frequency: 1,
-                    period   : "week"
-                }
-            
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "SAG",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
                     {
                         "label"         : "Connaissance",
                         "characteristic": "INT",
@@ -984,40 +538,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "juridique"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Balayeur de fumier de la Ménagerie",
-            "requirement"    : [
-                "Région - Absalom et Île de la Pierre-Étoile"
-            ],
-            "description"    : [
-                "Que vous laviez les bêtes de combat sous le plancher de l'arène de l'Irorium ou pris soin des animaux mutants d'un spectacle des Flaques, vous avez l'expérience avec toutes sortes de bêtes étranges."
-            ],
-            "gift_skill"     : [
-                "Dressage animalier"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Nature",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des animaux"
                     }
                 ]
             }
@@ -1220,33 +740,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Béni par la bête",
-            "requirement"    : [],
-            "description"    : [
-                "Vous avez autrefois libéré une bête magique de la captivité, que cela ait ou non été intentionnel ou le produit indirect d'une autre action. La créature reconnaissante vous a placé sur vous une bénédiction de liberté. Votre bénédiction se manifeste physiquement, comme par exemple des canines allongées, des ongles qui poussent en étant très aiguisés, un excès de pilosité ou tout autre trait. Cette manifestation est uniquement cosmétique et n'accorde aucun avantage.",
-                " Vous obtenez la réaction sports_martial_artsClarté bestiale "
-            ],
-            "gift_skill"     : [
-                "Clarté bestiale"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "DEX",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Bibliothécaire occulte",
             "requirement"    : [],
             "description"    : [
@@ -1274,43 +767,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "universitaire"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Bonuwat Touché par les vagues",
-            "requirement"    : [
-                "Région - Étendues du Mwangi"
-            ],
-            "description"    : [
-                "Vous êtes un enfant du peuple Bonuwat et l'eau de mer circule dans vos veines. Vous avez appris à naviguer et à nager avec aisance, vous permettant d'obtenir le titre honorifique de Touché par les vagues.",
-                "Spécial Vous pouvez choisir le don ancestral military_techParangon touché par les vagues au niveau 1 au lieu du niveau 5."
-            ],
-            "gift_skill"     : [
-                "Maraudeur aquatique",
-                "Parangon touché par les vagues"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "FOR",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'océan"
                     }
                 ]
             }
@@ -1382,42 +838,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Bricoleur d'Alkenastre",
-            "requirement"    : [
-                "Région - Terres impossibles"
-            ],
-            "description"    : [
-                "Votre dévotion pour la recherche scientifique de votre native Alkenastre vous fournit une profonde intuition pour l'innovation mécanique et chimique."
-            ],
-            "gift_skill"     : [
-                "Artisanat alchimique"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "DEX",
-                    "INT",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Artisanat",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "et en Connaissance de l'Ingénierie"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'Ingénierie"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Brise-combat",
             "requirement"    : [],
             "description"    : [
@@ -1445,40 +865,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "de la cité ou de la communauté dans laquelle vous avez vécu avant de devenir un Brise-combat"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Bureaucrate du Grand conseil",
-            "requirement"    : [
-                "Région - Absalom et l'Île de la Pierre-Étoile"
-            ],
-            "description"    : [
-                "Vous avez passé des années à travailler comme clerc d'un fonctionnaire du gouvernement d'Absalom. Votre service vous a appris une chose ou deux à propos des discours d'encouragement et à manipuler la bureaucratie de la ville."
-            ],
-            "gift_skill"     : [
-                "Bonne impression de groupe"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "INT",
-                    "CHA",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Diplomatie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "du gouvernement"
                     }
                 ]
             }
@@ -1825,38 +1211,6 @@ var HISTORICS = {
             }
         },
         {
-            "name"           : "Chercheur de sort",
-            "requirement"    : [],
-            "description"    : [
-                "La magie conventionnelle ne peut retenir votre attention qu'un certain temps. Vous vous êtes plutôt consacré à la compréhension de sorts véritablement ésotériques, ce qui vous pousse invariablement à explorer le monde et toutes ses traditions mystiques."
-            ],
-            "gift_skill"     : [
-                "Reconnaître des sorts"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "CON",
-                    "SAG",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Arcanes ou Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des bibliothèques"
-                    }
-                ]
-            }
-        },
-        {
             "name"           : "Chercheur en mécanique",
             "requirement"    : [],
             "description"    : [
@@ -1884,40 +1238,6 @@ var HISTORICS = {
                         "characteristic": "INT",
                         "need_qualifier": true,
                         "qualifier"     : "de l'ingénierie"
-                    }
-                ]
-            }
-        },
-        {
-            "name"           : "Chercheur Rivain",
-            "requirement"    : [],
-            "description"    : [
-                "Vous avez dédié votre vie à résoudre les secrets de l'antique Empire Rivain, soit au travers de recherches méticuleuses, soit en voyageant dans des ruines dangereuses et lointaines pour retrouver la trace d'artefacts depuis longtemps perdus."
-            ],
-            "gift_skill"     : [
-                "Artisanat spécialisé"
-            ],
-            "prime_attribute": {
-                "number": 2,
-                "choice": [
-                    "DEX",
-                    "INT",
-                    "FRE"
-                ]
-            },
-            "skills"         : {
-                "qualify": [
-                    {
-                        "label"         : "Artisanat",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "et en Connaissance de l'empire Rivain"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'empire Rivain"
                     }
                 ]
             }
@@ -1985,7 +1305,972 @@ var HISTORICS = {
                     }
                 ]
             }
+        },
+        {
+            "name"           : "Collectionneur de déchets",
+            "requirement"    : [],
+            "description"    : [
+                "Vous vivez selon l'adage selon lequel les déchets des uns sont les trésors des autres. Que ce soit en passant au crible des tas de ferraille ou en creusant sur de vieux champs de bataille, vous restez à l'affût d'objets perdus ou mis au rebut que vous pourriez transformer en quelque chose d'utile. Le plus souvent, ce que vous trouvez n'est que de la camelote... mais vous êtes convaincu qu'un de ces jours, vous allez toucher le gros lot. Vous vous êtes même lancé dans l'aventure comme moyen d'augmenter drastiquement votre accès à toutes sortes d'objets de pacotille, d'équipement et de butin."
+            ],
+            "gift_skill"     : [
+                "Évaluation de l'artisan"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "au choix"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de l'ingénierie ou minière"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Comptable",
+            "requirement"    : [],
+            "description"    : [
+                "Vous vous occupez des chiffres sur une large échelle, pour les besoins d'un marchand ou pour une guilde majeure de la ville. Vous gardiez trace des dépenses, des livres de paie, des profits et de tout ce qui à trait à l'argent, pour le meilleur et pour le pire. Pour le meilleur, vous pourriez être parti à l'aventure pour apprendre comment d'autres pratiquent ce métier. Si c'est pour le pire, vous pourriez fuir les conséquences qui en découlent, dans l'espoir que personne ne vous trouve."
+            ],
+            "gift_skill"     : [
+                "Œil pour les nombres"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la comptabilité"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Contact d'eidolon",
+            "requirement"    : [],
+            "description"    : [
+                "Vous êtes entré en contact avec un être désincarné d'essence magique connu sous le nom d'eidolon. Vous avez peut-être forgé un puissant conduit avec cet eidolon, vous permettant de le manifester en tant qu'invocateur, mais il est bien plus probable que vous ayez perdu le contact avec le temps, non sans avoir appris quelques secrets à moitié oubliés. Si vous avez perdu le contact, vous êtes peut-être devenu un aventurier pour tenter d'atteindre à nouveau l'eidolon, ou pour être sûr d'en être débarrassé à jamais."
+            ],
+            "gift_skill"     : [
+                "Savoir douteux"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Arcanes",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Ocultisme ",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Religion",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "concernant les créatures associées à l'eidolon contacté"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Contrebandier du Marché noir",
+            "requirement"    : [
+                "Région - Route dorée"
+            ],
+            "description"    : [
+                "Vous savez comment travailler du côté moins-que-légal des marchés de la région et comment glisser de la contrebande sous le nez des autorités."
+            ],
+            "gift_skill"     : [
+                "Contrebandier expérimenté"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Discrétion",
+                        "characteristic": "DEX",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la pègre"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Convocation Scout",
+            "requirement"    : [],
+            "description"    : [
+                "The Convocation is the biggest, most anticipated academic event in recent years. Eager to create long-lasting alliances as well as recruit promising students or staff to their own ranks, your school has sent you as a representative to advance their interests. Your tact, analytical ability, and gift for communication serve you well in scouting profitable partnerships with the Convocation's other sponsors and guests.",
+                "Choose two attribute boosts. One must be to Wisdom or Charisma, and one is a free attribute boost.",
+                "You're trained in Diplomacy. You're also trained in the Politics Lore skill or a Lore skill associated with your school. You gain the Group Impression skill feat."
+            ],
+            "gift_skill"     : [
+                "Impression de groupe"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Diplomatie",
+                        "characteristic": "CHA",
+                        "need_qualifier": true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la politique"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Convoyeur de fonds",
+            "requirement"    : [],
+            "description"    : [
+                "Lorsque de l'argent, des biens ou des marchandises doivent être transportés sur de grandes distances, les convoyeurs de fonds sont plus efficaces et plus dignes de confiance que les mercenaires locaux. Vous connaissez les tenants et les aboutissants des routes commerciales et les protocoles qui les accompagnent. Si certains vous considèrent comme un aventurier ou un mercenaire ordinaire, vous savez que vous pouvez faire le travail mieux et plus sûrement que n'importe qui d'autre."
+            ],
+            "gift_skill"     : ["Professionnel expérimenté"],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "soit du travail soit du mercenariat"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Coursier",
+            "requirement"    : [],
+            "description"    : [
+                "Vous avez servi de messager pour une faction spécifique, une guilde, une maison ou un individu, devant fréquemment courir pour délivrer ces messages sur une brève période de temps. Trouver le plus court chemin pour aller du point A au point B est votre spécialité et vous avez appris à tirer le meilleur parti de vos capacités athétiques et de navigation."
+            ],
+            "gift_skill"     : [
+                "Saut rapide"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la cité dans laquelle vous avez été un messager"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Criminel",
+            "requirement"    : [],
+            "description"    : [
+                "Vous avez vécu hors-la-loi comme individu indépendant dénué de scrupules ou comme membre d'une organisation criminelle. Vous vous êtes peut-être tourné vers l'aventure pour y trouver la rédemption, pour échapper à la loi, ou simplement dans l'espoir d'obtenir un butin plus conséquent et de meilleure qualité."
+            ],
+            "gift_skill"     : [
+                "Contrebandier expérimenté"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Discrétion",
+                        "characteristic": "DEX",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la Pègre"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Croisé du Geb",
+            "requirement"    : [
+                "Région - Terres impossibles"
+            ],
+            "description"    : [
+                "Vous avez grandi en considérant que la nation morte-vivante du Geb est une atrocité et vous vous êtes entraîné pour pouvoir un jour prendre part à sa destruction en donnant ainsi un repos définitif à ses abominables habitants. Un élément de vos préparatifs est une étude approfondie de Pharasma, d'Urgathoa et d'autres divinités en lien avec les morts-vivants et leurs philosophies."
+            ],
+            "gift_skill"     : [
+                "Étudiant du droit canon"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Religion",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "des morts-vivants"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Croque-mort",
+            "requirement"    : [],
+            "description"    : [
+                "Les gens meurent. C'est la malheureuse réalité sur laquelle vous avez fondé votre entreprise, car partout où des gens meurent, il y a une demande de services mortuaires. Vous pouvez être un prêtre pharasmien ou un professionnel laïc, mais votre travail consiste à vous occuper du corps, à réconforter les personnes en deuil et à vous assurer que le défunt va au devant de sa récompense ultime avec toute la dignité requise. Bien sûr, quelqu'un dans votre position voit beaucoup de morts étranges, et il y a de fortes chances que l'une d'entre elles vous mette sur la voie de l'aventure..."
+            ],
+            "gift_skill"     : [
+                "Perspicacité forensique"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Médecine",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "spécialisée dans un type local de mort-vivant"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Cryptographe",
+            "requirement"    : [],
+            "description"    : [
+                "Que vous soyez employé par une organisation militaire pour déchiffrer les messages codés envoyés par des factions ennemies ou que vous travailliez indépendamment pour résoudre une énigme créée par une civilisation passée, vous êtes doué pour les schémas obscurs et la linguistique. Vous pourriez même utiliser de nouveaux dispositifs automatisés pour vous aider dans vos efforts."
+            ],
+            "gift_skill"     : [
+                "Glaner des informations"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la cryptographie"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Cueilleur de racines",
+            "requirement"    : [],
+            "description"    : [
+                "Certaines affections ne peuvent être soignées uniquement par des herbes. Vous avez également appris des remèdes rituels, faisant appel aux esprits de la nature pour soulager les douleurs et préserver du mauvais œil. Partir avec des aventuriers vous a apporté de la compagnie sur la route ainsi qu'une protection contre ceux qui voudraient vous traiter d'imposteur - ou pire."
+            ],
+            "gift_skill"     : [
+                "Magie des racines"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de l'herboristerie"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Cuisinier",
+            "requirement"    : [],
+            "description"    : [
+                "Vous avez été élevé dans les cuisines d'une taverne ou dans un autre établissement où l'on mange et y avez excellé, devenant un cuisinier extraordinaire. Pétrir, cuire, un peu de brassage à côté, vous avez passé beaucoup de temps hors de vue. Il est désormais temps que vous sortiez de votre cuisine pour voir par vous-même le monde extérieur."
+            ],
+            "gift_skill"     : [
+                "Chef"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Survie",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la cuisine"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Cultiste",
+            "requirement"    : [],
+            "description"    : [
+                "Vous avez été (ou êtes encore) un membre d'un culte dont les rites peuvent impliquer des danses sacrées pour assurer une bonne récolte ou des rituels sanglants qui font appel à de sombres pouvoirs. Vous pourriez être parti à l'aventure pour remplir les objectifs de votre culte, pour vous initier aux plus grands mystères du monde ou pour fuir les pratiques répugnantes ou les interdits."
+            ],
+            "gift_skill"     : [
+                "Éduqué dans les secrets"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Occultisme",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "en lien avec votre divinité ou votre culte"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Cultivateur de soie",
+            "requirement"    : [],
+            "description"    : [
+                "Accès Originaire du Tian Xia",
+                "Vous avez étudié et maîtrisé l'art de la sériciculture. L'élevage des vers à soie pour produire de la soie est une industrie importante qui nécessite une quantité intense d'études et de soins. La routine immuable d'un éleveur de vers à soie pourrait rendre n'importe quelle aventure épique en comparaison, et c'est peut-être cette perspective qui vous a poussé à partir à l'aventure."
+            ],
+            "gift_skill"     : [
+                "Artisanat spécialisé"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "et en Connaissance de la sériciculture"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la sériciculture"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Danseur du soleil",
+            "requirement"    : [],
+            "description"    : [
+                "On vous a appris que les bénédictions de la Mère Ardente pouvaient être invoquées par des danses effectuées en sa présence, comme pour saluer les premiers rayons de chaleur au printemps. Vous avez pu être l'apprenti d'un lanceur de sorts primordiaux qui souhaitait exploiter le pouvoir du soleil pour ses incantations ou vivre dans une communauté qui vénère la Fille de la Caravane cosmique en manifestant sa vénération pour le soleil. Quoi qu'il en soit, vous avez développé un lien surnaturel avec le soleil.",
+                " Si vous utilisez de don en extérieur sous la lumière directe du soleil, vous obtenez un bonus de circonstances de +1 au test de compétence"
+            ],
+            "gift_skill"     : [
+                "Représentation fascinante"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Représentation",
+                        "characteristic": "CHA"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "De sang royal",
+            "requirement"    : [],
+            "description"    : [
+                "Vous êtes un membre proéminent d'une famille royale. Vous avez échappé aux routines quotidiennes de la vie royale et adopté une vie d'aventurier. Peut-être êtes vous une reine déposée qui espère récupérer son trône, un prince cherchant une vie plus exaltante ou un héritier d'un souverain chargé d'une mission secrète.",
+                " Si vous obtenez plus tard le don de compétence military_techUtiliser ses relations , vous disposez automatiquement de relations parmi les nobles et les gens du peuple au sein de n'importe laquelle des communautés au sein du territoire de votre famille et vous disposez de relations nobles dans les communautés de grande taille en dehors de votre territoire"
+            ],
+            "gift_skill"     : [
+                "Manières courtoises",
+                "Utiliser ses relations"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Société",
+                        "characteristic": "INT"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Décrocheur d'académie",
+            "requirement"    : [],
+            "description"    : [
+                "Vous étiez inscrit dans une prestigieuse académie de magie, mais vous avez depuis abandonné vos études. Peut-être qu'il y a eu un incident majeur, peut-être que vous avez dû endosser d'autres responsabilités ou peut-être que c'était tout simplement trop pour vous. Quoi qu'il en soit, votre sortie de l'académie a façonné votre vie autant que votre entrée et vous a conduit à une vie d'aventure."
+            ],
+            "gift_skill"     : [
+                "Savoir douteux"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Arcanes",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "universitaire"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Dendrologue",
+            "requirement"    : [],
+            "description"    : [
+                "Les arbres grandissent dans chaque biome et votre admiration pour leur capacité à conquérir le terrain vous a incité à étudier plus en profondeur leur fonctionnement. Il y a des arbres partout et votre étude des arbres vous mènera inévitablement plus loin à la recherche de nouvelles variétés, peut-être même jusqu'au Plan du Bois lui-même."
+            ],
+            "gift_skill"     : [
+                "Expertise du terrain"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Survie",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "du plan du bois"
+                    }
+                ]
+            }
+        },
+        {
+            "name"           : "Descendant de la Mante",
+            "requirement"    : [
+                "Région - Hautes mers"
+            ],
+            "description"    : [
+                "Au moins un de vos parents est un membre des célèbres assassins de la Mante Rouge, des tueurs à gages sans pitié qui n'échouent que rarement à réclamer leur proie. Que ce soit délibérément ou par une simple exposition, vous êtes entraîné depuis votre jeune âge dans l'art de traquer et de tuer des gens."
+            ],
+            "gift_skill"     : [
+                "Assurance"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Discrétion",
+                        "characteristic": "DEX",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de l'assassin"
+                    }
+                ]
+            }
+        },
+            {
+        "name"           : "Descendant de la Voie du Murmure",
+        "requirement"    : [
+            "Région - Œil de l'effroi"
+        ],
+        "description"    : [
+            "Votre famille a longtemps été associée à l'énigmatique Culte de la mort connu sous le nom de la Voie du Murmure, laquelle a récemment été à l'origine de la dévastation terrible de la nation du Dernier-Rempart. Que vous ayez suivi ou non leurs traces, vous connaissez un grand nombre des secrets de cette philosophie."
+        ],
+        "gift_skill"     : [
+            "Étudiant du droit canon"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "INT",
+                "SAG",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Religion",
+                    "characteristic": "SAG"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "des morts-vivants"
+                }
+            ]
         }
+    },
+    {
+        "name"           : "Descendant de tueurs",
+        "requirement"    : [],
+        "description"    : [
+            "Vous provenez d'une lignée de tueurs de mort-vivant. Ce n'est pas une simple occupation pour votre famille, tuer est un fardeau presque mystique transmis de parent à enfant. Au fil des générations, cette dévotion sans faille a commencé à se manifester de manière étrange pendant le combat.",
+            " Vous pouvez lancer le tour de magie auto_awesomeDéchaînement de vitalité comme un tour de magie divin inné",
+            " Vous pouvez utiliser l'Intelligence comme attribut d'incantation pour ce sort inné"
+        ],
+        "spell_free"     : [
+            "Déchaînement de vitalité"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "FOR",
+                "INT",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "des morts-vivants"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Désiré vivant",
+        "requirement"    : [],
+        "description"    : [
+            "Auparavant, vous étiez une simple créature artificielle ou une poupée inanimée mais grâce à un souhait profondément ressenti, le vôtre ou celui d'un autre, vous avez pris vie et vous êtes donc maintenant une créature vivante et qui respire.",
+            " Une fois par jour, par une action unique ayant le trait concentration, vous pouvez souhaiter avec ferveur quelque chose que vous pouvez vous efforcer de réaliser",
+            " Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au premier test de compétence que vous tentez avant la fin de votre tour pour réaliser ce souhait"
+        ],
+        "gift_skill"     : [],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "CON",
+                "CHA",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Diplomatie",
+                    "characteristic": "CHA"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Détective",
+        "requirement"    : [],
+        "description"    : [
+            "Vous étiez un inspecteur de police élucidant des crimes ou un détective privé au service de riches clients. Votre présent d'aventurier peut être lié à un mystère que vous cherchez à éclaircir, mais il est dans tous les cas probable que votre situation ait un rapport avec les conséquences d'une précédente affaire."
+        ],
+        "gift_skill"     : [
+            "Savoir urbain"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "INT",
+                "SAG",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "de la pègre"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Dévouement persévérant",
+        "requirement"    : [],
+        "description"    : [
+            "Les recruteurs invitent de nombreux candidats comme vous à s'entraîner pour devenir chevaliers de Dernier-Rempart, mais seuls quelques élus font l'affaire. Alors que d'autres perdent courage, votre persévérance a porté ses fruits. Votre engagement pour la cause est si clair qu'il a surmonté tout ce qui a pu disqualifier vos précédentes tentatives pour rejoindre la nouvelle Croisade Étincelante."
+        ],
+        "gift_skill"     : [
+            "Perspicacité astucieuse",
+            " military_techPerspicacité astucieuse "
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "FOR",
+                "CON",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "de la guerre"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Disciple de l'engrenage",
+        "requirement"    : [],
+        "description"    : [
+            "Alors que beaucoup considèrent la science et la foi comme incompatibles, vous croyez que le progrès scientifique est la volonté de votre divinité. Peut-être êtes-vous un adepte de Brigh, de Casandalee ou d'une autre divinité de la technologie ou peut-être voyez-vous les fourneaux et les étincelles de la modernité comme les récentes manifestations de la flamme de Sarenrae ou de la foudre de Gozreh - quoi qu'il en soit, vous êtes toujours prêt à répandre la parole de votre divinité et vous avez appris la base du bricolage de base pour montrer comment le centre d'intérêt de votre divinité peut augmenter le niveau de vie commun."
+        ],
+        "gift_skill"     : [
+            "Réparation rapide"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "INT",
+                "SAG",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Artisanat",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "et en Connaissance de votre divinité"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "de votre divinité"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Disciple martial",
+        "requirement"    : [],
+        "description"    : [
+            "Vous vous êtes dédié vous-même à un entraînement intense et à une étude rigoureuse pour devenir un grand combattant. L'école à laquelle vous appartenez pourrait avoir été un monastère traditionaliste, une académie militaire d'élite ou la branche locale d'une organisation mercenaire prestigieuse.",
+            " Vous obtenez un don de compétence"
+        ],
+        "gift_skill"     : [
+            "Chute féline",
+            "Saut rapide"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "FOR",
+                "DEX",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Acrobaties",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true
+                },
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Docteur d'arrière salle",
+        "requirement"    : [],
+        "description"    : [
+            "Vous êtes le docteur vers lequel on se tourne lorsqu'un soigneur ou un clinicien plus officiel pourrait ne pas être accessible. Vous pouvez vous être spécialisé dans la couture des blessures par arme à feu ou avoir un accord confidentiel avec une organisation criminelle pour fournir vos services à n'importe quelle heure du jour et de la nuit. Dans les deux cas, vous vous êtes peut-être tourné vers une vie aventurière lorsqu'un client précédent s'est révélé mécontent de votre travail ou lorsque des membres de l'establishment local ont commencé à poser beaucoup de questions."
+        ],
+        "gift_skill"     : [
+            "Chirurgie risquée"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "CON",
+                "SAG",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Médecine",
+                    "characteristic": "SAG"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "de la pègre"
+                }
+            ]
+        }
+    },
+    {
+        "name"           : "Doublure rejetée",
+        "requirement"    : [],
+        "description"    : [
+            "Quelqu'un vous a créé dans un but précis. Une personne importante - qu'il s'agisse d'une famille royale, d'un politicien ou d'un chef militaire - avait besoin d'une doublure pour ses apparitions les plus dangereuses. Grâce à un mélange de science marginale et de magie, vous avez été commissionné et entraîné pour imiter cette personne en tout point et l'avez remplacée dans d'innombrables circonstances mortelles. Vous connaissez peut-être ou pas la raison de votre mise à l'écart mais celui qui vous a rejeté ne vous a pas achevé. Maintenant, le monde est à vous pour l'explorer - mais \"vous\" pouvez avoir une réputation audacieuse ou brutale ou l'individu que vous avez ainsi doublé peut être mort depuis longtemps. Quel que soit le sort de cet individu, votre mode de vie a radicalement changé.",
+            "Vous et le MJ pouvez trouver un moyen d'intégrer votre vie antérieure dans votre histoire. Le MJ peut garder cette connaissance cachée même pour vous à moins que vous ou un autre personnage sachiez ce qui s'est passé. Vous et le MJ pouvez également laisser l'information en suspens et la compléter plus tard.",
+            "Vous gagnez trois primes d'attributs libres. Vous en choisissez deux et le MJ en choisit une en fonction des attributs du personnage que vous avez été construit pour dupliquer."
+        ],
+        "gift_skill"     : [],
+        "prime_attribute": {
+            "number": 3,
+            "choice": [
+                "FRE",
+                "FRE",
+                "FRE"
+            ]
+        }
+    },
+    {
+        "name"           : "Dresseur",
+        "requirement"    : [],
+        "description"    : [
+            "Vous avez toujours eu un lien particulier avec les animaux et il vous a donc semblé naturel de devenir dresseur. Vous rencontrez constamment de nouvelles créatures lors de vos voyages et ne perdez pas une occasion de vous en faire des amies."
+        ],
+        "gift_skill"     : [
+            "Dressage Animalier"
+        ],
+        "prime_attribute": {
+            "number": 2,
+            "choice": [
+                "SAG",
+                "CHA",
+                "FRE"
+            ]
+        },
+        "skills"         : {
+            "qualify": [
+                {
+                    "label"         : "Nature",
+                    "characteristic": "SAG"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "qualifier"     : "à un terrain occupé par les animaux que vous appréciez"
+                }
+            ]
+        }
+    }
     ]
 };
 
@@ -1997,4 +2282,5 @@ RACES.getLegacies = function ( race_name ) {
     }
     return null;
 };
-let toto          = [];
+let toto          = [
+];

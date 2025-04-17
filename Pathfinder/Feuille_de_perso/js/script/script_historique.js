@@ -7,7 +7,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 49, _size_i = doms.length; i < 60; i++ ) {
+        for ( let i = 80, _size_i = doms.length; i < 90; i++ ) {
             //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
@@ -62,7 +62,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
             text      = text || dom_element.innerText;
             let links = dom_element.querySelectorAll( "a span" );
             for ( let i = 0, _size_i = links.length; i < _size_i; i++ ) {
-                object_to_complete[ "gift_skill" ].push( links[ i ].innerText );
+                object_to_complete[ "gift_skill" ].push( links[ i ].innerText.trim() );
             }
         }
         if ( SERVICE.STRING.startsWith( text, "Prérequis" ) ) {
