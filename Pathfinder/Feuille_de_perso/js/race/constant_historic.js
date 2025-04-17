@@ -1965,312 +1965,312 @@ var HISTORICS = {
                 ]
             }
         },
-            {
-        "name"           : "Descendant de la Voie du Murmure",
-        "requirement"    : [
-            "Région - Œil de l'effroi"
-        ],
-        "description"    : [
-            "Votre famille a longtemps été associée à l'énigmatique Culte de la mort connu sous le nom de la Voie du Murmure, laquelle a récemment été à l'origine de la dévastation terrible de la nation du Dernier-Rempart. Que vous ayez suivi ou non leurs traces, vous connaissez un grand nombre des secrets de cette philosophie."
-        ],
-        "gift_skill"     : [
-            "Étudiant du droit canon"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "INT",
-                "SAG",
-                "FRE"
-            ]
+        {
+            "name"           : "Descendant de la Voie du Murmure",
+            "requirement"    : [
+                "Région - Œil de l'effroi"
+            ],
+            "description"    : [
+                "Votre famille a longtemps été associée à l'énigmatique Culte de la mort connu sous le nom de la Voie du Murmure, laquelle a récemment été à l'origine de la dévastation terrible de la nation du Dernier-Rempart. Que vous ayez suivi ou non leurs traces, vous connaissez un grand nombre des secrets de cette philosophie."
+            ],
+            "gift_skill"     : [
+                "Étudiant du droit canon"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Religion",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "des morts-vivants"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Religion",
-                    "characteristic": "SAG"
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "des morts-vivants"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Descendant de tueurs",
-        "requirement"    : [],
-        "description"    : [
-            "Vous provenez d'une lignée de tueurs de mort-vivant. Ce n'est pas une simple occupation pour votre famille, tuer est un fardeau presque mystique transmis de parent à enfant. Au fil des générations, cette dévotion sans faille a commencé à se manifester de manière étrange pendant le combat.",
-            " Vous pouvez lancer le tour de magie auto_awesomeDéchaînement de vitalité comme un tour de magie divin inné",
-            " Vous pouvez utiliser l'Intelligence comme attribut d'incantation pour ce sort inné"
-        ],
-        "spell_free"     : [
-            "Déchaînement de vitalité"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "FOR",
-                "INT",
-                "FRE"
-            ]
+        {
+            "name"           : "Descendant de tueurs",
+            "requirement"    : [],
+            "description"    : [
+                "Vous provenez d'une lignée de tueurs de mort-vivant. Ce n'est pas une simple occupation pour votre famille, tuer est un fardeau presque mystique transmis de parent à enfant. Au fil des générations, cette dévotion sans faille a commencé à se manifester de manière étrange pendant le combat.",
+                " Vous pouvez lancer le tour de magie auto_awesomeDéchaînement de vitalité comme un tour de magie divin inné",
+                " Vous pouvez utiliser l'Intelligence comme attribut d'incantation pour ce sort inné"
+            ],
+            "spell_free"     : [
+                "Déchaînement de vitalité"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "INT",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "des morts-vivants"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Athlétisme",
-                    "characteristic": "FOR",
-                    "armor_penalty" : true
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "des morts-vivants"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Désiré vivant",
-        "requirement"    : [],
-        "description"    : [
-            "Auparavant, vous étiez une simple créature artificielle ou une poupée inanimée mais grâce à un souhait profondément ressenti, le vôtre ou celui d'un autre, vous avez pris vie et vous êtes donc maintenant une créature vivante et qui respire.",
-            " Une fois par jour, par une action unique ayant le trait concentration, vous pouvez souhaiter avec ferveur quelque chose que vous pouvez vous efforcer de réaliser",
-            " Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au premier test de compétence que vous tentez avant la fin de votre tour pour réaliser ce souhait"
-        ],
-        "gift_skill"     : [],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "CON",
-                "CHA",
-                "FRE"
-            ]
+        {
+            "name"           : "Désiré vivant",
+            "requirement"    : [],
+            "description"    : [
+                "Auparavant, vous étiez une simple créature artificielle ou une poupée inanimée mais grâce à un souhait profondément ressenti, le vôtre ou celui d'un autre, vous avez pris vie et vous êtes donc maintenant une créature vivante et qui respire.",
+                " Une fois par jour, par une action unique ayant le trait concentration, vous pouvez souhaiter avec ferveur quelque chose que vous pouvez vous efforcer de réaliser",
+                " Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au premier test de compétence que vous tentez avant la fin de votre tour pour réaliser ce souhait"
+            ],
+            "gift_skill"     : [],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Diplomatie",
+                        "characteristic": "CHA"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Diplomatie",
-                    "characteristic": "CHA"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Détective",
-        "requirement"    : [],
-        "description"    : [
-            "Vous étiez un inspecteur de police élucidant des crimes ou un détective privé au service de riches clients. Votre présent d'aventurier peut être lié à un mystère que vous cherchez à éclaircir, mais il est dans tous les cas probable que votre situation ait un rapport avec les conséquences d'une précédente affaire."
-        ],
-        "gift_skill"     : [
-            "Savoir urbain"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "INT",
-                "SAG",
-                "FRE"
-            ]
+        {
+            "name"           : "Détective",
+            "requirement"    : [],
+            "description"    : [
+                "Vous étiez un inspecteur de police élucidant des crimes ou un détective privé au service de riches clients. Votre présent d'aventurier peut être lié à un mystère que vous cherchez à éclaircir, mais il est dans tous les cas probable que votre situation ait un rapport avec les conséquences d'une précédente affaire."
+            ],
+            "gift_skill"     : [
+                "Savoir urbain"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Société",
+                        "characteristic": "INT"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la pègre"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Société",
-                    "characteristic": "INT"
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "de la pègre"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Dévouement persévérant",
-        "requirement"    : [],
-        "description"    : [
-            "Les recruteurs invitent de nombreux candidats comme vous à s'entraîner pour devenir chevaliers de Dernier-Rempart, mais seuls quelques élus font l'affaire. Alors que d'autres perdent courage, votre persévérance a porté ses fruits. Votre engagement pour la cause est si clair qu'il a surmonté tout ce qui a pu disqualifier vos précédentes tentatives pour rejoindre la nouvelle Croisade Étincelante."
-        ],
-        "gift_skill"     : [
-            "Perspicacité astucieuse",
-            " military_techPerspicacité astucieuse "
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "FOR",
-                "CON",
-                "FRE"
-            ]
+        {
+            "name"           : "Dévouement persévérant",
+            "requirement"    : [],
+            "description"    : [
+                "Les recruteurs invitent de nombreux candidats comme vous à s'entraîner pour devenir chevaliers de Dernier-Rempart, mais seuls quelques élus font l'affaire. Alors que d'autres perdent courage, votre persévérance a porté ses fruits. Votre engagement pour la cause est si clair qu'il a surmonté tout ce qui a pu disqualifier vos précédentes tentatives pour rejoindre la nouvelle Croisade Étincelante."
+            ],
+            "gift_skill"     : [
+                "Perspicacité astucieuse",
+                " military_techPerspicacité astucieuse "
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la guerre"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "de la guerre"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Disciple de l'engrenage",
-        "requirement"    : [],
-        "description"    : [
-            "Alors que beaucoup considèrent la science et la foi comme incompatibles, vous croyez que le progrès scientifique est la volonté de votre divinité. Peut-être êtes-vous un adepte de Brigh, de Casandalee ou d'une autre divinité de la technologie ou peut-être voyez-vous les fourneaux et les étincelles de la modernité comme les récentes manifestations de la flamme de Sarenrae ou de la foudre de Gozreh - quoi qu'il en soit, vous êtes toujours prêt à répandre la parole de votre divinité et vous avez appris la base du bricolage de base pour montrer comment le centre d'intérêt de votre divinité peut augmenter le niveau de vie commun."
-        ],
-        "gift_skill"     : [
-            "Réparation rapide"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "INT",
-                "SAG",
-                "FRE"
-            ]
+        {
+            "name"           : "Disciple de l'engrenage",
+            "requirement"    : [],
+            "description"    : [
+                "Alors que beaucoup considèrent la science et la foi comme incompatibles, vous croyez que le progrès scientifique est la volonté de votre divinité. Peut-être êtes-vous un adepte de Brigh, de Casandalee ou d'une autre divinité de la technologie ou peut-être voyez-vous les fourneaux et les étincelles de la modernité comme les récentes manifestations de la flamme de Sarenrae ou de la foudre de Gozreh - quoi qu'il en soit, vous êtes toujours prêt à répandre la parole de votre divinité et vous avez appris la base du bricolage de base pour montrer comment le centre d'intérêt de votre divinité peut augmenter le niveau de vie commun."
+            ],
+            "gift_skill"     : [
+                "Réparation rapide"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "INT",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Artisanat",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "et en Connaissance de votre divinité"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de votre divinité"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Artisanat",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "et en Connaissance de votre divinité"
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "de votre divinité"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Disciple martial",
-        "requirement"    : [],
-        "description"    : [
-            "Vous vous êtes dédié vous-même à un entraînement intense et à une étude rigoureuse pour devenir un grand combattant. L'école à laquelle vous appartenez pourrait avoir été un monastère traditionaliste, une académie militaire d'élite ou la branche locale d'une organisation mercenaire prestigieuse.",
-            " Vous obtenez un don de compétence"
-        ],
-        "gift_skill"     : [
-            "Chute féline",
-            "Saut rapide"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "FOR",
-                "DEX",
-                "FRE"
-            ]
+        {
+            "name"           : "Disciple martial",
+            "requirement"    : [],
+            "description"    : [
+                "Vous vous êtes dédié vous-même à un entraînement intense et à une étude rigoureuse pour devenir un grand combattant. L'école à laquelle vous appartenez pourrait avoir été un monastère traditionaliste, une académie militaire d'élite ou la branche locale d'une organisation mercenaire prestigieuse.",
+                " Vous obtenez un don de compétence"
+            ],
+            "gift_skill"     : [
+                "Chute féline",
+                "Saut rapide"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "DEX",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Acrobaties",
+                        "characteristic": "DEX",
+                        "armor_penalty" : true
+                    },
+                    {
+                        "label"         : "Athlétisme",
+                        "characteristic": "FOR",
+                        "armor_penalty" : true
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Acrobaties",
-                    "characteristic": "DEX",
-                    "armor_penalty" : true
-                },
-                {
-                    "label"         : "Athlétisme",
-                    "characteristic": "FOR",
-                    "armor_penalty" : true
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Docteur d'arrière salle",
-        "requirement"    : [],
-        "description"    : [
-            "Vous êtes le docteur vers lequel on se tourne lorsqu'un soigneur ou un clinicien plus officiel pourrait ne pas être accessible. Vous pouvez vous être spécialisé dans la couture des blessures par arme à feu ou avoir un accord confidentiel avec une organisation criminelle pour fournir vos services à n'importe quelle heure du jour et de la nuit. Dans les deux cas, vous vous êtes peut-être tourné vers une vie aventurière lorsqu'un client précédent s'est révélé mécontent de votre travail ou lorsque des membres de l'establishment local ont commencé à poser beaucoup de questions."
-        ],
-        "gift_skill"     : [
-            "Chirurgie risquée"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "CON",
-                "SAG",
-                "FRE"
-            ]
+        {
+            "name"           : "Docteur d'arrière salle",
+            "requirement"    : [],
+            "description"    : [
+                "Vous êtes le docteur vers lequel on se tourne lorsqu'un soigneur ou un clinicien plus officiel pourrait ne pas être accessible. Vous pouvez vous être spécialisé dans la couture des blessures par arme à feu ou avoir un accord confidentiel avec une organisation criminelle pour fournir vos services à n'importe quelle heure du jour et de la nuit. Dans les deux cas, vous vous êtes peut-être tourné vers une vie aventurière lorsqu'un client précédent s'est révélé mécontent de votre travail ou lorsque des membres de l'establishment local ont commencé à poser beaucoup de questions."
+            ],
+            "gift_skill"     : [
+                "Chirurgie risquée"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Médecine",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "de la pègre"
+                    }
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Médecine",
-                    "characteristic": "SAG"
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "de la pègre"
-                }
-            ]
-        }
-    },
-    {
-        "name"           : "Doublure rejetée",
-        "requirement"    : [],
-        "description"    : [
-            "Quelqu'un vous a créé dans un but précis. Une personne importante - qu'il s'agisse d'une famille royale, d'un politicien ou d'un chef militaire - avait besoin d'une doublure pour ses apparitions les plus dangereuses. Grâce à un mélange de science marginale et de magie, vous avez été commissionné et entraîné pour imiter cette personne en tout point et l'avez remplacée dans d'innombrables circonstances mortelles. Vous connaissez peut-être ou pas la raison de votre mise à l'écart mais celui qui vous a rejeté ne vous a pas achevé. Maintenant, le monde est à vous pour l'explorer - mais \"vous\" pouvez avoir une réputation audacieuse ou brutale ou l'individu que vous avez ainsi doublé peut être mort depuis longtemps. Quel que soit le sort de cet individu, votre mode de vie a radicalement changé.",
-            "Vous et le MJ pouvez trouver un moyen d'intégrer votre vie antérieure dans votre histoire. Le MJ peut garder cette connaissance cachée même pour vous à moins que vous ou un autre personnage sachiez ce qui s'est passé. Vous et le MJ pouvez également laisser l'information en suspens et la compléter plus tard.",
-            "Vous gagnez trois primes d'attributs libres. Vous en choisissez deux et le MJ en choisit une en fonction des attributs du personnage que vous avez été construit pour dupliquer."
-        ],
-        "gift_skill"     : [],
-        "prime_attribute": {
-            "number": 3,
-            "choice": [
-                "FRE",
-                "FRE",
-                "FRE"
-            ]
-        }
-    },
-    {
-        "name"           : "Dresseur",
-        "requirement"    : [],
-        "description"    : [
-            "Vous avez toujours eu un lien particulier avec les animaux et il vous a donc semblé naturel de devenir dresseur. Vous rencontrez constamment de nouvelles créatures lors de vos voyages et ne perdez pas une occasion de vous en faire des amies."
-        ],
-        "gift_skill"     : [
-            "Dressage Animalier"
-        ],
-        "prime_attribute": {
-            "number": 2,
-            "choice": [
-                "SAG",
-                "CHA",
-                "FRE"
-            ]
+        {
+            "name"           : "Doublure rejetée",
+            "requirement"    : [],
+            "description"    : [
+                "Quelqu'un vous a créé dans un but précis. Une personne importante - qu'il s'agisse d'une famille royale, d'un politicien ou d'un chef militaire - avait besoin d'une doublure pour ses apparitions les plus dangereuses. Grâce à un mélange de science marginale et de magie, vous avez été commissionné et entraîné pour imiter cette personne en tout point et l'avez remplacée dans d'innombrables circonstances mortelles. Vous connaissez peut-être ou pas la raison de votre mise à l'écart mais celui qui vous a rejeté ne vous a pas achevé. Maintenant, le monde est à vous pour l'explorer - mais \"vous\" pouvez avoir une réputation audacieuse ou brutale ou l'individu que vous avez ainsi doublé peut être mort depuis longtemps. Quel que soit le sort de cet individu, votre mode de vie a radicalement changé.",
+                "Vous et le MJ pouvez trouver un moyen d'intégrer votre vie antérieure dans votre histoire. Le MJ peut garder cette connaissance cachée même pour vous à moins que vous ou un autre personnage sachiez ce qui s'est passé. Vous et le MJ pouvez également laisser l'information en suspens et la compléter plus tard.",
+                "Vous gagnez trois primes d'attributs libres. Vous en choisissez deux et le MJ en choisit une en fonction des attributs du personnage que vous avez été construit pour dupliquer."
+            ],
+            "gift_skill"     : [],
+            "prime_attribute": {
+                "number": 3,
+                "choice": [
+                    "FRE",
+                    "FRE",
+                    "FRE"
+                ]
+            }
         },
-        "skills"         : {
-            "qualify": [
-                {
-                    "label"         : "Nature",
-                    "characteristic": "SAG"
-                },
-                {
-                    "label"         : "Connaissance",
-                    "characteristic": "INT",
-                    "need_qualifier": true,
-                    "qualifier"     : "à un terrain occupé par les animaux que vous appréciez"
-                }
-            ]
+        {
+            "name"           : "Dresseur",
+            "requirement"    : [],
+            "description"    : [
+                "Vous avez toujours eu un lien particulier avec les animaux et il vous a donc semblé naturel de devenir dresseur. Vous rencontrez constamment de nouvelles créatures lors de vos voyages et ne perdez pas une occasion de vous en faire des amies."
+            ],
+            "gift_skill"     : [
+                "Dressage Animalier"
+            ],
+            "prime_attribute": {
+                "number": 2,
+                "choice": [
+                    "SAG",
+                    "CHA",
+                    "FRE"
+                ]
+            },
+            "skills"         : {
+                "qualify": [
+                    {
+                        "label"         : "Nature",
+                        "characteristic": "SAG"
+                    },
+                    {
+                        "label"         : "Connaissance",
+                        "characteristic": "INT",
+                        "need_qualifier": true,
+                        "qualifier"     : "à un terrain occupé par les animaux que vous appréciez"
+                    }
+                ]
+            }
         }
-    }
     ]
 };
 
@@ -2282,5 +2282,4 @@ RACES.getLegacies = function ( race_name ) {
     }
     return null;
 };
-let toto          = [
-];
+let toto          = [];
