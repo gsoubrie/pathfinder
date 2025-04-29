@@ -27,10 +27,10 @@ CHARACTER.Current.prototype = {
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData  : function ( key, value ) {
+    setData    : function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
-                this.setRace( key, value );
+                this.setRace( value );
                 break;
             case LEGACIES.key_element:
                 this.setLegacy( key, value );
@@ -53,23 +53,30 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    setRace  : function ( key, value ) {
-        this[ key ]             = value;
-        this.available_legacies = RACES.getLegacies( this[ key ] );
-        this.updateHtmlData( key, value );
+    setRace    : function ( race_name ) {
+        this[ RACES.key_element ] = new RACES.Race( race_name );
+        this.available_legacies   = RACES.getLegacies( this.getRaceName() );
+        this.updateHtmlData( RACES.key_element, this.getRaceName() );
+        this.getRace().getBodySize().updateHtmlData();
     },
-    setLegacy: function ( key, value ) {
+    getRace: function () {
+        return this[ RACES.key_element ];
+    },
+    getRaceName: function () {
+        return this.getRace().getName();
+    },
+    setLegacy  : function ( key, value ) {
         this[ key ] = value;
         this.updateHtmlData( key, value );
     },
-    setClass: function ( key, value ) {
+    setClass   : function ( key, value ) {
         this[ key ] = value;
         this.updateHtmlData( key, value );
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData     : function ( key, value ) {
         if ( !this[ key + "_html" ] ) {
-            this[ key + "_html" ] = SERVICE.DOM.createElement( "div", {}, this[ key ] );
+            this[ key + "_html" ] = SERVICE.DOM.createElement( "div", {}, value );
         }
         else {
             this[ key + "_html" ].innerHTML = value;
@@ -94,11 +101,13 @@ CHARACTER.Current.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "player", CONTROLLER.Main.current_character.player, "Nom du <br>joueur", true ), left_zone );
         
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this[ RACES.key_element ], this[ RACES.key_element + "_html" ], RACES.label_element, false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this.getRaceName(), this[ RACES.key_element + "_html" ], RACES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this[ LEGACIES.key_element ], this[ LEGACIES.key_element + "_html" ], LEGACIES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], CLASSES.label_element, false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "body_size", "", "Taille", false ), container_1 );
+        console.log("GSOU", "[Current - computeHtml__middle]", this.getRace().getBodySize() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, this.getRace().getBodySize().value, this.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );
+        
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );

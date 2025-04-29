@@ -39,7 +39,7 @@
     "AREA": false,
     "CHARACTERISTIC": false,
     "OBJECT": false,
-    "SIZE": false,
+    "BODY_SIZE": false,
     "LANGUAGE": false,
     "SERVICE": false,
     "TRAIT": false,

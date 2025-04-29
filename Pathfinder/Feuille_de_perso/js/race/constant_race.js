@@ -1515,14 +1515,26 @@ var RACES = {
                 "Tripkee des rivières"
             ]
         }
-    ]
+    ],
+    PARAM        : {
+        BODY_SIZE: {
+            key  : "body_size",
+            label: "Taille"
+            
+        }
+    }
 };
 
-RACES.getLegacies = function ( race_name ) {
+RACES.getDataByName = function ( race_name ) {
+    console.error("GSOU", "[RACES - getDataByName]", race_name);
     for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {
         if ( RACES.ENUM[ i ].name === race_name ) {
-            return RACES.ENUM[ i ][ LEGACIES.key ];
+            return RACES.ENUM[ i ];
         }
     }
     return null;
+};
+
+RACES.getLegacies = function ( race_name ) {
+    return RACES.getDataByName( race_name )[ LEGACIES.key ];
 };

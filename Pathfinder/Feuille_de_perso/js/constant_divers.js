@@ -29,9 +29,23 @@ var CHARACTERISTIC = {
         label: "Libre"
     }
 };
-var SIZE           = {
-    P: "P",
-    M: "M"
+var BODY_SIZE           = {
+    P: {
+        value : "P",
+        label : "Petit"
+    },
+    M: {
+        value : "M",
+        label : "Moyen"
+    },
+    G: {
+        value : "G",
+        label : "Grand"
+    },
+    TG: {
+        value : "TG",
+        label : "Trés Grand"
+    },
 };
 var LANGUAGE       = {
     COMMON    : "commun",

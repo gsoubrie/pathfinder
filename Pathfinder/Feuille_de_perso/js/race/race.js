@@ -1,8 +1,8 @@
 "use strict";
-RACES.Race           = function ( data ) {
+RACES.RacePopup           = function ( data ) {
     this.init( data );
 };
-RACES.Race.prototype = {
+RACES.RacePopup.prototype = {
     init: function ( data ) {
         this.updateData( data );
     },
@@ -62,4 +62,53 @@ RACES.Race.prototype = {
     }
 };
 
+SERVICE.CLASS.addPrototype( RACES.RacePopup, OBJECT.InterfaceHtml );
+
+RACES.Race           = function ( race_name ) {
+    this.init( race_name );
+};
+RACES.Race.prototype = {
+    init: function ( race_name ) {
+        this.updateData( RACES.getDataByName( race_name ) );
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    getUUID    : function () {
+        return this.getName();
+    },
+    getName    : function () {
+        return this.name;
+    },
+    getBodySize: function () {
+        return this[ RACES.PARAM.BODY_SIZE.key ];
+    },
+    //********************************************  HTML   **************************************************//
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case RACES.PARAM.BODY_SIZE.key:
+                this[ key ] = new RACES.RaceSize( value );
+                break;
+            case "name":
+            case "start_life":
+            case "speed":
+            case "characteristic_bonus":
+            case "characteristic_malus":
+            case "language":
+            case "language_sup":
+            case "sens":
+                this[ key ] = value;
+                break;
+        }
+    }
+};
 SERVICE.CLASS.addPrototype( RACES.Race, OBJECT.InterfaceHtml );
+
+
+RACES.RaceSize           = function ( race_size ) {
+    this.init( race_size );
+};
+RACES.RaceSize.prototype = {
+    init: function ( race_size ) {
+        this.value = race_size;
+        this.label = SERVICE.DOM.createElement( "div", {}, BODY_SIZE[ this.value ].label );;
+    }
+};
