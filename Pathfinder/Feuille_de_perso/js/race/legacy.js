@@ -6,7 +6,11 @@ LEGACIES.Legacy.prototype = {
     init: function ( data ) {
         this.updateData( data );
     },
-    //********************************************  EVENT LISTENER  **************************************************//
+    //********************************************  GETTER SETTER  **************************************************//
+    setName: function ( to_set ) {
+        this.name            = to_set;
+        this.name_lower_case = to_set.toLowerCase();
+    },
     getUUID: function () {
         return this.name_lower_case;
     },
@@ -14,7 +18,8 @@ LEGACIES.Legacy.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case "name":
-            case "name_lower_case":
+                this.setName(value);
+                break;
             case "general_desc":
                 this[ key ] = value;
                 break;

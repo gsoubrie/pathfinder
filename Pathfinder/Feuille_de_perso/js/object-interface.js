@@ -16,6 +16,12 @@ OBJECT.InterfaceHtml.prototype      = {
         }
     },
     //********************************************  SETTER GETTER   **************************************************//
+    getName      : function () {
+        return this.name;
+    },
+    getLabel     : function () {
+        return this.label;
+    },
     addClass     : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;

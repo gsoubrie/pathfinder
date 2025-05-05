@@ -64,28 +64,40 @@ RACES.RacePopup.prototype = {
 
 SERVICE.CLASS.addPrototype( RACES.RacePopup, OBJECT.InterfaceHtml );
 
-RACES.Race           = function ( race_name ) {
-    this.init( race_name );
+RACES.Race           = function () {
+    this.init();
 };
 RACES.Race.prototype = {
-    init: function ( race_name ) {
-        this.updateData( RACES.getDataByName( race_name ) );
+    init: function () {
+        this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
+        this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
+        this.label                        = SERVICE.DOM.createElement( "div", {} );
     },
-    //********************************************  EVENT LISTENER  **************************************************//
+    //********************************************  GETTER SETTER  **************************************************//
+    setName    : function ( to_set ) {
+        this.name = to_set;
+        this.label.innerHTML = to_set;
+        this.updateData( RACES.getDataByName( this.name ) );
+        this.available_legacies = RACES.getLegacies( this.getName() );
+    },
+    setLegacy  : function ( to_set ) {
+        this.getLegacy().setName( to_set );
+    },
     getUUID    : function () {
         return this.getName();
     },
-    getName    : function () {
-        return this.name;
-    },
     getBodySize: function () {
         return this[ RACES.PARAM.BODY_SIZE.key ];
+    },
+    getLegacy: function () {
+        return this[ LEGACIES.key_element ];
     },
     //********************************************  HTML   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {
             case RACES.PARAM.BODY_SIZE.key:
-                this[ key ] = new RACES.RaceSize( value );
+                this[ key ].init( value );
+                this[ key ].updateHtml();
                 break;
             case "name":
             case "start_life":
@@ -103,12 +115,14 @@ RACES.Race.prototype = {
 SERVICE.CLASS.addPrototype( RACES.Race, OBJECT.InterfaceHtml );
 
 
-RACES.RaceSize           = function ( race_size ) {
-    this.init( race_size );
+RACES.RaceSize           = function () {
 };
 RACES.RaceSize.prototype = {
-    init: function ( race_size ) {
+    init      : function ( race_size ) {
         this.value = race_size;
-        this.label = SERVICE.DOM.createElement( "div", {}, BODY_SIZE[ this.value ].label );;
+    },
+    updateHtml: function () {
+        this.label           = this.label || SERVICE.DOM.createElement( "div", {} );
+        this.label.innerHTML = BODY_SIZE[ this.value ].label;
     }
 };

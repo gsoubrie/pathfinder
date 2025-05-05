@@ -4,9 +4,9 @@ CHARACTER.Current           = function ( uuid ) {
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
-        this.uuid        = uuid;
-        let current_data = eval( uuid );
-        this.updateData( current_data );
+        this.uuid                 = uuid;
+        this[ RACES.key_element ] = new RACES.Race();
+        this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  GETTER SETTER  **************************************************//
     getUUID      : function () {
@@ -30,10 +30,10 @@ CHARACTER.Current.prototype = {
     setData    : function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
-                this.setRace( value );
+                this.getRace().setName(value);
                 break;
             case LEGACIES.key_element:
-                this.setLegacy( key, value );
+                this.getRace().setLegacy( key, value );
                 break;
             case CLASSES.key_element:
                 this.setClass( key, value );
@@ -53,17 +53,8 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    setRace    : function ( race_name ) {
-        this[ RACES.key_element ] = new RACES.Race( race_name );
-        this.available_legacies   = RACES.getLegacies( this.getRaceName() );
-        this.updateHtmlData( RACES.key_element, this.getRaceName() );
-        this.getRace().getBodySize().updateHtmlData();
-    },
-    getRace: function () {
+    getRace    : function () {
         return this[ RACES.key_element ];
-    },
-    getRaceName: function () {
-        return this.getRace().getName();
     },
     setLegacy  : function ( key, value ) {
         this[ key ] = value;
@@ -101,11 +92,11 @@ CHARACTER.Current.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "player", CONTROLLER.Main.current_character.player, "Nom du <br>joueur", true ), left_zone );
         
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this.getRaceName(), this[ RACES.key_element + "_html" ], RACES.label_element, false ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this[ LEGACIES.key_element ], this[ LEGACIES.key_element + "_html" ], LEGACIES.label_element, false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this.getRace().getName(), this.getRace().getLabel(), RACES.label_element, false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this.getRace().getLegacy().getName(), this.getRace().getLegacy().getLabel(), LEGACIES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], CLASSES.label_element, false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        console.log("GSOU", "[Current - computeHtml__middle]", this.getRace().getBodySize() );
+        console.log( "GSOU", "[Current - computeHtml__middle]", this.getRace().getBodySize() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, this.getRace().getBodySize().value, this.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );
         
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );

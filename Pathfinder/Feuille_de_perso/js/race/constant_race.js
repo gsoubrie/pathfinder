@@ -1526,7 +1526,6 @@ var RACES = {
 };
 
 RACES.getDataByName = function ( race_name ) {
-    console.error("GSOU", "[RACES - getDataByName]", race_name);
     for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {
         if ( RACES.ENUM[ i ].name === race_name ) {
             return RACES.ENUM[ i ];
