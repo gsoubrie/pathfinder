@@ -1,15 +1,16 @@
 "use strict";
-LEGACIES.Legacy           = function ( data ) {
-    this.init( data );
+LEGACIES.Legacy           = function () {
+    this.init();
 };
 LEGACIES.Legacy.prototype = {
-    init: function ( data ) {
-        this.updateData( data );
+    init: function () {
+        this.label = SERVICE.DOM.createElement( "div", {} );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName: function ( to_set ) {
         this.name            = to_set;
         this.name_lower_case = to_set.toLowerCase();
+        this.label.innerHTML = to_set;
     },
     getUUID: function () {
         return this.name_lower_case;
@@ -18,7 +19,32 @@ LEGACIES.Legacy.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case "name":
-                this.setName(value);
+                this.setName( value );
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key, value );
+        }
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        return this.name;
+    }
+};
+
+SERVICE.CLASS.addPrototype( LEGACIES.Legacy, OBJECT.InterfaceHtml );
+
+LEGACIES.LegacyPopup           = function () {
+    this.init();
+};
+LEGACIES.LegacyPopup.prototype = {
+    init: function () {
+        this.label = SERVICE.DOM.createElement( "div", {} );
+    },
+    //********************************************  HTML   **************************************************//
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case "name":
+                this.setName( value );
                 break;
             case "general_desc":
                 this[ key ] = value;
@@ -35,4 +61,4 @@ LEGACIES.Legacy.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( LEGACIES.Legacy, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( LEGACIES.LegacyPopup, LEGACIES.Legacy );

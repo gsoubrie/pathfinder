@@ -4,8 +4,9 @@ CHARACTER.Current           = function ( uuid ) {
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
-        this.uuid                 = uuid;
-        this[ RACES.key_element ] = new RACES.Race();
+        this.uuid                   = uuid;
+        this[ RACES.key_element ]   = new RACES.Race();
+        this[ CLASSES.key_element ] = new CLASSES.Class();
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -13,30 +14,32 @@ CHARACTER.Current.prototype = {
         return this.uuid;
     },
     getDataToSave: function () {
-        let to_return                     = {};
-        to_return[ "uuid" ]               = this.uuid;
-        to_return[ "name" ]               = this.name;
-        to_return[ "player" ]             = this.player;
-        to_return[ RACES.key_element ]    = this[ RACES.key_element ];
-        to_return[ LEGACIES.key_element ] = this[ LEGACIES.key_element ];
-        to_return[ "class" ]              = this.class;
-        to_return[ "body_size" ]          = this.body_size;
-        to_return[ "alignment" ]          = this.alignment;
-        to_return[ "level" ]              = this.level;
-        to_return[ "point_heroism" ]      = this.point_heroism;
+        let to_return                    = {};
+        to_return[ "uuid" ]              = this.uuid;
+        to_return[ "name" ]              = this.name;
+        to_return[ "player" ]            = this.player;
+        to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
+        to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
+        to_return[ "alignment" ]         = this.alignment;
+        to_return[ "level" ]             = this.level;
+        to_return[ "point_heroism" ]     = this.point_heroism;
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData    : function ( key, value ) {
+    setData : function ( key, value ) {
+        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
             case RACES.key_element:
-                this.getRace().setName(value);
+                this.getRace().setName( value );
+                //TO PARSE IN UPDATE DATA
                 break;
             case LEGACIES.key_element:
-                this.getRace().setLegacy( key, value );
+                this.getRace().setLegacy( value );
+                //TO REMOVE
                 break;
             case CLASSES.key_element:
-                this.setClass( key, value );
+                this.getClass().setName( value );
+                //TO PARSE IN UPDATE DATA
                 break;
             case "uuid":
                 break;
@@ -53,16 +56,11 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    getRace    : function () {
+    getRace : function () {
         return this[ RACES.key_element ];
     },
-    setLegacy  : function ( key, value ) {
-        this[ key ] = value;
-        this.updateHtmlData( key, value );
-    },
-    setClass   : function ( key, value ) {
-        this[ key ] = value;
-        this.updateHtmlData( key, value );
+    getClass: function () {
+        return this[ CLASSES.key_element ];
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData     : function ( key, value ) {
@@ -94,7 +92,7 @@ CHARACTER.Current.prototype = {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this.getRace().getName(), this.getRace().getLabel(), RACES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this.getRace().getLegacy().getName(), this.getRace().getLegacy().getLabel(), LEGACIES.label_element, false ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this[ CLASSES.key_element ], this[ CLASSES.key_element + "_html" ], CLASSES.label_element, false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this.getClass().getName(), this.getClass().getLabel(), CLASSES.label_element, false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
         console.log( "GSOU", "[Current - computeHtml__middle]", this.getRace().getBodySize() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, this.getRace().getBodySize().value, this.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );

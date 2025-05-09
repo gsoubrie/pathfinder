@@ -1,14 +1,67 @@
 "use strict";
+RACES.Race           = function () {
+    this.init();
+};
+RACES.Race.prototype = {
+    init: function () {
+        this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
+        this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
+        this.label                        = SERVICE.DOM.createElement( "div", {} );
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    setName    : function ( to_set ) {
+        this.name            = to_set;
+        this.label.innerHTML = to_set;
+        this.updateData( RACES.getDataByName( this.name ) );
+        this.available_legacies = RACES.getLegacies( this.getName() );
+    },
+    setLegacy  : function ( to_set ) {
+        this.getLegacy().setName( to_set );
+    },
+    getUUID    : function () {
+        return this.getName();
+    },
+    getBodySize: function () {
+        return this[ RACES.PARAM.BODY_SIZE.key ];
+    },
+    getLegacy  : function () {
+        return this[ LEGACIES.key_element ];
+    },
+    //********************************************  DATA   **************************************************//
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case RACES.PARAM.BODY_SIZE.key:
+                this.getBodySize().setValue( value );
+                break;
+            case "name":
+            case "start_life":
+            case "speed":
+            case "characteristic_bonus":
+            case "characteristic_malus":
+            case "language":
+            case "language_sup":
+            case "sens":
+                this[ key ] = value;
+                break;
+        }
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        let to_return                          = {};
+        to_return[ "name" ]                    = this.name;
+        to_return[ LEGACIES.key_element ]      = this.getLegacy().getDataToSave();
+        to_return[ RACES.PARAM.BODY_SIZE.key ] = this.getBodySize().getDataToSave();
+        return to_return;
+    }
+};
+SERVICE.CLASS.addPrototype( RACES.Race, OBJECT.InterfaceHtml );
+
 RACES.RacePopup           = function ( data ) {
     this.init( data );
 };
 RACES.RacePopup.prototype = {
     init: function ( data ) {
         this.updateData( data );
-    },
-    //********************************************  EVENT LISTENER  **************************************************//
-    getUUID: function () {
-        return this.name;
     },
     //********************************************  HTML   **************************************************//
     setData: function ( key, value ) {
@@ -62,67 +115,21 @@ RACES.RacePopup.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( RACES.RacePopup, OBJECT.InterfaceHtml );
-
-RACES.Race           = function () {
-    this.init();
-};
-RACES.Race.prototype = {
-    init: function () {
-        this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
-        this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
-        this.label                        = SERVICE.DOM.createElement( "div", {} );
-    },
-    //********************************************  GETTER SETTER  **************************************************//
-    setName    : function ( to_set ) {
-        this.name = to_set;
-        this.label.innerHTML = to_set;
-        this.updateData( RACES.getDataByName( this.name ) );
-        this.available_legacies = RACES.getLegacies( this.getName() );
-    },
-    setLegacy  : function ( to_set ) {
-        this.getLegacy().setName( to_set );
-    },
-    getUUID    : function () {
-        return this.getName();
-    },
-    getBodySize: function () {
-        return this[ RACES.PARAM.BODY_SIZE.key ];
-    },
-    getLegacy: function () {
-        return this[ LEGACIES.key_element ];
-    },
-    //********************************************  HTML   **************************************************//
-    setData: function ( key, value ) {
-        switch ( key ) {
-            case RACES.PARAM.BODY_SIZE.key:
-                this[ key ].init( value );
-                this[ key ].updateHtml();
-                break;
-            case "name":
-            case "start_life":
-            case "speed":
-            case "characteristic_bonus":
-            case "characteristic_malus":
-            case "language":
-            case "language_sup":
-            case "sens":
-                this[ key ] = value;
-                break;
-        }
-    }
-};
-SERVICE.CLASS.addPrototype( RACES.Race, OBJECT.InterfaceHtml );
-
+SERVICE.CLASS.addPrototype( RACES.RacePopup, RACES.Race );
 
 RACES.RaceSize           = function () {
+    this.init();
 };
 RACES.RaceSize.prototype = {
-    init      : function ( race_size ) {
-        this.value = race_size;
+    init    : function () {
+        this.label = SERVICE.DOM.createElement( "div", {} );
     },
-    updateHtml: function () {
-        this.label           = this.label || SERVICE.DOM.createElement( "div", {} );
+    setValue: function ( to_set ) {
+        this.value           = to_set;
         this.label.innerHTML = BODY_SIZE[ this.value ].label;
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        return this.value;
     }
 };

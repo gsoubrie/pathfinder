@@ -1,14 +1,47 @@
 "use strict";
-CLASSES.Class           = function ( data ) {
-    this.init( data );
+CLASSES.Class           = function () {
+    this.init();
 };
 CLASSES.Class.prototype = {
     init: function ( data ) {
-        this.updateData( data );
+        this.label = SERVICE.DOM.createElement( "div", {} );
     },
     //********************************************  EVENT LISTENER  **************************************************//
+    setName: function ( to_set ) {
+        this.name            = to_set;
+        this.label.innerHTML = to_set;
+        this.updateData( RACES.getDataByName( this.name ) );
+    },
     getUUID: function () {
         return this.name;
+    },
+    //********************************************  HTML   **************************************************//
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case "name":
+                this.setName( value );
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key );
+        }
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        let to_return                          = {};
+        to_return[ "name" ]                    = this.name;
+        return to_return;
+    }
+};
+
+SERVICE.CLASS.addPrototype( CLASSES.Class, OBJECT.InterfaceHtml );
+
+
+CLASSES.ClassPopup           = function ( data ) {
+    this.init( data );
+};
+CLASSES.ClassPopup.prototype = {
+    init: function ( data ) {
+        this.updateData( data );
     },
     //********************************************  HTML   **************************************************//
     setData: function ( key, value ) {
@@ -52,4 +85,4 @@ CLASSES.Class.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( CLASSES.Class, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CLASSES.ClassPopup, CLASSES.Class );
