@@ -2195,3 +2195,12 @@ var LEGACIES = {
         }
     ]
 };
+
+LEGACIES.getDataByName = function ( race_name ) {
+    for ( let i = 0, _size_i = LEGACIES.ENUM.length; i < _size_i; i++ ) {
+        if ( LEGACIES.ENUM[ i ].name === race_name ) {
+            return LEGACIES.ENUM[ i ];
+        }
+    }
+    return null;
+};

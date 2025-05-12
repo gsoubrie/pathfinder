@@ -27,19 +27,12 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData : function ( key, value ) {
-        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
             case RACES.key_element:
-                this.getRace().setName( value );
-                //TO PARSE IN UPDATE DATA
-                break;
-            case LEGACIES.key_element:
-                this.getRace().setLegacy( value );
-                //TO REMOVE
+                this.getRace().updateData( value );
                 break;
             case CLASSES.key_element:
-                this.getClass().setName( value );
-                //TO PARSE IN UPDATE DATA
+                this.getClass().updateData( value );
                 break;
             case "uuid":
                 break;
@@ -94,7 +87,6 @@ CHARACTER.Current.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this.getRace().getLegacy().getName(), this.getRace().getLegacy().getLabel(), LEGACIES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this.getClass().getName(), this.getClass().getLabel(), CLASSES.label_element, false ), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        console.log( "GSOU", "[Current - computeHtml__middle]", this.getRace().getBodySize() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, this.getRace().getBodySize().value, this.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );
         
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );

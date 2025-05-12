@@ -3,8 +3,13 @@ LEGACIES.Legacy           = function () {
     this.init();
 };
 LEGACIES.Legacy.prototype = {
-    init: function () {
+    init        : function () {
         this.label = SERVICE.DOM.createElement( "div", {} );
+    },
+    initWithName: function ( legacy_name ) {
+        this.setName(legacy_name);
+        let data = LEGACIES.getDataByName( legacy_name );
+        this.updateData( data );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName: function ( to_set ) {
@@ -20,6 +25,10 @@ LEGACIES.Legacy.prototype = {
         switch ( key ) {
             case "name":
                 this.setName( value );
+                break;
+            case "general_desc":
+            case "name_lower_case":
+                this[ key ] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -39,19 +48,6 @@ LEGACIES.LegacyPopup           = function () {
 LEGACIES.LegacyPopup.prototype = {
     init: function () {
         this.label = SERVICE.DOM.createElement( "div", {} );
-    },
-    //********************************************  HTML   **************************************************//
-    setData: function ( key, value ) {
-        switch ( key ) {
-            case "name":
-                this.setName( value );
-                break;
-            case "general_desc":
-                this[ key ] = value;
-                break;
-            default:
-                console.warn( "[IGNORED DATA]", key, value );
-        }
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {

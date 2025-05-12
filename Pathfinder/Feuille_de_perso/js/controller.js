@@ -18,7 +18,13 @@ CONTROLLER.Main = (function ( self ) {
         }
     };
     self.validPopupEdition  = function () {
-        self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
+        switch ( this.edition_popup.current_property.key_element ){
+            case RACES.key_element:
+                self.current_character.getRace().setName( this.edition_popup.windows.getActiveWindow().getName() );
+                self.current_character.getRace().getLegacy().setName("");
+                return;
+        }
+        //self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
         this.edition_popup.close();
         this.edition_popup = null;
     };

@@ -6,14 +6,19 @@ RACES.Race.prototype = {
     init: function () {
         this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
         this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
+        this.available_legacies           = new LEGACIES.Legacies();
         this.label                        = SERVICE.DOM.createElement( "div", {} );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName    : function ( to_set ) {
         this.name            = to_set;
         this.label.innerHTML = to_set;
-        this.updateData( RACES.getDataByName( this.name ) );
-        this.available_legacies = RACES.getLegacies( this.getName() );
+        let data_from_race   = RACES.getDataByName( this.name );
+        this.setData( "start_life", data_from_race[ "start_life" ] );
+        this.setData( "speed", data_from_race[ "speed" ] );
+        this.setData( "language", data_from_race[ "language" ] );
+        this.setData( "sens", data_from_race[ "sens" ] );
+        this.available_legacies.init( RACES.getLegacies( this.getName() ) );
     },
     setLegacy  : function ( to_set ) {
         this.getLegacy().setName( to_set );
@@ -33,7 +38,12 @@ RACES.Race.prototype = {
             case RACES.PARAM.BODY_SIZE.key:
                 this.getBodySize().setValue( value );
                 break;
+            case LEGACIES.key_element:
+                this.getLegacy().setName( value );
+                break;
             case "name":
+                this.setName( value );
+                break;
             case "start_life":
             case "speed":
             case "characteristic_bonus":

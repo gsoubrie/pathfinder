@@ -28,7 +28,7 @@ LEGACIES.WindowGroup           = function () {
 LEGACIES.WindowGroup.prototype = {
     init        : function ( group_name ) {
         this.initCommon( group_name );
-        CONTROLLER.Main.legacies = new LEGACIES.Legacies();
+        CONTROLLER.Main.legacies = CONTROLLER.Main.current_character.getRace().available_legacies;
         this.initWithData();
     },
     initWithData: function ( data_windows ) {

@@ -10,7 +10,6 @@ CLASSES.Class.prototype = {
     setName: function ( to_set ) {
         this.name            = to_set;
         this.label.innerHTML = to_set;
-        this.updateData( RACES.getDataByName( this.name ) );
     },
     getUUID: function () {
         return this.name;
