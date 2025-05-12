@@ -20,7 +20,7 @@ LEGACIES.Legacy.prototype = {
     getUUID: function () {
         return this.name_lower_case;
     },
-    //********************************************  HTML   **************************************************//
+    //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {
             case "name":
@@ -34,6 +34,12 @@ LEGACIES.Legacy.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
+        //********************************************  HTML   **************************************************//
+        computeHTMLEdition: function () {
+            this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
+            return this.getDomElement();
+        },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         return this.name;
@@ -42,19 +48,3 @@ LEGACIES.Legacy.prototype = {
 
 SERVICE.CLASS.addPrototype( LEGACIES.Legacy, OBJECT.InterfaceHtml );
 
-LEGACIES.LegacyPopup           = function () {
-    this.init();
-};
-LEGACIES.LegacyPopup.prototype = {
-    init: function () {
-        this.label = SERVICE.DOM.createElement( "div", {} );
-    },
-    //********************************************  HTML   **************************************************//
-    computeHTMLEdition: function () {
-        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
-        return this.getDomElement();
-    }
-};
-
-SERVICE.CLASS.addPrototype( LEGACIES.LegacyPopup, LEGACIES.Legacy );

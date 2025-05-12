@@ -28,12 +28,11 @@ LEGACIES.WindowGroup           = function () {
 LEGACIES.WindowGroup.prototype = {
     init        : function ( group_name ) {
         this.initCommon( group_name );
-        CONTROLLER.Main.legacies = CONTROLLER.Main.current_character.getRace().available_legacies;
         this.initWithData();
     },
     initWithData: function ( data_windows ) {
-        for ( let i = 0, _size_i = CONTROLLER.Main.current_character.available_legacies.length; i < _size_i; i++ ) {
-            let current = CONTROLLER.Main.legacies.getContentByUUID( CONTROLLER.Main.current_character.available_legacies[ i ].toLowerCase() );
+        for ( let i = 0, _size_i = CONTROLLER.Main.current_character.getRace().available_legacies.getSize(); i < _size_i; i++ ) {
+            let current = CONTROLLER.Main.current_character.getRace().available_legacies.getContent(i);
             let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }
