@@ -5,7 +5,6 @@ POPUP.PropertyEdition           = function ( params ) {
 POPUP.PropertyEdition.prototype = {
     init: function ( params ) {
         let property_value = "";
-        console.log( params );
         switch ( params[ "property_name" ] ) {
             case RACES.key_element:
                 this.current_property = RACES;
@@ -19,6 +18,8 @@ POPUP.PropertyEdition.prototype = {
                 this.current_property = CLASSES;
                 this.windows          = new CLASSES.WindowGroup();
                 break;
+            case RACES.PARAM.BODY_SIZE.key:
+                return;
             default:
                 console.log( "GSOU", "[PropertyEdition - init]", "not managed", params[ "property_name" ] );
                 break;

@@ -9,7 +9,6 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
-        console.log( event_name, params );
         switch ( event_name ) {
             case "open_edition_popup":
                 this.edition_popup    = new POPUP.PropertyEdition( params );
@@ -22,7 +21,13 @@ CONTROLLER.Main = (function ( self ) {
             case RACES.key_element:
                 self.current_character.getRace().setName( this.edition_popup.windows.getActiveWindow().getName() );
                 self.current_character.getRace().getLegacy().setName("");
-                return;
+                break;
+            case LEGACIES.key_element:
+                self.current_character.getRace().getLegacy().setName( this.edition_popup.windows.getActiveWindow().getName() );
+                break;
+            case CLASSES.key_element:
+                self.current_character.getClass().setName( this.edition_popup.windows.getActiveWindow().getName() );
+                break;
         }
         //self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
         this.edition_popup.close();
