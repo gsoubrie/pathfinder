@@ -69,6 +69,8 @@ CHARACTER.Current.prototype = {
         this.computeHtml__left();
         this.computeHtml__middle();
         this.computeHtml__right();
+        this.react_dom = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "react" } ), this.getDomElement());
+        this.initReact();
     },
     computeHtml__left  : function () {
         var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone" } ), this.getDomElement() );
@@ -92,6 +94,20 @@ CHARACTER.Current.prototype = {
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );
+    },
+    initReact          : function () {
+        //function MyApp () {
+        //    return (<ReactFlow.ReactFlowProvider><div className="wrapper" ><ReactFlow.ReactFlow ><ReactFlow.Background/><ReactFlow.Controls/></ReactFlow.ReactFlow></div></ReactFlow.ReactFlowProvider>);
+        //}
+        const root = ReactDOM.createRoot( this.react_dom );
+        
+        class Hello extends React.Component {
+            render () {
+                return React.createElement( "div", null, `Hello ${this.props.toWhat}` );
+            }
+        }
+        
+        root.render( React.createElement( Hello, { toWhat: "World" }, null ) );
     },
     computeHtml__right : function () {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.getDomElement() );
