@@ -316,6 +316,7 @@ WINDOW_V2.ElementGroupFromData.prototype = {
         this.doActionAfter( "compute_html_done" );
     },
     computeHtmlTargets : function ( dom_parent ) {
+        console.warn("GSOU", "[ElementGroupFromData - computeHtmlTargets]", this, dom_parent );
         this.dom_element_targets = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": WINDOW_V2.CONST.CLASS.WINDOW_TARGETS } ), dom_parent );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtmlTarget();

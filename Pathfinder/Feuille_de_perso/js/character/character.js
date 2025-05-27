@@ -56,7 +56,7 @@ CHARACTER.Current.prototype = {
         return this[ CLASSES.key_element ];
     },
     //********************************************  HTML   **************************************************//
-    updateHtmlData     : function ( key, value ) {
+    updateHtmlData : function ( key, value ) {
         if ( !this[ key + "_html" ] ) {
             this[ key + "_html" ] = SERVICE.DOM.createElement( "div", {}, value );
         }
@@ -64,55 +64,9 @@ CHARACTER.Current.prototype = {
             this[ key + "_html" ].innerHTML = value;
         }
     },
-    computePageHTML    : function () {
-        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "title" } ) );
-        this.computeHtml__left();
-        this.computeHtml__middle();
-        this.computeHtml__right();
-        this.react_dom = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "react" } ), this.getDomElement());
-        this.initReact();
-    },
-    computeHtml__left  : function () {
-        var to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "left-zone" } ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), to_return );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "page-name" }, "Feuille de<br>personnage" ), to_return );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Main.save()" } ), to_return );
-    },
-    computeHtml__middle: function () {
-        var middle    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-zone" } ), this.getDomElement() );
-        var left_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-left-zone" } ), middle );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "name", CONTROLLER.Main.current_character.name, "Nom du <br>personnage", true ), left_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "player", CONTROLLER.Main.current_character.player, "Nom du <br>joueur", true ), left_zone );
-        
-        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "middle-right-zone" } ), middle );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.key_element, this.getRace().getName(), this.getRace().getLabel(), RACES.label_element, false ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( LEGACIES.key_element, this.getRace().getLegacy().getName(), this.getRace().getLegacy().getLabel(), LEGACIES.label_element, false ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( CLASSES.key_element, this.getClass().getName(), this.getClass().getLabel(), CLASSES.label_element, false ), right_zone );
-        var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, this.getRace().getBodySize().value, this.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );
-        
-        // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
-        // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
-        // SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );
-    },
-    initReact          : function () {
-        //function MyApp () {
-        //    return (<ReactFlow.ReactFlowProvider><div className="wrapper" ><ReactFlow.ReactFlow ><ReactFlow.Background/><ReactFlow.Controls/></ReactFlow.ReactFlow></div></ReactFlow.ReactFlowProvider>);
-        //}
-        const root = ReactDOM.createRoot( this.react_dom );
-        
-        class Hello extends React.Component {
-            render () {
-                return React.createElement( "div", null, `Hello ${this.props.toWhat}` );
-            }
-        }
-        
-        root.render( React.createElement( Hello, { toWhat: "World" }, null ) );
-    },
-    computeHtml__right : function () {
-        var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "level", CONTROLLER.Main.current_character.level, "Niveau", true ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createPropertyHorizontal( "point_heroism", CONTROLLER.Main.current_character.point_heroism, "Point d'heroisme", true ), right_zone );
+    computePageHTML: function () {
+        this.windows = new CHARACTER.WindowGroup();
+        this.windows.computeHtmlWithData( this );
     }
 };
 

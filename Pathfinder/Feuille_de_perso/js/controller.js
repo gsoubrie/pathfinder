@@ -51,7 +51,6 @@ CONTROLLER.Main = (function ( self ) {
     //********************************************  HTML  **************************************************//
     self.computeHtml        = function () {
         self.current_character.computePageHTML();
-        SERVICE.DOM.addElementTo( self.current_character.getDomElement(), document.querySelector( ".sheet-1" ) );
     };
     self.computeHtml__title = function () {
         self.computeHtml__title();
