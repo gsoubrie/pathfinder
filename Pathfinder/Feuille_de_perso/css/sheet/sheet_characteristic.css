@@ -21,3 +21,10 @@
     padding      : 10px;
     border-right : 1px solid #CCCCCC;
 }
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {
+    display        : flex;
+    flex-direction : row;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value > div {
+    flex         : 1;
+}

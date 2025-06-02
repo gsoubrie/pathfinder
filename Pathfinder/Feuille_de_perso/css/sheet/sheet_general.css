@@ -11,7 +11,7 @@
     width : 250px;
 }
 .property-tab-pane[data-name="general_sheet"] .title .left-zone .logo-pathfinder {
-    background-image    : url("../img/logo.png");
+    background-image    : url("../../img/logo.png");
     background-size     : cover;
     background-repeat   : no-repeat;
     background-position : center center;
@@ -34,7 +34,7 @@
     background-color : red;
     width            : 20px;
     height           : 20px;
-    background       : url("../img/save.png");
+    background       : url("../../img/save.png");
     position         : relative;
     top              : -30px;
     left             : 8px;

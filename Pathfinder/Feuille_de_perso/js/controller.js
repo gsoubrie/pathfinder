@@ -9,9 +9,18 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
+        console.log(event_name, params)
         switch ( event_name ) {
             case "open_edition_popup":
                 this.edition_popup    = new POPUP.PropertyEdition( params );
+                break;
+            case "click_on_button_V3":
+                switch ( params["button_name"] ){
+                    case "initial_char_plus":
+                    case "initial_char_less":
+                        self.current_character.doActionAfter(params["button_name"], params );
+                        break;
+                }
                 break;
             
         }

@@ -7,7 +7,17 @@ CHARACTER.Current.prototype = {
         this.uuid                   = uuid;
         this[ RACES.key_element ]   = new RACES.Race();
         this[ CLASSES.key_element ] = new CLASSES.Class();
+        this[ RACES.key_element ]   = new RACES.Race();
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter      : function ( event_name, params ) {
+        console.log(event_name, params)
+        switch ( event_name ) {
+            case "initial_char_plus":
+            case "initial_char_less":                
+                break;            
+        }
     },
     //********************************************  GETTER SETTER  **************************************************//
     getUUID      : function () {
