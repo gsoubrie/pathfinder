@@ -1,0 +1,23 @@
+/*********************	TITLE   ******************************************/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table {
+    display        : flex;
+    flex-direction : column;
+    width          : 90%;
+    max-width      : 1000px;
+    margin         : auto;
+    border         : 1px solid #333333;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row {
+    display       : flex;
+    border-bottom : 1px solid #CCCCCC;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .header {
+    background-color : #444444;
+    color            : white;
+    font-weight      : bold;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell {
+    flex         : 1;
+    padding      : 10px;
+    border-right : 1px solid #CCCCCC;
+}
