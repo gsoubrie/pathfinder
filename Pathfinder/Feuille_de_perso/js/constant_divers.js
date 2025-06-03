@@ -1,51 +1,21 @@
 "use strict";
-var CHARACTERISTIC = {
-    FORCE       : {
-        key  : "FOR",
-        label: "Force"
+var BODY_SIZE      = {
+    P : {
+        value: "P",
+        label: "Petit"
     },
-    DEXTERITY   : {
-        key  : "DEX",
-        label: "Dextérité"
+    M : {
+        value: "M",
+        label: "Moyen"
     },
-    CONSTITUTION: {
-        key  : "CON",
-        label: "Constitution"
-    },
-    INTELLIGENCE: {
-        key  : "INT",
-        label: "Intelligence"
-    },
-    WISDOM      : {
-        key  : "SAG",
-        label: "Sagesse"
-    },
-    CHARISMA    : {
-        key  : "CHA",
-        label: "Charisme"
-    },
-    FREE        : {
-        key  : "FRE",
-        label: "Libre"
-    }
-};
-var BODY_SIZE           = {
-    P: {
-        value : "P",
-        label : "Petit"
-    },
-    M: {
-        value : "M",
-        label : "Moyen"
-    },
-    G: {
-        value : "G",
-        label : "Grand"
+    G : {
+        value: "G",
+        label: "Grand"
     },
     TG: {
-        value : "TG",
-        label : "Trés Grand"
-    },
+        value: "TG",
+        label: "Trés Grand"
+    }
 };
 var LANGUAGE       = {
     COMMON    : "commun",
@@ -168,7 +138,7 @@ var SKILLS         = {
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
             _current = SKILLS.LIST[ _keys[ i ] ];
             if ( _current.label.toLowerCase() === word.toLowerCase() ) {
-                return JSON.parse(JSON.stringify(_current));
+                return JSON.parse( JSON.stringify( _current ) );
             }
         }
         return false;

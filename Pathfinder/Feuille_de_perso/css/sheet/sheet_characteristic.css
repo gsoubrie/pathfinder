@@ -26,5 +26,5 @@
     flex-direction : row;
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value > div {
-    flex         : 1;
+    flex : 1;
 }

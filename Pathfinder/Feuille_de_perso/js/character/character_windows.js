@@ -15,7 +15,7 @@ CHARACTER.WindowGroup.prototype = {
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( ".character-sheet-windows" ) );
         this.computeHtmlTargets( document.querySelector( ".characters-sheet-content" ) );
     },
-    addSpecific             : function ( to_add, character_object ) {
+    addSpecific        : function ( to_add, character_object ) {
         this.add( to_add );
         to_add.setCountersParent( this );
         to_add.computeHtmlWithData( character_object );
