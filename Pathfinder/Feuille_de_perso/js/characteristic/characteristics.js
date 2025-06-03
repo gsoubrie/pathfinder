@@ -1,14 +1,14 @@
 "use strict";
-CHARACTERISTIC.Characteristics           = function () {
+CHARACTERISTICS.Characteristics           = function () {
     this.init();
 };
-CHARACTERISTIC.Characteristics.prototype = {
+CHARACTERISTICS.Characteristics.prototype = {
     init: function () {
         this.initContents();
-        for ( let i = 0, _size_i = CHARACTERISTIC.ENUM.length; i < _size_i; i++ ) {
-            this.add( new CHARACTERISTIC.Characteristics ( CHARACTERISTIC.ENUM[ i ] ) );
+        for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
+            this.add( new CHARACTERISTICS.Characteristics( CHARACTERISTICS.ENUM[ i ] ) );
         }
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTERISTIC.Characteristics, OBJECT.InterfaceContainerHtml );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, OBJECT.InterfaceContainerHtml );

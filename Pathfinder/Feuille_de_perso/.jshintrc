@@ -37,7 +37,7 @@
     "TABS": false,
     "CONTROLLER": false,
     "AREA": false,
-    "CHARACTERISTIC": false,
+    "CHARACTERISTICS": false,
     "OBJECT": false,
     "BODY_SIZE": false,
     "LANGUAGE": false,

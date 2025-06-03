@@ -18,7 +18,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
     self.parseDom            = function ( dom_element, array_to_push_in ) {
         self.previous_title        = "description";
         let to_return              = {};
-        to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText.replaceAll('"',"");
+        to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText.replaceAll( '"', "" );
         to_return[ "requirement" ] = [];
         to_return[ "description" ] = [];
         to_return[ "gift_skill" ]  = [];
@@ -84,11 +84,11 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous obtenez le don de compétence" ) ) {
         }
         else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous obtenez le don" ) ) {
-            object_to_complete[ "gift_skill" ].push( text.replace("Vous obtenez le don ", "") );
+            object_to_complete[ "gift_skill" ].push( text.replace( "Vous obtenez le don ", "" ) );
         }
-        //else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous êtes expert" ) ) {
+            //else if ( SERVICE.STRING.containsIgnoreCase( text, "Vous êtes expert" ) ) {
         //}
-        else if (text) {
+        else if ( text ) {
             object_to_complete[ "description" ].push( text );
         }
     };
@@ -186,76 +186,76 @@ var SKILLS         = {
     LIST            : {
         ACROBATICS  : {
             label         : "Acrobaties",
-            characteristic: CHARACTERISTIC.DEXTERITY.key,
+            characteristic: CHARACTERISTICS.DEX.name,
             armor_penalty : true
         },
         ARCANA      : {
             label         : "Arcanes",
-            characteristic: CHARACTERISTIC.INTELLIGENCE.key
+            characteristic: CHARACTERISTICS.INT.name
         },
         CRAFTING    : {
             label         : "Artisanat",
-            characteristic: CHARACTERISTIC.INTELLIGENCE.key,
+            characteristic: CHARACTERISTICS.INT.name,
             need_qualifier: true
         },
         ATHLETICS   : {
             label         : "Athlétisme",
-            characteristic: CHARACTERISTIC.FORCE.key,
+            characteristic: CHARACTERISTICS.FOR.name,
             armor_penalty : true
         },
         LORE        : {
             label         : "Connaissance",
-            characteristic: CHARACTERISTIC.INTELLIGENCE.key,
+            characteristic: CHARACTERISTICS.INT.name,
             need_qualifier: true
         },
         DIPLOMACY   : {
             label         : "Diplomatie",
-            characteristic: CHARACTERISTIC.CHARISMA.key
+            characteristic: CHARACTERISTICS.CHA.name
         },
         STEALTH     : {
             label         : "Discrétion",
-            characteristic: CHARACTERISTIC.DEXTERITY.key,
+            characteristic: CHARACTERISTICS.DEX.name,
             armor_penalty : true
         },
         DECEPTION   : {
             label         : "Duperie",
-            characteristic: CHARACTERISTIC.CHARISMA.key
+            characteristic: CHARACTERISTICS.CHA.name
         },
         INTIMIDATION: {
             label         : "Intimidation",
-            characteristic: CHARACTERISTIC.CHARISMA.key
+            characteristic: CHARACTERISTICS.CHA.name
         },
         MEDICINE    : {
             label         : "Médecine",
-            characteristic: CHARACTERISTIC.WISDOM.key
+            characteristic: CHARACTERISTICS.SAG.name
         },
         NATURE      : {
             label         : "Nature",
-            characteristic: CHARACTERISTIC.WISDOM.key
+            characteristic: CHARACTERISTICS.SAG.name
         },
         OCCULTISM   : {
             label         : "Occultisme",
-            characteristic: CHARACTERISTIC.INTELLIGENCE.key
+            characteristic: CHARACTERISTICS.INT.name
         },
         RELIGION    : {
             label         : "Religion",
-            characteristic: CHARACTERISTIC.WISDOM.key
+            characteristic: CHARACTERISTICS.SAG.name
         },
         PERFORMANCE : {
             label         : "Représentation",
-            characteristic: CHARACTERISTIC.CHARISMA.key
+            characteristic: CHARACTERISTICS.CHA.name
         },
         SOCIETY     : {
             label         : "Société",
-            characteristic: CHARACTERISTIC.INTELLIGENCE.key
+            characteristic: CHARACTERISTICS.INT.name
         },
         SURVIVAL    : {
             label         : "Survie",
-            characteristic: CHARACTERISTIC.WISDOM.key
+            characteristic: CHARACTERISTICS.SAG.name
         },
         THIEVERY    : {
             label         : "Vol",
-            characteristic: CHARACTERISTIC.DEXTERITY.key,
+            characteristic: CHARACTERISTICS.DEX.name,
             armor_penalty : true
         }
     },

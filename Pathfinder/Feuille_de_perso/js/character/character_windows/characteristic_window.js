@@ -24,9 +24,8 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Race" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Classe" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
-        let _keys = Object.keys( CHARACTERISTIC );
-        for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
-            this.computeHtml__tableCharacteristic( CHARACTERISTIC[ _keys[ i ] ], character_object );
+        for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
+            this.computeHtml__tableCharacteristic( CHARACTERISTICS.ENUM[ i ], character_object );
         }
         console.log( "GSOU", "[CharacteristicWindow - computeHtml__tableCharacteristics]", character_object );
     },
