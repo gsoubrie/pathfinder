@@ -110,16 +110,16 @@ var SCRIPT_RACES = (function ( self ) {
                                     to_return[ "speed" ] = parseInt( self.replaceAll( to_return[ "speed" ], "mètres", "" ) );
                                     break;
                                 case "Primes d'attributs":
-                                    to_return[ "characteristic_bonus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Primes d'attributs ", "" );
-                                    to_return[ "characteristic_bonus" ] = to_return[ "characteristic_bonus" ].split( ", " );
+                                    to_return[ "characteristics_bonus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Primes d'attributs ", "" );
+                                    to_return[ "characteristics_bonus" ] = to_return[ "characteristics_bonus" ].split( ", " );
                                     break;
                                 case "Pénalité d'attribut":
-                                    to_return[ "characteristic_malus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "" );
-                                    to_return[ "characteristic_malus" ] = to_return[ "characteristic_malus" ].split( ", " );
+                                    to_return[ "characteristics_malus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "" );
+                                    to_return[ "characteristics_malus" ] = to_return[ "characteristics_malus" ].split( ", " );
                                     break;
                                 case "Pénalité d'attribut":
-                                    to_return[ "characteristic_malus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "" );
-                                    to_return[ "characteristic_malus" ] = to_return[ "characteristic_malus" ].split( ", " );
+                                    to_return[ "characteristics_malus" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Pénalité d'attribut ", "" );
+                                    to_return[ "characteristics_malus" ] = to_return[ "characteristics_malus" ].split( ", " );
                                     break;
                                 case "Langues":
                                     to_return[ "language" ] = self.replaceAll( dom_descriptions[ i ].innerText, "Langues ", "" );
