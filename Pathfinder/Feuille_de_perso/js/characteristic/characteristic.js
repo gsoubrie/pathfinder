@@ -6,6 +6,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
         this.initial_value = 10;
         this.final_value   = 10;
+        this.is_race_bonus = 0;
         this.updateData( data );
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -18,11 +19,8 @@ CHARACTERISTICS.Characteristic.prototype = {
     getUUID    : function () {
         return this.getName();
     },
-    getBodySize: function () {
-        return this[ RACES.PARAM.BODY_SIZE.key ];
-    },
-    getLegacy  : function () {
-        return this[ LEGACIES.key_element ];
+    setRaceBonus: function ( to_set ) {
+        this.is_race_bonus = to_set;
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {

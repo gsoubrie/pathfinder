@@ -46,10 +46,10 @@ var RACES = {
                 "revert to purely animalistic behaviors"
             ],
             "characteristics_bonus": [
-                "Constitution", "Sagesse", "Libre"
+                "CON", "SAG", "FREE"
             ],
             "characteristics_malus": [
-                "Intelligence"
+                "INT"
             ],
             "start_life"           : "?",
             "language"             : [
@@ -105,10 +105,10 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 6,
             "characteristics_bonus": [
-                "Force", "Sagesse", "Libre"
+                "FOR", "SAG", "FREE"
             ],
             "characteristics_malus": [
-                "Intelligence"
+                "INT"
             ],
             "language"             : [
                 "Commun",
@@ -154,8 +154,8 @@ var RACES = {
             "start_life"           : 8,
             "speed"                : 7,
             "characteristics_bonus": [
-                "Force",
-                "Libre"
+                "FOR",
+                "FREE"
             ],
             "language"             : [
                 "Commun",
@@ -222,12 +222,12 @@ var RACES = {
                 "ne pas pouvoir circuler, contribuer à la destruction gratuite d'un paysage naturel"
             ],
             "characteristics_bonus": [
-                "Force",
-                "Sagesse",
-                "Libre"
+                "FOR",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Charisme"
+                "CHA"
             ],
             "start_life"           : 8,
             "body_size"            : "TG",
@@ -287,12 +287,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 9,
             "characteristics_bonus": [
-                "Dextérité",
-                "Intelligence",
-                "Libre"
+                "DEX",
+                "INT",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Constitution"
+                "CON"
             ],
             "language"             : [
                 "Commun",
@@ -351,12 +351,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Constitution",
-                "Charisme",
-                "Libre"
+                "CON",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Force"
+                "FOR"
             ],
             "language"             : [
                 "Commun",
@@ -415,12 +415,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Charisme",
-                "Libre"
+                "DEX",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Sagesse"
+                "SAG"
             ],
             "language"             : [
                 "Commun",
@@ -480,12 +480,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Sagesse",
-                "Libre"
+                "DEX",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Force"
+                "FOR"
             ],
             "language"             : [
                 "Commun",
@@ -540,12 +540,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Constitution",
-                "Intelligence",
-                "Libre"
+                "CON",
+                "INT",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Sagesse"
+                "SAG"
             ],
             "language"             : [
                 "Commun",
@@ -605,12 +605,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Charisme",
-                "Libre"
+                "DEX",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Sagesse"
+                "SAG"
             ],
             "language"             : [
                 "Amurrun",
@@ -674,12 +674,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Force",
-                "Sagesse",
-                "Libre"
+                "FOR",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Intelligence"
+                "INT"
             ],
             "language"             : [
                 "Commun",
@@ -748,12 +748,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 1,
             "characteristics_bonus": [
-                "Dextérité",
-                "Charisme",
-                "Libre"
+                "DEX",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Constitution"
+                "CON"
             ],
             "language"             : [
                 "Commun",
@@ -809,12 +809,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Intelligence",
-                "Libre"
+                "DEX",
+                "INT",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Force"
+                "FOR"
             ],
             "language"             : [
                 "Commun",
@@ -918,12 +918,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Force",
-                "Intelligence",
-                "Libre"
+                "FOR",
+                "INT",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Sagesse"
+                "SAG"
             ],
             "language"             : [
                 "Commun",
@@ -983,12 +983,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Charisme",
-                "Libre"
+                "DEX",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Constitution"
+                "CON"
             ],
             "language"             : [
                 "Commun",
@@ -1050,12 +1050,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Constitution",
-                "Sagesse",
-                "Libre"
+                "CON",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Intelligence"
+                "INT"
             ],
             "language"             : [
                 "Commun",
@@ -1125,12 +1125,12 @@ var RACES = {
             "body_size"            : "G",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Force",
-                "Constitution",
-                "Libre"
+                "FOR",
+                "CON",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Charisme"
+                "CHA"
             ],
             "language"             : [
                 "commun",
@@ -1186,12 +1186,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 6,
             "characteristics_bonus": [
-                "Constitution",
-                "Sagesse",
-                "Libre"
+                "CON",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Charisme"
+                "CHA"
             ],
             "language"             : [
                 "Commun",
@@ -1251,8 +1251,8 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Force",
-                "Libre"
+                "FOR",
+                "FREE"
             ],
             "language"             : [
                 "Commun",
@@ -1304,12 +1304,12 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Charisme",
-                "Libre"
+                "DEX",
+                "CHA",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Intelligence"
+                "INT"
             ],
             "language"             : [
                 "Commun",
@@ -1374,8 +1374,8 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7.5,
             "characteristics_bonus": [
-                "Constitution",
-                "Libre"
+                "CON",
+                "FREE"
             ],
             "language"             : [
                 "Commun",
@@ -1427,8 +1427,8 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Libre"
+                "DEX",
+                "FREE"
             ],
             "language"             : [
                 "Commun",
@@ -1485,12 +1485,12 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": [
-                "Dextérité",
-                "Sagesse",
-                "Libre"
+                "DEX",
+                "SAG",
+                "FREE"
             ],
             "characteristics_malus": [
-                "Force"
+                "FOR"
             ],
             "language"             : [
                 "Commun",

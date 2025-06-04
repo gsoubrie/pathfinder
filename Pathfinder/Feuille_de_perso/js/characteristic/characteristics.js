@@ -12,6 +12,12 @@ CHARACTERISTICS.Characteristics.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setDataFromRace: function ( race ) {
         console.log( "GSOU", "[Characteristics - setDataFromRace]", race );
+        for (let carac_name in race["characteristics_bonus"]){
+            this.getContentByUUid(carac_name).setRaceBonus(2);
+        }
+        for (let carac_name in race["characteristics_malus"]){
+            this.getContentByUUid(carac_name).setRaceBonus(-2);
+        }
     }
 };
 
