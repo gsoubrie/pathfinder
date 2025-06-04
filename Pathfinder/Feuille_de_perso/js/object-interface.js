@@ -1,8 +1,8 @@
 "use strict";
 
-OBJECT.InterfaceHtml                = function () {
+OBJECT.InterfaceHtml           = function () {
 };
-OBJECT.InterfaceHtml.prototype      = {
+OBJECT.InterfaceHtml.prototype = {
     updateData: function ( data ) {
         if ( !data ) {
             return;
@@ -34,7 +34,7 @@ OBJECT.InterfaceHtml.prototype      = {
         }
     },
     removeClass  : function ( to_remove ) {
-        this.class = SHINKEN.TOOLS.STRING.replaceAll( this.class, to_remove, "" );
+        this.class = SERVICE.STRING.replaceAll( this.class, to_remove, "" );
         if ( this.getDomElement() ) {
             this.getDomElement().classList.remove( to_remove );
         }
@@ -46,6 +46,8 @@ OBJECT.InterfaceHtml.prototype      = {
         return this.dom_element;
     }
 };
+SERVICE.CLASS.addPrototype( OBJECT.InterfaceHtml, GS.OBJECT.ShinkenObject );
+
 OBJECT.InterfaceContainer           = function () {
     this.initContents();
 };

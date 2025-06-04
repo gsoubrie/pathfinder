@@ -26,8 +26,8 @@ CLASSES.Class.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return                          = {};
-        to_return[ "name" ]                    = this.name;
+        let to_return       = {};
+        to_return[ "name" ] = this.name;
         return to_return;
     }
 };
@@ -76,10 +76,10 @@ CLASSES.ClassPopup.prototype = {
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.general_desc, "" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.life_point_by_level, "Point de vie par level" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyHorizontal( this.prime_attribute, "Prime d'attribut" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.capacities, "Capacités" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.general_desc, "" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.life_point_by_level, "Point de vie par level" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.prime_attribute, "Prime d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.capacities, "Capacités" ), this.getDomElement() );
         return this.getDomElement();
     }
 };

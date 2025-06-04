@@ -8,15 +8,16 @@ CHARACTER.Current.prototype = {
         this[ RACES.key_element ]   = new RACES.Race();
         this[ CLASSES.key_element ] = new CLASSES.Class();
         this[ RACES.key_element ]   = new RACES.Race();
+        this[ CHARACTERISTICS.key ] = new CHARACTERISTICS.Characteristics();
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter      : function ( event_name, params ) {
-        console.log(event_name, params)
+    doActionAfter: function ( event_name, params ) {
+        console.log( event_name, params );
         switch ( event_name ) {
             case "initial_char_plus":
-            case "initial_char_less":                
-                break;            
+            case "initial_char_less":
+                break;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -36,10 +37,11 @@ CHARACTER.Current.prototype = {
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData : function ( key, value ) {
+    setData           : function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
                 this.getRace().updateData( value );
+                this.getCharacteristics().setDataFromRace( this.getRace() );
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
@@ -59,11 +61,14 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    getRace : function () {
+    getRace           : function () {
         return this[ RACES.key_element ];
     },
-    getClass: function () {
+    getClass          : function () {
         return this[ CLASSES.key_element ];
+    },
+    getCharacteristics: function () {
+        return this[ CHARACTERISTICS.key ];
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData : function ( key, value ) {

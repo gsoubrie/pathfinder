@@ -14,7 +14,7 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
     computeHtml__tableCharacteristics: function ( character_object ) {
-        let to_return             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "CARACTÉRISTIQUES" ), this.content_dom_element_target );
+        let to_return             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, CHARACTERISTICS.label ), this.content_dom_element_target );
         this.characteristic_table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-table" } ), this.content_dom_element_target );
         let headers               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row headers" } ), this.characteristic_table );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell" } ), headers );
@@ -24,28 +24,28 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Race" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Classe" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
-        for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
-            this.computeHtml__tableCharacteristic( CHARACTERISTICS.ENUM[ i ], character_object );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
+        for ( let i = 0, _size_i = character_object[ CHARACTERISTICS.key ].getSize(); i < _size_i; i++ ) {
+            this.computeHtml__tableCharacteristic( character_object[ CHARACTERISTICS.key ].getContent( i ) );
         }
-        console.log( "GSOU", "[CharacteristicWindow - computeHtml__tableCharacteristics]", character_object );
     },
-    computeHtml__tableCharacteristic : function ( object_char, character_object ) {
-        let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_char.key } ), this.characteristic_table );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, object_char.label ), to_return );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" }, "10" ), to_return );
+    computeHtml__tableCharacteristic : function ( object_characteristic ) {
+        let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_characteristic.key } ), this.characteristic_table );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, object_characteristic.label ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" }, object_characteristic.final_value ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), to_return );
-        let initial_dom  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" }, "<div>10</div>" ), to_return );
-        this.plus_button = new COMPONENT.ButtonFromData_V3( "initial_char_plus", "+" );
-        this.plus_button.addParamForEvents( "name_characteristic", object_char.key );
-        this.plus_button.computeHtml();
-        SERVICE.DOM.addElementTo( this.plus_button.dom_element, initial_dom );
-        this.less_button = new COMPONENT.ButtonFromData_V3( "initial_char_less", "-" );
-        this.less_button.addParamForEvents( "name_characteristic", object_char.key );
-        this.less_button.computeHtml();
-        SERVICE.DOM.addElementTo( this.less_button.dom_element, initial_dom );
+        let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" }, "<div>" + object_characteristic.initial_value + "</div>" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( object_characteristic.getParamForEvents() ), initial_dom );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( object_characteristic.getParamForEvents() ), initial_dom );
+        
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-race" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-classe" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv15" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv20" }, "" ), to_return );
     }
 };
 

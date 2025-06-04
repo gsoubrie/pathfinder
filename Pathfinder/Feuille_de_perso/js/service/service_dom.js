@@ -1,6 +1,6 @@
 "use strict";
 SERVICE.DOM = (function ( self ) {
-    self.STYLE                            = {
+    self.STYLE                                     = {
         LEFT            : "left",
         RIGHT           : "right",
         TOP             : "top",
@@ -19,7 +19,7 @@ SERVICE.DOM = (function ( self ) {
         BORDER_RADIUS   : "border-radius",
         FONT_SIZE       : "font-size"
     };
-    self.createElement                    = function ( tag, attributes, innerHTML ) {
+    self.createElement                             = function ( tag, attributes, innerHTML ) {
         const toReturn = document.createElement( tag );
         if ( attributes ) {
             const keys = Object.keys( attributes );
@@ -33,7 +33,7 @@ SERVICE.DOM = (function ( self ) {
         }
         return toReturn;
     };
-    self.removeElement                    = function ( element ) {
+    self.removeElement                             = function ( element ) {
         if ( !element ) {
             return;
         }
@@ -46,49 +46,13 @@ SERVICE.DOM = (function ( self ) {
             return false;
         }
     };
-    self.addElementTo                     = function ( element, parent ) {
+    self.addElementTo                              = function ( element, parent ) {
         if ( parent && element ) {
             parent.appendChild( element );
             return element;
         }
         return null;
     };
-    //********************************************  PROPERTY   **************************************************//
-    self.createPropertyHorizontal         = function ( property_name, value, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value", contentEditable: is_editable }, value ), toReturn );
-        return toReturn;
-    };
-    self.createPropertyVertical           = function ( property_name, value, value_html, label, is_editable ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-            class  : "value", contentEditable: is_editable,
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})"
-        } ), toReturn );
-        SERVICE.DOM.addElementTo( value_html, value_dom );
-        return toReturn;
-    };
-    //********************************************  EDITION POP UP   **************************************************//
-    self.createEditionPropertyHorizontal  = function ( value, label ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property horizontal" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
-        return toReturn;
-    };
-    self.createEditionPropertyDescription = function ( value, label ) {
-        var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property description" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        let label_desc = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" } ), toReturn );
-        if ( value ) {
-            for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
-                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "p", {}, value[ i ] ), label_desc );
-            }
-        }
-        return toReturn;
-    };
-    
     self.findParentElementWithDataSet              = function ( element, key, deepLimit ) {
         if ( !element || deepLimit < 0 ) {
             return null;
