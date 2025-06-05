@@ -12,11 +12,17 @@ CHARACTERISTICS.Characteristics.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setDataFromRace: function ( race ) {
         console.log( "GSOU", "[Characteristics - setDataFromRace]", race );
-        for (let carac_name in race["characteristics_bonus"]){
-            this.getContentByUUid(carac_name).setRaceBonus(2);
+        for ( let i = 0, _size_i = race[ "characteristics_bonus" ].length; i < _size_i; i++ ) {
+            switch ( race[ "characteristics_bonus" ][ i ] ) {
+                case "FREE":
+                    this.doActionAfter( "set_free_race_bonus" );
+                    break;
+                default:
+                    this.getContentByUUID( race[ "characteristics_bonus" ][ i ] ).setRaceBonus( 2 );
+            }
         }
-        for (let carac_name in race["characteristics_malus"]){
-            this.getContentByUUid(carac_name).setRaceBonus(-2);
+        for ( let i = 0, _size_i = race[ "characteristics_malus" ].length; i < _size_i; i++ ) {
+            this.getContentByUUID( race[ "characteristics_malus" ][ i ] ).setRaceBonus( -2 );
         }
     }
 };
