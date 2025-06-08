@@ -1,12 +1,14 @@
 "use strict";
 CHARACTERISTICS.Characteristics           = function () {
-    this.init();
+    this.init();    
 };
 CHARACTERISTICS.Characteristics.prototype = {
     init: function () {
         this.initContents();
+        this.addParamForEvents( CHARACTERISTICS.key, "" );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
-            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
+            let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
+            to_add.addParamsForEvents( this.getParamsForEvents() );
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

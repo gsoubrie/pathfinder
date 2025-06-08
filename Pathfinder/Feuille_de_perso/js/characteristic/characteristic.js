@@ -6,8 +6,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
         this.initial_value    = 10;
         this.final_value      = 10;
-        this.race_bonus_value = 0;
-        this.race_bonus_label = SERVICE.DOM.createElement( "div", {}, this.race_bonus_value );
+        this.race_bonus = new OBJECT.ConfigurableValue(0, "FREE");
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
@@ -22,6 +21,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setName     : function ( to_set ) {
         this.name = to_set;
+        this.addParamForEvents( CHARACTERISTICS.key_element, this.name );
     },
     setLabel    : function ( to_set ) {
         this.label = to_set;
@@ -30,25 +30,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         return this.getName();
     },
     setRaceBonus: function ( to_set ) {
-        if ( to_set === "FREE" && this.race_bonus_value !== 0 ) {
-            return;
-        }
-        this.race_bonus_value = to_set;
-        switch ( this.race_bonus_value ) {
-            case "FREE":
-                this.race_bonus_label.innerHTML = "";
-                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.race_bonus_label );
-                break;
-            case 2:
-                this.race_bonus_label.innerHTML = "+2";
-                break;
-            case -2:
-                this.race_bonus_label.innerHTML = "-2";
-                break;
-            
-        }
-        
-        
+        this.race_bonus.setValue(to_set);
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {
