@@ -69,3 +69,21 @@ body {
     height : 100%;
     width  : calc(100% - 100px);
 }
+/*********************	TABS ( SHEET )   ******************************************/
+.gs-window-group-V2 {
+}
+.gs-window-element-V2 {
+    background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #5a3c00;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.gs-window-element-V2[data-current-phase="RUNNING"] {
+    font-weight: bold;
+  border-bottom: 3px solid #7c5e10;
+  background-color: #fff8dc;
+}
