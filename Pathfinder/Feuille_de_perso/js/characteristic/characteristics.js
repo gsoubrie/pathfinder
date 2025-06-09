@@ -1,19 +1,17 @@
 "use strict";
 CHARACTERISTICS.Characteristics           = function () {
-    this.init();    
+    this.init();
 };
 CHARACTERISTICS.Characteristics.prototype = {
     init: function () {
         this.initContents();
-        this.addParamForEvents( CHARACTERISTICS.key, "" );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
-            to_add.addParamsForEvents( this.getParamsForEvents() );
         }
+        this.addParamForEvents( CHARACTERISTICS.key, true );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setDataFromRace: function ( race ) {
-        console.log( "GSOU", "[Characteristics - setDataFromRace]", race );
         for ( let i = 0, _size_i = race[ "characteristics_bonus" ].length; i < _size_i; i++ ) {
             switch ( race[ "characteristics_bonus" ][ i ] ) {
                 case "FREE":

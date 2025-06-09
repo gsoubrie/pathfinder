@@ -41,7 +41,7 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( object_characteristic.getParamForEvents() ), initial_dom );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-race" }, object_characteristic.race_bonus.getLabel().outerHTML ), to_return );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-classe" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-class" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv15" }, "" ), to_return );

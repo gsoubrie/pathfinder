@@ -9,6 +9,7 @@ CHARACTER.Current.prototype = {
         this[ CLASSES.key_element ] = new CLASSES.Class();
         this[ RACES.key_element ]   = new RACES.Race();
         this[ CHARACTERISTICS.key ] = new CHARACTERISTICS.Characteristics();
+        this.addParamForEvents( "current_user", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -21,10 +22,10 @@ CHARACTER.Current.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID      : function () {
+    getUUID          : function () {
         return this.uuid;
     },
-    getDataToSave: function () {
+    getDataToSave    : function () {
         let to_return                    = {};
         to_return[ "uuid" ]              = this.uuid;
         to_return[ "name" ]              = this.name;
@@ -35,6 +36,12 @@ CHARACTER.Current.prototype = {
         to_return[ "level" ]             = this.level;
         to_return[ "point_heroism" ]     = this.point_heroism;
         return to_return;
+    },
+    addParamForEvents: function ( key, value ) {
+        this.addParamForEventsCommon( key, value );
+        this[ RACES.key_element ].addParamForEvents( key, value );
+        this[ CLASSES.key_element ].addParamForEvents( key, value );
+        this[ CHARACTERISTICS.key ].addParamForEvents( key, value );
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData           : function ( key, value ) {

@@ -4,13 +4,13 @@ OBJECT.ConfigurableValue           = function ( initial_value, editable_value ) 
 };
 OBJECT.ConfigurableValue.prototype = {
     init: function ( initial_value, editable_value ) {
-        this.initial_value      = initial_value;
-        this.editable_value      = editable_value;
-        this.value      = this.initial_value;
-        this.label      = SERVICE.DOM.createElement( "div", {}, this.value );
+        this.initial_value  = initial_value;
+        this.editable_value = editable_value;
+        this.value          = this.initial_value;
+        this.label          = SERVICE.DOM.createElement( "div", { class: "flex-layout-justify-between" }, this.value );
     },
     //********************************************  GETTER SETTER  **************************************************//
-    isSet: function () {
+    isSet   : function () {
         return this.initial_value !== this.value;
     },
     setValue: function ( to_set ) {
@@ -20,17 +20,14 @@ OBJECT.ConfigurableValue.prototype = {
         this.value = to_set;
         switch ( this.value ) {
             case this.editable_value:
-                this.label.innerHTML = "";
+                SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.initial_value ), this.label );
                 SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.label );
                 break;
             default:
-                this.label.innerHTML = this.value;
+                SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.value ), this.label );
                 break;
-            
         }
-        
-        
-    },
-}
-SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml);
-SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, GS.OBJECT.PhaseInterface);
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, GS.OBJECT.PhaseInterface );

@@ -4,9 +4,10 @@ CHARACTERISTICS.Characteristic           = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.initial_value    = 10;
-        this.final_value      = 10;
-        this.race_bonus = new OBJECT.ConfigurableValue(0, "FREE");
+        this.initial_value = 10;
+        this.final_value   = 10;
+        this.race_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
+        this.race_bonus.addParamForEvents( "race_bonus", true );
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
@@ -19,18 +20,22 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.doActionAfterCommon( event_name, param );
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setName     : function ( to_set ) {
+    setName          : function ( to_set ) {
         this.name = to_set;
         this.addParamForEvents( CHARACTERISTICS.key_element, this.name );
     },
-    setLabel    : function ( to_set ) {
+    setLabel         : function ( to_set ) {
         this.label = to_set;
     },
-    getUUID     : function () {
+    getUUID          : function () {
         return this.getName();
     },
-    setRaceBonus: function ( to_set ) {
-        this.race_bonus.setValue(to_set);
+    setRaceBonus     : function ( to_set ) {
+        this.race_bonus.setValue( to_set );
+    },
+    addParamForEvents: function ( key, value ) {
+        this.addParamForEventsCommon( key, value );
+        this.race_bonus.addParamForEvents( key, value );
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {

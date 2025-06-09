@@ -1,25 +1,37 @@
-/*********************	TITLE   ******************************************/
+/*********************	CONTAINER   ******************************************/
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table {
     display        : flex;
     flex-direction : column;
     width          : 90%;
     max-width      : 1000px;
     margin         : auto;
-    border         : 1px solid #333333;
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row {
-    display       : flex;
-    border-bottom : 1px solid #CCCCCC;
+    display : flex;
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .header {
-    background-color : #444444;
-    color            : white;
-    font-weight      : bold;
+    background-color : #5A3E1B; /* Bois foncé / cuivre ancien */
+    color            : #D4B06A; /* Doré doux */
+    padding          : 10px;
+    font-size        : 14px;
+    text-align       : center;
+    text-shadow      : 1px 1px 2px #000000;
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell {
-    flex         : 1;
-    padding      : 10px;
-    border-right : 1px solid #CCCCCC;
+    flex    : 1;
+    padding : 5px 8px;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-modifier-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-race,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-class,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv5,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv10,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv15,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv20 {
+    box-shadow : 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 1px #00000055;
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {
     display        : flex;
@@ -27,4 +39,49 @@
 }
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value > div {
     flex : 1;
+}
+/*********************	CHARAC FINAL VALUE   ******************************************/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-label {
+    font-family   : 'Uncial Antiqua', serif;
+    font-size     : 16px;
+    color         : #F2E6C2; /* Ivoire ancien */
+    background    : linear-gradient(145deg, #3E2A14, #24180E); /* Fond brun foncé texturé */
+    border        : 1px solid #C9AA71; /* Bordure dorée vieillie */
+    border-radius : 6px;
+    display       : inline-block;
+    box-shadow    : 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 0 3px #00000055;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-final-value {
+    font-size   : 18px;
+    color       : #D4B06A; /* 🟤 Doré antique / bronze patiné */
+    text-shadow : 1px 1px 2px #000000;
+}
+/*********************	BONUS RACE   ******************************************/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race .gs-button[data-name="more_button"] {
+    background    : linear-gradient(145deg, #5A3E1B, #3E2A14); /* effet bois/cuir */
+    border        : 1px solid #C9AA71; /* bordure bronze */
+    color         : #F2E6C2; /* ivoire ancien */
+    font-size     : 12px; /* plus petit texte, lisible à 14px */
+    font-weight   : bold;
+    font-family   : 'Uncial Antiqua', serif;
+    width         : 14px;
+    height        : 14px;
+    line-height   : 14px;
+    padding       : 0;
+    border-radius : 3px;
+    cursor        : pointer;
+    box-shadow    : inset 0 0 2px #00000066, 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-align    : center;
+    text-shadow   : 0 0 1px #000000;
+    transition    : all 0.2s ease-in-out;
+    display       : inline-block;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race .gs-button[data-name="more_button"]:hover {
+    background   : linear-gradient(145deg, #6A4B22, #4A3319);
+    border-color : #F0D38C;
+}
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race .gs-button[data-name="more_button"]:active {
+    transform  : scale(0.95);
+    box-shadow : inset 0 0 3px #00000099;
 }

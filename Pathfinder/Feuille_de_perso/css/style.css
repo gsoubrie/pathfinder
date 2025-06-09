@@ -2,10 +2,13 @@ body {
     background-color : black;
 }
 .character-content {
-    width            : 1240px;
-    height           : 1754px;
-    background-color : white;
-    margin           : auto;
+    width             : 1240px;
+    height            : 1754px;
+    margin            : auto;
+    background-color  : #D6C6B8;
+    background-image  : url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat : repeat;
+    font-family       : 'Uncial Antiqua', serif;
 }
 .hidden {
     display : none;

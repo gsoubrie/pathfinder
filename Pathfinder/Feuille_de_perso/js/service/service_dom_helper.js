@@ -13,6 +13,10 @@ SERVICE.DOM_HELPER = (function ( self ) {
         toReturn.computeHtml();
         return toReturn.dom_element;
     };
+    //********************************************  DIV   **************************************************//
+    self.createFullyCentredDiv            = function ( label ) {
+        return SERVICE.DOM.createElement( "div", { class: "flex-layout-center-h-v" }, label );
+    };
     //********************************************  PROPERTY   **************************************************//
     self.createPropertyHorizontal         = function ( property_name, value, label, is_editable ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " property horizontal", "data-name": property_name } );
