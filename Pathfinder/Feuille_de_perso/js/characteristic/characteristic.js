@@ -13,12 +13,23 @@ CHARACTERISTICS.Characteristic.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
+            case "set_race_bonus":
+                this.race_bonus.setValue( params["race_bonus_value"] );
+                break;
             case "set_free_race_bonus":
-                this.setRaceBonus( "FREE" );
+                this.race_bonus.setValue( "FREE" );
+                break;
+            case "clean_all_free_race_settings":
+                if ( this.race_bonus.value === this.race_bonus.editable_value){
+                    this.race_bonus.setValue( "" );
+                    this.computeFinalValue();
+                }                
                 break;
             case "click_on_button_V3":
-                if ( params[ "race_bonus_params" ] ) {
-                    this.setRaceBonus( "2" );
+                if ( params[ "race_bonus_params" ] && params["button_name"] === "more_button") {
+                    this.race_bonus.setValue( 2 );
+                    this.computeFinalValue();
+                    params["characteristics_object"].doActionAfter("set_free_race_bonus_done");
                     return;
                 }
                 break;
@@ -27,7 +38,11 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     //********************************************  COMPUTE  **************************************************//
     computeFinalValue: function () {
-        this.final_value.setValue( this.initial_value.value + this.race_bonus.value );
+        let computed_value = this.initial_value.value;
+        if ( this.race_bonus.isSet() ){
+            computed_value += this.race_bonus.value;
+        }
+        this.final_value.setValue( computed_value );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName          : function ( to_set ) {
@@ -39,9 +54,6 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     getUUID          : function () {
         return this.getName();
-    },
-    setRaceBonus     : function ( to_set ) {
-        this.race_bonus.setValue( to_set );
     },
     addParamForEvents: function ( key, value ) {
         this.addParamForEventsCommon( key, value );

@@ -11,7 +11,7 @@ OBJECT.ConfigurableValue.prototype = {
     },
     //********************************************  GETTER SETTER  **************************************************//
     isSet   : function () {
-        return this.initial_value !== this.value;
+        return this.initial_value !== this.value && this.value !== this.editable_value;
     },
     setValue: function ( to_set ) {
         if ( to_set === this.editable_value && this.isSet() ) {
