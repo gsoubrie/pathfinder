@@ -9,15 +9,17 @@ CHARACTER.Current.prototype = {
         this[ CLASSES.key_element ] = new CLASSES.Class();
         this[ RACES.key_element ]   = new RACES.Race();
         this[ CHARACTERISTICS.key ] = new CHARACTERISTICS.Characteristics();
-        this.addParamForEvents( "current_user", this.uuid );
+        this.addParamForEvents( "current_character_param", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        console.log( event_name, params );
         switch ( event_name ) {
-            case "initial_char_plus":
-            case "initial_char_less":
+            case "click_on_button_V3":
+                if ( params[ "characteristics_param" ] ) {
+                    this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
+                    return;
+                }
                 break;
         }
     },

@@ -7,7 +7,7 @@ OBJECT.ConfigurableValue.prototype = {
         this.initial_value  = initial_value;
         this.editable_value = editable_value;
         this.value          = this.initial_value;
-        this.label          = SERVICE.DOM.createElement( "div", { class: "flex-layout-justify-between" }, this.value );
+        this.label          = SERVICE.DOM_HELPER.createFullyCentredDiv( this.value );
     },
     //********************************************  GETTER SETTER  **************************************************//
     isSet   : function () {
@@ -31,3 +31,20 @@ OBJECT.ConfigurableValue.prototype = {
 };
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml );
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, GS.OBJECT.PhaseInterface );
+
+
+OBJECT.CalculatedValue           = function () {
+    this.init();
+};
+OBJECT.CalculatedValue.prototype = {
+    init: function () {
+        this.value = "";
+        this.label = SERVICE.DOM_HELPER.createFullyCentredDiv( this.value );
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    setValue: function ( to_set ) {
+        this.value = to_set;
+        SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.value ), this.label );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.CalculatedValue, OBJECT.InterfaceHtml );

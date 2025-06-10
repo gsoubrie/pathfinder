@@ -9,27 +9,23 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
-        console.log(event_name, params)
         switch ( event_name ) {
             case "open_edition_popup":
-                this.edition_popup    = new POPUP.PropertyEdition( params );
+                this.edition_popup = new POPUP.PropertyEdition( params );
                 break;
             case "click_on_button_V3":
-                switch ( params["button_name"] ){
-                    case "initial_char_plus":
-                    case "initial_char_less":
-                        self.current_character.doActionAfter(params["button_name"], params );
-                        break;
+                if ( params[ "current_character_param" ] ) {
+                    self.current_character.doActionAfter( event_name, params );
+                    return;
                 }
                 break;
-            
         }
     };
     self.validPopupEdition  = function () {
-        switch ( this.edition_popup.current_property.key_element ){
+        switch ( this.edition_popup.current_property.key_element ) {
             case RACES.key_element:
                 self.current_character.getRace().setName( this.edition_popup.windows.getActiveWindow().getName() );
-                self.current_character.getRace().getLegacy().setName("");
+                self.current_character.getRace().getLegacy().setName( "" );
                 break;
             case LEGACIES.key_element:
                 self.current_character.getRace().getLegacy().setName( this.edition_popup.windows.getActiveWindow().getName() );

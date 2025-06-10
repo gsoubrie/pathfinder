@@ -8,7 +8,19 @@ CHARACTERISTICS.Characteristics.prototype = {
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
-        this.addParamForEvents( CHARACTERISTICS.key, true );
+        this.addParamForEvents( "characteristics_param", true );
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "click_on_button_V3":
+                if ( params[ "characteristic_param" ] ) {
+                    this.getContentByUUID( params[ "characteristic_param" ] ).doActionAfter( event_name, params );
+                    return;
+                }
+                break;
+        }
+        this.doActionAfterCommon( event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setDataFromRace: function ( race ) {

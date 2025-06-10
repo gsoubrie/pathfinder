@@ -4,25 +4,35 @@ CHARACTERISTICS.Characteristic           = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.initial_value = 10;
-        this.final_value   = 10;
+        this.initial_value = new OBJECT.ConfigurableValue( 10, "ROLL_DICE" );
+        this.final_value   = new OBJECT.CalculatedValue();
         this.race_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
-        this.race_bonus.addParamForEvents( "race_bonus", true );
+        this.race_bonus.addParamForEvents( "race_bonus_params", true );
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
-    doActionAfter: function ( event_name, param ) {
+    doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "set_free_race_bonus":
                 this.setRaceBonus( "FREE" );
                 break;
+            case "click_on_button_V3":
+                if ( params[ "race_bonus_params" ] ) {
+                    this.setRaceBonus( "2" );
+                    return;
+                }
+                break;
         }
-        this.doActionAfterCommon( event_name, param );
+        this.doActionAfterCommon( event_name, params );
+    },
+    //********************************************  COMPUTE  **************************************************//
+    computeFinalValue: function () {
+        this.final_value.setValue( this.initial_value.value + this.race_bonus.value );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName          : function ( to_set ) {
         this.name = to_set;
-        this.addParamForEvents( CHARACTERISTICS.key_element, this.name );
+        this.addParamForEvents( "characteristic_param", this.name );
     },
     setLabel         : function ( to_set ) {
         this.label = to_set;
