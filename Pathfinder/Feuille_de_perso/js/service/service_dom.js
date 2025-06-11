@@ -376,11 +376,11 @@ SERVICE.DOM = (function ( self ) {
         }
     };
     self.addClasses                                        = function ( dom_element, class_to_add ) {
-        if ( !dom_element ) {
+        if ( !dom_element || !class_to_add ) {
             return;
         }
         if ( typeof class_to_add === "string" ) {
-            class_to_add = class_to_add.split( " " );
+            class_to_add = class_to_add.trim().split( " " );
         }
         for ( var i = 0, _size_i = class_to_add.length; i < _size_i; i++ ) {
             dom_element.classList.add( class_to_add[ i ] );

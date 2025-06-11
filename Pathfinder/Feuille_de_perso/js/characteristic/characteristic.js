@@ -4,7 +4,7 @@ CHARACTERISTICS.Characteristic           = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.initial_value = new OBJECT.ConfigurableValue( 10, "ROLL_DICE" );
+        this.initial_value = new OBJECT.ConfigurableValue( 10, 10 );
         this.final_value   = new OBJECT.CalculatedValue();
         this.race_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.race_bonus.addParamForEvents( "race_bonus_params", true );
@@ -14,22 +14,38 @@ CHARACTERISTICS.Characteristic.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "set_race_bonus":
-                this.race_bonus.setValue( params["race_bonus_value"] );
+                this.race_bonus.setValue( params[ "race_bonus_value" ] );
+                this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
                 break;
             case "set_free_race_bonus":
-                this.race_bonus.setValue( "FREE" );
+                if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
+                    return;
+                }
+                this.race_bonus.setValue( 0 );
+                this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                 break;
             case "clean_all_free_race_settings":
-                if ( this.race_bonus.value === this.race_bonus.editable_value){
-                    this.race_bonus.setValue( "" );
-                    this.computeFinalValue();
-                }                
+                this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                break;
+            case "unclean_all_free_race_settings":
+                this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
                 break;
             case "click_on_button_V3":
-                if ( params[ "race_bonus_params" ] && params["button_name"] === "more_button") {
-                    this.race_bonus.setValue( 2 );
-                    this.computeFinalValue();
-                    params["characteristics_object"].doActionAfter("set_free_race_bonus_done");
+                if ( params[ "race_bonus_params" ] ) {
+                    switch ( params[ "button_name" ] ) {
+                        case "more_button":
+                            this.race_bonus.setValue( 2 );
+                            this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
+                            this.computeFinalValue();
+                            params[ "characteristics_object" ].doActionAfter( "set_free_race_bonus_done" );
+                            break;
+                        case "less_button":
+                            this.race_bonus.setValue( 0 );
+                            this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                            this.computeFinalValue();
+                            params[ "characteristics_object" ].doActionAfter( "unset_free_race_bonus_done" );
+                            break;
+                    }
                     return;
                 }
                 break;
@@ -39,7 +55,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     //********************************************  COMPUTE  **************************************************//
     computeFinalValue: function () {
         let computed_value = this.initial_value.value;
-        if ( this.race_bonus.isSet() ){
+        if ( this.race_bonus.isSet() ) {
             computed_value += this.race_bonus.value;
         }
         this.final_value.setValue( computed_value );
@@ -69,6 +85,13 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.setLabel( value );
                 break;
         }
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtml: function ( to_set ) {
+        this.computeFinalValue();
+        this.race_bonus.computeHtml();
+        this.initial_value.computeHtml();
+        this.final_value.computeHtml();
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

@@ -14,8 +14,16 @@ SERVICE.DOM_HELPER = (function ( self ) {
         return toReturn.dom_element;
     };
     //********************************************  DIV   **************************************************//
-    self.createFullyCentredDiv            = function ( label ) {
-        return SERVICE.DOM.createElement( "div", { class: "flex-layout-center-h-v" }, label );
+    self.createDiv_SpaceAround            = function ( label, class_to_add ) {
+        class_to_add = class_to_add || "";
+        return self.createDiv_FullyCentred( label, class_to_add + " flex-layout-justify-around" );
+    };
+    self.createDiv_FullyCentred           = function ( label, class_to_add ) {
+        let to_return = SERVICE.DOM.createElement( "div", { class: "flex-layout-center-h-v" }, label );
+        if ( class_to_add ) {
+            SERVICE.DOM.addClasses( to_return, class_to_add );
+        }
+        return to_return;
     };
     //********************************************  PROPERTY   **************************************************//
     self.createPropertyHorizontal         = function ( property_name, value, label, is_editable ) {

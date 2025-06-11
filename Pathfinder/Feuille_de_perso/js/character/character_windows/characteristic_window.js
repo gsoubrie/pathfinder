@@ -32,21 +32,21 @@ CHARACTER.CharacteristicWindow.prototype = {
         }
     },
     computeHtml__tableCharacteristic : function ( object_characteristic ) {
+        object_characteristic.computeHtml();
         let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_characteristic.key } ), this.characteristic_table );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, object_characteristic.label ), to_return );
         
         var final_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" } ), to_return );
-        object_characteristic.computeFinalValue();
-        SERVICE.DOM.addElementTo( object_characteristic.final_value.getLabel(), final_value );
+        SERVICE.DOM.addElementTo( object_characteristic.final_value.dom_element, final_value );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), to_return );
+        
         let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" } ), to_return );
-        SERVICE.DOM.addElementTo( object_characteristic.initial_value.getLabel(), initial_dom );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( object_characteristic.getParamForEvents() ), initial_dom );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( object_characteristic.getParamForEvents() ), initial_dom );
+        SERVICE.DOM.addElementTo( object_characteristic.initial_value.dom_element, initial_dom );
         
         var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-race" } ), to_return );
-        SERVICE.DOM.addElementTo( object_characteristic.race_bonus.getLabel(), bonus_race );
+        SERVICE.DOM.addElementTo( object_characteristic.race_bonus.dom_element, bonus_race );
+        
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-class" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), to_return );

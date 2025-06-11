@@ -6991,7 +6991,11 @@ GS.OBJECT.CONST.PHASE                  = {
     SELECTED                : "SELECTED",
     EDITING_SINGLE_GRID_CELL: "EDITING_SINGLE_GRID_CELL",
     HOVER                   : "HOVER",
-    LOADING_DATA            : "LOADING_DATA"
+    LOADING_DATA            : "LOADING_DATA",
+    SETTINGS_FORCED         : "SETTINGS_FORCED",
+    SETTINGS_TO_EDIT        : "SETTINGS_TO_EDIT",
+    SETTINGS_EDITION_FULL   : "SETTINGS_EDITION_FULL",
+    SETTINGS_EDITED         : "SETTINGS_EDITED"
 };
 GS.OBJECT.CONST.CALLBACK_PHASE_TIMEOUT = 0;
 GS.OBJECT.Phase                        = function ( parent_object ) {

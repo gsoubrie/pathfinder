@@ -7,26 +7,25 @@ OBJECT.ConfigurableValue.prototype = {
         this.initial_value  = initial_value;
         this.editable_value = editable_value;
         this.value          = this.initial_value;
-        this.label          = SERVICE.DOM_HELPER.createFullyCentredDiv( this.value );
+        this.initPhase();
     },
     //********************************************  GETTER SETTER  **************************************************//
     isSet   : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
     },
     setValue: function ( to_set ) {
-        if ( to_set === this.editable_value && this.isSet() ) {
-            return;
-        }
         this.value = to_set;
-        switch ( this.value ) {
-            case this.editable_value:
-                SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.initial_value ), this.label );
-                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.label );
-                break;
-            default:
-                SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.value ), this.label );
-                break;
+        if ( this.label_dom_element ) {
+            this.label_dom_element.innerHTML = this.value;
         }
+    },
+    //********************************************  HTML  **************************************************//
+    computeHtml: function () {
+        this.dom_element = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( this.getParamForEvents() ), this.dom_element );
+        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.dom_element );
+        this.setPhaseDomElement( this.dom_element );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml );
@@ -38,13 +37,16 @@ OBJECT.CalculatedValue           = function () {
 };
 OBJECT.CalculatedValue.prototype = {
     init: function () {
-        this.value = "";
-        this.label = SERVICE.DOM_HELPER.createFullyCentredDiv( this.value );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setValue: function ( to_set ) {
         this.value = to_set;
-        SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createFullyCentredDiv( this.value ), this.label );
+        SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.label );
+    },
+    //********************************************  HTML  **************************************************//
+    computeHtml: function () {
+        this.dom_element       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.CalculatedValue, OBJECT.InterfaceHtml );
