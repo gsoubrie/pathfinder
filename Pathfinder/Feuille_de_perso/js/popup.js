@@ -21,10 +21,9 @@ POPUP.PropertyEdition.prototype = {
             case RACES.PARAM.BODY_SIZE.key:
                 return;
             default:
-                console.log( "GSOU", "[PropertyEdition - init]", "not managed", params[ "property_name" ] );
                 break;
         }
-
+        
         this.windows.setActiveWindow( params[ "property_value" ] );
         this.computeHtml();
     },

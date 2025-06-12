@@ -12,6 +12,7 @@ CHARACTER.CharacteristicWindow.prototype = {
         this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "characteristic-container" } );
         this.computeHtml__tableCharacteristics( character_object );
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+        character_object[ CHARACTERISTICS.key ].setCountersParent( this );
     },
     computeHtml__tableCharacteristics: function ( character_object ) {
         let to_return             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, CHARACTERISTICS.label ), this.content_dom_element_target );
@@ -33,13 +34,14 @@ CHARACTER.CharacteristicWindow.prototype = {
     },
     computeHtml__tableCharacteristic : function ( object_characteristic ) {
         object_characteristic.computeHtml();
-        let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_characteristic.key } ), this.characteristic_table );
+        let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_characteristic.name } ), this.characteristic_table );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, object_characteristic.label ), to_return );
         
         var final_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.final_value.dom_element, final_value );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), to_return );
+        var modifier_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.modifier_value.dom_element, modifier_value );
         
         let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.initial_value.dom_element, initial_dom );

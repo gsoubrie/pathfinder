@@ -1,5 +1,5 @@
 .gs-hidden {
-    display: none !important;
+    display : none !important;
 }
 /*********************         window V2        ****************************************************************************/
 .gs-window-element-V2 {
@@ -41,25 +41,25 @@
     display         : flex;
     justify-content : center;
     align-items     : center;
-    min-width: 0;
+    min-width       : 0;
 }
 .flex-layout-right-h-center-v {
     display         : flex;
     justify-content : flex-end;
     align-items     : center;
-    min-width: 0;
+    min-width       : 0;
 }
 .flex-layout-left-h-center-v {
     display         : flex;
     justify-content : flex-start;
     align-items     : center;
-    min-width: 0;
+    min-width       : 0;
 }
 .flex-layout-inline-center-h-v {
     display         : inline-flex;
     justify-content : center;
     align-items     : center;
-    min-width: 0;
+    min-width       : 0;
 }
 .flex-layout-wrap {
     display   : flex;
@@ -106,3 +106,29 @@
     order : -1;
 }
 
+/*********************         COUNTERS        ****************************************************************************/
+.gs-counter[data-number=""] {
+    display : none;
+}
+.gs-counter .gs-counter-label {
+    /*font-weight    : bold;*/
+    vertical-align : baseline;
+    white-space    : nowrap;
+    padding        : 1px 3px;
+    font-size      : 12px;
+    color          : white;
+    line-height    : 12px;
+    border-radius  : 7px;
+}
+.gs-errors-counter .gs-counter-label {
+    background-color : #EC5757;
+    color            : white !important;
+    font-size        : 10px;
+    padding          : 2px 6px;
+}
+.gs-warnings-counter .gs-counter-label {
+    background-color : #FFBA0B;
+    color            : white !important;
+    font-size        : 10px;
+    padding          : 2px 6px;
+}

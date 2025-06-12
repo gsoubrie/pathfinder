@@ -46,7 +46,7 @@ OBJECT.InterfaceHtml.prototype = {
         return this.dom_element;
     }
 };
-SERVICE.CLASS.addPrototype( OBJECT.InterfaceHtml, GS.OBJECT.ShinkenObject );
+SERVICE.CLASS.addPrototype( OBJECT.InterfaceHtml, GS.OBJECT.GsObject );
 
 OBJECT.InterfaceContainer           = function () {
     this.initContents();

@@ -5,11 +5,14 @@ CHARACTERISTICS.Characteristics           = function () {
 CHARACTERISTICS.Characteristics.prototype = {
     init: function () {
         this.initContents();
-        this.free_counter = 0;
+        this.initCounterCommon();
+        this.race_bonus_wrapper = new CHARACTERISTICS.RaceBonuses();
+        this.race_bonus_wrapper.setCountersParent( this );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
         this.addParamForEvents( "characteristics_param", true );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), 2 );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -22,14 +25,9 @@ CHARACTERISTICS.Characteristics.prototype = {
                 }
                 break;
             case "set_free_race_bonus_done":
-                this.free_counter--;
-                if ( !this.free_counter ) {
-                    this.doActionAfter( "clean_all_free_race_settings" );
-                }
-                break;
             case "unset_free_race_bonus_done":
-                this.free_counter++;
-                this.doActionAfter( "unclean_all_free_race_settings" );
+                params[ "characteristics_object" ] = this;
+                this.race_bonus_wrapper.doActionAfter( event_name, params );
                 break;
         }
         this.doActionAfterCommon( event_name, params );
@@ -40,7 +38,7 @@ CHARACTERISTICS.Characteristics.prototype = {
             switch ( race[ "characteristics_bonus" ][ i ] ) {
                 case "FREE":
                     this.doActionAfter( "set_free_race_bonus" );
-                    this.free_counter++;
+                    this.setFreeRaceBonus( this.free_counter + 1 );
                     break;
                 default:
                     this.getContentByUUID( race[ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );
@@ -53,3 +51,4 @@ CHARACTERISTICS.Characteristics.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, OBJECT.InterfaceContainerHtml );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, GS.OBJECT.CounterInterfaceV2 );

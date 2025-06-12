@@ -1,6 +1,6 @@
 "use strict";
-var SHINKEN_VALIDATION                        = {};
-SHINKEN_VALIDATION.CONST                      = {
+var SHINKEN_VALIDATION                    = {};
+SHINKEN_VALIDATION.CONST                  = {
     BOOLEAN: {
         _KEY: "boolean"
     },
@@ -31,21 +31,21 @@ SHINKEN_VALIDATION.CONST                      = {
         DEFINE_STRING_OR_INTEGER_POSITIVE_AND_SMALLER_THAN_MAX: "define_string_or_integer_positive_and_smaller_than_max"
     }
 };
-var GS                                        = GS || {};
-GS.DOM                                        = GS.DOM || {};
-GS.MODAL                                      = GS.MODAL || {};
-GS.NAVIGATOR                                  = GS.NAVIGATOR || {};
-GS.PAGE                                       = GS.PAGE || {};
-GS.CALLBACK                                   = GS.CALLBACK || {};
-GS.TOOLS                                      = GS.TOOLS || {};
-GS.TOOLS.ARRAY                                = GS.TOOLS.ARRAY || {};
-GS.OBJECT                                     = GS.OBJECT || {};
-GS.OBJECT.CONST                               = GS.OBJECT.CONST || {};
-GS.OBJECT.CONST.EVENT_PARAM                   = {
+var GS                                    = GS || {};
+GS.DOM                                    = GS.DOM || {};
+GS.MODAL                                  = GS.MODAL || {};
+GS.NAVIGATOR                              = GS.NAVIGATOR || {};
+GS.PAGE                                   = GS.PAGE || {};
+GS.CALLBACK                               = GS.CALLBACK || {};
+GS.TOOLS                                  = GS.TOOLS || {};
+GS.TOOLS.ARRAY                            = GS.TOOLS.ARRAY || {};
+GS.OBJECT                                 = GS.OBJECT || {};
+GS.OBJECT.CONST                           = GS.OBJECT.CONST || {};
+GS.OBJECT.CONST.EVENT_PARAM               = {
     PARENT_PARAMS_OBJECT: "parent___params_object"
 };
-GS.ELEMENT                                    = GS.ELEMENT || {};
-GS.CONST                                      = {
+GS.ELEMENT                                = GS.ELEMENT || {};
+GS.CONST                                  = {
     KEY_CODE        : {
         TAB      : 9,
         ENTER    : 13,
@@ -97,7 +97,7 @@ GS.CONST                                      = {
         }
     }
 };
-GS.CONST.CONFIGURATION                        = {
+GS.CONST.CONFIGURATION                    = {
     ELEMENT_UNIQUE_ADDRESS_BEHAVIOUR: {
         DUPLICATED_ACCEPTED: "duplicated_accepted",
         WARNING_DISPLAYED  : "warning_displayed",
@@ -105,7 +105,7 @@ GS.CONST.CONFIGURATION                        = {
         SAVE_FORBIDDEN     : "save_forbidden"
     }
 };
-GS.TOOLS.buildLinkDomElementDependIfAdmin     = function ( link, id, label, _class, tooltip ) {
+GS.TOOLS.buildLinkDomElementDependIfAdmin = function ( link, id, label, _class, tooltip ) {
     if ( MANAGER.__instance_element_distributor.current_user.is_admin && link && id ) {
         return GS.TOOLS.buildLinkDomElement( link, id, label, _class, tooltip );
     }
@@ -116,7 +116,7 @@ GS.TOOLS.buildLinkDomElementDependIfAdmin     = function ( link, id, label, _cla
     SERVICE.DOM.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-GS.TOOLS.buildLinkDomElement                  = function ( link, id, label, _class, tooltip ) {
+GS.TOOLS.buildLinkDomElement              = function ( link, id, label, _class, tooltip ) {
     var _href = "/elements/" + link + '/' + id;
     if ( !_class ) {
         _class = "title gs-link gs-space";
@@ -125,7 +125,7 @@ GS.TOOLS.buildLinkDomElement                  = function ( link, id, label, _cla
     SERVICE.DOM.addTooltip( _to_return, tooltip );
     return _to_return;
 };
-GS.TOOLS.buildLinkShinkenElement              = function ( element, label, _class, tooltip ) {
+GS.TOOLS.buildLinkShinkenElement          = function ( element, label, _class, tooltip ) {
     var _uuid = element.uuid;
     if ( element.isNew() ) {
         _uuid += '?new=1';
@@ -135,14 +135,14 @@ GS.TOOLS.buildLinkShinkenElement              = function ( element, label, _clas
     }
     return GS.TOOLS.buildLinkDomElementDependIfAdmin( element.getType(), _uuid, label, _class, tooltip );
 };
-String.prototype.startsWith                   = String.prototype.startsWith || function ( pattern ) {
+String.prototype.startsWith               = String.prototype.startsWith || function ( pattern ) {
     return this.indexOf( pattern ) === 0;
 };
-String.prototype.endsWith                     = String.prototype.endsWith || function ( pattern ) {
+String.prototype.endsWith                 = String.prototype.endsWith || function ( pattern ) {
     var d = this.length - pattern.length;
     return d >= 0 && this.lastIndexOf( pattern ) === d;
 };
-GS.TOOLS.CLASS                                = (function ( self ) {
+GS.TOOLS.CLASS                            = (function ( self ) {
     self.CONST        = {
         COMPONENT: {
             SELECT: "component-select"
@@ -160,23 +160,23 @@ GS.TOOLS.CLASS                                = (function ( self ) {
     };
     return self;
 })( GS.TOOLS.CLASS || {} );
-GS.TOOLS.Link                                 = (function ( self ) {
+GS.TOOLS.Link                             = (function ( self ) {
     self.parse_to_link = function ( item_type, item_name, item_uuid ) {
         return "<a href='/elements/" + item_type + "/" + item_uuid + "' class='gs-link'>" + item_name + "</a>";
     };
     return self;
 })( GS.TOOLS.Link || {} );
-var GS                                        = GS || {};
-GS.OBJECT                                     = GS.OBJECT || {};
-GS.OBJECT.COLLAPSE                            = {
+var GS                                    = GS || {};
+GS.OBJECT                                 = GS.OBJECT || {};
+GS.OBJECT.COLLAPSE                        = {
     PARAM: {
         NAME                   : "collapse_folder__name",
         NAME_FOR_HIDDEN_PREVIEW: "collapse_folder_name_for_hide_preview",
         IS_OPEN                : "is_open"
     }
 };
-var COMPONENT                                 = COMPONENT || {};
-COMPONENT.CONST                               = {
+var COMPONENT                             = COMPONENT || {};
+COMPONENT.CONST                           = {
     PARAM                   : {
         STATUS                : "component_status",
         TEXT_DEFAULT_SELECTOR : "text_default_selector",
@@ -302,8 +302,8 @@ COMPONENT.CONST                               = {
         }
     }
 };
-var SHINKEN_LIST                              = SHINKEN_LIST || {};
-SHINKEN_LIST.CONST                            = SHINKEN_LIST.CONST || {
+var SHINKEN_LIST                          = SHINKEN_LIST || {};
+SHINKEN_LIST.CONST                        = SHINKEN_LIST.CONST || {
     MASS_ACTION     : {
         NAME          : 'mass-action',
         WORK_AREA_NAME: 'mass-action-work-area'
@@ -361,8 +361,8 @@ SHINKEN_LIST.CONST                            = SHINKEN_LIST.CONST || {
         CELL_UUID             : "shinken_list_cell_uuid"
     }
 };
-var MANAGER                                   = MANAGER || {};
-MANAGER.CONST                                 = MANAGER.CONST || {
+var MANAGER                               = MANAGER || {};
+MANAGER.CONST                             = MANAGER.CONST || {
     STATE          : {
         WORK_FLOW: {
             STAGING     : "save-direct-in-staging",
@@ -404,16 +404,16 @@ MANAGER.CONST                                 = MANAGER.CONST || {
         }
     }
 };
-GS.CARTO                                      = {};
-GS.CARTO.CONST                                = {
+GS.CARTO                                  = {};
+GS.CARTO.CONST                            = {
     NAME    : "name",
     URL     : "url",
     IS_VALID: "is_valid"
 };
-GS.OBJECT.ShinkenObject                       = function () {
-    this.__class_name__ = "GS.OBJECT.ShinkenObject";
+GS.OBJECT.GsObject                        = function () {
+    this.__class_name__ = "GS.OBJECT.GsObject";
 };
-GS.OBJECT.ShinkenObject.prototype             = {
+GS.OBJECT.GsObject.prototype              = {
     setShinkenDebug            : function ( to_set ) {
         this.is_shinken_debug = to_set;
         var _components       = this.getChildrenObject();
@@ -532,12 +532,12 @@ GS.OBJECT.ShinkenObject.prototype             = {
         return to_test === this.__class_name__;
     }
 };
-GS.OBJECT.ShinkenObjectForContainer           = function ( uuid ) {
-    this.__class_name__ = "GS.OBJECT.ShinkenObjectForContainer";
+GS.OBJECT.GsObjectForContainer            = function ( uuid ) {
+    this.__class_name__ = "GS.OBJECT.GsObjectForContainer";
     this.uuid           = uuid;
     this.data_to_save   = {};
 };
-GS.OBJECT.ShinkenObjectForContainer.prototype = {
+GS.OBJECT.GsObjectForContainer.prototype  = {
     getUUID           : function () {
         return this.uuid;
     },
@@ -551,10 +551,10 @@ GS.OBJECT.ShinkenObjectForContainer.prototype = {
         this.data_to_save[ key ] = value;
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectForContainer, GS.OBJECT.ShinkenObject );
-GS.OBJECT.InterfaceHtml               = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectForContainer, GS.OBJECT.GsObject );
+GS.OBJECT.InterfaceHtml           = function () {
 };
-GS.OBJECT.InterfaceHtml.prototype     = {
+GS.OBJECT.InterfaceHtml.prototype = {
     addClass   : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
@@ -573,9 +573,9 @@ GS.OBJECT.InterfaceHtml.prototype     = {
         return this.class || "";
     }
 };
-GS.OBJECT.ShinkenObjectHtml           = function () {
+GS.OBJECT.GsObjectHtml            = function () {
 };
-GS.OBJECT.ShinkenObjectHtml.prototype = {
+GS.OBJECT.GsObjectHtml.prototype  = {
     addClass                  : function ( to_add ) {
         if ( !this.class ) {
             this.class = to_add;
@@ -723,12 +723,12 @@ GS.OBJECT.ShinkenObjectHtml.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectHtml, GS.OBJECT.ShinkenObject );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectHtml, GS.OBJECT.InterfaceHtml );
-GS.OBJECT.ShinkenObjectContainer           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.GsObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.InterfaceHtml );
+GS.OBJECT.GsObjectContainer           = function () {
     this.initContents();
 };
-GS.OBJECT.ShinkenObjectContainer.prototype = {
+GS.OBJECT.GsObjectContainer.prototype = {
     initContents                  : function () {
         this.contents = [];
         this.mapping  = {};
@@ -899,10 +899,10 @@ GS.OBJECT.ShinkenObjectContainer.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainer, GS.OBJECT.ShinkenObject );
-GS.OBJECT.ShinkenObjectContainerHtml           = function () {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectContainer, GS.OBJECT.GsObject );
+GS.OBJECT.GsObjectContainerHtml           = function () {
 };
-GS.OBJECT.ShinkenObjectContainerHtml.prototype = {
+GS.OBJECT.GsObjectContainerHtml.prototype = {
     onClick          : function ( event ) {
         this.askHidePopup( this.getDomByEvent( event ) );
     },
@@ -937,8 +937,8 @@ GS.OBJECT.ShinkenObjectContainerHtml.prototype = {
         return SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 10 );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainerHtml, GS.OBJECT.ShinkenObjectContainer );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectContainerHtml, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectContainerHtml, GS.OBJECT.GsObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectContainerHtml, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.ConfirmationPopupInterface           = function () {
 };
 GS.OBJECT.ConfirmationPopupInterface.prototype = {
@@ -958,7 +958,7 @@ GS.OBJECT.ConfirmationPopupInterface.prototype = {
         return _( "confirmation_popup.deletable_content.title", [DICTIONARY_COMMON_UI] );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopupInterface, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopupInterface, GS.OBJECT.GsObjectHtml );
 GS.SERVER                               = {};
 GS.SERVER.CONST                         = {
     NAME              : "name",
@@ -3598,7 +3598,7 @@ GS.OBJECT.CounterV2.prototype           = {
         SERVICE.DOM.addElementTo( this.dom_element_label, this.dom_element );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterV2, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterV2, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.CounterInterfaceV2           = function () {
 };
 GS.OBJECT.CounterInterfaceV2.prototype = {
@@ -3684,7 +3684,7 @@ GS.OBJECT.CounterInterfaceV2.prototype = {
         SERVICE.DOM.addElementTo( this.counters[ type ].getDomElement(), dom_element_parent );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement           = function () {
 };
 GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement.prototype = {
@@ -3698,9 +3698,9 @@ GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2LinkWithParentAndDomElement, GS.OBJECT.CounterInterfaceV2 );
-GS.OBJECT.CounterInterfaceWithShinkenObjectContainer           = function () {
+GS.OBJECT.CounterInterfaceWithGsObjectContainer           = function () {
 };
-GS.OBJECT.CounterInterfaceWithShinkenObjectContainer.prototype = {
+GS.OBJECT.CounterInterfaceWithGsObjectContainer.prototype = {
     resetChildCountersByType: function ( array_type ) {
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].resetCountersByType( array_type );
@@ -3712,8 +3712,8 @@ GS.OBJECT.CounterInterfaceWithShinkenObjectContainer.prototype = {
         return to_add;
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithShinkenObjectContainer, GS.OBJECT.CounterInterfaceV2 );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithShinkenObjectContainer, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithGsObjectContainer, GS.OBJECT.CounterInterfaceV2 );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceWithGsObjectContainer, GS.OBJECT.GsObjectContainerHtml );
 GS.OBJECT.CounterInterfaceValidation           = function () {
 };
 GS.OBJECT.CounterInterfaceValidation.prototype = {
@@ -3743,7 +3743,7 @@ GS.OBJECT.CounterInterfaceV2_patient.prototype = {
         this.counters[ type ].is_patient = true;
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceV2, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.Counter           = function ( dom_element, show_if_null ) {
     this.__class_name__         = 'GS.OBJECT.Counter';
     this._counter_final         = 0;
@@ -4007,7 +4007,7 @@ GS.OBJECT.Counter.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Counter, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Counter, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.CounterInterface           = function () {
 };
 GS.OBJECT.CounterInterface.prototype = {
@@ -4239,12 +4239,12 @@ GS.OBJECT.CounterInterface.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterface, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterface, GS.OBJECT.GsObject );
 GS.OBJECT.CounterInterfaceHtml           = function () {
 };
 GS.OBJECT.CounterInterfaceHtml.prototype = {};
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceHtml, GS.OBJECT.CounterInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceHtml, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterfaceHtml, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.Sorting           = function () {
     this.__class_name__ = 'GS.OBJECT.Sorting';
     this._status        = GS.OBJECT.SORTING.STATUS.NONE;
@@ -4388,7 +4388,7 @@ GS.OBJECT.Sorting.prototype = {
         SERVICE.DOM.addElementTo( _table, this.sort_priority_dom_element );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Sorting, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Sorting, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.SortingInterface           = function () {
 };
 GS.OBJECT.SortingInterface.prototype = {
@@ -4432,7 +4432,7 @@ GS.OBJECT.SortingInterface.prototype = {
         return this.sorting_object.setStatus( to_set );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SortingInterface, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SortingInterface, GS.OBJECT.GsObject );
 GS.OBJECT.SORTING                        = {
     NO_INDEX    : 0,
     STATUS      : {
@@ -6567,8 +6567,8 @@ GS.OBJECT.JsonEditor.prototype               = {
         dom_element_height.parentElement.innerHTML = new_element_html + ',';
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.JsonEditor, GS.OBJECT.ShinkenObject );
-GS.OBJECT.JsonEditorService           = (function ( self ) {
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.JsonEditor, GS.OBJECT.GsObject );
+GS.OBJECT.JsonEditorService      = (function ( self ) {
     var __LINE_TAG__       = "__SHINKEN_LINE_TAG__";
     self.computeValidation = function ( dom_element ) {
         let _text_parsed = _parseJsonDomElementToText( dom_element );
@@ -6612,11 +6612,11 @@ GS.OBJECT.JsonEditorService           = (function ( self ) {
     
     return self;
 })( GS.OBJECT.JsonEditorService || {} );
-GS.OBJECT.JsonForm                    = function ( dom_element ) {
+GS.OBJECT.JsonForm               = function ( dom_element ) {
     this.__class_name__ = 'GS.OBJECT.JsonForm';
     this.init( dom_element );
 };
-GS.OBJECT.JsonForm.prototype          = {
+GS.OBJECT.JsonForm.prototype     = {
     init                : function ( dom_element ) {
         this.dom_element                     = dom_element;
         this.message_invalid                 = "";
@@ -6685,10 +6685,10 @@ GS.OBJECT.JsonForm.prototype          = {
         }
     }
 };
-GS.OBJECT.ShinkenObjectJson           = function () {
-    this.__class_name__ = 'GS.OBJECT.ShinkenObjectJson';
+GS.OBJECT.GsObjectJson           = function () {
+    this.__class_name__ = 'GS.OBJECT.GsObjectJson';
 };
-GS.OBJECT.ShinkenObjectJson.prototype = {
+GS.OBJECT.GsObjectJson.prototype = {
     getDataForJson        : function ( format_data__20241115 ) {
         const _to_return  = this.getObjectToJson( format_data__20241115 );
         const _components = this.getChildrenObjectDict();
@@ -6807,7 +6807,7 @@ GS.OBJECT.ShinkenObjectJson.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenObjectJson, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectJson, GS.OBJECT.GsObject );
 GS.OBJECT.NOTIFICATION        = GS.OBJECT.NOTIFICATION || {};
 GS.OBJECT.NOTIFICATION.CONST  = GS.OBJECT.NOTIFICATION.CONST || {
     CONTAINER: {
@@ -6914,7 +6914,7 @@ GS.OBJECT.DoActionsAfter.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionsAfter, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionsAfter, GS.OBJECT.GsObjectContainer );
 GS.OBJECT.DoActionAfter           = function ( parent_object, to_test, event_name, param_1, param_2, param_3 ) {
     this.init( parent_object, to_test, event_name, param_1, param_2, param_3 );
 };
@@ -6941,7 +6941,7 @@ GS.OBJECT.DoActionAfter.prototype = {
     remove       : function () {
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionAfter, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionAfter, GS.OBJECT.GsObject );
 GS.OBJECT.CONST.PHASE                  = {
     RUNNING                 : 0,
     REFRESHING              : 1,
@@ -7183,7 +7183,7 @@ GS.OBJECT.PhaseInterface.prototype     = {
     callbackForPhase                   : function () {
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.PhaseInterface, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.PhaseInterface, GS.OBJECT.GsObject );
 GS.OBJECT.SLIDE_PANEL          = {
     TYPE    : {
         HORIZONTAL_RIGHT: "HORIZONTAL_RIGHT",
@@ -7510,7 +7510,7 @@ GS.OBJECT.SlidePanel.prototype = {
         this.doActionAfter( "slide-panel-restore-structure-done" );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.PhaseInterface );
 GS.COMUNICATION                                      = (function ( self ) {
     self.requestGet_withTimeout = function ( timeout, url, success, error, not_found_callback, unauthorized_callback ) {
@@ -8380,7 +8380,7 @@ GS.OBJECT.Dropdown._interface.prototype              = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Dropdown._interface, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Dropdown._interface, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Dropdown._interface, GS.OBJECT.PhaseInterface );
 GS.OBJECT.Dropdown.CONST                      = {
     PLACEMENT        : {
@@ -8574,7 +8574,7 @@ GS.OBJECT.SoundNotificationOfChange.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SoundNotificationOfChange, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.SoundNotificationOfChange__fromData           = function () {
     this.init();
 };
@@ -8714,7 +8714,7 @@ SHINKEN_LIST.Pagination_V3.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Pagination_V3, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Pagination_V3, GS.OBJECT.GsObjectContainerHtml );
 GS.OBJECT.CollapseFolder           = function ( name, label ) {
     this.init( name, label );
 };
@@ -8746,7 +8746,7 @@ GS.OBJECT.CollapseFolder.prototype = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolder, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseFolder, GS.OBJECT.GsObjectContainerHtml );
 GS.OBJECT.CollapseSet           = function () {
     this.init();
 };
@@ -8765,7 +8765,7 @@ GS.OBJECT.CollapseSet.prototype = {
     getDataToSave: function ( type ) {
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseSet, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CollapseSet, GS.OBJECT.GsObjectContainerHtml );
 GS.OBJECT.CollapseFolderFromData           = function ( name, label ) {
     this.initSpecific( name, label );
 };
@@ -9071,7 +9071,7 @@ SHINKEN_LIST.Filter.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, GS.OBJECT.CounterInterface );
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filter, GS.OBJECT.GsObjectHtml );
 SHINKEN_LIST.Filters           = function () {
     this.init();
 };
@@ -9150,7 +9150,7 @@ SHINKEN_LIST.Filters.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filters, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Filters, GS.OBJECT.GsObjectContainerHtml );
 SHINKEN_LIST.Header           = function () {
     this.init();
 };
@@ -9178,7 +9178,7 @@ SHINKEN_LIST.Header.prototype = {
         return this.getLabel();
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.PhaseInterface );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Header, GS.OBJECT.CounterInterfaceV2 );
 SHINKEN_LIST.Headers           = function () {
@@ -9213,7 +9213,7 @@ SHINKEN_LIST.Headers.prototype = {
         return _to_return;
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Headers, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Headers, GS.OBJECT.GsObjectContainerHtml );
 SHINKEN_LIST.LineCell           = function () {
     this.init();
 };
@@ -9747,11 +9747,11 @@ SHINKEN_LIST.Line.prototype = {
     getObjectsType                    : function () {
         return "gs-list-cell";
     },
-    askHidePopup                      : GS.OBJECT.ShinkenObjectContainerHtml.prototype.askHidePopup,
-    addParamForEvents                 : GS.OBJECT.ShinkenObjectContainerHtml.prototype.addParamForEvents
+    askHidePopup                      : GS.OBJECT.GsObjectContainerHtml.prototype.askHidePopup,
+    addParamForEvents                 : GS.OBJECT.GsObjectContainerHtml.prototype.addParamForEvents
 };
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, GS.OBJECT.CounterInterfaceWithShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Line, GS.OBJECT.CounterInterfaceWithGsObjectContainer );
 SHINKEN_LIST.Lines           = function () {
 };
 SHINKEN_LIST.Lines.prototype = {
@@ -10095,7 +10095,7 @@ SHINKEN_LIST.Lines.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.GsObjectContainerHtml );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.CounterInterfaceV2 );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Lines, GS.OBJECT.PhaseInterface );
 SHINKEN_LIST.Set           = function ( name ) {
@@ -10388,7 +10388,7 @@ SHINKEN_LIST.Set.prototype = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.CounterInterfaceV2 );
 GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.Set, GS.OBJECT.PhaseInterface );
 CONTROLLER.CommonUI                 = (function ( self ) {
@@ -10531,7 +10531,7 @@ COMPONENT.InterfaceButton.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton, COMPONENT.Interface );
 COMPONENT.InterfaceButton_V3           = function () {
 };
@@ -10623,7 +10623,7 @@ COMPONENT.InterfaceButton_V3.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceButton_V3, COMPONENT.Interface_V3 );
 COMPONENT.Button           = function ( dom_element, name ) {
     this.__class_name__ = 'COMPONENT.Button';
@@ -11026,7 +11026,7 @@ COMPONENT.FinderObjectAbstract.prototype = {
     
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.FinderObjectAbstract, GS.OBJECT.GsObjectHtml );
 COMPONENT.FinderObjectAbstractFromHtml           = function ( dom_element, parent, dom_element_phase ) {
     this.__class_name__ = 'COMPONENT.FinderObject';
     this.init( dom_element, parent, dom_element_phase );
@@ -11128,7 +11128,7 @@ COMPONENT.Generic.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.Generic, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.Generic, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.Generic, COMPONENT.Interface );
 COMPONENT.InputRange           = function ( dom_element, property ) {
     this.init( dom_element, property );
@@ -11359,7 +11359,7 @@ COMPONENT.InterfaceInputWithDropDown.prototype = {
     applySiblingSettings       : function ( component ) {
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceInputWithDropDown, GS.OBJECT.CounterInterface );
 COMPONENT.InputWithDropDown           = function ( dom_element, parent, use_quotes, type ) {
     this.init( dom_element, parent, use_quotes, type );
@@ -11890,7 +11890,7 @@ COMPONENT.InputFromData.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, COMPONENT.InterfaceInput );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData, GS.OBJECT.GsObjectHtml );
 COMPONENT.InputFromDataV2           = function ( value, property_name, parent_uuid ) {
     this.__class_name__ = 'COMPONENT.InputFromDataV2';
     this.initSpecific( value, property_name, parent_uuid );
@@ -11934,7 +11934,7 @@ COMPONENT.InputFromDataV2.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, COMPONENT.InterfaceInput );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromDataV2, GS.OBJECT.GsObjectHtml );
 COMPONENT.InputFromData_V3           = function ( name, value, params ) {
     this.__class_name__ = 'COMPONENT.InputFromData_V3';
     this.initSpecific( name, value, params );
@@ -12008,7 +12008,7 @@ COMPONENT.InputFromData_V3.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, COMPONENT.InterfaceInput_V3 );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InputFromData_V3, GS.OBJECT.GsObjectHtml );
 COMPONENT.InterfaceLabel           = function () {
     this.__class_name__ = 'COMPONENT.Label';
     this.init();
@@ -12111,7 +12111,7 @@ COMPONENT.LabelFromData.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, GS.OBJECT.GsObjectHtml );
 COMPONENT.ListSelectElement                       = function ( dom_element ) {
     this.init( dom_element );
 };
@@ -12333,7 +12333,7 @@ COMPONENT.InterfaceListSelectElement_V2.prototype = {
         this.dom_element.innerHTML = this.getLabel();
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelectElement_V2, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelectElement_V2, GS.OBJECT.GsObjectHtml );
 COMPONENT.ListSelectElementFromData_V2           = function ( key_name, label, property_name, selector_name ) {
     this.initSpecific( key_name, label, property_name, selector_name );
 };
@@ -12774,7 +12774,7 @@ COMPONENT.InterfaceListSelect_V2.prototype = {
         return this.state;
     }
 };
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelect_V2, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceListSelect_V2, GS.OBJECT.GsObjectContainerHtml );
 COMPONENT.ListSelectFromData_V2           = function ( property_name, selector_name ) {
     this.init( property_name, selector_name );
 };
@@ -13210,7 +13210,7 @@ COMPONENT.InterfaceSelect.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, GS.OBJECT.CounterInterface );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSelect, GS.OBJECT.GsObjectHtml );
 COMPONENT.Select           = function ( dom_element, type, is_override, parent, datasetLink, allow_multiple_select ) {
     this.__class_name__        = 'COMPONENT.Select';
     this.type                  = type;
@@ -13329,7 +13329,7 @@ COMPONENT.RenderInterface.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.CounterInterface );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.RenderInterface, GS.OBJECT.GsObjectHtml );
 COMPONENT.RenderFromHtml           = function ( dom_element ) {
     this.initSpecific( dom_element );
 };
@@ -13464,7 +13464,7 @@ COMPONENT.InterfaceSingleSelect.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, GS.OBJECT.CounterInterface );
-GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( COMPONENT.InterfaceSingleSelect, GS.OBJECT.GsObjectHtml );
 COMPONENT.SingleSelectFromData           = function ( property_name, selector_name ) {
     this.__class_name__ = 'COMPONENT.SingleSelectFromData';
     this.is_editable    = true;
@@ -13882,7 +13882,7 @@ GS.OBJECT.EditableElementContainerInterface.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.EditableElementContainerInterface, GS.OBJECT.EditableElementInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.EditableElementContainerInterface, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.EditableElementContainerInterface, GS.OBJECT.GsObjectContainer );
 GS.OBJECT.LastModificationElement           = function ( type_modification, element_modified, previous, next ) {
     this.init( type_modification, element_modified, previous, next );
 };
@@ -13933,7 +13933,7 @@ GS.OBJECT.LastModificationElement.prototype = {
         return this.uuid;
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationElement, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationElement, GS.OBJECT.GsObject );
 GS.OBJECT.LastModification           = function () {
     this.init();
 };
@@ -13974,7 +13974,7 @@ GS.OBJECT.LastModification.prototype = {
         return this.add( last_modification_element );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModification, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModification, GS.OBJECT.GsObjectContainer );
 GS.OBJECT.LastModifications           = function () {
     this.init();
 };
@@ -14034,7 +14034,7 @@ GS.OBJECT.LastModifications.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModifications, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModifications, GS.OBJECT.GsObjectContainerHtml );
 GS.OBJECT.LastModificationsInterface           = function () {
 };
 GS.OBJECT.LastModificationsInterface.prototype = {
@@ -14042,7 +14042,7 @@ GS.OBJECT.LastModificationsInterface.prototype = {
         this.last_modifications = new GS.OBJECT.LastModifications();
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationsInterface, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModificationsInterface, GS.OBJECT.GsObject );
 SHINKEN_LIST.FilterFromData           = function ( type, name ) {
     this.type = type;
     this.name = name;
@@ -15225,7 +15225,7 @@ SHINKEN_LIST.PaginationNavigation_V3.prototype = {
         this.addDomElement( this.button.getDomElement() );
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationNavigation_V3, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationNavigation_V3, GS.OBJECT.GsObjectHtml );
 SHINKEN_LIST.PaginationSelector           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector";
     this.init( total_page, current_page, parent_name );
@@ -15304,7 +15304,7 @@ SHINKEN_LIST.PaginationSelector.prototype = {
         this.addDomElement( _to_add );
     }
 };
-GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( SHINKEN_LIST.PaginationSelector, GS.OBJECT.GsObjectHtml );
 SHINKEN_LIST.PaginationSelector_V3           = function ( total_page, current_page, parent_name ) {
     this.__class_name__ = "SHINKEN_LIST.PaginationSelector_V3";
     this.init( total_page, current_page, parent_name );
@@ -16736,7 +16736,7 @@ GS.OBJECT.ConfirmationPopup.prototype        = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ConfirmationPopup, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.CONFIRMATIONPOPUP              = {
     PARAM: {
         NAME                   : "confirmation_pop_up_name",
@@ -17073,7 +17073,7 @@ GS.OBJECT.DefaultConfiguration.prototype   = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfiguration, GS.OBJECT.CounterInterfaceValidation );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfiguration, GS.OBJECT.ShinkenObjectJson );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DefaultConfiguration, GS.OBJECT.GsObjectJson );
 GS.OBJECT.DefaultConfigurationWithOwnProperty           = function ( data ) {
     this.init( data );
 };
@@ -17888,7 +17888,7 @@ GS.OBJECT.NOTIFICATION.Container.prototype = {
         SERVICE.DOM.empty( this.dom_element );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.Container, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.Container, GS.OBJECT.GsObject );
 GS.OBJECT.VisualNotificationOfChange                     = function ( data ) {
     this.init( data );
 };
@@ -18073,7 +18073,7 @@ GS.OBJECT.BlinkNotificationOfChange.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.BlinkNotificationOfChange, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.BlinkNotificationOfChange__fromData           = function ( data ) {
     this.init( data );
 };
@@ -18430,7 +18430,7 @@ GS.OBJECT.NOTIFICATION.User.prototype = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.User, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.NOTIFICATION.User, GS.OBJECT.GsObject );
 GS.OBJECT.OVERLAYFRAME           = {
     CONST: {
         EVENT: {
@@ -18556,7 +18556,7 @@ GS.OBJECT.OverlayFrame.prototype = {
     resetZoneToRemove        : function () {
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrame, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.OverlayFrame, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.OverlayFrameForGrid           = function ( tile_pixel_size ) {
     this.__class_name__  = "GS.OBJECT.OverlayFrameForGrid";
     this.tile_pixel_size = tile_pixel_size;
@@ -19154,7 +19154,7 @@ GS.OBJECT.Param.prototype         = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.CounterInterfaceValidation );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.ShinkenObjectJson );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.GsObjectJson );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Param, GS.OBJECT.EditableElementInterface );
 GS.OBJECT.PROGRESS_BAR_CONST    = {
     SAVING_DEFAULT                  : {
@@ -19312,7 +19312,7 @@ GS.OBJECT.Progressbar.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Progressbar, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Progressbar, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Progressbar, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.ProgressbarStep                = function ( index ) {
     this._index        = index;
     this._phase        = null;
@@ -19389,7 +19389,7 @@ GS.OBJECT.ProgressbarInterface.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ProgressbarInterface, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ProgressbarInterface, GS.OBJECT.GsObject );
 GS.OBJECT.Resource                 = function () {
 };
 GS.OBJECT.Resource.prototype       = {
@@ -19724,7 +19724,7 @@ GS.OBJECT.ShinkenElement.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.ShinkenObjectJson );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.GsObjectJson );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.PhaseInterface );
 GS.OBJECT.Refresh           = function ( countdown, parent, do_once ) {
     this.parent_object     = parent;
@@ -20130,7 +20130,7 @@ GS.OBJECT.Squares.prototype = {
         return false;
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Squares, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Squares, GS.OBJECT.GsObjectContainer );
 GS.OBJECT.Point           = function ( x, y, type, max_x, max_y ) {
     this.x_original   = x;
     this.y_original   = y;
@@ -20171,7 +20171,7 @@ GS.OBJECT.Point.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Point, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Point, GS.OBJECT.GsObjectHtml );
 GS.OBJECT.Square           = function ( bottom_left_point, top_right_point, uuid, max_width ) {
     this.top_right_point   = top_right_point;
     this.bottom_left_point = bottom_left_point;
@@ -20235,7 +20235,7 @@ GS.OBJECT.Square.prototype = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Square, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Square, GS.OBJECT.GsObjectHtml );
 GS.StatusService               = (function ( self ) {
     "use strict";
     
@@ -20711,7 +20711,7 @@ GS.ELEMENT.UiUserAcl.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAcl, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAcl, GS.OBJECT.GsObject );
 GS.ELEMENT.UiUserAclShareExtend           = function () {
     this.read     = false;
     this.create   = false;
@@ -20741,7 +20741,7 @@ GS.ELEMENT.UiUserAclShareExtend.prototype = {
     }
     
 };
-GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAclShareExtend, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUserAclShareExtend, GS.OBJECT.GsObject );
 GS.ELEMENT.UiUserPrefs           = function () {
     this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_LIST.NAME ]           = {};
     this[ GS.ELEMENT.USER.PARAM.PREFS.DEFAULT_SCREEN.NAME ]         = {};
@@ -20849,7 +20849,7 @@ GS.UserPrefs_V3.prototype        = {
     getDataToSave: function () {
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.GsObjectContainer );
 GS.UserPref_V3           = function ( data ) {
     this.init( data );
 };
@@ -20868,7 +20868,7 @@ GS.UserPref_V3.prototype = {
         return this[ GS.USER_PREFS.VALUE ];
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.UserPrefs_V3, GS.OBJECT.GsObjectContainer );
 GS.USER_PREFS.factory       = function ( data ) {
     if ( typeof data === "object" ) {
         var _keys = Object.keys( data );
@@ -21190,7 +21190,7 @@ GS.ELEMENT.UiUser.prototype = {
         return '<div class="' + _class + '" ' + _attribute + '>' + _user_name + '</div>';
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUser, GS.OBJECT.ShinkenObject );
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUser, GS.OBJECT.GsObject );
 GS.ELEMENT.UiUsers           = function () {
     this.init();
 };
@@ -21249,7 +21249,7 @@ GS.ELEMENT.UiUsers.prototype = {
         GS.COMUNICATION.requestGet( GS.COMUNICATION.CONST.QUERY.GET.USERS.KEY, _success, _error, null );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUsers, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUsers, GS.OBJECT.GsObjectContainer );
 GS.OBJECT.ViewBehaviour           = function () {
     this.__class_name__ = "GS.OBJECT.ViewBehaviour";
     this.init();
@@ -21458,7 +21458,7 @@ GS.OBJECT.ViewHistory.prototype = {
         this.addDomElement( CLIPBOARD_SERVICE.buildHtmlButtons_V3( true, false, { [ GS.OBJECT.VIEW_HISTORY.PARAM.NAME ]: this.getName() } ) );
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewHistory, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewHistory, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ViewHistory, GS.OBJECT.PhaseInterface );
 GS.OBJECT.View            = function ( data ) {
     this.init( data );
@@ -21670,7 +21670,7 @@ GS.OBJECT.Views.prototype = {
         }
     }
 };
-GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Views, GS.OBJECT.ShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( GS.OBJECT.Views, GS.OBJECT.GsObjectContainer );
 CONTROLLER.Help                          = (function ( self ) {
     "use strict";
     self._dom_element_help = null;
@@ -22495,7 +22495,7 @@ WINDOW.ElementGroup.prototype = {
         return this.getActiveWindow().getUrlToSave();
     }
 };
-GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.ShinkenObjectContainerHtml );
+GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.GsObjectContainerHtml );
 GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.CounterInterface );
 GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.PhaseInterface );
 WINDOW.ElementGroupWithCommaAbstract           = function ( name ) {
@@ -22626,7 +22626,7 @@ WINDOW.Element.prototype                       = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( WINDOW.Element, GS.OBJECT.CounterInterface );
-GS.TOOLS.CLASS.addPrototype( WINDOW.Element, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( WINDOW.Element, GS.OBJECT.GsObjectHtml );
 WINDOW.ElementWithProperties           = function ( name, dom_element, is_menu ) {
     this.__class_name__ = "WINDOW.ElementWithProperties";
     

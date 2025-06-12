@@ -4,9 +4,11 @@ CHARACTERISTICS.Characteristic           = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.initial_value = new OBJECT.ConfigurableValue( 10, 10 );
-        this.final_value   = new OBJECT.CalculatedValue();
-        this.race_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
+        this.initial_value  = new OBJECT.ConfigurableValue( 10, 10 );
+        this.final_value    = new OBJECT.CalculatedValue();
+        this.modifier_value = new OBJECT.CalculatedValue();
+        this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
+        this.initial_value.addParamForEvents( "initial_value_params", true );
         this.race_bonus.addParamForEvents( "race_bonus_params", true );
         this.updateData( data );
     },
@@ -36,16 +38,27 @@ CHARACTERISTICS.Characteristic.prototype = {
                         case "more_button":
                             this.race_bonus.setValue( 2 );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
-                            this.computeFinalValue();
                             params[ "characteristics_object" ].doActionAfter( "set_free_race_bonus_done" );
                             break;
                         case "less_button":
                             this.race_bonus.setValue( 0 );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                            this.computeFinalValue();
                             params[ "characteristics_object" ].doActionAfter( "unset_free_race_bonus_done" );
                             break;
                     }
+                    this.computeFinalValue();
+                    return;
+                }
+                if ( params[ "initial_value_params" ] ) {
+                    switch ( params[ "button_name" ] ) {
+                        case "more_button":
+                            this.initial_value.changeValue( 1 );
+                            break;
+                        case "less_button":
+                            this.initial_value.changeValue( -1 );
+                            break;
+                    }
+                    this.computeFinalValue();
                     return;
                 }
                 break;
@@ -59,6 +72,11 @@ CHARACTERISTICS.Characteristic.prototype = {
             computed_value += this.race_bonus.value;
         }
         this.final_value.setValue( computed_value );
+        this.computeModifier();
+    },
+    computeModifier  : function () {
+        let computed_value = Math.floor( (this.final_value.value - 10) / 2 );
+        this.modifier_value.setValue( computed_value );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName          : function ( to_set ) {
@@ -73,6 +91,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     addParamForEvents: function ( key, value ) {
         this.addParamForEventsCommon( key, value );
+        this.initial_value.addParamForEvents( key, value );
         this.race_bonus.addParamForEvents( key, value );
     },
     //********************************************  DATA   **************************************************//
@@ -92,6 +111,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus.computeHtml();
         this.initial_value.computeHtml();
         this.final_value.computeHtml();
+        this.modifier_value.computeHtml();
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

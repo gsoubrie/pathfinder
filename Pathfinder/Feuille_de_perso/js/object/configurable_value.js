@@ -10,14 +10,16 @@ OBJECT.ConfigurableValue.prototype = {
         this.initPhase();
     },
     //********************************************  GETTER SETTER  **************************************************//
-    isSet   : function () {
+    isSet      : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
     },
-    setValue: function ( to_set ) {
+    setValue   : function ( to_set ) {
         this.value = to_set;
-        if ( this.label_dom_element ) {
-            this.label_dom_element.innerHTML = this.value;
-        }
+        this.updateHtml();
+    },
+    changeValue: function ( delta ) {
+        this.value += delta;
+        this.updateHtml();
     },
     //********************************************  HTML  **************************************************//
     computeHtml: function () {
@@ -26,6 +28,11 @@ OBJECT.ConfigurableValue.prototype = {
         this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.dom_element );
         this.setPhaseDomElement( this.dom_element );
+    },
+    updateHtml : function () {
+        if ( this.label_dom_element ) {
+            this.label_dom_element.innerHTML = this.value;
+        }
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml );
@@ -41,7 +48,9 @@ OBJECT.CalculatedValue.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setValue: function ( to_set ) {
         this.value = to_set;
-        SERVICE.DOM.addElementToAfterEmpty( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.label );
+        if ( this.label_dom_element ) {
+            this.label_dom_element.innerHTML = this.value;
+        }
     },
     //********************************************  HTML  **************************************************//
     computeHtml: function () {

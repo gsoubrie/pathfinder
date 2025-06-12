@@ -1,8 +1,8 @@
 "use strict";
-var GS         = GS || {};
-GS.OBJECT      = GS.OBJECT || {};
-var WINDOW_V2 = {};
-WINDOW_V2.CONST = {
+var GS                           = GS || {};
+GS.OBJECT                        = GS.OBJECT || {};
+var WINDOW_V2                    = {};
+WINDOW_V2.CONST                  = {
     CLASS: {
         WINDOW_GROUP  : "gs-window-group-V2",
         WINDOW_TAB    : "gs-window-element-V2",
@@ -22,10 +22,10 @@ WINDOW_V2.ElementGroup           = function ( group_name ) {
     this.init( group_name );
 };
 WINDOW_V2.ElementGroup.prototype = {
-    init      : function ( group_name ) {
+    init                      : function ( group_name ) {
         this.initCommon( group_name );
     },
-    initCommon: function ( group_name ) {
+    initCommon                : function ( group_name ) {
         this.initCounterCommon();
         this.initContents();
         this.initName( group_name );
@@ -33,19 +33,19 @@ WINDOW_V2.ElementGroup.prototype = {
         this.active_window = null;
         MANAGER.__instance_window_distributor.setParentWindow( this.name, this );
     },
-    initCounterCommon           : function () {
+    initCounterCommon         : function () {
         this.counters = {};
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
-    initName  : function ( group_name ) {
+    initName                  : function ( group_name ) {
         this.name = group_name || SERVICE.STRING.buildUUID();
         this.addParamForEvents( WINDOW_V2.CONST.PARAM.WINDOW_GROUP_NAME, this.name );
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter             : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon       : function ( event_name, param ) {
         switch ( event_name ) {
             case "compute_html_done" : //NOT GIVE TO CHILDREN
                 break;
@@ -67,7 +67,7 @@ WINDOW_V2.ElementGroup.prototype = {
                 this.active_window = this.contents[ i ];
             }
         }
-        this.doActionAfter( "set_active_window", {[WINDOW_V2.CONST.PARAM.WINDOW_NAME] : window_name} );
+        this.doActionAfter( "set_active_window", { [ WINDOW_V2.CONST.PARAM.WINDOW_NAME ]: window_name } );
     },
     getActiveWindow           : function () {
         if ( !this.active_window ) {
@@ -117,32 +117,32 @@ WINDOW_V2.ElementGroup.prototype = {
         _window.setVisibilityState( to_set );
         _window.doActionAfter( "set_visibility_state" );
     },
-    getDomElementTargets     : function () {
+    getDomElementTargets      : function () {
         return this.dom_element_targets;
     },
-    pulsateElementIfNotActive: function ( window_name ) {
+    pulsateElementIfNotActive : function ( window_name ) {
         if ( this.getActiveWindow().getName() !== window_name ) {
             this.getActiveWindow().pulsate();
         }
     },
-    getDataToSave: function () {
+    getDataToSave             : function () {
         return this.getActiveWindow().getDataToSave();
     },
-    getUrlToSave : function () {
+    getUrlToSave              : function () {
         return this.getActiveWindow().getUrlToSave();
     }
 };
-GS.TOOLS.CLASS.addPrototype( WINDOW_V2.ElementGroup, GS.OBJECT.CounterInterfaceWithShinkenObjectContainer );
+GS.TOOLS.CLASS.addPrototype( WINDOW_V2.ElementGroup, GS.OBJECT.CounterInterfaceWithGsObjectContainer );
 GS.TOOLS.CLASS.addPrototype( WINDOW_V2.ElementGroup, GS.OBJECT.PhaseInterface );
 WINDOW_V2.Element           = function ( window_name, parent_name ) {
     this.__class_name__ = "WINDOW_V2.Element";
     this.init( window_name, parent_name );
 };
 WINDOW_V2.Element.prototype = {
-    init          : function ( window_name, parent_name ) {
+    init                      : function ( window_name, parent_name ) {
         this.initCommon( window_name, parent_name );
     },
-    initCommon    : function ( window_name, parent_name ) {
+    initCommon                : function ( window_name, parent_name ) {
         this.initCounterCommon();
         this.name        = window_name;
         this.parent_name = parent_name;
@@ -154,16 +154,21 @@ WINDOW_V2.Element.prototype = {
         }
         this.initPhase();
     },
-    initController: function () {
+    initCounterCommon         : function () {
+        this.counters = {};
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+    },
+    initController            : function () {
         let controller = this.getController_20240426();
         if ( controller ) {
             controller.init();
         }
     },
-    doActionAfter      : function ( event_name, param ) {
+    doActionAfter             : function ( event_name, param ) {
         this.doActionAfterCommon( event_name, param );
     },
-    doActionAfterCommon: function ( event_name, param ) {
+    doActionAfterCommon       : function ( event_name, param ) {
         switch ( event_name ) {
             case "compute_html_done":
                 this.setPhaseDomElement( this.getDomElement() );
@@ -215,7 +220,7 @@ WINDOW_V2.Element.prototype = {
         this.content_dom_element_target = to_set;
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
-    callbackForPhase: function () {
+    callbackForPhase          : function () {
         var current = this.getCurrentPhase();
         if ( !this.dom_element_target ) {
             return;
@@ -232,15 +237,15 @@ WINDOW_V2.Element.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( WINDOW_V2.Element, GS.OBJECT.CounterInterfaceV2 );
 GS.TOOLS.CLASS.addPrototype( WINDOW_V2.Element, GS.OBJECT.PhaseInterface );
-GS.TOOLS.CLASS.addPrototype( WINDOW_V2.Element, GS.OBJECT.ShinkenObjectHtml );
+GS.TOOLS.CLASS.addPrototype( WINDOW_V2.Element, GS.OBJECT.GsObjectHtml );
 WINDOW_V2.ElementFromData           = function ( window_name, parent_name ) {
     this.__class_name__ = 'WINDOW_V2.ElementFromData';
     this.initSpecific( window_name, parent_name );
-
+    
 };
 WINDOW_V2.ElementFromData.prototype = {
-    init        : WINDOW_V2.Element.prototype.init,
-    initSpecific: function ( window_name, parent_name ) {
+    init             : WINDOW_V2.Element.prototype.init,
+    initSpecific     : function ( window_name, parent_name ) {
         this.init( window_name, parent_name );
         this.label = new COMPONENT.LabelFromData( this.getName() );
     },
@@ -288,8 +293,8 @@ WINDOW_V2.ElementGroupFromData           = function ( group_name ) {
     this.init( group_name );
 };
 WINDOW_V2.ElementGroupFromData.prototype = {
-    init        : WINDOW_V2.ElementGroup.prototype.init,
-    initWithData: function ( data_windows ) {
+    init               : WINDOW_V2.ElementGroup.prototype.init,
+    initWithData       : function ( data_windows ) {
         for ( let i = 0, _size_i = data_windows.length; i < _size_i; i++ ) {
             let added = this.addSpecific( this.getChildConstructor( data_windows[ i ].name, this.getName() ) );
             if ( data_windows[ i ].is_active ) {
@@ -304,7 +309,7 @@ WINDOW_V2.ElementGroupFromData.prototype = {
         return new WINDOW_V2.ElementFromData( window_name, parent_name );
     },
     computeHtml        : function () {
-
+        
         this.setDomElement( SERVICE.DOM.createElement( "div", this.getMainAttribute() ) );
         if ( this.getController__20240819() ) {
             this.addParamForEvents( CONTROLLER.CONST.CONTROLLER_NAME_LABEL, this.getController__20240819().controller_name );
@@ -316,7 +321,6 @@ WINDOW_V2.ElementGroupFromData.prototype = {
         this.doActionAfter( "compute_html_done" );
     },
     computeHtmlTargets : function ( dom_parent ) {
-        console.warn("GSOU", "[ElementGroupFromData - computeHtmlTargets]", this, dom_parent );
         this.dom_element_targets = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": WINDOW_V2.CONST.CLASS.WINDOW_TARGETS } ), dom_parent );
         for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
             this.contents[ i ].computeHtmlTarget();
@@ -332,8 +336,8 @@ WINDOW_V2.ElementGroupFromData.prototype = {
         }
         return _to_return;
     },
-    getEventManager   : function () {
-        return  "MANAGER.EventManagerV2.clickOnWindowNavigation(event, " + this.parseParamForEventsToHtml() + ")";
+    getEventManager    : function () {
+        return "MANAGER.EventManagerV2.clickOnWindowNavigation(event, " + this.parseParamForEventsToHtml() + ")";
     },
     getMainClass       : function () {
         var _to_return = WINDOW_V2.CONST.CLASS.WINDOW_GROUP + " " + this.getClass();
@@ -351,7 +355,7 @@ MANAGER.EVENT_MANAGER_V2 = {
         STOP_PROPAGATION: 'stop_propagation'
     }
 };
-MANAGER.EventManagerV2 = {
+MANAGER.EventManagerV2   = {
     onKeyUp                : function ( event, controller_name ) {
         let param                                       = {};
         param[ CONTROLLER.CONST.CONTROLLER_NAME_LABEL ] = controller_name;
@@ -409,7 +413,7 @@ MANAGER.EventManagerV2 = {
             param[ WINDOW_V2.CONST.PARAM.WINDOW_NAME ] = _nav_tab.dataset.name;
         }
         var _parent_window = MANAGER.__instance_window_distributor.findParentWindow( param[ WINDOW_V2.CONST.PARAM.WINDOW_GROUP_NAME ] );
-
+        
         var _click_done = _parent_window.clickOnWindow( param[ WINDOW_V2.CONST.PARAM.WINDOW_NAME ] );
         if ( !_click_done ) {
             return;
