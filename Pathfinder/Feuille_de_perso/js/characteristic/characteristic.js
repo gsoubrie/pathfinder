@@ -103,6 +103,15 @@ CHARACTERISTICS.Characteristic.prototype = {
             case "label":
                 this.setLabel( value );
                 break;
+            case "initial_value":
+                this.initial_value.setValue( value );
+                break;
+            case "race_bonus":
+                this.race_bonus.setValue( 2 );
+                this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key, value );
         }
     },
     //********************************************  HTML   **************************************************//
@@ -117,6 +126,10 @@ CHARACTERISTICS.Characteristic.prototype = {
     getDataToSave: function () {
         let to_return       = {};
         to_return[ "name" ] = this.name;
+        to_return[ "initial_value" ] = this.initial_value.value;
+        if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ){
+            to_return[ "race_bonus" ] = GS.OBJECT.CONST.PHASE.SETTINGS_EDITED;    
+        }        
         return to_return;
     }
 };

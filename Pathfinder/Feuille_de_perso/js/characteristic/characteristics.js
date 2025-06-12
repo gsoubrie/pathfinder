@@ -12,7 +12,11 @@ CHARACTERISTICS.Characteristics.prototype = {
             let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
         this.addParamForEvents( "characteristics_param", true );
-        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.getObjectClassName(), 2 );
+    },
+    initCounterCommon         : function () {
+        this.counters = {};
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -26,19 +30,37 @@ CHARACTERISTICS.Characteristics.prototype = {
                 break;
             case "set_free_race_bonus_done":
             case "unset_free_race_bonus_done":
-                params[ "characteristics_object" ] = this;
+                params = { "characteristics_object" : this};
                 this.race_bonus_wrapper.doActionAfter( event_name, params );
                 break;
         }
         this.doActionAfterCommon( event_name, params );
     },
+    setData           : function ( key, value ) {
+        switch ( key ) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+                this.getContentByUUID(value.name).updateData( value );
+                if ( value.race_bonus ){
+                    this.doActionAfter( "set_free_race_bonus_done" );
+                }
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key, value );
+        }
+    },    
     //********************************************  GETTER SETTER  **************************************************//
     setDataFromRace: function ( race ) {
         for ( let i = 0, _size_i = race[ "characteristics_bonus" ].length; i < _size_i; i++ ) {
             switch ( race[ "characteristics_bonus" ][ i ] ) {
                 case "FREE":
                     this.doActionAfter( "set_free_race_bonus" );
-                    this.setFreeRaceBonus( this.free_counter + 1 );
+                    this.race_bonus_wrapper.updateBonusCounter( 1 );
                     break;
                 default:
                     this.getContentByUUID( race[ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );

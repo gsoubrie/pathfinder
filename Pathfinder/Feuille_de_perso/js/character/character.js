@@ -34,6 +34,7 @@ CHARACTER.Current.prototype = {
         to_return[ "player" ]            = this.player;
         to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
         to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
+        to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
         to_return[ "alignment" ]         = this.alignment;
         to_return[ "level" ]             = this.level;
         to_return[ "point_heroism" ]     = this.point_heroism;
@@ -54,6 +55,9 @@ CHARACTER.Current.prototype = {
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
+                break;
+            case CHARACTERISTICS.key:
+                this.getCharacteristics().updateData( value );
                 break;
             case "uuid":
                 break;
