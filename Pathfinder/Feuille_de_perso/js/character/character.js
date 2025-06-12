@@ -51,10 +51,11 @@ CHARACTER.Current.prototype = {
         switch ( key ) {
             case RACES.key_element:
                 this.getRace().updateData( value );
-                this.getCharacteristics().setDataFromRace( this.getRace() );
+                this.getCharacteristics().doActionAfter("set_race_bonuses",{"race_object" : this.getRace() } );
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
+                this.getCharacteristics().doActionAfter("set_classes_bonuses",{"class_object" : this.getClass() } );
                 break;
             case CHARACTERISTICS.key:
                 this.getCharacteristics().updateData( value );

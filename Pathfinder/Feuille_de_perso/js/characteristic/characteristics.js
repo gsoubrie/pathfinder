@@ -33,6 +33,36 @@ CHARACTERISTICS.Characteristics.prototype = {
                 params = { "characteristics_object" : this};
                 this.race_bonus_wrapper.doActionAfter( event_name, params );
                 break;
+            case "set_race_bonuses":
+                for ( let i = 0, _size_i = params["race_object"][ "characteristics_bonus" ].length; i < _size_i; i++ ) {
+                    switch ( params["race_object"][ "characteristics_bonus" ][ i ] ) {
+                        case "FREE":
+                            this.doActionAfter( "set_free_race_bonus" );
+                            this.race_bonus_wrapper.updateBonusCounter( 1 );
+                            break;
+                        default:
+                            this.getContentByUUID( params["race_object"][ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );
+                    }
+                }
+                for ( let i = 0, _size_i = params["race_object"][ "characteristics_malus" ].length; i < _size_i; i++ ) {
+                    this.getContentByUUID( params["race_object"][ "characteristics_malus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": -2 } );
+                }
+                break;
+            case "set_classes_bonuses":
+                for ( let i = 0, _size_i = params["race_object"][ "characteristics_bonus" ].length; i < _size_i; i++ ) {
+                    switch ( params["race_object"][ "characteristics_bonus" ][ i ] ) {
+                        case "FREE":
+                            this.doActionAfter( "set_free_race_bonus" );
+                            this.race_bonus_wrapper.updateBonusCounter( 1 );
+                            break;
+                        default:
+                            this.getContentByUUID( params["race_object"][ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );
+                    }
+                }
+                for ( let i = 0, _size_i = params["race_object"][ "characteristics_malus" ].length; i < _size_i; i++ ) {
+                    this.getContentByUUID( params["race_object"][ "characteristics_malus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": -2 } );
+                }
+                break;
         }
         this.doActionAfterCommon( event_name, params );
     },
@@ -55,21 +85,6 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },    
     //********************************************  GETTER SETTER  **************************************************//
-    setDataFromRace: function ( race ) {
-        for ( let i = 0, _size_i = race[ "characteristics_bonus" ].length; i < _size_i; i++ ) {
-            switch ( race[ "characteristics_bonus" ][ i ] ) {
-                case "FREE":
-                    this.doActionAfter( "set_free_race_bonus" );
-                    this.race_bonus_wrapper.updateBonusCounter( 1 );
-                    break;
-                default:
-                    this.getContentByUUID( race[ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );
-            }
-        }
-        for ( let i = 0, _size_i = race[ "characteristics_malus" ].length; i < _size_i; i++ ) {
-            this.getContentByUUID( race[ "characteristics_malus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": -2 } );
-        }
-    }
 };
 
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, OBJECT.InterfaceContainerHtml );

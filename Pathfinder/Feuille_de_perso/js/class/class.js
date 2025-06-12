@@ -10,6 +10,8 @@ CLASSES.Class.prototype = {
     setName: function ( to_set ) {
         this.name            = to_set;
         this.label.innerHTML = to_set;
+        let data_from_class   = CLASSES.getDataByName( this.name );
+        this.setData( "prime_attribute", data_from_class[ "prime_attribute" ] );
     },
     getUUID: function () {
         return this.name;
@@ -19,6 +21,9 @@ CLASSES.Class.prototype = {
         switch ( key ) {
             case "name":
                 this.setName( value );
+                break;
+            case "prime_attribute":
+                this[key] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );
