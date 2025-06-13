@@ -1,38 +1,41 @@
 "use strict";
 CHARACTERISTICS.RaceBonuses           = function () {
-    this.init();
+    this.initSpecific();
 };
 CHARACTERISTICS.RaceBonuses.prototype = {
-    init: function () {
+    initSpecific     : function () {
         this.initCounterCommon();
-        this.number_of_races_bonuses = 0;
+        this.init();
     },
-    initCounterCommon         : function () {
+    initCounterCommon: function () {
         this.counters = {};
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
-    doActionAfter  : function ( event_name, params ) {
+    doActionAfter     : function ( event_name, params ) {
         switch ( event_name ) {
-            case "set_free_race_bonus_done":
-                this.updateBonusCounter( -1 );
-                if ( !this.number_of_races_bonuses ) {
-                    params[ "characteristics_object" ].doActionAfter( "clean_all_free_race_settings" );
+            case "events__set_race_bonuses":
+                this.initWithData( params[ "race_object" ] );
+                for ( let i = 0, _size_i = this.bonus.choices.length; i < _size_i; i++ ) {
+                    if ( this.bonus.choices[i] !== "FREE" ){
+                        params["params__characteristics_object"].getContentByUUID(this.bonus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : 2});
+                    }
+                }
+                for ( let i = 0, _size_i = this.malus.choices.length; i < _size_i; i++ ) {
+                    params["params__characteristics_object"].getContentByUUID(this.malus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : -2});
+                }
+                if ( this.getFreeBonus() ){
+                    params["params__characteristics_object"].doActionAfter("event__set_free_race_bonus", {});
                 }
                 break;
-            case "unset_free_race_bonus_done":
-                this.updateBonusCounter( 1 );
-                params[ "characteristics_object" ].doActionAfter( "unclean_all_free_race_settings" );
-                break;
+            //case "events__unset_free_race_bonus_done":
+            //    this.updateBonusCounter( 1 );
+            //    params[ "params__characteristics_object" ].doActionAfter( "unclean_all_free_race_settings" );
+            //    break;
         }
-    },
-    updateBonusCounter: function ( delta ) {
-        this.setBonusCounter(this.number_of_races_bonuses + delta);
-    },
-    setBonusCounter: function ( to_set ) {
-        this.number_of_races_bonuses = to_set;
-        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "race_bonus", this.number_of_races_bonuses );
+        this.doActionAfterCommon(event_name, params);
     }
 };
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, CHARACTERISTICS.Bonuses );
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, GS.OBJECT.CounterInterfaceV2 );

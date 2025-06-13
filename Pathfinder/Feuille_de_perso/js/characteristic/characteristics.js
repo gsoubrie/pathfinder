@@ -6,10 +6,8 @@ CHARACTERISTICS.Characteristics.prototype = {
     init             : function () {
         this.initContents();
         this.initCounterCommon();
-        this.race_bonus_wrapper = new CHARACTERISTICS.RaceBonuses();
-        this.race_bonus_wrapper.setCountersParent( this );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
-            let to_add = this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
+            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
         this.addParamForEvents( "characteristics_param", true );
     },
@@ -23,34 +21,23 @@ CHARACTERISTICS.Characteristics.prototype = {
         switch ( event_name ) {
             case "click_on_button_V3":
                 if ( params[ "characteristic_param" ] ) {
-                    params[ "characteristics_object" ] = this;
+                    params[ "params__characteristics_object" ] = this;
                     this.getContentByUUID( params[ "characteristic_param" ] ).doActionAfter( event_name, params );
                     return;
                 }
                 break;
-            case "set_free_race_bonus_done":
-            case "unset_free_race_bonus_done":
-                params = { "characteristics_object": this };
-                this.race_bonus_wrapper.doActionAfter( event_name, params );
+            case "events__set_race_bonuses":
+                params[ "params__characteristics_object" ] = this;
+                this.getRaceBonus().doActionAfter( event_name, params );
+                return;
+            case "events__unset_free_race_bonus_done":
+                this.getRaceBonus().doActionAfter( "event__unset_free_bonus_done", params );
+                this.doActionAfter("event__set_free_race_bonus", {});
                 break;
-            case "set_race_bonuses":
-                console.log("GSOU", "[Characteristics - doActionAfter]", params );
-                for ( let i = 0, _size_i = params[ "race_object" ][ "characteristics_bonus" ].length; i < _size_i; i++ ) {
-                    switch ( params[ "race_object" ][ "characteristics_bonus" ][ i ] ) {
-                        case "FREE":
-                            this.doActionAfter( "set_free_race_bonus" );
-                            this.race_bonus_wrapper.updateBonusCounter( 1 );
-                            break;
-                        default:
-                            this.getContentByUUID( params[ "race_object" ][ "characteristics_bonus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": 2 } );
-                    }
-                }
-                for ( let i = 0, _size_i = params[ "race_object" ][ "characteristics_malus" ].length; i < _size_i; i++ ) {
-                    this.getContentByUUID( params[ "race_object" ][ "characteristics_malus" ][ i ] ).doActionAfter( "set_race_bonus", { "race_bonus_value": -2 } );
-                }
+            case "events__set_free_race_bonus_done":
+                this.getRaceBonus().doActionAfter( "event__set_free_bonus_done", params );
                 break;
-            case "set_classes_bonuses":
-                console.log( "GSOU", "[Characteristics - doActionAfter]", params );
+            case "events__set_classes_bonuses":
                 break;
         }
         this.doActionAfterCommon( event_name, params );
@@ -66,14 +53,21 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "6":
                 this.getContentByUUID( value.name ).updateData( value );
                 if ( value.race_bonus ) {
-                    this.doActionAfter( "set_free_race_bonus_done" );
+                    this.doActionAfter( "events__set_free_race_bonus_done", { "params__controller_object": CONTROLLER.Main, "params__original_event_name": "events__set_free_race_bonus_done" } );
                 }
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
-    }
+    },
     //********************************************  GETTER SETTER  **************************************************//
+    getRaceBonus: function ( key, value ) {
+        if ( !this.race_bonus ) {
+            this.race_bonus = new CHARACTERISTICS.RaceBonuses();
+            this.race_bonus.setCountersParent( this );
+        }
+        return this.race_bonus;
+    }
 };
 
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, OBJECT.InterfaceContainerHtml );

@@ -15,19 +15,23 @@ CHARACTERISTICS.Characteristic.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "set_race_bonus":
-                this.race_bonus.setValue( params[ "race_bonus_value" ] );
+            case "event__set_race_bonus_forced":
+                this.race_bonus.setValue( params[ "event__race_bonus_value" ] );
                 this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
                 break;
-            case "set_free_race_bonus":
+            case "event__free_bonus_is_zero":
+                switch ( params[ "params__original_event_name" ] ) {
+                    case "events__set_free_race_bonus_done":
+                        this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                        break;
+                }
+                break;
+            case "event__set_free_race_bonus":
                 if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
                     return;
                 }
                 this.race_bonus.setValue( 0 );
                 this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                break;
-            case "clean_all_free_race_settings":
-                this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                 break;
             case "unclean_all_free_race_settings":
                 this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
@@ -38,12 +42,12 @@ CHARACTERISTICS.Characteristic.prototype = {
                         case "more_button":
                             this.race_bonus.setValue( 2 );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
-                            params[ "characteristics_object" ].doActionAfter( "set_free_race_bonus_done" );
+                            params[ "params__characteristics_object" ].doActionAfter( "events__set_free_race_bonus_done", {"params__controller_object": CONTROLLER.Main, "params__original_event_name": "events__set_free_race_bonus_done"} );
                             break;
                         case "less_button":
                             this.race_bonus.setValue( 0 );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                            params[ "characteristics_object" ].doActionAfter( "unset_free_race_bonus_done" );
+                            params[ "params__characteristics_object" ].doActionAfter( "events__unset_free_race_bonus_done", {"params__original_event_name": "events__unset_free_race_bonus_done"} );
                             break;
                     }
                     this.computeFinalValue();

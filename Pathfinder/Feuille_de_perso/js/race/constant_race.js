@@ -46,7 +46,7 @@ var RACES = {
                 "revert to purely animalistic behaviors"
             ],
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "CON",
                     "SAG",
@@ -113,7 +113,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 6,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "SAG",
@@ -170,7 +170,7 @@ var RACES = {
             "start_life"           : 8,
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "FREE"
@@ -241,7 +241,7 @@ var RACES = {
                 "ne pas pouvoir circuler, contribuer à la destruction gratuite d'un paysage naturel"
             ],
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "SAG",
@@ -312,7 +312,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 9,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "INT",
@@ -382,7 +382,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "CON",
                     "CHA",
@@ -452,7 +452,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "CHA",
@@ -523,7 +523,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "SAG",
@@ -589,7 +589,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "CON",
                     "INT",
@@ -660,7 +660,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "CHA",
@@ -735,7 +735,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "SAG",
@@ -815,7 +815,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 1,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "CHA",
@@ -882,7 +882,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "INT",
@@ -1001,7 +1001,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "INT",
@@ -1072,7 +1072,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "CHA",
@@ -1145,7 +1145,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "CON",
                     "SAG",
@@ -1226,7 +1226,7 @@ var RACES = {
             "body_size"            : "G",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "FOR",
                     "CON",
@@ -1293,7 +1293,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 6,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "CON",
                     "SAG",
@@ -1420,7 +1420,7 @@ var RACES = {
             "body_size"            : "M",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "CHA",
@@ -1613,7 +1613,7 @@ var RACES = {
             "body_size"            : "P",
             "speed"                : 7,
             "characteristics_bonus": {
-                "number": 2,
+                "number": 3,
                 "choice": [
                     "DEX",
                     "SAG",

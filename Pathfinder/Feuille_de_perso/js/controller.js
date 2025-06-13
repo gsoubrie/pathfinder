@@ -4,7 +4,8 @@ CONTROLLER.Main = (function ( self ) {
     self.init               = function () {
         let params             = new URLSearchParams( location.search );
         self.current_uuid      = params.get( "id" );
-        self.current_character = new CHARACTER.Current( self.current_uuid );
+        self.current_character = new CHARACTER.Current( );
+        self.current_character.init(self.current_uuid );
         self.computeHtml();
     };
     //********************************************  EVENT LISTENER  **************************************************//
@@ -18,6 +19,9 @@ CONTROLLER.Main = (function ( self ) {
                     self.current_character.doActionAfter( event_name, params );
                     return;
                 }
+                break;
+            case "event__free_bonus_is_zero":
+                self.current_character.doActionAfter( event_name, params );
                 break;
         }
     };
