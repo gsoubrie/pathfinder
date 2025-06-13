@@ -45,12 +45,20 @@ var RACES = {
                 "Anathème populaire",
                 "revert to purely animalistic behaviors"
             ],
-            "characteristics_bonus": [
-                "CON", "SAG", "FREE"
-            ],
-            "characteristics_malus": [
-                "INT"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
             "start_life"           : "?",
             "language"             : [
                 "commun"
@@ -104,12 +112,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 6,
-            "characteristics_bonus": [
-                "FOR", "SAG", "FREE"
-            ],
-            "characteristics_malus": [
-                "INT"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "thalassique"
@@ -153,10 +169,13 @@ var RACES = {
             ],
             "start_life"           : 8,
             "speed"                : 7,
-            "characteristics_bonus": [
-                "FOR",
-                "FREE"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "FREE"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Utopien"
@@ -221,14 +240,20 @@ var RACES = {
                 "Anathème populaire",
                 "ne pas pouvoir circuler, contribuer à la destruction gratuite d'un paysage naturel"
             ],
-            "characteristics_bonus": [
-                "FOR",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CHA"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
             "start_life"           : 8,
             "body_size"            : "TG",
             "speed"                : 9,
@@ -286,14 +311,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "M",
             "speed"                : 9,
-            "characteristics_bonus": [
-                "DEX",
-                "INT",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CON"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "INT",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CON"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Elfique"
@@ -350,14 +381,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "CON",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "FOR"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "FOR"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Gnomien",
@@ -414,14 +451,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "SAG"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Gobelin"
@@ -479,14 +522,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "FOR"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "FOR"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Halfelin"
@@ -539,14 +588,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "CON",
-                "INT",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "SAG"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "INT",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Gobelin"
@@ -604,14 +659,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "SAG"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
             "language"             : [
                 "Amurrun",
                 "Commun"
@@ -673,14 +734,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "FOR",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "INT"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Iruxi"
@@ -747,14 +814,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 1,
-            "characteristics_bonus": [
-                "DEX",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CON"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CON"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "thalassique",
@@ -808,14 +881,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "INT",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "FOR"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "INT",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "FOR"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Ysoki"
@@ -869,9 +948,13 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "deux primes d'attributs libres"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FREE",
+                    "FREE"
+                ]
+            },
             "language"             : [
                 "Commun"
             ],
@@ -917,14 +1000,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "FOR",
-                "INT",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "SAG"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "INT",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Gnoll"
@@ -982,14 +1071,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CON"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CON"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "sakvroth"
@@ -1049,14 +1144,20 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "CON",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "INT"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "fée"
@@ -1124,14 +1225,20 @@ var RACES = {
             "start_life"           : 10,
             "body_size"            : "G",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "FOR",
-                "CON",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CHA"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "CON",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
             "language"             : [
                 "commun",
                 "jotun"
@@ -1185,14 +1292,20 @@ var RACES = {
             "start_life"           : 10,
             "body_size"            : "M",
             "speed"                : 6,
-            "characteristics_bonus": [
-                "CON",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "CHA"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Nain"
@@ -1250,10 +1363,13 @@ var RACES = {
             "start_life"           : 10,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "FOR",
-                "FREE"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "FOR",
+                    "FREE"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Orquien"
@@ -1303,14 +1419,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "CHA",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "INT"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "CHA",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Nécril"
@@ -1373,10 +1495,13 @@ var RACES = {
             "start_life"           : 8,
             "body_size"            : "M",
             "speed"                : 7.5,
-            "characteristics_bonus": [
-                "CON",
-                "FREE"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "CON",
+                    "FREE"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Surki"
@@ -1426,10 +1551,13 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "M",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "FREE"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "FREE"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "Tengu"
@@ -1484,14 +1612,20 @@ var RACES = {
             "start_life"           : 6,
             "body_size"            : "P",
             "speed"                : 7,
-            "characteristics_bonus": [
-                "DEX",
-                "SAG",
-                "FREE"
-            ],
-            "characteristics_malus": [
-                "FOR"
-            ],
+            "characteristics_bonus": {
+                "number": 2,
+                "choice": [
+                    "DEX",
+                    "SAG",
+                    "FREE"
+                ]
+            },
+            "characteristics_malus": {
+                "number": 1,
+                "choice": [
+                    "FOR"
+                ]
+            },
             "language"             : [
                 "Commun",
                 "tripkee"

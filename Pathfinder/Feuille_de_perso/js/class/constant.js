@@ -6,8 +6,8 @@ var CLASSES = {
     label_element: "Classe",
     ENUM         : [
         {
-            "name": "Alchimiste",
-            "capacities": [
+            "name"                 : "Alchimiste",
+            "capacities"           : [
                 "Alchimie",
                 "Vous comprenez les réactions complexes entre toutes sortes de réactifs et pouvez concocter des objets alchimiques pour répondre à vos besoins. Vous pouvez le faire en utilisant des réactifs normaux et l'activité Fabriquer ou vous pouvez utiliser des produits chimiques spécialement préparés qui vous permettent de fabriquer des objets temporaires rapidement et sans coût associé. Au fil du temps, vous pouvez créer de plus en plus d'objets alchimiques gratuitement et, dans la mesure où ceux-ci deviennent de plus en plus puissants, votre puissance progresse de manière dramatique, laissant derrière ceux qui ne comprennent rien à votre étrange science.",
                 "Vous obtenez le don military_techArtisanat alchimique et vous pouvez automatiquement identifier les objets alchimiques dont vous disposez de la formule.",
@@ -85,46 +85,51 @@ var CLASSES = {
                 "Maîtrise des armures intermédiaires\nNiveau 19",
                 "Votre maîtrise avec les armures légères et intermédiaires s'améliore, augmentant votre capacité à éviter les coups. Vous devenez maître avec les armures légères et intermédiaires ainsi qu'en défense sans armure."
             ],
-            "general_desc": "Il n'y a rien de plus beau à vos yeux qu'un étrange breuvage en train de bouillonner dans un bécher et vous consommez vos ingénieux élixirs sans modération. Vous êtes fasciné par la découverte des secrets de la science et du monde naturel et, pour faire face à toutes éventualités, vous expérimentez constamment des concoctions inventives dans votre laboratoire ou à la volée. Vous faites preuve d'une audace sans faille face au risque, lançant des créations explosives ou toxiques sur vos ennemis. Votre chemin unique vers la gloire est jalonné de breuvages alchimiques qui repoussent les limites de votre esprit et de votre corps.",
-            "prime_attribute": "INTELLIGENCE",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous balancez des bombes sur vos adversaires, tourmentez vos ennemis et soutenez vos alliés grâce à de puissants élixirs. Vous pourriez même utiliser des mutagènes pour transformer votre corps en une arme aussi résistante que puissante.",
-            "desc_socially": "Vous apportez vos connaissances et votre expérience des objets alchimiques et des secrets qui y sont liés, comme les poisons et les maladies.",
-            "desc_exploration": "Vous gardez un œil pour des ingrédients supplémentaires que vous pouvez transformer en réactifs alchimiques, tout en donnant des conseils sur toutes les choses alchimiques et mystérieuses.",
-            "desc_interlude": "Vous faites des expériences dans un laboratoire d'alchimie, concoctez des élixirs, confectionnez des bombes et approfondissez vos connaissances alchimiques.",
-            "desc_you_could": [
+            "general_desc"         : "Il n'y a rien de plus beau à vos yeux qu'un étrange breuvage en train de bouillonner dans un bécher et vous consommez vos ingénieux élixirs sans modération. Vous êtes fasciné par la découverte des secrets de la science et du monde naturel et, pour faire face à toutes éventualités, vous expérimentez constamment des concoctions inventives dans votre laboratoire ou à la volée. Vous faites preuve d'une audace sans faille face au risque, lançant des créations explosives ou toxiques sur vos ennemis. Votre chemin unique vers la gloire est jalonné de breuvages alchimiques qui repoussent les limites de votre esprit et de votre corps.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous balancez des bombes sur vos adversaires, tourmentez vos ennemis et soutenez vos alliés grâce à de puissants élixirs. Vous pourriez même utiliser des mutagènes pour transformer votre corps en une arme aussi résistante que puissante.",
+            "desc_socially"        : "Vous apportez vos connaissances et votre expérience des objets alchimiques et des secrets qui y sont liés, comme les poisons et les maladies.",
+            "desc_exploration"     : "Vous gardez un œil pour des ingrédients supplémentaires que vous pouvez transformer en réactifs alchimiques, tout en donnant des conseils sur toutes les choses alchimiques et mystérieuses.",
+            "desc_interlude"       : "Vous faites des expériences dans un laboratoire d'alchimie, concoctez des élixirs, confectionnez des bombes et approfondissez vos connaissances alchimiques.",
+            "desc_you_could"       : [
                 "Prenez plaisir à bidouiller des formules étranges et des réactifs alchimiques, souvent avec une dévotion et une témérité qui laissent les autres perplexes.",
                 "Prendre plaisir à faire des ravages avec les préparations alchimiques que vous avez élaborées et à regarder les choses brûler, se dissoudre, se geler ou s'électrocuter.",
                 "Expérimenter sans cesse pour découvrir de nouveaux outils alchimiques plus puissants."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Vous prennent pour une sorte de sorcier ou un magicien excentrique et ne comprennent pas que vous ne lancez pas de sorts ; les lanceurs de sorts qui s'essayent maladroitement à l'alchimie ne font qu'accentuer cette méprise.",
                 "Ne comprennent pas votre engouement pour l'alchimie, la créativité et l'invention.",
                 "Considèrent que si vous n'avez pas encore provoqué une catastrophe avec vos expérimentations, c'est que cela finira forcément par arriver."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Qualifié en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Artisanat",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence."
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les bombes alchimiques",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe d'alchimiste",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe d'alchimiste",
+            "capacity_by_level"    : [
                 "Alchimie, ascendance et historique, champ de recherche, don d'alchimiste, primes d'attributs, maîtrises initiales",
                 "Don d'alchimiste, don de compétence",
                 "Amélioration de compétence, don général",
@@ -148,8 +153,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Animiste",
-            "capacities": [
+            "name"                 : "Animiste",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Maîtrises initiales",
@@ -222,49 +227,54 @@ var CLASSES = {
                 "Incarnation suprème\nNiveau 19",
                 "Vous devenez un nexus entre les royaumes mortel et spirituel grâce auquel votre apparition peut incarner toute sa puissance. Vous obtenez un emplacement de sort d'apparition de rang 10. En plus des versions intensifiés de vos sorts d'apparition, vous pouvez utiliser cet emplacement pour lancer auto_awesomeAvatar . Lorsque vous Lancez Avatar de cette manière, vous ne devenez pas un avatar d'une divinité. À la place, votre première apparition harmonisée s'incarne elle-même en devenant votre corps, vous transformant en l'avatar décrit dans l'entrée de l'apparition primaire à laquelle vous vous êtes harmonisé."
             ],
-            "general_desc": "Vous êtes l'interlocuteur entre le visible et l'invisible, la voix qui relie le mortel et le spirituel. Vous vous liez aux esprits, manifestant leur magie distincte et permettant à leur savoir de circuler à travers vous. Vous pouvez privilégier les apparitions qui vous accordent une magie de guérison, d'autres qui vous accordent des sorts au pouvoir destructeur ou vouloir choisir entre différentes apparitions en fonction de votre environnement et des circonstances. Vous pouvez considérer vos pouvoirs comme faisant partie d'une mission sacrée ou considérer vos capacités uniques comme le signe que vous avez été choisi comme champion de deux mondes. Que vous défendiez les mortels dans les plans de l'au-delà ou que vous représentiez les intérêts des esprits, vous constituez un pont entre les royaumes.",
-            "prime_attribute": "SAGESSE",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous canalisez la puissance d'entités spirituelles appelées apparitions pour qu'elles lancent des sorts et manipulent le champ de bataille à votre avantage. Vous mélangez la magie divine et les sorts qui vous sont accordés par les apparitions avec lesquelles vous êtes harmonisé pour qu'ils s'abattent sur vos ennemis et soutiennent vos alliés.",
-            "desc_socially": "Vous observez et écoutez, laissant les murmures des esprits et d'autres êtres d'un autre monde vous guider pour former votre propre jugement.",
-            "desc_exploration": "Vous utilisez votre attention patiente pour les détails, ainsi que les indices et les sens spéciaux que vous donnent vos alliés spirituels, pour détecter les menaces avant qu'elles ne tendent une embuscade à vos compagnons ou pour repérer des trésors cachés que d'autres pourraient ignorer.",
-            "desc_interlude": "Vous recherchez des zones proches d'entités d'un autre monde qui vous apportent force et réconfort. Vous pouvez vous recueillir sur des tombes, parcourir des étendues sauvages ou naviguer sur les rivières et les mers. Les animistes en phase avec les apparitions de la sagesse et du savoir peuvent passer leurs heures de tranquillité à arpenter des bibliothèques ou des temples.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes l'interlocuteur entre le visible et l'invisible, la voix qui relie le mortel et le spirituel. Vous vous liez aux esprits, manifestant leur magie distincte et permettant à leur savoir de circuler à travers vous. Vous pouvez privilégier les apparitions qui vous accordent une magie de guérison, d'autres qui vous accordent des sorts au pouvoir destructeur ou vouloir choisir entre différentes apparitions en fonction de votre environnement et des circonstances. Vous pouvez considérer vos pouvoirs comme faisant partie d'une mission sacrée ou considérer vos capacités uniques comme le signe que vous avez été choisi comme champion de deux mondes. Que vous défendiez les mortels dans les plans de l'au-delà ou que vous représentiez les intérêts des esprits, vous constituez un pont entre les royaumes.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous canalisez la puissance d'entités spirituelles appelées apparitions pour qu'elles lancent des sorts et manipulent le champ de bataille à votre avantage. Vous mélangez la magie divine et les sorts qui vous sont accordés par les apparitions avec lesquelles vous êtes harmonisé pour qu'ils s'abattent sur vos ennemis et soutiennent vos alliés.",
+            "desc_socially"        : "Vous observez et écoutez, laissant les murmures des esprits et d'autres êtres d'un autre monde vous guider pour former votre propre jugement.",
+            "desc_exploration"     : "Vous utilisez votre attention patiente pour les détails, ainsi que les indices et les sens spéciaux que vous donnent vos alliés spirituels, pour détecter les menaces avant qu'elles ne tendent une embuscade à vos compagnons ou pour repérer des trésors cachés que d'autres pourraient ignorer.",
+            "desc_interlude"       : "Vous recherchez des zones proches d'entités d'un autre monde qui vous apportent force et réconfort. Vous pouvez vous recueillir sur des tombes, parcourir des étendues sauvages ou naviguer sur les rivières et les mers. Les animistes en phase avec les apparitions de la sagesse et du savoir peuvent passer leurs heures de tranquillité à arpenter des bibliothèques ou des temples.",
+            "desc_you_could"       : [
                 "Parler à des entités spirituelles que vous êtes seul à percevoir.",
                 "Préférer parler d'histoires et d'anecdotes descriptives.",
                 "Regarder le monde dans une perspective plus large ou plus métaphorique que la plupart des créatures mortelles."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Vous trouvent détaché ou distrait parce que vous vous concentrez sur des choses dont ils ne sont pas conscients.",
                 "Apprécient votre sagesse en tant que personne ayant accès à une réserve d'expérience dépassant ce qu'une personne unique peut normalement accumuler.",
                 "Vous prennent pour quelqu'un de cruel ou qui manque d'empathie parce que vous accordez la même importance au matériel et à l'immatériel."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les degrés de maîtrise indiqués dans les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les degrés de maîtrise indiqués dans les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Religion et soit en Nature, soit en Occultisme",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaque de sort",
                 "Qualifié en DD de sort"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'animiste",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'animiste",
+            "capacity_by_level"    : [
                 "Ascendance et historique, primes d'attributs, maitrises initiales, incantation des apparitions & d'animiste, pratique animiste, harmonisation avec les apparitions",
                 "Don d'animiste, don de compétence",
                 "Amélioration de compétence, don général, expertise en vigueur, sorts de rang 2",
@@ -288,8 +298,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Barbare",
-            "capacities": [
+            "name"                 : "Barbare",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des pouvoirs que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique",
                 "Dons de barbare",
@@ -358,46 +368,51 @@ var CLASSES = {
                 "Maîtrise des armures\nNiveau 19",
                 "Votre entraînement et votre rage vous permettent d'approfondir votre lien avec votre armure. Vous devenez maître avec les armures légères et intermédiaires ainsi qu'en défense sans armure."
             ],
-            "general_desc": "Vous êtes submergé par la rage au combat. Vous adorez semer le chaos et utiliser des armes puissantes pour vous tailler un chemin au travers de vos ennemis, en vous reposant sur votre endurance extraordinaire plutôt que sur des techniques compliquées ou un entraînement rigoureux. Votre rage tire parti d'un instinct vicieux, que vous pourriez associer à un animal, à un esprit ou à une part de vous-même. Pour beaucoup de barbares, la force brute est un marteau et chaque problème auxquels ressemble à un clou alors que d'autres tentent de contenir la tempête d'émotions intérieure et de ne libérer leur rage que lorsqque cela importe le plus.",
-            "prime_attribute": "FORCE",
-            "life_point_by_level": 12,
-            "desc_fight": "Vous faites appel à votre rage et vous vous précipitez vers la première ligne pour passer au travers. L'attaque est votre meilleure défense - il faut abattre vos ennemis avant qu'ils ne puissent exploiter vos défenses relativement faibles.",
-            "desc_socially": "Vous utilisez l'intimidation pour obtenir ce dont vous avez besoin, particulièrement quand la méthode douce pourrait ne pas fonctionner.",
-            "desc_exploration": "Vous êtes toujours à l'affût du danger, prêt à vous précipiter tête la première au combat à tout moment. Vous escaladez le mur de pierre qui vous défie et lancez la corde permettant aux autres de vous suivre et vous vous jetez dans les eaux tumultueuses pour atteindre le levier qui se trouve tout au fond. S'il faut casser quelque chose, vous êtes à la hauteur !",
-            "desc_interlude": "Vous pourriez vous diriger vers une taverne pour y festoyer, construire la légende terrifiante de vos puissants exploits ou recruter des partisans afin de devenir un chef de guerre à part entière.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes submergé par la rage au combat. Vous adorez semer le chaos et utiliser des armes puissantes pour vous tailler un chemin au travers de vos ennemis, en vous reposant sur votre endurance extraordinaire plutôt que sur des techniques compliquées ou un entraînement rigoureux. Votre rage tire parti d'un instinct vicieux, que vous pourriez associer à un animal, à un esprit ou à une part de vous-même. Pour beaucoup de barbares, la force brute est un marteau et chaque problème auxquels ressemble à un clou alors que d'autres tentent de contenir la tempête d'émotions intérieure et de ne libérer leur rage que lorsqque cela importe le plus.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR"
+                ]
+            },
+            "life_point_by_level"  : 12,
+            "desc_fight"           : "Vous faites appel à votre rage et vous vous précipitez vers la première ligne pour passer au travers. L'attaque est votre meilleure défense - il faut abattre vos ennemis avant qu'ils ne puissent exploiter vos défenses relativement faibles.",
+            "desc_socially"        : "Vous utilisez l'intimidation pour obtenir ce dont vous avez besoin, particulièrement quand la méthode douce pourrait ne pas fonctionner.",
+            "desc_exploration"     : "Vous êtes toujours à l'affût du danger, prêt à vous précipiter tête la première au combat à tout moment. Vous escaladez le mur de pierre qui vous défie et lancez la corde permettant aux autres de vous suivre et vous vous jetez dans les eaux tumultueuses pour atteindre le levier qui se trouve tout au fond. S'il faut casser quelque chose, vous êtes à la hauteur !",
+            "desc_interlude"       : "Vous pourriez vous diriger vers une taverne pour y festoyer, construire la légende terrifiante de vos puissants exploits ou recruter des partisans afin de devenir un chef de guerre à part entière.",
+            "desc_you_could"       : [
                 "Ressentir un profond sentiment de colère, de haine ou de frustration.",
                 "Préférer une approche directe à une autre qui nécessite de la patience et provoque de l'ennui.",
                 "Suivre un régime d'entraînement physique et cogner tous ceux qui prétendent que cela va à l'encontre de votre dégoût pour la patience et l'ennui."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Comptent sur votre courage et votre force et croient que vous pourrez vous débrouiller par vous-même en combat.",
                 "Vous considèrent comme un être non civilisé ou un rustre incapable d'évoluer au sein de la haute société.",
                 "Sont convaincus de votre loyauté envers vos amis et alliés et que vous n'abandonnerez jamais avant que le combat ne soit achevé."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Athlétisme",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence."
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe de barbare",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe de barbare",
+            "capacity_by_level"    : [
                 "Ascendance et historique, don de barbare, impulsif, instinct, maîtrises initiales, primes d'attributs, rage",
                 "Don de barbare, don de compétence",
                 "Amélioration de compétence, démarche furieuse, don général",
@@ -421,8 +436,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Barde",
-            "capacities": [
+            "name"                 : "Barde",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Incantation de barde",
@@ -490,50 +505,55 @@ var CLASSES = {
                 "Magnum Opus\nNiveau 19",
                 "Vous avez porté vos capacités d'incantation au plus haut niveau. Ajoutez deux sorts occultes courants de rang 10 à votre répertoire. Vous obtenez un unique emplacement de sort de rang 10 que vous pouvez utiliser pour lancer ces sorts en utilisant la capacité incantation du barde. Contrairement aux autres emplacements de sorts, vous ne pouvez utiliser les emplacements de sort de rang 10 avec des capacités qui vous accordent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas d'autres sorts de rang 10 lorsque vous gagnez un niveau, mais vous pouvez prendre le don Rappel parfait pour obtenir un second emplacement."
             ],
-            "general_desc": "Vous êtes un maître des arts, un érudit des secrets cachés et un persuadeur envoûtant. Grâce à de puissantes représentations, vous influencez les esprits et élevez les âmes à de nouveaux niveaux d'héroïsme. Vous pouvez utiliser vos pouvoirs pour devenir un leader charismatique, mais vous pouvez aussi être un conseiller, un manipulateur, un érudit, un scélérat ou un virtuose. Si votre polyvalence conduit certains à vous considérer comme un séduisant bonimenteur et un touche-à-tout, il est dangereux de ne pas vous considérer comme un maître en la matière.",
-            "prime_attribute": "CHARISME",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous utilisez des représentations magiques pour modifier les chances en faveur de vos alliés. Vous alternez avec assurance les attaques, les soins et les sorts utiles en fonction des besoins.",
-            "desc_socially": "Vous persuadez, tergiversez et menacez avec aisance.",
-            "desc_exploration": "Vous êtes un puits de connaissances, de contes, de légendes et de savoir qui fournissent un contexte plus vaste et une reconnaissance utile pour les aventures du groupe. Vos sorts et vos représentations inspirent à vos alliés de plus grandes découvertes et de plus grands succès.",
-            "desc_interlude": "Vous pouvez gagner de l'argent et du prestige à l'aide de vos représentations, en vous faisant un nom et en acquérant des mécènes. Enfin, les récits de vos talents et de vos triomphes pourraient inciter d'autres bardes à étudier vos techniques dans un collège de bardes.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes un maître des arts, un érudit des secrets cachés et un persuadeur envoûtant. Grâce à de puissantes représentations, vous influencez les esprits et élevez les âmes à de nouveaux niveaux d'héroïsme. Vous pouvez utiliser vos pouvoirs pour devenir un leader charismatique, mais vous pouvez aussi être un conseiller, un manipulateur, un érudit, un scélérat ou un virtuose. Si votre polyvalence conduit certains à vous considérer comme un séduisant bonimenteur et un touche-à-tout, il est dangereux de ne pas vous considérer comme un maître en la matière.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous utilisez des représentations magiques pour modifier les chances en faveur de vos alliés. Vous alternez avec assurance les attaques, les soins et les sorts utiles en fonction des besoins.",
+            "desc_socially"        : "Vous persuadez, tergiversez et menacez avec aisance.",
+            "desc_exploration"     : "Vous êtes un puits de connaissances, de contes, de légendes et de savoir qui fournissent un contexte plus vaste et une reconnaissance utile pour les aventures du groupe. Vos sorts et vos représentations inspirent à vos alliés de plus grandes découvertes et de plus grands succès.",
+            "desc_interlude"       : "Vous pouvez gagner de l'argent et du prestige à l'aide de vos représentations, en vous faisant un nom et en acquérant des mécènes. Enfin, les récits de vos talents et de vos triomphes pourraient inciter d'autres bardes à étudier vos techniques dans un collège de bardes.",
+            "desc_you_could"       : [
                 "Être si passionné par votre art que vous forgez une relation spirituelle avec lui.",
                 "Prendre les choses en main quand le tact et les solutions non violentes sont nécessaires.",
                 "Suivre votre muse, qu'elle soit une mystérieuse créature féerique, un concept philosophique, une force psychique ou une divinité de l'art ou de la musique et, avec son aide, découvrir des connaissances secrètes que peu d'autres possèdent."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Prennent plaisir à vous inviter lors des évènements mondains, que ce soit comme artiste ou comme invité, mais ont tendance à vous considérer comme une sorte de curiosité dans leurs cercles sociaux.",
                 "Vous sous-estiment par rapport à d'autres lanceurs de sort, en pensant que vous n'êtes rien de plus qu'un ménestrel précieux en sous-estimant la subtile puissance de votre magie.",
                 "Réagissent favorablement à votre charme et à vos capacités sociales mais restent méfiants quant à votre magie envoûtante."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Occultisme",
                 "Qualifié en Représentations",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 4 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les attaques à mains nues",
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié en défense sans armure",
                 "Qualifié avec les armures légères"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaque de sort",
                 "Qualifié en DD de sort"
             ],
-            "mastery_dd": "Qualifié en DD de classe de barde",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe de barde",
+            "capacity_by_level"    : [
                 "Ascendance et historique, incantation de barde, maîtrises initiales, muse, primes d'attribut, répertoire de sorts, sorts de composition",
                 "Don de barde, don de compétence",
                 "Amélioration de compétence, don général, expertise en réflexes, sorts de rang 2, sorts emblématiques",
@@ -557,8 +577,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Bretteur",
-            "capacities": [
+            "name"                 : "Bretteur",
+            "capacities"           : [
                 "Aboutissement assuré",
                 "Vous obtenez une attaque finale élégante que vous pouvez porter quand vous possédez du panache. Vous obtenez l'action sports_martial_artsAboutissement assuré .",
                 "Ascendance et historique",
@@ -633,46 +653,51 @@ var CLASSES = {
                 "Maîtrise des armures légères\nNiveau 19",
                 "Votre compétence avec les armures légères s'améliore, augmentant votre capacité à esquiver les coups. Vous devenez maître avec les armures légères et en défense sans armure."
             ],
-            "general_desc": "De nombreux combattants se reposent principalement sur la force brute, les armures lourdes ou les armes encombrantes. Pour vous, le combat est une danse au cours de laquelle vous vous déplacez parmi vos adversaires avec style et grâce. Vous glissez entre les combattants avec élégance et portez de puissantes bottes précises d'un geste du poignet et d'un bref éclair de votre lame, tout en parant les attaques avec des ripostes élégantes qui déstabilisent vos ennemis. Harceler et déjouer vos ennemis vous permet de charmer le destin et de tromper la mort à maintes reprises, avec brio et une touche de flamboyance.",
-            "prime_attribute": "DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous frimez pour obtenir du panache et tirez parti de votre élégance pour pouvoir placer progressivement de puissantes bottes finales. Vous restez agile, pour obtenir la meilleure position de manière à placer vos manœuvres tout en esquivant les coups ennemis et en y répondant par de rapides ripostes. En fonction de votre style, vous pouvez danser au milieu de vos adversaires, vous glisser sous leurs défenses ou les tromper, les distraire ou les effrayer.",
-            "desc_socially": "Vous pouvez tout autant charmer ou intimider les autres, voire les deux en même temps. Vous pourriez être un habile mondain ou vous pourriez créer des distractions pour d'autres qui conduisent la discussion.",
-            "desc_exploration": "Vous gardez un œil attentif sur votre environnement et sur les autres, toujours prêt à passer à l'action avec bravoure et élégance. Vous interagissez avec votre environnement de manière audacieuse et déterminée, préférant les gestes francs et spectaculaires à la discrétion et à la dissimulation.",
-            "desc_interlude": "Vous pourriez festoyer à la taverne, réparer et entretenir votre équipement ou vous entraîner pour apprendre de nouvelles techniques. Pour conserver votre réputation impressionnante, vous pouvez mettre sur pied une organisation à votre nom ou monter une cohorte d'admirateurs.",
-            "desc_you_could": [
+            "general_desc"         : "De nombreux combattants se reposent principalement sur la force brute, les armures lourdes ou les armes encombrantes. Pour vous, le combat est une danse au cours de laquelle vous vous déplacez parmi vos adversaires avec style et grâce. Vous glissez entre les combattants avec élégance et portez de puissantes bottes précises d'un geste du poignet et d'un bref éclair de votre lame, tout en parant les attaques avec des ripostes élégantes qui déstabilisent vos ennemis. Harceler et déjouer vos ennemis vous permet de charmer le destin et de tromper la mort à maintes reprises, avec brio et une touche de flamboyance.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous frimez pour obtenir du panache et tirez parti de votre élégance pour pouvoir placer progressivement de puissantes bottes finales. Vous restez agile, pour obtenir la meilleure position de manière à placer vos manœuvres tout en esquivant les coups ennemis et en y répondant par de rapides ripostes. En fonction de votre style, vous pouvez danser au milieu de vos adversaires, vous glisser sous leurs défenses ou les tromper, les distraire ou les effrayer.",
+            "desc_socially"        : "Vous pouvez tout autant charmer ou intimider les autres, voire les deux en même temps. Vous pourriez être un habile mondain ou vous pourriez créer des distractions pour d'autres qui conduisent la discussion.",
+            "desc_exploration"     : "Vous gardez un œil attentif sur votre environnement et sur les autres, toujours prêt à passer à l'action avec bravoure et élégance. Vous interagissez avec votre environnement de manière audacieuse et déterminée, préférant les gestes francs et spectaculaires à la discrétion et à la dissimulation.",
+            "desc_interlude"       : "Vous pourriez festoyer à la taverne, réparer et entretenir votre équipement ou vous entraîner pour apprendre de nouvelles techniques. Pour conserver votre réputation impressionnante, vous pouvez mettre sur pied une organisation à votre nom ou monter une cohorte d'admirateurs.",
+            "desc_you_could"       : [
                 "Vous présenter comme un trompe-la-mort héroïque ou un fanfaron sans scrupule, en sachant que vous pouvez assumer cette image.",
                 "Avoir une haute estime de vous-même, confiant en vos capacités et en votre réputation.",
                 "Pratiquer régulièrement vos talents et vos manœuvres pour vous assurer de ne jamais vous sentir rouillé."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Admirent votre comportement théâtral, votre bravoure et votre talent avec les lames.",
                 "Vous trouvent arrogant, à moins qu'ils ne vous connaissent suffisamment pour apprécier votre style.",
                 "Sous-estiment le danger que vous représentez jusqu'à ce qu'ils se retrouvent face à votre lame mortelle."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Expert en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Acrobaties",
                 "Qualifié dans une compétence déterminée par votre style de bretteur",
                 "Qualifié en un nombre de compétences égal à 4 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe de bretteur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe de bretteur",
+            "capacity_by_level"    : [
                 "Aboutissement assuré, ascendance et historique, combattant stylé, don de bretteur, frappe précise, maîtrises initiales, panache, primes d'attributs, style de bretteur",
                 "Don de bretteur, don de compétence",
                 "Amélioration de compétence, astuce de style, don général, expertise en vigueur, riposte opportune, vitesse exubérante",
@@ -696,8 +721,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Champion",
-            "capacities": [
+            "name"                 : "Champion",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Blocage au bouclier",
@@ -786,50 +811,56 @@ var CLASSES = {
                 "Défi du héros\nNiveau 19",
                 "Vous pouvez continuer à combattre tant qu'il vous reste de l'énergie divine. Vous obtenez le sort de dévotion auto_awesomeDéfi du héros ."
             ],
-            "general_desc": "Vous êtes un émissaire d'une divinité, un serviteur dévoué qui a endossé de lourdes responsabilités et vous poursuivez avec ferveur une cause qui vous sépare de ceux qui vous entourent. Vous disposez de puissantes défenses que vous partagez avec vos alliés et les spectateurs innocents, ainsi que des pouvoirs divins que vous utilisez pour mettre un terme aux menaces auxquelles votre divinité s'oppose.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous affrontez vos ennemis au corps-à-corps tout en vous positionnant soigneusement de manière à protéger vos alliés.",
-            "desc_socially": "Vous êtes la voix d'une autorité dévouée, avec de fortes intentions d'incarner les comportements que votre divinité encourage.",
-            "desc_exploration": "Vous surmontez les obstacles tant physiques que spirituels, en inspirant vos alliés par vos actions et, quand vos compagnons d'aventures vous le demandent, en leur donnant des conseils de manière assurée.",
-            "desc_interlude": "Vous consacrez la plupart de votre temps en contemplation et prières solennelles, en entraînement rigoureux, à accomplir les édits de votre cause, mais cela ne signifie pas qu'il ne vous reste pas de temps pour pratiquer un métier ou un passe-temps.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes un émissaire d'une divinité, un serviteur dévoué qui a endossé de lourdes responsabilités et vous poursuivez avec ferveur une cause qui vous sépare de ceux qui vous entourent. Vous disposez de puissantes défenses que vous partagez avec vos alliés et les spectateurs innocents, ainsi que des pouvoirs divins que vous utilisez pour mettre un terme aux menaces auxquelles votre divinité s'oppose.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR",
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous affrontez vos ennemis au corps-à-corps tout en vous positionnant soigneusement de manière à protéger vos alliés.",
+            "desc_socially"        : "Vous êtes la voix d'une autorité dévouée, avec de fortes intentions d'incarner les comportements que votre divinité encourage.",
+            "desc_exploration"     : "Vous surmontez les obstacles tant physiques que spirituels, en inspirant vos alliés par vos actions et, quand vos compagnons d'aventures vous le demandent, en leur donnant des conseils de manière assurée.",
+            "desc_interlude"       : "Vous consacrez la plupart de votre temps en contemplation et prières solennelles, en entraînement rigoureux, à accomplir les édits de votre cause, mais cela ne signifie pas qu'il ne vous reste pas de temps pour pratiquer un métier ou un passe-temps.",
+            "desc_you_could"       : [
                 "Croire que la justesse de votre cause triomphera, même si les chances semblent faibles.",
                 "Expliquer comment les enseignements de votre divinité s'appliquent aux décisions et aux actions de la vie quotidienne.",
                 "Être légèrement sur-protecteur à l'égard de vos alliés."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Vous considèrent comme un symbole de votre divinité et vous répercutent leurs opinions sur cette dernière.",
                 "Craignent que vous les méprisiez secrètement parce qu'ils ne sont pas à la hauteur de vos standards impossibles à atteindre ou que vous ne soyez pas disposé à faire des compromis lorsque c'est nécessaire.",
                 "Savent que vous avez prêté des serments divins de service et qu'ils peuvent vous faire confiance pour les respecter."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Religion",
                 "Qualifié dans une compétence déterminée par la divinité que vous avez choisie",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec toutes les armures",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe de champion",
-            "mastery_spell": [
+            "mastery_dd"           : "Qualifié dans le DD de classe de champion",
+            "mastery_spell"        : [
                 "Qualifié en modificateur de sorts",
                 "Qualifié en DD de sorts"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, blocage au bouclier, cause, divinité, don de champion, maîtrises initiales, primes d'attributs, sorts de dévotion",
                 "Don de champion, don de compétence",
                 "Amélioration de compétence, bénédiction du dévôt, don général",
@@ -853,8 +884,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Conjurateur",
-            "capacities": [
+            "name"                 : "Conjurateur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Eidolon",
@@ -950,44 +981,49 @@ var CLASSES = {
                 "Manifestation instantanée\nNiveau 19",
                 "Vous pouvez manifester votre eidolon avec une vitesse incroyable. Vous pouvez utiliser sports_martial_artsManifester l'eidolon par une unique action, au lieu d'une activité à trois actions."
             ],
-            "general_desc": "Vous pouvez appeler magiquement une puissante entité appelé eidolon à vos côtés, en servant de conduit mortel qui l'ancre au monde. Que votre eidolon soit un ami, un serviteur ou même un dieu personnel, votre connexion avec lui vous distingue comme étant hors du commun, influençant profondément le cours de votre vie.",
-            "prime_attribute": "CHARISME",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous et votre eidolon combattez d'un seul élan. Vous pouvez compter sur votre eidolon pour les défis quotidiens, conservant vos sorts pour les moments les plus cruciaux.",
-            "desc_socially": "Votre puissante personnalité vous permet de prendre la direction des opérations lorsque vous négociez. Vous et votre eidolon pouvez vous engager avec d'autres de différente manière mais, même si votre gardien garde le silence, sa présence rappelle à ceux qui vous entourent votre puissance.",
-            "desc_exploration": "Que vous restiez en alerte pour trouver la présence de magie étrange ou gardiez un œil sur les problèmes, vous et votre eidolon agissez ensemble pour couvrir plus de terrain, mutualisez vos compétences et comptez chacun sur les capacités de l'autre.",
-            "desc_interlude": "Vous pourriez essayer d'en apprendre plus sur la nature de votre eidolon et pour vous plonger plus profondément dans les secrets de sa tradition magique pour apprendre un sort, fabriquer des objets magiques avec l'aide de votre eidolon ou vous faire des alliés en utilisant vos compétences sociales.",
-            "desc_you_could": [
+            "general_desc"         : "Vous pouvez appeler magiquement une puissante entité appelé eidolon à vos côtés, en servant de conduit mortel qui l'ancre au monde. Que votre eidolon soit un ami, un serviteur ou même un dieu personnel, votre connexion avec lui vous distingue comme étant hors du commun, influençant profondément le cours de votre vie.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous et votre eidolon combattez d'un seul élan. Vous pouvez compter sur votre eidolon pour les défis quotidiens, conservant vos sorts pour les moments les plus cruciaux.",
+            "desc_socially"        : "Votre puissante personnalité vous permet de prendre la direction des opérations lorsque vous négociez. Vous et votre eidolon pouvez vous engager avec d'autres de différente manière mais, même si votre gardien garde le silence, sa présence rappelle à ceux qui vous entourent votre puissance.",
+            "desc_exploration"     : "Que vous restiez en alerte pour trouver la présence de magie étrange ou gardiez un œil sur les problèmes, vous et votre eidolon agissez ensemble pour couvrir plus de terrain, mutualisez vos compétences et comptez chacun sur les capacités de l'autre.",
+            "desc_interlude"       : "Vous pourriez essayer d'en apprendre plus sur la nature de votre eidolon et pour vous plonger plus profondément dans les secrets de sa tradition magique pour apprendre un sort, fabriquer des objets magiques avec l'aide de votre eidolon ou vous faire des alliés en utilisant vos compétences sociales.",
+            "desc_you_could"       : [
                 "Comptez sur votre eidolon pour accomplir des tâches physiques lorsque vous vous occupez des tâches mentales.",
                 "Développez les attitudes et le maniérisme qui correspondent à la manière de penser de votre eidolon, même lorsque votre nature façonne son comportement.",
                 "Considérez votre eidolon comme un ami proche, une figure qui vous guide, un protecteur ou un rival qui vous est lié."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Se sentent en sécurité avec vous (et votre eidolon) à leur côté.",
                 "S'attendent à ce que vous disposiez des informations à propos de votre eidolon et que vous ayez connaissance de détails à propos d'autres sortes de monstres étranges.",
                 "Vous voient avec respect ou crainte à cause de la puissante ou de l'étrange créature qui vous accompagne."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en une ou plusieurs compétences déterminées par votre eidolon",
                 "Qualifié en un nombre de compétences supplémentaires égales à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": "Qualifié en défense sans armure",
-            "mastery_spell": [
+            "mastery_defense"      : "Qualifié en défense sans armure",
+            "mastery_spell"        : [
                 "Qualifié en attaque de sorts de votre tradition d'incantation, déterminé par votre eidolon",
                 "Qualifié en DD de sort de votre tradition d'incantation, déterminé par votre eidolon"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, don d'évolution, eidolon, incantation du conjurateur, maîtrises initiales, répertoire de sort, sorts liés",
                 "Don de compétence, don de conjurateur",
                 "Amélioration de compétence, don général, sorts emblématiques illimités, sorts de rang 2, vigilance partagée",
@@ -1011,8 +1047,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Druide",
-            "capacities": [
+            "name"                 : "Druide",
+            "capacities"           : [
                 "Anathème",
                 "En tant que gardiens de l'ordre naturel, les druides trouvent que les affronts à la nature sont anathèmes. Si vous accomplissez de manière répétée de tels actes, vous perdez les capacités magiques de la classe de druide, notamment votre incantation de druide et les avantages de votre ordre. Ces capacités ne peuvent être récupérées que si vous démontrer votre repentir au cours d'un rituel de auto_awesomePénitence .",
                 "Les agissements suivants sont considérés comme anathèmes par tous les druides :",
@@ -1083,49 +1119,54 @@ var CLASSES = {
                 "Hiérophante primordial\nNiveau 19",
                 "Vous commandez les forces les plus puissantes de la magie primordiale et pouvez lancer un sort au pouvoir vraiment incroyable. Vous obtenez un unique emplacement de sort de rang 10 et pouvez l'utiliser pour préparer un sort dans cet emplacement avec incantation de druide. Contrairement aux autres emplacements de sort, vous ne pouvez pas utiliser les emplacements de sort de rang 10 avec des capacités qui vous donnent plus d'emplacements de sort ou qui vous permettent de lancer des sorts sans dépenser d'emplacement de sort. Vous n'obtenez pas plus d'emplacements de rang 10 en gagnant un niveau, mais vous pouvez prendre le don military_techPuissance du hiérophante pour obtenir un second emplacement."
             ],
-            "general_desc": "Le pouvoir de la nature est irrésistible. Elle peut ruiner la plus solide des forteresses en quelques minutes, réduire les ouvrages les plus imposants en simples ruines, les réduire en cendres, les ensevelir sous une avalanche de neige ou les noyer sous les flots. Elle peut offrir une abondance sans fin et une splendeur à couper le souffle à ceux qui la respectent - et une mort atroce à ceux qui la prennent trop à la légère. Vous êtes de ceux qui entendent l'appel de la nature. Vous vous tenez en admiration devant la majesté de sa puissance et vous vous mettez à son service.",
-            "prime_attribute": "SAGESSE",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous lancez des sorts qui font appel à la magie primordiale pour vous protéger et protéger vos amis, soigner leurs blessures ou invoquer des animaux mortels pour qu'ils se battent à vos côtés. En fonction de votre lien avec la nature, vous pourriez faire appel à une puissante magie élémentaire ou prendre la forme d'une bête terrifiante.",
-            "desc_socially": "Vous représentez l'équilibre et une approche raisonnée des problèmes, cherchant des solutions qui non seulement sont les meilleures pour le monde naturel, mais qui permettent aussi aux créatures qui le composent de vivre en harmonie et en paix. Vous proposez souvent des compromis qui permettent aux deux parties d'obtenir ce dont elles ont vraiment besoin, même si elles ne peuvent pas avoir tout ce qu'elles désirent.",
-            "desc_exploration": "Vos compétences sur la nature sont inestimables. Vous pourchassez les ennemis, parcourez les étendues sauvages sans vous perdre et utilisez des sorts pour détecter les auras magiques qui vous entourent. Vous pourriez même demander aux animaux sauvages qu'ils utilisent leurs moyens de perceptions extraordinaires et leurs capacités d'éclaireurs pour aider votre groupe.",
-            "desc_interlude": "Vous pourriez fabriquer des objets magiques ou des potions. Ou encore, votre attachement à la nature pourrait vous amener à vous occuper d'une zone sauvage, à vous lier d'amitié avec les bêtes et à soigner les blessures causées par la civilisation. Vous pourriez même enseigner des techniques d'agriculture durable et d'élevage respectueuses qui permettent aux autres de vivre de la terre sans nuire à l'équilibre naturel.",
-            "desc_you_could": [
+            "general_desc"         : "Le pouvoir de la nature est irrésistible. Elle peut ruiner la plus solide des forteresses en quelques minutes, réduire les ouvrages les plus imposants en simples ruines, les réduire en cendres, les ensevelir sous une avalanche de neige ou les noyer sous les flots. Elle peut offrir une abondance sans fin et une splendeur à couper le souffle à ceux qui la respectent - et une mort atroce à ceux qui la prennent trop à la légère. Vous êtes de ceux qui entendent l'appel de la nature. Vous vous tenez en admiration devant la majesté de sa puissance et vous vous mettez à son service.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous lancez des sorts qui font appel à la magie primordiale pour vous protéger et protéger vos amis, soigner leurs blessures ou invoquer des animaux mortels pour qu'ils se battent à vos côtés. En fonction de votre lien avec la nature, vous pourriez faire appel à une puissante magie élémentaire ou prendre la forme d'une bête terrifiante.",
+            "desc_socially"        : "Vous représentez l'équilibre et une approche raisonnée des problèmes, cherchant des solutions qui non seulement sont les meilleures pour le monde naturel, mais qui permettent aussi aux créatures qui le composent de vivre en harmonie et en paix. Vous proposez souvent des compromis qui permettent aux deux parties d'obtenir ce dont elles ont vraiment besoin, même si elles ne peuvent pas avoir tout ce qu'elles désirent.",
+            "desc_exploration"     : "Vos compétences sur la nature sont inestimables. Vous pourchassez les ennemis, parcourez les étendues sauvages sans vous perdre et utilisez des sorts pour détecter les auras magiques qui vous entourent. Vous pourriez même demander aux animaux sauvages qu'ils utilisent leurs moyens de perceptions extraordinaires et leurs capacités d'éclaireurs pour aider votre groupe.",
+            "desc_interlude"       : "Vous pourriez fabriquer des objets magiques ou des potions. Ou encore, votre attachement à la nature pourrait vous amener à vous occuper d'une zone sauvage, à vous lier d'amitié avec les bêtes et à soigner les blessures causées par la civilisation. Vous pourriez même enseigner des techniques d'agriculture durable et d'élevage respectueuses qui permettent aux autres de vivre de la terre sans nuire à l'équilibre naturel.",
+            "desc_you_could"       : [
                 "Avoir un respect sincère et profond pour la puissance de la nature.",
                 "Être en admiration constante pour le monde naturel, toujours prêt à partager ses bienfaits avec les autres tout en vous préoccupant de leur influence sur lui.",
                 "Traiter les plantes et les animaux comme des alliés, travaillant à leurs côtés pour atteindre vos objectifs."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Vous voient comme un représentant de la nature et sont sûrs que vous pouvez la contrôler.",
                 "Supposent que vous êtes un ermite qui évite la société et les cités et qui préfère vivre dans les étendues sauvages.",
                 "Vous considèrent comme un mystique, semblable à un prêtre, mais ne répondant qu'aux forces de la nature."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Nature",
                 "Qualifié dans une compétence déterminée par votre ordre druidique",
                 "Qualifié dans un nombre de compétences supplémentaire égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié en attaques à mains nues",
                 "Qualifié avec les armes simples"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié en défense sans armure",
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaque de sort",
                 "Qualifié en DD de sorts"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, anathème, blocage au bouclier, chant sauvage, incantation de druide, maîtrises initiales, primes d'attribut, ordre druidique, voix de la nature",
                 "Don de compétence, don de druide",
                 "Amélioration de compétence, don général, expertise en perception, expertise en vigueur, sorts de rang 2",
@@ -1149,8 +1190,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Enquêteur",
-            "capacities": [
+            "name"                 : "Enquêteur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Concevoir un stratagème",
@@ -1219,48 +1260,53 @@ var CLASSES = {
                 "Maîtrise des armures légères\nNiveau 19",
                 "Votre compétence avec les armures légères s'améliore, augmentant votre capacité à esquiver les coups. Vous devenez maître avec les armures légères et en défense sans armure."
             ],
-            "general_desc": "Vous cherchez à découvrir la vérité et vous remontez des pistes sans lâcher prise pour dévoiler des complots de méchants sournois, découvrir d'anciens secrets ou percer des mystères. Votre esprit analytique formule rapidement des solutions aux problèmes les plus complexes et vos sens affutés donnent un sens même aux indices les plus obscurs. Armé de vos connaissances, vous étudiez les créatures et les dangers que vous rencontrez afin d'exploiter leurs points faibles.",
-            "prime_attribute": "INTELLIGENCE",
-            "life_point_by_level": 8,
-            "desc_fight": [
+            "general_desc"         : "Vous cherchez à découvrir la vérité et vous remontez des pistes sans lâcher prise pour dévoiler des complots de méchants sournois, découvrir d'anciens secrets ou percer des mystères. Votre esprit analytique formule rapidement des solutions aux problèmes les plus complexes et vos sens affutés donnent un sens même aux indices les plus obscurs. Armé de vos connaissances, vous étudiez les créatures et les dangers que vous rencontrez afin d'exploiter leurs points faibles.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : [
                 "Grâce à votre intuition affûtée concernant vos ennemis, vous êtes plus dangereux que ce que votre puissance physique laisse présager. Après avoir passé un moment à étudier vos ennemis, vos talents en perception vous permettent d'agir rapidement et de frapper là où cela va faire le plus mal.",
                 "Vous assistez souvent les membres plus robustes de votre groupe, vous protégeant sagement tout en offrant une aide vitale."
             ],
-            "desc_socially": "Rares sont ceux qui peuvent vous cacher des choses. Vous n'êtes peut-être pas le plus charmant mais vous voyez les choses telles qu'elles sont réellement et parvenez à jauger rapidement une situation sociale. Chaque conversation est un interrogatoire, après tout, et vous ne savez jamais ce que vous allez rencontrer !",
-            "desc_exploration": "Vous recherchez des indices dans votre environnement. Vous vous montrez souvent un allié précieux en servant d'éclaireur pour le groupe, en analysant les subtilités des énigmes ou des phénomènes mystérieux, et en poursuivant des pistes qui pourraient révéler des informations bénéfiques.",
-            "desc_interlude": "Vous étudiez des sujets nouveaux et anciens, vous vous faites de nouveaux alliés avec qui partager des informations, et vous poursuivez des passe-temps qui satisfont votre esprit actif. Vous pourriez gagner un peu d'argent en travaillant comme détective privé ou en consultant pour le prévôt local.",
-            "desc_you_could": [
+            "desc_socially"        : "Rares sont ceux qui peuvent vous cacher des choses. Vous n'êtes peut-être pas le plus charmant mais vous voyez les choses telles qu'elles sont réellement et parvenez à jauger rapidement une situation sociale. Chaque conversation est un interrogatoire, après tout, et vous ne savez jamais ce que vous allez rencontrer !",
+            "desc_exploration"     : "Vous recherchez des indices dans votre environnement. Vous vous montrez souvent un allié précieux en servant d'éclaireur pour le groupe, en analysant les subtilités des énigmes ou des phénomènes mystérieux, et en poursuivant des pistes qui pourraient révéler des informations bénéfiques.",
+            "desc_interlude"       : "Vous étudiez des sujets nouveaux et anciens, vous vous faites de nouveaux alliés avec qui partager des informations, et vous poursuivez des passe-temps qui satisfont votre esprit actif. Vous pourriez gagner un peu d'argent en travaillant comme détective privé ou en consultant pour le prévôt local.",
+            "desc_you_could"       : [
                 "Commencer à poser des questions, y compris des questions plutôt complexes, juste après avoir été confronté à une énigme.",
                 "Vous efforcer de dévoiler le sens caché de tout ce que vous rencontrez et d'identifier les machinations sociales qui expliquent comment les choses se passent vraiment au-delà des apparences.",
                 "Vous plonger si profondément dans une affaire que vous ignorez complètement tous les autres sujets, les considérant comme triviaux."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Trouvent le flot d'informations que vous déversez extrêmement utile, quoique parfois difficile à bien comprendre.",
                 "Peuvent être agacés par le fait que vous sachiez toujours tout sur tout.",
                 "Comptent sur vous pour résoudre les mystères, les énigmes et les autres défis nécessitant de la curiosité intellectuelle et du raisonnement."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Expert en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Société",
                 "Qualifié en une ou plusieurs compétences déterminées par votre méthodologie",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 4 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples et de guerre",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'enquêteur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'enquêteur",
+            "capacity_by_level"    : [
                 "Ascendance et historique, concevoir un stratagème, don d'enquêteur, frappe stratégique 1d6, maîtrises initiales, méthodologie, primes d'attribut, sur l'affaire",
                 "Amélioration de compétence, don d'enquêteur, don de compétence",
                 "Amélioration de compétence, don général, leçons accomplies, souvenirs affûtés",
@@ -1284,8 +1330,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Ensorceleur",
-            "capacities": [
+            "name"                 : "Ensorceleur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Incantation de l'ensorceleur",
@@ -1369,48 +1415,53 @@ var CLASSES = {
                 "Une entrée de lignage contient les informations suivantes :",
                 "Tradition Vous utilisez cette tradition magique et sa liste de sorts.\nCompétences de lignage Vous êtes qualifié dans les compétences indiquées.\nLegs d'ensorceleur Vous ajoutez automatiquement les sorts indiqués ici à votre répertoire de sorts, comme indiqué dans la capacité Répertoire de sorts . Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts sur la liste dès que vous obtenez la capacité de lancer des sorts d'ensorceleur de ce rang.\nSorts de lignage Vous obtenez automatiquement le sort de lignage initial au rang 1 et vous pouvez en obtenir davantage en prenant les dons military_techLignage avancé et military_techLignage supérieur .\nMagie du sang Chaque fois que vous lancez un sort de lignage en utilisant un point de focalisation ou un sort provenant des Legs d'ensorceleur, vous choisissez effet de magie du sang que vous connaissez pour en tirer avantage. Vous commencez à jouer avec l'avantage indiqué dans votre lignage et en gagnez d'autres grâce aux dons d'ensorceleur.\nSi la magie du sang vous offre un choix, faites-le avant de résoudre le sort. L'effet de magie du sang se produit après les tests nécessaires pour résoudre les effets initiaux du sort et contre un adversaire, il s'applique uniquement si le sort est une attaque réussie ou si l'adversaire rate son jet de sauvegarde. Si le sort possède une zone, vous devez vous désigner vous-même ou désigner une cible dans la zone quand vous lancez le sort pour qu'elle soit la cible de l'effet de la magie du sang. Toute référence au rang du sort concerne le rang du sort que vous lancez."
             ],
-            "general_desc": "Vous n'avez pas choisi de devenir un lanceur de sorts — vous êtes né ainsi. La magie coule dans vos veines, peut-être parce qu'une divinité a béni l'un de vos ancêtres, parce qu'un ancien membre de votre famille a communié avec une créature primordiale ou parce qu'un puissant rituel occulte a influencé votre lignée. L'introspection et l'étude vous permettent d'affiner vos compétences magiques inhérentes et de développer de nouveaux pouvoirs plus puissants. Le pouvoir qui imprègne votre sang comporte pourtant un risque et vous devez constamment faire des choix dont les conséquences vous élèveront au rang de lanceur de sorts émérite ou causeront votre destruction.",
-            "prime_attribute": "CHARISME",
-            "life_point_by_level": 6,
-            "desc_fight": "Vous utilisez vos sorts pour blesser vos ennemis, influencer leur esprit et gêner leurs déplacements. Vous pourriez vous sentir trop vulnérable dans un combat au corps-à-corps, mais votre lignage pourrait aussi vous conférer des pouvoirs qui vous permettent de tenir votre position dans une bagarre. Bien que votre magie soit puissante, pour conserver vos meilleurs sorts ou lorsque vous les avez tous utilisés, vous pouvez également compter sur vos tours de magie.",
-            "desc_socially": "Votre charisme naturel vous permet d'avoir de bonnes interactions sociales.",
-            "desc_exploration": "Vous détectez la magie qui vous entoure, en dénichant les trésors et en avertissant votre groupe d'aventuriers de la présence de pièges magiques. Quand votre groupe tombe sur des mystères ou des problèmes en rapport avec votre lignage, vous tentez de les résoudre.",
-            "desc_interlude": "Vous fabriquez des objets magiques ou écrivez des parchemins. Votre lignage pourrait vous pousser à faire des recherches sur votre ascendance ou à vous associer à des gens ou des créatures affiliés.",
-            "desc_you_could": [
+            "general_desc"         : "Vous n'avez pas choisi de devenir un lanceur de sorts — vous êtes né ainsi. La magie coule dans vos veines, peut-être parce qu'une divinité a béni l'un de vos ancêtres, parce qu'un ancien membre de votre famille a communié avec une créature primordiale ou parce qu'un puissant rituel occulte a influencé votre lignée. L'introspection et l'étude vous permettent d'affiner vos compétences magiques inhérentes et de développer de nouveaux pouvoirs plus puissants. Le pouvoir qui imprègne votre sang comporte pourtant un risque et vous devez constamment faire des choix dont les conséquences vous élèveront au rang de lanceur de sorts émérite ou causeront votre destruction.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
+            "life_point_by_level"  : 6,
+            "desc_fight"           : "Vous utilisez vos sorts pour blesser vos ennemis, influencer leur esprit et gêner leurs déplacements. Vous pourriez vous sentir trop vulnérable dans un combat au corps-à-corps, mais votre lignage pourrait aussi vous conférer des pouvoirs qui vous permettent de tenir votre position dans une bagarre. Bien que votre magie soit puissante, pour conserver vos meilleurs sorts ou lorsque vous les avez tous utilisés, vous pouvez également compter sur vos tours de magie.",
+            "desc_socially"        : "Votre charisme naturel vous permet d'avoir de bonnes interactions sociales.",
+            "desc_exploration"     : "Vous détectez la magie qui vous entoure, en dénichant les trésors et en avertissant votre groupe d'aventuriers de la présence de pièges magiques. Quand votre groupe tombe sur des mystères ou des problèmes en rapport avec votre lignage, vous tentez de les résoudre.",
+            "desc_interlude"       : "Vous fabriquez des objets magiques ou écrivez des parchemins. Votre lignage pourrait vous pousser à faire des recherches sur votre ascendance ou à vous associer à des gens ou des créatures affiliés.",
+            "desc_you_could"       : [
                 "Êtes souvent très indépendant et, que vous rejetiez ou acceptiez votre héritage magique, vous tenez à vous distinguer à la fois comme lanceur de sorts et en tant qu'individu.",
                 "Considérez votre lignage avec fascination, terreur ou entre les deux : toutes les nuances entre une acceptation sans réserve et un rejet véhément.",
                 "Vous reposez sur l'utilisation d'objets magiques tels que les parchemins et les baguettes pour compléter votre sélection limitée de sorts."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "S'émerveillent de votre capacité à créer de la magie à partir de rien et voient vos capacités avec autant de méfiance que d'admiration.",
                 "Vous considèrent comme moins investi que les magiciens assidus, les prêtres dévoués ou d'autres praticiens de la magie car vos capacités vous viennent naturellement.",
                 "Partent du principe que vous êtes aussi imprévisible que la magie que vous pratiquez, même si votre personnalité prouve le contraire."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui n'est pas indiqué ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui n'est pas indiqué ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié dans une ou plusieurs compétences déterminées par votre lignage",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Inexpérimenté avec toutes les armures",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en jets d'attaque de sort",
                 "Qualifié en DD de sorts"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'ensorceleur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'ensorceleur",
+            "capacity_by_level"    : [
                 "Ascendance et historique, maîtrises initiales, lignage, incantation d'ensorceleur, primes d'attribut, puissance ensorcelante, répertoire de sorts",
                 "Don de compétence, don d'ensorceleur",
                 "Amélioration de compétence, don général, sorts de rang 2, sorts emblématiques",
@@ -1434,8 +1485,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Exalté",
-            "capacities": [
+            "name"                 : "Exalté",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Dons d'exalté",
@@ -1504,49 +1555,55 @@ var CLASSES = {
                 "Maîtrise avec les armures patinées\nNiveau 19",
                 "Votre armure brille de lumière divine, sans le moindre défaut et inflexible. Vous devenez maître en défense sans armure, avec les armures légères et avec les armures intermédiaires."
             ],
-            "general_desc": "À la mort du dieu de la guerre, son pouvoir s'est déversé à travers tous les plans de la création, provoquant de nombreux conflits et imprégnant certains êtres d'une énergie divine dont ils étaient dépourvus jusqu'alors. Que vous ayez été directement touché par cette puissance, que vous l'ayez arraché à un être ancien ou un artefact ou qu'il ait éveillé un pouvoir resté longtemps en sommeil dans votre lignée, un éclat de divinité brille à présent au sein de votre âme, vous offrant des capacités, des armes sacrées ainsi que d'autres symboles qui touchent à un domaine jusque là réservé aux dieux et aux légendes. La façon dont vous déciderez d'utiliser ces outils et d'augmenter votre puissance vous revient entièrement - vous pouvez devenir un héros ou vous tourner vers des buts plus égoïstes. Cependant, une chose est sûre : vous avez bien l'intention de graver votre épithète dans l'histoire, immortalisée dans la mémoire des mortels au même titre que celle des dieux.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous combattez en première ligne, éparpillant les ennemis les plus faibles aux quatre vents. Vous concentrez votre énergie divine au sein de la bonne arme ou du bon outil pour faire face à la situation. Quand une flèche perce votre peau, elle ne vous indispose pas plus qu'une piqûre d'insecte. Quand vous frappez de la pointe de votre lance, vous pouvez transpercer des dieux.",
-            "desc_socially": "Vous êtes naturellement un personnage plus grand que nature. Vous pourriez utiliser votre magnétisme naturel pour inspirer autrui ou vous pourriez être une figure mystérieuse et solitaire qui ne s'exprime que rarement. Quoi qu'il en soit, vos actions et vos paroles portent avec elles une gravité indéniable.",
-            "desc_exploration": [
+            "general_desc"         : "À la mort du dieu de la guerre, son pouvoir s'est déversé à travers tous les plans de la création, provoquant de nombreux conflits et imprégnant certains êtres d'une énergie divine dont ils étaient dépourvus jusqu'alors. Que vous ayez été directement touché par cette puissance, que vous l'ayez arraché à un être ancien ou un artefact ou qu'il ait éveillé un pouvoir resté longtemps en sommeil dans votre lignée, un éclat de divinité brille à présent au sein de votre âme, vous offrant des capacités, des armes sacrées ainsi que d'autres symboles qui touchent à un domaine jusque là réservé aux dieux et aux légendes. La façon dont vous déciderez d'utiliser ces outils et d'augmenter votre puissance vous revient entièrement - vous pouvez devenir un héros ou vous tourner vers des buts plus égoïstes. Cependant, une chose est sûre : vous avez bien l'intention de graver votre épithète dans l'histoire, immortalisée dans la mémoire des mortels au même titre que celle des dieux.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR",
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous combattez en première ligne, éparpillant les ennemis les plus faibles aux quatre vents. Vous concentrez votre énergie divine au sein de la bonne arme ou du bon outil pour faire face à la situation. Quand une flèche perce votre peau, elle ne vous indispose pas plus qu'une piqûre d'insecte. Quand vous frappez de la pointe de votre lance, vous pouvez transpercer des dieux.",
+            "desc_socially"        : "Vous êtes naturellement un personnage plus grand que nature. Vous pourriez utiliser votre magnétisme naturel pour inspirer autrui ou vous pourriez être une figure mystérieuse et solitaire qui ne s'exprime que rarement. Quoi qu'il en soit, vos actions et vos paroles portent avec elles une gravité indéniable.",
+            "desc_exploration"     : [
                 "Vous guettez les flots du destin, conscient que votre voie vous mènera toujours à votre prochaine quête. Vous pourriez développer un intérêt pour un aspect de la nature, de la société ou du cosmos alors que votre étincelle divine commence à tendre vers certains types de pouvoirs."
             ],
-            "desc_interlude": "L'inactivité ne convient que rarement à un exalté de sorte que vous cherchez inlassablement une nouvelle tâche ou une quête permettant d'amplifier votre légende. Vous pourriez chercher une créature à pourfendre, participer à des concours d'athlétisme ou partir en quête d'artefacts disparus.",
-            "desc_you_could": [
+            "desc_interlude"       : "L'inactivité ne convient que rarement à un exalté de sorte que vous cherchez inlassablement une nouvelle tâche ou une quête permettant d'amplifier votre légende. Vous pourriez chercher une créature à pourfendre, participer à des concours d'athlétisme ou partir en quête d'artefacts disparus.",
+            "desc_you_could"       : [
                 "Chercher la gloire à travers le monde, tant au-delà des océans que derrière l'horizon.",
                 "Prendre d'autres héros sous votre aile, afin que votre légende perdure à travers eux.",
                 "Éprouver le poids d'immenses attentes et de vos obligations."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Se tournent vers vous en temps de crise, en sachant que vous pouvez faire face à n'importe quel défi.",
                 "Voir en vous un être plus grand que nature, un personnage de légende plus qu'un aventurier.",
                 "Confondre votre héroïsme et vos compétences pour de la vanité et du détachement."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_rarity": "Rare",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_rarity"       : "Rare",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Religion",
                 "Qualifié en un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'exalté",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'exalté",
+            "capacity_by_level"    : [
                 "Ascendance et historique, don d'exalté, maîtrises initiales, primes d'attribut, blocage au bouclier, étincelle divine et ikônes, frappes humbles",
                 "don de compétence, don d'exalté",
                 "Amélioration de compétence, don général, épithète racine",
@@ -1570,8 +1627,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Franc-tireur",
-            "capacities": [
+            "name"                 : "Franc-tireur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Maîtrises initiales",
@@ -1631,35 +1688,40 @@ var CLASSES = {
                 "Maîtrise avec les armures intermédiaires\nNiveau 19",
                 "Votre maîtrise avec les armures légères et intermédiaires s'améliore, augmentant votre capacité à éviter les coups. Vous devenez maître avec les armures légères et intermédiaires ainsi qu'en défense sans armure."
             ],
-            "general_desc": "Alors que certains craignent les armes à projectiles, vous savourez l'éclair brûlant, le recul soudain et la fumée étouffante qui accompagnent un coup de feu ou le claquement du câble et le bruit sourd de votre arbalète juste avant que votre carreau ne trouve sa place. Prêt à mettre en joue un ennemi à tout moment, vous vous fiez à vos réflexes, à votre main sûre et à votre connaissance des armes pour cribler vos ennemis de trous.",
-            "prime_attribute": "DEXTÉRITÉ",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous frappez à distance avec vos armes à feu, cherchant à vaincre vos adversaires avant qu'ils ne puissent constituer une véritable menace. En fonction de votre choix d'arme, vous préférerez peut-être frapper votre adversaire depuis une position dissimulée avant qu'il ne s'aperçoive de votre présence, foncer dans une mêlée frénétique en dégainant vos pistolets dans un déluge de feu, ou encore vous déplacer avec aisance sur le champ de bataille, attendant le moment parfait pour mettre un terme au combat d'un seul tir précis et bien placé.",
-            "desc_socially": "Vous avez l'œil vif et pouvez voir de plus loin que la plupart des gens. Vous n'êtes peut-être pas le boute-en-train du groupe mais vos compagnons savent qu'ils doivent prêter attention lorsque votre hochement de tête subtil ou votre grognement inquiet indique que quelque chose cloche.",
-            "desc_exploration": "Vous surveillez la position du groupe pour détecter les menaces environnantes et aidez à rechercher les portes secrètes et les passages dissimulés en gardant un œil sur les menaces inattendues.",
-            "desc_interlude": "Vous pouvez fabriquer des munitions ou nettoyer ou entretenir vos armes complexes et vous pouvez chercher un emploi correspondant à vos talents uniques, comme forgeron, ingénieur ou membre de la garde locale. Vous pouvez errer de ville en ville, ou rester sur place pendant un moment pour profiter du silence qui règne entre les fusillades.",
-            "desc_you_could": [
+            "general_desc"         : "Alors que certains craignent les armes à projectiles, vous savourez l'éclair brûlant, le recul soudain et la fumée étouffante qui accompagnent un coup de feu ou le claquement du câble et le bruit sourd de votre arbalète juste avant que votre carreau ne trouve sa place. Prêt à mettre en joue un ennemi à tout moment, vous vous fiez à vos réflexes, à votre main sûre et à votre connaissance des armes pour cribler vos ennemis de trous.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous frappez à distance avec vos armes à feu, cherchant à vaincre vos adversaires avant qu'ils ne puissent constituer une véritable menace. En fonction de votre choix d'arme, vous préférerez peut-être frapper votre adversaire depuis une position dissimulée avant qu'il ne s'aperçoive de votre présence, foncer dans une mêlée frénétique en dégainant vos pistolets dans un déluge de feu, ou encore vous déplacer avec aisance sur le champ de bataille, attendant le moment parfait pour mettre un terme au combat d'un seul tir précis et bien placé.",
+            "desc_socially"        : "Vous avez l'œil vif et pouvez voir de plus loin que la plupart des gens. Vous n'êtes peut-être pas le boute-en-train du groupe mais vos compagnons savent qu'ils doivent prêter attention lorsque votre hochement de tête subtil ou votre grognement inquiet indique que quelque chose cloche.",
+            "desc_exploration"     : "Vous surveillez la position du groupe pour détecter les menaces environnantes et aidez à rechercher les portes secrètes et les passages dissimulés en gardant un œil sur les menaces inattendues.",
+            "desc_interlude"       : "Vous pouvez fabriquer des munitions ou nettoyer ou entretenir vos armes complexes et vous pouvez chercher un emploi correspondant à vos talents uniques, comme forgeron, ingénieur ou membre de la garde locale. Vous pouvez errer de ville en ville, ou rester sur place pendant un moment pour profiter du silence qui règne entre les fusillades.",
+            "desc_you_could"       : [
                 "Recherchez les zones de conflit où votre choix unique d'armes peut vous aider à bâtir votre réputation.",
                 "Explorez de nouveaux horizons en faisant confiance à vos sens aiguisés et à votre arme létale pour assurer votre sécurité.",
                 "Démontrez une connaissance approfondie des différents types d'armes et de munitions, ainsi qu'une curiosité pour les dernières technologies en matière d'armes à feu."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Partent du principe que, puisque vous connaissez le fonctionnement de votre arme, vous devez également savoir comment résoudre d'autres problèmes mécaniques.",
                 "Vous sous-estiment au premier abord, pensant que vous vous reposez sur votre arme faute de véritables compétences.",
                 "Respectent votre vigilance constante, votre courage inébranlable et votre excellente visée."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Qualifié en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié dans une ou plusieurs compétences déterminée par votre voie de franc-tireur",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Expert avec les armes à feu et les arbalètes simples",
                 "Expert avec les armes à feu et les arbalètes de guerre",
                 "Qualifié avec les armes à feu et les arbalètes avancées",
@@ -1667,13 +1729,13 @@ var CLASSES = {
                 "Qualifié avec les armes de guerre",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié avec le DD de classe de Franc-tireur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié avec le DD de classe de Franc-tireur",
+            "capacity_by_level"    : [
                 "Ascendance et historique, don de franc-tireur, exploit initial, maîtrises initiales, précision du tireur, voie de Franc-tireur",
                 "Don de compétence, don de franc-tireur",
                 "Amélioration de compétence, don général, obstiné",
@@ -1697,8 +1759,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Guerrier",
-            "capacities": [
+            "name"                 : "Guerrier",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Blocage au bouclier",
@@ -1754,46 +1816,52 @@ var CLASSES = {
                 "Légende polyvalente\nNiveau 19",
                 "Votre habileté avec toutes les armes est quasiment sans égale. Votre degré de maîtrise avec les armes simples, les armes de guerre et les attaques à mains nues passe à légendaire et votre degré de maîtrise avec les armes évoluées à maître. Votre degré de maîtrise dans le DD de la classe de guerrier passe à maître."
             ],
-            "general_desc": "Combattant pour l'honneur, l'appât du gain, la loyauté ou simplement pour le frisson de la bataille, vous êtes un maître incontesté de l'armement et des techniques de combat. Vous combinez vos actions grâce à de savantes combinaisons d'ouvertures, de bottes et de contre-attaques lorsque vos ennemis sont assez imprudents pour baisser leur garde. Que vous soyez chevalier, mercenaire, tireur d'élite ou maître de la lame, vous avez affiné vos compétences martiales jusqu'à en faire un art et vous portez des attaques critiques dévastatrices sur vos ennemis.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous frappez avec une précision inégalée et appliquez des techniques de combat spécialisées. Un guerrier au corps-à-corps se place entre ses alliés et les ennemis, en attaquant les adversaires qui tentent de le contourner. Un guerrier à distance délivre des tirs précis en restant à distance.",
-            "desc_socially": "Vous pouvez être une présence intimidante. Cela peut être utile lors de négociations avec des ennemis, mais s'avérer un handicap dans des interactions plus courtoises.",
-            "desc_exploration": "Vous maintenez vos défenses actives en prévision du combat et gardez l'œil ouvert pour repérer les menaces cachées. Vous surmontez à votre façon les défis physiques, en enfonçant les portes, en soulevant les obstacles, en escaladant avec facilité et en sautant par-dessus les fosses.",
-            "desc_interlude": "Vous pourriez effectuer des travaux manuels ou fabriquer et réparer votre arsenal. Si vous connaissez des techniques qui ne vous servent plus, vous pourriez vous entraîner pour en apprendre de nouvelles. Si vous vous êtes déjà forgé une réputation, vous pourriez fonder une organisation ou construire une forteresse qui soit la vôtre.",
-            "desc_you_could": [
+            "general_desc"         : "Combattant pour l'honneur, l'appât du gain, la loyauté ou simplement pour le frisson de la bataille, vous êtes un maître incontesté de l'armement et des techniques de combat. Vous combinez vos actions grâce à de savantes combinaisons d'ouvertures, de bottes et de contre-attaques lorsque vos ennemis sont assez imprudents pour baisser leur garde. Que vous soyez chevalier, mercenaire, tireur d'élite ou maître de la lame, vous avez affiné vos compétences martiales jusqu'à en faire un art et vous portez des attaques critiques dévastatrices sur vos ennemis.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR",
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous frappez avec une précision inégalée et appliquez des techniques de combat spécialisées. Un guerrier au corps-à-corps se place entre ses alliés et les ennemis, en attaquant les adversaires qui tentent de le contourner. Un guerrier à distance délivre des tirs précis en restant à distance.",
+            "desc_socially"        : "Vous pouvez être une présence intimidante. Cela peut être utile lors de négociations avec des ennemis, mais s'avérer un handicap dans des interactions plus courtoises.",
+            "desc_exploration"     : "Vous maintenez vos défenses actives en prévision du combat et gardez l'œil ouvert pour repérer les menaces cachées. Vous surmontez à votre façon les défis physiques, en enfonçant les portes, en soulevant les obstacles, en escaladant avec facilité et en sautant par-dessus les fosses.",
+            "desc_interlude"       : "Vous pourriez effectuer des travaux manuels ou fabriquer et réparer votre arsenal. Si vous connaissez des techniques qui ne vous servent plus, vous pourriez vous entraîner pour en apprendre de nouvelles. Si vous vous êtes déjà forgé une réputation, vous pourriez fonder une organisation ou construire une forteresse qui soit la vôtre.",
+            "desc_you_could"       : [
                 "Connaître la fonction et les spécificités de toutes les armes et armures que vous possédez.",
                 "Reconnaître que les dangers d'une vie d'aventurier doivent être compensés par de grandes festivités ou des projets ambitieux.",
                 "Être peu enclin à la patience face aux énigmes ou problèmes nécessitant une logique détaillée ou une étude approfondie."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Vous trouvent intimidant jusqu'à ce qu'ils commencent à vous connaître — et peut-être même après avoir fait votre connaissance.",
                 "Vous voient comme une brute épaisse et écervelée.",
                 "Respectent votre expertise dans l'art de la guerre et apprécient vos opinions sur la qualité des armes et armures."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Qualifié en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié à votre choix en Acrobaties ou en Athlétisme",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence."
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Expert en attaques à mains nues",
                 "Expert avec les armes simples",
                 "Expert avec les armes de guerre",
                 "Qualifié avec les armes évoluées"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié en défense sans armure",
                 "Qualifié avec toutes les armures"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe guerrier",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe guerrier",
+            "capacity_by_level"    : [
                 "Ascendance et historique, blocage au bouclier, don de guerrier, frappe réactive, maîtrises initiales",
                 "Don de compétence, don de guerrier",
                 "Amélioration de compétence, bravoure, don général",
@@ -1817,8 +1885,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Inventeur",
-            "capacities": [
+            "name"                 : "Inventeur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Blocage au bouclier",
@@ -1926,46 +1994,51 @@ var CLASSES = {
                 "Maîtrise des armures intermédiaires\nNiveau 19",
                 "Votre maîtrise avec les armures légères et intermédiaires s'améliore, augmentant votre capacité à éviter les coups. Vous devenez maître avec les armures légères et intermédiaires ainsi qu'en défense sans armure."
             ],
-            "general_desc": "N'importe quel bricoleur peut suivre un diagramme pour fabriquer une machine mais vous, vous inventez l'impossible ! Chaque engin étrange dont vous rêvez est une expérience unique qui repousse les limites du possible, une machine mystérieuse qui semble ne fonctionner que pour vous. Vous êtes toujours sur le point de réaliser la prochaine grande percée et chaque épreuve et tribulation est une nouvelle occasion de la tester et de l'ajuster. Si vous pouvez le rêver, vous pouvez le construire.",
-            "prime_attribute": "INTELLIGENCE",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous vous fiez autant que possible à vos inventions, dont vous testez les fonctionnalités dans diverses conditions. Vous ne cherchez pas à obtenir quelque chose d'aussi banal que de simplement gagner un combat ; vous cherchez à recueillir des données précieuses qui pourront être utilisées pour améliorer vos créations !",
-            "desc_socially": "Vous fournissez un contexte utile lorsque vous discutez d'une variété de sujets académiques, en particulier lorsque vous parlez de sujets liés à l'artisanat et à l'invention. Vous recherchez souvent des occasions d'obtenir un mécénat pour financer certaines de vos expériences les plus coûteuses ou les moins orthodoxes. Après tout, les matériaux nécessaires à l'assemblage de vos inventions ne se paient pas eux-mêmes !",
-            "desc_exploration": "Vous étudiez la conception et la construction des environnements que vous explorez avec ardeur, prenant note des pièges adroits, des mécanismes ingénieux ou de l'architecture particulièrement fine que vous croisez pour plus tard.",
-            "desc_interlude": "Vous réfléchissez à de nouvelles conceptions et les concrétisez en les élaborant avec soin et en portant une attention méticuleuse aux détails. Vous pouvez également modifier des inventions antérieures pour les adapter aux données que vous avez recueillies sur le terrain. Vous pouvez travailler en tant que forgeron ou bricoleur local là où vos compétences sont requises ou vous pouvez tenir un atelier à la périphérie de la ville où le cliquetis de vos expériences attire moins l'attention.",
-            "desc_you_could": [
+            "general_desc"         : "N'importe quel bricoleur peut suivre un diagramme pour fabriquer une machine mais vous, vous inventez l'impossible ! Chaque engin étrange dont vous rêvez est une expérience unique qui repousse les limites du possible, une machine mystérieuse qui semble ne fonctionner que pour vous. Vous êtes toujours sur le point de réaliser la prochaine grande percée et chaque épreuve et tribulation est une nouvelle occasion de la tester et de l'ajuster. Si vous pouvez le rêver, vous pouvez le construire.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous vous fiez autant que possible à vos inventions, dont vous testez les fonctionnalités dans diverses conditions. Vous ne cherchez pas à obtenir quelque chose d'aussi banal que de simplement gagner un combat ; vous cherchez à recueillir des données précieuses qui pourront être utilisées pour améliorer vos créations !",
+            "desc_socially"        : "Vous fournissez un contexte utile lorsque vous discutez d'une variété de sujets académiques, en particulier lorsque vous parlez de sujets liés à l'artisanat et à l'invention. Vous recherchez souvent des occasions d'obtenir un mécénat pour financer certaines de vos expériences les plus coûteuses ou les moins orthodoxes. Après tout, les matériaux nécessaires à l'assemblage de vos inventions ne se paient pas eux-mêmes !",
+            "desc_exploration"     : "Vous étudiez la conception et la construction des environnements que vous explorez avec ardeur, prenant note des pièges adroits, des mécanismes ingénieux ou de l'architecture particulièrement fine que vous croisez pour plus tard.",
+            "desc_interlude"       : "Vous réfléchissez à de nouvelles conceptions et les concrétisez en les élaborant avec soin et en portant une attention méticuleuse aux détails. Vous pouvez également modifier des inventions antérieures pour les adapter aux données que vous avez recueillies sur le terrain. Vous pouvez travailler en tant que forgeron ou bricoleur local là où vos compétences sont requises ou vous pouvez tenir un atelier à la périphérie de la ville où le cliquetis de vos expériences attire moins l'attention.",
+            "desc_you_could"       : [
                 "Aimez créer de nouvelles choses que le monde n'a jamais vu auparavant.",
                 "Souhaitez tenter votre chance d'essayer une théorie, en la testant pour voir si votre hypothèse s'avère exacte. Si ce n'est pas le cas, vous enregistrez probablement les résultats pour réessayer plus tard.",
                 "Portez des vêtements tâchées d'huile et de saleté et vous lancez dans des digressions excitées et techniques quand on vous pose des questions simples."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "S'émerveillent de vos inventions et la variété des merveilles incroyables que vous leur apportez.",
                 "Croient que vous êtes un génie dont le travail est au-delà de toute compréhension.",
                 "S'inquiètent que vos inventions pourraient se retourner contre vous ou exploser."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Artisanat",
                 "Qualifié en un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié avec la défense sans armure"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'inventeur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'inventeur",
+            "capacity_by_level"    : [
                 "Ascendance et historique, blocage au bouclier, don d'inventeur, maîtrises initiales, exploser, surrégime, innovation, inventeur hors pair",
                 "Don d'inventeur, don de compétence",
                 "Amélioration de compétence, don général, reconfigurer, surrégime expert",
@@ -1989,8 +2062,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Kinétiste ou Cinétiste",
-            "capacities": [
+            "name"                 : "Kinétiste ou Cinétiste",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Aura kinétique",
@@ -2080,44 +2153,49 @@ var CLASSES = {
                 "Portail final\nNiveau 19",
                 "Votre portail final atteint une forme parfaite, son pouvoir luttant constamment pour être libéré. Si votre aura kinétique est inactive, vous utilisez automatiquement la première action de votre tour pour Canaliser les éléments par une action gratuite. Vous pouvez délibérément en supprimer l'effet. Si vous êtes incapable d'agir, le portail final fonctionne toujours, mais vous n'obtenez pas l'usage d' sports_martial_artsDéflagration élémentaire ou de la posture d'impulsion que vous devriez obtenir normalement en utilisant Canaliser les éléments."
             ],
-            "general_desc": "La puissance des éléments coule en vous : Le feu rugissant, l'eau pure, l'air fugace, la terre résolue, le bois souple, le métal tranchant. Un portail kinétique inextricablement lié à votre corps canalise cette puissance provenant directement des plans élémentaire, en provoquant l'apparition des éléments entre vos mains, tourbillonnant autour de votre corps et pulvérisant vos ennemis à votre guise. Au fur et à mesure que votre lien avec les plans se renforce, vous atteignez une véritable maîtrise des éléments que vous avez choisis.",
-            "prime_attribute": "CONSTITUTION",
-            "life_point_by_level": 8,
-            "desc_fight": "La magie élémentaire surgit de vous pendant tout le combat. Sans aucune restriction quant à la fréquence d'utilisation de vos capacités, vous devenez un véritable manipulateur de magie. Vous pouvez développer des pouvoirs que vous pouvez utiliser dans une grande variété de situations... ou vous pouvez choisir quelques attaques favorites que vous utilisez de façon répétée.",
-            "desc_socially": "Les éléments que vous canalisez peuvent guider ou même influencer la façon dont vous vous comportez dans les situations sociales. Vous pouvez vous mettre en colère comme un feu rugissant, camper sur vos positions aussi solidement qu'une montagne, dissimuler vos motivations comme le vent, suivre le courant comme l'eau, faire des remarques tranchantes comme du métal ou faire preuve de la lente patience de la forêt.",
-            "desc_exploration": "Votre rapport inné avec les éléments vous permet d'affiner votre conscience du monde naturel. Dans un environnement rempli d'un élément que vous pouvez canaliser, vous êtes sans égal, avec la capacité de manipuler de façon répétée l'élément qui vous entoure.",
-            "desc_interlude": "Vous pouvez communier avec les éléments ou vous entraîner à contrôler vos pouvoirs kinétiques. En vous entraînant, vous pouvez réaligner le flux de votre portail kinétique pour perfectionner les différentes manifestations de votre élément.",
-            "desc_you_could": [
+            "general_desc"         : "La puissance des éléments coule en vous : Le feu rugissant, l'eau pure, l'air fugace, la terre résolue, le bois souple, le métal tranchant. Un portail kinétique inextricablement lié à votre corps canalise cette puissance provenant directement des plans élémentaire, en provoquant l'apparition des éléments entre vos mains, tourbillonnant autour de votre corps et pulvérisant vos ennemis à votre guise. Au fur et à mesure que votre lien avec les plans se renforce, vous atteignez une véritable maîtrise des éléments que vous avez choisis.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CON"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "La magie élémentaire surgit de vous pendant tout le combat. Sans aucune restriction quant à la fréquence d'utilisation de vos capacités, vous devenez un véritable manipulateur de magie. Vous pouvez développer des pouvoirs que vous pouvez utiliser dans une grande variété de situations... ou vous pouvez choisir quelques attaques favorites que vous utilisez de façon répétée.",
+            "desc_socially"        : "Les éléments que vous canalisez peuvent guider ou même influencer la façon dont vous vous comportez dans les situations sociales. Vous pouvez vous mettre en colère comme un feu rugissant, camper sur vos positions aussi solidement qu'une montagne, dissimuler vos motivations comme le vent, suivre le courant comme l'eau, faire des remarques tranchantes comme du métal ou faire preuve de la lente patience de la forêt.",
+            "desc_exploration"     : "Votre rapport inné avec les éléments vous permet d'affiner votre conscience du monde naturel. Dans un environnement rempli d'un élément que vous pouvez canaliser, vous êtes sans égal, avec la capacité de manipuler de façon répétée l'élément qui vous entoure.",
+            "desc_interlude"       : "Vous pouvez communier avec les éléments ou vous entraîner à contrôler vos pouvoirs kinétiques. En vous entraînant, vous pouvez réaligner le flux de votre portail kinétique pour perfectionner les différentes manifestations de votre élément.",
+            "desc_you_could"       : [
                 "Entretenez une relation conflictuelle avec le portail kinétique qui alimente votre magie kinétique, peut-être parce qu'il s'est manifesté à un moment traumatisant de votre passé.",
                 "Luttez pour contrôler et comprendre vos pouvoirs élémentaires.",
                 "Ressentez un lien de proximité avec les créatures élémentaires et vous vous sentez à l'aise dans les zones où votre élément est très présent."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Trouvent étonnante votre capacité à faire appel à de plus en plus de puissance élémentaire.",
                 "S'en remettent à vous pour tout ce qui concerne votre élément, de la plus petite tâche aux affaires politiques des Plans élémentaires.",
                 "Craignent que vous ne vous consumiez avec la magie élémentaire ou que vous ne perdiez le contrôle de ses forces primordiales."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié in Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié in Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Qualifié en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Nature",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié en armure légère",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié en DD de classe de kinétiste",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe de kinétiste",
+            "capacity_by_level"    : [
                 "Ascendance et historique, maîtrises initiales, prime d'attribut, compétences initiales, aura kinétique, don de kinétiste, impulsions (Déflagration élémentaire, kinésie de base), portail kinétique",
                 "Don de compétence, don de kinétiste",
                 "Amélioration de compétence, don général, extraction d'élément, expertise en volonté",
@@ -2141,8 +2219,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Magicien",
-            "capacities": [
+            "name"                 : "Magicien",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des pouvoirs que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique",
                 "École arcanique",
@@ -2222,45 +2300,50 @@ var CLASSES = {
                 "Voici les différents cursus possibles :",
                 "École de la frontière\nÉcole de la magie de combat\nÉcole de forme protéenne\nÉcole de magie civique\nÉcole des lettres\nÉcole du mentalisme\nÉcole de la théorie magique unifiée"
             ],
-            "general_desc": "Vous êtes un éternel étudiant des secrets de l'univers, utilisant votre maîtrise de la magie pour lancer de puissants sorts. Vous traitez la magie comme une science, recoupant les derniers textes sur la pratique de la pratique de l'incantation des sorts avec des tomes anciens pour découvrir et comprendre les arcanes de la magie. Cependant, la théorie magique est vaste et il est impossible de tout étudier. La plupart des magiciens apprennent dans le cadre d'une scolarité formelle, leur programme d'études s'inscrivant dans une catégorie spécifique, même si certains chercheurs particulièrement motivés élaborent parfois leurs propres théories.",
-            "prime_attribute": "INTELLIGENCE",
-            "life_point_by_level": 6,
-            "desc_fight": "Vous essayez probablement de rester loin de la mêlée, en appréciant soigneusement le moment pour utiliser vos sorts. Vous conservez votre magie la plus puissante pour mettre hors de combat les adversaires menaçants et utilisez vos tours de magie quand il ne reste que des adversaires faibles. Quand des ennemis utilisent des ruses comme auto_awesomeInvisibilité ou auto_awesomeVol , vous répondez par des sorts comme auto_awesomeLumière révélatrice ou auto_awesomeCloué à terre , ce qui permet à vos alliés d'être à pied d'égalité.",
-            "desc_socially": "Vous êtes un puits de connaissances sur des sujets obscurs et vous faites preuve de logique lors des débats.",
-            "desc_exploration": "Vous localisez les auras magiques et déterminez la signification arcanique des écrits magiques ou des phénomènes que vous découvrez. Quand vous croisez un obstacle inhabituel qui vous empêche de progresser, vous disposez sûrement du parchemin idéal pour le surmonter plus facilement.",
-            "desc_interlude": "Vous apprenez de nouveaux sorts, fabriquez des objets magiques ou rédigez des parchemins pour votre groupe. Vous cherchez de nouvelles formules excitantes en plus de vos sorts. Vous pourriez même nouer des relations avec des érudits ou créer votre propre école ou guilde.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes un éternel étudiant des secrets de l'univers, utilisant votre maîtrise de la magie pour lancer de puissants sorts. Vous traitez la magie comme une science, recoupant les derniers textes sur la pratique de la pratique de l'incantation des sorts avec des tomes anciens pour découvrir et comprendre les arcanes de la magie. Cependant, la théorie magique est vaste et il est impossible de tout étudier. La plupart des magiciens apprennent dans le cadre d'une scolarité formelle, leur programme d'études s'inscrivant dans une catégorie spécifique, même si certains chercheurs particulièrement motivés élaborent parfois leurs propres théories.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
+            "life_point_by_level"  : 6,
+            "desc_fight"           : "Vous essayez probablement de rester loin de la mêlée, en appréciant soigneusement le moment pour utiliser vos sorts. Vous conservez votre magie la plus puissante pour mettre hors de combat les adversaires menaçants et utilisez vos tours de magie quand il ne reste que des adversaires faibles. Quand des ennemis utilisent des ruses comme auto_awesomeInvisibilité ou auto_awesomeVol , vous répondez par des sorts comme auto_awesomeLumière révélatrice ou auto_awesomeCloué à terre , ce qui permet à vos alliés d'être à pied d'égalité.",
+            "desc_socially"        : "Vous êtes un puits de connaissances sur des sujets obscurs et vous faites preuve de logique lors des débats.",
+            "desc_exploration"     : "Vous localisez les auras magiques et déterminez la signification arcanique des écrits magiques ou des phénomènes que vous découvrez. Quand vous croisez un obstacle inhabituel qui vous empêche de progresser, vous disposez sûrement du parchemin idéal pour le surmonter plus facilement.",
+            "desc_interlude"       : "Vous apprenez de nouveaux sorts, fabriquez des objets magiques ou rédigez des parchemins pour votre groupe. Vous cherchez de nouvelles formules excitantes en plus de vos sorts. Vous pourriez même nouer des relations avec des érudits ou créer votre propre école ou guilde.",
+            "desc_you_could"       : [
                 "Ressentir une curiosité intellectuelle intarissable sur le fonctionnement de tout ce qui vous entoure - la magie en particulier.",
                 "Chercher à appliquer les enseignements de votre école à n'importe quelle situation, voir les problèmes à travers le prisme des sorts que vous avez consacrés votre vie à apprendre.",
                 "Utiliser un jargon ésotérique et des termes très techniques pour décrire précisément les détails des effets magiques, bien que ces précisions échappent probablement à la majorité des gens."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Considèrent probablement que vous êtes incroyablement puissant et potentiellement dangereux.",
                 "Craignent probablement ce que votre magie peut faire à leur esprit, leur corps et leur âme et vous demandent sûrement d'éviter de lancer des sorts en bonne compagnie car peu de gens sont capables de les identifier et de savoir s'ils sont inoffensifs ou maléfiques avant qu'il ne soit trop tard.",
                 "Présument que vous pouvez facilement résoudre tous leurs problèmes, qu'il s'agisse de conditions météorologiques dangereuses ou de mauvaises récoltes et vous demandent des sorts qui les aideront à obtenir tout ce qu'ils désirent."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Arcanes",
                 "Qualifié dans un nombre de compétences supplémentaire égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié en attaques à mains nues",
                 "Qualifié avec les armes simples"
             ],
-            "mastery_defense": "Qualifié en défense sans armure",
-            "mastery_spell": [
+            "mastery_defense"      : "Qualifié en défense sans armure",
+            "mastery_spell"        : [
                 "Qualifié en modificateurs d'attaques de sort",
                 "Qualifié en DD des sorts",
                 "Qualifié en DD de classe de magicien"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique",
                 "Don de compétence, don de magicien",
                 "Amélioration de compétence, don général, sorts de rang 2",
@@ -2284,8 +2367,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Magus",
-            "capacities": [
+            "name"                 : "Magus",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Cascade arcanique",
@@ -2369,48 +2452,54 @@ var CLASSES = {
                 "Vous pouvez étendre la magie des sorts que vous emmagasinez avec Frappe de sort. Après avoir fait une Frappe de sort avec un sort que vous avez lancé à partir d'un emplacement de sort, vous conservez un écho du sort, emmagasiné dans votre corps. La prochaine fois que vous faites une Frappe de sort, vous pouvez lancer de nouveau le même sort sans dépenser d'emplacement de sort.",
                 "Si vous avez choisi de lancer un sort différent avec Frappe de sort ou si vous passez 1 minute sans utilise le sort emmagasiné, le sort emmagasiné se dissipe de manière inoffensive."
             ],
-            "general_desc": "En combinant le physique et la technique d'un combattant avec la capacité de lancer de la magie arcanique, vous cherchez à perfectionner l'art de fusionner sort et frappe. Bien que le lourd tome que vous transportez reflète les heures passées à mener des recherches arcaniques, vos ennemis n'ont aucun mal à se souvenir de votre entraînement. Ils le reconnaissent lorsque vous les abattez.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous canalisez les sorts à travers votre arme ou votre corps pour frapper les ennemis avec une puissante combinaison d'attaque et de sort. Comme vos sorts quotidiens sont limités, vous vous fiez souvent à des tours de magie et des sorts focalisés soigneusement choisis. Si nécessaire, vous savez comment gagner un combat sans magie.",
-            "desc_socially": "Du fait de votre éducation et de votre expérience élargie, vous êtes bien informé sur de nombreux sujets. Vous pouvez apporter des informations liées à vos recherches académiques, en particulier sur la magie.",
-            "desc_exploration": "Votre flexibilité vous permet de rechercher des auras magiques, de monter la garde et même de partir discrètement en éclaireur. Votre capacité à remplir différentes niches signifie que votre rôle dépend souvent des talents des autres membres de votre groupe.",
-            "desc_interlude": "Vous partagez votre temps entre les activités magiques, comme la recherche de sorts et la fabrication d'objets et la pratique martiale, comme le réapprentissage de capacités de combat pour apprendre de nouvelles techniques.",
-            "desc_you_could": [
+            "general_desc"         : "En combinant le physique et la technique d'un combattant avec la capacité de lancer de la magie arcanique, vous cherchez à perfectionner l'art de fusionner sort et frappe. Bien que le lourd tome que vous transportez reflète les heures passées à mener des recherches arcaniques, vos ennemis n'ont aucun mal à se souvenir de votre entraînement. Ils le reconnaissent lorsque vous les abattez.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR",
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous canalisez les sorts à travers votre arme ou votre corps pour frapper les ennemis avec une puissante combinaison d'attaque et de sort. Comme vos sorts quotidiens sont limités, vous vous fiez souvent à des tours de magie et des sorts focalisés soigneusement choisis. Si nécessaire, vous savez comment gagner un combat sans magie.",
+            "desc_socially"        : "Du fait de votre éducation et de votre expérience élargie, vous êtes bien informé sur de nombreux sujets. Vous pouvez apporter des informations liées à vos recherches académiques, en particulier sur la magie.",
+            "desc_exploration"     : "Votre flexibilité vous permet de rechercher des auras magiques, de monter la garde et même de partir discrètement en éclaireur. Votre capacité à remplir différentes niches signifie que votre rôle dépend souvent des talents des autres membres de votre groupe.",
+            "desc_interlude"       : "Vous partagez votre temps entre les activités magiques, comme la recherche de sorts et la fabrication d'objets et la pratique martiale, comme le réapprentissage de capacités de combat pour apprendre de nouvelles techniques.",
+            "desc_you_could"       : [
                 "Affinez continuellement le choix de vos sorts et des objets pour les adapter à votre style personnel, ou préparez des plans de bataille et des listes de sorts pour répondre à diverses situations.",
                 "Fréquentez les érudits de la magie et les combattants chevronnés et cherchez des maîtres pour vous enseigner de nouvelles techniques.",
                 "Allez trop loin avec des plans ambitieux qui vous entraînent dans trop de directions à la fois."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "S'émerveillent que vous puissiez rester au sommet de deux disciplines si disparates simultanément.",
                 "Croient que vous disposez d'un ensemble de compétences suffisamment large pour prendre soin de vous dans la plupart des situations."
             ],
-            "mastery_initial": "Au niveau 1, vous gagnez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous gagnez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Arcanes",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié avec la défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié pour les attaques de sort arcanique",
                 "Qualifié en DD de sorts arcaniques"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, compétences initiales, incantation arcanique, cascade arcanique, sorts de confluence, études hybrides, frappe de sort",
                 "Don de magus, don de compétence",
                 "sorts de rang 2, don général, amélioration de compétence",
@@ -2434,8 +2523,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Moine",
-            "capacities": [
+            "name"                 : "Moine",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Maîtrises initiales",
@@ -2493,41 +2582,47 @@ var CLASSES = {
                 "Forme parfaite\nNiveau 19",
                 "Vos techniques sont à présent sans faille. Lors de la première Frappe de votre tour, si vous obtenez moins de 10 sur votre jet de dé, vous pouvez considérer que vous avez obtenu 10 sur votre jet d'attaque. Il s'agit d'un effet de fortune."
             ],
-            "general_desc": "La force de vos poings provient de votre âme et de votre esprit. Vous recherchez la perfection en sculptant votre corps pour en faire un instrument sans faille et votre esprit pour en faire un bastion de discipline et de sagesse. Vous êtes un farouche combattant réputé pour sa maîtrise des arts martiaux et ses postures martiales qui lui permettent de réaliser des manœuvres de combat uniques en leur genre. Bien que le défi de la maîtrise de nombreux styles de combat vous conduit à de grandes hauteurs, vous aimez également méditer sur des questions philosophiques et sur la découvert de nouveaux moyens pour être en paix et atteindre l'illumination.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous vous précipitez dans la mêlée, en réalisant des acrobaties pour esquiver ou bondir par-dessus les obstacles. Vous frappez vos adversaires en une rafale d'attaques rapides, utilisant vos seuls poings ou en maniant des armes spécifiques maîtrisées lors de votre entraînement monastique. Les postures vous permettent de passer rapidement d'un style de combat à un autre pour vous adapter à chaque situation et les pouvoirs Qi permettent des prouesses mystiques comme vous soigner ou vous envoler dans les airs.",
-            "desc_socially": "Votre perspicacité vous permet de détecter les mensonges et votre formation philosophique vous apporte quelque chose en toute situation.",
-            "desc_exploration": "Vous escaladez les murs, esquivez les pièges, surmontez les obstacles et sautez par-dessus les fosses. Vous restez le plus souvent en périphérie du groupe pour protéger les membres les plus vulnérables et êtes particulièrement apte à repérer le danger ou à vous déplacer discrètement.",
-            "desc_interlude": "Vous vous exercez avec assiduité, mangez une nourriture saine, méditez et étudiez divers courants philosophiques. Vous pouvez également pratiquer un artisanat que vous cherchez à perfectionner.",
-            "desc_you_could": [
+            "general_desc"         : "La force de vos poings provient de votre âme et de votre esprit. Vous recherchez la perfection en sculptant votre corps pour en faire un instrument sans faille et votre esprit pour en faire un bastion de discipline et de sagesse. Vous êtes un farouche combattant réputé pour sa maîtrise des arts martiaux et ses postures martiales qui lui permettent de réaliser des manœuvres de combat uniques en leur genre. Bien que le défi de la maîtrise de nombreux styles de combat vous conduit à de grandes hauteurs, vous aimez également méditer sur des questions philosophiques et sur la découvert de nouveaux moyens pour être en paix et atteindre l'illumination.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR",
+                    "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous vous précipitez dans la mêlée, en réalisant des acrobaties pour esquiver ou bondir par-dessus les obstacles. Vous frappez vos adversaires en une rafale d'attaques rapides, utilisant vos seuls poings ou en maniant des armes spécifiques maîtrisées lors de votre entraînement monastique. Les postures vous permettent de passer rapidement d'un style de combat à un autre pour vous adapter à chaque situation et les pouvoirs Qi permettent des prouesses mystiques comme vous soigner ou vous envoler dans les airs.",
+            "desc_socially"        : "Votre perspicacité vous permet de détecter les mensonges et votre formation philosophique vous apporte quelque chose en toute situation.",
+            "desc_exploration"     : "Vous escaladez les murs, esquivez les pièges, surmontez les obstacles et sautez par-dessus les fosses. Vous restez le plus souvent en périphérie du groupe pour protéger les membres les plus vulnérables et êtes particulièrement apte à repérer le danger ou à vous déplacer discrètement.",
+            "desc_interlude"       : "Vous vous exercez avec assiduité, mangez une nourriture saine, méditez et étudiez divers courants philosophiques. Vous pouvez également pratiquer un artisanat que vous cherchez à perfectionner.",
+            "desc_you_could"       : [
                 "Suivre un régime d'exercice et de méditation.",
                 "Affronter l'adversité de manière calme et mesurée, sans jamais paniquer ou succomber au désespoir.",
                 "Vous projeter dans l'avenir en réfléchissant à des approches qui vous permettront de vous améliorer tout en restant en paix avec votre moi actuel."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "S'émerveillent de vos capacités physiques.",
                 "Pensent que vous êtes particulièrement tatillon en ce qui concerne vos vœux et vos principes.",
                 "Viennent vous trouver pour vos conseils philosophiques."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": "Qualifié dans un nombre de compétences supplémentaires égal à 4 plus votre modificateur d'Intelligence",
-            "mastery_attack": [
+            "mastery_skill"        : "Qualifié dans un nombre de compétences supplémentaires égal à 4 plus votre modificateur d'Intelligence",
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Inexpérimenté avec toutes les armures",
                 "Expert en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe moine",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe moine",
+            "capacity_by_level"    : [
                 "Ascendance et historique, déluge de coups, don de moine, maîtrises initiales, poings puissants, primes d'attributs",
                 "Don de compétence, don de moine",
                 "Amélioration de compétence, déplacement extraordinaire +3 mètres, don général, frappes mystiques",
@@ -2551,8 +2646,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Oracle",
-            "capacities": [
+            "name"                 : "Oracle",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Incantation de l'oracle",
@@ -2648,49 +2743,54 @@ var CLASSES = {
                 "Une description de mystère comprend les informations suivantes et est suivie d'une description de la malédiction de ce mystère.",
                 "Sorts accordés Vous ajoutez automatiquement les sorts indiqués ici aux sorts de votre répertoire de sorts comme indiqué dans Répertoire de sorts. Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts de la liste dès que vous obtenez la capacité de lancer de sorts de ce rang.\nSorts de révélation Vous obtenez automatiquement le sort de révélation initial de votre mystère au niveau 1 et pouvez en gagner d'autres en choisissant les dons d'oracle military_techRévélation avancée , military_techRévélation supérieure et military_techMystère diversifié .\nDomaines liés Il s'agit des domaines de prêtre associés à votre mystère. Vous obtenez des sorts de domaine en prenant le don military_techSagacité du domaine et military_techMaîtrise du domaine . Aun niveau 11, la capacité de classe Accès divin vous donne également d'autres sorts d'emplacements supplémentaires en fonction de vos domaines.\nCompétence de mystère Vous êtes qualifié dans la compétence indiquée. Quelques mystères peuvent vous qualifier dans plus d'une compétence.\nDon d'oracle Vous obtenez ce don d'oracle de niveau 1. C'est un don Lié à la malédiction de sorte que son utilisation aggrave votre malédiction oraculaire."
             ],
-            "general_desc": "Vous explorez l'un de ces mystères et en tirez le pouvoir de lancer des sorts miraculeux, mais ce pouvoir a un revers terrible : une malédiction qui s'intensifie si vous puisez dedans. Vos capacités sont une épée à double tranchant, que vous pouvez brandir comme un instrument divin ou considérer comme une malédiction des dieux.",
-            "prime_attribute": "CHARISME",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous puisez dans votre mystère pour accroître votre puissance au combat, en veillant à l'équilibre entre les effets miraculeux que vous produisez et l'augmentation de l'intensité de votre malédiction lorsque les exigences divines contradictoires épuisent votre corps physique. Vous lancez des sorts pour aider vos alliés et semer la destruction sur vos ennemis ou, en fonction de votre mystère, vous vous jetez vous-même dans la bataille.",
-            "desc_socially": "Vous vous appuyez sur les intuitions provenant de votre mystère. Vous pourriez tirer parti de votre malédiction pour intimider les gens ou cacher ses effets pour mieux vous y mêler.",
-            "desc_exploration": "Vous vous recentrez sur vous-même pour ramener les terribles conflits métaphysiques provoquant votre malédiction sous contrôle de manière à pouvoir de nouveau faire appel plus tard aux pouvoirs de votre mystère. Vous restez conscient des forces surnaturelles qui agissent autour de vous et allez même peut-être jusqu'à jeter un coup d'œil dans le futur pour affiner vos intuitions.",
-            "desc_interlude": "Vous pourriez tenter d'en apprendre plus au sujet de votre mystère et des sources divines qui alimentent vos pouvoirs. Vous associer avec d'autres personnes intéressées par le sujet de votre mystère peut vous aider à vivre avec votre malédiction. Vous pourriez vous associer avec une religion organisée ou même fonder vous-même le culte dédié à votre mystère.",
-            "desc_you_could": [
+            "general_desc"         : "Vous explorez l'un de ces mystères et en tirez le pouvoir de lancer des sorts miraculeux, mais ce pouvoir a un revers terrible : une malédiction qui s'intensifie si vous puisez dedans. Vos capacités sont une épée à double tranchant, que vous pouvez brandir comme un instrument divin ou considérer comme une malédiction des dieux.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous puisez dans votre mystère pour accroître votre puissance au combat, en veillant à l'équilibre entre les effets miraculeux que vous produisez et l'augmentation de l'intensité de votre malédiction lorsque les exigences divines contradictoires épuisent votre corps physique. Vous lancez des sorts pour aider vos alliés et semer la destruction sur vos ennemis ou, en fonction de votre mystère, vous vous jetez vous-même dans la bataille.",
+            "desc_socially"        : "Vous vous appuyez sur les intuitions provenant de votre mystère. Vous pourriez tirer parti de votre malédiction pour intimider les gens ou cacher ses effets pour mieux vous y mêler.",
+            "desc_exploration"     : "Vous vous recentrez sur vous-même pour ramener les terribles conflits métaphysiques provoquant votre malédiction sous contrôle de manière à pouvoir de nouveau faire appel plus tard aux pouvoirs de votre mystère. Vous restez conscient des forces surnaturelles qui agissent autour de vous et allez même peut-être jusqu'à jeter un coup d'œil dans le futur pour affiner vos intuitions.",
+            "desc_interlude"       : "Vous pourriez tenter d'en apprendre plus au sujet de votre mystère et des sources divines qui alimentent vos pouvoirs. Vous associer avec d'autres personnes intéressées par le sujet de votre mystère peut vous aider à vivre avec votre malédiction. Vous pourriez vous associer avec une religion organisée ou même fonder vous-même le culte dédié à votre mystère.",
+            "desc_you_could"       : [
                 "Considérer vos pouvoirs oraculaires comme une bénédiction, une malédiction ou les deux à la fois.",
                 "Pousser jusqu'aux limites de ce que vous pouvez supporter pour réaliser de hauts faits magiques.",
                 "Compter sur des objets magiques pour fournir une réserve de magie moins dangereuse et plus fiable."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Ne se rendent pas compte que vos incantations tirent leur source de la puissance divine et pensent plutôt que vous disposez de pouvoirs plus étranges, voire même mauvais.",
                 "Supposent que vous avez commis un acte terrible pour que les dieux vous maudissent de la sorte.",
                 "Admirent votre détermination et les sacrifices que vous endurez pour produire des actes merveilleux."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Religion",
                 "Qualifié dans une ou plusieurs compétences déterminées par votre mystère",
                 "Qualifié en un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaque de sort",
                 "Qualifié en DD de sorts"
             ],
-            "mastery_dd": "Qualifié en DD de classe d'oracle",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe d'oracle",
+            "capacity_by_level"    : [
                 "Ascendance et historique, incantation de l'oracle, maîtrises initiales, mystère, primes d'attribut, répertoire de sorts",
                 "Don d'oracle, don de compétence",
                 "Amélioration de compétence, don général, sorts de rang 2, sorts emblématiques",
@@ -2714,8 +2814,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Prêtre",
-            "capacities": [
+            "name"                 : "Prêtre",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Divinité",
@@ -2788,49 +2888,54 @@ var CLASSES = {
                 "Sort miraculeux\nNiveau 19",
                 "Vous êtes élevé par votre divinité et obtenez des sorts véritablement incroyables. Vous obtenez un seul emplacement de sort de rang 10 et pouvez préparer un sort dans cet emplacement en utilisant l'incantation de prêtre. Contrairement aux autres emplacements de sorts, vous ne pouvez pas utiliser les emplacements de rang 10 avec des capacités qui vous donnent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas plus d'emplacements de niveau 10 en gagnant un niveau mais vous pouvez prendre le don military_techFaiseur de miracles pour obtenir un second emplacement."
             ],
-            "general_desc": "Les divinités exercent leur volonté sur le monde de manières infinies et vous êtes l'un de leurs plus fidèles serviteurs mortels. Béni par la magie divine, vous vivez les idéaux de votre foi, vous vous parez des symboles de votre église et vous vous entraînez assidûment à manier l'arme de prédilection de votre divinité. Vos sorts peuvent protéger et guérir vos alliés ou punir les ennemis de votre foi, selon la volonté de votre divinité. Vous menez une vie de dévotion, diffusant les enseignements de votre foi par la parole comme par l'action.",
-            "prime_attribute": "SAGESSE",
-            "life_point_by_level": 8,
-            "desc_fight": "Si vous êtes un prêtre combattant, vous balancez entre incantations de sorts et attaques avec les armes, le plus souvent avec l'arme de prédilection de votre divinité. Si vous êtes un prêtre cloîtré, vous privilégiez l'incantation de sorts. La plupart de vos sorts stimulent, protègent ou soignent vos alliés. En fonction de votre divinité, vous obtenez des sorts supplémentaires pour soigner vos alliés ou blesser vos ennemis.",
-            "desc_socially": "Vous pourriez faire des propositions diplomatiques ou des discours marquants. Grâce à votre sagesse élevée, vous sentez aussi lorsque les autres manquent de franchise.",
-            "desc_exploration": "Vous détectez la magie à proximité et interprétez les écrits religieux que vous découvrez. Vous pourriez aussi vous concentrer sur un sort qui protège vos alliés en cas d'attaque. Après un combat ou un danger, vous pourriez soigner tous ceux qui ont été blessés.",
-            "desc_interlude": "Vous pourriez mener des offices dans un temple, voyager pour répandre la parole de votre divinité, étudier des écrits sacrés, célébrer les jours saints, voire même fonder un nouveau temple.",
-            "desc_you_could": [
+            "general_desc"         : "Les divinités exercent leur volonté sur le monde de manières infinies et vous êtes l'un de leurs plus fidèles serviteurs mortels. Béni par la magie divine, vous vivez les idéaux de votre foi, vous vous parez des symboles de votre église et vous vous entraînez assidûment à manier l'arme de prédilection de votre divinité. Vos sorts peuvent protéger et guérir vos alliés ou punir les ennemis de votre foi, selon la volonté de votre divinité. Vous menez une vie de dévotion, diffusant les enseignements de votre foi par la parole comme par l'action.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "SAG"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Si vous êtes un prêtre combattant, vous balancez entre incantations de sorts et attaques avec les armes, le plus souvent avec l'arme de prédilection de votre divinité. Si vous êtes un prêtre cloîtré, vous privilégiez l'incantation de sorts. La plupart de vos sorts stimulent, protègent ou soignent vos alliés. En fonction de votre divinité, vous obtenez des sorts supplémentaires pour soigner vos alliés ou blesser vos ennemis.",
+            "desc_socially"        : "Vous pourriez faire des propositions diplomatiques ou des discours marquants. Grâce à votre sagesse élevée, vous sentez aussi lorsque les autres manquent de franchise.",
+            "desc_exploration"     : "Vous détectez la magie à proximité et interprétez les écrits religieux que vous découvrez. Vous pourriez aussi vous concentrer sur un sort qui protège vos alliés en cas d'attaque. Après un combat ou un danger, vous pourriez soigner tous ceux qui ont été blessés.",
+            "desc_interlude"       : "Vous pourriez mener des offices dans un temple, voyager pour répandre la parole de votre divinité, étudier des écrits sacrés, célébrer les jours saints, voire même fonder un nouveau temple.",
+            "desc_you_could"       : [
                 "Visiter les temples et les sites sacrés de votre religion et avoir une affinité immédiate avec les autres fidèles de votre divinité.",
                 "Connaitre les enseignements des textes sacrés de votre religion et savoir comment les appliquer à un dilemme.",
                 "Coopérer avec vos alliés, à condition qu'ils ne vous demandent pas d'agir contre la volonté de votre divinité."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Trouvent votre dévotion impressionnante, même s'ils ne la comprennent pas.",
                 "S'attendent à ce que vous soigniez leurs blessures.",
                 "Comptent sur vous pour que vous interagissiez avec les autres individus religieux."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les degrés de maîtrise indiqués dans les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les degrés de maîtrise indiqués dans les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Religion",
                 "Qualifié dans une compétence déterminée par la divinité que vous avez choisie",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 2 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les attaques à mains nues",
                 "Qualifié avec les armes simples",
                 "Qualifié avec l'arme de prédilection de votre divinité. Si l'arme de prédilection de votre divinité est peu courante, vous obtenez l'accès à cette arme"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Inexpérimenté avec toutes les armures, bien que votre doctrine puisse modifier cela",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaques de sort",
                 "Qualifié en DD de sorts"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, divinité, doctrine, incantation de prêtre, maîtrises initiales, primes d'attribut, source divine",
                 "Don de compétence, don de prêtre",
                 "Amélioration de compétence, deuxième doctrine, don général, sorts de rang 2",
@@ -2854,8 +2959,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Psychiste",
-            "capacities": [
+            "name"                 : "Psychiste",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Incantation psychique",
@@ -2944,47 +3049,52 @@ var CLASSES = {
                 "Incantateur légendaire\nNiveau 19",
                 "Lorsque votre formation atteint son apogée, vous comprenez non seulement votre propre esprit, mais aussi l'inconscient collectif d'où découle tout pouvoir psychique. Vous devenez légendaire en modificateur d'attaque de sorts et en DD de sorts."
             ],
-            "general_desc": "L'esprit peut percevoir des vérités cachées aux instruments les plus fins, abriter plus de secrets que n'importe quel livre et déplacer des objets et des cœurs plus habilement qu'un levier. En vous plongeant dans les aspects conscients et subconscients de votre être intérieur, vous vous êtes éveillé à la puissance de la magie psychique qui vous permet de lancer des sorts non pas par des incantations ou des gestes, mais par la seule force de votre volonté. Bien que la frontière entre votre esprit et la réalité soit mince et qu'une seule pensée errante puisse avoir des conséquences inattendues pour vous et vos compagnons, vous savez que tout est possible, si vous pouvez l'imaginer.",
-            "prime_attribute": "INTELLIGENCE ou CHARISME",
-            "life_point_by_level": 6,
-            "desc_fight": "Vous vous reposez sur votre collection de tours de magie psychiques, choisissant où et quand les amplifier pour un effet maximal. Vous intégrez vos sorts plus conventionnels dans la mêlée lorsqu'une magie plus complexe est nécessaire, libérant tout le potentiel de votre esprit dans une explosion de puissance lorsque le moment est venu.",
-            "desc_socially": "Vous abordez chaque situation en vous laissant guider par la source de votre pouvoir subconscient. Si ce pouvoir émane de votre personnalité, vous pourriez faire preuve d'empathie et de sociabilité ; s'il est d'origine plus cérébrale, vous pourriez plutôt adopter une approche calme et logique",
-            "desc_exploration": "Vous gardez votre esprit ouvert aux nombreuses menaces paranormales que ceux qui sont moins sensibles pourraient ne pas détecter. En général, vous recherchez la magie ou vous enquêtez sur les impressions psychiques, les pensées voilées et les esprits errants.",
-            "desc_interlude": "Vous vous efforcez d'en apprendre davantage sur les profondeurs de l'esprit, en recherchant de nouveaux sorts et phénomènes à découvrir, sachant qu'en acquérant une meilleure compréhension de vous-même, vous pourrez accéder à une plus grande partie du pouvoir qui est en vous. Vous testez les limites de votre capacité d'adaptation en vous recyclant sans cesse afin de correspondre à votre perception grandissante de votre potentiel.",
-            "desc_you_could": [
+            "general_desc"         : "L'esprit peut percevoir des vérités cachées aux instruments les plus fins, abriter plus de secrets que n'importe quel livre et déplacer des objets et des cœurs plus habilement qu'un levier. En vous plongeant dans les aspects conscients et subconscients de votre être intérieur, vous vous êtes éveillé à la puissance de la magie psychique qui vous permet de lancer des sorts non pas par des incantations ou des gestes, mais par la seule force de votre volonté. Bien que la frontière entre votre esprit et la réalité soit mince et qu'une seule pensée errante puisse avoir des conséquences inattendues pour vous et vos compagnons, vous savez que tout est possible, si vous pouvez l'imaginer.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT", "CHA"
+                ]
+            },
+            "life_point_by_level"  : 6,
+            "desc_fight"           : "Vous vous reposez sur votre collection de tours de magie psychiques, choisissant où et quand les amplifier pour un effet maximal. Vous intégrez vos sorts plus conventionnels dans la mêlée lorsqu'une magie plus complexe est nécessaire, libérant tout le potentiel de votre esprit dans une explosion de puissance lorsque le moment est venu.",
+            "desc_socially"        : "Vous abordez chaque situation en vous laissant guider par la source de votre pouvoir subconscient. Si ce pouvoir émane de votre personnalité, vous pourriez faire preuve d'empathie et de sociabilité ; s'il est d'origine plus cérébrale, vous pourriez plutôt adopter une approche calme et logique",
+            "desc_exploration"     : "Vous gardez votre esprit ouvert aux nombreuses menaces paranormales que ceux qui sont moins sensibles pourraient ne pas détecter. En général, vous recherchez la magie ou vous enquêtez sur les impressions psychiques, les pensées voilées et les esprits errants.",
+            "desc_interlude"       : "Vous vous efforcez d'en apprendre davantage sur les profondeurs de l'esprit, en recherchant de nouveaux sorts et phénomènes à découvrir, sachant qu'en acquérant une meilleure compréhension de vous-même, vous pourrez accéder à une plus grande partie du pouvoir qui est en vous. Vous testez les limites de votre capacité d'adaptation en vous recyclant sans cesse afin de correspondre à votre perception grandissante de votre potentiel.",
+            "desc_you_could"       : [
                 "Montrez votre préférence pour l'apprentissage, la méditation, la rêverie ou d'autres manifestations intangibles de la pensée plutôt que sur le caractère immédiat du monde physique.",
                 "Apprenez de nouvelles choses sur vous-même, juste lorsque vous pensiez que vous saviez déjà tout.",
                 "Considérez votre magie psychique comme une extension naturelle de vous-même lorsque des méthodes normales pourraient suffire, préférant peut-être communiquer par des messages mentaux ou faire léviter un objet vers un compagnon assis à l'autre bout d'une table."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Sont impressionnés par vos capacités mentales, surtout lorsque votre psyché est déchaînée.",
                 "Ont du mal à comprendre que la magie que vous accomplissez avec votre esprit provient de la même origine que les incantations plus conventionnelles.",
                 "Se demandent si vous n'êtes pas un monstre déguisé, si vous n'êtes pas possédé par des esprits, si vous n'êtes pas élu par les dieux ou s'il n'y a pas une raison inhabituelle d'avoir ces étranges pouvoirs."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Occultisme",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié en attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Inexpérimenté avec toutes les armures",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_spell": [
+            "mastery_spell"        : [
                 "Qualifié pour les attaques de sorts occultes",
                 "Qualifié en DD de sorts occultes"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, compétences initiales, incantation psychique, répertoire de sort, tours de magie psi et amplis psi, déchaîner la psyché, esprit subconscient, esprit conscient",
                 "Don de compétence, don de psychiste",
                 "Amélioration de compétence, don général, sorts emblématiques, sorts de rang 2",
@@ -3008,8 +3118,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Rôdeur",
-            "capacities": [
+            "name"                 : "Rôdeur",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Chasser une proie",
@@ -3078,47 +3188,52 @@ var CLASSES = {
                 "Proie rapide\nNiveau 19",
                 "Vous jaugez votre proie d'un simple coup d'œil. Vous pouvez utiliser sports_martial_artsChasser une proie par une action gratuite si c'est la première action de votre tour."
             ],
-            "general_desc": "Certains rôdeurs croient que la civilisation abîme l'âme mais qu'il y a toujours besoin de la protéger des créatures sauvages. D'autres disent que la nature a besoin d'être protégée des gens avides qui souhaitent s'accaparer ses beautés et piller ses trésors. Vous pourriez soutenir l'une de ces causes, voire les deux. Vous pourriez être un éclaireur, un pisteur ou un chasseur de fugitifs ou de bêtes qui hante la périphérie de la civilisation ou explore les contrées sauvages. Vous savez comment vivre de la nature et vous êtes particulièrement talentueux pour repérer et abattre des proies opportunes et des ennemis haïs.",
-            "prime_attribute": "FORCE ou DEXTÉRITÉ",
-            "life_point_by_level": 10,
-            "desc_fight": "Vous pouvez chasser des ennemis particuliers, ce qui vous permet de mieux les vaincre. Vous ciblez et brutalisez l'ennemi choisi avec un arc ou des armes de corps-à-corps, tout en soutenant vos alliés avec vos compétences.",
-            "desc_socially": "Quand vous prenez la parole, c'est avec la voix de l'expérience du terrain et du pragmatisme, en particulier en matière d'exploration en milieu sauvage..",
-            "desc_exploration": "Vous guidez vos alliés à travers les étendues sauvages ou suivez des traces. Vous gardez toujours l'œil ouvert, constamment à l'affût du danger, même lorsqu'il n'est pas pas manifeste.",
-            "desc_interlude": "Vous fabriquez des armes et dressez des animaux pour préparer votre prochaine aventure. Si vous préférez rester en pleine nature, vous pourriez partir à la chasse ou patrouiller les environs pour mieux comprendre votre environnement.",
-            "desc_you_could": [
+            "general_desc"         : "Certains rôdeurs croient que la civilisation abîme l'âme mais qu'il y a toujours besoin de la protéger des créatures sauvages. D'autres disent que la nature a besoin d'être protégée des gens avides qui souhaitent s'accaparer ses beautés et piller ses trésors. Vous pourriez soutenir l'une de ces causes, voire les deux. Vous pourriez être un éclaireur, un pisteur ou un chasseur de fugitifs ou de bêtes qui hante la périphérie de la civilisation ou explore les contrées sauvages. Vous savez comment vivre de la nature et vous êtes particulièrement talentueux pour repérer et abattre des proies opportunes et des ennemis haïs.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "FOR", "DEX"
+                ]
+            },
+            "life_point_by_level"  : 10,
+            "desc_fight"           : "Vous pouvez chasser des ennemis particuliers, ce qui vous permet de mieux les vaincre. Vous ciblez et brutalisez l'ennemi choisi avec un arc ou des armes de corps-à-corps, tout en soutenant vos alliés avec vos compétences.",
+            "desc_socially"        : "Quand vous prenez la parole, c'est avec la voix de l'expérience du terrain et du pragmatisme, en particulier en matière d'exploration en milieu sauvage..",
+            "desc_exploration"     : "Vous guidez vos alliés à travers les étendues sauvages ou suivez des traces. Vous gardez toujours l'œil ouvert, constamment à l'affût du danger, même lorsqu'il n'est pas pas manifeste.",
+            "desc_interlude"       : "Vous fabriquez des armes et dressez des animaux pour préparer votre prochaine aventure. Si vous préférez rester en pleine nature, vous pourriez partir à la chasse ou patrouiller les environs pour mieux comprendre votre environnement.",
+            "desc_you_could"       : [
                 "Respecter la puissance brute de la nature et comprendre comment tirer le meilleur parti de ses bienfaits.",
                 "Apprécier le frisson de la chasse.",
                 "Partir en éclaireur devant votre groupe pour reconnaître les dangers avant que le combat ne débute."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Comptent sur vous pour les protéger des dangers de la nature ou de l'empiétement de la civilisation.",
                 "S'attendent à ce que vous soyez un solitaire calme ou taciturne.",
                 "Pensent qu'il y a quelque chose de dangereux et de sauvage en vous."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Expert en Réflexes",
                 "Qualifié en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Nature",
                 "Qualifié en Survie",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 4 plus votre modificateur d'Intelligence."
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié en attaques à mains nues",
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe de rôdeur",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe de rôdeur",
+            "capacity_by_level"    : [
                 "Ascendance et historique, chasser une proie, don de rôdeur, maîtrises initiales, spécialité du chasseur",
                 "Don de compétence, don de rôdeur",
                 "Amélioration de compétence, don général, expertise en volonté",
@@ -3142,8 +3257,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Roublard",
-            "capacities": [
+            "name"                 : "Roublard",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Attaque sournoise",
@@ -3222,46 +3337,52 @@ var CLASSES = {
                 "Maîtrise des armures légères\nNiveau 19",
                 "Votre compétence avec les armures légères s'améliore, augmentant votre capacité à esquiver les coups. Vous devenez maître avec les armures légères et en défense sans armure."
             ],
-            "general_desc": "Vous êtes compétent et opportuniste. Grâce à votre vivacité d'esprit et à vos réactions rapides, vous tirez parti des erreurs de vos adversaires et frappez là où ça fait vraiment mal. Vous jouez un jeu dangereux, en recherchant des sensations fortes et en mettant vos compétences à l'épreuve, et vous ne vous souciez probablement pas beaucoup des lois qui se mettent en travers de votre chemin. Si le parcours de chaque roublard est unique et semé d'embûches, la seule chose que vous avez en commun est l'étendue et la qualité de vos compétences.",
-            "prime_attribute": "DEXTÉRITÉ ou AUTRE",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous vous déplacez furtivement afin de surprendre vos adversaires. Vous êtes un instrument de précision, plus utile contre un boss coriace ou un lanceur de sorts éloigné que contre des soldats du rang.",
-            "desc_socially": "Vos compétences vous donnent de multiples outils pour influencer vos adversaires. Tirer les ficelles et dénicher les informations, c'est une seconde nature pour vous.",
-            "desc_exploration": "Vous vous faufilez pour surprendre les ennemis et repérer les dangers ou les pièges. Vous êtes un atout précieux car vous pouvez désactiver des pièges, résoudre des énigmes et anticiper les dangers.",
-            "desc_interlude": "Vous pourriez faire les poches ou faire de la contrebande de marchandises illégales. Vous pouvez également intégrer une guilde de voleurs ou même fonder la vôtre.",
-            "desc_you_could": [
+            "general_desc"         : "Vous êtes compétent et opportuniste. Grâce à votre vivacité d'esprit et à vos réactions rapides, vous tirez parti des erreurs de vos adversaires et frappez là où ça fait vraiment mal. Vous jouez un jeu dangereux, en recherchant des sensations fortes et en mettant vos compétences à l'épreuve, et vous ne vous souciez probablement pas beaucoup des lois qui se mettent en travers de votre chemin. Si le parcours de chaque roublard est unique et semé d'embûches, la seule chose que vous avez en commun est l'étendue et la qualité de vos compétences.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "DEX",
+                    "FREE"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous vous déplacez furtivement afin de surprendre vos adversaires. Vous êtes un instrument de précision, plus utile contre un boss coriace ou un lanceur de sorts éloigné que contre des soldats du rang.",
+            "desc_socially"        : "Vos compétences vous donnent de multiples outils pour influencer vos adversaires. Tirer les ficelles et dénicher les informations, c'est une seconde nature pour vous.",
+            "desc_exploration"     : "Vous vous faufilez pour surprendre les ennemis et repérer les dangers ou les pièges. Vous êtes un atout précieux car vous pouvez désactiver des pièges, résoudre des énigmes et anticiper les dangers.",
+            "desc_interlude"       : "Vous pourriez faire les poches ou faire de la contrebande de marchandises illégales. Vous pouvez également intégrer une guilde de voleurs ou même fonder la vôtre.",
+            "desc_you_could"       : [
                 "Parfaire vos compétences par une pratique intense, à la fois en solitaire et sur le terrain.",
                 "Savoir où vous procurer des produits illicites.",
                 "contourner ou enfreindre la loi parce que vous pensez qu'elle n'a pas de sens ou appliquer votre propre code."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "vous trouvent charmant ou fascinant, même s'ils pensent qu'il vaut mieux ne pas vous faire confiance.",
                 "S'adressent à vous lorsqu'ils ont besoin de quelqu'un qui est prêt à prendre des risques ou à utiliser des méthodes discutables.",
                 "Vous soupçonnent d'être motivé avant tout par l'appât du gain."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Expert en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Discrétion",
                 "Qualifié dans une compétence déterminée par votre trafic de roublard.",
                 "Qualifié dans un nombre de compétences supplémentaires égal à 7 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié en attaques à mains nues",
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié en défense sans armure",
                 "Qualifié avec les armures légères"
             ],
-            "mastery_dd": "Qualifié dans le DD de classe de roublard",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié dans le DD de classe de roublard",
+            "capacity_by_level"    : [
                 "Ascendance et historique, attaque sournoise 1d6, attaque surprise, don de compétence, don de roublard, maîtrises initiales, primes d'attributs, trafic de roublard",
                 "Amélioration de compétence, don de compétence, don de roublard",
                 "Amélioration de compétence, don de compétence, don de roublard, refus d'avantage",
@@ -3285,8 +3406,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Sorcier",
-            "capacities": [
+            "name"                 : "Sorcier",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Incantation de sorcier",
@@ -3369,44 +3490,49 @@ var CLASSES = {
                 "Vous pouvez choisir parmi ces leçons lorsqu'un don ou un autre effet vous accorde une leçon majeure.",
                 "Leçon de marchandage Vous obtenez le maléfice auto_awesomeSur des charbons ardents et votre familier apprend auto_awesomeSuggestion subconsciente .\nLeçon de mort La mort est définitive, mais pas aussi inéluctable qu'il n'y paraît. Vous obtenez le maléfice auto_awesomeMalédiction de mort et votre familier apprend auto_awesomeRappel à la vie .\nLeçon de renouveau L'entropie s'abat sur tous, mais il est possible de l'enrayer au prix d'un effort. Vous obtenez le maléfice auto_awesomeMoment restauratif et votre familier apprend auto_awesomeChamp de vie .\nRare\nLeçon de la reine glacée Vous obtenez le maléfice auto_awesomeCœur glacial et votre familier apprend auto_awesomeMur de glace ."
             ],
-            "general_desc": "Vous possédez de puissants magiques, non par l'étude ou la dévotion, mais en tant qu'agent d'un patron d'un autre monde que vous ne comprenez même pas entièrement. Cette entité pourrait être une divinité secrète, une puissante créature féerique, un esprit ancien ou tout autre être surnaturel puissant — mais sa nature est probablement aussi mystérieuse pour vous que pour les autres. Grâce à un familier très particulier, votre patron vous octroie des sorts diversifiés et des maléfices puissants que vous pouvez utiliser à votre guise, sans jamais vraiment être certain que cela contribuera ou non aux objectifs plus vastes de votre patron.",
-            "prime_attribute": "INTELLIGENCE",
-            "life_point_by_level": 6,
-            "desc_fight": "Vous lancez des sorts pour modifier le cours de la bataille. Vous utilisez des maléfices magiques pour affaiblir les ennemis et venir en aide à vos alliés, tout en lançant des sorts plus puissants pour contrôler le champ de bataille, pour soigner comme pour blesser. Vous vous appuyez aussi sur l'aide de votre familier extraordinaire, de potions que vous créez et des objets magiques.",
-            "desc_socially": "Vous prodiguez vos connaissances dans de nombreux domaines, y compris divers sujets magiques et vous pourriez faire appel à la magie de votre patron pour charmer ou pour tromper.",
-            "desc_exploration": "Vous restez attentif à la présence de pièges ou de trésors magiques en employant un arsenal de sorts judicieusement choisi pour surmonter les obstacles qui se dressent sur votre route. Votre familier pourrait vous aider grâce à son impressionnante panoplie de capacités extraordinaires.",
-            "desc_interlude": "Vous créez des potions, fabriquez d'autres objets magiques ou partez à la recherche de nouveaux sorts que votre familier pourra apprendre. Vous pourriez tenter d'en apprendre plus au sujet de votre patron, de ses objectifs ou de vos propres pouvoirs et vous pourriez rechercher la compagnie d'autres sorciers en vue de collaborer ou vous rassembler.",
-            "desc_you_could": [
+            "general_desc"         : "Vous possédez de puissants magiques, non par l'étude ou la dévotion, mais en tant qu'agent d'un patron d'un autre monde que vous ne comprenez même pas entièrement. Cette entité pourrait être une divinité secrète, une puissante créature féerique, un esprit ancien ou tout autre être surnaturel puissant — mais sa nature est probablement aussi mystérieuse pour vous que pour les autres. Grâce à un familier très particulier, votre patron vous octroie des sorts diversifiés et des maléfices puissants que vous pouvez utiliser à votre guise, sans jamais vraiment être certain que cela contribuera ou non aux objectifs plus vastes de votre patron.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "INT"
+                ]
+            },
+            "life_point_by_level"  : 6,
+            "desc_fight"           : "Vous lancez des sorts pour modifier le cours de la bataille. Vous utilisez des maléfices magiques pour affaiblir les ennemis et venir en aide à vos alliés, tout en lançant des sorts plus puissants pour contrôler le champ de bataille, pour soigner comme pour blesser. Vous vous appuyez aussi sur l'aide de votre familier extraordinaire, de potions que vous créez et des objets magiques.",
+            "desc_socially"        : "Vous prodiguez vos connaissances dans de nombreux domaines, y compris divers sujets magiques et vous pourriez faire appel à la magie de votre patron pour charmer ou pour tromper.",
+            "desc_exploration"     : "Vous restez attentif à la présence de pièges ou de trésors magiques en employant un arsenal de sorts judicieusement choisi pour surmonter les obstacles qui se dressent sur votre route. Votre familier pourrait vous aider grâce à son impressionnante panoplie de capacités extraordinaires.",
+            "desc_interlude"       : "Vous créez des potions, fabriquez d'autres objets magiques ou partez à la recherche de nouveaux sorts que votre familier pourra apprendre. Vous pourriez tenter d'en apprendre plus au sujet de votre patron, de ses objectifs ou de vos propres pouvoirs et vous pourriez rechercher la compagnie d'autres sorciers en vue de collaborer ou vous rassembler.",
+            "desc_you_could"       : [
                 "Vous efforcer d'en apprendre plus à propos de votre patron ou de votre familier, des objectifs de votre patron, de la raison pour laquelle il vous a choisi et du rôle que vous jouez dans ses plans.",
                 "Rechercher de nouvelles sources de magie comme des parchemins et des grimoires pour compléter les sorts que votre patron vous fournit.",
                 "Pourriez considérer votre familier comme un allié loyal, un ami cher ou une nuisance indispensable, en fonction de sa personnalité."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Se posent des questions sur la nature de votre patron et de la source de votre magie, craignant que vous ne vous retourniez contre eux ou que vous ne serviez inconsciemment une puissance maléfique.",
                 "Apprécient votre capacité à leur venir en aide grâce à votre magie, que vous le fassiez en les aidant directement ou en affaiblissant vos ennemis.",
                 "Veillent de ne pas vous offenser, de peur que vous ne leur lanciez un maléfice malicieux s'ils vous mettent en colère."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Qualifié en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Qualifié en Perception",
+            "mastery_js"           : [
                 "Qualifié en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en une compétence déterminée par votre patron",
                 "Qualifié en un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les attaques à mains nues",
                 "Qualifié avec les armes simples"
             ],
-            "mastery_defense": "Qualifié en défense sans armure",
-            "mastery_spell": [
+            "mastery_defense"      : "Qualifié en défense sans armure",
+            "mastery_spell"        : [
                 "Qualifié en modificateur d'attaque de sort",
                 "Qualifié en DD de classe de sorcier"
             ],
-            "capacity_by_level": [
+            "capacity_by_level"    : [
                 "Ascendance et historique, familier, incantation de sorcier, maîtrises initiales, patron, sorts de maléfice",
                 "Don de compétence, don de sorcier",
                 "Amélioration de compétence, don général, sorts de rang 2",
@@ -3430,8 +3556,8 @@ var CLASSES = {
             ]
         },
         {
-            "name": "Thaumaturge",
-            "capacities": [
+            "name"                 : "Thaumaturge",
+            "capacities"           : [
                 "Ascendance et historique",
                 "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique.",
                 "Connaissances ésotériques",
@@ -3506,46 +3632,51 @@ var CLASSES = {
                 "Maîtrise des armures intermédiaires\nNiveau 19",
                 "Votre maîtrise avec les armures légères et intermédiaires s'améliore, augmentant votre capacité à éviter les coups. Vous devenez maître avec les armures légères et intermédiaires ainsi qu'en défense sans armure."
             ],
-            "general_desc": "Le monde est rempli de mystères inexplicables : magie ancienne, dieux morts et d'autres plus étranges encore. En réponse, vous avez réuni les meilleurs éléments de chaque tradition magique et vous avez constitué une collection d'objets ésotériques - une relique sacrée brisée par-ci, une branche de gui par-là - que vous pouvez utiliser pour vaincre n'importe quelle créature en exploitant ses faiblesses et ses vulnérabilités. L'outil mystique que vous portez est à la fois un insigne et une arme, son poids symbolique vous aidant à négocier et à vaincre le surnaturel. Chaque chemin vers le pouvoir possède ses restrictions et ses coûts mais vous les utilisez tous à votre avantage. Vous êtes un thaumaturge et vous accomplissez des merveilles.",
-            "prime_attribute": "CHARISME",
-            "life_point_by_level": 8,
-            "desc_fight": "Vous utilisez vos impléments et votre arsenal diversifié d'outils et d'astuces mystiques pour vous aider au combat, en présentant toujours le bon remède pour exploiter les faiblesses de vos ennemis ou protéger vos alliés contre le surnaturel.",
-            "desc_socially": "Vous comprenez les liens sociaux entre les gens, tout comme vous vous efforcez de comprendre les liens plus larges entre les mystères et les concepts. Cela vous aide à trouver un terrain d'entente lorsque vous négociez entre le profane et le surnaturel, voire à jouer de l'un contre l'autre.",
-            "desc_exploration": "Vous enquêtez sur les phénomènes inexplicables qui vous entourent, en prenant les précautions nécessaires pour vous prémunir, vous comme vos alliés, contre les menaces paranormales. Lorsque cela s'avère indispensable,, vous créez votre propre voie à travers l'inconnu.",
-            "desc_interlude": "Vous vous plongez plus profondément dans les mystères surnaturels que vous avez découverts au cours de votre dernière aventure pour voir comment ils peuvent être employés à l'avenir. Vous dépoussiérez des reliques, cultivez des herbes ou forgez des bibelots en mettant à jour votre collection d'outils surnaturels récupérés après chaque nouvelle menace que vous rencontrez. Vous rendez ou demandez des faveurs à d'autres personnes, à des créatures étranges et à des forces mystiques.",
-            "desc_you_could": [
+            "general_desc"         : "Le monde est rempli de mystères inexplicables : magie ancienne, dieux morts et d'autres plus étranges encore. En réponse, vous avez réuni les meilleurs éléments de chaque tradition magique et vous avez constitué une collection d'objets ésotériques - une relique sacrée brisée par-ci, une branche de gui par-là - que vous pouvez utiliser pour vaincre n'importe quelle créature en exploitant ses faiblesses et ses vulnérabilités. L'outil mystique que vous portez est à la fois un insigne et une arme, son poids symbolique vous aidant à négocier et à vaincre le surnaturel. Chaque chemin vers le pouvoir possède ses restrictions et ses coûts mais vous les utilisez tous à votre avantage. Vous êtes un thaumaturge et vous accomplissez des merveilles.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "CHA"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous utilisez vos impléments et votre arsenal diversifié d'outils et d'astuces mystiques pour vous aider au combat, en présentant toujours le bon remède pour exploiter les faiblesses de vos ennemis ou protéger vos alliés contre le surnaturel.",
+            "desc_socially"        : "Vous comprenez les liens sociaux entre les gens, tout comme vous vous efforcez de comprendre les liens plus larges entre les mystères et les concepts. Cela vous aide à trouver un terrain d'entente lorsque vous négociez entre le profane et le surnaturel, voire à jouer de l'un contre l'autre.",
+            "desc_exploration"     : "Vous enquêtez sur les phénomènes inexplicables qui vous entourent, en prenant les précautions nécessaires pour vous prémunir, vous comme vos alliés, contre les menaces paranormales. Lorsque cela s'avère indispensable,, vous créez votre propre voie à travers l'inconnu.",
+            "desc_interlude"       : "Vous vous plongez plus profondément dans les mystères surnaturels que vous avez découverts au cours de votre dernière aventure pour voir comment ils peuvent être employés à l'avenir. Vous dépoussiérez des reliques, cultivez des herbes ou forgez des bibelots en mettant à jour votre collection d'outils surnaturels récupérés après chaque nouvelle menace que vous rencontrez. Vous rendez ou demandez des faveurs à d'autres personnes, à des créatures étranges et à des forces mystiques.",
+            "desc_you_could"       : [
                 "Vous préparez au pire tout en improvisant si nécessaire, impressionnant vos alliés lorsque vous êtes capable de faire face à tout ce que le destin vous envoie.",
                 "Supposez que tout est lié à un niveau plus profond, plutôt que de vous contenter de ce que vous observez à la surface.",
                 "Êtes obsédé par un certain phénomène surnaturel, essayant de tout relier à lui."
             ],
-            "desc_probably_others": [
+            "desc_probably_others" : [
                 "Se tournent vers vous pour apprendre les faiblesses d'une menace surnaturelle lorsqu'elle pointe le bout de son nez. Même lorsque vos explications sont inventées à la volée, elles semblent juste fonctionner.",
                 "Comptent sur vous pour trouver une solution lorsque la situation semble désespérée.",
                 "Vous confondent avec un magicien ou un mage ordinaire."
             ],
-            "mastery_initial": "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
-            "mastery_perception": "Expert en Perception",
-            "mastery_js": [
+            "mastery_initial"      : "Au niveau 1, vous obtenez les rangs de maîtrise indiqués pour les statistiques suivantes. Vous êtes inexpérimenté pour tout ce qui ne figure pas ci-dessous, à moins d'obtenir un degré de maîtrise supérieur d'une autre manière.",
+            "mastery_perception"   : "Expert en Perception",
+            "mastery_js"           : [
                 "Expert en Vigueur",
                 "Qualifié en Réflexes",
                 "Expert en Volonté"
             ],
-            "mastery_skill": [
+            "mastery_skill"        : [
                 "Qualifié en Arcanes, Nature, Occultisme et Religion",
                 "Qualifié en un nombre de compétences supplémentaires égal à 3 plus votre modificateur d'Intelligence"
             ],
-            "mastery_attack": [
+            "mastery_attack"       : [
                 "Qualifié avec les armes simples",
                 "Qualifié avec les armes de guerre",
                 "Qualifié avec les attaques à mains nues"
             ],
-            "mastery_defense": [
+            "mastery_defense"      : [
                 "Qualifié avec les armures légères",
                 "Qualifié avec les armures intermédiaires",
                 "Qualifié en défense sans armure"
             ],
-            "mastery_dd": "Qualifié en DD de classe de thaumaturge",
-            "capacity_by_level": [
+            "mastery_dd"           : "Qualifié en DD de classe de thaumaturge",
+            "capacity_by_level"    : [
                 "Ascendance et historique, connaissances ésotériques, don de thaumaturge, maîtrises initiales, premier implément et ésotérica, renforcement de l'implément",
                 "Don de compétence, don de thaumaturge",
                 "Amélioration de compétence, don général, réflexes fulgurants",

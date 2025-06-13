@@ -69,7 +69,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
             object_to_complete[ "requirement" ].push( SERVICE.STRING.replaceAll( text, "Prérequis ", "" ) );
         }
         else if ( SERVICE.STRING.containsIgnoreCase( text, "Choisissez deux primes d'attributs" ) ) {
-            object_to_complete[ "prime_attribute" ] = {
+            object_to_complete[ "characteristics_bonus" ] = {
                 number: 2,
                 choice: SERVICE.STRING.parseMatching( text, CHARACTERISTIC )
             };

@@ -47,7 +47,7 @@ var SCRIPT_CLASSES = (function ( self ) {
                 break;
             case "basics-title":
                 if ( SERVICE.STRING.contains( current_child.innerText, "Attribut essentiel" ) ) {
-                    object_to_complete[ "prime_attribute" ] = SERVICE.STRING.splitAndTrim( current_child.innerText, ":", 1 );
+                    object_to_complete[ "characteristics_bonus" ] = SERVICE.STRING.splitAndTrim( current_child.innerText, ":", 1 );
                 }
                 if ( SERVICE.STRING.contains( current_child.innerText, "Points de vie" ) ) {
                     object_to_complete[ "life_point_by_level" ] = SERVICE.STRING.parseStringToPositiveInteger( current_child.innerText );

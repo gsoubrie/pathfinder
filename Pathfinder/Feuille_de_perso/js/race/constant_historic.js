@@ -14,7 +14,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Étudiant du droit canon"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -46,7 +46,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Équilibre stable"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -79,7 +79,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Contraindre un groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -112,7 +112,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 " Médecine militaire"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -144,7 +144,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Pisteur expérimenté"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -178,7 +178,7 @@ var HISTORICS = {
                 " Si vous acceptez mais que vous obtenez un échec au test, vous êtes Stupéfié 1 pendant 1 minute par la distraction mentale lié aux souvenirs de votre vie antérieure ou Stupéfié 2 pendant 1 minute sur un échec critique"
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -211,7 +211,7 @@ var HISTORICS = {
                 "Vous obtenez trois primes d'attributs. Vous en choisissez deux et le MJ en choisit une troisième basée sur les premières idées de l'histoire possible de votre personnage."
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 3,
                 "choice": [
                     "FRE",
@@ -229,7 +229,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artiste virtuose"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -261,7 +261,7 @@ var HISTORICS = {
                 "Sur un échec, la magie ne vous affecte pas (bien qu'elle ait toujours ses effets normaux sur toute autre personne). En cas de succès, la magie vous affecte et il n'est pas nécessaire de tenter d'autres tests nu pour le même effet magique, même s'il vous affecte à nouveau par la suite."
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -289,7 +289,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Identification rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -321,7 +321,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Réparation rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -355,7 +355,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Glaneur"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -387,7 +387,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -421,7 +421,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -455,7 +455,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Représentation fascinante"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -487,7 +487,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Identification de bizarreries"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -519,7 +519,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Bonne impression de groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -551,7 +551,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Contraindre un groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -583,7 +583,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Chirurgie risquée"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -615,7 +615,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Représentation fascinante"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -647,7 +647,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artisanat alchimique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -682,7 +682,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Assistance surnaturelle"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -717,7 +717,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Souhait de bonne fortune"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CHA",
@@ -748,7 +748,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Éduqué dans les secrets"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -780,7 +780,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Médecine naturelle"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -812,7 +812,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -846,7 +846,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Bonne impression de groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -878,7 +878,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Portefaix"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -911,7 +911,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Portefaix"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -944,7 +944,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Chute féline"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -978,7 +978,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Illumination dans l'adversité"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": []
             },
@@ -1033,7 +1033,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Menteur charismatique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1065,7 +1065,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Observation de la nature"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -1099,7 +1099,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 " général Animal de compagnie et le don de compétence dressage animalier, mais vous ne pouvez utiliser ces dons que pour obtenir ou dresser des aigles"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -1131,7 +1131,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Pisteur expérimenté"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -1161,7 +1161,7 @@ var HISTORICS = {
                 "Chargé par la Concordance des éléments de mener des recherches sur divers phénomènes planaires énigmatiques, vous avez acquis des connaissances très spécifiques sur les plans et leurs interactions. Bien que le métier de chercheur soit généralement paisible, la Concordance peut vous demander d'aller sur le terrain et de rechercher des conditions planaires instables."
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1219,7 +1219,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Évaluation de l'artisan"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -1251,7 +1251,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Chevaucheur rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -1283,7 +1283,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Pas besoin de s'alarmer"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -1315,7 +1315,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Évaluation de l'artisan"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -1349,7 +1349,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Œil pour les nombres"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1381,7 +1381,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Savoir douteux"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -1427,7 +1427,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Contrebandier expérimenté"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -1462,7 +1462,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Impression de groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -1493,7 +1493,7 @@ var HISTORICS = {
                 "Lorsque de l'argent, des biens ou des marchandises doivent être transportés sur de grandes distances, les convoyeurs de fonds sont plus efficaces et plus dignes de confiance que les mercenaires locaux. Vous connaissez les tenants et les aboutissants des routes commerciales et les protocoles qui les accompagnent. Si certains vous considèrent comme un aventurier ou un mercenaire ordinaire, vous savez que vous pouvez faire le travail mieux et plus sûrement que n'importe qui d'autre."
             ],
             "gift_skill"     : ["Professionnel expérimenté"],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -1525,7 +1525,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Saut rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -1558,7 +1558,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Contrebandier expérimenté"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -1593,7 +1593,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Étudiant du droit canon"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -1625,7 +1625,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Perspicacité forensique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1657,7 +1657,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Glaner des informations"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1689,7 +1689,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Magie des racines"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1721,7 +1721,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Chef"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -1753,7 +1753,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Éduqué dans les secrets"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1786,7 +1786,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1821,7 +1821,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Représentation fascinante"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -1849,7 +1849,7 @@ var HISTORICS = {
                 "Manières courtoises",
                 "Utiliser ses relations"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1875,7 +1875,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Savoir douteux"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1907,7 +1907,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Expertise du terrain"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -1941,7 +1941,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Assurance"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -1976,7 +1976,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Étudiant du droit canon"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2010,7 +2010,7 @@ var HISTORICS = {
             "spell_free"     : [
                 "Déchaînement de vitalité"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2043,7 +2043,7 @@ var HISTORICS = {
                 " Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au premier test de compétence que vous tentez avant la fin de votre tour pour réaliser ce souhait"
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2069,7 +2069,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Savoir urbain"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2102,7 +2102,7 @@ var HISTORICS = {
                 "Perspicacité astucieuse",
                 " military_techPerspicacité astucieuse "
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2130,7 +2130,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Réparation rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2166,7 +2166,7 @@ var HISTORICS = {
                 "Chute féline",
                 "Saut rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2198,7 +2198,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Chirurgie risquée"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2230,7 +2230,7 @@ var HISTORICS = {
                 "Vous gagnez trois primes d'attributs libres. Vous en choisissez deux et le MJ en choisit une en fonction des attributs du personnage que vous avez été construit pour dupliquer."
             ],
             "gift_skill"     : [],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 3,
                 "choice": [
                     "FRE",
@@ -2248,7 +2248,7 @@ var HISTORICS = {
             "gift_skill"     : [
                 "Dressage Animalier"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -2279,7 +2279,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Glaneur"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -2311,7 +2311,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Animal social"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2343,7 +2343,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Aide armure"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2376,7 +2376,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Assurance"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FRE"
@@ -2404,7 +2404,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Jouet de la prophétie"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2432,7 +2432,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Polyglotte"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2464,7 +2464,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Vol à la tire"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -2500,7 +2500,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Message onirique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2556,7 +2556,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Expertise du terrain"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2592,7 +2592,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Professionnel expérimenté"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2624,7 +2624,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Savoir douteux"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -2657,7 +2657,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Assurance"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2687,7 +2687,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Reconnaître des sorts"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2748,7 +2748,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2782,7 +2782,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Culte trompeur"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -2814,7 +2814,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Aide armure"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2847,7 +2847,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Artisanat spécialisé"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2881,7 +2881,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Glaner des informations"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -2913,7 +2913,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Contrainte rapide"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2945,7 +2945,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Contrôle de la respiration"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -2978,7 +2978,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Représentation impressionnante"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -3010,7 +3010,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Vaccination"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -3042,7 +3042,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Traqueur de terrain"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -3079,7 +3079,7 @@ var HISTORICS = {
                 "Aidait",
                 "Effrayé 2"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -3105,7 +3105,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Médecine naturelle"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -3137,7 +3137,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Tour de passe-passe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -3170,7 +3170,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Regard intimidant"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -3202,7 +3202,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Vol subtil"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -3235,7 +3235,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Accueillir un esprit"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -3269,7 +3269,7 @@ var HISTORICS = {
     "Fléchettes aiguilles",
     "Projection d'éboulis"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "CON",
@@ -3297,7 +3297,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Polyglotte"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -3329,7 +3329,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Diversion interminable"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -3361,7 +3361,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Ose me mentir"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -3397,7 +3397,7 @@ var HISTORICS = {
                 "Chance féerique",
                 "Pénitence"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -3425,7 +3425,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Médecine naturelle"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "SAG",
@@ -3457,7 +3457,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Portefaix"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -3490,7 +3490,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Chasseur de bonnes affaires"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -3522,7 +3522,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Bonne impression de groupe"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "DEX",
@@ -3554,7 +3554,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Évaluation de l'artisan"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -3588,7 +3588,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Usurpation d'objet magique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",
@@ -3619,7 +3619,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Maraudeur aquatique"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "FOR",
@@ -3655,7 +3655,7 @@ var HISTORICS = {
             "gift_skill": [
                 "Signe de protection"
             ],
-            "prime_attribute": {
+            "characteristics_bonus": {
                 "number": 2,
                 "choice": [
                     "INT",

@@ -11,7 +11,7 @@ CLASSES.Class.prototype = {
         this.name            = to_set;
         this.label.innerHTML = to_set;
         let data_from_class   = CLASSES.getDataByName( this.name );
-        this.setData( "prime_attribute", data_from_class[ "prime_attribute" ] );
+        this.setData( "characteristics_bonus", data_from_class[ "characteristics_bonus" ] );
     },
     getUUID: function () {
         return this.name;
@@ -22,7 +22,7 @@ CLASSES.Class.prototype = {
             case "name":
                 this.setName( value );
                 break;
-            case "prime_attribute":
+            case "characteristics_bonus":
                 this[key] = value;
                 break;
             default:
@@ -53,7 +53,6 @@ CLASSES.ClassPopup.prototype = {
             case "name":
             case "general_desc":
             case "capacities":
-            case "prime_attributes":
             case "life_point_by_level":
             case "desc_fight":
             case "desc_socially":
@@ -62,7 +61,7 @@ CLASSES.ClassPopup.prototype = {
             case "desc_you_could":
             case "desc_probably_others":
             case "mastery_initial":
-            case "prime_attribute":
+            case "characteristics_bonus":
             case "mastery_perception":
             case "mastery_js":
             case "mastery_skill":
@@ -83,7 +82,7 @@ CLASSES.ClassPopup.prototype = {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.general_desc, "" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.life_point_by_level, "Point de vie par level" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.prime_attribute, "Prime d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_bonus, "Prime d'attribut" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.capacities, "Capacités" ), this.getDomElement() );
         return this.getDomElement();
     }
