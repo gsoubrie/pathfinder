@@ -54,7 +54,9 @@ CHARACTER.CharacteristicWindow.prototype = {
         var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-race" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.race_bonus.dom_element, bonus_race );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-class" }, "" ), to_return );
+        var bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-class" } ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.class_bonus.dom_element, bonus_class );
+        
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), to_return );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv15" }, "" ), to_return );

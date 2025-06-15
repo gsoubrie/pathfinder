@@ -39,24 +39,27 @@ CHARACTERISTICS.Bonus.prototype = {
         this.choices     = [];
     },
     initWithData: function ( data ) {
+        if (!data){
+            return;
+        }
         this.setNumber( data[ "number" ] );
         this.setChoices( data[ "choice" ] );
     },
-    //********************************************  EVENT LISTENER  *****************************************************//
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter      : function ( event_name, params ) {
         this.doActionAfterCommon( event_name, params );
     },
     doActionAfterCommon: function ( event_name, params ) {
+        console.log(event_name)
         switch ( event_name ) {
             case "event__set_free_bonus_done":
-                this.number_free--;
+                this.setFreeNumber(this.number_free - 1);  
                 if ( !this.number_free ) {
                     params[ "params__controller_object" ].doActionAfter( "event__free_bonus_is_zero", params );
                 }
                 break;
             case "event__unset_free_bonus_done":
-                this.number_free++;
+                this.setFreeNumber(this.number_free + 1);  
                 break;
         }
     },
@@ -64,9 +67,8 @@ CHARACTERISTICS.Bonus.prototype = {
     updateFreeBonusCounter: function ( delta ) {
         this.setBonusCounter( this.number_free + delta );
     },
-    setBonusCounter       : function ( to_set ) {
-        this.number = to_set;
-        //this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "race_bonus", this.number_of_races_bonuses );
+    setFreeNumber       : function ( to_set ) {
+        this.number_free = to_set;
     },
     setNumber             : function ( to_set ) {
         this.number = to_set;

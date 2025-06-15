@@ -38,6 +38,8 @@ CHARACTERISTICS.Characteristics.prototype = {
                 this.getRaceBonus().doActionAfter( "event__set_free_bonus_done", params );
                 break;
             case "events__set_classes_bonuses":
+                params[ "params__characteristics_object" ] = this;
+                this.getClassBonus().doActionAfter( event_name, params );
                 break;
         }
         this.doActionAfterCommon( event_name, params );
@@ -67,6 +69,13 @@ CHARACTERISTICS.Characteristics.prototype = {
             this.race_bonus.setCountersParent( this );
         }
         return this.race_bonus;
+    },
+    getClassBonus: function ( key, value ) {
+        if ( !this.class_bonus ) {
+            this.class_bonus = new CHARACTERISTICS.ClassBonuses();
+            this.class_bonus.setCountersParent( this );
+        }
+        return this.class_bonus;
     }
 };
 

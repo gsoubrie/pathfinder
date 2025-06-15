@@ -1,8 +1,8 @@
 "use strict";
-CHARACTERISTICS.RaceBonuses           = function () {
+CHARACTERISTICS.ClassBonuses           = function () {
     this.initSpecific();
 };
-CHARACTERISTICS.RaceBonuses.prototype = {
+CHARACTERISTICS.ClassBonuses.prototype = {
     initSpecific     : function () {
         this.initCounterCommon();
         this.init();
@@ -14,16 +14,14 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter     : function ( event_name, params ) {
+        console.log(event_name,params);
         switch ( event_name ) {
-            case "events__set_race_bonuses":
-                this.initWithData( params[ "race_object" ] );
+            case "events__set_classes_bonuses":
+                this.initWithData( params[ "class_object" ] );
                 for ( let i = 0, _size_i = this.bonus.choices.length; i < _size_i; i++ ) {
                     if ( this.bonus.choices[i] !== "FREE" ){
                         params["params__characteristics_object"].getContentByUUID(this.bonus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : 2});
                     }
-                }
-                for ( let i = 0, _size_i = this.malus.choices.length; i < _size_i; i++ ) {
-                    params["params__characteristics_object"].getContentByUUID(this.malus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : -2});
                 }
                 if ( this.getFreeBonus() ){
                     params["params__characteristics_object"].doActionAfter("event__set_free_race_bonus", {});
@@ -38,5 +36,5 @@ CHARACTERISTICS.RaceBonuses.prototype = {
             this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "race_bonus", this.getFreeBonus() );
     },
 };
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, CHARACTERISTICS.Bonuses );
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, GS.OBJECT.CounterInterfaceV2 );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.ClassBonuses, CHARACTERISTICS.Bonuses );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.ClassBonuses, GS.OBJECT.CounterInterfaceV2 );

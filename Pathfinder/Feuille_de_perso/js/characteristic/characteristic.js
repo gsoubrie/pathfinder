@@ -8,6 +8,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.final_value    = new OBJECT.CalculatedValue();
         this.modifier_value = new OBJECT.CalculatedValue();
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
+        this.class_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.initial_value.addParamForEvents( "initial_value_params", true );
         this.race_bonus.addParamForEvents( "race_bonus_params", true );
         this.updateData( data );
@@ -122,6 +123,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     computeHtml: function ( to_set ) {
         this.computeFinalValue();
         this.race_bonus.computeHtml();
+        this.class_bonus.computeHtml();
         this.initial_value.computeHtml();
         this.final_value.computeHtml();
         this.modifier_value.computeHtml();
