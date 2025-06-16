@@ -22,6 +22,11 @@ CHARACTERISTICS.Characteristic.prototype = {
                     this.race_bonus.setValue( this.computeBonusDelta( params ) );
                     this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
                 }
+                if ( params[ "params__bonus_is_for__class" ] ) {
+                    this.class_bonus.doActionAfter( event_name, params );
+                    this.class_bonus.setValue( this.computeBonusDelta( params ) );
+                    this.class_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
+                }
                 break;
             case "event__free_bonus_is_zero":
                 switch ( params[ "params__original_event_name" ] ) {
@@ -30,8 +35,14 @@ CHARACTERISTICS.Characteristic.prototype = {
                         break;
                 }
                 break;
-            case "event__set_forbidden_race_bonus":
-                this.race_bonus.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "params__bonuses__choices_array" ], this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+            case "event__set_forbidden_bonus":
+                if ( params[ "params__bonus_is_for__race" ] ) {
+                    this.race_bonus.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "params__bonuses__choices_array" ], this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                }
+                if ( params[ "params__bonus_is_for__class" ] ) {
+                    this.class_bonus.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "params__bonuses__choices_array" ], this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                }
+                
                 break;
             case "event__set_free_race_bonus":
                 if ( this.race_bonus.isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {

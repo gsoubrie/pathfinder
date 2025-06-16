@@ -8,6 +8,7 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.malus = new CHARACTERISTICS.Bonus();
     },
     initWithData: function ( data ) {
+        console.log("GSOU", "[Bonuses - initWithData]", data );
         this.bonus.initWithData( data[ "characteristics_bonus" ] );
         this.malus.initWithData( data[ "characteristics_malus" ] );
     },
@@ -57,6 +58,7 @@ CHARACTERISTICS.Bonus.prototype = {
     doActionAfterCommon: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__ask_set_forced_value":
+                console.log("GSOU", "[Bonus - doActionAfterCommon]", this );
                 params[ "params__is_bonus" ] = this.is_bonus;
                 if ( this.number === this.choices.length ) {
                     for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
@@ -64,12 +66,16 @@ CHARACTERISTICS.Bonus.prototype = {
                             params[ "params__characteristics_object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value", params );
                         }
                     }
+                    console.warn("GSOU", "[Bonus - doActionAfterCommon]", params );
                     if ( this.number_free ) {
                         params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus", {} );
                     }
+                    else {
+                        params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", { "params__bonuses__choices_array": this.choices } );
+                    }
                 }
                 else { //NORMALLY NO FREE THERE
-                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_race_bonus", { "params__bonuses__choices_array": this.choices } );
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", { "params__bonuses__choices_array": this.choices } );
                     this.number_free = this.number;
                 }
                 break;
