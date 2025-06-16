@@ -15,19 +15,10 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter     : function ( event_name, params ) {
         switch ( event_name ) {
-            case "events__set_race_bonuses":
+            case "event__set_race_bonuses":
+                params["params__bonus_is_for__race"] = true;
                 this.initWithData( params[ "race_object" ] );
-                for ( let i = 0, _size_i = this.bonus.choices.length; i < _size_i; i++ ) {
-                    if ( this.bonus.choices[i] !== "FREE" ){
-                        params["params__characteristics_object"].getContentByUUID(this.bonus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : 2});
-                    }
-                }
-                for ( let i = 0, _size_i = this.malus.choices.length; i < _size_i; i++ ) {
-                    params["params__characteristics_object"].getContentByUUID(this.malus.choices[i]).doActionAfter("event__set_race_bonus_forced", {"event__race_bonus_value" : -2});
-                }
-                if ( this.getFreeBonus() ){
-                    params["params__characteristics_object"].doActionAfter("event__set_free_race_bonus", {});
-                }
+                this.doActionAfter("event__ask_set_forced_value", params);
                 break;
         }
         this.doActionAfterCommon(event_name, params);

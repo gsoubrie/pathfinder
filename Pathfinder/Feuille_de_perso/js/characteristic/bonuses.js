@@ -4,7 +4,7 @@ CHARACTERISTICS.Bonuses           = function () {
 };
 CHARACTERISTICS.Bonuses.prototype = {
     init        : function () {
-        this.bonus = new CHARACTERISTICS.Bonus();
+        this.bonus = new CHARACTERISTICS.Bonus( true );
         this.malus = new CHARACTERISTICS.Bonus();
     },
     initWithData: function ( data ) {
@@ -17,6 +17,10 @@ CHARACTERISTICS.Bonuses.prototype = {
     },
     doActionAfterCommon: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__ask_set_forced_value":
+                this.bonus.doActionAfter( event_name, params );
+                this.malus.doActionAfter( event_name, params );
+                break;
             case "event__set_free_bonus_done":
             case "event__unset_free_bonus_done":
                 this.bonus.doActionAfter( event_name, params );
@@ -29,17 +33,18 @@ CHARACTERISTICS.Bonuses.prototype = {
     }
 };
 
-CHARACTERISTICS.Bonus           = function () {
-    this.init();
+CHARACTERISTICS.Bonus           = function ( is_bonus ) {
+    this.init( is_bonus );
 };
 CHARACTERISTICS.Bonus.prototype = {
-    init        : function () {
+    init        : function ( is_bonus ) {
+        this.is_bonus    = !!is_bonus;
         this.number      = 0;
         this.number_free = 0;
         this.choices     = [];
     },
     initWithData: function ( data ) {
-        if (!data){
+        if ( !data ) {
             return;
         }
         this.setNumber( data[ "number" ] );
@@ -50,30 +55,43 @@ CHARACTERISTICS.Bonus.prototype = {
         this.doActionAfterCommon( event_name, params );
     },
     doActionAfterCommon: function ( event_name, params ) {
-        console.log(event_name)
         switch ( event_name ) {
+            case "event__ask_set_forced_value":
+                params[ "params__is_bonus" ] = this.is_bonus;
+                if ( this.number === this.choices.length ) {
+                    for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
+                        if ( this.choices[ i ] !== "FREE" ) {
+                            params[ "params__characteristics_object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value", params );
+                        }
+                    }
+                    if ( this.number_free ) {
+                        params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus", {} );
+                    }
+                }
+                else { //NORMALLY NO FREE THERE
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_race_bonus", { "params__bonuses__choices_array": this.choices } );
+                    this.number_free = this.number;
+                }
+                break;
             case "event__set_free_bonus_done":
-                this.setFreeNumber(this.number_free - 1);  
+                this.setFreeNumber( this.number_free - 1 );
                 if ( !this.number_free ) {
                     params[ "params__controller_object" ].doActionAfter( "event__free_bonus_is_zero", params );
                 }
                 break;
             case "event__unset_free_bonus_done":
-                this.setFreeNumber(this.number_free + 1);  
+                this.setFreeNumber( this.number_free + 1 );
                 break;
         }
     },
     //********************************************  GETTER SETTER  *****************************************************//
-    updateFreeBonusCounter: function ( delta ) {
-        this.setBonusCounter( this.number_free + delta );
-    },
-    setFreeNumber       : function ( to_set ) {
+    setFreeNumber: function ( to_set ) {
         this.number_free = to_set;
     },
-    setNumber             : function ( to_set ) {
+    setNumber    : function ( to_set ) {
         this.number = to_set;
     },
-    setChoices            : function ( to_set ) {
+    setChoices   : function ( to_set ) {
         this.choices     = to_set;
         this.number_free = this.choices.filter( item => item === "FREE" ).length;
     }

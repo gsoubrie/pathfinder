@@ -44,6 +44,7 @@
     flex : 1;
 }
 /*********************	BONUS RACE VALUE   ******************************************/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
     display : none;
 }

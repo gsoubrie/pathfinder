@@ -22,7 +22,7 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__free_bonus_is_zero":
                 switch ( params[ "params__original_event_name" ] ) {
-                    case "events__set_free_race_bonus_done":
+                    case "event__set_free_race_bonus_done":
                         this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
                         break;
                 }
@@ -57,11 +57,11 @@ CHARACTER.Current.prototype = {
         switch ( key ) {
             case RACES.key_element:
                 this.getRace().updateData( value );
-                this.getCharacteristics().doActionAfter( "events__set_race_bonuses", { "race_object": this.getRace() } );
+                this.getCharacteristics().doActionAfter( "event__set_race_bonuses", { "race_object": this.getRace() } );
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
-                this.getCharacteristics().doActionAfter( "events__set_classes_bonuses", { "class_object": this.getClass() } );
+                this.getCharacteristics().doActionAfter( "event__set_classes_bonuses", { "class_object": this.getClass() } );
                 break;
             case CHARACTERISTICS.key:
                 this.getCharacteristics().updateData( value );

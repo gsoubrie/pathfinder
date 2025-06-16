@@ -8,7 +8,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.final_value    = new OBJECT.CalculatedValue();
         this.modifier_value = new OBJECT.CalculatedValue();
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
-        this.class_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
+        this.class_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.initial_value.addParamForEvents( "initial_value_params", true );
         this.race_bonus.addParamForEvents( "race_bonus_params", true );
         this.updateData( data );
@@ -16,19 +16,25 @@ CHARACTERISTICS.Characteristic.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__set_race_bonus_forced":
-                this.race_bonus.setValue( params[ "event__race_bonus_value" ] );
-                this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
+            case "event__ask_set_forced_value":
+                if ( params[ "params__bonus_is_for__race" ] ) {
+                    this.race_bonus.doActionAfter( event_name, params );
+                    this.race_bonus.setValue( this.computeBonusDelta( params ) );
+                    this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
+                }
                 break;
             case "event__free_bonus_is_zero":
                 switch ( params[ "params__original_event_name" ] ) {
-                    case "events__set_free_race_bonus_done":
+                    case "event__set_free_race_bonus_done":
                         this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                         break;
                 }
                 break;
+            case "event__set_forbidden_race_bonus":
+                this.race_bonus.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "params__bonuses__choices_array" ], this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                break;
             case "event__set_free_race_bonus":
-                if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
+                if ( this.race_bonus.isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
                     return;
                 }
                 this.race_bonus.setValue( 0 );
@@ -41,14 +47,15 @@ CHARACTERISTICS.Characteristic.prototype = {
                 if ( params[ "race_bonus_params" ] ) {
                     switch ( params[ "button_name" ] ) {
                         case "more_button":
-                            this.race_bonus.setValue( 2 );
+                            params[ "params__is_bonus" ] = true;
+                            this.race_bonus.setValue( this.computeBonusDelta( params ) );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
-                            params[ "params__characteristics_object" ].doActionAfter( "events__set_free_race_bonus_done", {"params__controller_object": CONTROLLER.Main, "params__original_event_name": "events__set_free_race_bonus_done"} );
+                            params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus_done", { "params__controller_object": CONTROLLER.Main, "params__original_event_name": "event__set_free_race_bonus_done" } );
                             break;
                         case "less_button":
                             this.race_bonus.setValue( 0 );
                             this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                            params[ "params__characteristics_object" ].doActionAfter( "events__unset_free_race_bonus_done", {"params__original_event_name": "events__unset_free_race_bonus_done"} );
+                            params[ "params__characteristics_object" ].doActionAfter( "event__unset_free_race_bonus_done", { "params__original_event_name": "event__unset_free_race_bonus_done" } );
                             break;
                     }
                     this.computeFinalValue();
@@ -82,6 +89,14 @@ CHARACTERISTICS.Characteristic.prototype = {
     computeModifier  : function () {
         let computed_value = Math.floor( (this.final_value.value - 10) / 2 );
         this.modifier_value.setValue( computed_value );
+    },
+    computeBonusDelta: function ( params ) {
+        this.computeFinalValue();
+        let to_return = this.final_value.value > 18 ? 1 : 2;
+        if ( !params[ "params__is_bonus" ] ) {
+            to_return = to_return * (-1);
+        }
+        return to_return;
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName          : function ( to_set ) {
@@ -130,12 +145,12 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return       = {};
-        to_return[ "name" ] = this.name;
+        let to_return                = {};
+        to_return[ "name" ]          = this.name;
         to_return[ "initial_value" ] = this.initial_value.value;
-        if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ){
-            to_return[ "race_bonus" ] = GS.OBJECT.CONST.PHASE.SETTINGS_EDITED;    
-        }        
+        if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
+            to_return[ "race_bonus" ] = GS.OBJECT.CONST.PHASE.SETTINGS_EDITED;
+        }
         return to_return;
     }
 };

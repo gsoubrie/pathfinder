@@ -26,18 +26,19 @@ CHARACTERISTICS.Characteristics.prototype = {
                     return;
                 }
                 break;
-            case "events__set_race_bonuses":
+            case "event__set_race_bonuses":
                 params[ "params__characteristics_object" ] = this;
                 this.getRaceBonus().doActionAfter( event_name, params );
                 return;
-            case "events__unset_free_race_bonus_done":
+            case "event__unset_free_race_bonus_done":
+                params[ "params__characteristics_object" ] = this;
                 this.getRaceBonus().doActionAfter( "event__unset_free_bonus_done", params );
-                this.doActionAfter("event__set_free_race_bonus", {});
+                this.doActionAfter( "event__set_free_race_bonus", {} );
                 break;
-            case "events__set_free_race_bonus_done":
+            case "event__set_free_race_bonus_done":
                 this.getRaceBonus().doActionAfter( "event__set_free_bonus_done", params );
                 break;
-            case "events__set_classes_bonuses":
+            case "event__set_classes_bonuses":
                 params[ "params__characteristics_object" ] = this;
                 this.getClassBonus().doActionAfter( event_name, params );
                 break;
@@ -55,7 +56,7 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "6":
                 this.getContentByUUID( value.name ).updateData( value );
                 if ( value.race_bonus ) {
-                    this.doActionAfter( "events__set_free_race_bonus_done", { "params__controller_object": CONTROLLER.Main, "params__original_event_name": "events__set_free_race_bonus_done" } );
+                    this.doActionAfter( "event__set_free_race_bonus_done", { "params__controller_object": CONTROLLER.Main, "params__original_event_name": "event__set_free_race_bonus_done" } );
                 }
                 break;
             default:
@@ -63,7 +64,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getRaceBonus: function ( key, value ) {
+    getRaceBonus : function ( key, value ) {
         if ( !this.race_bonus ) {
             this.race_bonus = new CHARACTERISTICS.RaceBonuses();
             this.race_bonus.setCountersParent( this );
