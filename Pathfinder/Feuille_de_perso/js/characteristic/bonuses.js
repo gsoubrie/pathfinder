@@ -8,7 +8,7 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.malus = new CHARACTERISTICS.Bonus();
     },
     initWithData: function ( data ) {
-        console.log("GSOU", "[Bonuses - initWithData]", data );
+        console.log( "GSOU", "[Bonuses - initWithData]", data );
         this.bonus.initWithData( data[ "characteristics_bonus" ] );
         this.malus.initWithData( data[ "characteristics_malus" ] );
     },
@@ -22,6 +22,7 @@ CHARACTERISTICS.Bonuses.prototype = {
                 this.bonus.doActionAfter( event_name, params );
                 this.malus.doActionAfter( event_name, params );
                 break;
+            case "event__ask_compute_settable_value":
             case "event__set_free_bonus_done":
             case "event__unset_free_bonus_done":
                 this.bonus.doActionAfter( event_name, params );
@@ -57,32 +58,34 @@ CHARACTERISTICS.Bonus.prototype = {
     },
     doActionAfterCommon: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__ask_compute_settable_value":
+                if ( this.number_free ) {
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus", params );
+                }
+                else {
+                    params[ "params__choices_array" ] = this.choices;
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", params );
+                }
+                break;
             case "event__ask_set_forced_value":
-                console.log("GSOU", "[Bonus - doActionAfterCommon]", this );
                 params[ "params__is_bonus" ] = this.is_bonus;
                 if ( this.number === this.choices.length ) {
                     for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
                         if ( this.choices[ i ] !== "FREE" ) {
-                            params[ "params__characteristics_object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value", params );
+                            params[ "params__characteristics_object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value_1", params );
                         }
-                    }
-                    console.warn("GSOU", "[Bonus - doActionAfterCommon]", params );
-                    if ( this.number_free ) {
-                        params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus", {} );
-                    }
-                    else {
-                        params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", { "params__bonuses__choices_array": this.choices } );
                     }
                 }
                 else { //NORMALLY NO FREE THERE
-                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", { "params__bonuses__choices_array": this.choices } );
+                    params[ "params__choices_array" ] = this.choices;
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", params );
                     this.number_free = this.number;
                 }
                 break;
             case "event__set_free_bonus_done":
                 this.setFreeNumber( this.number_free - 1 );
                 if ( !this.number_free ) {
-                    params[ "params__controller_object" ].doActionAfter( "event__free_bonus_is_zero", params );
+                    CONTROLLER.Character.doActionAfter( "event__free_bonus_is_zero", params );
                 }
                 break;
             case "event__unset_free_bonus_done":

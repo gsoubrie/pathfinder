@@ -31,8 +31,8 @@ LEGACIES.WindowGroup.prototype = {
         this.initWithData();
     },
     initWithData: function ( data_windows ) {
-        for ( let i = 0, _size_i = CONTROLLER.Main.current_character.getRace().available_legacies.getSize(); i < _size_i; i++ ) {
-            let current = CONTROLLER.Main.current_character.getRace().available_legacies.getContent(i);
+        for ( let i = 0, _size_i = CONTROLLER.Character.current_character.getRace().available_legacies.getSize(); i < _size_i; i++ ) {
+            let current = CONTROLLER.Character.current_character.getRace().available_legacies.getContent(i);
             let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }

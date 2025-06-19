@@ -16,9 +16,10 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__set_race_bonuses":
-                params[ "params__bonus_is_for__race" ] = true;
+                params[ "params__is_for__race" ] = true;
                 this.initWithData( params[ "event__race_object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
+                this.doActionAfter( "event__ask_compute_settable_value", params );
                 break;
         }
         this.doActionAfterCommon( event_name, params );

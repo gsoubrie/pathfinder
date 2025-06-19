@@ -17,7 +17,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter: function ( event_name, params ) {
+    doActionAfter            : function ( event_name, params ) {
         switch ( event_name ) {
             case "click_on_button_V3":
                 if ( params[ "characteristic_param" ] ) {
@@ -27,25 +27,32 @@ CHARACTERISTICS.Characteristics.prototype = {
                 }
                 break;
             case "event__set_race_bonuses":
+            case "event__set_classes_bonuses":
                 params[ "params__characteristics_object" ] = this;
-                this.getRaceBonus().doActionAfter( event_name, params );
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
                 return;
             case "event__unset_free_race_bonus_done":
                 params[ "params__characteristics_object" ] = this;
-                this.getRaceBonus().doActionAfter( "event__unset_free_bonus_done", params );
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__unset_free_bonus_done", params );
                 this.doActionAfter( "event__set_free_race_bonus", {} );
                 break;
-            case "event__set_free_race_bonus_done":
-                this.getRaceBonus().doActionAfter( "event__set_free_bonus_done", params );
-                break;
-            case "event__set_classes_bonuses":
-                params[ "params__characteristics_object" ] = this;
-                this.getClassBonus().doActionAfter( event_name, params );
+            case "event__set_free_bonus_done":
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__set_free_bonus_done", params );
                 break;
         }
         this.doActionAfterCommon( event_name, params );
     },
-    setData      : function ( key, value ) {
+    getObjectForDoActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__set_race_bonuses":
+            case "event__set_free_bonus_done":
+            case "event__unset_free_race_bonus_done":
+                return this.getRaceBonus();
+            case "event__set_classes_bonuses":
+                return this.getClassBonus();
+        }
+    },
+    setData                  : function ( key, value ) {
         switch ( key ) {
             case "0":
             case "1":
@@ -56,7 +63,7 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "6":
                 this.getContentByUUID( value.name ).updateData( value );
                 if ( value.race_bonus ) {
-                    this.doActionAfter( "event__set_free_race_bonus_done", { "params__controller_object": CONTROLLER.Main, "params__original_event_name": "event__set_free_race_bonus_done" } );
+                    this.doActionAfter( "event__set_free_bonus_done", { "params__is_for__race": true } );
                 }
                 break;
             default:

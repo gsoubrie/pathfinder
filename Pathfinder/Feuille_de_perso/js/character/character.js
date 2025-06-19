@@ -22,7 +22,7 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__free_bonus_is_zero":
                 switch ( params[ "params__original_event_name" ] ) {
-                    case "event__set_free_race_bonus_done":
+                    case "event__set_free_bonus_done":
                         this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
                         break;
                 }

@@ -1,5 +1,5 @@
 "use strict";
-CONTROLLER.Main = (function ( self ) {
+CONTROLLER.Character = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function () {
         let params             = new URLSearchParams( location.search );
@@ -66,12 +66,4 @@ CONTROLLER.Main = (function ( self ) {
     };
     return self;
 })
-( CONTROLLER.Main || {} );
-
-CONTROLLER.DistributorControllerManager.getController = function () {
-    return CONTROLLER.Main;
-};
-
-document.addEventListener( "DOMContentLoaded", function ( e ) {
-    CONTROLLER.Main.init();
-} );
+( CONTROLLER.Character || {} );

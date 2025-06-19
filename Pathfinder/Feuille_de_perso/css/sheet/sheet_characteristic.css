@@ -21,21 +21,6 @@
     flex    : 1;
     padding : 5px 8px;
 }
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-modifier-value,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-race,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-class,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv5,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv10,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv15,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-niv20 {*/
-/*    box-shadow : 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 1px #00000055;*/
-/*}*/
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-bonus-race > div {
-
-}
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {
     display        : flex;
     flex-direction : row;
@@ -44,19 +29,19 @@
     flex : 1;
 }
 /*********************	BONUS RACE VALUE   ******************************************/
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
     display : none;
 }
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="more_button"] {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="more_button"] {
     opacity        : 0.3;
     pointer-events : none;
 }
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="less_button"] {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="less_button"] {
     opacity        : 0.3;
     pointer-events : none;
 }
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus-race [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {
     opacity        : 0.3;
     pointer-events : none;
 }

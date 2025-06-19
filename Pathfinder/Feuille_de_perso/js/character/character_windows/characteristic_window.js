@@ -22,13 +22,19 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Final" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Modifi" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Initial" ), headers );
+        
         let header_bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Race" ), headers );
-        let counter_warning = new GS.OBJECT.CounterV2(GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS);
+        let counter_warning   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         counter_warning.computeHtml();
-        character_object.characteristics.race_bonus.getCounter(GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS).setParent( counter_warning );
+        character_object.characteristics.race_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning );
         SERVICE.DOM.addElementTo( counter_warning.dom_element, header_bonus_race );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Classe" ), headers );
+        let header_bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Classe" ), headers );
+        let counter_warning_2   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning_2.computeHtml();
+        character_object.characteristics.class_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_2 );
+        SERVICE.DOM.addElementTo( counter_warning_2.dom_element, header_bonus_class );
+        
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
@@ -51,10 +57,10 @@ CHARACTER.CharacteristicWindow.prototype = {
         let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.initial_value.dom_element, initial_dom );
         
-        var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-race" } ), to_return );
+        var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-race" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.race_bonus.dom_element, bonus_race );
         
-        var bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-class" } ), to_return );
+        var bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-class" } ), to_return );
         SERVICE.DOM.addElementTo( object_characteristic.class_bonus.dom_element, bonus_class );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
