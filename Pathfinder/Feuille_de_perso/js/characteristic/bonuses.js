@@ -8,7 +8,6 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.malus = new CHARACTERISTICS.Bonus();
     },
     initWithData: function ( data ) {
-        console.log( "GSOU", "[Bonuses - initWithData]", data );
         this.bonus.initWithData( data[ "characteristics_bonus" ] );
         this.malus.initWithData( data[ "characteristics_malus" ] );
     },
@@ -60,7 +59,7 @@ CHARACTERISTICS.Bonus.prototype = {
         switch ( event_name ) {
             case "event__ask_compute_settable_value":
                 if ( this.number_free ) {
-                    params[ "params__characteristics_object" ].doActionAfter( "event__set_free_race_bonus", params );
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_free_bonus", params );
                 }
                 else {
                     params[ "params__choices_array" ] = this.choices;

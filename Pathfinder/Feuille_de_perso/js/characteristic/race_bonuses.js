@@ -15,7 +15,7 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__set_race_bonuses":
+            case "event__set_object_bonuses":
                 params[ "params__is_for__race" ] = true;
                 this.initWithData( params[ "event__race_object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );

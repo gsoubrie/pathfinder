@@ -26,15 +26,14 @@ CHARACTERISTICS.Characteristics.prototype = {
                     return;
                 }
                 break;
-            case "event__set_race_bonuses":
-            case "event__set_classes_bonuses":
+            case "event__set_object_bonuses":
                 params[ "params__characteristics_object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
                 return;
             case "event__unset_free_race_bonus_done":
                 params[ "params__characteristics_object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__unset_free_bonus_done", params );
-                this.doActionAfter( "event__set_free_race_bonus", {} );
+                this.doActionAfter( "event__set_free_bonus", params );
                 break;
             case "event__set_free_bonus_done":
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__set_free_bonus_done", params );
@@ -43,13 +42,11 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.doActionAfterCommon( event_name, params );
     },
     getObjectForDoActionAfter: function ( event_name, params ) {
-        switch ( event_name ) {
-            case "event__set_race_bonuses":
-            case "event__set_free_bonus_done":
-            case "event__unset_free_race_bonus_done":
-                return this.getRaceBonus();
-            case "event__set_classes_bonuses":
-                return this.getClassBonus();
+        if ( params[ "params__is_for__race" ] ) {
+            return this.getRaceBonus();
+        }
+        if ( params[ "params__is_for__class" ] ) {
+            return this.getClassBonus();
         }
     },
     setData                  : function ( key, value ) {

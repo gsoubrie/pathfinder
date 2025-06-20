@@ -2890,9 +2890,9 @@ var CLASSES = {
             ],
             "general_desc"         : "Les divinités exercent leur volonté sur le monde de manières infinies et vous êtes l'un de leurs plus fidèles serviteurs mortels. Béni par la magie divine, vous vivez les idéaux de votre foi, vous vous parez des symboles de votre église et vous vous entraînez assidûment à manier l'arme de prédilection de votre divinité. Vos sorts peuvent protéger et guérir vos alliés ou punir les ennemis de votre foi, selon la volonté de votre divinité. Vous menez une vie de dévotion, diffusant les enseignements de votre foi par la parole comme par l'action.",
             "characteristics_bonus": {
-                "number": 3,
+                "number": 1,
                 "choice": [
-                    "CHA","FREE","FOR"
+                    "SAG"
                 ]
             },
             "life_point_by_level"  : 8,

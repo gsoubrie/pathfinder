@@ -15,7 +15,7 @@ CHARACTERISTICS.ClassBonuses.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__set_classes_bonuses":
+            case "event__set_object_bonuses":
                 params[ "params__is_for__class" ] = true;
                 this.initWithData( params[ "event__class_object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
