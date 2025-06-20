@@ -4,7 +4,7 @@ CHARACTERISTICS.Characteristic           = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.initial_value  = new OBJECT.ConfigurableValue( 10, 10 );
+        this.initial_value  = new OBJECT.ConfigurableValue( CHARACTERISTICS.INITIAL_VALUE, CHARACTERISTICS.INITIAL_VALUE );
         this.final_value    = new OBJECT.CalculatedValue();
         this.modifier_value = new OBJECT.CalculatedValue();
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
@@ -16,28 +16,31 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter            : function ( event_name, params ) {
+        if ( this.getUUID()=== "FOR"){
+            console.log("GSOU", "[Characteristic - doActionAfter]", event_name, params );
+        }
         switch ( event_name ) {
             case "event__ask_set_forced_value_1":
-                this.getObjectForDoActionAfter(event_name, params).doActionAfter( event_name, params );
-                this.getObjectForDoActionAfter(event_name, params).setValue( this.computeBonusDelta( params ) );
-                this.getObjectForDoActionAfter(event_name, params).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
+                this.getObjectForDoActionAfter( params ).doActionAfter( event_name, params );
+                this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
+                this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
                 break;
             case "event__free_bonus_is_zero":
-                this.getObjectForDoActionAfter( event_name, params ).setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                this.getObjectForDoActionAfter( params ).setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                 break;
             case "event__set_forbidden_bonus":
-                let object = this.getObjectForDoActionAfter( event_name, params );
+                let object = this.getObjectForDoActionAfter( params );
                 if ( !object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
                     object.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "params__choices_array" ], this.getUUID() ),
                         GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
                 }
                 break;
             case "event__set_free_bonus":
-                if ( this.getObjectForDoActionAfter(event_name, params).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
+                if ( this.getObjectForDoActionAfter( params ).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
                     return;
                 }
-                this.getObjectForDoActionAfter(event_name, params).setValue( 0 );
-                this.getObjectForDoActionAfter(event_name, params).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                this.getObjectForDoActionAfter( params ).setValue( 0 );
+                this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                 break;
             case "unclean_all_free_race_settings":
                 this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
@@ -45,41 +48,48 @@ CHARACTERISTICS.Characteristic.prototype = {
             case "click_on_button_V3":
                 switch ( params[ "button_name" ] ) {
                     case "more_button":
-                        params[ "params__is_bonus" ] = true;
-                        this.getObjectForDoActionAfter( event_name, params ).setValue( this.computeBonusDelta( params ) );
-                        this.getObjectForDoActionAfter( event_name, params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
-                        params[ "params__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+                        this.moreBonus( params );
                         break;
                     case "less_button":
-                        this.getObjectForDoActionAfter( event_name, params ).setValue( 0 );
-                        this.getObjectForDoActionAfter( event_name, params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                        params[ "params__characteristics_object" ].doActionAfter( "event__unset_free_race_bonus_done", params );
+                        this.lessBonus( params );
                         break;
                 }
-                this.computeFinalValue();
                 return;
-            //if ( params[ "params__is_for__initial_value" ] ) {
-            //    switch ( params[ "button_name" ] ) {
-            //        case "more_button":
-            //            this.initial_value.changeValue( 1 );
-            //            break;
-            //        case "less_button":
-            //            this.initial_value.changeValue( -1 );
-            //            break;
-            //    }
-            //    this.computeFinalValue();
-            //    return;
-            //}
         }
         this.doActionAfterCommon( event_name, params );
     },
-    getObjectForDoActionAfter: function ( event_name, params ) {
+    getObjectForDoActionAfter: function ( params ) {
         if ( params[ "params__is_for__race" ] ) {
             return this.race_bonus;
         }
         if ( params[ "params__is_for__class" ] ) {
             return this.class_bonus;
         }
+        if ( params[ "params__is_for__initial_value" ] ) {
+            return this.initial_value;
+        }
+    },
+    moreBonus                : function ( params ) {
+        if ( params[ "params__is_for__initial_value" ] ) {
+            this.initial_value.changeValue( 1 );
+        }
+        else {
+            this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
+            this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
+            params[ "params__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+        }
+        this.computeFinalValue();
+    },
+    lessBonus                : function ( params ) {
+        if ( params[ "params__is_for__initial_value" ] ) {
+            this.initial_value.changeValue( -1 );
+        }
+        else {
+            this.getObjectForDoActionAfter( params ).setValue( 0 );
+            this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+            params[ "params__characteristics_object" ].doActionAfter( "event__unset_object_bonuses", params );
+        }
+        this.computeFinalValue();
     },
     //********************************************  COMPUTE  **************************************************//
     computeFinalValue: function () {
@@ -100,7 +110,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     computeBonusDelta: function ( params ) {
         this.computeFinalValue();
         let to_return = this.final_value.value > 18 ? 1 : 2;
-        if ( !params[ "params__is_bonus" ] ) {
+        if ( params[ "params__is_malus" ] ) {
             to_return = to_return * (-1);
         }
         return to_return;
@@ -124,6 +134,9 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {
+        if ( this.getUUID()=== "FOR"){
+            console.warn("GSOU", "[Characteristic - doActionAfter]", key, value  );
+        }
         switch ( key ) {
             case "name":
                 this.setName( value );
@@ -132,11 +145,13 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.setLabel( value );
                 break;
             case "initial_value":
-                this.initial_value.setValue( value );
+                this.initial_value.updateData( value );
                 break;
             case "race_bonus":
-                this.race_bonus.setValue( 2 );
-                this.race_bonus.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
+                this.race_bonus.updateData( value );
+                break;
+            case "class_bonus":
+                this.class_bonus.updateData( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -155,10 +170,9 @@ CHARACTERISTICS.Characteristic.prototype = {
     getDataToSave: function () {
         let to_return                = {};
         to_return[ "name" ]          = this.name;
-        to_return[ "initial_value" ] = this.initial_value.value;
-        if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
-            to_return[ "race_bonus" ] = GS.OBJECT.CONST.PHASE.SETTINGS_EDITED;
-        }
+        to_return[ "initial_value" ] = this.initial_value.getDataToSave();
+        to_return[ "race_bonus" ]    = this.race_bonus.getDataToSave();
+        to_return[ "class_bonus" ]   = this.class_bonus.getDataToSave();
         return to_return;
     }
 };

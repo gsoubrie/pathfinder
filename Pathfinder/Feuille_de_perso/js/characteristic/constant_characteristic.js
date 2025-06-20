@@ -4,6 +4,7 @@ var CHARACTERISTICS = {
     label        : "Caractéritiques",
     key_element  : "characteristic",
     label_element: "Caractéritique",
+    INITIAL_VALUE: 10,
     ENUM         : [
         {
             "name" : "FOR",

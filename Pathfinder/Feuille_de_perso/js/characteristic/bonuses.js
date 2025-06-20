@@ -67,7 +67,7 @@ CHARACTERISTICS.Bonus.prototype = {
                 }
                 break;
             case "event__ask_set_forced_value":
-                params[ "params__is_bonus" ] = this.is_bonus;
+                params[ "params__is_malus" ] = !this.is_bonus;
                 if ( this.number === this.choices.length ) {
                     for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
                         if ( this.choices[ i ] !== "FREE" ) {

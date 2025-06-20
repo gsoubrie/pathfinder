@@ -30,7 +30,7 @@ CHARACTERISTICS.Characteristics.prototype = {
                 params[ "params__characteristics_object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
                 return;
-            case "event__unset_free_race_bonus_done":
+            case "event__unset_object_bonuses":
                 params[ "params__characteristics_object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__unset_free_bonus_done", params );
                 this.doActionAfter( "event__set_free_bonus", params );
@@ -50,6 +50,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     setData                  : function ( key, value ) {
+        console.error("GSOU", "[Characteristics - setData]", key, value );
         switch ( key ) {
             case "0":
             case "1":
@@ -59,9 +60,6 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "5":
             case "6":
                 this.getContentByUUID( value.name ).updateData( value );
-                if ( value.race_bonus ) {
-                    this.doActionAfter( "event__set_free_bonus_done", { "params__is_for__race": true } );
-                }
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

@@ -10,16 +10,45 @@ OBJECT.ConfigurableValue.prototype = {
         this.initPhase();
     },
     //********************************************  GETTER SETTER  **************************************************//
-    isSet      : function () {
+    isSet        : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
     },
-    setValue   : function ( to_set ) {
+    setValue     : function ( to_set ) {
         this.value = to_set;
         this.updateHtml();
     },
-    changeValue: function ( delta ) {
+    getValue     : function () {
+        return this.value;
+    },
+    changeValue  : function ( delta ) {
         this.value += delta;
         this.updateHtml();
+    },
+    getDataToSave: function () {
+        let to_return            = {};
+        to_return.phase          = this.getCurrentPhase();
+        to_return.value          = this.value;
+        to_return.initial_value  = this.initial_value;
+        to_return.editable_value = this.editable_value;
+        return to_return;
+    },
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case "phase":
+                this.setPhase( value );
+                break;
+            case "value":
+                this.value = value;
+                break;
+            case "initial_value":
+                this.initial_value =  value;
+                break;
+            case "editable_value":
+                this.editable_value =  value;
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key, value );
+        }
     },
     //********************************************  HTML  **************************************************//
     computeHtml: function () {
