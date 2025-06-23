@@ -28,8 +28,7 @@ CONTROLLER.Character = (function ( self ) {
     self.validPopupEdition  = function () {
         switch ( this.edition_popup.current_property.key_element ) {
             case RACES.key_element:
-                self.current_character.getRace().setName( this.edition_popup.windows.getActiveWindow().getName() );
-                self.current_character.getRace().getLegacy().setName( "" );
+                self.current_character.doActionAfter("event__form__race_changed", {"param__race_name" : this.edition_popup.windows.getActiveWindow().getName() });
                 break;
             case LEGACIES.key_element:
                 self.current_character.getRace().getLegacy().setName( this.edition_popup.windows.getActiveWindow().getName() );

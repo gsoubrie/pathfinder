@@ -9,6 +9,15 @@ RACES.Race.prototype = {
         this.available_legacies           = new LEGACIES.Legacies();
         this.label                        = SERVICE.DOM.createElement( "div", {} );
     },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__form__race_changed":
+                this.setName( params["param__race_name"] );
+                this.getLegacy().setName( "" );
+                break;
+        }
+    },
     //********************************************  GETTER SETTER  **************************************************//
     setName    : function ( to_set ) {
         this.name            = to_set;

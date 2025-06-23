@@ -9,17 +9,27 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.modifier_value = new OBJECT.CalculatedValue();
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.class_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
-        this.initial_value.addParamForEvents( "params__is_for__initial_value", true );
-        this.race_bonus.addParamForEvents( "params__is_for__race", true );
-        this.class_bonus.addParamForEvents( "params__is_for__class", true );
+        this.initial_value.addParamForEvents( "params__is_for", "initial_value" );
+        this.race_bonus.addParamForEvents( "params__is_for", "race" );
+        this.class_bonus.addParamForEvents( "params__is_for", "class" );
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter            : function ( event_name, params ) {
-        if ( this.getUUID()=== "FOR"){
-            console.log("GSOU", "[Characteristic - doActionAfter]", event_name, params );
-        }
         switch ( event_name ) {
+            case "event__ask_set_data":
+                this.initial_value.updateData( params[ "params__set_data_value" ][ "initial_value" ] );
+                this.race_bonus.updateData( params[ "params__set_data_value" ][ "race_bonus" ] );
+                if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
+                    params[ "params__is_for" ] = "race";
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+                }
+                this.class_bonus.updateData( params[ "params__set_data_value" ][ "class_bonus" ] );
+                if ( this.class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
+                    params[ "params__is_for" ] = "class";
+                    params[ "params__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+                }
+                break;
             case "event__ask_set_forced_value_1":
                 this.getObjectForDoActionAfter( params ).doActionAfter( event_name, params );
                 this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
@@ -59,18 +69,17 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.doActionAfterCommon( event_name, params );
     },
     getObjectForDoActionAfter: function ( params ) {
-        if ( params[ "params__is_for__race" ] ) {
-            return this.race_bonus;
-        }
-        if ( params[ "params__is_for__class" ] ) {
-            return this.class_bonus;
-        }
-        if ( params[ "params__is_for__initial_value" ] ) {
-            return this.initial_value;
+        switch ( params[ "params__is_for" ] ) {
+            case "race":
+                return this.race_bonus;
+            case "class":
+                return this.class_bonus;
+            case "initial_value":
+                return this.initial_value;
         }
     },
     moreBonus                : function ( params ) {
-        if ( params[ "params__is_for__initial_value" ] ) {
+        if ( params[ "params__is_for" ] === "initial_value" ) {
             this.initial_value.changeValue( 1 );
         }
         else {
@@ -81,7 +90,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.computeFinalValue();
     },
     lessBonus                : function ( params ) {
-        if ( params[ "params__is_for__initial_value" ] ) {
+        if ( params[ "params__is_for" ] === "initial_value" ) {
             this.initial_value.changeValue( -1 );
         }
         else {
@@ -134,24 +143,12 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {
-        if ( this.getUUID()=== "FOR"){
-            console.warn("GSOU", "[Characteristic - doActionAfter]", key, value  );
-        }
         switch ( key ) {
             case "name":
                 this.setName( value );
                 break;
             case "label":
                 this.setLabel( value );
-                break;
-            case "initial_value":
-                this.initial_value.updateData( value );
-                break;
-            case "race_bonus":
-                this.race_bonus.updateData( value );
-                break;
-            case "class_bonus":
-                this.class_bonus.updateData( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

@@ -39,8 +39,8 @@ POPUP.PropertyEdition.prototype = {
         this.container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup" } ), this.getDomElement() );
         let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
         let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Main.validPopupEdition()" }, "Valider" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Main.cancelPopupEdition()" }, "Quitter" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.validPopupEdition()" }, "Valider" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.cancelPopupEdition()" }, "Quitter" ), actions );
         this.windows.computeHtml();
         SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
         

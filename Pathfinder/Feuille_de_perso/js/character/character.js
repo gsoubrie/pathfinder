@@ -23,6 +23,9 @@ CHARACTER.Current.prototype = {
             case "event__free_bonus_is_zero":
                 this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
                 break;
+            case "event__form__race_changed":
+                this.getRace().doActionAfter(event_name, params);
+                break;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -50,14 +53,15 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData           : function ( key, value ) {
+        console.log("GSOU", "[Current - setData]", key, value);
         switch ( key ) {
             case RACES.key_element:
                 this.getRace().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "params__is_for__race" : true } );
+                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "params__is_for" : "race" } );
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "params__is_for__class" : true } );
+                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "params__is_for" : "class" } );
                 break;
             case CHARACTERISTICS.key:
                 this.getCharacteristics().updateData( value );

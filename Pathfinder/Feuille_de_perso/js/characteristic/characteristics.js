@@ -42,15 +42,14 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.doActionAfterCommon( event_name, params );
     },
     getObjectForDoActionAfter: function ( event_name, params ) {
-        if ( params[ "params__is_for__race" ] ) {
-            return this.getRaceBonus();
-        }
-        if ( params[ "params__is_for__class" ] ) {
-            return this.getClassBonus();
+        switch ( params[ "params__is_for" ] ) {
+            case "race":
+                return this.getRaceBonus();
+            case "class":
+                return this.getClassBonus();
         }
     },
     setData                  : function ( key, value ) {
-        console.error("GSOU", "[Characteristics - setData]", key, value );
         switch ( key ) {
             case "0":
             case "1":
@@ -59,7 +58,7 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "4":
             case "5":
             case "6":
-                this.getContentByUUID( value.name ).updateData( value );
+                this.getContentByUUID( value.name ).doActionAfter( "event__ask_set_data", { "params__characteristics_object": this, "params__set_data_value": value } );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

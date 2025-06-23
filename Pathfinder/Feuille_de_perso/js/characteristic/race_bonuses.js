@@ -16,7 +16,7 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__set_object_bonuses":
-                params[ "params__is_for__race" ] = true;
+                params[ "params__is_for" ] =  "race";
                 this.initWithData( params[ "event__race_object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
                 this.doActionAfter( "event__ask_compute_settable_value", params );
@@ -26,7 +26,8 @@ CHARACTERISTICS.RaceBonuses.prototype = {
         this.computeCounters();
     },
     //********************************************  COMPUTE  *****************************************************//
-    computeCounters: function ( to_set ) {
+    computeCounters: function () {
+        console.error("GSOU", "[RaceBonuses - computeCounters]", this.getFreeBonus() );
         this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "race_bonus", this.getFreeBonus() );
     }
 };
