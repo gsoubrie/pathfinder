@@ -4,8 +4,8 @@ CONTROLLER.Character = (function ( self ) {
     self.init               = function () {
         let params             = new URLSearchParams( location.search );
         self.current_uuid      = params.get( "id" );
-        self.current_character = new CHARACTER.Current( );
-        self.current_character.init(self.current_uuid );
+        self.current_character = new CHARACTER.Current();
+        self.current_character.init( self.current_uuid );
         self.computeHtml();
     };
     //********************************************  EVENT LISTENER  **************************************************//
@@ -23,23 +23,12 @@ CONTROLLER.Character = (function ( self ) {
             case "event__free_bonus_is_zero":
                 self.current_character.doActionAfter( event_name, params );
                 break;
-        }
-    };
-    self.validPopupEdition  = function () {
-        switch ( this.edition_popup.current_property.key_element ) {
-            case RACES.key_element:
-                self.current_character.doActionAfter("event__form__race_changed", {"param__race_name" : this.edition_popup.windows.getActiveWindow().getName() });
-                break;
-            case LEGACIES.key_element:
-                self.current_character.getRace().getLegacy().setName( this.edition_popup.windows.getActiveWindow().getName() );
-                break;
-            case CLASSES.key_element:
-                self.current_character.getClass().setName( this.edition_popup.windows.getActiveWindow().getName() );
+            case "event__form__element_changed":
+                self.current_character.doActionAfter( event_name, { "param__property": this.edition_popup.current_property.key_element, "param__edition_value": this.edition_popup.windows.getActiveWindow().getName() } );
+                this.edition_popup.close();
+                this.edition_popup = null;
                 break;
         }
-        //self.current_character.setData( this.edition_popup.current_property.key_element, this.edition_popup.windows.getActiveWindow().getName() );
-        this.edition_popup.close();
-        this.edition_popup = null;
     };
     self.cancelPopupEdition = function () {
         this.edition_popup.close();

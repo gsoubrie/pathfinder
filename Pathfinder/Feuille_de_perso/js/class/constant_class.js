@@ -2892,8 +2892,7 @@ var CLASSES = {
             "characteristics_bonus": {
                 "number": 1,
                 "choice": [
-                    "SAG",
-                    "FOR"
+                    "SAG"
                 ]
             },
             "life_point_by_level"  : 8,

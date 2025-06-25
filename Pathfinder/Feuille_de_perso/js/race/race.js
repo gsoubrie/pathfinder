@@ -12,9 +12,11 @@ RACES.Race.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__form__race_changed":
-                this.setName( params["param__race_name"] );
+            case "event__form__element_changed":
+                this.setName( params[ "param__edition_value" ] );
                 this.getLegacy().setName( "" );
+                params[ "param__characteristics_object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": "race" } );
+                params[ "param__characteristics_object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": "race" } );
                 break;
         }
     },
@@ -93,8 +95,6 @@ RACES.RacePopup.prototype = {
             case "start_life":
             case "body_size":
             case "speed":
-            case "characteristics_bonus":
-            case "characteristics_malus":
             case "language":
             case "language_sup":
             case "name_example":
@@ -109,6 +109,11 @@ RACES.RacePopup.prototype = {
             case "legacies":
             case "dons":
                 this[ key ] = value;
+                break;
+            case "characteristics_bonus":
+            case "characteristics_malus":
+                this[ key ] = new CHARACTERISTICS.Bonus( key === "characteristics_bonus" );
+                this[ key ].initWithData( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -125,8 +130,10 @@ RACES.RacePopup.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.start_life, "Point de vie" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.body_size, "Taille moyenne" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.speed + " mètres", "Vitesse" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_bonus, "Primes d'attributs" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_malus, "Pénalité d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_bonus.getHtml_forEditionPopUp(), "Primes d'attributs" ), this.getDomElement() );
+        if ( this.characteristics_malus ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_malus.getHtml_forEditionPopUp(), "Pénalité d'attribut" ), this.getDomElement() );
+        }
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.language, "Langues" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.sens, "Vision nocturne" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "hr" ), this.getDomElement() );

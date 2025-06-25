@@ -14,6 +14,11 @@ CHARACTER.Current.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__form__element_changed":
+                params[ "param__current_character" ]      = this;
+                params[ "param__characteristics_object" ] = this.getCharacteristics();
+                this.getPropertyForDoActionAfter( params ).doActionAfter( event_name, params );
+                break;
             case "click_on_button_V3":
                 if ( params[ "characteristics_param" ] ) {
                     this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
@@ -22,9 +27,6 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__free_bonus_is_zero":
                 this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
-                break;
-            case "event__form__race_changed":
-                this.getRace().doActionAfter(event_name, params);
                 break;
         }
     },
@@ -52,16 +54,15 @@ CHARACTER.Current.prototype = {
         this[ CHARACTERISTICS.key ].addParamForEvents( key, value );
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData           : function ( key, value ) {
-        console.log("GSOU", "[Current - setData]", key, value);
+    setData                    : function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
                 this.getRace().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "params__is_for" : "race" } );
+                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": "race" } );
                 break;
             case CLASSES.key_element:
                 this.getClass().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "params__is_for" : "class" } );
+                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "param__is_for": "class" } );
                 break;
             case CHARACTERISTICS.key:
                 this.getCharacteristics().updateData( value );
@@ -81,14 +82,27 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    getRace           : function () {
+    getRace                    : function () {
         return this[ RACES.key_element ];
     },
-    getClass          : function () {
+    getLegacy                  : function () {
+        return this.getRace().getLegacy();
+    },
+    getClass                   : function () {
         return this[ CLASSES.key_element ];
     },
-    getCharacteristics: function () {
+    getCharacteristics         : function () {
         return this[ CHARACTERISTICS.key ];
+    },
+    getPropertyForDoActionAfter: function ( params ) {
+        switch ( params[ "param__property" ] ) {
+            case RACES.key_element:
+                return this.getRace();
+            case LEGACIES.key_element:
+                return this.getLegacy();
+            case CLASSES.key_element:
+                return this.getClass();
+        }
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData : function ( key, value ) {

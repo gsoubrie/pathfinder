@@ -9,6 +9,15 @@ OBJECT.ConfigurableValue.prototype = {
         this.value          = this.initial_value;
         this.initPhase();
     },
+    //********************************************  EVENT LISTENER  *****************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__reset_bonuses":
+                this.setValue( this.initial_value );
+                this.setPhase( GS.OBJECT.CONST.PHASE.INIT );
+                break;
+        }
+    },
     //********************************************  GETTER SETTER  **************************************************//
     isSet        : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
@@ -32,7 +41,7 @@ OBJECT.ConfigurableValue.prototype = {
         to_return.editable_value = this.editable_value;
         return to_return;
     },
-    setData: function ( key, value ) {
+    setData      : function ( key, value ) {
         switch ( key ) {
             case "phase":
                 this.setPhase( value );
@@ -41,10 +50,10 @@ OBJECT.ConfigurableValue.prototype = {
                 this.value = value;
                 break;
             case "initial_value":
-                this.initial_value =  value;
+                this.initial_value = value;
                 break;
             case "editable_value":
-                this.editable_value =  value;
+                this.editable_value = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
