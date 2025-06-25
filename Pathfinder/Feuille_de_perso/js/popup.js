@@ -35,12 +35,13 @@ POPUP.PropertyEdition.prototype = {
     
     //********************************************  HTML   **************************************************//
     computeHtml: function () {
+        console.log("GSOU", "[PropertyEdition - computeHtml]", "[xxxx]" );
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         this.container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup" } ), this.getDomElement() );
         let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
         let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__form__element_changed')" }, "Valider" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.cancelPopupEdition()" }, "Quitter" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
         this.windows.computeHtml();
         SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
         

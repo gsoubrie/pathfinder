@@ -25,6 +25,9 @@ CONTROLLER.Character = (function ( self ) {
                 break;
             case "event__form__element_changed":
                 self.current_character.doActionAfter( event_name, { "param__property": this.edition_popup.current_property.key_element, "param__edition_value": this.edition_popup.windows.getActiveWindow().getName() } );
+                this.doActionAfter( "event__form__reset" );
+                break;
+            case "event__form__reset":
                 this.edition_popup.close();
                 this.edition_popup = null;
                 break;
