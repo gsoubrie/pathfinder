@@ -33,10 +33,6 @@ CONTROLLER.Character = (function ( self ) {
                 break;
         }
     };
-    self.cancelPopupEdition = function () {
-        this.edition_popup.close();
-        this.edition_popup = null;
-    };
     //********************************************  SAVE  **************************************************//
     self.save               = function ( event_name ) {
         let to_return = self.current_character.getDataToSave();

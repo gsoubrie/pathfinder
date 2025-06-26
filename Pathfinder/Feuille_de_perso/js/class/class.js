@@ -7,6 +7,16 @@ CLASSES.Class.prototype = {
         this.label = SERVICE.DOM.createElement( "div", {} );
     },
     //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__form__element_changed":
+                this.setName( params[ "param__edition_value" ] );
+                params[ "param__characteristics_object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": "class" } );
+                params[ "param__characteristics_object" ].doActionAfter( "event__set_object_bonuses", { "event__class_object": this, "param__is_for": "class" } );
+                break;
+        }
+    },
+    //********************************************  GETTER SETTER  **************************************************//
     setName: function ( to_set ) {
         this.name            = to_set;
         this.label.innerHTML = to_set;

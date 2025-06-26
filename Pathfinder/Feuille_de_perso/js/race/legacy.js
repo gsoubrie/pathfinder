@@ -11,6 +11,14 @@ LEGACIES.Legacy.prototype = {
         let data = LEGACIES.getDataByName( legacy_name );
         this.updateData( data );
     },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__form__element_changed":
+                this.setName( params[ "param__edition_value" ] );
+                break;
+        }
+    },
     //********************************************  GETTER SETTER  **************************************************//
     setName: function ( to_set ) {
         this.name            = to_set;
@@ -37,7 +45,7 @@ LEGACIES.Legacy.prototype = {
         //********************************************  HTML   **************************************************//
         computeHTMLEdition: function () {
             this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
+            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
             return this.getDomElement();
         },
     //********************************************  SAVE   **************************************************//
