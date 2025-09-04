@@ -7,7 +7,6 @@ CHARACTER.LevelsHistory = function () {
 };
 CHARACTER.LevelsHistory.prototype = {
     init: function () {
-        console.log("GSOU", "[LevelsHistory - init]", this );
         this.initContents();
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -16,40 +15,68 @@ CHARACTER.LevelsHistory.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID          : function () {
+    getUUID      : function () {
         return this.uuid;
     },
-    getDataToSave    : function () {
-        let to_return                    = {};
+    getDataToSave: function () {
+        let to_return = {};
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData                    : function ( key, value ) {
+    updateData: function ( data ) {
+        if ( !data ) {
+            return;
+        }
+        for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
+            let current = this.getContentByUUID( data[ i ][ "level_name" ] );
+            if ( !current ) {
+                current.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
+            }
+            current.updateData( data[ i ] );
+        }
+    },
+    //********************************************  HTML   **************************************************//
+    updateHtmlData : function ( key, value ) {
+    },
+    computePageHTML: function () {
+    }
+};
+
+SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHtml );
+
+"use strict";
+/**
+ * @class CHARACTER.LevelHistory
+ * @extends OBJECT.InterfaceHtml
+ */
+CHARACTER.LevelHistory = function ( uuid ) {
+};
+CHARACTER.LevelHistory.prototype = {
+    init: function ( uuid ) {
+        this.uuid       = uuid;
+        this.life_class = null;
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+        }
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    getUUID      : function () {
+        return this.uuid;
+    },
+    getDataToSave: function () {
+        let to_return = {};
+        return to_return;
+    },
+    //********************************************  UPDATE DATA   **************************************************//
+    setData: function ( key, value ) {
         switch ( key ) {
-            case RACES.key_element:
-                this.getRace().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
+            case "level_name":
+                this.uuid = value;
                 break;
-            case CLASSES.key_element:
-                this.getClass().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "param__is_for": CLASSES.key_element } );
-                break;
-            case CHARACTERISTICS.key:
-                this.getCharacteristics().updateData( value );
-                break;
-            case "uuid":
-                break;
-            case "levels_history":
-                
-                break;
-            case "name":
-            case "player":
-            case "body_size":
-            case "alignment":
-            case "divinity":
-            case "level":
-            case "point_heroism":
-                this[ key ] = value;
+            case "life_class":
+                this.life_class = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -62,4 +89,4 @@ CHARACTER.LevelsHistory.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHtml );
+SERVICE.CLASS.addPrototype( CHARACTER.LevelHistory, OBJECT.InterfaceHtml );
