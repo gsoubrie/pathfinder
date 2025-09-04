@@ -1,32 +1,42 @@
 "use strict";
-CHARACTER.Current           = function () {
+/**
+ * @class CHARACTER.Current
+ * @extends OBJECT.InterfaceHtml
+ */
+CHARACTER.Current = function () {
+    this.uuid            = null;
+    this.name            = null;
+    this.player          = null;
+    this.alignment       = null;
+    this.level           = null;
+    this.point_heroism   = null;
+    this.race            = new RACES.Race();
+    this.class           = new CLASSES.Class();
+    this.characteristics = new CHARACTERISTICS.Characteristics();
+    this.levels_history  = new CHARACTER.LevelsHistory();
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
-        this.uuid                   = uuid;
-        this[ RACES.key_element ]   = new RACES.Race();
-        this[ CLASSES.key_element ] = new CLASSES.Class();
-        this[ RACES.key_element ]   = new RACES.Race();
-        this[ CHARACTERISTICS.key ] = new CHARACTERISTICS.Characteristics();
-        this.addParamForEvents( "current_character_param", this.uuid );
+        this.uuid = uuid;
+        this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__form__element_changed":
-                params[ "param__current_character" ]      = this;
-                params[ "param__characteristics_object" ] = this.getCharacteristics();
+                params[ "param__current_character__object" ] = this;
+                params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getPropertyForDoActionAfter( params ).doActionAfter( event_name, params );
                 break;
             case "click_on_button_V3":
-                if ( params[ "characteristics_param" ] ) {
-                    this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
+                if ( params[ "param__characteristics__is" ] ) {
+                    this.characteristics.doActionAfter( event_name, params );
                     return;
                 }
                 break;
             case "event__free_bonus_is_zero":
-                this[ CHARACTERISTICS.key ].doActionAfter( event_name, params );
+                this.characteristics.doActionAfter( event_name, params );
                 break;
         }
     },
@@ -42,6 +52,7 @@ CHARACTER.Current.prototype = {
         to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
         to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
         to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
+        to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
         to_return[ "alignment" ]         = this.alignment;
         to_return[ "level" ]             = this.level;
         to_return[ "point_heroism" ]     = this.point_heroism;
@@ -49,25 +60,29 @@ CHARACTER.Current.prototype = {
     },
     addParamForEvents: function ( key, value ) {
         this.addParamForEventsCommon( key, value );
-        this[ RACES.key_element ].addParamForEvents( key, value );
-        this[ CLASSES.key_element ].addParamForEvents( key, value );
-        this[ CHARACTERISTICS.key ].addParamForEvents( key, value );
+        this.race.addParamForEvents( key, value );
+        this.class.addParamForEvents( key, value );
+        this.characteristics.addParamForEvents( key, value );
+        this.levels_history.addParamForEvents( key, value );
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData                    : function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
-                this.getRace().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": "race" } );
+                this.race.updateData( value );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
-                this.getClass().updateData( value );
-                this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "param__is_for": "class" } );
+                this.class.updateData( value );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "param__is_for": CLASSES.key_element } );
                 break;
             case CHARACTERISTICS.key:
-                this.getCharacteristics().updateData( value );
+                this.characteristics.updateData( value );
                 break;
             case "uuid":
+                break;
+            case "levels_history":
+                this.levels_history.updateData( value );
                 break;
             case "name":
             case "player":
@@ -83,16 +98,19 @@ CHARACTER.Current.prototype = {
         }
     },
     getRace                    : function () {
-        return this[ RACES.key_element ];
+        return this.race;
     },
     getLegacy                  : function () {
         return this.getRace().getLegacy();
     },
     getClass                   : function () {
-        return this[ CLASSES.key_element ];
+        return this.class;
     },
     getCharacteristics         : function () {
-        return this[ CHARACTERISTICS.key ];
+        return this.characteristics;
+    },
+    getLevelHistory            : function () {
+        return this.levels_history;
     },
     getPropertyForDoActionAfter: function ( params ) {
         switch ( params[ "param__property" ] ) {

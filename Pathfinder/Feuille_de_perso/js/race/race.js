@@ -15,8 +15,8 @@ RACES.Race.prototype = {
             case "event__form__element_changed":
                 this.setName( params[ "param__edition_value" ] );
                 this.getLegacy().setName( "" );
-                params[ "param__characteristics_object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": "race" } );
-                params[ "param__characteristics_object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": "race" } );
+                params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
+                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element} );
                 break;
         }
     },

@@ -8,12 +8,18 @@ CHARACTER.CharacteristicWindow.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     
     //********************************************  HTML   **************************************************//
+    /**
+     * @param {CHARACTER.Current} character_object
+     */
     computeHtmlWithData              : function ( character_object ) {
         this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "characteristic-container" } );
         this.computeHtml__tableCharacteristics( character_object );
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
-        character_object[ CHARACTERISTICS.key ].setCountersParent( this );
+        character_object.getCharacteristics().setCountersParent( this );
     },
+    /**
+     * @param {CHARACTER.Current} character_object
+     */
     computeHtml__tableCharacteristics: function ( character_object ) {
         let to_return             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, CHARACTERISTICS.label ), this.content_dom_element_target );
         this.characteristic_table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-table" } ), this.content_dom_element_target );
@@ -39,8 +45,8 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
-        for ( let i = 0, _size_i = character_object[ CHARACTERISTICS.key ].getSize(); i < _size_i; i++ ) {
-            this.computeHtml__tableCharacteristic( character_object[ CHARACTERISTICS.key ].getContent( i ) );
+        for ( let i = 0, _size_i = character_object.getCharacteristics().getSize(); i < _size_i; i++ ) {
+            this.computeHtml__tableCharacteristic( character_object.getCharacteristics().getContent( i ) );
         }
     },
     computeHtml__tableCharacteristic : function ( object_characteristic ) {

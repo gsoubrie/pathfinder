@@ -9,7 +9,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
-        this.addParamForEvents( "characteristics_param", true );
+        this.addParamForEvents( "param__characteristics__is", true );
     },
     initCounterCommon: function () {
         this.counters = {};
@@ -21,17 +21,17 @@ CHARACTERISTICS.Characteristics.prototype = {
         switch ( event_name ) {
             case "click_on_button_V3":
                 if ( params[ "characteristic_param" ] ) {
-                    params[ "param__characteristics_object" ] = this;
+                    params[ "param__characteristics__object" ] = this;
                     this.getContentByUUID( params[ "characteristic_param" ] ).doActionAfter( event_name, params );
                     return;
                 }
                 break;
             case "event__set_object_bonuses":
-                params[ "param__characteristics_object" ] = this;
+                params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
                 return;
             case "event__unset_object_bonuses":
-                params[ "param__characteristics_object" ] = this;
+                params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__unset_free_bonus_done", params );
                 this.doActionAfter( "event__set_free_bonus", params );
                 break;
@@ -43,9 +43,9 @@ CHARACTERISTICS.Characteristics.prototype = {
     },
     getObjectForDoActionAfter: function ( event_name, params ) {
         switch ( params[ "param__is_for" ] ) {
-            case "race":
+            case RACES.key_element:
                 return this.getRaceBonus();
-            case "class":
+            case CLASSES.key_element:
                 return this.getClassBonus();
         }
     },
@@ -58,7 +58,7 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "4":
             case "5":
             case "6":
-                this.getContentByUUID( value.name ).doActionAfter( "event__ask_set_data", { "param__characteristics_object": this, "param__set_data_value": value } );
+                this.getContentByUUID( value.name ).doActionAfter( "event__ask_set_data", { "param__characteristics__object": this, "param__set_data_value": value } );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

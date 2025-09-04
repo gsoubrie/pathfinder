@@ -140,5 +140,11 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
     ],
     "alignment"      : "",
     "level"          : "4",
+    "levels_history"  : {
+        "1": { "life_class": 10 },
+        "2": { "life_class": 10 },
+        "3": { "life_class": 10 },
+        "4": { "life_class": 10 }
+    },
     "point_heroism"  : "5"
 };

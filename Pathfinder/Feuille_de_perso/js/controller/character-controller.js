@@ -15,7 +15,7 @@ CONTROLLER.Character = (function ( self ) {
                 this.edition_popup = new POPUP.PropertyEdition( params );
                 break;
             case "click_on_button_V3":
-                if ( params[ "current_character_param" ] ) {
+                if ( params[ "param__current_character__uuid" ] ) {
                     self.current_character.doActionAfter( event_name, params );
                     return;
                 }

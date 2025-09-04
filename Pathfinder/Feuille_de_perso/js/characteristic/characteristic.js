@@ -1,5 +1,9 @@
 "use strict";
-CHARACTERISTICS.Characteristic           = function ( data ) {
+/**
+ * @class CHARACTERISTICS.Characteristic
+ * @extends OBJECT.InterfaceHtml
+ */
+CHARACTERISTICS.Characteristic = function ( data ) {
     this.init( data );
 };
 CHARACTERISTICS.Characteristic.prototype = {
@@ -10,8 +14,8 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.class_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.initial_value.addParamForEvents( "param__is_for", "initial_value" );
-        this.race_bonus.addParamForEvents( "param__is_for", "race" );
-        this.class_bonus.addParamForEvents( "param__is_for", "class" );
+        this.race_bonus.addParamForEvents( "param__is_for", RACES.key_element );
+        this.class_bonus.addParamForEvents( "param__is_for", CLASSES.key_element );
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
@@ -21,13 +25,13 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.initial_value.updateData( params[ "param__set_data_value" ][ "initial_value" ] );
                 this.race_bonus.updateData( params[ "param__set_data_value" ][ "race_bonus" ] );
                 if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
-                    params[ "param__is_for" ] = "race";
-                    params[ "param__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+                    params[ "param__is_for" ] = RACES.key_element;
+                    params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );
                 }
                 this.class_bonus.updateData( params[ "param__set_data_value" ][ "class_bonus" ] );
                 if ( this.class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
-                    params[ "param__is_for" ] = "class";
-                    params[ "param__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+                    params[ "param__is_for" ] = CLASSES.key_element;
+                    params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );
                 }
                 break;
             case "event__ask_set_forced_value_1":
@@ -73,9 +77,9 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     getObjectForDoActionAfter: function ( params ) {
         switch ( params[ "param__is_for" ] ) {
-            case "race":
+            case RACES.key_element:
                 return this.race_bonus;
-            case "class":
+            case CLASSES.key_element:
                 return this.class_bonus;
             case "initial_value":
                 return this.initial_value;
@@ -88,7 +92,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         else {
             this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
             this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
-            params[ "param__characteristics_object" ].doActionAfter( "event__set_free_bonus_done", params );
+            params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );
         }
         this.computeFinalValue();
     },
@@ -99,7 +103,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         else {
             this.getObjectForDoActionAfter( params ).setValue( 0 );
             this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-            params[ "param__characteristics_object" ].doActionAfter( "event__unset_object_bonuses", params );
+            params[ "param__characteristics__object" ].doActionAfter( "event__unset_object_bonuses", params );
         }
         this.computeFinalValue();
     },

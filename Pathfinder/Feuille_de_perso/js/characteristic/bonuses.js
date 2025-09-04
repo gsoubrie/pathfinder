@@ -59,11 +59,11 @@ CHARACTERISTICS.Bonus.prototype = {
         switch ( event_name ) {
             case "event__ask_compute_settable_value":
                 if ( this.number_free ) {
-                    params[ "param__characteristics_object" ].doActionAfter( "event__set_free_bonus", params );
+                    params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus", params );
                 }
                 else {
                     params[ "param__choices_array" ] = this.choices;
-                    params[ "param__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", params );
+                    params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                 }
                 break;
             case "event__ask_set_forced_value":
@@ -71,13 +71,13 @@ CHARACTERISTICS.Bonus.prototype = {
                 if ( this.number === this.choices.length ) {
                     for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
                         if ( this.choices[ i ] !== "FREE" ) {
-                            params[ "param__characteristics_object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value_1", params );
+                            params[ "param__characteristics__object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value_1", params );
                         }
                     }
                 }
                 else { //NORMALLY NO FREE THERE
                     params[ "param__choices_array" ] = this.choices;
-                    params[ "param__characteristics_object" ].doActionAfter( "event__set_forbidden_bonus", params );
+                    params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                     this.number_free = this.number;
                 }
                 break;
