@@ -9,8 +9,56 @@ CHARACTER.LevelWindow.prototype = {
     
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "title" } );
-        console.log("GSOU", "[LevelWindow - computeHtmlWithData]", character_object );
+        this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-window" } );
+        
+        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "─ Points de Vie ─" ), this.content_dom_element_target );
+        
+        const total_life = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.getLevelHistory().getTotalLife() ), this.content_dom_element_target );
+        
+        const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), this.content_dom_element_target );
+        
+        const headerRow = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
+        
+        ["Nv", "Total", "Classe", "CON", "Bonus supplémentaires"].forEach( label => {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "th", {}, label ), headerRow );
+        } );
+        
+        const tbody = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tbody" ), table );
+        
+        character_object.getLevelHistory().contents.forEach( lvl => {
+            const tr = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), tbody );
+            
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.getUUID() ), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class  + character_object.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).modifier_value.value), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class ), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, character_object.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).modifier_value.value), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.bonus || "" ), tr );
+        } );
+        
+        // ---- Bonus hors niveau ----
+        //const outsideBonus = character_object.getLevelHistory().getOutsideBonus
+        //                     ? character_object.getLevelHistory().getOutsideBonus()
+        //                     : [];
+        //
+        //if ( outsideBonus.length > 0 ) {
+        //    const bonusContainer = SERVICE.DOM.addElementTo(
+        //        SERVICE.DOM.createElement( "div", { class: "bonus-outside" } ),
+        //        this.content_dom_element_target
+        //    );
+        //
+        //    outsideBonus.forEach( b => {
+        //        SERVICE.DOM.addElementTo(
+        //            SERVICE.DOM.createElement(
+        //                "div",
+        //                { class: "bonus-line" },
+        //                (b.value ? ("+" + b.value) : "") + " " + (b.label || "")
+        //            ),
+        //            bonusContainer
+        //        );
+        //    } );
+        //}
+        
+        // ---- Ajout final dans la fenêtre ----
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     }
 };

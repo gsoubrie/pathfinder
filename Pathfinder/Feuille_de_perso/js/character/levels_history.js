@@ -4,6 +4,7 @@
  * @extends OBJECT.InterfaceContainerHtml
  */
 CHARACTER.LevelsHistory = function () {
+    this.init();
 };
 CHARACTER.LevelsHistory.prototype = {
     init: function () {
@@ -22,15 +23,24 @@ CHARACTER.LevelsHistory.prototype = {
         let to_return = {};
         return to_return;
     },
+    getTotalLife: function () {
+        let to_return = 0;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return += this.getContent(i).life_class;
+        }
+        return to_return;
+    },
     //********************************************  UPDATE DATA   **************************************************//
     updateData: function ( data ) {
         if ( !data ) {
             return;
         }
+        console.log("GSOU", "[LevelsHistory - updateData]", this );
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
+            console.log("GSOU", "[LevelsHistory - updateData]", data[ i ][ "level_name" ] );
             let current = this.getContentByUUID( data[ i ][ "level_name" ] );
             if ( !current ) {
-                current.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
+                current = this.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
             }
             current.updateData( data[ i ] );
         }
@@ -49,7 +59,8 @@ SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHt
  * @class CHARACTER.LevelHistory
  * @extends OBJECT.InterfaceHtml
  */
-CHARACTER.LevelHistory = function ( uuid ) {
+CHARACTER.LevelHistory = function (uuid) {
+    this.init(uuid);
 };
 CHARACTER.LevelHistory.prototype = {
     init: function ( uuid ) {
