@@ -33,6 +33,7 @@ CHARACTERISTICS.Characteristic.prototype = {
                     params[ "param__is_for" ] = CLASSES.key_element;
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );
                 }
+                this.computeFinalValue();
                 break;
             case "event__ask_set_forced_value_1":
                 this.getObjectForDoActionAfter( params ).doActionAfter( event_name, params );
@@ -63,11 +64,11 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
                 break;
             case "click_on_button_V3":
-                switch ( params[ "button_name" ] ) {
-                    case "more_button":
+                switch ( params[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
+                    case "event__more_button":
                         this.moreBonus( params );
                         break;
-                    case "less_button":
+                    case "event__less_button":
                         this.lessBonus( params );
                         break;
                 }
@@ -147,6 +148,9 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.initial_value.addParamForEvents( key, value );
         this.race_bonus.addParamForEvents( key, value );
         this.class_bonus.addParamForEvents( key, value );
+    },
+    getModifierValue: function ( key, value ) {
+        return this.modifier_value.value;
     },
     //********************************************  DATA   **************************************************//
     setData: function ( key, value ) {

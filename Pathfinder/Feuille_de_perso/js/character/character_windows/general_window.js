@@ -41,7 +41,8 @@ CHARACTER.GeneralWindow.prototype = {
     computeHtml__right : function ( character_object ) {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.content_dom_element_target );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyHorizontal( "level", CONTROLLER.Character.current_character.level, "Niveau", true ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyHorizontal( "point_heroism", CONTROLLER.Character.current_character.point_heroism, "Point d'heroisme", true ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyHorizontal( "point_heroism", CONTROLLER.Character.current_character.point_heroism, "Point d'héroisme", true ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyHorizontal( "point_life", CONTROLLER.Character.current_character.total_life, "Point de vie", true ), right_zone );
     }
 };
 

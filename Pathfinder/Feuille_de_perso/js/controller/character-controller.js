@@ -16,7 +16,8 @@ CONTROLLER.Character = (function ( self ) {
                 break;
             case "click_on_button_V3":
                 if ( params[ "param__current_character__uuid" ] ) {
-                    self.current_character.doActionAfter( event_name, params );
+                    console.log("GSOU", "[Character - doActionAfter]", "TODO TO CHNAGE" );
+                    self.current_character.doActionAfter( params[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ], params );
                     return;
                 }
                 break;

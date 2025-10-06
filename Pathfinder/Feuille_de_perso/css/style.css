@@ -88,8 +88,8 @@ body {
     background-color : #FFF8DC;
 }
 /*********************	BUTTONS   ******************************************/
-.gs-button[data-name="less_button"],
-.gs-button[data-name="more_button"] {
+.gs-button[data-name="event__less_button"],
+.gs-button[data-name="event__more_button"] {
     background    : linear-gradient(145deg, #5A3E1B, #3E2A14); /* effet bois/cuir */
     border        : 1px solid #C9AA71; /* bordure bronze */
     color         : #F2E6C2; /* ivoire ancien */
@@ -108,13 +108,13 @@ body {
     transition    : all 0.2s ease-in-out;
     display       : inline-block;
 }
-.gs-button[data-name="less_button"]:hover,
-.gs-button[data-name="more_button"]:hover {
+.gs-button[data-name="event__less_button"]:hover,
+.gs-button[data-name="event__more_button"]:hover {
     background   : linear-gradient(145deg, #6A4B22, #4A3319);
     border-color : #F0D38C;
 }
-.gs-button[data-name="less_button"]:active,
-.gs-button[data-name="more_button"]:active {
+.gs-button[data-name="event__less_button"]:active,
+.gs-button[data-name="event__more_button"]:active {
     transform  : scale(0.95);
     box-shadow : inset 0 0 3px #00000099;
 }

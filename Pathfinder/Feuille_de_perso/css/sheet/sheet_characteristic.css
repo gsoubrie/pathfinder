@@ -33,11 +33,11 @@
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
     display : none;
 }
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="more_button"] {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"] {
     opacity        : 0.3;
     pointer-events : none;
 }
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="less_button"] {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"] {
     opacity        : 0.3;
     pointer-events : none;
 }

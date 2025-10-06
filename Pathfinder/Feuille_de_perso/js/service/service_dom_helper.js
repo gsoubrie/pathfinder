@@ -2,10 +2,10 @@
 SERVICE.DOM_HELPER = (function ( self ) {
     //********************************************  BUTTON   **************************************************//
     self.createMoreButton                 = function ( params_for_events ) {
-        return self.createButton( "more_button", "+", params_for_events );
+        return self.createButton( "event__more_button", "+", params_for_events );
     };
     self.createLessButton                 = function ( params_for_events ) {
-        return self.createButton( "less_button", "-", params_for_events );
+        return self.createButton( "event__less_button", "-", params_for_events );
     };
     self.createButton                     = function ( event_name, label, params_for_events ) {
         var toReturn = new COMPONENT.ButtonFromData_V3( event_name, label );

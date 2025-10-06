@@ -11,22 +11,20 @@ CHARACTER.LevelWindow.prototype = {
     computeHtmlWithData: function ( character_object ) {
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-window" } );
         
-        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "─ Points de Vie ─" ), this.content_dom_element_target );
+        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), this.content_dom_element_target );
         
-        const total_life = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.getLevelHistory().getTotalLife() ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.getLevelHistory().getTotalLife() ), this.content_dom_element_target );
         
         const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), this.content_dom_element_target );
         
         const headerRow = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
         
-        ["Nv", "Total", "Classe", "CON", "Bonus supplémentaires"].forEach( label => {
+        ["Niv", "Total", "Classe", "Char", "Bonus suppl."].forEach( label => {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "th", {}, label ), headerRow );
         } );
         
-        const tbody = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tbody" ), table );
-        
         character_object.getLevelHistory().contents.forEach( lvl => {
-            const tr = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), tbody );
+            const tr = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
             
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.getUUID() ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class  + character_object.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).modifier_value.value), tr );

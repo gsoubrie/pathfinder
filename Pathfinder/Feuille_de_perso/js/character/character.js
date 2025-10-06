@@ -11,6 +11,7 @@ CHARACTER.Current = function () {
     this.level           = null;
     this.point_heroism   = null;
     this.race            = new RACES.Race();
+    this.total_life      = 0;
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
@@ -20,9 +21,11 @@ CHARACTER.Current.prototype = {
         this.uuid = uuid;
         this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
+        this.doActionAfter("event__data_loaded__done");
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
+        console.log("GSOU", "[Current - doActionAfter]", event_name );
         switch ( event_name ) {
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
@@ -37,6 +40,9 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__free_bonus_is_zero":
                 this.characteristics.doActionAfter( event_name, params );
+                break;
+            case "event__data_loaded__done":
+                this.computeTotalLife();
                 break;
         }
     },
@@ -54,7 +60,7 @@ CHARACTER.Current.prototype = {
         to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
         to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
         to_return[ "alignment" ]         = this.alignment;
-        to_return[ "level" ]             = this.level;
+        to_return[ "level" ]             = this.level + "";
         to_return[ "point_heroism" ]     = this.point_heroism;
         return to_return;
     },
@@ -64,6 +70,14 @@ CHARACTER.Current.prototype = {
         this.class.addParamForEvents( key, value );
         this.characteristics.addParamForEvents( key, value );
         this.levels_history.addParamForEvents( key, value );
+    },
+    //********************************************  COMPUTE   **************************************************//
+    computeTotalLife                    : function () {
+        this.total_life = 0;
+        for ( let i = 0, _size_i = this.level; i < _size_i; i++ ) {
+            this.total_life += this.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).getModifierValue();
+            this.total_life += this.getLevelHistory().getContent(i).life_class;
+        }
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData                    : function ( key, value ) {
@@ -89,9 +103,11 @@ CHARACTER.Current.prototype = {
             case "body_size":
             case "alignment":
             case "divinity":
-            case "level":
             case "point_heroism":
                 this[ key ] = value;
+                break;
+            case "level":
+                this[ key ] = parseInt(value);
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
