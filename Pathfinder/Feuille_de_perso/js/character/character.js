@@ -32,7 +32,7 @@ CHARACTER.Current.prototype = {
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getPropertyForDoActionAfter( params ).doActionAfter( event_name, params );
                 break;
-            case "click_on_button_V3":
+            case "event__more_button":
                 if ( params[ "param__characteristics__is" ] ) {
                     this.characteristics.doActionAfter( event_name, params );
                     return;

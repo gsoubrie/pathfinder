@@ -63,15 +63,14 @@ CHARACTERISTICS.Characteristic.prototype = {
             case "unclean_all_free_race_settings":
                 this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
                 break;
-            case "click_on_button_V3":
-                switch ( params[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ] ) {
-                    case "event__more_button":
-                        this.moreBonus( params );
-                        break;
-                    case "event__less_button":
-                        this.lessBonus( params );
-                        break;
-                }
+            
+            case "event__more_button":
+                this.moreBonus( params );
+                break;
+            case "event__less_button":
+                this.lessBonus( params );
+                break;
+                
                 return;
         }
         this.doActionAfterCommon( event_name, params );

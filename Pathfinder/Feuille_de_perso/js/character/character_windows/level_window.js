@@ -13,7 +13,7 @@ CHARACTER.LevelWindow.prototype = {
         
         const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), this.content_dom_element_target );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.getLevelHistory().getTotalLife() ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.total_life ), this.content_dom_element_target );
         
         const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), this.content_dom_element_target );
         
