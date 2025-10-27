@@ -141,10 +141,46 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
     "alignment"      : "",
     "level"          : "4",
     "levels_history" : [
-        { level_name: 1, "life_class": 10 },
-        { level_name: 2, "life_class": 10 },
-        { level_name: 3, "life_class": 10 },
-        { level_name: 4, "life_class": 10 }
+        {
+            level_name      : 1,
+            "life_class"    : 10,
+            "class_capacity": [
+                {"historique" : "Acolyte"},
+                {"divinité" : "--"},
+                {"doctrine" : "Prêtre cloîtré"},
+                {"1ère doctrine" : "Don prêtre : Initié du domaine"},
+                "incantation de prêtre",
+                "maîtrises initiales",
+                "primes d'attribut",
+                "source divine"
+            ]
+        },
+        {
+            level_name      : 2,
+            "life_class"    : 10,
+            "class_capacity": [
+                "Don de compétence",
+                "Don de prêtre"
+            ]
+        },
+        {
+            level_name      : 3,
+            "life_class"    : 10,
+            "class_capacity": [
+                "Amélioration de compétence",
+                "deuxième doctrine",
+                "don général",
+                "sorts de rang 2"
+            ]
+        },
+        {
+            level_name      : 4,
+            "life_class"    : 10,
+            "class_capacity": [
+                "Don de compétence",
+                "Don de prêtre"
+            ]
+        }
     ],
     "point_heroism"  : "5"
 };

@@ -11,11 +11,12 @@ CHARACTER.LevelWindow.prototype = {
     computeHtmlWithData: function ( character_object ) {
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-window" } );
         
-        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), this.content_dom_element_target );
+        const life_container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-container-life" } ), this.content_dom_element_target );
+        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), life_container );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de Vie : " + character_object.total_life ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de vie total : " + character_object.total_life ), life_container );
         
-        const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), this.content_dom_element_target );
+        const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), life_container );
         
         const headerRow = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
         
