@@ -1,129 +1,89 @@
 "use strict";
 var SCRIPT_DON_CLASSES = (function ( self ) {
-    self.getAllDOM           = function () {
+    self.getAllDOM         = function () {
         return document.querySelectorAll( ".mat-mdc-row.mdc-data-table__row.cdk-row.element-row" );
     };
-    self.getAll              = function () {
+    self.getAll            = function () {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-         for ( let i = 0, _size_i = doms.length; i < 2; i++ ) {
-         //   for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
+        //for ( let i = 0, _size_i = doms.length; i < 2; i++ ) {
+        for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
             }, timeout );
             timeout += 400;
         }
     };
-    self.parseDom            = function ( dom_element, array_to_push_in ) {
-        let to_return             = {};
-        to_return[ "name" ]       = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
-        to_return[ "capacities" ] = [];
+    self.parseDom          = function ( dom_element ) {
+        let to_return              = {};
+        to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
+        to_return[ "required" ]    = [];
+        to_return[ "description" ] = [];
+        to_return[ "effect" ]      = [];
         self.to_return.push( to_return );
         dom_element.querySelector( ".cdk-column-name_trans" ).click();
         setTimeout( () => {
-            self.capacity_doms  = false;
             self.previous_title = "";
             let dom_sibling     = dom_element.nextElementSibling;
-            let children        = dom_sibling.querySelector( ".description" ).children;
-            self.parseChildrenBy( children, to_return );
+            self.parseMetadatas( dom_sibling.querySelector( ".metadata" ).children, to_return );
+            self.parseChildrenBy( dom_sibling.querySelector( ".description" ).children, to_return );
         }, 200 );
     };
-    self.parseChildrenBy     = function ( children, object_to_complete ) {
+    self.parseMetadatas    = function ( children, object_to_complete ) {
         let current_child;
         for ( let i = 0, _size_i = children.length; i < _size_i; i++ ) {
-            if ( !self.capacity_doms ) {
-                self.parseChildByClass( children[ i ], object_to_complete );
-            }
-            else {
-                self.parseChildByPart( children[ i ], object_to_complete );
-            }
+            self.parseMetadata( children[ i ], object_to_complete );
         }
     };
-    self.parseChildByClass   = function ( current_child, object_to_complete ) {
-        switch ( current_child.className ) {
-            case "fluff":
-                object_to_complete[ "general_desc" ] = current_child.innerText;
-                break;
-            case "basics-title":
-                if ( SERVICE.STRING.contains( current_child.innerText, "Attribut essentiel" ) ) {
-                    object_to_complete[ "characteristics_bonus" ] = SERVICE.STRING.splitAndTrim( current_child.innerText, ":", 1 );
-                }
-                if ( SERVICE.STRING.contains( current_child.innerText, "Points de vie" ) ) {
-                    object_to_complete[ "life_point_by_level" ] = SERVICE.STRING.parseStringToPositiveInteger( current_child.innerText );
-                }
-                break;
-            case "basics-content":
-            case "title":
-                break;
-            case "basics-container":
-            case "starting-info-container":
-                self.parseChildrenBy( current_child.children, object_to_complete );
-                break;
-            case "roleplaying-container":
-            case "initial-proficiencies-container":
-                self.parseChildrenByPart( current_child.children, object_to_complete );
-                break;
-            case "pf2e remaster":
-            case "pf2e":
-                self.parseTableCapacity( current_child, object_to_complete );
-                self.capacity_doms = true;
-                break;
-            case "":
-                break;
-            default:
-                console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByClass]", "[NOT MANAGED]", current_child.className, current_child );
-                break;
-        }
-    };
-    self.parseChildrenByPart = function ( children, object_to_complete ) {
-        for ( let i = 0, _size_i = children.length; i < _size_i; i++ ) {
-            self.parseChildByPart( children[ i ], object_to_complete );
-        }
-    };
-    self.parseChildByPart    = function ( current_child, object_to_complete ) {
-        if ( self.capacity_doms ) {
-            if ( current_child.innerText ) {
-                object_to_complete[ "capacities" ].push( current_child.innerText );
-            }
-            return;
-        }
+    self.parseMetadata     = function ( current_child, object_to_complete ) {
         switch ( current_child.tagName ) {
-            case "H1":
-            case "H2":
-                self.previous_title = this.parseTitleToParam( current_child );
+            case "DIV":
+                let to_add = current_child.innerText;
+                if ( SERVICE.STRING.contains( to_add, "Prérequis" ) ) {
+                    to_add = SERVICE.STRING.replaceAll( to_add, "Prérequis", "" );
+                }
+                object_to_complete[ "required" ].push( to_add.trim() );
                 return;
+            default:
+                console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByPart]", "[NOT MANAGED]", current_child.tagName );
+                break;
+        }
+    };
+    self.parseChildrenBy   = function ( children, object_to_complete ) {
+        let current_child;
+        for ( let i = 0, _size_i = children.length; i < _size_i; i++ ) {
+            self.parseChild( children[ i ], object_to_complete );
+        }
+    };
+    self.parseChild        = function ( current_child, object_to_complete ) {
+        switch ( current_child.tagName ) {
             case "P":
-                if ( !object_to_complete[ self.previous_title ] ) {
-                    object_to_complete[ self.previous_title ] = current_child.innerText;
-                    return;
+                let annotation = current_child.querySelector( "elt-foundry-annotation" );
+                if ( annotation ) {
+                    object_to_complete[ "effect" ].push( annotation.getAttribute( "text" ) );
                 }
-                else if ( !Array.isArray( object_to_complete[ self.previous_title ] ) ) {
-                    object_to_complete[ self.previous_title ] = [object_to_complete[ self.previous_title ]];
+                else {
+                    object_to_complete[ "description" ].push( current_child.innerText );
                 }
-                object_to_complete[ self.previous_title ].push( current_child.innerText );
                 break;
             case "UL":
-                object_to_complete[ self.previous_title ] = [];
-                self.parseChildrenByPart( current_child.children, object_to_complete );
-                break;
-            case "LI":
-                object_to_complete[ self.previous_title ].push( current_child.innerText );
+                object_to_complete[ "description" ].push( self.parseChildUL( current_child ) );
                 break;
             default:
                 console.log( "GSOU", "[SCRIPT_CLASSES - parseChildByPart]", "[NOT MANAGED]", current_child.tagName );
                 break;
         }
     };
-    self.parseTableCapacity  = function ( current_child, object_to_complete ) {
-        object_to_complete[ "capacity_by_level" ] = [];
-        let dom_lines_td                          = current_child.querySelectorAll( "td" );
-        for ( let i = 1, _size_i = dom_lines_td.length; i < _size_i; i++ ) {
-            object_to_complete[ "capacity_by_level" ].push( dom_lines_td[ i ].innerText );
-            i++;
+    self.parseChildUL      = function ( current_child ) {
+        let to_return = [];
+        let dom_li    = current_child.querySelectorAll( "li" );
+        for ( let i = 0, _size_i = dom_li.length; i < _size_i; i++ ) {
+            to_return.push( dom_li[ i ].innerText );
         }
+        return to_return;
     };
-    self.parseTitleToParam   = function ( dom_element ) {
+    self.parseTitleToParam = function ( dom_element ) {
         let text = dom_element.innerText;
         switch ( text ) {
             case "Lors des rencontres de combat...":
@@ -179,7 +139,7 @@ var SCRIPT_DON_CLASSES = (function ( self ) {
     };
     
     return self;
-})( SCRIPT_CLASSES || {} );
+})( SCRIPT_DON_CLASSES || {} );
 
 var SERVICE    = {};
 SERVICE.STRING = (function ( self ) {
