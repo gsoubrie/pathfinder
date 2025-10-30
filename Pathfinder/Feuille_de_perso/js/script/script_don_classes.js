@@ -7,7 +7,7 @@ var SCRIPT_DON_CLASSES = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        //for ( let i = 0, _size_i = doms.length; i < 2; i++ ) {
+        //for ( let i = 0, _size_i = doms.length; i < 3; i++ ) {
         for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
@@ -18,9 +18,9 @@ var SCRIPT_DON_CLASSES = (function ( self ) {
     self.parseDom          = function ( dom_element ) {
         let to_return              = {};
         to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
-        to_return[ "required" ]    = [];
+        to_return[ "level" ]        = dom_element.querySelector( ".level-cell" ).innerText;
+        to_return[ "required" ]    = [];               
         to_return[ "description" ] = [];
-        to_return[ "effect" ]      = [];
         self.to_return.push( to_return );
         dom_element.querySelector( ".cdk-column-name_trans" ).click();
         setTimeout( () => {
@@ -58,14 +58,8 @@ var SCRIPT_DON_CLASSES = (function ( self ) {
     };
     self.parseChild        = function ( current_child, object_to_complete ) {
         switch ( current_child.tagName ) {
-            case "P":
-                let annotation = current_child.querySelector( "elt-foundry-annotation" );
-                if ( annotation ) {
-                    object_to_complete[ "effect" ].push( annotation.getAttribute( "text" ) );
-                }
-                else {
-                    object_to_complete[ "description" ].push( current_child.innerText );
-                }
+            case "P":               
+                    object_to_complete[ "description" ].push( current_child.innerText );                                
                 break;
             case "UL":
                 object_to_complete[ "description" ].push( self.parseChildUL( current_child ) );
@@ -83,57 +77,6 @@ var SCRIPT_DON_CLASSES = (function ( self ) {
         }
         return to_return;
     };
-    self.parseTitleToParam = function ( dom_element ) {
-        let text = dom_element.innerText;
-        switch ( text ) {
-            case "Lors des rencontres de combat...":
-            case "Durant les rencontres de combat...":
-                return "desc_fight";
-            case "Lors des rencontres sociales...":
-            case "Durant les rencontres sociales...":
-                return "desc_socially";
-            case "En exploration...":
-            case "En Exploration...":
-                return "desc_exploration";
-            case "Durant les intermèdes...":
-            case "Pendant un intermède...":
-            case "Durant les intermèdes":
-                return "desc_interlude";
-            case "Vous pourriez...":
-            case "Vous...":
-                return "desc_you_could";
-            case "Probablement que les autres...":
-                return "desc_probably_others";
-            case "Maîtrises initiales":
-            case "Maitrises initiales":
-            case "Compétences initiales":
-                return "mastery_initial";
-            case "Perception":
-                return "mastery_perception";
-            case "Jets de sauvegarde":
-            case "Jet de sauvegarde":
-                return "mastery_js";
-            case "Compétences":
-                return "mastery_skill";
-            case "Attaques":
-                return "mastery_attack";
-            case "Défenses":
-            case "Défense":
-            case "Defenses":
-                return "mastery_defense";
-            case "Sorts":
-                return "mastery_spell";
-            case "Rareté":
-                return "mastery_rarity";
-            case "DD de Classe":
-            case "DD de classe":
-                return "mastery_dd";
-            default :
-                console.warn( "GSOU", "[SCRIPT_CLASSES - parseTitleToParam]", "NOT MANAGED", dom_element.innerText );
-            
-        }
-    };
-    
     self.replaceAll = function ( string, target, replacement ) {
         return string.split( target ).join( replacement || '' );
     };
@@ -166,4 +109,4 @@ SERVICE.STRING = (function ( self ) {
 SCRIPT_DON_CLASSES.getAll();
 setTimeout( function () {
     console.log( "GSOU", "[ - ]", SCRIPT_DON_CLASSES.to_return );
-}, 30000 );
+}, 60000 );
