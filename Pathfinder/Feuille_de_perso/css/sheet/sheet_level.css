@@ -1,4 +1,4 @@
-/*********************	CONTAINER   ******************************************/
+/*********************	LIFE   ******************************************/
 .property-tab-pane[data-name="level_sheet"] .level-container-life {
     width  : 90%;
     margin : auto;
@@ -35,6 +35,48 @@
 }
 
 .property-tab-pane[data-name="level_sheet"] .level-container-life .life-table tr:hover td {
+    background : rgba(90, 10, 0, 0.04);
+    transition : 0.15s;
+}
+
+/*********************	SKILL   ******************************************/
+
+.property-tab-pane[data-name="level_sheet"] .level-container-skill {
+    width  : 90%;
+    margin : auto;
+}
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table {
+    width           : 100%;
+    border-collapse : collapse;
+    background      : rgba(255, 255, 255, 0.45);
+    border          : 1px solid rgba(90, 10, 0, 0.2);
+    border-radius   : 8px;
+    overflow        : hidden;
+    box-shadow      : 0 4px 10px rgba(0, 0, 0, 0.06);
+    margin-top      : 10px;
+    font-size       : 14px;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table th,
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table td {
+    padding       : 8px 10px;
+    text-align    : center;
+    border-bottom : 1px dashed rgba(90, 10, 0, 0.15);
+    color         : #4A3F34;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table th {
+    font-weight    : 700;
+    color          : #5A0A00; /* brun profond pathfinder */
+    background     : rgba(90, 10, 0, 0.06);
+    letter-spacing : 0.5px;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table tr:last-child td {
+    border-bottom : none;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-container-skill .skill-table tr:hover td {
     background : rgba(90, 10, 0, 0.04);
     transition : 0.15s;
 }
