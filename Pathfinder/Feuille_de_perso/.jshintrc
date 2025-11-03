@@ -35,6 +35,7 @@
     "RACES": false,
     "LEGACIES": false,
     "TABS": false,
+    "DON": false,
     "CONTROLLER": false,
     "AREA": false,
     "CHARACTERISTICS": false,
