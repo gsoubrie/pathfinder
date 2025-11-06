@@ -35,9 +35,7 @@ CHARACTER.LevelsHistory.prototype = {
         if ( !data ) {
             return;
         }
-        console.log("GSOU", "[LevelsHistory - updateData]", this );
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
-            console.log("GSOU", "[LevelsHistory - updateData]", data[ i ][ "level_name" ] );
             let current = this.getContentByUUID( data[ i ][ "level_name" ] );
             if ( !current ) {
                 current = this.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
@@ -54,7 +52,6 @@ CHARACTER.LevelsHistory.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHtml );
 
-"use strict";
 /**
  * @class CHARACTER.LevelHistory
  * @extends OBJECT.InterfaceHtml
@@ -88,6 +85,9 @@ CHARACTER.LevelHistory.prototype = {
                 break;
             case "life_class":
                 this.life_class = value;
+                break;
+            case "skill":
+                this.skills = new CHARACTER.LevelHistorySkills(this.uuid, value);
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

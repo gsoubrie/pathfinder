@@ -142,17 +142,17 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
     "level"          : "4",
     "levels_history" : [
         {
-            level_name      : 1,
-            "life_class"    : 10,
-            "class_capacity": [
-                {"historique" : "Acolyte"},
-                {"divinité" : "--"},
-                {"doctrine" : "Prêtre cloîtré"},
-                {"1ère doctrine" : "Don prêtre : Initié du domaine"},
-                "incantation de prêtre",
-                "maîtrises initiales",
-                "primes d'attribut",
-                "source divine"
+            level_name  : 1,
+            "life_class": 10,
+            "skill"     : [
+                { origin: "class", "historic": "Acolyte" },
+                { origin: "class", "divinity": "--" },
+                { origin: "class", "doctrine": "Prêtre cloîtré" },
+                { origin: "class", "doctrine-1": "Don prêtre : Initié du domaine" },
+                { origin: "class", "spell": "incantation de prêtre" },
+                { origin: "class", "mastering": "maîtrises initiales" },
+                { origin: "class", "bonus": "primes d'attribut" },
+                { origin: "class", "others": "source divine" }
             ]
         },
         {

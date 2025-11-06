@@ -11,14 +11,14 @@ CHARACTER.LevelWindow.prototype = {
     computeHtmlWithData: function ( character_object ) {
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-window" } );
         
-        this.computeHtml__life(character_object);
-        this.computeHtml__skill(character_object);
+        this.computeHtml__life( character_object );
+        this.computeHtml__skill( character_object );
         
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
-    computeHtml__life: function ( character_object ) {
+    computeHtml__life  : function ( character_object ) {
         const life_container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-container-life" } ), this.content_dom_element_target );
-        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), life_container );
+        const title          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), life_container );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de vie total : " + character_object.total_life ), life_container );
         
@@ -34,17 +34,17 @@ CHARACTER.LevelWindow.prototype = {
             const tr = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
             
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.getUUID() ), tr );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class  + character_object.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).modifier_value.value), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class + character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).modifier_value.value ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class ), tr );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, character_object.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).modifier_value.value), tr );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).modifier_value.value ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.bonus || "" ), tr );
         } );
         
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
-    computeHtml__skill: function ( character_object ) {
+    computeHtml__skill : function ( character_object ) {
         const container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-container-skill" } ), this.content_dom_element_target );
-        const title = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "skill-title" }, "<hr>" ), container );
+        const title     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "skill-title" }, "<hr>" ), container );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "" }, "Compéténce : " ), container );
         
@@ -52,23 +52,26 @@ CHARACTER.LevelWindow.prototype = {
         
         const headerRow = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
         
-        ["Niv", "Value"].forEach( label => {
+        ["Niv", "Origine", "Value"].forEach( label => {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "th", {}, label ), headerRow );
         } );
-        
-        character_object.getLevelHistory().contents.forEach( lvl => {
-            const tr = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
-            
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.getUUID() ), tr );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {},  "" ), tr );
-        } );
-        
+        for ( let i = 0, _size_i = character_object.getLevelHistory().getSize(); i < _size_i; i++ ) {
+            let current = character_object.getLevelHistory().getContent( i );
+            if ( !current.skills ){
+                continue;
+            }
+            console.log( "GSOU", "[LevelWindow - computeHtml__skill]", current );
+            for ( let j = 0, _size_j = current.skills.getSize(); j < _size_j; j++ ) {
+                current.skills.getContent( j ).computeHtml();
+                console.log("GSOU", "[LevelWindow - computeHtml__skill]",current.skills.getContent( j ).dom_element );
+                SERVICE.DOM.addElementTo( current.skills.getContent( j ).dom_element, table );
+            }
+        }
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     }
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.LevelWindow, WINDOW_V2.ElementFromData );
-
 
 //┌─────────────────────────────── Points de Vie ───────────────────────────────┐
 //│ Points de Vie :      94                                                     │
