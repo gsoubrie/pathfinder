@@ -16,19 +16,25 @@ CHARACTER.LevelsHistory.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID      : function () {
+    getUUID          : function () {
         return this.uuid;
     },
-    getDataToSave: function () {
+    getDataToSave    : function () {
         let to_return = {};
         return to_return;
     },
-    getTotalLife: function () {
+    getTotalLife     : function () {
         let to_return = 0;
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            to_return += this.getContent(i).life_class;
+            to_return += this.getContent( i ).life_class;
         }
         return to_return;
+    },
+    getSpecialContent: function ( key_name ) {
+        switch ( key_name ) {
+            case HISTORICS.key_element :
+                return this.getContent( 0 ).skills.getContentByUUID( "1 - " + key_name );
+        }
     },
     //********************************************  UPDATE DATA   **************************************************//
     updateData: function ( data ) {
@@ -56,8 +62,8 @@ SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHt
  * @class CHARACTER.LevelHistory
  * @extends OBJECT.InterfaceHtml
  */
-CHARACTER.LevelHistory = function (uuid) {
-    this.init(uuid);
+CHARACTER.LevelHistory = function ( uuid ) {
+    this.init( uuid );
 };
 CHARACTER.LevelHistory.prototype = {
     init: function ( uuid ) {
@@ -87,7 +93,7 @@ CHARACTER.LevelHistory.prototype = {
                 this.life_class = value;
                 break;
             case "skill":
-                this.skills = new CHARACTER.LevelHistorySkills(this.uuid, value);
+                this.skills = new CHARACTER.LevelHistorySkills( this.uuid, value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

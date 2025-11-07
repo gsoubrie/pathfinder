@@ -21,11 +21,11 @@ CHARACTER.Current.prototype = {
         this.uuid = uuid;
         this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
-        this.doActionAfter("event__data_loaded__done");
+        this.doActionAfter( "event__data_loaded__done" );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        console.log("GSOU", "[Current - doActionAfter]", event_name );
+        console.log( "GSOU", "[Current - doActionAfter]", event_name );
         switch ( event_name ) {
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
@@ -72,11 +72,11 @@ CHARACTER.Current.prototype = {
         this.levels_history.addParamForEvents( key, value );
     },
     //********************************************  COMPUTE   **************************************************//
-    computeTotalLife                    : function () {
+    computeTotalLife: function () {
         this.total_life = 0;
         for ( let i = 0, _size_i = this.level; i < _size_i; i++ ) {
-            this.total_life += this.getCharacteristics().getContentByUUID(CHARACTERISTICS.CON.name).getModifierValue();
-            this.total_life += this.getLevelHistory().getContent(i).life_class;
+            this.total_life += this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).getModifierValue();
+            this.total_life += this.getLevelHistory().getContent( i ).life_class;
         }
     },
     //********************************************  UPDATE DATA   **************************************************//
@@ -107,7 +107,7 @@ CHARACTER.Current.prototype = {
                 this[ key ] = value;
                 break;
             case "level":
-                this[ key ] = parseInt(value);
+                this[ key ] = parseInt( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -121,6 +121,9 @@ CHARACTER.Current.prototype = {
     },
     getClass                   : function () {
         return this.class;
+    },
+    getHistoric                : function () {
+        return this.getLevelHistory().getSpecialContent( HISTORICS.key_element );
     },
     getCharacteristics         : function () {
         return this.characteristics;
