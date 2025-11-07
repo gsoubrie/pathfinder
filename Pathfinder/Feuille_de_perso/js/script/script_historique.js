@@ -1,14 +1,14 @@
 "use strict";
 var SCRIPT_HISTORIQUES = (function ( self ) {
     self.getAllDOM           = function () {
-        return document.querySelectorAll( ".mat-mdc-row.mdc-data-table__row.cdk-row.element-row" );
+        return document.querySelectorAll( ".mdc-data-table__row.element-row" );
     };
     self.getAll              = function () {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        for ( let i = 180, _size_i = doms.length; i < 190; i++ ) {
-            //for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
+        //for ( let i = 0, _size_i = 2; i < _size_i; i++ ) {
+        for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
                 self.parseDom( doms[ i ] );
             }, timeout );
@@ -19,6 +19,7 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         self.previous_title        = "description";
         let to_return              = {};
         to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText.replaceAll( '"', "" );
+        console.log("GSOU", "[SCRIPT_HISTORIQUES - parseDom]", to_return[ "name" ] );
         to_return[ "requirement" ] = [];
         to_return[ "description" ] = [];
         to_return[ "gift_skill" ]  = [];
@@ -182,6 +183,45 @@ var CHARACTERISTIC = {
         label: "Libre"
     }
 };
+var CHARACTERISTICS = {
+    key          : "characteristics",
+    label        : "Caractéritiques",
+    key_element  : "characteristic",
+    label_element: "Caractéritique",
+    INITIAL_VALUE: 10,
+    ENUM         : [
+        {
+            "name" : "FOR",
+            "label": "Force"
+        },
+        {
+            "name" : "DEX",
+            "label": "Dextérité"
+        },
+        {
+            "name" : "CON",
+            "label": "Constitution"
+        },
+        {
+            "name" : "INT",
+            "label": "Intelligence"
+        },
+        {
+            "name" : "SAG",
+            "label": "Sagesse"
+        },
+        {
+            "name" : "CHA",
+            "label": "Charisme"
+        }
+    ]
+};
+CHARACTERISTICS.FOR = CHARACTERISTICS.ENUM[ 0 ];
+CHARACTERISTICS.DEX = CHARACTERISTICS.ENUM[ 1 ];
+CHARACTERISTICS.CON = CHARACTERISTICS.ENUM[ 2 ];
+CHARACTERISTICS.INT = CHARACTERISTICS.ENUM[ 3 ];
+CHARACTERISTICS.SAG = CHARACTERISTICS.ENUM[ 4 ];
+CHARACTERISTICS.CHA = CHARACTERISTICS.ENUM[ 5 ];
 var SKILLS         = {
     LIST            : {
         ACROBATICS  : {

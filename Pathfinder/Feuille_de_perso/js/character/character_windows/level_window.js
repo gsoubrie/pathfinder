@@ -52,7 +52,7 @@ CHARACTER.LevelWindow.prototype = {
         
         const headerRow = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ), table );
         
-        ["Niv", "Origine", "Value"].forEach( label => {
+        ["Niv", "Origine", "type","Value"].forEach( label => {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "th", {}, label ), headerRow );
         } );
         for ( let i = 0, _size_i = character_object.getLevelHistory().getSize(); i < _size_i; i++ ) {
@@ -60,11 +60,11 @@ CHARACTER.LevelWindow.prototype = {
             if ( !current.skills ){
                 continue;
             }
-            console.log( "GSOU", "[LevelWindow - computeHtml__skill]", current );
             for ( let j = 0, _size_j = current.skills.getSize(); j < _size_j; j++ ) {
-                current.skills.getContent( j ).computeHtml();
-                console.log("GSOU", "[LevelWindow - computeHtml__skill]",current.skills.getContent( j ).dom_element );
-                SERVICE.DOM.addElementTo( current.skills.getContent( j ).dom_element, table );
+                /** @type {CHARACTER.LevelHistorySkill} */
+                let current_skill = current.skills.getContent( j );
+                current_skill.computeHtml();
+                SERVICE.DOM.addElementTo( current_skill.dom_element, table );
             }
         }
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );

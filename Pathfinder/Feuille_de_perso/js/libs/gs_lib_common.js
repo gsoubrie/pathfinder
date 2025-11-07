@@ -5614,9 +5614,6 @@ Date.prototype.isWeekEnd                 = function () {
 DATE_TIME.getTimezoneOffsetInHour        = function ( value ) {
     return value.getTimezoneOffset() / 60;
 };
-window.addEventListener( "resize", function () {
-    DOM.BodyService.reset();
-} );
 
 GS.TOOLS.FORM                      = (function ( self ) {
     "use strict";
@@ -7513,263 +7510,6 @@ GS.OBJECT.SlidePanel.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.GsObjectHtml );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.SlidePanel, GS.OBJECT.PhaseInterface );
-GS.COMUNICATION                                      = (function ( self ) {
-    self.requestGet_withTimeout = function ( timeout, url, success, error, not_found_callback, unauthorized_callback ) {
-        setTimeout( () => {
-            self.requestGet( url, success, error, not_found_callback, unauthorized_callback );
-        }, timeout );
-    };
-    self.requestGet             = function ( url, success, error, not_found_callback, unauthorized_callback ) {
-        var request = new XMLHttpRequest();
-        
-        request.open( 'GET', url, true );
-        request.onload  = self.onRequestSuccess( success, not_found_callback, unauthorized_callback );
-        request.onerror = error || self.onRequestError;
-        request.send();
-    };
-    self.requestPost            = function ( url, data, success, error, not_found_callback, unauthorized_callback ) {
-        var request            = new XMLHttpRequest();
-        self._success_callback = success;
-        
-        request.open( 'POST', url, true );
-        request.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8' );
-        request.onload  = self.onRequestSuccess( success, not_found_callback, unauthorized_callback );
-        request.onerror = error || self.onRequestError;
-        request.send( data );
-    };
-    self.requestPostJSON        = function ( url, data, success, error, not_found_callback, unauthorized_callback ) {
-        var request = new XMLHttpRequest();
-        request.open( 'POST', url, true );
-        request.setRequestHeader( 'Content-Type', "application/json;charset=UTF-8" );
-        request.onload  = self.onRequestSuccess( success, not_found_callback, unauthorized_callback );
-        request.onerror = error || self.onRequestError;
-        
-        request.send( data );
-    };
-    self.onRequestError         = function () {
-        GS.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
-    };
-    
-    self.onRequestSuccess = function ( success, not_found_callback, unauthorized_callback ) {
-        return function () {
-            try {
-                var _data = JSON.parse( this.response );
-            }
-            catch ( e ) {
-                _data = this.response;
-            }
-            switch ( this.status ) {
-                case COMMUNICATION.CODE.UNAUTHORIZED:
-                    _do_action_401( unauthorized_callback, _data );
-                    return;
-                case COMMUNICATION.CODE.INTERNAL_SERVER_ERROR:
-                    _do_action_500( _data );
-                    return;
-                default:
-                    switch ( _data.rc ) {
-                        case COMMUNICATION.CODE.UNAUTHORIZED:
-                            _do_action_401( unauthorized_callback, _data );
-                            return;
-                        case COMMUNICATION.CODE.NOT_FOUND:
-                            if ( not_found_callback ) {
-                                not_found_callback( this.status, _data );
-                                return;
-                            }
-                            break;
-                    }
-                    break;
-            }
-            success( this.status, _data );
-        };
-    };
-    var _do_action_401    = function ( unauthorized_callback, data ) {
-        if ( unauthorized_callback ) {
-            unauthorized_callback( COMMUNICATION.CODE.UNAUTHORIZED, data );
-            
-        }
-    };
-    var _do_action_500    = function ( data ) {
-        GS.TOOLS.NOTIFICATION.addNotification( data, GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
-    };
-    return self;
-})( GS.COMUNICATION || {} );
-GS.COMMUNICATION_WITH_IFRAME_PARENT                  = (function ( self ) {
-    self.console                     = function ( ...arg ) {
-    };
-    self.informParentIframeUrlChange = function ( controller_name ) {
-        try {
-            window.parent.CONTROLLER.UiVisualisation.iframeChangeUrl( window.location.href, controller_name );
-        }
-        catch ( e ) {
-            self.console( "[informParentIframeUrlChange]", e );
-        }
-    };
-    self.redirectIfNeeded            = function () {
-        var need_redirect = false;
-        try {
-            if ( window.parent.CONTROLLER.UiVisualisation === undefined ) {
-                need_redirect = true;
-            }
-        }
-        catch ( e ) {
-            need_redirect = true;
-        }
-        if ( need_redirect ) {
-            GS.HIGHWAY.goTo( window.location.href.replace( window.location.origin, window.location.origin + "/static/ui/index.html#" ) );
-        }
-    };
-    self.clickDone                   = function ( event ) {
-        try {
-            window.parent.CONTROLLER.UiVisualisation.clickDoneOnIframe( event );
-        }
-        catch ( e ) {
-            self.console( "[clickDone]", e );
-        }
-    };
-    self.doActionAfter               = function ( event_name, param ) {
-        try {
-            return window.parent.CONTROLLER.UiVisualisation.doActionAfter( event_name, param );
-        }
-        catch ( e ) {
-            try {
-                return window.parent.window.parent.CONTROLLER.UiVisualisation.doActionAfter( event_name, param ); //FOR THE WEATHER...
-            }
-            catch ( e ) {
-                self.console( "[doActionAfter]", e );
-            }
-        }
-    };
-    self.getFromParent               = function ( name ) {
-        try {
-            return window.parent.CONTROLLER.UiVisualisation.getFromParent( name );
-        }
-        catch ( e ) {
-            try {
-                return window.parent.window.parent.CONTROLLER.UiVisualisation.getFromParent( name ); //FOR THE WEATHER...
-            }
-            catch ( e ) {
-                self.console( "getFromParent", e );
-            }
-        }
-        return null;
-    };
-    
-    return self;
-})( GS.COMMUNICATION_WITH_IFRAME_PARENT || {} );
-GS.COMMUNICATION_WITH_IFRAME_CHILD                   = (function ( self ) {
-    self.doActionAfter = function ( id_iframe, event_name, callback_to_eval ) {
-        try {
-            var _iframe          = DOM.BodyService.getDomElement().querySelector( "#" + id_iframe );
-            var _controller_name = _iframe.contentWindow.document.querySelector( ".gs-parent-event-listener" ).dataset.controller;
-            var _controller      = _iframe.contentWindow.CONTROLLER.DistributorControllerManager.getController( _controller_name );
-            _controller.doActionAfter( event_name, callback_to_eval );
-        }
-        catch ( e ) {
-            
-        }
-    };
-    
-    return self;
-})( GS.COMMUNICATION_WITH_IFRAME_CHILD || {} );
-GS.COMUNICATION.CONST                                = {
-    QUERY: {
-        SEPARATOR: {
-            GET_BEGINNER: '?',
-            GET_ADD     : '&',
-            PARAM_SETTER: '=',
-            SLASH       : '/'
-        },
-        PARAMETER: {
-            SHINKEN_TIMESTAMP: "gs-timestamp",
-            WIDTH            : "width",
-            HEIGHT           : "height"
-        },
-        GET      : {
-            LICENCE           : "/api/key",
-            DASHBOARD         : "/screen/dashboard",
-            LIST_CONFIG       : "/screen/list",
-            LIST_ALL_DATAS    : "/api/list-elements-all",
-            LIST_EVENTS       : "/event-container",
-            HIVE              : "/screen/hive",
-            HIVE_ALL_ELEMENT  : "/api/state/elements",
-            HOST              : "/api/host/",
-            SERVICE           : "/api/service/",
-            ELEMENTS_RECHECKED: "/api/elements_rechecked",
-            SHARE             : "/share",
-            LIST_HOSTS        : {
-                KEY             : "/lookup/",
-                FILTER_CHECK    : "with_checks_only",
-                FILTER_CHECK_OFF: 0,
-                FILTER_CHECK_ON : 1
-            },
-            LIST_CHECK        : {
-                KEY            : "/lookup-service/",
-                KEY_WITH_METRIC: "api/widget/graphs/checks-with-metrics/"
-            },
-            USER              : {
-                KEY: "/user"
-            },
-            USERS             : {
-                KEY: "/users"
-            },
-            IS_SERVER_READY   : "/api/is_backend_available",
-            DETAIL_HISTORIC   : {
-                KEY                  : "/inner/history/",
-                RANGES               : "ranges/",
-                BEGIN                : "start",
-                END                  : "end",
-                DATE                 : "date",
-                DISPLAY_FULL_RANGES  : "display_full_ranges",
-                CURRENT_RANGE_DISPLAY: "current_range_display",
-                RANGES_PAGE_SIZE     : "ranges_page_size",
-                MAX_RANGE_DISPLAY    : "max_range_display"
-            },
-            DETAIL_GRAPHS     : {
-                KEY       : "/api/graphs/panel/detail/loading/",
-                METRIC    : 'metric',
-                WIDTH_HOST: 'width_host'
-            },
-            WIDGET            : {
-                CATALOG: "/api/widgets/"
-            },
-            WEATHER           : {
-                BASIC_STATISTICS: "/service-weather/api/V1/get-basic-statistics"
-            },
-            DEP_GRAPH         : {
-                DEEP: "/deep"
-            }
-        },
-        PUT      : {
-            SHARE: "/share"
-        },
-        POST     : {
-            SHARE         : "/share",
-            ACTION_COMMAND: {
-                URL             : "action",
-                TYPE_COMMAND    : "type_action",
-                ELEMENT_ID      : "element_id",
-                ARGS            : "args",
-                CONFIGURATION_ID: "configuration_id"
-            },
-            WEATHER       : {
-                CREATION: "/service-weather/api/V1/create",
-                CLONE   : "/service-weather/api/V1/clone"
-            },
-            HIVE          : {
-                KEY  : "/screen/hive/",
-                CLONE: "/clone"
-            },
-            LIST          : {
-                KEY  : "/screen/list/",
-                CLONE: "/screen/list/clone"
-            }
-        },
-        TIMER    : {
-            RECHECK_TIME_MANAGE: 5000,
-            RECHECK_INTERVAL   : 2000
-        }
-    }
-};
 GS.NETWORK                                           = {
     HTTP_CODE : {
         NONE                       : -1,
@@ -8160,7 +7900,7 @@ GS.OBJECT.Dropdown._interface.prototype              = {
     initDomElement: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { "id": this.getUUID(), "class": this.getClass() }, GS.OBJECT.Dropdown.CONST.HTML ) );
         this.setPhaseDomElement( this.getDomElement() );
-        DOM.BodyService.addChild( this.getDomElement() );
+        document.body.appendChild( this.getDomElement() );
         SERVICE.DOM.addElementTo( this.dom_element_content, this.getDomElement().querySelector( ".shi-tip-text" ) );
         this.doActionAfter( "do_action_after_init_dom_element" );
     },
@@ -16681,7 +16421,7 @@ GS.OBJECT.ConfirmationPopup.prototype        = {
             "data-controller": this.controller
         } ) );
         this.computeHtmlPopup();
-        SERVICE.DOM.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
+        SERVICE.DOM.addElementTo( this.dom_element, document.body );
     },
     computeHtmlPopup      : function () {
         this.dom_element_popup = this.addDomElement( SERVICE.DOM.createElement( "div", { "class": "gs-confirmation-popup" } ) );
@@ -16808,7 +16548,7 @@ GS.OBJECT.ConfirmationPopup_V3.prototype = {
         this.computeHtmlHeader();
         this.computeHtmlContent();
         this.computeHtmlFooter();
-        SERVICE.DOM.addElementTo( this.dom_element, DOM.BodyService.getDomElement() );
+        SERVICE.DOM.addElementTo( this.dom_element, document.body );
     },
     computeHtmlHeader: function () {
         var _container         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "gs-header-confirmation-popup flex-layout-center-h-v flex-layout-justify-between" } ), this.dom_element_popup );
@@ -17877,11 +17617,11 @@ GS.OBJECT.NOTIFICATION.Container.prototype = {
     createNotificationContainer: function ( skip_close ) {
         if ( !skip_close ) {
             this.dom_element = SERVICE.DOM.createElement( "div", { id: "id-gs-notification-popup-container" } );
-            DOM.BodyService.addChild( this.dom_element );
+            document.body.appendChild( this.dom_element );
         }
         else {
             this.dom_element = SERVICE.DOM.createElement( "div", { id: "id-gs-notification-popup-container", "onclick": "this.firstChild.classList.add('gs-removed');event.stopPropagation();" } );
-            DOM.BodyService.addChild( this.dom_element );
+            document.body.appendChild( this.dom_element );
         }
         
     },
@@ -18512,8 +18252,6 @@ GS.OBJECT.OverlayFrame.prototype = {
         if ( add_or_remove && this.drag_in_progress ) {
             return;
         }
-        DOM.BodyService.addOrRemoveClasses( add_or_remove, "gs-has-drag-in-progress-overlay-frame-move" );
-        DOM.BodyService.addOrRemoveClasses( add_or_remove, "gs-has-drag-in-progress-overlay-frame" );
         this.drag_in_progress = add_or_remove;
     },
     getDelta__parseToParams  : function ( params ) {
@@ -18582,7 +18320,6 @@ GS.OBJECT.OverlayFrameForGrid.prototype = {
         return cell_in_frame;
     },
     addOrRemoveDragInProgress: function ( add_or_remove ) {
-        DOM.BodyService.addOrRemoveClasses( add_or_remove, "gs-has-drag-in-progress-overlay-frame" );
     },
     getBoundingZone          : function () {
         return {
@@ -18743,7 +18480,6 @@ GS.OBJECT.SpaceBox           = function ( type, max_width ) {
 };
 GS.OBJECT.SpaceBox.prototype = {
     addOrRemoveDragInProgress     : function ( add_or_remove ) {
-        DOM.BodyService.addOrRemoveClasses( add_or_remove, "gs-has-drag-in-progress-overlay-frame" );
     },
     computeHtml                   : function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "gs-space-box " + this.type } ) );
@@ -21234,20 +20970,6 @@ GS.ELEMENT.UiUsers.prototype = {
         return false;
     },
     getDataFromBackend: function ( parent_object ) {
-        var self     = this;
-        var _success = function ( _status, data ) {
-            switch ( _status ) {
-                case COMMUNICATION.CODE.SUCCESS:
-                    for ( var i = 0, _size_i = data[ "output" ][ "users" ].length; i < _size_i; i++ ) {
-                        self.add( new GS.ELEMENT.UiUser( data[ "output" ][ "users" ][ i ] ) );
-                    }
-                    parent_object.doActionAfterCall( "GS.ELEMENT.UiUsers.getDataFromBackend" );
-                    break;
-            }
-        };
-        var _error   = function ( _status, data ) {
-        };
-        GS.COMUNICATION.requestGet( GS.COMUNICATION.CONST.QUERY.GET.USERS.KEY, _success, _error, null );
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.ELEMENT.UiUsers, GS.OBJECT.GsObjectContainer );
@@ -21323,17 +21045,6 @@ GS.OBJECT.ViewHistory.prototype = {
         this.list__20240822.getPagination().addChildrenParamForEvents( GS.OBJECT.VIEW_HISTORY.PARAM.NAME, this.getName() );
     },
     getDataFromBackend__20241001         : function ( url ) {
-        this.addLoading();
-        url          = url || this.getBackendUrl();
-        var _success = ( _status, data ) => {
-            this.formatAndApplyData( data.output );
-            this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
-        };
-        var _error   = () => {
-            GS.TOOLS.NOTIFICATION.addNotification( _( "communication.no_backend_response", [DICTIONARY_COMMON_UI] ), GS.OBJECT.NOTIFICATION.CONST.STATUS.ERROR );
-            this.doActionAfter( "communication_no_backend_response" );
-        };
-        GS.COMUNICATION.requestGet( url, _success, _error );
     },
     formatAndApplyData                   : function ( data ) {
         this.list__20240822.computeLines( this.parseBackendData( data ) );

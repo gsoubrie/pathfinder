@@ -85,7 +85,6 @@ CHARACTER.LevelHistorySkill.prototype = {
             case "origin":
                 this.origin = value;
                 break;
-            case "historic":
             case "divinity":
             case "doctrine":
             case "doctrine-1":
@@ -96,17 +95,24 @@ CHARACTER.LevelHistorySkill.prototype = {
                 this.name = key;
                 this.value = value;
                 break;
+            case "historic":
+                this.name = key;
+                this.setHistoric(value);
+                break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
+    setHistoric: function ( key, value ) {
+    
+    },
     //********************************************  HTML   **************************************************//
     computeHtml : function ( key, value ) {
-        console.log("GSOU", "[LevelHistorySkill - computeHtml]", "[xxxxx]" );
-        this.dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "tr" ) );
+        this.dom_element =  SERVICE.DOM.createElement( "tr" );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, this.level_value ), this.dom_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {},  this.origin ), this.dom_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {},  this.name ), this.dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {},  this.value ), this.dom_element );
     },
     updateHtmlData : function ( key, value ) {
     },
