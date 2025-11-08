@@ -105,7 +105,7 @@ CHARACTER.LevelHistorySkill.prototype = {
     },
     setHistoric: function ( value ) {
         this.value = value;
-        this.label = SERVICE.DOM_HELPER.createPropertyVertical( this.value, this.value, SERVICE.DOM.createElement( "div", {}, this.value ), HISTORICS.label_element, false );
+        this.label = SERVICE.DOM_HELPER.createPropertyVertical( this.name, this.value, SERVICE.DOM.createElement( "div", {}, this.value ), HISTORICS.label_element, false );
     },
     //********************************************  HTML   **************************************************//
     computeHtml    : function ( key, value ) {

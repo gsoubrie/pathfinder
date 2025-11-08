@@ -5,6 +5,7 @@ POPUP.PropertyEdition           = function ( params ) {
 POPUP.PropertyEdition.prototype = {
     init: function ( params ) {
         let property_value = "";
+        console.log(params);
         switch ( params[ "property_name" ] ) {
             case RACES.key_element:
                 this.current_property = RACES;
@@ -18,6 +19,10 @@ POPUP.PropertyEdition.prototype = {
                 this.current_property = CLASSES;
                 this.windows          = new CLASSES.WindowGroup();
                 break;
+            case HISTORICS.key_element:
+                this.current_property = HISTORICS;
+                this.windows          = new HISTORICS.WindowGroup();
+                break;                
             case RACES.PARAM.BODY_SIZE.key:
                 return;
             default:
