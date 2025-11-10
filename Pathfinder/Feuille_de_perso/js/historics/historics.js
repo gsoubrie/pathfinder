@@ -33,7 +33,7 @@ HISTORICS.Historic.prototype = {
                 this.setName( value );
                 break;
             case "characteristics_bonus":
-                this[key] = value;
+                this[ key ] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );
@@ -73,19 +73,30 @@ HISTORICS.HistoricsPopup.prototype = {
         this.updateData( data );
     },
     //********************************************  HTML   **************************************************//
-
-    setData: function ( key, value ) {
+    setData  : function ( key, value ) {
         switch ( key ) {
             case "name":
             case "requirement":
             case "description":
             case "gift_skill":
             case "characteristics_bonus":
-            case "skills":
                 this[ key ] = value;
+                break;
+            case "skills":
+                this.setSkills( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );
+        }
+    },
+    setSkills: function ( value ) {
+        this.skills      = value;
+        this.skills_html = new SERVICE.DOM.createElement( "div", { class: "skills-popup" } );
+        for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
+            let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-gift" } ), this.skills_html );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-label" }, this.skills[ i ].label ), container );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-characteristic" }, this.skills[ i ].characteristic ), container );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-rank" }, this.skills[ i ].rank ), container );
         }
     },
     //********************************************  HTML   **************************************************//
@@ -95,7 +106,9 @@ HISTORICS.HistoricsPopup.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.description, "Descriptions" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.gift_skill, "Prime d'attribut" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.characteristics_bonus, "Bonus" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.skills, "Dons" ), this.getDomElement() );
+        if ( this.skills ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.skills_html.outerHTML, "Dons" ), this.getDomElement() );
+        }
         return this.getDomElement();
     }
 };

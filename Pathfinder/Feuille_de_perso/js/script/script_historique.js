@@ -19,7 +19,6 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         self.previous_title        = "description";
         let to_return              = {};
         to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText.replaceAll( '"', "" );
-        console.log("GSOU", "[SCRIPT_HISTORIQUES - parseDom]", to_return[ "name" ] );
         to_return[ "requirement" ] = [];
         to_return[ "description" ] = [];
         to_return[ "gift_skill" ]  = [];
@@ -94,11 +93,10 @@ var SCRIPT_HISTORIQUES = (function ( self ) {
         }
     };
     self.parseTextToSkill    = function ( text, rank_skill, object_to_complete ) {
-        object_to_complete[ "skills" ]               = object_to_complete[ "skills" ] || {};
-        object_to_complete[ "skills" ][ rank_skill ] = object_to_complete[ "skills" ][ rank_skill ] || [];
-        let skills                                   = SKILLS.parseTextInSkill( text );
+        object_to_complete[ "skills" ] = object_to_complete[ "skills" ] || [];
+        let skills                     = SKILLS.parseTextInSkill( text, rank_skill );
         for ( let i = 0, _size_i = skills.length; i < _size_i; i++ ) {
-            object_to_complete[ "skills" ][ rank_skill ].push( skills[ i ] );
+            object_to_complete[ "skills" ].push( skills[ i ] );
         }
         
     };
@@ -153,7 +151,7 @@ SERVICE.STRING = (function ( self ) {
     return self;
 })( SERVICE.STRING || {} );
 
-var CHARACTERISTIC = {
+var CHARACTERISTIC  = {
     FORCE       : {
         key  : "FOR",
         label: "Force"
@@ -222,7 +220,7 @@ CHARACTERISTICS.CON = CHARACTERISTICS.ENUM[ 2 ];
 CHARACTERISTICS.INT = CHARACTERISTICS.ENUM[ 3 ];
 CHARACTERISTICS.SAG = CHARACTERISTICS.ENUM[ 4 ];
 CHARACTERISTICS.CHA = CHARACTERISTICS.ENUM[ 5 ];
-var SKILLS         = {
+var SKILLS          = {
     LIST            : {
         ACROBATICS  : {
             label         : "Acrobaties",
@@ -299,12 +297,13 @@ var SKILLS         = {
             armor_penalty : true
         }
     },
-    parseTextInSkill: function ( text ) {
+    parseTextInSkill: function ( text, rank_skill ) {
         let to_return = [];
         let split     = text.split( " " );
         for ( let i = 0, _size_i = split.length; i < _size_i; i++ ) {
             let is_as_skill = SKILLS.isASkill( split[ i ] );
             if ( is_as_skill ) {
+                is_as_skill.rank = rank_skill;
                 to_return.push( is_as_skill );
             }
             if ( is_as_skill.need_qualifier ) {

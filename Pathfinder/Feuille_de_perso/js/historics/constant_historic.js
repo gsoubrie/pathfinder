@@ -22,20 +22,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Religion",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "du copiste"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Religion",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "du copiste"
+                }
+            ]
         },
         {
             "name"                 : "Acrobate",
@@ -54,21 +54,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Acrobaties",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "du cirque"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Acrobaties",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "du cirque"
+                }
+            ]
         },
         {
             "name"       : "Amnésique",
@@ -96,22 +96,22 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Artisanat",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "et en Connaissance des guildes"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des guildes"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Artisanat",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "et en Connaissance des guildes"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des guildes"
+                }
+            ]
         },
         {
             "name"                 : "Artiste",
@@ -130,22 +130,22 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Artisanat",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "et en Connaissance artistique"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "artistique"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Artisanat",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "et en Connaissance artistique"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "artistique"
+                }
+            ]
         },
         {
             "name"                 : "Astrologue",
@@ -164,20 +164,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'astrologie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'astrologie"
+                }
+            ]
         },
         {
             "name"                 : "Avocat",
@@ -196,14 +196,13 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Diplomatie",
-                        "characteristic": "CHA"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Diplomatie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Bandit",
@@ -222,32 +221,34 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Intimidation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Intimidation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "en lien avec le terrain sur lequel vous avez évolué (tel que"
+                }
+            ]
         },
         {
             "name"                 : "Barbier",
@@ -266,20 +267,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Médecine",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la chirurgie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Médecine",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la chirurgie"
+                }
+            ]
         },
         {
             "name"                 : "Bateleur",
@@ -298,20 +299,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Représentation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "théâtrale"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Représentation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "théâtrale"
+                }
+            ]
         },
         {
             "name"                 : "Béni",
@@ -331,28 +332,29 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "associée à la divinité qui vous a béni (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "associée à la divinité qui vous a béni (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "associée à la divinité qui vous a béni (comme"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "associée à la divinité qui vous a béni (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "associée à la divinité qui vous a béni (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "associée à la divinité qui vous a béni (comme"
+                }
+            ]
         },
         {
             "name"                 : "Bricoleur",
@@ -371,22 +373,22 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Artisanat",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "et en Connaissance de l'ingénierie"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'ingénierie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Artisanat",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "et en Connaissance de l'ingénierie"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'ingénierie"
+                }
+            ]
         },
         {
             "name"                 : "Charlatan",
@@ -405,20 +407,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Duperie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la pègre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Duperie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la pègre"
+                }
+            ]
         },
         {
             "name"                 : "Chasseur",
@@ -437,20 +439,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la tannerie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la tannerie"
+                }
+            ]
         },
         {
             "name"                 : "Chasseur de primes",
@@ -469,20 +471,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "juridique"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "juridique"
+                }
+            ]
         },
         {
             "name"                 : "Chevaucheur des plaines",
@@ -501,20 +503,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Nature",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des plaines"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Nature",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des plaines"
+                }
+            ]
         },
         {
             "name"                 : "Comptable",
@@ -533,20 +535,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la comptabilité"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la comptabilité"
+                }
+            ]
         },
         {
             "name"                 : "Criminel",
@@ -565,21 +567,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Discrétion",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la Pègre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Discrétion",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la Pègre"
+                }
+            ]
         },
         {
             "name"                 : "Cueilleur de racines",
@@ -598,20 +600,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'herboristerie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'herboristerie"
+                }
+            ]
         },
         {
             "name"                 : "Cuisinier",
@@ -630,20 +632,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la cuisine"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la cuisine"
+                }
+            ]
         },
         {
             "name"                 : "Cultiste",
@@ -662,20 +664,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec votre divinité ou votre culte"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "en lien avec votre divinité ou votre culte"
+                }
+            ]
         },
         {
             "name"                 : "De sang royal",
@@ -696,14 +698,13 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Détective",
@@ -722,20 +723,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la pègre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la pègre"
+                }
+            ]
         },
         {
             "name"                 : "Disciple martial",
@@ -756,20 +757,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Acrobaties",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Acrobaties",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Dresseur",
@@ -788,32 +789,34 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Nature",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des plaines ou"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des plaines ou"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des plaines ou"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Nature",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des plaines ou"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des plaines ou"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des plaines ou"
+                }
+            ]
         },
         {
             "name"                 : "Éclaireur",
@@ -832,32 +835,34 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain dans lequel vous avez déjà effectué une reconnaissance (comme"
+                }
+            ]
         },
         {
             "name"                 : "Écuyer",
@@ -876,27 +881,28 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'héraldique ou"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'héraldique ou"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'héraldique ou"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'héraldique ou"
+                }
+            ]
         },
         {
             "name"                 : "Élevé dans la Foi",
@@ -913,16 +919,15 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "d'Abadar, par exemple)"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "d'Abadar, par exemple)"
+                }
+            ]
         },
         {
             "name"                 : "Émissaire",
@@ -941,20 +946,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "en lien avec une cité dans laquelle vous vous êtes souvent rendu"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "en lien avec une cité dans laquelle vous vous êtes souvent rendu"
+                }
+            ]
         },
         {
             "name"                 : "Enfant des rues",
@@ -973,33 +978,35 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Vol",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Vol",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "correspondant à la cité dans laquelle vous avez vécu comme enfant des rues (comme"
+                }
+            ]
         },
         {
             "name"       : "Enfant sauvage",
@@ -1012,18 +1019,18 @@ var HISTORICS = {
             "gift_skill" : [
                 "Glaneur"
             ],
-            "skills"     : {
-                "qualify": [
-                    {
-                        "label"         : "Nature",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    }
-                ]
-            }
+            "skills"     : [
+                {
+                    "label"         : "Nature",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Enseignant",
@@ -1042,20 +1049,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "universitaire"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "universitaire"
+                }
+            ]
         },
         {
             "name"                 : "Ermite",
@@ -1074,32 +1081,34 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée au type de terrain où vous avez vécu quand vous étiez un ermite (comme"
+                }
+            ]
         },
         {
             "name"                 : "Érudit",
@@ -1119,18 +1128,18 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Religion",
-                        "characteristic": "SAG"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Religion",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Garçon de course",
@@ -1150,20 +1159,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la cité dans laquelle vous avez été élevé"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la cité dans laquelle vous avez été élevé"
+                }
+            ]
         },
         {
             "name"                 : "Garde",
@@ -1182,26 +1191,27 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Intimidation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "juridique ou"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "juridique ou"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Intimidation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "juridique ou"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "juridique ou"
+                }
+            ]
         },
         {
             "name"                 : "Gladiateur",
@@ -1220,20 +1230,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Représentation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des gladiateurs"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Représentation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des gladiateurs"
+                }
+            ]
         },
         {
             "name"                 : "Hanté",
@@ -1256,14 +1266,13 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Herboriste",
@@ -1282,20 +1291,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Nature",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'herboristerie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Nature",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'herboristerie"
+                }
+            ]
         },
         {
             "name"                 : "Homme d'armes",
@@ -1314,20 +1323,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Intimidation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la guerre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Intimidation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la guerre"
+                }
+            ]
         },
         {
             "name"                 : "Insurgé",
@@ -1346,20 +1355,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Duperie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la guerre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Duperie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la guerre"
+                }
+            ]
         },
         {
             "name"                 : "Lié avec les fées",
@@ -1382,16 +1391,15 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des fées et obtenez l'action gratuite sports_martial_artsChance féerique"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des fées et obtenez l'action gratuite sports_martial_artsChance féerique"
+                }
+            ]
         },
         {
             "name"                 : "Manoeuvre",
@@ -1410,21 +1418,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "du travail"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "du travail"
+                }
+            ]
         },
         {
             "name"                 : "Marchand",
@@ -1443,20 +1451,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Diplomatie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "commerciale"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Diplomatie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "commerciale"
+                }
+            ]
         },
         {
             "name"                 : "Marin",
@@ -1475,21 +1483,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la navigation maritime"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la navigation maritime"
+                }
+            ]
         },
         {
             "name"                 : "Maudit",
@@ -1511,20 +1519,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des malédictions"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des malédictions"
+                }
+            ]
         },
         {
             "name"                 : "Médecin militaire",
@@ -1543,20 +1551,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Médecine",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la guerre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Médecine",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la guerre"
+                }
+            ]
         },
         {
             "name"                 : "Mineur",
@@ -1575,20 +1583,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "minière"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "minière"
+                }
+            ]
         },
         {
             "name"                 : "Noble",
@@ -1607,26 +1615,27 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "généalogique, soit en"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "généalogique, soit en"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "généalogique, soit en"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "généalogique, soit en"
+                }
+            ]
         },
         {
             "name"                 : "Nomade",
@@ -1645,32 +1654,34 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "liée à un type de terrain que vous avez déjà traversé (comme"
+                }
+            ]
         },
         {
             "name"                 : "Ouvrier agricole",
@@ -1689,21 +1700,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Athlétisme",
-                        "characteristic": "FOR",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'agriculture"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Athlétisme",
+                    "characteristic": "FOR",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'agriculture"
+                }
+            ]
         },
         {
             "name"                 : "Parieur",
@@ -1722,20 +1733,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Duperie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "ludique"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Duperie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "ludique"
+                }
+            ]
         },
         {
             "name"                 : "Pèlerin",
@@ -1754,20 +1765,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Religion",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de votre divinité patronne"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Religion",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de votre divinité patronne"
+                }
+            ]
         },
         {
             "name"                 : "Percepteur",
@@ -1786,20 +1797,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Intimidation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la communauté qui vous a employé"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Intimidation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la communauté qui vous a employé"
+                }
+            ]
         },
         {
             "name"                 : "Prisonnier",
@@ -1818,21 +1829,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Discrétion",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la pègre"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Discrétion",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la pègre"
+                }
+            ]
         },
         {
             "name"                 : "Pupille",
@@ -1849,20 +1860,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Représentation",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la généalogie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Représentation",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la généalogie"
+                }
+            ]
         },
         {
             "name"                 : "Récupérateur",
@@ -1881,20 +1892,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Survie",
-                        "characteristic": "SAG"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la ville"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Survie",
+                    "characteristic": "SAG",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "rank"          : "qualify",
+                    "need_qualifier": true,
+                    "qualifier"     : "de la ville"
+                }
+            ]
         },
         {
             "name"                 : "Réfugié (PC2)",
@@ -1913,14 +1924,13 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                }
+            ]
         },
         {
             "name"                 : "Ressuscité",
@@ -1959,21 +1969,21 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Vol",
-                        "characteristic": "DEX",
-                        "armor_penalty" : true
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de l'ingénierie"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Vol",
+                    "characteristic": "DEX",
+                    "armor_penalty" : true,
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de l'ingénierie"
+                }
+            ]
         },
         {
             "name"                 : "Serviteur",
@@ -1992,20 +2002,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Société",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "du travail"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Société",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "du travail"
+                }
+            ]
         },
         {
             "name"                 : "Tavernier",
@@ -2024,20 +2034,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Diplomatie",
-                        "characteristic": "CHA"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "des alcools"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Diplomatie",
+                    "characteristic": "CHA",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "des alcools"
+                }
+            ]
         },
         {
             "name"                 : "Voyant",
@@ -2056,20 +2066,20 @@ var HISTORICS = {
                     "FRE"
                 ]
             },
-            "skills"               : {
-                "qualify": [
-                    {
-                        "label"         : "Occultisme",
-                        "characteristic": "INT"
-                    },
-                    {
-                        "label"         : "Connaissance",
-                        "characteristic": "INT",
-                        "need_qualifier": true,
-                        "qualifier"     : "de la voyance"
-                    }
-                ]
-            }
+            "skills"               : [
+                {
+                    "label"         : "Occultisme",
+                    "characteristic": "INT",
+                    "rank"          : "qualify"
+                },
+                {
+                    "label"         : "Connaissance",
+                    "characteristic": "INT",
+                    "need_qualifier": true,
+                    "rank"          : "qualify",
+                    "qualifier"     : "de la voyance"
+                }
+            ]
         }
     ]
 };
