@@ -56,7 +56,8 @@ HISTORICS.Historics           = function () {
 HISTORICS.Historics.prototype = {
     init: function () {
         this.initContents();
-        for ( let i = 0, _size_i = HISTORICS.ENUM.length; i < _size_i; i++ ) {
+        for ( let i = 0, _size_i = 3; i < _size_i; i++ ) {
+        //for ( let i = 0, _size_i = HISTORICS.ENUM.length; i < _size_i; i++ ) {
             this.add( new HISTORICS.HistoricsPopup( HISTORICS.ENUM[ i ] ) );
         }
     }
@@ -71,12 +72,12 @@ HISTORICS.HistoricsPopup           = function ( data ) {
 HISTORICS.HistoricsPopup.prototype = {
     init: function ( data ) {
         this.updateData( data );
+        console.log("GSOU", "[HistoricsPopup - init]", this );
     },
     //********************************************  HTML   **************************************************//
     setData  : function ( key, value ) {
         switch ( key ) {
             case "name":
-            case "requirement":
             case "description":
             case "gift_skill":
             case "characteristics_bonus":
@@ -96,18 +97,17 @@ HISTORICS.HistoricsPopup.prototype = {
             let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-gift" } ), this.skills_html );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-label" }, this.skills[ i ].label ), container );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-characteristic" }, this.skills[ i ].characteristic ), container );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-rank" }, this.skills[ i ].rank ), container );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-rank" }, MASTERY.parseToLetter(this.skills[ i ].rank) ), container );
         }
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "historic-edition" } ) );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.requirement, "Prérequis" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.description, "Descriptions" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.gift_skill, "Prime d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.description, "Descriptions" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.gift_skill, "Dons" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.characteristics_bonus, "Bonus" ), this.getDomElement() );
         if ( this.skills ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.skills_html.outerHTML, "Dons" ), this.getDomElement() );
+            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.skills_html.outerHTML, "Compétences" ), this.getDomElement() );
         }
         return this.getDomElement();
     }

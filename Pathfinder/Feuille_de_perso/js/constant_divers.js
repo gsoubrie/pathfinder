@@ -210,5 +210,18 @@ var MASTERY = {
             short: "L",
             bonus: 8
         }
+    },
+    parseToLetter        : function ( name ) {
+        return MASTERY.findByName(name).short;
+    },
+    findByName        : function ( name ) {
+        var _keys = Object.keys( MASTERY.LIST );
+        var _current;
+        for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
+            if ( MASTERY.LIST[ _keys[ i ] ].name === name ){
+                return MASTERY.LIST[ _keys[ i ] ];
+            }
+        }
+        return null;
     }
 };

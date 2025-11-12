@@ -24,6 +24,7 @@
   "laxbreak": true,
   "globals": {
     "HISTORICS": false,
+    "MASTERY": false,
     "SKILLS": false,
     "COMPONENT": false,
     "GS": false,
