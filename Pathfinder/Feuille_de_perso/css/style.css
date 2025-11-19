@@ -1,120 +1,454 @@
 body {
-    background-color : black;
-}
-.character-content {
-    width             : 1240px;
-    height            : 1754px;
-    margin            : auto;
-    background-color  : #D6C6B8;
-    background-image  : url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    background-repeat : repeat;
-    font-family       : 'Uncial Antiqua', serif;
-}
-.hidden {
-    display : none;
+    background: linear-gradient(135deg, #1a0f08 0%, #0d0604 100%);
+    margin: 0;
+    padding: 20px;
 }
 
-/*********************	ALL PROPERTY   ******************************************/
+.character-content {
+    width: 1240px;
+    height: 1754px;
+    margin: auto;
+    background: linear-gradient(135deg, #d6c6b8 0%, #c4b4a6 100%);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat: repeat;
+    font-family: 'Uncial Antiqua', serif;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    border: 3px solid #8b6914;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.character-sheet-windows {
+    background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border-bottom: 3px solid #8b6914;
+    padding: 15px;
+}
+
+.character-sheet-windows .gs-window-group-V2 {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.character-sheet-windows .gs-window-element-V2 {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.character-sheet-windows .gs-window-element-V2 .gs-div-tab {
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: 2px solid #6b4e2a;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+}
+
+.character-sheet-windows .gs-window-element-V2:hover .gs-div-tab {
+    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
+    border-color: #8b6914;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    border-color: #ffd700;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+}
+
+.character-sheet-windows .gs-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e8d4a8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
+    color: #1a0f08;
+    text-shadow: none;
+}
+
+.characters-sheet-content {
+    padding: 20px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: 2px solid #8b6914;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .left-zone {
+    width: 250px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .left-zone .logo-pathfinder {
+    background-image: url("../../img/logo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 60px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .left-zone .page-name {
+    font-size: 25px;
+    color: #d4af37;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    top: -10px;
+    line-height: 18px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .left-zone .save-button {
+    width: 30px;
+    height: 30px;
+    background: url("../../img/save.png") center/contain no-repeat;
+    position: relative;
+    top: -30px;
+    left: 8px;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .left-zone .save-button:hover {
+    transform: scale(1.1);
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .middle-zone {
+    width: calc(100% - 400px);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .middle-zone .middle-left-zone,
+.property-tab-pane[data-name="general_sheet"] .title .middle-zone .middle-right-zone {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .title .right-zone {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .property-tab-pane[data-name="general_sheet"] .container-property {
-    display         : flex;
-    justify-content : center;
-    align-items     : center;
-    width           : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
 }
-.property-tab-pane[data-name="general_sheet"] .container-property .property {
-    width : 100%;
-}
+
 .property-tab-pane[data-name="general_sheet"] .property {
-    border  : 1px solid rgb(90, 10, 0);
-    margin  : 2px;
-    padding : 2px;
-    display : flex;
+    background: linear-gradient(135deg, #5a3f2a 0%, #3d2817 100%);
+    border: 2px solid #8b6914;
+    border-radius: 6px;
+    margin: 2px;
+    padding: 8px;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
+
+.property-tab-pane[data-name="general_sheet"] .property:hover {
+    border-color: #d4af37;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
 .property-tab-pane[data-name="general_sheet"] .property.horizontal {
-    justify-content : center;
-    align-items     : center;
-    height          : 38px;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
 }
+
 .property-tab-pane[data-name="general_sheet"] .property.vertical {
-    height          : 25px;
-    flex-direction  : column;
-    justify-content : center;
+    height: 25px;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .property-tab-pane[data-name="general_sheet"] .property .label {
-    height                    : 100%;
-    display                   : flex;
-    align-items               : center;
-    color                     : rgb(19, 38, 95);
-    -webkit-text-stroke-width : 0.2px;
-    -webkit-text-fill-color   : #5A0A00;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
+
 .property-tab-pane[data-name="general_sheet"] .property.horizontal .label {
-    width : 100px;
+    width: 100px;
 }
+
 .property-tab-pane[data-name="general_sheet"] .property.vertical .label {
-    font-size : 10px;
+    font-size: 10px;
 }
+
 .property-tab-pane[data-name="general_sheet"] .property .value {
-    background-color          : rgb(241, 244, 255);
-    display                   : flex;
-    justify-content           : space-around;
-    align-items               : center;
-    color                     : rgb(19, 38, 95);
-    -webkit-text-stroke-width : 0.5px;
-    -webkit-text-fill-color   : #5A0A00;
-    overflow                  : hidden;
-    min-height                : 12px;
+    background: linear-gradient(135deg, #f1f4ff 0%, #e1e4f5 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2c1810;
+    font-weight: 600;
+    overflow: hidden;
+    min-height: 12px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .property-tab-pane[data-name="general_sheet"] .property.horizontal .value {
-    height : 100%;
-    width  : calc(100% - 100px);
+    height: 100%;
+    width: calc(100% - 100px);
 }
-/*********************	TABS ( SHEET )   ******************************************/
-.gs-window-group-V2 {
+
+.property-tab-pane[data-name="general_sheet"] .property .value[contenteditable="true"] {
+    cursor: text;
 }
-.gs-window-element-V2 {
-    background    : none;
-    border        : none;
-    padding       : 10px 20px;
-    font-size     : 1rem;
-    color         : #5A3C00;
-    cursor        : pointer;
-    border-bottom : 3px solid transparent;
-    transition    : all 0.2s ease-in-out;
+
+.property-tab-pane[data-name="general_sheet"] .property .value[contenteditable="false"] {
+    cursor: pointer;
 }
-.gs-window-element-V2[data-current-phase="RUNNING"] {
-    font-weight      : bold;
-    border-bottom    : 3px solid #7C5E10;
-    background-color : #FFF8DC;
-}
-/*********************	BUTTONS   ******************************************/
+
 .gs-button[data-name="event__less_button"],
 .gs-button[data-name="event__more_button"] {
-    background    : linear-gradient(145deg, #5A3E1B, #3E2A14); /* effet bois/cuir */
-    border        : 1px solid #C9AA71; /* bordure bronze */
-    color         : #F2E6C2; /* ivoire ancien */
-    font-size     : 12px; /* plus petit texte, lisible à 14px */
-    font-weight   : bold;
-    font-family   : 'Uncial Antiqua', serif;
-    width         : 14px;
-    height        : 14px;
-    line-height   : 14px;
-    padding       : 0;
-    border-radius : 3px;
-    cursor        : pointer;
-    box-shadow    : inset 0 0 2px #00000066, 0 1px 2px rgba(0, 0, 0, 0.6);
-    text-align    : center;
-    text-shadow   : 0 0 1px #000000;
-    transition    : all 0.2s ease-in-out;
-    display       : inline-block;
+    background: linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border: 2px solid #d4af37;
+    color: #1a0f08;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Uncial Antiqua', serif;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    text-shadow: none;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .gs-button[data-name="event__less_button"]:hover,
 .gs-button[data-name="event__more_button"]:hover {
-    background   : linear-gradient(145deg, #6A4B22, #4A3319);
-    border-color : #F0D38C;
+    background: linear-gradient(135deg, #a87d1a 0%, #8b6914 100%);
+    border-color: #ffd700;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
 }
+
 .gs-button[data-name="event__less_button"]:active,
 .gs-button[data-name="event__more_button"]:active {
-    transform  : scale(0.95);
-    box-shadow : inset 0 0 3px #00000099;
+    transform: scale(0.95);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container {
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: 3px solid #8b6914;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #8b6914;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.headers {
+    background: linear-gradient(135deg, #5a3f2a 0%, #3d2817 100%);
+    border: 2px solid #8b6914;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .header {
+    color: #d4af37;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.characteristic-line {
+    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
+    border: 2px solid #6b4e2a;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.characteristic-line:hover {
+    border-color: #8b6914;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell {
+    flex: 1;
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e8d4a8;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-modifier-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
+    display: none;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-window {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-container-life,
+.property-tab-pane[data-name="level_sheet"] .level-container-skill {
+    width: 90%;
+    margin: auto;
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: 3px solid #8b6914;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.property-tab-pane[data-name="level_sheet"] .level-title,
+.property-tab-pane[data-name="level_sheet"] .skill-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #8b6914;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-table,
+.property-tab-pane[data-name="level_sheet"] .skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
+    border: 2px solid #6b4e2a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-table th,
+.property-tab-pane[data-name="level_sheet"] .life-table td,
+.property-tab-pane[data-name="level_sheet"] .skill-table th,
+.property-tab-pane[data-name="level_sheet"] .skill-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+    color: #e8d4a8;
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-table th,
+.property-tab-pane[data-name="level_sheet"] .skill-table th {
+    font-weight: 700;
+    color: #d4af37;
+    background: linear-gradient(135deg, #5a3f2a 0%, #3d2817 100%);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-table tr:last-child td,
+.property-tab-pane[data-name="level_sheet"] .skill-table tr:last-child td {
+    border-bottom: none;
+}
+
+.property-tab-pane[data-name="level_sheet"] .life-table tr:hover,
+.property-tab-pane[data-name="level_sheet"] .skill-table tr:hover {
+    background: linear-gradient(135deg, #5a4028 0%, #3d2d1a 100%);
+    transition: 0.2s;
 }
