@@ -33,9 +33,8 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( CLASSES.key_element, character_object.getClass().getName(), character_object.getClass().getLabel(), CLASSES.label_element, false ), right_zone );
         SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, character_object.getRace().getBodySize().value, character_object.getRace().getBodySize().label, RACES.PARAM.BODY_SIZE.key, false ), container_1 );
-        
-        // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, character_object.getRace().getBodySize().value, character_object.getRace().getBodySize().label, "Taille moyenne", false ), container_1 );
+                // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );
     },

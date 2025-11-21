@@ -332,17 +332,39 @@
 
 .popup .gs-window-group-V2 {
     display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-    padding: 15px;
+    padding: 24px 0 35px 0;
     background: linear-gradient(135deg, #1a0f08 0%, #0d0604 100%);
     border-radius: 8px;
     border: 2px solid #8b6914;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #8b6914 #2c1810;
+    flex-wrap: nowrap;
+}
+
+.popup .gs-window-group-V2::-webkit-scrollbar {
+    height: 8px;
+}
+
+.popup .gs-window-group-V2::-webkit-scrollbar-track {
+    background: #2c1810;
+    border-radius: 4px;
+}
+
+.popup .gs-window-group-V2::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border-radius: 4px;
+}
+
+.popup .gs-window-group-V2::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #d4af37 0%, #8b6914 100%);
 }
 
 .popup .gs-window-element-V2 {
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .popup .gs-window-element-V2 .gs-div-tab {
