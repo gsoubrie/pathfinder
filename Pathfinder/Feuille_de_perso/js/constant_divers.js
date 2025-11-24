@@ -225,3 +225,45 @@ var MASTERY = {
         return null;
     }
 };
+var ALIGNEMENT = {
+    key_element  : "alignement",
+    label_element: "Alignement",
+    LIST: {
+        LB: {
+            name : "LB",
+            label: "loyal bon",
+        },
+        LN: {
+            name : "LN",
+            label: "loyal neutre",
+        },
+        LM: {
+            name : "LM",
+            label: "loyal mauvais",
+        },
+        NB: {
+            name : "NB",
+            label: "neutre bon",
+        },
+        N: {
+            name : "N",
+            label: "neutre",
+        },
+        NM: {
+            name : "NM",
+            label: "neutre mauvais",
+        },
+        CB: {
+            name : "CB",
+            label: "chaotique bon",
+        },
+        CN: {
+            name : "CN",
+            label: "chaotique neutre",
+        },
+        CM: {
+            name : "CM",
+            label: "chaotique mauvais",
+        },
+    }
+};

@@ -34,9 +34,10 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), right_zone );
         var container_1 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "container-property " } ), right_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.PARAM.BODY_SIZE.key, character_object.getRace().getBodySize().value, character_object.getRace().getBodySize().label, "Taille moyenne", false ), container_1 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( ALIGNEMENT.key_element, character_object.getAlignment(), character_object.getAlignment(), ALIGNEMENT.label_element, false ), container_1 );
                 // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "alignement", "", "Alignement", false ), container_1 );
         // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "trait", "", "Trait", true ), container_1 );
-        // SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "divinite", "", "Divinité", false ), right_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "divinite", "", "","Divinité", false ), right_zone );
     },
     computeHtml__right : function ( character_object ) {
         var right_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "right-zone" } ), this.content_dom_element_target );

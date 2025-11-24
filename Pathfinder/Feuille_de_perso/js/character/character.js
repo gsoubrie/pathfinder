@@ -116,6 +116,9 @@ CHARACTER.Current.prototype = {
     getRace                    : function () {
         return this.race;
     },
+    getAlignment                    : function () {
+        return this.alignment;
+    },
     getLegacy                  : function () {
         return this.getRace().getLegacy();
     },

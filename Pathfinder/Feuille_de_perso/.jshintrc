@@ -23,6 +23,7 @@
   "funcscope": true,
   "laxbreak": true,
   "globals": {
+    "ALIGNEMENT": false,
     "HISTORICS": false,
     "MASTERY": false,
     "SKILLS": false,
