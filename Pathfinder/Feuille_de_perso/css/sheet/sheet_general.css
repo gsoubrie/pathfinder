@@ -68,6 +68,7 @@
     flex-direction: column;
     gap: 4px;
 }
+
 .property-tab-pane[data-name="general_sheet"] .grid-area:not(.neutral) {
     background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
     border: 2px solid #8B6914;
@@ -91,7 +92,8 @@
     height: 49px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
-/* =============================== Zone LOGO =========================== */
+
+/* =============================== Zone SAVE =========================== */
 .property-tab-pane[data-name="general_sheet"] .area-save .save-button {
     width: 15px;
     height: 15px;
@@ -101,10 +103,9 @@
     transition: transform 0.3s ease;
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-logo .save-button:hover {
+.property-tab-pane[data-name="general_sheet"] .area-save .save-button:hover {
     transform: scale(1.1);
 }
-
 
 /* ===== Zones NAME et PLAYER ===== */
 .property-tab-pane[data-name="general_sheet"] .area-name,
@@ -123,20 +124,155 @@
     min-height: 0;
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-name .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-player .property:hover {
-    border: none;
-    box-shadow: none;
+/* ===== GESTION DES POINTS DE VIE ===== */
+.property-tab-pane[data-name="general_sheet"] .area-health {
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
 }
 
-/* ===== Zones HEALTH, TEMP-HEALTH, WOUND ===== */
-.property-tab-pane[data-name="general_sheet"] .area-health,
+.property-tab-pane[data-name="general_sheet"] .hp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #D4AF37;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-current {
+    color: #FF6B6B;
+    font-size: 24px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-max {
+    color: #8B6914;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-button {
+    padding: 6px 12px;
+    border: 2px solid #8B6914;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    color: #D4AF37;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-button:hover {
+    border-color: #D4AF37;
+    background: linear-gradient(135deg, #6B4E2A 0%, #4D3817 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-button.damage {
+    color: #FF6B6B;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-button.heal {
+    color: #51CF66;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-bar-container {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #8B6914;
+    position: relative;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #FF6B6B 0%, #FF8787 100%);
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-bar-temp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #51CF66 0%, #69DB7C 100%);
+    opacity: 0.7;
+    transition: width 0.5s ease;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-item {
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid #51CF66;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #D4AF37;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-item.damage {
+    border-left-color: #FF6B6B;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-label {
+    flex: 1;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-value {
+    font-weight: bold;
+    margin: 0 8px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-remove {
+    cursor: pointer;
+    color: #FF6B6B;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-effect-remove:hover {
+    background: rgba(255, 107, 107, 0.2);
+}
+
+/* ===== Zones TEMP-HEALTH et WOUND ===== */
 .property-tab-pane[data-name="general_sheet"] .area-temp-health,
 .property-tab-pane[data-name="general_sheet"] .area-wound {
     background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    padding: 8px;
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-health .property,
 .property-tab-pane[data-name="general_sheet"] .area-temp-health .property,
 .property-tab-pane[data-name="general_sheet"] .area-wound .property {
     background: transparent;
@@ -144,6 +280,92 @@
     margin: 0;
     height: 100%;
     min-height: 0;
+}
+
+/* ===== Modal pour ajout PV/Dégâts ===== */
+.property-tab-pane[data-name="general_sheet"] .hp-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-content {
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    border: 3px solid #8B6914;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 300px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-field {
+    margin-bottom: 12px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-label {
+    display: block;
+    color: #D4AF37;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-input,
+.property-tab-pane[data-name="general_sheet"] .hp-modal-textarea,
+.property-tab-pane[data-name="general_sheet"] .hp-modal-select {
+    width: 100%;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #8B6914;
+    border-radius: 4px;
+    color: #D4AF37;
+    font-family: inherit;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-button {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #8B6914;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    color: #D4AF37;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-button:hover {
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+}
+
+.property-tab-pane[data-name="general_sheet"] .hp-modal-button.cancel {
+    color: #FF6B6B;
 }
 
 /* ===== Zones ANCESTRY, HERITAGE, CLASS, HISTORIC, DIVINITY ===== */
@@ -160,16 +382,7 @@
     min-height: 0;
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-ancestry .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-heritage .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-class .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-historic .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-divinity .property:hover {
-    border: none;
-    box-shadow: none;
-}
-
-/* ===== Zones SIZE et ALIGNMENT (séparées) ===== */
+/* ===== Zones SIZE et ALIGNMENT ===== */
 .property-tab-pane[data-name="general_sheet"] .area-size .property,
 .property-tab-pane[data-name="general_sheet"] .area-alignment .property {
     background: transparent;
@@ -179,10 +392,4 @@
     margin: 0;
     height: 100%;
     min-height: 0;
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-size .property:hover,
-.property-tab-pane[data-name="general_sheet"] .area-alignment .property:hover {
-    border: none;
-    box-shadow: none;
 }

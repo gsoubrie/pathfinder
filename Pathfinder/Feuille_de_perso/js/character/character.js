@@ -11,7 +11,7 @@ CHARACTER.Current = function () {
     this.level           = null;
     this.point_heroism   = null;
     this.race            = new RACES.Race();
-    this.total_life      = 0;
+    this.health          = new CHARACTER.Health();
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
@@ -61,6 +61,7 @@ CHARACTER.Current.prototype = {
         to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
         to_return[ "alignment" ]         = this.alignment;
         to_return[ "level" ]             = this.level + "";
+        to_return[ "health" ]            = this.health.getDataToSave();
         to_return[ "point_heroism" ]     = this.point_heroism;
         return to_return;
     },
@@ -78,6 +79,7 @@ CHARACTER.Current.prototype = {
             this.total_life += this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).getModifierValue();
             this.total_life += this.getLevelHistory().getContent( i ).life_class;
         }
+        this.health.setMaxHP(this.total_life);
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData                    : function ( key, value ) {
@@ -109,6 +111,9 @@ CHARACTER.Current.prototype = {
             case "level":
                 this[ key ] = parseInt( value );
                 break;
+            case "health":
+                this.health.updateData( value );
+                break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
@@ -116,7 +121,7 @@ CHARACTER.Current.prototype = {
     getRace                    : function () {
         return this.race;
     },
-    getAlignment                    : function () {
+    getAlignment               : function () {
         return this.alignment;
     },
     getLegacy                  : function () {
