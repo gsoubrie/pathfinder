@@ -9,7 +9,6 @@ CHARACTER.GeneralWindow.prototype = {
     computeHtmlWithData: function ( character_object ) {
         this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
         
-        // Construction de toutes les zones
         this.computeArea__logo( character_object );
         this.computeArea__save( character_object );
         this.computeArea__name( character_object );
@@ -33,43 +32,23 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     computeArea__logo: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo( 
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-logo" } ), 
-            this.content_dom_element_target 
-        );
+        var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-logo neutral" } ), this.content_dom_element_target );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), area );
     },
     
     computeArea__save: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo( 
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-save" } ), 
-            this.content_dom_element_target 
-        );
+        var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-save neutral" } ), this.content_dom_element_target );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Main.save()" } ), area );
     },
     
-    // Zone NAME (cols 2-4, row 1)
     computeArea__name: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo( 
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-name" } ), 
-            this.content_dom_element_target 
-        );
-        SERVICE.DOM.addElementTo( 
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "name", character_object.name, "Nom du personnage", true ), 
-            area 
-        );
+        var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-name" } ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "name", character_object.name, SERVICE.DOM.createElement("div", {}, character_object.name), "Nom du personnage", true ), area );
     },
     
-    // Zone PLAYER (cols 2-4, row 2)
     computeArea__player: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo( 
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-player" } ), 
-            this.content_dom_element_target 
-        );
-        SERVICE.DOM.addElementTo( 
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "player", character_object.player, "Nom du joueur", true ), 
-            area 
-        );
+        var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-player" } ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "player", character_object.player, SERVICE.DOM.createElement("div", {}, character_object.player), "Nom du joueur", true ), area );
     },
     
     // Zone HEALTH (cols 2-3, row 3)
@@ -114,7 +93,7 @@ CHARACTER.GeneralWindow.prototype = {
             SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), 
             this.content_dom_element_target 
         );
-        SERVICE.DOM.addElementTo( 
+        SERVICE.DOM.addElementTo(
             SERVICE.DOM_HELPER.createPropertyVertical( 
                 RACES.key_element, 
                 character_object.getRace().getName(), 

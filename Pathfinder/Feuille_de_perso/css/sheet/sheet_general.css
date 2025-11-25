@@ -7,8 +7,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     
-    /* 6 colonnes avec poids personnalisables */
-    grid-template-columns: 
+    grid-template-columns:
         var(--col-1-width, 1fr)  
         var(--col-2-width, 1fr)  
         var(--col-3-width, 1fr)  
@@ -16,8 +15,7 @@
         var(--col-5-width, 1fr)  
         var(--col-6-width, 1fr); 
     
-    /* 10 lignes avec hauteurs personnalisables */
-    grid-template-rows: 
+    grid-template-rows:
         var(--row-1-height, auto) 
         var(--row-2-height, auto)   
         var(--row-3-height, auto)   
@@ -29,20 +27,17 @@
         var(--row-9-height, auto)   
         var(--row-10-height, auto); 
     
-    /* Définition des zones selon ta structure */
     grid-template-areas:
         "logo   name        name        ancestry   ancestry   level"
-        "logo   name        name        ancestry   ancestry   level"
-        "logo   name        name        heritage   heritage   heroism"
-        "logo   name        name        heritage   heritage   heroism"
-        "save   player      player      class      class      ."
-        ".      player      player      historic   historic   ."
-        ".      player      player      size       alignment  ca"
-        ".      health      health      divinity   divinity   surprise"
-        ".      temp-health temp-health .          .          ."
-        ".      wound       wound       .          .          ."
+        "save   player      player      heritage   heritage   heroism"
+        ".      .           .           class      class      ."
+        ".      .           .           historic   historic   ."
+        ".      .           .           size       health     health"
+        ".      .           .           alignment  health     health"
+        ".      temp-health temp-health divinity   health     health"
+        ".      wound       wound       .          health     health"
         ".      .           .           .          .          ."
-        ".      .           .           .          .          .";
+        ".      .           .           .          surprise   ca";
 }
 
 /* ===== ATTRIBUTION DES ZONES ===== */
@@ -67,44 +62,36 @@
 
 /* ===== STYLES DES ZONES ===== */
 .property-tab-pane[data-name="general_sheet"] .grid-area {
-    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
-    border: 2px solid #8B6914;
-    border-radius: 6px;
     padding: 4px;
     min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
+.property-tab-pane[data-name="general_sheet"] .grid-area:not(.neutral) {
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    border: 2px solid #8B6914;
+    border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-.property-tab-pane[data-name="general_sheet"] .grid-area:hover {
+.property-tab-pane[data-name="general_sheet"] .grid-area:not(.neutral):hover {
     border-color: #D4AF37;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
 }
 
-/* ===== Zone LOGO ===== */
-.property-tab-pane[data-name="general_sheet"] .area-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2px;
-    background: linear-gradient(135deg, #4A3520 0%, #33231A 100%);
-    padding: 2px;
-}
-
+/* =============================== Zone LOGO =========================== */
 .property-tab-pane[data-name="general_sheet"] .area-logo .logo-pathfinder {
     background-image: url("../../img/logo.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
-    height: 30px;
+    height: 49px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
-
+/* =============================== Zone LOGO =========================== */
 .property-tab-pane[data-name="general_sheet"] .area-save .save-button {
     width: 15px;
     height: 15px;
@@ -198,56 +185,4 @@
 .property-tab-pane[data-name="general_sheet"] .area-alignment .property:hover {
     border: none;
     box-shadow: none;
-}
-
-/* ===== Zones LEVEL, HEROISM, CA, SURPRISE (Stats importantes) ===== */
-.property-tab-pane[data-name="general_sheet"] .area-level,
-.property-tab-pane[data-name="general_sheet"] .area-heroism,
-.property-tab-pane[data-name="general_sheet"] .area-ca,
-.property-tab-pane[data-name="general_sheet"] .area-surprise {
-    background: linear-gradient(135deg, #8B6914 0%, #6B4E10 100%);
-    border: 2px solid #D4AF37;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-level:hover,
-.property-tab-pane[data-name="general_sheet"] .area-heroism:hover,
-.property-tab-pane[data-name="general_sheet"] .area-ca:hover,
-.property-tab-pane[data-name="general_sheet"] .area-surprise:hover {
-    border-color: #FFD700;
-    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-level .property,
-.property-tab-pane[data-name="general_sheet"] .area-heroism .property,
-.property-tab-pane[data-name="general_sheet"] .area-ca .property,
-.property-tab-pane[data-name="general_sheet"] .area-surprise .property {
-    background: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-level .property .label,
-.property-tab-pane[data-name="general_sheet"] .area-heroism .property .label,
-.property-tab-pane[data-name="general_sheet"] .area-ca .property .label,
-.property-tab-pane[data-name="general_sheet"] .area-surprise .property .label {
-    color: #1A0F08;
-    font-weight: 700;
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-level .property .value,
-.property-tab-pane[data-name="general_sheet"] .area-heroism .property .value,
-.property-tab-pane[data-name="general_sheet"] .area-ca .property .value,
-.property-tab-pane[data-name="general_sheet"] .area-surprise .property .value {
-    background: linear-gradient(135deg, #FFFACD 0%, #FFE4B5 100%);
-    border: 1px solid #D4AF37;
-    color: #1A0F08;
-    font-weight: 700;
 }
