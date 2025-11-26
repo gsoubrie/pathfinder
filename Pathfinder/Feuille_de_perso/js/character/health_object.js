@@ -8,8 +8,7 @@ CHARACTER.Health = function () {
     this.current_hp      = 0;
     this.max_hp          = 0;
     this.temp_hp_effects = [];
-    this.damage_history  = [];
-    this.healing_history = [];
+    this.history = [];
     this.wounds          = [];
     this.dying_level     = 0;
     this.wounded_level   = 0;
@@ -28,8 +27,39 @@ CHARACTER.Health.prototype = {
             case "event__open_modal__hp_heal":
                 this.showHealModal();
                 break;
+            case "event__open_modal__hp_temp":
+                this.showTempHPModal();
+                break;
+            case "event__open_modal__hp_damage":
+                this.showDamageModal();
+                break;
             case "event__heal_modal__confirm":
-                console.log("GSOU", "[Health - doActionAfter]", event_name, params );
+                this.applyHealing( params.param__modal__data.value, params.param__modal__data.comment, params.param__modal__data.source );
+                break;
+            case "event__temp_hp_modal__confirm":
+                var data = params.param__modal__data;
+                if ( data.value > 0 ) {
+                    this.addTempHP( data.value, data.comment, data.source );
+                }
+                break;
+            case "event__damage_modal__confirm":
+                var data = params.param__modal__data;
+                if ( data.value > 0 ) {
+                    this.applyDamage( data.value, data.damage_type, data.comment );
+                }
+                break;
+            case "event__wound_modal__confirm":
+                var data = params.param__modal__data;
+                if ( data.name ) {
+                    this.addWound( data.name, data.description, data.severity );
+                }
+                break;
+            case "event__dying_management_modal__confirm":
+                var data = params.param__modal__data;
+                this.setDyingLevel( data.dying_level );
+                this.setWoundedLevel( data.wounded_level );
+                this.setDoomedLevel( data.doomed_level );
+                this.doActionAfter( "event__health_updated" );
                 break;
         }
     },
@@ -190,11 +220,11 @@ CHARACTER.Health.prototype = {
             uuid        : this.generateUUID()
         };
         
-        this.damage_history.push( damage_record );
+        this.history.push( damage_record );
         
         // Limiter l'historique à 20 entrées
-        if ( this.damage_history.length > 20 ) {
-            this.damage_history.shift();
+        if ( this.history.length > 20 ) {
+            this.history.shift();
         }
         
         return damage_record;
@@ -231,9 +261,9 @@ CHARACTER.Health.prototype = {
      * Retire une entrée de l'historique des dégâts
      */
     removeDamageRecord: function ( uuid ) {
-        for ( var i = 0; i < this.damage_history.length; i++ ) {
-            if ( this.damage_history[ i ].uuid === uuid ) {
-                this.damage_history.splice( i, 1 );
+        for ( var i = 0; i < this.history.length; i++ ) {
+            if ( this.history[ i ].uuid === uuid ) {
+                this.history.splice( i, 1 );
                 return true;
             }
         }
@@ -278,13 +308,13 @@ CHARACTER.Health.prototype = {
             uuid          : this.generateUUID()
         };
         
-        this.healing_history.push( healing_record );
+        this.history.push( healing_record );
         
         // Limiter l'historique à 20 entrées
-        if ( this.healing_history.length > 20 ) {
-            this.healing_history.shift();
+        if ( this.history.length > 20 ) {
+            this.history.shift();
         }
-        
+        console.log("GSOU", "[Health - applyHealing]", this );
         return healing_record;
     },
     
@@ -292,9 +322,9 @@ CHARACTER.Health.prototype = {
      * Retire une entrée de l'historique des soins
      */
     removeHealingRecord: function ( uuid ) {
-        for ( var i = 0; i < this.healing_history.length; i++ ) {
-            if ( this.healing_history[ i ].uuid === uuid ) {
-                this.healing_history.splice( i, 1 );
+        for ( var i = 0; i < this.history.length; i++ ) {
+            if ( this.history[ i ].uuid === uuid ) {
+                this.history.splice( i, 1 );
                 return true;
             }
         }
@@ -409,8 +439,8 @@ CHARACTER.Health.prototype = {
             current_hp     : this.current_hp,
             max_hp         : this.max_hp,
             temp_hp_effects: this.temp_hp_effects,
-            damage_history : this.damage_history,
-            healing_history: this.healing_history,
+            history : this.history,
+            history: this.history,
             wounds         : this.wounds,
             dying_level    : this.dying_level,
             wounded_level  : this.wounded_level,
@@ -426,8 +456,8 @@ CHARACTER.Health.prototype = {
         this.current_hp      = data.current_hp || 0;
         this.max_hp          = data.max_hp || 0;
         this.temp_hp_effects = data.temp_hp_effects || [];
-        this.damage_history  = data.damage_history || [];
-        this.healing_history = data.healing_history || [];
+        this.history  = data.history || [];
+        this.history = data.history || [];
         this.wounds          = data.wounds || [];
         this.dying_level     = data.dying_level || 0;
         this.wounded_level   = data.wounded_level || 0;
@@ -471,244 +501,72 @@ CHARACTER.Health.prototype = {
         var now       = new Date().getTime();
         var day_in_ms = 24 * 60 * 60 * 1000;
         
-        this.damage_history = this.damage_history.filter( function ( record ) {
+        this.history = this.history.filter( function ( record ) {
             return (now - record.timestamp) < day_in_ms;
         } );
         
-        this.healing_history = this.healing_history.filter( function ( record ) {
+        this.history = this.history.filter( function ( record ) {
             return (now - record.timestamp) < day_in_ms;
         } );
     },
     //********************************************  MODAL  **************************************************//
     showHealModal: function () {
         var modal = SERVICE.MODAL.create( "Soigner le personnage", "event__heal_modal__confirm", this, {} );
-        var valueField = SERVICE.MODAL.addField( modal, "number", "Points de vie restaurés", "value", "10", { min: 1, placeholder: "Entrez le montant des soins" } );
-        var sourceField = SERVICE.MODAL.addField( modal, "text", "Source des soins (optionnel)", "source", "", { placeholder: "Potion, sort, repos..." } );
-        var commentField = SERVICE.MODAL.addField( modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Détails supplémentaires..." } );
+        SERVICE.MODAL.addField( modal, "number", "Points de vie restaurés", "value", "10", { min: 1, placeholder: "Entrez le montant des soins" } );
+        SERVICE.MODAL.addField( modal, "text", "Source des soins (optionnel)", "source", "", { placeholder: "Potion, sort, repos..." } );
+        SERVICE.MODAL.addField( modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Détails supplémentaires..." } );
         SERVICE.MODAL.show( modal );
     },
     
     showTempHPModal: function () {
-        var self = this;
-        
-        var modal = SERVICE.MODAL.create( "Ajouter des PV temporaires" );
-        
-        var valueField = SERVICE.MODAL.addField(
-            modal,
-            "number",
-            "Montant des PV temporaires",
-            "value",
-            "10",
-            { min: 1, placeholder: "Nombre de PV temporaires" }
-        );
-        
-        var sourceField = SERVICE.MODAL.addField(
-            modal,
-            "text",
-            "Source (optionnel)",
-            "source",
-            "",
-            { placeholder: "Sort, capacité, objet..." }
-        );
-        
-        var commentField = SERVICE.MODAL.addField(
-            modal,
-            "textarea",
-            "Raison (optionnel)",
-            "comment",
-            "",
-            { placeholder: "Pourquoi ces PV temporaires ?" }
-        );
-        
-        SERVICE.MODAL.addConfirmButtons(
-            modal,
-            function () {
-                var data = SERVICE.MODAL.getFormData( modal );
-                if ( data.value > 0 ) {
-                    self.addTempHP( data.value, data.comment, data.source );
-                    self.doActionAfter( "event__health_updated" );
-                }
-                SERVICE.MODAL.close( modal );
-            },
-            function () {
-                SERVICE.MODAL.close( modal );
-            }
-        );
-        
+        var modal = SERVICE.MODAL.create( "Ajouter des PV temporaires", "event__temp_hp_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "number", "Montant des PV temporaires", "value", "10", { min: 1, placeholder: "Nombre de PV temporaires" } );
+        SERVICE.MODAL.addField( modal, "text", "Source (optionnel)", "source", "", { placeholder: "Sort, capacité, objet..." } );
+        SERVICE.MODAL.addField( modal, "textarea", "Raison (optionnel)", "comment", "", { placeholder: "Pourquoi ces PV temporaires ?" } );
         SERVICE.MODAL.show( modal );
     },
     
     showDamageModal: function () {
-        var self = this;
-        
-        var modal = SERVICE.MODAL.create( "Appliquer des dégâts" );
-        
-        var valueField = SERVICE.MODAL.addField(
-            modal,
-            "number",
-            "Montant des dégâts",
-            "value",
-            "5",
-            { min: 1, placeholder: "Nombre de points de dégâts" }
-        );
-        
-        var typeField = SERVICE.MODAL.addSelectField(
-            modal,
-            "Type de dégâts",
-            "damage_type",
-            CHARACTER.Health.DAMAGE_TYPES,
-            "Contondant"
-        );
-        
-        var commentField = SERVICE.MODAL.addField(
-            modal,
-            "textarea",
-            "Notes (optionnel)",
-            "comment",
-            "",
-            { placeholder: "Source des dégâts, circonstances..." }
-        );
-        
-        SERVICE.MODAL.addConfirmButtons(
-            modal,
-            function () {
-                var data = SERVICE.MODAL.getFormData( modal );
-                if ( data.value > 0 ) {
-                    self.applyDamage( data.value, data.damage_type, data.comment );
-                    self.doActionAfter( "event__health_updated" );
-                }
-                SERVICE.MODAL.close( modal );
-            },
-            function () {
-                SERVICE.MODAL.close( modal );
-            }
-        );
-        
+        var modal = SERVICE.MODAL.create( "Appliquer des dégâts", "event__damage_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "number", "Montant des dégâts", "value", "5", { min: 1, placeholder: "Nombre de points de dégâts" } );
+        SERVICE.MODAL.addSelectField( modal, "Type de dégâts", "damage_type", CHARACTER.Health.DAMAGE_TYPES, "Contondant" );
+        SERVICE.MODAL.addField( modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Source des dégâts, circonstances..." } );
         SERVICE.MODAL.show( modal );
     },
     
     showWoundModal: function () {
-        var self = this;
-        
-        var modal = SERVICE.MODAL.create( "Ajouter une blessure" );
-        
-        var nameField = SERVICE.MODAL.addField(
-            modal,
-            "text",
-            "Nom de la blessure",
-            "name",
-            "",
-            { placeholder: "Ex: Entaille profonde", required: true }
-        );
-        
-        var severityField = SERVICE.MODAL.addSelectField(
-            modal,
-            "Gravité",
-            "severity",
-            [
-                { value: CHARACTER.Health.WOUND_SEVERITY.LIGHT, label: "Légère" },
-                { value: CHARACTER.Health.WOUND_SEVERITY.MODERATE, label: "Modérée" },
-                { value: CHARACTER.Health.WOUND_SEVERITY.SEVERE, label: "Grave" },
-                { value: CHARACTER.Health.WOUND_SEVERITY.CRITICAL, label: "Critique" }
-            ],
-            CHARACTER.Health.WOUND_SEVERITY.MODERATE
-        );
-        
-        var descriptionField = SERVICE.MODAL.addField(
-            modal,
-            "textarea",
-            "Description des effets",
-            "description",
-            "",
-            { placeholder: "Décrivez les effets de la blessure..." }
-        );
-        
-        SERVICE.MODAL.addConfirmButtons(
-            modal,
-            function () {
-                var data = SERVICE.MODAL.getFormData( modal );
-                if ( data.name ) {
-                    self.addWound( data.name, data.description, data.severity );
-                    self.doActionAfter( "event__health_updated" );
-                }
-                SERVICE.MODAL.close( modal );
-            },
-            function () {
-                SERVICE.MODAL.close( modal );
-            }
-        );
-        
+        var modal = SERVICE.MODAL.create( "Ajouter une blessure", "event__wound_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "text", "Nom de la blessure", "name", "", { placeholder: "Ex: Entaille profonde", required: true } );
+        SERVICE.MODAL.addSelectField( modal, "Gravité", "severity", [
+            { value: CHARACTER.Health.WOUND_SEVERITY.LIGHT, label: "Légère" },
+            { value: CHARACTER.Health.WOUND_SEVERITY.MODERATE, label: "Modérée" },
+            { value: CHARACTER.Health.WOUND_SEVERITY.SEVERE, label: "Grave" },
+            { value: CHARACTER.Health.WOUND_SEVERITY.CRITICAL, label: "Critique" }
+        ], CHARACTER.Health.WOUND_SEVERITY.MODERATE );
+        SERVICE.MODAL.addField( modal, "textarea", "Description des effets", "description", "", { placeholder: "Décrivez les effets de la blessure..." } );
         SERVICE.MODAL.show( modal );
     },
     
     showDyingManagementModal: function () {
-        var self = this;
-        
-        var modal = SERVICE.MODAL.create( "Gérer les états critiques" );
-        
-        // Afficher l'état actuel
         var statusText = "État actuel: ";
-        if ( self.isDead() ) {
+        if ( this.isDead() ) {
             statusText += "MORT";
         }
-        else if ( self.isDying() ) {
-            statusText += "Mourant " + self.dying_level;
+        else if ( this.isDying() ) {
+            statusText += "Mourant " + this.dying_level;
         }
-        else if ( self.isUnconscious() ) {
+        else if ( this.isUnconscious() ) {
             statusText += "Inconscient";
         }
         else {
             statusText += "Conscient";
         }
         
-        SERVICE.MODAL.addContent(
-            modal,
-            statusText,
-            "hp-modal-status"
-        );
-        
-        var dyingField = SERVICE.MODAL.addField(
-            modal,
-            "number",
-            "Niveau Mourant (0-4)",
-            "dying_level",
-            self.dying_level.toString(),
-            { min: 0, max: 4, step: 1 }
-        );
-        
-        var woundedField = SERVICE.MODAL.addField(
-            modal,
-            "number",
-            "Niveau Blessé (0-3)",
-            "wounded_level",
-            self.wounded_level.toString(),
-            { min: 0, max: 3, step: 1 }
-        );
-        
-        var doomedField = SERVICE.MODAL.addField(
-            modal,
-            "number",
-            "Niveau Condamné (0-3)",
-            "doomed_level",
-            self.doomed_level.toString(),
-            { min: 0, max: 3, step: 1 }
-        );
-        
-        SERVICE.MODAL.addConfirmButtons(
-            modal,
-            function () {
-                var data = SERVICE.MODAL.getFormData( modal );
-                self.setDyingLevel( data.dying_level );
-                self.setWoundedLevel( data.wounded_level );
-                self.setDoomedLevel( data.doomed_level );
-                self.doActionAfter( "event__health_updated" );
-                SERVICE.MODAL.close( modal );
-            },
-            function () {
-                SERVICE.MODAL.close( modal );
-            }
-        );
-        
+        var modal = SERVICE.MODAL.create( "Gérer les états critiques", "event__dying_management_modal__confirm", this, {} );
+        SERVICE.MODAL.addContent( modal, statusText, "modal-status" );
+        SERVICE.MODAL.addField( modal, "number", "Niveau Mourant (0-4)", "dying_level", this.dying_level.toString(), { min: 0, max: 4, step: 1 } );
+        SERVICE.MODAL.addField( modal, "number", "Niveau Blessé (0-3)", "wounded_level", this.wounded_level.toString(), { min: 0, max: 3, step: 1 } );
+        SERVICE.MODAL.addField( modal, "number", "Niveau Condamné (0-3)", "doomed_level", this.doomed_level.toString(), { min: 0, max: 3, step: 1 } );
         SERVICE.MODAL.show( modal );
     },
     

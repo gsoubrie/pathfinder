@@ -25,7 +25,6 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        console.log( "GSOU", "[Current - doActionAfter]", event_name );
         switch ( event_name ) {
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
@@ -45,6 +44,8 @@ CHARACTER.Current.prototype = {
                 this.computeTotalLife();
                 break;
             case "event__open_modal__hp_heal":
+            case "event__open_modal__hp_temp":
+            case "event__open_modal__hp_damage":
                 this.health.doActionAfter(event_name, params);
                 break;
         }

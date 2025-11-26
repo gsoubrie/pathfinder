@@ -99,22 +99,8 @@ CHARACTER.GeneralWindow.prototype = {
         );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button heal", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_heal')" }, "Soigner" ), actions );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "button", {
-                class: "hp-button",
-                onclick: function() { self.showTempHPModal(); }
-            }, "+ PV Temp" ),
-            actions
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "button", {
-                class: "hp-button damage",
-                onclick: function() { self.showDamageModal(); }
-            }, "Dégâts" ),
-            actions
-        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_temp')" }, "+ PV Temp" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button damage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_damage')" }, "Dégâts" ), actions );
         
         // Barre de vie
         var barContainer = SERVICE.DOM.addElementTo(

@@ -1098,27 +1098,33 @@ SERVICE.MODAL = (function ( self ) {
      * @param {Function} onCancel - Callback si annulé
      */
     self.confirm = function ( title, message, onConfirm, onCancel ) {
-        var modal = self.create( title );
+        var modal = self.create( title, null, null );
         
         self.addContent( modal, message );
         
-        self.addConfirmButtons(
-            modal,
-            function () {
-                self.close( modal );
-                if ( onConfirm ) {
-                    onConfirm();
+        self.addButtons( modal, [
+            {
+                label    : "Annuler",
+                className: "cancel",
+                callback : function () {
+                    self.close( modal );
+                    if ( onCancel ) {
+                        onCancel();
+                    }
                 }
             },
-            function () {
-                self.close( modal );
-                if ( onCancel ) {
-                    onCancel();
+            {
+                label   : "Confirmer",
+                callback: function () {
+                    self.close( modal );
+                    if ( onConfirm ) {
+                        onConfirm();
+                    }
                 }
             }
-        );
+        ] );
         
-        self.show( modal );
+        document.body.appendChild( modal );
         
         return modal;
     };
@@ -1130,7 +1136,7 @@ SERVICE.MODAL = (function ( self ) {
      * @param {Function} onClose - Callback à la fermeture
      */
     self.alert = function ( title, message, onClose ) {
-        var modal = self.create( title );
+        var modal = self.create( title, null, null );
         
         self.addContent( modal, message );
         
@@ -1146,7 +1152,7 @@ SERVICE.MODAL = (function ( self ) {
             }
         ] );
         
-        self.show( modal );
+        document.body.appendChild( modal );
         
         return modal;
     };
@@ -1160,28 +1166,42 @@ SERVICE.MODAL = (function ( self ) {
      * @param {Function} onCancel - Callback si annulé
      */
     self.prompt = function ( title, label, defaultValue, onConfirm, onCancel ) {
-        var modal = self.create( title );
+        var modal = self.create( title, null, null );
         
         var input = self.addField( modal, "text", label, "prompt_value", defaultValue );
         
-        self.addConfirmButtons(
-            modal,
-            function () {
-                var value = input.value;
-                self.close( modal );
-                if ( onConfirm ) {
-                    onConfirm( value );
+        self.addButtons( modal, [
+            {
+                label    : "Annuler",
+                className: "cancel",
+                callback : function () {
+                    self.close( modal );
+                    if ( onCancel ) {
+                        onCancel();
+                    }
                 }
             },
-            function () {
-                self.close( modal );
-                if ( onCancel ) {
-                    onCancel();
+            {
+                label   : "Confirmer",
+                callback: function () {
+                    var value = input.value;
+                    self.close( modal );
+                    if ( onConfirm ) {
+                        onConfirm( value );
+                    }
                 }
             }
-        );
+        ] );
         
-        self.show( modal );
+        document.body.appendChild( modal );
+        
+        // Focus sur le premier champ si disponible
+        var first_input = modal.querySelector( "input, textarea, select" );
+        if ( first_input ) {
+            setTimeout( function () {
+                first_input.focus();
+            }, 100 );
+        }
         
         // Soumettre avec Enter
         input.addEventListener( "keypress", function ( e ) {
