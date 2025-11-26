@@ -98,13 +98,7 @@ CHARACTER.GeneralWindow.prototype = {
             header
         );
         
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "button", {
-                class: "hp-button heal",
-                onclick: function() { self.showHealModal(); }
-            }, "Soigner" ),
-            actions
-        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button heal", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_heal')" }, "Soigner" ), actions );
         
         SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "button", {
@@ -271,27 +265,6 @@ CHARACTER.GeneralWindow.prototype = {
         
         document.body.appendChild(modal);
     },
-    
-    showHealModal: function() {
-        var self = this;
-        var modal = this.createModal("Soigner");
-        
-        var valueField = this.createModalField(modal, "number", "Points de vie restaurés", "value", "10");
-        var commentField = this.createModalField(modal, "textarea", "Notes (optionnel)", "comment", "");
-        
-        this.createModalButtons(modal, function() {
-            var value = parseInt(valueField.value) || 0;
-            if (value > 0) {
-                self.applyHealing(value, commentField.value);
-            }
-            document.body.removeChild(modal);
-        }, function() {
-            document.body.removeChild(modal);
-        });
-        
-        document.body.appendChild(modal);
-    },
-    
     applyDamage: function(value, damageType, comment) {
         var character = CONTROLLER.Character.current_character;
         
@@ -361,99 +334,6 @@ CHARACTER.GeneralWindow.prototype = {
         if (this.hpBarTempElement && tempHP > 0) {
             this.hpBarTempElement.style.width = (tempHP / maxHP * 100) + "%";
         }
-    },
-    
-    // Fonctions utilitaires pour les modales
-    createModal: function(title) {
-        var modal = SERVICE.DOM.createElement( "div", { class: "hp-modal" } );
-        var content = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-modal-content" } ),
-            modal
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-modal-title" }, title ),
-            content
-        );
-        
-        return modal;
-    },
-    
-    createModalField: function(modal, type, label, name, defaultValue) {
-        var content = modal.querySelector(".hp-modal-content");
-        var field = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-modal-field" } ),
-            content
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "label", { class: "hp-modal-label" }, label ),
-            field
-        );
-        
-        var inputClass = type === "textarea" ? "hp-modal-textarea" : "hp-modal-input";
-        var input = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( type === "textarea" ? "textarea" : "input", {
-                class: inputClass,
-                type: type,
-                name: name,
-                value: defaultValue
-            } ),
-            field
-        );
-        
-        return input;
-    },
-    
-    createModalSelectField: function(modal, label, name, options) {
-        var content = modal.querySelector(".hp-modal-content");
-        var field = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-modal-field" } ),
-            content
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "label", { class: "hp-modal-label" }, label ),
-            field
-        );
-        
-        var select = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "select", { class: "hp-modal-select", name: name } ),
-            field
-        );
-        
-        options.forEach(function(option) {
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "option", { value: option }, option ),
-                select
-            );
-        });
-        
-        return select;
-    },
-    
-    createModalButtons: function(modal, onConfirm, onCancel) {
-        var content = modal.querySelector(".hp-modal-content");
-        var buttons = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-modal-buttons" } ),
-            content
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "button", {
-                class: "hp-modal-button cancel",
-                onclick: onCancel
-            }, "Annuler" ),
-            buttons
-        );
-        
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "button", {
-                class: "hp-modal-button",
-                onclick: onConfirm
-            }, "Confirmer" ),
-            buttons
-        );
     },
     
     // Zone TEMP HEALTH - Affiche les états temporaires

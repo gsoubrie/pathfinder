@@ -44,6 +44,9 @@ CHARACTER.Current.prototype = {
             case "event__data_loaded__done":
                 this.computeTotalLife();
                 break;
+            case "event__open_modal__hp_heal":
+                this.health.doActionAfter(event_name, params);
+                break;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

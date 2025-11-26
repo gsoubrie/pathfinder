@@ -800,4 +800,412 @@ SERVICE.DOM = (function ( self ) {
     return self;
 })( SERVICE.DOM || {} );
 
-
+SERVICE.MODAL = (function ( self ) {
+    
+    /**
+     * Crée une modale de base
+     * @param {string} title - Titre de la modale
+     * @param {string} event_name - nom de l'event
+     * @param {OBJECT.InterfaceHtml} current_object - nom de l'objet parent
+     * @param {object} options - Options de configuration
+     * @returns {HTMLElement} L'élément modal
+     */
+    self.create = function ( title, event_name, current_object, options ) {
+        
+        options = options || {};
+        
+        var modal   = SERVICE.DOM.createElement( "div", { class: "modal", style: options.style || "" } );
+        var content = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "modal-content" } ), modal );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "modal-title" }, title ), content );
+        
+        modal._content            = content;
+        modal._current_event_name = event_name;
+        modal._current_object = current_object;
+        
+        return modal;
+    };
+    
+    /**
+     * Ajoute un champ de formulaire à une modale
+     * @param {HTMLElement} modal - La modale
+     * @param {string} type - Type de champ (text, number, textarea, select)
+     * @param {string} label - Label du champ
+     * @param {string} name - Nom du champ
+     * @param {string} defaultValue - Valeur par défaut
+     * @param {object} options - Options supplémentaires
+     * @returns {HTMLElement} L'élément input/textarea/select
+     */
+    self.addField = function ( modal, type, label, name, defaultValue, options ) {
+        options = options || {};
+        
+        var content = modal._content || modal.querySelector( ".modal-content" );
+        
+        var field = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "modal-field" } ),
+            content
+        );
+        
+        if ( label ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "label", { class: "modal-label" }, label ),
+                field
+            );
+        }
+        
+        var input;
+        var inputClass = type === "textarea" ? "modal-textarea" : "modal-input";
+        
+        if ( type === "textarea" ) {
+            input       = SERVICE.DOM.createElement( "textarea", {
+                class      : inputClass,
+                name       : name,
+                placeholder: options.placeholder || ""
+            } );
+            input.value = defaultValue || "";
+        }
+        else {
+            input = SERVICE.DOM.createElement( "input", {
+                class      : inputClass,
+                type       : type,
+                name       : name,
+                value      : defaultValue || "",
+                placeholder: options.placeholder || ""
+            } );
+        }
+        
+        if ( options.min !== undefined ) {
+            input.min = options.min;
+        }
+        if ( options.max !== undefined ) {
+            input.max = options.max;
+        }
+        if ( options.step !== undefined ) {
+            input.step = options.step;
+        }
+        if ( options.required ) {
+            input.required = true;
+        }
+        
+        SERVICE.DOM.addElementTo( input, field );
+        
+        return input;
+    };
+    
+    /**
+     * Ajoute un champ select à une modale
+     * @param {HTMLElement} modal - La modale
+     * @param {string} label - Label du champ
+     * @param {string} name - Nom du champ
+     * @param {Array} options_list - Liste des options (strings ou {value, label})
+     * @param {string} defaultValue - Valeur par défaut
+     * @returns {HTMLElement} L'élément select
+     */
+    self.addSelectField = function ( modal, label, name, options_list, defaultValue ) {
+        var content = modal._content || modal.querySelector( ".modal-content" );
+        
+        var field = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "modal-field" } ),
+            content
+        );
+        
+        if ( label ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "label", { class: "modal-label" }, label ),
+                field
+            );
+        }
+        
+        var select = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "select", {
+                class: "modal-select",
+                name : name
+            } ),
+            field
+        );
+        
+        for ( var i = 0; i < options_list.length; i++ ) {
+            var opt        = options_list[ i ];
+            var value      = typeof opt === "string" ? opt : opt.value;
+            var label_text = typeof opt === "string" ? opt : opt.label;
+            
+            var option = SERVICE.DOM.createElement( "option", { value: value }, label_text );
+            
+            if ( value === defaultValue ) {
+                option.selected = true;
+            }
+            
+            SERVICE.DOM.addElementTo( option, select );
+        }
+        
+        return select;
+    };
+    
+    /**
+     * Ajoute un texte ou contenu personnalisé à une modale
+     * @param {HTMLElement} modal - La modale
+     * @param {string|HTMLElement} content - Contenu à ajouter
+     * @param {string} className - Classe CSS optionnelle
+     * @returns {HTMLElement} L'élément créé
+     */
+    self.addContent = function ( modal, content, className ) {
+        var modal_content = modal._content || modal.querySelector( ".modal-content" );
+        
+        if ( typeof content === "string" ) {
+            var div = SERVICE.DOM.createElement( "div", {
+                class: className || "modal-text"
+            }, content );
+            SERVICE.DOM.addElementTo( div, modal_content );
+            return div;
+        }
+        else {
+            SERVICE.DOM.addElementTo( content, modal_content );
+            return content;
+        }
+    };
+    
+    /**
+     * Ajoute des boutons à une modale
+     * @param {HTMLElement} modal - La modale
+     * @param {Array} buttons - Liste des boutons {label, callback, className}
+     * @returns {HTMLElement} Le conteneur des boutons
+     */
+    self.addButtons = function ( modal, buttons ) {
+        var content = modal._content || modal.querySelector( ".modal-content" );
+        
+        var buttons_container = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "modal-buttons" } ),
+            content
+        );
+        
+        for ( var i = 0; i < buttons.length; i++ ) {
+            var btn_config = buttons[ i ];
+            var btn_class  = "modal-button";
+            
+            if ( btn_config.className ) {
+                btn_class += " " + btn_config.className;
+            }
+            
+            var button = SERVICE.DOM.createElement( "button", {
+                class: btn_class
+            }, btn_config.label );
+            
+            if ( btn_config.callback ) {
+                button.addEventListener( "click", btn_config.callback );
+            }
+            
+            SERVICE.DOM.addElementTo( button, buttons_container );
+        }
+        
+        return buttons_container;
+    };
+    
+    /**
+     * Ajoute des boutons standard Confirmer/Annuler
+     * @param {HTMLElement} modal - La modale
+     * @param {Function} onConfirm - Callback de confirmation
+     * @param {Function} onCancel - Callback d'annulation (optionnel)
+     * @returns {HTMLElement} Le conteneur des boutons
+     */
+    self.addConfirmButtons = function ( modal, onConfirm, onCancel ) {
+        var buttons = [
+            {
+                label    : "Annuler",
+                className: "cancel",
+                callback : onCancel || function () {
+                    self.close( modal );
+                }
+            },
+            {
+                label   : "Confirmer",
+                callback: onConfirm
+            }
+        ];
+        
+        return self.addButtons( modal, buttons );
+    };
+    
+    /**
+     * Affiche une modale
+     * @param {HTMLElement} modal - La modale à afficher
+     */
+    self.show = function ( modal ) {
+        self.addConfirmButtons(
+            modal,
+            function () {
+                modal._current_object.doActionAfter( modal._current_event_name, {param__modal__data : SERVICE.MODAL.getFormData( modal )} );
+                SERVICE.MODAL.close( modal );
+            },
+            function () {
+                SERVICE.MODAL.close( modal );
+            }
+        );
+        
+        document.body.appendChild( modal );
+        
+        // Focus sur le premier champ si disponible
+        var first_input = modal.querySelector( "input, textarea, select" );
+        if ( first_input ) {
+            setTimeout( function () {
+                first_input.focus();
+            }, 100 );
+        }
+    };
+    
+    /**
+     * Ferme et retire une modale
+     * @param {HTMLElement} modal - La modale à fermer
+     */
+    self.close = function ( modal ) {
+        if ( modal && modal.parentNode ) {
+            modal.parentNode.removeChild( modal );
+        }
+    };
+    
+    /**
+     * Récupère les valeurs de tous les champs d'une modale
+     * @param {HTMLElement} modal - La modale
+     * @returns {object} Objet contenant toutes les valeurs par nom de champ
+     */
+    self.getFormData = function ( modal ) {
+        var data   = {};
+        var inputs = modal.querySelectorAll( "input, textarea, select" );
+        
+        for ( var i = 0; i < inputs.length; i++ ) {
+            var input = inputs[ i ];
+            var name  = input.name || input.getAttribute( "name" );
+            
+            if ( name ) {
+                if ( input.type === "number" ) {
+                    data[ name ] = parseFloat( input.value ) || 0;
+                }
+                else if ( input.type === "checkbox" ) {
+                    data[ name ] = input.checked;
+                }
+                else {
+                    data[ name ] = input.value;
+                }
+            }
+        }
+        
+        return data;
+    };
+    
+    /**
+     * Modale de confirmation simple
+     * @param {string} title - Titre
+     * @param {string} message - Message
+     * @param {Function} onConfirm - Callback si confirmé
+     * @param {Function} onCancel - Callback si annulé
+     */
+    self.confirm = function ( title, message, onConfirm, onCancel ) {
+        var modal = self.create( title );
+        
+        self.addContent( modal, message );
+        
+        self.addConfirmButtons(
+            modal,
+            function () {
+                self.close( modal );
+                if ( onConfirm ) {
+                    onConfirm();
+                }
+            },
+            function () {
+                self.close( modal );
+                if ( onCancel ) {
+                    onCancel();
+                }
+            }
+        );
+        
+        self.show( modal );
+        
+        return modal;
+    };
+    
+    /**
+     * Modale d'alerte simple
+     * @param {string} title - Titre
+     * @param {string} message - Message
+     * @param {Function} onClose - Callback à la fermeture
+     */
+    self.alert = function ( title, message, onClose ) {
+        var modal = self.create( title );
+        
+        self.addContent( modal, message );
+        
+        self.addButtons( modal, [
+            {
+                label   : "OK",
+                callback: function () {
+                    self.close( modal );
+                    if ( onClose ) {
+                        onClose();
+                    }
+                }
+            }
+        ] );
+        
+        self.show( modal );
+        
+        return modal;
+    };
+    
+    /**
+     * Modale de prompt (saisie simple)
+     * @param {string} title - Titre
+     * @param {string} label - Label du champ
+     * @param {string} defaultValue - Valeur par défaut
+     * @param {Function} onConfirm - Callback avec la valeur saisie
+     * @param {Function} onCancel - Callback si annulé
+     */
+    self.prompt = function ( title, label, defaultValue, onConfirm, onCancel ) {
+        var modal = self.create( title );
+        
+        var input = self.addField( modal, "text", label, "prompt_value", defaultValue );
+        
+        self.addConfirmButtons(
+            modal,
+            function () {
+                var value = input.value;
+                self.close( modal );
+                if ( onConfirm ) {
+                    onConfirm( value );
+                }
+            },
+            function () {
+                self.close( modal );
+                if ( onCancel ) {
+                    onCancel();
+                }
+            }
+        );
+        
+        self.show( modal );
+        
+        // Soumettre avec Enter
+        input.addEventListener( "keypress", function ( e ) {
+            if ( e.key === "Enter" ) {
+                var value = input.value;
+                self.close( modal );
+                if ( onConfirm ) {
+                    onConfirm( value );
+                }
+            }
+        } );
+        
+        return modal;
+    };
+    
+    /**
+     * Ferme toutes les modales ouvertes
+     */
+    self.closeAll = function () {
+        var modals = document.querySelectorAll( ".modal" );
+        for ( var i = 0; i < modals.length; i++ ) {
+            self.close( modals[ i ] );
+        }
+    };
+    
+    return self;
+})( SERVICE.MODAL || {} );

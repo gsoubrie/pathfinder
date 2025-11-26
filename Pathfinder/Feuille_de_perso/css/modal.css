@@ -1,0 +1,415 @@
+/* ===== MODAL - OVERLAY ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== MODAL - CONTENU ===== */
+.modal-content {
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    border: 3px solid #8B6914;
+    border-radius: 12px;
+    padding: 24px;
+    min-width: 400px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.3);
+    animation: modalSlideIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== MODAL - TITRE ===== */
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #8B6914;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== MODAL - CHAMPS ===== */
+.modal-field {
+    margin-bottom: 16px;
+}
+
+.modal-label {
+    display: block;
+    color: #D4AF37;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-input,
+.modal-textarea,
+.modal-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #6B4E2A;
+    border-radius: 6px;
+    color: #D4AF37;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.modal-input:focus,
+.modal-textarea:focus,
+.modal-select:focus {
+    outline: none;
+    border-color: #D4AF37;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.modal-input::placeholder,
+.modal-textarea::placeholder {
+    color: #8B6914;
+    opacity: 0.7;
+}
+
+.modal-textarea {
+    resize: vertical;
+    min-height: 80px;
+    max-height: 200px;
+}
+
+.modal-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D4AF37' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.modal-select option {
+    background: #3D2817;
+    color: #D4AF37;
+    padding: 8px;
+}
+
+/* ===== MODAL - CONTENU TEXTE ===== */
+.modal-text,
+.modal-status {
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid #D4AF37;
+    border-radius: 4px;
+    color: #D4AF37;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal-status {
+    font-weight: bold;
+    text-align: center;
+    border-left: none;
+    border: 2px solid #D4AF37;
+}
+
+/* ===== MODAL - BOUTONS ===== */
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #6B4E2A;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #8B6914;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    color: #D4AF37;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-button:hover {
+    border-color: #D4AF37;
+    background: linear-gradient(135deg, #6B4E2A 0%, #4D3817 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.modal-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-button.cancel {
+    color: #FF6B6B;
+    border-color: #8B3A3A;
+}
+
+.modal-button.cancel:hover {
+    border-color: #FF6B6B;
+    background: linear-gradient(135deg, #5A2F2F 0%, #3D1F1F 100%);
+}
+
+/* ===== MODAL - SCROLLBAR PERSONNALISÉE ===== */
+.modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8B6914 0%, #D4AF37 100%);
+    border-radius: 10px;
+    border: 2px solid #3D2817;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4CF67 100%);
+}
+
+/* ===== MODAL - RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .modal-content {
+        min-width: 90%;
+        max-width: 90%;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-button {
+        width: 100%;
+    }
+}
+
+/* ===== MODAL - VARIANTES DE COULEUR ===== */
+.modal-content.success {
+    border-color: #51CF66;
+}
+
+.modal-content.success .modal-title {
+    color: #51CF66;
+}
+
+.modal-content.danger {
+    border-color: #FF6B6B;
+}
+
+.modal-content.danger .modal-title {
+    color: #FF6B6B;
+}
+
+.modal-content.warning {
+    border-color: #FFD93D;
+}
+
+.modal-content.warning .modal-title {
+    color: #FFD93D;
+}
+
+/* ===== MODAL - ÉTATS SPÉCIAUX ===== */
+.modal-input[type="number"]::-webkit-inner-spin-button,
+.modal-input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    height: 30px;
+}
+
+.modal-input:disabled,
+.modal-textarea:disabled,
+.modal-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.modal-input:invalid,
+.modal-textarea:invalid,
+.modal-select:invalid {
+    border-color: #FF6B6B;
+}
+
+/* ===== MODAL - ANIMATION DE FERMETURE ===== */
+.modal.closing {
+    animation: modalFadeOut 0.3s ease;
+}
+
+.modal.closing .modal-content {
+    animation: modalSlideOut 0.3s ease;
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes modalSlideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* ===== MODAL - GROUPE DE CHAMPS ===== */
+.modal-field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.modal-field-group .modal-field {
+    margin-bottom: 0;
+}
+
+/* ===== MODAL - AIDE / INFO ===== */
+.modal-help {
+    font-size: 12px;
+    color: #8B6914;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.modal-info {
+    padding: 10px 12px;
+    background: rgba(81, 207, 102, 0.1);
+    border-left: 3px solid #51CF66;
+    border-radius: 4px;
+    color: #51CF66;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.modal-warning {
+    padding: 10px 12px;
+    background: rgba(255, 215, 61, 0.1);
+    border-left: 3px solid #FFD93D;
+    border-radius: 4px;
+    color: #FFD93D;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.modal-error {
+    padding: 10px 12px;
+    background: rgba(255, 107, 107, 0.1);
+    border-left: 3px solid #FF6B6B;
+    border-radius: 4px;
+    color: #FF6B6B;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+/* ===== MODAL - LOADING STATE ===== */
+.modal-loading {
+    text-align: center;
+    padding: 20px;
+    color: #D4AF37;
+}
+
+.modal-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(212, 175, 55, 0.3);
+    border-top-color: #D4AF37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== MODAL - CHECKBOX ET RADIO ===== */
+.modal-checkbox,
+.modal-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.modal-checkbox input[type="checkbox"],
+.modal-radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #D4AF37;
+    cursor: pointer;
+}
+
+.modal-checkbox label,
+.modal-radio label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: normal;
+    text-transform: none;
+}
+
+/* ===== MODAL - DIVIDER ===== */
+.modal-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #8B6914 50%, transparent 100%);
+    margin: 20px 0;
+}
