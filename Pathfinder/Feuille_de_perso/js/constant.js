@@ -5,3 +5,4 @@ var CONTROLLER = CONTROLLER || {};
 var AREA       = {};
 var POPUP      = {};
 var CHARACTER  = {};
+var COMBAT  = {};

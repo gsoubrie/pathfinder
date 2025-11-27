@@ -57,80 +57,25 @@ CHARACTER.GeneralWindow.prototype = {
     computeArea__health: function ( character_object ) {
         var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
         
-        // Récupérer les PV actuels et max
-        var currentHP = character_object.current_life || character_object.total_life;
-        var maxHP = character_object.total_life;
-        var tempHP = this.getTotalTempHP();
+        var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-header" } ), area );
         
-        // Header avec affichage des PV
-        var header = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-header" } ),
-            area
-        );
+        var hpDisplay = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-display" } ), header );
         
-        var hpDisplay = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-display" } ),
-            header
-        );
-        
-        this.hpCurrentElement = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "hp-current" }, currentHP ),
-            hpDisplay
-        );
+        this.hpCurrentElement = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-current" }, character_object.getHealth().getEffectiveHP() ), hpDisplay );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, " / " ), hpDisplay );
         
-        this.hpMaxElement = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "hp-max" }, maxHP ),
-            hpDisplay
-        );
+        this.hpMaxElement = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-max" }, character_object.getHealth().getMaxHP() ), hpDisplay );
         
-        if (tempHP > 0) {
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { style: "color: #51CF66; margin-left: 8px;" }, " (+" + tempHP + " temp)" ),
-                hpDisplay
-            );
-        }
+        this.hpPercent = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-percent between-parentheses" }, character_object.getHealth().getHealthPercentage() + "%" ), hpDisplay );
         
-        // Boutons d'actions
-        var actions = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-actions" } ),
-            header
-        );
+        var actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-actions" } ), header );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button heal", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_heal')" }, "Soigner" ), actions );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_temp')" }, "+ PV Temp" ), actions );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button damage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_damage')" }, "Dégâts" ), actions );
         
-        // Barre de vie
-        var barContainer = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-bar-container" } ),
-            area
-        );
-        
-        this.hpBarElement = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", {
-                class: "hp-bar",
-                style: "width: " + (currentHP / maxHP * 100) + "%"
-            } ),
-            barContainer
-        );
-        
-        if (tempHP > 0) {
-            this.hpBarTempElement = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class: "hp-bar-temp",
-                    style: "width: " + (tempHP / maxHP * 100) + "%"
-                } ),
-                barContainer
-            );
-        }
-        
-        // Liste des effets (PV temp et dégâts)
-        this.hpEffectsContainer = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "hp-effects-list" } ),
-            area
-        );
+        this.hpEffectsContainer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-effects-list" } ), area );
         
         this.updateEffectsList();
     },

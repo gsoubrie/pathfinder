@@ -267,3 +267,26 @@ var ALIGNEMENT = {
         },
     }
 };
+
+COMBAT.DAMAGE_TYPES = [
+    "Contondant",
+    "Perforant",
+    "Tranchant",
+    "Acide",
+    "Froid",
+    "Feu",
+    "Force",
+    "Foudre",
+    "Nécrotique",
+    "Poison",
+    "Psychique",
+    "Radiant",
+    "Sonore"
+];
+
+COMBAT.WOUND_SEVERITY = {
+    LIGHT   : "légère",
+    MODERATE: "modérée",
+    SEVERE  : "grave",
+    CRITICAL: "critique"
+};

@@ -20,7 +20,7 @@ CHARACTER.LevelWindow.prototype = {
         const life_container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-container-life" } ), this.content_dom_element_target );
         const title          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-title" }, "<hr>" ), life_container );
         
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de vie total : " + character_object.total_life ), life_container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "life-total" }, "Points de vie total : " + character_object.getHealth().getMaxHP() ), life_container );
         
         const table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "table", { class: "life-table" } ), life_container );
         

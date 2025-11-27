@@ -24,6 +24,7 @@
   "laxbreak": true,
   "globals": {
     "ALIGNEMENT": false,
+    "COMBAT": false,
     "HISTORICS": false,
     "MASTERY": false,
     "SKILLS": false,

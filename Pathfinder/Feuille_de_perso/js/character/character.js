@@ -46,7 +46,7 @@ CHARACTER.Current.prototype = {
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
-                this.health.doActionAfter(event_name, params);
+                this.health.doActionAfter( event_name, params );
                 break;
         }
     },
@@ -78,12 +78,12 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  COMPUTE   **************************************************//
     computeTotalLife: function () {
-        this.total_life = 0;
+        let total_life = 0;
         for ( let i = 0, _size_i = this.level; i < _size_i; i++ ) {
-            this.total_life += this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).getModifierValue();
-            this.total_life += this.getLevelHistory().getContent( i ).life_class;
+            total_life += this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).getModifierValue();
+            total_life += this.getLevelHistory().getContent( i ).life_class;
         }
-        this.health.setMaxHP(this.total_life);
+        this.health.setMaxHP( total_life );
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData                    : function ( key, value ) {
@@ -142,6 +142,9 @@ CHARACTER.Current.prototype = {
     },
     getLevelHistory            : function () {
         return this.levels_history;
+    },
+    getHealth            : function () {
+        return this.health;
     },
     getPropertyForDoActionAfter: function ( params ) {
         switch ( params[ "param__property" ] ) {
