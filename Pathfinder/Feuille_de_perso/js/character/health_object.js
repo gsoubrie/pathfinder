@@ -50,6 +50,7 @@ CHARACTER.Health.prototype = {
                 else {
                     this.current_hp -= damage;
                 }
+                CONTROLLER.Character.doActionAfter("event__health_object__change", {"param__health_object__object" : this});
                 break;
         }
     },
@@ -65,6 +66,7 @@ CHARACTER.Health.prototype = {
     },
     setMaxHP           : function ( value ) {
         this.max_hp = value;
+        this.current_hp = value;
     },
     getEffectiveHP     : function () {
         return this.current_hp + this.temp_hp_total;

@@ -7,7 +7,14 @@ CHARACTER.GeneralWindow = function ( window_name, parent_name ) {
 
 CHARACTER.GeneralWindow.prototype = {
     initSpecific: WINDOW_V2.ElementFromData.initSpecific,
-    
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__health_object__change":
+                this.updateHealthDisplay();
+                break;
+        }
+    },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
         this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
@@ -249,22 +256,11 @@ CHARACTER.GeneralWindow.prototype = {
     
     updateHealthDisplay: function() {
         var character = CONTROLLER.Character.current_character;
-        var currentHP = character.current_life || character.total_life;
-        var maxHP = character.total_life;
-        var tempHP = this.getTotalTempHP();
         
-        if (this.hpCurrentElement) {
-            this.hpCurrentElement.textContent = currentHP;
-        }
+        this.hpCurrentElement.textContent = character.getHealth().getCurrentHP();
+        this.hpMaxElement.textContent = character.getHealth().getMaxHP();
+        this.hpPercent.textContent = character.getHealth().getHealthPercentage();
         
-        if (this.hpBarElement) {
-            this.hpBarElement.style.width = (currentHP / maxHP * 100) + "%";
-        }
-        
-        // Mettre à jour la barre de PV temporaires
-        if (this.hpBarTempElement && tempHP > 0) {
-            this.hpBarTempElement.style.width = (tempHP / maxHP * 100) + "%";
-        }
     },
     
     // Zone TEMP HEALTH - Affiche les états temporaires
