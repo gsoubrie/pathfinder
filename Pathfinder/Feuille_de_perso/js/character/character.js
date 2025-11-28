@@ -43,13 +43,16 @@ CHARACTER.Current.prototype = {
             case "event__data_loaded__done":
                 this.computeTotalLife();
                 break;
-            case "event__health_object__change":
-                this.windows.doActionAfterContentChildren(event_name, params);
-                break;
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
                 this.health.doActionAfter( event_name, params );
+                break;
+            case "event__heal_modal__confirm":
+            case "event__temp_hp_modal__confirm":
+            case "event__damage_modal__confirm":                
+                this.health.doActionAfter( event_name, params );
+                this.windows.doActionAfterContentChildren(event_name, params);
                 break;
         }
     },

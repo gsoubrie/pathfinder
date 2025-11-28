@@ -1032,7 +1032,7 @@ SERVICE.MODAL = (function ( self ) {
         self.addConfirmButtons(
             modal,
             function () {
-                modal._current_object.doActionAfter( modal._current_event_name, {param__modal__data : SERVICE.MODAL.getFormData( modal )} );
+                CONTROLLER.Main.doActionAfter( modal._current_event_name, {param__modal__data : SERVICE.MODAL.getFormData( modal )} );
                 SERVICE.MODAL.close( modal );
             },
             function () {

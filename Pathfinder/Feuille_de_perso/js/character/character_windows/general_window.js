@@ -10,7 +10,9 @@ CHARACTER.GeneralWindow.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__health_object__change":
+            case "event__heal_modal__confirm":
+            case "event__temp_hp_modal__confirm":
+            case "event__damage_modal__confirm":  
                 this.updateHealthDisplay();
                 break;
         }
@@ -24,8 +26,6 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeArea__name( character_object );
         this.computeArea__player( character_object );
         this.computeArea__health( character_object );
-        this.computeArea__temp_health( character_object );
-        this.computeArea__wound( character_object );
         this.computeArea__ancestry( character_object );
         this.computeArea__heritage( character_object );
         this.computeArea__class( character_object );
@@ -82,211 +82,16 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_temp')" }, "+ PV Temp" ), actions );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button damage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_damage')" }, "Dégâts" ), actions );
         
-        this.hpEffectsContainer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-effects-list" } ), area );
-        
-        this.updateEffectsList();
+        this.hpEffectsContainer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { id: "health-history-container" } ), area );
     },
-    
-    getTotalTempHP: function() {
-        return this.tempHpEffects.reduce(function(sum, effect) { return sum + effect.value; }, 0);
-    },
-    
-    updateEffectsList: function() {
-        var self = this;
-        if (!this.hpEffectsContainer) return;
-        
-        SERVICE.DOM.empty(this.hpEffectsContainer);
-        
-        // Afficher les PV temporaires
-        this.tempHpEffects.forEach(function(effect, index) {
-            var item = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "hp-effect-item" } ),
-                self.hpEffectsContainer
-            );
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { class: "hp-effect-label" }, effect.comment || "PV temporaires" ),
-                item
-            );
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { class: "hp-effect-value", style: "color: #51CF66;" }, "+" + effect.value ),
-                item
-            );
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", {
-                    class: "hp-effect-remove",
-                    onclick: function() { self.removeTempHP(index); }
-                }, "✕" ),
-                item
-            );
-        });
-        
-        // Afficher les dégâts récents
-        this.damageEffects.forEach(function(effect, index) {
-            var item = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "hp-effect-item damage" } ),
-                self.hpEffectsContainer
-            );
-            
-            var label = effect.comment || "Dégâts";
-            if (effect.damageType) {
-                label += " (" + effect.damageType + ")";
-            }
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { class: "hp-effect-label" }, label ),
-                item
-            );
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { class: "hp-effect-value", style: "color: #FF6B6B;" }, "-" + effect.value ),
-                item
-            );
-            
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", {
-                    class: "hp-effect-remove",
-                    onclick: function() { self.removeDamageEffect(index); }
-                }, "✕" ),
-                item
-            );
-        });
-    },
-    
-    showTempHPModal: function() {
-        var self = this;
-        var modal = this.createModal("Ajouter des PV Temporaires");
-        
-        var valueField = this.createModalField(modal, "number", "Montant", "value", "10");
-        var commentField = this.createModalField(modal, "textarea", "Raison (optionnel)", "comment", "");
-        
-        this.createModalButtons(modal, function() {
-            var value = parseInt(valueField.value) || 0;
-            if (value > 0) {
-                self.tempHpEffects.push({
-                    value: value,
-                    comment: commentField.value
-                });
-                self.updateHealthDisplay();
-                self.updateEffectsList();
-            }
-            document.body.removeChild(modal);
-        }, function() {
-            document.body.removeChild(modal);
-        });
-        
-        document.body.appendChild(modal);
-    },
-    
-    showDamageModal: function() {
-        var self = this;
-        var modal = this.createModal("Appliquer des Dégâts");
-        
-        var valueField = this.createModalField(modal, "number", "Montant des dégâts", "value", "5");
-        var typeField = this.createModalSelectField(modal, "Type de dégâts", "damageType", [
-            "Contondant", "Perforant", "Tranchant", "Acide", "Froid", "Feu",
-            "Force", "Foudre", "Nécrotique", "Poison", "Psychique", "Radiant", "Sonore"
-        ]);
-        var commentField = this.createModalField(modal, "textarea", "Notes (optionnel)", "comment", "");
-        
-        this.createModalButtons(modal, function() {
-            var value = parseInt(valueField.value) || 0;
-            if (value > 0) {
-                self.applyDamage(value, typeField.value, commentField.value);
-            }
-            document.body.removeChild(modal);
-        }, function() {
-            document.body.removeChild(modal);
-        });
-        
-        document.body.appendChild(modal);
-    },
-    applyDamage: function(value, damageType, comment) {
-        var character = CONTROLLER.Character.current_character;
-        
-        // D'abord, enlever des PV temporaires si présents
-        var remainingDamage = value;
-        while (remainingDamage > 0 && this.tempHpEffects.length > 0) {
-            var tempEffect = this.tempHpEffects[0];
-            if (tempEffect.value <= remainingDamage) {
-                remainingDamage -= tempEffect.value;
-                this.tempHpEffects.shift();
-            } else {
-                tempEffect.value -= remainingDamage;
-                remainingDamage = 0;
-            }
-        }
-        
-        // Puis enlever des PV réels
-        if (remainingDamage > 0) {
-            character.current_life = Math.max(0, (character.current_life || character.total_life) - remainingDamage);
-            
-            // Ajouter à l'historique des dégâts
-            this.damageEffects.push({
-                value: value,
-                damageType: damageType,
-                comment: comment,
-                timestamp: new Date()
-            });
-        }
-        
-        this.updateHealthDisplay();
-        this.updateEffectsList();
-    },
-    
-    applyHealing: function(value, comment) {
-        var character = CONTROLLER.Character.current_character;
-        character.current_life = Math.min(character.total_life, (character.current_life || 0) + value);
-        
-        this.updateHealthDisplay();
-    },
-    
-    removeTempHP: function(index) {
-        this.tempHpEffects.splice(index, 1);
-        this.updateHealthDisplay();
-        this.updateEffectsList();
-    },
-    
-    removeDamageEffect: function(index) {
-        this.damageEffects.splice(index, 1);
-        this.updateEffectsList();
-    },
-    
     updateHealthDisplay: function() {
         var character = CONTROLLER.Character.current_character;
         
-        this.hpCurrentElement.textContent = character.getHealth().getCurrentHP();
+        this.hpCurrentElement.textContent = character.getHealth().getEffectiveHP();
         this.hpMaxElement.textContent = character.getHealth().getMaxHP();
-        this.hpPercent.textContent = character.getHealth().getHealthPercentage();
+        this.hpPercent.textContent = character.getHealth().getHealthPercentage()+"%";
         
     },
-    
-    // Zone TEMP HEALTH - Affiche les états temporaires
-    computeArea__temp_health: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-temp-health" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "temp_life", "", "États temporaires", true ),
-            area
-        );
-    },
-    
-    // Zone WOUND - Affiche les blessures et états
-    computeArea__wound: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-wound" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "wound", "", "Blessures / Mourant", true ),
-            area
-        );
-    },
-    
     computeArea__ancestry: function ( character_object ) {
         var area = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ),

@@ -24,7 +24,9 @@ CONTROLLER.Character = (function ( self ) {
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
-            case "event__health_object__change":
+            case "event__heal_modal__confirm":
+            case "event__temp_hp_modal__confirm":
+            case "event__damage_modal__confirm":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__form__element_changed":
