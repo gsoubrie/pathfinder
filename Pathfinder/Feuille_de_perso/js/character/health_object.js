@@ -145,6 +145,7 @@ CHARACTER.Health.prototype = {
     },
     
     updateData: function ( data ) {
+        console.log(data, this)
         if ( !data ) {
             return;
         }
@@ -152,7 +153,6 @@ CHARACTER.Health.prototype = {
         this.current_hp = data.current_hp || 0;
         this.max_hp     = data.max_hp || 0;
         
-        // Reconstruire les objets d'historique
         this.history = [];
         if ( data.history && Array.isArray( data.history ) ) {
             data.history.forEach( entryData => {
