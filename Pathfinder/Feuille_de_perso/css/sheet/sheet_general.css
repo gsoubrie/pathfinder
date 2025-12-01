@@ -25,8 +25,9 @@
         var(--row-7-height, auto)   
         var(--row-8-height, auto)   
         var(--row-9-height, auto)   
-        var(--row-10-height, auto); 
-    
+        var(--row-10-height, auto)
+        var(--row-11-height, auto);
+
     grid-template-areas:
         "logo   name        name        ancestry   ancestry   level"
         "save   player      player      heritage   heritage   heroism"
@@ -36,7 +37,8 @@
         ".      .           .           alignment  health     health"
         ".      temp-health temp-health divinity   health     health"
         ".      wound       wound       .          health     health"
-        ".      .           .           .          .          ."
+        ".      .           .           .          health     health"
+        ".      .           .           .          health     health"
         ".      .           .           .          surprise   ca";
 }
 
@@ -394,86 +396,80 @@
     min-height: 0;
 }
 
-
-.health-history-entry {
+/* ===== HEATH LOGGER ===== */
+#health-history-container {
+    max-height: 200px;
+    overflow: auto;
+}
+#health-history-container .health-history-entry {
     background: #f9fafb;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 8px;
+    padding: 2px;
+    margin: 1px;
     transition: all 0.2s;
 }
 
-.health-history-entry:hover {
+#health-history-container .health-history-entry:hover {
     background: #f3f4f6;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.health-history-entry__header {
+#health-history-container .health-history-entry__header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 2px;
 }
 
-.health-history-entry__icon {
+#health-history-container .health-history-entry__icon {
     font-size: 24px;
     flex-shrink: 0;
 }
 
-.health-history-entry__info {
+#health-history-container .health-history-entry__info {
     flex: 1;
 }
 
-.health-history-entry__title {
+#health-history-container .health-history-entry__title {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    margin-bottom: 4px;
 }
 
-.health-history-entry__label {
+#health-history-container .health-history-entry__label {
     color: #374151;
 }
 
-.health-history-entry__value {
+#health-history-container .health-history-entry__value {
     font-weight: 700;
 }
-
-.health-history-entry__date {
-    font-size: 12px;
-    color: #6b7280;
-}
-
-.health-history-entry__details {
-    margin-top: 8px;
-    padding-top: 8px;
+#health-history-container .health-history-entry__details {
     border-top: 1px solid #e5e7eb;
     font-size: 14px;
     color: #4b5563;
 }
 
-.health-history-entry__details > div {
+#health-history-container .health-history-entry__details > div {
     margin-bottom: 4px;
 }
 
-.health-history-entry__details > div:last-child {
+#health-history-container .health-history-entry__details > div:last-child {
     margin-bottom: 0;
 }
 
-.health-history-entry__comment {
+#health-history-container .health-history-entry__comment {
     font-style: italic;
     color: #6b7280;
 }
 
-.health-history-entry--damage {
+#health-history-container .health-history-entry--damage {
     border-left: 3px solid #ef4444;
 }
 
-.health-history-entry--heal {
+#health-history-container .health-history-entry--heal {
     border-left: 3px solid #22c55e;
 }
 
-.health-history-entry--temp_hp {
+#health-history-container .health-history-entry--temp_hp {
     border-left: 3px solid #3b82f6;
 }

@@ -4,7 +4,6 @@
  * @extends OBJECT.InterfaceContainerHtml
  */
 CHARACTER.LevelHistorySkills = function ( level_value, data ) {
-    console.log( "GSOU", "[LevelHistorySkills - LevelHistorySkills]", level_value, data );
     this.init( level_value, data );
 };
 CHARACTER.LevelHistorySkills.prototype = {
@@ -19,13 +18,15 @@ CHARACTER.LevelHistorySkills.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getDataToSave: function () {
-        let to_return = {};
+    getDataToSave    : function () {
+        let to_return = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return.push( this.getContent( i ).getDataToSave() );
+        }
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
     updateData: function ( data ) {
-        console.log( "GSOU", "[LevelHistorySkills - updateData]", data );
         if ( !data ) {
             return;
         }
@@ -77,6 +78,8 @@ CHARACTER.LevelHistorySkill.prototype = {
     },
     getDataToSave: function () {
         let to_return = {};
+        to_return["origin"] = this.origin;
+        to_return[this.name] = this.value;
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//

@@ -32,23 +32,23 @@ CHARACTER.Health.prototype = {
                 this.showDamageModal();
                 break;
             case "event__heal_modal__confirm":
-                this.addHistory(params.param__modal__data, "heal");
-                this.current_hp = Math.min(this.current_hp + params.param__modal__data.value, this.max_hp);
+                this.addHistory( params.param__modal__data, "heal" );
+                this.current_hp = Math.min( this.current_hp + params.param__modal__data.value, this.max_hp );
                 this.renderHistory();
                 break;
             case "event__temp_hp_modal__confirm":
-                this.addHistory(params.param__modal__data, "temp_hp");
+                this.addHistory( params.param__modal__data, "temp_hp" );
                 this.temp_hp_total += params.param__modal__data.value;
                 this.renderHistory();
                 break;
             case "event__damage_modal__confirm":
-                this.addHistory(params.param__modal__data, "damage");
+                this.addHistory( params.param__modal__data, "damage" );
                 
                 const damage = params.param__modal__data.value;
                 
-                if (this.temp_hp_total) {
-                    const damage_overflow = Math.max(damage - this.temp_hp_total, 0);
-                    this.temp_hp_total    = Math.max(this.temp_hp_total - damage, 0);
+                if ( this.temp_hp_total ) {
+                    const damage_overflow = Math.max( damage - this.temp_hp_total, 0 );
+                    this.temp_hp_total    = Math.max( this.temp_hp_total - damage, 0 );
                     this.current_hp -= damage_overflow;
                 }
                 else {
@@ -66,18 +66,18 @@ CHARACTER.Health.prototype = {
     getMaxHP           : function () {
         return this.max_hp;
     },
-    getTempHP           : function () {
+    getTempHP          : function () {
         return this.temp_hp_total;
     },
     setMaxHP           : function ( value ) {
-        this.max_hp = value;
+        this.max_hp     = value;
         this.current_hp = value;
     },
     getEffectiveHP     : function () {
         return this.current_hp + this.temp_hp_total;
     },
     getHealthPercentage: function () {
-        return parseInt((this.getEffectiveHP() / this.max_hp) * 100);
+        return parseInt( (this.getEffectiveHP() / this.max_hp) * 100 );
     },
     
     //********************************************  HISTORY MANAGEMENT  **************************************************//
@@ -85,7 +85,7 @@ CHARACTER.Health.prototype = {
      * @param {object} data
      * @param {string} type - "damage", "heal", or "temp_hp"
      */
-    addHistory: function (data, type) {
+    addHistory: function ( data, type ) {
         const entryData = {
             value      : data.value,
             comment    : data.comment || "",
@@ -95,39 +95,40 @@ CHARACTER.Health.prototype = {
             type       : type
         };
         
-        const entry = new CHARACTER.HealthHistoryEntry(entryData);
-        this.history.push(entry);
+        const entry = new CHARACTER.HealthHistoryEntry( entryData );
+        this.history.push( entry );
     },
     
     /**
      * Affiche l'historique dans le conteneur HTML
      */
     renderHistory: function () {
-        console.log("dddd")
-        const container = document.getElementById("health-history-container");
-        if (!container) return;
+        const container = document.getElementById( "health-history-container" );
+        if ( !container ) {
+            return;
+        }
         
         // Vider le conteneur
         container.innerHTML = "";
         
         // Si pas d'historique
-        if (this.history.length === 0) {
+        if ( this.history.length === 0 ) {
             container.innerHTML = '<div class="health-history-empty">Aucun événement dans l\'historique</div>';
             return;
         }
         
         // Afficher les entrées (plus récentes en premier)
         const sortedHistory = [...this.history].reverse();
-        sortedHistory.forEach(entry => {
-            container.appendChild(entry.html);
-        });
+        sortedHistory.forEach( entry => {
+            container.appendChild( entry.html );
+        } );
     },
     
     /**
      * Efface l'historique
      */
     clearHistory: function () {
-        if (confirm("Êtes-vous sûr de vouloir effacer tout l'historique ?")) {
+        if ( confirm( "Êtes-vous sûr de vouloir effacer tout l'historique ?" ) ) {
             this.history = [];
             this.renderHistory();
         }
@@ -139,12 +140,12 @@ CHARACTER.Health.prototype = {
         return {
             current_hp: this.current_hp,
             max_hp    : this.max_hp,
-            history   : this.history.map(entry => entry.getDataToSave())
+            history   : this.history.map( entry => entry.getDataToSave() )
         };
     },
     
-    updateData: function (data) {
-        if (!data) {
+    updateData: function ( data ) {
+        if ( !data ) {
             return;
         }
         
@@ -153,11 +154,11 @@ CHARACTER.Health.prototype = {
         
         // Reconstruire les objets d'historique
         this.history = [];
-        if (data.history && Array.isArray(data.history)) {
-            data.history.forEach(entryData => {
-                const entry = new CHARACTER.HealthHistoryEntry(entryData);
-                this.history.push(entry);
-            });
+        if ( data.history && Array.isArray( data.history ) ) {
+            data.history.forEach( entryData => {
+                const entry = new CHARACTER.HealthHistoryEntry( entryData );
+                this.history.push( entry );
+            } );
         }
         
         this.renderHistory();
@@ -165,31 +166,31 @@ CHARACTER.Health.prototype = {
     
     //********************************************  MODAL  **************************************************//
     showHealModal: function () {
-        var modal = SERVICE.MODAL.create("Soigner le personnage", "event__heal_modal__confirm", this, {});
-        SERVICE.MODAL.addField(modal, "number", "Points de vie restaurés", "value", "10", { min: 1, placeholder: "Entrez le montant des soins" });
-        SERVICE.MODAL.addField(modal, "text", "Source des soins (optionnel)", "source", "", { placeholder: "Potion, sort, repos..." });
-        SERVICE.MODAL.addField(modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Détails supplémentaires..." });
-        SERVICE.MODAL.show(modal);
+        var modal = SERVICE.MODAL.create( "Soigner le personnage", "event__heal_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "number", "Points de vie restaurés", "value", "10", { min: 1, placeholder: "Entrez le montant des soins" } );
+        SERVICE.MODAL.addField( modal, "text", "Source des soins (optionnel)", "source", "", { placeholder: "Potion, sort, repos..." } );
+        SERVICE.MODAL.addField( modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Détails supplémentaires..." } );
+        SERVICE.MODAL.show( modal );
     },
     
     showTempHPModal: function () {
-        var modal = SERVICE.MODAL.create("Ajouter des PV temporaires", "event__temp_hp_modal__confirm", this, {});
-        SERVICE.MODAL.addField(modal, "number", "Montant des PV temporaires", "value", "10", { min: 1, placeholder: "Nombre de PV temporaires" });
-        SERVICE.MODAL.addField(modal, "text", "Source (optionnel)", "source", "", { placeholder: "Sort, capacité, objet..." });
-        SERVICE.MODAL.addField(modal, "textarea", "Raison (optionnel)", "comment", "", { placeholder: "Pourquoi ces PV temporaires ?" });
-        SERVICE.MODAL.show(modal);
+        var modal = SERVICE.MODAL.create( "Ajouter des PV temporaires", "event__temp_hp_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "number", "Montant des PV temporaires", "value", "10", { min: 1, placeholder: "Nombre de PV temporaires" } );
+        SERVICE.MODAL.addField( modal, "text", "Source (optionnel)", "source", "", { placeholder: "Sort, capacité, objet..." } );
+        SERVICE.MODAL.addField( modal, "textarea", "Raison (optionnel)", "comment", "", { placeholder: "Pourquoi ces PV temporaires ?" } );
+        SERVICE.MODAL.show( modal );
     },
     
     showDamageModal: function () {
-        var modal = SERVICE.MODAL.create("Appliquer des dégâts", "event__damage_modal__confirm", this, {});
-        SERVICE.MODAL.addField(modal, "number", "Montant des dégâts", "value", "5", { min: 1, placeholder: "Nombre de points de dégâts" });
-        SERVICE.MODAL.addSelectField(modal, "Type de dégâts", "damage_type", COMBAT.DAMAGE_TYPES, "Contondant");
-        SERVICE.MODAL.addField(modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Source des dégâts, circonstances..." });
-        SERVICE.MODAL.show(modal);
+        var modal = SERVICE.MODAL.create( "Appliquer des dégâts", "event__damage_modal__confirm", this, {} );
+        SERVICE.MODAL.addField( modal, "number", "Montant des dégâts", "value", "5", { min: 1, placeholder: "Nombre de points de dégâts" } );
+        SERVICE.MODAL.addSelectField( modal, "Type de dégâts", "damage_type", COMBAT.DAMAGE_TYPES, "Contondant" );
+        SERVICE.MODAL.addField( modal, "textarea", "Notes (optionnel)", "comment", "", { placeholder: "Source des dégâts, circonstances..." } );
+        SERVICE.MODAL.show( modal );
     }
 };
 
-SERVICE.CLASS.addPrototype(CHARACTER.Health, OBJECT.InterfaceHtml);
+SERVICE.CLASS.addPrototype( CHARACTER.Health, OBJECT.InterfaceHtml );
 
 "use strict";
 
@@ -198,40 +199,47 @@ SERVICE.CLASS.addPrototype(CHARACTER.Health, OBJECT.InterfaceHtml);
  * @extends OBJECT.InterfaceHtml
  * Représente une entrée dans l'historique de santé du personnage
  */
-CHARACTER.HealthHistoryEntry = function (data) {
-    this.init(data);
+CHARACTER.HealthHistoryEntry = function ( data ) {
+    this.init( data );
 };
 
 CHARACTER.HealthHistoryEntry.prototype = {
-    init: function (data) {
-        this.value = data.value || 0;
-        this.comment = data.comment || "";
+    init: function ( data ) {
+        this.value       = data.value || 0;
+        this.comment     = data.comment || "";
         this.damage_type = data.damage_type || "";
-        this.source = data.source || "";
-        this.timestamp = data.timestamp || new Date().getTime();
-        this.type = data.type || "damage"; // "damage", "heal", "temp_hp"
+        this.source      = data.source || "";
+        this.timestamp   = data.timestamp || new Date().getTime();
+        this.type        = data.type || "damage"; // "damage", "heal", "temp_hp"
         
         this.createHtml();
     },
-
+    
     //********************************************  HTML GENERATION  **************************************************//
     
     createHtml: function () {
-        this.html = document.createElement("div");
-        this.html.classList.add("health-history-entry");
-        this.html.classList.add("health-history-entry--" + this.type);
+        this.html = document.createElement( "div" );
+        this.html.classList.add( "health-history-entry" );
+        this.html.classList.add( "health-history-entry--" + this.type );
         
         this.updateHtml();
     },
     
     updateHtml: function () {
-        if (!this.html) return;
+        if ( !this.html ) {
+            return;
+        }
         
-        const icon = this.getTypeIcon();
-        const color = this.getTypeColor();
-        const label = this.getTypeLabel();
-        const formattedDate = this.formatDate();
-        const valueDisplay = this.getValueDisplay();
+        const icon          = this.getTypeIcon();
+        const color         = this.getTypeColor();
+        const label         = this.getTypeLabel();
+        const valueDisplay  = this.getValueDisplay();
+        
+        let damage_type = "";
+        
+        if ( this.damage_type ) {
+            damage_type = `<div class="health-history-entry__damage-type">${this.damage_type}</div>`;
+        }
         
         this.html.innerHTML = `
             <div class="health-history-entry__header">
@@ -242,8 +250,8 @@ CHARACTER.HealthHistoryEntry.prototype = {
                     <div class="health-history-entry__title">
                         <span class="health-history-entry__label">${label}</span>
                         <span class="health-history-entry__value" style="color: ${color}">${valueDisplay}</span>
+                        ${damage_type}
                     </div>
-                    <div class="health-history-entry__date">${formattedDate}</div>
                 </div>
             </div>
             ${this.getDetailsHtml()}
@@ -253,27 +261,25 @@ CHARACTER.HealthHistoryEntry.prototype = {
     getDetailsHtml: function () {
         let details = [];
         
-        if (this.source) {
-            details.push(`<div class="health-history-entry__source"><strong>Source:</strong> ${this.source}</div>`);
+        if ( this.source ) {
+            details.push( `<div class="health-history-entry__source"><strong>Source:</strong> ${this.source}</div>` );
         }
         
-        if (this.damage_type && this.type === "damage") {
-            details.push(`<div class="health-history-entry__damage-type"><strong>Type:</strong> ${this.damage_type}</div>`);
+        if ( this.comment ) {
+            details.push( `<div class="health-history-entry__comment">${this.comment}</div>` );
         }
         
-        if (this.comment) {
-            details.push(`<div class="health-history-entry__comment">${this.comment}</div>`);
+        if ( details.length === 0 ) {
+            return "";
         }
         
-        if (details.length === 0) return "";
-        
-        return `<div class="health-history-entry__details">${details.join("")}</div>`;
+        return `<div class="health-history-entry__details">${details.join( "" )}</div>`;
     },
     
     //********************************************  HELPERS  **************************************************//
     
     getTypeIcon: function () {
-        switch (this.type) {
+        switch ( this.type ) {
             case "heal":
                 return "❤️";
             case "temp_hp":
@@ -286,20 +292,20 @@ CHARACTER.HealthHistoryEntry.prototype = {
     },
     
     getTypeColor: function () {
-        switch (this.type) {
+        switch ( this.type ) {
             case "heal":
-                return "#22c55e";
+                return "#22C55E";
             case "temp_hp":
-                return "#3b82f6";
+                return "#3B82F6";
             case "damage":
-                return "#ef4444";
+                return "#EF4444";
             default:
-                return "#6b7280";
+                return "#6B7280";
         }
     },
     
     getTypeLabel: function () {
-        switch (this.type) {
+        switch ( this.type ) {
             case "heal":
                 return "Soins";
             case "temp_hp":
@@ -313,42 +319,8 @@ CHARACTER.HealthHistoryEntry.prototype = {
     
     getValueDisplay: function () {
         const sign = this.type === "damage" ? "-" : "+";
-        return `${sign}${Math.abs(this.value)} PV`;
+        return `${sign}${Math.abs( this.value )} PV`;
     },
-    
-    formatDate: function () {
-        const date = new Date(this.timestamp);
-        const now = new Date();
-        const diff = now - date;
-        
-        // Moins d'une minute
-        if (diff < 60000) {
-            return "À l'instant";
-        }
-        
-        // Moins d'une heure
-        if (diff < 3600000) {
-            const minutes = Math.floor(diff / 60000);
-            return `Il y a ${minutes} minute${minutes > 1 ? 's' : ''}`;
-        }
-        
-        // Moins d'un jour
-        if (diff < 86400000) {
-            const hours = Math.floor(diff / 3600000);
-            return `Il y a ${hours} heure${hours > 1 ? 's' : ''}`;
-        }
-        
-        // Format complet
-        const options = { 
-            day: '2-digit', 
-            month: '2-digit', 
-            year: 'numeric',
-            hour: '2-digit', 
-            minute: '2-digit' 
-        };
-        return date.toLocaleDateString('fr-FR', options);
-    },
-    
     //********************************************  GETTER / SETTER  **************************************************//
     
     getValue: function () {
@@ -367,16 +339,16 @@ CHARACTER.HealthHistoryEntry.prototype = {
     
     getDataToSave: function () {
         return {
-            value: this.value,
-            comment: this.comment,
+            value      : this.value,
+            comment    : this.comment,
             damage_type: this.damage_type,
-            source: this.source,
-            timestamp: this.timestamp,
-            type: this.type
+            source     : this.source,
+            timestamp  : this.timestamp,
+            type       : this.type
         };
     }
 };
 
-SERVICE.CLASS.addPrototype(CHARACTER.HealthHistoryEntry, OBJECT.InterfaceHtml);
+SERVICE.CLASS.addPrototype( CHARACTER.HealthHistoryEntry, OBJECT.InterfaceHtml );
 
 

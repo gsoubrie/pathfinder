@@ -1,15 +1,5 @@
 let a9b2dfe206c0Ab01Dc3c75a66230924b = {
-    "uuid"           : "a9b2dfe206c0Ab01Dc3c75a66230924b",
-    "name"           : "Tapadami",
-    "player"         : "Greg",
-    "race"           : {
-        "name"     : "Elfe",
-        "legacy"   : "Elfe ancien",
-        "body_size": "P"
-    },
-    "class"          : {
-        "name": "Prêtre"
-    },
+    "alignment"      : "CB",
     "characteristics": [
         {
             "name"         : "FOR",
@@ -138,13 +128,29 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
             }
         }
     ],
-    "alignment"      : "",
+    "class"          : {
+        "name": "Prêtre"
+    },
+    health           : {
+        "current_hp": 36,
+        "max_hp"    : 36,
+        "history"   : [
+            {
+                "value"      : 5,
+                "comment"    : "",
+                "damage_type": "Contondant",
+                "source"     : "",
+                "timestamp"  : 1764593501259,
+                "type"       : "damage"
+            }
+        ]
+    },
     "level"          : "4",
     "levels_history" : [
         {
             level_name  : 1,
             "life_class": 10,
-            "skill"     : [
+            "skills"    : [
                 { origin: "class", "historic": "Acolyte" },
                 { origin: "class", "divinity": "--" },
                 { origin: "class", "doctrine": "Prêtre cloîtré" },
@@ -182,5 +188,13 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
             ]
         }
     ],
-    "point_heroism"  : "5"
+    "name"           : "Tapadami",
+    "player"         : "Greg",
+    "point_heroism"  : "5",
+    "race"           : {
+        "name"     : "Elfe",
+        "legacy"   : "Elfe ancien",
+        "body_size": "P"
+    },
+    "uuid"           : "a9b2dfe206c0Ab01Dc3c75a66230924b"
 };

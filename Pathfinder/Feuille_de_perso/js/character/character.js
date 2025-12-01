@@ -50,9 +50,9 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
-            case "event__damage_modal__confirm":                
+            case "event__damage_modal__confirm":
                 this.health.doActionAfter( event_name, params );
-                this.windows.doActionAfterContentChildren(event_name, params);
+                this.windows.doActionAfterContentChildren( event_name, params );
                 break;
         }
     },
@@ -117,6 +117,7 @@ CHARACTER.Current.prototype = {
             case "divinity":
             case "point_heroism":
                 this[ key ] = value;
+                this.updateHtmlData( key, value );
                 break;
             case "level":
                 this[ key ] = parseInt( value );
@@ -149,7 +150,7 @@ CHARACTER.Current.prototype = {
     getLevelHistory            : function () {
         return this.levels_history;
     },
-    getHealth            : function () {
+    getHealth                  : function () {
         return this.health;
     },
     getPropertyForDoActionAfter: function ( params ) {

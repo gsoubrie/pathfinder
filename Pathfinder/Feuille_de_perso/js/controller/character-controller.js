@@ -37,6 +37,9 @@ CONTROLLER.Character = (function ( self ) {
                 this.edition_popup.close();
                 this.edition_popup = null;
                 break;
+            case "event__current_character__save":
+                this.save();
+                break;
         }
     };
     //********************************************  SAVE  **************************************************//

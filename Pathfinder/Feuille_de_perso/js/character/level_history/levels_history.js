@@ -20,7 +20,10 @@ CHARACTER.LevelsHistory.prototype = {
         return this.uuid;
     },
     getDataToSave    : function () {
-        let to_return = {};
+        let to_return = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return.push( this.getContent( i ).getDataToSave() );
+        }
         return to_return;
     },
     getTotalLife     : function () {
@@ -80,7 +83,12 @@ CHARACTER.LevelHistory.prototype = {
         return this.uuid;
     },
     getDataToSave: function () {
-        let to_return = {};
+        let to_return             = {};
+        to_return[ "level_name" ] = this.uuid;
+        to_return[ "life_class" ] = this.life_class;
+        if ( this.skills ) {
+            to_return[ "skills" ] = this.skills.getDataToSave();
+        }
         return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
@@ -92,7 +100,7 @@ CHARACTER.LevelHistory.prototype = {
             case "life_class":
                 this.life_class = value;
                 break;
-            case "skill":
+            case "skills":
                 this.skills = new CHARACTER.LevelHistorySkills( this.uuid, value );
                 break;
             default:
