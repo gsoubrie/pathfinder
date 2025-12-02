@@ -13,7 +13,7 @@ CHARACTER.Health.prototype = {
         this.current_hp    = 0;
         this.max_hp        = 0;
         this.temp_hp_total = 0;
-        this.history       = []; // Array de CHARACTER.HealthHistoryEntry
+        this.history_entries  = new CHARACTER.HealthHistoryEntries();
     },
     
     //********************************************  EVENT LISTENER  **************************************************//
@@ -32,17 +32,20 @@ CHARACTER.Health.prototype = {
                 this.showDamageModal();
                 break;
             case "event__heal_modal__confirm":
-                this.addHistory( params.param__modal__data, "heal" );
+                this.history_entries.doActionAfter(event_name, params);
+                //addHistory( params.param__modal__data, "heal" );
                 this.current_hp = Math.min( this.current_hp + params.param__modal__data.value, this.max_hp );
                 this.renderHistory();
                 break;
             case "event__temp_hp_modal__confirm":
-                this.addHistory( params.param__modal__data, "temp_hp" );
+                this.history_entries.doActionAfter(event_name, params);
+                //this.addHistory( params.param__modal__data, "temp_hp" );
                 this.temp_hp_total += params.param__modal__data.value;
                 this.renderHistory();
                 break;
             case "event__damage_modal__confirm":
-                this.addHistory( params.param__modal__data, "damage" );
+                this.history_entries.doActionAfter(event_name, params);
+                //this.addHistory( params.param__modal__data, "damage" );
                 
                 const damage = params.param__modal__data.value;
                 
@@ -192,8 +195,41 @@ CHARACTER.Health.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.Health, OBJECT.InterfaceHtml );
 
-"use strict";
 
+
+
+/**
+ * @class CHARACTER.HealthHistoryEntries
+ * @extends OBJECT.InterfaceHtml
+ * Représente une entrée dans l'historique de santé du personnage
+ */
+CHARACTER.HealthHistoryEntries = function (  ) {
+    this.init(  );
+};
+
+CHARACTER.HealthHistoryEntries.prototype = {
+    init: function ( data ) {
+        this.initContents();
+    },
+    
+    //********************************************  HTML  **************************************************//
+    updateHtml: function () {
+
+    },
+    
+    getDataToSave: function () {
+        return {
+            value      : this.value,
+            comment    : this.comment,
+            damage_type: this.damage_type,
+            source     : this.source,
+            timestamp  : this.timestamp,
+            type       : this.type
+        };
+    }
+};
+
+SERVICE.CLASS.addPrototype( CHARACTER.HealthHistoryEntries, OBJECT.InterfaceContainerHtml );
 /**
  * @class CHARACTER.HealthHistoryEntry
  * @extends OBJECT.InterfaceHtml
