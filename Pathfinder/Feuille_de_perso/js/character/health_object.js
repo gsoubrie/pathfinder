@@ -32,18 +32,21 @@ CHARACTER.Health.prototype = {
                 this.showDamageModal();
                 break;
             case "event__heal_modal__confirm":
+                params["param__modal__type"] = "heal";
                 this.history_entries.doActionAfter(event_name, params);
                 //addHistory( params.param__modal__data, "heal" );
                 this.current_hp = Math.min( this.current_hp + params.param__modal__data.value, this.max_hp );
                 this.renderHistory();
                 break;
             case "event__temp_hp_modal__confirm":
+                params["param__modal__type"] = "temp_hp";
                 this.history_entries.doActionAfter(event_name, params);
                 //this.addHistory( params.param__modal__data, "temp_hp" );
                 this.temp_hp_total += params.param__modal__data.value;
                 this.renderHistory();
                 break;
             case "event__damage_modal__confirm":
+                params["param__modal__type"] = "damage";
                 this.history_entries.doActionAfter(event_name, params);
                 //this.addHistory( params.param__modal__data, "damage" );
                 
@@ -84,58 +87,19 @@ CHARACTER.Health.prototype = {
     },
     
     //********************************************  HISTORY MANAGEMENT  **************************************************//
-    /**
-     * @param {object} data
-     * @param {string} type - "damage", "heal", or "temp_hp"
-     */
-    addHistory: function ( data, type ) {
-        const entryData = {
-            value      : data.value,
-            comment    : data.comment || "",
-            damage_type: data.damage_type || "",
-            source     : data.source || "",
-            timestamp  : new Date().getTime(),
-            type       : type
-        };
-        
-        const entry = new CHARACTER.HealthHistoryEntry( entryData );
-        this.history.push( entry );
-    },
+
     
     /**
      * Affiche l'historique dans le conteneur HTML
      */
     renderHistory: function () {
         const container = document.getElementById( "health-history-container" );
-        if ( !container ) {
-            return;
-        }
-        
-        // Vider le conteneur
         container.innerHTML = "";
-        
-        // Si pas d'historique
-        if ( this.history.length === 0 ) {
-            container.innerHTML = '<div class="health-history-empty">Aucun événement dans l\'historique</div>';
-            return;
+        for ( var i = this.history_entries.getSize()-1; i >=  0; i-- ){
+            container.appendChild( this.history_entries.getContent(i).html );
         }
-        
-        // Afficher les entrées (plus récentes en premier)
-        const sortedHistory = [...this.history].reverse();
-        sortedHistory.forEach( entry => {
-            container.appendChild( entry.html );
-        } );
     },
     
-    /**
-     * Efface l'historique
-     */
-    clearHistory: function () {
-        if ( confirm( "Êtes-vous sûr de vouloir effacer tout l'historique ?" ) ) {
-            this.history = [];
-            this.renderHistory();
-        }
-    },
     
     //********************************************  SAUVEGARDE / CHARGEMENT  **************************************************//
     
@@ -156,15 +120,15 @@ CHARACTER.Health.prototype = {
         this.current_hp = data.current_hp || 0;
         this.max_hp     = data.max_hp || 0;
         
-        this.history = [];
         if ( data.history && Array.isArray( data.history ) ) {
             data.history.forEach( entryData => {
-                const entry = new CHARACTER.HealthHistoryEntry( entryData );
-                this.history.push( entry );
+                this.history_entries.add( new CHARACTER.HealthHistoryEntry( entryData ) );                
             } );
         }
+        setTimeout(() => {
+            this.renderHistory();    
+        }, 100);
         
-        this.renderHistory();
     },
     
     //********************************************  MODAL  **************************************************//
@@ -211,7 +175,26 @@ CHARACTER.HealthHistoryEntries.prototype = {
     init: function ( data ) {
         this.initContents();
     },
-    
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__heal_modal__confirm":
+            case "event__temp_hp_modal__confirm":
+            case "event__damage_modal__confirm":
+                const entryData = {
+            value      : params.param__modal__data.value,
+            comment    : params.param__modal__data.comment || "",
+            damage_type: params.param__modal__data.damage_type || "",
+            source     : params.param__modal__data.source || "",
+            timestamp  : new Date().getTime(),
+            type       : params.param__modal__type
+        } 
+                this.add( new CHARACTER.HealthHistoryEntry( entryData ) );  
+               
+                break;
+        }
+    },
+        
     //********************************************  HTML  **************************************************//
     updateHtml: function () {
 
@@ -358,7 +341,9 @@ CHARACTER.HealthHistoryEntry.prototype = {
         return `${sign}${Math.abs( this.value )} PV`;
     },
     //********************************************  GETTER / SETTER  **************************************************//
-    
+    getUUID: function () {
+        return this.timestamp;
+    },    
     getValue: function () {
         return this.value;
     },

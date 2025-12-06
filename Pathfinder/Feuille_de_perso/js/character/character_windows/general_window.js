@@ -13,6 +13,7 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
+            case "event__health_history__load":
                 this.updateHealthDisplay();
                 break;
         }

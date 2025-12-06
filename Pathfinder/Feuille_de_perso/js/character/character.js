@@ -54,6 +54,9 @@ CHARACTER.Current.prototype = {
                 this.health.doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
+            case "event__health_history__load":
+                this.windows.doActionAfterContentChildren( event_name, params );
+                break;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
