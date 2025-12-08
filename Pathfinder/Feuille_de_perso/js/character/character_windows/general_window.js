@@ -1,8 +1,6 @@
 "use strict";
 CHARACTER.GeneralWindow = function ( window_name, parent_name ) {
     this.initSpecific( window_name, parent_name );
-    this.tempHpEffects = [];  // Liste des PV temporaires
-    this.damageEffects = [];  // Liste des dégâts avec détails
 };
 
 CHARACTER.GeneralWindow.prototype = {
@@ -69,7 +67,7 @@ CHARACTER.GeneralWindow.prototype = {
         
         var hpDisplay = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-display" } ), header );
         
-        SERVICE.DOM.addElementTo( character_object.getHealth().getDomEffectiveHP(), hpDisplay );
+        SERVICE.DOM.addElementTo( character_object.getHealth().getDomCurrentHP(), hpDisplay );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, " / " ), hpDisplay );
         

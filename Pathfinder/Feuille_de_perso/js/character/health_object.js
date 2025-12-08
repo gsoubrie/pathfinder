@@ -13,6 +13,8 @@ CHARACTER.Health.prototype = {
         this.current_hp             = 0;
         this.max_hp                 = 0;
         this.dom_element_current_hp = SERVICE.DOM.createElement( "span", { class: "hp-current" } );
+        this.dom_element_temp_hp = SERVICE.DOM.createElement( "span", { class: "hp-temp" } , 5);
+        SERVICE.DOM.addElementTo(this.dom_element_temp_hp, this.dom_element_current_hp);
         this.temp_hp_total          = 0;
         this.history_entries        = new CHARACTER.HealthHistoryEntries();
     },
@@ -57,16 +59,21 @@ CHARACTER.Health.prototype = {
     },
     setCurrentHP       : function ( to_set ) {
         this.current_hp                       = to_set;
-        this.dom_element_current_hp.innerHTML = this.getEffectiveHP();
+        this.dom_element_current_hp.innerText = this.getCurrentHP();
+        SERVICE.DOM.addElementTo(this.dom_element_temp_hp, this.dom_element_current_hp);
     },
-    getDomEffectiveHP  : function () {
+    setTempHP       : function ( to_set ) {
+        this.temp_hp_total                       = to_set;
+        this.dom_element_temp_hp.innerText = this.temp_hp_total;
+    },    
+    getDomCurrentHP  : function () {
         return this.dom_element_current_hp;
     },
+    getDomTempHP  : function () {
+        return this.dom_element_temp_hp;
+    },    
     getMaxHP           : function () {
         return this.max_hp;
-    },
-    getTempHP          : function () {
-        return this.temp_hp_total;
     },
     setMaxHP           : function ( value ) {
         this.max_hp = value;
@@ -81,9 +88,7 @@ CHARACTER.Health.prototype = {
     //********************************************  SAVE / LOADING  **************************************************//
     getDataToSave: function () {
         return {
-            current_hp: this.current_hp,
-            max_hp    : this.max_hp,
-            history   : this.history.map( entry => entry.getDataToSave() )
+            history : this.history_entries.getDataToSave()
         };
     },
     updateData   : function ( data ) {
@@ -210,12 +215,11 @@ CHARACTER.HealthHistoryEntry.prototype = {
         }
     },
     computeHP    : function ( character_health__object ) {
-        console.log("GSOU", "[HealthHistoryEntry - computeHP]", this.type );
         switch ( this.type ) {
             case "damage":
                 if ( character_health__object.temp_hp_total ) {
                     const damage_overflow                  = Math.max( this.value - character_health__object.temp_hp_total, 0 );
-                    character_health__object.temp_hp_total = Math.max( character_health__object.temp_hp_total - this.value, 0 );
+                    character_health__object.setTempHP( Math.max( character_health__object.temp_hp_total - this.value, 0 ));
                     character_health__object.setCurrentHP( character_health__object.getCurrentHP() - damage_overflow );
                 }
                 else {
@@ -226,7 +230,7 @@ CHARACTER.HealthHistoryEntry.prototype = {
                 character_health__object.setCurrentHP( Math.min( character_health__object.current_hp + this.value, character_health__object.max_hp ));
                 break;
             case "temp_hp":
-                character_health__object.temp_hp_total += this.value;
+                character_health__object.setTempHP( this.value + character_health__object.temp_hp_total);
                 break;
         }
     },
