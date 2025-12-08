@@ -6,7 +6,7 @@ CONTROLLER.Character = (function ( self ) {
         self.current_uuid      = params.get( "id" );
         self.current_character = new CHARACTER.Current();
         self.current_character.init( self.current_uuid );
-        self.computeHtml();
+        self.current_character.computeHTML();
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
@@ -55,9 +55,6 @@ CONTROLLER.Character = (function ( self ) {
         return to_return;
     };
     //********************************************  HTML  **************************************************//
-    self.computeHtml        = function () {
-        self.current_character.computePageHTML();
-    };
     self.computeHtml__title = function () {
         self.computeHtml__title();
     };

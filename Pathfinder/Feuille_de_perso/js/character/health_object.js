@@ -10,17 +10,19 @@ CHARACTER.Health = function () {
 
 CHARACTER.Health.prototype = {
     init: function () {
-        this.current_hp    = 0;
-        this.max_hp        = 0;
-        this.temp_hp_total = 0;
-        this.history_entries  = new CHARACTER.HealthHistoryEntries();
+        this.current_hp             = 0;
+        this.max_hp                 = 0;
+        this.dom_element_current_hp = SERVICE.DOM.createElement( "span", { class: "hp-current" } );
+        this.temp_hp_total          = 0;
+        this.history_entries        = new CHARACTER.HealthHistoryEntries();
     },
     
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__data_loaded__done":
-                this.renderHistory();
+            case "event__compute_html__done":
+                params[ "param__character_health__object" ] = this;
+                this.history_entries.doActionAfter( event_name, params );
                 break;
             case "event__open_modal__hp_heal":
                 this.showHealModal();
@@ -32,35 +34,19 @@ CHARACTER.Health.prototype = {
                 this.showDamageModal();
                 break;
             case "event__heal_modal__confirm":
-                params["param__modal__type"] = "heal";
-                this.history_entries.doActionAfter(event_name, params);
-                //addHistory( params.param__modal__data, "heal" );
-                this.current_hp = Math.min( this.current_hp + params.param__modal__data.value, this.max_hp );
-                this.renderHistory();
+                params[ "param__modal__type" ]              = "heal";
+                params[ "param__character_health__object" ] = this;
+                this.history_entries.doActionAfter( event_name, params );
                 break;
             case "event__temp_hp_modal__confirm":
-                params["param__modal__type"] = "temp_hp";
-                this.history_entries.doActionAfter(event_name, params);
-                //this.addHistory( params.param__modal__data, "temp_hp" );
-                this.temp_hp_total += params.param__modal__data.value;
-                this.renderHistory();
+                params[ "param__modal__type" ]              = "temp_hp";
+                params[ "param__character_health__object" ] = this;
+                this.history_entries.doActionAfter( event_name, params );
                 break;
             case "event__damage_modal__confirm":
-                params["param__modal__type"] = "damage";
-                this.history_entries.doActionAfter(event_name, params);
-                //this.addHistory( params.param__modal__data, "damage" );
-                
-                const damage = params.param__modal__data.value;
-                
-                if ( this.temp_hp_total ) {
-                    const damage_overflow = Math.max( damage - this.temp_hp_total, 0 );
-                    this.temp_hp_total    = Math.max( this.temp_hp_total - damage, 0 );
-                    this.current_hp -= damage_overflow;
-                }
-                else {
-                    this.current_hp -= damage;
-                }
-                this.renderHistory();
+                params[ "param__modal__type" ]              = "damage";
+                params[ "param__character_health__object" ] = this;
+                this.history_entries.doActionAfter( event_name, params );
                 break;
         }
     },
@@ -69,6 +55,13 @@ CHARACTER.Health.prototype = {
     getCurrentHP       : function () {
         return this.current_hp;
     },
+    setCurrentHP       : function ( to_set ) {
+        this.current_hp                       = to_set;
+        this.dom_element_current_hp.innerHTML = this.getEffectiveHP();
+    },
+    getDomEffectiveHP  : function () {
+        return this.dom_element_current_hp;
+    },
     getMaxHP           : function () {
         return this.max_hp;
     },
@@ -76,8 +69,8 @@ CHARACTER.Health.prototype = {
         return this.temp_hp_total;
     },
     setMaxHP           : function ( value ) {
-        this.max_hp     = value;
-        this.current_hp = value;
+        this.max_hp = value;
+        this.setCurrentHP( value );
     },
     getEffectiveHP     : function () {
         return this.current_hp + this.temp_hp_total;
@@ -85,24 +78,7 @@ CHARACTER.Health.prototype = {
     getHealthPercentage: function () {
         return parseInt( (this.getEffectiveHP() / this.max_hp) * 100 );
     },
-    
-    //********************************************  HISTORY MANAGEMENT  **************************************************//
-
-    
-    /**
-     * Affiche l'historique dans le conteneur HTML
-     */
-    renderHistory: function () {
-        const container = document.getElementById( "health-history-container" );
-        container.innerHTML = "";
-        for ( var i = this.history_entries.getSize()-1; i >=  0; i-- ){
-            container.appendChild( this.history_entries.getContent(i).html );
-        }
-    },
-    
-    
-    //********************************************  SAUVEGARDE / CHARGEMENT  **************************************************//
-    
+    //********************************************  SAVE / LOADING  **************************************************//
     getDataToSave: function () {
         return {
             current_hp: this.current_hp,
@@ -110,27 +86,14 @@ CHARACTER.Health.prototype = {
             history   : this.history.map( entry => entry.getDataToSave() )
         };
     },
-    
-    updateData: function ( data ) {
-        console.log(data, this)
+    updateData   : function ( data ) {
         if ( !data ) {
             return;
         }
-        
-        this.current_hp = data.current_hp || 0;
-        this.max_hp     = data.max_hp || 0;
-        
-        if ( data.history && Array.isArray( data.history ) ) {
-            data.history.forEach( entryData => {
-                this.history_entries.add( new CHARACTER.HealthHistoryEntry( entryData ) );                
-            } );
+        for ( let i = 0, _size_i = data.history.length; i < _size_i; i++ ) {
+            this.history_entries.add( new CHARACTER.HealthHistoryEntry( data.history[ i ] ) );
         }
-        setTimeout(() => {
-            this.renderHistory();    
-        }, 100);
-        
     },
-    
     //********************************************  MODAL  **************************************************//
     showHealModal: function () {
         var modal = SERVICE.MODAL.create( "Soigner le personnage", "event__heal_modal__confirm", this, {} );
@@ -167,8 +130,8 @@ SERVICE.CLASS.addPrototype( CHARACTER.Health, OBJECT.InterfaceHtml );
  * @extends OBJECT.InterfaceHtml
  * Représente une entrée dans l'historique de santé du personnage
  */
-CHARACTER.HealthHistoryEntries = function (  ) {
-    this.init(  );
+CHARACTER.HealthHistoryEntries = function () {
+    this.init();
 };
 
 CHARACTER.HealthHistoryEntries.prototype = {
@@ -182,33 +145,37 @@ CHARACTER.HealthHistoryEntries.prototype = {
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
                 const entryData = {
-            value      : params.param__modal__data.value,
-            comment    : params.param__modal__data.comment || "",
-            damage_type: params.param__modal__data.damage_type || "",
-            source     : params.param__modal__data.source || "",
-            timestamp  : new Date().getTime(),
-            type       : params.param__modal__type
-        } 
-                this.add( new CHARACTER.HealthHistoryEntry( entryData ) );  
-               
-                break;
+                    value      : params.param__modal__data.value,
+                    comment    : params.param__modal__data.comment || "",
+                    damage_type: params.param__modal__data.damage_type || "",
+                    source     : params.param__modal__data.source || "",
+                    timestamp  : new Date().getTime(),
+                    type       : params.param__modal__type
+                };
+                let added       = this.add( new CHARACTER.HealthHistoryEntry( entryData ) );
+                this.computeHtml();
+                added.doActionAfter( event_name, params );
+                return;
+            case "event__compute_html__done":
+                this.computeHtml();
+                this.doActionAfterContentChildren( event_name, params );
+                return;
         }
     },
-        
     //********************************************  HTML  **************************************************//
-    updateHtml: function () {
-
+    computeHtml  : function () {
+        const container = this.getDomElement();
+        SERVICE.DOM.empty( container );
+        for ( var i = this.getSize() - 1; i >= 0; i-- ) {
+            this.getContent( i ).computeHtml();
+            container.appendChild( this.getContent( i ).dom_element );
+        }
     },
-    
-    getDataToSave: function () {
-        return {
-            value      : this.value,
-            comment    : this.comment,
-            damage_type: this.damage_type,
-            source     : this.source,
-            timestamp  : this.timestamp,
-            type       : this.type
-        };
+    getDomElement: function () {
+        if ( !this.dom_element ) {
+            this.dom_element = document.getElementById( "health-history-container" );
+        }
+        return this.dom_element;
     }
 };
 
@@ -229,30 +196,47 @@ CHARACTER.HealthHistoryEntry.prototype = {
         this.damage_type = data.damage_type || "";
         this.source      = data.source || "";
         this.timestamp   = data.timestamp || new Date().getTime();
-        this.type        = data.type || "damage"; // "damage", "heal", "temp_hp"
-        
-        this.createHtml();
+        this.type        = data.type || "damage";
     },
-    
-    //********************************************  HTML GENERATION  **************************************************//
-    
-    createHtml: function () {
-        this.html = document.createElement( "div" );
-        this.html.classList.add( "health-history-entry" );
-        this.html.classList.add( "health-history-entry--" + this.type );
-        
-        this.updateHtml();
-    },
-    
-    updateHtml: function () {
-        if ( !this.html ) {
-            return;
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__heal_modal__confirm":
+            case "event__temp_hp_modal__confirm":
+            case "event__damage_modal__confirm":
+            case "event__compute_html__done":
+                this.computeHP( params[ "param__character_health__object" ] );
+                return;
         }
-        
-        const icon          = this.getTypeIcon();
-        const color         = this.getTypeColor();
-        const label         = this.getTypeLabel();
-        const valueDisplay  = this.getValueDisplay();
+    },
+    computeHP    : function ( character_health__object ) {
+        console.log("GSOU", "[HealthHistoryEntry - computeHP]", this.type );
+        switch ( this.type ) {
+            case "damage":
+                if ( character_health__object.temp_hp_total ) {
+                    const damage_overflow                  = Math.max( this.value - character_health__object.temp_hp_total, 0 );
+                    character_health__object.temp_hp_total = Math.max( character_health__object.temp_hp_total - this.value, 0 );
+                    character_health__object.setCurrentHP( character_health__object.getCurrentHP() - damage_overflow );
+                }
+                else {
+                    character_health__object.setCurrentHP( character_health__object.getCurrentHP() - this.value );
+                }
+                break;
+            case "heal":
+                character_health__object.setCurrentHP( Math.min( character_health__object.current_hp + this.value, character_health__object.max_hp ));
+                break;
+            case "temp_hp":
+                character_health__object.temp_hp_total += this.value;
+                break;
+        }
+    },
+    //********************************************  HTML  **************************************************//
+    computeHtml: function () {
+        this.dom_element   = SERVICE.DOM.createElement( "div", { "class": "health-history-entry", "data-type": this.type } );
+        const icon         = this.getTypeIcon();
+        const color        = this.getTypeColor();
+        const label        = this.getTypeLabel();
+        const valueDisplay = this.getValueDisplay();
         
         let damage_type = "";
         
@@ -260,7 +244,7 @@ CHARACTER.HealthHistoryEntry.prototype = {
             damage_type = `<div class="health-history-entry__damage-type">${this.damage_type}</div>`;
         }
         
-        this.html.innerHTML = `
+        this.dom_element.innerHTML = `
             <div class="health-history-entry__header">
                 <div class="health-history-entry__icon" style="color: ${color}">
                     ${icon}
@@ -341,9 +325,9 @@ CHARACTER.HealthHistoryEntry.prototype = {
         return `${sign}${Math.abs( this.value )} PV`;
     },
     //********************************************  GETTER / SETTER  **************************************************//
-    getUUID: function () {
-        return this.timestamp;
-    },    
+    getUUID : function () {
+        return this.getTimestamp();
+    },
     getValue: function () {
         return this.value;
     },

@@ -69,7 +69,7 @@ CHARACTER.GeneralWindow.prototype = {
         
         var hpDisplay = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-display" } ), header );
         
-        this.hpCurrentElement = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-current" }, character_object.getHealth().getEffectiveHP() ), hpDisplay );
+        SERVICE.DOM.addElementTo( character_object.getHealth().getDomEffectiveHP(), hpDisplay );
         
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, " / " ), hpDisplay );
         
@@ -88,7 +88,6 @@ CHARACTER.GeneralWindow.prototype = {
     updateHealthDisplay  : function () {
         var character = CONTROLLER.Character.current_character;
         
-        this.hpCurrentElement.textContent = character.getHealth().getEffectiveHP();
         this.hpMaxElement.textContent     = character.getHealth().getMaxHP();
         this.hpPercent.textContent        = character.getHealth().getHealthPercentage() + "%";
         

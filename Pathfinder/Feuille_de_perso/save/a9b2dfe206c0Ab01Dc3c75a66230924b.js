@@ -132,8 +132,6 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
         "name": "Prêtre"
     },
     "health"           : {
-        "current_hp": 36,
-        "max_hp"    : 36,
         "history"   : [
             {
                 "value"      : 5,

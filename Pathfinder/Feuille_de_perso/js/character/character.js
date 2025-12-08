@@ -43,6 +43,9 @@ CHARACTER.Current.prototype = {
             case "event__data_loaded__done":
                 this.computeTotalLife();
                 break;
+            case "event__compute_html__done":
+                this.health.doActionAfter(event_name, params);
+                break;
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
@@ -175,9 +178,10 @@ CHARACTER.Current.prototype = {
             this[ key + "_html" ].innerHTML = value;
         }
     },
-    computePageHTML: function () {
+    computeHTML: function () {
         this.windows = new CHARACTER.WindowGroup();
         this.windows.computeHtmlWithData( this );
+        this.doActionAfter("event__compute_html__done", {});
     }
 };
 
