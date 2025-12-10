@@ -4,12 +4,13 @@ POPUP.PropertyEdition           = function ( params ) {
 };
 POPUP.PropertyEdition.prototype = {
     init: function ( params ) {
-        let property_value = "";
+        let default_value = "";
         console.log(params);
         switch ( params[ "property_name" ] ) {
             case RACES.key_element:
                 this.current_property = RACES;
                 this.windows          = new RACES.WindowGroup();
+                default_value = "Humain"
                 break;
             case LEGACIES.key_element:
                 this.current_property = LEGACIES;
@@ -29,7 +30,7 @@ POPUP.PropertyEdition.prototype = {
                 break;
         }
         
-        this.windows.setActiveWindow( params[ "param__property__value" ] );
+        this.windows.setActiveWindow( params[ "param__property__value" ] || default_value);
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//

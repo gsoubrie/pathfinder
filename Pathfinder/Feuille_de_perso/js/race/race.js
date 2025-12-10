@@ -4,6 +4,7 @@ RACES.Race           = function () {
 };
 RACES.Race.prototype = {
     init: function () {
+        this.name            = "";
         this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
         this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
         this.available_legacies           = new LEGACIES.Legacies();
