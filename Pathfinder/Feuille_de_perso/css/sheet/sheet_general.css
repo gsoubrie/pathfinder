@@ -163,6 +163,7 @@
     font-size: 15px;
     position: absolute;
     color: greenyellow;
+    width: max-content;
 }
 .property-tab-pane[data-name="general_sheet"] .hp-max {
     color: #8B6914;

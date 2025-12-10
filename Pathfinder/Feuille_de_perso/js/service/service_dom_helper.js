@@ -33,11 +33,12 @@ SERVICE.DOM_HELPER = (function ( self ) {
         return toReturn;
     };
     self.createPropertyVertical           = function ( property_name, value, value_html, label, is_editable ) {
+        console.log("GSOU", "[DOM_HELPER - createPropertyVertical]", property_name, value, value_html, label, is_editable );
         var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
         let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
             class  : "value", contentEditable: is_editable,
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','property_value':'" + value + "'})"
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
         } ), toReturn );
         SERVICE.DOM.addElementTo( value_html, value_dom );
         return toReturn;

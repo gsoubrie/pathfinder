@@ -6,6 +6,10 @@ CHARACTERISTICS.Characteristics.prototype = {
     init             : function () {
         this.initContents();
         this.initCounterCommon();
+        this.race_bonus = new CHARACTERISTICS.RaceBonuses();
+        this.race_bonus.setCountersParent( this );
+        this.class_bonus = new CHARACTERISTICS.ClassBonuses();
+        this.class_bonus.setCountersParent( this );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
@@ -65,18 +69,10 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getRaceBonus : function ( key, value ) {
-        if ( !this.race_bonus ) {
-            this.race_bonus = new CHARACTERISTICS.RaceBonuses();
-            this.race_bonus.setCountersParent( this );
-        }
+    getRaceBonus : function () {
         return this.race_bonus;
     },
-    getClassBonus: function ( key, value ) {
-        if ( !this.class_bonus ) {
-            this.class_bonus = new CHARACTERISTICS.ClassBonuses();
-            this.class_bonus.setCountersParent( this );
-        }
+    getClassBonus: function () {
         return this.class_bonus;
     }
 };

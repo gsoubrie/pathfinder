@@ -16,6 +16,9 @@ OBJECT.InterfaceHtml.prototype = {
         }
     },
     //********************************************  SETTER GETTER   **************************************************//
+    /**
+     * @returns {string}
+     */
     getName      : function () {
         return this.name;
     },

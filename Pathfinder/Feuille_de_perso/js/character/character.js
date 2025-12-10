@@ -44,7 +44,7 @@ CHARACTER.Current.prototype = {
                 this.computeTotalLife();
                 break;
             case "event__compute_html__done":
-                this.health.doActionAfter(event_name, params);
+                this.health.doActionAfter( event_name, params );
                 break;
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
@@ -98,7 +98,7 @@ CHARACTER.Current.prototype = {
         this.health.setMaxHP( total_life );
     },
     //********************************************  UPDATE DATA   **************************************************//
-    setData                    : function ( key, value ) {
+    setData: function ( key, value ) {
         switch ( key ) {
             case RACES.key_element:
                 this.race.updateData( value );
@@ -135,15 +135,27 @@ CHARACTER.Current.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    getRace                    : function () {
+    /**
+     * @returns {RACES.Race}
+     */
+    getRace: function () {
         return this.race;
     },
-    getAlignment               : function () {
+    /**
+     * @returns {string}
+     */
+    getAlignment: function () {
         return this.alignment;
     },
-    getLegacy                  : function () {
+    /**
+     * @returns {Legacy}
+     */
+    getLegacy: function () {
         return this.getRace().getLegacy();
     },
+    /**
+     * @returns {CLASSES.Class}
+     */
     getClass                   : function () {
         return this.class;
     },
@@ -170,7 +182,7 @@ CHARACTER.Current.prototype = {
         }
     },
     //********************************************  HTML   **************************************************//
-    updateHtmlData : function ( key, value ) {
+    updateHtmlData: function ( key, value ) {
         if ( !this[ key + "_html" ] ) {
             this[ key + "_html" ] = SERVICE.DOM.createElement( "div", {}, value );
         }
@@ -178,10 +190,10 @@ CHARACTER.Current.prototype = {
             this[ key + "_html" ].innerHTML = value;
         }
     },
-    computeHTML: function () {
+    computeHTML   : function () {
         this.windows = new CHARACTER.WindowGroup();
         this.windows.computeHtmlWithData( this );
-        this.doActionAfter("event__compute_html__done", {});
+        this.doActionAfter( "event__compute_html__done", {} );
     }
 };
 

@@ -29,7 +29,7 @@ POPUP.PropertyEdition.prototype = {
                 break;
         }
         
-        this.windows.setActiveWindow( params[ "property_value" ] );
+        this.windows.setActiveWindow( params[ "param__property__value" ] );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//
