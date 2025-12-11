@@ -5,12 +5,12 @@ POPUP.PropertyEdition           = function ( params ) {
 POPUP.PropertyEdition.prototype = {
     init: function ( params ) {
         let default_value = "";
-        console.log(params);
+        console.log( params );
         switch ( params[ "property_name" ] ) {
             case RACES.key_element:
                 this.current_property = RACES;
                 this.windows          = new RACES.WindowGroup();
-                default_value = "Humain"
+                default_value         = RACES.default_value;
                 break;
             case LEGACIES.key_element:
                 this.current_property = LEGACIES;
@@ -23,14 +23,14 @@ POPUP.PropertyEdition.prototype = {
             case HISTORICS.key_element:
                 this.current_property = HISTORICS;
                 this.windows          = new HISTORICS.WindowGroup();
-                break;                
+                break;
             case RACES.PARAM.BODY_SIZE.key:
                 return;
             default:
                 break;
         }
         
-        this.windows.setActiveWindow( params[ "param__property__value" ] || default_value);
+        this.windows.setActiveWindow( params[ "param__property__value" ] || default_value );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -41,7 +41,6 @@ POPUP.PropertyEdition.prototype = {
     
     //********************************************  HTML   **************************************************//
     computeHtml: function () {
-        console.log("GSOU", "[PropertyEdition - computeHtml]", "[xxxx]" );
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         this.container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup" } ), this.getDomElement() );
         let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );

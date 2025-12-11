@@ -3,6 +3,7 @@ var RACES = {
     key          : "ancestries",
     label        : "Ascendances",
     key_element  : "race",
+    default_value: "Humain",
     label_element: "Ascendance",
     ENUM         : [
         {
