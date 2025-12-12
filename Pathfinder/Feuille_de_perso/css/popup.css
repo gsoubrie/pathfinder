@@ -331,40 +331,28 @@
 }
 
 .popup .gs-window-group-V2 {
-    display: flex;
-    padding: 24px 0 35px 0;
-    background: linear-gradient(135deg, #1a0f08 0%, #0d0604 100%);
-    border-radius: 8px;
-    border: 2px solid #8b6914;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: #8b6914 #2c1810;
-    flex-wrap: nowrap;
-}
-
-.popup .gs-window-group-V2::-webkit-scrollbar {
-    height: 8px;
-}
-
-.popup .gs-window-group-V2::-webkit-scrollbar-track {
-    background: #2c1810;
-    border-radius: 4px;
-}
-
-.popup .gs-window-group-V2::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
-    border-radius: 4px;
-}
-
-.popup .gs-window-group-V2::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #d4af37 0%, #8b6914 100%);
+    position: relative;
+    padding: 0;
+    background: transparent;
+    border: none;
+    overflow: visible;
+    display: block !important;
 }
 
 .popup .gs-window-element-V2 {
+    display: none;
+    width: 100%;
     cursor: pointer;
     transition: all 0.3s ease;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    position: relative;
+}
+
+.popup .gs-window-element-V2[data-current-phase="RUNNING"] {
+    display: block;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 8px;
 }
 
 .popup .gs-window-element-V2 .gs-div-tab {
@@ -375,17 +363,114 @@
     transition: all 0.3s ease;
 }
 
-.popup .gs-window-element-V2:hover .gs-div-tab {
-    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
-    border-color: #8b6914;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+.popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: 2px solid #6b4e2a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    cursor: pointer;
+    position: relative;
 }
 
-.popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
-    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-    border-color: #ffd700;
+.popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #d4af37;
+    transition: transform 0.3s ease;
+}
+
+.popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab:hover {
+    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
+    border-color: #8b6914;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
+    border-color: #d4af37;
     box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:not([data-current-phase="RUNNING"]) {
+    display: block;
+}
+
+.popup .gs-window-group-V2.open {
+    background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border: 3px solid #8b6914;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8b6914 #2c1810;
+}
+
+.popup .gs-window-group-V2.open::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup .gs-window-group-V2.open::-webkit-scrollbar-track {
+    background: #2c1810;
+    border-radius: 4px;
+}
+
+.popup .gs-window-group-V2.open::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border-radius: 4px;
+}
+
+.popup .gs-window-group-V2.open::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #d4af37 0%, #8b6914 100%);
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:not([data-current-phase="RUNNING"]) .gs-div-tab {
+    background: linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border: none;
+    border-bottom: 1px solid #6b4e2a;
+    border-radius: 0;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:not([data-current-phase="RUNNING"]) .gs-div-tab::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(180deg, #d4af37 0%, #8b6914 100%);
+    transition: width 0.2s ease;
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:not([data-current-phase="RUNNING"]) .gs-div-tab:hover {
+    background: linear-gradient(135deg, #4a3520 0%, #33231a 100%);
+    padding-left: 24px;
+    transform: none;
+    box-shadow: none;
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:not([data-current-phase="RUNNING"]) .gs-div-tab:hover::before {
+    width: 4px;
+}
+
+.popup .gs-window-group-V2.open .gs-window-element-V2:last-child .gs-div-tab {
+    border-bottom: none;
 }
 
 .popup .gs-window-element-V2 .gs-label {
@@ -396,8 +481,12 @@
 }
 
 .popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
-    color: #1a0f08;
-    text-shadow: none;
+    color: #e8d4a8;
+    font-size: 18px;
+}
+
+.popup .gs-window-group-V2 .gs-counter {
+    display: none;
 }
 
 .popup .gs-hidden {
