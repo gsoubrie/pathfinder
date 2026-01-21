@@ -21,7 +21,7 @@ CHARACTER.GeneralWindow.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        console.log("GSOU", "[GeneralWindow - computeHtmlWithData]", "[]" );
+        console.log( "GSOU", "[GeneralWindow - computeHtmlWithData]", "[]" );
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
@@ -30,12 +30,12 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeArea__logo();
         this.computeArea__save();
         this.computeArea__name( character_object );
-        this.computeArea__player( character_object );
+        character_object.player.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
         this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );
         this.computeArea__heritage( character_object );
         this.computeArea__class( character_object );
-        this.computeArea__historic( character_object );
+        //this.computeArea__historic( character_object );
         //this.computeArea__size( character_object );
         //this.computeArea__alignment( character_object );
         //this.computeArea__divinity( character_object );
@@ -71,13 +71,6 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( "name", character_object.name, SERVICE.DOM.createElement( "div", {}, character_object.name ), "Nom du personnage" ), this.area_name );
     },
     
-    computeArea__player  : function ( character_object ) {
-        if ( this.area_player ) {
-            return;
-        }
-        this.area_player = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-player" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( "player", character_object.player, SERVICE.DOM.createElement( "div", {}, character_object.player ), "Nom du joueur" ), this.area_player );
-    },
     computeArea__ancestry: function ( character_object ) {
         if ( this.area_ancestry ) {
             return;
@@ -95,7 +88,7 @@ CHARACTER.GeneralWindow.prototype = {
                                                                                                                                                                      .getLabel(), LEGACIES.label_element, false ), this.area_heritage );
     },
     computeArea__health  : function ( character_object ) {
-        if ( this.area_health || !character_object.getClass().getName()  ) {
+        if ( this.area_health || !character_object.getClass().getName() ) {
             return;
         }
         this.area_health = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
@@ -150,7 +143,7 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     computeArea__historic: function ( character_object ) {
-        if ( this.area_historic ){
+        if ( this.area_historic ) {
             return;
         }
         this.area_historic = SERVICE.DOM.addElementTo(
@@ -239,3 +232,5 @@ CHARACTER.GeneralWindow.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.GeneralWindow, WINDOW_V2.ElementFromData );
+
+CHARACTER.GeneralWindow.NAME = "general";

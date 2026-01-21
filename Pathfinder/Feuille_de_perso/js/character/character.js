@@ -6,7 +6,7 @@
 CHARACTER.Current = function () {
     this.uuid            = null;
     this.name            = null;
-    this.player          = null;
+    this.player          = new CHARACTER.Player();
     this.alignment       = null;
     this.level           = null;
     this.point_heroism   = null;
@@ -74,7 +74,7 @@ CHARACTER.Current.prototype = {
         let to_return         = {};
         to_return[ "uuid" ]   = this.uuid;
         to_return[ "name" ]   = this.name;
-        to_return[ "player" ] = this.player;
+        to_return[ "player" ] = this.player.getDataToSave();
         if ( this.getRace().getUUID() ) {
             to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
             to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
@@ -123,8 +123,10 @@ CHARACTER.Current.prototype = {
             case "levels_history":
                 this.levels_history.updateData( value );
                 break;
-            case "name":
             case "player":
+                this.player.setName(value);
+                break;
+            case "name":
             case "body_size":
             case "alignment":
             case "divinity":
