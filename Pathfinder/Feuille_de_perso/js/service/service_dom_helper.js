@@ -36,8 +36,19 @@ SERVICE.DOM_HELPER = (function ( self ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
         let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-            class  : "value", contentEditable: is_editable,
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
+            class          : "value",
+            contentEditable: is_editable,
+            onclick        : "MANAGER.EventManagerV2.doActionAfter(event,'open_edition_popup',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
+        } ), toReturn );
+        SERVICE.DOM.addElementTo( value_html, value_dom );
+        return toReturn;
+    };
+    self.createPropertyVerticalInput      = function ( property_name, value, value_html, label ) {
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            onkeyup: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
         } ), toReturn );
         SERVICE.DOM.addElementTo( value_html, value_dom );
         return toReturn;

@@ -20,6 +20,7 @@ CONTROLLER.Character = (function ( self ) {
                     return;
                 }
                 break;
+            case "event__has_change__input":
             case "event__free_bonus_is_zero":
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":

@@ -14,21 +14,28 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__health_history__load":
                 this.updateHealthDisplay();
                 break;
+            case "event__form__element_changed":
+                this.computeHtmlWithData( params[ "param__current_character__object" ] );
+                break;
         }
     },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
+        console.log("GSOU", "[GeneralWindow - computeHtmlWithData]", "[]" );
+        if ( !this.content_dom_element_target ) {
+            this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
+            SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+        }
         
         this.computeArea__logo();
         this.computeArea__save();
         this.computeArea__name( character_object );
         this.computeArea__player( character_object );
         this.computeArea__ancestry( character_object );
-        this.computeArea__health( character_object );
+        //this.computeArea__health( character_object );
         this.computeArea__heritage( character_object );
-        //this.computeArea__class( character_object );
-        //this.computeArea__historic( character_object );
+        this.computeArea__class( character_object );
+        this.computeArea__historic( character_object );
         //this.computeArea__size( character_object );
         //this.computeArea__alignment( character_object );
         //this.computeArea__divinity( character_object );
@@ -37,11 +44,11 @@ CHARACTER.GeneralWindow.prototype = {
         //this.computeArea__ca( character_object );
         //this.computeArea__surprise( character_object );
         
-        SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+        
     },
     
     computeArea__logo: function () {
-        if ( this.area_logo ){
+        if ( this.area_logo ) {
             return;
         }
         this.area_logo = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-logo neutral" } ), this.content_dom_element_target );
@@ -49,7 +56,7 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     computeArea__save: function () {
-        if ( this.area_save ){
+        if ( this.area_save ) {
             return;
         }
         this.area_save = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-save neutral" } ), this.content_dom_element_target );
@@ -57,22 +64,22 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     computeArea__name: function ( character_object ) {
-        if ( this.area_name ){
+        if ( this.area_name ) {
             return;
         }
         this.area_name = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-name" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "name", character_object.name, SERVICE.DOM.createElement( "div", {}, character_object.name ), "Nom du personnage", true ), this.area_name );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( "name", character_object.name, SERVICE.DOM.createElement( "div", {}, character_object.name ), "Nom du personnage" ), this.area_name );
     },
     
-    computeArea__player: function ( character_object ) {
-        if ( this.area_player ){
+    computeArea__player  : function ( character_object ) {
+        if ( this.area_player ) {
             return;
         }
         this.area_player = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-player" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( "player", character_object.player, SERVICE.DOM.createElement( "div", {}, character_object.player ), "Nom du joueur", true ), this.area_player );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( "player", character_object.player, SERVICE.DOM.createElement( "div", {}, character_object.player ), "Nom du joueur" ), this.area_player );
     },
     computeArea__ancestry: function ( character_object ) {
-        if ( this.area_ancestry ){
+        if ( this.area_ancestry ) {
             return;
         }
         this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), this.content_dom_element_target );
@@ -80,14 +87,15 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     computeArea__heritage: function ( character_object ) {
-        if ( this.area_heritage || !character_object.getRace().getName() ){
+        if ( this.area_heritage || !character_object.getRace().getName() ) {
             return;
         }
         this.area_heritage = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-heritage" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( LEGACIES.key_element, character_object.getRace().getLegacy().getName(), character_object.getRace().getLegacy().getLabel(), LEGACIES.label_element, false ), this.area_heritage );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( LEGACIES.key_element, character_object.getRace().getLegacy().getName(), character_object.getRace().getLegacy()
+                                                                                                                                                                     .getLabel(), LEGACIES.label_element, false ), this.area_heritage );
     },
     computeArea__health  : function ( character_object ) {
-        if ( this.area_health || !character_object.getUUID() ){
+        if ( this.area_health || !character_object.getClass().getName()  ) {
             return;
         }
         this.area_health = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
@@ -115,14 +123,17 @@ CHARACTER.GeneralWindow.prototype = {
     updateHealthDisplay  : function () {
         var character = CONTROLLER.Character.current_character;
         
-        this.hpMaxElement.textContent     = character.getHealth().getMaxHP();
-        this.hpPercent.textContent        = character.getHealth().getHealthPercentage() + "%";
+        this.hpMaxElement.textContent = character.getHealth().getMaxHP();
+        this.hpPercent.textContent    = character.getHealth().getHealthPercentage() + "%";
         
     },
-
+    
     
     computeArea__class: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
+        if ( this.area_class || !character_object.getRace().getName() ) {
+            return;
+        }
+        this.area_class = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "grid-area area-class" } ),
             this.content_dom_element_target
         );
@@ -134,16 +145,19 @@ CHARACTER.GeneralWindow.prototype = {
                 CLASSES.label_element,
                 false
             ),
-            area
+            this.area_class
         );
     },
     
     computeArea__historic: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
+        if ( this.area_historic ){
+            return;
+        }
+        this.area_historic = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "grid-area area-historic" } ),
             this.content_dom_element_target
         );
-        SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), area );
+        SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), this.area_historic );
     },
     
     computeArea__size: function ( character_object ) {

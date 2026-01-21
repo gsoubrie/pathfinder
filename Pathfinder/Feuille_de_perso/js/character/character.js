@@ -18,7 +18,7 @@ CHARACTER.Current = function () {
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
-        this.uuid = uuid;
+        this.uuid = uuid || SERVICE.STRING.buildUUID();
         this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
         this.doActionAfter( "event__data_loaded__done" );
@@ -26,10 +26,14 @@ CHARACTER.Current.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__has_change__input":
+                this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.value );
+                break;
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getPropertyForDoActionAfter( params ).doActionAfter( event_name, params );
+                this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__more_button":
                 if ( params[ "param__characteristics__is" ] ) {
@@ -67,18 +71,20 @@ CHARACTER.Current.prototype = {
         return this.uuid;
     },
     getDataToSave    : function () {
-        let to_return                    = {};
-        to_return[ "uuid" ]              = this.uuid;
-        to_return[ "name" ]              = this.name;
-        to_return[ "player" ]            = this.player;
-        to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
-        to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
-        to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
-        to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
-        to_return[ "alignment" ]         = this.alignment;
-        to_return[ "level" ]             = this.level + "";
-        to_return[ "health" ]            = this.health.getDataToSave();
-        to_return[ "point_heroism" ]     = this.point_heroism;
+        let to_return         = {};
+        to_return[ "uuid" ]   = this.uuid;
+        to_return[ "name" ]   = this.name;
+        to_return[ "player" ] = this.player;
+        if ( this.getRace().getUUID() ) {
+            to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
+            to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
+            to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
+            to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
+            to_return[ "alignment" ]         = this.alignment;
+            to_return[ "level" ]             = this.level + "";
+            to_return[ "health" ]            = this.health.getDataToSave();
+            to_return[ "point_heroism" ]     = this.point_heroism;
+        }
         return to_return;
     },
     addParamForEvents: function ( key, value ) {
@@ -99,6 +105,7 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
+        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
             case RACES.key_element:
                 this.race.updateData( value );
