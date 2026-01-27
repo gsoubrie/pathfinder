@@ -1,64 +1,100 @@
-/*!*********************	CONTAINER   ******************************************!*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table {*/
-/*    display        : flex;*/
-/*    flex-direction : column;*/
-/*    width          : 90%;*/
-/*    max-width      : 1000px;*/
-/*    margin         : auto;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row {*/
-/*    display : flex;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .header {*/
-/*    background-color : #5A3E1B; !* Bois foncé / cuivre ancien *!*/
-/*    color            : #D4B06A; !* Doré doux *!*/
-/*    padding          : 10px;*/
-/*    font-size        : 14px;*/
-/*    text-align       : center;*/
-/*    text-shadow      : 1px 1px 2px #000000;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell {*/
-/*    flex    : 1;*/
-/*    padding : 5px 8px;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {*/
-/*    display        : flex;*/
-/*    flex-direction : row;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value > div {*/
-/*    flex : 1;*/
-/*}*/
-/*!*********************	BONUS RACE VALUE   ******************************************!*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {*/
-/*    display : none;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"] {*/
-/*    opacity        : 0.3;*/
-/*    pointer-events : none;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"] {*/
-/*    opacity        : 0.3;*/
-/*    pointer-events : none;*/
-/*}*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {*/
-/*    opacity        : 0.3;*/
-/*    pointer-events : none;*/
-/*}*/
-/*!*********************	CHARAC FINAL VALUE   ******************************************!*/
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-label {*/
-/*    font-family   : 'Uncial Antiqua', serif;*/
-/*    font-size     : 16px;*/
-/*    color         : #F2E6C2; !* Ivoire ancien *!*/
-/*    background    : linear-gradient(145deg, #3E2A14, #24180E); !* Fond brun foncé texturé *!*/
-/*    border        : 1px solid #C9AA71; !* Bordure dorée vieillie *!*/
-/*    border-radius : 6px;*/
-/*    display       : inline-block;*/
-/*    box-shadow    : 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 0 3px #00000055;*/
-/*}*/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container {
+    background    : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    border        : 3px solid #8B6914;
+    border-radius : 12px;
+    padding       : 20px;
+    box-shadow    : 0 8px 32px rgba(0, 0, 0, 0.5);
+}
 
-/*.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-final-value {*/
-/*    font-size   : 18px;*/
-/*    color       : #D4B06A; !* 🟤 Doré antique / bronze patiné *!*/
-/*    text-shadow : 1px 1px 2px #000000;*/
-/*}*/
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container .title {
+    font-size      : 28px;
+    font-weight    : bold;
+    color          : #D4AF37;
+    text-align     : center;
+    margin-bottom  : 20px;
+    padding-bottom : 12px;
+    border-bottom  : 3px solid #8B6914;
+    text-shadow    : 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table {
+    display        : flex;
+    flex-direction : column;
+    width          : 90%;
+    max-width      : 1000px;
+    margin         : auto;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row {
+    display       : flex;
+    margin-bottom : 8px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.headers {
+    background    : linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
+    border        : 2px solid #8B6914;
+    border-radius : 8px;
+    margin-bottom : 12px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .header {
+    color       : #D4AF37;
+    padding     : 12px;
+    font-size   : 13px;
+    font-weight : bold;
+    text-align  : center;
+    text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.characteristic-line {
+    background    : linear-gradient(135deg, #4A3520 0%, #33231A 100%);
+    border        : 2px solid #6B4E2A;
+    border-radius : 8px;
+    transition    : all 0.3s ease;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .row.characteristic-line:hover {
+    border-color : #8B6914;
+    box-shadow   : 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell {
+    flex            : 1;
+    padding         : 10px 8px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    color           : #E8D4A8;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-label {
+    font-size   : 16px;
+    font-weight : bold;
+    color       : #D4AF37;
+    text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-final-value,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-modifier-value {
+    font-size   : 18px;
+    font-weight : bold;
+    color       : #FFD700;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .cell.characteristic-initial-value {
+    display        : flex;
+    flex-direction : row;
+    gap            : 8px;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
+    display : none;
+}
+
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {
+    opacity        : 0.3;
+    pointer-events : none;
+}

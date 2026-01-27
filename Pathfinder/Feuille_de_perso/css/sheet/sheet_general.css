@@ -7,25 +7,25 @@
     border: 2px solid #8B6914;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    
+
     grid-template-columns:
-        var(--col-1-width, 1fr)  
-        var(--col-2-width, 1fr)  
-        var(--col-3-width, 1fr)  
-        var(--col-4-width, 1fr)  
-        var(--col-5-width, 1fr)  
-        var(--col-6-width, 1fr); 
-    
+        var(--col-1-width, 1fr)
+        var(--col-2-width, 1fr)
+        var(--col-3-width, 1fr)
+        var(--col-4-width, 1fr)
+        var(--col-5-width, 1fr)
+        var(--col-6-width, 1fr);
+
     grid-template-rows:
-        var(--row-1-height, auto) 
-        var(--row-2-height, auto)   
-        var(--row-3-height, auto)   
-        var(--row-4-height, auto)   
-        var(--row-5-height, auto)   
-        var(--row-6-height, auto)   
-        var(--row-7-height, auto)   
-        var(--row-8-height, auto)   
-        var(--row-9-height, auto)   
+        var(--row-1-height, auto)
+        var(--row-2-height, auto)
+        var(--row-3-height, auto)
+        var(--row-4-height, auto)
+        var(--row-5-height, auto)
+        var(--row-6-height, auto)
+        var(--row-7-height, auto)
+        var(--row-8-height, auto)
+        var(--row-9-height, auto)
         var(--row-10-height, auto)
         var(--row-11-height, auto);
 
@@ -209,7 +209,8 @@
     overflow-y: auto;
 }
 
-/* ===== Zones ANCESTRY, HERITAGE, CLASS, HISTORIC, DIVINITY ===== */
+.property-tab-pane[data-name="general_sheet"] .area-player .property,
+.property-tab-pane[data-name="general_sheet"] .area-name .property,
 .property-tab-pane[data-name="general_sheet"] .area-ancestry .property,
 .property-tab-pane[data-name="general_sheet"] .area-heritage .property,
 .property-tab-pane[data-name="general_sheet"] .area-class .property,

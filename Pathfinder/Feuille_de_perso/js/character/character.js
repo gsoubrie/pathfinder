@@ -27,7 +27,7 @@ CHARACTER.Current.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__has_change__input":
-                this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.value );
+                this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.innerText );
                 break;
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
@@ -74,7 +74,7 @@ CHARACTER.Current.prototype = {
         let to_return         = {};
         to_return[ "uuid" ]   = this.uuid;
         to_return[ "name" ]   = this.name;
-        to_return[ "player" ] = this.player.getDataToSave();
+        to_return = Object.assign(to_return, this.player.getDataToSave());
         if ( this.getRace().getUUID() ) {
             to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
             to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
@@ -105,7 +105,6 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
-        console.log( "GSOU", "[Current - setData]", key, value );
         switch ( key ) {
             case RACES.key_element:
                 this.race.updateData( value );
