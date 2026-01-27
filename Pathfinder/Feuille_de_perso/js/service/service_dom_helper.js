@@ -1,5 +1,8 @@
 "use strict";
-SERVICE.DOM_HELPER = (function ( self ) {
+/**
+ * @typedef {Object} SERVICE.DOM_HELPER
+ */
+SERVICE.DOM_HELPER = (function ( /** @type {SERVICE.DOM_HELPER} */ self ) {
     //********************************************  BUTTON   **************************************************//
     self.createMoreButton                 = function ( params_for_events ) {
         return self.createButton( "event__more_button", "+", params_for_events );
@@ -46,10 +49,9 @@ SERVICE.DOM_HELPER = (function ( self ) {
     self.createPropertyVerticalInput      = function ( property_name, value, value_html, label ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": property_name } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
-        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+        let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
-            contentEditable: true,
-            onInput: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
+            onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
         } ), toReturn );
         SERVICE.DOM.addElementTo( value_html, value_dom );
         return toReturn;

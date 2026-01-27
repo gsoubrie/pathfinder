@@ -5,7 +5,7 @@
  */
 CHARACTER.Current = function () {
     this.uuid            = null;
-    this.name            = null;
+    this.name            = new CHARACTER.Name();
     this.player          = new CHARACTER.Player();
     this.alignment       = null;
     this.level           = null;
@@ -27,7 +27,7 @@ CHARACTER.Current.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__has_change__input":
-                this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.innerText );
+                this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.value );
                 break;
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
@@ -123,9 +123,11 @@ CHARACTER.Current.prototype = {
                 this.levels_history.updateData( value );
                 break;
             case "player":
-                this.player.setName(value);
+                this.player.setValue(value);
                 break;
             case "name":
+                this.name.setValue(value);
+                break;
             case "body_size":
             case "alignment":
             case "divinity":

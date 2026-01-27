@@ -1,31 +1,14 @@
 "use strict";
 /**
  * @class Player
- * @extends OBJECT.InterfaceHtml
+ * @extends CHARACTER.ComponentInterface
  */
 CHARACTER.Player = function () {
     this.init();
 };
 CHARACTER.Player.prototype = {
     init: function () {
-        this.key = "player";
-    },
-    //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter: function ( event_name, params ) {
-        switch ( event_name ) {
-            case "event__compute__html":
-                this.computeHtml( params );
-                return;
-        }
-    },
-    //********************************************  GETTER SETTER  **************************************************//
-    setName      : function ( to_set ) {
-        this.name = to_set;
-    },
-    getDataToSave: function () {
-        let to_return         = {};
-        to_return[ this.key ] = this.name;
-        return to_return;
+        this.setKey( "player" );
     },
     //********************************************  HTML   **************************************************//
     computeHtml: function ( params ) {
@@ -35,11 +18,11 @@ CHARACTER.Player.prototype = {
                     return;
                 }
                 this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-player" } ), params[ "param__dom_element_parent" ] );
-                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( this.key, this.name, SERVICE.DOM.createElement( "div", {}, this.name ), "Nom du joueur" ), this.dom_element_general );
+                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( this.key, this.value, SERVICE.DOM.createElement( "div", {}, this.value ), "Nom du joueur" ), this.dom_element_general );
                 return;
             
         }
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTER.Player, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CHARACTER.Player, CHARACTER.ComponentInterface );

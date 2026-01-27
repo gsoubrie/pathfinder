@@ -29,7 +29,7 @@ CHARACTER.GeneralWindow.prototype = {
         
         this.computeArea__logo();
         this.computeArea__save();
-        this.computeArea__name( character_object );
+        character_object.name.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
         character_object.player.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
         this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );

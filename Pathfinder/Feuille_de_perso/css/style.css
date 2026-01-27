@@ -118,7 +118,6 @@ body {
 }
 
 
-
 .property-tab-pane .property {
     /*background    : linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);*/
     /*border        : 2px solid #8B6914;*/
@@ -163,17 +162,18 @@ body {
 
 .property-tab-pane .property .value {
     background      : linear-gradient(135deg, #BFC2C3 0%, #AFB2C3 100%);
-    display         : flex;
-    justify-content : center;
-    align-items     : center;
-    border-width    : 0;
+    border          : none;
     color           : #2C1810;
     font-weight     : 600;
-    overflow        : hidden;
-    min-height      : 12px;
+    font-family     : inherit;
+    font-size       : inherit;
+    min-height      : 24px;
+    height          : 100%;
     border-radius   : 4px;
     padding         : 4px 8px;
     box-shadow      : inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align      : left;
+    outline         : none;
 }
 .property-tab-pane .property .value:focus {
     background : white;
