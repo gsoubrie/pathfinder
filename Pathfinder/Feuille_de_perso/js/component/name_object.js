@@ -1,7 +1,7 @@
 "use strict";
 /**
- * @class Name
- * @extends OBJECT.InterfaceHtml
+ * @class CHARACTER.Name
+ * @extends CHARACTER.ComponentInterface
  */
 CHARACTER.Name = function () {
     this.init();

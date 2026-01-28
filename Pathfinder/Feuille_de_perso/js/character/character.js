@@ -5,7 +5,7 @@
  */
 CHARACTER.Current = function () {
     this.uuid            = null;
-    this.name            = new CHARACTER.Name();
+    this.name_object     = new CHARACTER.Name();
     this.player          = new CHARACTER.Player();
     this.alignment       = null;
     this.level           = null;
@@ -73,10 +73,10 @@ CHARACTER.Current.prototype = {
     getDataToSave    : function () {
         let to_return         = {};
         to_return[ "uuid" ]   = this.uuid;
-        to_return[ "name" ]   = this.name;
-        to_return = Object.assign(to_return, this.player.getDataToSave());
+        to_return = Object.assign(to_return, this.getNameObject().getDataToSave());
+        to_return = Object.assign(to_return, this.getPlayer().getDataToSave());
         if ( this.getRace().getUUID() ) {
-            to_return[ RACES.key_element ]   = this.getRace().getDataToSave();
+            to_return = Object.assign(to_return, this.getRace().getDataToSave());
             to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
             to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
             to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
@@ -106,8 +106,8 @@ CHARACTER.Current.prototype = {
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {
-            case RACES.key_element:
-                this.race.updateData( value );
+            case this.race.getKey():
+                this.race.setValue( value );
                 this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
@@ -122,11 +122,11 @@ CHARACTER.Current.prototype = {
             case "levels_history":
                 this.levels_history.updateData( value );
                 break;
-            case "player":
+            case this.player.getKey():
                 this.player.setValue(value);
                 break;
-            case "name":
-                this.name.setValue(value);
+            case this.name_object.getKey():
+                this.name_object.setValue(value);
                 break;
             case "body_size":
             case "alignment":
@@ -144,6 +144,18 @@ CHARACTER.Current.prototype = {
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
+    },
+    /**
+     * @returns {CHARACTER.Name}
+     */
+    getNameObject: function () {
+        return this.name_object;
+    },
+    /**
+     * @returns {CHARACTER.Player}
+     */
+    getPlayer: function () {
+        return this.player;
     },
     /**
      * @returns {RACES.Race}

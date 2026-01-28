@@ -15,17 +15,23 @@ CHARACTER.ComponentInterface.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setKey      : function ( to_set ) {
+    setKey       : function ( to_set ) {
         this.key = to_set;
     },
-    setValue      : function ( to_set ) {
+    setValue     : function ( to_set ) {
         this.value = to_set;
+    },
+    getKey       : function () {
+        return this.key;
+    },
+    getValue     : function () {
+        return this.value;
     },
     getDataToSave: function () {
         let to_return         = {};
         to_return[ this.key ] = this.value;
         return to_return;
-    },
+    }
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterface, OBJECT.InterfaceHtml );

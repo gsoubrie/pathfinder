@@ -1,6 +1,6 @@
 "use strict";
 /**
- * @class Player
+ * @class CHARACTER.Player
  * @extends CHARACTER.ComponentInterface
  */
 CHARACTER.Player = function () {

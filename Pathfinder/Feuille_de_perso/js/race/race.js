@@ -4,7 +4,7 @@ RACES.Race           = function () {
 };
 RACES.Race.prototype = {
     init: function () {
-        this.name            = "";
+        this.setKey( "race" );
         this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
         this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
         this.available_legacies           = new LEGACIES.Legacies();
@@ -14,18 +14,20 @@ RACES.Race.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__form__element_changed":
-                this.setName( params[ "param__edition_value" ] );
+                this.setValue( params[ "param__edition_value" ] );
                 this.getLegacy().setName( "" );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
-                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element} );
-                break;
+                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element } );
+                return;
         }
+        CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setName    : function ( to_set ) {
-        this.name            = to_set;
-        this.label.innerHTML = to_set;
-        let data_from_race   = RACES.getDataByName( this.name );
+    setValue   : function ( to_set ) {
+        CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
+        console.log( "GSOU", "[Race - setValue]", this );
+        //this.label.innerHTML = to_set;
+        let data_from_race = RACES.getDataByName( this.getValue() );
         this.setData( "start_life", data_from_race[ "start_life" ] );
         this.setData( "speed", data_from_race[ "speed" ] );
         this.setData( "language", data_from_race[ "language" ] );
@@ -56,7 +58,7 @@ RACES.Race.prototype = {
                 this.getLegacy().setName( value );
                 break;
             case "name":
-                this.setName( value );
+                this.setValue( value );
                 break;
             case "start_life":
             case "speed":
@@ -68,19 +70,32 @@ RACES.Race.prototype = {
                 this[ key ] = value;
                 break;
             default:
-                console.log( "GSOU", "[Race - setData]", key, value );
+                console.warn( "GSOU", "[Race - setData]", key, value );
         }
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                          = {};
-        to_return[ "name" ]                    = this.name;
-        to_return[ LEGACIES.key_element ]      = this.getLegacy().getDataToSave();
-        to_return[ RACES.PARAM.BODY_SIZE.key ] = this.getBodySize().getDataToSave();
+        to_return[ this.getKey() ]             = this.getValue();
+        //to_return[ LEGACIES.key_element ]      = this.getLegacy().getDataToSave();
+        //to_return[ RACES.PARAM.BODY_SIZE.key ] = this.getBodySize().getDataToSave();
         return to_return;
+    },
+    //********************************************  SAVE   **************************************************//
+    computeHtml: function ( params ) {
+        switch ( params[ "param__window" ] ) {
+            case CHARACTER.GeneralWindow.NAME:
+                if ( this.dom_element_general ) {
+                    return;
+                }
+                this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), params[ "param__dom_element_parent" ] );
+                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( this.key, this.value, SERVICE.DOM.createElement( "div", {}, this.value ), RACES.label_element ), this.dom_element_general );
+                return;
+            //SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
+        }
     }
 };
-SERVICE.CLASS.addPrototype( RACES.Race, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( RACES.Race, CHARACTER.ComponentInterface );
 
 RACES.RacePopup           = function ( data ) {
     this.init( data );

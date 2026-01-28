@@ -29,9 +29,10 @@ CHARACTER.GeneralWindow.prototype = {
         
         this.computeArea__logo();
         this.computeArea__save();
-        character_object.name.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
-        character_object.player.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
-        this.computeArea__ancestry( character_object );
+        character_object.getNameObject().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+        character_object.getPlayer().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+        character_object.getRace().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+        //this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );
         this.computeArea__heritage( character_object );
         this.computeArea__class( character_object );
@@ -63,21 +64,13 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Character.doActionAfter('event__current_character__save')" } ), this.area_save );
     },
     
-    computeArea__name: function ( character_object ) {
-        if ( this.area_name ) {
-            return;
-        }
-        this.area_name = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-name" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( "name", character_object.name, SERVICE.DOM.createElement( "div", {}, character_object.name ), "Nom du personnage" ), this.area_name );
-    },
-    
-    computeArea__ancestry: function ( character_object ) {
-        if ( this.area_ancestry ) {
-            return;
-        }
-        this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
-    },
+    //computeArea__ancestry: function ( character_object ) {
+    //    if ( this.area_ancestry ) {
+    //        return;
+    //    }
+    //    this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), this.content_dom_element_target );
+    //    SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
+    //},
     
     computeArea__heritage: function ( character_object ) {
         if ( this.area_heritage || !character_object.getRace().getName() ) {
