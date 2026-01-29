@@ -1,10 +1,15 @@
 "use strict";
+/**
+ * @class RACES.Race
+ * @extends CHARACTER.ComponentInterface
+ */
 RACES.Race           = function () {
     this.init();
 };
 RACES.Race.prototype = {
     init: function () {
-        this.setKey( "race" );
+        this.setKey( RACES.key_element );
+        this.setLabelProperty( RACES.label_element );
         this[ LEGACIES.key_element ]      = new LEGACIES.Legacy();
         this[ RACES.PARAM.BODY_SIZE.key ] = new RACES.RaceSize();
         this.available_legacies           = new LEGACIES.Legacies();
@@ -25,7 +30,6 @@ RACES.Race.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setValue   : function ( to_set ) {
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
-        console.log( "GSOU", "[Race - setValue]", this );
         //this.label.innerHTML = to_set;
         let data_from_race = RACES.getDataByName( this.getValue() );
         this.setData( "start_life", data_from_race[ "start_life" ] );
@@ -34,7 +38,7 @@ RACES.Race.prototype = {
         this.setData( "sens", data_from_race[ "sens" ] );
         this.setData( "characteristics_bonus", data_from_race[ "characteristics_bonus" ] );
         this.setData( "characteristics_malus", data_from_race[ "characteristics_malus" ] );
-        this.available_legacies.init( RACES.getLegacies( this.getName() ) );
+        //this.available_legacies.init( RACES.getLegacies( this.getName() ) );
     },
     setLegacy  : function ( to_set ) {
         this.getLegacy().setName( to_set );
@@ -81,19 +85,7 @@ RACES.Race.prototype = {
         //to_return[ RACES.PARAM.BODY_SIZE.key ] = this.getBodySize().getDataToSave();
         return to_return;
     },
-    //********************************************  SAVE   **************************************************//
-    computeHtml: function ( params ) {
-        switch ( params[ "param__window" ] ) {
-            case CHARACTER.GeneralWindow.NAME:
-                if ( this.dom_element_general ) {
-                    return;
-                }
-                this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), params[ "param__dom_element_parent" ] );
-                SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVerticalInput( this.key, this.value, SERVICE.DOM.createElement( "div", {}, this.value ), RACES.label_element ), this.dom_element_general );
-                return;
-            //SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
-        }
-    }
+
 };
 SERVICE.CLASS.addPrototype( RACES.Race, CHARACTER.ComponentInterface );
 
@@ -177,5 +169,24 @@ RACES.RaceSize.prototype = {
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         return this.value;
+    }
+};
+
+
+RACES.WindowGroup           = function () {
+    this.init( "race_window_group" );
+};
+RACES.WindowGroup.prototype = {
+    init        : function ( group_name ) {
+        this.initCommon( group_name );
+        CONTROLLER.Main.races = new RACES.Races();
+        this.initWithData();
+    },
+    initWithData: function () {
+        for ( let i = 0, _size_i = CONTROLLER.Main.races.getSize(); i < _size_i; i++ ) {
+            let current = CONTROLLER.Main.races.getContent( i );
+            let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
+            added.setContentDomElementTarget( current.computeHTMLEdition() );
+        }
     }
 };

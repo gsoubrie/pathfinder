@@ -10,9 +10,8 @@ CONTROLLER.Character = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
-        //console.log("GSOU", "[Character - doActionAfter]", event_name, params );
         switch ( event_name ) {
-            case "open_edition_popup":
+            case "event__property_popup__open":
                 this.edition_popup = new POPUP.PropertyEdition( params );
                 break;
             case "click_on_button_V3":

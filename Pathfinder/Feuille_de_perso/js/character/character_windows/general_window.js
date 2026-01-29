@@ -68,7 +68,7 @@ CHARACTER.GeneralWindow.prototype = {
     //    if ( this.area_ancestry ) {
     //        return;
     //    }
-    //    this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry" } ), this.content_dom_element_target );
+    //    this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-race" } ), this.content_dom_element_target );
     //    SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
     //},
     
