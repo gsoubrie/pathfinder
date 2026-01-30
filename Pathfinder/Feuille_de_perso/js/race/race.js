@@ -3,7 +3,7 @@
  * @class RACES.Race
  * @extends CHARACTER.ComponentInterface
  */
-RACES.Race           = function () {
+RACES.Race = function () {
     this.init();
 };
 RACES.Race.prototype = {
@@ -30,15 +30,15 @@ RACES.Race.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setValue   : function ( to_set ) {
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
-        //this.label.innerHTML = to_set;
         let data_from_race = RACES.getDataByName( this.getValue() );
-        this.setData( "start_life", data_from_race[ "start_life" ] );
-        this.setData( "speed", data_from_race[ "speed" ] );
-        this.setData( "language", data_from_race[ "language" ] );
-        this.setData( "sens", data_from_race[ "sens" ] );
-        this.setData( "characteristics_bonus", data_from_race[ "characteristics_bonus" ] );
-        this.setData( "characteristics_malus", data_from_race[ "characteristics_malus" ] );
-        //this.available_legacies.init( RACES.getLegacies( this.getName() ) );
+        delete data_from_race[ "name" ];
+        var _keys = Object.keys( data_from_race );
+        var _current_key;
+        for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
+            _current_key = _keys[ i ];
+            this.setData( _current_key, data_from_race[ _current_key ] );
+        }
+        this.available_legacies.init( data_from_race[ "legacies" ] );
     },
     setLegacy  : function ( to_set ) {
         this.getLegacy().setName( to_set );
@@ -73,19 +73,26 @@ RACES.Race.prototype = {
             case "sens":
                 this[ key ] = value;
                 break;
+            case "general_desc":
+            case "physical_desc":
+            case "believe_desc":
+            case "traits":
+            case "legacies":
+                this[ key ] = value;
+                break;
             default:
                 console.warn( "GSOU", "[Race - setData]", key, value );
         }
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return                          = {};
-        to_return[ this.getKey() ]             = this.getValue();
+        let to_return              = {};
+        to_return[ this.getKey() ] = this.getValue();
         //to_return[ LEGACIES.key_element ]      = this.getLegacy().getDataToSave();
         //to_return[ RACES.PARAM.BODY_SIZE.key ] = this.getBodySize().getDataToSave();
         return to_return;
-    },
-
+    }
+    
 };
 SERVICE.CLASS.addPrototype( RACES.Race, CHARACTER.ComponentInterface );
 

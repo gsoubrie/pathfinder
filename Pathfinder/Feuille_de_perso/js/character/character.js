@@ -15,6 +15,7 @@ CHARACTER.Current = function () {
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
+    this.children        = [this.player, this.name_object, this.race];
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -71,20 +72,21 @@ CHARACTER.Current.prototype = {
         return this.uuid;
     },
     getDataToSave    : function () {
-        let to_return         = {};
-        to_return[ "uuid" ]   = this.uuid;
-        to_return = Object.assign(to_return, this.getNameObject().getDataToSave());
-        to_return = Object.assign(to_return, this.getPlayer().getDataToSave());
-        if ( this.getRace().getUUID() ) {
-            to_return = Object.assign(to_return, this.getRace().getDataToSave());
-            to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
-            to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
-            to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
-            to_return[ "alignment" ]         = this.alignment;
-            to_return[ "level" ]             = this.level + "";
-            to_return[ "health" ]            = this.health.getDataToSave();
-            to_return[ "point_heroism" ]     = this.point_heroism;
+        let to_return       = {};
+        to_return[ "uuid" ] = this.uuid;
+        for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
+            to_return = Object.assign( to_return, this.children[ i ].getDataToSave() );
         }
+        //if ( this.getRace().getUUID() ) {
+        //    to_return = Object.assign(to_return, this.getRace().getDataToSave());
+        //    to_return[ CLASSES.key_element ] = this.getClass().getDataToSave();
+        //    to_return[ CHARACTERISTICS.key ] = this.getCharacteristics().getDataToSave();
+        //    to_return[ "levels_history" ]    = this.levels_history.getDataToSave();
+        //    to_return[ "alignment" ]         = this.alignment;
+        //    to_return[ "level" ]             = this.level + "";
+        //    to_return[ "health" ]            = this.health.getDataToSave();
+        //    to_return[ "point_heroism" ]     = this.point_heroism;
+        //}
         return to_return;
     },
     addParamForEvents: function ( key, value ) {
@@ -123,10 +125,10 @@ CHARACTER.Current.prototype = {
                 this.levels_history.updateData( value );
                 break;
             case this.player.getKey():
-                this.player.setValue(value);
+                this.player.setValue( value );
                 break;
             case this.name_object.getKey():
-                this.name_object.setValue(value);
+                this.name_object.setValue( value );
                 break;
             case "body_size":
             case "alignment":

@@ -1668,7 +1668,3 @@ RACES.getDataByName = function ( race_name ) {
     }
     return null;
 };
-
-RACES.getLegacies = function ( race_name ) {
-    return RACES.getDataByName( race_name )[ LEGACIES.key ];
-};
