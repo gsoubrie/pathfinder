@@ -33,6 +33,7 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent(character_object.getRace());
         if ( character_object.getRace().isSet() ) {
             this.computeComponent( character_object.getRace().getBodySize() );
+            this.computeComponent( character_object.getRace().getLegacy() );
         }
         //this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );

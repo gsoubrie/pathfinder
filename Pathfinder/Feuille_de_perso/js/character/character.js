@@ -28,7 +28,7 @@ CHARACTER.Current.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__property_popup__open":
-                this[params["property_name"]].doActionAfter(event_name, params);
+                this.getObjectBytPropertyName([params["property_name"]]).doActionAfter(event_name, params);
                 break;
             case "event__has_change__input":
                 this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.value );
@@ -71,6 +71,14 @@ CHARACTER.Current.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
+    getObjectBytPropertyName          : function (property_name) {
+        switch ( property_name ){
+            case LEGACIES.key_element:
+                property_name = RACES.key_element;
+                break;
+        }
+        return this[property_name];
+    },
     getUUID          : function () {
         return this.uuid;
     },

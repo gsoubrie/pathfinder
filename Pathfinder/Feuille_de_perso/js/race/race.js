@@ -23,7 +23,7 @@ RACES.Race.prototype = {
         switch ( event_name ) {
             case "event__form__element_changed":
                 this.setValue( params[ "param__edition_value" ] );
-                this.getLegacy().setName( "" );
+                this.getLegacy().setValue( "" );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
                 params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element } );
                 return;

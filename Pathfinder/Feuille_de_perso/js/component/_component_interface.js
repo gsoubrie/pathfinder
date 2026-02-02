@@ -36,6 +36,9 @@ CHARACTER.ComponentInterface.prototype = {
     getKey               : function () {
         return this.key;
     },
+    getUUID               : function () {
+        return this.getKey();
+    },
     getValue             : function () {
         return this.value || "";
     },
@@ -85,7 +88,7 @@ CHARACTER.ComponentInterfaceInput.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
         this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
-            onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + this.getKey() + "','param__property__value':'" + this.getValue() + "'})"
+            onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + this.getKey() + "'})"
         } ), div );
         if ( this.isSet() ) {
             this.dom_element__input.value = this.getValue();
@@ -117,7 +120,7 @@ CHARACTER.ComponentInterfacePopup.prototype = {
         this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
             readOnly: "",
-            onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.getKey() + "','param__property__value':'" + this.getValue() + "'})"
+            onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.getKey() + "'})"
         } ), div );
     }
 };

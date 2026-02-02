@@ -31,7 +31,7 @@
 
     grid-template-areas   :
         "logo   name        name        ancestry   ancestry   level"
-        "save   player      player      heritage   heritage   heroism"
+        "save   player      player      legacy     legacy     heroism"
         ".      .           .           class      class      ."
         ".      .           .           historic   historic   ."
         ".      .           .           size       health     health"
@@ -51,7 +51,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-temp-health { grid-area : temp-health; }
 .property-tab-pane[data-name="general_sheet"] .area-wound { grid-area : wound; }
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
-.property-tab-pane[data-name="general_sheet"] .area-heritage { grid-area : heritage; }
+.property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
 .property-tab-pane[data-name="general_sheet"] .area-historic { grid-area : historic; }
 .property-tab-pane[data-name="general_sheet"] .area-body_size { grid-area : size; }
@@ -212,7 +212,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-player .property,
 .property-tab-pane[data-name="general_sheet"] .area-name .property,
 .property-tab-pane[data-name="general_sheet"] .area-race .property,
-.property-tab-pane[data-name="general_sheet"] .area-heritage .property,
+.property-tab-pane[data-name="general_sheet"] .area-legacy .property,
 .property-tab-pane[data-name="general_sheet"] .area-class .property,
 .property-tab-pane[data-name="general_sheet"] .area-historic .property,
 .property-tab-pane[data-name="general_sheet"] .area-divinity .property {
