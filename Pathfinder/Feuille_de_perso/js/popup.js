@@ -1,16 +1,15 @@
 "use strict";
-POPUP.PropertyEdition           = function ( params ) {
-    this.init( params );
+POPUP.PropertyEdition           = function ( property_name, value ) {
+    this.init( property_name, value );
 };
 POPUP.PropertyEdition.prototype = {
-    init: function ( params ) {
+    init: function ( property_name, value ) {
+        console.log("GSOU", "[PropertyEdition - init]", property_name, value );
         let default_value = "";
-        console.log( params );
-        switch ( params[ "property_name" ] ) {
+        switch ( property_name ) {
             case RACES.key_element:
                 this.current_property = RACES;
                 this.windows          = new RACES.WindowGroup();
-                default_value         = RACES.default_value;
                 break;
             case LEGACIES.key_element:
                 this.current_property = LEGACIES;
@@ -29,8 +28,7 @@ POPUP.PropertyEdition.prototype = {
             default:
                 break;
         }
-        
-        this.windows.setActiveWindow( params[ "param__property__value" ] || default_value );
+        this.windows.setActiveWindow( value );
         this.computeHtml();
     },
     //********************************************  EVENT LISTENER  **************************************************//

@@ -21,7 +21,6 @@ CHARACTER.GeneralWindow.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        console.log( "GSOU", "[GeneralWindow - computeHtmlWithData]", "[]" );
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
@@ -29,13 +28,16 @@ CHARACTER.GeneralWindow.prototype = {
         
         this.computeArea__logo();
         this.computeArea__save();
-        character_object.getNameObject().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
-        character_object.getPlayer().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
-        character_object.getRace().doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+        this.computeComponent(character_object.getNameObject());
+        this.computeComponent(character_object.getPlayer());
+        this.computeComponent(character_object.getRace());
+        if ( character_object.getRace().isSet() ) {
+            this.computeComponent( character_object.getRace().getBodySize() );
+        }
         //this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );
-        this.computeArea__heritage( character_object );
-        this.computeArea__class( character_object );
+        //this.computeArea__heritage( character_object );
+        //this.computeArea__class( character_object );
         //this.computeArea__historic( character_object );
         //this.computeArea__size( character_object );
         //this.computeArea__alignment( character_object );
@@ -48,6 +50,9 @@ CHARACTER.GeneralWindow.prototype = {
         
     },
     
+    computeComponent: function (object) {
+        object.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+    },
     computeArea__logo: function () {
         if ( this.area_logo ) {
             return;
@@ -146,22 +151,6 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), this.area_historic );
     },
     
-    computeArea__size: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-size" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyVertical(
-                RACES.PARAM.BODY_SIZE.key,
-                character_object.getRace().getBodySize().value,
-                character_object.getRace().getBodySize().label,
-                "Taille",
-                false
-            ),
-            area
-        );
-    },
     
     computeArea__alignment: function ( character_object ) {
         var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-alignment" } ), this.content_dom_element_target );

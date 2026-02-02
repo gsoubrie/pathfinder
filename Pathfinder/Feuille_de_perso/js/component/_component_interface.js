@@ -15,37 +15,59 @@ CHARACTER.ComponentInterface.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setKey                  : function ( to_set ) {
+    isSet                : function () {
+        return !!this.value;
+    },
+    setKey               : function ( to_set ) {
         this.key = to_set;
     },
-    setLabelProperty        : function ( to_set ) {
+    setLabelProperty     : function ( to_set ) {
         this.label_property = to_set;
     },
-    setValue                : function ( to_set ) {
+    setDefaultValue      : function ( to_set ) {
+        this.default_value = to_set;
+    },
+    setValue             : function ( to_set ) {
         this.value = to_set;
-        console.log( "GSOU", "[ComponentInterface - setValue]", this.dom_element_input );
         if ( this.dom_element__input ) {
             this.dom_element__input.value = this.value;
         }
     },
-    getKey                  : function () {
+    getKey               : function () {
         return this.key;
     },
-    getValue                : function () {
+    getValue             : function () {
         return this.value || "";
     },
-    getDataToSave           : function () {
+    getSpecificDataToSave: function () {
         let to_return         = {};
         to_return[ this.key ] = this.value;
         return to_return;
     },
-    computeHtml             : function ( params ) {
+    computeHtml          : function ( params ) {
         switch ( params[ "param__window" ] ) {
             case CHARACTER.GeneralWindow.NAME:
                 this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
                 return;
         }
     },
+    getDataToSave        : function () {
+        let to_return = this.getSpecificDataToSave();
+        if ( this.children ) {
+            for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
+                to_return = Object.assign( to_return, this.children[ i ].getDataToSave() );
+            }
+        }
+        return to_return;
+    }
+};
+
+SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterface, OBJECT.InterfaceHtml );
+
+CHARACTER.ComponentInterfaceInput           = function () {
+};
+CHARACTER.ComponentInterfaceInput.prototype = {
+    //********************************************  GETTER SETTER  **************************************************//
     computeHtmlGeneralWindow: function ( dom_element_parent ) {
         if ( this.dom_element_general ) {
             return;
@@ -54,11 +76,42 @@ CHARACTER.ComponentInterface.prototype = {
         let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
         this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
-            class: "value",
-            //readOnly: "",
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.key + "','param__property__value':'" + this.getValue() + "'})"
+            class   : "value",
+            onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__has_change__input',{'property_name':'" + this.getKey() + "','param__property__value':'" + this.getValue() + "'})"
+        } ), div );
+        if ( this.isSet() ) {
+            this.dom_element__input.value = this.getValue();
+        }
+    }
+};
+
+SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterfaceInput, CHARACTER.ComponentInterface );
+
+CHARACTER.ComponentInterfacePopup           = function () {
+};
+CHARACTER.ComponentInterfacePopup.prototype = {
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__property_popup__open":
+                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( this.getKey(), this.getValue() || this.default_value );
+                break;
+        }
+        CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
+        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: "",
+            onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.getKey() + "','param__property__value':'" + this.getValue() + "'})"
         } ), div );
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterface, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterfacePopup, CHARACTER.ComponentInterface );

@@ -11,15 +11,13 @@ CONTROLLER.Character = (function ( self ) {
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__property_popup__open":
-                this.edition_popup = new POPUP.PropertyEdition( params );
-                break;
             case "click_on_button_V3":
                 if ( params[ "param__current_character__uuid" ] ) {
                     self.current_character.doActionAfter( params[ COMPONENT.BUTTON.PARAM.BUTTON_NAME ], params );
                     return;
                 }
                 break;
+            case "event__property_popup__open":
             case "event__has_change__input":
             case "event__free_bonus_is_zero":
             case "event__open_modal__hp_heal":

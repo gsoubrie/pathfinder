@@ -40,7 +40,7 @@ SERVICE.DOM_HELPER = (function ( /** @type {SERVICE.DOM_HELPER} */ self ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
         let value_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
-            //readOnly: "",
+            readOnly: "",
             onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + property_name + "','param__property__value':'" + value + "'})"
         } ), toReturn );
         SERVICE.DOM.addElementTo( value_html, value_dom );
