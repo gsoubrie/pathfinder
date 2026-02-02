@@ -96,7 +96,6 @@ RACES.WindowGroup.prototype = {
     initWithData: function () {
         for ( let i = 0, _size_i = CONTROLLER.Main.races.getSize(); i < _size_i; i++ ) {
             let current = CONTROLLER.Main.races.getContent( i );
-            console.log("GSOU", "[WindowGroup - initWithData]", current.name );
             let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }

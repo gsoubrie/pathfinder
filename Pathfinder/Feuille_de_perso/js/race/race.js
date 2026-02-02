@@ -15,6 +15,7 @@ RACES.Race.prototype = {
         this.body_size          = new BODY_SIZE.RaceSize();
         this.available_legacies = new LEGACIES.Legacies();
         this.label              = SERVICE.DOM.createElement( "div", {} );
+        this.children           = [ this.body_size];
         //this.children           = [this.legacy, this.body_size];
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -58,7 +59,6 @@ RACES.Race.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case RACES.PARAM.BODY_SIZE.key:
-                console.log( "GSOU", "[Race - setData]", value );
                 this.getBodySize().setValue( value );
                 break;
             case LEGACIES.key_element:

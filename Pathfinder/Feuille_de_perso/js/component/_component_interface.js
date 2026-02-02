@@ -40,8 +40,15 @@ CHARACTER.ComponentInterface.prototype = {
         return this.value || "";
     },
     getSpecificDataToSave: function () {
-        let to_return         = {};
-        to_return[ this.key ] = this.value;
+        let to_return = {};
+        if ( this.children ) {
+            to_return[ this.key ] = {
+                value: this.getValue()
+            };
+        }
+        else {
+            to_return[ this.key ] = this.value;
+        }
         return to_return;
     },
     computeHtml          : function ( params ) {
@@ -54,8 +61,9 @@ CHARACTER.ComponentInterface.prototype = {
     getDataToSave        : function () {
         let to_return = this.getSpecificDataToSave();
         if ( this.children ) {
+            let object = to_return[ this.key ] || to_return;
             for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
-                to_return = Object.assign( to_return, this.children[ i ].getDataToSave() );
+                object = Object.assign( object, this.children[ i ].getDataToSave() );
             }
         }
         return to_return;

@@ -170,6 +170,7 @@ var RACES = {
                 "Les automates sont beaucoup plus susceptibles de rencontrer d'autres ascendances. Selon la personnalité de l'automate, cette rencontre peut prendre plusieurs formes, allant de l'extrême discrétion à la visite ouverte. L'apparence unique d'un automate le fait remarquer, quel que soit l'endroit où il se trouve mais la plupart des gens le regardent avec crainte ou curiosité plutôt qu'avec peur. Les créatures artificielles magiques ne sont pas un concept étranger à Golarion mais beaucoup d'entre elles sont dénuées d'intelligence. Une fois passé le choc initial d'une créature artificielle pensante, il n'est pas difficile pour la plupart des gens de comprendre comment se comporter avec un automate. Cependant, les automates ont plus de chances de trouver un semblant de vie quotidienne dans les grandes villes comme Absalom, Azir ou Quantium. Où qu'il aille, un automate doit rester à l'affût de ceux qui tenteraient de s'emparer de son corps pour l'étudier ou accéder à son noyau."
             ],
             "start_life"           : 8,
+            "body_size"            : "?",
             "speed"                : 7,
             "characteristics_bonus": {
                 "number": 3,
