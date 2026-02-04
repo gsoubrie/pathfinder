@@ -101,6 +101,7 @@ RACES.WindowGroup.prototype = {
         }
     }
 };
+SERVICE.CLASS.addPrototype( RACES.WindowGroup, WINDOW_V2.ElementGroupFromData );
 
 RACES.getDataByName = function ( race_name ) {
     for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {

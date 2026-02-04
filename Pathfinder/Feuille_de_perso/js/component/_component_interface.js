@@ -7,12 +7,26 @@ CHARACTER.ComponentInterface = function () {
 };
 CHARACTER.ComponentInterface.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter: function ( event_name, params ) {
+    doActionAfter : function ( event_name, params ) {
         switch ( event_name ) {
             case "event__compute__html":
                 this.computeHtml( params );
                 return;
         }
+    },
+    getObjectByKey: function ( key_name ) {
+        if ( this[ key_name ] ) {
+            return this[ key_name ];
+        }
+        if ( this.children ) {
+            for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
+                let current = this.children[ i ].getObjectByKey( key_name );
+                if ( current ) {
+                    return current;
+                }
+            }
+        }
+        return null;
     },
     //********************************************  GETTER SETTER  **************************************************//
     isSet                : function () {
@@ -36,7 +50,7 @@ CHARACTER.ComponentInterface.prototype = {
     getKey               : function () {
         return this.key;
     },
-    getUUID               : function () {
+    getUUID              : function () {
         return this.getKey();
     },
     getValue             : function () {

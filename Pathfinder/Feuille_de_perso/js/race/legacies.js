@@ -5,11 +5,64 @@ LEGACIES.Legacies.prototype = {
     init: function ( data ) {
         this.initContents();
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
-            let to_add = new LEGACIES.Legacy();
-            to_add.initWithName( data[ i ] );
+            let to_add = new LEGACIES.LegacyPopup(LEGACIES.getDataByName(data[ i ]));
             this.add( to_add );
         }
     }
 };
 
 SERVICE.CLASS.addPrototype( LEGACIES.Legacies, OBJECT.InterfaceContainerHtml );
+
+
+LEGACIES.LegacyPopup           = function ( data ) {
+    this.init( data );
+};
+LEGACIES.LegacyPopup.prototype = {
+    init: function ( data ) {
+        this.updateData( data );
+    },
+    //********************************************  HTML   **************************************************//
+    setData: function ( key, value ) {
+        switch ( key ) {
+            case "name":
+                this.setValue( value );
+                break;
+            case "general_desc":
+            case "name_lower_case":
+                this[ key ] = value;
+                break;
+            default:
+                console.warn( "[IGNORED DATA]", key, value );
+        }
+    },
+    //********************************************  HTML   **************************************************//
+    computeHTMLEdition: function () {
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
+        return this.getDomElement();
+    }
+};
+
+SERVICE.CLASS.addPrototype( LEGACIES.LegacyPopup, LEGACIES.Legacy );
+
+LEGACIES.WindowGroup           = function () {
+    this.init( "race_window_group" );
+};
+LEGACIES.WindowGroup.prototype = {
+    init        : function ( group_name ) {
+        this.initCommon( group_name );
+        this.initWithData();
+    },
+    initWithData: function ( data_windows ) {
+        for ( let i = 0, _size_i = CONTROLLER.Character.current_character.getRace().available_legacies.getSize(); i < _size_i; i++ ) {
+            let current = CONTROLLER.Character.current_character.getRace().available_legacies.getContent(i);
+            let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
+            added.setContentDomElementTarget( current.computeHTMLEdition() );
+        }
+    }
+    //********************************************  EVENT LISTENER  **************************************************//
+    
+    //********************************************  HTML   **************************************************//
+};
+
+SERVICE.CLASS.addPrototype( LEGACIES.WindowGroup, WINDOW_V2.ElementGroupFromData );

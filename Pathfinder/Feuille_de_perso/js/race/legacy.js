@@ -15,7 +15,6 @@ LEGACIES.Legacy.prototype = {
     initWithName: function ( legacy_name ) {
         this.setValue( legacy_name );
         let data = LEGACIES.getDataByName( legacy_name );
-        console.log("GSOU", "[Legacy - initWithName]", data );
         this.updateData( data );
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -50,12 +49,6 @@ LEGACIES.Legacy.prototype = {
                 console.warn( "[IGNORED DATA]", key, value );
         }
     },
-    //********************************************  HTML   **************************************************//
-    //computeHTMLEdition: function () {
-    //    this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
-    //    SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.general_desc, "Description" ), this.getDomElement() );
-    //    return this.getDomElement();
-    //}
 };
 
 SERVICE.CLASS.addPrototype( LEGACIES.Legacy, CHARACTER.ComponentInterfacePopup );
