@@ -25,7 +25,7 @@ LEGACIES.LegacyPopup.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case "name":
-                this.setValue( value );
+                this.setKey( value );
                 break;
             case "general_desc":
             case "name_lower_case":
@@ -54,11 +54,16 @@ LEGACIES.WindowGroup.prototype = {
         this.initWithData();
     },
     initWithData: function ( data_windows ) {
+        let none   = this.addSpecific( this.getChildConstructor( LEGACIES.default_value, this.getName() ) );
+        let dom_none = SERVICE.DOM.createElement("div", {class: "edition-property description"});
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement("div", {class: "value"}, "Aucun Héritage"), dom_none);
+        none.setContentDomElementTarget( dom_none );
         for ( let i = 0, _size_i = CONTROLLER.Character.current_character.getRace().available_legacies.getSize(); i < _size_i; i++ ) {
             let current = CONTROLLER.Character.current_character.getRace().available_legacies.getContent(i);
-            let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
+            let added   = this.addSpecific( this.getChildConstructor( current.getKey(), this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }
+
     }
     //********************************************  EVENT LISTENER  **************************************************//
     

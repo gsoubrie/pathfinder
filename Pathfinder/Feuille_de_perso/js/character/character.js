@@ -36,7 +36,7 @@ CHARACTER.Current.prototype = {
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
-                this.getPropertyForDoActionAfter( params ).doActionAfter( event_name, params );
+                this.getObjectByKey(params["param__property"]).doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__more_button":
@@ -183,16 +183,6 @@ CHARACTER.Current.prototype = {
     },
     getHealth                  : function () {
         return this.health;
-    },
-    getPropertyForDoActionAfter: function ( params ) {
-        switch ( params[ "param__property" ] ) {
-            case RACES.key_element:
-                return this.getRace();
-            case LEGACIES.key_element:
-                return this.getLegacy();
-            case CLASSES.key_element:
-                return this.getClass();
-        }
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {

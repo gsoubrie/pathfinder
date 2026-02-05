@@ -1,6 +1,6 @@
 "use strict";
 /**
- * @class ComponentInterface
+ * @class CHARACTER.ComponentInterface
  * @extends OBJECT.InterfaceHtml
  */
 CHARACTER.ComponentInterface = function () {
@@ -89,7 +89,11 @@ CHARACTER.ComponentInterface.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterface, OBJECT.InterfaceHtml );
 
-CHARACTER.ComponentInterfaceInput           = function () {
+/**
+ * @class CHARACTER.ComponentInterfaceInput
+ * @extends CHARACTER.ComponentInterface
+ */
+CHARACTER.ComponentInterfaceInput = function () {
 };
 CHARACTER.ComponentInterfaceInput.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
@@ -112,7 +116,11 @@ CHARACTER.ComponentInterfaceInput.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterfaceInput, CHARACTER.ComponentInterface );
 
-CHARACTER.ComponentInterfacePopup           = function () {
+/**
+ * @class CHARACTER.ComponentInterfacePopup
+ * @extends CHARACTER.ComponentInterface
+ */
+CHARACTER.ComponentInterfacePopup = function () {
 };
 CHARACTER.ComponentInterfacePopup.prototype = {
     doActionAfter: function ( event_name, params ) {
@@ -136,6 +144,7 @@ CHARACTER.ComponentInterfacePopup.prototype = {
             readOnly: "",
             onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.getKey() + "'})"
         } ), div );
+        this.dom_element__input.value = this.getValue();
     }
 };
 

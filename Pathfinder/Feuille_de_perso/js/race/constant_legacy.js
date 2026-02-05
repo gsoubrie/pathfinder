@@ -3,6 +3,7 @@ var LEGACIES = {
     key          : "legacies",
     label        : "Héritages",
     key_element  : "legacy",
+    default_value: "Aucun",
     label_element: "Héritage",
     ENUM         : [
         {

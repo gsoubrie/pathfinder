@@ -15,15 +15,14 @@ RACES.Race.prototype = {
         this.body_size          = new BODY_SIZE.RaceSize();
         this.available_legacies = new LEGACIES.Legacies();
         this.label              = SERVICE.DOM.createElement( "div", {} );
-        this.children           = [ this.body_size];
-        //this.children           = [this.legacy, this.body_size];
+        this.children           = [ this.body_size, this.legacy];
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__form__element_changed":
                 this.setValue( params[ "param__edition_value" ] );
-                this.getLegacy().setValue( "" );
+                this.getLegacy().setValue( LEGACIES.default_value );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
                 params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element } );
                 return;
@@ -79,6 +78,7 @@ RACES.Race.prototype = {
             case "general_desc":
             case "physical_desc":
             case "believe_desc":
+            case "society_desc":
             case "traits":
             case "legacies":
                 this[ key ] = value;
