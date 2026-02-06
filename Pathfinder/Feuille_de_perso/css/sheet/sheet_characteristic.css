@@ -1,3 +1,8 @@
+body[data-is-race-set="0"] #id-gs-window-V2-characteristic_sheet-character_group{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-container {
     background    : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
     border        : 3px solid #8B6914;
@@ -87,10 +92,13 @@
     gap            : 8px;
 }
 
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V3[data-name="event__more_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V3[data-name="event__less_button"],
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
     display : none;
 }
+
 
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"],
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"],

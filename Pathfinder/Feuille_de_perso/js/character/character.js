@@ -40,6 +40,7 @@ CHARACTER.Current.prototype = {
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__more_button":
+            case "event__less_button":
                 if ( params[ "param__characteristics__is" ] ) {
                     this.characteristics.doActionAfter( event_name, params );
                     return;
@@ -98,8 +99,8 @@ CHARACTER.Current.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case this.race.getKey():
-                this.race.setValue( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
+                this.race.updateData( value );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__race__object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
                 this.class.updateData( value );

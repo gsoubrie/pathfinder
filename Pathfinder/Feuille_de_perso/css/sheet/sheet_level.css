@@ -1,3 +1,8 @@
+body[data-is-level-set="0"] #id-gs-window-V2-level_sheet-character_group {
+    pointer-events : none;
+    opacity        : 0.5;
+}
+
 .property-tab-pane[data-name="level_sheet"] .level-window {
     display        : flex;
     flex-direction : column;

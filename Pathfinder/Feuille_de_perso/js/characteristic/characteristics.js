@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * @class CHARACTERISTICS.Characteristics
+ * @extends OBJECT.InterfaceContainerHtml
+ * @extends GS.OBJECT.CounterInterfaceV2
+ */
 CHARACTERISTICS.Characteristics           = function () {
     this.init();
 };
@@ -23,13 +28,11 @@ CHARACTERISTICS.Characteristics.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter            : function ( event_name, params ) {
         switch ( event_name ) {
-            case "click_on_button_V3":
-                if ( params[ "characteristic_param" ] ) {
-                    params[ "param__characteristics__object" ] = this;
-                    this.getContentByUUID( params[ "characteristic_param" ] ).doActionAfter( event_name, params );
-                    return;
-                }
-                break;
+            case "event__more_button":
+            case "event__less_button":
+                params[ "param__characteristics__object" ] = this;
+                this.getContentByUUID( params[ "characteristic_param" ] ).doActionAfter( event_name, params );
+                return;
             case "event__set_object_bonuses":
                 params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );

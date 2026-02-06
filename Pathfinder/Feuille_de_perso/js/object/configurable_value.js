@@ -7,14 +7,14 @@ OBJECT.ConfigurableValue.prototype = {
         this.initial_value  = initial_value;
         this.editable_value = editable_value;
         this.value          = this.initial_value;
-        this.initPhase();
+        this.initPhase( GS.OBJECT.CONST.PHASE.SLEEPING );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__reset_bonuses":
                 this.setValue( this.initial_value );
-                this.setPhase( GS.OBJECT.CONST.PHASE.INIT );
+                this.setPhase( GS.OBJECT.CONST.PHASE.SLEEPING );
                 break;
         }
     },

@@ -34,43 +34,40 @@ CHARACTERISTICS.Characteristic.prototype = {
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );
                 }
                 this.computeFinalValue();
-                break;
+                return;
             case "event__ask_set_forced_value_1":
                 this.getObjectForDoActionAfter( params ).doActionAfter( event_name, params );
                 this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
                 this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
-                break;
+                return;
             case "event__free_bonus_is_zero":
                 this.getObjectForDoActionAfter( params ).setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                break;
+                return;
             case "event__set_forbidden_bonus":
                 let object = this.getObjectForDoActionAfter( params );
                 if ( !object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
                     object.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "param__choices_array" ], this.getUUID() ),
                         GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
                 }
-                break;
+                return;
             case "event__set_free_bonus":
                 if ( this.getObjectForDoActionAfter( params ).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
                     return;
                 }
                 this.getObjectForDoActionAfter( params ).setValue( 0 );
                 this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
-                break;
+                return;
             case "event__reset_characteristics_bonuses":
                 this.getObjectForDoActionAfter( params ).doActionAfter( "event__reset_bonuses" );
-                break;
+                return;
             case "unclean_all_free_race_settings":
                 this.race_bonus.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
-                break;
-            
+                return;
             case "event__more_button":
                 this.moreBonus( params );
-                break;
+                return;
             case "event__less_button":
                 this.lessBonus( params );
-                break;
-                
                 return;
         }
         this.doActionAfterCommon( event_name, params );
@@ -156,10 +153,10 @@ CHARACTERISTICS.Characteristic.prototype = {
         switch ( key ) {
             case "name":
                 this.setName( value );
-                break;
+                return;
             case "label":
                 this.setLabel( value );
-                break;
+                return;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
