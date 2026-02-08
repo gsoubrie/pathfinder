@@ -1,11 +1,20 @@
 "use strict";
+/**
+ * @class CHARACTERISTICS.Bonuses
+ */
 CHARACTERISTICS.Bonuses           = function () {
     this.init();
 };
 CHARACTERISTICS.Bonuses.prototype = {
     init        : function () {
+        this.initCounterCommon();
         this.bonus = new CHARACTERISTICS.Bonus( true );
         this.malus = new CHARACTERISTICS.Bonus();
+    },
+    initCounterCommon: function () {
+        this.counters = {};
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     initWithData: function ( data ) {
         this.bonus.initWithData( data[ "characteristics_bonus" ] );
@@ -33,7 +42,9 @@ CHARACTERISTICS.Bonuses.prototype = {
         return this.bonus.number_free;
     }
 };
-
+/**
+ * @class CHARACTERISTICS.Bonus
+ */
 CHARACTERISTICS.Bonus           = function ( is_bonus ) {
     this.init( is_bonus );
 };
@@ -52,10 +63,7 @@ CHARACTERISTICS.Bonus.prototype = {
         this.setChoices( data[ "choice" ] );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
-    doActionAfter      : function ( event_name, params ) {
-        this.doActionAfterCommon( event_name, params );
-    },
-    doActionAfterCommon: function ( event_name, params ) {
+    doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__ask_compute_settable_value":
                 if ( this.number_free ) {

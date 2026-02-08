@@ -15,7 +15,7 @@ RACES.Race.prototype = {
         this.body_size          = new BODY_SIZE.RaceSize();
         this.available_legacies = new LEGACIES.Legacies();
         this.label              = SERVICE.DOM.createElement( "div", {} );
-        this.children           = [ this.body_size, this.legacy];
+        this.children           = [this.body_size, this.legacy];
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -24,7 +24,7 @@ RACES.Race.prototype = {
                 this.setValue( params[ "param__edition_value" ] );
                 this.getLegacy().setValue( LEGACIES.default_value );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
-                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__race_object": this, "param__is_for": RACES.key_element } );
+                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__race__object": this, "param__is_for": RACES.key_element } );
                 return;
         }
         CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );
@@ -41,6 +41,7 @@ RACES.Race.prototype = {
             this.setData( _current_key, data_from_race[ _current_key ] );
         }
         this.available_legacies.init( data_from_race[ "legacies" ] );
+        document.body.dataset.isRaceSet = this.isSet() ? 1 : 0;
     },
     setLegacy  : function ( to_set ) {
         this.getLegacy().setName( to_set );
@@ -62,7 +63,9 @@ RACES.Race.prototype = {
                 break;
             case LEGACIES.key_element:
                 this.getLegacy().setValue( value );
+                this.getLegacy().setValue( value );
                 break;
+            case "value":
             case "value":
                 this.setValue( value );
                 break;

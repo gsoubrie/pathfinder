@@ -41,6 +41,7 @@ CHARACTER.Current.prototype = {
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__more_button":
+            case "event__less_button":
                 if ( params[ "param__characteristics__is" ] ) {
                     this.characteristics.doActionAfter( event_name, params );
                     return;

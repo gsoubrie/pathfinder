@@ -1,17 +1,13 @@
 "use strict";
+/**
+ * @class CHARACTERISTICS.ClassBonuses
+ * @extends CHARACTERISTICS.Bonuses
+ * @extends GS.OBJECT.CounterInterfaceV2
+ */
 CHARACTERISTICS.ClassBonuses           = function () {
-    this.initSpecific();
+    this.init();
 };
 CHARACTERISTICS.ClassBonuses.prototype = {
-    initSpecific     : function () {
-        this.initCounterCommon();
-        this.init();
-    },
-    initCounterCommon: function () {
-        this.counters = {};
-        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-    },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {

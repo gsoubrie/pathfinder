@@ -1,12 +1,13 @@
 "use strict";
+/**
+ * @class CHARACTERISTICS.RaceBonuses
+ * @extends CHARACTERISTICS.Bonuses
+ * @extends GS.OBJECT.CounterInterfaceV2
+ */
 CHARACTERISTICS.RaceBonuses           = function () {
-    this.initSpecific();
+    this.init();
 };
 CHARACTERISTICS.RaceBonuses.prototype = {
-    initSpecific     : function () {
-        this.initCounterCommon();
-        this.init();
-    },
     initCounterCommon: function () {
         this.counters = {};
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
@@ -16,8 +17,8 @@ CHARACTERISTICS.RaceBonuses.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__set_object_bonuses":
-                params[ "param__is_for" ] =  RACES.key_element;
-                this.initWithData( params[ "event__race_object" ] );
+                params[ "param__is_for" ] = RACES.key_element;
+                this.initWithData( params[ "param__race__object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
                 this.doActionAfter( "event__ask_compute_settable_value", params );
                 break;
