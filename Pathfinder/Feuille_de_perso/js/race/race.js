@@ -61,9 +61,9 @@ RACES.Race.prototype = {
                 this.getBodySize().setValue( value );
                 break;
             case LEGACIES.key_element:
-                //this.getLegacy().setValue( value );
+                this.getLegacy().setValue( value );
                 break;
-            case "name":
+            case "value":
                 this.setValue( value );
                 break;
             case "start_life":

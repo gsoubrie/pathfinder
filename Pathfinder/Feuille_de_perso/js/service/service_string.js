@@ -41,8 +41,8 @@ SERVICE.STRING = (function ( self ) {
                    .substring( 1 );
     };
     self.buildUUID                    = function () {
-        return self.buildS4() + self.buildS4() + '-' + self.buildS4() + '-' + self.buildS4() + '-' +
-               self.buildS4() + '-' + self.buildS4() + self.buildS4() + self.buildS4();
+        return "U" + self.buildS4() + self.buildS4() + self.buildS4() + self.buildS4() +
+               self.buildS4() + self.buildS4() + self.buildS4() + self.buildS4();
     };
     self.parseStringToPositiveInteger = function ( value ) {
         return parseInt( value.replace( /[^\d]/g, '' ) );

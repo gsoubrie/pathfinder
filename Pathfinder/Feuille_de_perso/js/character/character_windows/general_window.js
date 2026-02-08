@@ -35,7 +35,6 @@ CHARACTER.GeneralWindow.prototype = {
             this.computeComponent( character_object.getRace().getBodySize() );
             this.computeComponent( character_object.getRace().getLegacy() );
         }
-        //this.computeArea__ancestry( character_object );
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );
         //this.computeArea__class( character_object );
@@ -70,13 +69,6 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Character.doActionAfter('event__current_character__save')" } ), this.area_save );
     },
     
-    //computeArea__ancestry: function ( character_object ) {
-    //    if ( this.area_ancestry ) {
-    //        return;
-    //    }
-    //    this.area_ancestry = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-race" } ), this.content_dom_element_target );
-    //    SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( RACES.key_element, character_object.getRace().getName(), character_object.getRace().getLabel(), RACES.label_element, false ), this.area_ancestry );
-    //},
     
     computeArea__heritage: function ( character_object ) {
         if ( this.area_heritage || !character_object.getRace().getName() ) {

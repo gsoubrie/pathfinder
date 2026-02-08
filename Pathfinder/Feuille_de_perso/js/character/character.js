@@ -26,6 +26,7 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
+        console.log(event_name, params);
         switch ( event_name ) {
             case "event__property_popup__open":
                 this.getObjectByKey(params["property_name"]).doActionAfter(event_name, params);
@@ -98,7 +99,7 @@ CHARACTER.Current.prototype = {
     setData: function ( key, value ) {
         switch ( key ) {
             case this.race.getKey():
-                this.race.setValue( value );
+                this.race.updateData( value );
                 this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
