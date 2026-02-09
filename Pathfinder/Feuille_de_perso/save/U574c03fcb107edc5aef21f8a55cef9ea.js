@@ -1,1 +1,10 @@
-let U574c03fcb107edc5aef21f8a55cef9ea={"uuid":"U574c03fcb107edc5aef21f8a55cef9ea","player":"greg","name":"tapadami","race":{"value":"Elfe","body_size":"M","legacy":"Elfe des murmures"}}
+let U574c03fcb107edc5aef21f8a55cef9ea = {
+    "uuid"  : "U574c03fcb107edc5aef21f8a55cef9ea",
+    "player": "greg",
+    "name"  : "tapadami",
+    "race"  : {
+        "value"    : "Elfe",
+        "body_size": "M",
+        "legacy"   : "Elfe des murmures"
+    }
+};

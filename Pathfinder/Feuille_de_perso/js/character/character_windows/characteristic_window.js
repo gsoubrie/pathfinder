@@ -46,7 +46,7 @@ CHARACTER.CharacteristicWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
         for ( let i = 0, _size_i = character_object.getCharacteristics().getSize(); i < _size_i; i++ ) {
-            this.computeHtml__tableCharacteristic( character_object.getCharacteristics().getContent( i ) );
+            //this.computeHtml__tableCharacteristic( character_object.getCharacteristics().getContent( i ) );
         }
     },
     computeHtml__tableCharacteristic : function ( object_characteristic ) {

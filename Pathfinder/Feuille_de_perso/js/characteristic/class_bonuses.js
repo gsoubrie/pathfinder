@@ -13,7 +13,7 @@ CHARACTERISTICS.ClassBonuses.prototype = {
         switch ( event_name ) {
             case "event__set_object_bonuses":
                 params[ "param__is_for" ] = CLASSES.key_element;
-                this.initWithData( params[ "event__class_object" ] );
+                this.initWithData( params[ "param__class_object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
                 this.doActionAfter( "event__ask_compute_settable_value", params );
                 break;

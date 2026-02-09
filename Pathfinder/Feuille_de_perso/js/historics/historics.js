@@ -12,7 +12,7 @@ HISTORICS.Historic.prototype = {
             case "event__form__element_changed":
                 this.setName( params[ "param__edition_value" ] );
                 //params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": CLASSES.key_element } );
-                //params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "event__class_object": this, "param__is_for": CLASSES.key_element } );
+                //params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__class_object": this, "param__is_for": CLASSES.key_element } );
                 break;
         }
     },

@@ -15,7 +15,7 @@ CHARACTER.Current = function () {
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
-    this.children        = [this.player, this.name_object, this.race];
+    this.children        = [this.player, this.name_object, this.race, this.characteristics];
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -26,10 +26,9 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        console.log(event_name, params);
         switch ( event_name ) {
             case "event__property_popup__open":
-                this.getObjectByKey(params["property_name"]).doActionAfter(event_name, params);
+                this.getObjectByKey( params[ "property_name" ] ).doActionAfter( event_name, params );
                 break;
             case "event__has_change__input":
                 this.setData( params[ "property_name" ], params[ MANAGER.EVENT_MANAGER_V2.PARAM.EVENT ].target.value );
@@ -37,7 +36,7 @@ CHARACTER.Current.prototype = {
             case "event__form__element_changed":
                 params[ "param__current_character__object" ] = this;
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
-                this.getObjectByKey(params["param__property"]).doActionAfter( event_name, params );
+                this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__more_button":
@@ -73,14 +72,14 @@ CHARACTER.Current.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-
-    getUUID          : function () {
+    
+    getUUID              : function () {
         return this.uuid;
     },
-    getSpecificDataToSave          : function () {
-        return {"uuid" : this.uuid };
+    getSpecificDataToSave: function () {
+        return { "uuid": this.uuid };
     },
-    addParamForEvents: function ( key, value ) {
+    addParamForEvents    : function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         this.race.addParamForEvents( key, value );
         this.class.addParamForEvents( key, value );
@@ -101,11 +100,11 @@ CHARACTER.Current.prototype = {
         switch ( key ) {
             case this.race.getKey():
                 this.race.updateData( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__race_object": this.getRace(), "param__is_for": RACES.key_element } );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__race__object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
                 this.class.updateData( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "event__class_object": this.getClass(), "param__is_for": CLASSES.key_element } );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__class_object": this.getClass(), "param__is_for": CLASSES.key_element } );
                 break;
             case CHARACTERISTICS.key:
                 this.characteristics.updateData( value );
@@ -171,19 +170,19 @@ CHARACTER.Current.prototype = {
     /**
      * @returns {CLASSES.Class}
      */
-    getClass                   : function () {
+    getClass          : function () {
         return this.class;
     },
-    getHistoric                : function () {
+    getHistoric       : function () {
         return this.getLevelHistory().getSpecialContent( HISTORICS.key_element );
     },
-    getCharacteristics         : function () {
+    getCharacteristics: function () {
         return this.characteristics;
     },
-    getLevelHistory            : function () {
+    getLevelHistory   : function () {
         return this.levels_history;
     },
-    getHealth                  : function () {
+    getHealth         : function () {
         return this.health;
     },
     //********************************************  HTML   **************************************************//

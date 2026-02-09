@@ -46,13 +46,13 @@ CONTROLLER.Character = (function ( self ) {
     self.save               = function ( event_name ) {
         let to_return = self.current_character.getDataToSave();
         console.log( to_return);
-        const link    = document.createElement( "a" );
-        const file    = new Blob( ["let " + self.current_character.getUUID() + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
-        link.href     = URL.createObjectURL( file );
-        link.download = self.current_character.getUUID() + ".js";
-        link.click();
-        URL.revokeObjectURL( link.href );
-        return to_return;
+        //const link    = document.createElement( "a" );
+        //const file    = new Blob( ["let " + self.current_character.getUUID() + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
+        //link.href     = URL.createObjectURL( file );
+        //link.download = self.current_character.getUUID() + ".js";
+        //link.click();
+        //URL.revokeObjectURL( link.href );
+        //return to_return;
     };
     //********************************************  HTML  **************************************************//
     self.computeHtml__title = function () {

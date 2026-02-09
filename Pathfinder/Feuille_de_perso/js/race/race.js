@@ -31,6 +31,7 @@ RACES.Race.prototype = {
     },
     //********************************************  GETTER SETTER  **************************************************//
     setValue   : function ( to_set ) {
+        console.error("GSOU", "[Race - setValue]", to_set);
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
         let data_from_race = Object.assign( {}, RACES.getDataByName( this.getValue() ) );
         delete data_from_race[ "name" ];
@@ -63,9 +64,7 @@ RACES.Race.prototype = {
                 break;
             case LEGACIES.key_element:
                 this.getLegacy().setValue( value );
-                this.getLegacy().setValue( value );
                 break;
-            case "value":
             case "value":
                 this.setValue( value );
                 break;

@@ -32,12 +32,12 @@
     grid-template-areas   :
         "logo   name        name        ancestry   ancestry   level"
         "save   player      player      legacy     legacy     heroism"
-        ".      .           .           class      class      ."
-        ".      .           .           historic   historic   ."
-        ".      .           .           size       health     health"
-        ".      .           .           alignment  health     health"
-        ".      temp-health temp-health divinity   health     health"
-        ".      wound       wound       .          health     health"
+        "FOR    .           .           class      class      ."
+        "DEX    .           .           historic   historic   ."
+        "CON    .           .           size       health     health"
+        "INT    .           .           alignment  health     health"
+        "SAG    temp-health temp-health divinity   health     health"
+        "CHA    wound       wound       .          health     health"
         ".      .           .           .          health     health"
         ".      .           .           .          health     health"
         ".      .           .           .          surprise   ca";
@@ -61,6 +61,12 @@
 .property-tab-pane[data-name="general_sheet"] .area-heroism { grid-area : heroism; }
 .property-tab-pane[data-name="general_sheet"] .area-ca { grid-area : ca; }
 .property-tab-pane[data-name="general_sheet"] .area-surprise { grid-area : surprise; }
+.property-tab-pane[data-name="general_sheet"] .area-FOR { grid-area : FOR; }
+.property-tab-pane[data-name="general_sheet"] .area-DEX { grid-area : DEX; }
+.property-tab-pane[data-name="general_sheet"] .area-CON { grid-area : CON; }
+.property-tab-pane[data-name="general_sheet"] .area-INT { grid-area : INT; }
+.property-tab-pane[data-name="general_sheet"] .area-SAG { grid-area : SAG; }
+.property-tab-pane[data-name="general_sheet"] .area-CHA { grid-area : CHA; }
 
 .property-tab-pane[data-name="general_sheet"] .grid-area {
     padding        : 4px;

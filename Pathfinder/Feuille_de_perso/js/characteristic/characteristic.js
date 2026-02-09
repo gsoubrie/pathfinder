@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @class CHARACTERISTICS.Characteristic
- * @extends OBJECT.InterfaceHtml
+ * @extends CHARACTER.ComponentInterface
  */
 CHARACTERISTICS.Characteristic = function ( data ) {
     this.init( data );
@@ -70,7 +70,8 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.lessBonus( params );
                 return;
         }
-        this.doActionAfterCommon( event_name, params );
+        console.log("GSOU", "[Characteristic - doActionAfter]", event_name );
+        CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     getObjectForDoActionAfter: function ( params ) {
         switch ( params[ "param__is_for" ] ) {
@@ -145,7 +146,7 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus.addParamForEvents( key, value );
         this.class_bonus.addParamForEvents( key, value );
     },
-    getModifierValue: function ( key, value ) {
+    getModifierValue : function ( key, value ) {
         return this.modifier_value.value;
     },
     //********************************************  DATA   **************************************************//
@@ -162,14 +163,14 @@ CHARACTERISTICS.Characteristic.prototype = {
         }
     },
     //********************************************  HTML   **************************************************//
-    computeHtml: function ( to_set ) {
-        this.computeFinalValue();
-        this.race_bonus.computeHtml();
-        this.class_bonus.computeHtml();
-        this.initial_value.computeHtml();
-        this.final_value.computeHtml();
-        this.modifier_value.computeHtml();
-    },
+    //computeHtml: function ( to_set ) {
+    //    this.computeFinalValue();
+    //    this.race_bonus.computeHtml();
+    //    this.class_bonus.computeHtml();
+    //    this.initial_value.computeHtml();
+    //    this.final_value.computeHtml();
+    //    this.modifier_value.computeHtml();
+    //},
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                = {};
@@ -180,4 +181,4 @@ CHARACTERISTICS.Characteristic.prototype = {
         return to_return;
     }
 };
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristic, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristic, CHARACTER.ComponentInterface );

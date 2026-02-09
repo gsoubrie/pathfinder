@@ -68,14 +68,32 @@ CHARACTER.ComponentInterface.prototype = {
         }
         return to_return;
     },
-    computeHtml          : function ( params ) {
+    //********************************************  HTML   **************************************************//
+    computeHtml             : function ( params ) {
+        console.log("GSOU", "[ComponentInterface - computeHtml]", params, this );
         switch ( params[ "param__window" ] ) {
             case CHARACTER.GeneralWindow.NAME:
                 this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
                 return;
         }
     },
-    getDataToSave        : function () {
+    computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
+        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: "",
+        } ), div );
+        if ( this.isSet() ) {
+            this.dom_element__input.value = this.getValue();
+        }
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
         let to_return = this.getSpecificDataToSave();
         if ( this.children ) {
             let object = to_return[ this.key ] || to_return;
@@ -96,7 +114,7 @@ SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterface, OBJECT.InterfaceHtml )
 CHARACTER.ComponentInterfaceInput = function () {
 };
 CHARACTER.ComponentInterfaceInput.prototype = {
-    //********************************************  GETTER SETTER  **************************************************//
+    //********************************************  HTML   **************************************************//
     computeHtmlGeneralWindow: function ( dom_element_parent ) {
         if ( this.dom_element_general ) {
             return;
@@ -131,7 +149,7 @@ CHARACTER.ComponentInterfacePopup.prototype = {
         }
         CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
-    //********************************************  GETTER SETTER  **************************************************//
+    //********************************************  HTML   **************************************************//
     computeHtmlGeneralWindow: function ( dom_element_parent ) {
         if ( this.dom_element_general ) {
             return;
@@ -139,7 +157,7 @@ CHARACTER.ComponentInterfacePopup.prototype = {
         this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
         let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
-        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+        this.dom_element__input       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
             readOnly: "",
             onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + this.getKey() + "'})"
@@ -149,3 +167,21 @@ CHARACTER.ComponentInterfacePopup.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.ComponentInterfacePopup, CHARACTER.ComponentInterface );
+
+/**
+ * @class CHARACTER.ContainerComponentInterface
+ * @extends OBJECT.InterfaceContainerHtml
+ */
+CHARACTER.ContainerComponentInterface = function () {
+};
+CHARACTER.ContainerComponentInterface.prototype = {
+    init         : function () {
+        this.initContents();
+    },
+    doActionAfter: function ( event_name, params ) {
+        GS.OBJECT.GsObjectContainer.prototype.doActionAfterContentChildren.call( this, event_name, params );
+    }
+    //********************************************  GETTER SETTER  **************************************************//
+};
+
+SERVICE.CLASS.addPrototype( CHARACTER.ContainerComponentInterface, OBJECT.InterfaceContainerHtml );

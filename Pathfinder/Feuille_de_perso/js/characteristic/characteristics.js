@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @class CHARACTERISTICS.Characteristics
- * @extends OBJECT.InterfaceContainerHtml
+ * @extends CHARACTER.ContainerComponentInterface
  * @extends GS.OBJECT.CounterInterfaceV2
  */
 CHARACTERISTICS.Characteristics           = function () {
@@ -9,7 +9,7 @@ CHARACTERISTICS.Characteristics           = function () {
 };
 CHARACTERISTICS.Characteristics.prototype = {
     init             : function () {
-        this.initContents();
+        CHARACTER.ContainerComponentInterface.prototype.init.call( this );
         this.initCounterCommon();
         this.race_bonus = new CHARACTERISTICS.RaceBonuses();
         this.race_bonus.setCountersParent( this );
@@ -46,7 +46,7 @@ CHARACTERISTICS.Characteristics.prototype = {
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__set_free_bonus_done", params );
                 break;
         }
-        this.doActionAfterCommon( event_name, params );
+        CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     getObjectForDoActionAfter: function ( event_name, params ) {
         switch ( params[ "param__is_for" ] ) {
@@ -80,5 +80,5 @@ CHARACTERISTICS.Characteristics.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, OBJECT.InterfaceContainerHtml );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, CHARACTER.ContainerComponentInterface );
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, GS.OBJECT.CounterInterfaceV2 );

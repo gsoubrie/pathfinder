@@ -35,6 +35,7 @@ CHARACTER.GeneralWindow.prototype = {
             this.computeComponent( character_object.getRace().getBodySize() );
             this.computeComponent( character_object.getRace().getLegacy() );
         }
+        this.computeComponent(character_object.getCharacteristics());
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );
         //this.computeArea__class( character_object );
