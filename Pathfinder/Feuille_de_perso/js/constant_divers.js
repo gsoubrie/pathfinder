@@ -47,27 +47,27 @@ var CHARACTERISTICS = {
     INITIAL_VALUE: 10,
     ENUM         : [
         {
-            "name" : "FOR",
+            "key" : "FOR",
             "label": "Force"
         },
         {
-            "name" : "DEX",
+            "key" : "DEX",
             "label": "Dextérité"
         },
         {
-            "name" : "CON",
+            "key" : "CON",
             "label": "Constitution"
         },
         {
-            "name" : "INT",
+            "key" : "INT",
             "label": "Intelligence"
         },
         {
-            "name" : "SAG",
+            "key" : "SAG",
             "label": "Sagesse"
         },
         {
-            "name" : "CHA",
+            "key" : "CHA",
             "label": "Charisme"
         }
     ]

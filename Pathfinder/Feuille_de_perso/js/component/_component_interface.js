@@ -70,7 +70,6 @@ CHARACTER.ComponentInterface.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHtml             : function ( params ) {
-        console.log("GSOU", "[ComponentInterface - computeHtml]", params, this );
         switch ( params[ "param__window" ] ) {
             case CHARACTER.GeneralWindow.NAME:
                 this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );

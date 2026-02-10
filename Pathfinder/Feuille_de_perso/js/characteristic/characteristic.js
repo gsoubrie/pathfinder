@@ -8,6 +8,8 @@ CHARACTERISTICS.Characteristic = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
+        this.setKey( data["key"] );
+        this.setLabelProperty( data["label"] );
         this.initial_value  = new OBJECT.ConfigurableValue( CHARACTERISTICS.INITIAL_VALUE, CHARACTERISTICS.INITIAL_VALUE );
         this.final_value    = new OBJECT.CalculatedValue();
         this.modifier_value = new OBJECT.CalculatedValue();
@@ -16,7 +18,8 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.initial_value.addParamForEvents( "param__is_for", "initial_value" );
         this.race_bonus.addParamForEvents( "param__is_for", RACES.key_element );
         this.class_bonus.addParamForEvents( "param__is_for", CLASSES.key_element );
-        this.updateData( data );
+        this.computeFinalValue();
+        console.log("GSOU", "[Characteristic - init]", this );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter            : function ( event_name, params ) {
@@ -130,15 +133,8 @@ CHARACTERISTICS.Characteristic.prototype = {
         return to_return;
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setName          : function ( to_set ) {
-        this.name = to_set;
-        this.addParamForEvents( "characteristic_param", this.name );
-    },
     setLabel         : function ( to_set ) {
         this.label = to_set;
-    },
-    getUUID          : function () {
-        return this.getName();
     },
     addParamForEvents: function ( key, value ) {
         this.addParamForEventsCommon( key, value );
@@ -149,28 +145,112 @@ CHARACTERISTICS.Characteristic.prototype = {
     getModifierValue : function ( key, value ) {
         return this.modifier_value.value;
     },
-    //********************************************  DATA   **************************************************//
-    setData: function ( key, value ) {
-        switch ( key ) {
-            case "name":
-                this.setName( value );
-                return;
-            case "label":
-                this.setLabel( value );
-                return;
-            default:
-                console.warn( "[IGNORED DATA]", key, value );
-        }
-    },
     //********************************************  HTML   **************************************************//
-    //computeHtml: function ( to_set ) {
-    //    this.computeFinalValue();
-    //    this.race_bonus.computeHtml();
-    //    this.class_bonus.computeHtml();
-    //    this.initial_value.computeHtml();
-    //    this.final_value.computeHtml();
-    //    this.modifier_value.computeHtml();
-    //},
+    computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic", "data-name": this.key } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator" }, this.modifier_value.getValue() ), div );
+        let div_2 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "" } ), div );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-label" }, "Modificateur de" ), div_2 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-name" }, this.getKey() ), div_2 );
+        let div_3 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "" } ), div );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-label" }, "Valeur de" ), div_3 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-name" }, this.label_property ), div_3 );
+        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: ""
+        } ), div );
+        if ( this.isSet() ) {
+            this.dom_element__input.value = this.getValue();
+        }
+        
+        //<div className="caracteristique">
+        //    <div>
+        //        <div className="modificateur-box">+2</div>
+        //    </div>
+        //    <div>
+        //        <p className="label-modificateur">Modificateur de</p>
+        //        <p className="nom-caracteristique">FOR</p>
+        //    </div>
+        //    <div>
+        //        <p className="label-valeur">Valeur de</p>
+        //        <p className="nom-caracteristique">FORCE</p>
+        //    </div>
+        //    <div>
+        //        <div className="valeur-box">14</div>
+        //    </div>
+        //</div>
+        
+        //<style>
+        //    body {
+        //    font - family: Arial, sans-serif;
+        //    padding: 20px;
+        //    background-color: #f0f0f0;
+        //}
+        //
+        //    .caracteristique {
+        //    display: flex;
+        //    align-items: center;
+        //    gap: 15px;
+        //    background-color: white;
+        //    padding: 10px;
+        //    border-radius: 5px;
+        //    max-width: 400px;
+        //}
+        //
+        //    .modificateur-box {
+        //    width: 50px;
+        //    height: 50px;
+        //    border: 2px solid #333;
+        //    border-radius: 5px;
+        //    display: flex;
+        //    align-items: center;
+        //    justify-content: center;
+        //    font-size: 20px;
+        //    font-weight: bold;
+        //    background-color: white;
+        //}
+        //
+        //    .label-modificateur {
+        //    font - size: 11px;
+        //    text-transform: uppercase;
+        //    font-weight: bold;
+        //    margin: 0;
+        //    line-height: 1.2;
+        //}
+        //
+        //    .nom-caracteristique {
+        //    font - size: 16px;
+        //    font-weight: bold;
+        //    text-transform: uppercase;
+        //    margin: 0;
+        //}
+        //
+        //    .label-valeur {
+        //    font - size: 11px;
+        //    text-transform: uppercase;
+        //    font-weight: bold;
+        //    margin: 0;
+        //    line-height: 1.2;
+        //}
+        //
+        //    .valeur-box {
+        //    width: 50px;
+        //    height: 50px;
+        //    border: 2px solid #333;
+        //    border-radius: 5px;
+        //    display: flex;
+        //    align-items: center;
+        //    justify-content: center;
+        //    font-size: 20px;
+        //    font-weight: bold;
+        //    background-color: white;
+        //}
+        //</style>
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                = {};
