@@ -1,6 +1,6 @@
-body[data-is-race-set="0"] #id-gs-window-V2-characteristic_sheet-character_group{
-    pointer-events: none;
-    opacity: 0.5;
+body[data-is-race-set="0"] #id-gs-window-V2-characteristic_sheet-character_group {
+    pointer-events : none;
+    opacity        : 0.5;
 }
 
 .property-tab-pane[data-name="characteristic_sheet"] .characteristic-container {

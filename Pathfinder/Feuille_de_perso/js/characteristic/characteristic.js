@@ -19,7 +19,6 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus.addParamForEvents( "param__is_for", RACES.key_element );
         this.class_bonus.addParamForEvents( "param__is_for", CLASSES.key_element );
         this.computeFinalValue();
-        console.log("GSOU", "[Characteristic - init]", this );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter            : function ( event_name, params ) {
@@ -73,7 +72,6 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.lessBonus( params );
                 return;
         }
-        console.log("GSOU", "[Characteristic - doActionAfter]", event_name );
         CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     getObjectForDoActionAfter: function ( params ) {
@@ -133,9 +131,6 @@ CHARACTERISTICS.Characteristic.prototype = {
         return to_return;
     },
     //********************************************  GETTER SETTER  **************************************************//
-    setLabel         : function ( to_set ) {
-        this.label = to_set;
-    },
     addParamForEvents: function ( key, value ) {
         this.addParamForEventsCommon( key, value );
         this.initial_value.addParamForEvents( key, value );
@@ -152,104 +147,10 @@ CHARACTERISTICS.Characteristic.prototype = {
         }
         this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
         let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic", "data-name": this.key } ), this.dom_element_general );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator" }, this.modifier_value.getValue() ), div );
-        let div_2 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "" } ), div );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-label" }, "Modificateur de" ), div_2 );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-name" }, this.getKey() ), div_2 );
-        let div_3 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "" } ), div );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-label" }, "Valeur de" ), div_3 );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modificator-name" }, this.label_property ), div_3 );
-        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
-            class   : "value",
-            readOnly: ""
-        } ), div );
-        if ( this.isSet() ) {
-            this.dom_element__input.value = this.getValue();
-        }
-        
-        //<div className="caracteristique">
-        //    <div>
-        //        <div className="modificateur-box">+2</div>
-        //    </div>
-        //    <div>
-        //        <p className="label-modificateur">Modificateur de</p>
-        //        <p className="nom-caracteristique">FOR</p>
-        //    </div>
-        //    <div>
-        //        <p className="label-valeur">Valeur de</p>
-        //        <p className="nom-caracteristique">FORCE</p>
-        //    </div>
-        //    <div>
-        //        <div className="valeur-box">14</div>
-        //    </div>
-        //</div>
-        
-        //<style>
-        //    body {
-        //    font - family: Arial, sans-serif;
-        //    padding: 20px;
-        //    background-color: #f0f0f0;
-        //}
-        //
-        //    .caracteristique {
-        //    display: flex;
-        //    align-items: center;
-        //    gap: 15px;
-        //    background-color: white;
-        //    padding: 10px;
-        //    border-radius: 5px;
-        //    max-width: 400px;
-        //}
-        //
-        //    .modificateur-box {
-        //    width: 50px;
-        //    height: 50px;
-        //    border: 2px solid #333;
-        //    border-radius: 5px;
-        //    display: flex;
-        //    align-items: center;
-        //    justify-content: center;
-        //    font-size: 20px;
-        //    font-weight: bold;
-        //    background-color: white;
-        //}
-        //
-        //    .label-modificateur {
-        //    font - size: 11px;
-        //    text-transform: uppercase;
-        //    font-weight: bold;
-        //    margin: 0;
-        //    line-height: 1.2;
-        //}
-        //
-        //    .nom-caracteristique {
-        //    font - size: 16px;
-        //    font-weight: bold;
-        //    text-transform: uppercase;
-        //    margin: 0;
-        //}
-        //
-        //    .label-valeur {
-        //    font - size: 11px;
-        //    text-transform: uppercase;
-        //    font-weight: bold;
-        //    margin: 0;
-        //    line-height: 1.2;
-        //}
-        //
-        //    .valeur-box {
-        //    width: 50px;
-        //    height: 50px;
-        //    border: 2px solid #333;
-        //    border-radius: 5px;
-        //    display: flex;
-        //    align-items: center;
-        //    justify-content: center;
-        //    font-size: 20px;
-        //    font-weight: bold;
-        //    background-color: white;
-        //}
-        //</style>
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-label" }, this.label_property ), div );
+        let div_2 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-values" } ), div );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.getModifierValue() ), div_2 );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-value" }, this.final_value.value ), div_2 );
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

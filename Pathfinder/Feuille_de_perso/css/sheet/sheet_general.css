@@ -10,11 +10,11 @@
 
     grid-template-columns :
         var(--col-1-width, 1fr)
-        var(--col-2-width, 1fr)
-        var(--col-3-width, 1fr)
-        var(--col-4-width, 1fr)
-        var(--col-5-width, 1fr)
-        var(--col-6-width, 1fr);
+        var(--col-2-width, 2fr)
+        var(--col-3-width, 2fr)
+        var(--col-4-width, 2fr)
+        var(--col-5-width, 2fr)
+        var(--col-6-width, 2fr);
 
     grid-template-rows    :
         var(--row-1-height, auto)
@@ -30,8 +30,8 @@
         var(--row-11-height, auto);
 
     grid-template-areas   :
-        "logo   name        name        ancestry   ancestry   level"
-        "save   player      player      legacy     legacy     heroism"
+        "logo   name        .           ancestry   ancestry   level"
+        "save   player      .           legacy     legacy     heroism"
         "FOR    .           .           class      class      ."
         "DEX    .           .           historic   historic   ."
         "CON    .           .           size       health     health"
@@ -318,4 +318,60 @@
 
 #health-history-container .health-history-entry--temp_hp {
     border-left : 3px solid #3B82F6;
+}
+
+
+/* ===== caracteristic ===== */
+.property-tab-pane[data-name="general_sheet"] .characteristic {
+    padding        : 6px;
+    display        : flex;
+    flex-direction : column;
+    align-items    : stretch;
+    gap            : 6px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .characteristic .characteristic-label {
+    text-align     : center;
+    color          : #D4AF37;
+    font-weight    : bold;
+    font-size      : 12px;
+    text-transform : uppercase;
+    letter-spacing : 0.3px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .characteristic .characteristic-values {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    gap             : 6px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .characteristic .characteristic-value {
+    width           : 40px;
+    height          : 40px;
+    border          : 1.5px solid #8B6914;
+    border-radius   : 50%;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    font-size       : 18px;
+    font-weight     : bold;
+    color           : #D4AF37;
+    background      : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    box-shadow      : 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.property-tab-pane[data-name="general_sheet"] .characteristic .characteristic-modifier {
+    width           : 35px;
+    height          : 28px;
+    border          : 1.5px solid #8B6914;
+    border-radius   : 4px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    font-size       : 16px;
+    font-weight     : bold;
+    color           : #D4AF37;
+    background      : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    box-shadow      : 0 1px 3px rgba(0, 0, 0, 0.3);
 }
