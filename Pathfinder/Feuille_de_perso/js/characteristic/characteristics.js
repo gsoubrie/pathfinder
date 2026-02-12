@@ -77,6 +77,36 @@ CHARACTERISTICS.Characteristics.prototype = {
     },
     getClassBonus: function () {
         return this.class_bonus;
+    },
+    //********************************************  HTML  **************************************************//
+    computeCharacteristicWindow: function ( dom_element_parent ) {
+        this.dom_element_characteristic_window = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, CHARACTERISTICS.label ), dom_element_parent );
+        this.characteristic_table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-table" } ), this.dom_element_characteristic_window );
+        let headers               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row headers" } ), this.characteristic_table );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell" } ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Final" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Modifi" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Initial" ), headers );
+
+        let header_bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Race" ), headers );
+        let counter_warning   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning.computeHtml();
+        this.race_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning );
+        SERVICE.DOM.addElementTo( counter_warning.dom_element, header_bonus_race );
+
+        let header_bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Classe" ), headers );
+        let counter_warning_2   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning_2.computeHtml();
+        this.class_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_2 );
+        SERVICE.DOM.addElementTo( counter_warning_2.dom_element, header_bonus_class );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            this.getContent( i ).computeCharacteristicWindow(this.dom_element_characteristic_window)
+        }
     }
 };
 

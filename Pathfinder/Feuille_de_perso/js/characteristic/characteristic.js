@@ -152,6 +152,31 @@ CHARACTERISTICS.Characteristic.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.getModifierValue() ), div_2 );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-value" }, this.final_value.value ), div_2 );
     },
+    computeHtml__tableCharacteristic : function ( object_characteristic ) {
+        object_characteristic.computeHtml();
+        let to_return = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": object_characteristic.name } ), this.characteristic_table );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, object_characteristic.label ), to_return );
+
+        var final_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" } ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.final_value.dom_element, final_value );
+
+        var modifier_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.modifier_value.dom_element, modifier_value );
+
+        let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" } ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.initial_value.dom_element, initial_dom );
+
+        var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-race" } ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.race_bonus.dom_element, bonus_race );
+
+        var bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-class" } ), to_return );
+        SERVICE.DOM.addElementTo( object_characteristic.class_bonus.dom_element, bonus_class );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv15" }, "" ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv20" }, "" ), to_return );
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                = {};

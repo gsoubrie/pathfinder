@@ -214,7 +214,7 @@ let a9b2dfe206c0Ab01Dc3c75a66230924b = {
     "player"         : "Greg",
     "point_heroism"  : "5",
     "race"           : {
-        "name"     : "Elfe",
+        "value"     : "Elfe",
         "legacy"   : "Elfe ancien",
         "body_size": "P"
     },

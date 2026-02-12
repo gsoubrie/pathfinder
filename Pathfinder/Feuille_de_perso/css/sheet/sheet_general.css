@@ -30,10 +30,10 @@
         var(--row-11-height, auto);
 
     grid-template-areas   :
-        "logo   name        .           ancestry   ancestry   level"
-        "save   player      .           legacy     legacy     heroism"
-        "FOR    .           .           class      class      ."
-        "DEX    .           .           historic   historic   ."
+        "logo   name        ancestry    class      level      ."
+        "save   player      legacy      historic   heroism    ."
+        "FOR    .           .           .          .          ."
+        "DEX    .           .           .          .          ."
         "CON    .           .           size       health     health"
         "INT    .           .           alignment  health     health"
         "SAG    temp-health temp-health divinity   health     health"

@@ -2,7 +2,7 @@ let a9b2dfe206c0Ab01Dc3c75a66230924c = {
     "name"           : "Tapadami",
     "player"         : "Greg",
     "race"           : {
-        "name"     : "Elfe",
+        "value"     : "Elfe",
         "legacy"   : "Elfe ancien",
         "body_size": "P"
     },

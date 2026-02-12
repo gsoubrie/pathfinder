@@ -178,8 +178,21 @@ CHARACTER.ContainerComponentInterface.prototype = {
         this.initContents();
     },
     doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__compute__html":
+                this.computeHtml( params );
+                return;
+        }
         GS.OBJECT.GsObjectContainer.prototype.doActionAfterContentChildren.call( this, event_name, params );
-    }
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtml             : function ( params ) {
+        switch ( params[ "param__window" ] ) {
+            case CHARACTER.CharacteristicWindow.NAME:
+                this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
+                return;
+        }
+    },
     //********************************************  GETTER SETTER  **************************************************//
 };
 
