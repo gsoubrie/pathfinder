@@ -19,8 +19,8 @@ CHARACTER.ComponentInterface.prototype = {
             return this[ key_name ];
         }
         if ( this.children ) {
-            for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
-                let current = this.children[ i ].getObjectByKey( key_name );
+            for ( let i = 0, _size_i = this.children.getSize(); i < _size_i; i++ ) {
+                let current = this.children.getContent( i ).getObjectByKey( key_name );
                 if ( current ) {
                     return current;
                 }
@@ -34,6 +34,7 @@ CHARACTER.ComponentInterface.prototype = {
     },
     setKey               : function ( to_set ) {
         this.key = to_set;
+        this.addParamForEvents( "param__key", this.key );
     },
     setLabelProperty     : function ( to_set ) {
         this.label_property = to_set;
@@ -96,8 +97,8 @@ CHARACTER.ComponentInterface.prototype = {
         let to_return = this.getSpecificDataToSave();
         if ( this.children ) {
             let object = to_return[ this.key ] || to_return;
-            for ( let i = 0, _size_i = this.children.length; i < _size_i; i++ ) {
-                object = Object.assign( object, this.children[ i ].getDataToSave() );
+            for ( let i = 0, _size_i = this.children.getSize(); i < _size_i; i++ ) {
+                object = Object.assign( object, this.children.getContent( i ).getDataToSave() );
             }
         }
         return to_return;
@@ -188,6 +189,9 @@ CHARACTER.ContainerComponentInterface.prototype = {
     //********************************************  HTML   **************************************************//
     computeHtml             : function ( params ) {
         switch ( params[ "param__window" ] ) {
+            case CHARACTER.GeneralWindow.NAME:
+                this.doActionAfterContentChildren("event__compute__html", params);
+                return;
             case CHARACTER.CharacteristicWindow.NAME:
                 this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                 return;

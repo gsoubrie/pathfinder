@@ -11,7 +11,7 @@ body[data-is-race-set="0"] #id-gs-window-V2-characteristic_sheet-character_group
     box-shadow    : 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container .title {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-container .title-page {
     font-size      : 28px;
     font-weight    : bold;
     color          : #D4AF37;

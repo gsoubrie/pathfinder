@@ -15,7 +15,11 @@ CHARACTER.Current = function () {
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
-    this.children        = [this.player, this.name_object, this.race, this.characteristics];
+    this.children        = new OBJECT.InterfaceContainer();
+    this.children.add( this.player );
+    this.children.add( this.name_object );
+    this.children.add( this.race );
+    this.children.add( this.characteristics );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
