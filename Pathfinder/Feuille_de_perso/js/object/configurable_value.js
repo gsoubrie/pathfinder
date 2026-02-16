@@ -1,5 +1,10 @@
 "use strict";
-OBJECT.ConfigurableValue           = function ( initial_value, editable_value ) {
+/**
+ * @class OBJECT.ConfigurableValue
+ * @extends OBJECT.InterfaceHtml
+ * @extends GS.OBJECT.PhaseInterface
+ */
+OBJECT.ConfigurableValue = function ( initial_value, editable_value ) {
     this.init( initial_value, editable_value );
 };
 OBJECT.ConfigurableValue.prototype = {
@@ -15,10 +20,13 @@ OBJECT.ConfigurableValue.prototype = {
             case "event__reset_bonuses":
                 this.setValue( this.initial_value );
                 this.setPhase( GS.OBJECT.CONST.PHASE.SLEEPING );
-                break;
+                return;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
+    getUUID      : function () {
+        return this.getParamForEvents( "param__is_for" );
+    },
     isSet        : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
     },
@@ -76,24 +84,84 @@ OBJECT.ConfigurableValue.prototype = {
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, OBJECT.InterfaceHtml );
 SERVICE.CLASS.addPrototype( OBJECT.ConfigurableValue, GS.OBJECT.PhaseInterface );
 
-
-OBJECT.CalculatedValue           = function () {
-    this.init();
+/**
+ * @class OBJECT.CalculatedValue
+ * @extends OBJECT.InterfaceHtml
+ */
+OBJECT.CalculatedValue = function ( uuid ) {
+    this.init( uuid );
 };
 OBJECT.CalculatedValue.prototype = {
-    init: function () {
+    init: function ( uuid ) {
+        this.uuid = uuid;
+    },
+    //********************************************  EVENT LISTENER  *****************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__compute__html":
+                switch ( params[ "param__window" ] ) {
+                    case CHARACTER.GeneralWindow.NAME:
+                        this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                }
+                return;
+        }
+        OBJECT.InterfaceHtml.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
+    getUUID : function ( to_set ) {
+        return this.uuid;
+    },
     setValue: function ( to_set ) {
         this.value = to_set;
         if ( this.label_dom_element ) {
             this.label_dom_element.innerHTML = this.value;
         }
-    },
-    //********************************************  HTML  **************************************************//
-    computeHtml: function () {
-        this.dom_element       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
-        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.CalculatedValue, OBJECT.InterfaceHtml );
+
+/**
+ * @class OBJECT.FinalValue
+ * @extends OBJECT.CalculatedValue
+ */
+OBJECT.FinalValue = function ( uuid ) {
+    this.init( uuid );
+};
+OBJECT.FinalValue.prototype = {
+    //********************************************  EVENT LISTENER  *****************************************************//
+    //********************************************  GETTER SETTER  **************************************************//
+    getUUID: function ( to_set ) {
+        return "final_value";
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtmlGeneralWindow: function () {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.createElement( "div", { class: "final-value" }, this.value );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.FinalValue, OBJECT.CalculatedValue );
+/**
+ * @class OBJECT.ModifierValue
+ * @extends OBJECT.CalculatedValue
+ */
+OBJECT.ModifierValue = function ( uuid ) {
+    this.init( uuid );
+};
+OBJECT.ModifierValue.prototype = {
+    //********************************************  EVENT LISTENER  *****************************************************//
+    //********************************************  GETTER SETTER  **************************************************//
+    getUUID: function ( to_set ) {
+        return "modifier_value";
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtmlGeneralWindow: function () {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general =  SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.value );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.ModifierValue, OBJECT.CalculatedValue );

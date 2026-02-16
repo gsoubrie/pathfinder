@@ -122,7 +122,6 @@ OBJECT.InterfaceContainer.prototype = {
         return this.addCommon( to_add );
     },
     addCommon                     : function ( to_add ) {
-        console.log("GSOU", "[InterfaceContainer - addCommon]", to_add );
         if ( this.mapping[ to_add.getUUID() ] !== undefined ) {
             this.contents[ this.mapping[ to_add.getUUID() ] ] = to_add;
         }

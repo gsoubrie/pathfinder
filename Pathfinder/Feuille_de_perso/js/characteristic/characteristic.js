@@ -8,8 +8,8 @@ CHARACTERISTICS.Characteristic = function ( data ) {
 };
 CHARACTERISTICS.Characteristic.prototype = {
     init: function ( data ) {
-        this.final_value    = new OBJECT.CalculatedValue();
-        this.modifier_value = new OBJECT.CalculatedValue();
+        this.final_value    = new OBJECT.FinalValue();
+        this.modifier_value = new OBJECT.ModifierValue();
         this.race_bonus     = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.class_bonus    = new OBJECT.ConfigurableValue( 0, "FREE" );
         this.initial_value  = new OBJECT.ConfigurableValue( CHARACTERISTICS.INITIAL_VALUE, CHARACTERISTICS.INITIAL_VALUE );
@@ -20,6 +20,13 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus.addParamForEvents( "param__is_for", RACES.key_element );
         this.class_bonus.addParamForEvents( "param__is_for", CLASSES.key_element );
         this.computeFinalValue();
+        
+        this.children           = new OBJECT.InterfaceContainer();
+        this.children.add( this.final_value );
+        this.children.add( this.modifier_value );
+        this.children.add( this.race_bonus );
+        this.children.add( this.class_bonus );
+        this.children.add( this.initial_value );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter            : function ( event_name, params ) {
@@ -150,15 +157,10 @@ CHARACTERISTICS.Characteristic.prototype = {
         let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic", "data-name": this.key } ), this.dom_element_general );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-label" }, this.label_property ), div );
         let div_2 = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-values" } ), div );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.getModifierValue() ), div_2 );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-value" }, this.final_value.value ), div_2 );
+        SERVICE.DOM.addElementTo( this.modifier_value.dom_element_general, div_2 );
+        SERVICE.DOM.addElementTo( this.final_value.dom_element_general, div_2 );
     },
     computeCharacteristicWindow : function ( dom_element_parent ) {
-        this.initial_value.computeHtml();
-        this.final_value.computeHtml();
-        this.modifier_value.computeHtml();
-        this.race_bonus.computeHtml();
-        this.class_bonus.computeHtml();
         
         this.dom_element_characteristics = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": this.getKey() } ), dom_element_parent );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, this.label_property ), this.dom_element_characteristics );

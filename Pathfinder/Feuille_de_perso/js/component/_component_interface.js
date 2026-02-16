@@ -10,7 +10,17 @@ CHARACTER.ComponentInterface.prototype = {
     doActionAfter : function ( event_name, params ) {
         switch ( event_name ) {
             case "event__compute__html":
-                this.computeHtml( params );
+                if ( this.children ) {
+                    this.children.doActionAfter( event_name, params );
+                }
+                switch ( params[ "param__window" ] ) {
+                    case CHARACTER.GeneralWindow.NAME:
+                        this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                    case CHARACTER.CharacteristicWindow.NAME:
+                        this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                }
                 return;
         }
     },
@@ -70,13 +80,6 @@ CHARACTER.ComponentInterface.prototype = {
         return to_return;
     },
     //********************************************  HTML   **************************************************//
-    computeHtml             : function ( params ) {
-        switch ( params[ "param__window" ] ) {
-            case CHARACTER.GeneralWindow.NAME:
-                this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
-                return;
-        }
-    },
     computeHtmlGeneralWindow: function ( dom_element_parent ) {
         if ( this.dom_element_general ) {
             return;
@@ -86,7 +89,7 @@ CHARACTER.ComponentInterface.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
         this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class   : "value",
-            readOnly: "",
+            readOnly: ""
         } ), div );
         if ( this.isSet() ) {
             this.dom_element__input.value = this.getValue();
@@ -187,16 +190,16 @@ CHARACTER.ContainerComponentInterface.prototype = {
         GS.OBJECT.GsObjectContainer.prototype.doActionAfterContentChildren.call( this, event_name, params );
     },
     //********************************************  HTML   **************************************************//
-    computeHtml             : function ( params ) {
+    computeHtml: function ( params ) {
         switch ( params[ "param__window" ] ) {
             case CHARACTER.GeneralWindow.NAME:
-                this.doActionAfterContentChildren("event__compute__html", params);
+                this.doActionAfterContentChildren( "event__compute__html", params );
                 return;
             case CHARACTER.CharacteristicWindow.NAME:
                 this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                 return;
         }
-    },
+    }
     //********************************************  GETTER SETTER  **************************************************//
 };
 
