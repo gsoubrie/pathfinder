@@ -165,19 +165,19 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.dom_element_characteristics = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row characteristic-line", "data-name": this.getKey() } ), dom_element_parent );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-label" }, this.label_property ), this.dom_element_characteristics );
         var final_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-final-value" } ), this.dom_element_characteristics );
-        SERVICE.DOM.addElementTo( this.final_value.dom_element, final_value );
+        SERVICE.DOM.addElementTo( this.final_value.dom_element_characteristics, final_value );
 
         var modifier_value = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-modifier-value" }, "" ), this.dom_element_characteristics );
-        SERVICE.DOM.addElementTo( this.modifier_value.dom_element, modifier_value );
+        SERVICE.DOM.addElementTo( this.modifier_value.dom_element_characteristics, modifier_value );
 
         let initial_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-initial-value" } ), this.dom_element_characteristics );
-        SERVICE.DOM.addElementTo( this.initial_value.dom_element, initial_dom );
+        SERVICE.DOM.addElementTo( this.initial_value.dom_element_characteristics, initial_dom );
 
         var bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-race" } ), this.dom_element_characteristics );
-        SERVICE.DOM.addElementTo( this.race_bonus.dom_element, bonus_race );
+        SERVICE.DOM.addElementTo( this.race_bonus.dom_element_characteristics, bonus_race );
 
         var bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus characteristic-bonus-class" } ), this.dom_element_characteristics );
-        SERVICE.DOM.addElementTo( this.class_bonus.dom_element, bonus_class );
+        SERVICE.DOM.addElementTo( this.class_bonus.dom_element_characteristics, bonus_class );
 
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv5" }, "" ), this.dom_element_characteristics );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv10" }, "" ), this.dom_element_characteristics );

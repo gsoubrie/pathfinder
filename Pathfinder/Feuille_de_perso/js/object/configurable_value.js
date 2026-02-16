@@ -17,6 +17,13 @@ OBJECT.ConfigurableValue.prototype = {
     //********************************************  EVENT LISTENER  *****************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__compute__html":
+                switch ( params[ "param__window" ] ) {
+                    case CHARACTER.CharacteristicWindow.NAME:
+                        this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                }
+                return;
             case "event__reset_bonuses":
                 this.setValue( this.initial_value );
                 this.setPhase( GS.OBJECT.CONST.PHASE.SLEEPING );
@@ -68,12 +75,15 @@ OBJECT.ConfigurableValue.prototype = {
         }
     },
     //********************************************  HTML  **************************************************//
-    computeHtml: function () {
-        this.dom_element = SERVICE.DOM_HELPER.createDiv_SpaceAround();
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( this.getParamForEvents() ), this.dom_element );
-        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.dom_element );
-        this.setPhaseDomElement( this.dom_element );
+    computeCharacteristicWindow: function () {
+        if ( this.dom_element_characteristics ) {
+            return;
+        }
+        this.dom_element_characteristics = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createLessButton( this.getParamForEvents() ), this.dom_element_characteristics );
+        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.dom_element_characteristics );
+        this.setPhaseDomElement( this.dom_element_characteristics );
     },
     updateHtml : function () {
         if ( this.label_dom_element ) {
@@ -102,6 +112,9 @@ OBJECT.CalculatedValue.prototype = {
                 switch ( params[ "param__window" ] ) {
                     case CHARACTER.GeneralWindow.NAME:
                         this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                    case CHARACTER.CharacteristicWindow.NAME:
+                        this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                         return;
                 }
                 return;
@@ -140,6 +153,13 @@ OBJECT.FinalValue.prototype = {
             return;
         }
         this.dom_element_general = SERVICE.DOM.createElement( "div", { class: "final-value" }, this.value );
+    },
+    computeCharacteristicWindow: function () {
+        if ( this.dom_element_characteristics ) {
+            return;
+        }
+        this.dom_element_characteristics       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.FinalValue, OBJECT.CalculatedValue );
@@ -162,6 +182,13 @@ OBJECT.ModifierValue.prototype = {
             return;
         }
         this.dom_element_general =  SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.value );
+    },
+    computeCharacteristicWindow: function () {
+        if ( this.dom_element_characteristics ) {
+            return;
+        }
+        this.dom_element_characteristics       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.ModifierValue, OBJECT.CalculatedValue );
