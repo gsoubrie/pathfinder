@@ -49,6 +49,7 @@ CHARACTERISTICS.Characteristic.prototype = {
                 this.getObjectForDoActionAfter( params ).doActionAfter( event_name, params );
                 this.getObjectForDoActionAfter( params ).setValue( this.computeBonusDelta( params ) );
                 this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED );
+                this.computeFinalValue();
                 return;
             case "event__free_bonus_is_zero":
                 this.getObjectForDoActionAfter( params ).setPhaseIfPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
@@ -66,6 +67,7 @@ CHARACTERISTICS.Characteristic.prototype = {
                 }
                 this.getObjectForDoActionAfter( params ).setValue( 0 );
                 this.getObjectForDoActionAfter( params ).setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                this.computeFinalValue();
                 return;
             case "event__reset_characteristics_bonuses":
                 this.getObjectForDoActionAfter( params ).doActionAfter( "event__reset_bonuses" );
@@ -185,13 +187,14 @@ CHARACTERISTICS.Characteristic.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell characteristic-bonus-niv20" }, "" ), this.dom_element_characteristics );
     },
     //********************************************  SAVE   **************************************************//
-    getDataToSave: function () {
-        let to_return                = {};
-        to_return[ "name" ]          = this.name;
-        to_return[ "initial_value" ] = this.initial_value.getDataToSave();
-        to_return[ "race_bonus" ]    = this.race_bonus.getDataToSave();
-        to_return[ "class_bonus" ]   = this.class_bonus.getDataToSave();
-        return to_return;
-    }
+    //getDataToSave: function () {
+    //getDataToSave: function () {
+    //    let to_return                = {};
+    //    to_return[ "name" ]          = this.name;
+    //    to_return[ "initial_value" ] = this.initial_value.getDataToSave();
+    //    to_return[ "race_bonus" ]    = this.race_bonus.getDataToSave();
+    //    to_return[ "class_bonus" ]   = this.class_bonus.getDataToSave();
+    //    return to_return;
+    //}
 };
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristic, CHARACTER.ComponentInterface );

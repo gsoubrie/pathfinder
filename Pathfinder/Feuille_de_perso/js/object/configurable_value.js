@@ -85,7 +85,7 @@ OBJECT.ConfigurableValue.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createMoreButton( this.getParamForEvents() ), this.dom_element_characteristics );
         this.setPhaseDomElement( this.dom_element_characteristics );
     },
-    updateHtml : function () {
+    updateHtml                 : function () {
         if ( this.label_dom_element ) {
             this.label_dom_element.innerHTML = this.value;
         }
@@ -122,14 +122,20 @@ OBJECT.CalculatedValue.prototype = {
         OBJECT.InterfaceHtml.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID : function ( to_set ) {
+    getUUID      : function ( to_set ) {
         return this.uuid;
     },
-    setValue: function ( to_set ) {
+    setValue     : function ( to_set ) {
         this.value = to_set;
-        if ( this.label_dom_element ) {
-            this.label_dom_element.innerHTML = this.value;
+        if ( this.dom_element_general ) {
+            this.dom_element_general.innerHTML = this.value;
         }
+        if ( this.dom_element_characteristics ) {
+            this.dom_element_characteristics.innerHTML = this.value;
+        }
+    },
+    getDataToSave: function () {
+    
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.CalculatedValue, OBJECT.InterfaceHtml );
@@ -148,18 +154,19 @@ OBJECT.FinalValue.prototype = {
         return "final_value";
     },
     //********************************************  HTML   **************************************************//
-    computeHtmlGeneralWindow: function () {
+    computeHtmlGeneralWindow   : function () {
         if ( this.dom_element_general ) {
             return;
         }
+        console.log( "GSOU", "[FinalValue - computeHtmlGeneralWindow]", "[1]" );
         this.dom_element_general = SERVICE.DOM.createElement( "div", { class: "final-value" }, this.value );
     },
     computeCharacteristicWindow: function () {
         if ( this.dom_element_characteristics ) {
             return;
         }
-        this.dom_element_characteristics       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
-        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
+        this.dom_element_characteristics = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        this.label_dom_element           = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.FinalValue, OBJECT.CalculatedValue );
@@ -177,18 +184,18 @@ OBJECT.ModifierValue.prototype = {
         return "modifier_value";
     },
     //********************************************  HTML   **************************************************//
-    computeHtmlGeneralWindow: function () {
+    computeHtmlGeneralWindow   : function () {
         if ( this.dom_element_general ) {
             return;
         }
-        this.dom_element_general =  SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.value );
+        this.dom_element_general = SERVICE.DOM.createElement( "div", { class: "characteristic-modifier" }, this.value );
     },
     computeCharacteristicWindow: function () {
         if ( this.dom_element_characteristics ) {
             return;
         }
-        this.dom_element_characteristics       = SERVICE.DOM_HELPER.createDiv_SpaceAround();
-        this.label_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
+        this.dom_element_characteristics = SERVICE.DOM_HELPER.createDiv_SpaceAround();
+        this.label_dom_element           = SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createDiv_FullyCentred( this.value ), this.dom_element_characteristics );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.ModifierValue, OBJECT.CalculatedValue );

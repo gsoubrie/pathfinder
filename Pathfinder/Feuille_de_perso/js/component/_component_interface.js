@@ -101,6 +101,7 @@ CHARACTER.ComponentInterface.prototype = {
         if ( this.children ) {
             let object = to_return[ this.key ] || to_return;
             for ( let i = 0, _size_i = this.children.getSize(); i < _size_i; i++ ) {
+                console.log("GSOU", "[ComponentInterface - getDataToSave]", this.children.getContent( i ) );
                 object = Object.assign( object, this.children.getContent( i ).getDataToSave() );
             }
         }
