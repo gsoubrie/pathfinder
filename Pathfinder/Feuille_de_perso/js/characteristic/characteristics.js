@@ -9,6 +9,7 @@ CHARACTERISTICS.Characteristics = function () {
 };
 CHARACTERISTICS.Characteristics.prototype = {
     init             : function () {
+        this.key = CHARACTERISTICS.key;
         CHARACTER.ContainerComponentInterface.prototype.init.call( this );
         this.initCounterCommon();
         this.race_bonus = new CHARACTERISTICS.RaceBonuses();

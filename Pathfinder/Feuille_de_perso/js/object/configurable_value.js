@@ -4,11 +4,12 @@
  * @extends OBJECT.InterfaceHtml
  * @extends GS.OBJECT.PhaseInterface
  */
-OBJECT.ConfigurableValue = function ( initial_value, editable_value ) {
-    this.init( initial_value, editable_value );
+OBJECT.ConfigurableValue = function ( key, initial_value, editable_value ) {
+    this.init( key, initial_value, editable_value );
 };
 OBJECT.ConfigurableValue.prototype = {
-    init: function ( initial_value, editable_value ) {
+    init: function ( key, initial_value, editable_value ) {
+        this.key            = key;
         this.initial_value  = initial_value;
         this.editable_value = editable_value;
         this.value          = this.initial_value;
@@ -49,11 +50,12 @@ OBJECT.ConfigurableValue.prototype = {
         this.updateHtml();
     },
     getDataToSave: function () {
-        let to_return            = {};
-        to_return.phase          = this.getCurrentPhase();
-        to_return.value          = this.value;
-        to_return.initial_value  = this.initial_value;
-        to_return.editable_value = this.editable_value;
+        let to_return                             = {};
+        to_return[ this.key ]                     = {};
+        to_return[ this.key ][ "phase" ]          = this.getCurrentPhase();
+        to_return[ this.key ][ "value" ]          = this.value;
+        to_return[ this.key ][ "initial_value" ]  = this.initial_value;
+        to_return[ this.key ][ "editable_value" ] = this.editable_value;
         return to_return;
     },
     setData      : function ( key, value ) {
@@ -135,7 +137,6 @@ OBJECT.CalculatedValue.prototype = {
         }
     },
     getDataToSave: function () {
-    
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.CalculatedValue, OBJECT.InterfaceHtml );

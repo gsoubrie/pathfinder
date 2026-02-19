@@ -101,9 +101,11 @@ CHARACTER.ComponentInterface.prototype = {
         if ( this.children ) {
             let object = to_return[ this.key ] || to_return;
             for ( let i = 0, _size_i = this.children.getSize(); i < _size_i; i++ ) {
-                console.log("GSOU", "[ComponentInterface - getDataToSave]", this.children.getContent( i ) );
                 object = Object.assign( object, this.children.getContent( i ).getDataToSave() );
             }
+        }
+        if ( this.getKey() === "FOR" ) {
+            console.log( "GSOU", "[ComponentInterface - getDataToSave]", this, to_return );
         }
         return to_return;
     }
@@ -190,6 +192,8 @@ CHARACTER.ContainerComponentInterface.prototype = {
         }
         GS.OBJECT.GsObjectContainer.prototype.doActionAfterContentChildren.call( this, event_name, params );
     },
+    //********************************************  GETTER SETTER   **************************************************//
+    getKey: CHARACTER.ComponentInterface.prototype.getKey,
     //********************************************  HTML   **************************************************//
     computeHtml: function ( params ) {
         switch ( params[ "param__window" ] ) {
@@ -200,8 +204,16 @@ CHARACTER.ContainerComponentInterface.prototype = {
                 this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                 return;
         }
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        let to_return              = {};
+        to_return[ this.getKey() ] = {};
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return[ this.getKey() ] = Object.assign( to_return[ this.getKey() ], this.getContent( i ).getDataToSave() );
+        }
+        return to_return;
     }
-    //********************************************  GETTER SETTER  **************************************************//
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.ContainerComponentInterface, OBJECT.InterfaceContainerHtml );
