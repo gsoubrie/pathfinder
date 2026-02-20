@@ -104,9 +104,6 @@ CHARACTER.ComponentInterface.prototype = {
                 object = Object.assign( object, this.children.getContent( i ).getDataToSave() );
             }
         }
-        if ( this.getKey() === "FOR" ) {
-            console.log( "GSOU", "[ComponentInterface - getDataToSave]", this, to_return );
-        }
         return to_return;
     }
 };

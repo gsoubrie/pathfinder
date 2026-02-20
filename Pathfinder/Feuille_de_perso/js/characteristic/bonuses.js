@@ -17,7 +17,6 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     initWithData: function ( data ) {
-        console.warn("GSOU", "[Bonuses - initWithData]",data );
         if ( !data ){
             return;
         }

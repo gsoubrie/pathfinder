@@ -33,7 +33,6 @@ RACES.Race.prototype = {
     },
     //********************************************  GETTER SETTER  **************************************************//
     setValue   : function ( to_set ) {
-        console.error( "GSOU", "[Race - setValue]", to_set );
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
         let data_from_race = Object.assign( {}, RACES.getDataByName( this.getValue() ) );
         delete data_from_race[ "name" ];

@@ -58,16 +58,11 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     setData                  : function ( key, value ) {
+        if ( this.getMappingIndex(key) !== undefined ){
+            this.getContentByUUID( key ).doActionAfter( "event__ask_set_data", { "param__characteristics__object": this, "param__set_data_value": value } );
+            return;
+        }
         switch ( key ) {
-            case "0":
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-                this.getContentByUUID( value.name ).doActionAfter( "event__ask_set_data", { "param__characteristics__object": this, "param__set_data_value": value } );
-                break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }

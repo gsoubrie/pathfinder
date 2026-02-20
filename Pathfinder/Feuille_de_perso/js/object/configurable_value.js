@@ -32,33 +32,47 @@ OBJECT.ConfigurableValue.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID      : function () {
+    getUUID       : function () {
         return this.getParamForEvents( "param__is_for" );
     },
-    isSet        : function () {
+    isSet         : function () {
         return this.initial_value !== this.value && this.value !== this.editable_value;
     },
-    setValue     : function ( to_set ) {
+    setValue      : function ( to_set ) {
         this.value = to_set;
         this.updateHtml();
     },
-    getValue     : function () {
+    getValue      : function () {
         return this.value;
     },
-    changeValue  : function ( delta ) {
+    changeValue   : function ( delta ) {
         this.value += delta;
         this.updateHtml();
     },
-    getDataToSave: function () {
+    getDataToSave : function () {
         let to_return                             = {};
         to_return[ this.key ]                     = {};
-        to_return[ this.key ][ "phase" ]          = this.getCurrentPhase();
         to_return[ this.key ][ "value" ]          = this.value;
         to_return[ this.key ][ "initial_value" ]  = this.initial_value;
         to_return[ this.key ][ "editable_value" ] = this.editable_value;
+        let phase_save = this.getPhaseToSave();
+        if ( phase_save ) {
+            to_return[ this.key ][ "phase" ] = phase_save;
+            
+        }
         return to_return;
     },
-    setData      : function ( key, value ) {
+    getPhaseToSave: function () {
+        let to_return = this.getCurrentPhase();
+        switch ( to_return ) {
+            case GS.OBJECT.CONST.PHASE.SETTINGS_FORCED:
+            case GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN:
+            case GS.OBJECT.CONST.PHASE.SETTINGS_EDITED:
+                return to_return;
+        }
+        return null;
+    },
+    setData       : function ( key, value ) {
         switch ( key ) {
             case "phase":
                 this.setPhase( value );
@@ -159,7 +173,6 @@ OBJECT.FinalValue.prototype = {
         if ( this.dom_element_general ) {
             return;
         }
-        console.log( "GSOU", "[FinalValue - computeHtmlGeneralWindow]", "[1]" );
         this.dom_element_general = SERVICE.DOM.createElement( "div", { class: "final-value" }, this.value );
     },
     computeCharacteristicWindow: function () {
