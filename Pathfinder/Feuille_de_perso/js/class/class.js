@@ -4,6 +4,9 @@ CLASSES.Class           = function () {
 };
 CLASSES.Class.prototype = {
     init: function ( data ) {
+        this.setKey( CLASSES.key_element );
+        this.setLabelProperty( CLASSES.label_element );
+        this.setDefaultValue( CLASSES.default_value );
         this.label = SERVICE.DOM.createElement( "div", {} );
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -15,12 +18,13 @@ CLASSES.Class.prototype = {
                 params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__class_object": this, "param__is_for": CLASSES.key_element } );
                 break;
         }
+        CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
     setName: function ( to_set ) {
         this.name            = to_set;
         this.label.innerHTML = to_set;
-        let data_from_class   = CLASSES.getDataByName( this.name );
+        let data_from_class  = CLASSES.getDataByName( this.name );
         this.setData( "characteristics_bonus", data_from_class[ "characteristics_bonus" ] );
     },
     getUUID: function () {
@@ -33,21 +37,16 @@ CLASSES.Class.prototype = {
                 this.setName( value );
                 break;
             case "characteristics_bonus":
-                this[key] = value;
+                this[ key ] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );
         }
-    },
-    //********************************************  SAVE   **************************************************//
-    getDataToSave: function () {
-        let to_return       = {};
-        to_return[ "name" ] = this.name;
-        return to_return;
     }
+    //********************************************  SAVE   **************************************************//
 };
 
-SERVICE.CLASS.addPrototype( CLASSES.Class, OBJECT.InterfaceHtml );
+SERVICE.CLASS.addPrototype( CLASSES.Class, CHARACTER.ComponentInterfacePopup );
 
 
 CLASSES.ClassPopup           = function ( data ) {

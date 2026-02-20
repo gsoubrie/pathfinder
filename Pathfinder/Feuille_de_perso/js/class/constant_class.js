@@ -3,6 +3,7 @@ var CLASSES = {
     key          : "classes",
     label        : "Classes",
     key_element  : "class",
+    default_value: "Guerrier",
     label_element: "Classe",
     ENUM         : [
         {
