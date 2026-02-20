@@ -150,6 +150,9 @@ CHARACTERISTICS.Characteristic.prototype = {
     getModifierValue : function ( key, value ) {
         return this.modifier_value.value;
     },
+    isSet                : function () {
+        return true;
+    },
     //********************************************  HTML   **************************************************//
     computeHtmlGeneralWindow   : function ( dom_element_parent ) {
         if ( this.dom_element_general ) {

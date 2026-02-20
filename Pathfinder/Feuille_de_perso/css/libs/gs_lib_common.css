@@ -114,23 +114,21 @@
     /*font-weight    : bold;*/
     vertical-align : baseline;
     white-space    : nowrap;
-    padding        : 1px 3px;
-    font-size      : 12px;
+    padding        : 2px 6px;
+    font-size      : 10px;
     color          : white;
     line-height    : 12px;
     border-radius  : 7px;
+    margin         : 0 2px;
 }
 .gs-errors-counter .gs-counter-label {
     background-color : #EC5757;
     color            : white !important;
-    font-size        : 10px;
-    padding          : 2px 6px;
+
 }
 .gs-warnings-counter .gs-counter-label {
     background-color : #FFBA0B;
     color            : white !important;
-    font-size        : 10px;
-    padding          : 2px 6px;
 }
 /*********************         DISPLAY TRICKS        ****************************************************************************/
 .between-parentheses:before {

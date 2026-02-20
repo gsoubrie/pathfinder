@@ -4,7 +4,6 @@ CHARACTER.CharacteristicWindow           = function ( window_name, parent_name )
 };
 CHARACTER.CharacteristicWindow.prototype = {
     initSpecific: WINDOW_V2.ElementFromData.initSpecific,
-    
     //********************************************  EVENT LISTENER  **************************************************//
     
     //********************************************  HTML   **************************************************//
@@ -12,6 +11,7 @@ CHARACTER.CharacteristicWindow.prototype = {
      * @param {CHARACTER.Current} character_object
      */
     computeHtmlWithData              : function ( character_object ) {
+        character_object.getCharacteristics().setCountersParent( this );
         this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "characteristic-container" } );
         this.computeComponent(character_object.getCharacteristics());
         //character_object.getCharacteristics().computeHtml__tableCharacteristics();

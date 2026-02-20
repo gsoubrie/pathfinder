@@ -10,7 +10,7 @@ CHARACTER.ComponentInterface.prototype = {
     doActionAfter : function ( event_name, params ) {
         switch ( event_name ) {
             case "event__compute__html":
-                if ( this.children ) {
+                if ( this.isSet() && this.children ) {
                     this.children.doActionAfter( event_name, params );
                 }
                 switch ( params[ "param__window" ] ) {

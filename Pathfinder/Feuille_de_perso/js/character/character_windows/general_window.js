@@ -31,14 +31,15 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent(character_object.getNameObject());
         this.computeComponent(character_object.getPlayer());
         this.computeComponent(character_object.getRace());
-        if ( character_object.getRace().isSet() ) {
-            this.computeComponent( character_object.getRace().getBodySize() );
-            this.computeComponent( character_object.getRace().getLegacy() );
+        if ( !character_object.getRace().isSet() ) {
+            return;
         }
+        //this.computeComponent( character_object.getRace().getBodySize() );
+        this.computeComponent( character_object.getRace().getLegacy() );
         this.computeComponent(character_object.getCharacteristics());
+        //this.computeArea__class( character_object );
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );
-        //this.computeArea__class( character_object );
         //this.computeArea__historic( character_object );
         //this.computeArea__size( character_object );
         //this.computeArea__alignment( character_object );
