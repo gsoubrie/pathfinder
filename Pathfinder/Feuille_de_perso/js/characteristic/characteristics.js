@@ -58,7 +58,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     setData                  : function ( key, value ) {
-        if ( this.getMappingIndex(key) !== undefined ){
+        if ( this.getMappingIndex( key ) !== undefined ) {
             this.getContentByUUID( key ).doActionAfter( "event__ask_set_data", { "param__characteristics__object": this, "param__set_data_value": value } );
             return;
         }
@@ -74,7 +74,7 @@ CHARACTERISTICS.Characteristics.prototype = {
     getClassBonus: function () {
         return this.class_bonus;
     },
-    getUUID: function () {
+    getUUID      : function () {
         return "CHARACTERISTICS.Characteristics";
     },
     //********************************************  HTML  **************************************************//
@@ -105,10 +105,82 @@ CHARACTERISTICS.Characteristics.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            this.getContent( i ).doActionAfter( "event__compute__html", {"param__window" : CHARACTER.CharacteristicWindow.NAME, "param__dom_element_parent" : this.characteristic_table } );
+            this.getContent( i ).doActionAfter( "event__compute__html", { "param__window": CHARACTER.CharacteristicWindow.NAME, "param__dom_element_parent": this.characteristic_table } );
         }
     }
 };
 
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, CHARACTER.ContainerComponentInterface );
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, GS.OBJECT.CounterInterfaceV2 );
+
+
+/**
+ * @class CHARACTERISTICS.CharacteristicsBonuses
+ * @extends CHARACTERISTICS.Characteristics
+ */
+CHARACTERISTICS.CharacteristicsBonuses = function () {
+    this.init();
+};
+CHARACTERISTICS.CharacteristicsBonuses.prototype = {
+    init             : function () {
+        CHARACTER.ContainerComponentInterface.prototype.init.call( this );
+    },
+    initCounterCommon: function () {
+        this.counters = {};
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        CHARACTERISTICS.Characteristics.prototype.doActionAfter.call( this, event_name, params );
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    setValueFromClassPopup: function ( to_set ) {
+        this.setNumber( to_set.number );
+        this.setChoices( to_set.choice );
+    },
+    setNumber             : function ( to_set ) {
+        this.number = to_set;
+    },
+    setChoices            : function ( to_set ) {
+        for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
+            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+        }
+    },
+    getUUID               : function () {
+        return "CHARACTERISTICS.Characteristics";
+    },
+    //********************************************  HTML  **************************************************//
+    computeCharacteristicWindow: function ( dom_element_parent ) {
+        this.dom_element_characteristic_window = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "window-container" } ), dom_element_parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title-page" }, CHARACTERISTICS.label ), this.dom_element_characteristic_window );
+        this.characteristic_table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-table" } ), this.dom_element_characteristic_window );
+        let headers               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row headers" } ), this.characteristic_table );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell" } ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Final" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Modifi" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Initial" ), headers );
+        
+        let header_bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Race" ), headers );
+        let counter_warning   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning.computeHtml();
+        this.race_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning );
+        SERVICE.DOM.addElementTo( counter_warning.dom_element, header_bonus_race );
+        
+        let header_bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Classe" ), headers );
+        let counter_warning_2  = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning_2.computeHtml();
+        this.class_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_2 );
+        SERVICE.DOM.addElementTo( counter_warning_2.dom_element, header_bonus_class );
+        
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            this.getContent( i ).doActionAfter( "event__compute__html", { "param__window": CHARACTER.CharacteristicWindow.NAME, "param__dom_element_parent": this.characteristic_table } );
+        }
+    }
+};
+
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.CharacteristicsBonuses, CHARACTERISTICS.Characteristics );

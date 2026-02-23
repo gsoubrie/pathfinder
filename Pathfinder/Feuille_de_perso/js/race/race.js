@@ -14,7 +14,6 @@ RACES.Race.prototype = {
         this.legacy             = new LEGACIES.Legacy();
         this.body_size          = new BODY_SIZE.RaceSize();
         this.available_legacies = new LEGACIES.Legacies();
-        this.label              = SERVICE.DOM.createElement( "div", {} );
         this.children           = new OBJECT.InterfaceContainer();
         this.children.add( this.body_size );
         this.children.add( this.legacy );
