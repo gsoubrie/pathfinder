@@ -63,6 +63,17 @@ SERVICE.DOM_HELPER = (function ( /** @type {SERVICE.DOM_HELPER} */ self ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, value ), toReturn );
         return toReturn;
     };
+    self.createFieldPropertyHorizontal  = function ( object_field, label, params ) {
+        var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property horizontal" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+        object_field.doActionAfter("event__compute__html", params);
+        switch ( params["param__window"] ) {
+            case CHARACTER.GeneralWindow.NAME:
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, object_field.dom_element_general.outerHTML ), toReturn );
+                break;
+        }
+        return toReturn;
+    };
     self.createEditionPropertyDescription = function ( value, label ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property description" } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
