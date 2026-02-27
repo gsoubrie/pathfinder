@@ -99,19 +99,12 @@ CHARACTER.ComponentInterface.prototype = {
         }
     },
     computePopupDomElement: function ( dom_element_parent ) {
-        if ( this.dom_element_general ) {
+        if ( this.dom_element_popup ) {
             return;
         }
-        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
-        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
-        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
-            class   : "value",
-            readOnly: ""
-        } ), div );
-        if ( this.isSet() ) {
-            this.dom_element__input.value = this.getValue();
-        }
+        this.dom_element_popup = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_popup );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, this.label_property ), div );
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

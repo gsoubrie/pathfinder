@@ -48,9 +48,6 @@ CLASSES.ClassPopup.prototype = {
             case "characteristics_bonus":
                 this[ key ] = new CHARACTERISTICS.CharacteristicsBonuses();
                 this[ key ].setValueFromClassPopup( value );
-                if ( this.name === "Barbare" ) {
-                    console.log( "GSOU", "[ClassPopup - computeHTMLEdition]", this[ key ] );
-                }
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );
@@ -58,9 +55,6 @@ CLASSES.ClassPopup.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
-        if ( this.name === "Barbare" ) {
-            console.log( "GSOU", "[ClassPopup - computeHTMLEdition]", this );
-        }
         let params = { param__window: "param__popup__select"};
         
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );

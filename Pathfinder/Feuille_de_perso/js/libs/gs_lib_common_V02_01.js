@@ -405,7 +405,6 @@ MANAGER.EventManagerV2   = {
         MANAGER.EventManagerV2.dispatch( event, "do", "click_on_item_selector_V3", param );
     },
     clickOnWindowNavigation: function ( event, param ) {
-        console.log("GSOU", "[EventManagerV2 - clickOnWindowNavigation]", "[]" );
         if ( !param[ WINDOW_V2.CONST.PARAM.WINDOW_NAME ] ) {
             var _nav_tab = SERVICE.DOM.findParentElementWithClass( event.target, WINDOW_V2.CONST.CLASS.WINDOW_TAB, 10 );
             if ( !_nav_tab ) {

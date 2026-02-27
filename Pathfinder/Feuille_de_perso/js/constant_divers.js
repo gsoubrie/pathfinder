@@ -47,30 +47,34 @@ var CHARACTERISTICS = {
     INITIAL_VALUE: 10,
     ENUM         : [
         {
-            "key" : "FOR",
+            "key"  : "FOR",
             "label": "Force"
         },
         {
-            "key" : "DEX",
+            "key"  : "DEX",
             "label": "Dextérité"
         },
         {
-            "key" : "CON",
+            "key"  : "CON",
             "label": "Constitution"
         },
         {
-            "key" : "INT",
+            "key"  : "INT",
             "label": "Intelligence"
         },
         {
-            "key" : "SAG",
+            "key"  : "SAG",
             "label": "Sagesse"
         },
         {
-            "key" : "CHA",
+            "key"  : "CHA",
             "label": "Charisme"
         }
-    ]
+    ],
+    FREE         : {
+        "key"  : "FREE",
+        "label": "Libre"
+    }
 };
 CHARACTERISTICS.FOR = CHARACTERISTICS.ENUM[ 0 ];
 CHARACTERISTICS.DEX = CHARACTERISTICS.ENUM[ 1 ];
@@ -79,7 +83,7 @@ CHARACTERISTICS.INT = CHARACTERISTICS.ENUM[ 3 ];
 CHARACTERISTICS.SAG = CHARACTERISTICS.ENUM[ 4 ];
 CHARACTERISTICS.CHA = CHARACTERISTICS.ENUM[ 5 ];
 
-var SKILLS  = {
+var SKILLS     = {
     LIST            : {
         ACROBATICS  : {
             label         : "Acrobaties",
@@ -184,8 +188,8 @@ var SKILLS  = {
         return false;
     }
 };
-var MASTERY = {
-    LIST: {
+var MASTERY    = {
+    LIST         : {
         QUALIFIED: {
             name : "qualify",
             label: "Qualifié",
@@ -211,14 +215,14 @@ var MASTERY = {
             bonus: 8
         }
     },
-    parseToLetter        : function ( name ) {
-        return MASTERY.findByName(name).short;
+    parseToLetter: function ( name ) {
+        return MASTERY.findByName( name ).short;
     },
-    findByName        : function ( name ) {
+    findByName   : function ( name ) {
         var _keys = Object.keys( MASTERY.LIST );
         var _current;
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
-            if ( MASTERY.LIST[ _keys[ i ] ].name === name ){
+            if ( MASTERY.LIST[ _keys[ i ] ].name === name ) {
                 return MASTERY.LIST[ _keys[ i ] ];
             }
         }
@@ -228,43 +232,43 @@ var MASTERY = {
 var ALIGNEMENT = {
     key_element  : "alignement",
     label_element: "Alignement",
-    LIST: {
+    LIST         : {
         LB: {
             name : "LB",
-            label: "loyal bon",
+            label: "loyal bon"
         },
         LN: {
             name : "LN",
-            label: "loyal neutre",
+            label: "loyal neutre"
         },
         LM: {
             name : "LM",
-            label: "loyal mauvais",
+            label: "loyal mauvais"
         },
         NB: {
             name : "NB",
-            label: "neutre bon",
+            label: "neutre bon"
         },
-        N: {
+        N : {
             name : "N",
-            label: "neutre",
+            label: "neutre"
         },
         NM: {
             name : "NM",
-            label: "neutre mauvais",
+            label: "neutre mauvais"
         },
         CB: {
             name : "CB",
-            label: "chaotique bon",
+            label: "chaotique bon"
         },
         CN: {
             name : "CN",
-            label: "chaotique neutre",
+            label: "chaotique neutre"
         },
         CM: {
             name : "CM",
-            label: "chaotique mauvais",
-        },
+            label: "chaotique mauvais"
+        }
     }
 };
 

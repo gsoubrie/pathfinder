@@ -72,7 +72,6 @@ HISTORICS.HistoricsPopup           = function ( data ) {
 HISTORICS.HistoricsPopup.prototype = {
     init: function ( data ) {
         this.updateData( data );
-        console.log("GSOU", "[HistoricsPopup - init]", this );
     },
     //********************************************  HTML   **************************************************//
     setData  : function ( key, value ) {

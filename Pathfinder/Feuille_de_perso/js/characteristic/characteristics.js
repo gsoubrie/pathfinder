@@ -144,19 +144,27 @@ CHARACTERISTICS.CharacteristicsBonuses.prototype = {
     },
     setChoices            : function ( to_set ) {
         for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
-            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+            switch ( to_set[ i ] ) {
+                case "FREE":
+                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.FREE ) );
+                    break;
+                default:
+                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+                    break;
+            }
         }
     },
     getUUID               : function () {
         return "CHARACTERISTICS.Characteristics";
     },
     //********************************************  HTML  **************************************************//
-    computePopupDomElement: function (params) {
-        this.dom_element_popup = SERVICE.DOM.createElement("div", {class : "gs-characteristics-bonuses"});
+    computePopupDomElement: function ( params ) {
+        this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
+        
         params[ "param__dom_element_parent" ] = this.dom_element_popup;
-        console.log("GSOU", "[CharacteristicsBonuses - computePopupDomElement]", this );
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            this.getContent( i ).doActionAfter( "event__compute__html", params);
+            this.getContent( i ).doActionAfter( "event__compute__html", params );
         }
     }
 };
