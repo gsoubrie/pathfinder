@@ -66,10 +66,11 @@ SERVICE.DOM_HELPER = (function ( /** @type {SERVICE.DOM_HELPER} */ self ) {
     self.createFieldPropertyHorizontal  = function ( object_field, label, params ) {
         var toReturn = SERVICE.DOM.createElement( "div", { class: " edition-property horizontal" } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), toReturn );
+        console.log("GSOU", "[self - createFieldPropertyHorizontal]", object_field );
         object_field.doActionAfter("event__compute__html", params);
         switch ( params["param__window"] ) {
-            case CHARACTER.GeneralWindow.NAME:
-                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, object_field.dom_element_general.outerHTML ), toReturn );
+            case "param__popup__select":
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, object_field.dom_element_popup.outerHTML ), toReturn );
                 break;
         }
         return toReturn;

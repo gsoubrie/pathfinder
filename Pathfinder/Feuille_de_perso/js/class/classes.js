@@ -47,7 +47,7 @@ CLASSES.ClassPopup.prototype = {
                 break;
             case "characteristics_bonus":
                 this[ key ] = new CHARACTERISTICS.CharacteristicsBonuses();
-                this[ key ].setValueFromClassPopup(value);
+                this[ key ].setValueFromClassPopup( value );
                 if ( this.name === "Barbare" ) {
                     console.log( "GSOU", "[ClassPopup - computeHTMLEdition]", this[ key ] );
                 }
@@ -61,10 +61,12 @@ CLASSES.ClassPopup.prototype = {
         if ( this.name === "Barbare" ) {
             console.log( "GSOU", "[ClassPopup - computeHTMLEdition]", this );
         }
+        let params = { param__window: "param__popup__select"};
+        
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.general_desc, "" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.life_point_by_level, "Point de vie par level" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_bonus, "Prime d'attribut" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createFieldPropertyHorizontal( this.characteristics_bonus, "Prime d'attribut", params ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.capacities, "Capacités" ), this.getDomElement() );
         return this.getDomElement();
     }

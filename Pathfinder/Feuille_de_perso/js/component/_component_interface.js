@@ -20,6 +20,9 @@ CHARACTER.ComponentInterface.prototype = {
                     case CHARACTER.CharacteristicWindow.NAME:
                         this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                         return;
+                    case "param__popup__select":
+                        this.computePopupDomElement( params[ "param__dom_element_parent" ] );
+                        return;
                 }
                 return;
         }
@@ -81,6 +84,21 @@ CHARACTER.ComponentInterface.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
+        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: ""
+        } ), div );
+        if ( this.isSet() ) {
+            this.dom_element__input.value = this.getValue();
+        }
+    },
+    computePopupDomElement: function ( dom_element_parent ) {
         if ( this.dom_element_general ) {
             return;
         }
@@ -199,6 +217,9 @@ CHARACTER.ContainerComponentInterface.prototype = {
                 return;
             case CHARACTER.CharacteristicWindow.NAME:
                 this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
+                return;
+            case "param__popup__select":
+                this.computePopupDomElement( params );
                 return;
         }
     },
