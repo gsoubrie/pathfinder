@@ -114,59 +114,62 @@ SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, CHARACTER.Container
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Characteristics, GS.OBJECT.CounterInterfaceV2 );
 
 
-/**
- * @class CHARACTERISTICS.CharacteristicsBonuses
- * @extends CHARACTERISTICS.Characteristics
- */
-CHARACTERISTICS.CharacteristicsBonuses = function () {
-    this.init();
-};
-CHARACTERISTICS.CharacteristicsBonuses.prototype = {
-    init             : function () {
-        CHARACTER.ContainerComponentInterface.prototype.init.call( this );
-    },
-    initCounterCommon: function () {
-        this.counters = {};
-        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
-        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-    },
-    //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter: function ( event_name, params ) {
-        CHARACTERISTICS.Characteristics.prototype.doActionAfter.call( this, event_name, params );
-    },
-    //********************************************  GETTER SETTER  **************************************************//
-    setValueFromClassPopup: function ( to_set ) {
-        this.setNumber( to_set.number );
-        this.setChoices( to_set.choice );
-    },
-    setNumber             : function ( to_set ) {
-        this.number = to_set;
-    },
-    setChoices            : function ( to_set ) {
-        for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
-            switch ( to_set[ i ] ) {
-                case "FREE":
-                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.FREE ) );
-                    break;
-                default:
-                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
-                    break;
-            }
-        }
-    },
-    getUUID               : function () {
-        return "CHARACTERISTICS.Characteristics";
-    },
-    //********************************************  HTML  **************************************************//
-    computePopupDomElement: function ( params ) {
-        this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
-        
-        params[ "param__dom_element_parent" ] = this.dom_element_popup;
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            this.getContent( i ).doActionAfter( "event__compute__html", params );
-        }
-    }
-};
-
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.CharacteristicsBonuses, CHARACTERISTICS.Characteristics );
+///**
+// * @class CHARACTERISTICS.CharacteristicsBonuses
+// * @extends CHARACTERISTICS.Characteristics
+// */
+//CHARACTERISTICS.CharacteristicsBonuses = function ( data ) {
+//    this.init();
+//    if ( data ) {
+//        this.updateData( data );
+//    }
+//};
+//CHARACTERISTICS.CharacteristicsBonuses.prototype = {
+//    init             : function () {
+//        CHARACTER.ContainerComponentInterface.prototype.init.call( this );
+//    },
+//    initCounterCommon: function () {
+//        this.counters = {};
+//        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
+//        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+//    },
+//    //********************************************  EVENT LISTENER  **************************************************//
+//    doActionAfter: function ( event_name, params ) {
+//        CHARACTERISTICS.Characteristics.prototype.doActionAfter.call( this, event_name, params );
+//    },
+//    //********************************************  GETTER SETTER  **************************************************//
+//    updateData: function ( data ) {
+//        this.setNumber( data.number );
+//        this.setChoices( data.choice );
+//    },
+//    setNumber : function ( to_set ) {
+//        this.number = to_set;
+//    },
+//    setChoices: function ( to_set ) {
+//        for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
+//            switch ( to_set[ i ] ) {
+//                case "FREE":
+//                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.FREE ) );
+//                    break;
+//                default:
+//                    this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+//                    break;
+//            }
+//        }
+//    },
+//    getUUID   : function () {
+//        return "CHARACTERISTICS.Characteristics";
+//    },
+//    //********************************************  HTML  **************************************************//
+//    computePopupDomElement: function ( params ) {
+//        this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
+//        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
+//
+//        params[ "param__dom_element_parent" ] = this.dom_element_popup;
+//        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+//            this.getContent( i ).doActionAfter( "event__compute__html", params );
+//        }
+//    }
+//};
+//
+//SERVICE.CLASS.addPrototype( CHARACTERISTICS.CharacteristicsBonuses, CHARACTERISTICS.Characteristics );

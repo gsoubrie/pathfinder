@@ -46,8 +46,9 @@ CLASSES.ClassPopup.prototype = {
                 this[ key ] = value;
                 break;
             case "characteristics_bonus":
-                this[ key ] = new CHARACTERISTICS.CharacteristicsBonuses();
-                this[ key ].setValueFromClassPopup( value );
+                //this[ key ] = new CHARACTERISTICS.CharacteristicsBonuses(value);
+                this[ key ] = new CHARACTERISTICS.Bonus(true);
+                this[ key ].initWithData(value);
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );

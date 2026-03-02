@@ -29,6 +29,13 @@ CHARACTERISTICS.Bonuses.prototype = {
     },
     doActionAfterCommon: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__compute__html":
+                switch ( params[ "param__window" ] ) {
+                    case "param__popup__select":
+                        this.computePopupDomElement( params[ "param__dom_element_parent" ] );
+                        return;
+                }
+                break;
             case "event__ask_set_forced_value":
                 this.bonus.doActionAfter( event_name, params );
                 this.malus.doActionAfter( event_name, params );
@@ -48,7 +55,7 @@ CHARACTERISTICS.Bonuses.prototype = {
 /**
  * @class CHARACTERISTICS.Bonus
  */
-CHARACTERISTICS.Bonus           = function ( is_bonus ) {
+CHARACTERISTICS.Bonus = function ( is_bonus ) {
     this.init( is_bonus );
 };
 CHARACTERISTICS.Bonus.prototype = {
@@ -76,7 +83,7 @@ CHARACTERISTICS.Bonus.prototype = {
                     params[ "param__choices_array" ] = this.choices;
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                 }
-                break;
+                return;
             case "event__ask_set_forced_value":
                 params[ "param__is_malus" ] = !this.is_bonus;
                 if ( this.number === this.choices.length ) {
@@ -91,17 +98,18 @@ CHARACTERISTICS.Bonus.prototype = {
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                     this.number_free = this.number;
                 }
-                break;
+                return;
             case "event__set_free_bonus_done":
                 this.setFreeNumber( this.number_free - 1 );
                 if ( !this.number_free ) {
                     CONTROLLER.Character.doActionAfter( "event__free_bonus_is_zero", params );
                 }
-                break;
+                return;
             case "event__unset_free_bonus_done":
                 this.setFreeNumber( this.number_free + 1 );
-                break;
+                return;
         }
+        CHARACTER.ComponentInterface.prototype.doActionAfter.call(this, event_name, params);
     },
     //********************************************  GETTER SETTER  *****************************************************//
     setFreeNumber: function ( to_set ) {
@@ -138,3 +146,4 @@ CHARACTERISTICS.Bonus.prototype = {
         return to_return;
     }
 };
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, CHARACTER.ComponentInterface );
