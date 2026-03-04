@@ -2,11 +2,11 @@
 /**
  * @class CHARACTERISTICS.Bonuses
  */
-CHARACTERISTICS.Bonuses           = function () {
+CHARACTERISTICS.Bonuses = function () {
     this.init();
 };
 CHARACTERISTICS.Bonuses.prototype = {
-    init        : function () {
+    init             : function () {
         this.initCounterCommon();
         this.bonus = new CHARACTERISTICS.Bonus( true );
         this.malus = new CHARACTERISTICS.Bonus();
@@ -16,8 +16,8 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
-    initWithData: function ( data ) {
-        if ( !data ){
+    initWithData     : function ( data ) {
+        if ( !data ) {
             return;
         }
         this.bonus.initWithData( data[ "characteristics_bonus" ] );
@@ -60,10 +60,10 @@ CHARACTERISTICS.Bonus = function ( is_bonus ) {
 };
 CHARACTERISTICS.Bonus.prototype = {
     init        : function ( is_bonus ) {
+        this.initContents();
         this.is_bonus    = !!is_bonus;
         this.number      = 0;
         this.number_free = 0;
-        this.choices     = [];
     },
     initWithData: function ( data ) {
         if ( !data ) {
@@ -86,15 +86,16 @@ CHARACTERISTICS.Bonus.prototype = {
                 return;
             case "event__ask_set_forced_value":
                 params[ "param__is_malus" ] = !this.is_bonus;
-                if ( this.number === this.choices.length ) {
-                    for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
-                        if ( this.choices[ i ] !== "FREE" ) {
-                            params[ "param__characteristics__object" ].getContentByUUID( this.choices[ i ] ).doActionAfter( "event__ask_set_forced_value_1", params );
+                if ( this.number === this.getSize() ) {
+                    for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+                        if ( this.getContent( i ).getUUID() !== CHARACTERISTICS.FREE.key ) {
+                            
+                            params[ "param__characteristics__object" ].getContentByUUID( this.getContent( i ).getUUID() ).doActionAfter( "event__ask_set_forced_value_1", params );
                         }
                     }
                 }
                 else { //NORMALLY NO FREE THERE
-                    params[ "param__choices_array" ] = this.choices;
+                    params[ "param__choices_array" ] = this.getContents();
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                     this.number_free = this.number;
                 }
@@ -109,9 +110,12 @@ CHARACTERISTICS.Bonus.prototype = {
                 this.setFreeNumber( this.number_free + 1 );
                 return;
         }
-        CHARACTER.ComponentInterface.prototype.doActionAfter.call(this, event_name, params);
+        CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  *****************************************************//
+    isSet: function () {
+        return true;
+    },
     setFreeNumber: function ( to_set ) {
         this.number_free = to_set;
     },
@@ -119,31 +123,23 @@ CHARACTERISTICS.Bonus.prototype = {
         this.number = to_set;
     },
     setChoices   : function ( to_set ) {
-        this.choices     = to_set;
-        this.number_free = this.choices.filter( item => item === "FREE" ).length;
+        this.number_free = 0;
+        for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
+            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+            if ( to_set[ i ] === CHARACTERISTICS.FREE.key ) {
+                this.number_free++;
+            }
+        }
     },
     //********************************************  HTML  *****************************************************//
-    getHtml_forEditionPopUp: function () {
-        let to_return = "";
-        if ( this.number < this.choices.length ) {
-            to_return += this.number + " parmi (";
-            for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
-                if ( i ) {
-                    to_return += ", ";
-                }
-                to_return += this.choices[ i ];
-            }
-            to_return += ")";
+    computePopupDomElement : function ( params ) {
+        this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
+        
+        params[ "param__dom_element_parent" ] = this.dom_element_popup;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            this.getContent( i ).doActionAfter( "event__compute__html", params );
         }
-        else {
-            for ( let i = 0, _size_i = this.choices.length; i < _size_i; i++ ) {
-                if ( i ) {
-                    to_return += ", ";
-                }
-                to_return += this.choices[ i ];
-            }
-        }
-        return to_return;
     }
 };
-SERVICE.CLASS.addPrototype( CHARACTERISTICS.RaceBonuses, CHARACTER.ComponentInterface );
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Bonus, CHARACTER.ContainerComponentInterface );

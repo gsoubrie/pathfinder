@@ -1,5 +1,4 @@
 "use strict";
-
 OBJECT.InterfaceHtml           = function () {
 };
 OBJECT.InterfaceHtml.prototype = {

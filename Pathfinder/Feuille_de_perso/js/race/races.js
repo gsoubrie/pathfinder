@@ -57,6 +57,7 @@ RACES.RacePopup.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
+        let params = { param__window: "param__popup__select"};
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
         let traits_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "traits" } ), this.getDomElement() );
         for ( let index = 0; index < this.traits.length; index++ ) {
@@ -66,9 +67,9 @@ RACES.RacePopup.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.start_life, "Point de vie" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.body_size, "Taille moyenne" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.speed + " mètres", "Vitesse" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_bonus.getHtml_forEditionPopUp(), "Primes d'attributs" ), this.getDomElement() );
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createFieldPropertyHorizontal( this.characteristics_bonus, "Prime d'attribut", params ), this.getDomElement() );
         if ( this.characteristics_malus ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.characteristics_malus.getHtml_forEditionPopUp(), "Pénalité d'attribut" ), this.getDomElement() );
+            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createFieldPropertyHorizontal( this.characteristics_malus, "Pénalité d'attribut", params ), this.getDomElement() );
         }
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.language, "Langues" ), this.getDomElement() );
         SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.sens, "Vision nocturne" ), this.getDomElement() );
