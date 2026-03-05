@@ -104,11 +104,11 @@ CHARACTER.Current.prototype = {
         switch ( key ) {
             case this.race.getKey():
                 this.race.updateData( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__race__object": this.getRace(), "param__is_for": RACES.key_element } );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
             case CLASSES.key_element:
                 this.class.updateData( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__class_object": this.getClass(), "param__is_for": CLASSES.key_element } );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getClass(), "param__is_for": CLASSES.key_element } );
                 break;
             case CHARACTERISTICS.key:
                 this.characteristics.updateData( value );

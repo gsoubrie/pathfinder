@@ -25,7 +25,7 @@ RACES.Race.prototype = {
                 this.setValue( params[ "param__edition_value" ] );
                 this.getLegacy().setValue( LEGACIES.default_value );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": RACES.key_element } );
-                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__race__object": this, "param__is_for": RACES.key_element } );
+                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__current__object": this, "param__is_for": RACES.key_element } );
                 return;
         }
         CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );

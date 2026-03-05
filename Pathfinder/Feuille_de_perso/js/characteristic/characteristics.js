@@ -12,10 +12,8 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.key = CHARACTERISTICS.key;
         CHARACTER.ContainerComponentInterface.prototype.init.call( this );
         this.initCounterCommon();
-        this.race_bonus = new CHARACTERISTICS.RaceBonuses();
-        this.race_bonus.setCountersParent( this );
-        this.class_bonus = new CHARACTERISTICS.ClassBonuses();
-        this.class_bonus.setCountersParent( this );
+        this.race_bonus  = new CHARACTERISTICS.Bonuses( "race_bonus", this );
+        this.class_bonus = new CHARACTERISTICS.Bonuses( "class_bonus", this );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }

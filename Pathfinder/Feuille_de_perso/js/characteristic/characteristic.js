@@ -87,8 +87,10 @@ CHARACTERISTICS.Characteristic.prototype = {
     getObjectForDoActionAfter: function ( params ) {
         switch ( params[ "param__is_for" ] ) {
             case RACES.key_element:
+            case "race_bonus":
                 return this.race_bonus;
             case CLASSES.key_element:
+            case "class_bonus":
                 return this.class_bonus;
             case "initial_value":
                 return this.initial_value;

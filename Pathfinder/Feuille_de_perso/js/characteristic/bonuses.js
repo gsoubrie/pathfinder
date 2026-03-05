@@ -1,15 +1,18 @@
 "use strict";
 /**
  * @class CHARACTERISTICS.Bonuses
+ * @extends GS.OBJECT.CounterInterfaceV2
  */
-CHARACTERISTICS.Bonuses = function () {
-    this.init();
+CHARACTERISTICS.Bonuses = function ( key_name, parent_object ) {
+    this.init( key_name, parent_object );
 };
 CHARACTERISTICS.Bonuses.prototype = {
-    init             : function () {
+    init             : function ( key_name, parent_object ) {
         this.initCounterCommon();
-        this.bonus = new CHARACTERISTICS.Bonus( true );
-        this.malus = new CHARACTERISTICS.Bonus();
+        this.key_name = key_name;
+        this.bonus    = new CHARACTERISTICS.Bonus( true );
+        this.malus    = new CHARACTERISTICS.Bonus();
+        this.setCountersParent( parent_object );
     },
     initCounterCommon: function () {
         this.counters = {};
@@ -24,11 +27,13 @@ CHARACTERISTICS.Bonuses.prototype = {
         this.malus.initWithData( data[ "characteristics_malus" ] );
     },
     //********************************************  EVENT LISTENER  *****************************************************//
-    doActionAfter      : function ( event_name, params ) {
-        this.doActionAfterCommon( event_name, params );
-    },
-    doActionAfterCommon: function ( event_name, params ) {
+    doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
+            case "event__set_object_bonuses":
+                this.initWithData( params[ "param__current__object" ] );
+                this.doActionAfter( "event__ask_set_forced_value", params );
+                this.doActionAfter( "event__ask_compute_settable_value", params );
+                break;
             case "event__compute__html":
                 switch ( params[ "param__window" ] ) {
                     case "param__popup__select":
@@ -46,12 +51,15 @@ CHARACTERISTICS.Bonuses.prototype = {
                 this.bonus.doActionAfter( event_name, params );
                 break;
         }
+        this.computeCounters();
     },
     //********************************************  GETTER SETTER  *****************************************************//
-    getFreeBonus: function () {
-        return this.bonus.number_free;
+    computeCounters: function () {
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.key_name, this.bonus.getFreeNumber() );
     }
 };
+SERVICE.CLASS.addPrototype( CHARACTERISTICS.Bonuses, GS.OBJECT.CounterInterfaceV2 );
+
 /**
  * @class CHARACTERISTICS.Bonus
  */
@@ -97,7 +105,7 @@ CHARACTERISTICS.Bonus.prototype = {
                 else { //NORMALLY NO FREE THERE
                     params[ "param__choices_array" ] = this.getContents();
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
-                    this.number_free = this.number;
+                    this.setFreeNumber( this.number );
                 }
                 return;
             case "event__set_free_bonus_done":
@@ -113,8 +121,11 @@ CHARACTERISTICS.Bonus.prototype = {
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  *****************************************************//
-    isSet: function () {
+    isSet        : function () {
         return true;
+    },
+    getFreeNumber: function ( to_set ) {
+        return this.number_free;
     },
     setFreeNumber: function ( to_set ) {
         this.number_free = to_set;
@@ -123,16 +134,17 @@ CHARACTERISTICS.Bonus.prototype = {
         this.number = to_set;
     },
     setChoices   : function ( to_set ) {
-        this.number_free = 0;
+        let number_free = 0;
         for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
             this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
             if ( to_set[ i ] === CHARACTERISTICS.FREE.key ) {
-                this.number_free++;
+                number_free++;
             }
         }
+        this.setFreeNumber(number_free);
     },
     //********************************************  HTML  *****************************************************//
-    computePopupDomElement : function ( params ) {
+    computePopupDomElement: function ( params ) {
         this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
         

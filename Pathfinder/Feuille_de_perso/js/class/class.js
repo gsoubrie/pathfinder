@@ -14,7 +14,7 @@ CLASSES.Class.prototype = {
             case "event__form__element_changed":
                 this.setValue( params[ "param__edition_value" ] );
                 params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": CLASSES.key_element } );
-                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__class_object": this, "param__is_for": CLASSES.key_element } );
+                params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__current__object": this, "param__is_for": CLASSES.key_element } );
                 break;
         }
         CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );
@@ -32,7 +32,7 @@ CLASSES.Class.prototype = {
         }
         document.body.dataset.isClassSet = this.isSet() ? 1 : 0;
     },
-    getUUID: function () {
+    getUUID : function () {
         return this.getName();
     },
     //********************************************  HTML   **************************************************//
