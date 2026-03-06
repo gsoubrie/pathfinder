@@ -88,7 +88,7 @@ CHARACTERISTICS.Bonus.prototype = {
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus", params );
                 }
                 else {
-                    params[ "param__choices_array" ] = this.choices;
+                    params[ "param__bonuses__object" ] = this;
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                 }
                 return;
@@ -97,13 +97,12 @@ CHARACTERISTICS.Bonus.prototype = {
                 if ( this.number === this.getSize() ) {
                     for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
                         if ( this.getContent( i ).getUUID() !== CHARACTERISTICS.FREE.key ) {
-                            
                             params[ "param__characteristics__object" ].getContentByUUID( this.getContent( i ).getUUID() ).doActionAfter( "event__ask_set_forced_value_1", params );
                         }
                     }
                 }
-                else { //NORMALLY NO FREE THERE
-                    params[ "param__choices_array" ] = this.getContents();
+                else {
+                    params[ "param__bonuses__object" ] = this;
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
                     this.setFreeNumber( this.number );
                 }

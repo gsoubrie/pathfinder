@@ -86,7 +86,7 @@ RACES.Race.prototype = {
                 this[ key ] = value;
                 break;
             default:
-                console.warn( "GSOU", "[Race - setData]", key, value );
+                console.warn( "[Race - setData]", key, value );
         }
     }
 };

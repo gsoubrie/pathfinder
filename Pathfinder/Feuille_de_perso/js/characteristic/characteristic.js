@@ -56,10 +56,10 @@ CHARACTERISTICS.Characteristic.prototype = {
                 return;
             case "event__set_forbidden_bonus":
                 let object = this.getObjectForDoActionAfter( params );
-                if ( !object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
-                    object.setPhaseOrPhase( GS.TOOLS.ARRAY.contains( params[ "param__choices_array" ], this.getUUID() ),
-                        GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                if ( object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
+                    return;
                 }
+                object.setPhaseOrPhase( params[ "param__bonuses__object" ].getContentByUUID( this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
                 return;
             case "event__set_free_bonus":
                 if ( this.getObjectForDoActionAfter( params ).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
@@ -152,7 +152,7 @@ CHARACTERISTICS.Characteristic.prototype = {
     getModifierValue : function ( key, value ) {
         return this.modifier_value.value;
     },
-    isSet                : function () {
+    isSet            : function () {
         return true;
     },
     //********************************************  HTML   **************************************************//
