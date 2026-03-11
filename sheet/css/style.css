@@ -1,0 +1,193 @@
+* {
+    outline : none !important;
+}
+body {
+    background : linear-gradient(135deg, #1A0F08 0%, #0D0604 100%);
+    margin     : 0;
+    padding    : 20px;
+}
+
+.character-content {
+    width             : 1240px;
+    height            : 1754px;
+    margin            : auto;
+    background        : linear-gradient(135deg, #D6C6B8 0%, #C4B4A6 100%);
+    background-image  : url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat : repeat;
+    font-family       : 'Uncial Antiqua', serif;
+    box-shadow        : 0 8px 32px rgba(0, 0, 0, 0.8);
+    border            : 3px solid #8B6914;
+    border-radius     : 12px;
+    overflow          : hidden;
+}
+
+
+.character-sheet-windows {
+    background    : linear-gradient(135deg, #2C1810 0%, #1A0F08 100%);
+    border-bottom : 3px solid #8B6914;
+    padding       : 15px;
+}
+
+.character-sheet-windows .gs-window-group-V2 {
+    display         : flex;
+    gap             : 8px;
+    justify-content : center;
+}
+
+.character-sheet-windows .gs-window-element-V2 {
+    cursor     : pointer;
+    transition : all 0.3s ease;
+}
+
+.character-sheet-windows .gs-window-element-V2 .gs-div-tab {
+    background    : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    border        : 2px solid #6B4E2A;
+    border-radius : 8px;
+    padding       : 12px 24px;
+    transition    : all 0.3s ease;
+}
+
+.character-sheet-windows .gs-window-element-V2:hover .gs-div-tab {
+    background   : linear-gradient(135deg, #4A3520 0%, #33231A 100%);
+    border-color : #8B6914;
+    transform    : translateY(-2px);
+    box-shadow   : 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.gs-window-element-V2 {
+    background : transparent !important;
+    border     : none !important;
+}
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
+    background   : linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+    border-color : #FFD700;
+    box-shadow   : 0 4px 16px rgba(212, 175, 55, 0.4);
+}
+
+.character-sheet-windows .gs-label {
+    font-size   : 16px;
+    font-weight : 600;
+    color       : #E8D4A8;
+    text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
+    color       : #1A0F08;
+    text-shadow : none;
+}
+
+.characters-sheet-content {
+    padding : 20px;
+}
+
+
+.gs-button[data-name="event__less_button"],
+.gs-button[data-name="event__more_button"] {
+    background      : linear-gradient(135deg, #8B6914 0%, #6B4E10 100%);
+    border          : 2px solid #D4AF37;
+    color           : #1A0F08;
+    font-size       : 14px;
+    font-weight     : bold;
+    font-family     : 'Uncial Antiqua', serif;
+    width           : 20px;
+    height          : 20px;
+    line-height     : 16px;
+    padding         : 0;
+    border-radius   : 50%;
+    cursor          : pointer;
+    box-shadow      : 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align      : center;
+    text-shadow     : none;
+    transition      : all 0.2s ease-in-out;
+    display         : inline-flex;
+    align-items     : center;
+    justify-content : center;
+}
+
+.gs-button[data-name="event__less_button"]:hover,
+.gs-button[data-name="event__more_button"]:hover {
+    background   : linear-gradient(135deg, #A87D1A 0%, #8B6914 100%);
+    border-color : #FFD700;
+    transform    : scale(1.1);
+    box-shadow   : 0 4px 8px rgba(212, 175, 55, 0.4);
+}
+
+.gs-button[data-name="event__less_button"]:active,
+.gs-button[data-name="event__more_button"]:active {
+    transform : scale(0.95);
+}
+
+
+.property-tab-pane .property {
+    /*background    : linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);*/
+    /*border        : 2px solid #8B6914;*/
+    border-radius : 6px;
+    padding       : 8px;
+    display       : flex;
+    /*box-shadow    : 0 2px 8px rgba(0, 0, 0, 0.3);*/
+    /*transition    : all 0.3s ease;*/
+}
+
+.property-tab-pane .property.horizontal {
+    justify-content : center;
+    align-items     : center;
+    height          : 24px;
+}
+
+.property-tab-pane .property.vertical {
+    flex-direction  : column;
+    justify-content : center;
+}
+
+.property-tab-pane .property .label {
+    height      : 100%;
+    display     : flex;
+    align-items : center;
+    color       : #D4AF37;
+    font-weight : 600;
+    font-size   : 12px;
+    text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
+    padding     : 0 2px;
+}
+
+.property-tab-pane .property.horizontal .label {
+    width : 100px;
+}
+
+.property-tab-pane .property.vertical .label {
+    font-size : 10px;
+    position  : relative;
+    top       : -3px;
+}
+
+.property-tab-pane .property .value {
+    background      : linear-gradient(135deg, #BFC2C3 0%, #AFB2C3 100%);
+    border          : none;
+    color           : #2C1810;
+    font-weight     : 600;
+    font-family     : inherit;
+    font-size       : inherit;
+    min-height      : 24px;
+    height          : 100%;
+    border-radius   : 4px;
+    padding         : 4px 8px;
+    box-shadow      : inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align      : left;
+    outline         : none;
+}
+.property-tab-pane .property .value:focus {
+    background : white;
+}
+
+.property-tab-pane .property.horizontal .value {
+    height : 100%;
+    width  : calc(100% - 100px);
+}
+
+.property-tab-pane .property .value[contenteditable="true"] {
+    cursor : text;
+}
+
+.property-tab-pane .property .value[contenteditable="false"] {
+    cursor : pointer;
+}
