@@ -18,6 +18,16 @@ const PF2_ARCHETYPES = (function () {
         }
     };
     
+    self.cleanNodeText = ( node ) => {
+        const clone = node.cloneNode( true );
+        clone.querySelectorAll( "mat-icon" ).forEach( el => el.remove() );
+        
+        return clone.innerText
+                    .replace( /\n/g, " " )
+                    .replace( /\s+/g, " " )
+                    .trim();
+    };
+    
     /*
     -------------------------
     ROWS
@@ -44,22 +54,13 @@ const PF2_ARCHETYPES = (function () {
     
     /*
     -------------------------
-    TITLE PARSER (FIX)
+    TITLE PARSER
     -------------------------
     */
     
     self.parseTitle = ( node ) => {
         
-        // Clone pour ne pas modifier le DOM
-        const clone = node.cloneNode( true );
-        
-        // 🔥 Supprime toutes les icônes
-        clone.querySelectorAll( "mat-icon" ).forEach( el => el.remove() );
-        
-        let raw = clone.innerText
-                       .replace( /\n/g, " " )
-                       .replace( /\s+/g, " " )
-                       .trim();
+        let raw = self.cleanNodeText( node );
         
         let levelMatch = raw.match( /Don\s*(\d+)/i );
         let level      = levelMatch ? parseInt( levelMatch[ 1 ] ) : null;
@@ -77,6 +78,87 @@ const PF2_ARCHETYPES = (function () {
     
     /*
     -------------------------
+    PREREQUISITES PARSER
+    -------------------------
+    */
+    
+    self.parsePrerequisites = ( text ) => {
+        
+        if ( !text.toLowerCase().startsWith( "prérequis" ) ) {
+            return null;
+        }
+        
+        const result = {};
+        
+        /*
+        -------------------------
+        SKILLS
+        -------------------------
+        */
+        
+        const skillMapping = {
+            arcanes   : "arcane",
+            nature    : "nature",
+            occultisme: "occultism",
+            religion  : "religion"
+        };
+        
+        if ( text.match( /arcanes|nature|occultisme|religion/i ) ) {
+            
+            const skills = [];
+            
+            Object.keys( skillMapping ).forEach( fr => {
+                if ( text.toLowerCase().includes( fr ) ) {
+                    skills.push( {
+                        level: "trained",
+                        type : skillMapping[ fr ]
+                    } );
+                }
+            } );
+            
+            result.skills = {
+                choices: 1,
+                list   : skills
+            };
+        }
+        
+        /*
+        -------------------------
+        ARCHETYPES / DEDICATIONS
+        -------------------------
+        */
+        
+        const archetypes = [];
+        
+        // match "Dévouement : XXX"
+        const matches = text.match( /dévouement\s*:\s*([^,]+)/gi );
+        
+        if ( matches ) {
+            matches.forEach( m => {
+                let name = m.split( ":" )[ 1 ].trim();
+                
+                const id = name
+                .toLowerCase()
+                .normalize( "NFD" ).replace( /[\u0300-\u036f]/g, "" )
+                .replace( /[^a-z0-9]+/g, "_" )
+                .replace( /^_|_$/g, "" );
+                
+                archetypes.push( {
+                    id,
+                    name
+                } );
+            } );
+        }
+        
+        if ( archetypes.length ) {
+            result.archetypes = archetypes;
+        }
+        
+        return Object.keys( result ).length ? result : null;
+    };
+    
+    /*
+    -------------------------
     DETAILS PARSER
     -------------------------
     */
@@ -90,12 +172,19 @@ const PF2_ARCHETYPES = (function () {
         };
         
         /*
-        TRAITS
+        TRAITS (DEDUP)
         */
         
+        const traitSet = new Set();
+        
         details.querySelectorAll( ".trait" ).forEach( t => {
-            data.traits.push( t.innerText.trim() );
+            const val = t.innerText.trim();
+            if ( val ) {
+                traitSet.add( val );
+            }
         } );
+        
+        data.traits = Array.from( traitSet );
         
         /*
         DESCRIPTION + FEATS
@@ -134,9 +223,21 @@ const PF2_ARCHETYPES = (function () {
             */
             if ( node.tagName === "P" ) {
                 
-                const text = node.innerText.trim();
+                const text = self.cleanNodeText( node );
                 
                 if ( !text ) {
+                    return;
+                }
+                
+                const prereq = self.parsePrerequisites( text );
+                
+                if ( prereq ) {
+                    if ( currentFeat ) {
+                        currentFeat.required = prereq;
+                    }
+                    else {
+                        data.required = prereq;
+                    }
                     return;
                 }
                 
@@ -149,25 +250,37 @@ const PF2_ARCHETYPES = (function () {
             }
             
             /*
-            LIST (rare but useful)
+            LIST
             */
             if ( node.tagName === "UL" ) {
                 
-                const items = [];
-                
                 node.querySelectorAll( "li" ).forEach( li => {
-                    const text = li.innerText.trim();
-                    if ( text ) {
-                        items.push( text );
+                    
+                    const text = self.cleanNodeText( li );
+                    
+                    if ( !text ) {
+                        return;
+                    }
+                    
+                    const prereq = self.parsePrerequisites( text );
+                    
+                    if ( prereq ) {
+                        if ( currentFeat ) {
+                            currentFeat.required = prereq;
+                        }
+                        else {
+                            data.required = prereq;
+                        }
+                        return;
+                    }
+                    
+                    if ( currentFeat ) {
+                        currentFeat.description.push( text );
+                    }
+                    else {
+                        data.description.push( text );
                     }
                 } );
-                
-                if ( currentFeat ) {
-                    currentFeat.description.push( ...items );
-                }
-                else {
-                    data.description.push( ...items );
-                }
             }
             
         } );
