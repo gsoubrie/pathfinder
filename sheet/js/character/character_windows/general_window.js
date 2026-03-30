@@ -38,6 +38,10 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent( character_object.getRace().getLegacy() );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClass());
+        if ( !character_object.getClass().isSet() ) {
+            return;
+        }
+        this.computeComponent( character_object.getClass().getArchetype() );
         //this.computeArea__class( character_object );
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );

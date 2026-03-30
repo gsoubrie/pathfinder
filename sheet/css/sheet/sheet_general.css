@@ -30,9 +30,9 @@
         var(--row-11-height, auto);
 
     grid-template-areas   :
-        "logo   name        ancestry    class      level      ."
-        "save   player      legacy      historic   heroism    ."
-        "FOR    .           .           .          .          ."
+        "logo   name        ancestry    class      .         ."
+        "save   player      legacy      archetype  heroism    ."
+        "FOR    .           .           historic   level      ."
         "DEX    .           .           .          .          ."
         "CON    .           .           size       health     health"
         "INT    .           .           alignment  health     health"
@@ -59,6 +59,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-divinity { grid-area : divinity; }
 .property-tab-pane[data-name="general_sheet"] .area-level { grid-area : level; }
 .property-tab-pane[data-name="general_sheet"] .area-heroism { grid-area : heroism; }
+.property-tab-pane[data-name="general_sheet"] .area-archetype { grid-area : archetype; }
 .property-tab-pane[data-name="general_sheet"] .area-ca { grid-area : ca; }
 .property-tab-pane[data-name="general_sheet"] .area-surprise { grid-area : surprise; }
 .property-tab-pane[data-name="general_sheet"] .area-FOR { grid-area : FOR; }

@@ -7,8 +7,10 @@ CLASSES.Class.prototype = {
         this.setKey( CLASSES.key_element );
         this.setLabelProperty( CLASSES.label_element );
         this.setDefaultValue( CLASSES.default_value );
-        this.skills   = new CLASSES.Skills();
-        this.children = new OBJECT.InterfaceContainer();
+        this.skills    = new CLASSES.Skills();
+        this.archetype = new ARCHETYPES.Archetype();
+        this.children  = new OBJECT.InterfaceContainer();
+        this.children.add( this.archetype );
         //this.children.add( this.skills );
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -23,6 +25,9 @@ CLASSES.Class.prototype = {
         CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
+    getArchetype: function () {
+        return this.archetype;
+    },
     setValue: function ( to_set ) {
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
         let data_from_class = Object.assign( {}, CLASSES.getDataByName( this.getValue() ) );
@@ -43,6 +48,9 @@ CLASSES.Class.prototype = {
                 break;
             case "characteristics_bonus":
                 this[ key ] = value;
+                break;
+            case ARCHETYPES.key_element:
+                this.getArchetype().setValue( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key );

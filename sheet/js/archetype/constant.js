@@ -1,4 +1,11 @@
-[
+"use strict";
+var ARCHETYPES = {
+    key          : "archetypes",
+    label        : "Archétypes",
+    key_element  : "archetype",
+    default_value: "Aucun",
+    label_element: "Archétype",
+    ENUM         : [
   {
     "name": "Acolyte draconique",
     "name_en": "Draconic Acolyte",
@@ -40479,3 +40486,16 @@
     ]
   }
 ]
+};
+
+ARCHETYPES.getDataByName = function ( name ) {
+    if ( !ARCHETYPES.ENUM ) {
+        return null;
+    }
+    for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
+        if ( ARCHETYPES.ENUM[ i ].name === name ) {
+            return ARCHETYPES.ENUM[ i ];
+        }
+    }
+    return null;
+};
