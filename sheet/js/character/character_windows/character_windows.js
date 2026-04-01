@@ -10,6 +10,7 @@ CHARACTER.WindowGroup.prototype = {
         this.addSpecific( new CHARACTER.GeneralWindow( "general_sheet", this.getName() ), character_object );
         this.addSpecific( new CHARACTER.CharacteristicWindow( "characteristic_sheet", this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelWindow( "level_sheet", this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.GiftsWindow( "gifts_sheet", this.getName() ), character_object );
         this.setActiveWindow( "general_sheet" );
         // this.setActiveWindow( "characteristic_sheet" );
         this.computeHtml();

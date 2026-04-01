@@ -1,0 +1,229 @@
+/* =============================== GIFTS WINDOW =========================== */
+
+.property-tab-pane[data-name="gifts_sheet"] .gifts-window {
+    display        : flex;
+    flex-direction : column;
+    gap            : 12px;
+    padding        : 12px;
+    height         : 100%;
+    box-sizing     : border-box;
+}
+
+/* --- FILTRES --- */
+
+.gifts-window .gifts-filters {
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 8px;
+    align-items : center;
+    background  : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border      : 2px solid #8b6914;
+    border-radius : 8px;
+    padding     : 10px 14px;
+}
+
+.gifts-window .gifts-filter-types {
+    display : flex;
+    gap     : 6px;
+    flex-wrap : wrap;
+}
+
+.gifts-window .gifts-filter-btn {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #c8b090;
+    cursor        : pointer;
+    font-family   : inherit;
+    font-size     : 13px;
+    font-weight   : 600;
+    padding       : 5px 14px;
+    transition    : all 0.2s ease;
+}
+
+.gifts-window .gifts-filter-btn:hover {
+    border-color : #d4af37;
+    color        : #f0d890;
+}
+
+.gifts-window .gifts-filter-btn.active {
+    background   : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border-color : #ffd700;
+    color        : #1a0f08;
+}
+
+.gifts-window .gifts-search {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #e8d4a8;
+    flex          : 1;
+    font-family   : inherit;
+    font-size     : 13px;
+    min-width     : 180px;
+    padding       : 5px 12px;
+    outline       : none;
+    transition    : border-color 0.2s ease;
+}
+
+.gifts-window .gifts-search:focus {
+    border-color : #d4af37;
+}
+
+.gifts-window .gifts-search::placeholder {
+    color : #7a6040;
+}
+
+/* --- LISTE --- */
+
+.gifts-window .gifts-list {
+    flex            : 1;
+    overflow-y      : auto;
+    display         : flex;
+    flex-direction  : column;
+    gap             : 10px;
+    scrollbar-width : thin;
+    scrollbar-color : #8b6914 #2c1810;
+}
+
+.gifts-window .gifts-list::-webkit-scrollbar       { width: 6px; }
+.gifts-window .gifts-list::-webkit-scrollbar-track  { background: #2c1810; border-radius: 4px; }
+.gifts-window .gifts-list::-webkit-scrollbar-thumb  { background: #8b6914; border-radius: 4px; }
+
+/* --- SECTION NIVEAU --- */
+
+.gifts-window .gifts-level-section {
+    display        : flex;
+    flex-direction : column;
+    gap            : 4px;
+}
+
+.gifts-window .gifts-level-header {
+    color         : #d4af37;
+    font-size     : 13px;
+    font-weight   : bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom : 2px solid #6b4e2a;
+    padding-bottom: 4px;
+    margin-bottom : 2px;
+    text-shadow   : 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* --- LIGNE DON --- */
+
+.gifts-window .gift-row {
+    display       : flex;
+    align-items   : flex-start;
+    gap           : 10px;
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-left   : 4px solid #6b4e2a;
+    border-radius : 6px;
+    padding       : 8px 12px;
+    transition    : border-color 0.2s ease, background 0.2s ease;
+}
+
+.gifts-window .gift-row:hover {
+    border-color      : #d4af37;
+    border-left-color : #d4af37;
+}
+
+.gifts-window .gift-row--selected {
+    background        : linear-gradient(135deg, #3a3010 0%, #252008 100%);
+    border-left-color : #ffd700;
+    border-color      : #8b6914;
+}
+
+.gifts-window .gift-checkbox {
+    accent-color : #d4af37;
+    cursor       : pointer;
+    flex-shrink  : 0;
+    height       : 16px;
+    margin-top   : 3px;
+    width        : 16px;
+}
+
+.gifts-window .gift-content {
+    cursor  : pointer;
+    display : flex;
+    flex    : 1;
+    flex-direction : column;
+    gap    : 4px;
+}
+
+/* --- LIGNE DU HAUT : NOM + TAGS --- */
+
+.gifts-window .gift-top-line {
+    align-items : center;
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 6px;
+}
+
+.gifts-window .gift-name {
+    color       : #f0d890;
+    font-size   : 14px;
+    font-weight : bold;
+    text-shadow : 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.gifts-window .gift-row--selected .gift-name {
+    color : #ffd700;
+}
+
+.gifts-window .gift-tags {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 4px;
+}
+
+.gifts-window .gift-tag {
+    border-radius  : 3px;
+    font-size      : 11px;
+    font-weight    : 600;
+    letter-spacing : 0.3px;
+    padding        : 1px 7px;
+}
+
+.gifts-window .gift-tag--general   { background: #3a2a4a; border: 1px solid #6a4a8a; color: #c8a0e8; }
+.gifts-window .gift-tag--class      { background: #2a3a4a; border: 1px solid #4a6a8a; color: #90c0e8; }
+.gifts-window .gift-tag--race       { background: #3a4a2a; border: 1px solid #6a8a4a; color: #a8d080; }
+.gifts-window .gift-tag--skill      { background: #4a3a2a; border: 1px solid #8a6a4a; color: #e0b880; }
+.gifts-window .gift-tag--archetype  { background: #4a2a2a; border: 1px solid #8a4a4a; color: #e89090; }
+.gifts-window .gift-tag--archetype-name { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0a0d0; font-style: italic; }
+.gifts-window .gift-tag--trait      { background: #2a3a3a; border: 1px solid #4a6a6a; color: #90c8c8; }
+
+/* --- PRÉREQUIS --- */
+
+.gifts-window .gift-required {
+    color     : #9a7a50;
+    font-size : 12px;
+}
+
+.gifts-window .gift-required-label {
+    font-weight : bold;
+    font-style  : italic;
+}
+
+.gifts-window .gift-required-value {
+    color : #b09070;
+}
+
+/* --- DESCRIPTION --- */
+
+.gifts-window .gift-desc {
+    color       : #c8b090;
+    font-size   : 12px;
+    line-height : 1.5;
+    opacity     : 0.85;
+}
+
+/* --- VIDE --- */
+
+.gifts-window .gifts-empty {
+    color      : #7a6040;
+    font-style : italic;
+    padding    : 20px;
+    text-align : center;
+}

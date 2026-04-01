@@ -15,6 +15,7 @@ CHARACTER.Current = function () {
     this.class           = new CLASSES.Class();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
+    this.gifts           = new CHARACTER.Gifts();
     this.children        = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
@@ -73,6 +74,9 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__health_history__load":
                 this.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            case "event__gift__toggle":
+                this.gifts.doActionAfter( event_name, params );
                 break;
         }
     },
@@ -138,6 +142,9 @@ CHARACTER.Current.prototype = {
             case "health":
                 this.health.updateData( value );
                 break;
+            case "gifts":
+                this.gifts.updateData( value );
+                break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
@@ -189,6 +196,9 @@ CHARACTER.Current.prototype = {
     },
     getHealth         : function () {
         return this.health;
+    },
+    getGifts          : function () {
+        return this.gifts;
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {

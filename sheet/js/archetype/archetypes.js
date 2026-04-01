@@ -1,10 +1,13 @@
 "use strict";
 
+/*
+ * ArchetypePopup : item dans la liste de sélection
+ */
 ARCHETYPES.ArchetypePopup           = function ( data ) {
     this.init( data );
 };
 ARCHETYPES.ArchetypePopup.prototype = {
-    init   : function ( data ) {
+    init: function ( data ) {
         this.updateData( data );
     },
     setData: function ( key, value ) {
@@ -27,7 +30,21 @@ ARCHETYPES.ArchetypePopup.prototype = {
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "archetype-edition" } ) );
-        
+
+        // Traits
+        if ( this.traits && this.traits.length ) {
+            var traits_div = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "archetype-traits" } ),
+                this.getDomElement()
+            );
+            for ( var t = 0; t < this.traits.length; t++ ) {
+                SERVICE.DOM.addElementTo(
+                    SERVICE.DOM.createElement( "span", { class: "archetype-trait" }, this.traits[ t ] ),
+                    traits_div
+                );
+            }
+        }
+
         // Description générale
         if ( this.description && this.description.length ) {
             SERVICE.DOM.addElementTo(
@@ -35,52 +52,112 @@ ARCHETYPES.ArchetypePopup.prototype = {
                 this.getDomElement()
             );
         }
-        
-        // Liste des dons de l'archétype
+
+        // Titre section dons
         if ( this.feats && this.feats.length ) {
-            let feats_title = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "archetype-feats-title" }, "Dons" ),
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "archetype-feats-title" }, "Dons de l'archétype" ),
                 this.getDomElement()
             );
-            for ( let i = 0, _size_i = this.feats.length; i < _size_i; i++ ) {
-                let feat        = this.feats[ i ];
-                let feat_div    = SERVICE.DOM.addElementTo(
+
+            for ( var i = 0; i < this.feats.length; i++ ) {
+                var feat     = this.feats[ i ];
+                var feat_div = SERVICE.DOM.addElementTo(
                     SERVICE.DOM.createElement( "div", { class: "archetype-feat" } ),
                     this.getDomElement()
                 );
-                let feat_header = SERVICE.DOM.addElementTo(
+
+                // En-tête : nom + niveau
+                var header = SERVICE.DOM.addElementTo(
                     SERVICE.DOM.createElement( "div", { class: "archetype-feat-header" } ),
                     feat_div
                 );
                 SERVICE.DOM.addElementTo(
                     SERVICE.DOM.createElement( "span", { class: "archetype-feat-name" }, feat.name || "" ),
-                    feat_header
+                    header
                 );
                 if ( feat.level ) {
                     SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "span", { class: "archetype-feat-level" }, "Niv. " + feat.level ),
-                        feat_header
+                        SERVICE.DOM.createElement( "span", { class: "archetype-feat-level" }, "Don " + feat.level ),
+                        header
                     );
                 }
-                if ( feat.description && feat.description.length ) {
-                    let desc_div = SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "div", { class: "archetype-feat-desc" } ),
+
+                // Prérequis
+                if ( feat.required ) {
+                    var req_div = SERVICE.DOM.addElementTo(
+                        SERVICE.DOM.createElement( "div", { class: "archetype-feat-required" } ),
                         feat_div
                     );
                     SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "div", { class: "value" }, feat.description[ 0 ] || "" ),
-                        desc_div
+                        SERVICE.DOM.createElement( "span", { class: "archetype-feat-required-label" }, "Prérequis : " ),
+                        req_div
                     );
+
+                    // Prérequis : dévouements d'archétype
+                    if ( feat.required.archetypes && feat.required.archetypes.length ) {
+                        var arch_names = [];
+                        for ( var a = 0; a < feat.required.archetypes.length; a++ ) {
+                            arch_names.push( "Dévouement " + feat.required.archetypes[ a ].name );
+                        }
+                        SERVICE.DOM.addElementTo(
+                            SERVICE.DOM.createElement( "span", { class: "archetype-req-tag archetype-req-devotion" }, arch_names.join( ", " ) ),
+                            req_div
+                        );
+                    }
+
+                    // Prérequis : compétences
+                    if ( feat.required.skills ) {
+                        var skills     = feat.required.skills;
+                        var skill_list = skills.list || [];
+                        var label_map  = {
+                            "arcane"    : "Arcanes",
+                            "nature"    : "Nature",
+                            "occultism" : "Occultisme",
+                            "religion"  : "Religion",
+                            "trained"   : "qualifié",
+                            "expert"    : "expert",
+                            "master"    : "maître",
+                            "legendary" : "légendaire"
+                        };
+                        var skill_texts = [];
+                        for ( var s = 0; s < skill_list.length; s++ ) {
+                            var sk = skill_list[ s ];
+                            skill_texts.push( ( label_map[ sk.level ] || sk.level ) + " en " + ( label_map[ sk.type ] || sk.type ) );
+                        }
+                        var intro = skills.choices > 1 ? skills.choices + " parmi : " : "";
+                        SERVICE.DOM.addElementTo(
+                            SERVICE.DOM.createElement( "span", { class: "archetype-req-tag archetype-req-skill" }, intro + skill_texts.join( " ou " ) ),
+                            req_div
+                        );
+                    }
+                }
+
+                // Description du don (tous les paragraphes)
+                if ( feat.description && feat.description.length ) {
+                    var desc_div = SERVICE.DOM.addElementTo(
+                        SERVICE.DOM.createElement( "div", { class: "archetype-feat-desc" } ),
+                        feat_div
+                    );
+                    for ( var d = 0; d < feat.description.length; d++ ) {
+                        SERVICE.DOM.addElementTo(
+                            SERVICE.DOM.createElement( "p", {}, feat.description[ d ] ),
+                            desc_div
+                        );
+                    }
                 }
             }
         }
-        
+
         return this.getDomElement();
     }
 };
 
 SERVICE.CLASS.addPrototype( ARCHETYPES.ArchetypePopup, ARCHETYPES.Archetype );
 
+/*
+ * Archetypes : container de tous les archétypes
+ */
 ARCHETYPES.Archetypes           = function () {
     this.init();
 };
@@ -90,7 +167,7 @@ ARCHETYPES.Archetypes.prototype = {
         if ( !ARCHETYPES.ENUM ) {
             return;
         }
-        for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
+        for ( var i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
             this.add( new ARCHETYPES.ArchetypePopup( ARCHETYPES.ENUM[ i ] ) );
         }
     }
@@ -98,6 +175,9 @@ ARCHETYPES.Archetypes.prototype = {
 
 SERVICE.CLASS.addPrototype( ARCHETYPES.Archetypes, OBJECT.InterfaceContainerHtml );
 
+/*
+ * WindowGroup : groupe de fenêtres pour le popup de sélection
+ */
 ARCHETYPES.WindowGroup           = function () {
     this.init( "archetype_window_group" );
 };
@@ -108,14 +188,16 @@ ARCHETYPES.WindowGroup.prototype = {
         this.initWithData();
     },
     initWithData: function () {
-        let none     = this.addSpecific( this.getChildConstructor( ARCHETYPES.default_value, this.getName() ) );
-        let dom_none = SERVICE.DOM.createElement( "div", { class: "edition-property description" } );
+        // Option "Aucun"
+        var none     = this.addSpecific( this.getChildConstructor( ARCHETYPES.default_value, this.getName() ) );
+        var dom_none = SERVICE.DOM.createElement( "div", { class: "edition-property description" } );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "value" }, "Aucun Archétype" ), dom_none );
         none.setContentDomElementTarget( dom_none );
-        
-        for ( let i = 0, _size_i = CONTROLLER.Main.archetypes.getSize(); i < _size_i; i++ ) {
-            let current = CONTROLLER.Main.archetypes.getContent( i );
-            let added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
+
+        // Tous les archétypes
+        for ( var i = 0, _size_i = CONTROLLER.Main.archetypes.getSize(); i < _size_i; i++ ) {
+            var current = CONTROLLER.Main.archetypes.getContent( i );
+            var added   = this.addSpecific( this.getChildConstructor( current.name, this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }
     }
