@@ -1,5 +1,8 @@
 "use strict";
-SERVICE.DOM = (function ( self ) {
+/**
+ * @typedef {Object} SERVICE.DOM
+ */
+SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
     self.STYLE                                     = {
         LEFT            : "left",
         RIGHT           : "right",

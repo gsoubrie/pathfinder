@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class LEGACIES.Legacies
+ * @extends OBJECT.InterfaceContainerHtml
+ */
 LEGACIES.Legacies           = function () {
 };
 LEGACIES.Legacies.prototype = {
@@ -13,7 +17,10 @@ LEGACIES.Legacies.prototype = {
 
 SERVICE.CLASS.addPrototype( LEGACIES.Legacies, OBJECT.InterfaceContainerHtml );
 
-
+/**
+ * @class LEGACIES.LegacyPopup
+ * @extends LEGACIES.Legacy
+ */
 LEGACIES.LegacyPopup           = function ( data ) {
     this.init( data );
 };
@@ -44,7 +51,10 @@ LEGACIES.LegacyPopup.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( LEGACIES.LegacyPopup, LEGACIES.Legacy );
-
+/**
+ * @class LEGACIES.WindowGroup
+ * @extends WINDOW_V2.ElementGroupFromData
+ */
 LEGACIES.WindowGroup           = function () {
     this.init( "race_window_group" );
 };

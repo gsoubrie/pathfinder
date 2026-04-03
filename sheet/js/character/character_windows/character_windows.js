@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class CHARACTER.WindowGroup
+ * @extends WINDOW_V2.ElementGroupFromData
+ */
 CHARACTER.WindowGroup           = function () {
     this.init( "character_group" );
 };

@@ -1,8 +1,8 @@
 "use strict";
-
-
-
-
+/**
+ * @class CLASSES.WindowGroup
+ * @extends WINDOW_V2.ElementGroupFromData
+ */
 CLASSES.WindowGroup           = function () {
     this.init( "class_window_group" );
 };
@@ -26,7 +26,10 @@ CLASSES.WindowGroup.prototype = {
 
 SERVICE.CLASS.addPrototype( CLASSES.WindowGroup, WINDOW_V2.ElementGroupFromData );
 
-
+/**
+ * @class HISTORICS.WindowGroup
+ * @extends WINDOW_V2.ElementGroupFromData
+ */
 HISTORICS.WindowGroup           = function () {
     this.init( "historic_window_group" );
 };

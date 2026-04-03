@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class OBJECT.InterfaceHtml
+ * @extends GS.OBJECT.GsObject
+ */
 OBJECT.InterfaceHtml           = function () {
 };
 OBJECT.InterfaceHtml.prototype = {
@@ -49,7 +53,9 @@ OBJECT.InterfaceHtml.prototype = {
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.InterfaceHtml, GS.OBJECT.GsObject );
-
+/**
+ * @class OBJECT.InterfaceContainer
+ */
 OBJECT.InterfaceContainer           = function () {
     this.initContents();
 };
@@ -230,6 +236,11 @@ OBJECT.InterfaceContainer.prototype = {
     }
 };
 
+/**
+ * @class OBJECT.InterfaceContainerHtml
+ * @extends OBJECT.InterfaceContainer
+ * @extends OBJECT.InterfaceHtml
+ */
 OBJECT.InterfaceContainerHtml           = function () {
 };
 OBJECT.InterfaceContainerHtml.prototype = {

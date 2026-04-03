@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class CHARACTER.GeneralWindow
+ * @extends WINDOW_V2.ElementFromData
+ */
 CHARACTER.GeneralWindow = function ( window_name, parent_name ) {
     this.initSpecific( window_name, parent_name );
 };

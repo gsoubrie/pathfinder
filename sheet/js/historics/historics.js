@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class HISTORICS.Historic
+ * @extends OBJECT.InterfaceHtml
+ */
 HISTORICS.Historic           = function () {
     this.init();
 };
@@ -49,7 +53,10 @@ HISTORICS.Historic.prototype = {
 
 SERVICE.CLASS.addPrototype( HISTORICS.Historic, OBJECT.InterfaceHtml );
 
-
+/**
+ * @class HISTORICS.Historics
+ * @extends OBJECT.InterfaceContainerHtml
+ */
 HISTORICS.Historics           = function () {
     this.init();
 };
@@ -65,7 +72,10 @@ HISTORICS.Historics.prototype = {
 
 SERVICE.CLASS.addPrototype( HISTORICS.Historics, OBJECT.InterfaceContainerHtml );
 
-
+/**
+ * @class HISTORICS.HistoricsPopup
+ * @extends HISTORICS.Historic
+ */
 HISTORICS.HistoricsPopup           = function ( data ) {
     this.init( data );
 };

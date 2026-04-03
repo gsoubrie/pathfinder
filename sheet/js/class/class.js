@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class CLASSES.Class
+ * @extends CHARACTER.ComponentInterfacePopup
+ */
 CLASSES.Class           = function () {
     this.init();
 };

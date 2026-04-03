@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class CHARACTER.CharacteristicWindow
+ * @extends WINDOW_V2.ElementFromData
+ */
 CHARACTER.CharacteristicWindow           = function ( window_name, parent_name ) {
     this.initSpecific( window_name, parent_name );
 };

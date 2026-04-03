@@ -1,5 +1,3 @@
-//priority 20
-//__lib__ lib_common
 "use strict";
 var PHASE = {
     INIT             : "INIT",
@@ -8,6 +6,9 @@ var PHASE = {
     RUNNING_TO_STRING: "RUNNING"
 };
 
+/**
+ * @class PHASE.Phase
+ */
 PHASE.Phase           = function ( parent_object ) {
     this.previous_phase             = null;
     this.current_phase              = PHASE.INIT;
@@ -92,6 +93,10 @@ PHASE.Phase.prototype = {
     }
 };
 
+/**
+ * @class PHASE.PhaseInterface
+ * @extends OBJECT.InterfaceHtml
+ */
 PHASE.PhaseInterface           = function () {
 };
 PHASE.PhaseInterface.prototype = {

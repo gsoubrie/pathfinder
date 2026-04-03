@@ -1,5 +1,8 @@
 "use strict";
-SERVICE.STRING = (function ( self ) {
+/**
+ * @typedef {Object} SERVICE.STRING
+ */
+SERVICE.STRING = (function ( /** @type {SERVICE.STRING} */ self ) {
     self.replaceAll                   = function ( string, target, replacement ) {
         return string.split( target ).join( replacement || '' );
     };

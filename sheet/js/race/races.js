@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class RACES.Races
+ * @extends OBJECT.InterfaceContainerHtml
+ */
 RACES.Races           = function () {
     this.init();
 };
@@ -12,7 +16,10 @@ RACES.Races.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( RACES.Races, OBJECT.InterfaceContainerHtml );
-
+/**
+ * @class RACES.RacePopup
+ * @extends RACES.Race
+ */
 RACES.RacePopup           = function ( data ) {
     this.init( data );
 };
@@ -84,7 +91,10 @@ RACES.RacePopup.prototype = {
 
 SERVICE.CLASS.addPrototype( RACES.RacePopup, RACES.Race );
 
-
+/**
+ * @class RACES.WindowGroup
+ * @extends WINDOW_V2.ElementGroupFromData
+ */
 RACES.WindowGroup           = function () {
     this.init( "race_window_group" );
 };

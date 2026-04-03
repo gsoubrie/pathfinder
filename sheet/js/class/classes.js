@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @class CLASSES.Classes
+ * @extends OBJECT.InterfaceContainerHtml
+ */
 CLASSES.Classes           = function () {
     this.init();
 };
@@ -12,7 +16,10 @@ CLASSES.Classes.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CLASSES.Classes, OBJECT.InterfaceContainerHtml );
-
+/**
+ * @class CLASSES.ClassPopup
+ * @extends CLASSES.Class
+ */
 CLASSES.ClassPopup           = function ( data ) {
     this.init( data );
 };

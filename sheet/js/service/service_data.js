@@ -1,5 +1,8 @@
 "use strict";
-SERVICE.DATA = (function ( self ) {
+/**
+ * @typedef {Object} SERVICE.DATA
+ */
+SERVICE.DATA = (function ( /** @type {SERVICE.DATA} */ self ) {
     self.loadDataByUUID  = function ( uuid ) {
         return eval( uuid );
     };
