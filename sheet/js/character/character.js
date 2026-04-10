@@ -78,6 +78,10 @@ CHARACTER.Current.prototype = {
             case "event__gift__toggle":
                 this.gifts.doActionAfter( event_name, params );
                 break;
+            case "click_on__window_navigation__done":
+                params[ "param__current_character__object" ] = this;
+                this.windows.doActionAfter( event_name, params );
+                break;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

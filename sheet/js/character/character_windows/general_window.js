@@ -3,8 +3,8 @@
  * @class CHARACTER.GeneralWindow
  * @extends WINDOW_V2.ElementFromData
  */
-CHARACTER.GeneralWindow = function ( window_name, parent_name ) {
-    this.initSpecific( window_name, parent_name );
+CHARACTER.GeneralWindow = function ( parent_name ) {
+    this.initSpecific( CHARACTER.GeneralWindow.NAME, parent_name );
 };
 
 CHARACTER.GeneralWindow.prototype = {
@@ -17,9 +17,6 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__damage_modal__confirm":
             case "event__health_history__load":
                 this.updateHealthDisplay();
-                break;
-            case "event__form__element_changed":
-                this.computeHtmlWithData( params[ "param__current_character__object" ] );
                 break;
         }
     },
@@ -219,4 +216,4 @@ CHARACTER.GeneralWindow.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.GeneralWindow, WINDOW_V2.ElementFromData );
 
-CHARACTER.GeneralWindow.NAME = "general";
+CHARACTER.GeneralWindow.NAME = "general_sheet";

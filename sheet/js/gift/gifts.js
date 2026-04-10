@@ -8,6 +8,7 @@ CHARACTER.Gifts = function () {
 };
 CHARACTER.Gifts.prototype = {
     init: function () {
+        console.log("GSOU", "[Gifts - init]",this );
         this.selected = {}; // { "nom du don" : true }
     },
     //********************************************  EVENT LISTENER  **************************************************//

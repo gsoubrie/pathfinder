@@ -11,11 +11,11 @@ CHARACTER.WindowGroup.prototype = {
         this.initCommon( group_name );
     },
     computeHtmlWithData: function ( character_object ) {
-        this.addSpecific( new CHARACTER.GeneralWindow( "general_sheet", this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.GeneralWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.CharacteristicWindow( "characteristic_sheet", this.getName() ), character_object );
-        this.addSpecific( new CHARACTER.LevelWindow( "level_sheet", this.getName() ), character_object );
-        this.addSpecific( new CHARACTER.GiftsWindow( "gifts_sheet", this.getName() ), character_object );
-        this.setActiveWindow( "general_sheet" );
+        this.addSpecific( new CHARACTER.LevelWindow( this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.GiftsWindow( this.getName() ), character_object );
+        this.setActiveWindow( CHARACTER.GeneralWindow.NAME );
         // this.setActiveWindow( "characteristic_sheet" );
         this.computeHtml();
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( ".character-sheet-windows" ) );

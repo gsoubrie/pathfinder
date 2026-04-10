@@ -57,7 +57,7 @@ CLASSES.Class.prototype = {
                 this.getArchetype().setValue( value );
                 break;
             default:
-                console.warn( "[IGNORED DATA]", key );
+                //console.warn( "[IGNORED DATA]", key );
         }
     }
     //********************************************  SAVE   **************************************************//

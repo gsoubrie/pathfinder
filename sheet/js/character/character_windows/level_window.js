@@ -3,8 +3,8 @@
  * @class CHARACTER.LevelWindow
  * @extends WINDOW_V2.ElementFromData
  */
-CHARACTER.LevelWindow           = function ( window_name, parent_name ) {
-    this.initSpecific( window_name, parent_name );
+CHARACTER.LevelWindow           = function ( parent_name ) {
+    this.initSpecific( CHARACTER.LevelWindow.NAME, parent_name, "Niveau" );
 };
 CHARACTER.LevelWindow.prototype = {
     initSpecific: WINDOW_V2.ElementFromData.initSpecific,
@@ -76,7 +76,7 @@ CHARACTER.LevelWindow.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.LevelWindow, WINDOW_V2.ElementFromData );
-
+CHARACTER.LevelWindow.NAME = "level_sheet";
 //┌─────────────────────────────── Points de Vie ───────────────────────────────┐
 //│ Points de Vie :      94                                                     │
 //├──────┬────────┬────────┬────────┬───────────────────────────────────────────┬

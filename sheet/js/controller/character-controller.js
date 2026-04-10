@@ -27,6 +27,7 @@ CONTROLLER.Character = (function ( self ) {
             case "event__heal_modal__confirm":                
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
+            case "click_on__window_navigation__done":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__form__element_changed":

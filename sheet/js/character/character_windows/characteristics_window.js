@@ -3,8 +3,8 @@
  * @class CHARACTER.CharacteristicWindow
  * @extends WINDOW_V2.ElementFromData
  */
-CHARACTER.CharacteristicWindow           = function ( window_name, parent_name ) {
-    this.initSpecific( window_name, parent_name );
+CHARACTER.CharacteristicWindow           = function ( parent_name ) {
+    this.initSpecific( CHARACTER.CharacteristicWindow.NAME, parent_name, "Characteristique" );
 };
 CHARACTER.CharacteristicWindow.prototype = {
     initSpecific: WINDOW_V2.ElementFromData.initSpecific,
@@ -30,4 +30,4 @@ CHARACTER.CharacteristicWindow.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.CharacteristicWindow, WINDOW_V2.ElementFromData );
 
-CHARACTER.CharacteristicWindow.NAME = "characteristics";
+CHARACTER.CharacteristicWindow.NAME = "characteristic_sheet";

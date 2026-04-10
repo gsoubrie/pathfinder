@@ -11849,6 +11849,7 @@ COMPONENT.LabelFromData.prototype = {
     computeHtml   : function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "gs-label-container " + this.getClass() } ) );
         this.dom_element_label = this.addDomElement( SERVICE.DOM.createElement( "span", { class: "gs-label" }, this.label ), this.dom_element );
+        console.log("GSOU", "[LabelFromData - computeHtml]", this );
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );

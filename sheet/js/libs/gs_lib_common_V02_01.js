@@ -241,13 +241,13 @@ GS.TOOLS.CLASS.addPrototype( WINDOW_V2.Element, GS.OBJECT.GsObjectHtml );
 WINDOW_V2.ElementFromData           = function ( window_name, parent_name ) {
     this.__class_name__ = 'WINDOW_V2.ElementFromData';
     this.initSpecific( window_name, parent_name );
-    
 };
 WINDOW_V2.ElementFromData.prototype = {
     init             : WINDOW_V2.Element.prototype.init,
-    initSpecific     : function ( window_name, parent_name ) {
+    initSpecific     : function ( window_name, parent_name, label_name ) {
+        this.label_name = label_name || "";
         this.init( window_name, parent_name );
-        this.label = new COMPONENT.LabelFromData( this.getName() );
+        this.label = new COMPONENT.LabelFromData( this.label_name || this.getName() );
     },
     getMainClass     : function () {
         return WINDOW_V2.CONST.CLASS.WINDOW_TAB + " flex-layout-inline-center-h-v gs-user-select-none";
