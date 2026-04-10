@@ -16,9 +16,11 @@ CHARACTER.GiftsWindow.prototype = {
                 CONTROLLER.Character.current_character.getGifts().doActionAfter( event_name, params );
                 return;
             case "click_on__window_navigation__done":
+                console.log("doaction");
                 if ( this.name === params[ "window_name" ] ) {
+                    SERVICE.DOM.empty(this.content_dom_element_target);
                     this.computeContent( params[ "param__current_character__object" ] );
-                    SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+                    
                 }
                 return;
         }
@@ -27,6 +29,7 @@ CHARACTER.GiftsWindow.prototype = {
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function () {
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "gifts-window" } );
+        SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
     
     computeContent: function ( character_object ) {
@@ -34,7 +37,6 @@ CHARACTER.GiftsWindow.prototype = {
         var sources = this._collectAllFeats( character_object );
         var self    = this;
         
-        // Filtre actif
         var filter_container = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "gifts-filters" } ),
             this.content_dom_element_target
@@ -42,7 +44,6 @@ CHARACTER.GiftsWindow.prototype = {
         
         var filter_state = { type: "all", text: "" };
         
-        // Boutons de type
         var types = [
             { key: "all", label: "Tous" },
             { key: "general", label: "Généraux" },
@@ -98,7 +99,7 @@ CHARACTER.GiftsWindow.prototype = {
     
     _collectAllFeats: function ( character_object ) {
         var all = [];
-        
+        console.log("xxx");
         var class_name     = character_object.getClass().getValue();
         var race_name      = character_object.getRace().getValue();
         var archetype_name = character_object.getClass().getArchetype().getValue();
