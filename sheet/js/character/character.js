@@ -8,7 +8,7 @@ CHARACTER.Current = function () {
     this.name_object     = new CHARACTER.Name();
     this.player          = new CHARACTER.Player();
     this.alignment       = null;
-    this.level           = null;
+    this.level           = new CHARACTER.Levels();
     this.point_heroism   = null;
     this.race            = new RACES.Race();
     this.health          = new CHARACTER.Health();
@@ -141,7 +141,7 @@ CHARACTER.Current.prototype = {
                 this.updateHtmlData( key, value );
                 break;
             case "level":
-                this[ key ] = parseInt( value );
+                this[ key ].setCurrentLevel( value );
                 break;
             case "health":
                 this.health.updateData( value );

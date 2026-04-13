@@ -81,8 +81,8 @@ CHARACTER.Level.prototype = {
 
 /**
  * @param {string} label
- * @returns {string}  "skill_feat" | "skill_increase" | "general_feat" | "ancestry_feat" |
- *                    "attribute_boost" | "spell" | "class_feat" | "class_feature"
+ * @returns {string}  "skill_skill" | "skill_increase" | "general_skill" | "ancestry_skill" |
+ *                    "attribute_boost" | "spell" | "class_skill" | "class_feature"
  */
 CHARACTER.Level.detectType = function ( label ) {
     var low = label.toLowerCase();
@@ -95,17 +95,17 @@ CHARACTER.Level.detectType = function ( label ) {
     if ( LEVEL.KEYWORDS.GENERAL_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "general_feat";
+        return "general_skill";
     }
     if ( LEVEL.KEYWORDS.SKILL_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "skill_feat";
+        return "skill_skill";
     }
     if ( LEVEL.KEYWORDS.ANCESTRY_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "ancestry_feat";
+        return "ancestry_skill";
     }
     if ( LEVEL.KEYWORDS.ATTRIBUTE_BOOST.some( function ( k ) {
         return low.indexOf( k ) !== -1;
@@ -119,7 +119,7 @@ CHARACTER.Level.detectType = function ( label ) {
     }
     // Don de classe = "don de X" ou "don d'X" (pas "don général", "don de compétence", "don ancestral")
     if ( low.indexOf( "don de " ) !== -1 || low.indexOf( "don d'" ) !== -1 ) {
-        return "class_feat";
+        return "class_skill";
     }
     return "class_feature";
 };
@@ -143,14 +143,15 @@ CHARACTER.Levels.prototype = {
     getLevelByNumber: function ( n ) {
         return this.getContentByUUID( n );
     },
+    setCurrentLevel: function ( to_set ) {
+        this.current = to_set;
+    },
     //********************************************  UPDATE DATA   **************************************************//
     /**
      * @param {object} class_data   Objet CLASSES.ClassPopup (a capacity_by_level et life_point_by_level)
      * @param {number} char_level   Niveau actuel du personnage (1-20)
      */
     buildFromClass: function ( class_data, char_level ) {
-        this.initContents();
-        
         if ( !class_data ) {
             return;
         }
