@@ -9,7 +9,7 @@ let a9b2dfe206c0Ab01Dc3c75a66230924c = {
     },
     "class"          : {
         "value"    : "Champion",
-        "archetype": "Agent d'Alkenastre"
+        "archetype": "Acrobate"
     },
     "characteristics": {
         "FOR": {

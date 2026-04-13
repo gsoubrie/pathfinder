@@ -168,7 +168,7 @@ const PF2_ARCHETYPES = (function () {
         const data = {
             traits     : [],
             description: [],
-            feats      : []
+            skills      : []
         };
         
         /*
@@ -186,9 +186,6 @@ const PF2_ARCHETYPES = (function () {
         
         data.traits = Array.from( traitSet );
         
-        /*
-        DESCRIPTION + FEATS
-        */
         
         const descContainer = details.querySelector( ".description" );
         
@@ -214,7 +211,7 @@ const PF2_ARCHETYPES = (function () {
                     description: []
                 };
                 
-                data.feats.push( currentFeat );
+                data.skills.push( currentFeat );
                 return;
             }
             
@@ -315,8 +312,6 @@ const PF2_ARCHETYPES = (function () {
                 ...base,
                 ...self.parseDetails( details )
             };
-            
-            console.log( "✔", fullData.name );
             
             results.push( fullData );
         }

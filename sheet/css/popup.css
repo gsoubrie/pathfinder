@@ -434,7 +434,7 @@
 }
 
 /* Titre section dons */
-.archetype-feats-title {
+.archetype-skills-title {
     font-size     : 16px;
     font-weight   : bold;
     color         : #d4af37;
@@ -447,7 +447,7 @@
 }
 
 /* Carte d'un don */
-.archetype-feat {
+.archetype-skill {
     background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
     border        : 1px solid #6b4e2a;
     border-left   : 4px solid #8b6914;
@@ -459,21 +459,21 @@
     transition    : border-color 0.2s ease;
 }
 
-.archetype-feat:hover {
+.archetype-skill:hover {
     border-color      : #d4af37;
     border-left-color : #ffd700;
     box-shadow        : 0 3px 12px rgba(212, 175, 55, 0.15);
 }
 
 /* En-tête du don */
-.archetype-feat-header {
+.archetype-skill-header {
     display         : flex;
     justify-content : space-between;
     align-items     : center;
     gap             : 10px;
 }
 
-.archetype-feat-name {
+.archetype-skill-name {
     font-size   : 15px;
     font-weight : bold;
     color       : #f0d890;
@@ -481,7 +481,7 @@
     flex        : 1;
 }
 
-.archetype-feat-level {
+.archetype-skill-level {
     background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
     border        : 1px solid #d4af37;
     border-radius : 4px;
@@ -494,7 +494,7 @@
 }
 
 /* Prérequis */
-.archetype-feat-required {
+.archetype-skill-required {
     display     : flex;
     flex-wrap   : wrap;
     align-items : center;
@@ -502,7 +502,7 @@
     font-size   : 12px;
 }
 
-.archetype-feat-required-label {
+.archetype-skill-required-label {
     color       : #b09070;
     font-weight : bold;
     font-style  : italic;
@@ -528,18 +528,18 @@
 }
 
 /* Description du don */
-.archetype-feat-desc {
+.archetype-skill-desc {
     color       : #e0cdb0;
     font-size   : 13px;
     line-height : 1.55;
     margin-top  : 2px;
 }
 
-.archetype-feat-desc p {
+.archetype-skill-desc p {
     margin : 0 0 6px 0;
     text-align: justify;
 }
 
-.archetype-feat-desc p:last-child {
+.archetype-skill-desc p:last-child {
     margin-bottom : 0;
 }

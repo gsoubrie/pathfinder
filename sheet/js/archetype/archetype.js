@@ -31,7 +31,7 @@ ARCHETYPES.Archetype.prototype = {
             case "level":
             case "traits":
             case "description":
-            case "feats":
+            case "skills":
                 this[ key ] = value;
                 break;
             default:

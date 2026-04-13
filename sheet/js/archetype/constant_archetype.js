@@ -14,7 +14,7 @@ var ARCHETYPES = {
     "description": [
       "Vous possédez un objet imprégné de puissance draconique, qu'il s'agisse d'un objet important qui vous a été offert par un puissant dragon, d'un trésor volé dans le magot d'un puissant dragon ou même d'un morceau du corps d'un dragon qui a été jeté ou retiré de force. Cet objet vous permet d'invoquer un fragment de l'essence de ce dragon pour accomplir de puissants exploits magiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_acolyte_draconique",
         "name": "Dévouement : Acolyte draconique",
@@ -264,7 +264,7 @@ var ARCHETYPES = {
       "Vous avez entraîné votre corps à accomplir d'incroyables et apparemment surhumaines prouesses de grâce et d'agilité. Vous vous déplacez de manière à laisser vos opposants sans défense et maladroits dans leur réponse, transformant chaque combat en performance artistique.",
       "Souvent sous-estimée, cette maîtrise du corps est utile aussi bien sur scène que sur un champ de bataille. En fait, l'acrobatie est un art souvent pratiqué parmi les voleurs, assassins et explorateurs."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_acrobate",
         "name": "Dévouement : Acrobate",
@@ -544,7 +544,7 @@ var ARCHETYPES = {
       "Les nouveaux rôles sont ajoutés au répertoire très lentement, les figures modernes comme la Grande Princesse Eutropie étant généralement évoquées à partir de références à d'autres rôles. Nombre de représentations de la pièce Cyricas et ses amis animaux présentent désormais un chien à ses côtés, par exemple, en référence à l'animal de compagnie bien-aimé de la Grande princesse.",
       "Bien qu'elle soit la plus célèbre au niveau international, l'académie Kitharodienne n'est pas l'unique dépositaire des histoires du Taldor. De nombreuses autres écoles du Taldor, comme le Collège Rhapsodique tout proche, enseignent ces classiques. Mais ces pièces et ces chansons sont si profondément ancrées dans la culture du Taldor que des prodiges apparaissent, parmi les soldats de Zimar jusqu'aux enclaves naines de Maheto."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_acteur_kitharodien",
         "name": "Dévouement : Acteur kitharodien",
@@ -739,7 +739,7 @@ var ARCHETYPES = {
       "10e Tir soudain",
       "18e Ouverture instantanée"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Agent des Éclaireurs",
@@ -756,7 +756,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un agent de terrain de la Société des Éclaireurs qui arpente le monde, tenu d'explorer, de coopérer. Vous explorez le monde, rassemblant des artefacts et des antiquités et conservez trace de vos aventures pour la postérité."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_agent_des_eclaireurs",
         "name": "Dévouement : Agent des Éclaireurs",
@@ -1199,7 +1199,7 @@ var ARCHETYPES = {
     "description": [
       "Beaucoup d'agitateurs voyagent au sein de la région de la Mer Intérieure en attirant l'attention sur eux-mêmes, faisant de grandes démonstrations de leurs hauts-faits et proclamant leurs exploits."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_agitateur_vantard",
         "name": "Dévouement : Agitateur vantard",
@@ -1332,7 +1332,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous réjouissez de bricoler avec les formules alchimiques et les substances durant votre temps libre et vos études ont progressé au-delà de la seule expérimentation."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_alchimiste",
         "name": "Dévouement : Alchimiste",
@@ -1438,7 +1438,7 @@ var ARCHETYPES = {
       "L'idée classique de la magie est celle d'un magicien grisonnant, penché sur un livre de sorts poussiéreux. Mais la magie est bien davantage. Elle est pensée, volonté et action et, avec les bons talismans, vous pouvez même transformer le tranchant d'une épée en un profond acte magique. Tout cela repose sur des petits talismans magiques que vous fixez à votre équipement. Vous savez comment fabriquer et utiliser le talisman parfait pour n'importe quelle tâche.",
       "L'utilité des talismans paraît infinie. Ils peuvent permettre aux épées de frapper plus durement, aux boucliers de mieux bloquer les coups, à accorder une vitesse dans une situation désespérée et même à sauver quelqu'un d'une chute fatale. Tout cela vous excite, autant que d'explorer jusqu'où vous pouvez pousser votre talent. Quelles sont les véritables limites de ces babioles ? Vous avez entendu des rumeurs et des récits d'amateurs qui, comme vous, maîtrisent l'art de créer et d'apposer des souvenirs magiques fantastiques. Certains affirment que ces grands sages ont trouvé le moyen d'apposer plusieurs talismans sur un unique objet, parvenant à contourner ainsi la limite la plus fondamentale de cet art. Que vous ayez reçu une véritable formation ou que vous ayez appris la magie comme un passe-temps, votre talent est indéniable et l'utilité des talismans est évidente. Tirez parti de chaque once de magie que vous pouvez manipuler et maîtrisez ces bibelots mystiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_amateur_de_talismans",
         "name": "Dévouement : Amateur de talismans",
@@ -1520,7 +1520,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez établi une relation avec une entité spirituelle connue comme étant une apparition, débloquant ainsi la capacité d'utiliser la magie animiste."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_animiste",
         "name": "Dévouement : Animiste",
@@ -1646,7 +1646,7 @@ var ARCHETYPES = {
       "La plupart des arbalétriers infiltrés dans la région de la mer Intérieure de Golarion proviennent soit de l'Ustalav, où les techniques ont commencé comme une forme spécialisée de chasse aux vampires, soit des Montagnes des cinq rois, où l'ingéniosité des nains a stimulé le développement de plusieurs types d'arbalètes spécialisées.",
       "D'autres arbalétriers infiltrés viennent typiquement de nations proches de l'un ou de ces deux endroits, là où l'équipement et les techniques ont pu se répandre le long des routes commerciales. L'Andoran et le Taldor incluent tous deux des unités \"d'opérations spéciales\" au sein de leurs hiérarchies militaires et d'espionnage. Les membres de telles unités se voient fournir de l'équipement spécialisé des nations naines qui leur sont alliés et ajoutent ensuite des poisons mortels que les ingénieurs nains ne daignent pas développer du fait de leur résistance ancestrale aux substances empoisonnées."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_arbaletrier_infiltre",
         "name": "Dévouement : Arbalétrier infiltré",
@@ -1819,7 +1819,7 @@ var ARCHETYPES = {
       "4e Dénicheur de pièges",
       "10e Retardement de piège"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_archeologue",
         "name": "Dévouement : Archéologue",
@@ -1943,7 +1943,7 @@ var ARCHETYPES = {
       "18e Posture de tirs multiples",
       "20e Volée impossible"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_archer",
         "name": "Dévouement : Archer",
@@ -2061,7 +2061,7 @@ var ARCHETYPES = {
       "8e Rechargement en courant",
       "20e Volée invraisemblable (Archer mystique)"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_archer_mystique",
         "name": "Dévouement : Archer mystique",
@@ -2247,7 +2247,7 @@ var ARCHETYPES = {
     "level": 0,
     "traits": [],
     "description": [],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Archétypes alchimiques",
@@ -2257,7 +2257,7 @@ var ARCHETYPES = {
     "description": [
       "Certains archétypes vous donnent la capacité d'utiliser l'Alchimie d'une manière similaire à celle d'un Alchimiste et précisent que vous obtenez les avantages d'Alchimie avancée ou d'Alchimie rapide."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "avantages_d_alchimie_avancee",
         "name": "Avantages d'Alchimie avancée",
@@ -2286,7 +2286,7 @@ var ARCHETYPES = {
       "Certains archétypes vous accordent un degré substantiel, vous permettant de lancer des sorts, même si c'est retardé par rapport à un personnage appartenant à une classe d'incantation. Un archétype d'incantation vous permet d'utiliser les activations Lancer un sort (comme celles des parchemins, des bâtons et des baguettes).",
       "Les archétypes d'incantation vous accordent la capacité de lancer des tours de magie dans leur don de dévouement, et puis possèdent un don d'incantation basique, un don d'incantation expert et un don d'incantation maître. Ces dons ont le même nom que celui de l'archétype. Par exemple, le don d'incantation maître de l'ensorceleur est appelé Incantation maître de l'ensorceleur. Tous les emplacements de sorts que vous obtenez des archétypes d'incantation sont sujets aux restrictions au sein de l'archétype. Par exemple, l'archétype d'archer mystique vous permet de choisir une liste de sort lorsque vous prenez son don de dévouement. Si vous choisissez la liste arcanique, l'archétype vous accorde alors des emplacements de sorts que vous ne pouvez utiliser que pour lancer des sorts arcaniques issus de votre répertoire d'archer mystique, même si vous êtes un ensorceleur avec des sorts arcaniques dans votre répertoire d'ensorceleur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "don_d_incantation_basique",
         "name": "Don d'incantation basique",
@@ -2322,7 +2322,7 @@ var ARCHETYPES = {
       "Certains archétypes, tels que les archétypes multiclasse de magus ou de conjurateur, vous accordent des capacités d'incantation qui sont calqués sur la manière dont les magi et les conjurateurs lancent des sorts, quoiqu'avec un retard comparés à un personnage issu de ces classes. Actuellement ces deux archétypes sont les seuls archétypes d'incantation limitée, mais d'autres archétypes à venir pourraient introduire d'autres archétypes d'incantation limitée qui ne soient pas des archétypes multiclasse. Un archétype d'incantation limitée vous permet d'utiliser des parchemins, des bâtons et des baguettes de la même manière qu'un membre d'une classe d'incantation le peut et le don d'incantation limitée limitée est considéré comme disposer d'une capacité de classe d'incantation.",
       "Les archétypes d'incantation limitée ont toujours un don d'incantation limité basique, un don d'incantation limitée experte et un don d'incantation limitée maître. Ces dont partagent le nom avec celui de l'archétype. Par exemple, le don d'incantation limitée basique du magus est dénommé Incantation maître du magus. Tous les emplacements de sorts que vous obtenez des archétypes d'incantation limitée ont des restrictions qui dépendent de l'archétype. Par exemple, l'archétype de conjurateur vous accorde des emplacements de sorts que vous ne pouvez utiliser que pour lancer des sorts de votre répertoire de conjurateur, même si vous êtes un ensorceleur avec des sorts de la même tradition dans votre répertoire d'ensorceleur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "don_d_incantation_limitee_basique",
         "name": "Don d'incantation limitée basique",
@@ -2357,7 +2357,7 @@ var ARCHETYPES = {
     "description": [
       "Vous choisissez un archétype de classe au niveau 1 et devez choisir son don de dévouement en tant que don de classe au niveau 2. Vous ne pouvez jamais avoir plus d'un archétype de classe."
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Archétypes de morts-vivants",
@@ -2365,7 +2365,7 @@ var ARCHETYPES = {
     "level": 0,
     "traits": [],
     "description": [],
-    "feats": [
+    "skills": [
       {
         "id": "avantages_de_mort_vivant_basiques",
         "name": "Avantages de mort-vivant basiques",
@@ -2401,7 +2401,7 @@ var ARCHETYPES = {
       "Certains archétypes possèdent le trait multiclasse. Ils vous permettent de diversifier votre formation avec des spécialités d'une autre classe. Vous ne pouvez choisir un don de dévouement multiclasse si vous êtes déjà un membre de cette classe.",
       "Source: Pathfinder Player Core pg. 215"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Archétypes spéciaux",
@@ -2412,7 +2412,7 @@ var ARCHETYPES = {
       "Certains dons d'archétype possèdent le trait compétence, vous permettant de les prendre à la place d'un don de compétence au lieu d'un don de classe. Un don de compétence est toujours pris en compte pour satisfaire la condition du dévouement. D'autres livres contiennent des archétypes de classe qui peuvent modifier vos capacités de classe dès le 1er niveau. Vous ne pouvez jamais avoir plus d'un archétype de classe.",
       "Source : Livre des joueurs 2 pg. 174"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Archifiélon",
@@ -2435,7 +2435,7 @@ var ARCHETYPES = {
       "Recherchant les êtres parfaits avant de mettre fin à la vie de tous les autres, Raetorgash (velstrac démagogue cruelle), la Ramasseuse de crânes, réside dans une tour faite d'os au coeur de la maison charnier Targothieh au sein du Nébulmonde. Elle juge souvent du potentiel des sujets par la forme et la composition de leurs crânes, en commençant habituellement par leur en retirer la peau et les muscles.",
       "Vous souhaitez compter parmi ces êtres mythiques. Vous avez accumulé du pouvoir, que ce soit par l'étude d'ouvrages occultes, l'accumulation de richesses ou la manipulation de pions inconscients au sein des sphères politiques. Vous ne vous souciez guère d'autre chose que de vos propres objectifs, bien que vous puissiez vous allier brièvement à d'autres pour une protection mutuelle ou un gain financier. Cependant, si le besoin s'en fait sentir, vous êtes prêt à abandonner ces liens sans même y réfléchir. Après tout, vous êtes destiné à vous asseoir sur un trône qui ne peut accueillir qu'une seule personne, et c'est vous. Le temps est venu pour vous d'établir votre royaume, de rassembler vos hordes diaboliques et de graver votre propre légende dans les annales de l'histoire."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_archifielon",
         "name": "Dévouement : Archifiélon",
@@ -2618,7 +2618,7 @@ var ARCHETYPES = {
       "10e Combat en aveugle , Maître de l'environnement",
       "12e Foulée du protecteur"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_arpenteur_d_horizon",
         "name": "Dévouement : Arpenteur d'horizon",
@@ -2745,7 +2745,7 @@ var ARCHETYPES = {
     "description": [
       "Les artefacts d'archétypes sont de puissants objets qui donnent accès à des dons d'archétype qui sont liés à l'artefact. Une fois qu'un artefact d'archétype est investi, il ne peut plus être ôté ou désinvesti par des moyens ordinaires. Entrer en possession d'un artefact d'archétype et l'investir vous donne accès à des dons d'archétype de la même manière qu'en choisissant le don de dévouement ordinaire d'un archétype standard et vous permet de choisir ses dons lorsque vous obtenez un don de classe. Un personnage ne peut investir qu'un seul artefact d'archétype au même moment. Tenter d'investir un artefact d'archétype supplémentaire échoue car le droit du premier artefact sur votre personne l'emporte sur celui du second. Aucun avantage n'est accordé, le second artefact n'est pas investi et vous êtes conscient de cet échec. Si l'artefact est détruit, le personnage qui lui est lié perd aussi accès à tous les dons accordés et doit immédiatement effectuer le réapprentissage de tous les dons accordés par l'artefact d'archétype au profit de nouveaux dons pour lesquels il se qualifie."
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Artilleur",
@@ -2759,7 +2759,7 @@ var ARCHETYPES = {
       "Un proverbe de l'artilleur veut que si un combat peut être gagné avec une épée, les batailles sont gagnées avec des canons. Ou, à la rigueur, avec des trébuchets, des tours de siège, des catapultes, des hwachas et tout autre matériel létal du corps des ingénieurs de combat. En tant que véritable artilleur, vous laissez les pistolets à deux balles et les couteaux à ceux qui n'ont besoin d'opérer qu'à petite échelle. Vous êtes un professionnel accompli dans l'art des armes à feu, un maestro capable de fusionner les mathématiques et le pouvoir de l'homme pour transformer n'importe quel mur de château, bataillon d'infanterie ou dragon déchaîné qui vous dérange en un cratère fumant dans le sol.",
       "Mais vous n'êtes pas seulement un démolisseur intrépide. Vous faites partie d'une équipe, habitué à vous coordonner avec votre unité pour optimiser votre rendement et votre efficacité. Qu'il s'agisse d'aider votre équipe à charger le prochain obus, de calculer rapidement la trajectoire du prochain tir de l'engin ou de tirer vous-même, votre présence au sein de l'équipe permet d'optimiser ses chances de réussite, créant ainsi un tout bien supérieur à la somme de ses parties."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_artilleur",
         "name": "Dévouement : Artilleur",
@@ -2900,7 +2900,7 @@ var ARCHETYPES = {
       "14e Bélier des cinq dieux , Tourbillon d'un orage d'été ,",
       "16e Tremblement de la montagne"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_artiste_martial",
         "name": "Dévouement : Artiste martial",
@@ -3070,7 +3070,7 @@ var ARCHETYPES = {
       "Comme de nombreuses générations de la nation d'Holomog ont été exposées à l'énergie céleste, la population de néphilims est plus importante que la moyenne. Ghunda Gutrim (musicien ganzi mâle turbulent) patrouille les frontières du Champ des vierges pour sauver et remonter le moral de ceux qui se sont accidentellement égarés dans la zone hantée.",
       "Vous comptez parmi ces héros qui ont le potentiel de réaliser leur ascension céleste. Que vous combattiez la méchanceté par la vertu, que vous inspiriez votre communauté à accomplir des actes de charité méritoires ou que vous agissiez en secret contre une vague grandissante de ténèbres, vos actions ont pour résultat de rendre le monde meilleur. Vous êtes probablement humble face à ces résultats, les considérant non pas comme le fruit d'un désir de gloire, mais comme le fruit d'un sentiment de compassion et d'empathie. Vous n'avez peut-être même pas conscience d'avoir attiré l'attention métaphysique des royaumes célestes. D'autres, en revanche, peuvent voir la lumière sacrée qui irradie de votre personne, si ce n'est physiquement, du moins spirituellement. Jusqu'à votre éventuelle ascension, vous continuez à œuvrer pour le bien commun, quels que soient les obstacles qui se dressent sur votre passage."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ascension_celeste",
         "name": "Dévouement : Ascension céleste",
@@ -3355,7 +3355,7 @@ var ARCHETYPES = {
       "6e Agresseur furtif , Arme empoisonnée",
       "10e Arme empoisonnée améliorée"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_assassin",
         "name": "Dévouement : Assassin",
@@ -3516,7 +3516,7 @@ var ARCHETYPES = {
       "8e Attaque groupée",
       "10e Sort d'école avancée , Arme empoisonnée améliorée , Coup de poignard opportuniste"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_assassin_de_la_mante_rouge",
         "name": "Dévouement : Assassin de la Mante rouge",
@@ -3705,7 +3705,7 @@ var ARCHETYPES = {
     "description": [
       "Les élémentalistes tianais de l'École des cinq souffles cherchent à assurer la maîtrise de l'un des cinq arts martiaux élémentaires exprimés par les postures suivantes : Posture du sang de fer pour le métal, Posture de la montagne pour la terre, Posture de l'onde réfléchissante pour l'eau, Posture de la flamme ravivée pour le feu et Posture de la forêt enchevêtrée pour le bois. On les appelle collectivement les postures élémentaires. Ceux de l'École des cinq souffles qui pratiquent les arts martiaux se voient enseigner à puiser dans le cycle élémentaire en apprenant, en maîtrisant les postures élémentaires et en passant rapidement de l'une à l'autre, en créant une forme d'art martial puissante et polyvalente. L'entraînement monastique est essentiellement un prérequis pour l'avant-garde des cinq souffles mais les artistes martiaux d'une grande diversité de classes pourraient trouver d'autres voies pour en maîtriser les techniques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_avant_garde_des_cinq_souffles",
         "name": "Dévouement : Avant-garde des cinq souffles",
@@ -3798,7 +3798,7 @@ var ARCHETYPES = {
     "description": [
       "Il y a de la rage enfouie en vous qui parfois se libère, en vous accordant de la puissance d'un barbare en plus de vos autres capacités."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_barbare",
         "name": "Dévouement : Barbare",
@@ -3904,7 +3904,7 @@ var ARCHETYPES = {
     "description": [
       "Une muse vous a appelé à vous plonger dans les savoirs occultes, ce qui vous permet de lancer quelques sorts. Plus vous vous y plongez, plus vos performances gagnent en puissance."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_barde",
         "name": "Dévouement : Barde",
@@ -4063,7 +4063,7 @@ var ARCHETYPES = {
       "10e Blocage au bouclier éclair",
       "12e Bouclier miroir , Sauvetage du bouclier"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_bastion",
         "name": "Dévouement : Bastion",
@@ -4169,7 +4169,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "8e Call Gun"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_bestiolero",
         "name": "Dévouement : Bestioléro",
@@ -4293,7 +4293,7 @@ var ARCHETYPES = {
     "description": [
       "Vous combattez avec élégance et style, ajoutant les astuces d'escrime à votre répertoire de combat."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_bretteur",
         "name": "Dévouement : Bretteur",
@@ -4417,7 +4417,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez passé des heures innombrables à démonter et remonter des objets complexes pour apprendre leur fonctionnement, vous donnant la compétence de tirer n'importe quoi à partir de matériaux invraisemblables. Bien que vos objets improvisés ne durent pas longtemps, ils correspondent juste à ce dont vous avez besoin en un instant et vos ennemis comprennent alors que s'ils peuvent parvenir à vous désarmer, le vrai défi est de vous garder dans cet état. Les pièces verrouillées, les pièges diaboliques et les situations désespérées sont pour ce qui vous concerne leur propre sorte d'énigme et les objets usuels autour de vous sont les parties que vous utilisez pour improviser votre propre solution. Peu de gens sont plus débrouillards. Avec un peu de temps et une poignée de mécanismes, de pièces et de gadgets, vous pouvez créer l'outil parfait pour n'importe quelle situation. Votre ingéniosité est extrêmement précieuse lorsque vous partez à l'aventure. Les aventuriers ne savent jamais vraiment ce qui les attend et se retrouvent souvent mal préparés pour la tâche à accomplir. Emmener un bricoleur comme vous, c'est comme emmener n'importe quel outil dont on pourrait avoir besoin, à condition que vos tentatives constantes de tout démonter et de tout remonter ne soient pas gênantes. On ne sait jamais ce dont on peut avoir besoin à l'avenir."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_bricoleur",
         "name": "Dévouement : Bricoleur",
@@ -4520,7 +4520,7 @@ var ARCHETYPES = {
     "description": [
       "Vous faites tomber les arbres et êtes un manieur de hache expérimenté, entraîné dans l'art du bûcheronnage par les bûcherons durs à la tâche de Turpin Rowe."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_bucheron_de_turpin_rowe",
         "name": "Dévouement : Bûcheron de Turpin Rowe",
@@ -4628,7 +4628,7 @@ var ARCHETYPES = {
       "Dons supplémentaires :",
       "8 Frappe réactive"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_capitaine",
         "name": "Dévouement : Capitaine",
@@ -4992,7 +4992,7 @@ var ARCHETYPES = {
       "Certains objets héritent de leur magie non pas par le biais d'un sort ou d'un rituel intentionnel, mais à travers des générations d'utilisation et de croyance, accumulant lentement le pouvoir et le dessein de ceux qui les entourent. La Capuche du vengeur ursin est un tel objet. Après avoir vaincu un puissant ours des cavernes, le chasseur ulfe Baruk a confectionné un casque et une cape à partir de la tête et de la fourrure de l'ours. Plus tard, Baruk s'est battu contre un linnorm, qu'il a réussi à tuer avant de succomber à sa malédiction. Son casque, imbibé du sang de l'homme et de la bête et saturé de la magie de la malédiction de la bête, fut revendiqué par la fille de Baruk, qui racontait souvent que le casque lui donnait la force et la férocité d'un ours, bien qu'il ne soit pas clair à l'époque s'il s'agissait d'une fanfaronnade.",
       "Au fil des générations, la magie de la capuche s'est avérée vraie et, plus encore, la magie a continué à s'accumuler et à évoluer avec des attributs de plus en plus ursins. Au fur et à mesure que la croyance et le pouvoir de chaque nouveau porteur s'imprègnent dans la capuche, le potentiel de l'artefact ne cesse de croître. Maintenant, ceux qui possèdent un lien avec l'artefact générationnel découvrent que la Capuche du vengeur ursin continue à accumuler du pouvoir en même temps qu'eux."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "capuche_du_vengeur_ursin_objet_2",
         "name": "Capuche du vengeur ursin Objet 2",
@@ -5110,7 +5110,7 @@ var ARCHETYPES = {
       "Vous êtes un combattant compétent et dévoué sur le champ de bataille qui se spécialise en combattant en chevauchant un puissant compagnon animal qui vous sert de monture. Vous et votre monture formez une équipe soudée, vous déplaçant avec une intention partagée pour devenir une puissante force sur le champ de bataille. Vous pourriez porter une bannière portant le nom d'une plus grande organisation, d'un seigneur lige ou d'un idéal que vous poursuivez ou vous pourriez combattre seulement pour enrichir votre propre prestige, votre réputation et vos coffres.",
       "Traditionnellement, on imagine les cavaliers chevauchant des destriers majestueux ou redoutables, mais en réalité, toutes sortes d'animaux peuvent jouer ce rôle honorable, des chiens de selle aux dinosaures. L'important n'est pas le type de monture, mais le lien existant entre le cavalier et son compagnon. Ce lien est leur véritable force."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_cavalier",
         "name": "Dévouement : Cavalier",
@@ -5461,7 +5461,7 @@ var ARCHETYPES = {
       "En Abaddon, la gent daémoniaque démontre quelque fois un étrange mélange de coopération et d'hostilité envers un autre. Il en va de même de leurs champions mortels dans l'Univers. La guerre engendre la famine et la peste, la sécheresse engendre la guerre, et tous les adorateurs de la fin de toutes choses façonnent la mort sous une forme ou une autre. Un Cavalier de l'Apocalypse peut se spécialiser dans une forme particulière de mort, mais tous les serviteurs daémoniaques savent que les domaines d'action des quatre Cavaliers se chevauchent souvent. Un groupe de cavaliers peut même coopérer pour accroître l'ampleur de leurs projets meurtriers, mais leurs montures de l'apocalypse surveillent attentivement qui respecte son serment et qui le trahit.",
       "Les Cavaliers de l'Apocalypse qui s'acquittent pleinement de leur engagement envers les Cavaliers se révèlent souvent être parmi les créatures les plus puissantes de leur monde. Ces serviteurs de la mort ne sont guère rassasiés lorsqu'un projet atteint le nombre de victimes souhaité. Les cavaliers qui y parviennent se lancent souvent dans une nouvelle forme de tuerie ou élaborent un plan plus vaste et plus meurtrier que celui pour lequel ils s'étaient engagés au départ. Un Cavalier de l'Apocalypse vraiment ambitieux tournera son regard noir vers son propre maître, imposant l'un des rares dogmes observés par les daémons : toutes les créatures doivent mourir, y compris les demi-dieux immortels qui sont restés incontestés pendant trop de siècles. Plusieurs fois au cours des millénaires, un Cavalier de l'Apocalypse ou un Diacre exalté a mis à mal un Cavalier en exercice et s'est emparé du poste du daémon. Un individu qui assume la charge de Cavalier devient immédiatement un daémon unique et prend le contrôle du royaume du précédent Cavalier sur le plan de l'Abaddon."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_cavalier_de_l_apocalypse",
         "name": "Dévouement : Cavalier de l'apocalypse",
@@ -5760,7 +5760,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes une personnalité spéciale... et vous le savez. Vous n'êtes pas seulement à l'aise sous la lumière, vous rêvez d'y être. Bien que la traditionnelle célébrité soit un musicien ou un autre type d'artiste, vous pourriez avoir acquis votre réputation de toute autre occupation. Vous savez comment utiliser votre position pour attirer l'attention des autres ou la ravir à ceux qui vous entourent. Lorsque vous êtes dans une pièce, tous les regards sont braqués sur vous, et vous adorez ça. Votre vie est un spectacle et vous êtes là pour capter l'amour et l'admiration de tous ceux qui vous regardent."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_celebrite",
         "name": "Dévouement : Célébrité",
@@ -6103,7 +6103,7 @@ var ARCHETYPES = {
       "Chacun de ces individus peut être considéré comme une chaîne brisée, destinée à faire tomber un tyran puissant ou un système d'oppression et à allumer une flamme de liberté qui se répercutera au long de l'histoire.",
       "C'est à vous de décider quel régime oppressif ou quel dirigeant vous allez abattre. À la tête de votre groupe de rebelles, aucun lien injuste ne survivra longtemps et les despotes maléfiques de tout le pays trembleront dans leurs bottes devant l'avancée de votre fureur ardente. Ils enverront des espions contre vos saboteurs infiltrés, des assassins mortels pour attaquer vos principaux alliés et au besoin toute la puissance de l'armée d'une nation. Vous devrez répondre à l'appel et mener votre mouvement contre ces menaces en étant suffisamment courageux pour assumer autant que possible le poids du danger. Inspirez vos partisans, protégez-les et conduisez-les vers la liberté."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chaine_brisee",
         "name": "Dévouement : Chaîne brisée",
@@ -6401,7 +6401,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez prêté un vœu solennel à votre divinité qui vous a accordé des pouvoirs de champion pour vous aider dans votre cause."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_champion",
         "name": "Dévouement : Champion",
@@ -6525,7 +6525,7 @@ var ARCHETYPES = {
       "Les fantômes ont une grande diversité de capacités et de caractéristiques. Jamais deux fantômes ne sont exactement les mêmes et la nature de leurs capacités dépend autant de qui ils étaient lorsqu'ils étaient en vie que de la manière dont ils sont morts. Les hantises sont un phénomène spirituel qui persiste sur le site de la mort ou de puissantes émotions, possèdent un lien mais sont distinctes des fantômes.",
       "Le chasseur de fantômes sait que les fantômes et les hantises partagent nombre de caractéristiques. En se concentrant sur ces similitudes, ils peuvent les traquer, se confronter à eux et vaincre toutes sortes d'esprits errants en les aidant à trouver la paix et à rejoindre l'après-vie."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chasseur_de_fantomes",
         "name": "Dévouement : Chasseur de fantômes",
@@ -6656,7 +6656,7 @@ var ARCHETYPES = {
       "8e Rechargement en courant",
       "14e Deux proies"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chasseur_de_gros_gibier",
         "name": "Dévouement : Chasseur de gros gibier",
@@ -6741,7 +6741,7 @@ var ARCHETYPES = {
       "4e Chasseur de monstres",
       "14e Deux proies"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chasseur_de_primes",
         "name": "Dévouement : Chasseur de primes",
@@ -6842,7 +6842,7 @@ var ARCHETYPES = {
     "description": [
       "Où que l'on aille au Tian Xia, il y a une chose que l'on peut toujours trouver avec une certaine fiabilité, c'est de la bonne nourriture. Les nombreux chefs talentueux du Tian Xia pratiquent un large éventail de techniques culinaires et nombre d'entre eux voyagent entre les États et les régions du continent aussi souvent que n'importe quel aventurier. Les chefs de Zi Ha se déplacent pour approfondir leurs connaissances des techniques culinaires, tandis que les cuisiniers des États successeurs du Lung Wa se rendent dans les cours étrangères pour afficher leur fierté à l'égard de leur cuisine régionale."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chef_itinerant",
         "name": "Dévouement : Chef itinérant",
@@ -6989,7 +6989,7 @@ var ARCHETYPES = {
       "Certains artistes martiaux se vouent à combattre lors du Défi du Ciel et du Paradis du Jalmeray. Ces individus se dédient aux mystères ésotériques du ciel.",
       "Vous pouvez choisir le don de dévouement de l'archétype Chercheur de paradis du Jalmeray même si vous n'avez pas encore obtenu trois dons d'archétype d'Étudiant de la perfection ."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chercheur_du_paradis_du_jalmeray",
         "name": "Dévouement : Chercheur du Paradis du Jalmeray",
@@ -7121,7 +7121,7 @@ var ARCHETYPES = {
       "Vous avez été particulièrement éclairé par les connaissances accumulées dans Seuils de vérité et vous savez que Zarmavdian était une âme sœur dans la recherche occulte. Avec ce livre en main, vous avez l'impression de vous tenir à la porte de découvertes occultes sans précédent.",
       "Vous vous moquez de ces imbéciles qui prétendent que vous vous mêlez de ce que les mortels ne sont pas censés savoir... car n'est-ce pas le devoir des éclairés de recueillir les vérités les plus profondes de l'univers ?"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chercheur_mystique",
         "name": "Dévouement : Chercheur mystique",
@@ -7353,7 +7353,7 @@ var ARCHETYPES = {
       "12e Réflexes tactiques",
       "16e Détermination"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chevalier_de_l_aigle",
         "name": "Dévouement : Chevalier de l'aigle",
@@ -7547,7 +7547,7 @@ var ARCHETYPES = {
     "description": [
       "Les Chevaliers infernaux sont parmi les plus féroces combattants de la Mer Intérieure car ils ont émergé des épreuves forgées par l'Enfer et sont prêts à servir de bastions sans visage à la Loi, là où le Chaos pourrait menacer d'émerger."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_chevaliers_infernaux",
         "name": "Archétypes de Chevaliers infernaux",
@@ -7691,7 +7691,7 @@ var ARCHETYPES = {
     "description": [
       "Les Chevaliers reconquérants ont passé beaucoup de temps parmi les horreurs des Terres tombales à sauver les civils qui restent et à frapper en retour les agents du Tyran qui murmure. Accomplir de tels objectifs nécessite l'adoption de tactiques subtiles avec une attention accrue portée sur la discrétion et la survie."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_chevalier_de_dernier_rempart",
         "name": "Archétypes de Chevalier de Dernier-Rempart",
@@ -8021,7 +8021,7 @@ var ARCHETYPES = {
     "description": [
       "Tirant leur rôle prépondérant des histoires héroïques de la Croisade étincelante, les Chevaliers vigilants se dressent comme un courageux exemple de moralité et d'honneur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_chevalier_de_dernier_rempart",
         "name": "Archétypes de Chevalier de Dernier-Rempart",
@@ -8409,7 +8409,7 @@ var ARCHETYPES = {
       "Un dragon choisit celui qui le chevauche. Peu sont assez valeureux.",
       "\"Avoir l'âme d'un dragon\" une expression avistanaise qui convient bien aux personnes qui font preuve d'un charisme indomptable, poursuivent un objectif inébranlable et font preuve d'une volonté de fer. De telles qualités sont la marque de chaque chevaucheur de drake, dans la mesure où un fier ou noble dragon exigera également du respect de toute personne qui chevauchera sur son dos. Un chevaucheur dévoué qui ne confondra pas violence et force et ne marquera pas la moindre hésitation ou terreur obtient un lien profond qui sera le produit du respect mutuel avec le dragon. Dans l'air comme sur le sol, ce lien forme une union létale entre le dragon et celui qui le chevauche."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chevaucheur_de_drake",
         "name": "Dévouement : Chevaucheur de drake",
@@ -8574,7 +8574,7 @@ var ARCHETYPES = {
       "Être un chirurgien est être une sorte de dieu. Entre vos mains, résident le pouvoir de donner la vie et la mort. D'un coup de scalpel, vous pouvez exciser une tumeur. Avec un autre, vous pouvez sectionner une artère. Tout dépend de votre habileté, de la fermeté de votre main, de l'acuité de votre regard et des connaissances de votre esprit. Il n'est donc pas étonnant qu'à Lépidstadt, entourés de tels pouvoirs et face à la tentation, les chirurgiens aillent parfois un cran au-delà. Avec les bons réactifs, avec le bon équipement, même la mort n'est plus qu'un inconvénient temporaire, une ombre que l'on chasse de la porte à coups de pied et de cris. Imaginez simplement les possibilités.",
       "Dons supplémentaires : 6e Non ! Non ! Je t'ai créé !"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chirurgien_de_lepidstadt",
         "name": "Dévouement : Chirurgien de Lépidstadt",
@@ -8743,7 +8743,7 @@ var ARCHETYPES = {
       "Dons supplémentaires :",
       "8e Domaine avancé"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_chroniqueur_au_coin_du_feu",
         "name": "Dévouement : Chroniqueur au coin du feu",
@@ -8927,7 +8927,7 @@ var ARCHETYPES = {
       "10e Formidable compagnon",
       "16e Frappe tourbillonante , Compagnon spécialisé"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_coeurwylder",
         "name": "Dévouement : Coeurwylder",
@@ -9122,7 +9122,7 @@ var ARCHETYPES = {
       "12e Renversement écrasant",
       "14e Balayage déséquilibrant , Final brutal"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_cogneur",
         "name": "Dévouement : Cogneur",
@@ -9226,7 +9226,7 @@ var ARCHETYPES = {
       "16e Déluge à deux armes , Riposte jumelée améliorée",
       "18e Défense jumelée"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_combattant_a_deux_armes",
         "name": "Dévouement : Combattant à deux armes",
@@ -9334,7 +9334,7 @@ var ARCHETYPES = {
       "Parmi les rares qui ont combiné avec leurs armes pour devenir un objet intelligent unique, l'âme de Yrrelin (liche homme serpent malicieux 21) réside maintenant au sein de cette faux Villainie. Il cherche désormais à décpaiter les plus grands héros de Golarion, l'un après l'autre, dans un élan zélé pour \"amener toute vie plus proche du dieu décapité, Ydersius.\" Ceux qui tiennent la lame sont submergés par la méchanceté de son ancien maître et incapables de contrôler leurs propres actions.",
       "Pour le meilleur ou le pire, le meurtre en plein ciel de Gorum a plongé le monde dans un nouvel âge de héros, de méchants et d'artefacts mythiques. La plupart des combattants qui ont reçu la bénédiction du dieu de la guerre ont tout de suite compris l'étincelle qui existait entre eux et l'arme qui n'était autrefois considérée que comme un outil de leur métier. Plus le temps passe à manier l'arme, plus ses capacités magiques sont grandes et plus la compréhension du combattant de sa nature singulière est grande. À la fin, peu peuvent dire à quel point le lien puissant entre une arme et son combattant à l'éclat de guerre grandira."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_combattant_a_l_eclat_de_guerre",
         "name": "Dévouement : Combattant à l'éclat de guerre",
@@ -9568,7 +9568,7 @@ var ARCHETYPES = {
       "Les combattants ailés se retrouvent indifféremment chez plusieurs ascendances. Si les animaux éveillés semblent capables d'utiliser ces techniques quasi-instinctivement, les tengus de la région de la Mer Intérieure sont ceux qui pratiquent le plus souvent ce style de combat. Les équipages de navires et de pirates de la région des Entraves apprécient particulièrement les compétences des tengus en matière d'abordage. Les guerriers capables de s'envoler, même temporairement, valent souvent leur prix lorsqu'ils rejoignent un équipage sur la Mer de Fièvre. Malgré l'armement à distance dont disposent la plupart des navires, de nombreux marins ont du mal à se défendre contre des assaillants aériens compétents.",
       "Même ceux qui développent des ailes plus tard dans leur vie, comme certains surkis ou ceux qui se voient greffer des ailes, peuvent apprendre le style de combat de combattant ailé. Bien qu'il s'agisse d'un long chemin, de nombreuses techniques sont réinventées, redécouvertes et même mises à jour par les différents guerriers."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_combattant_aile",
         "name": "Dévouement : Combattant ailé",
@@ -9846,7 +9846,7 @@ var ARCHETYPES = {
       "6e Nettoyer le passage",
       "14e Balayage déséquilibrant"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "combattant_de_legende_1er",
         "name": "Combattant de légende 1er",
@@ -10025,7 +10025,7 @@ var ARCHETYPES = {
     "description": [
       "Votre talent pour la stratégie et le commandement sur le champ de bataille s'est affiné pour devenir une compétence hors pair et vous pouvez utilisez votre intelligence vive pour aider vos alliés à remporter des victoires décisives."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_commandant",
         "name": "Dévouement : Commandant",
@@ -10140,7 +10140,7 @@ var ARCHETYPES = {
       "6e Plaquer au sol",
       "12e Plaquer au sol amélioré"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_competiteur_du_thlipit",
         "name": "Dévouement : Compétiteur du thlipit",
@@ -10368,7 +10368,7 @@ var ARCHETYPES = {
     "description": [
       "Alors que les cavaliers suivent une tradition ancienne de combat monté désormais usée, vous empruntez une voie plus moderne. Par une utilisation agressive des véhicules, vous roulez à travers le champ de bataille, terrassant vos adversaires. Vous allez plus loin que la simple utilisation d'un véhicule, vous le poussez à réaliser des cascades que ses concepteurs n'ont jamais prévues, transformant le véhicule en quelque chose de bien plus grand qu'un simple moyen de transport."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_conducteur_astucieux",
         "name": "Dévouement : Conducteur astucieux",
@@ -10499,7 +10499,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez un lien ténu avec un eidolon, un être sans corps qui partage votre force vitale et par vos efforts, vous pouvez manifester l'eidolon dans le monde."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_conjurateur",
         "name": "Dévouement : Conjurateur",
@@ -10660,7 +10660,7 @@ var ARCHETYPES = {
       "Bien que les humanoïdes ayant la capacité de se transformer en animaux ne soient pas universellement craints, ils sont regardés avec terreur dans de nombreux endroits en raison d'une confusion entre les créatures-garous et d'autres menaces. La malédiction se propageant de manière infectieuse et privant les personnes touchées du contrôle de leurs actions, les personnes soupçonnées d'être des créatures-garous ne peuvent que rarement vivre en paix.",
       "Alors que de nombreuses créatures-garous ne maîtrisent guère leurs propres transformations, un entraînement intensif ou une volonté exceptionnellement forte vous ont permis d'exercer un certain degré de maîtrise sur la bête qui sévit en vous, vous permettant non seulement de prendre votre forme bestiale à volonté, mais aussi de conserver votre propre conscience pendant que vous le faites. Dans de nombreux cas, cela permet également d'éviter de propager la malédiction. Cette maîtrise est plus courante dans les sociétés qui embrassent ou acceptent les créatures-garous, comme les pays ulfes au nord de l'Avistan et au sein des communautés d'animanthropes, où qu'elles se trouvent."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_creature_garou",
         "name": "Dévouement : Créature-garou",
@@ -11175,7 +11175,7 @@ var ARCHETYPES = {
       "Occulte"
     ],
     "description": [],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Dandy",
@@ -11195,7 +11195,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un maître distingué du style, de la culture et du décorum, conscient des plus subtiles des règles de l'étiquette."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_dandy",
         "name": "Dévouement : Dandy",
@@ -11511,7 +11511,7 @@ var ARCHETYPES = {
       "Fortune"
     ],
     "description": [],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Danseur de balle",
@@ -11533,7 +11533,7 @@ var ARCHETYPES = {
       "14e : Tir ricochet",
       "16e : Clou du spectacle , Fusillade à deux armes"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_danseur_de_balle",
         "name": "Dévouement : Danseur de balle",
@@ -11640,7 +11640,7 @@ var ARCHETYPES = {
       "Certaines capacités de danseur de l'éventail exigent que vous maniiez un ou plusieurs éventails, qui peuvent être un éventail de combat ou un éventail normal utilisé comme une arme improvisée.",
       "Les personnages qui sont originaires du Tian Xia ont accès à l'archétype de danseur de l'éventail."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_danseur_de_l_eventail",
         "name": "Dévouement : Danseur de l'éventail",
@@ -11916,7 +11916,7 @@ var ARCHETYPES = {
       "5e Danse de l'ombre , Saut de l'ombre",
       "6e Illusion de l'ombre"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_danseur_de_l_ombre",
         "name": "Dévouement : Danseur de l'ombre",
@@ -12035,7 +12035,7 @@ var ARCHETYPES = {
       "10e Repousser avec l'armure",
       "12e Rempart puissant"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_fidele_defenseur",
         "name": "Dévouement : Fidèle défenseur",
@@ -12263,7 +12263,7 @@ var ARCHETYPES = {
     "description": [
       "Tandis que des explosions successives font s'écrouler les murs d'un château, vous souriez et essuyez la poussière de la pierre liée à votre bricolage. La force brute peut fonctionner pour d'autres mais l'application de la science qui permet de placer les bons explosifs au bon endroit est essentielle à votre métier."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_demolisseur",
         "name": "Dévouement : Démolisseur",
@@ -12359,7 +12359,7 @@ var ARCHETYPES = {
       "Dans certaines campagnes, il peut être préférable que tous les PJ partagent la même destinée mythique. Si l'histoire porte sur la défaite des Cavaliers de l'apocalypse en vainquant les cavaliers existants puis en devenant à leur tour les Cavaliers de la famine, de la guerre, de la mort et de la pestilence, alors il serait logique que tous les joueurs adoptent la destinée mythique de Cavalier de l'apocalypse. De même, si le thème central de l'aventure conduit les PJ à atteindre la divinité par leurs exploits, le choix le plus cohérent pour la campagne pourrait amener tous les joueurs à adopter la destinée mythique de divinité mineure.",
       "Vous pouvez également utiliser les destinées mythiques comme des archétypes de haut niveau dans des campagnes non mythiques. Dans ce cas, le don de niveau 12 doit obtenir le trait dévouement et les dons ultérieurs doivent recevoir le trait archétype. Vous devriez supprimer ou ignorer les capacités nécessitant des Points mythiques lorsque vous utilisez les destinées mythiques de cette manière."
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Détails du dévouement",
@@ -12370,7 +12370,7 @@ var ARCHETYPES = {
       "Chaque don de dévouement d'archétype représente l'effort que votre personnage a fourni pour apprendre un nouvel ensemble de capacités, lui rendant impossible de diviser son attention et de poursuivre un autre archétype en même temps. Une fois que vous avez choisi un don de dévouement, vous ne pouvez choisir un don de dévouement différent jusqu'à ce que vous terminiez votre dévouement en prenant deux autres dons de votre archétype actuel. Vous ne pouvez réapprendre un don de dévouement tant que vous avez d'autres dons de cet archétype.",
       "Source : Livre du joueur pg. 215"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Détective palatin (Archétype de classe)",
@@ -12395,7 +12395,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "6e Bannissement , Ritualiste thaumaturgique ."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "detective_palatin_1er",
         "name": "Détective palatin 1er",
@@ -12590,7 +12590,7 @@ var ARCHETYPES = {
       "Ceux qui voyagent hors du temps peuvent atteindre l'avenir qu'ils recherchent mais ils ne peuvent jamais le savoir avant d'être revenus dans leur propre époque. La nature même de leur existence peut faire fluctuer leur héritage. On dit que le grand cyclope Urghan (cyclop primordialiste tourmenté 17) est piégé dans une répétition constante de décisions qu'il a fait avant que la Pierre d'étoiles ne chute, vivant dans une réalité pour l'essentiel mais répondant fréquemment aux stimuli de lignes temporelles variées, son but ultime étant la protection d'un empire de la dévastation globale. Avant encore, sept seigneurs des runes ont créé des demi-plans ou ont utilisé une magie avancée pour se verrouiller eux-mêmes en dehors de leur propre chronologie naturel, soit pour obtenir plus de temps pour se préparer ou pour revenir un jour vers un monde qui a déjà survécu à la calamité.",
       "Les aventuriers isolés du temps perçoivent son écoulement de différentes manières, mais jamais de la même façon que ceux qui vivent le temps de manière traditionnelle. Leur exposition leur confère des capacités d'adaptation qui accélèrent leurs déplacements ou leur permettent de vivre le temps à des vitesses différentes de celles des autres. Avec l'expérience, ils peuvent canaliser leurs perceptions fluides, pour imposer à leurs ennemis un écoulement du temps défavorable. En fin de compte, ceux qui s'adaptent le mieux à leur situation apprennent à tromper leur mortalité : ils ne sont pas immunisés contre la mort mais ils ne vieillissent pas non plus. L'immunité aux rigueurs du temps leur permettent d'influencer les évènements à la fois avant et après leur naissance et leur vie. Il n'y a pas d'autre pouvoir qui puisse ressembler au voyage temporel, mais rien non plus de plus dangereux."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_detraqueur_temporel",
         "name": "Dévouement : Détraqueur temporel",
@@ -12815,7 +12815,7 @@ var ARCHETYPES = {
       "Les vagues ondulantes de terreur, le bruissement des épaisses écailles et le battement d'immenses ailes donnent le signal de l'arrivée d'un grand dragon. La présence terrifiante de ces créatures leur vaut une grande révérence voire même d'une véritable vénération. Les disciples draconiques se dédient eux-mêmes à devenir comme ces grandes bêtes, chaque disciple cherchant à être le type même d'une des variétés de dragon. Les sorciers de lignage draconique, les barbares avec l'instinct de dragon et de nombreux kobolds avec des liens proches de leurs prédécesseurs draconiques deviennent des disciples draconiques, mais quiconque a rencontré une de ces terrifiantes créatures pourrait vouloir suivre leurs traces.",
       "En tant que disciple draconique, vous étudiez et prenez exemple sur les dragons mais cela ne signifie pas nécessairement que vous admiriez les dragons auxquels vous cherchez à ressembler. Alors que la plupart des disciples draconiques révèrent le dragon qu'ils ont choisi, nombres de contes de disciples draconiques nés d'immenses tragédies personnelles aux griffes de la furie sans bornes de dragons abondent. Ces disciples se sont eux-mêmes transformés d'une manière qui les dégoûte en vue de gagner le pouvoir de détruire leur tourmenteur draconique afin d'obtenir au bout du compte leur revanche."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_disciple_draconique",
         "name": "Dévouement : Disciple draconique",
@@ -13101,7 +13101,7 @@ var ARCHETYPES = {
       "C'est à vous de décider ce qui vous pousse à transcender la mortalité et à marcher parmi les immortels. La force d'attraction de la divinité peut vous déconnecter des préoccupations des mortels, mais votre hiérophante est là pour vous permettre de garder les pieds sur terre et de rester en contact avec le monde des mortels.",
       "Il s'agit de la relation la plus essentielle et la plus importante que vous développerez au cours de vos aventures car votre hiérophante vous rappelle d'où vous venez et vous aide à devenir le dieu que vous cherchez à être. La plupart des hiérophantes deviennent le premier grand prêtre d'une divinité mineure qui atteint la pleine divinité, et certains peuvent même devenir un héraut ou un allié tout aussi puissant."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_divinite_inferieure",
         "name": "Dévouement : Divinité inférieure",
@@ -13309,7 +13309,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous êtes lié d'amitié avec un animal qui vous sert d'assistant capable et de loyal gardien."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_dompteur",
         "name": "Dévouement : Dompteur",
@@ -13415,25 +13415,25 @@ var ARCHETYPES = {
   },
   {
     "name": "Dons qui accordent des dons",
-    "name_en": "Feats that Grant Feats",
+    "name_en": "skills that Grant skills",
     "level": 0,
     "traits": [],
     "description": [
       "Quelques fois, un archétype vous permet de choisir un autre don, tel qu'un don de classe de niveau inférieur. Vous devez toujours remplis tout prérequis du don que vous obtenez de cette manière. Cela est toujours considéré comme un unique don pour les besoins de votre dévoument. Par exemple, prendre le don d'archétype de barbare Furie basique pour prendre le don Charge soudaine ne compte que comme un unique don et non deux.",
       "Source : Livre du joueur pg. 215"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Dons supplémentaires",
-    "name_en": "Additional Feats",
+    "name_en": "Additional skills",
     "level": 0,
     "traits": [],
     "description": [
       "Certains archétypes incluent une liste de \"Dons supplémentaires\" qui apparaissent dans d'autres sources. La liste inclut chaque niveau du don, qui pourrait être différent du niveau normal lorsqu'il est obtenu par le biais de l'archétype. Vous pouvez prendre le don comme un don d'archétype de ce niveau, ce qui signifie qu'il est pris en compte pour calculer le nombre de dons nécessaires du don de dévouement de l'archétype. Lorsqu'il est obtenu de cette manière, un don qui possède normalement un trait de classe (comme le trait guerrier) ne possède pas ce trait de classe.",
       "Source : Livre du joueur pg. 215"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Druide",
@@ -13450,7 +13450,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez intégré un cercle druidique et avez appris quelques secrets de l'ordre, ce qui vous accorde un pouvoir primordial."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_druide",
         "name": "Dévouement : Druide",
@@ -13771,7 +13771,7 @@ var ARCHETYPES = {
       "14e Danse en duel , Riposte en duel améliorée",
       "16e Riposte directive"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_duelliste",
         "name": "Dévouement : Duelliste",
@@ -13892,7 +13892,7 @@ var ARCHETYPES = {
       "Les duellistes aldori ont beaucoup en commun avec les bretteurs, et beaucoup d'entre eux appartiennent à la classe ou à l'archétype des bretteurs. À l'image des hauts faits d'un bretteur, les manœuvres standard des duellistes aldori sont souvent des prouesses spectaculaires destinées à impressionner ou à intimider.",
       "Beaucoup de don dans cette section font référence au fait d'être dans un duel ou à des actions de duel. Pour plus d'information ur les duels et les actions de duel, allez voir le sous-système de Duel ."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_duelliste_aldori",
         "name": "Dévouement : Duelliste aldori",
@@ -14152,7 +14152,7 @@ var ARCHETYPES = {
     "description": [
       "Le paysage mental du duel psychique vient à votre rencontre et se remodèle à votre contact. Vous comprenez que le paysage mental binaire relie deux esprits et que ses fondations sont aussi solides que les volontés des personnes impliquées. Deux châteaux psychiques en état de siège - réparez chaque brique de vos murs et cherchez chaque faille dans les défenses de votre adversaire."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_duelliste_psychique",
         "name": "Dévouement : Duelliste psychique",
@@ -14258,7 +14258,7 @@ var ARCHETYPES = {
       "4e Tir de soutien , Tir de couverture",
       "12e Tir détourné , Tir redirigé"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_duo_de_tireur_d_elite",
         "name": "Dévouement : Duo de tireur d'élite",
@@ -14425,7 +14425,7 @@ var ARCHETYPES = {
       "Avec l'archétype de dynamo sterling, vous utilisez une prothèse dynamo sterling et vous comprenez vraiment ses avantages, ses limites et son potentiel sans borne. Vous n'avez pas besoin d'être littéralement votre propre mécanicien, car il n'est pas nécessaire qu'une dynamo sterling soit particulièrement douée en artisanat, mais, même si vous ne l'êtes pas, vous pouvez toujours \"sentir\" ce qui est bon lorsqu'il s'agit d'ajuster et d'optimiser votre dynamo. Que vous apportiez vous-même ces améliorations ou que vous présentiez à votre mécanicien des idées qui lui permettront de réaliser quelque chose de spécial pour votre compte, votre force et votre ingéniosité constituent ce qui fait de vous une dynamo sterling.",
       "En vous entraînant à utiliser votre dynamo dans toutes sortes d'aventures, vous pouvez devenir capable d'accomplir des exploits que ses inventeurs originaux n'auraient jamais crus possibles. En fait, à mesure que vous progressez dans l'archétype et que vous en explorez les possibilités, vous pourriez découvrir que ces inventeurs veulent vous interroger afin d'appliquer vos connaissances et les aider à créer une nouvelle génération de cette technologie avec des capacités encore plus grandes. L'adaptabilité de la dynamo sterling lui confère un vaste potentiel, de sorte que le ciel est la seule limite !"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_dynamo_sterling",
         "name": "Dévouement : Dynamo sterling",
@@ -14566,7 +14566,7 @@ var ARCHETYPES = {
       "Au cours des évènement de la Nuit de la Mort grise, la lame finale Lénore silencieuse a été surchargée par une vague d'énergie psychique qui la brisa en 13 fragments. Bien que de nombreuses lames finales récupérées aient depuis été rendues inertes et inoffensives par le biais du rituel Émousser la lame finale, les restants de Lénore silencieuse (et peut-être d'autres lames finales toujours introuvables) furent récupérées en secret pour en faire de puissants talismans de cruauté.",
       "L'écharde d'irrévocabilié est un archétype d'artefact, un type d'objet puissant."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "echarde_d_irrevocabilite_objet_2",
         "name": "Écharde d'irrévocabilité Objet 2",
@@ -14712,7 +14712,7 @@ var ARCHETYPES = {
       "On sait peu de choses sur les voyages de T'aak dans les étendues septentrionales, mais tous les récits qui parlent du magicien et de son périple indiquent que l'homme qui est revenu était différent à bien des égards de l'homme qui a voyagé pour la première fois vers le nord. T'aak a parlé d'êtres connus sous le nom de saumen kar, d'une « grande baleine » scellée sous la glace et d'étranges corruptions. Un récit laissé par sa femme mentionne que T'aak se réveillait souvent en criant à propos d'une « boue maligne » et d'une « maladie qui s'attaque aux anciennes portes ». Malgré tout, la quête principale de T'aak s'est soldée par au moins une réalisation notable : la fabrication de la première Écharde glaciale.",
       "Les Échardes glaciales sont des focalisateurs arcaniques de froid magique raffiné sous forme physique. Malheureusement pour leur créateur, les échardes glaciales ne confèrent pas l'immortalité, bien que les créatures mortelles qui y sont liées aient souvent une durée de vie légèrement supérieure grâce au froid préservant qui les inonde et les entoure."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "echarde_glaciale_objet_2",
         "name": "Écharde glaciale Objet 2",
@@ -14844,7 +14844,7 @@ var ARCHETYPES = {
       "Dons supplémentaires :",
       "12e Camouflage"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_eclaireur",
         "name": "Dévouement : Éclaireur",
@@ -14999,7 +14999,7 @@ var ARCHETYPES = {
       "En tant qu'Écumeur du temps, vous pouvez exploiter le temps. Vous avez les moyens de voir les lignes temporelles de toutes les créatures, y compris la vôtre. Vous pouvez utiliser cette vision pour manipuler le cours du temps pour les créatures, tout comme vous pouvez arracher la feuille de la rivière et la placer ailleurs.",
       "La manipulation des lignes temporelles peut cependant être dangereuse et la Dimension du Temps n'est pas disposée à laisser ces transgressions du temps se perpétuer. Il y a toujours la menace que des êtres de la dimension du temps viennent corriger vos actions ou vous retirer du temps pour toujours."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ecumeur_du_temps",
         "name": "Dévouement : Écumeur du temps",
@@ -15212,7 +15212,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous êtes vous-même présenté à une citadelle des Chevaliers infernaux afin de proposer votre candidature et devenir un terrifiant chevalier infernal. Vous pensez qu'il est nécessaire de forcer tous les êtres vivants à obéir à la loi et vous êtes parti à l'aventure pour prouver votre loyauté, votre discipline et votre courage. Un jour, vous passerez l'Épreuve des Chevaliers infernaux et devrez battre un diable en combat singulier pour démontrer votre force et rejoindre les rangs des Chevaliers infernaux."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ecuyer_des_chevaliers_infernaux",
         "name": "Dévouement : Écuyer des chevaliers infernaux",
@@ -15384,7 +15384,7 @@ var ARCHETYPES = {
       "4e Familier",
       "6e Familier amélioré , Foulée sur l'eau"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "magie_elementaire_1er",
         "name": "Magie élémentaire 1er",
@@ -15640,7 +15640,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous occupez des morts-vivants dénués d'intelligence, comme les fermes de zombie et tous animaux de ferme dans tout le Geb."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_eleveur_de_cadavres",
         "name": "Dévouement : Éleveur de cadavres",
@@ -15736,7 +15736,7 @@ var ARCHETYPES = {
       "Que ce soit par chance ou à cause d'un haut fait, d'une ascendance ou d'une action héroïque, vous portez la bénédiction d'une divinité. Cette bénédiction se manifeste par la capacité à soigner les blessures et à délivrer des états néfastes et elle existe indépendamment de toute dévotion. Vous pourriez rendre grâce quotidiennement à cette divinité pour le pouvoir que vous maniez ou porter ces bénédictions avec réticence, en cherchant à éviter toute responsabilité voire même agir ouvertement pour défier l'influence que la divinité possède sur vous. Vous pourriez porter les robes de l'ordre de la divinité ou n'y accorder aucune pensée et même n'avoir aucune vénération envers la source de vos pouvoirs. Quels que soient vos sentiments quant à ces dons, il n'y a aucun doute que vous maniez un pouvoir spécial. Les divinités bienveillantes sont plus promptes à accorder un tel pouvoir à un Élu divin. Quoi qu'il en soit, n'importe quelle divinité peut accorder une telle bénédiction, tant qu'elle est capable d'accorder une source divine de guérison à ses prêtres. Cela signifie que des divinités comme Lamashtu pourraient accorder des pouvoirs à un Élu à ses propres fins. En dépit de cette possibilité, il est peu courant pour les divinités de la cruauté, de la mort et de la destruction d'accorder le pouvoir de reconstituer. Lorsque cela se produit, la divinité a habituellement une intention maléfique derrière ce bienfait. À la fin, vous décidez de la manière dont vous utiliserez ce bienfait. Aiderez-vous la divinité qui vous a accordé ce pouvoir ou la défierez-vous ?",
       "Dons supplémentaires : 6e Soulagement ; 10e Soulagement supérieur ; 14e Soulagement d'affliction ; 20e Toucher rajeunissant , Soulagement suprême"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_elu_divin",
         "name": "Dévouement : Élu divin",
@@ -15826,7 +15826,7 @@ var ARCHETYPES = {
       "6e Familier amélioré",
       "8e Formidable familier"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_emissaire_du_rivethun",
         "name": "Dévouement : Émissaire du Rivethun",
@@ -16016,7 +16016,7 @@ var ARCHETYPES = {
       "10e Arme empoisonnée améliorée , Empoisonneur opportun",
       "12e Arme empoisonnée mortelle"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_empoisonneur",
         "name": "Dévouement : Empoisonneur",
@@ -16133,7 +16133,7 @@ var ARCHETYPES = {
       "Les enjôleurs d'alignement bon utilisent leurs dons et leurs compétences pour rassembler les gens. Ils peuvent transformer une éventuelle bagarre de taverne en une soirée de partage de boissons et de récits. Ils peuvent encourager les personnes en proie à la dépression ou au doute. Ils excellent à mettre fin aux conflits de manière pacifique et efficace, répandant le bonheur chez ceux qui les entourent. Lorsqu'ils sont confrontés à la violence, ils utilisent leur magie pour maîtriser rapidement leurs ennemis ou les captiver tout en minimisant les dégâts causés à leurs compagnons.",
       "Les méchants enjôleurs manipulent les autres pour parvenir à un statut, à la fortune et au pouvoir. Ils n'ont aucun scrupule à tromper quelqu'un ou à utiliser leur magie pour faire du mal. Les enjôleurs maléfiques sont de dangereux filous dont les enchantements et les illusions les font paraître inoffensifs, insignifiants ou sympathiques. Le politicien rusé, l'escroc sournois, le courtisan rusé sont autant de rôles qu'un enjôleur maléfique peut facilement endosser."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_enjoleur",
         "name": "Dévouement : Enjôleur",
@@ -16300,7 +16300,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez développé un œil affûté pour enquêter sur les mystères."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_enqueteur",
         "name": "Dévouement : Enquêteur",
@@ -16424,7 +16424,7 @@ var ARCHETYPES = {
     "description": [
       "Vous faites appel au pouvoir magique de votre sang pour qu'il se manifeste accédant ainsi à la magie que les autres n'attendent pas de vous."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ensorceleur",
         "name": "Dévouement : Ensorceleur",
@@ -16586,7 +16586,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez étudié les arts martiaux dans une des Maisons de la Perfection de Jalmeray."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_etudiant_de_la_perfection",
         "name": "Dévouement : Étudiant de la perfection",
@@ -16744,7 +16744,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez éveillé une minuscule étincelle de divinité en vous-même, soit par le jeu de vos exploits, soit par une exposition à une source de puissance divine. En nourrissant cette étincelle, vous pouvez devenir un puissant combattant divin."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_exalte",
         "name": "Dévouement : Exalté",
@@ -16859,7 +16859,7 @@ var ARCHETYPES = {
       "14e Perception du mal",
       "16e Percevoir l'imperceptible"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_exorciste",
         "name": "Dévouement : Exorciste",
@@ -16973,7 +16973,7 @@ var ARCHETYPES = {
       "À l'aide d'une clé ou d'un chalumeau, vous fabriquez des pièges qui vrombissent et font tic tac avec une extrême précision. Votre meilleur travail nécessite les bons matériaux - un glorieux ensemble de raccords en laiton et de roues crantées - avec lesquels vous créez des pièges artisanaux aussi élégamment mortels que subtils. En tant que fabricant de pièges, vous êtes toujours en train d'améliorer vos pièges artisanaux : vous ajustez leur timing, modifiez les déclencheurs et vous trouvez de nouvelles façons de les cacher à vos ennemis.",
       "Vous pouvez choisir le don Dévouement : Fabricant de pièges même si vous n'avez pas encore obtenu trois dons de l'archétype de Fabricant de pièges artisanaux."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_fabricant_de_pieges",
         "name": "Dévouement : Fabricant de pièges",
@@ -17091,7 +17091,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes capable de prendre des matériaux ordinaires et de les utiliser pour créer des pièges artisanaux mortels, des pièges spéciaux que vous pouvez déployer rapidement lorsque la situation l'exige. Alors que des pièges pourraient vous apporter moins de force brute dans un combat loyal que ne le feraient d'autres armes, vous permettez rarement que vos combats soit loyaux. À la place, lorsqu'un combat débute dans un lieu de votre choix, vous disposez d'un avantage majeur grâce à vos pièges artisanaux soigneusement placés. Une fois que vos ennemis réalisent que vous pourriez avoir piégé tout emplacement sur le champ de bataille, leur peur d'en déclencher accidentellement un autre peut vous aider à les emmener tout droit vers les lames des alliés qui les attendent ou même les rendre trop paranoïaques pour se déplacer du tout, les maintenant à cet endroit. Les ennemis téméraires font face à leur plus grand désavantage : ils courent en ayant le plus grand risque de déclencher les nombreux pièges que vous avez déployé. Même s'ils pourraient les avoir évité d'une manière ou d'une autre, Certains fabricants de pièges artisanaux astucieux ont les compétences de placer un piège juste sous les pieds de leurs ennemis. D'autres ont découvert qu'ils pouvaient déclencher des pièges artisanaux dangereux à une distance de sécurité après des années de pratiques. En vérité, les artisans de pièges artisanaux sont à la fois des ennemis dangereux et des alliés pratiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_fabricant_de_pieges_artisanaux",
         "name": "Dévouement : Fabricant de pièges artisanaux",
@@ -17209,7 +17209,7 @@ var ARCHETYPES = {
     "description": [
       "“L'esprit rend les choses réelles.” Bien que cette phrase soit prononcée dans de nombreuses régions de Golarion, elle n'est nulle part plus littérale que chez les façonneurs spirituels - ceux qui possèdent un mystérieux talent mental qui leur permet de manifester leur esprit dans un objet physique. Certains acquièrent ce pouvoir grâce à l'entraînement magique d'un ancêtre ou d'un mentor, tandis que d'autres l'obtiennent en tant que cadeau ou récompense d'un être supérieur ou par un hasard inexplicable. Quelle que soit la source, vous avez maîtrisé la capacité de transformer une image mentale en une représentation tangible suffisamment solide pour affecter le monde physique. Vous avez façonné ce pouvoir pour qu'il vous aide au combat en se transformant en une arme puissante, dont les limites sont uniquement celles issues de votre imagination."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_faconneur_spirituel",
         "name": "Dévouement : Façonneur spirituel",
@@ -17407,7 +17407,7 @@ var ARCHETYPES = {
     "description": [
       "Vos liens avec le monde des vivants s'accrochent à vous dans la mort, vos affaires inachevées vous réduisant à l'état d'esprit. Votre âme continue à vivre, mais votre corps a disparu. Votre esprit, lui aussi, peut avoir changé : bien que la mort puisse avoir un impact sur les pensées et les désirs de toutes sortes de façons, la plupart des fantômes éprouvent des émotions plus fortes et plus volatiles et sont souvent dépassés par leurs liens passés. Le besoin de se réconcilier avec le passé l'emporte sur leurs autres besoins. Les motivations peuvent changer avec le temps mais sont toujours intenses. Le pragmatisme, la compassion et la prévoyance passent avant les désirs fondamentaux d'un fantôme."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_fantome",
         "name": "Dévouement : Fantôme",
@@ -17632,7 +17632,7 @@ var ARCHETYPES = {
     "description": [
       "Les folkloristes sont bienvenus à travers les Étendues du mwangi pour les histoires divertissantes qu'ils racontent et les conseils qu'ils donnent. Quoi qu'il en soit, ceux qui poussent l'art du conte à un niveau supérieur peuvent produire des effets magiques basés sur leur compréhension des histoires et leur ferme conviction que la vie se conforme aux contours de ces récits. Si beaucoup de ces folkloristes sont bienveillants, des termes comme héros et méchant sont notoirement relatifs, changeant pour s'adapter à la perspective du conteur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_folkloriste",
         "name": "Dévouement : Folkloriste",
@@ -17729,7 +17729,7 @@ var ARCHETYPES = {
     "description": [
       "Vous aimez une arme qui fait de l'effet presque autant que vous aimez faire de l'effet."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_franc_tireur",
         "name": "Dévouement : Franc-tireur",
@@ -17856,7 +17856,7 @@ var ARCHETYPES = {
     "description": [
       "Vous pouvez accomplir d'incroyables actions au combat et hors combat lorsque vous disposez d'une lance, un bâton ou une arme d'hast."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_funambule",
         "name": "Dévouement : Funambule",
@@ -17976,7 +17976,7 @@ var ARCHETYPES = {
       "4e Cogneur réactif",
       "8e Déviation du gardien , Gardien au bouclier"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_garde_ulfe",
         "name": "Dévouement : Garde ulfe",
@@ -18112,7 +18112,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes l'un des Gardes zéphyr, des soldats professionnels qui protègent le Katapesh d'éventuelles menaces militaires, des sabotages économiques et des voleurs d'élite."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_garde_zephyr",
         "name": "Dévouement : Garde zéphyr",
@@ -18210,7 +18210,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez appris les avantages de porter les armures les plus solides et garder l'attention des ennemis centrée sur vous plutôt que sur vos alliés. Vous pouvez finir par vous mettre en danger pour protéger vos amis."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_gardien",
         "name": "Dévouement : Gardien",
@@ -18334,7 +18334,7 @@ var ARCHETYPES = {
       "8e Initié du domaine étendu",
       "16e Domaine avancé"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_gardien_des_ames",
         "name": "Dévouement : Gardien des Âmes",
@@ -18491,7 +18491,7 @@ var ARCHETYPES = {
     "description": [
       "Avant la Chute de la Pierre-Étoile, le peuple elfique de Golarion connaissait de nombreuses manières de maîtriser la magie. Une secte formée d'elfes dévoués à la déesse Yuélral développa l'art des gardiens des cristaux mais cette tradition est tombée dans l'oubli depuis bien longtemps. Pourtant, de rares personnes s'en souviennent encore. Les PJ peuvent accéder à l'archétype gardien des cristaux grâce à la rencontre poignante avec l'esprit qui hante le relais du portail des Joyaux dans \"Les flammes de la cité hantée\"."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_gardien_des_cristaux",
         "name": "Dévouement : Gardien des cristaux",
@@ -18590,7 +18590,7 @@ var ARCHETYPES = {
       "Tout au long de l'histoire, de nombreuses civilisations ont bénéficié d'une relation symbiotique avec les insectes. Une communauté peut élever des insectes pour obtenir certains produits dérivés, comme le miel d'une abeille ou la soie d'une araignée ou apprivoiser des versions plus grandes d'espèces communes pour en faire des montures. Certains poussent même cette harmonie à l'extrême et accueillent volontiers un essaim d'insectes sur leur corps. En raison de leur disposition inhabituelle, les gardiens des nuées ont tendance à mener une vie solitaire ou, du moins, aussi solitaire qu'il est possible de l'être lorsqu'on héberge des milliers d'insectes. Lorsqu'ils ont affaire à des personnes susceptibles d'être dégoûtées par leurs capacités, certains gardiens des nuées portent des ruches en paille, des boîtes en forme de sac à dos souvent utilisées par les apiculteurs comme une sorte de camouflage social. Ces objets peuvent même être utilisés pour héberger d'autres insectes lorsque la nuée devient trop grande pour tenir sur leur corps.",
       "Les gardiens des nuées peuvent ajouter de nouvelles capacités à leurs nuées. Pour certains, cela signifie de devoir ajouter nombre d'espèces différentes d'insectes dans leurs nuées, qui seraient des ennemis mortels dans la nature pour les amener à travailler ensemble. Pour d'autres, ils sélectionnent un type d'insecte qui leur est précieux possédants des morphologies différentes pour donner à la nuée des capacités nouvelles."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_gardien_des_nuees",
         "name": "Dévouement : Gardien des nuées",
@@ -18809,7 +18809,7 @@ var ARCHETYPES = {
     "description": [
       "Les gardiens du Magaambya sont devenus des membres à part entière du Magaambya et ont commencé à apprendre les secrets de l'université. Tous les gardiens du Magaambya n'ont pas nécessairement cet archétype et cet archétype ne représente pas les capacités de tous ses gardiens. Au lieu de ça, l'archétype représente beaucoup de ceux qui se sont affiliés à l'une de ses branches et cherchent à obtenir le rang de connaisseur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "sorts_syncretiques",
         "name": "Sorts syncrétiques",
@@ -19120,7 +19120,7 @@ var ARCHETYPES = {
       "Vous savez comment tirer du pouvoir de la terre qui vous entoure, quel que soit le terrain, en harmonisant votre magie pour qu'elle corresponde à ses propriétés mystiques.",
       "Vous pourriez être un druide avec une orientation élémentaire (comme les ordres de la flamme, de la pierre ou des vagues) ou un naturaliste avec une touche de magie à votre disposition. Vous pouvez vous concentrer sur un seul type de terrain pour en tirer toute la puissance possible ou choisir de parcourir la terre pour découvrir tous les types de terrain possibles."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_geomancien",
         "name": "Dévouement : Géomancien",
@@ -19400,7 +19400,7 @@ var ARCHETYPES = {
     "description": [
       "Le rugissement de la foule et le frisson de la compétition du combat vous conduit à devenir le meilleur - et la réputation qui l'accompagne n'est pas un inconvénient. Vous travaillez toujours à donner le meilleur lorsque vous êtes observé par de fervents spectateurs et travail signifie, bien entendu, violence."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_gladiateur",
         "name": "Dévouement : Gladiateur",
@@ -19715,7 +19715,7 @@ var ARCHETYPES = {
       "6e Déplacement circonspect , Poursuite réactive",
       "10e Course verticale"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_goule",
         "name": "Dévouement : Goule",
@@ -19973,7 +19973,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez remplacé une partie de votre corps par un artifice de la sorte de ceux qui sont utilisés pour créer des golems, renforçant votre chair avec la puissance inimaginable de ces créatures artificielles magiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_greffeur_de_golem",
         "name": "Dévouement : Greffeur de golem",
@@ -20085,7 +20085,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "4e Empoisonneur à la sarbacane"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_guerillero",
         "name": "Dévouement : Guérillero",
@@ -20294,7 +20294,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez passé du temps à apprendre l'art de la guerre, en augmentant vos compétences en matière d'armes de guerre et de port d'armure. Avec un entraînement supplémentaire, vous pouvez devenir un véritable spécialiste du combat."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_guerrier",
         "name": "Dévouement : Guerrier",
@@ -20398,7 +20398,7 @@ var ARCHETYPES = {
     "description": [
       "Vous mêlez l'art de la magie aux prouesses martiales selon la tradition des Dix guerriers magiques du vieux mage Jatembe."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_guerrier_magique",
         "name": "Dévouement : Guerrier magique",
@@ -20481,7 +20481,7 @@ var ARCHETYPES = {
     "description": [
       "Les guerriers peuvent puiser des forces dans la joie et la tristesse de leur cœur, des dons spirituels et des fardeaux qu'ils peuvent partager et donner aux autres. Ils cultivent les expériences issues de leurs aventures pour nourrir et faire grandir leur pouvoir spirituel, apprenant à les canaliser à travers les techniques des arts martiaux adaptées à leur style et à leur personnalité. Une fois qu'ils ont créé un art martial qui combine leur arme préférée et des techniques à mains nues spécialisées, les guerriers spirituels apprennent à canaliser l'énergie spirituelle à travers leurs membres et leurs armes. Les guerriers spirituels se trouvent généralement dans la Forêt des esprits, la Forêt Chuyokai et la Jungle de Valashmai."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_guerrier_spirituel",
         "name": "Dévouement : Guerrier spirituel",
@@ -20748,7 +20748,7 @@ var ARCHETYPES = {
       "18e Bénédiction éternelle , Imprécation éternelle , Résurrecteur",
       "20e Apogée divine , Clarté partagée"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_heraut_mortel",
         "name": "Dévouement : Héraut mortel",
@@ -21271,7 +21271,7 @@ var ARCHETYPES = {
     "description": [
       "Les plantes qui vous entourent peuvent procurer plus de remèdes que le plus réputé des hôpitaux ou des temples et vous êtes compétent dans leur utilisation. La nature a toujours fourni le nécessaire à ceux qui savent où chercher et vous avez toujours eu un talent pour vous rendre compte de ces bienfaits. Vous pouvez les utiliser à de bonnes fins, en soignant ceux qui vous entourent avec rien d'autre que ce que la nature vous procure."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_herboriste",
         "name": "Dévouement : Herboriste",
@@ -21424,7 +21424,7 @@ var ARCHETYPES = {
       "Au Belkzen, l'art corporel est un élément important de l'arsenal d'un conteur, qu'il s'agisse de représentations d'événements passés permettant d'illustrer une légende ou de cicatrices effroyables prouvant que celui qui les porte a affronté un danger réel et qu'il a survécu. Les orcs du Belkzen qui possèdent des tatouages et des cicatrices sur tout le corps sont souvent surnommés historiens en raison des récits qu'ils véhiculent. Les plus grands d'entre eux peuvent débloquer la magie intrinsèque de ces histoires pour accomplir des exploits surnaturels. Un historien tatoué inspire le respect et la vénération, ce qui lui permet souvent de voyager en toute sécurité parmi les forteresses de Belkzen.",
       "Cet archétype représente la version de l'historien tatoué du Belkzen. D'autres cultures pourraient avoir développé des variations de cette tradition avec différents prérequis."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_historien_tatoue",
         "name": "Dévouement : Historien tatoué",
@@ -21539,7 +21539,7 @@ var ARCHETYPES = {
     "description": [
       "Les ostillis sont des organismes sans forme qui combinent les caractéristiques des plantes et des animaux. Rencontrés habituellement dans les environnements souterrains, ils peuvent partager un arrangement symbiotique avec les surkis. Lorsqu'un nodule récoltant la magie sur le corps d'un surki est endommagé ou absent, un ostilli est placé dessus comme on le ferait pour un bandage et après plusieurs semaines, la créature fusionne complètement avec son hôte et devient un nodule improvisé, accumulant la nourriture magique dont le surki a besoin pour survivre. Avec de l'entraînement, les surkis — ainsi que de plus en plus de membres d'autres espèces — peuvent contrôler ces minuscules symbiotes pour accomplir des prouesses magiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_hote_ostilli",
         "name": "Dévouement : Hôte ostilli",
@@ -21779,7 +21779,7 @@ var ARCHETYPES = {
       "Un château lourdement gardé au milieu d'un bal extravagant, le quartier général de la tristement célèbre guilde des voleurs d'une ville, une salle secrète au fond d'un repaire de cultistes - autant de cibles parfaites pour utiliser votre capacité à vous fondre dans la masse. Plutôt que de vous cacher dans l'ombre, vous utilisez votre entraînement et vos capacités surnaturelles latentes pour devenir un miroir, jouant sur les perceptions des autres et endossant tous les rôles nécessaires pour entrer et sortir de votre destination avant que quelqu'un n'ait le temps de penser que quelque chose ne va pas.",
       "Se faire passer pour un autre signifie passer inaperçu. Il est crucial de passer pour un visage anonyme dans la foule et les remerciements prennent la forme de la gratitude de vos dirigeants ou de pièces de monnaie de la part de vos clients, plutôt que de l'adoration enthousiaste d'une foule. Cet arrangement peut vous convenir, car vous vous épanouissez dans le travail bien fait et dans l'excitation de passer devant vos adversaires dupés. Mais vous pouvez aussi vous laisser aller, jusqu'à ce que vous ne puissiez résister à une révélation dramatique ou à laisser une carte de visite qui démontre que vous étiez là. Un dernier mot avant de quitter le château à toute vitesse, un message jubilatoire laissé derrière vous ou tout autre signe qui révélera votre habileté - généralement trop tard pour que vos victimes puissent faire quoi que ce soit."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_imposteur",
         "name": "Dévouement : Imposteur",
@@ -21999,7 +21999,7 @@ var ARCHETYPES = {
       "Taverne : bouteille, chope, plateau de service, tabouret",
       "Conseil pour le MJ Pour permettre au MJ de fixer les dégâts, typiquement une arme improvisée à une main inflige 1d4, 1d6 ou 1d8 dégâts ; une arme à deux mains inflige 1d8, 1d10 ou occasionnellement 1d12, et une arme extrêmement inefficace pourrait infliger 1 dégât. Les armes improvisées ont typiquement zéro, un ou deux traits et possèdent souvent le trait non-létal. Les armes agiles improvisées ont habituellement une taille de dé plus petite. Il est extrêmement rare qu'une arme improvisée inflige plus d'un dé de dégâts, mais de puissants objets magiques le pourraient. Les armes improvisées doivent être amusantes et ne pas durer longtemps, alors sentez-vous libre d'expérimenter !"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_improvisateur_d_arme",
         "name": "Dévouement : Improvisateur d'arme",
@@ -22112,7 +22112,7 @@ var ARCHETYPES = {
       "14e Illusion de l'ombre , Magie de l'ombre supplémentaire",
       "16e Pouvoir de l'ombre"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_incantateur_de_l_ombre",
         "name": "Dévouement : Incantateur de l'ombre",
@@ -22231,7 +22231,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez appris comment lancer les sorts de manière flexible, mêlant les meilleurs éléments de l'incantation préparée et spontanée mais au prix de pouvoir lancer moins de sorts par jour."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "preparation_de_sort_flexible_1er",
         "name": "Préparation de sort flexible 1er",
@@ -22261,7 +22261,7 @@ var ARCHETYPES = {
       "Les saumen kar peuvent initier un membre d'une autre ascendance à leur antique pacte, imprégnant la créature avec leur puissance et leur malédiction. Au fil du temps, ce pacte modifie lentement la physiologie interne de l'initié et, quelques fois également, son apparence. L'esprit de l'initié se remplit lentement d'anciens éléments de savoir et de techniques qui font autant partie du saumen kar que ses mains ou ses pieds. À mesure que l'esprit de l'initié s'adapte à ces connaissances et à ce pouvoir, son corps évolue parfois de la même manière - il se dote de longues cornes recourbées, de sens olfactifs accrus, d'une taille et de muscles supplémentaires - pour devenir un hybride entre son ancienne ascendance et un saumen kar, enveloppé de tatouages runiques.",
       "Une créature non consentante ne peut jamais être forcée à devenir un initié lié par un pacte et seuls ceux qui possèdent de profonds liens d'amitié mutuelle avec un saumen kar peuvent même tenter le processus. Se lier d'amitié avec un saumen kar peut être suffisant pour commencer l'initiation au pacte, bien qu'il doive choisir d'accepter le fardeau et puisse changer d'avis sur le pacte à tout moment jusqu'à sa transition finale (représentée par le don Lié à la glace). Une fois qu'une créature a achevé le pacte en prenant le fardeau complet d'un saumen kar et en prenant le don Lié à la glace, toutes ses transformations sont permanentes. À ce moment-là, elle ne peut plus réapprendre les dons de dévouement lié au pacte, Runes de froid mordant ou Lié à la glace et elle doit vivre le reste de sa vie sous la forme qui se situe entre son ancienne ascendance et un saumen kar. Si sa durée de vie normale était inférieure à 400 ans, elle est portée à au moins 400 ans. Si sa durée de vie normale était supérieure à 400 ans, elle est approximativement réduite à ce nombre d'années."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lie_par_un_pacte",
         "name": "Dévouement : Lié par un pacte",
@@ -22372,7 +22372,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous révélez dans la création d'inventions ingénieuses, déployant votre génie pour vaincre vos ennemis. Explosifs, gadgets et technologies innovantes ? Vous avez des idées pour tous et vous êtes impatient de tester vos théories."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_inventeur",
         "name": "Dévouement : Inventeur",
@@ -22479,7 +22479,7 @@ var ARCHETYPES = {
     "description": [
       "Vous suivez l'ancienne tradition hryngar des invocateurs de vers, des mystiques capables d'invoquer la force et la puissance destructrice des puissants vers des cavernes qui peuplent l'Ombreterre. Vous pouvez manifester des vers pour attaquer vos ennemis, faire appel à leurs sens et à leurs résistances, en invoquer un pour exécuter vos ordres et, finalement, devenir vous-même un ver."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_invocateur_de_vers",
         "name": "Dévouement : Invocateur de vers",
@@ -22759,7 +22759,7 @@ var ARCHETYPES = {
       "6e Charge irrépressible , Plaquer au sol",
       "12e Charge surpuissante , Plaquer au sol amélioré"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_invocateur_du_rivethun",
         "name": "Dévouement : Invocateur du Rivethun",
@@ -22911,7 +22911,7 @@ var ARCHETYPES = {
       "6e Compagnon animal adulte",
       "8e Formidable compagnon"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Jardinier gris",
@@ -22932,7 +22932,7 @@ var ARCHETYPES = {
       "Votre identité de justicier est celle d'un Jardinier Gris, et vous devez porter un masque pour utiliser l'un de vos dons de justicier ou prendre le risque d'exposer votre identité sociale, comme décrit dans l'archétype du justicier.",
       "Un PJ peut accéder à l'archétype de Jardinier Gris en utilisant le don Dévouement : Justicier , en même temps qu'en intégrant les membres des Jardiniers Gris."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "entrainement_avec_les_armes_du_bourreau",
         "name": "Entraînement avec les armes du bourreau",
@@ -23129,7 +23129,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un artiste compétent avec un équilibre et une coordination impressionnantes qui vous aident considérablement durant la bataille."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_jongleur",
         "name": "Dévouement : Jongleur",
@@ -23252,7 +23252,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "4e Arme en main"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_justicier",
         "name": "Dévouement : Justicier",
@@ -23490,7 +23490,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez, intentionnellement ou accidentellement, éveillé en vous un portail vers le pouvoir élémentaire et vous pouvez maintenant canaliser ce pouvoir à des fins dévastatrices, en ajoutant un arsenal élémentaire à vos capacités."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_kinetiste",
         "name": "Dévouement : Kinétiste",
@@ -23606,7 +23606,7 @@ var ARCHETYPES = {
     "description": [
       "Les laboureurs de la Campanule s'occupent de la plupart des efforts de base pour libérer les esclaves et les escorter vers la sécurité. Ils utilisent des mots codés en lien avec l'agriculture pour cacher leur travail : les esclaves libérés d'un laboureur sont sa \"récolte\" qu'il déplace le long de chemins discrets appelés des \"sillons\", les abritant dans des caches secrètes appelés des \"granges\"."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_laboureur_de_la_campanule",
         "name": "Dévouement : Laboureur de la Campanule",
@@ -23731,7 +23731,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez été formé comme espion au service du Taldor et avez appris les arts du déguisement, de la manipulation des foules, mais aussi à tromper facilement divers types de praticiens de la magie. Vous avez certainement quitté l'académie Kitharodienne, le collège bardique le plus réputé du Taldor, pour devenir une des lames du lion des Écoles de l'ombre, l'académie d'élite."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lame_du_lion",
         "name": "Dévouement : Lame du lion",
@@ -23890,7 +23890,7 @@ var ARCHETYPES = {
       "4e Arme en main , Évaluation du combat , Manoeuvre intelligente",
       "6e Frappeur d'effroi"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lame_papillon",
         "name": "Dévouement : Lame papillon",
@@ -24013,7 +24013,7 @@ var ARCHETYPES = {
       "contemplez la grande combattante voyageuse Halimess (combattante de la liberté dromaar féroce), dont la cape est faite dans une fourrure de tigre blanc, dont le heaume est plaqué d'écailles de dragons et dont les lames sont fabriqués avec les dents des léviathans de l'Océan profond. Elle parcourt le pays non pas en tuant des monstres, mais en aidant les gens du peuple, en s'opposant aux tyrans et en travaillant dans les champs quand d'autres ne le peuvent pas. Elle est rarement obligée de rengainer sa lame, mais lorsqu'elle le fait, sa légende grandit. Nombre de monstres intelligents craignent même son approche.",
       "Supposons que l'un ou l'autre de ces individus soit - ou ait le potentiel de devenir - une légende éternelle. Ils sont des parangons inoubliables de puissance et des exemples inégalés de finesse. Face à des obstacles insurmontables, ils font la preuve de leur résolution et de détermination. C'est dans cet esprit que vous avez répondu à l'appel de la légende éternelle. Votre vie ne sera pas facile. Vous devrez faire face à des tribulations. Vous finirez la plupart de vos journées avec des muscles endoloris et votre armure salie du sang séché de vos ennemis. Vos batailles seront comme des chansons chantées au milieu des tempêtes, le martèlement d'un tambour se mêlant au grondement du tonnerre. Tenez fermement votre arme, serrez fermement votre poing et les récits de vos exploits deviendront les mythes de demain !"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_legende_eternelle",
         "name": "Dévouement : Légende éternelle",
@@ -24328,7 +24328,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "14e Perception de la magie"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_liche",
         "name": "Dévouement : Liche",
@@ -24464,7 +24464,7 @@ var ARCHETYPES = {
     "description": [
       "Que vous étudiez pour étendre vos propres ambitions ou simplement par fascination des subtilités du langage, votre manière avec les mots est hors pair."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_linguiste",
         "name": "Dévouement : Linguiste",
@@ -24599,7 +24599,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes l'un des Lions brillants, à la fois combattant de la révolution et espion sous couverture."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lion_brillant",
         "name": "Dévouement : Lion brillant",
@@ -24741,7 +24741,7 @@ var ARCHETYPES = {
     "description": [
       "Que les révélations et les divinations d'un tirage de tarot typique soient dignes de confiance ou non, personne ne peut nier que les étranges pouvoirs exercés par le Liseur de Tourment sont réels. Le Liseur de Tourment utilise les arts antiques de la voyance pour maîtriser la destinée et augmenter ses capacités d'incantation, les imprégnant du pouvoir des cartes tirées de son jeu du Tourment et en laissant le destin décider quels éléments de sa magie nécessite une amélioration. Pendant de nombreuses années, les traditions de Liseur du Tourment ont été limitées aux régions comme la Varisie et l'Ustalav, où les peuples varisiens ont établi plus profondément leurs traditions. Mais récemment, plus particulièrement depuis que l'importance de la Varisie a augmenté en Avistan, les Lisueurs de Tourment ont commencé à se répande à travers tout Golarion."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_liseur_du_tourment",
         "name": "Dévouement : Liseur du Tourment",
@@ -24920,7 +24920,7 @@ var ARCHETYPES = {
       "8e Projection en rotation",
       "20e Brisedieu"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lutteur",
         "name": "Dévouement : Lutteur",
@@ -25152,7 +25152,7 @@ var ARCHETYPES = {
       "Les lutteurs de roc apprennent à s'envelopper dans des roches magiques temporaires qui renforcent leurs frappes à mains nues et protègent leur corps. Leur relation avec la pierre est souvent transactionnelle et ils font appel à ce matériau résistant à des fins utilitaires. La plupart d'entre eux considèrent la pierre comme un outil à utiliser dans le feu de l'action, tout comme un escrimeur apprécie son épée ou un magicien sa magie.",
       "La pratique de la conjuration de la pierre est plus courante là où les ressources sont rares, comme au Belkzen, dans les Terres des rois de linnorm ou en Ombreterre, où la valeur et la solidité de la pierre sont bien reconnues."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_lutteur_de_roc",
         "name": "Dévouement : Lutteur de roc",
@@ -25260,7 +25260,7 @@ var ARCHETYPES = {
       "En vivant avec une malédiction tous les jours, vous devenez intimement familier avec le fonctionnement des malédictions et vous savez quand la malchance est sur le point de s'abattre sur ceux qui vous entourent. Vous pouvez essayer d'éviter d'autres malheurs - ce qui se passe rarement comme vous le souhaitez - ou vous pouvez accepter votre sort dans la vie et considérer votre malédiction comme une sorte de vieil ami. Dans tous les cas, le destin s'en moque.",
       "La misère aime la compagnie de sorte que votre malédiction peut même être une balise pour davantage de malheur. Vous pouvez être victime de plusieurs malédictions qui vous sont liées, qui se battent toutes pour rendre votre vie aussi infernale que possible."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maelstrom_maudit",
         "name": "Dévouement : Maelström maudit",
@@ -25413,7 +25413,7 @@ var ARCHETYPES = {
     "description": [
       "Les émotions sont puissantes et vous pouvez puiser dans leur pouvoir pour améliorer votre magie pendant un instant. Vous apprenez à exploiter un état émotionnel particulier dans les bonnes conditions mais vous êtes prévenu : les émotions sont volatiles et destructrices si elles ne sont pas maîtrisées. L'expérience vous laisse souvent sous l'emprise d'une émotion sans limite, nécessitant un repos ou une distraction avant de pouvoir y puiser de nouveau."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mage_cathartique",
         "name": "Dévouement : Mage cathartique",
@@ -25610,7 +25610,7 @@ var ARCHETYPES = {
       "Vous n'obtenez pas la capacité Robes défensives au niveau 13.",
       "Magie de combat Par une action gratuite qui peut être utilisée une fois par round, au début de votre tour, vous pouvez échanger tout sort que vous avez actuellement mémorisé pour Coup assuré , intensifié au même niveau que le sort remplacé. Comme à l'ordinaire, vous pouvez lancer des sorts en maniant une arme dans vos mains. Vous pouvez Refocaliser en étudiant des plans de guerre, des cartes de mouvements de troupe et des rapports du champ de bataille au cours d'un conflit actif au lieu d'étudier votre grimoire."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mage_de_guerre",
         "name": "Dévouement : Mage de guerre",
@@ -25803,7 +25803,7 @@ var ARCHETYPES = {
       "16e Sort scintillant",
       "18e Sort en écho"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "magie_de_la_source_1er",
         "name": "Magie de la source 1er",
@@ -25916,7 +25916,7 @@ var ARCHETYPES = {
       "16e Planifier l'avenir",
       "20e Sort en écho"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mage_temporel",
         "name": "Dévouement : Mage temporel",
@@ -26066,7 +26066,7 @@ var ARCHETYPES = {
     "description": [
       "Vous vous êtes initié aux arts arcaniques et, grâce à la discipline et aux études académiques, avez appris à lancer quelques sorts."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_magicien",
         "name": "Dévouement : Magicien",
@@ -26386,7 +26386,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez mélangé le combat physique et l'incantation."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_magus",
         "name": "Dévouement : Magus",
@@ -26535,7 +26535,7 @@ var ARCHETYPES = {
       "Lorsque l'église iridienne s'est dissoute, une secte dissidente de ce groupe philosophique appelée le Choeur Iridien, originaire de la ville d'Ular Kel au Casmaron, s'est imposée au sein de la cité de Kaer Maga. Vous êtes un membre de cette école mêlant une idéologie à des prouesses martiales, à la recherche d'une autre personne pour former un couple lié appelé un szerik. Ensemble, vous vous exercez à bouger, combattre et dialoguer en parfaite synchronisation, jusqu'à mêler vos âmes et ne faire qu'un esprit dans deux corps. Bien que cette relation puisse être très intime, le Choeur iridien estime que tout type de lien peut mener un szerik à atteindre la véritable illumination, connue sous le nom de « esprit partagé, coeur partagé », qu'il soit romantique ou platonique.",
       "Vous avez choisi un étudiant à qui transmettre la philosophie du Choeur iridien, doctrine qui enseigne que deux personnes combattant côte à côte sont plus puissantes que la somme de leurs forces individuelles. Vous partagez avec votre étudiant un lien profond, dont la nature reste libre à chacun de vous d'explorer. Comme symbole de votre lien, vous pourrriez chacun porter des chaînes identiques quelque part sur votre corps. Ensemble, vous consacrez de longues heures à la pratique, en cherchant à atteindre le mélange parfait des âmes qui conduit à l'illumination."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_de_choeur_iridien",
         "name": "Dévouement : Maître de choeur iridien",
@@ -26828,7 +26828,7 @@ var ARCHETYPES = {
       "14e Côte à côte",
       "Les sorts de gardien accordés par ces dons sont des sorts focalisés de maître des bêtes pour ce qui vous concerne."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_des_betes",
         "name": "Dévouement : Maître des bêtes",
@@ -27249,7 +27249,7 @@ var ARCHETYPES = {
       "16e Mener la meute",
       "Chaque fois qu'un de ces dons supplémentaires fait référence à un compagnon animal, en tant que maître des morts-vivants, vous l'appliquez à votre compagnon mort-vivant à la place."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_des_morts_vivants",
         "name": "Dévouement : Maître des morts-vivants",
@@ -27342,7 +27342,7 @@ var ARCHETYPES = {
       "Dégâts améliorés Vous avez rendu votre innovation plus puissante . Augmentez d'un cran le dé de dégâts de votre mortier léger (de d4 à d6, d6 à d8, d8 à d10, d10 à d12). Comme à l'ordinaire, vous ne pouvez pas augmenter votre dé de plus d'une taille.",
       "Déflagration précise Vous avez un contrôle si précis sur votre mortier léger que vous pouvez envelopper la déflagration de l'impact autour de vos alliés sans les blesser. Lorsque vous Tirez, vous pouvez exclure un nombre de cases correspondant à votre modificateur d'Intelligence au maximum de la zone de la déflagration."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_des_munitions",
         "name": "Dévouement : Maître des munitions",
@@ -27449,7 +27449,7 @@ var ARCHETYPES = {
     "level": 0,
     "traits": [],
     "description": [],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Maître des sorts",
@@ -27466,7 +27466,7 @@ var ARCHETYPES = {
     "description": [
       "Ceux qui s'entraînent sous l'égide du Maître des sorts se consacrent eux-mêmes à tout ce qui a trait à la magie. Bien que tous les membres de l'école des sorts ne soient pas des lanceurs de sorts, ceux qui deviendront des maîtres de sorts de plus haut rang et posséder de l'influence ont au moins quelques capacités de lanceur de sorts."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_la_societe_des_eclaireurs",
         "name": "Archétypes de la Société des éclaireurs",
@@ -27724,7 +27724,7 @@ var ARCHETYPES = {
     "description": [
       "Bien que le but ultime de la Société des Éclaireurs soit d'apprendre, le savoir ne peut être diffusé si ceux qui le découvrent ne reviennent pas vivants. Le maître épéiste apprend aux recrues à survivre, à défendre les autres Éclaireurs et à vaincre les ennemis de la Société. Le maître épéiste incarne ces compétences, en se concentrant sur l'aspect pratique et en ignorant les idéaux ou les méthodes qui interfèrent avec sa capacité à surmonter tout défi."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_la_societe_des_eclaireurs",
         "name": "Archétypes de la Société des éclaireurs",
@@ -28090,7 +28090,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "4e Familier amélioré"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_familier",
         "name": "Dévouement : Maître familier",
@@ -28208,7 +28208,7 @@ var ARCHETYPES = {
       "14e Connaissance de l'énigme",
       "16e Hypercognition véritable"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_maitre_savant",
         "name": "Dévouement : Maître savant",
@@ -28300,7 +28300,7 @@ var ARCHETYPES = {
       "Les combattants du Minata ont fréquemment à faire avec les esprits perdus des peuples du Taumata qui hantent leurs terres brisées jusqu'à ce jour. Ces combattants du Minata, connus comme les mangeurs de fantômes autour de Bonmu, voyagent dans les îles innombrables du Minata et offrent leurs compétences aux exorcistes et aux prêtres. Lorsqu'ils travaillent sous cette forme de partenariat, la principale tâche du mangeur de fantôme est de détruire un esprit en vue de donner au saint camarade qui l'accompagne le temps d'en apprendre davantage sur l'âme particulière pour pouvoir lui permettre de trouver le repos définitivement.",
       "Les personnages peuvent obtenir l'accès à cet archétype auprès d'Ingdani après avoir récupéré le Collier du phénix dans le Temple d'Irori."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mangeur_de_fantomes",
         "name": "Dévouement : Mangeur de fantômes",
@@ -28393,7 +28393,7 @@ var ARCHETYPES = {
       "Les armes à feu ne suffisent pas à faire respecter les lois d'Alkenastre. Lorsque les criminels et les corrompus ont facilement accès aux armes à feu, s'appuyer uniquement sur la puissance de feu n'est pas toujours la meilleure approche pour faire respecter la loi. Afin de garder une longueur d'avance dans leur guerre incessante contre le crime et l'espionnage, les maréchaux d'élite d'Alkenastre affinent leurs compétences en matière de tir et de conscience situationnelle en un puissant mélange de perspicacité opérationnelle et de tactiques spéciales. Les Maréchaux protecteurs étudient la médecine légale, l'ingénierie, le droit et l'étiquette pour s'adapter aux conditions et à la politique instables de la ville. Les leçons plus avancées comprennent un entraînement spécialisé pour traiter avec les criminels utilisant la technologie et l'acquisition d'une capacité d'analyse tactique pour manœuvrer dans les environnements urbains encombrés.",
       "Vous avez suivi un entraînement spécialisé pour vous aider à maintenir la paix dans les rues tentaculaires d'Alkenastre. Les opérations urbaines sont d'une redoutable complexité. Les portes fermées et les hauts murs dissimulent suspects et belligérants, tandis que chaque ruelle et chaque couloir peut former un goulet d'étranglement fatal. En tant que maréchal, vous surmontez ces difficultés en réduisant et en vous adaptant aux éléments d'incertitude. Vous observez méthodiquement votre environnement, prenez des décisions rapides et actualisez les meilleures pratiques pour apaiser les hostiles, sauver leurs otages et atteindre les objectifs globaux de votre mission."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_marechal_protecteur",
         "name": "Dévouement : Maréchal protecteur",
@@ -28474,7 +28474,7 @@ var ARCHETYPES = {
       "Vous avez toujours pensé que les véhicules sont autant des œuvres d'art que des moyens de transport. Qu'il soit aussi commun qu'un chariot ou aussi complexe qu'un dirigeable, il y a toujours un aspect du véhicule que vous pouvez améliorer. Les pilotes, les conducteurs et les marins apprécient votre expertise et beaucoup vous demandent de travailler sur leurs véhicules. Bien que vous puissiez faire de gros profits en travaillant sur des véhicules personnalisés de clients fortunés, vous gardez toujours un véhicule à vous pour pouvoir le bricoler et en faire l'objet de votre obsession personnelle.",
       "Vous pourriez faire partie d'un syndicat de mécaniciens de véhicules, travaillant avec d'autres mécanos et des ingénieurs pour obtenir des emplois équitables et vous entraider. Bien que certains syndicats de mécaniciens de véhicules soient séculiers, nombre d'entre eux réalisent les avantages de s'adosser à une religion sympathisante et adoptent donc généralement les idéaux de dieux axés sur l'économie comme Abadar ou de divinités intéressées par l'artisanat comme la déesse Brigh - le Murmure du bronze - la déesse de l'invention. Qu'ils soient religieux ou séculiers, les syndicats de mécaniciens de véhicules prennent au sérieux les liens entre leurs membres. Bien que cela puisse signifier que votre personnage se verra obligé d'aider un autre membre du syndicat qui a besoin de votre aide, cela signifie également que vous disposez d'alliés solides sur lesquels vous pouvez vous reposer en cas de besoin. Dans des situations difficiles, un tel lien peut valoir son pesant d'or."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mecanicien_de_vehicule",
         "name": "Dévouement : Mécanicien de véhicule",
@@ -28613,7 +28613,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez étudié des techniques innombrables pour fournir une assistance médicale, faisant de vous un médecin et un soigneur hors pair. Bien que nombre de guérisseurs pratiquent joyeusement l'art de la médecine dans la sécurité et la sérénité de bâtiments construits, peu ont autant en besoin d'aide médicale que les aventuriers. Un tel métier s'accompagne de blessures fréquentes qui nécessitent une attention constante. Rares sont les personnes qui refuseraient l'aide d'un médecin en exercice. En fait, le besoin de soins est si important que de nombreux médecins ont commencé par être des aventuriers et se sont mis à pratiquer la médecine par nécessité. Bien que la réparation des blessures soit la pratique la plus courante des médecins, leur capacité à lutter contre les maladies et les affections infligées par toutes sortes de créatures et de pièges est également inestimable. La capacité d'adaptation et l'utilité du médecin sont indéniables. Que vous ayez étudié la médecine pendant la majeure partie de votre vie ou que vous l'ayez apprise sur le terrain, c'est vers vous que les gens se tournent pour obtenir de l'aide."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_medecin",
         "name": "Dévouement : Médecin",
@@ -28725,7 +28725,7 @@ var ARCHETYPES = {
       "Rareté Peu courant",
       "Votre dévouement à une cause permet d'unifier votre âme à un armement relié à l'essence même de votre esprit."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mentallurgiste",
         "name": "Dévouement : Mentallurgiste",
@@ -28834,7 +28834,7 @@ var ARCHETYPES = {
       "4e Empathie animale , Poture de la grue , Posture du gorille , Posture du loup , Posture du tigre",
       "8e Battement d'aile de la grue , Martèlement du gorille , Taillade du tigre , Traction du loup"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mimetisme_naturel",
         "name": "Dévouement : Mimétisme naturel",
@@ -29174,7 +29174,7 @@ var ARCHETYPES = {
     "description": [
       "Votre formation monastique vous a appris les arts martiaux et vous a permis de conduire votre esprit, votre corps et votre âme vers de nouveaux sommets."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_moine",
         "name": "Dévouement : Moine",
@@ -29307,7 +29307,7 @@ var ARCHETYPES = {
       "Très rarement, les momies sont créées par des processus naturels se produisant dans des lieux maudits ou inondés d'énergie de vide. Ces momies naissent le plus souvent dans les déserts, les tourbières, les marécages, en haute altitude ou dans des endroits glacés. Bien que le processus par lequel elles sont créées soit moins douloureux et d'une durée beaucoup plus courte, le passage spirituel de vivant à mort-vivant n'en est pas moins traumatisant.",
       "Les momies se trouvent le plus souvent au Geb et en Osirion ainsi que dans les nations voisines de Thuvie, du Katapesh et du Qadira. Elles sont également présentes dans les Terres tombales, les royaumes des seigneurs mammouths et l'étendue du Mwangi, en particulier autour de Mzali. En dehors de la Mer Intérieure, on trouve des momies au Vudra et en Arcadie, en particulier dans les endroits autrefois gouvernés par l'empire Razatlani."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_momie",
         "name": "Dévouement : Momie",
@@ -29552,7 +29552,7 @@ var ARCHETYPES = {
       "Tous ces personnages pourraient être, ou devenir un jour, des monarques prophétisés, des souverains dont les histoires légendaires les devancent, établissant une dynastie immortelle et incomparable qui survivra longtemps à leur vie de mortel.",
       "C'est à vous de décider de la prophétie que vous accomplirez ou du royaume que vous gouvernerez. Avec vos nobles chevaliers à vos côtés, les méchants et les monstres ne manqueront pas de tomber et aucun héros ne restera longtemps déchu lorsque ses robustes compagnons seront près de lui pour le relever. Vous affronterez certainement des dragons, des sorciers sombres et toutes sortes de bêtes sauvages. On vous demandera de relever ceux qui se tournent vers vous, quel que soit le prix à payer. Ayez confiance en vos chevaliers, croyez en votre peuple et gouvernez avec honneur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_monarque_prophetise",
         "name": "Dévouement : Monarque prophétisé",
@@ -29823,7 +29823,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez puisé dans l'antique magie des sphinx pour imprégner votre corps et votre âme de la patience et de la force de la pierre tout en créant une pierre ka magique spéciale pour sceller votre serment."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_monolithe_vivant",
         "name": "Dévouement : Monolithe vivant",
@@ -29922,7 +29922,7 @@ var ARCHETYPES = {
     "description": [
       "Tout comme les marchands de Golarion parcourent les marchés animés à la recherche de nouvelles marchandises, les spécialistes de la magie se réunissent dans des maisons de thé, débattent lors de symposiums et hantent les arrière-salles des boutiques ésotériques pour échanger les secrets de leur spécialité. De ces rencontres, une autre forme de magie pourrait surgir : l'étincelle de l'innovation ! Le mélange de techniques magiques produit des résultats fascinants et imprévisibles. Étant un de ces innovateurs, parfois appelé mystificateur de sort, vous avez le don d'inventer des techniques magiques et de découvrir de nouveaux effets à partir de sorts que la plupart des lanceurs de sorts novices considèrent comme des évidences. Que vos capacités uniques soient le résultat de semaines d'expérimentation ou d'un secret transmis par un praticien itinérant, vous aimez surprendre les autres avec vos astuces."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_mystificateur_de_sort",
         "name": "Dévouement : Mystificateur de sort",
@@ -30393,14 +30393,14 @@ var ARCHETYPES = {
     "description": [
       "Même si certains peuvent trouver cela morbide, vous passez votre temps à compiler et à étudier des listes de personnes décédées, provenant de registres municipaux ou paroissiaux datant de plusieurs siècles ou encore de registres plus récents répertoriant les pertes sur les champs de bataille. Vous vous êtes tellement investi dans la vie et l'histoire de ces malheureux que vous pouvez puiser dans votre propre force animatrice pour les ramener tous temporairement à la vie. Cela implique généralement de mettre en œuvre des arcanes ésotériques, des rites occultes ou des pactes divins avec les dieux des morts-vivants. Les nécrologues peuvent être des atouts précieux dans n'importe quelle bataille car leurs hordes sont largement renouvelables et inépuisables."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_necrologue",
         "name": "Dévouement : Nécrologue",
         "level": 6,
         "description": [
           "Prérequis capacité à lancer des sorts à partir d'emplacements de sorts, capacité de lancer Convocation de mort-vivant",
-          "Vos études des registres des morts vous permettent d'invoquer une horde de morts-vivants à l'aide d'une brève incantation. Vous pouvez convoquer votre horde via l'activité Relever la Horde et, tant qu'elle est relevée, utiliser l'action Assaut de la foule pour lui ordonner d'attaquer. Ce lien étrange avec votre horde vous empêche d'avoir également un compagnon animal ou n'importe quel autre compagnon (y compris un suivant). Cependant, si une capacité vous accorde plus d'un suivant (comme le don [Compendium.pf2e.feats-srd.Item.PPbTc7LjWcH9rhrI]{Suivant supplémentaire} de l'archétype Capitaine), vous pouvez considérer votre horde comme l'un d'eux. Vous conservez un contrôle suffisant sur votre horde pour qu'elle n'attaque ni vous, ni vos alliés.",
+          "Vos études des registres des morts vous permettent d'invoquer une horde de morts-vivants à l'aide d'une brève incantation. Vous pouvez convoquer votre horde via l'activité Relever la Horde et, tant qu'elle est relevée, utiliser l'action Assaut de la foule pour lui ordonner d'attaquer. Ce lien étrange avec votre horde vous empêche d'avoir également un compagnon animal ou n'importe quel autre compagnon (y compris un suivant). Cependant, si une capacité vous accorde plus d'un suivant (comme le don [Compendium.pf2e.skills-srd.Item.PPbTc7LjWcH9rhrI]{Suivant supplémentaire} de l'archétype Capitaine), vous pouvez considérer votre horde comme l'un d'eux. Vous conservez un contrôle suffisant sur votre horde pour qu'elle n'attaque ni vous, ni vos alliés.",
           "Une fois relevée, votre horde est Très grande et possède une Vitesse de 6 mètres. Elle possède les traits dénué d'intelligence et mort-vivant. Elle peut être prise pour cible. Même composée de plusieurs créatures morts-vivantes, elle ne peut pas partager le même espace que d'autres créatures (à moins de posséder certains dons). Grâce à votre lien mystique avec votre horde, elle utilise votre CA, vos jets de sauvegarde et vos autres statistiques défensives telles que les DD de compétence et elle este immunisée aux états Agrippé , À terre et Entravé . La horde possède une résistance contre les dégâts physiques égale à votre niveau, mais une faiblesse contre les dégâts de zone et d'éclaboussure égale à votre niveau. Vous partagez la même force d'animation : tous les dégâts reçus par la horde vous sont infligés à la place, mais pour une capacité qui vous affecte tous deux dans la zone d'effet, vous ne subissez les dégâts qu'une seule fois (le montant le plus élevé étant retenu).",
           "Source : Pathfinder Battlecry!"
         ]
@@ -30612,7 +30612,7 @@ var ARCHETYPES = {
       "L'origine exacte des capacités des nécromants sacrés peut varier d'un individu à l'autre. Certains reçoivent leurs dons directement d'une divinité bienveillante telle que Sarenrae ou Pharasma, tandis que d'autres peuvent utiliser leur connaissance de la religion et des plans pour apprendre de telles capacités par eux-mêmes. Bien que cela soit plus rare, il est même possible que ces praticiens découvrent qu'ils possèdent une compréhension intuitive et un contrôle sur des capacités qui se manifestent spontanément au fur et à mesure que leurs capacités se développent. En dépit de ces différences, tous partagent la même idée que la mort-vivance est une aberration à laquelle il faut rapidement remédier.",
       "Bien que la majorité des nécromants sacrés aient des objectifs similaires et soient prêts à travailler ensemble, ils n'ont pas tendance à former leur propre organisation. Le plus souvent, ces nécromants se rattachent à des groupes existants, tels que les Chevaliers de Dernier-Rempart ou les Voix de la flèche, et utilisent leurs pouvoirs pour soutenir les causes de ces groupes. Sinon, ils planifient et mènent à bien leurs propres vendettas personnelles contre les forces de la mort-vivance, en s'adjoignant souvent l'aide d'amis et d'alliés de confiance."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_necromant_sacre",
         "name": "Dévouement : Nécromant sacré",
@@ -30755,7 +30755,7 @@ var ARCHETYPES = {
       "Les objets temporaires ne sont clairement pas de la même qualité que les autres objets, de sorte qu'ils ne peuvent typiquement pas être vendus. Si une capacité n'indique pas combien de temps un objet temporaire peut durer, l'objet ne dure que jusqu'à la prochaine fois où vous accomplirez vos préparatifs quotidiens. Tout effet créé par un objet temporaire se termine aussi à cet instant s'il ne l'est pas déjà (à moins qu'il ne s'agisse d'un effet permanent).",
       "Source: Pathfinder Player Core 2 pg. 174"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Observateur",
@@ -30771,7 +30771,7 @@ var ARCHETYPES = {
       "En tant qu'observateur du groupe, vous pourriez laisser cette position vous monter à la tête. Dans de tels cas, vous pourriez vous considérer comme le cerveau derrière l'échiquier et vous sentir détaché de vos alliés, les considérant à peine mieux que de simples pions sur le champ de bataille.",
       "Mais il est plus probable que votre rôle vous permette de ressentir un lien plus profond avec vos alliés et que votre coordination et votre héroïsme ressortent davantage lorsque vous mettez votre propre ego au service des intérêts du groupe. Dans ce cas, vous pourriez vous considérer comme une partie d'un tout fonctionnel - si votre groupe était un seul corps vivant, vous en seriez les yeux mais cela ne signifie pas que vous en seriez le cerveau, le cœur ou tout autre organe vital. Chacun a un rôle crucial à jouer."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_observateur",
         "name": "Dévouement : Observateur",
@@ -30943,7 +30943,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un officier spécialement entraîné pour le district de la Garde du Précipice à Absalom."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_officier_de_la_garde_du_precipice",
         "name": "Dévouement : Officier de la garde du précipice",
@@ -31031,7 +31031,7 @@ var ARCHETYPES = {
       "10e Bond de l'éclaireur",
       "12e Adepte de la furtivité , Camouflage"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ombre_de_verduran",
         "name": "Dévouement : Ombre de Verduran",
@@ -31142,7 +31142,7 @@ var ARCHETYPES = {
     "description": [
       "Une force mystérieuse vous a accordé une magie divine et une malédiction."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_oracle",
         "name": "Dévouement : Oracle",
@@ -31286,7 +31286,7 @@ var ARCHETYPES = {
       "En tant que représentant religieux et diplomatique de Findeladlara et de tous les ilvéranis du nord, vous considérez qu'il est de votre devoir de vous lier d'amitié avec les peuples à l'espérance de vie plus brève que vous rencontrez au fil de vos voyages. Contrairement aux autres ilvéranis, également appelés \"elfes des neiges\" par les étrangers, vous trouvez les étrangers intéressants et pensez qu'il y a beaucoup à apprendre des conversations et des relations avec les autres. Que ce soit pour les observer, leur enseigner ou pour garder des ennemis potentiels à proximité, vous pensez qu'un large sourire, un apprentissage à tout âge et un œil attentif sont la clef. Certains considèrent cette nature vigilante et amicale comme condescendante, mais ils ne comprennent pas pourquoi les adorateurs de Findeladlara se sentent obligés de maintenir cette tradition. Lorsque la Terre s'est effondrée et que la plupart des autres elfes de Golarion ont fui en Sovyrian ou se sont enfoncés dans les profondeurs de la terre, les elfes qui allaient un jour être connus sous le nom d'ilvéranis sont restés et ont cherché à mettre les autres à l'abri de la catastrophe. Ils construisirent des refuges pour protéger les autres et aidèrent les gens à se mettre à l'abri pendant l'Âge des Ténèbres. Si les Chercheurs du crépuscule d'aujourd'hui ne construisent pas de structures solides, ils s'efforcent de tisser des liens entre les gens afin que la société puisse être protégée contre d'autres événements catastrophiques s'ils venaient à se produire.",
       "Votre vocation vous met en contact avec de nombreuses cultures différentes, mais vous cherchez à préserver les coutumes de votre peuple. À cette fin, vous êtes toujours sur vos gardes face à l'attrait des \"modes passagères\". Malheureusement, certains Orateurs du crépuscule ont succombé à l'attrait d'autres modes de vie et, pour eux, il n'y a qu'une seule issue : l'exil."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_orateur_du_crepuscule",
         "name": "Dévouement : Orateur du crépuscule",
@@ -31414,7 +31414,7 @@ var ARCHETYPES = {
     "description": [
       "Un des enseignements fondamental du Vieux-Mage Jatembe est que la magie reste de la magie, quelle qu'en soit la source. Bien que le Magaambya cherche à tenir pour véridiques les enseignements de Jatembe en visant à comprendre la magie de tous types, les mages du Magaambya ont obtenu le plus de succès avec la magie enracinée dans le monde matériel. Les orateurs syncrétiques sont de puissants connaisseurs qui symbolisent parfaitement la pratique magaambyenne du mélange des magies arcanique et primordiale, considérant que ces deux traditions s'écoulent de la même source."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "sorts_syncretiques",
         "name": "Sorts syncrétiques",
@@ -31720,7 +31720,7 @@ var ARCHETYPES = {
       "En tant que pactiseur, vous passez des accords avec des entités étranges, des êtres d'un autre monde et toutes sortes d'habitants du multivers, qu'ils soient aimables ou non. Au cours de vos nombreuses négociations, vous avez appris quelque chose d'important : bien que ces êtres cherchent toujours à conclure un marché en leur faveur, il arrive que votre définition de la valeur diffère suffisamment de la leur pour que vous puissiez en sortir gagnant. En fait, parfois, ceux qui ne comprennent pas les pactes comme vous le faites pourraient confondre le paiement avec l'avantage et vice versa. Peut-être qu'un ancien être de cauchemar a exigé de consommer quelque chose dont vous cherchiez à vous débarrasser, comme un souvenir douloureux ou un trait de personnalité négatif en se vantant de vous prendre quelque chose de personnel. Il ne savait pas que vous l'aviez laissé gagner en marchandant votre part du marché. Bien sûr, cette pratique n'est pas sans risque car qui sait ce que vous pourriez devenir sans cette partie de vous.",
       "Toutes ces choses, vous pouvez et devez les prendre en compte dans chaque pacte. En plus des pactes, vous pouvez également rechercher des contrats magiques. Bien qu'il s'agisse d'un engagement métaphysique plus qu'un pacte, les contrats offrent des avantages similaires auxquels vous ne savez pas résister - et vous pouvez utiliser vos compétences en tant que pactiseur pour manipuler la formulation précise du marché."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_pactiseur",
         "name": "Dévouement : Pactiseur",
@@ -32000,7 +32000,7 @@ var ARCHETYPES = {
       "Vous considérez le combat comme un art et votre pistolet comme une extension de vos démonstrations. Vous pouvez manier un seul pistolet, une paire de pistolets ou un pistolet associé à une arme au corps-à-corps pour effectuer des manœuvres spectaculaires. Mais quelle que soit la manière dont vous le faites, l'utilisation de pistolets ou d'autres armes à feu à une main est une part cruciale de votre technique et de votre style.",
       "Pour vous, tout est un spectacle et vous utilisez votre arme comme un accessoire et un instrument, non seulement pour tuer vos adversaires mais aussi pour les tromper, les induire en erreur, les gêner et même les intimider pour qu'ils fassent ce que vous voulez. Alors que d'autres ont tendance à se concentrer sur le fait de descendre le plus grand nombre possible de cibles, votre style est axé sur le contrôle. En contrôlant l'attention et les actions de l'ennemi, vous pouvez renforcer vos propres attaques et atténuer le potentiel de destruction de l'ennemi. Vous contrôlez le tempo de la bataille comme vous le feriez pour une mise en scène, en veillant soigneusement à ce que les actions de votre ennemi ne s'écartent pas de votre scénario. Vous êtes à la fois le metteur en scène et la star de ce spectacle et vos ennemis dansent au rythme de la musique que vous jouez avec votre pistolet... parfois littéralement !"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_phenomene_du_pistolet",
         "name": "Dévouement : Phénomène du pistolet",
@@ -32149,7 +32149,7 @@ var ARCHETYPES = {
       "Dons supplémentaires :",
       "4e Contrarier , Tu es le suivant"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_pirate",
         "name": "Dévouement : Pirate",
@@ -32312,7 +32312,7 @@ var ARCHETYPES = {
       "4e Frappe intimidante",
       "6e Frappes enchantées"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "credo_de_bataille_1er",
         "name": "Crédo de bataille 1er",
@@ -32540,7 +32540,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un prêtre ordonné de votre divinité et avez même appris à lancer quelques sorts divins. Bien que votre formation principale se situe ailleurs, votre vocation religieuse vous procure des dons divins."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_pretre",
         "name": "Dévouement : Prêtre",
@@ -32661,7 +32661,7 @@ var ARCHETYPES = {
     "description": [
       "Vous êtes un prêtre razmirien, initié des 31 marches, les doctrines de la religion de Razmir. Vous avez été formé au sein de la Loge Exaltée ou dans un autre temple où les prêtres sont spécialisés dans la fabrication de masques qui sont également le symbole religieux de Razmir et vous êtes chargé de répandre et de faire respecter les préceptes de Razmir. Les prêtres razmiriens sont des adorateurs zélés de leur dieu et ils utilisent les techniques magiques qui leur sont enseignées pour répandre sa parole et sa volonté. Vous avez placé le service du Dieu vivant au-dessus de tout autre devoir et confié votre richesse, votre prospérité et vos ambitions à ses enseignements, tout en profitant du savoir et de la sagesse dont seuls ses serviteurs les plus bénis se voient dotés, acceptant le pouvoir et l'autorité qui reviennent de droit aux prêtres du Dieu vivant. Peut-être est-ce par pur zèle à moins que vous ne soyez motivé par les promesses de richesse et d'autorité promises par Razmir. Quoi qu'il en soit, vous avez revêtu le masque et exercez le pouvoir réservé à ceux qui suivent les traces de Razmir."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_pretre_razmirien",
         "name": "Dévouement : Prêtre razmirien",
@@ -32774,7 +32774,7 @@ var ARCHETYPES = {
       "Certains pourraient vous qualifier de journaliste, tandis que d'autres pourraient vous considérer comme un crieur public ou vous utiliser comme héraut. Vous savez que vous êtes bien plus que cela : les mots que vous utilisez et les histoires que vous racontez peuvent influencer le cours des batailles ou renverser le cours de la guerre. Vous avez étudié les moyens d'influencer les croyances et les comportements de ceux qui vous entourent. Vous remontez le moral de vos alliés, déconcertez vos ennemis et influencez les observateurs neutres.",
       "Que vous travailliez comme journaliste pour une organisation privée, telle que la Société des éclaireurs, ou que vous soyez directement employé par un appareil gouvernemental pour présenter sous son meilleur jour ses actions, vous avez accepté un rôle qui exige de vous plus que de simplement rapporter les événements. Vous excellez dans l'art de glisser votre propre interprétation dans la trame narrative et d'utiliser cette interprétation pour influencer les cœurs et les esprits de votre public, pour le meilleur ou pour le pire. Ceux que vous critiquez n'apprécient peut-être pas vos propos, les qualifiant de « mensonges » ou de « calomnies », mais vous avez compris que la vérité peut être aussi changeante que le vent."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_propagandiste_de_terrain",
         "name": "Dévouement : Propagandiste de terrain",
@@ -32951,7 +32951,7 @@ var ARCHETYPES = {
       "Dons supplémentaires :",
       "4e Connaissance des ragots"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_prophete_de_kalistrade",
         "name": "Dévouement : Prophète de Kalistrade",
@@ -33098,7 +33098,7 @@ var ARCHETYPES = {
     "description": [
       "Le provocator est un gladiateur qui mélange une représentation brillante à la maîtrise des armes."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_provocator",
         "name": "Dévouement : Provocator",
@@ -33214,7 +33214,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez réveillé les capacités latentes de votre esprit, en faisant vos premiers pas dans le maniement de la magie psychique."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_psychiste",
         "name": "Dévouement : Psychiste",
@@ -33343,7 +33343,7 @@ var ARCHETYPES = {
       "En tant que pyrotechnicien, vous êtes peut-être un vagabond itinérant, allant de ville en ville tout en développant votre art par vous-même. Dans ce cas, vous gagnez votre vie sur la route, en vendant des feux d'artifice aux habitants des villes, en organisant des spectacles publics sur demande et contre paiement et même en organisant des spectacles personnalisés pour les personnes suffisamment riches ou intéressantes pour mériter leur propre spectacle privé.",
       "D'un autre côté, vous faites peut-être partie d'une entreprise de feux d'artifice bien établie au Tian Xia ou au Vudra et vous comptez sur le travail d'équipe pour perfectionner vos diverses formules et démonstrations. Dans l'espoir de produire la prochaine grande innovation en matière de technologie pyrotechnique, vous renvoyez souvent les notes de vos études et de vos démonstrations sur le terrain à d'estimés collègues de votre entreprise de feux d'artifice, afin d'obtenir leur avis sur votre prochaine grande idée."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_pyrotechnicien",
         "name": "Dévouement : Pyrotechnicien",
@@ -33463,7 +33463,7 @@ var ARCHETYPES = {
       "8e Frappes enchantées",
       "12e Protection énergétique"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "ragesang_1er",
         "name": "Ragesang 1er",
@@ -33655,7 +33655,7 @@ var ARCHETYPES = {
       "7e Changement rapide , Lire les signes distinctifs , Parasite mondain , Réalisations inventées , Vérité subjective",
       "8e Ébauche de communication"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ragot_d_aventure",
         "name": "Dévouement : Ragot d'aventure",
@@ -33814,7 +33814,7 @@ var ARCHETYPES = {
       "12e Visage du nécromant",
       "14e Sublimation sépulcrale"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_reanimateur",
         "name": "Dévouement : Réanimateur",
@@ -33936,7 +33936,7 @@ var ARCHETYPES = {
       "Le secret de votre réussite est une combinaison d'alchimie et de mécanique, de machines et de magie, de science et d'incantation. Bien sûr, la fabrication de la carcasse d'un zombie à remontoir est une chose, mais vous vous concentrez avant tout sur le travail artisanal nécessaire pour que le tout soit opérationnel. Pour vous, la magie n'est qu'un moyen d'arriver à vos fins, un moyen de rendre la science plus efficace grâce à la nécromancie et potentiellement un peu d'évocation pour obtenir de l'énergie électrique.",
       "Alors que certains pensent que vos créations sont viles, vous voyez la beauté dans l'utilité et vous croyez que les cadavres animés sont des outils qui peuvent être utilisés pour le bien ou le mal. Pour le meilleur ou pour le pire, lorsqu'il s'agit de résultats, la science que vous avez développée remplit le critère le plus important de toute innovation : elle fonctionne, pleinement et simplement. Vos cadavres mécaniques réanimés sont stables, efficaces et surtout, ils ne saccagent pas tout et n'ont pas envie de manger la chair des vivants comme le feraient des morts-vivants. De plus, ils ne sont pas vulnérables à l'énergie de vitalité, ce qui les rend plus faciles à utiliser autour des bons clercs et de leurs semblables sans que vos sbires ne subissent de tirs amis (À l'exception des fidèles de Pharasma, toujours si bizarrement mécontents à l'idée de \"profaner les corps des morts\". Ils ne savent pas faire la différence entre la puanteur de la mort et l'odeur du progrès)."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_reanimateur_necromecanicien",
         "name": "Dévouement : Réanimateur nécromécanicien",
@@ -34122,7 +34122,7 @@ var ARCHETYPES = {
       "Des êtres de tout alignement peuvent habiter un réceptacle vivant. Les êtres d'alignement mauvais, en particulier les démons, sont les plus susceptibles d'être intéressés par un tel arrangement, surtout s'il s'agit de s'en emparer par la force et de modifier le corps et déformer l'esprit d'un être intelligent. Être un réceptacle vivant consiste en partie à en apprendre davantage sur l'entité, à trouver ce qui l'apaise le mieux, et à connaître ses plans ultimes pour votre corps et le monde. Peu de réceptacles peuvent dicter entièrement les termes de l'arrangement mais le fait de donner à l'entité une incarnation vous donne un certain poids pour le faire. Utilisez-le à bon escient.",
       "Dons supplémentaires Votre MJ pourrait déterminer que vous pouvez prendre un don de pacte de l'archétype pactiseur en tant que don supplémentaire, tant que le pacte est fait avec l'entité qui est en vous. Par exemple, si vous hébergez une fée, vous pouvez faire un pacte impliquant des fées. Les dons de pacte sont accessibles au même niveau que pour un pactiseur."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_receptacle_vivant",
         "name": "Dévouement : Réceptacle vivant",
@@ -34262,7 +34262,7 @@ var ARCHETYPES = {
       "Un don d'archétype est sujet à toute restriction du don de classe qu'il remplace. Par exemple, si vous aviez une capacité au niveau 6 qui vous a accordé un don de classe en bonus mais que ce don de classe doit être de niveau 4 ou inférieur qui possède le trait nain, vous pourriez utiliser ce don de classe pour prendre un don de classe d'archétype, mais seulement s'il est de niveau 4 ou inférieur et possède le trait nain.",
       "Source: Pathfinder Player Core pg. 215"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "details_du_devouement",
         "name": "Détails du dévouement",
@@ -34337,7 +34337,7 @@ var ARCHETYPES = {
       "Les réincarnations sont issus de tout type possible d'aventurier mais partagent une robustesse supérieure comme trait commun. Bien qu'ils reviennent à la vie après leur mort dans un nouveau corps, ils ne sont jamais exactement les mêmes que lors de leur incarnation précédente. Au début, les détails de leur vie passée sont fugaces, mais à mesure que la réincarnation gagne en puissance, ses anciens souvenirs refont surface. Certains partent à la recherche d'anciens compagnons ou de leurs successeurs spirituels, tandis que d'autres continuent seuls, devenant une épine unique dans le pied de leur adversaire tout aussi intemporel.",
       "Outre la persévérance de la réincarnation héroïque, elle possède d'autres talents. La plupart ont une forte conscience de leur moi profond et sont pratiquement incorruptibles à cet égard. Elles se souviennent des leçons tirées des grandes batailles de l'histoire, ayant elles-mêmes pris part à nombre de ces dernières. De même, elles se souviennent de leurs défaites et de leurs humiliations, mais ne s'attardent pas dessus de manière négative. Au contraire, elles cherchent à tirer les leçons de leurs erreurs passées afin que, lorsqu'elles sont de nouveau confrontés à des situations similaires dans cette nouvelle incarnation, elles puissent mettre à profit la sagesse de ceux qui ont souffert avant elles pour résoudre le problème. Après tant d'années de conflit, les réincarnations héroïques maîtrisent les tactiques et les terrains familiers et deviennent des experts dans la lutte contre leurs ennemis récurrents. Une réincarnation héroïque ne peut se reposer que lorsque son ennemi juré est vaincu, mais elle n'oublie jamais quel est son rôle lorsque le méchant revient."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_reincarnation_heroique_feat_12",
         "name": "Dévouement : Réincarnation héroïque Feat 12",
@@ -34627,7 +34627,7 @@ var ARCHETYPES = {
       "Alors que certains apprennent l'art de l'incantation des rituels à travers une étude rigoureuse, d'autres individus doués peuvent trouver une combinaison mêlant talent naturel et chance qui leur donne une compétence surprenante pour accomplir des rituels, qu'ils veulent ou non de ce pouvoir.",
       "Entreprendre des rituels comporte toujours un élément de risque, mais les récompenses potentielles sont indéniables et il est difficile d'y résister. Vous avez appris à réaliser des rituels et pouvez décider de la meilleure façon d'utiliser leurs puissants avantages."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_ritualiste",
         "name": "Dévouement : Ritualiste",
@@ -34764,7 +34764,7 @@ var ARCHETYPES = {
       "Bien que les rocheliés se trouvent le plus souvent dans les enclaves naines, la pratique de se lier à la nature de la pierre se retrouve dans les montagnes du Garund, du Vudra, d'Arcadie comme dans diverses communautés de l'Ombreterre. Une personne qui se lie à la pierre devient plus résistante aux dégâts, capable de survivre plus longtemps que ses homologues non liés et elle acquiert souvent une compréhension plus profonde de la pierre, au-delà de la seule connaissance.",
       "Les historiens pensent que cette technique est apparue à partir de l'Orv et qu'elle s'est répandue à partir de cette région. La pratique de se lier à la pierre est la plus courante là où le pouvoir élémentaire, en particulier l'essence de la terre, est le plus fort. Cette pratique a commencé à se répandre au Belkzen, à travers l'Ombreterre et dans les déserts du nord du Garund. Plus récemment, les Maîtres des minéraux martiaux de Quain ont adopté cette technique pour leur nouveau dojo et leur nouvelle minoterie. Le personnage public le plus célèbre rochelié est Sorrina Westyr, la maîtresse des sorts de la Société des Éclaireurs, qui a passé une dizaine d'années sur le plan élémentaire de la Terre."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_rochelie",
         "name": "Dévouement : Rochelié",
@@ -34908,7 +34908,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez étudié la chasse, le pistage et la survie en milieu sauvage, ajoutant ainsi les outils du rôdeur à vos compétences. Vos yeux perçants en chassant votre proie aident à recueillir plus d'informations."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_rodeur",
         "name": "Dévouement : Rôdeur",
@@ -34997,7 +34997,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez appris à être discret, à voler et à désactiver des pièges. Avec du temps et de la chance, vous serez capable de vous déplacer parmi les ombres, à frapper sans vous dévoiler et à vous échapper sans vous faire remarquer."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_roublard",
         "name": "Dévouement : Roublard",
@@ -35125,7 +35125,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "10e : Je-sais-tout"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sage_celeste_d_oatie",
         "name": "Dévouement : Sage céleste d'Oatie",
@@ -35356,7 +35356,7 @@ var ARCHETYPES = {
     "description": [
       "Selon les érudits du Tian Xia, les esprits et les apparitions sont généralement considérés comme incarnant divers aspects de la vie, des objets et des concepts. Ces esprits peuvent choisir une forme qui leur plaît ou habiter celle qui reflète le mieux leur personnalité, leur tempérament ou leur philosophie. Quelques fois, une apparition parvient à une conscience accrue qui aboutit à un éveil spirituel. De telles entités peuvent développer une relation magique puissante au monde qui les élève et les sépare des autres membres de leur espèce. Au fil du temps, ils peuvent établir des connexions ou des liens mystiques avec des personnes dignes de servir tout au long de la vie du partenaire qu'ils ont choisi et éventuellement continuer à veiller sur les descendants de leur partenaire et devenir les gardiens spirituels de sa maison. En général, ces apparitions sont des vestiges d'âmes humanoïdes ou des personnifications d'objets ou de lieux imprégnés d'esprit, mais dans certains cas, des esprits primitifs forment des liens similaires, offrant une plus grande connexion avec les cinq éléments et le monde naturel. Quelle que soit la nature fondamentale de ces esprits, ceux qui maîtrisent la capacité de conjurer et de contrôler un familier peuvent nouer avec lui un lien qui ouvre un puits unique et puissant d'énergie magique partagée."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sage_familier",
         "name": "Dévouement : Sage familier",
@@ -35574,7 +35574,7 @@ var ARCHETYPES = {
       "La sensibilité au sang est peu courante, mais on la trouve dans divers endroits. Il est difficile de savoir si une personne est sensible au sang sans qu'elle l'admette ou qu'elle manifeste ouvertement ses pouvoirs en public. Par conséquent, les estimations du nombre de personnes sensibles au sang au sein d'une population n'ont tendance à être exactes que si la sanguimancie est tolérée. Une autre tradition de la magie du sang, l'hémothéurgie, présente de nombreuses similitudes avec la sanguimancie, mais a des effets bien différents sur ses praticiens. Les mages du sang de Kaer Maga, couverts de sangsues, pratiquent cette magie autodestructrice, passant outre les sécurités mises en place par leur corps pour produire plus de sang qu'il n'en faut afin d'améliorer leur magie.",
       "La manière précise dont la sensibilité au sang se manifeste reste mal comprise, même parmi les érudits en magie qui ont étudié avec rigueur son existence. La plupart d'entre eux s'accordent à dire que l'exposition au sang frais est un facteur clé dans la survenance de l'harmonisation. Certains pensent qu'une exposition répétée, dès le plus jeune âge, est nécessaire, tandis que d'autres supposent qu'un incident unique peut suffire, à condition qu'il se produise dans un état émotionnel extraordinairement puissant. Enfin, certains pensent que la sensibilité au sang pourrait être un don (ou une malédiction) à laquelle on est divinement prédestiné, une affinité congénitale voire une simple question de chance. Jusqu'à présent, personne n'a été en mesure d'induire de manière fiable le pouvoir de la sanguimancie sur un sujet test et la plupart des expériences qui tentent d'y parvenir sont considérées comme maléfiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "sensibilite_au_sang",
         "name": "Sensibilité au sang",
@@ -35688,7 +35688,7 @@ var ARCHETYPES = {
     "description": [
       "La magie des runes du Thassilon et des nations qui en ont hérité a laissé sa marque à même votre chair. En tant que scarifié de runes, vous entretenez un lien inhabituellement étroit avec cette antique magie qui forme à présent un domaine d'étude émergeant pour de petits groupes d'érudits provenant à la fois de Varisie et de la Nouvelle Thassilon."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_scarifie_de_runes",
         "name": "Dévouement : Scarifié de runes",
@@ -35791,7 +35791,7 @@ var ARCHETYPES = {
       "Le sauveur invoqué par Hume était un ancien guide spirituel du Plan de l'Eau nommé Dyzad. Grâce aux conseils de Dyzad, les Domoriens invoquèrent d'autres guides spirituels de ce type, que les citoyens vénérèrent tous comme des dieux longtemps après sa disparition. Cette tradition d'Appel de dieu - et le culte des dieux sarkoriens - a fini par définir la ville de Domora.",
       "Dans les années qui suivirent, d'innombrables pèlerins, sarkoriens ou non, vinrent à Domora pour apprendre à devenir des appelleur de dieu. Beaucoup espéraient invoquer un dieu pour le ramener auprès de leur propre peuple, tandis que d'autres demandaient aux divinités de les aider à s'épanouir spirituellement. Aujourd'hui, la tradition de l'appel de dieu de Domora est pratiquement éteinte car elle a été anéantie lors de l'incursion dde la Plaie du Monde. Néanmoins, les individus dignes de ce nom qui bravent les ruines de Domora peuvent exhumer un petit fragment de cette tradition. Bien qu'ils ne soient pas de véritables appelleurs de dieux - n'ayant pas la capacité de se lier aux guides spirituels supérieurs ou de débloquer les plus hauts niveaux de leur pouvoir - de tels \"scions\" forgent toujours des relations uniques avec des guides spirituels de moindre importance. Les scions de Domora fournissent des ancrages physiques et spirituels à leurs compagnons guides spirituels, tandis que ces derniers leur rendent la pareille en partageant une partie de leurs pouvoirs surnaturels."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_scion_de_domora",
         "name": "Dévouement : Scion de Domora",
@@ -35962,7 +35962,7 @@ var ARCHETYPES = {
       "Vous avez forgé votre propre union avec un compagnon loyal. Vous partagez tous les fardeaux, toutes les épreuves et un destin clair. Cet avenir, quels que soient les ennemis que vous affrontez, les terres que vous protégez ou les quêtes que vous poursuivez, a toujours en commun le lien indéfectible que vous entretenez l'un avec l'autre. Certains ennemis chercheront à vous séparer, voire à vous envoyer entre les mains de Pharasma, mais ils ne pourront pas dissoudre votre partenariat tant que vous et votre compagnon resterez fidèles l'un à l'autre. Vous ne formez qu'une seule entité, un seul corps et un seul esprit et vos tribulations et les épreuves auxquelles vous serez confrontés s'effondreront rapidement grâce à la puissance de cette union.",
       "Vous n'avez pas besoin de voyager seul, mais les autres ne comprendront pas vraiment le lien qui vous unit. Vous et votre compagnon pouvez vous faire d'autres amis, voire même nouer des relations intimes en dehors de ce lien. Ces liens seront toujours secondaires, cependant, et cela pourrait même susciter de la jalousie ou du ressentiment. Mais rien de tel ne pourra jamais creuser un fossé entre vous et votre compagnon. Ceux qui vous évitent ou vous mettent à l'écart en raison de votre lien finiront par comprendre son pouvoir lorsque vous deviendrez des figures mythiques dont l'épopée sera racontée pendant le reste de l'éternité."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_seigneur_des_betes",
         "name": "Dévouement : Seigneur des bêtes",
@@ -36183,7 +36183,7 @@ var ARCHETYPES = {
       "20e Chevaucheur légendaire",
       "Si vous jouez un Seigneur des mammouths, vous déterminez les statistiques et les capacités de vos compagnons animaux en fonction des règles de base des compagnons animaux. En tant que Seigneur des mammouths, il est possible que vous puissiez avoir plus d'un compagnon animal au même moment — jusqu'à quatre compagnons — mais seulement un seul compagnon, votre \"compagnon actif\", vous suit au cours de l'exploration et dans les rencontres. Le reste est à proximité, fourrageant à proximité ou chassant pour se nourrir. Dès que vous obtenez un deuxième compagnon animal de l'archétype Seigneur des mammouths, vous obtenez aussi l'action Appel du compagnon pour échanger votre compagnon actif. Ces règles s'appliquent à tous vos compagnon, qu'importe qu'il s'agisse d'un compagnon animal venant de l'archétype de Seigneur des mammouths ou d'une autre origine."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_seigneur_des_mammouths",
         "name": "Dévouement : Seigneur des mammouths",
@@ -36392,7 +36392,7 @@ var ARCHETYPES = {
       "Vous avez appris la magie arcanique en suivant la voie des Seigneurs des runes. Vous apprenez les secrets de la magie runique, les blocs de construction de la magie. Mais soyez prévenu : Vous pourriez succomber au péché dans votre poursuite du pouvoir. Les sept runes tenues en haute considération par les seigneurs des runes font écho au pouvoir addictif des sept péchés.",
       "Au-delà des runes en elles-mêmes, vous apprenez aussi les techniques des anciens seigneurs des runes. Vous apprenez à utiliser les armes emblématiques des Seigneurs des runes et pouvez acquérir les secrets des puissants objets antiques appelés les pierres d'éternité en les implantant dans votre chair."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "seigneur_des_runes_1er",
         "name": "Seigneur des runes 1er",
@@ -36584,7 +36584,7 @@ var ARCHETYPES = {
       "Il ne s'agissait pas d'une véritable réincarnation. Les âmes tourmentées de ces magiciens morts depuis longtemps ne sont pas nées dans de nouveaux corps, récompense accordée à une âme jugée et renvoyée dans la vie.",
       "Au lieu de ça, ceux qui sont envahis par l'âme d'un seigneur des runes vengeur doivent constamment combattre pour contrôler leur destinée. Au fil du temps, ils pourraient expérimenter des flashbacks et une impression de déjà vu, découvrant l'indentité cachée dans leurs souvenirs. Au fur et à mesure que cette influence grandit, il en est de même des souvenirs amers des rivalités avec le seigneur des runes Xanderghul ou de ceux qui lui ressemblent."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_seigneur_des_runes_vengeur",
         "name": "Dévouement : Seigneur des runes vengeur",
@@ -36817,7 +36817,7 @@ var ARCHETYPES = {
       "16e Clarté prémonitoire",
       "18e Inviolable"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "senechal_1er",
         "name": "Sénéchal 1er",
@@ -37006,7 +37006,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "10e Rempart puissant"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sentinelle",
         "name": "Dévouement : Sentinelle",
@@ -37089,7 +37089,7 @@ var ARCHETYPES = {
       "Dons supplémentaires",
       "8e Formation en phalange"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sentinelle_de_dernier_rempart",
         "name": "Dévouement : Sentinelle de Dernier-Rempart",
@@ -37516,7 +37516,7 @@ var ARCHETYPES = {
       "Bien que le zodiaque soit connu à travers Tian Xia pour veiller subtilement sur le continent, parfois, les 12 constellations jugent nécessaire d'intervenir plus directement. Lorsqu'une menace grave surgit, une constellation du zodiaque peut briller sur un simple étudiant ou travailleur, lui accordant le pouvoir de se transformer en un puissant alter ego pour repousser ces dangers. Si la plupart de ces sentinelles stellaires agissent discrètement, lorsque tout le monde est endormi, certaines deviennent bien connues, que ce soit sous forme de légendes urbaines ou de véritables célébrités, mais presque toujours sous leur identité héroïque. Certains se retrouvent tiraillés entre la double pression d'une vie civile modeste, travaillant sur un marché le jour, et celle de protecteur de ce même marché contre des oni déchaînés ou des jiang-shi voleurs de qi sous la lumière des étoiles.",
       "En raison de la présence d'un groupe de quatre sentinelles féminines bien connues opérant depuis Goka, beaucoup pensent que le zodiaque ne choisit que des filles comme sentinelles. Pourtant, les cieux se soucient peu de telles préoccupations mortelles et accordent leur pouvoir sans distinction de genre. Les sentinelles stellaires sont rares, même au Tian Xia, et chacune d'entre elles est unique. Une nouvelle sentinelle liée à une constellation donnée ne s'éveillera pas tant que la précédente sentinelle de cette constellation est active."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sentinelle_stellaire",
         "name": "Dévouement : Sentinelle stellaire",
@@ -37653,7 +37653,7 @@ var ARCHETYPES = {
     "description": [
       "Les signifers sont les incantateurs puissants et énigmatiques des Chevaliers infernaux qui soutiennent et quelques fois dirigent les autres Chevaliers infernaux dans leurs missions de faire respecter la loi inflexible. Formidable à leur propre manière, les signifers sont entraînés pour être des forces de l'ordre et d'autorité lorsqu'ils se tiennent aux côtés de leurs contreparties martiales."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "archetypes_de_chevaliers_infernaux",
         "name": "Archétypes de Chevaliers infernaux",
@@ -37809,7 +37809,7 @@ var ARCHETYPES = {
     "description": [
       "Le Sixième pilier suit une tradition qui mêle les arts martiaux et la magie. Traditionellement, c'est une voie pour mieux concentrer et exploiter la magie innée ou celle d'un lignage, mais elle peut être utilisée par quiconque peut lancer des sorts."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sixieme_pilier",
         "name": "Dévouement : Sixième pilier",
@@ -37910,7 +37910,7 @@ var ARCHETYPES = {
       "Beaucoup pensent que les royaumes spirituels et les paysages mentaux sont des constructions rares et élaborées, oubliant que chacun crée son propre royaume mental lorsqu'il dort, un royaume où même les événements les plus étranges semblent parfaitement normaux. Tout est possible dans ces paysages de rêves, mais peu de créatures intelligentes ont la volonté et la perspicacité nécessaires pour en prendre le contrôle et explorer véritablement leur inconscient.",
       "Les somnambules se consacrent à percer les secrets de l'esprit endormi, en prenant le contrôle de leurs rêves et en se promenant dans les visions que font les autres lorsqu'ils sont endormis. Certains sont des manipulateurs malveillants qui murmurent à ceux qui sont endormis pour leur profit personnel. D'autres utilisent leurs pouvoirs pour le bien, en recherchant les malfaiteurs et ceux qui corrompent les rêves pour en faire des cauchemars. Au fur et à mesure que leur pouvoir augmente, l'apparence des somnambules devient légèrement indistincte, comme s'ils étaient flous sur les bords et ceux qui les rencontrent ont du mal à se souvenir des détails exacts de leur apparence."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_somnambule",
         "name": "Dévouement : Somnambule",
@@ -38099,7 +38099,7 @@ var ARCHETYPES = {
     "description": [
       "Les sonneurs de carillon servent comme gardes d'élite de la ville de Nantambu, gardant la paix en transportant les traditions antiques de fabrication de carillons en métal, bambou ou en verre."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sonneur_de_carillon_de_nantambu",
         "name": "Dévouement : Sonneur de carillon de Nantambu",
@@ -38202,7 +38202,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez entendu les murmures d'un patron distant qui a envoyé un émissaire pour vous apprendre une puissante magie."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sorcier",
         "name": "Dévouement : Sorcier",
@@ -38324,7 +38324,7 @@ var ARCHETYPES = {
       "Les enseignants du Magaambya sont préoccupés par un jeune élève nommé Mkosa (étudiant halfelin curieux non binaire) qui commence à présenter des signes d'un sort sauvage naissant. Ils ne souhaitent pas entraver l'éducation de Mkosa, mais craignent que des explosions accidentelles de magie ne nuisent à d'autres personnes. Les professeurs n'ont pas encore fait part de leurs inquiétudes à Mkosa, et le moment de prendre une décision approche à grands pas.",
       "Le pouvoir et la magie sont à votre disposition, mais seul le temps vous dira si vous parviendrez à les maîtriser pour devenir un véritable sort sauvage. Vous serez soumis à des épreuves de l'esprit et du corps qui ont toutes les chances de vous briser, soit en déchirant votre chair avec de la magie brute, soit en brisant votre esprit avec des révélations arcaniques concernant l'Univers. Si vous survivez, votre histoire entrera dans la légende."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_sort_sauvage",
         "name": "Dévouement : Sort sauvage",
@@ -38658,7 +38658,7 @@ var ARCHETYPES = {
       "8e Amplitude arcanique",
       "12e Incantation du magicien experte"
     ],
-    "feats": []
+    "skills": []
   },
   {
     "name": "Thaumaturge",
@@ -38672,7 +38672,7 @@ var ARCHETYPES = {
     "description": [
       "Des bribes de connaissances vous ont appris à exploiter les vulnérabilités des créatures et les pouvoirs des objets mystiques."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_thaumaturge",
         "name": "Dévouement : Thaumaturge",
@@ -38804,7 +38804,7 @@ var ARCHETYPES = {
       "4e Mordre la poussière ! , Rechargement risqué",
       "10e Tir astucieux"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_tireur_d_elite_inattendu",
         "name": "Dévouement : Tireur d'élite inattendu",
@@ -38963,7 +38963,7 @@ var ARCHETYPES = {
       "Partout où les morts-vivants s'attaquent aux vivants, certaines âmes courageuses se donnent pour mission de détruire les monstres. De nombreux aventuriers sont compétents pour éliminer les morts-vivants mais vous allez plus loin encore. Vous les étudiez, apprenez leurs faiblesses et maîtrisez les outils pour en finir rapidement et proprement avec eux. Un tueur de morts-vivants ne se contente pas de tuer des monstres, il devient ce que même les monstres craignent. Laissez aux autres le soin de servir de bouclier : vous devenez la lame qui frappe le mal en son cœur. Vous pouvez identifier les types courants de morts-vivants à vue. Vous vous exercez à utiliser l'équipement spécial nécessaire pour détruire certains des morts-vivants les plus complexes, comme les vampires. Vous vous entraînez à connaître leurs forces et leurs faiblesses et vous apprenez à créer des refuges pour stocker votre arsenal et vous cacher des morts-vivants.",
       "Certains tueurs de morts-vivants travaillent sous les ordres d'une organisation pour exterminer les morts-vivants d'une région particulière mais beaucoup agissent de manière indépendante ou au sein d'un groupe d'aventuriers partageant les mêmes idées. Avez-vous été appelé par une puissance supérieure ? Vous êtes-vous lancé dans une quête personnelle de vengeance ? Quelle que soit votre raison, vous arpentez désormais un chemin qui vous mènera dans les antres les plus vils de la pourriture et de la décadence."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_tueur_de_mort_vivant",
         "name": "Dévouement : Tueur de mort-vivant",
@@ -39123,7 +39123,7 @@ var ARCHETYPES = {
     "description": [
       "Depuis très longtemps, la magie est consignée par écrit sous une multitude de formes. Du rouleau de parchemin classique aux cordes nouées avec une centaine de nœuds complexes, des tablettes d'argile cuite couvertes d'incisions aux collections reliées de lamelles de bambou, la magie est partout. Il suffit juste de savoir la lire. Vous avez étudié l'art de lire des parchemins magiques de toutes sortes. Vous pouvez utiliser et manipuler le langage de la magie, aussi instable et archaïque que soit cette écriture."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_usurpateur_de_parchemins",
         "name": "Dévouement : Usurpateur de parchemins",
@@ -39234,7 +39234,7 @@ var ARCHETYPES = {
     "description": [
       "Après avoir été vidé de votre sang par un vampire, vous avez relevé, vous arrachant à la terre en tant que mort-vivant immortel. Vous êtes une créature de la nuit, blessée par la lumière du jour et assoiffée de sang."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_vampire",
         "name": "Dévouement : Vampire",
@@ -39450,7 +39450,7 @@ var ARCHETYPES = {
     "description": [
       "Vous avez souffert du contact mortel d'une vase ou d'une autre créature amorphe comme un babélien ou un shoggoth et en êtes revenu changé. Autrement, vous pourriez avoir été exposé à un accident alchimique impliquant une expérimentation avec des vases comme celle accompli dans la cité d'Œnopion au Nex. Des parties de votre corps se liquéfient à l'occasion et menacent de se détacher et seule votre force de volonté peut vous permettre de garder intact votre forme naturelle. Votre maladie est d'origine complètement surnaturelle et tristement permanente."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_vasemorphe",
         "name": "Dévouement : Vasemorphe",
@@ -39597,7 +39597,7 @@ var ARCHETYPES = {
       "14e Second dard",
       "16e Riposte jumelée améliorée"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "vengeur_1er",
         "name": "Vengeur 1er",
@@ -39753,7 +39753,7 @@ var ARCHETYPES = {
       "6e Cogneur réactif",
       "8e Briser les défenses"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_veste_noire",
         "name": "Dévouement : Veste noire",
@@ -39898,7 +39898,7 @@ var ARCHETYPES = {
       "6e Marche au bouclier",
       "10e Blocage au bouclier éclair"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_viking",
         "name": "Dévouement : Viking",
@@ -40026,7 +40026,7 @@ var ARCHETYPES = {
       "6e Recherche minutieuse",
       "8e Domaine avancé"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "vindicateur_1er",
         "name": "Vindicateur 1er",
@@ -40193,7 +40193,7 @@ var ARCHETYPES = {
     "description": [
       "Vous devenez un xun, un puissant membre de gang."
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_xun_de_la_ligue_doree",
         "name": "Dévouement : Xun de la ligue dorée",
@@ -40297,7 +40297,7 @@ var ARCHETYPES = {
       "4e Charge destructrice , Empoignade en combat , Poigne écrasante",
       "14e Puanteur de cadavre"
     ],
-    "feats": [
+    "skills": [
       {
         "id": "devouement_zombie",
         "name": "Dévouement : Zombie",

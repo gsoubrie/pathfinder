@@ -21,7 +21,7 @@ ARCHETYPES.ArchetypePopup.prototype = {
             case "level":
             case "traits":
             case "description":
-            case "feats":
+            case "skills":
                 this[ key ] = value;
                 break;
             default:
@@ -52,48 +52,48 @@ ARCHETYPES.ArchetypePopup.prototype = {
             );
         }
 
-        if ( this.feats && this.feats.length ) {
+        if ( this.skills && this.skills.length ) {
             SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "archetype-feats-title" }, "Dons de l'archétype" ),
+                SERVICE.DOM.createElement( "div", { class: "archetype-skills-title" }, "Dons de l'archétype" ),
                 this.getDomElement()
             );
 
-            for ( var i = 0; i < this.feats.length; i++ ) {
-                var feat     = this.feats[ i ];
+            for ( var i = 0; i < this.skills.length; i++ ) {
+                var skill     = this.skills[ i ];
                 var feat_div = SERVICE.DOM.addElementTo(
-                    SERVICE.DOM.createElement( "div", { class: "archetype-feat" } ),
+                    SERVICE.DOM.createElement( "div", { class: "archetype-skill" } ),
                     this.getDomElement()
                 );
 
                 var header = SERVICE.DOM.addElementTo(
-                    SERVICE.DOM.createElement( "div", { class: "archetype-feat-header" } ),
+                    SERVICE.DOM.createElement( "div", { class: "archetype-skill-header" } ),
                     feat_div
                 );
                 SERVICE.DOM.addElementTo(
-                    SERVICE.DOM.createElement( "span", { class: "archetype-feat-name" }, feat.name || "" ),
+                    SERVICE.DOM.createElement( "span", { class: "archetype-skill-name" }, skill.name || "" ),
                     header
                 );
-                if ( feat.level ) {
+                if ( skill.level ) {
                     SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "span", { class: "archetype-feat-level" }, "Don " + feat.level ),
+                        SERVICE.DOM.createElement( "span", { class: "archetype-skill-level" }, "Don " + skill.level ),
                         header
                     );
                 }
 
-                if ( feat.required ) {
+                if ( skill.required ) {
                     var req_div = SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "div", { class: "archetype-feat-required" } ),
+                        SERVICE.DOM.createElement( "div", { class: "archetype-skill-required" } ),
                         feat_div
                     );
                     SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "span", { class: "archetype-feat-required-label" }, "Prérequis : " ),
+                        SERVICE.DOM.createElement( "span", { class: "archetype-skill-required-label" }, "Prérequis : " ),
                         req_div
                     );
 
-                    if ( feat.required.archetypes && feat.required.archetypes.length ) {
+                    if ( skill.required.archetypes && skill.required.archetypes.length ) {
                         var arch_names = [];
-                        for ( var a = 0; a < feat.required.archetypes.length; a++ ) {
-                            arch_names.push( "Dévouement " + feat.required.archetypes[ a ].name );
+                        for ( var a = 0; a < skill.required.archetypes.length; a++ ) {
+                            arch_names.push( "Dévouement " + skill.required.archetypes[ a ].name );
                         }
                         SERVICE.DOM.addElementTo(
                             SERVICE.DOM.createElement( "span", { class: "archetype-req-tag archetype-req-devotion" }, arch_names.join( ", " ) ),
@@ -101,8 +101,8 @@ ARCHETYPES.ArchetypePopup.prototype = {
                         );
                     }
 
-                    if ( feat.required.skills ) {
-                        var skills     = feat.required.skills;
+                    if ( skill.required.skills ) {
+                        var skills     = skill.required.skills;
                         var skill_list = skills.list || [];
                         var label_map  = {
                             "arcane"    : "Arcanes",
@@ -127,14 +127,14 @@ ARCHETYPES.ArchetypePopup.prototype = {
                     }
                 }
 
-                if ( feat.description && feat.description.length ) {
+                if ( skill.description && skill.description.length ) {
                     var desc_div = SERVICE.DOM.addElementTo(
-                        SERVICE.DOM.createElement( "div", { class: "archetype-feat-desc" } ),
+                        SERVICE.DOM.createElement( "div", { class: "archetype-skill-desc" } ),
                         feat_div
                     );
-                    for ( var d = 0; d < feat.description.length; d++ ) {
+                    for ( var d = 0; d < skill.description.length; d++ ) {
                         SERVICE.DOM.addElementTo(
-                            SERVICE.DOM.createElement( "p", {}, feat.description[ d ] ),
+                            SERVICE.DOM.createElement( "p", {}, skill.description[ d ] ),
                             desc_div
                         );
                     }

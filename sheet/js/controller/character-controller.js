@@ -46,7 +46,7 @@ CONTROLLER.Character = (function ( self ) {
     //********************************************  SAVE  **************************************************//
     self.save               = function ( event_name ) {
         let to_return = self.current_character.getDataToSave();
-        console.log( to_return);
+        console.log("GSOU", "[Character - save]", to_return);
         //const link    = document.createElement( "a" );
         //const file    = new Blob( ["let " + self.current_character.getUUID() + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
         //link.href     = URL.createObjectURL( file );
