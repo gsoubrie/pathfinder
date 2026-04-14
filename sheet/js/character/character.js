@@ -8,7 +8,7 @@ CHARACTER.Current = function () {
     this.name_object     = new CHARACTER.Name();
     this.player          = new CHARACTER.Player();
     this.alignment       = null;
-    this.level           = new CHARACTER.Levels();
+    this.level           = null;
     this.point_heroism   = null;
     this.race            = new RACES.Race();
     this.health          = new CHARACTER.Health();
@@ -16,6 +16,7 @@ CHARACTER.Current = function () {
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
     this.gifts           = new CHARACTER.Gifts();
+    this.levelup_choices = new CHARACTER.LevelUpChoices();
     this.children        = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
@@ -141,13 +142,16 @@ CHARACTER.Current.prototype = {
                 this.updateHtmlData( key, value );
                 break;
             case "level":
-                this[ key ].setCurrentLevel( value );
+                this[ key ] = parseInt( value );
                 break;
             case "health":
                 this.health.updateData( value );
                 break;
             case "gifts":
                 this.gifts.updateData( value );
+                break;
+            case "levelup_choices":
+                this.levelup_choices.updateData( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -203,6 +207,9 @@ CHARACTER.Current.prototype = {
     },
     getGifts          : function () {
         return this.gifts;
+    },
+    getLevelUpChoices : function () {
+        return this.levelup_choices;
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {

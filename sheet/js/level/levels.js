@@ -7,32 +7,32 @@
 CHARACTER.Level.detectType = function ( label ) {
     var low = label.toLowerCase();
     
-    if ( LEVEL.KEYWORDS.SKILL_INCREASE.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.SKILL_INCREASE.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "skill_increase";
     }
-    if ( LEVEL.KEYWORDS.GENERAL_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.GENERAL_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "general_skill";
     }
-    if ( LEVEL.KEYWORDS.SKILL_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.SKILL_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "skill_skill";
     }
-    if ( LEVEL.KEYWORDS.ANCESTRY_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.ANCESTRY_SKILL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "ancestry_skill";
     }
-    if ( LEVEL.KEYWORDS.ATTRIBUTE_BOOST.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.ATTRIBUTE_BOOST.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "attribute_boost";
     }
-    if ( LEVEL.KEYWORDS.SPELL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.SPELL.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "spell";

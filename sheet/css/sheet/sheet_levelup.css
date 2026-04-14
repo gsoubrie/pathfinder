@@ -1,0 +1,318 @@
+/* =============================== LEVELUP WINDOW =========================== */
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-window {
+    display        : flex;
+    flex-direction : column;
+    gap            : 10px;
+    padding        : 12px;
+    height         : 100%;
+    box-sizing     : border-box;
+    overflow-y     : auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8b6914 #2c1810;
+}
+
+/* ── En-tête ── */
+.levelup-window .levelup-header {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    background      : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border          : 2px solid #8b6914;
+    border-radius   : 8px;
+    padding         : 10px 16px;
+    margin-bottom   : 4px;
+}
+
+.levelup-window .levelup-header-class {
+    color       : #f0d890;
+    font-size   : 18px;
+    font-weight : bold;
+    text-shadow : 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.levelup-window .levelup-header-level {
+    background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border        : 1px solid #ffd700;
+    border-radius : 6px;
+    color         : #1a0f08;
+    font-size     : 14px;
+    font-weight   : bold;
+    padding       : 4px 14px;
+}
+
+/* ── Warning global ── */
+.levelup-window .levelup-global-warning {
+    border-radius : 6px;
+    font-size     : 13px;
+    font-weight   : bold;
+    padding       : 7px 14px;
+    text-align    : center;
+    background    : linear-gradient(135deg, #2a3a1a 0%, #1a2a0f 100%);
+    border        : 1px solid #4a8a4a;
+    color         : #90d080;
+}
+
+.levelup-window .levelup-global-warning.visible {
+    background : linear-gradient(135deg, #3a2010 0%, #2a1408 100%);
+    border     : 1px solid #c06030;
+    color      : #f0a060;
+}
+
+/* ── Bloc niveau ── */
+.levelup-window .levelup-block {
+    background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 8px;
+    overflow      : hidden;
+}
+
+.levelup-window .levelup-block-title {
+    align-items      : center;
+    background       : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border-bottom    : 1px solid #6b4e2a;
+    display          : flex;
+    gap              : 8px;
+    padding          : 8px 14px;
+}
+
+.levelup-window .levelup-block-title.has-pending {
+    border-left : 4px solid #d4500a;
+}
+
+.levelup-window .levelup-block-level-num {
+    color       : #d4af37;
+    font-size   : 14px;
+    font-weight : bold;
+    letter-spacing: 1px;
+    text-shadow : 1px 1px 2px rgba(0,0,0,0.8);
+    text-transform: uppercase;
+}
+
+.levelup-window .levelup-pending-badge {
+    background    : #d4500a;
+    border-radius : 50%;
+    color         : #fff;
+    font-size     : 11px;
+    font-weight   : bold;
+    height        : 18px;
+    line-height   : 18px;
+    text-align    : center;
+    width         : 18px;
+}
+
+/* ── Ligne unlock ── */
+.levelup-window .levelup-row {
+    align-items  : center;
+    border-bottom: 1px solid rgba(107, 78, 42, 0.3);
+    display      : flex;
+    gap          : 10px;
+    padding      : 7px 14px;
+    transition   : background 0.15s ease;
+}
+
+.levelup-window .levelup-row:last-child {
+    border-bottom : none;
+}
+
+.levelup-window .levelup-row--choice {
+    background : linear-gradient(135deg, #33231a 0%, #241810 100%);
+}
+
+.levelup-window .levelup-row--pending {
+    border-left : 3px solid #d4500a;
+}
+
+.levelup-window .levelup-row-icon {
+    flex-shrink : 0;
+    font-size   : 15px;
+    width       : 20px;
+    text-align  : center;
+}
+
+.levelup-window .levelup-row-label {
+    color     : #c8b090;
+    flex      : 1;
+    font-size : 13px;
+}
+
+.levelup-window .levelup-row--choice .levelup-row-label {
+    color       : #e8d4a8;
+    font-weight : 600;
+}
+
+/* ── Sélecteur ── */
+.levelup-window .levelup-selector-wrap {
+    flex-shrink : 0;
+    min-width   : 220px;
+}
+
+.levelup-window .levelup-chosen {
+    align-items     : center;
+    background      : linear-gradient(135deg, #2a3a10 0%, #1a2a08 100%);
+    border          : 1px solid #4a8a2a;
+    border-radius   : 5px;
+    display         : flex;
+    gap             : 8px;
+    justify-content : space-between;
+    padding         : 4px 10px;
+}
+
+.levelup-window .levelup-chosen-name {
+    color       : #a0e060;
+    font-size   : 12px;
+    font-weight : bold;
+}
+
+.levelup-window .levelup-clear-btn,
+.levelup-window .levelup-choose-btn,
+.levelup-window .levelup-cancel-btn {
+    background  : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border      : 1px solid #8b6914;
+    border-radius: 4px;
+    color       : #d4af37;
+    cursor      : pointer;
+    font-family : inherit;
+    font-size   : 12px;
+    font-weight : bold;
+    padding     : 3px 10px;
+    transition  : all 0.2s ease;
+}
+
+.levelup-window .levelup-clear-btn:hover,
+.levelup-window .levelup-cancel-btn:hover {
+    background   : linear-gradient(135deg, #5a2010 0%, #3a1008 100%);
+    border-color : #d4500a;
+    color        : #f08060;
+}
+
+.levelup-window .levelup-choose-btn {
+    width : 100%;
+}
+
+.levelup-window .levelup-choose-btn:hover {
+    background   : linear-gradient(135deg, #6b4e10 0%, #4a3508 100%);
+    border-color : #ffd700;
+    color        : #ffd700;
+}
+
+/* ── Sélecteur inline ── */
+.levelup-window .levelup-inline-selector {
+    background    : linear-gradient(135deg, #1a0f08 0%, #0d0604 100%);
+    border        : 2px solid #8b6914;
+    border-radius : 6px;
+    display       : flex;
+    flex-direction: column;
+    gap           : 6px;
+    padding       : 8px;
+    max-width     : 400px;
+}
+
+.levelup-window .levelup-inline-search {
+    background    : linear-gradient(135deg, #2a1b10 0%, #1a0f08 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #e8d4a8;
+    font-family   : inherit;
+    font-size     : 12px;
+    outline       : none;
+    padding       : 5px 10px;
+    width         : 100%;
+    box-sizing    : border-box;
+}
+
+.levelup-window .levelup-inline-search:focus {
+    border-color : #d4af37;
+}
+
+.levelup-window .levelup-inline-list {
+    display        : flex;
+    flex-direction : column;
+    gap            : 2px;
+    max-height     : 260px;
+    overflow-y     : auto;
+    scrollbar-width: thin;
+    scrollbar-color: #8b6914 #1a0f08;
+}
+
+.levelup-window .levelup-inline-entry {
+    align-items     : center;
+    background      : linear-gradient(135deg, #2a1b10 0%, #1a0f08 100%);
+    border          : 1px solid transparent;
+    border-radius   : 4px;
+    cursor          : pointer;
+    display         : flex;
+    justify-content : space-between;
+    padding         : 5px 10px;
+    transition      : all 0.15s ease;
+}
+
+.levelup-window .levelup-inline-entry:hover {
+    background   : linear-gradient(135deg, #4a3520 0%, #2a1b10 100%);
+    border-color : #d4af37;
+}
+
+.levelup-window .levelup-inline-name {
+    color     : #e8d4a8;
+    font-size : 12px;
+}
+
+.levelup-window .levelup-inline-level {
+    background    : #3d2817;
+    border        : 1px solid #6b4e2a;
+    border-radius : 3px;
+    color         : #a08050;
+    font-size     : 10px;
+    padding       : 1px 6px;
+}
+
+.levelup-window .levelup-inline-empty {
+    color      : #7a6040;
+    font-style : italic;
+    padding    : 8px;
+    text-align : center;
+    font-size  : 12px;
+}
+
+/* ── Badge warning sur l'onglet ── */
+.levelup-warning-badge {
+    background    : #d4500a;
+    border-radius : 50%;
+    color         : #fff;
+    font-size     : 10px;
+    font-weight   : bold;
+    height        : 16px;
+    line-height   : 16px;
+    margin-left   : 6px;
+    min-width     : 16px;
+    text-align    : center;
+    display       : inline-block;
+    padding       : 0 2px;
+    vertical-align: middle;
+}
+
+/* ── Warning dans characteristics (body dataset) ── */
+body[data-levelup-missing]:not([data-levelup-missing="0"]) #id-gs-window-V2-characteristic_sheet-character_group .gs-div-tab::after {
+    content       : attr(data-levelup-missing-label);
+    background    : #d4500a;
+    border-radius : 3px;
+    color         : #fff;
+    font-size     : 10px;
+    font-weight   : bold;
+    margin-left   : 6px;
+    padding       : 1px 6px;
+}
+
+body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-container::before {
+    content       : "⚠ Des choix de passage de niveau sont en attente";
+    display       : block;
+    background    : linear-gradient(135deg, #3a2010 0%, #2a1408 100%);
+    border        : 1px solid #c06030;
+    border-radius : 6px;
+    color         : #f0a060;
+    font-size     : 13px;
+    font-weight   : bold;
+    margin-bottom : 12px;
+    padding       : 8px 14px;
+    text-align    : center;
+}

@@ -15,6 +15,7 @@ CHARACTER.WindowGroup.prototype = {
         this.addSpecific( new CHARACTER.CharacteristicWindow( "characteristic_sheet", this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.GiftsWindow( this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.LevelUpWindow( this.getName() ), character_object );
         this.setActiveWindow( CHARACTER.GeneralWindow.NAME );
         // this.setActiveWindow( "characteristic_sheet" );
         this.computeHtml();
