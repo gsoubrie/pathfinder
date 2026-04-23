@@ -1,8 +1,20 @@
 "use strict";
 //https://claude.ai/chat/c4380309-0396-4719-8d82-038e67737967
+
 const PF2_CLASS = (function () {
 
     const self = {};
+
+    /*
+    =========================================================
+    ÉTAT PARTAGÉ (comme l'ancien script)
+    previous_title et capacity_mode sont sur self pour
+    persister à travers tous les appels récursifs.
+    =========================================================
+    */
+
+    self.previous_title  = "";
+    self.capacity_mode   = false;
 
     /*
     =========================================================
@@ -33,8 +45,8 @@ const PF2_CLASS = (function () {
 
     /*
     =========================================================
-    MAÎTRISES
-    Clé courte uniquement : "Q" | "E" | "M" | "L" | "I"
+    MAÎTRISES — clé courte uniquement
+    "Q" | "E" | "M" | "L" | "I"
     =========================================================
     */
 
@@ -74,14 +86,12 @@ const PF2_CLASS = (function () {
     /*
     =========================================================
     MAPPING TITRES → CLÉS
-    Repris exactement depuis l'ancien script pour couvrir
-    toutes les variantes de libellés du site.
+    Reprend exactement toutes les variantes de l'ancien script.
     =========================================================
     */
 
     self.parseTitleToKey = ( text ) => {
         switch ( text.trim() ) {
-            // --- Roleplay ---
             case "Lors des rencontres de combat...":
             case "Durant les rencontres de combat...":   return "desc_fight";
             case "Lors des rencontres sociales...":
@@ -94,8 +104,6 @@ const PF2_CLASS = (function () {
             case "Vous pourriez...":
             case "Vous...":                              return "desc_you_could";
             case "Probablement que les autres...":       return "desc_probably_others";
-
-            // --- Maîtrises ---
             case "Maîtrises initiales":
             case "Maitrises initiales":
             case "Compétences initiales":                return "mastery_initial";
@@ -111,315 +119,211 @@ const PF2_CLASS = (function () {
             case "Rareté":                               return "mastery_rarity";
             case "DD de Classe":
             case "DD de classe":                         return "mastery_dd";
-
             default:
-                console.warn( "[PF2_CLASS] titre non géré :", text );
+                console.warn( "[PF2_CLASS] titre non géré :", text.trim() );
                 return null;
         }
     };
 
     /*
     =========================================================
-    PARSE PRINCIPAL DU DOM DE LA CLASSE
-    Reproduit la logique de l'ancien script mais en structuré.
+    PARSE PAR CLASSE CSS
+    Appelé sur les enfants directs de .description
+    tant que capacity_mode === false
     =========================================================
     */
 
-    self.parseClassDom = ( row ) => {
+    self.parseChildByClass = ( child, result ) => {
 
-        const result = {
-            // intro
-            general_desc          : null,
-            characteristics_bonus : null,
-            life_point_by_level   : null,
-            desc_fight            : null,
-            desc_socially         : null,
-            desc_exploration      : null,
-            desc_interlude        : null,
-            desc_you_could        : [],
-            desc_probably_others  : [],
+        const cls = ( child.className || "" ).trim();
 
-            // maîtrises
-            mastery_initial    : null,
-            mastery_perception : null,
-            mastery_js         : null,
-            mastery_skill      : null,
-            mastery_attack     : null,
-            mastery_defense    : null,
-            mastery_spell      : null,
-            mastery_dd         : null,
-            mastery_rarity     : null,
+        switch ( cls ) {
 
-            // progression
-            capacity_by_level : [],
+            case "fluff":
+                result.general_desc = child.innerText.trim();
+                break;
 
-            // capacités détaillées
-            abilities         : {}
-        };
-
-        const sibling  = row.nextElementSibling;
-        const descRoot = sibling.querySelector( ".description" );
-
-        if ( !descRoot ) {
-            console.error( "[PF2_CLASS] .description introuvable" );
-            return result;
-        }
-
-        let capacityMode = false; // true une fois qu'on a passé le tableau de niveaux
-        let previousKey  = null;  // clé de section en cours (pour roleplay + maîtrises)
-        let currentAbility = null; // capacité détaillée en cours
-
-        const children = Array.from( descRoot.children );
-
-        for ( const child of children ) {
-
-            const cls = child.className || "";
-            const tag = child.tagName;
-
-            /*
-            ---- Avant le tableau de niveaux ----
-            */
-            if ( !capacityMode ) {
-
-                // Description générale (chapeau)
-                if ( cls === "fluff" ) {
-                    result.general_desc = child.innerText.trim();
-                    continue;
-                }
-
-                // Basics : PV et attribut essentiel
-                if ( cls === "basics-title" ) {
-                    const txt = child.innerText;
-                    if ( txt.includes( "Attribut essentiel" ) ) {
-                        // ex: "Attribut essentiel : Force ou Dextérité"
-                        const raw   = txt.split( ":" )[ 1 ]?.trim() || "";
-                        const attrs = raw.split( /\s+ou\s+/i ).map( a => self.attrToCode( a.trim() ) );
-                        result.characteristics_bonus = { number: 1, choice: attrs };
-                    }
-                    if ( txt.includes( "Points de vie" ) ) {
-                        // ex: "Points de vie : 10 plus modificateur de Constitution"
-                        const m = txt.match( /:\s*(\d+)/ );
-                        if ( m ) result.life_point_by_level = parseInt( m[ 1 ] );
-                    }
-                    continue;
-                }
-
-                // Containers récursifs
-                if ( cls === "basics-container"
-                  || cls === "starting-info-container" ) {
-                    self.parseBasicsContainer( child, result );
-                    continue;
-                }
-
-                // Roleplay + maîtrises
-                if ( cls === "roleplaying-container"
-                  || cls === "initial-proficiencies-container" ) {
-                    self.parsePartContainer( child, result );
-                    continue;
-                }
-
-                // Tableau de niveaux (déclenche le mode capacités)
-                if ( cls === "pf2e remaster" || cls === "pf2e" ) {
-                    self.parseTableCapacity( child, result );
-                    capacityMode = true;
-                    continue;
-                }
-
-                continue;
-            }
-
-            /*
-            ---- Après le tableau : capacités détaillées ----
-            */
-            if ( capacityMode ) {
-
-                if ( tag === "H2" || tag === "H3" ) {
-                    const raw   = self.cleanText( child );
-                    const level = self.extractLevel( raw );
-                    const name  = raw.replace( /Niveau\s*\d+/i, "" ).trim();
-                    const id    = self.toId( name );
-
-                    currentAbility = { name, description: [] };
-                    if ( level !== null ) currentAbility.level = level;
-
-                    result.abilities[ id ] = currentAbility;
-                    continue;
-                }
-
-                if ( tag === "P" ) {
-                    const text = child.innerText.trim();
-                    if ( !text ) continue;
-
-                    const prereq = self.parsePrerequisites( text );
-                    if ( prereq && currentAbility ) {
-                        currentAbility.required = prereq;
-                        continue;
-                    }
-
-                    if ( currentAbility ) currentAbility.description.push( text );
-                    continue;
-                }
-
-                if ( tag === "UL" || tag === "OL" ) {
-                    Array.from( child.querySelectorAll( "li" ) ).forEach( li => {
-                        const text = li.innerText.trim();
-                        if ( text && currentAbility ) currentAbility.description.push( text );
-                    } );
-                    continue;
-                }
-
-                // Fallback : tout texte restant
-                if ( child.innerText?.trim() ) {
-                    result.capacities_raw = result.capacities_raw || [];
-                    result.capacities_raw.push( child.innerText.trim() );
-                }
-            }
-        }
-
-        return result;
-    };
-
-    /*
-    =========================================================
-    PARSE BASICS CONTAINER (.basics-container, .starting-info-container)
-    Cherche les .basics-title pour PV et attribut essentiel
-    =========================================================
-    */
-
-    self.parseBasicsContainer = ( container, result ) => {
-        Array.from( container.children ).forEach( child => {
-            const cls = child.className || "";
-            if ( cls === "basics-title" ) {
-                const txt = child.innerText;
-                if ( txt.includes( "Attribut essentiel" ) ) {
-                    const raw   = txt.split( ":" )[ 1 ]?.trim() || "";
+            case "basics-title":
+                if ( child.innerText.includes( "Attribut essentiel" ) ) {
+                    const raw   = child.innerText.split( ":" )[ 1 ]?.trim() || "";
                     const attrs = raw.split( /\s+ou\s+/i ).map( a => self.attrToCode( a.trim() ) );
                     result.characteristics_bonus = { number: 1, choice: attrs };
                 }
-                if ( txt.includes( "Points de vie" ) ) {
-                    const m = txt.match( /:\s*(\d+)/ );
-                    if ( m ) result.life_point_by_level = parseInt( m[ 1 ] );
+                if ( child.innerText.includes( "Points de vie" ) ) {
+                    result.life_point_by_level = parseInt( child.innerText.replace( /[^\d]/g, "" ) ) || null;
                 }
-            }
-            if ( cls === "basics-container" || cls === "starting-info-container" ) {
-                self.parseBasicsContainer( child, result );
-            }
-        } );
+                break;
+
+            case "basics-content":
+            case "title":
+                // ignoré
+                break;
+
+            case "basics-container":
+            case "starting-info-container":
+                // récursion via parseChildByClass (même mode)
+                Array.from( child.children ).forEach( c => self.parseChildByClass( c, result ) );
+                break;
+
+            case "roleplaying-container":
+            case "initial-proficiencies-container":
+                // récursion via parseChildByPart (mode titre/contenu)
+                Array.from( child.children ).forEach( c => self.parseChildByPart( c, result ) );
+                break;
+
+            case "pf2e remaster":
+            case "pf2e":
+                self.parseTableCapacity( child, result );
+                self.capacity_mode = true;
+                break;
+
+            case "":
+                break;
+
+            default:
+                console.log( "[PF2_CLASS] classe non gérée :", cls, child );
+                break;
+        }
     };
 
     /*
     =========================================================
-    PARSE PART CONTAINER (roleplay + maîtrises)
-    Lit H1/H2 comme clé, P/UL/LI comme valeur
+    PARSE PAR PARTIE (roleplay + maîtrises)
+    H1/H2 → clé, P/UL/LI → valeur
+    self.previous_title persiste entre les appels
     =========================================================
     */
 
-    self.parsePartContainer = ( container, result ) => {
+    self.parseChildByPart = ( child, result ) => {
 
-        let previousKey = null;
+        const tag = child.tagName;
 
-        const walk = ( children ) => {
-            Array.from( children ).forEach( child => {
-
-                const tag = child.tagName;
-
-                if ( tag === "H1" || tag === "H2" ) {
-                    previousKey = self.parseTitleToKey( child.innerText );
-                    return;
-                }
-
-                if ( !previousKey ) return;
-
-                if ( tag === "P" ) {
-                    const text = child.innerText.trim();
-                    if ( !text ) return;
-
-                    // Les champs qui sont des tableaux (desc_you_could, desc_probably_others)
-                    if ( Array.isArray( result[ previousKey ] ) ) {
-                        result[ previousKey ].push( text );
-                    }
-                    // Les champs maîtrises : on parse en liste { level, description }
-                    else if ( previousKey && previousKey.startsWith( "mastery_" ) ) {
-                        result[ previousKey ] = self.parseMasteryValue( previousKey, text );
-                    }
-                    else {
-                        result[ previousKey ] = text;
-                    }
-                    return;
-                }
-
-                if ( tag === "UL" ) {
-                    if ( !Array.isArray( result[ previousKey ] ) ) {
-                        result[ previousKey ] = [];
-                    }
-                    walk( child.children );
-                    return;
-                }
-
-                if ( tag === "LI" ) {
-                    const text = child.innerText.trim();
-                    if ( !text ) return;
-
-                    if ( Array.isArray( result[ previousKey ] ) ) {
-                        // Maîtrises en liste
-                        if ( previousKey.startsWith( "mastery_" ) ) {
-                            result[ previousKey ].push( {
-                                level      : self.detectMasteryKey( text ),
-                                description: text
-                            } );
-                        }
-                        else {
-                            result[ previousKey ].push( text );
-                        }
-                    }
-                    return;
-                }
-
-                // Containers imbriqués
-                if ( child.children?.length ) {
-                    walk( child.children );
-                }
-            } );
-        };
-
-        walk( container.children );
-    };
-
-    /**
-     * Parse une valeur de maîtrise selon le type de champ.
-     * - mastery_perception / mastery_dd → clé courte simple "Q"|"E"...
-     * - mastery_js / mastery_skill / mastery_attack / mastery_defense / mastery_spell
-     *     → tableau [{ level, description }]
-     */
-    self.parseMasteryValue = ( key, text ) => {
-        const singleKeys = [ "mastery_perception", "mastery_dd", "mastery_initial", "mastery_rarity" ];
-
-        if ( singleKeys.includes( key ) ) {
-            return self.detectMasteryKey( text );
+        // Titre → met à jour la clé courante
+        if ( tag === "H1" || tag === "H2" ) {
+            self.previous_title = self.parseTitleToKey( child.innerText );
+            return;
         }
 
-        // Sinon : liste d'items séparés par virgule ou déjà un item unique
-        return text.split( "," ).map( part => ({
-            level      : self.detectMasteryKey( part.trim() ),
-            description: part.trim()
-        }) ).filter( item => item.description );
+        if ( !self.previous_title ) return;
+
+        const key = self.previous_title;
+
+        if ( tag === "P" ) {
+            const text = child.innerText.trim();
+            if ( !text ) return;
+
+            // Champ tableau (desc_you_could, desc_probably_others, mastery_js, etc.)
+            if ( Array.isArray( result[ key ] ) ) {
+                result[ key ].push( self.formatMasteryItem( key, text ) );
+            }
+            // Champ scalaire déjà rempli → on le transforme en tableau
+            else if ( result[ key ] !== null && result[ key ] !== undefined ) {
+                result[ key ] = [ result[ key ], self.formatMasteryItem( key, text ) ];
+            }
+            else {
+                result[ key ] = self.formatMasteryItem( key, text );
+            }
+            return;
+        }
+
+        if ( tag === "UL" ) {
+            if ( !Array.isArray( result[ key ] ) ) {
+                result[ key ] = [];
+            }
+            Array.from( child.children ).forEach( c => self.parseChildByPart( c, result ) );
+            return;
+        }
+
+        if ( tag === "LI" ) {
+            const text = child.innerText.trim();
+            if ( !text ) return;
+            if ( !Array.isArray( result[ key ] ) ) result[ key ] = [];
+            result[ key ].push( self.formatMasteryItem( key, text ) );
+            return;
+        }
+    };
+
+    /*
+    =========================================================
+    FORMAT VALEUR MAÎTRISE
+    Pour les champs mastery_* : retourne { level, description }
+    Pour les autres : retourne le texte brut
+    =========================================================
+    */
+
+    self.formatMasteryItem = ( key, text ) => {
+        if ( key && key.startsWith( "mastery_" ) ) {
+
+            // mastery_perception et mastery_dd : valeur scalaire simple
+            if ( key === "mastery_perception" || key === "mastery_dd" || key === "mastery_initial" ) {
+                return self.detectMasteryKey( text );
+            }
+
+            // mastery_js, mastery_skill, mastery_attack, mastery_defense, mastery_spell :
+            // { level, description }
+            return {
+                level      : self.detectMasteryKey( text ),
+                description: text
+            };
+        }
+        return text;
     };
 
     /*
     =========================================================
     TABLEAU NIVEAUX 1–20
+    Logique identique à l'ancien script (i += 2, skip 1ère td)
     =========================================================
     */
 
     self.parseTableCapacity = ( tableContainer, result ) => {
-
         result.capacity_by_level = [];
-
         const tds = tableContainer.querySelectorAll( "td" );
-
-        // L'ancien script skip la 1ère td (header ou niveau) et prend une td sur deux
         for ( let i = 1; i < tds.length; i += 2 ) {
             result.capacity_by_level.push( tds[ i ].innerText.trim() );
+        }
+    };
+
+    /*
+    =========================================================
+    CAPACITÉS DÉTAILLÉES (après le tableau, mode capacity_mode)
+    H2/H3 = titre de capacité, P/UL/LI = description
+    =========================================================
+    */
+
+    self.parseCapacity = ( child, result ) => {
+
+        const tag = child.tagName;
+
+        if ( tag === "H2" || tag === "H3" ) {
+            const raw   = self.cleanText( child );
+            const level = self.extractLevel( raw );
+            const name  = raw.replace( /Niveau\s*\d+/i, "" ).trim();
+            const id    = self.toId( name );
+
+            result._currentAbility = { name, description: [] };
+            if ( level !== null ) result._currentAbility.level = level;
+
+            result.abilities[ id ] = result._currentAbility;
+            return;
+        }
+
+        if ( !result._currentAbility ) return;
+
+        if ( tag === "P" ) {
+            const text = child.innerText.trim();
+            if ( !text ) return;
+            const prereq = self.parsePrerequisites( text );
+            if ( prereq ) { result._currentAbility.required = prereq; return; }
+            result._currentAbility.description.push( text );
+            return;
+        }
+
+        if ( tag === "UL" || tag === "OL" ) {
+            Array.from( child.querySelectorAll( "li" ) ).forEach( li => {
+                const text = li.innerText.trim();
+                if ( text ) result._currentAbility.description.push( text );
+            } );
         }
     };
 
@@ -451,8 +355,7 @@ const PF2_CLASS = (function () {
     self.parsePrerequisites = ( text ) => {
         if ( !text.toLowerCase().startsWith( "prérequis" ) ) return null;
 
-        const result = {};
-
+        const result       = {};
         const skillMapping = {
             arcanes    : "arcane",
             nature     : "nature",
@@ -485,20 +388,20 @@ const PF2_CLASS = (function () {
 
     /*
     =========================================================
-    POST-TRAITEMENT : restructure mastery en objet propre
+    POST-TRAITEMENT : restructure mastery_* en objet mastery
     =========================================================
     */
 
-    self.buildMastery = ( result ) => ({
-        initial   : result.mastery_initial    || null,
-        perception: result.mastery_perception || null,
-        saves     : result.mastery_js         || null,
-        skills    : result.mastery_skill      || null,
-        attacks   : result.mastery_attack     || null,
-        defenses  : result.mastery_defense    || null,
-        spells    : result.mastery_spell      || null,
-        class_dc  : result.mastery_dd         || null,
-        rarity    : result.mastery_rarity     || null
+    self.buildMastery = ( raw ) => ({
+        initial   : raw.mastery_initial    || null,
+        perception: raw.mastery_perception || null,
+        saves     : raw.mastery_js         || null,
+        skills    : raw.mastery_skill      || null,
+        attacks   : raw.mastery_attack     || null,
+        defenses  : raw.mastery_defense    || null,
+        spells    : raw.mastery_spell      || null,
+        class_dc  : raw.mastery_dd         || null,
+        rarity    : raw.mastery_rarity     || null
     });
 
     /*
@@ -514,14 +417,59 @@ const PF2_CLASS = (function () {
         const row = await self.goToClass( className );
         await self.wait( 300 );
 
-        console.log( "[PF2_CLASS] parsing DOM..." );
-        const raw = self.parseClassDom( row );
+        // Reset état partagé
+        self.previous_title = "";
+        self.capacity_mode  = false;
 
-        // Restructuration finale
+        const sibling  = row.nextElementSibling;
+        const descRoot = sibling?.querySelector( ".description" );
+
+        if ( !descRoot ) {
+            throw new Error( "[PF2_CLASS] .description introuvable — attendre que le DOM soit chargé." );
+        }
+
+        // Résultat brut
+        const raw = {
+            general_desc          : null,
+            characteristics_bonus : null,
+            life_point_by_level   : null,
+            desc_fight            : null,
+            desc_socially         : null,
+            desc_exploration      : null,
+            desc_interlude        : null,
+            desc_you_could        : [],
+            desc_probably_others  : [],
+            mastery_initial       : null,
+            mastery_perception    : null,
+            mastery_js            : null,
+            mastery_skill         : null,
+            mastery_attack        : null,
+            mastery_defense       : null,
+            mastery_spell         : null,
+            mastery_dd            : null,
+            mastery_rarity        : null,
+            capacity_by_level     : [],
+            abilities             : {},
+            _currentAbility       : null
+        };
+
+        console.log( "[PF2_CLASS] parsing DOM..." );
+
+        Array.from( descRoot.children ).forEach( child => {
+            if ( !self.capacity_mode ) {
+                self.parseChildByClass( child, raw );
+            } else {
+                self.parseCapacity( child, raw );
+            }
+        } );
+
+        // Nettoyage de la clé interne
+        delete raw._currentAbility;
+
+        // Résultat final structuré
         const result = {
             name                  : className,
             key                   : self.toId( className ),
-
             general_desc          : raw.general_desc,
             characteristics_bonus : raw.characteristics_bonus,
             life_point_by_level   : raw.life_point_by_level,
@@ -531,9 +479,7 @@ const PF2_CLASS = (function () {
             desc_interlude        : raw.desc_interlude,
             desc_you_could        : raw.desc_you_could,
             desc_probably_others  : raw.desc_probably_others,
-
             mastery               : self.buildMastery( raw ),
-
             capacity_by_level     : raw.capacity_by_level,
             abilities             : raw.abilities
         };
