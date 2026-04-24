@@ -32,7 +32,6 @@ var CLASSES = {
                 "Considèrent que si vous n'avez pas encore provoqué une catastrophe avec vos expérimentations, c'est que cela finira forcément par arriver."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -91,7 +90,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Alchimie, ascendance et historique, champ de recherche, don d'alchimiste, primes d'attributs, maîtrises initiales",
+                "Alchimie, champ de recherche, don d'alchimiste, primes d'attributs, maîtrises initiales",
                 "Don d'alchimiste, don de compétence",
                 "Amélioration de compétence, don général",
                 "Don d'alchimiste, don de compétence",
@@ -150,18 +149,6 @@ var CLASSES = {
                         "Les fioles polyvalentes sont des objets imprégnés et sont détruites si elles ne sont pas utilisées à l'occasion de vos prochains préparatifs quotidiens. Une fiole que vous créez est toujours du type le plus élevé que vous pouvez Fabriquer. Voyez les statistiques sur la manière d'utiliser la fiole polyvalente en tant que bombe. Vous pouvez utiliser les fioles dans le cadre de l' Alchimie rapide et votre champ de recherche peut ajouter des manières dont vous utilisez une fiole.",
                         "Vous pouvez emmagasiner toutes vos fioles polyvalentes au sein de votre workMatériel d'alchimiste , sans augmenter son Encombrement. Bien que les fioles polyvalentes soient des objets physiques, elles ne peuvent être dupliquées ou conservées en aucune manière.",
                         "Les fioles polyvalentes peuvent être jetées comme le sont les bombes, avec les statistiques suivantes :"
-                    ]
-                },
-                "ascendance_et_historique"                   : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
-                "maitrises_initiales"                        : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "champ_de_recherche"                         : {
@@ -364,7 +351,6 @@ var CLASSES = {
                 "Sont convaincus de votre loyauté envers vos amis et alliés et que vous n'abandonnerez jamais avant que le combat ne soit achevé."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -423,7 +409,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, don de barbare, impulsif, instinct, maîtrises initiales, primes d'attributs, rage",
+                "don de barbare, impulsif, instinct, maîtrises initiales, primes d'attributs, rage",
                 "Don de barbare, don de compétence",
                 "Amélioration de compétence, démarche furieuse, don général",
                 "Don de barbare, don de compétence",
@@ -445,12 +431,6 @@ var CLASSES = {
                 "Don de barbare, don de compétence, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"                 : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des pouvoirs que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique"
-                    ]
-                },
                 "dons_de_barbare"                          : {
                     "name"       : "Dons de barbare",
                     "description": [
@@ -469,12 +449,6 @@ var CLASSES = {
                         "Déclencheur Vous déterminez l'initiative.",
                         "Conditions Vous n'êtes pas sentiment_very_dissatisfiedSurchargé et ne portez pas d'armure lourde.",
                         "Du moment que vous êtes capable de vous déplacer librement, votre fureur est instinctive et instantanée. Vous entrez en Rage."
-                    ]
-                },
-                "maitrises_initiales"                      : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un certain nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "rage"                                     : {
@@ -687,7 +661,6 @@ var CLASSES = {
                 "Réagissent favorablement à votre charme et à vos capacités sociales mais restent méfiants quant à votre magie envoûtante."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -755,7 +728,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, incantation de barde, maîtrises initiales, muse, primes d'attribut, répertoire de sorts, sorts de composition",
+                "incantation de barde, maîtrises initiales, muse, primes d'attribut, répertoire de sorts, sorts de composition",
                 "Don de barde, don de compétence",
                 "Amélioration de compétence, don général, expertise en réflexes, sorts de rang 2, sorts emblématiques",
                 "Don de barde, don de compétence",
@@ -777,12 +750,6 @@ var CLASSES = {
                 "Don de barde, don de compétence, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"               : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "incantation_de_barde"                   : {
                     "name"       : "Incantation de barde",
                     "description": [
@@ -791,12 +758,6 @@ var CLASSES = {
                         "Vous pouvez lancer jusqu'à deux sorts de rang 1 par jour. Vous devez connaître ces sorts pour les lancer et vous les apprenez grâce à la capacité de classe répertoire de sorts. Le nombre de sorts que vous pouvez lancer chaque jour est représenté par vos emplacements de sort.",
                         "En gagnant des niveaux en tant que barde, le nombre de sorts, ainsi que le rang du sort le plus élevé, que vous pouvez lancer quotidiennement augmentent, comme indiqué dans le tableau des sorts de barde par jour.",
                         "Certains sorts exigent un jet d'attaque de sort pour déterminer leur efficacité ou obligent vos ennemis à faire un jet contre leur DD (en général un jet de sauvegarde). Comme le Charisme est votre attribut essentiel, vos jets d'attaque de sort et vos DD utilisent votre modificateur de Charisme."
-                    ]
-                },
-                "maitrises_initiales"                    : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "muses"                                  : {
@@ -1002,7 +963,6 @@ var CLASSES = {
                 "Sous-estiment le danger que vous représentez jusqu'à ce qu'ils se retrouvent face à votre lame mortelle."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -1061,7 +1021,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Aboutissement assuré, ascendance et historique, combattant stylé, don de bretteur, frappe précise, maîtrises initiales, panache, primes d'attributs, style de bretteur",
+                "Aboutissement assuré, combattant stylé, don de bretteur, frappe précise, maîtrises initiales, panache, primes d'attributs, style de bretteur",
                 "Don de bretteur, don de compétence",
                 "Amélioration de compétence, astuce de style, don général, expertise en vigueur, riposte opportune, vitesse exubérante",
                 "Don de bretteur, don de compétence",
@@ -1089,12 +1049,6 @@ var CLASSES = {
                         "Vous obtenez une attaque finale élégante que vous pouvez porter quand vous possédez du panache. Vous obtenez l'action sports_martial_artsAboutissement assuré ."
                     ]
                 },
-                "ascendance_et_historique"          : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "combattant_style"                  : {
                     "name"       : "Combattant stylé",
                     "description": [
@@ -1112,12 +1066,6 @@ var CLASSES = {
                     "description": [
                         "Lorsque vous portez une Frappe avec une arme au corps-à-corps possédant le trait agile ou finesse ou une attaque à mains nues avec ces mêmes traits, vous infligez 2 dégâts supplémentaires de précision. Si la Frappe fait partie d'un aboutissement, les dégâts supplémentaires passent à 2d6 dégâts de précision à la place.",
                         "Lorsque votre niveau de bretteur augmente, c'est aussi le cas des dégâts supplémentaires de Frappe précise. Aux niveaux 5, 9, 13 et 17, augmentez le montant des dégâts supplémentaires sur une Frappe de 1 et les dégâts supplémentaires sur un aboutissement de 1d6."
-                    ]
-                },
-                "maitrises_initiales"               : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises, indiquées au début de cette classe, qui représentent votre entraînement de base."
                     ]
                 },
                 "panache"                           : {
@@ -1347,7 +1295,6 @@ var CLASSES = {
                 "Savent que vous avez prêté des serments divins de service et qu'ils peuvent vous faire confiance pour les respecter."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -1415,7 +1362,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, blocage au bouclier, cause, divinité, don de champion, maîtrises initiales, primes d'attributs, sorts de dévotion",
+                "blocage au bouclier, cause, divinité, don de champion, maîtrises initiales, primes d'attributs, sorts de dévotion",
                 "Don de champion, don de compétence",
                 "Amélioration de compétence, bénédiction du dévôt, don général",
                 "Don de champion, don de compétence",
@@ -1437,12 +1384,6 @@ var CLASSES = {
                 "Don de champion, don de compétence, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"          : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "blocage_au_bouclier"               : {
                     "name"       : "Blocage au bouclier",
                     "description": [
@@ -1509,12 +1450,6 @@ var CLASSES = {
                     "name"       : "Dons de champion",
                     "description": [
                         "Au niveau 1 et à chaque niveau pair par la suite, vous obtenez un don de classe de champion."
-                    ]
-                },
-                "maitrises_initiales"               : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "sorts_de_devotion"                 : {
@@ -1713,7 +1648,6 @@ var CLASSES = {
                 "Vous considèrent comme un mystique, semblable à un prêtre, mais ne répondant qu'aux forces de la nature."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -1781,7 +1715,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, anathème, blocage au bouclier, chant sauvage, incantation de druide, maîtrises initiales, primes d'attribut, ordre druidique, voix de la nature",
+                "anathème, blocage au bouclier, chant sauvage, incantation de druide, maîtrises initiales, primes d'attribut, ordre druidique, voix de la nature",
                 "Don de compétence, don de druide",
                 "Amélioration de compétence, don général, expertise en perception, expertise en vigueur, sorts de rang 2",
                 "Don de compétence, don de druide",
@@ -1810,12 +1744,6 @@ var CLASSES = {
                         "Les agissements suivants sont considérés comme anathèmes par tous les druides :",
                         "Anathèmes détériorer des sites naturels, consommer plus de ressources naturelles qu'il n'est nécessaire pour vivre confortablement, apprendre le chant sauvage aux non druides.",
                         "Votre choix d'un ordre druidique ajoute d'autres anathèmes, comme indiqué dans l'entrée de l'ordre."
-                    ]
-                },
-                "ascendance_et_historique"                 : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
                     ]
                 },
                 "blocage_au_bouclier"                      : {
@@ -1848,12 +1776,6 @@ var CLASSES = {
                     "name"       : "Tours de magie",
                     "description": [
                         "Certains de vos sorts sont des tours de magie. Un tour de magie est un type spécifique de sort qui n'utilise pas d'emplacement de sort. Vous pouvez lancer un tour de magie à volonté, n'importe quel nombre de fois par jour. Un tour de magie est toujours intensifié automatiquement à la moitié de votre niveau arrondi au supérieur — c'est habituellement égal au plus haut rang de vos emplacements de sorts de druide que vous possédez. Par exemple, en tant que druide de niveau 1, vos tours de magie sont de rang 1 et en tant que druide de niveau 5, vos tours de magie sont des sorts de rang 3."
-                    ]
-                },
-                "maitrises_initiales"                      : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "ordre_druidique"                          : {
@@ -2033,7 +1955,6 @@ var CLASSES = {
                 "Comptent sur vous pour résoudre les mystères, les énigmes et les autres défis nécessitant de la curiosité intellectuelle et du raisonnement."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -2088,7 +2009,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, concevoir un stratagème, don d'enquêteur, frappe stratégique 1d6, maîtrises initiales, méthodologie, primes d'attribut, sur l'affaire",
+                "concevoir un stratagème, don d'enquêteur, frappe stratégique 1d6, maîtrises initiales, méthodologie, primes d'attribut, sur l'affaire",
                 "Amélioration de compétence, don d'enquêteur, don de compétence",
                 "Amélioration de compétence, don général, leçons accomplies, souvenirs affûtés",
                 "Amélioration de compétence, don d'enquêteur, don de compétence",
@@ -2110,12 +2031,6 @@ var CLASSES = {
                 "Amélioration de compétence, don d'enquêteur, don de compétence, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"          : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "concevoir_un_stratageme"           : {
                     "name"       : "Concevoir un stratagème",
                     "description": [
@@ -2135,12 +2050,6 @@ var CLASSES = {
                     "description": [
                         "Quand vous portez une attaque avec grand soin et en la préparant, vous infligez un coup plus significatif. Quand vous effectuez une Frappe qui ajoute votre modificateur d'Intelligence au jet d'attaque grâce à Concevoir un stratagème , vous infligez 1d6 dégâts de précision supplémentaires.",
                         "Au fur et à mesure que votre niveau d'enquêteur augmente, il en est de même de la dangerosité de votre frappe stratégique. Augmentez le nombre de dés de 1 aux niveaux 5, 9, 13 et 17."
-                    ]
-                },
-                "maitrises_initiales"               : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "methodologie"                      : {
@@ -2346,7 +2255,6 @@ var CLASSES = {
                 "Partent du principe que vous êtes aussi imprévisible que la magie que vous pratiquez, même si votre personnalité prouve le contraire."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -2406,7 +2314,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, maîtrises initiales, lignage, incantation d'ensorceleur, primes d'attribut, puissance ensorcelante, répertoire de sorts",
+                "maîtrises initiales, lignage, incantation d'ensorceleur, primes d'attribut, puissance ensorcelante, répertoire de sorts",
                 "Don de compétence, don d'ensorceleur",
                 "Amélioration de compétence, don général, sorts de rang 2, sorts emblématiques",
                 "Don de compétence, don d'ensorceleur",
@@ -2428,12 +2336,6 @@ var CLASSES = {
                 "Primes d'attributs, don de compétence, don d'ensorceleur"
             ],
             "abilities"            : {
-                "ascendance_et_historique"               : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "incantation_de_l_ensorceleur"           : {
                     "name"       : "Incantation de l'ensorceleur",
                     "description": [
@@ -2477,12 +2379,6 @@ var CLASSES = {
                         "Phénix l'influence du phénix vous confère des sorts primordiaux.",
                         "Psychopompe l'influence des psychopompes vous confère des sorts divins.",
                         "Tourment Vous possédez un lien profond avec le Tourment."
-                    ]
-                },
-                "maitrises_initiales"                    : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "primes_d_attributs"                     : {
@@ -2681,7 +2577,6 @@ var CLASSES = {
                 "Respectent votre expertise dans l'art de la guerre et apprécient vos opinions sur la qualité des armes et armures."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -2740,7 +2635,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, blocage au bouclier, don de guerrier, frappe réactive, maîtrises initiales",
+                "blocage au bouclier, don de guerrier, frappe réactive, maîtrises initiales",
                 "Don de compétence, don de guerrier",
                 "Amélioration de compétence, bravoure, don général",
                 "Don de compétence, don de guerrier",
@@ -2762,12 +2657,6 @@ var CLASSES = {
                 "Don de compétence, don de guerrier, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"          : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "blocage_au_bouclier"               : {
                     "name"       : "Blocage au bouclier",
                     "description": [
@@ -2787,12 +2676,6 @@ var CLASSES = {
                         "sports_martial_artsFrappe réactive R",
                         "Déclencheur Une créature qui se trouve dans votre allonge utilise une action de manipulation ou de déplacement, fait une attaque à distance ou quitte une case lors d'une action de déplacement qu'elle entreprend.",
                         "Vous frappez un adversaire qui vous laisse une ouverture. Vous faites une Frappe au corps-à-corps contre la créature déclencheuse. Si votre attaque est un coup critique et que le déclencheur était une action de manipulation, vous interrompez cette action. Cette Frappe n'est pas prise en compte pour calculer votre pénalité d'attaques multiples et votre pénalité d'attaques multiples ne s'applique pas à cette Frappe."
-                    ]
-                },
-                "maitrises_initiales"               : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un certain nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "dons_de_competence"                : {
@@ -2959,7 +2842,6 @@ var CLASSES = {
                 "Présument que vous pouvez facilement résoudre tous leurs problèmes, qu'il s'agisse de conditions météorologiques dangereuses ou de mauvaises récoltes et vous demandent des sorts qui les aideront à obtenir tout ce qu'ils désirent."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -3017,7 +2899,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique",
+                "école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique",
                 "Don de compétence, don de magicien",
                 "Amélioration de compétence, don général, sorts de rang 2",
                 "Don de compétence, don de magicien",
@@ -3039,12 +2921,6 @@ var CLASSES = {
                 "Don de compétence, don de magicien, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"            : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des pouvoirs que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique"
-                    ]
-                },
                 "ecole_arcanique"                     : {
                     "name"       : "École arcanique",
                     "description": [
@@ -3093,12 +2969,6 @@ var CLASSES = {
                         "Fréquence Une fois par jour",
                         "Conditions Votre objet lié est sur votre personne.",
                         "Vous dépensez la puissance magique contenue dans votre objet lié. Lors du tour actuel, vous pouvez lancer un sort que vous avez préparé pour la journée et déjà lancé, sans dépenser d'emplacement de sort. Vous devez toujours Lancer le sort et remplir les autres conditions du sort."
-                    ]
-                },
-                "maitrises_initiales"                 : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "these_arcanique"                     : {
@@ -3286,7 +3156,6 @@ var CLASSES = {
                 "Viennent vous trouver pour vos conseils philosophiques."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -3331,7 +3200,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, déluge de coups, don de moine, maîtrises initiales, poings puissants, primes d'attributs",
+                "déluge de coups, don de moine, maîtrises initiales, poings puissants, primes d'attributs",
                 "Don de compétence, don de moine",
                 "Amélioration de compétence, déplacement extraordinaire +3 mètres, don général, frappes mystiques",
                 "Don de compétence, don de moine",
@@ -3353,18 +3222,6 @@ var CLASSES = {
                 "Don de compétence, don de moine, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"          : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
-                "maitrises_initiales"               : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous gagnez un certain nombre de maîtrises représentant votre formation de base, qui sont indiquées au début de cette classe."
-                    ]
-                },
                 "deluge_de_coups"                   : {
                     "name"       : "Déluge de coups",
                     "description": [
@@ -3566,7 +3423,6 @@ var CLASSES = {
                 "Admirent votre détermination et les sacrifices que vous endurez pour produire des actes merveilleux."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -3630,7 +3486,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, incantation de l'oracle, maîtrises initiales, mystère, primes d'attribut, répertoire de sorts",
+                "incantation de l'oracle, maîtrises initiales, mystère, primes d'attribut, répertoire de sorts",
                 "Don d'oracle, don de compétence",
                 "Amélioration de compétence, don général, sorts de rang 2, sorts emblématiques",
                 "Don d'oracle, don de compétence",
@@ -3652,12 +3508,6 @@ var CLASSES = {
                 "Don d'oracle, don de compétence, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"                 : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "incantation_de_l_oracle"                  : {
                     "name"       : "Incantation de l'oracle",
                     "description": [
@@ -3677,12 +3527,6 @@ var CLASSES = {
                     "name"       : "Tours de magie",
                     "description": [
                         "Certains de vos sorts sont des tours de magie. Un tour de magie est un type spécial de sort qui n'utilise pas d'emplacements de sorts. Vous pouvez lancer un tour de magie à volonté, n'importe quel nombre de fois par jour. Un tour de magie est automatiquement intensifié à la moitié de votre niveau arrondi au supérieur. C'est habituellement égal au plus haut rang d'emplacement de sort d'oracle que vous possédez. Par exemple, en tant qu'oracle de niveau 1, vos tours de magie sont de rang 1 et en tant qu'oracle de niveau 5, vos tours de magie sont des sorts de rang 3."
-                    ]
-                },
-                "maitrises_initiales"                      : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "mystere"                                  : {
@@ -3919,7 +3763,6 @@ var CLASSES = {
                 "Comptent sur vous pour que vous interagissiez avec les autres individus religieux."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -3987,7 +3830,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, divinité, doctrine, incantation de prêtre, maîtrises initiales, primes d'attribut, source divine",
+                "divinité, doctrine, incantation de prêtre, maîtrises initiales, primes d'attribut, source divine",
                 "Don de compétence, don de prêtre",
                 "Amélioration de compétence, deuxième doctrine, don général, sorts de rang 2",
                 "Don de compétence, don de prêtre",
@@ -4009,12 +3852,6 @@ var CLASSES = {
                 "Don de compétence, don de prêtre, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"   : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "divinite"                   : {
                     "name"       : "Divinité",
                     "description": [
@@ -4088,12 +3925,6 @@ var CLASSES = {
                     "name"       : "Tours de magie",
                     "description": [
                         "Certains de vos sorts sont des tours de magie. Un tour de magie est un type spécifique de sort qui n'utilise pas d'emplacement de sort. Vous pouvez lancer un tour de magie à volonté, n'importe quel nombre de fois par jour. Un tour de magie est toujours intensifié automatiquement à la moitié de votre niveau arrondi au supérieur — c'est habituellement égal au plus haut rang de vos emplacements de sorts de prêtre que vous possédez. Par exemple, en tant que prêtre de niveau 1, vos tours de magie sont de rang 1 et en tant que prêtre de niveau 5, vos tours de magie sont des sorts de rang 3."
-                    ]
-                },
-                "maitrises_initiales"        : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises, indiquées au début de cette classe, qui représentent votre entraînement de base."
                     ]
                 },
                 "source_divine"              : {
@@ -4219,7 +4050,6 @@ var CLASSES = {
                 "Pensent qu'il y a quelque chose de dangereux et de sauvage en vous."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "E",
                 "saves"     : [
                     {
@@ -4282,7 +4112,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, chasser une proie, don de rôdeur, maîtrises initiales, spécialité du chasseur",
+                "chasser une proie, don de rôdeur, maîtrises initiales, spécialité du chasseur",
                 "Don de compétence, don de rôdeur",
                 "Amélioration de compétence, don général, expertise en volonté",
                 "Don de compétence, don de rôdeur",
@@ -4304,12 +4134,6 @@ var CLASSES = {
                 "Don de compétence, don de rôdeur, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"                 : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "chasser_une_proie"                        : {
                     "name"       : "Chasser une proie",
                     "description": [
@@ -4328,12 +4152,6 @@ var CLASSES = {
                     "name"       : "Dons de rôdeur",
                     "description": [
                         "Au niveau 1, puis tous les niveaux pairs, vous obtenez un don de classe de rôdeur."
-                    ]
-                },
-                "maitrises_initiales"                      : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "specialite_du_chasseur"                   : {
@@ -4527,7 +4345,6 @@ var CLASSES = {
             "desc_you_could"       : [],
             "desc_probably_others" : [],
             "mastery"              : {
-                "initial"   : null,
                 "perception": null,
                 "saves"     : null,
                 "skills"    : null,
@@ -4566,7 +4383,6 @@ var CLASSES = {
                 "Veillent de ne pas vous offenser, de peur que vous ne leur lanciez un maléfice malicieux s'ils vous mettent en colère."
             ],
             "mastery"              : {
-                "initial"   : "M",
                 "perception": "Q",
                 "saves"     : [
                     {
@@ -4620,7 +4436,7 @@ var CLASSES = {
                 "rarity"    : null
             },
             "capacity_by_level"    : [
-                "Ascendance et historique, familier, incantation de sorcier, maîtrises initiales, patron, sorts de maléfice",
+                "familier, incantation de sorcier, maîtrises initiales, patron, sorts de maléfice",
                 "Don de compétence, don de sorcier",
                 "Amélioration de compétence, don général, sorts de rang 2",
                 "Don de compétence, don de sorcier",
@@ -4642,12 +4458,6 @@ var CLASSES = {
                 "Don de compétence, don de sorcier, primes d'attributs"
             ],
             "abilities"            : {
-                "ascendance_et_historique"   : {
-                    "name"       : "Ascendance et historique",
-                    "description": [
-                        "En plus des capacités que votre classe vous accorde au niveau 1, vous bénéficiez des avantages de votre ascendance et de votre historique."
-                    ]
-                },
                 "incantation_de_sorcier"     : {
                     "name"       : "Incantation de sorcier",
                     "description": [
@@ -4673,12 +4483,6 @@ var CLASSES = {
                         "Sorts Votre familier est la source et le dépositaire des sorts que votre patron vous a octroyés et vous devez communier avec votre familier pour préparer vos sorts de sorcier chaque jour en utilisant votre incantation de sorcier. Votre familier commence en connaissant 10 tours de magie, 5 sorts de rang 1 et un sort supplémentaire propre à la leçon initiale de votre patron. Vous choisissez ces sorts dans la liste des sorts courants de la tradition propre à votre patron ou parmi les autres sorts de cette tradition auxquels vous avez accès. Chaque fois que vous gagnez un niveau, votre patron enseigne à votre familier deux nouveaux sorts de n'importe quel rang que vous pouvez lancer, choisis parmi les sorts courants de votre tradition ou de ceux auxquels vous avez accès. Des dons peuvent également donner à votre familier des sorts supplémentaires.",
                         "Apprendre des sorts Votre familier peut apprendre des nouveaux sorts indépendamment de votre patron. Il peut apprendre n'importe quel sort se trouvant sur la liste de votre tradition en consommant physiquement une version écrite, processus qui lui prend 1 heure. Cela peut être un parchemin de ce sort ou vous pouvez en préparer une version écrite en utilisant l'activité d'exploration sports_martial_artsApprendre un sort . Vous et votre familier pouvez utiliser l'activité Apprendre un sort pour enseigner à votre familier un sort provenant du familier d'un autre sorcier. Les deux familiers doivent être présents durant la totalité de l'activité, le sort doit se trouver sur la liste de votre tradition et vous devez payer le coût habituel pour cette activité, généralement sous la forme d'offrandes au patron de l'autre familier. Vous ne pouvez pas préparer de sorts provenant du familier d'un autre sorcier.",
                         "Indestructible Si votre familier meurt, votre patron le remplace au cours de vos prochains préparatifs quotidiens. Le nouveau familier pourrait être une réplique ou une réincarnation de votre ancien familier ou une toute nouvelle entité, mais il connaît les mêmes sorts que votre précédent familier. La mort de votre familier n'affecte pas les sorts que vous avez déjà préparés."
-                    ]
-                },
-                "maitrises_initiales"        : {
-                    "name"       : "Maîtrises initiales",
-                    "description": [
-                        "Au niveau 1, vous obtenez un nombre de maîtrises qui représentent votre entraînement de base. Elles sont indiquées au début de cette classe."
                     ]
                 },
                 "patron"                     : {

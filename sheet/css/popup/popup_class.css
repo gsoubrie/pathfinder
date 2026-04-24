@@ -1,0 +1,425 @@
+/* ============================================
+   CLASS EDITION — Nouveau format
+   ============================================ */
+
+.class-edition {
+    display        : flex;
+    flex-direction : column;
+    gap            : 20px;
+    padding        : 4px 2px;
+}
+
+/* ── En-tête ─────────────────────────────── */
+
+.class-header-block {
+    background    : linear-gradient(135deg, #1e1008 0%, #130a04 100%);
+    border        : 2px solid #8b6914;
+    border-radius : 10px;
+    padding       : 18px 20px;
+}
+
+.class-general-desc {
+    color       : #e8d4a8;
+    font-size   : 15px;
+    line-height : 1.7;
+    text-align  : justify;
+    margin      : 0 0 16px 0;
+    font-style  : italic;
+}
+
+.class-quick-stats {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 10px;
+    margin-top: 4px;
+}
+
+.class-stat-chip {
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    border-radius  : 8px;
+    padding        : 8px 18px;
+    min-width      : 90px;
+    gap            : 2px;
+}
+
+.class-stat-hp {
+    background  : linear-gradient(135deg, #5a1a1a 0%, #3d0f0f 100%);
+    border      : 2px solid #a83232;
+}
+
+.class-stat-hp .stat-chip-number {
+    font-size   : 24px;
+    font-weight : 900;
+    color       : #ff8080;
+    line-height : 1;
+}
+
+.class-stat-hp .stat-chip-label {
+    font-size   : 11px;
+    color       : #f0c0c0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.class-stat-mastery {
+    border : 2px solid #8b6914;
+}
+
+.class-stat-mastery .stat-chip-label {
+    font-size   : 11px;
+    color       : #b09070;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.class-stat-mastery .stat-chip-value {
+    font-size   : 13px;
+    font-weight : bold;
+    color       : #ffd700;
+}
+
+/* ── Sections génériques ─────────────────── */
+
+.class-section {
+    background    : linear-gradient(135deg, #211409 0%, #160e06 100%);
+    border        : 2px solid #6b4e2a;
+    border-radius : 10px;
+    padding       : 16px 18px;
+}
+
+.class-section-title {
+    font-size      : 13px;
+    font-weight    : bold;
+    color          : #d4af37;
+    text-transform : uppercase;
+    letter-spacing : 2px;
+    margin-bottom  : 14px;
+    padding-bottom : 8px;
+    border-bottom  : 2px solid #8b6914;
+    text-shadow    : 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ── Rôles ───────────────────────────────── */
+
+.class-roles-grid {
+    display               : grid;
+    grid-template-columns : 1fr 1fr;
+    gap                   : 10px;
+}
+
+@media (max-width: 700px) {
+    .class-roles-grid { grid-template-columns: 1fr; }
+}
+
+.class-role-card {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #5a3f1e;
+    border-radius : 8px;
+    padding       : 12px 14px;
+    transition    : border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.class-role-card:hover {
+    border-color : #d4af37;
+    box-shadow   : 0 3px 12px rgba(212, 175, 55, 0.15);
+}
+
+.class-role-head {
+    display     : flex;
+    align-items : center;
+    gap         : 8px;
+    margin-bottom: 6px;
+}
+
+.class-role-icon {
+    font-size : 18px;
+}
+
+.class-role-label {
+    font-size      : 12px;
+    font-weight    : bold;
+    color          : #d4af37;
+    text-transform : uppercase;
+    letter-spacing : 1px;
+}
+
+.class-role-desc {
+    color       : #c8b89a;
+    font-size   : 13px;
+    line-height : 1.55;
+    margin      : 0;
+    text-align  : justify;
+}
+
+/* ── Personnalité ────────────────────────── */
+
+.class-personality-wrap {
+    display               : grid;
+    grid-template-columns : 1fr 1fr;
+    gap                   : 14px;
+}
+
+@media (max-width: 700px) {
+    .class-personality-wrap { grid-template-columns: 1fr; }
+}
+
+.class-personality-block {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #5a3f1e;
+    border-radius : 8px;
+    padding       : 12px 14px;
+}
+
+.class-personality-heading {
+    font-size      : 12px;
+    font-weight    : bold;
+    text-transform : uppercase;
+    letter-spacing : 1px;
+    margin-bottom  : 10px;
+    padding-bottom : 6px;
+}
+
+.heading-you {
+    color        : #80c8a0;
+    border-bottom: 1px solid #2a4a3a;
+}
+
+.heading-others {
+    color        : #80b0d0;
+    border-bottom: 1px solid #1a3050;
+}
+
+.class-personality-list {
+    margin     : 0;
+    padding    : 0 0 0 16px;
+    list-style : disc;
+    color      : #c8b89a;
+    font-size  : 13px;
+    line-height: 1.6;
+}
+
+.class-personality-list li {
+    margin-bottom : 6px;
+    text-align    : justify;
+}
+
+.class-personality-list li:last-child {
+    margin-bottom : 0;
+}
+
+/* ── Maîtrises ───────────────────────────── */
+
+.class-mastery-grid {
+    display               : grid;
+    grid-template-columns : repeat(auto-fill, minmax(220px, 1fr));
+    gap                   : 12px;
+}
+
+.class-mastery-group {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #5a3f1e;
+    border-radius : 8px;
+    padding       : 10px 12px;
+    display       : flex;
+    flex-direction: column;
+    gap           : 6px;
+}
+
+.class-mastery-group-title {
+    font-size      : 11px;
+    font-weight    : bold;
+    color          : #b09070;
+    text-transform : uppercase;
+    letter-spacing : 1.5px;
+    margin-bottom  : 4px;
+    padding-bottom : 5px;
+    border-bottom  : 1px solid #4a3020;
+}
+
+.class-mastery-row {
+    display     : flex;
+    align-items : center;
+    gap         : 8px;
+}
+
+.class-mastery-badge {
+    font-size      : 10px;
+    font-weight    : bold;
+    text-transform : uppercase;
+    letter-spacing : 0.5px;
+    padding        : 2px 7px;
+    border-radius  : 4px;
+    white-space    : nowrap;
+    flex-shrink    : 0;
+}
+
+.mastery-untrained {
+    background : #1a1a1a;
+    border     : 1px solid #444;
+    color      : #888;
+}
+
+.mastery-trained {
+    background : linear-gradient(135deg, #2a4a2a 0%, #1a3a1a 100%);
+    border     : 1px solid #4a8b4a;
+    color      : #a0d4a0;
+}
+
+.mastery-expert {
+    background : linear-gradient(135deg, #2a3d5a 0%, #1a2a40 100%);
+    border     : 1px solid #4a7cb8;
+    color      : #a8d0f0;
+}
+
+.mastery-master {
+    background : linear-gradient(135deg, #3d1a4a 0%, #2a0f3a 100%);
+    border     : 1px solid #8b4ab8;
+    color      : #d4a8f0;
+}
+
+.mastery-legendary {
+    background : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border     : 1px solid #ffd700;
+    color      : #1a0f08;
+}
+
+.class-mastery-desc {
+    font-size   : 12px;
+    color       : #c8b89a;
+    line-height : 1.4;
+}
+
+/* ── Timeline niveaux ────────────────────── */
+
+.class-timeline {
+    display        : flex;
+    flex-direction : column;
+    gap            : 0;
+    position       : relative;
+}
+
+.class-timeline::before {
+    content    : '';
+    position   : absolute;
+    left       : 48px;
+    top        : 0;
+    bottom     : 0;
+    width      : 2px;
+    background : linear-gradient(180deg, #d4af37 0%, #8b6914 50%, #3d2817 100%);
+    opacity    : 0.6;
+}
+
+.class-timeline-row {
+    display     : grid;
+    grid-template-columns: 48px 18px 1fr;
+    gap         : 10px;
+    align-items : flex-start;
+    padding     : 6px 0;
+}
+
+.class-timeline-level {
+    font-size   : 11px;
+    font-weight : bold;
+    color       : #d4af37;
+    text-align  : right;
+    padding-top : 3px;
+    white-space : nowrap;
+}
+
+.class-timeline-dot {
+    width        : 10px;
+    height       : 10px;
+    border-radius: 50%;
+    background   : linear-gradient(135deg, #d4af37, #8b6914);
+    border       : 2px solid #ffd700;
+    margin-top   : 4px;
+    flex-shrink  : 0;
+    align-self   : flex-start;
+    position     : relative;
+    z-index      : 1;
+    box-shadow   : 0 0 6px rgba(212, 175, 55, 0.4);
+}
+
+.class-timeline-body {
+    font-size   : 13px;
+    color       : #c8b89a;
+    line-height : 1.5;
+    padding-top : 1px;
+}
+
+/* ── Capacités détaillées ─────────────────── */
+
+.class-abilities-list {
+    display        : flex;
+    flex-direction : column;
+    gap            : 10px;
+}
+
+.class-ability-card {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #5a3f1e;
+    border-left   : 4px solid #8b6914;
+    border-radius : 6px;
+    padding       : 12px 14px;
+    transition    : border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.class-ability-card:hover {
+    border-color      : #6b4e2a;
+    border-left-color : #ffd700;
+    box-shadow        : 0 3px 12px rgba(212, 175, 55, 0.15);
+}
+
+.class-ability-head {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    gap             : 10px;
+    margin-bottom   : 8px;
+}
+
+.class-ability-name {
+    font-size   : 14px;
+    font-weight : bold;
+    color       : #f0d890;
+    text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
+    flex        : 1;
+}
+
+.class-ability-level {
+    background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border        : 1px solid #d4af37;
+    border-radius : 4px;
+    color         : #1a0f08;
+    font-size     : 11px;
+    font-weight   : bold;
+    padding       : 2px 10px;
+    white-space   : nowrap;
+    flex-shrink   : 0;
+}
+
+.class-ability-descs {
+    display        : flex;
+    flex-direction : column;
+    gap            : 6px;
+}
+
+.class-ability-desc {
+    color       : #c8b89a;
+    font-size   : 13px;
+    line-height : 1.6;
+    margin      : 0;
+    text-align  : justify;
+}
+
+/* Variante du chip selon la maîtrise pour les stats rapides */
+.class-stat-mastery.mastery-trained  { background: linear-gradient(135deg, #2a4a2a 0%, #1a3a1a 100%); border-color: #4a8b4a; }
+.class-stat-mastery.mastery-expert   { background: linear-gradient(135deg, #2a3d5a 0%, #1a2a40 100%); border-color: #4a7cb8; }
+.class-stat-mastery.mastery-master   { background: linear-gradient(135deg, #3d1a4a 0%, #2a0f3a 100%); border-color: #8b4ab8; }
+.class-stat-mastery.mastery-legendary{ background: linear-gradient(135deg, #8b6914 0%, #6b4e10 100%); border-color: #ffd700; }
+.class-stat-mastery.mastery-trained  .stat-chip-value { color: #a0d4a0; }
+.class-stat-mastery.mastery-expert   .stat-chip-value { color: #a8d0f0; }
+.class-stat-mastery.mastery-master   .stat-chip-value { color: #d4a8f0; }
+.class-stat-mastery.mastery-legendary .stat-chip-value { color: #1a0f08; }
