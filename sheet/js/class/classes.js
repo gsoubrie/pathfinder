@@ -60,10 +60,6 @@ CLASSES.ClassPopup.prototype = {
     },
 
     //********************************************  HTML HELPERS   **************************************************//
-
-    /**
-     * Crée un bloc de section avec titre et contenu
-     */
     _createSection: function ( titleText, contentEl, cssClass ) {
         let section = SERVICE.DOM.createElement( "div", { class: "class-section " + ( cssClass || "" ) } );
         if ( titleText ) {
@@ -91,19 +87,6 @@ CLASSES.ClassPopup.prototype = {
         return row;
     },
 
-    /**
-     * Traduit le code de maîtrise en libellé + classe CSS
-     */
-    _masteryInfo: function ( code ) {
-        const map = {
-            "I": { label: "Inexpérimenté", css: "mastery-untrained" },
-            "Q": { label: "Qualifié",       css: "mastery-trained"   },
-            "E": { label: "Expert",          css: "mastery-expert"    },
-            "M": { label: "Maître",          css: "mastery-master"    },
-            "L": { label: "Légendaire",      css: "mastery-legendary" }
-        };
-        return map[ code ] || { label: code, css: "" };
-    },
 
     /**
      * Crée un badge de maîtrise
@@ -130,112 +113,75 @@ CLASSES.ClassPopup.prototype = {
 
     //********************************************  HTML SECTIONS   **************************************************//
 
-    /**
-     * En-tête : description générale + stats clés
-     */
-    _buildHeader: function ( container ) {
-        let header = SERVICE.DOM.createElement( "div", { class: "class-header-block" } );
+     computeHTMLHeader: function () {
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-header-block" } );
 
-        if ( this.general_desc ) {
-            let desc = SERVICE.DOM.createElement( "p", { class: "class-general-desc" } );
-            desc.textContent = this.general_desc;
-            SERVICE.DOM.addElementTo( desc, header );
-        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-general-desc" } , this.general_desc), to_return );
 
-        let stats = SERVICE.DOM.createElement( "div", { class: "class-quick-stats" } );
-        if ( this.life_point_by_level !== undefined ) {
-            let hp = SERVICE.DOM.createElement( "div", { class: "class-stat-chip class-stat-hp" } );
-            hp.innerHTML = "<span class='stat-chip-number'>" + this.life_point_by_level + "</span><span class='stat-chip-label'>PV / niveau</span>";
-            SERVICE.DOM.addElementTo( hp, stats );
-        }
-        if ( this.mastery && this.mastery.initial ) {
-            let mi    = this._masteryInfo( this.mastery.initial );
-            let chip  = SERVICE.DOM.createElement( "div", { class: "class-stat-chip class-stat-mastery " + mi.css } );
-            chip.innerHTML = "<span class='stat-chip-label'>Maîtrise initiale</span><span class='stat-chip-value'>" + mi.label + "</span>";
-            SERVICE.DOM.addElementTo( chip, stats );
-        }
-        if ( this.mastery && this.mastery.perception ) {
-            let pi   = this._masteryInfo( this.mastery.perception );
-            let chip = SERVICE.DOM.createElement( "div", { class: "class-stat-chip class-stat-mastery " + pi.css } );
-            chip.innerHTML = "<span class='stat-chip-label'>Perception</span><span class='stat-chip-value'>" + pi.label + "</span>";
-            SERVICE.DOM.addElementTo( chip, stats );
-        }
-        SERVICE.DOM.addElementTo( stats, header );
-        SERVICE.DOM.addElementTo( header, container );
+        let dom_stats = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-quick-stats" } ), to_return );
+        
+        let dom_stats_hp = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-stat-chip class-stat-hp" } ), dom_stats );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stat-chip-number" } , this.life_point_by_level), dom_stats_hp );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stat-chip-label" } , "PV / niveau"), dom_stats_hp );
+
+        let perception_mastery   = MASTERY.getByShort( this.mastery.perception );
+        let dom_perception = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-stat-chip class-stat-mastery " + perception_mastery.css } ), dom_stats );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stat-chip-label" } , "Perception"), dom_perception );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stat-chip-value" } , perception_mastery.label), dom_perception );
+    
+
+        SERVICE.DOM.addElementTo( dom_stats, to_return );
+        return to_return;
     },
 
     /**
      * Section Rôles (combat, social, exploration, interlude)
      */
-    _buildRoles: function ( container ) {
-        if ( !this.desc_fight && !this.desc_socially && !this.desc_exploration && !this.desc_interlude ) return;
+     computeHTMLRoles: function () {
 
-        let section = SERVICE.DOM.createElement( "div", { class: "class-section" } );
-        let title   = SERVICE.DOM.createElement( "div", { class: "class-section-title" } );
-        title.textContent = "Rôles";
-        SERVICE.DOM.addElementTo( title, section );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section" } );
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-section-title" }, "Rôles" ), to_return);
 
-        let grid = SERVICE.DOM.createElement( "div", { class: "class-roles-grid" } );
+        let grid = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-roles-grid" } ), to_return);
         let roles = [
-            { icon: "⚔️", label: "Combat",      desc: this.desc_fight       },
+            { icon: "⚔️", label: "Combat",       desc: this.desc_fight       },
             { icon: "🗣️", label: "Social",       desc: this.desc_socially    },
             { icon: "🧭", label: "Exploration",  desc: this.desc_exploration },
             { icon: "🏕️", label: "Intermède",    desc: this.desc_interlude   }
         ];
         roles.forEach( function ( role ) {
-            if ( !role.desc ) return;
-            let card  = SERVICE.DOM.createElement( "div", { class: "class-role-card" } );
-            let head  = SERVICE.DOM.createElement( "div", { class: "class-role-head" } );
-            let icon  = SERVICE.DOM.createElement( "span", { class: "class-role-icon" } );
-            icon.textContent = role.icon;
-            let lbl   = SERVICE.DOM.createElement( "span", { class: "class-role-label" } );
-            lbl.textContent = role.label;
-            SERVICE.DOM.addElementTo( icon, head );
-            SERVICE.DOM.addElementTo( lbl, head );
-            SERVICE.DOM.addElementTo( head, card );
-            let body  = SERVICE.DOM.createElement( "p", { class: "class-role-desc" } );
-            body.textContent = role.desc;
-            SERVICE.DOM.addElementTo( body, card );
-            SERVICE.DOM.addElementTo( card, grid );
+            let card  = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-role-card" } ), grid);
+            let head  = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-role-head" } ), card);
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-role-icon" }, role.icon ), head);
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-role-label" } , role.label), head);
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "p", { class: "class-role-desc" }, role.desc ), card);
         } );
-        SERVICE.DOM.addElementTo( grid, section );
-        SERVICE.DOM.addElementTo( section, container );
+        return to_return;
     },
 
-    /**
-     * Section "Vous pourriez…" / "Les autres pensent…"
-     */
-    _buildPersonality: function ( container ) {
-        if ( !this.desc_you_could && !this.desc_probably_others ) return;
 
-        let section = SERVICE.DOM.createElement( "div", { class: "class-section" } );
-        let title   = SERVICE.DOM.createElement( "div", { class: "class-section-title" } );
-        title.textContent = "Personnalité";
-        SERVICE.DOM.addElementTo( title, section );
+     computeHTMLPersonality: function (  ) {
 
-        let wrap = SERVICE.DOM.createElement( "div", { class: "class-personality-wrap" } );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-section-title" }, "Personnalité" ), to_return);
+
+
+        let wrap = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-personality-wrap" } ), to_return);
 
         let buildList = function ( items, heading, iconCss ) {
             if ( !items || !items.length ) return;
-            let block  = SERVICE.DOM.createElement( "div", { class: "class-personality-block" } );
-            let h      = SERVICE.DOM.createElement( "div", { class: "class-personality-heading " + iconCss } );
-            h.textContent = heading;
-            SERVICE.DOM.addElementTo( h, block );
-            let ul = SERVICE.DOM.createElement( "ul", { class: "class-personality-list" } );
+            let block  = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-personality-block" } ), wrap);
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-personality-heading " + iconCss } , heading), block);
+            let ul = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "ul", { class: "class-personality-list" } ), block);
             items.forEach( function ( item ) {
-                let li = SERVICE.DOM.createElement( "li", {} );
-                li.textContent = item;
-                SERVICE.DOM.addElementTo( li, ul );
+                SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "li", {}, item ), ul);
             } );
-            SERVICE.DOM.addElementTo( ul, block );
-            SERVICE.DOM.addElementTo( block, wrap );
         };
 
         buildList( this.desc_you_could,       "Vous pourriez…",          "heading-you"    );
         buildList( this.desc_probably_others, "Les autres pensent…",     "heading-others" );
 
-        SERVICE.DOM.addElementTo( wrap, section );
-        SERVICE.DOM.addElementTo( section, container );
+        return to_return;
     },
 
     /**
@@ -372,18 +318,16 @@ CLASSES.ClassPopup.prototype = {
         SERVICE.DOM.addElementTo( section, container );
     },
 
-    //********************************************  HTML MAIN   **************************************************//
-
     computeHTMLEdition: function () {
-        let wrap = SERVICE.DOM.createElement( "div", { class: "class-edition" } );
-        this.setDomElement( wrap );
+        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );
 
-        this._buildHeader( wrap );
-        this._buildRoles( wrap );
-        this._buildPersonality( wrap );
-        this._buildMastery( wrap );
+        SERVICE.DOM.addElementTo( this.computeHTMLHeader(), this.getDomElement() );
+        SERVICE.DOM.addElementTo( this.computeHTMLRoles(), this.getDomElement() );
+        SERVICE.DOM.addElementTo( this.computeHTMLPersonality(), this.getDomElement() );
+       this._buildPersonality( wrap );
+        /*this._buildMastery( wrap );
         this._buildCapacityByLevel( wrap );
-        this._buildAbilities( wrap );
+        this._buildAbilities( wrap );*/
 
         return this.getDomElement();
     }

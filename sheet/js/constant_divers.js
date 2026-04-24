@@ -190,31 +190,65 @@ var SKILLS     = {
 };
 var MASTERY    = {
     LIST         : {
+        UNTRAINED: {
+            name : "untrained",
+            label: "Inexpérimenté",
+            short: "I",
+            bonus: 0,
+            css: "mastery-untrained"
+        },
         QUALIFIED: {
             name : "qualify",
             label: "Qualifié",
             short: "Q",
-            bonus: 2
+            bonus: 2,
+            css: "mastery-trained"
         },
         EXPERT   : {
             name : "expert",
             label: "Expert",
             short: "E",
-            bonus: 4
+            bonus: 4,
+            css: "mastery-expert"
         },
         MASTER   : {
             name : "master",
             label: "Maitre",
             short: "M",
-            bonus: 6
+            bonus: 6,
+            css: "mastery-master"
         },
         LEGEND   : {
             name : "legend",
             label: "Légende",
             short: "L",
-            bonus: 8
+            bonus: 8,
+            css: "mastery-legendary"
+        },
+        UNKNOWN   : {
+            name : "unknown",
+            label: "??",
+            short: "U",
+            bonus: 0,
+            css: "mastery-unknown"
         }
     },
+    getByShort: function ( short_value ) {
+        console.log(short_value);
+        switch (short_value ){
+            case "I":
+                return MASTERY.LIST.UNTRAINED;
+            case "Q":
+                return MASTERY.LIST.QUALIFIED;
+            case "E":
+                return MASTERY.LIST.EXPERT;
+            case "M":
+                return MASTERY.LIST.MASTER;
+            case "L":
+                return MASTERY.LIST.LEGEND;                                                                                        
+        }
+        return MASTERY.LIST.UNKNOWN;
+    },    
     parseToLetter: function ( name ) {
         return MASTERY.findByName( name ).short;
     },
