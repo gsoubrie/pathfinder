@@ -14,7 +14,7 @@
 .popup .gs-window-targets-V2 {
     max-height: calc(100% - 150px);
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: 2px;
     -ms-overflow-style: none;
 }
 

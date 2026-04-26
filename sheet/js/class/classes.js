@@ -86,29 +86,12 @@ CLASSES.ClassPopup.prototype = {
         SERVICE.DOM.addElementTo( val, row );
         return row;
     },
-
-
-    /**
-     * Crée un badge de maîtrise
-     */
-    _createMasteryBadge: function ( code ) {
-        let info  = this._masteryInfo( code );
-        let badge = SERVICE.DOM.createElement( "span", { class: "class-mastery-badge " + info.css } );
-        badge.textContent = info.label;
-        return badge;
-    },
-
-    /**
-     * Crée une ligne de maîtrise avec badge + description
-     */
-    _createMasteryRow: function ( level, description ) {
-        let row  = SERVICE.DOM.createElement( "div", { class: "class-mastery-row" } );
-        let badge = this._createMasteryBadge( level );
-        let desc = SERVICE.DOM.createElement( "span", { class: "class-mastery-desc" } );
-        desc.textContent = description;
-        SERVICE.DOM.addElementTo( badge, row );
-        SERVICE.DOM.addElementTo( desc, row );
-        return row;
+    computeHTMLMasteryRow: function ( level, description ) {
+        let to_return  = SERVICE.DOM.createElement( "div", { class: "class-mastery-row" } );
+        let mastery   = MASTERY.getByShort( level );
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "span", { class: "class-mastery-badge " + mastery.css }, mastery.label ), to_return);
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "span", { class: "class-mastery-desc" } , description), to_return);
+        return to_return;
     },
 
     //********************************************  HTML SECTIONS   **************************************************//
@@ -187,135 +170,91 @@ CLASSES.ClassPopup.prototype = {
     /**
      * Section Maîtrises
      */
-    _buildMastery: function ( container ) {
-        if ( !this.mastery ) return;
-        let m = this.mastery;
+     computeHTMLMastery: function () {
         let self = this;
 
-        let section = SERVICE.DOM.createElement( "div", { class: "class-section" } );
-        let title   = SERVICE.DOM.createElement( "div", { class: "class-section-title" } );
-        title.textContent = "Maîtrises";
-        SERVICE.DOM.addElementTo( title, section );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section" } );
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-section-title" }, "Maîtrises" ), to_return);
 
-        let grid = SERVICE.DOM.createElement( "div", { class: "class-mastery-grid" } );
+        let grid = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-mastery-grid" } ), to_return);
 
         let buildGroup = function ( groupTitle, items ) {
             if ( !items || !items.length ) return;
-            let group = SERVICE.DOM.createElement( "div", { class: "class-mastery-group" } );
-            let gh    = SERVICE.DOM.createElement( "div", { class: "class-mastery-group-title" } );
-            gh.textContent = groupTitle;
-            SERVICE.DOM.addElementTo( gh, group );
+            let group = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-mastery-group" } ), grid );
+            let gh    =SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-mastery-group-title" }, groupTitle ), group);
             items.forEach( function ( item ) {
-                SERVICE.DOM.addElementTo( self._createMasteryRow( item.level, item.description ), group );
+                SERVICE.DOM.addElementTo( self.computeHTMLMasteryRow( item.level, item.description ), group );
             } );
-            SERVICE.DOM.addElementTo( group, grid );
         };
 
-        buildGroup( "Jets de sauvegarde", m.saves    );
-        buildGroup( "Compétences",        m.skills   );
-        buildGroup( "Attaques",           m.attacks  );
-        buildGroup( "Défenses",           m.defenses );
-        buildGroup( "Sorts",              m.spells   );
+        buildGroup( "Jets de sauvegarde", this.mastery.saves    );
+        buildGroup( "Compétences",        this.mastery.skills   );
+        buildGroup( "Attaques",           this.mastery.attacks  );
+        buildGroup( "Défenses",           this.mastery.defenses );
+        buildGroup( "Sorts",              this.mastery.spells   );
 
         // DD de classe + Rareté
-        if ( m.class_dc || m.rarity ) {
+        if ( this.mastery.class_dc || this.mastery.rarity ) {
             let extra = SERVICE.DOM.createElement( "div", { class: "class-mastery-group" } );
             let eh    = SERVICE.DOM.createElement( "div", { class: "class-mastery-group-title" } );
             eh.textContent = "Divers";
             SERVICE.DOM.addElementTo( eh, extra );
-            if ( m.class_dc ) {
-                SERVICE.DOM.addElementTo( self._createMasteryRow( m.class_dc, "DD de classe" ), extra );
+            if ( this.mastery.class_dc ) {
+                SERVICE.DOM.addElementTo( self.computeHTMLMasteryRow( this.mastery.class_dc, "DD de classe" ), extra );
             }
-            if ( m.rarity ) {
+            if ( this.mastery.rarity ) {
                 let rarRow = SERVICE.DOM.createElement( "div", { class: "class-mastery-row" } );
                 let rarVal = SERVICE.DOM.createElement( "span", { class: "class-mastery-desc" } );
-                rarVal.textContent = "Rareté : " + m.rarity;
+                rarVal.textContent = "Rareté : " + this.mastery.rarity;
                 SERVICE.DOM.addElementTo( rarVal, rarRow );
                 SERVICE.DOM.addElementTo( rarRow, extra );
             }
             SERVICE.DOM.addElementTo( extra, grid );
         }
 
-        SERVICE.DOM.addElementTo( grid, section );
-        SERVICE.DOM.addElementTo( section, container );
+        SERVICE.DOM.addElementTo( grid, to_return );
     },
 
-    /**
-     * Section Capacités par niveau (timeline)
-     */
-    _buildCapacityByLevel: function ( container ) {
-        if ( !this.capacity_by_level || !this.capacity_by_level.length ) return;
+     computeHTMLCapacityByLevel: function () {
 
-        let section = SERVICE.DOM.createElement( "div", { class: "class-section" } );
-        let title   = SERVICE.DOM.createElement( "div", { class: "class-section-title" } );
-        title.textContent = "Capacités par niveau";
-        SERVICE.DOM.addElementTo( title, section );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section" } );
+        SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-section-title" } , "Capacités par niveau"), to_return);
 
-        let timeline = SERVICE.DOM.createElement( "div", { class: "class-timeline" } );
+        let timeline = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-timeline" } ), to_return);
         this.capacity_by_level.forEach( function ( caps, idx ) {
-            let row   = SERVICE.DOM.createElement( "div", { class: "class-timeline-row" } );
-            let lvl   = SERVICE.DOM.createElement( "div", { class: "class-timeline-level" } );
-            lvl.textContent = "Niv. " + ( idx + 1 );
-            let dot   = SERVICE.DOM.createElement( "div", { class: "class-timeline-dot" } );
-            let body  = SERVICE.DOM.createElement( "div", { class: "class-timeline-body" } );
-            body.textContent = caps;
-            SERVICE.DOM.addElementTo( lvl,  row );
-            SERVICE.DOM.addElementTo( dot,  row );
-            SERVICE.DOM.addElementTo( body, row );
-            SERVICE.DOM.addElementTo( row,  timeline );
+            let row   = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-timeline-row" } ),timeline);
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-timeline-level" } , "Niv. " + ( idx + 1 )), row);
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-timeline-dot" } ), row);
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-timeline-body" }, caps ), row);
         } );
-
-        SERVICE.DOM.addElementTo( timeline, section );
-        SERVICE.DOM.addElementTo( section, container );
+        return to_return;
     },
 
-    /**
-     * Section Capacités détaillées (abilities)
-     */
-    _buildAbilities: function ( container ) {
-        if ( !this.abilities ) return;
+     computeHTMLAbilities: function () {
         let keys = Object.keys( this.abilities );
-        if ( !keys.length ) return;
-
-        let section = SERVICE.DOM.createElement( "div", { class: "class-section" } );
-        let title   = SERVICE.DOM.createElement( "div", { class: "class-section-title" } );
-        title.textContent = "Capacités de classe";
-        SERVICE.DOM.addElementTo( title, section );
-
-        let list = SERVICE.DOM.createElement( "div", { class: "class-abilities-list" } );
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-section-title" },  "Capacités de classe" ), to_return);
+        let list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-abilities-list" } ), to_return);
 
         keys.forEach( ( key ) => {
             let ability = this.abilities[ key ];
-            let card    = SERVICE.DOM.createElement( "div", { class: "class-ability-card" } );
+            let card    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-ability-card" } ), list);
 
-            // En-tête : nom + niveau
-            let head = SERVICE.DOM.createElement( "div", { class: "class-ability-head" } );
-            let name = SERVICE.DOM.createElement( "div", { class: "class-ability-name" } );
-            name.textContent = ability.name || key;
-            SERVICE.DOM.addElementTo( name, head );
+            let head = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-ability-head" } ), card);
+            SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-ability-name" }, ability.name || key ), head);
             if ( ability.level ) {
-                let lvl = SERVICE.DOM.createElement( "div", { class: "class-ability-level" } );
-                lvl.textContent = "Niv. " + ability.level;
-                SERVICE.DOM.addElementTo( lvl, head );
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-ability-level" }, "Niv. " + ability.level ), head);
             }
-            SERVICE.DOM.addElementTo( head, card );
 
-            // Descriptions
             if ( ability.description && ability.description.length ) {
-                let descWrap = SERVICE.DOM.createElement( "div", { class: "class-ability-descs" } );
+                let descWrap = SERVICE.DOM.addElementTo(SERVICE.DOM.createElement( "div", { class: "class-ability-descs" } ), card);
                 ability.description.forEach( function ( line ) {
-                    let p = SERVICE.DOM.createElement( "p", { class: "class-ability-desc" } );
-                    p.textContent = line;
-                    SERVICE.DOM.addElementTo( p, descWrap );
+                    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "p", { class: "class-ability-desc" }, line ), descWrap);
                 } );
-                SERVICE.DOM.addElementTo( descWrap, card );
             }
-
-            SERVICE.DOM.addElementTo( card, list );
         } );
 
-        SERVICE.DOM.addElementTo( list, section );
-        SERVICE.DOM.addElementTo( section, container );
+        return to_return;
     },
 
     computeHTMLEdition: function () {
@@ -324,10 +263,9 @@ CLASSES.ClassPopup.prototype = {
         SERVICE.DOM.addElementTo( this.computeHTMLHeader(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLRoles(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLPersonality(), this.getDomElement() );
-       this._buildPersonality( wrap );
-        /*this._buildMastery( wrap );
-        this._buildCapacityByLevel( wrap );
-        this._buildAbilities( wrap );*/
+        SERVICE.DOM.addElementTo( this.computeHTMLMastery(), this.getDomElement() );
+        SERVICE.DOM.addElementTo( this.computeHTMLCapacityByLevel(), this.getDomElement() );
+        SERVICE.DOM.addElementTo( this.computeHTMLAbilities(), this.getDomElement() );
 
         return this.getDomElement();
     }
