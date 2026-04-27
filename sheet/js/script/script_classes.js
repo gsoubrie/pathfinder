@@ -353,7 +353,8 @@ const PF2_CLASS = (function () {
             "constitution" : "CON",
             "intelligence" : "INT",
             "sagesse"      : "SAG",
-            "charisme"     : "CHA"
+            "charisme"     : "CHA",
+            "autre"        : "FREE"
         };
         const key = word.toLowerCase().normalize( "NFD" ).replace( /[\u0300-\u036f]/g, "" );
         return map[ key ] || word.toUpperCase().slice( 0, 3 );

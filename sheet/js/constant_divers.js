@@ -234,7 +234,6 @@ var MASTERY    = {
         }
     },
     getByShort: function ( short_value ) {
-        console.log(short_value);
         switch (short_value ){
             case "I":
                 return MASTERY.LIST.UNTRAINED;

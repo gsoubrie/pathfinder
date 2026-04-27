@@ -4340,7 +4340,7 @@ var CLASSES = {
                 "number": 1,
                 "choice": [
                     "DEX",
-                    "AUT"
+                    "FREE"
                 ]
             },
             "life_point_by_level"  : 8,
