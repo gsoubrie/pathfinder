@@ -30,11 +30,69 @@ const PF2_CLASS = (function () {
         }
     };
 
-    self.cleanText = ( node ) => {
+    // Registre global de tous les liens rencontrés, indexé par id
+    self.links = {};
+
+    // Mapping du segment compendium → catégorie lisible
+    self.compendiumCategory = ( compendium ) => {
+        const map = {
+            "feats-srd"                     : "feat",
+            "equipment-srd"                 : "item",
+            "spells-srd"                    : "spell",
+            "actions-srd"                   : "action",
+            "bestiary-ability-glossary-srd" : "ability",
+            "conditionitems-srd"            : "condition",
+            "ancestryfeatures-srd"          : "ancestry-feature",
+            "classfeatures-srd"             : "class-feature",
+            "rituals-srd"                   : "ritual",
+            "deities-srd"                   : "deity",
+            "backgrounds-srd"               : "background",
+        };
+        for ( const key of Object.keys( map ) ) {
+            if ( compendium.includes( key ) ) return map[ key ];
+        }
+        return compendium; // fallback : nom brut du compendium
+    };
+
+    // Remplace les elt-foundry-annotation par [[cat:id]] dans le texte
+    // et enregistre le lien dans self.links
+    self.extractText = ( node ) => {
         const clone = node.cloneNode( true );
+
         clone.querySelectorAll( "mat-icon" ).forEach( el => el.remove() );
+
+        clone.querySelectorAll( "elt-foundry-annotation" ).forEach( el => {
+            const formula = el.getAttribute( "formula" ) || "";
+            const text    = ( el.getAttribute( "text" ) || el.innerText ).trim();
+
+            // formula : @UUID[Compendium.pf2e.feats-srd.Item.XXXX]
+            const match = formula.match( /Compendium\.([^.]+)\.([^.]+)\.[^.]+\.([^\]]+)/ );
+
+            if ( match ) {
+                const compendium = match[ 2 ]; // ex: feats-srd
+                const id         = match[ 3 ]; // ex: is3Oz9wt11lNq62K
+                const category   = self.compendiumCategory( compendium );
+
+                // Enregistre dans le registre global (dédupliqué par id)
+                if ( !self.links[ id ] ) {
+                    const href = el.querySelector( "a" )?.getAttribute( "href" ) || null;
+                    self.links[ id ] = { id, text, category, href };
+                }
+
+                // Remplace le nœud par un marqueur texte [[cat:id]]
+                el.replaceWith( `[[${category}:${id}]]` );
+            }
+            else {
+                // Pas de formule reconnue → on garde juste le texte
+                el.replaceWith( text );
+            }
+        } );
+
         return clone.innerText.replace( /\n/g, " " ).replace( /\s+/g, " " ).trim();
     };
+
+    // Alias pour les endroits qui n'ont pas d'annotations (titres H2/H3)
+    self.cleanText = ( node ) => self.extractText( node );
 
     self.toId = ( name ) =>
         name
@@ -209,7 +267,7 @@ const PF2_CLASS = (function () {
         const key = self.previous_title;
 
         if ( tag === "P" ) {
-            const text = child.innerText.trim();
+            const text = self.extractText( child );
             if ( !text ) return;
 
             // Champ tableau (desc_you_could, desc_probably_others, mastery_js, etc.)
@@ -235,7 +293,7 @@ const PF2_CLASS = (function () {
         }
 
         if ( tag === "LI" ) {
-            const text = child.innerText.trim();
+            const text = self.extractText( child );
             if ( !text ) return;
             if ( !Array.isArray( result[ key ] ) ) result[ key ] = [];
             result[ key ].push( self.formatMasteryItem( key, text ) );
@@ -281,6 +339,7 @@ const PF2_CLASS = (function () {
         const tds = tableContainer.querySelectorAll( "td" );
         for ( let i = 1; i < tds.length; i += 2 ) {
             let text = tds[ i ].innerText.trim();
+            // Supprimer "Ascendance et historique" du texte (présent au niveau 1)
             text = text.replace( /Ascendance et historique,?\s*/i, "" ).trim();
             result.capacity_by_level.push( text );
         }
@@ -306,6 +365,7 @@ const PF2_CLASS = (function () {
             result._currentAbility = { name, description: [] };
             if ( level !== null ) result._currentAbility.level = level;
 
+            // Ignorer les capacités redondantes
             if ( id === "ascendance_et_historique" || id === "maitrises_initiales" ) {
                 result._currentAbility = null;
                 return;
@@ -318,7 +378,7 @@ const PF2_CLASS = (function () {
         if ( !result._currentAbility ) return;
 
         if ( tag === "P" ) {
-            const text = child.innerText.trim();
+            const text = self.extractText( child );
             if ( !text ) return;
             const prereq = self.parsePrerequisites( text );
             if ( prereq ) { result._currentAbility.required = prereq; return; }
@@ -328,7 +388,7 @@ const PF2_CLASS = (function () {
 
         if ( tag === "UL" || tag === "OL" ) {
             Array.from( child.querySelectorAll( "li" ) ).forEach( li => {
-                const text = li.innerText.trim();
+                const text = self.extractText( li );
                 if ( text ) result._currentAbility.description.push( text );
             } );
         }
@@ -423,6 +483,10 @@ const PF2_CLASS = (function () {
     self.scrape = async () => {
         const rows    = self.getRows();
         const results = [];
+
+        // Reset du registre de liens pour ce run
+        self.links = {};
+
         for ( const current of rows ) {
             let className =  current.querySelector("td").innerText;
             console.log( `[PF2_CLASS] → "${className}"`, className );
@@ -499,7 +563,10 @@ const PF2_CLASS = (function () {
             });
             
         }
-        return results;
+        return {
+            classes: results,
+            links  : Object.values( self.links )
+        };
     };
 
     /*
@@ -509,8 +576,8 @@ const PF2_CLASS = (function () {
     */
 
     self.download = ( data, filename ) => {
-        filename = filename || ( "class_" + data.key + ".json" );
-        const blob = new Blob( [ JSON.stringify( data, null, 2 ) ], { type: "application/json" } );
+        filename = filename || "classes.json";
+        const blob = new Blob( [ JSON.stringify( data, null, 4 ) ], { type: "application/json" } );
         const url  = URL.createObjectURL( blob );
         const a    = document.createElement( "a" );
         a.href     = url;
@@ -532,8 +599,14 @@ LANCEMENT
 */
 (async () => {
 
-    const data = await PF2_CLASS.scrape();
-    console.log( data );
-    PF2_CLASS.download( data );
+    const { classes, links } = await PF2_CLASS.scrape();
+
+    console.log( "[PF2_CLASS] classes :", classes );
+    console.log( "[PF2_CLASS] links   :", links );
+
+    // Télécharge les deux fichiers
+    PF2_CLASS.download( classes, "classes.json" );
+    await PF2_CLASS.wait( 500 );
+    PF2_CLASS.download( links, "links.json" );
 
 })();

@@ -116,14 +116,14 @@ var CLASSES = {
                     "name"       : "Alchimie",
                     "description": [
                         "Vous comprenez les réactions complexes entre toutes sortes de réactifs et pouvez concocter des objets alchimiques pour répondre à vos besoins. Vous pouvez le faire en utilisant des réactifs normaux et l'activité Fabriquer ou vous pouvez utiliser des produits chimiques spécialement préparés qui vous permettent de fabriquer des objets temporaires rapidement et sans coût associé. Au fil du temps, vous pouvez créer de plus en plus d'objets alchimiques gratuitement et, dans la mesure où ceux-ci deviennent de plus en plus puissants, votre puissance progresse de manière dramatique, laissant derrière ceux qui ne comprennent rien à votre étrange science.",
-                        "Vous obtenez le don military_techArtisanat alchimique et vous pouvez automatiquement identifier les objets alchimiques dont vous disposez de la formule."
+                        "Vous obtenez le don [[feat:is3Oz9wt11lNq62K]] et vous pouvez automatiquement identifier les objets alchimiques dont vous disposez de la formule."
                     ]
                 },
                 "recueil_de_formules"                        : {
                     "name"       : "Recueil de formules",
                     "description": [
-                        "Un alchimiste conserve les formules méticuleusement de tout objet que vous pouvez créer. Vous débutez avec un workRecueil de formules standard gratuitement. Le recueil de formules contient les formules de deux objets alchimiques courants de niveau 1 de votre choix, en plus de toutes les formules que vous avez obtenues par military_techArtisanat alchimique et votre champ de recherche.",
-                        "Chaque fois que vous gagnez un niveau, vous pouvez ajouter les formules de deux objets alchimiques courants de votre recueil de formules. Ces nouvelles formules peuvent être de n'importe quel niveau d'objet que vous pouvez créer. Vous apprenez ces formules automatiquement, mais il est aussi possible de trouver et acheter des formules supplémentaires dans les agglomérations ou d'autres alchimistes ou en sélectionnant le don de compétence military_techInventeur de sorte à pouvoir les inventer.",
+                        "Un alchimiste conserve les formules méticuleusement de tout objet que vous pouvez créer. Vous débutez avec un [[item:qCEOZ6109Yo34tRx]] standard gratuitement. Le recueil de formules contient les formules de deux objets alchimiques courants de niveau 1 de votre choix, en plus de toutes les formules que vous avez obtenues par [[feat:is3Oz9wt11lNq62K]] et votre champ de recherche.",
+                        "Chaque fois que vous gagnez un niveau, vous pouvez ajouter les formules de deux objets alchimiques courants de votre recueil de formules. Ces nouvelles formules peuvent être de n'importe quel niveau d'objet que vous pouvez créer. Vous apprenez ces formules automatiquement, mais il est aussi possible de trouver et acheter des formules supplémentaires dans les agglomérations ou d'autres alchimistes ou en sélectionnant le don de compétence [[feat:XR95taODq1sq82Du]] de sorte à pouvoir les inventer.",
                         "Comme à l'ordinaire, disposer de la formule de base est suffisant lorsque vous Fabriquez des versions supérieures de l'objet. Vous n'avez pas besoin d'apprendre les formules des niveaux supérieurs. Par exemple, si vous disposez de la formule de niveau 1 pour un élixirs de vie mineur, vous pouvez créer des élixirs de vie mineurs, inférieurs, modérés, supérieurs, majeur ou ultime tant que vous remplissez le niveau et les autres prérequis. Les objets dont les entrées de type ont des fonctions très variées nécessitent des formules distinctes, mais la plupart des objets alchimiques possèdent une structure similaire à celle de l'élixir de vie."
                     ]
                 },
@@ -139,15 +139,15 @@ var CLASSES = {
                 "alchimie_rapide"                            : {
                     "name"       : "Alchimie rapide",
                     "description": [
-                        "Vous obtenez l'action sports_martial_artsAlchimie rapide pour faire les objets dont vous avez besoin à la volée."
+                        "Vous obtenez l'action [[actionspf2e:yzNJgwzV9XqEhKc6]] pour faire les objets dont vous avez besoin à la volée."
                     ]
                 },
                 "fioles_polyvalentes"                        : {
                     "name"       : "Fioles polyvalentes",
                     "description": [
                         "Vous savez comment préparer les produits chimiques à action rapide pour en faire des fioles polyvalentes, des objets spéciaux qui peuvent être utilisés comme des bombes et transformés en objets alchimiques en introduisant des réactifs spéciaux. Au cours de vos préparatifs quotidiens, vous pouvez créer un nombre de fioles polyvalentes égal à 2 + votre modificateur d'Intelligence, qui est aussi votre nombre maximal de fioles. Si vous êtes en dessous de votre nombre maximal, vous pouvez recueillir des réactifs dans l'environnement qui vous entoure. Toutes les 10 minutes que vous passez en mode exploration, vous récupérez 2 fioles. Cela ne vous empêche pas de participer aux autres activités d'exploration.",
-                        "Les fioles polyvalentes sont des objets imprégnés et sont détruites si elles ne sont pas utilisées à l'occasion de vos prochains préparatifs quotidiens. Une fiole que vous créez est toujours du type le plus élevé que vous pouvez Fabriquer. Voyez les statistiques sur la manière d'utiliser la fiole polyvalente en tant que bombe. Vous pouvez utiliser les fioles dans le cadre de l' Alchimie rapide et votre champ de recherche peut ajouter des manières dont vous utilisez une fiole.",
-                        "Vous pouvez emmagasiner toutes vos fioles polyvalentes au sein de votre workMatériel d'alchimiste , sans augmenter son Encombrement. Bien que les fioles polyvalentes soient des objets physiques, elles ne peuvent être dupliquées ou conservées en aucune manière.",
+                        "Les fioles polyvalentes sont des objets imprégnés et sont détruites si elles ne sont pas utilisées à l'occasion de vos prochains préparatifs quotidiens. Une fiole que vous créez est toujours du type le plus élevé que vous pouvez Fabriquer. Voyez les statistiques sur la manière d'utiliser la fiole polyvalente en tant que bombe. Vous pouvez utiliser les fioles dans le cadre de l' [[classfeatures:sPtl05wwTpqFI0lL]] et votre champ de recherche peut ajouter des manières dont vous utilisez une fiole.",
+                        "Vous pouvez emmagasiner toutes vos fioles polyvalentes au sein de votre [[item:4ftXXUCBHcf4b0MH]] , sans augmenter son Encombrement. Bien que les fioles polyvalentes soient des objets physiques, elles ne peuvent être dupliquées ou conservées en aucune manière.",
                         "Les fioles polyvalentes peuvent être jetées comme le sont les bombes, avec les statistiques suivantes :"
                     ]
                 },
@@ -155,10 +155,10 @@ var CLASSES = {
                     "name"       : "Champ de recherche",
                     "description": [
                         "Vos études de la nature alchimique de l'univers vous a mené à vous concentrer sur un champ de recherche spécifique. Au niveau 1, vous choisissez votre champ de recherche. Ce choix vous donne davantage de formules, d'autres capacités pour vos fioles polyvalentes et d'autres avantages lorsque vous gagnez des niveaux.",
-                        "Bombardier",
-                        "Chirurgien",
-                        "Mutagéniste",
-                        "Toxicologiste"
+                        "[[classfeatures:7JbiaZ8bxODM5mzS]]",
+                        "[[classfeatures:eNZnx4LISDNftbx2]]",
+                        "[[classfeatures:tvdb1jkjl2bRZjSp]]",
+                        "[[classfeatures:P9quO9XZi3OWFe1k]]"
                     ]
                 },
                 "dons_d_alchimiste"                          : {
@@ -235,7 +235,7 @@ var CLASSES = {
                     "name"       : "Double préparation",
                     "description": [
                         "Vous connaissez vos formules tellement bien que vous pouvez concoctez deux objets à la fois.",
-                        "Quand vous utilisez l'action sports_martial_artsAlchimie rapide , vous pouvez créer deux objets. Ces objets n'ont pas besoin d'être les mêmes. Si vous créez deux consommables, vous devez dépenser une fiole polyvalente pour chacune."
+                        "Quand vous utilisez l'action [[actionspf2e:yzNJgwzV9XqEhKc6]] , vous pouvez créer deux objets. Ces objets n'ont pas besoin d'être les mêmes. Si vous créez deux consommables, vous devez dépenser une fiole polyvalente pour chacune."
                     ],
                     "level"      : 9
                 },
@@ -305,7 +305,7 @@ var CLASSES = {
                 "fioles_abondantes"                          : {
                     "name"       : "Fioles abondantes",
                     "description": [
-                        "Vous êtes sentiment_very_dissatisfiedAccéléré de manière permanente et ne pouvez utiliser l'action supplémentaire que pour utiliser sports_martial_artsAlchimie rapide pour créer une fiole rapide. Vous ne pouvez créer qu'une fiole avec cette action, même si vous avez Double breuvage ou une capacité similaire."
+                        "Vous êtes [[conditionitems:nlCjDvLMf2EkV2dl]] de manière permanente et ne pouvez utiliser l'action supplémentaire que pour utiliser [[actionspf2e:yzNJgwzV9XqEhKc6]] pour créer une fiole rapide. Vous ne pouvez créer qu'une fiole avec cette action, même si vous avez [[classfeatures:76cwNLJEm4Yetnee]] ou une capacité similaire."
                     ],
                     "level"      : 17
                 },
@@ -440,31 +440,31 @@ var CLASSES = {
                 "impulsif"                                 : {
                     "name"       : "Impulsif",
                     "description": [
-                        "Vous obtenez l'action gratuite sports_martial_artsImpulsif , ce qui vous permet d'entrer en sports_martial_artsRage à la moindre provocation."
+                        "Vous obtenez l'action gratuite [[actionspf2e:a9PzINjFTO5GvAJN]] , ce qui vous permet d'entrer en [[actionspf2e:Ah5g9pDwWF9b9VW9]] à la moindre provocation."
                     ]
                 },
                 "impulsif_f"                               : {
                     "name"       : "Impulsif F",
                     "description": [
                         "Déclencheur Vous déterminez l'initiative.",
-                        "Conditions Vous n'êtes pas sentiment_very_dissatisfiedSurchargé et ne portez pas d'armure lourde.",
+                        "Conditions Vous n'êtes pas [[conditionitems:D5mg6Tc7Jzrj6ro7]] et ne portez pas d'armure lourde.",
                         "Du moment que vous êtes capable de vous déplacer librement, votre fureur est instinctive et instantanée. Vous entrez en Rage."
                     ]
                 },
                 "rage"                                     : {
                     "name"       : "Rage",
                     "description": [
-                        "Vous obtenez l'action sports_martial_artsRage qui vous permet de vous déchaîner."
+                        "Vous obtenez l'action [[actionspf2e:Ah5g9pDwWF9b9VW9]] qui vous permet de vous déchaîner."
                     ]
                 },
                 "rage_a"                                   : {
                     "name"       : "Rage A",
                     "description": [
-                        "Conditions Vous n'êtes pas sentiment_very_dissatisfiedFatigué ou en rage.",
+                        "Conditions Vous n'êtes pas [[conditionitems:HL2l2VRSaQHu9lUw]] ou en rage.",
                         "Vous faites appel à votre fureur intérieure et entrez en rage. Vous obtenez une quantité de Points de vie temporaires égale à votre niveau plus votre modificateur de Constitution. Pendant que vous êtes enragé :",
                         "Vous infligez 2 dégâts supplémentaires avec vos Frappes au corps-à-corps. Ces dégâts supplémentaires sont réduits de moitié si votre arme ou votre attaque à mains nues possède le trait agile.",
-                        "Vous ne pouvez pas utiliser d'actions avec le trait concentration, sauf si elles possèdent également le trait rage. Vous pouvez sports_martial_artsChercher pendant que vous êtes enragé.",
-                        "La rage dure pendant 1 minute, jusqu'à ce que vous tombiez sentiment_very_dissatisfiedInconscient ou que la rencontre se termine, selon ce qui se produit en premier. Vous ne pouvez pas volontairement mettre fin à votre rage. Quand vous mettez un terme à votre rage, vous perdez tous Points de vie temporaires restants obtenus grâce à la rage et vous ne pouvez plus obtenir de nouveau de Points de vie temporaires en utilisant l'action de Rage de nouveau pendant 1 minute."
+                        "Vous ne pouvez pas utiliser d'actions avec le trait concentration, sauf si elles possèdent également le trait rage. Vous pouvez [[actionspf2e:BlAOM2X92SI6HMtJ]] pendant que vous êtes enragé.",
+                        "La rage dure pendant 1 minute, jusqu'à ce que vous tombiez [[conditionitems:fBnFDH2MTzgFijKf]] ou que la rencontre se termine, selon ce qui se produit en premier. Vous ne pouvez pas volontairement mettre fin à votre rage. Quand vous mettez un terme à votre rage, vous perdez tous Points de vie temporaires restants obtenus grâce à la rage et vous ne pouvez plus obtenir de nouveau de Points de vie temporaires en utilisant l'action de Rage de nouveau pendant 1 minute."
                     ]
                 },
                 "instinct"                                 : {
@@ -472,15 +472,15 @@ var CLASSES = {
                     "description": [
                         "Votre rage naît d'un instinct dominant, que vous avez hérité d'une tradition ou qui vous est venu naturellement. Votre instinct vous donne une capacité, vous oblige à éviter certains comportements, vous accorde des dégâts et des résistances accrus aux niveaux supérieurs et vous permet de choisir des dons liés à votre instinct.",
                         "Les instincts peuvent être trouvés ici :",
-                        "Instinct animal",
-                        "Instinct de décomposition",
-                        "Instinct de géant",
-                        "Instinct de la furie",
-                        "Instinct du dragon",
-                        "Instinct élémentaire",
-                        "Instinct ligneux",
-                        "Instinct spirituel",
-                        "Instinct superstitieux"
+                        "[[classfeatures:0FtzFbUrN56KA67z]]",
+                        "[[classfeatures:znxs0soGlusvRP39]]",
+                        "[[classfeatures:JuKD6k7nDwfO0Ckv]]",
+                        "[[classfeatures:k7M9jedvt31AJ5ZR]]",
+                        "[[classfeatures:VDot7CDcXElxmkkz]]",
+                        "[[classfeatures:0jSS6pgNXsC8k4o7]]",
+                        "[[classfeatures:qVAeSFTI1dq64bB8]]",
+                        "[[classfeatures:TQqv9Q5mB4PW6LH9]]",
+                        "[[classfeatures:SCYSjUbMmw8JD9P9]]"
                     ]
                 },
                 "dons_de_competence"                       : {
@@ -565,7 +565,7 @@ var CLASSES = {
                 "rage_formidable"                          : {
                     "name"       : "Rage formidable",
                     "description": [
-                        "Votre rage s'intensifie et vous permet de taper plus dur au début d'un combat. Vous devenez expert en DD de classe de barbare. De plus, lorsque vous utilisez Impulsif, la première Frappe que vous portez au cours de votre premier tour inflige des dégâts supplémentaires égaux aux dégâts de votre sports_martial_artsRage ."
+                        "Votre rage s'intensifie et vous permet de taper plus dur au début d'un combat. Vous devenez expert en DD de classe de barbare. De plus, lorsque vous utilisez Impulsif, la première Frappe que vous portez au cours de votre premier tour inflige des dégâts supplémentaires égaux aux dégâts de votre [[actionspf2e:Ah5g9pDwWF9b9VW9]] ."
                     ],
                     "level"      : 11
                 },
@@ -764,12 +764,12 @@ var CLASSES = {
                     "name"       : "Muses",
                     "description": [
                         "En tant que barde, vous choisissez une muse au niveau 1. Cette muse vous conduit à faire de grandes choses et pourrait être quelqu'un que vous connaissez, une créature surnaturelle, un lieu, une divinité, une philosophie ou un mystère fascinant. En fonction du type d'inspiration que vous recevez, votre muse vous accorde au niveau 1 un don de barde de niveau 1 et ajoute un sort à votre répertoire.",
-                        "En plus de cela, chaque muse ouvre la porte à nombre de dons de bardes. Si un type d'inspiration n'est pas suffisante pour représenter votre muse, considérez le don military_techMuse polyvalente",
-                        "Combattante",
-                        "Énigmatique",
-                        "Maestro",
-                        "Touche-à-tout",
-                        "Zoophonie"
+                        "En plus de cela, chaque muse ouvre la porte à nombre de dons de bardes. Si un type d'inspiration n'est pas suffisante pour représenter votre muse, considérez le don [[feat:a898miJnjgD93ZsX]]",
+                        "[[classfeatures:N03BtRvjX9TeHRa4]]",
+                        "[[classfeatures:4ripp6EfdVpS0d60]]",
+                        "[[classfeatures:YMBsi4bndRAk5CX4]]",
+                        "[[classfeatures:y0jGimYdMGDJWrEq]]",
+                        "[[classfeatures:jHOlcSnGyjCnwoPP]]"
                     ]
                 },
                 "repertoire_de_sorts"                    : {
@@ -790,14 +790,14 @@ var CLASSES = {
                     "name"       : "Sorts de composition",
                     "description": [
                         "Vous pouvez imprégner vos représentations de magie pour créer des effets uniques appelés des compositions. Les compositions forment un type spécial de sort qui nécessite souvent l'utilisation de la compétence Représentation lorsque vous les incantez. Les sorts de composition sont un type de sorts focalisés. Il faut dépenser 1 point de focalisation pour lancer un sort focalisé et vous commencez avec une réserve de focalisation de 1 point de focalisation. Vous remplissez votre réserve de focalisation au cours de vos préparatifs quotidiens et vous pouvez récupérer 1 point de focalisation en passant 10 minutes en utilisant l'activité Refocaliser en assurant une représentation, en créant une nouvelle composition ou en suscitant votre muse autrement.",
-                        "Les sorts focalisés sont automatiquement intensifiés à la moitié de votre niveau arrondi au supérieur, comme les tours de magie. Un sort focalisé n'a pas besoin d'emplacement de sort et vous les lancer en utilisant un emplacement de sort. Prendre des dons peut vous donner plus de sorts focalisés et augmenter votre réserve de focalisation, bien que cette dernière ne puisse jamais contenir plus de 3 points de focalisation. Vous apprenez le sort de composition auto_awesomeContre-représentation qui vous protège contre les effets audibles et visuels."
+                        "Les sorts focalisés sont automatiquement intensifiés à la moitié de votre niveau arrondi au supérieur, comme les tours de magie. Un sort focalisé n'a pas besoin d'emplacement de sort et vous les lancer en utilisant un emplacement de sort. Prendre des dons peut vous donner plus de sorts focalisés et augmenter votre réserve de focalisation, bien que cette dernière ne puisse jamais contenir plus de 3 points de focalisation. Vous apprenez le sort de composition [[spell:WILXkjU5Yq3yw10r]] qui vous protège contre les effets audibles et visuels."
                     ]
                 },
                 "tours_de_magie_de_composition"          : {
                     "name"       : "Tours de magie de composition",
                     "description": [
                         "Les tours de magie de composition sont des sorts de compositions spéciaux qui ne coûtent aucun point de focalisation, de sorte que vous pouvez les utiliser aussi souvent que vous le souhaitez. Les tours de magie de composition s'ajoutent à ceux que vous sélectionnez avec incantation du barde. Contrairement aux autres tours de magie, vous ne pouvez pas remplacer les tours de magie de composition obtenus grâce à un don de barde à un niveau ultérieur, à moins que vous ne remplaciez ce don particulier grâce au réapprentissage.",
-                        "Vous apprenez le tour de magie de composition auto_awesomeHymne de courage qui améliore les attaques, les dégâts et la défense contre la terreur chez vos alliés."
+                        "Vous apprenez le tour de magie de composition [[spell:IAjvwqgiDr3qGYxY]] qui améliore les attaques, les dégâts et la défense contre la terreur chez vos alliés."
                     ]
                 },
                 "dons_de_barde"                          : {
@@ -1046,7 +1046,7 @@ var CLASSES = {
                 "aboutissement_assure"              : {
                     "name"       : "Aboutissement assuré",
                     "description": [
-                        "Vous obtenez une attaque finale élégante que vous pouvez porter quand vous possédez du panache. Vous obtenez l'action sports_martial_artsAboutissement assuré ."
+                        "Vous obtenez une attaque finale élégante que vous pouvez porter quand vous possédez du panache. Vous obtenez l'action [[actionspf2e:K878asDgf1EF0B9S]] ."
                     ]
                 },
                 "combattant_style"                  : {
@@ -1072,21 +1072,21 @@ var CLASSES = {
                     "name"       : "Panache",
                     "description": [
                         "Vous vous souciez autant de la manière d'accomplir quelque chose que du fait de l'accomplir. Quand vous réalisez une action avec une élégance particulière, vous pouvez tirer parti de ce moment de grâce pour réaliser des manœuvres spectaculaires et mortelles. Cet état de grâce s'appelle le panache.",
-                        "flareEffet : Panache",
-                        "Vous obtenez du panache en accomplissant des actions qui possèdent le trait bravade. sports_martial_artsDéplacement acrobatique et des actions supplémentaires déterminées par votre style de bretteur obtiennent le trait bravade. Le MJ pourrait décider qu'accomplir une action particulièrement osée, comme vous balancer à un chandelier ou glisser le long d'une tenture, peuvent gagner le trait bravade. Ces tests impliquent typiquement au moins une action et un DD qui ne soit pas trivial. Normalement, vous obtenez et utilisez votre panache uniquement lors des rencontres de combat. Lorsqu'une rencontre se termine, vous perdez votre panache.",
-                        "De puissantes actions d'aboutissement, comme sports_martial_artsAboutissement assuré , ne peuvent être utilisées que si vous disposez de panache et elles vous font perdre du panache."
+                        "[[feat-effects:uBJsxCzNhje8m8jj]]",
+                        "Vous obtenez du panache en accomplissant des actions qui possèdent le trait bravade. [[actionspf2e:21WIfSu7Xd7uKqV8]] et des actions supplémentaires déterminées par votre style de bretteur obtiennent le trait bravade. Le MJ pourrait décider qu'accomplir une action particulièrement osée, comme vous balancer à un chandelier ou glisser le long d'une tenture, peuvent gagner le trait bravade. Ces tests impliquent typiquement au moins une action et un DD qui ne soit pas trivial. Normalement, vous obtenez et utilisez votre panache uniquement lors des rencontres de combat. Lorsqu'une rencontre se termine, vous perdez votre panache.",
+                        "De puissantes actions d'aboutissement, comme [[actionspf2e:K878asDgf1EF0B9S]] , ne peuvent être utilisées que si vous disposez de panache et elles vous font perdre du panache."
                     ]
                 },
                 "style_de_bretteur"                 : {
                     "name"       : "Style de bretteur",
                     "description": [
                         "Votre propre style distinctif vous permet de gérer avec élégance chaque situation. Choisissez un style de bretteur. Ce style détermine les actions supplémentaires que vous pouvez utiliser pour gagner du panache et vous rend qualifié dans la compétence liée à cette action.",
-                        "Danseur de combat Pour vous, un combat est une sorte de représentation artistique et vous captez l'attention de vos ennemis par des mouvements hypnotisants. Vous êtes qualifié en Représentation et obtenez le don de compétence military_techReprésentation fascinante . Quand vous sports_martial_artsVous produisez , l'action obtient le trait bravade.",
-                        "Escrimeur Vous vous déplacez précautionneusement, en feintant et en créant de fausses ouvertures pour conduire vos adversaires à faire des attaques inopportunes. Vous êtes qualifié en Duperie. Lorsque vous sports_martial_artsFeintez ou sports_martial_artsCréez une diversion , l'action obtient le trait bravade.",
-                        "Esprit Vous êtes amical, intelligent et plein d'humour et vous savez toujours quoi dire. Vos traits d'esprit laissent vos ennemis à la merci du talent et de la rapidité de vos attaques. Vous êtes qualifié en Diplomatie et obtenez le don de compétence military_techBon Mot . Lorsque vous utilisez Bon mot, l'action obtient le trait bravade.",
-                        "Fanfaron Vous vous vantez, vous moquez et aiguillonnez psychologiquement vos ennemis. Vous êtes qualifié en Intimidation. Lorsque vous sports_martial_artsDémoralisez , l'action obtient le trait bravade.",
-                        "Fripouille Vous n'avez pas peur d'utiliser des tactiques fourbes pour prendre l'avantage sur vos adversaires. Vous êtes qualifié en Vol et obtenez le don général military_techSale coup . Lorsque vous utilisez Sale coup, l'action obtient le trait bravade.",
-                        "Gymnaste Vous vous repositionnez, manœuvrez et déroutez vos ennemis par des prouesses physiques audacieuses. Vous êtes qualifié en Athlétisme. Lorsque vous sports_martial_artsSaisissez , sports_martial_artsPoussez , sports_martial_artsRepositionnez ou faites un sports_martial_artsCroc-en-jambe à un adversaire, l'action obtient le trait bravade."
+                        "[[classfeatures:5HoEwzLDJGTCZtFa]] Pour vous, un combat est une sorte de représentation artistique et vous captez l'attention de vos ennemis par des mouvements hypnotisants. Vous êtes qualifié en Représentation et obtenez le don de compétence [[feat:7LB00jkh6JaJr3vS]] . Quand vous [[actionspf2e:EEDElIyin4z60PXx]] , l'action obtient le trait bravade.",
+                        "[[classfeatures:Jgid6Ja6Y879COlN]] Vous vous déplacez précautionneusement, en feintant et en créant de fausses ouvertures pour conduire vos adversaires à faire des attaques inopportunes. Vous êtes qualifié en Duperie. Lorsque vous [[actionspf2e:QNAVeNKtHA0EUw4X]] ou [[actionspf2e:GkmbTGfg8KcgynOA]] , l'action obtient le trait bravade.",
+                        "[[classfeatures:4lGhbEjlEoGP4scl]] Vous êtes amical, intelligent et plein d'humour et vous savez toujours quoi dire. Vos traits d'esprit laissent vos ennemis à la merci du talent et de la rapidité de vos attaques. Vous êtes qualifié en Diplomatie et obtenez le don de compétence [[feat:0GF2j54roPFIDmXf]] . Lorsque vous utilisez Bon mot, l'action obtient le trait bravade.",
+                        "[[classfeatures:KBhwFjdptrKyN5EM]] Vous vous vantez, vous moquez et aiguillonnez psychologiquement vos ennemis. Vous êtes qualifié en Intimidation. Lorsque vous [[actionspf2e:2u915NdUyQan6uKF]] , l'action obtient le trait bravade.",
+                        "[[classfeatures:XKhg55V7WmpLrvqL]] Vous n'avez pas peur d'utiliser des tactiques fourbes pour prendre l'avantage sur vos adversaires. Vous êtes qualifié en Vol et obtenez le don général [[feat:5eNKs6738aykAhK2]] . Lorsque vous utilisez Sale coup, l'action obtient le trait bravade.",
+                        "[[classfeatures:B7RMnrHwQHlezlJT]] Vous vous repositionnez, manœuvrez et déroutez vos ennemis par des prouesses physiques audacieuses. Vous êtes qualifié en Athlétisme. Lorsque vous [[actionspf2e:PMbdMWc2QroouFGD]] , [[actionspf2e:7blmbDrQFNfdT731]] , [[actionspf2e:lOE4yjUnETTdaf2T]] ou faites un [[actionspf2e:ge56Lu1xXVFYUnLP]] à un adversaire, l'action obtient le trait bravade."
                     ]
                 },
                 "dons_de_competence"                : {
@@ -1128,7 +1128,7 @@ var CLASSES = {
                 "riposte_opportune"                 : {
                     "name"       : "Riposte opportune",
                     "description": [
-                        "Vous renversez la situation quand des ennemis font un faux pas en combat, profitant immédiatement de leur erreur. Vous gagnez la réaction sports_martial_artsRiposte opportune ."
+                        "Vous renversez la situation quand des ennemis font un faux pas en combat, profitant immédiatement de leur erreur. Vous gagnez la réaction [[actionspf2e:EfjoIuDmtUn4yiow]] ."
                     ],
                     "level"      : 3
                 },
@@ -1178,12 +1178,12 @@ var CLASSES = {
                     "name"       : "Aboutissement exemplaire",
                     "description": [
                         "Vous exécutez vos mouvements ultimes avec une élégance toute particulière, ajoutant des effets spéciaux à vos aboutissements. Si une Frappe que vous effectuez au cours d'un aboutissement touche un ennemi, vous lui ajoutez un des effets suivants, en fonction de votre style de bretteur.",
-                        "Danseur de combat Vous pouvez sports_martial_artsFaire un pas en utilisant une action gratuite immédiatement après l'aboutissement.",
-                        "Escrimeur L'ennemi est sentiment_very_dissatisfiedPris au dépourvu jusqu'à votre prochain tour.",
-                        "Esprit L'ennemi subit une pénalité de circonstances de -2 aux jets d'attaques contre vous jusqu'au début de votre prochain tour. flareEffet : Aboutissement exemplaire - Esprit",
-                        "Fanfaron Si l'ennemi était temporairement immunisé à vos tentatives de sports_martial_artsDémoralisation , cette immunité temporaire prend fin.",
-                        "Fripouille L'ennemi subit une pénalité de circonstances de -3 mètres à sa vitesse jusqu'au début de votre prochain tour. flareEffet : Aboutissement exemplaire - Fripouille",
-                        "Gymnaste Si l'ennemi est sentiment_very_dissatisfiedAgrippé , sentiment_very_dissatisfiedEntravé ou sentiment_very_dissatisfiedÀ terre , vous obtenez un bonus de circonstances aux dégâts égal à deux fois le nombre de dés de dégâts de votre arme."
+                        "Danseur de combat Vous pouvez [[actionspf2e:UHpkTuCtyaPqiCAB]] en utilisant une action gratuite immédiatement après l'aboutissement.",
+                        "Escrimeur L'ennemi est [[conditionitems:AJh5ex99aV6VTggg]] jusqu'à votre prochain tour.",
+                        "Esprit L'ennemi subit une pénalité de circonstances de -2 aux jets d'attaques contre vous jusqu'au début de votre prochain tour. [[feat-effects:cu10OjQUdY0a9gpj]]",
+                        "Fanfaron Si l'ennemi était temporairement immunisé à vos tentatives de [[actionspf2e:2u915NdUyQan6uKF]] , cette immunité temporaire prend fin.",
+                        "Fripouille L'ennemi subit une pénalité de circonstances de -3 mètres à sa vitesse jusqu'au début de votre prochain tour. [[feat-effects:fgz7lwg1xHsVW4dX]]",
+                        "Gymnaste Si l'ennemi est [[conditionitems:kWc1fhmv9LBiTuei]] , [[conditionitems:VcDeM8A5oI6VqhbM]] ou [[conditionitems:j91X7x0XSomq8d60]] , vous obtenez un bonus de circonstances aux dégâts égal à deux fois le nombre de dés de dégâts de votre arme."
                     ],
                     "level"      : 9
                 },
@@ -1254,8 +1254,8 @@ var CLASSES = {
                     "name"       : "Confiance éternelle",
                     "description": [
                         "En tant que bretteur au sommet de son art, vous possédez une confiance en vous et une bravade qui paraît dans chacune de vos attaques. Votre degré de maîtrise passe à maître en DD de classe de bretteur .",
-                        "Lorsque vous faites une Frappe comme partie d'un aboutissement ou d'une sports_martial_artsRiposte opportune , vous pouvez donner à la Frappe l'effet d'échec du Aboutissement assuré , incluant l'augmentation provenant de military_techAboutissement précis si vous possédez ce don.",
-                        "Vous ne pouvez profiter de cet avantage que si vous utilisez une arme ou une attaque sans arme pour la Frappe avec laquelle vous pouvez utiliser military_techAboutissement assuré ."
+                        "Lorsque vous faites une Frappe comme partie d'un aboutissement ou d'une [[actionspf2e:EfjoIuDmtUn4yiow]] , vous pouvez donner à la Frappe l'effet d'échec du [[classfeatures:pyo0vmxUFIFX2GNl]] , incluant l'augmentation provenant de [[feat:qeLpqH2cMSmIrILV]] si vous possédez ce don.",
+                        "Vous ne pouvez profiter de cet avantage que si vous utilisez une arme ou une attaque sans arme pour la Frappe avec laquelle vous pouvez utiliser [[feat:qeLpqH2cMSmIrILV]] ."
                     ],
                     "level"      : 17
                 },
@@ -1387,20 +1387,20 @@ var CLASSES = {
                 "blocage_au_bouclier"               : {
                     "name"       : "Blocage au bouclier",
                     "description": [
-                        "Vous obtenez le don général military_techBlocage au bouclier , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
+                        "Vous obtenez le don général [[feat:jM72TjJ965jocBV8]] , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
                     ]
                 },
                 "cause"                             : {
                     "name"       : "Cause",
                     "description": [
                         "Vous vous dévouez à une cause spécifique au nom de votre divinité. Certaines sont limitées au regard de la sanctification, comme précisé entre parenthèses. Votre cause ajoute à vos édits et anathèmes et vous accorde une réaction spéciale appelée votre réaction de champion, qui apparaît après le séparateur, en même temps que ses améliorations si vous obtenez les capacités Réaction implacable et Réaction exaltée aux niveaux supérieurs.",
-                        "Grandeur (Saint) : Vous illustrez la gloire et la splendeur des royaumes célestes.",
-                        "Iniquité (Impie) : Vous détruisez, tirez parti et agissez avec déshonneur.",
-                        "Justice : Vous respectez les lois et infligez un juste châtiment.",
-                        "Libération : Vous vous opposez à la tyrannie et combattent pour la liberté.",
-                        "Obéissance : Vous respectez la hiérarchie et l'ordre.",
-                        "Profanation (Impie) : Vous corrompez égoïstement et détruisez.",
-                        "Rédemption (Saint) : Vous tentez de racheter ceux qui commettent de mauvaises actions."
+                        "[[classfeatures:h1NGH4TVeBljftni]] (Saint) : Vous illustrez la gloire et la splendeur des royaumes célestes.",
+                        "[[classfeatures:EQ6DVIQHAUXUhY6Y]] (Impie) : Vous détruisez, tirez parti et agissez avec déshonneur.",
+                        "[[classfeatures:peEXunfbSD8WcMFk]] : Vous respectez les lois et infligez un juste châtiment.",
+                        "[[classfeatures:FCoMFUsth4xB4veC]] : Vous vous opposez à la tyrannie et combattent pour la liberté.",
+                        "[[classfeatures:HiIvez0TqESbleB5]] : Vous respectez la hiérarchie et l'ordre.",
+                        "[[classfeatures:8YIA0jh64Ecz0TG6]] (Impie) : Vous corrompez égoïstement et détruisez.",
+                        "[[classfeatures:UyuwFp0jQqYL2AdF]] (Saint) : Vous tentez de racheter ceux qui commettent de mauvaises actions."
                     ]
                 },
                 "divinite"                          : {
@@ -1421,7 +1421,7 @@ var CLASSES = {
                         "Les champions se soucient profondément des édits et des anathèmes de leur divinité, de leur sanctification et de leur cause. Comme avec toute autre implémentation des édits et des anathèmes dans les règles, il s'agit d'outils pour incarner le personnage entre vous, le MJ et les autres joueurs autour de la table : vous jouez toujours un personnage nuancé et ne suivez par machinalement et strictement un script.",
                         "Agir de manière fondamentalement opposée aux principes des idéaux de votre divinité est anathème pour votre foi. Apprendre ou Lancer des sorts, commettre des actes et utiliser des objets qui sont anathèmes à votre divinité vous retire des bonnes grâces de cette dernière.",
                         "De la même manière, utiliser des objets, des sorts ou des actions qui sont anathèmes aux principes ou aux buts de votre foi interfèrent avec votre lien à l'égard de votre divinité. Par exemple, assister à un rituel qui crée des morts-vivants serait un acte anathème pour Pharasma, la déesse de la mort. Nombre d'actions qui sont anathèmes n'apparaissent pas dans la liste formelle de votre divinité. Pour les cas douteux, vous et votre MJ déterminez quels actes sont anathèmes.",
-                        "Si vous accomplissez suffisamment d'actes qui sont anathèmes pour votre divinité, vous perdez les capacités magiques qui proviennent de votre lien à votre divinité. Les capacités de classe que vous perdez sont déterminées par le MJ, mais elles risquent d'inclure votre trait saint ou impie, votre réserve de focalisation et votre Bénédiction du dévot. Cas capacités peuvent être récupérées uniquement si vous vous repentez en conduisant un rituel de auto_awesomePénitence . Si votre divinité ne nécessite par la sanctification que vous aviez, votre MJ pourrait vous laisser utiliser le réapprentissage de votre sanctification et de votre cause alors que vous êtes toujours fidèle de la même divinité."
+                        "Si vous accomplissez suffisamment d'actes qui sont anathèmes pour votre divinité, vous perdez les capacités magiques qui proviennent de votre lien à votre divinité. Les capacités de classe que vous perdez sont déterminées par le MJ, mais elles risquent d'inclure votre trait saint ou impie, votre réserve de focalisation et votre Bénédiction du dévot. Cas capacités peuvent être récupérées uniquement si vous vous repentez en conduisant un rituel de [[spell:7Fd4lxozd11MQ55N]] . Si votre divinité ne nécessite par la sanctification que vous aviez, votre MJ pourrait vous laisser utiliser le réapprentissage de votre sanctification et de votre cause alors que vous êtes toujours fidèle de la même divinité."
                     ]
                 },
                 "sanctification"                    : {
@@ -1443,7 +1443,7 @@ var CLASSES = {
                 "aura_de_champion"                  : {
                     "name"       : "Aura de champion",
                     "description": [
-                        "Vous êtes entouré d'une aura dans une émanation de 4,50 mètres. Elle possède les traits aura et divin. Tout fidèle de votre divinité au sein de l'aura sait immédiatement que vous êtes un champion de votre divinité. Cette aura est utilisée comme portée de votre réaction de champion et pour d'autres effets variés. Vous pouvez réprimer ou réactiver l'aura par une action unique qui possède le trait concentration et elle s'achève si vous êtes sentiment_very_dissatisfiedInconscient ."
+                        "Vous êtes entouré d'une aura dans une émanation de 4,50 mètres. Elle possède les traits aura et divin. Tout fidèle de votre divinité au sein de l'aura sait immédiatement que vous êtes un champion de votre divinité. Cette aura est utilisée comme portée de votre réaction de champion et pour d'autres effets variés. Vous pouvez réprimer ou réactiver l'aura par une action unique qui possède le trait concentration et elle s'achève si vous êtes [[conditionitems:fBnFDH2MTzgFijKf]] ."
                     ]
                 },
                 "dons_de_champion"                  : {
@@ -1455,7 +1455,7 @@ var CLASSES = {
                 "sorts_de_devotion"                 : {
                     "name"       : "Sorts de dévotion",
                     "description": [
-                        "La puissance de votre divinité vous confère des sorts divins spéciaux appelés sorts de dévotion qui sont un type de sorts focalisés. Choisissez soit auto_awesomeBoucliers de l'esprit , soit un sort basé sur la source divine de votre divinité ( auto_awesomeImposition des mains si votre divinité autorise Guérison, soit auto_awesomeToucher du vide si votre divinité autorise Mise à mal).",
+                        "La puissance de votre divinité vous confère des sorts divins spéciaux appelés sorts de dévotion qui sont un type de sorts focalisés. Choisissez soit [[spell:ZL97DcoJ8us6EwAF]] , soit un sort basé sur la source divine de votre divinité ( [[spell:zNN9212H2FGfM7VS]] si votre divinité autorise Guérison, soit [[spell:jFmWSIpJGGebim6y]] si votre divinité autorise Mise à mal).",
                         "Il faut 1 point de focalisation pour lancer un sort de focalisation. Lorsque vous obtenez votre premier sort de dévotion, vous obtenez également une réserve de focalisation de 1 point de focalisation. Vous rechargez votre réserve de focalisation au cours de vos préparatifs quotidiens et vous regagnez 1 point de focalisation en passant 10 minutes à utiliser l'activité Refocaliser pour prier votre divinité ou servir ses causes.",
                         "Vos sorts de dévotion sont des sorts divins. Le Charisme est votre attribut d'incantation",
                         "Les sorts focalisés sont automatiquement intensifiés à la moitié de votre niveau arrondi au supérieur. Certains dons vous accordent d'autres sorts focalisés. Le nombre maximal de points de focalisation de votre réserve est égal au nombre de sorts focalisés que vous avez, mais ne peut jamais être supérieur à 3 points."
@@ -1480,8 +1480,8 @@ var CLASSES = {
                     "name"       : "Bénédiction du dévôt",
                     "description": [
                         "Votre divinité bénit vos actions en vous accordant un bienfait. Cela peut prendre la forme d'un esprit qui vous rend visite et se loge dans vos objets ou votre corps, d'un mystérieux tatouage divin sur votre corps ou de quelque chose de ce genre. Choisissez l'une des bénédictions suivantes ou toute autre à laquelle vous avez accès.",
-                        "Arme bénie Choisissez une arme ou des workBandelettes de coups puissants . Vous obtenez l'effet critique spécialisé de cette arme et vous lui allouez une rune de propriété de votre choix dans la liste suivante : workBoomerang , workEffrayante , workSpectrale , workChangeante ou workVitalisante . Au cours de vos préparatifs quotidiens, vous pouvez changer l'esprit pour qu'il vienne habiter un armement différent, qu'il accorde une rune différente ou les deux.",
-                        "Bouclier béni Entre vos mains, un bouclier obtient la rune workRenforcement mineure. Au fur et à mesure que vous gagnez des niveaux, le bouclier obtient la rune Renforcement de votre niveau (inférieur au niveau 7, modéré au niveau 10, supérieur au niveau 13, majeur au niveau 16 et ultime au niveau 19). Si votre bouclier possède la rune de Renforcement de votre niveau ou s'il s'agit d'un workBouclier renforcé du même niveau que la rune de Renforcement appropriée, la Solidité du bouclier augmente de 1 à la place.",
+                        "Arme bénie Choisissez une arme ou des [[item:FNDq4NFSN0g2HKWO]] . Vous obtenez l'effet critique spécialisé de cette arme et vous lui allouez une rune de propriété de votre choix dans la liste suivante : [[item:qlunQzfnzPQpMG6U]] , [[item:P6v2AtJw7AUwaDzf]] , [[item:JQdwHECogcTzdd8R]] , [[item:roeYtwlIe65BPMJ1]] ou [[item:LwQb7ryTC8FlOXgX]] . Au cours de vos préparatifs quotidiens, vous pouvez changer l'esprit pour qu'il vienne habiter un armement différent, qu'il accorde une rune différente ou les deux.",
+                        "Bouclier béni Entre vos mains, un bouclier obtient la rune [[item:x9SNVpAAnXKJeoqp]] mineure. Au fur et à mesure que vous gagnez des niveaux, le bouclier obtient la rune Renforcement de votre niveau (inférieur au niveau 7, modéré au niveau 10, supérieur au niveau 13, majeur au niveau 16 et ultime au niveau 19). Si votre bouclier possède la rune de Renforcement de votre niveau ou s'il s'agit d'un [[item:f9ygr5Cjrmop8LWV]] du même niveau que la rune de Renforcement appropriée, la Solidité du bouclier augmente de 1 à la place.",
                         "Célérité bénie Vous obtenez un bonus de statut de +1,50 mètre à la Vitesse. Si vous êtes monté, votre monture obtient le bonus à la place. En plus, lorsque le déplacement d'un de vos alliés déclenche une réaction d'un ennemi alors que l'allié est dans votre aura de champion, l'allié obtient un bonus de statut de +2 à toutes les défenses contre cette réaction."
                     ],
                     "level"      : 3
@@ -1616,7 +1616,7 @@ var CLASSES = {
                 "defi_du_heros"                     : {
                     "name"       : "Défi du héros",
                     "description": [
-                        "Vous pouvez continuer à combattre tant qu'il vous reste de l'énergie divine. Vous obtenez le sort de dévotion auto_awesomeDéfi du héros ."
+                        "Vous pouvez continuer à combattre tant qu'il vous reste de l'énergie divine. Vous obtenez le sort de dévotion [[spell:uGXWkR2h8q9MRzEM]] ."
                     ],
                     "level"      : 19
                 }
@@ -1740,7 +1740,7 @@ var CLASSES = {
                 "anatheme"                                 : {
                     "name"       : "Anathème",
                     "description": [
-                        "En tant que gardiens de l'ordre naturel, les druides trouvent que les affronts à la nature sont anathèmes. Si vous accomplissez de manière répétée de tels actes, vous perdez les capacités magiques de la classe de druide, notamment votre incantation de druide et les avantages de votre ordre. Ces capacités ne peuvent être récupérées que si vous démontrer votre repentir au cours d'un rituel de auto_awesomePénitence .",
+                        "En tant que gardiens de l'ordre naturel, les druides trouvent que les affronts à la nature sont anathèmes. Si vous accomplissez de manière répétée de tels actes, vous perdez les capacités magiques de la classe de druide, notamment votre incantation de druide et les avantages de votre ordre. Ces capacités ne peuvent être récupérées que si vous démontrer votre repentir au cours d'un rituel de [[spell:7Fd4lxozd11MQ55N]] .",
                         "Les agissements suivants sont considérés comme anathèmes par tous les druides :",
                         "Anathèmes détériorer des sites naturels, consommer plus de ressources naturelles qu'il n'est nécessaire pour vivre confortablement, apprendre le chant sauvage aux non druides.",
                         "Votre choix d'un ordre druidique ajoute d'autres anathèmes, comme indiqué dans l'entrée de l'ordre."
@@ -1749,7 +1749,7 @@ var CLASSES = {
                 "blocage_au_bouclier"                      : {
                     "name"       : "Blocage au bouclier",
                     "description": [
-                        "Vous obtenez le don général military_techBlocage au bouclier , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
+                        "Vous obtenez le don général [[feat:jM72TjJ965jocBV8]] , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
                     ]
                 },
                 "chant_sauvage"                            : {
@@ -1761,7 +1761,7 @@ var CLASSES = {
                 "incantation_de_druide"                    : {
                     "name"       : "Incantation de druide",
                     "description": [
-                        "La puissance du monde sauvage s'écoule à travers vous. Vous êtes un incantateur et pouvez lancer des sorts de tradition primordiale en utilisant l'activité sports_martial_artsLancer un sort . En tant que druide, vos incantations pour lancer des sorts peuvent s'appuyer sur l'environnement qui vous entoure ou sur l'invocation d'anciens serments ; vos mains peuvent se balancer comme des saules ou se recroqueviller en forme de griffes tandis que vos gestes dirigent votre magie. Au niveau 1, vous pouvez préparer chaque matin deux sorts de rang 1 et cinq tours de magie à partir des sorts courants de la liste des sorts primordiaux ou à partir d'autres sorts primordiaux auxquels vous avez accès et que vous apprenez par le biais d'Apprendre un sort. Les sorts préparés vous restent disponibles jusqu'à ce que vous les lanciez ou que vous prépariez à nouveau vos sorts. Le nombre de sorts que vous pouvez préparer chaque jour s'appelle vos emplacements de sorts.",
+                        "La puissance du monde sauvage s'écoule à travers vous. Vous êtes un incantateur et pouvez lancer des sorts de tradition primordiale en utilisant l'activité [[actionspf2e:aBQ8ajvEBByv45yz]] . En tant que druide, vos incantations pour lancer des sorts peuvent s'appuyer sur l'environnement qui vous entoure ou sur l'invocation d'anciens serments ; vos mains peuvent se balancer comme des saules ou se recroqueviller en forme de griffes tandis que vos gestes dirigent votre magie. Au niveau 1, vous pouvez préparer chaque matin deux sorts de rang 1 et cinq tours de magie à partir des sorts courants de la liste des sorts primordiaux ou à partir d'autres sorts primordiaux auxquels vous avez accès et que vous apprenez par le biais d'Apprendre un sort. Les sorts préparés vous restent disponibles jusqu'à ce que vous les lanciez ou que vous prépariez à nouveau vos sorts. Le nombre de sorts que vous pouvez préparer chaque jour s'appelle vos emplacements de sorts.",
                         "Au fur et à mesure que vous gagnez des niveaux en tant que druide, le nombre de sorts que vous pouvez préparer chaque jour augmente, tout comme le rang le plus élevé de sort que vous pouvez lancer, comme indiqué sur la table des sorts de druide par jour.",
                         "Certains sorts nécessitent que vous tentiez une attaque de sort pour déterminer leur efficacité ou obligent vos ennemis à faire un jet contre le DD du sort (en tentant typiquement un jet de sauvegarde). Comme la Sagesse est votre attribut essentiel, votre modificateur d'attaque de sort et votre DD de sort utilisent votre modificateur de Sagesse."
                     ]
@@ -1789,19 +1789,19 @@ var CLASSES = {
                         "Sort d'ordre Vous obtenez automatiquement le sort d'ordre indiqué au niveau 1.",
                         "Anathèmes Ajoutez cet anathème à ceux de tous les druides.",
                         "Voici les différents ordres druidiques :",
-                        "Ordre animal",
-                        "Ordre de la feuille et ses variantes Ordre des spores et Ordre du cultivateur",
-                        "Ordre de la flamme",
-                        "Ordre de la pierre",
-                        "Ordre de la tempête",
-                        "Ordre de la vague",
-                        "Ordre indompté"
+                        "[[classfeatures:POBvoXifa9HaejAg]]",
+                        "[[classfeatures:u4nlOzPj2WHkIj9l]] et ses variantes [[classfeatures:X0k3njLOLX0322Po]] et [[classfeatures:IiYUhFGqq2Nw0b5Y]]",
+                        "[[classfeatures:NdeFvIXdHwKYLiUj]]",
+                        "[[classfeatures:fKTewWlYgFuhl4KA]]",
+                        "[[classfeatures:acqqlYmti8D9QJi0]]",
+                        "[[classfeatures:FuUXyv2yBs7zRgqT]]",
+                        "[[classfeatures:v0EjtiwdeMj8ykI0]]"
                     ]
                 },
                 "voix_de_la_nature"                        : {
                     "name"       : "Voix de la nature",
                     "description": [
-                        "Vous obtenez au choix military_techEmpathie animale ou military_techEmpathie avec les plantes en tant que don de druide."
+                        "Vous obtenez au choix [[feat:cg816q76S5otM7yD]] ou [[feat:ahyQpMVDIqhvXkQ4]] en tant que don de druide."
                     ]
                 },
                 "dons_de_competence"                       : {
@@ -1920,7 +1920,7 @@ var CLASSES = {
                 "hierophante_primordial"                   : {
                     "name"       : "Hiérophante primordial",
                     "description": [
-                        "Vous commandez les forces les plus puissantes de la magie primordiale et pouvez lancer un sort au pouvoir vraiment incroyable. Vous obtenez un unique emplacement de sort de rang 10 et pouvez l'utiliser pour préparer un sort dans cet emplacement avec incantation de druide. Contrairement aux autres emplacements de sort, vous ne pouvez pas utiliser les emplacements de sort de rang 10 avec des capacités qui vous donnent plus d'emplacements de sort ou qui vous permettent de lancer des sorts sans dépenser d'emplacement de sort. Vous n'obtenez pas plus d'emplacements de rang 10 en gagnant un niveau, mais vous pouvez prendre le don military_techPuissance du hiérophante pour obtenir un second emplacement."
+                        "Vous commandez les forces les plus puissantes de la magie primordiale et pouvez lancer un sort au pouvoir vraiment incroyable. Vous obtenez un unique emplacement de sort de rang 10 et pouvez l'utiliser pour préparer un sort dans cet emplacement avec incantation de druide. Contrairement aux autres emplacements de sort, vous ne pouvez pas utiliser les emplacements de sort de rang 10 avec des capacités qui vous donnent plus d'emplacements de sort ou qui vous permettent de lancer des sorts sans dépenser d'emplacement de sort. Vous n'obtenez pas plus d'emplacements de rang 10 en gagnant un niveau, mais vous pouvez prendre le don [[feat:Chu6s3xVnpOB64GH]] pour obtenir un second emplacement."
                     ],
                     "level"      : 19
                 }
@@ -2035,8 +2035,8 @@ var CLASSES = {
                     "name"       : "Concevoir un stratagème",
                     "description": [
                         "Vous pouvez simuler un combat dans votre esprit et utiliser votre cerveau plutôt que vos muscles pour porter une attaque.",
-                        "Vous obtenez l'action sports_martial_artsConcevoir un stratagème",
-                        "Vous obtenez l'action sports_martial_artsConcevoir un stratagème"
+                        "Vous obtenez l'action [[actionspf2e:m0f2B7G9eaaTmhFL]]",
+                        "Vous obtenez l'action [[actionspf2e:m0f2B7G9eaaTmhFL]]"
                     ]
                 },
                 "dons_d_enqueteur"                  : {
@@ -2048,7 +2048,7 @@ var CLASSES = {
                 "frappe_strategique"                : {
                     "name"       : "Frappe stratégique",
                     "description": [
-                        "Quand vous portez une attaque avec grand soin et en la préparant, vous infligez un coup plus significatif. Quand vous effectuez une Frappe qui ajoute votre modificateur d'Intelligence au jet d'attaque grâce à Concevoir un stratagème , vous infligez 1d6 dégâts de précision supplémentaires.",
+                        "Quand vous portez une attaque avec grand soin et en la préparant, vous infligez un coup plus significatif. Quand vous effectuez une Frappe qui ajoute votre modificateur d'Intelligence au jet d'attaque grâce à [[classfeatures:lgo65ldX7WkXC8Ir]] , vous infligez 1d6 dégâts de précision supplémentaires.",
                         "Au fur et à mesure que votre niveau d'enquêteur augmente, il en est de même de la dangerosité de votre frappe stratégique. Augmentez le nombre de dés de 1 aux niveaux 5, 9, 13 et 17."
                     ]
                 },
@@ -2057,16 +2057,16 @@ var CLASSES = {
                     "description": [
                         "Vous études vous ont rendu savant dans de nombreux domaines, mais un en particulier a attiré votre intérêt de manière intense.",
                         "Choisissez une méthodologie parmi les suivantes :",
-                        "Empirisme",
-                        "Interrogatoire",
-                        "Médecine forensique",
-                        "Sciences alchimiques"
+                        "[[classfeatures:g3mNzNphtVxyR9Xr]]",
+                        "[[classfeatures:UIHUNNYZyQ3p4Vmo]]",
+                        "[[classfeatures:O3IX7rTxXWWvDVM3]]",
+                        "[[classfeatures:ln2Y1a4SxlU9sizX]]"
                     ]
                 },
                 "sur_l_affaire"                     : {
                     "name"       : "Sur l'affaire",
                     "description": [
-                        "En tant qu'investigateur, vous considérez vos aventures comme des affaires qui n'attendent que d'être résolues. Vous obtenez une activité et une réaction que vous pouvez utiliser pour enquêter sur vos affaires : sports_martial_artsSuivre une piste et sports_martial_artsPartager les indices ."
+                        "En tant qu'investigateur, vous considérez vos aventures comme des affaires qui n'attendent que d'être résolues. Vous obtenez une activité et une réaction que vous pouvez utiliser pour enquêter sur vos affaires : [[actionspf2e:xTK2zsWFyxSJvYbX]] et [[actionspf2e:25WDi1cVUrW92sUj]] ."
                     ]
                 },
                 "dons_de_competence"                : {
@@ -2101,7 +2101,7 @@ var CLASSES = {
                 "souvenirs_affutes"                 : {
                     "name"       : "Souvenirs affûtés",
                     "description": [
-                        "Vous pouvez vous souvenir de faits pertinents sur des sujets qui ne sont pas votre spécialité. Votre bonus de maîtrise pour les tests visant à sports_martial_artsVous souvenir dans des compétences pour lesquelles vous n'êtes pas qualifié est égal à votre niveau au lieu de +0."
+                        "Vous pouvez vous souvenir de faits pertinents sur des sujets qui ne sont pas votre spécialité. Votre bonus de maîtrise pour les tests visant à [[actionspf2e:1OagaWtBpVXExToo]] dans des compétences pour lesquelles vous n'êtes pas qualifié est égal à votre niveau au lieu de +0."
                     ],
                     "level"      : 3
                 },
@@ -2150,7 +2150,7 @@ var CLASSES = {
                 "expertise_de_l_enqueteur"          : {
                     "name"       : "Expertise de l'enquêteur",
                     "description": [
-                        "Vous avez affiné vos techniques d'investigation à un degré exceptionnel. Le bonus de circonstances obtenu grâce à sports_martial_artsSuivre une piste passe à +2. Votre degré de maîtrise pour le DD de classe d'enquêteur passe à expert."
+                        "Vous avez affiné vos techniques d'investigation à un degré exceptionnel. Le bonus de circonstances obtenu grâce à [[actionspf2e:xTK2zsWFyxSJvYbX]] passe à +2. Votre degré de maîtrise pour le DD de classe d'enquêteur passe à expert."
                     ],
                     "level"      : 9
                 },
@@ -2361,24 +2361,24 @@ var CLASSES = {
                     "name"       : "Lignage",
                     "description": [
                         "Choisissez un lignage qui vous confère votre talent d'incantation. Ce choix détermine le type de sorts que vous lancez et la liste de sorts que vous utilisez pour les sélectionner, les sorts supplémentaires que vous apprenez et les compétences supplémentaires dans lesquelles vous êtes qualifié. Vous obtenez également des points de focalisation et des sorts focalisés spéciaux déterminés par votre lignage. Voici les différents lignages.",
-                        "Aberrant une étrange et incompréhensible influence vous transmet des sorts occultes.",
-                        "Aesir L'un de vos ancètres a été touché par un aesir et maintenant le fracas de l'acier contre l'acier et l'appel constant à se battre fait écho dans votre sang.",
-                        "Angélique la grâce divine vous accorde des sorts divins.",
-                        "Béni du ver la puissance draconique sacrée vous accorde des sorts divins.",
-                        "Démoniaque une corruption impure vous confère des sorts divins.",
-                        "Diabolique un lien avec les diables vous octroie des sorts divins.",
-                        "Draconique le sang des dragons vous attribue des sorts arcaniques.",
-                        "Élémentaire la puissance des éléments se manifeste en vous sous la forme de sorts primordiaux.",
-                        "Féerique l'influence des fées vous confère des sorts primordiaux.",
-                        "Génie l'influence des génies vous confère des sorts arcaniques.",
-                        "Guenaude la corruption d'une guenaude vous procure des sorts occultes.",
-                        "Impérial une puissance ancienne vous octroie des sorts arcaniques.",
-                        "Mort-vivant le contact de la mort vous confère des sorts divins.",
-                        "Nymphe l'influence des nymphes vous confère des sorts primordiaux.",
-                        "Ombre l'influence du Nébulmonde vous confère des sorts occultes.",
-                        "Phénix l'influence du phénix vous confère des sorts primordiaux.",
-                        "Psychopompe l'influence des psychopompes vous confère des sorts divins.",
-                        "Tourment Vous possédez un lien profond avec le Tourment."
+                        "[[classfeatures:3qqvnC2U8W26yae7]] une étrange et incompréhensible influence vous transmet des sorts occultes.",
+                        "[[classfeatures:TFihgf3jDhmKd0fa]] L'un de vos ancètres a été touché par un aesir et maintenant le fracas de l'acier contre l'acier et l'appel constant à se battre fait écho dans votre sang.",
+                        "[[classfeatures:vhW3glAaEfq2DKrw]] la grâce divine vous accorde des sorts divins.",
+                        "[[classfeatures:dKTb959aCQIzSIXj]] la puissance draconique sacrée vous accorde des sorts divins.",
+                        "[[classfeatures:w5koctOVrEcpxTIq]] une corruption impure vous confère des sorts divins.",
+                        "[[classfeatures:o39zQMIdERWtmBSB]] un lien avec les diables vous octroie des sorts divins.",
+                        "[[classfeatures:ZHabYxSgYK0XbjhM]] le sang des dragons vous attribue des sorts arcaniques.",
+                        "[[classfeatures:RXRnJcG4XSabZ35a]] la puissance des éléments se manifeste en vous sous la forme de sorts primordiaux.",
+                        "[[classfeatures:eW3cfCH7Wpx2vik2]] l'influence des fées vous confère des sorts primordiaux.",
+                        "[[classfeatures:tYOMBiH3HbViNWwn]] l'influence des génies vous confère des sorts arcaniques.",
+                        "[[classfeatures:O0uXZRWMNliDbkxU]] la corruption d'une guenaude vous procure des sorts occultes.",
+                        "[[classfeatures:ZEtJJ5UOlV5oTWWp]] une puissance ancienne vous octroie des sorts arcaniques.",
+                        "[[classfeatures:7WBZ2kkhZ7JorWu2]] le contact de la mort vous confère des sorts divins.",
+                        "[[classfeatures:5Wxjghw7lHuCxjZz]] l'influence des nymphes vous confère des sorts primordiaux.",
+                        "[[classfeatures:uoQOm41BVdSo6pAS]] l'influence du Nébulmonde vous confère des sorts occultes.",
+                        "[[classfeatures:TWR1wbPJuCLnGdFZ]] l'influence du phénix vous confère des sorts primordiaux.",
+                        "[[classfeatures:PpzH9tJULk5ksX9w]] l'influence des psychopompes vous confère des sorts divins.",
+                        "[[classfeatures:b6hyZTs1rVGHDexz]] Vous possédez un lien profond avec le Tourment."
                     ]
                 },
                 "primes_d_attributs"                     : {
@@ -2421,8 +2421,8 @@ var CLASSES = {
                         "Une entrée de lignage contient les informations suivantes :",
                         "Tradition Vous utilisez cette tradition magique et sa liste de sorts.",
                         "Compétences de lignage Vous êtes qualifié dans les compétences indiquées.",
-                        "Legs d'ensorceleur Vous ajoutez automatiquement les sorts indiqués ici à votre répertoire de sorts, comme indiqué dans la capacité Répertoire de sorts . Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts sur la liste dès que vous obtenez la capacité de lancer des sorts d'ensorceleur de ce rang.",
-                        "Sorts de lignage Vous obtenez automatiquement le sort de lignage initial au rang 1 et vous pouvez en obtenir davantage en prenant les dons military_techLignage avancé et military_techLignage supérieur .",
+                        "Legs d'ensorceleur Vous ajoutez automatiquement les sorts indiqués ici à votre répertoire de sorts, comme indiqué dans la capacité [[classfeatures:lURKSJZAGKVD6cH9]] . Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts sur la liste dès que vous obtenez la capacité de lancer des sorts d'ensorceleur de ce rang.",
+                        "Sorts de lignage Vous obtenez automatiquement le sort de lignage initial au rang 1 et vous pouvez en obtenir davantage en prenant les dons [[feat:eZrftEihfuJBldG5]] et [[feat:DpRMdytpPiCypmkJ]] .",
                         "Magie du sang Chaque fois que vous lancez un sort de lignage en utilisant un point de focalisation ou un sort provenant des Legs d'ensorceleur, vous choisissez effet de magie du sang que vous connaissez pour en tirer avantage. Vous commencez à jouer avec l'avantage indiqué dans votre lignage et en gagnez d'autres grâce aux dons d'ensorceleur.",
                         "Si la magie du sang vous offre un choix, faites-le avant de résoudre le sort. L'effet de magie du sang se produit après les tests nécessaires pour résoudre les effets initiaux du sort et contre un adversaire, il s'applique uniquement si le sort est une attaque réussie ou si l'adversaire rate son jet de sauvegarde. Si le sort possède une zone, vous devez vous désigner vous-même ou désigner une cible dans la zone quand vous lancez le sort pour qu'elle soit la cible de l'effet de la magie du sang. Toute référence au rang du sort concerne le rang du sort que vous lancez."
                     ]
@@ -2536,7 +2536,7 @@ var CLASSES = {
                 "parangon_du_lignage"                    : {
                     "name"       : "Parangon du lignage",
                     "description": [
-                        "Vous maîtrisez à présent parfaitement la magie de votre lignage. Ajoutez deux sorts courants de rang 10 de votre tradition à votre répertoire. Vous gagnez un unique emplacement de sort de rang 10 que vous pouvez utiliser pour lancer l'un de ces deux sorts avec la capacité Incantation de l'ensorceleur. Au contraire des autres emplacements de sort, vous ne gagnez pas plus de sorts de rang 10 lorsque vous gagnez un niveaux et vous ne pouvez pas les utiliser avec des capacités qui vous permettent de lancer des sorts sans dépenser d'emplacements ou avec des capacités qui vous procurent davantage d'emplacements de sort. Vous pouvez prendre le don d'ensorceleur military_techPerfection du lignage pour obtenir un deuxième emplacement."
+                        "Vous maîtrisez à présent parfaitement la magie de votre lignage. Ajoutez deux sorts courants de rang 10 de votre tradition à votre répertoire. Vous gagnez un unique emplacement de sort de rang 10 que vous pouvez utiliser pour lancer l'un de ces deux sorts avec la capacité Incantation de l'ensorceleur. Au contraire des autres emplacements de sort, vous ne gagnez pas plus de sorts de rang 10 lorsque vous gagnez un niveaux et vous ne pouvez pas les utiliser avec des capacités qui vous permettent de lancer des sorts sans dépenser d'emplacements ou avec des capacités qui vous procurent davantage d'emplacements de sort. Vous pouvez prendre le don d'ensorceleur [[feat:6SEDoht4dXEJE5SW]] pour obtenir un deuxième emplacement."
                     ],
                     "level"      : 19
                 },
@@ -2660,7 +2660,7 @@ var CLASSES = {
                 "blocage_au_bouclier"               : {
                     "name"       : "Blocage au bouclier",
                     "description": [
-                        "Vous obtenez le don général military_techBlocage au bouclier , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
+                        "Vous obtenez le don général [[feat:jM72TjJ965jocBV8]] , une réaction qui vous permet de réduire les dégâts avec votre bouclier."
                     ]
                 },
                 "dons_de_classe"                    : {
@@ -2672,8 +2672,8 @@ var CLASSES = {
                 "frappe_reactive"                   : {
                     "name"       : "Frappe réactive",
                     "description": [
-                        "Toujours à l'affût de la moindre faiblesse, vous attaquez aussitôt qu'une faille s'ouvre dans la défense de vos ennemis. Vous obtenez la réaction sports_martial_artsFrappe réactive .",
-                        "sports_martial_artsFrappe réactive R",
+                        "Toujours à l'affût de la moindre faiblesse, vous attaquez aussitôt qu'une faille s'ouvre dans la défense de vos ennemis. Vous obtenez la réaction [[actionspf2e:KAVf7AmRnbCAHrkT]] .",
+                        "[[actionspf2e:KAVf7AmRnbCAHrkT]] R",
                         "Déclencheur Une créature qui se trouve dans votre allonge utilise une action de manipulation ou de déplacement, fait une attaque à distance ou quitte une case lors d'une action de déplacement qu'elle entreprend.",
                         "Vous frappez un adversaire qui vous laisse une ouverture. Vous faites une Frappe au corps-à-corps contre la créature déclencheuse. Si votre attaque est un coup critique et que le déclencheur était une action de manipulation, vous interrompez cette action. Cette Frappe n'est pas prise en compte pour calculer votre pénalité d'attaques multiples et votre pénalité d'attaques multiples ne s'applique pas à cette Frappe."
                     ]
@@ -2696,7 +2696,7 @@ var CLASSES = {
                 "bravoure"                          : {
                     "name"       : "Bravoure",
                     "description": [
-                        "Après avoir affronté d'innombrables ennemis et le chaos de la bataille, vous avez appris à rester fort face à la peur. Vous devenez expert en jet de Volonté. Lorsque vous obtenez un succès sur un jet de Volonté contre un effet de terreur, il devient un succès critique. De plus, chaque fois que vous obtenez l'état sentiment_very_dissatisfiedEffrayé , réduisez sa valeur de 1."
+                        "Après avoir affronté d'innombrables ennemis et le chaos de la bataille, vous avez appris à rester fort face à la peur. Vous devenez expert en jet de Volonté. Lorsque vous obtenez un succès sur un jet de Volonté contre un effet de terreur, il devient un succès critique. De plus, chaque fois que vous obtenez l'état [[conditionitems:TBSHQspnbcqxsmjL]] , réduisez sa valeur de 1."
                     ],
                     "level"      : 3
                 },
@@ -2827,7 +2827,7 @@ var CLASSES = {
                 ]
             },
             "life_point_by_level"  : 6,
-            "desc_fight"           : "Vous essayez probablement de rester loin de la mêlée, en appréciant soigneusement le moment pour utiliser vos sorts. Vous conservez votre magie la plus puissante pour mettre hors de combat les adversaires menaçants et utilisez vos tours de magie quand il ne reste que des adversaires faibles. Quand des ennemis utilisent des ruses comme auto_awesomeInvisibilité ou auto_awesomeVol , vous répondez par des sorts comme auto_awesomeLumière révélatrice ou auto_awesomeCloué à terre , ce qui permet à vos alliés d'être à pied d'égalité.",
+            "desc_fight"           : "Vous essayez probablement de rester loin de la mêlée, en appréciant soigneusement le moment pour utiliser vos sorts. Vous conservez votre magie la plus puissante pour mettre hors de combat les adversaires menaçants et utilisez vos tours de magie quand il ne reste que des adversaires faibles. Quand des ennemis utilisent des ruses comme [[spell:XXqE1eY3w3z6xJCB]] ou [[spell:A2JfEKe6BZcTG1S8]] , vous répondez par des sorts comme [[spell:0qaqksrGGDj74HXE]] ou [[spell:gPvtmKMRpg9I9D7H]] , ce qui permet à vos alliés d'être à pied d'égalité.",
             "desc_socially"        : "Vous êtes un puits de connaissances sur des sujets obscurs et vous faites preuve de logique lors des débats.",
             "desc_exploration"     : "Vous localisez les auras magiques et déterminez la signification arcanique des écrits magiques ou des phénomènes que vous découvrez. Quand vous croisez un obstacle inhabituel qui vous empêche de progresser, vous disposez sûrement du parchemin idéal pour le surmonter plus facilement.",
             "desc_interlude"       : "Vous apprenez de nouveaux sorts, fabriquez des objets magiques ou rédigez des parchemins pour votre groupe. Vous cherchez de nouvelles formules excitantes en plus de vos sorts. Vous pourriez même nouer des relations avec des érudits ou créer votre propre école ou guilde.",
@@ -2924,7 +2924,7 @@ var CLASSES = {
                 "ecole_arcanique"                     : {
                     "name"       : "École arcanique",
                     "description": [
-                        "La plupart des magiciens acquièrent leurs connaissances des sorts par le biais d'un enseignement éducatif formel, dispensés dans un établissement tel que l'Arcanamirium ou le Magaambya. Au niveau 1, vous choisissez votre école arcanique qui vous accorde vos capacités magiques.",
+                        "La plupart des magiciens acquièrent leurs connaissances des sorts par le biais d'un enseignement éducatif formel, dispensés dans un établissement tel que l'Arcanamirium ou le Magaambya. Au niveau 1, vous choisissez votre [[journals:kzxu2dI7tFxv6Ix6.JournalEntryPage.wDukeO3euLEGn6FA#arcane-schools]] qui vous accorde vos capacités magiques.",
                         "Vous obtenez des sorts supplémentaires et des emplacements de sorts du cursus enseigné par l'école au sein de laquelle vous avez étudié. Certains magiciens suivent l'école de la théorie magique unifiée qui tente de construire une nouvelle école en étudiant différemment et en tirant des informations de toutes sortes de textes et de tuteurs. Bien qu'un magicien de cette école manque de la spécialisation propre à une formation formelle, il possède une meilleure polyvalence."
                     ]
                 },
@@ -2960,11 +2960,11 @@ var CLASSES = {
                 "lien_arcanique"                      : {
                     "name"       : "Lien arcanique",
                     "description": [
-                        "Vous placez une partie de votre puissance magique dans un objet lié. Chaque jour lorsque vous préparez vos sorts, vous pouvez désigner un unique objet en votre possession comme votre objet lié. Il s'agit en général d'un objet associé à l'incantation, comme une baguette, un anneau ou un bâton, mais vous êtes libre de choisir une arme ou autre chose. Vous obtenez l'action gratuite sports_martial_artsDrain d'objet lié ."
+                        "Vous placez une partie de votre puissance magique dans un objet lié. Chaque jour lorsque vous préparez vos sorts, vous pouvez désigner un unique objet en votre possession comme votre objet lié. Il s'agit en général d'un objet associé à l'incantation, comme une baguette, un anneau ou un bâton, mais vous êtes libre de choisir une arme ou autre chose. Vous obtenez l'action gratuite [[actionspf2e:v82XtjAVN4ffgVVR]] ."
                     ]
                 },
-                "drain_d_objet_lie_f"                 : {
-                    "name"       : "Drain d'objet lié F",
+                "actionspf2e_v82xtjavn4ffgvvr_f"      : {
+                    "name"       : "[[actionspf2e:v82XtjAVN4ffgVVR]] F",
                     "description": [
                         "Fréquence Une fois par jour",
                         "Conditions Votre objet lié est sur votre personne.",
@@ -2975,11 +2975,11 @@ var CLASSES = {
                     "name"       : "Thèse arcanique",
                     "description": [
                         "Au cours de vos études pour devenir un magicien à part entière, vous avez écrit une thèse de recherches magiques uniques. Vous obtenez un avantage dépendant du sujet de votre thèse de recherche. Les thèses arcaniques sont décrites ci-après. Votre thèse spécifique avait probablement un titre plus long et plus technique, comme \"À propos des méthodes d'interpolation de sort et de la genèse d'une nouvelle compréhension des Fondations de la magie\".",
-                        "Bâton nexus",
-                        "Expérimentation mutamagique",
-                        "Harmonisation avec le familier améliorée",
-                        "Mélange de sorts",
-                        "Substitution de sort"
+                        "[[classfeatures:Klb35AwlkNrq1gpB]]",
+                        "[[classfeatures:89zWKD2CN7nRu2xp]]",
+                        "[[classfeatures:SNZ46g3u7U6x0XJj]]",
+                        "[[classfeatures:OAcxS625AXSGrQIC]]",
+                        "[[classfeatures:QzWXMCSGNfvvpYgF]]"
                     ]
                 },
                 "dons_de_competence"                  : {
@@ -3091,7 +3091,7 @@ var CLASSES = {
                 "art_magique_de_l_archimage"          : {
                     "name"       : "Art magique de l'archimage",
                     "description": [
-                        "Vous disposez de la plus puissante des magies et pouvez lancer un sort d'une puissance réellement incroyable. Vous obtenez un unique emplacement de sort de rang 10 et pouvez préparer un sort en utilisant Incantation de magicien. Contrairement aux autres emplacements de sort, vous ne pouvez utiliser des emplacements de sorts de rang 10 avec des capacités qui vous accorde davantage d'emplacements de sorts ou qui vous permettent de dépenser des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas plus d'emplacements de sort de rang 10 en gagnant un niveau, mais vous pouvez prendre le don military_techPuissance de l'archimage pour obtenir un second emplacement."
+                        "Vous disposez de la plus puissante des magies et pouvez lancer un sort d'une puissance réellement incroyable. Vous obtenez un unique emplacement de sort de rang 10 et pouvez préparer un sort en utilisant Incantation de magicien. Contrairement aux autres emplacements de sort, vous ne pouvez utiliser des emplacements de sorts de rang 10 avec des capacités qui vous accorde davantage d'emplacements de sorts ou qui vous permettent de dépenser des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas plus d'emplacements de sort de rang 10 en gagnant un niveau, mais vous pouvez prendre le don [[feat:tP26mgaFPpr6df1i]] pour obtenir un second emplacement."
                     ],
                     "level"      : 19
                 },
@@ -3106,24 +3106,24 @@ var CLASSES = {
                         "Un sort focalisé est automatiquement intensifié à la moitié de votre niveau arrondi au supérieur, comme un tour de magie. Un sort focalisé n'a pas besoin d'emplacement de sort et vous ne pouvez pas le lancer en utilisant un emplacement de sort. Le nombre maximum de points de focalisation que peut contenir votre réserve de focalisation est égal au nombre de sorts focalisés que vous possédez mais ne peut jamais dépasser 3 points.",
                         "Vous apprenez le sort d'école initial, qui est propre à votre école. Vous pouvez apprendre le sort d'école avancé avec le don Sort d'école avancé.",
                         "Voici les différents cursus possibles :",
-                        "École de forme protéenne",
-                        "École de Kalistrade",
-                        "École de la frontière",
-                        "École de magie civique",
-                        "École des lettres",
-                        "École des portails",
-                        "École des technologies magiques",
-                        "École du mentalisme",
-                        "École de la théorie magique unifiée",
+                        "[[classfeatures:ZBFICTkzUjE4BDGJ]]",
+                        "[[classfeatures:jtAqb5rnhQblZuM8]]",
+                        "[[classfeatures:ZpFCZnVzIfZLfNii]]",
+                        "[[classfeatures:YZ2XPmx1WHyWtM0g]]",
+                        "[[classfeatures:wObrT6PytPdS5aUi]]",
+                        "[[classfeatures:XXnGHBxNZvRsdkKM]]",
+                        "[[classfeatures:dPAwM9IdabdH68mW]]",
+                        "[[classfeatures:L5FiuXsfW6Sa31gO]]",
+                        "[[classfeatures:xYYhJtGhFSWNifcO]]",
                         "peu courant",
-                        "École de la récupération",
-                        "École de la sagesse enracinée qui permet d'accéder à un tronc primaire et à l'une des cinq branches du Magaambya.",
+                        "[[classfeatures:n2LRzksKVSzOuzqN]]",
+                        "[[classfeatures:KGkWSv9rARpwWzXW]] qui permet d'accéder à un tronc primaire et à l'une des cinq branches du Magaambya.",
                         "Plusieurs archétypes de la classe de magicien fonctionnent avec des règles différentes avec un accès à des écoles de magie qui leur sont propres.",
-                        "L'Élémentaliste vous donne accès à la Magie élémentaire et vous permet de choisir éventuellement l' École élémentaire",
+                        "L'Élémentaliste vous donne accès à la [[classfeatures:pUkUC8HHom2DmYzz]] et vous permet de choisir éventuellement l' [[classfeatures:5rFzX6JK6CXLFxUP]]",
                         "peu courant",
-                        "Le Mage de guerre vous donne accès à la Magie de guerre et à l' École de la magie de combat",
+                        "Le Mage de guerre vous donne accès à la [[classfeatures:vky5bQfK7SG3uOMA]] et à l' [[classfeatures:E4GZDMn4DYk6qSEV]]",
                         "rare",
-                        "Le Seigneur des runes vous donne accès à l' École de la magie runique thassilonienne"
+                        "Le [[classfeatures:HYTaibaCGE85rhbZ]] vous donne accès à l' [[classfeatures:aYWPtW5T4Lx07Occ]]"
                     ],
                     "level"      : 19
                 }
@@ -3228,8 +3228,8 @@ var CLASSES = {
                         "Vous pouvez attaquer rapidement avec l'action Déluge de coups"
                     ]
                 },
-                "deluge_de_coups_a"                 : {
-                    "name"       : "Déluge de coups A",
+                "actionspf2e_nbfnetdpee8cvm17_a"    : {
+                    "name"       : "[[actionspf2e:nbfNETdpee8CVM17]] A",
                     "description": [
                         "Effectuez deux Frappes à mains nues. Si les deux touchent la même créature, ajoutez leurs dégâts lorsqu'il s'agit de résistance et de faiblesse. Appliquez votre pénalité d'attaques multiples aux Frappes comme à l'ordinaire. S'agissant d'une capacité de sophistication, vous ne pouvez utiliser Déluge de coups qu'une seule fois par round."
                     ]
@@ -3278,7 +3278,7 @@ var CLASSES = {
                 "frappes_mystiques"                 : {
                     "name"       : "Frappes mystiques",
                     "description": [
-                        "Vous vous focalisez avec détermination sur vos attaques physiques, ce qui les imprègne d'énergie mystique. Vos attaques à mains nues deviennent magiques, ce qui vous permet d'ignorer les résistances aux attaques non magiques. Toutefois, des objets, tels que les workBandelettes de coups puissants , seront toujours nécessaires si vous voulez bénéficier d'un bonus d'objet aux jets d'attaque ou augmenter les dés de dégâts d'arme de vos attaques."
+                        "Vous vous focalisez avec détermination sur vos attaques physiques, ce qui les imprègne d'énergie mystique. Vos attaques à mains nues deviennent magiques, ce qui vous permet d'ignorer les résistances aux attaques non magiques. Toutefois, des objets, tels que les [[item:FNDq4NFSN0g2HKWO]] , seront toujours nécessaires si vous voulez bénéficier d'un bonus d'objet aux jets d'attaque ou augmenter les dés de dégâts d'arme de vos attaques."
                     ],
                     "level"      : 3
                 },
@@ -3534,17 +3534,17 @@ var CLASSES = {
                     "description": [
                         "Un oracle manie la puissance divine, mais pas celle d'un unique être divin. Ce pouvoir pourrait avoir comme origine un concept puissant ou un idéal, l'attention de plusieurs entités divines dons les domaines d'attention concernent ce sujet ou un conduit direct et dangereux vers la puissance divine brute. C'est le mystère de l'oracle, une source de magie divine qui n'appartient pas à une divinité.",
                         "Choisissez le mystère qui alimente votre magie. Votre mystère vous accorde des sorts supplémentaires et des sorts focalisés spécifiques appelés sorts de révélation. Votre mystère vous accorde également une capacité liée à la malédiction unique qui vous permet de puiser dans le divin, ainsi que de dicter les effets de la malédition oraculaire qui vous afflige lorsque vous touchez trop à cette puissance.",
-                        "Ancêtres Les voix des générations précédentes vous enseignent et vous hantent.",
-                        "Cendres Vous considérez toutes les choses du monde comme passagères et temporaires, attendant d'être purifiées jusqu'à leur essence de base : la cendre laissée après un feu intense.",
-                        "Combat Vous incarnez les vertus des héros de légende.",
-                        "Cosmos Vous tirez votre puissance des étoiles et de l'espace qui les séparent.",
-                        "Décrépitude Un bourgeon de printemps se fane, un chêne puissant s'écrase sur le sol de la forêt et un novice grandit jusqu'à la maturité, puis décline vers la vieillesse.",
-                        "Flammes Vous dansez avec le feu et faites de votre mieux pour ne pas vous y brûler.",
-                        "Ossements La mort semble toujours proche et les morts vous parlent.",
-                        "Savoir Vous obtenez un accès à une connaissance sans pareille mais écrasante.",
-                        "Tempête Le vent, les vagues et les tempêtes se déchaînent sur vous.",
-                        "Temps Que ce soit par accident, par le destin ou par le jeu d'une intervention délibérée, vous existez légèrement en dehors du temps.",
-                        "Vie Les énergies foisonnantes de la vie s'écoulent à travers vous vers le monde."
+                        "[[classfeatures:qvRlih3u7vK3FYUR]] Les voix des générations précédentes vous enseignent et vous hantent.",
+                        "[[classfeatures:g3HTg0z3doXZZzAV]] Vous considérez toutes les choses du monde comme passagères et temporaires, attendant d'être purifiées jusqu'à leur essence de base : la cendre laissée après un feu intense.",
+                        "[[classfeatures:gjOGOR30Czpnx3tM]] Vous incarnez les vertus des héros de légende.",
+                        "[[classfeatures:RI2EMRBBPNSoTJXu]] Vous tirez votre puissance des étoiles et de l'espace qui les séparent.",
+                        "[[classfeatures:1PHDn7WJFtR3NgTr]] Un bourgeon de printemps se fane, un chêne puissant s'écrase sur le sol de la forêt et un novice grandit jusqu'à la maturité, puis décline vers la vieillesse.",
+                        "[[classfeatures:GTSvbFb36InvuH0w]] Vous dansez avec le feu et faites de votre mieux pour ne pas vous y brûler.",
+                        "[[classfeatures:IaxmCkdsPlA52spu]] La mort semble toujours proche et les morts vous parlent.",
+                        "[[classfeatures:tZBb3Kh4nJcNoUFI]] Vous obtenez un accès à une connaissance sans pareille mais écrasante.",
+                        "[[classfeatures:W9cF7wZztLDb1WGY]] Le vent, les vagues et les tempêtes se déchaînent sur vous.",
+                        "[[classfeatures:EslxR2sbDK9XJaAl]] Que ce soit par accident, par le destin ou par le jeu d'une intervention délibérée, vous existez légèrement en dehors du temps.",
+                        "[[classfeatures:o1gGG36wpn9mxeop]] Les énergies foisonnantes de la vie s'écoulent à travers vous vers le monde."
                     ]
                 },
                 "lire_une_description_de_mystere"          : {
@@ -3552,8 +3552,8 @@ var CLASSES = {
                     "description": [
                         "Une description de mystère comprend les informations suivantes et est suivie d'une description de la malédiction de ce mystère.",
                         "Sorts accordés Vous ajoutez automatiquement les sorts indiqués ici aux sorts de votre répertoire de sorts comme indiqué dans Répertoire de sorts. Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts de la liste dès que vous obtenez la capacité de lancer de sorts de ce rang.",
-                        "Sorts de révélation Vous obtenez automatiquement le sort de révélation initial de votre mystère au niveau 1 et pouvez en gagner d'autres en choisissant les dons d'oracle military_techRévélation avancée , military_techRévélation supérieure et military_techMystère diversifié .",
-                        "Domaines liés Il s'agit des domaines de prêtre associés à votre mystère. Vous obtenez des sorts de domaine en prenant le don military_techSagacité du domaine et military_techMaîtrise du domaine . Au niveau 11, la capacité de classe Accès divin vous donne également d'autres sorts d'emplacements supplémentaires en fonction de vos domaines.",
+                        "Sorts de révélation Vous obtenez automatiquement le sort de révélation initial de votre mystère au niveau 1 et pouvez en gagner d'autres en choisissant les dons d'oracle [[feat:FPVe3o7YctBicSQa]] , [[feat:HSW3N9pfHhM7upRB]] et [[feat:2HeRmbcHcsRMccir]] .",
+                        "Domaines liés Il s'agit des domaines de prêtre associés à votre mystère. Vous obtenez des sorts de domaine en prenant le don [[feat:qmFWCHOuubEl7VpX]] et [[feat:ENoRkTXtdfsbs98S]] . Au niveau 11, la capacité de classe Accès divin vous donne également d'autres sorts d'emplacements supplémentaires en fonction de vos domaines.",
                         "Compétence de mystère Vous êtes qualifié dans la compétence indiquée. Quelques mystères peuvent vous qualifier dans plus d'une compétence.",
                         "Don d'oracle Vous obtenez ce don d'oracle de niveau 1. C'est un don Lié à la malédiction de sorte que son utilisation aggrave votre malédiction oraculaire."
                     ]
@@ -3666,7 +3666,7 @@ var CLASSES = {
                 "malediction_majeure"                      : {
                     "name"       : "Malédiction majeure",
                     "description": [
-                        "Vous avez appris à mieux équilibrer les puissances opposées qui dévastent votre corps. La valeur maximale de votre état sentiment_very_dissatisfiedLié à la malédiction passe de Lié à la malédiction 2 à Lié à la malédiction 3."
+                        "Vous avez appris à mieux équilibrer les puissances opposées qui dévastent votre corps. La valeur maximale de votre état [[conditionitems:zXZjC8HLaRoLR17U]] passe de Lié à la malédiction 2 à Lié à la malédiction 3."
                     ],
                     "level"      : 11
                 },
@@ -3708,7 +3708,7 @@ var CLASSES = {
                 "malediction_extreme"                      : {
                     "name"       : "Malédiction extrême",
                     "description": [
-                        "Vous avez maîtrisé un équilibre précaire entre les pouvoirs divins opposés de votre mystère, ce qui vous permet de tolérer un niveau périlleux de malédiction divine. La valeur maximale de votre état sentiment_very_dissatisfiedLié à la malédiction passe de Lié à la malédiction 3 à Lié à la malédiction 4."
+                        "Vous avez maîtrisé un équilibre précaire entre les pouvoirs divins opposés de votre mystère, ce qui vous permet de tolérer un niveau périlleux de malédiction divine. La valeur maximale de votre état [[conditionitems:zXZjC8HLaRoLR17U]] passe de Lié à la malédiction 3 à Lié à la malédiction 4."
                     ],
                     "level"      : 17
                 },
@@ -3723,7 +3723,7 @@ var CLASSES = {
                     "name"       : "Clarté oraculaire",
                     "description": [
                         "Vous comprenez désormais complètement la nature des puissances divines liées à votre mystère, ce qui vous permet de produire des effets magiques similaires à des miracles. Ajoutez deux sorts divins courants de rang 10 à votre répertoire. Vous obtenez un unique emplacement de sort de rang 10 que vous pouvez utiliser pour lancer l'un de ces deux sorts via votre capacité de lancement de sorts d'oracle.",
-                        "Contrairement aux autres emplacements de sorts, vous ne gagnez pas plus de sorts de rang 10 en gagnant des niveaux et vous ne pouvez pas utiliser ces emplacements de sorts de rang 10 avec des capacités qui vous donnent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacement de sorts. Vous pouvez prendre le don military_techProvidence oraculaire pour obtenir un second emplacement."
+                        "Contrairement aux autres emplacements de sorts, vous ne gagnez pas plus de sorts de rang 10 en gagnant des niveaux et vous ne pouvez pas utiliser ces emplacements de sorts de rang 10 avec des capacités qui vous donnent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacement de sorts. Vous pouvez prendre le don [[feat:PExiZZTSP4p7TZaW]] pour obtenir un second emplacement."
                     ],
                     "level"      : 19
                 },
@@ -3878,15 +3878,15 @@ var CLASSES = {
                     "description": [
                         "Même parmi les fidèles d'une même divinité, les approches varient. Au niveau 1, vous choisissez entre Prêtre cloîtré ou prêtre combattant et vous obtenez les avantages de sa première doctrine. Aux niveaux 3, puis tous les 4 niveaux par la suite, vous obtenez un autre avantage de votre doctrine.",
                         "Voici les différentes doctrines :",
-                        "Prêtre cloîtré",
-                        "Prêtre combattant ."
+                        "[[classfeatures:ZZzLMOUAtBVgV1DF]]",
+                        "[[classfeatures:0Aocw3igLwna9cjp]] ."
                     ]
                 },
                 "pretre_cloitre"             : {
                     "name"       : "Prêtre cloîtré",
                     "description": [
                         "Vous êtes un prêtre du clergé qui se concentre sur la magie divine et votre lien dans les domaines de votre divinité.",
-                        "Première doctrine (1er) vous obtenez le don de prêtre military_techInitié du domaine .",
+                        "Première doctrine (1er) vous obtenez le don de prêtre [[feat:hT4INKGtly4QY8KN]] .",
                         "Deuxième doctrine (3e) Vous devenez expert en jets de Vigueur.",
                         "Troisième doctrine (7e) Votre degré de maîtrise pour le modificateur d'attaque de sort et les statistiques du DD passe à expert.",
                         "Quatrième doctrine (11e) vous devenez expert avec l'arme de prédilection de votre divinité, les armes simples et les attaques à mains nues. Quand vous obtenez un coup critique sur un jet d'attaque en utilisant l'arme de prédilection de votre divinité, vous appliquez l'effet critique spécialisé de l'arme ; vous pouvez utiliser le DD de vos sorts au lieu de votre DD de classe.",
@@ -3898,7 +3898,7 @@ var CLASSES = {
                     "name"       : "Prêtre combattant",
                     "description": [
                         "Vous vous êtes entraîné auprès de la doctrine la plus militante de votre église, vous concentrant à la fois sur les sorts et le combat.",
-                        "Première doctrine (1er) vous êtes qualifié avec les armures légères et intermédiaires et vous êtes expert en jets de Vigueur. Vous obtenez le don général military_techBlocage au bouclier , une réaction pour réduire les dégâts avec un bouclier. Si l'arme de prédilection de votre divinité est simple ou une attaque à mains nues, vous obtenez le don de prêtre military_techSimplicité mortelle . Au niveau 13, si vous obtenez la capacité de classe Défense divine , vous devenez aussi expert avec les armures légères et intermédiaires.",
+                        "Première doctrine (1er) vous êtes qualifié avec les armures légères et intermédiaires et vous êtes expert en jets de Vigueur. Vous obtenez le don général [[feat:jM72TjJ965jocBV8]] , une réaction pour réduire les dégâts avec un bouclier. Si l'arme de prédilection de votre divinité est simple ou une attaque à mains nues, vous obtenez le don de prêtre [[feat:DfLkIIg2reyYW3a8]] . Au niveau 13, si vous obtenez la capacité de classe [[classfeatures:0mJTp4LdEHBLInoe]] , vous devenez aussi expert avec les armures légères et intermédiaires.",
                         "Deuxième doctrine (3e) vous êtes qualifié avec les armes de guerre.",
                         "Troisième doctrine (7e) vous devenez expert avec les attaques à mains nues, les armes simples et l'arme de prédilection de votre divinité. Quand vous obtenez un coup critique sur un jet d'attaque en maniant cette dernière, vous appliquez l'effet critique spécialisé de l'arme ; Vous pouvez utiliser le DD de vos sorts au lieu de votre DD de classe.",
                         "Quatrième doctrine (11e) votre degré de maîtrise en modificateur d'attaque de sort et en statistiques de DD passe à expert.",
@@ -3930,7 +3930,7 @@ var CLASSES = {
                 "source_divine"              : {
                     "name"       : "Source divine",
                     "description": [
-                        "Par la bénédiction que vous accorde votre divinité, vous obtenez des sorts supplémentaires qui canalisent soit la force de vie appelée vitalité, soit son opposé, le vide. Quand vous préparez vos sorts chaque jour, vous pouvez préparer des sorts auto_awesomeGuérison ou auto_awesomeMise à mal supplémentaires, en fonction de votre divinité. Le sort de source divine que votre divinité vous accorde est indiqué dans l'entrée Source divine de votre divinité. Si les deux sont indiqués, vous pouvez choisir entre Guérison ou Mise à mal. Une fois que vous avez choisi, vous ne pouvez plus changer votre choix sauf en cas d'intervention divine.",
+                        "Par la bénédiction que vous accorde votre divinité, vous obtenez des sorts supplémentaires qui canalisent soit la force de vie appelée vitalité, soit son opposé, le vide. Quand vous préparez vos sorts chaque jour, vous pouvez préparer des sorts [[spell:rfZpqmj0AIIdkVIs]] ou [[spell:wdA52JJnsuQWeyqz]] supplémentaires, en fonction de votre divinité. Le sort de source divine que votre divinité vous accorde est indiqué dans l'entrée Source divine de votre divinité. Si les deux sont indiqués, vous pouvez choisir entre Guérison ou Mise à mal. Une fois que vous avez choisi, vous ne pouvez plus changer votre choix sauf en cas d'intervention divine.",
                         "Source de guérison Chaque jour, vous obtenez 4 emplacements de sort supplémentaires du rang le plus élevé des emplacements de vos sorts. Vous ne pouvez préparer que des sorts de Guérison dans ces emplacements. Au niveau 5, le nombre des emplacements de sorts supplémentaires passe à 5 et au niveau 15, le nombre total d'emplacements de sorts supplémentaires passe à 6.",
                         "Source de mise à mal Chaque jour, vous obtenez 4 emplacements de sort supplémentaires du rang le plus élevé des emplacements de vos sorts. Vous ne pouvez préparer que des sorts de Mise à mal dans ces emplacements. Au niveau 5, le nombre des emplacements de sorts supplémentaires passe à 5 et au niveau 15, le nombre total d'emplacements de sorts supplémentaires passe à 6."
                     ]
@@ -4017,7 +4017,7 @@ var CLASSES = {
                 "sort_miraculeux"            : {
                     "name"       : "Sort miraculeux",
                     "description": [
-                        "Vous êtes élevé par votre divinité et obtenez des sorts véritablement incroyables. Vous obtenez un seul emplacement de sort de rang 10 et pouvez préparer un sort dans cet emplacement en utilisant l'incantation de prêtre. Contrairement aux autres emplacements de sorts, vous ne pouvez pas utiliser les emplacements de rang 10 avec des capacités qui vous donnent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas plus d'emplacements de niveau 10 en gagnant un niveau mais vous pouvez prendre le don military_techFaiseur de miracles pour obtenir un second emplacement."
+                        "Vous êtes élevé par votre divinité et obtenez des sorts véritablement incroyables. Vous obtenez un seul emplacement de sort de rang 10 et pouvez préparer un sort dans cet emplacement en utilisant l'incantation de prêtre. Contrairement aux autres emplacements de sorts, vous ne pouvez pas utiliser les emplacements de rang 10 avec des capacités qui vous donnent plus d'emplacements de sorts ou qui vous permettent de lancer des sorts sans dépenser d'emplacements de sorts. Vous n'obtenez pas plus d'emplacements de niveau 10 en gagnant un niveau mais vous pouvez prendre le don [[feat:QDjpZKOrWIV1G8XJ]] pour obtenir un second emplacement."
                     ],
                     "level"      : 19
                 }
@@ -4137,14 +4137,14 @@ var CLASSES = {
                 "chasser_une_proie"                        : {
                     "name"       : "Chasser une proie",
                     "description": [
-                        "Quand vous concentrez votre attention sur un unique adversaire, plus rien ne peut vous empêcher de le traquer. Vous obtenez l'action sports_martial_artsChasser une proie ."
+                        "Quand vous concentrez votre attention sur un unique adversaire, plus rien ne peut vous empêcher de le traquer. Vous obtenez l'action [[actionspf2e:JYi4MnsdFu618hPm]] ."
                     ]
                 },
-                "chasser_une_proie_1"                      : {
-                    "name"       : "Chasser une proie 1",
+                "actionspf2e_jyi4mnsdfu618hpm_1"           : {
+                    "name"       : "[[actionspf2e:JYi4MnsdFu618hPm]] 1",
                     "description": [
                         "Vous désignez une unique créature qui devient votre proie et vous concentrez vos attaques sur celle-ci. Vous devez voir ou entendre la proie ou vous devez être en train de la pister pendant l'exploration.",
-                        "Vous bénéficiez d'un bonus de circonstances de +2 aux tests de Perception quand vous sports_martial_artsCherchez votre proie et aux tests de Survie quand vous la sports_martial_artsPistez . Vous ignorez également la pénalité si la proie que vous chassez se trouve dans le deuxième facteur de portée de votre arme à distance.",
+                        "Vous bénéficiez d'un bonus de circonstances de +2 aux tests de Perception quand vous [[actionspf2e:BlAOM2X92SI6HMtJ]] votre proie et aux tests de Survie quand vous la [[actionspf2e:EA5vuSgJfiHH7plD]] . Vous ignorez également la pénalité si la proie que vous chassez se trouve dans le deuxième facteur de portée de votre arme à distance.",
                         "Vous ne pouvez désigner qu'une créature comme proie à la fois. Si vous utilisez Chasser une proie pour désigner une autre créature alors que vous avez déjà une créature désignée comme proie, la précédente est remplacée par la dernière qui devient votre nouvelle proie. Cette désignation dure jusqu'à vos prochains préparatifs quotidiens."
                     ]
                 },
@@ -4159,9 +4159,9 @@ var CLASSES = {
                     "description": [
                         "Vous vous êtes entraîné à devenir un chasseur et un pisteur expérimenté, en obtenant un avantage supplémentaire lorsque vous Chassez une proie, en fonction de la spécialité à laquelle vous vous êtes entraîné. Choisissez une spécialité de chasseur.",
                         "Choisissez une des spécialités du chasseur suivantes :",
-                        "Déluge",
-                        "Précision",
-                        "Ruse"
+                        "[[classfeatures:6v4Rj7wWfOH1882r]]",
+                        "[[classfeatures:u6cBjqz2fiRBadBt]]",
+                        "[[classfeatures:NBHyoTrI8q62uDsU]]"
                     ]
                 },
                 "dons_de_competence"                       : {
@@ -4210,7 +4210,7 @@ var CLASSES = {
                 "parcours_sans_traces"                     : {
                     "name"       : "Parcours sans traces",
                     "description": [
-                        "Lorsque vous traversez des terrains naturels, vous êtes difficile à pister. Vous obtenez en permanence des avantages de l'action sports_martial_artsDissimuler des traces sur de tels terrains, sans devoir vous déplacer à la moitié de votre Vitesse."
+                        "Lorsque vous traversez des terrains naturels, vous êtes difficile à pister. Vous obtenez en permanence des avantages de l'action [[actionspf2e:SB7cMECVtE06kByk]] sur de tels terrains, sans devoir vous déplacer à la moitié de votre Vitesse."
                     ],
                     "level"      : 5
                 },
@@ -4245,7 +4245,7 @@ var CLASSES = {
                 "avantage_naturel"                         : {
                     "name"       : "Avantage naturel",
                     "description": [
-                        "Vous trouvez toujours les points faibles dans les défenses de vos ennemis quand ils se trouvent sur un terrain défavorable. Les ennemis sont sentiment_very_dissatisfiedPris au dépourvu à votre égard lorsqu'ils se trouvent sur un terrain difficile."
+                        "Vous trouvez toujours les points faibles dans les défenses de vos ennemis quand ils se trouvent sur un terrain défavorable. Les ennemis sont [[conditionitems:AJh5ex99aV6VTggg]] à votre égard lorsqu'ils se trouvent sur un terrain difficile."
                     ],
                     "level"      : 9
                 },
@@ -4309,7 +4309,7 @@ var CLASSES = {
                     "name"       : "Maître chasseur",
                     "description": [
                         "Vous avez affûté vos capacités en tant que chasseur à des niveaux incroyables. Votre degré de maîtrise en DD de classe de rôdeur passe à maître. Si vous possédez des sorts de gardien, votre degré de maîtrise en jets d'attaques de sorts et en DD de sorts passe à maître. Quand vous utilisez une arme à distance avec laquelle vous êtes maître, vous pouvez ignorer la pénalité si vous attaquez votre proie dans le deuxième ou troisième facteur de portée de votre arme.",
-                        "Si vous êtes un maître en Perception, vous bénéficiez d'un bonus de circonstances de +4 aux tests de Perception quand vous sports_martial_artsCherchez votre proie et si vous êtes un maître en Survie, vous bénéficiez d'un bonus de circonstances de +4 aux tests de Survie lorsque vous sports_martial_artsPistez votre proie. Vous bénéficiez également d'un avantage supplémentaire qui dépend de votre spécialité du chasseur.",
+                        "Si vous êtes un maître en Perception, vous bénéficiez d'un bonus de circonstances de +4 aux tests de Perception quand vous [[actionspf2e:BlAOM2X92SI6HMtJ]] votre proie et si vous êtes un maître en Survie, vous bénéficiez d'un bonus de circonstances de +4 aux tests de Survie lorsque vous [[actionspf2e:EA5vuSgJfiHH7plD]] votre proie. Vous bénéficiez également d'un avantage supplémentaire qui dépend de votre spécialité du chasseur.",
                         "Déluge Vous pouvez mélanger votre maîtrise martiale avec votre compétence à cibler pour porter des séries d'attaques précises. Si vous êtes maître avec votre arme, votre pénalité d'attaques multiples contre votre proie est de -2 (-1 avec une arme agile) sur votre deuxième attaque du tour et de -4 (-2 avec une arme agile) sur votre troisième et les autres attaques du tour.",
                         "Précision Votre maîtrise martiale vous permet de toucher les parties vitales de votre proie à plusieurs reprises. La seconde fois que vous touchez votre proie lors du round, vous infligez également 1d8 dégâts de précision. Au niveau 19, lorsque vous touchez pour la seconde fois en un round votre proie, vous lui infligez 2d8 dégâts de précision et la troisième fois que vous touchez lors du round votre proie, vous lui infligez également 1d8 dégâts de précision.",
                         "Ruse La maîtrise de vos compétences vous permet d'écraser votre proie. Si vous êtes maître en Discrétion, en Duperie, en intimidation ou dans la compétence que vous utilisez pour Vous souvenir à propos de votre proie, vous augmentez le bonus de circonstances contre la proie avec cette compétence de +2 à +4. Si vous êtes maître dans votre armure, vous augmentez le bonus de circonstances à la CA contre votre proie de +1 à +2."
@@ -4326,7 +4326,7 @@ var CLASSES = {
                 "proie_rapide"                             : {
                     "name"       : "Proie rapide",
                     "description": [
-                        "Vous jaugez votre proie d'un simple coup d'œil. Vous pouvez utiliser sports_martial_artsChasser une proie par une action gratuite si c'est la première action de votre tour."
+                        "Vous jaugez votre proie d'un simple coup d'œil. Vous pouvez utiliser [[actionspf2e:JYi4MnsdFu618hPm]] par une action gratuite si c'est la première action de votre tour."
                     ],
                     "level"      : 19
                 }
@@ -4442,14 +4442,14 @@ var CLASSES = {
                 "attaque_sournoise"                 : {
                     "name"       : "Attaque sournoise",
                     "description": [
-                        "Lorsque votre ennemi ne peut se défendre correctement, vous en tirez profit pour lui infliger des dégâts supplémentaires. Si vous Frappez une créature qui est sentiment_very_dissatisfiedPrise au dépourvu avec une arme de corps-à-corps agile ou de finesse, avec une attaque à mains nues agile ou de finesse ou avec une attaque d'arme à distance ou avec une attaque à mains nues à distance, vous lui infligez 1d6 dégâts de précision supplémentaires. Pour une attaque à distance avec une arme de corps-à-corps de jet, cette arme doit également posséder le trait agile ou finesse.",
+                        "Lorsque votre ennemi ne peut se défendre correctement, vous en tirez profit pour lui infliger des dégâts supplémentaires. Si vous Frappez une créature qui est [[conditionitems:AJh5ex99aV6VTggg]] avec une arme de corps-à-corps agile ou de finesse, avec une attaque à mains nues agile ou de finesse ou avec une attaque d'arme à distance ou avec une attaque à mains nues à distance, vous lui infligez 1d6 dégâts de précision supplémentaires. Pour une attaque à distance avec une arme de corps-à-corps de jet, cette arme doit également posséder le trait agile ou finesse.",
                         "Lorsque vous gagnez des niveaux, le nombre de dés de dégâts augmente de un aux niveaux 5, 11 et 17."
                     ]
                 },
                 "attaque_surprise"                  : {
                     "name"       : "Attaque surprise",
                     "description": [
-                        "Vous agissez avant que vos adversaires ne réagissent. Lors du premier round de combat, si vous utilisez la Duperie ou la Discrétion pour déterminer l'initiative, les créatures qui n'ont pas encore agi sont sentiment_very_dissatisfiedPrises au dépourvu à votre égard."
+                        "Vous agissez avant que vos adversaires ne réagissent. Lors du premier round de combat, si vous utilisez la Duperie ou la Discrétion pour déterminer l'initiative, les créatures qui n'ont pas encore agi sont [[conditionitems:AJh5ex99aV6VTggg]] à votre égard."
                     ],
                     "required"   : {
                         "archetypes": [
@@ -4477,11 +4477,11 @@ var CLASSES = {
                     "description": [
                         "En vous engageant sur la voie du roublard, vous développez votre propre style grâce auquel vous mènerez vos activités illicites. Votre trafic oriente vos techniques de roublard et la manière dont vous envisagez un coup, tout en contribuant à faire reconnaître votre talent pour un certain type de missions auprès de la pègre. Ainsi, un client fortuné qui envisage un casse pourra engager une équipe de roublards aux trafics spécialisés couvrant tous les aspects de la mission. Choisissez un trafic de roublard.",
                         "Vous avez commencé à développer vos techniques et une approche du métier, en vous bâtissant une réputation parmi les cercles de roublard. Choisissez un trafic de roublard dans la liste ci-dessous.",
-                        "Mystificateur",
-                        "Scélérat",
-                        "Stratège",
-                        "Voleur",
-                        "Voyou"
+                        "[[classfeatures:D8qtAo2w4jsqjBrM]]",
+                        "[[classfeatures:ZvfxtUMtfIOLYHyg]]",
+                        "[[classfeatures:RyOkmu0W9svavuAB]]",
+                        "[[classfeatures:wAh2riuFRzz0edPl]]",
+                        "[[classfeatures:3KPZ7svIO6kmmEKH]]"
                     ]
                 },
                 "ameliorations_de_competence"       : {
@@ -4495,7 +4495,7 @@ var CLASSES = {
                 "refus_d_avantage"                  : {
                     "name"       : "Refus d'avantage",
                     "description": [
-                        "Comme vous profitez des ouvertures dans la défense des autres, vous veillez à ne pas en laisser vous-même. Vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu par les créatures qui sont sentiment_very_dissatisfiedCachées , sentiment_very_dissatisfiedNon détectées ou qui vous prennent en tenaille si elles sont d'un niveau inférieur ou égal au vôtre, ni par les créatures d'un niveau inférieur ou égal au vôtre qui utilisent Attaque surprise. Cependant, ces créatures peuvent toujours aider leurs alliés à vous prendre en tenaille."
+                        "Comme vous profitez des ouvertures dans la défense des autres, vous veillez à ne pas en laisser vous-même. Vous n'êtes pas [[conditionitems:AJh5ex99aV6VTggg]] par les créatures qui sont [[conditionitems:iU0fEDdBp3rXpTMC]] , [[conditionitems:VRSef5y1LmL2Hkjf]] ou qui vous prennent en tenaille si elles sont d'un niveau inférieur ou égal au vôtre, ni par les créatures d'un niveau inférieur ou égal au vôtre qui utilisent Attaque surprise. Cependant, ces créatures peuvent toujours aider leurs alliés à vous prendre en tenaille."
                     ],
                     "level"      : 3
                 },
@@ -4509,7 +4509,7 @@ var CLASSES = {
                 "astuces_martiales"                 : {
                     "name"       : "Astuces martiales",
                     "description": [
-                        "Votre degré de maîtrise avec les attaques à mains nues, les armes simples et les armes de guerre passe à expert. Lorsque vous obtenez un coup critique sur un jet d'attaque contre une créature sentiment_very_dissatisfiedPrise au dépourvu alors que vous utilisez une arme ou une attaque à mains nues ayant les traits agile ou finesse, vous appliquez l'effet critique spécialisé de l'arme ou de l'attaque à mains nues que vous maniez."
+                        "Votre degré de maîtrise avec les attaques à mains nues, les armes simples et les armes de guerre passe à expert. Lorsque vous obtenez un coup critique sur un jet d'attaque contre une créature [[conditionitems:AJh5ex99aV6VTggg]] alors que vous utilisez une arme ou une attaque à mains nues ayant les traits agile ou finesse, vous appliquez l'effet critique spécialisé de l'arme ou de l'attaque à mains nues que vous maniez."
                     ],
                     "level"      : 5
                 },
@@ -4555,13 +4555,13 @@ var CLASSES = {
                     ],
                     "level"      : 9
                 },
-                "frappe_incapacitante_f"            : {
-                    "name"       : "Frappe incapacitante F",
+                "actionspf2e_bp0up04x3dzgk5bb_f"    : {
+                    "name"       : "[[actionspf2e:bp0Up04x3dzGK5bB]] F",
                     "description": [
                         "Déclencheur Votre Frappe touche une créature Prise au dépourvu et lui inflige des dégâts.",
                         "Vous appliquez l'un des handicaps suivants qui dure jusqu'à la fin de votre prochain tour.",
                         "Handicap La cible subit une pénalité de statut de -3 mètres à ses Vitesses.",
-                        "Handicap La cible devient sentiment_very_dissatisfiedAffaiblie 1 ."
+                        "Handicap La cible devient [[conditionitems:MIRkyAjyBeXivMa7]] ."
                     ]
                 },
                 "resilience_du_roublard"            : {
@@ -4609,7 +4609,7 @@ var CLASSES = {
                 "double_handicap"                   : {
                     "name"       : "Double handicap",
                     "description": [
-                        "Vos attaques opportunistes sont particulièrement préjudiciables. Quand vous utilisez sports_martial_artsFrappe incapacitante , vous pouvez appliquer deux handicaps simultanément. Mettre un terme à l'un élimine également le second."
+                        "Vos attaques opportunistes sont particulièrement préjudiciables. Quand vous utilisez [[actionspf2e:bp0Up04x3dzGK5bB]] , vous pouvez appliquer deux handicaps simultanément. Mettre un terme à l'un élimine également le second."
                     ],
                     "level"      : 15
                 },
@@ -4630,19 +4630,19 @@ var CLASSES = {
                 "frappe_de_maitre"                  : {
                     "name"       : "Frappe de maître",
                     "description": [
-                        "Vous pouvez mettre hors de combat un ennemi distrait en lui assénant une unique frappe. Votre degré de maîtrise dans le DD de classe de roublard passe à maître. Vous obtenez l'action gratuite sports_martial_artsFrappe de maître ."
+                        "Vous pouvez mettre hors de combat un ennemi distrait en lui assénant une unique frappe. Votre degré de maîtrise dans le DD de classe de roublard passe à maître. Vous obtenez l'action gratuite [[actionspf2e:Rlp7ND33yYfxiEWi]] ."
                     ],
                     "level"      : 19
                 },
-                "frappe_de_maitre_f"                : {
-                    "name"       : "Frappe de maître F",
+                "actionspf2e_rlp7nd33yyfxiewi_f"    : {
+                    "name"       : "[[actionspf2e:Rlp7ND33yYfxiEWi]] F",
                     "description": [
-                        "Déclencheur Vous réussissez une Frappe contre une créature sentiment_very_dissatisfiedPrise au dépourvu et lui infligez des dégâts.",
-                        "La cible fait un jet de casinoVigueur contre votre DD de classe. Elle devient temporairement immunisée à votre Frappe de maître pour 1 journée.",
+                        "Déclencheur Vous réussissez une Frappe contre une créature [[conditionitems:AJh5ex99aV6VTggg]] et lui infligez des dégâts.",
+                        "La cible fait un jet de Vigueur contre votre DD de classe. Elle devient temporairement immunisée à votre Frappe de maître pour 1 journée.",
                         "Succès critique La cible n'est pas affectée.",
-                        "Succès La cible est sentiment_very_dissatisfiedAffaiblie 2 jusqu'à la fin de votre prochain tour.",
-                        "Échec La cible est sentiment_very_dissatisfiedParalysée pendant 4 rounds.",
-                        "Échec critique La cible est Paralysée pendant 4 rounds, se trouve dans l'état sentiment_very_dissatisfiedInconscient pendant 2 heures ou est tuée (à vous de décider)."
+                        "Succès La cible est [[conditionitems:MIRkyAjyBeXivMa7]] jusqu'à la fin de votre prochain tour.",
+                        "Échec La cible est [[conditionitems:6uEgoh53GbXuHpTF]] pendant 4 rounds.",
+                        "Échec critique La cible est Paralysée pendant 4 rounds, se trouve dans l'état [[conditionitems:fBnFDH2MTzgFijKf]] pendant 2 heures ou est tuée (à vous de décider)."
                     ]
                 },
                 "maitrise_des_armures_legeres"      : {
@@ -4758,7 +4758,7 @@ var CLASSES = {
                 "incantation_de_sorcier"     : {
                     "name"       : "Incantation de sorcier",
                     "description": [
-                        "En utilisant votre familier comme intermédiaire, votre patron vous accorde le pouvoir de lancer des sorts. Vous êtes un incantateur et vous pouvez lancer des sorts de la tradition de votre patron en utilisant l'activité sports_martial_artsLancer un sort . En tant que sorcier, vos incantations peuvent être des rimes, vos gestes peuvent être aussi simples qu'un doigt pointé ou un signe folklorique complexe et votre familier peut même se faire l'écho de vos paroles ou de vos mouvements au fur et à mesure que la magie de votre patron s'intensifie.",
+                        "En utilisant votre familier comme intermédiaire, votre patron vous accorde le pouvoir de lancer des sorts. Vous êtes un incantateur et vous pouvez lancer des sorts de la tradition de votre patron en utilisant l'activité [[actionspf2e:aBQ8ajvEBByv45yz]] . En tant que sorcier, vos incantations peuvent être des rimes, vos gestes peuvent être aussi simples qu'un doigt pointé ou un signe folklorique complexe et votre familier peut même se faire l'écho de vos paroles ou de vos mouvements au fur et à mesure que la magie de votre patron s'intensifie.",
                         "Au niveau 1, vous pouvez préparer jusqu'à deux sorts de rang 1 et cinq tours de magie chaque matin à partir des sorts que votre familier connaît. Les sorts préparés restent disponibles jusqu'à ce que vous les lanciez ou jusqu'à ce que vous prépariez vos sorts à nouveau. Le nombre de sorts que vous pouvez préparer correspond à ce qu'on appelle vos emplacements de sorts. Au fur et à mesure que vous gagnez des niveaux de sorcier, le nombre d'emplacements de sorts dont vous disposez augmente également, comme indiqué sur la table des sorts de Sorcier par jour.",
                         "Certains de vos sorts exigent de votre part un jet d'attaque de sort pour déterminer leur efficacité ou qui obligent vos ennemis à faire un jet contre votre DD de sort (en général un jet de sauvegarde). Comme l'Intelligence est votre attribut essentiel, votre modificateur de jets d'attaque de sort et le DD de vos sorts utilisent votre modificateur d'Intelligence."
                     ]
@@ -4778,7 +4778,7 @@ var CLASSES = {
                     "description": [
                         "Votre patron vous a envoyé un familier, une créature mystique qui vous enseigne la magie et facilite vos sorts. Ce familier suit les règles des familiers mais, comme il s'agit d'un conduit direct entre vous et votre patron, il est plus puissant que les familiers typiques. Votre familier obtient deux pouvoirs de familier supplémentaires : un de ces deux est un pouvoir unique propre à votre patron et est toujours choisi et l'autre est un pouvoir de familier supplémentaire qui peut être choisi quotidiennement comme à l'ordinaire. Votre familier obtient un autre pouvoir supplémentaire aux niveaux 6, 12 et 18.",
                         "Sorts Votre familier est la source et le dépositaire des sorts que votre patron vous a octroyés et vous devez communier avec votre familier pour préparer vos sorts de sorcier chaque jour en utilisant votre incantation de sorcier. Votre familier commence en connaissant 10 tours de magie, 5 sorts de rang 1 et un sort supplémentaire propre à la leçon initiale de votre patron. Vous choisissez ces sorts dans la liste des sorts courants de la tradition propre à votre patron ou parmi les autres sorts de cette tradition auxquels vous avez accès. Chaque fois que vous gagnez un niveau, votre patron enseigne à votre familier deux nouveaux sorts de n'importe quel rang que vous pouvez lancer, choisis parmi les sorts courants de votre tradition ou de ceux auxquels vous avez accès. Des dons peuvent également donner à votre familier des sorts supplémentaires.",
-                        "Apprendre des sorts Votre familier peut apprendre des nouveaux sorts indépendamment de votre patron. Il peut apprendre n'importe quel sort se trouvant sur la liste de votre tradition en consommant physiquement une version écrite, processus qui lui prend 1 heure. Cela peut être un parchemin de ce sort ou vous pouvez en préparer une version écrite en utilisant l'activité d'exploration sports_martial_artsApprendre un sort . Vous et votre familier pouvez utiliser l'activité Apprendre un sort pour enseigner à votre familier un sort provenant du familier d'un autre sorcier. Les deux familiers doivent être présents durant la totalité de l'activité, le sort doit se trouver sur la liste de votre tradition et vous devez payer le coût habituel pour cette activité, généralement sous la forme d'offrandes au patron de l'autre familier. Vous ne pouvez pas préparer de sorts provenant du familier d'un autre sorcier.",
+                        "Apprendre des sorts Votre familier peut apprendre des nouveaux sorts indépendamment de votre patron. Il peut apprendre n'importe quel sort se trouvant sur la liste de votre tradition en consommant physiquement une version écrite, processus qui lui prend 1 heure. Cela peut être un parchemin de ce sort ou vous pouvez en préparer une version écrite en utilisant l'activité d'exploration [[actionspf2e:Q5iIYCFdqJFM31GW]] . Vous et votre familier pouvez utiliser l'activité Apprendre un sort pour enseigner à votre familier un sort provenant du familier d'un autre sorcier. Les deux familiers doivent être présents durant la totalité de l'activité, le sort doit se trouver sur la liste de votre tradition et vous devez payer le coût habituel pour cette activité, généralement sous la forme d'offrandes au patron de l'autre familier. Vous ne pouvez pas préparer de sorts provenant du familier d'un autre sorcier.",
                         "Indestructible Si votre familier meurt, votre patron le remplace au cours de vos prochains préparatifs quotidiens. Le nouveau familier pourrait être une réplique ou une réincarnation de votre ancien familier ou une toute nouvelle entité, mais il connaît les mêmes sorts que votre précédent familier. La mort de votre familier n'affecte pas les sorts que vous avez déjà préparés."
                     ]
                 },
@@ -4796,14 +4796,14 @@ var CLASSES = {
                         "En tant qu'agent privilégié de votre patron, vous pouvez invoquer son pouvoir pour une intervention magique plus directe. Un maléfice est un sort conçu par votre patron et qui vous est envoyé par l'intermédiaire de votre familier, plutôt qu'une capacité que vous utilisez directement. Votre patron attend de vous que vous serviez ses intérêts et ne voit pas d'un bon œil les demandes d'aide répétées. Vous ne pouvez donc utiliser qu'un seul maléfice par tour, et toute tentative d'utilisation d'un second maléfice pendant ce tour échoue et les actions sont perdues.",
                         "Les sorts de maléfice sont un type particulier de sorts focalisés. Lancer un sort focalisé coûte 1 Point de Focalisation et vous commencez votre carrière avec une réserve de focalisation de 1 Point de Focalisation. Vous remplissez votre réserve de focalisation au cours de vos préparatifs quotidiens et vous pouvez regagner 1 Point de Focalisation en passant 10 minutes à utiliser l'activité Refocaliser pour communier avec votre familier.",
                         "Les sorts focalisés sont automatiquement intensifiés à la moitié de votre niveau arrondi au supérieur. Ils n'utilisent pas d'emplacement de sorts et vous ne pouvez pas les lancer en utilisant un emplacement de sorts. Certains dons vous donnent plus de sorts focalisés. Le nombre de points de focalisation de votre réserve de focalisation est égal au nombre de sorts focalisés que vous possédez, mais votre réserve de focalisation ne peut jamais dépasser 3 Points de Focalisation.",
-                        "À votre choix, vous apprenez le maléfice auto_awesomePoupée du patron ou le maléfice auto_awesomeDéphasage de familier qui vous permettent respectivement de diriger votre familier ou de le défendre contre ce qui pourrait lui causer du tort. Vous apprenez la plupart des autres maléfices par le biais des Leçons du sorcier ."
+                        "À votre choix, vous apprenez le maléfice [[spell:aq1yonHeYpbaj3XI]] ou le maléfice [[spell:rMOI8JFJ0nT2mrCF]] qui vous permettent respectivement de diriger votre familier ou de le défendre contre ce qui pourrait lui causer du tort. Vous apprenez la plupart des autres maléfices par le biais des [[classfeatures:SOan0fqyFTrkqJLV]] ."
                     ]
                 },
                 "tours_de_magie_de_malefice" : {
                     "name"       : "Tours de magie de maléfice",
                     "description": [
                         "Les tours de magie de maléfice sont des maléfices spéciaux qui ne coûtent pas de Point de Focalisation, de sorte que vous pouvez les lancer aussi souvent que vous le souhaitez, bien que vous ne puissiez toujours utiliser qu'un seul maléfice par round. Les tours de magie de maléfice s'ajoutent aux tours de magie que vous choisissez mais ne sont pas pris en compte parmi les tours de magie que vous pouvez préparer.",
-                        "Vous obtenez un tour de magie de maléfice déterminé par le choix de votre Thème de patron ."
+                        "Vous obtenez un tour de magie de maléfice déterminé par le choix de votre [[classfeatures:nocYmxbi4rqCC2qS]] ."
                     ]
                 },
                 "dons_de_competence"         : {
@@ -4915,7 +4915,7 @@ var CLASSES = {
                 "cadeau_du_patron"           : {
                     "name"       : "Cadeau du patron",
                     "description": [
-                        "Votre patron vous octroie le pouvoir de réaliser d'incroyables prouesses magiques. Vous obtenez un unique emplacement de sort de rang 10 et vous pouvez l'utiliser pour préparer un sort dans cet emplacement en utilisant incantation de sorcier. Contrairement aux autres emplacements de sort, vous ne pouvez utiliser un emplacement de sort de rang 10 avec des capacités qui vous accordent plus d'emplacements de sort ou qui vous permettent de lancer un sort sans dépenser d'emplacement de sort. Vous ne gagnez pas d'autres emplacements de sort de rang 10 en gagnant des niveaux supplémentaires mais vous pouvez prendre le don military_techVérité du patron pour en obtenir un second."
+                        "Votre patron vous octroie le pouvoir de réaliser d'incroyables prouesses magiques. Vous obtenez un unique emplacement de sort de rang 10 et vous pouvez l'utiliser pour préparer un sort dans cet emplacement en utilisant incantation de sorcier. Contrairement aux autres emplacements de sort, vous ne pouvez utiliser un emplacement de sort de rang 10 avec des capacités qui vous accordent plus d'emplacements de sort ou qui vous permettent de lancer un sort sans dépenser d'emplacement de sort. Vous ne gagnez pas d'autres emplacements de sort de rang 10 en gagnant des niveaux supplémentaires mais vous pouvez prendre le don [[feat:SelPslNtTfzxp7fs]] pour en obtenir un second."
                     ],
                     "level"      : 19
                 },
@@ -4935,22 +4935,22 @@ var CLASSES = {
                         "Compétence de patron Vous devenez qualifié dans la compétence indiquée.",
                         "Leçon initiale C'est la première leçon que votre patron vous enseigne et elle est propre à votre patron.",
                         "Capacité de familier Une des deux capacités supplémentaires de votre familier est toujours celle indiquée ici, une marque de l'influence indélébile de votre patron. L'avantage ne peut se produire qu'une fois par round lorsque vous Lancez ou Maintenez un maléfice, et vous pouvez choisir s'il se produit avant ou après les effets du Lancement ou du Maintien du maléfice.",
-                        "Choeur politique",
-                        "Dévoreur de pourriture",
-                        "Gardien de la flamme de la foi",
-                        "Intendant de la nature",
-                        "L'inscrit",
-                        "Le courtier invisible",
-                        "Le ressentiment",
-                        "Murmure des ailes",
-                        "Moustique",
-                        "Ombre sans étoile",
-                        "Ondulation dans les profondeurs",
-                        "Paradoxe des opposés",
-                        "Silence dans la neige",
-                        "Tisseur de fils",
+                        "[[classfeatures:v2JQB6j3VIKWqPpQ]]",
+                        "[[classfeatures:T9wA833bzZVlB3Lo]]",
+                        "[[classfeatures:mFqMSQoNl0NMDklv]]",
+                        "[[classfeatures:e0VhUyjz1clW3sC4]]",
+                        "[[classfeatures:FdLx4VODZEYLGOK9]]",
+                        "[[classfeatures:ydI39ViUy22nBRn6]]",
+                        "[[classfeatures:9OwWgOP8ZWxTAqbg]]",
+                        "[[classfeatures:4zE3seVFtLPNw9EQ]]",
+                        "[[classfeatures:zy0toWeGIeQstbT4]]",
+                        "[[classfeatures:r2ZPRAw9c3VGZi8A]]",
+                        "[[classfeatures:lgv4VIoj5TLhm9u0]]",
+                        "[[classfeatures:RdOzBNPKLTMUWrJs]]",
+                        "[[classfeatures:9c57R18pfgfqlBCD]]",
+                        "[[classfeatures:ghIsqhEsJTvjJiNl]]",
                         "Rare",
-                        "Baba Yaga"
+                        "[[classfeatures:VVMMJdIWL7fAsQf3]]"
                     ]
                 },
                 "lecons_de_sorcier"          : {
@@ -4958,21 +4958,21 @@ var CLASSES = {
                     "description": [
                         "Le savoir d'un sorcier prend la forme de leçons que vous pouvez apprendre en choisissant des dons tels que Leçon basique. Chaque leçon vous accorde un maléfice et enseigne un nouveau sort à votre familier qui vient s'ajouter aux sorts que vous pouvez préparer avec Incantation de sorcier. Vous obtenez ce sort même s'il ne se trouve pas sur la liste de votre tradition.",
                         "Vous pouvez choisir l'une de ces leçons quand un don ou un autre effet vous octroie une leçon basique.",
-                        "Leçon des éléments Les catastrophes naturelles et les intempéries ont plus de pouvoir que la plus puissante des créatures. Vous obtenez le maléfice auto_awesomeTrahison élémentaire . Votre familier apprend à votre choix soit auto_awesomeBulle d'air , auto_awesomeCracher du feu , auto_awesomeFrappe de débris ou auto_awesomePoussée hydraulique .",
-                        "Leçon de protection Une dose de protection vaut mieux que son poids en remèdes. Vous obtenez le maléfice auto_awesomeProtection du sang et votre familier apprend auto_awesomeArmure mystique .",
-                        "Leçon des rêves Les rêves peuvent être une fenêtre vers des intuitions supérieures. Vous obtenez le maléfice auto_awesomeVoile des rêves et votre familier apprend auto_awesomeSommeil .",
-                        "Leçon de vengeance Ne pas souffrir le moindre affront. Vous obtenez le maléfice auto_awesomeAiguillon de la vengeance et votre familier apprend auto_awesomeDouleur fantôme .",
-                        "Leçon de vie La vie peut être partagée. Vous obtenez le maléfice auto_awesomeGain de vie et votre familier apprend auto_awesomeLien spirituel .",
+                        "Leçon des éléments Les catastrophes naturelles et les intempéries ont plus de pouvoir que la plus puissante des créatures. Vous obtenez le maléfice [[spell:f9uqHnNBMU0774SF]] . Votre familier apprend à votre choix soit [[spell:W69zswpj0Trdy5rj]] , [[spell:y6rAdMK6EFlV6U0t]] , [[spell:Rn2LkoSq1XhLsODV]] ou [[spell:jfVCuOpzC6mUrf6f]] .",
+                        "Leçon de protection Une dose de protection vaut mieux que son poids en remèdes. Vous obtenez le maléfice [[spell:dFejDNEmVj3CwYLL]] et votre familier apprend [[spell:aAbfKn8maGjJjk2W]] .",
+                        "Leçon des rêves Les rêves peuvent être une fenêtre vers des intuitions supérieures. Vous obtenez le maléfice [[spell:NNoKWiWKqJkdD2ln]] et votre familier apprend [[spell:o4lRVTwSxnOOn5vl]] .",
+                        "Leçon de vengeance Ne pas souffrir le moindre affront. Vous obtenez le maléfice [[spell:aEitTTb9PnOyidRf]] et votre familier apprend [[spell:R8bqnYiThB6MYTxD]] .",
+                        "Leçon de vie La vie peut être partagée. Vous obtenez le maléfice [[spell:fAlzXtQAASaJx0mY]] et votre familier apprend [[spell:yHujiDQPdtXW797e]] .",
                         "Peu courant",
-                        "Leçon de calamité Vous obtenez le maléfice auto_awesomeMalédiction titubante et votre familier apprend auto_awesomeMauvais présage .",
+                        "Leçon de calamité Vous obtenez le maléfice [[spell:X8PSYw6WC2ePYSXd]] et votre familier apprend [[spell:6ZIKB0151LUR19Rw]] .",
                         "Vous pouvez choisir parmi ces leçons lorsqu'un don ou un autre effet vous accorde une leçon supérieure.",
-                        "Leçon d'ombre Une ombre est loin d'être inutile : elle contient quelque chose de la personne qui la projette. Vous obtenez le maléfice auto_awesomeOmbre malicieuse et votre familier apprend auto_awesomeTénèbres glaciales .",
-                        "Leçon de faveurs Vous obtenez le maléfice auto_awesomeRendre la faveur et votre familier apprend auto_awesomeEsprit de menace .",
-                        "Leçon de malice Il n'y a rien de mal à faire quelques bêtises, de temps à autre. Vous obtenez le maléfice auto_awesomeCape de tromperie et votre familier apprend auto_awesomeSinges fous .",
-                        "Leçon de neige Imitez la neige, car elle peut étouffer la vie malgré sa douceur. Vous obtenez le maléfice auto_awesomeBlizzard personnel et votre familier apprend auto_awesomeMur de vent .",
-                        "Leçon de pourriture Toutes les choses vivantes finissent par pourrir, nourrissant les champignons et les insectes. Vous obtenez le maléfice auto_awesomeMaladie mycologique et votre familier apprend auto_awesomeForme d'insecte .",
-                        "Leçon du squale Vous apprenez les manières de ce prédateur océanique mortel. Vous obtenez le maléfice auto_awesomeSang dans l'eau et votre familier apprend auto_awesomePieds en nageoires .",
-                        "Leçon du troupeau La puissance afflue lorsque plusieurs travaillent comme un seul. Vous obtenez le maléfice auto_awesomeAiles protectrices et votre familier apprend auto_awesomeLévitation .",
+                        "Leçon d'ombre Une ombre est loin d'être inutile : elle contient quelque chose de la personne qui la projette. Vous obtenez le maléfice [[spell:vhMCd15ZwNJn0zen]] et votre familier apprend [[spell:sRfSBHWHdbIa0aGc]] .",
+                        "Leçon de faveurs Vous obtenez le maléfice [[spell:9gMQPCaFM27PEIh4]] et votre familier apprend [[spell:fPlFRu4dp09qJs3K]] .",
+                        "Leçon de malice Il n'y a rien de mal à faire quelques bêtises, de temps à autre. Vous obtenez le maléfice [[spell:FrKPwgFxWIGMGgs4]] et votre familier apprend [[spell:tFKJCPvOQZxKq6ON]] .",
+                        "Leçon de neige Imitez la neige, car elle peut étouffer la vie malgré sa douceur. Vous obtenez le maléfice [[spell:g4MAIQodRDVfNp1B]] et votre familier apprend [[spell:it4ZsAi6XgvGcodc]] .",
+                        "Leçon de pourriture Toutes les choses vivantes finissent par pourrir, nourrissant les champignons et les insectes. Vous obtenez le maléfice [[spell:V4jrHiaMh4XuANOP]] et votre familier apprend [[spell:XI6Lzd2B5pernkPd]] .",
+                        "Leçon du squale Vous apprenez les manières de ce prédateur océanique mortel. Vous obtenez le maléfice [[spell:CXpOlv2ZZq2jVbRX]] et votre familier apprend [[spell:RvBlSIJmxiqfCpR9]] .",
+                        "Leçon du troupeau La puissance afflue lorsque plusieurs travaillent comme un seul. Vous obtenez le maléfice [[spell:gxK5XW4WAXOgY1mN]] et votre familier apprend [[spell:fI20AVwOzJMHXRdo]] .",
                         "peu courant"
                     ]
                 },
@@ -4980,11 +4980,11 @@ var CLASSES = {
                     "name"       : "Leçons majeures",
                     "description": [
                         "Vous pouvez choisir parmi ces leçons lorsqu'un don ou un autre effet vous accorde une leçon majeure.",
-                        "Leçon de marchandage Vous obtenez le maléfice auto_awesomeSur des charbons ardents et votre familier apprend auto_awesomeSuggestion subconsciente .",
-                        "Leçon de mort La mort est définitive, mais pas aussi inéluctable qu'il n'y paraît. Vous obtenez le maléfice auto_awesomeMalédiction de mort et votre familier apprend auto_awesomeRappel à la vie .",
-                        "Leçon de renouveau L'entropie s'abat sur tous, mais il est possible de l'enrayer au prix d'un effort. Vous obtenez le maléfice auto_awesomeMoment restauratif et votre familier apprend auto_awesomeChamp de vie .",
+                        "Leçon de marchandage Vous obtenez le maléfice [[spell:PcmFpaHPCReNp1BD]] et votre familier apprend [[spell:GP3wewkQXEPrLxYj]] .",
+                        "Leçon de mort La mort est définitive, mais pas aussi inéluctable qu'il n'y paraît. Vous obtenez le maléfice [[spell:nQS4vPm5zprqkzFZ]] et votre familier apprend [[spell:IkGYwHRLhkuoGReG]] .",
+                        "Leçon de renouveau L'entropie s'abat sur tous, mais il est possible de l'enrayer au prix d'un effort. Vous obtenez le maléfice [[spell:pCvJ4yoZJxDtgUMI]] et votre familier apprend [[spell:x5rGOmhDRDVQPrnW]] .",
                         "Rare",
-                        "Leçon de la reine glacée Vous obtenez le maléfice auto_awesomeCœur glacial et votre familier apprend auto_awesomeMur de glace ."
+                        "Leçon de la reine glacée Vous obtenez le maléfice [[spell:ZyREiMaul0VhDYh3]] et votre familier apprend [[spell:R5FHRv7VqyRnxg2t]] ."
                     ]
                 }
             }
@@ -5000,3 +5000,1608 @@ CLASSES.getDataByName = function ( name ) {
     }
     return null;
 };
+
+let others = [
+    {
+        "id"      : "is3Oz9wt11lNq62K",
+        "text"    : "Artisanat alchimique",
+        "category": "feat",
+        "href"    : "/feats/is3Oz9wt11lNq62K"
+    },
+    {
+        "id"      : "qCEOZ6109Yo34tRx",
+        "text"    : "Recueil de formules",
+        "category": "item",
+        "href"    : "/equipment/qCEOZ6109Yo34tRx"
+    },
+    {
+        "id"      : "XR95taODq1sq82Du",
+        "text"    : "Inventeur",
+        "category": "feat",
+        "href"    : "/feats/XR95taODq1sq82Du"
+    },
+    {
+        "id"      : "yzNJgwzV9XqEhKc6",
+        "text"    : "Alchimie rapide",
+        "category": "actionspf2e",
+        "href"    : "/actions/yzNJgwzV9XqEhKc6"
+    },
+    {
+        "id"      : "sPtl05wwTpqFI0lL",
+        "text"    : "Alchimie rapide",
+        "category": "classfeatures",
+        "href"    : "/class-features/sPtl05wwTpqFI0lL"
+    },
+    {
+        "id"      : "4ftXXUCBHcf4b0MH",
+        "text"    : "Matériel d'alchimiste",
+        "category": "item",
+        "href"    : "/equipment/4ftXXUCBHcf4b0MH"
+    },
+    {
+        "id"      : "7JbiaZ8bxODM5mzS",
+        "text"    : "Bombardier",
+        "category": "classfeatures",
+        "href"    : "/class-features/7JbiaZ8bxODM5mzS"
+    },
+    {
+        "id"      : "eNZnx4LISDNftbx2",
+        "text"    : "Chirurgien",
+        "category": "classfeatures",
+        "href"    : "/class-features/eNZnx4LISDNftbx2"
+    },
+    {
+        "id"      : "tvdb1jkjl2bRZjSp",
+        "text"    : "Mutagéniste",
+        "category": "classfeatures",
+        "href"    : "/class-features/tvdb1jkjl2bRZjSp"
+    },
+    {
+        "id"      : "P9quO9XZi3OWFe1k",
+        "text"    : "Toxicologiste",
+        "category": "classfeatures",
+        "href"    : "/class-features/P9quO9XZi3OWFe1k"
+    },
+    {
+        "id"      : "nlCjDvLMf2EkV2dl",
+        "text"    : "Accéléré",
+        "category": "conditionitems",
+        "href"    : "/conditions/nlCjDvLMf2EkV2dl"
+    },
+    {
+        "id"      : "76cwNLJEm4Yetnee",
+        "text"    : "Double breuvage",
+        "category": "classfeatures",
+        "href"    : "/class-features/76cwNLJEm4Yetnee"
+    },
+    {
+        "id"      : "a9PzINjFTO5GvAJN",
+        "text"    : "Impulsif",
+        "category": "actionspf2e",
+        "href"    : "/actions/a9PzINjFTO5GvAJN"
+    },
+    {
+        "id"      : "Ah5g9pDwWF9b9VW9",
+        "text"    : "Rage",
+        "category": "actionspf2e",
+        "href"    : "/actions/Ah5g9pDwWF9b9VW9"
+    },
+    {
+        "id"      : "D5mg6Tc7Jzrj6ro7",
+        "text"    : "Surchargé",
+        "category": "conditionitems",
+        "href"    : "/conditions/D5mg6Tc7Jzrj6ro7"
+    },
+    {
+        "id"      : "HL2l2VRSaQHu9lUw",
+        "text"    : "Fatigué",
+        "category": "conditionitems",
+        "href"    : "/conditions/HL2l2VRSaQHu9lUw"
+    },
+    {
+        "id"      : "BlAOM2X92SI6HMtJ",
+        "text"    : "Chercher",
+        "category": "actionspf2e",
+        "href"    : "/actions/BlAOM2X92SI6HMtJ"
+    },
+    {
+        "id"      : "fBnFDH2MTzgFijKf",
+        "text"    : "Inconscient",
+        "category": "conditionitems",
+        "href"    : "/conditions/fBnFDH2MTzgFijKf"
+    },
+    {
+        "id"      : "0FtzFbUrN56KA67z",
+        "text"    : "Instinct animal",
+        "category": "classfeatures",
+        "href"    : "/class-features/0FtzFbUrN56KA67z"
+    },
+    {
+        "id"      : "znxs0soGlusvRP39",
+        "text"    : "Instinct de décomposition",
+        "category": "classfeatures",
+        "href"    : "/class-features/znxs0soGlusvRP39"
+    },
+    {
+        "id"      : "JuKD6k7nDwfO0Ckv",
+        "text"    : "Instinct de géant",
+        "category": "classfeatures",
+        "href"    : "/class-features/JuKD6k7nDwfO0Ckv"
+    },
+    {
+        "id"      : "k7M9jedvt31AJ5ZR",
+        "text"    : "Instinct de la furie",
+        "category": "classfeatures",
+        "href"    : "/class-features/k7M9jedvt31AJ5ZR"
+    },
+    {
+        "id"      : "VDot7CDcXElxmkkz",
+        "text"    : "Instinct du dragon",
+        "category": "classfeatures",
+        "href"    : "/class-features/VDot7CDcXElxmkkz"
+    },
+    {
+        "id"      : "0jSS6pgNXsC8k4o7",
+        "text"    : "Instinct élémentaire",
+        "category": "classfeatures",
+        "href"    : "/class-features/0jSS6pgNXsC8k4o7"
+    },
+    {
+        "id"      : "qVAeSFTI1dq64bB8",
+        "text"    : "Instinct ligneux",
+        "category": "classfeatures",
+        "href"    : "/class-features/qVAeSFTI1dq64bB8"
+    },
+    {
+        "id"      : "TQqv9Q5mB4PW6LH9",
+        "text"    : "Instinct spirituel",
+        "category": "classfeatures",
+        "href"    : "/class-features/TQqv9Q5mB4PW6LH9"
+    },
+    {
+        "id"      : "SCYSjUbMmw8JD9P9",
+        "text"    : "Instinct superstitieux",
+        "category": "classfeatures",
+        "href"    : "/class-features/SCYSjUbMmw8JD9P9"
+    },
+    {
+        "id"      : "a898miJnjgD93ZsX",
+        "text"    : "Muse polyvalente",
+        "category": "feat",
+        "href"    : "/feats/a898miJnjgD93ZsX"
+    },
+    {
+        "id"      : "N03BtRvjX9TeHRa4",
+        "text"    : "Combattante",
+        "category": "classfeatures",
+        "href"    : "/class-features/N03BtRvjX9TeHRa4"
+    },
+    {
+        "id"      : "4ripp6EfdVpS0d60",
+        "text"    : "Énigmatique",
+        "category": "classfeatures",
+        "href"    : "/class-features/4ripp6EfdVpS0d60"
+    },
+    {
+        "id"      : "YMBsi4bndRAk5CX4",
+        "text"    : "Maestro",
+        "category": "classfeatures",
+        "href"    : "/class-features/YMBsi4bndRAk5CX4"
+    },
+    {
+        "id"      : "y0jGimYdMGDJWrEq",
+        "text"    : "Touche-à-tout",
+        "category": "classfeatures",
+        "href"    : "/class-features/y0jGimYdMGDJWrEq"
+    },
+    {
+        "id"      : "jHOlcSnGyjCnwoPP",
+        "text"    : "Zoophonie",
+        "category": "classfeatures",
+        "href"    : "/class-features/jHOlcSnGyjCnwoPP"
+    },
+    {
+        "id"      : "WILXkjU5Yq3yw10r",
+        "text"    : "Contre-représentation",
+        "category": "spell",
+        "href"    : "/spells/WILXkjU5Yq3yw10r"
+    },
+    {
+        "id"      : "IAjvwqgiDr3qGYxY",
+        "text"    : "Hymne de courage",
+        "category": "spell",
+        "href"    : "/spells/IAjvwqgiDr3qGYxY"
+    },
+    {
+        "id"      : "K878asDgf1EF0B9S",
+        "text"    : "Aboutissement assuré",
+        "category": "actionspf2e",
+        "href"    : "/actions/K878asDgf1EF0B9S"
+    },
+    {
+        "id"      : "uBJsxCzNhje8m8jj",
+        "text"    : "Effet : Panache",
+        "category": "feat-effects",
+        "href"    : "/effects/uBJsxCzNhje8m8jj"
+    },
+    {
+        "id"      : "21WIfSu7Xd7uKqV8",
+        "text"    : "Déplacement acrobatique",
+        "category": "actionspf2e",
+        "href"    : "/actions/21WIfSu7Xd7uKqV8"
+    },
+    {
+        "id"      : "5HoEwzLDJGTCZtFa",
+        "text"    : "Danseur de combat",
+        "category": "classfeatures",
+        "href"    : "/class-features/5HoEwzLDJGTCZtFa"
+    },
+    {
+        "id"      : "7LB00jkh6JaJr3vS",
+        "text"    : "Représentation fascinante",
+        "category": "feat",
+        "href"    : "/feats/7LB00jkh6JaJr3vS"
+    },
+    {
+        "id"      : "EEDElIyin4z60PXx",
+        "text"    : "Vous produisez",
+        "category": "actionspf2e",
+        "href"    : "/actions/EEDElIyin4z60PXx"
+    },
+    {
+        "id"      : "Jgid6Ja6Y879COlN",
+        "text"    : "Escrimeur",
+        "category": "classfeatures",
+        "href"    : "/class-features/Jgid6Ja6Y879COlN"
+    },
+    {
+        "id"      : "QNAVeNKtHA0EUw4X",
+        "text"    : "Feintez",
+        "category": "actionspf2e",
+        "href"    : "/actions/QNAVeNKtHA0EUw4X"
+    },
+    {
+        "id"      : "GkmbTGfg8KcgynOA",
+        "text"    : "Créez une diversion",
+        "category": "actionspf2e",
+        "href"    : "/actions/GkmbTGfg8KcgynOA"
+    },
+    {
+        "id"      : "4lGhbEjlEoGP4scl",
+        "text"    : "Esprit",
+        "category": "classfeatures",
+        "href"    : "/class-features/4lGhbEjlEoGP4scl"
+    },
+    {
+        "id"      : "0GF2j54roPFIDmXf",
+        "text"    : "Bon Mot",
+        "category": "feat",
+        "href"    : "/feats/0GF2j54roPFIDmXf"
+    },
+    {
+        "id"      : "KBhwFjdptrKyN5EM",
+        "text"    : "Fanfaron",
+        "category": "classfeatures",
+        "href"    : "/class-features/KBhwFjdptrKyN5EM"
+    },
+    {
+        "id"      : "2u915NdUyQan6uKF",
+        "text"    : "Démoralisez",
+        "category": "actionspf2e",
+        "href"    : "/actions/2u915NdUyQan6uKF"
+    },
+    {
+        "id"      : "XKhg55V7WmpLrvqL",
+        "text"    : "Fripouille",
+        "category": "classfeatures",
+        "href"    : "/class-features/XKhg55V7WmpLrvqL"
+    },
+    {
+        "id"      : "5eNKs6738aykAhK2",
+        "text"    : "Sale coup",
+        "category": "feat",
+        "href"    : "/feats/5eNKs6738aykAhK2"
+    },
+    {
+        "id"      : "B7RMnrHwQHlezlJT",
+        "text"    : "Gymnaste",
+        "category": "classfeatures",
+        "href"    : "/class-features/B7RMnrHwQHlezlJT"
+    },
+    {
+        "id"      : "PMbdMWc2QroouFGD",
+        "text"    : "Saisissez",
+        "category": "actionspf2e",
+        "href"    : "/actions/PMbdMWc2QroouFGD"
+    },
+    {
+        "id"      : "7blmbDrQFNfdT731",
+        "text"    : "Poussez",
+        "category": "actionspf2e",
+        "href"    : "/actions/7blmbDrQFNfdT731"
+    },
+    {
+        "id"      : "lOE4yjUnETTdaf2T",
+        "text"    : "Repositionnez",
+        "category": "actionspf2e",
+        "href"    : "/actions/lOE4yjUnETTdaf2T"
+    },
+    {
+        "id"      : "ge56Lu1xXVFYUnLP",
+        "text"    : "Croc-en-jambe",
+        "category": "actionspf2e",
+        "href"    : "/actions/ge56Lu1xXVFYUnLP"
+    },
+    {
+        "id"      : "EfjoIuDmtUn4yiow",
+        "text"    : "Riposte opportune",
+        "category": "actionspf2e",
+        "href"    : "/actions/EfjoIuDmtUn4yiow"
+    },
+    {
+        "id"      : "UHpkTuCtyaPqiCAB",
+        "text"    : "Faire un pas",
+        "category": "actionspf2e",
+        "href"    : "/actions/UHpkTuCtyaPqiCAB"
+    },
+    {
+        "id"      : "AJh5ex99aV6VTggg",
+        "text"    : "Pris au dépourvu",
+        "category": "conditionitems",
+        "href"    : "/conditions/AJh5ex99aV6VTggg"
+    },
+    {
+        "id"      : "cu10OjQUdY0a9gpj",
+        "text"    : "Effet : Aboutissement exemplaire - Esprit",
+        "category": "feat-effects",
+        "href"    : "/effects/cu10OjQUdY0a9gpj"
+    },
+    {
+        "id"      : "fgz7lwg1xHsVW4dX",
+        "text"    : "Effet : Aboutissement exemplaire - Fripouille",
+        "category": "feat-effects",
+        "href"    : "/effects/fgz7lwg1xHsVW4dX"
+    },
+    {
+        "id"      : "kWc1fhmv9LBiTuei",
+        "text"    : "Agrippé",
+        "category": "conditionitems",
+        "href"    : "/conditions/kWc1fhmv9LBiTuei"
+    },
+    {
+        "id"      : "VcDeM8A5oI6VqhbM",
+        "text"    : "Entravé",
+        "category": "conditionitems",
+        "href"    : "/conditions/VcDeM8A5oI6VqhbM"
+    },
+    {
+        "id"      : "j91X7x0XSomq8d60",
+        "text"    : "À terre",
+        "category": "conditionitems",
+        "href"    : "/conditions/j91X7x0XSomq8d60"
+    },
+    {
+        "id"      : "pyo0vmxUFIFX2GNl",
+        "text"    : "Aboutissement assuré",
+        "category": "classfeatures",
+        "href"    : "/class-features/pyo0vmxUFIFX2GNl"
+    },
+    {
+        "id"      : "qeLpqH2cMSmIrILV",
+        "text"    : "Aboutissement précis",
+        "category": "feat",
+        "href"    : "/feats/qeLpqH2cMSmIrILV"
+    },
+    {
+        "id"      : "jM72TjJ965jocBV8",
+        "text"    : "Blocage au bouclier",
+        "category": "feat",
+        "href"    : "/feats/jM72TjJ965jocBV8"
+    },
+    {
+        "id"      : "h1NGH4TVeBljftni",
+        "text"    : "Grandeur",
+        "category": "classfeatures",
+        "href"    : "/class-features/h1NGH4TVeBljftni"
+    },
+    {
+        "id"      : "EQ6DVIQHAUXUhY6Y",
+        "text"    : "Iniquité",
+        "category": "classfeatures",
+        "href"    : "/class-features/EQ6DVIQHAUXUhY6Y"
+    },
+    {
+        "id"      : "peEXunfbSD8WcMFk",
+        "text"    : "Justice",
+        "category": "classfeatures",
+        "href"    : "/class-features/peEXunfbSD8WcMFk"
+    },
+    {
+        "id"      : "FCoMFUsth4xB4veC",
+        "text"    : "Libération",
+        "category": "classfeatures",
+        "href"    : "/class-features/FCoMFUsth4xB4veC"
+    },
+    {
+        "id"      : "HiIvez0TqESbleB5",
+        "text"    : "Obéissance",
+        "category": "classfeatures",
+        "href"    : "/class-features/HiIvez0TqESbleB5"
+    },
+    {
+        "id"      : "8YIA0jh64Ecz0TG6",
+        "text"    : "Profanation",
+        "category": "classfeatures",
+        "href"    : "/class-features/8YIA0jh64Ecz0TG6"
+    },
+    {
+        "id"      : "UyuwFp0jQqYL2AdF",
+        "text"    : "Rédemption",
+        "category": "classfeatures",
+        "href"    : "/class-features/UyuwFp0jQqYL2AdF"
+    },
+    {
+        "id"      : "7Fd4lxozd11MQ55N",
+        "text"    : "Pénitence",
+        "category": "spell",
+        "href"    : "/spells/7Fd4lxozd11MQ55N"
+    },
+    {
+        "id"      : "ZL97DcoJ8us6EwAF",
+        "text"    : "Boucliers de l'esprit",
+        "category": "spell",
+        "href"    : "/spells/ZL97DcoJ8us6EwAF"
+    },
+    {
+        "id"      : "zNN9212H2FGfM7VS",
+        "text"    : "Imposition des mains",
+        "category": "spell",
+        "href"    : "/spells/zNN9212H2FGfM7VS"
+    },
+    {
+        "id"      : "jFmWSIpJGGebim6y",
+        "text"    : "Toucher du vide",
+        "category": "spell",
+        "href"    : "/spells/jFmWSIpJGGebim6y"
+    },
+    {
+        "id"      : "FNDq4NFSN0g2HKWO",
+        "text"    : "Bandelettes de coups puissants",
+        "category": "item",
+        "href"    : "/equipment/FNDq4NFSN0g2HKWO"
+    },
+    {
+        "id"      : "qlunQzfnzPQpMG6U",
+        "text"    : "Boomerang",
+        "category": "item",
+        "href"    : "/equipment/qlunQzfnzPQpMG6U"
+    },
+    {
+        "id"      : "P6v2AtJw7AUwaDzf",
+        "text"    : "Effrayante",
+        "category": "item",
+        "href"    : "/equipment/P6v2AtJw7AUwaDzf"
+    },
+    {
+        "id"      : "JQdwHECogcTzdd8R",
+        "text"    : "Spectrale",
+        "category": "item",
+        "href"    : "/equipment/JQdwHECogcTzdd8R"
+    },
+    {
+        "id"      : "roeYtwlIe65BPMJ1",
+        "text"    : "Changeante",
+        "category": "item",
+        "href"    : "/equipment/roeYtwlIe65BPMJ1"
+    },
+    {
+        "id"      : "LwQb7ryTC8FlOXgX",
+        "text"    : "Vitalisante",
+        "category": "item",
+        "href"    : "/equipment/LwQb7ryTC8FlOXgX"
+    },
+    {
+        "id"      : "x9SNVpAAnXKJeoqp",
+        "text"    : "Renforcement",
+        "category": "item",
+        "href"    : "/equipment/x9SNVpAAnXKJeoqp"
+    },
+    {
+        "id"      : "f9ygr5Cjrmop8LWV",
+        "text"    : "Bouclier renforcé",
+        "category": "item",
+        "href"    : "/equipment/f9ygr5Cjrmop8LWV"
+    },
+    {
+        "id"      : "uGXWkR2h8q9MRzEM",
+        "text"    : "Défi du héros",
+        "category": "spell",
+        "href"    : "/spells/uGXWkR2h8q9MRzEM"
+    },
+    {
+        "id"      : "aBQ8ajvEBByv45yz",
+        "text"    : "Lancer un sort",
+        "category": "actionspf2e",
+        "href"    : "/actions/aBQ8ajvEBByv45yz"
+    },
+    {
+        "id"      : "POBvoXifa9HaejAg",
+        "text"    : "Ordre animal",
+        "category": "classfeatures",
+        "href"    : "/class-features/POBvoXifa9HaejAg"
+    },
+    {
+        "id"      : "u4nlOzPj2WHkIj9l",
+        "text"    : "Ordre de la feuille",
+        "category": "classfeatures",
+        "href"    : "/class-features/u4nlOzPj2WHkIj9l"
+    },
+    {
+        "id"      : "X0k3njLOLX0322Po",
+        "text"    : "Ordre des spores",
+        "category": "classfeatures",
+        "href"    : "/class-features/X0k3njLOLX0322Po"
+    },
+    {
+        "id"      : "IiYUhFGqq2Nw0b5Y",
+        "text"    : "Ordre du cultivateur",
+        "category": "classfeatures",
+        "href"    : "/class-features/IiYUhFGqq2Nw0b5Y"
+    },
+    {
+        "id"      : "NdeFvIXdHwKYLiUj",
+        "text"    : "Ordre de la flamme",
+        "category": "classfeatures",
+        "href"    : "/class-features/NdeFvIXdHwKYLiUj"
+    },
+    {
+        "id"      : "fKTewWlYgFuhl4KA",
+        "text"    : "Ordre de la pierre",
+        "category": "classfeatures",
+        "href"    : "/class-features/fKTewWlYgFuhl4KA"
+    },
+    {
+        "id"      : "acqqlYmti8D9QJi0",
+        "text"    : "Ordre de la tempête",
+        "category": "classfeatures",
+        "href"    : "/class-features/acqqlYmti8D9QJi0"
+    },
+    {
+        "id"      : "FuUXyv2yBs7zRgqT",
+        "text"    : "Ordre de la vague",
+        "category": "classfeatures",
+        "href"    : "/class-features/FuUXyv2yBs7zRgqT"
+    },
+    {
+        "id"      : "v0EjtiwdeMj8ykI0",
+        "text"    : "Ordre indompté",
+        "category": "classfeatures",
+        "href"    : "/class-features/v0EjtiwdeMj8ykI0"
+    },
+    {
+        "id"      : "cg816q76S5otM7yD",
+        "text"    : "Empathie animale",
+        "category": "feat",
+        "href"    : "/feats/cg816q76S5otM7yD"
+    },
+    {
+        "id"      : "ahyQpMVDIqhvXkQ4",
+        "text"    : "Empathie avec les plantes",
+        "category": "feat",
+        "href"    : "/feats/ahyQpMVDIqhvXkQ4"
+    },
+    {
+        "id"      : "Chu6s3xVnpOB64GH",
+        "text"    : "Puissance du hiérophante",
+        "category": "feat",
+        "href"    : "/feats/Chu6s3xVnpOB64GH"
+    },
+    {
+        "id"      : "m0f2B7G9eaaTmhFL",
+        "text"    : "Concevoir un stratagème",
+        "category": "actionspf2e",
+        "href"    : "/actions/m0f2B7G9eaaTmhFL"
+    },
+    {
+        "id"      : "lgo65ldX7WkXC8Ir",
+        "text"    : "Concevoir un stratagème",
+        "category": "classfeatures",
+        "href"    : "/class-features/lgo65ldX7WkXC8Ir"
+    },
+    {
+        "id"      : "g3mNzNphtVxyR9Xr",
+        "text"    : "Empirisme",
+        "category": "classfeatures",
+        "href"    : "/class-features/g3mNzNphtVxyR9Xr"
+    },
+    {
+        "id"      : "UIHUNNYZyQ3p4Vmo",
+        "text"    : "Interrogatoire",
+        "category": "classfeatures",
+        "href"    : "/class-features/UIHUNNYZyQ3p4Vmo"
+    },
+    {
+        "id"      : "O3IX7rTxXWWvDVM3",
+        "text"    : "Médecine forensique",
+        "category": "classfeatures",
+        "href"    : "/class-features/O3IX7rTxXWWvDVM3"
+    },
+    {
+        "id"      : "ln2Y1a4SxlU9sizX",
+        "text"    : "Sciences alchimiques",
+        "category": "classfeatures",
+        "href"    : "/class-features/ln2Y1a4SxlU9sizX"
+    },
+    {
+        "id"      : "xTK2zsWFyxSJvYbX",
+        "text"    : "Suivre une piste",
+        "category": "actionspf2e",
+        "href"    : "/actions/xTK2zsWFyxSJvYbX"
+    },
+    {
+        "id"      : "25WDi1cVUrW92sUj",
+        "text"    : "Partager les indices",
+        "category": "actionspf2e",
+        "href"    : "/actions/25WDi1cVUrW92sUj"
+    },
+    {
+        "id"      : "1OagaWtBpVXExToo",
+        "text"    : "Vous souvenir",
+        "category": "actionspf2e",
+        "href"    : "/actions/1OagaWtBpVXExToo"
+    },
+    {
+        "id"      : "3qqvnC2U8W26yae7",
+        "text"    : "Aberrant",
+        "category": "classfeatures",
+        "href"    : "/class-features/3qqvnC2U8W26yae7"
+    },
+    {
+        "id"      : "TFihgf3jDhmKd0fa",
+        "text"    : "Aesir",
+        "category": "classfeatures",
+        "href"    : "/class-features/TFihgf3jDhmKd0fa"
+    },
+    {
+        "id"      : "vhW3glAaEfq2DKrw",
+        "text"    : "Angélique",
+        "category": "classfeatures",
+        "href"    : "/class-features/vhW3glAaEfq2DKrw"
+    },
+    {
+        "id"      : "dKTb959aCQIzSIXj",
+        "text"    : "Béni du ver",
+        "category": "classfeatures",
+        "href"    : "/class-features/dKTb959aCQIzSIXj"
+    },
+    {
+        "id"      : "w5koctOVrEcpxTIq",
+        "text"    : "Démoniaque",
+        "category": "classfeatures",
+        "href"    : "/class-features/w5koctOVrEcpxTIq"
+    },
+    {
+        "id"      : "o39zQMIdERWtmBSB",
+        "text"    : "Diabolique",
+        "category": "classfeatures",
+        "href"    : "/class-features/o39zQMIdERWtmBSB"
+    },
+    {
+        "id"      : "ZHabYxSgYK0XbjhM",
+        "text"    : "Draconique",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZHabYxSgYK0XbjhM"
+    },
+    {
+        "id"      : "RXRnJcG4XSabZ35a",
+        "text"    : "Élémentaire",
+        "category": "classfeatures",
+        "href"    : "/class-features/RXRnJcG4XSabZ35a"
+    },
+    {
+        "id"      : "eW3cfCH7Wpx2vik2",
+        "text"    : "Féerique",
+        "category": "classfeatures",
+        "href"    : "/class-features/eW3cfCH7Wpx2vik2"
+    },
+    {
+        "id"      : "tYOMBiH3HbViNWwn",
+        "text"    : "Génie",
+        "category": "classfeatures",
+        "href"    : "/class-features/tYOMBiH3HbViNWwn"
+    },
+    {
+        "id"      : "O0uXZRWMNliDbkxU",
+        "text"    : "Guenaude",
+        "category": "classfeatures",
+        "href"    : "/class-features/O0uXZRWMNliDbkxU"
+    },
+    {
+        "id"      : "ZEtJJ5UOlV5oTWWp",
+        "text"    : "Impérial",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZEtJJ5UOlV5oTWWp"
+    },
+    {
+        "id"      : "7WBZ2kkhZ7JorWu2",
+        "text"    : "Mort-vivant",
+        "category": "classfeatures",
+        "href"    : "/class-features/7WBZ2kkhZ7JorWu2"
+    },
+    {
+        "id"      : "5Wxjghw7lHuCxjZz",
+        "text"    : "Nymphe",
+        "category": "classfeatures",
+        "href"    : "/class-features/5Wxjghw7lHuCxjZz"
+    },
+    {
+        "id"      : "uoQOm41BVdSo6pAS",
+        "text"    : "Ombre",
+        "category": "classfeatures",
+        "href"    : "/class-features/uoQOm41BVdSo6pAS"
+    },
+    {
+        "id"      : "TWR1wbPJuCLnGdFZ",
+        "text"    : "Phénix",
+        "category": "classfeatures",
+        "href"    : "/class-features/TWR1wbPJuCLnGdFZ"
+    },
+    {
+        "id"      : "PpzH9tJULk5ksX9w",
+        "text"    : "Psychopompe",
+        "category": "classfeatures",
+        "href"    : "/class-features/PpzH9tJULk5ksX9w"
+    },
+    {
+        "id"      : "b6hyZTs1rVGHDexz",
+        "text"    : "Tourment",
+        "category": "classfeatures",
+        "href"    : "/class-features/b6hyZTs1rVGHDexz"
+    },
+    {
+        "id"      : "eZrftEihfuJBldG5",
+        "text"    : "Lignage avancé",
+        "category": "feat",
+        "href"    : "/feats/eZrftEihfuJBldG5"
+    },
+    {
+        "id"      : "DpRMdytpPiCypmkJ",
+        "text"    : "Lignage supérieur",
+        "category": "feat",
+        "href"    : "/feats/DpRMdytpPiCypmkJ"
+    },
+    {
+        "id"      : "6SEDoht4dXEJE5SW",
+        "text"    : "Perfection du lignage",
+        "category": "feat",
+        "href"    : "/feats/6SEDoht4dXEJE5SW"
+    },
+    {
+        "id"      : "lURKSJZAGKVD6cH9",
+        "text"    : "Répertoire de sorts",
+        "category": "classfeatures",
+        "href"    : "/class-features/lURKSJZAGKVD6cH9"
+    },
+    {
+        "id"      : "KAVf7AmRnbCAHrkT",
+        "text"    : "Frappe réactive",
+        "category": "actionspf2e",
+        "href"    : "/actions/KAVf7AmRnbCAHrkT"
+    },
+    {
+        "id"      : "TBSHQspnbcqxsmjL",
+        "text"    : "Effrayé",
+        "category": "conditionitems",
+        "href"    : "/conditions/TBSHQspnbcqxsmjL"
+    },
+    {
+        "id"      : "XXqE1eY3w3z6xJCB",
+        "text"    : "Invisibilité",
+        "category": "spell",
+        "href"    : "/spells/XXqE1eY3w3z6xJCB"
+    },
+    {
+        "id"      : "A2JfEKe6BZcTG1S8",
+        "text"    : "Vol",
+        "category": "spell",
+        "href"    : "/spells/A2JfEKe6BZcTG1S8"
+    },
+    {
+        "id"      : "0qaqksrGGDj74HXE",
+        "text"    : "Lumière révélatrice",
+        "category": "spell",
+        "href"    : "/spells/0qaqksrGGDj74HXE"
+    },
+    {
+        "id"      : "gPvtmKMRpg9I9D7H",
+        "text"    : "Cloué à terre",
+        "category": "spell",
+        "href"    : "/spells/gPvtmKMRpg9I9D7H"
+    },
+    {
+        "id"      : "kzxu2dI7tFxv6Ix6.JournalEntryPage.wDukeO3euLEGn6FA#arcane-schools",
+        "text"    : "école arcanique",
+        "category": "journals",
+        "href"    : null
+    },
+    {
+        "id"      : "v82XtjAVN4ffgVVR",
+        "text"    : "Drain d'objet lié",
+        "category": "actionspf2e",
+        "href"    : "/actions/v82XtjAVN4ffgVVR"
+    },
+    {
+        "id"      : "Klb35AwlkNrq1gpB",
+        "text"    : "Bâton nexus",
+        "category": "classfeatures",
+        "href"    : "/class-features/Klb35AwlkNrq1gpB"
+    },
+    {
+        "id"      : "89zWKD2CN7nRu2xp",
+        "text"    : "Expérimentation mutamagique",
+        "category": "classfeatures",
+        "href"    : "/class-features/89zWKD2CN7nRu2xp"
+    },
+    {
+        "id"      : "SNZ46g3u7U6x0XJj",
+        "text"    : "Harmonisation avec le familier améliorée",
+        "category": "classfeatures",
+        "href"    : "/class-features/SNZ46g3u7U6x0XJj"
+    },
+    {
+        "id"      : "OAcxS625AXSGrQIC",
+        "text"    : "Mélange de sorts",
+        "category": "classfeatures",
+        "href"    : "/class-features/OAcxS625AXSGrQIC"
+    },
+    {
+        "id"      : "QzWXMCSGNfvvpYgF",
+        "text"    : "Substitution de sort",
+        "category": "classfeatures",
+        "href"    : "/class-features/QzWXMCSGNfvvpYgF"
+    },
+    {
+        "id"      : "tP26mgaFPpr6df1i",
+        "text"    : "Puissance de l'archimage",
+        "category": "feat",
+        "href"    : "/feats/tP26mgaFPpr6df1i"
+    },
+    {
+        "id"      : "ZBFICTkzUjE4BDGJ",
+        "text"    : "École de forme protéenne",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZBFICTkzUjE4BDGJ"
+    },
+    {
+        "id"      : "jtAqb5rnhQblZuM8",
+        "text"    : "École de Kalistrade",
+        "category": "classfeatures",
+        "href"    : "/class-features/jtAqb5rnhQblZuM8"
+    },
+    {
+        "id"      : "ZpFCZnVzIfZLfNii",
+        "text"    : "École de la frontière",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZpFCZnVzIfZLfNii"
+    },
+    {
+        "id"      : "YZ2XPmx1WHyWtM0g",
+        "text"    : "École de magie civique",
+        "category": "classfeatures",
+        "href"    : "/class-features/YZ2XPmx1WHyWtM0g"
+    },
+    {
+        "id"      : "wObrT6PytPdS5aUi",
+        "text"    : "École des lettres",
+        "category": "classfeatures",
+        "href"    : "/class-features/wObrT6PytPdS5aUi"
+    },
+    {
+        "id"      : "XXnGHBxNZvRsdkKM",
+        "text"    : "École des portails",
+        "category": "classfeatures",
+        "href"    : "/class-features/XXnGHBxNZvRsdkKM"
+    },
+    {
+        "id"      : "dPAwM9IdabdH68mW",
+        "text"    : "École des technologies magiques",
+        "category": "classfeatures",
+        "href"    : "/class-features/dPAwM9IdabdH68mW"
+    },
+    {
+        "id"      : "L5FiuXsfW6Sa31gO",
+        "text"    : "École du mentalisme",
+        "category": "classfeatures",
+        "href"    : "/class-features/L5FiuXsfW6Sa31gO"
+    },
+    {
+        "id"      : "xYYhJtGhFSWNifcO",
+        "text"    : "École de la théorie magique unifiée",
+        "category": "classfeatures",
+        "href"    : "/class-features/xYYhJtGhFSWNifcO"
+    },
+    {
+        "id"      : "n2LRzksKVSzOuzqN",
+        "text"    : "École de la récupération",
+        "category": "classfeatures",
+        "href"    : "/class-features/n2LRzksKVSzOuzqN"
+    },
+    {
+        "id"      : "KGkWSv9rARpwWzXW",
+        "text"    : "École de la sagesse enracinée",
+        "category": "classfeatures",
+        "href"    : "/class-features/KGkWSv9rARpwWzXW"
+    },
+    {
+        "id"      : "pUkUC8HHom2DmYzz",
+        "text"    : "Magie élémentaire",
+        "category": "classfeatures",
+        "href"    : "/class-features/pUkUC8HHom2DmYzz"
+    },
+    {
+        "id"      : "5rFzX6JK6CXLFxUP",
+        "text"    : "École élémentaire",
+        "category": "classfeatures",
+        "href"    : "/class-features/5rFzX6JK6CXLFxUP"
+    },
+    {
+        "id"      : "vky5bQfK7SG3uOMA",
+        "text"    : "Magie de guerre",
+        "category": "classfeatures",
+        "href"    : "/class-features/vky5bQfK7SG3uOMA"
+    },
+    {
+        "id"      : "E4GZDMn4DYk6qSEV",
+        "text"    : "École de la magie de combat",
+        "category": "classfeatures",
+        "href"    : "/class-features/E4GZDMn4DYk6qSEV"
+    },
+    {
+        "id"      : "HYTaibaCGE85rhbZ",
+        "text"    : "Seigneur des runes",
+        "category": "classfeatures",
+        "href"    : "/class-features/HYTaibaCGE85rhbZ"
+    },
+    {
+        "id"      : "aYWPtW5T4Lx07Occ",
+        "text"    : "École de la magie runique thassilonienne",
+        "category": "classfeatures",
+        "href"    : "/class-features/aYWPtW5T4Lx07Occ"
+    },
+    {
+        "id"      : "nbfNETdpee8CVM17",
+        "text"    : "Déluge de coups",
+        "category": "actionspf2e",
+        "href"    : "/actions/nbfNETdpee8CVM17"
+    },
+    {
+        "id"      : "qvRlih3u7vK3FYUR",
+        "text"    : "Ancêtres",
+        "category": "classfeatures",
+        "href"    : "/class-features/qvRlih3u7vK3FYUR"
+    },
+    {
+        "id"      : "g3HTg0z3doXZZzAV",
+        "text"    : "Cendres",
+        "category": "classfeatures",
+        "href"    : "/class-features/g3HTg0z3doXZZzAV"
+    },
+    {
+        "id"      : "gjOGOR30Czpnx3tM",
+        "text"    : "Combat",
+        "category": "classfeatures",
+        "href"    : "/class-features/gjOGOR30Czpnx3tM"
+    },
+    {
+        "id"      : "RI2EMRBBPNSoTJXu",
+        "text"    : "Cosmos",
+        "category": "classfeatures",
+        "href"    : "/class-features/RI2EMRBBPNSoTJXu"
+    },
+    {
+        "id"      : "1PHDn7WJFtR3NgTr",
+        "text"    : "Décrépitude",
+        "category": "classfeatures",
+        "href"    : "/class-features/1PHDn7WJFtR3NgTr"
+    },
+    {
+        "id"      : "GTSvbFb36InvuH0w",
+        "text"    : "Flammes",
+        "category": "classfeatures",
+        "href"    : "/class-features/GTSvbFb36InvuH0w"
+    },
+    {
+        "id"      : "IaxmCkdsPlA52spu",
+        "text"    : "Ossements",
+        "category": "classfeatures",
+        "href"    : "/class-features/IaxmCkdsPlA52spu"
+    },
+    {
+        "id"      : "tZBb3Kh4nJcNoUFI",
+        "text"    : "Savoir",
+        "category": "classfeatures",
+        "href"    : "/class-features/tZBb3Kh4nJcNoUFI"
+    },
+    {
+        "id"      : "W9cF7wZztLDb1WGY",
+        "text"    : "Tempête",
+        "category": "classfeatures",
+        "href"    : "/class-features/W9cF7wZztLDb1WGY"
+    },
+    {
+        "id"      : "EslxR2sbDK9XJaAl",
+        "text"    : "Temps",
+        "category": "classfeatures",
+        "href"    : "/class-features/EslxR2sbDK9XJaAl"
+    },
+    {
+        "id"      : "o1gGG36wpn9mxeop",
+        "text"    : "Vie",
+        "category": "classfeatures",
+        "href"    : "/class-features/o1gGG36wpn9mxeop"
+    },
+    {
+        "id"      : "FPVe3o7YctBicSQa",
+        "text"    : "Révélation avancée",
+        "category": "feat",
+        "href"    : "/feats/FPVe3o7YctBicSQa"
+    },
+    {
+        "id"      : "HSW3N9pfHhM7upRB",
+        "text"    : "Révélation supérieure",
+        "category": "feat",
+        "href"    : "/feats/HSW3N9pfHhM7upRB"
+    },
+    {
+        "id"      : "2HeRmbcHcsRMccir",
+        "text"    : "Mystère diversifié",
+        "category": "feat",
+        "href"    : "/feats/2HeRmbcHcsRMccir"
+    },
+    {
+        "id"      : "qmFWCHOuubEl7VpX",
+        "text"    : "Sagacité du domaine",
+        "category": "feat",
+        "href"    : "/feats/qmFWCHOuubEl7VpX"
+    },
+    {
+        "id"      : "ENoRkTXtdfsbs98S",
+        "text"    : "Maîtrise du domaine",
+        "category": "feat",
+        "href"    : "/feats/ENoRkTXtdfsbs98S"
+    },
+    {
+        "id"      : "zXZjC8HLaRoLR17U",
+        "text"    : "Lié à la malédiction",
+        "category": "conditionitems",
+        "href"    : "/conditions/zXZjC8HLaRoLR17U"
+    },
+    {
+        "id"      : "DmAIPqOBomZ7H95W",
+        "text"    : "Masquées",
+        "category": "conditionitems",
+        "href"    : "/conditions/DmAIPqOBomZ7H95W"
+    },
+    {
+        "id"      : "Gb7SeieEvd0pL2Eh",
+        "text"    : "Coup assuré",
+        "category": "spell",
+        "href"    : "/spells/Gb7SeieEvd0pL2Eh"
+    },
+    {
+        "id"      : "SUKaxVZW2TlM8lu0",
+        "text"    : "Affliction purifiée",
+        "category": "spell",
+        "href"    : "/spells/SUKaxVZW2TlM8lu0"
+    },
+    {
+        "id"      : "PRJYLksQEwT39bTl",
+        "text"    : "Mystère",
+        "category": "classfeatures",
+        "href"    : "/class-features/PRJYLksQEwT39bTl"
+    },
+    {
+        "id"      : "PExiZZTSP4p7TZaW",
+        "text"    : "Providence oraculaire",
+        "category": "feat",
+        "href"    : "/feats/PExiZZTSP4p7TZaW"
+    },
+    {
+        "id"      : "ZZzLMOUAtBVgV1DF",
+        "text"    : "Prêtre cloîtré",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZZzLMOUAtBVgV1DF"
+    },
+    {
+        "id"      : "0Aocw3igLwna9cjp",
+        "text"    : "Prêtre combattant",
+        "category": "classfeatures",
+        "href"    : "/class-features/0Aocw3igLwna9cjp"
+    },
+    {
+        "id"      : "hT4INKGtly4QY8KN",
+        "text"    : "Initié du domaine",
+        "category": "feat",
+        "href"    : "/feats/hT4INKGtly4QY8KN"
+    },
+    {
+        "id"      : "DfLkIIg2reyYW3a8",
+        "text"    : "Simplicité mortelle",
+        "category": "feat",
+        "href"    : "/feats/DfLkIIg2reyYW3a8"
+    },
+    {
+        "id"      : "0mJTp4LdEHBLInoe",
+        "text"    : "Défense divine",
+        "category": "classfeatures",
+        "href"    : "/class-features/0mJTp4LdEHBLInoe"
+    },
+    {
+        "id"      : "rfZpqmj0AIIdkVIs",
+        "text"    : "Guérison",
+        "category": "spell",
+        "href"    : "/spells/rfZpqmj0AIIdkVIs"
+    },
+    {
+        "id"      : "wdA52JJnsuQWeyqz",
+        "text"    : "Mise à mal",
+        "category": "spell",
+        "href"    : "/spells/wdA52JJnsuQWeyqz"
+    },
+    {
+        "id"      : "QDjpZKOrWIV1G8XJ",
+        "text"    : "Faiseur de miracles",
+        "category": "feat",
+        "href"    : "/feats/QDjpZKOrWIV1G8XJ"
+    },
+    {
+        "id"      : "JYi4MnsdFu618hPm",
+        "text"    : "Chasser une proie",
+        "category": "actionspf2e",
+        "href"    : "/actions/JYi4MnsdFu618hPm"
+    },
+    {
+        "id"      : "EA5vuSgJfiHH7plD",
+        "text"    : "Pistez",
+        "category": "actionspf2e",
+        "href"    : "/actions/EA5vuSgJfiHH7plD"
+    },
+    {
+        "id"      : "6v4Rj7wWfOH1882r",
+        "text"    : "Déluge",
+        "category": "classfeatures",
+        "href"    : "/class-features/6v4Rj7wWfOH1882r"
+    },
+    {
+        "id"      : "u6cBjqz2fiRBadBt",
+        "text"    : "Précision",
+        "category": "classfeatures",
+        "href"    : "/class-features/u6cBjqz2fiRBadBt"
+    },
+    {
+        "id"      : "NBHyoTrI8q62uDsU",
+        "text"    : "Ruse",
+        "category": "classfeatures",
+        "href"    : "/class-features/NBHyoTrI8q62uDsU"
+    },
+    {
+        "id"      : "SB7cMECVtE06kByk",
+        "text"    : "Dissimuler des traces",
+        "category": "actionspf2e",
+        "href"    : "/actions/SB7cMECVtE06kByk"
+    },
+    {
+        "id"      : "D8qtAo2w4jsqjBrM",
+        "text"    : "Mystificateur",
+        "category": "classfeatures",
+        "href"    : "/class-features/D8qtAo2w4jsqjBrM"
+    },
+    {
+        "id"      : "ZvfxtUMtfIOLYHyg",
+        "text"    : "Scélérat",
+        "category": "classfeatures",
+        "href"    : "/class-features/ZvfxtUMtfIOLYHyg"
+    },
+    {
+        "id"      : "RyOkmu0W9svavuAB",
+        "text"    : "Stratège",
+        "category": "classfeatures",
+        "href"    : "/class-features/RyOkmu0W9svavuAB"
+    },
+    {
+        "id"      : "wAh2riuFRzz0edPl",
+        "text"    : "Voleur",
+        "category": "classfeatures",
+        "href"    : "/class-features/wAh2riuFRzz0edPl"
+    },
+    {
+        "id"      : "3KPZ7svIO6kmmEKH",
+        "text"    : "Voyou",
+        "category": "classfeatures",
+        "href"    : "/class-features/3KPZ7svIO6kmmEKH"
+    },
+    {
+        "id"      : "iU0fEDdBp3rXpTMC",
+        "text"    : "Cachées",
+        "category": "conditionitems",
+        "href"    : "/conditions/iU0fEDdBp3rXpTMC"
+    },
+    {
+        "id"      : "VRSef5y1LmL2Hkjf",
+        "text"    : "Non détectées",
+        "category": "conditionitems",
+        "href"    : "/conditions/VRSef5y1LmL2Hkjf"
+    },
+    {
+        "id"      : "bp0Up04x3dzGK5bB",
+        "text"    : "Frappe incapacitante",
+        "category": "actionspf2e",
+        "href"    : "/actions/bp0Up04x3dzGK5bB"
+    },
+    {
+        "id"      : "MIRkyAjyBeXivMa7",
+        "text"    : "Affaiblie 1",
+        "category": "conditionitems",
+        "href"    : "/conditions/MIRkyAjyBeXivMa7"
+    },
+    {
+        "id"      : "Rlp7ND33yYfxiEWi",
+        "text"    : "Frappe de maître",
+        "category": "actionspf2e",
+        "href"    : "/actions/Rlp7ND33yYfxiEWi"
+    },
+    {
+        "id"      : "6uEgoh53GbXuHpTF",
+        "text"    : "Paralysée",
+        "category": "conditionitems",
+        "href"    : "/conditions/6uEgoh53GbXuHpTF"
+    },
+    {
+        "id"      : "Q5iIYCFdqJFM31GW",
+        "text"    : "Apprendre un sort",
+        "category": "actionspf2e",
+        "href"    : "/actions/Q5iIYCFdqJFM31GW"
+    },
+    {
+        "id"      : "aq1yonHeYpbaj3XI",
+        "text"    : "Poupée du patron",
+        "category": "spell",
+        "href"    : "/spells/aq1yonHeYpbaj3XI"
+    },
+    {
+        "id"      : "rMOI8JFJ0nT2mrCF",
+        "text"    : "Déphasage de familier",
+        "category": "spell",
+        "href"    : "/spells/rMOI8JFJ0nT2mrCF"
+    },
+    {
+        "id"      : "SOan0fqyFTrkqJLV",
+        "text"    : "Leçons du sorcier",
+        "category": "classfeatures",
+        "href"    : "/class-features/SOan0fqyFTrkqJLV"
+    },
+    {
+        "id"      : "nocYmxbi4rqCC2qS",
+        "text"    : "Thème de patron",
+        "category": "classfeatures",
+        "href"    : "/class-features/nocYmxbi4rqCC2qS"
+    },
+    {
+        "id"      : "SelPslNtTfzxp7fs",
+        "text"    : "Vérité du patron",
+        "category": "feat",
+        "href"    : "/feats/SelPslNtTfzxp7fs"
+    },
+    {
+        "id"      : "v2JQB6j3VIKWqPpQ",
+        "text"    : "Choeur politique",
+        "category": "classfeatures",
+        "href"    : "/class-features/v2JQB6j3VIKWqPpQ"
+    },
+    {
+        "id"      : "T9wA833bzZVlB3Lo",
+        "text"    : "Dévoreur de pourriture",
+        "category": "classfeatures",
+        "href"    : "/class-features/T9wA833bzZVlB3Lo"
+    },
+    {
+        "id"      : "mFqMSQoNl0NMDklv",
+        "text"    : "Gardien de la flamme de la foi",
+        "category": "classfeatures",
+        "href"    : "/class-features/mFqMSQoNl0NMDklv"
+    },
+    {
+        "id"      : "e0VhUyjz1clW3sC4",
+        "text"    : "Intendant de la nature",
+        "category": "classfeatures",
+        "href"    : "/class-features/e0VhUyjz1clW3sC4"
+    },
+    {
+        "id"      : "FdLx4VODZEYLGOK9",
+        "text"    : "L'inscrit",
+        "category": "classfeatures",
+        "href"    : "/class-features/FdLx4VODZEYLGOK9"
+    },
+    {
+        "id"      : "ydI39ViUy22nBRn6",
+        "text"    : "Le courtier invisible",
+        "category": "classfeatures",
+        "href"    : "/class-features/ydI39ViUy22nBRn6"
+    },
+    {
+        "id"      : "9OwWgOP8ZWxTAqbg",
+        "text"    : "Le ressentiment",
+        "category": "classfeatures",
+        "href"    : "/class-features/9OwWgOP8ZWxTAqbg"
+    },
+    {
+        "id"      : "4zE3seVFtLPNw9EQ",
+        "text"    : "Murmure des ailes",
+        "category": "classfeatures",
+        "href"    : "/class-features/4zE3seVFtLPNw9EQ"
+    },
+    {
+        "id"      : "zy0toWeGIeQstbT4",
+        "text"    : "Moustique",
+        "category": "classfeatures",
+        "href"    : "/class-features/zy0toWeGIeQstbT4"
+    },
+    {
+        "id"      : "r2ZPRAw9c3VGZi8A",
+        "text"    : "Ombre sans étoile",
+        "category": "classfeatures",
+        "href"    : "/class-features/r2ZPRAw9c3VGZi8A"
+    },
+    {
+        "id"      : "lgv4VIoj5TLhm9u0",
+        "text"    : "Ondulation dans les profondeurs",
+        "category": "classfeatures",
+        "href"    : "/class-features/lgv4VIoj5TLhm9u0"
+    },
+    {
+        "id"      : "RdOzBNPKLTMUWrJs",
+        "text"    : "Paradoxe des opposés",
+        "category": "classfeatures",
+        "href"    : "/class-features/RdOzBNPKLTMUWrJs"
+    },
+    {
+        "id"      : "9c57R18pfgfqlBCD",
+        "text"    : "Silence dans la neige",
+        "category": "classfeatures",
+        "href"    : "/class-features/9c57R18pfgfqlBCD"
+    },
+    {
+        "id"      : "ghIsqhEsJTvjJiNl",
+        "text"    : "Tisseur de fils",
+        "category": "classfeatures",
+        "href"    : "/class-features/ghIsqhEsJTvjJiNl"
+    },
+    {
+        "id"      : "VVMMJdIWL7fAsQf3",
+        "text"    : "Baba Yaga",
+        "category": "classfeatures",
+        "href"    : "/class-features/VVMMJdIWL7fAsQf3"
+    },
+    {
+        "id"      : "f9uqHnNBMU0774SF",
+        "text"    : "Trahison élémentaire",
+        "category": "spell",
+        "href"    : "/spells/f9uqHnNBMU0774SF"
+    },
+    {
+        "id"      : "W69zswpj0Trdy5rj",
+        "text"    : "Bulle d'air",
+        "category": "spell",
+        "href"    : "/spells/W69zswpj0Trdy5rj"
+    },
+    {
+        "id"      : "y6rAdMK6EFlV6U0t",
+        "text"    : "Cracher du feu",
+        "category": "spell",
+        "href"    : "/spells/y6rAdMK6EFlV6U0t"
+    },
+    {
+        "id"      : "Rn2LkoSq1XhLsODV",
+        "text"    : "Frappe de débris",
+        "category": "spell",
+        "href"    : "/spells/Rn2LkoSq1XhLsODV"
+    },
+    {
+        "id"      : "jfVCuOpzC6mUrf6f",
+        "text"    : "Poussée hydraulique",
+        "category": "spell",
+        "href"    : "/spells/jfVCuOpzC6mUrf6f"
+    },
+    {
+        "id"      : "dFejDNEmVj3CwYLL",
+        "text"    : "Protection du sang",
+        "category": "spell",
+        "href"    : "/spells/dFejDNEmVj3CwYLL"
+    },
+    {
+        "id"      : "aAbfKn8maGjJjk2W",
+        "text"    : "Armure mystique",
+        "category": "spell",
+        "href"    : "/spells/aAbfKn8maGjJjk2W"
+    },
+    {
+        "id"      : "NNoKWiWKqJkdD2ln",
+        "text"    : "Voile des rêves",
+        "category": "spell",
+        "href"    : "/spells/NNoKWiWKqJkdD2ln"
+    },
+    {
+        "id"      : "o4lRVTwSxnOOn5vl",
+        "text"    : "Sommeil",
+        "category": "spell",
+        "href"    : "/spells/o4lRVTwSxnOOn5vl"
+    },
+    {
+        "id"      : "aEitTTb9PnOyidRf",
+        "text"    : "Aiguillon de la vengeance",
+        "category": "spell",
+        "href"    : "/spells/aEitTTb9PnOyidRf"
+    },
+    {
+        "id"      : "R8bqnYiThB6MYTxD",
+        "text"    : "Douleur fantôme",
+        "category": "spell",
+        "href"    : "/spells/R8bqnYiThB6MYTxD"
+    },
+    {
+        "id"      : "fAlzXtQAASaJx0mY",
+        "text"    : "Gain de vie",
+        "category": "spell",
+        "href"    : "/spells/fAlzXtQAASaJx0mY"
+    },
+    {
+        "id"      : "yHujiDQPdtXW797e",
+        "text"    : "Lien spirituel",
+        "category": "spell",
+        "href"    : "/spells/yHujiDQPdtXW797e"
+    },
+    {
+        "id"      : "X8PSYw6WC2ePYSXd",
+        "text"    : "Malédiction titubante",
+        "category": "spell",
+        "href"    : "/spells/X8PSYw6WC2ePYSXd"
+    },
+    {
+        "id"      : "6ZIKB0151LUR19Rw",
+        "text"    : "Mauvais présage",
+        "category": "spell",
+        "href"    : "/spells/6ZIKB0151LUR19Rw"
+    },
+    {
+        "id"      : "vhMCd15ZwNJn0zen",
+        "text"    : "Ombre malicieuse",
+        "category": "spell",
+        "href"    : "/spells/vhMCd15ZwNJn0zen"
+    },
+    {
+        "id"      : "sRfSBHWHdbIa0aGc",
+        "text"    : "Ténèbres glaciales",
+        "category": "spell",
+        "href"    : "/spells/sRfSBHWHdbIa0aGc"
+    },
+    {
+        "id"      : "9gMQPCaFM27PEIh4",
+        "text"    : "Rendre la faveur",
+        "category": "spell",
+        "href"    : "/spells/9gMQPCaFM27PEIh4"
+    },
+    {
+        "id"      : "fPlFRu4dp09qJs3K",
+        "text"    : "Esprit de menace",
+        "category": "spell",
+        "href"    : "/spells/fPlFRu4dp09qJs3K"
+    },
+    {
+        "id"      : "FrKPwgFxWIGMGgs4",
+        "text"    : "Cape de tromperie",
+        "category": "spell",
+        "href"    : "/spells/FrKPwgFxWIGMGgs4"
+    },
+    {
+        "id"      : "tFKJCPvOQZxKq6ON",
+        "text"    : "Singes fous",
+        "category": "spell",
+        "href"    : "/spells/tFKJCPvOQZxKq6ON"
+    },
+    {
+        "id"      : "g4MAIQodRDVfNp1B",
+        "text"    : "Blizzard personnel",
+        "category": "spell",
+        "href"    : "/spells/g4MAIQodRDVfNp1B"
+    },
+    {
+        "id"      : "it4ZsAi6XgvGcodc",
+        "text"    : "Mur de vent",
+        "category": "spell",
+        "href"    : "/spells/it4ZsAi6XgvGcodc"
+    },
+    {
+        "id"      : "V4jrHiaMh4XuANOP",
+        "text"    : "Maladie mycologique",
+        "category": "spell",
+        "href"    : "/spells/V4jrHiaMh4XuANOP"
+    },
+    {
+        "id"      : "XI6Lzd2B5pernkPd",
+        "text"    : "Forme d'insecte",
+        "category": "spell",
+        "href"    : "/spells/XI6Lzd2B5pernkPd"
+    },
+    {
+        "id"      : "CXpOlv2ZZq2jVbRX",
+        "text"    : "Sang dans l'eau",
+        "category": "spell",
+        "href"    : "/spells/CXpOlv2ZZq2jVbRX"
+    },
+    {
+        "id"      : "RvBlSIJmxiqfCpR9",
+        "text"    : "Pieds en nageoires",
+        "category": "spell",
+        "href"    : "/spells/RvBlSIJmxiqfCpR9"
+    },
+    {
+        "id"      : "gxK5XW4WAXOgY1mN",
+        "text"    : "Ailes protectrices",
+        "category": "spell",
+        "href"    : "/spells/gxK5XW4WAXOgY1mN"
+    },
+    {
+        "id"      : "fI20AVwOzJMHXRdo",
+        "text"    : "Lévitation",
+        "category": "spell",
+        "href"    : "/spells/fI20AVwOzJMHXRdo"
+    },
+    {
+        "id"      : "PcmFpaHPCReNp1BD",
+        "text"    : "Sur des charbons ardents",
+        "category": "spell",
+        "href"    : "/spells/PcmFpaHPCReNp1BD"
+    },
+    {
+        "id"      : "GP3wewkQXEPrLxYj",
+        "text"    : "Suggestion subconsciente",
+        "category": "spell",
+        "href"    : "/spells/GP3wewkQXEPrLxYj"
+    },
+    {
+        "id"      : "nQS4vPm5zprqkzFZ",
+        "text"    : "Malédiction de mort",
+        "category": "spell",
+        "href"    : "/spells/nQS4vPm5zprqkzFZ"
+    },
+    {
+        "id"      : "IkGYwHRLhkuoGReG",
+        "text"    : "Rappel à la vie",
+        "category": "spell",
+        "href"    : "/spells/IkGYwHRLhkuoGReG"
+    },
+    {
+        "id"      : "pCvJ4yoZJxDtgUMI",
+        "text"    : "Moment restauratif",
+        "category": "spell",
+        "href"    : "/spells/pCvJ4yoZJxDtgUMI"
+    },
+    {
+        "id"      : "x5rGOmhDRDVQPrnW",
+        "text"    : "Champ de vie",
+        "category": "spell",
+        "href"    : "/spells/x5rGOmhDRDVQPrnW"
+    },
+    {
+        "id"      : "ZyREiMaul0VhDYh3",
+        "text"    : "Cœur glacial",
+        "category": "spell",
+        "href"    : "/spells/ZyREiMaul0VhDYh3"
+    },
+    {
+        "id"      : "R5FHRv7VqyRnxg2t",
+        "text"    : "Mur de glace",
+        "category": "spell",
+        "href"    : "/spells/R5FHRv7VqyRnxg2t"
+    }
+];
