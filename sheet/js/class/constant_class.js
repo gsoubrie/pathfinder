@@ -4335,27 +4335,324 @@ var CLASSES = {
         {
             "name"                 : "Roublard",
             "key"                  : "roublard",
-            "general_desc"         : null,
-            "characteristics_bonus": null,
-            "life_point_by_level"  : null,
-            "desc_fight"           : null,
-            "desc_socially"        : null,
-            "desc_exploration"     : null,
-            "desc_interlude"       : null,
-            "desc_you_could"       : [],
-            "desc_probably_others" : [],
+            "general_desc"         : "Vous êtes compétent et opportuniste. Grâce à votre vivacité d'esprit et à vos réactions rapides, vous tirez parti des erreurs de vos adversaires et frappez là où ça fait vraiment mal. Vous jouez un jeu dangereux, en recherchant des sensations fortes et en mettant vos compétences à l'épreuve, et vous ne vous souciez probablement pas beaucoup des lois qui se mettent en travers de votre chemin. Si le parcours de chaque roublard est unique et semé d'embûches, la seule chose que vous avez en commun est l'étendue et la qualité de vos compétences.",
+            "characteristics_bonus": {
+                "number": 1,
+                "choice": [
+                    "DEX",
+                    "AUT"
+                ]
+            },
+            "life_point_by_level"  : 8,
+            "desc_fight"           : "Vous vous déplacez furtivement afin de surprendre vos adversaires. Vous êtes un instrument de précision, plus utile contre un boss coriace ou un lanceur de sorts éloigné que contre des soldats du rang.",
+            "desc_socially"        : "Vos compétences vous donnent de multiples outils pour influencer vos adversaires. Tirer les ficelles et dénicher les informations, c'est une seconde nature pour vous.",
+            "desc_exploration"     : "Vous vous faufilez pour surprendre les ennemis et repérer les dangers ou les pièges. Vous êtes un atout précieux car vous pouvez désactiver des pièges, résoudre des énigmes et anticiper les dangers.",
+            "desc_interlude"       : "Vous pourriez faire les poches ou faire de la contrebande de marchandises illégales. Vous pouvez également intégrer une guilde de voleurs ou même fonder la vôtre.",
+            "desc_you_could"       : [
+                "Parfaire vos compétences par une pratique intense, à la fois en solitaire et sur le terrain.",
+                "Savoir où vous procurer des produits illicites.",
+                "contourner ou enfreindre la loi parce que vous pensez qu'elle n'a pas de sens ou appliquer votre propre code."
+            ],
+            "desc_probably_others" : [
+                "vous trouvent charmant ou fascinant, même s'ils pensent qu'il vaut mieux ne pas vous faire confiance.",
+                "S'adressent à vous lorsqu'ils ont besoin de quelqu'un qui est prêt à prendre des risques ou à utiliser des méthodes discutables.",
+                "Vous soupçonnent d'être motivé avant tout par l'appât du gain."
+            ],
             "mastery"              : {
-                "perception": null,
-                "saves"     : null,
-                "skills"    : null,
-                "attacks"   : null,
-                "defenses"  : null,
+                "perception": "E",
+                "saves"     : [
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié en Vigueur"
+                    },
+                    {
+                        "level"      : "E",
+                        "description": "Expert en Réflexes"
+                    },
+                    {
+                        "level"      : "E",
+                        "description": "Expert en Volonté"
+                    }
+                ],
+                "skills"    : [
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié en Discrétion"
+                    },
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié dans une compétence déterminée par votre trafic de roublard."
+                    },
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié dans un nombre de compétences supplémentaires égal à 7 plus votre modificateur d'Intelligence"
+                    }
+                ],
+                "attacks"   : [
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié en attaques à mains nues"
+                    },
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié avec les armes simples"
+                    },
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié avec les armes de guerre"
+                    }
+                ],
+                "defenses"  : [
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié en défense sans armure"
+                    },
+                    {
+                        "level"      : "Q",
+                        "description": "Qualifié avec les armures légères"
+                    }
+                ],
                 "spells"    : null,
-                "class_dc"  : null,
+                "class_dc"  : "Q",
                 "rarity"    : null
             },
-            "capacity_by_level"    : [],
-            "abilities"            : {}
+            "capacity_by_level"    : [
+                "attaque sournoise 1d6, attaque surprise, don de compétence, don de roublard, maîtrises initiales, primes d'attributs, trafic de roublard",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, don de compétence, don de roublard, don général, refus d'avantage",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, astuces martiales, attaque sournoise 2d6, don ancestral, don de compétence, primes d'attributs",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, don de compétence, don général, maîtrise en perception, réflexes d'évitement, spécialisation martiale",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, don ancestral, don de compétence, frappe incapacitante, résilience du roublard",
+                "Amélioration de compétence, don de compétence, don de roublard, primes d'attributs",
+                "Amélioration de compétence, attaque sournoise 3d6, don de compétence, don général, expertise du roublard",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, astuces de maître, don ancestral, don de compétence, expertise avec les armures légères, légendaire en perception, réflexes du roublard améliorés",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, don de compétence, don général, double handicap, primes d'attributs, spécialisation martiale supérieure",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, attaque sournoise 4d6, don ancestral, don de compétence, esprit fuyant",
+                "Amélioration de compétence, don de compétence, don de roublard",
+                "Amélioration de compétence, don de compétence, don général, frappe de maître, maîtrise des armures légères",
+                "Amélioration de compétence, don de compétence, don de roublard, primes d'attributs"
+            ],
+            "abilities"            : {
+                "attaque_sournoise"                 : {
+                    "name"       : "Attaque sournoise",
+                    "description": [
+                        "Lorsque votre ennemi ne peut se défendre correctement, vous en tirez profit pour lui infliger des dégâts supplémentaires. Si vous Frappez une créature qui est sentiment_very_dissatisfiedPrise au dépourvu avec une arme de corps-à-corps agile ou de finesse, avec une attaque à mains nues agile ou de finesse ou avec une attaque d'arme à distance ou avec une attaque à mains nues à distance, vous lui infligez 1d6 dégâts de précision supplémentaires. Pour une attaque à distance avec une arme de corps-à-corps de jet, cette arme doit également posséder le trait agile ou finesse.",
+                        "Lorsque vous gagnez des niveaux, le nombre de dés de dégâts augmente de un aux niveaux 5, 11 et 17."
+                    ]
+                },
+                "attaque_surprise"                  : {
+                    "name"       : "Attaque surprise",
+                    "description": [
+                        "Vous agissez avant que vos adversaires ne réagissent. Lors du premier round de combat, si vous utilisez la Duperie ou la Discrétion pour déterminer l'initiative, les créatures qui n'ont pas encore agi sont sentiment_very_dissatisfiedPrises au dépourvu à votre égard."
+                    ],
+                    "required"   : {
+                        "archetypes": [
+                            {
+                                "id"  : "assassin",
+                                "name": "Assassin"
+                            }
+                        ]
+                    }
+                },
+                "dons_de_competences"               : {
+                    "name"       : "Dons de compétences",
+                    "description": [
+                        "Vous obtenez des dons de compétences plus souvent que d'autres. Au niveau 1 et à chaque niveau suivant, vous obtenez un don de compétence."
+                    ]
+                },
+                "dons_de_roublard"                  : {
+                    "name"       : "Dons de roublard",
+                    "description": [
+                        "Au niveau 1, puis tous les niveaux pairs, vous obtenez un don de classe de roublard."
+                    ]
+                },
+                "trafic_de_roublard"                : {
+                    "name"       : "Trafic de roublard",
+                    "description": [
+                        "En vous engageant sur la voie du roublard, vous développez votre propre style grâce auquel vous mènerez vos activités illicites. Votre trafic oriente vos techniques de roublard et la manière dont vous envisagez un coup, tout en contribuant à faire reconnaître votre talent pour un certain type de missions auprès de la pègre. Ainsi, un client fortuné qui envisage un casse pourra engager une équipe de roublards aux trafics spécialisés couvrant tous les aspects de la mission. Choisissez un trafic de roublard.",
+                        "Vous avez commencé à développer vos techniques et une approche du métier, en vous bâtissant une réputation parmi les cercles de roublard. Choisissez un trafic de roublard dans la liste ci-dessous.",
+                        "Mystificateur",
+                        "Scélérat",
+                        "Stratège",
+                        "Voleur",
+                        "Voyou"
+                    ]
+                },
+                "ameliorations_de_competence"       : {
+                    "name"       : "Améliorations de compétence",
+                    "description": [
+                        "Vous obtenez plus d'améliorations de compétences que les membres des autres classes. Au niveau 2 et à chaque niveau suivant, vous obtenez une amélioration de compétence. Vous pouvez utiliser cette amélioration soit pour devenir qualifié dans une compétence dans laquelle vous êtes inexpérimenté, soit pour devenir expert dans une compétence dans laquelle vous êtes déjà qualifié.",
+                        "À partir du niveau 7, vous pouvez utiliser l'amélioration de compétence pour devenir maître dans une compétence dans laquelle vous êtes déjà expert et à partir du niveau 15, vous pouvez l'utiliser pour devenir légendaire dans une compétence dans laquelle vous êtes déjà maître."
+                    ],
+                    "level"      : 2
+                },
+                "refus_d_avantage"                  : {
+                    "name"       : "Refus d'avantage",
+                    "description": [
+                        "Comme vous profitez des ouvertures dans la défense des autres, vous veillez à ne pas en laisser vous-même. Vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu par les créatures qui sont sentiment_very_dissatisfiedCachées , sentiment_very_dissatisfiedNon détectées ou qui vous prennent en tenaille si elles sont d'un niveau inférieur ou égal au vôtre, ni par les créatures d'un niveau inférieur ou égal au vôtre qui utilisent Attaque surprise. Cependant, ces créatures peuvent toujours aider leurs alliés à vous prendre en tenaille."
+                    ],
+                    "level"      : 3
+                },
+                "dons_generaux"                     : {
+                    "name"       : "Dons généraux",
+                    "description": [
+                        "Au niveau 3, puis tous les 4 niveaux, vous obtenez un don général."
+                    ],
+                    "level"      : 3
+                },
+                "astuces_martiales"                 : {
+                    "name"       : "Astuces martiales",
+                    "description": [
+                        "Votre degré de maîtrise avec les attaques à mains nues, les armes simples et les armes de guerre passe à expert. Lorsque vous obtenez un coup critique sur un jet d'attaque contre une créature sentiment_very_dissatisfiedPrise au dépourvu alors que vous utilisez une arme ou une attaque à mains nues ayant les traits agile ou finesse, vous appliquez l'effet critique spécialisé de l'arme ou de l'attaque à mains nues que vous maniez."
+                    ],
+                    "level"      : 5
+                },
+                "dons_ancestraux"                   : {
+                    "name"       : "Dons ancestraux",
+                    "description": [
+                        "En plus de celui avec lequel vous avez commencé, vous obtenez un don ancestral au niveau 5 puis tous les 4 niveaux."
+                    ],
+                    "level"      : 5
+                },
+                "primes_d_attributs"                : {
+                    "name"       : "Primes d'attributs",
+                    "description": [
+                        "Au niveau 5, puis tous les 5 niveaux, vous améliorez quatre scores d'attributs différents. Vous pouvez utiliser ces primes d'attributs pour faire passer la valeur d'un score d'attribut au-dessus de +4. La prime augmente la valeur du score d'attribut de +1/2 s'il est supérieur ou égal à +4 ou de +1 s'il est inférieur à +3."
+                    ],
+                    "level"      : 5
+                },
+                "maitrise_en_perception"            : {
+                    "name"       : "Maîtrise en perception",
+                    "description": [
+                        "Vous avez développé une vigilance accrue et une attention particulière aux détails. Vous devenez maître en Perception."
+                    ],
+                    "level"      : 7
+                },
+                "reflexes_d_evitement"              : {
+                    "name"       : "Réflexes d'évitement",
+                    "description": [
+                        "Vous avez appris à vous déplacer rapidement pour éviter les explosions, le souffle des dragons et pire. Votre degré de maîtrise pour les jets de Réflexes passe à maître. Lorsque vous obtenez un succès sur un jet de Réflexes, il devient un succès critique."
+                    ],
+                    "level"      : 7
+                },
+                "specialisation_martiale"           : {
+                    "name"       : "Spécialisation martiale",
+                    "description": [
+                        "Vous avez appris à infliger des blessures plus importantes avec les armes que vous connaissez le mieux. Vous infligez 2 dégâts supplémentaires avec les armes et les attaques à mains nues avec lesquelles vous êtes expert. Ces dégâts passent à 3 si vous êtes maître et à 4 si vous êtes légendaire."
+                    ],
+                    "level"      : 7
+                },
+                "frappe_incapacitante"              : {
+                    "name"       : "Frappe incapacitante",
+                    "description": [
+                        "Quand vous profitez d'une ouverture, vous blessez et handicapez votre adversaire. Vous obtenez l'action gratuite Frappe incapacitante."
+                    ],
+                    "level"      : 9
+                },
+                "frappe_incapacitante_f"            : {
+                    "name"       : "Frappe incapacitante F",
+                    "description": [
+                        "Déclencheur Votre Frappe touche une créature Prise au dépourvu et lui inflige des dégâts.",
+                        "Vous appliquez l'un des handicaps suivants qui dure jusqu'à la fin de votre prochain tour.",
+                        "Handicap La cible subit une pénalité de statut de -3 mètres à ses Vitesses.",
+                        "Handicap La cible devient sentiment_very_dissatisfiedAffaiblie 1 ."
+                    ]
+                },
+                "resilience_du_roublard"            : {
+                    "name"       : "Résilience du roublard",
+                    "description": [
+                        "Votre physique est incroyablement résistant. Votre degré de maîtrise pour les jets de Vigueur passe à expert. Lorsque vous obtenez un succès sur un jet de Vigueur, il devient un succès critique."
+                    ],
+                    "level"      : 9
+                },
+                "expertise_du_roublard"             : {
+                    "name"       : "Expertise du roublard",
+                    "description": [
+                        "Il est désormais plus difficile de résister à vos techniques. Votre degré de maîtrise dans le DD de classe roublard passe à expert."
+                    ],
+                    "level"      : 11
+                },
+                "astuces_de_maitre"                 : {
+                    "name"       : "Astuces de maître",
+                    "description": [
+                        "Vous avez maîtrisé les mouvements de combat du roublard. Vous devenez maître avec toutes les armes simples, les armes de guerre et les attaques à mains nues."
+                    ],
+                    "level"      : 13
+                },
+                "expertise_avec_les_armures_legeres": {
+                    "name"       : "Expertise avec les armures légères",
+                    "description": [
+                        "Vous avez appris à mieux esquiver en ne portant pas d'armure ou une armure légère. Votre degré de maîtrise avec les armures légères et en défense sans armure passe à expert."
+                    ],
+                    "level"      : 13
+                },
+                "legendaire_en_perception"          : {
+                    "name"       : "Légendaire en perception",
+                    "description": [
+                        "Vous remarquez presque l'imperceptible. Vous devenez légendaire en Perception."
+                    ],
+                    "level"      : 13
+                },
+                "reflexes_du_roublard_ameliores"    : {
+                    "name"       : "Réflexes du roublard améliorés",
+                    "description": [
+                        "Vous éludez le danger à un degré que peu parviennent à atteindre. Votre degré de maîtrise pour les jets de Réflexes passe à légendaire. Lorsque vous obtenez un échec critique sur un jet de Réflexes, il devient un échec. Lorsque vous obtenez un échec sur un jet de Réflexes contre des effets causant des dégâts, vous ne subissez que la moitié des dégâts."
+                    ],
+                    "level"      : 13
+                },
+                "double_handicap"                   : {
+                    "name"       : "Double handicap",
+                    "description": [
+                        "Vos attaques opportunistes sont particulièrement préjudiciables. Quand vous utilisez sports_martial_artsFrappe incapacitante , vous pouvez appliquer deux handicaps simultanément. Mettre un terme à l'un élimine également le second."
+                    ],
+                    "level"      : 15
+                },
+                "specialisation_martiale_superieure": {
+                    "name"       : "Spécialisation martiale supérieure",
+                    "description": [
+                        "Les dégâts de spécialisation martiale passent à 4 avec les armes et les attaques à mains nues avec lesquelles vous êtes expert, à 6 si vous êtes maître et à 8 si vous êtes légendaire."
+                    ],
+                    "level"      : 15
+                },
+                "esprit_fuyant"                     : {
+                    "name"       : "Esprit fuyant",
+                    "description": [
+                        "Vous jouez à des jeux mentaux et employez des astuces cognitives pour contrer les effets altérant l'esprit. Vous êtes maître en jets de Volonté. Quand vous obtenez un succès sur un jet de Volonté, il devient un succès critique."
+                    ],
+                    "level"      : 17
+                },
+                "frappe_de_maitre"                  : {
+                    "name"       : "Frappe de maître",
+                    "description": [
+                        "Vous pouvez mettre hors de combat un ennemi distrait en lui assénant une unique frappe. Votre degré de maîtrise dans le DD de classe de roublard passe à maître. Vous obtenez l'action gratuite sports_martial_artsFrappe de maître ."
+                    ],
+                    "level"      : 19
+                },
+                "frappe_de_maitre_f"                : {
+                    "name"       : "Frappe de maître F",
+                    "description": [
+                        "Déclencheur Vous réussissez une Frappe contre une créature sentiment_very_dissatisfiedPrise au dépourvu et lui infligez des dégâts.",
+                        "La cible fait un jet de casinoVigueur contre votre DD de classe. Elle devient temporairement immunisée à votre Frappe de maître pour 1 journée.",
+                        "Succès critique La cible n'est pas affectée.",
+                        "Succès La cible est sentiment_very_dissatisfiedAffaiblie 2 jusqu'à la fin de votre prochain tour.",
+                        "Échec La cible est sentiment_very_dissatisfiedParalysée pendant 4 rounds.",
+                        "Échec critique La cible est Paralysée pendant 4 rounds, se trouve dans l'état sentiment_very_dissatisfiedInconscient pendant 2 heures ou est tuée (à vous de décider)."
+                    ]
+                },
+                "maitrise_des_armures_legeres"      : {
+                    "name"       : "Maîtrise des armures légères",
+                    "description": [
+                        "Votre compétence avec les armures légères s'améliore, augmentant votre capacité à esquiver les coups. Vous devenez maître avec les armures légères et en défense sans armure."
+                    ],
+                    "level"      : 19
+                }
+            }
         },
         {
             "name"                 : "Sorcier",

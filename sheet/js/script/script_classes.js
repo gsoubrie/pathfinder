@@ -280,7 +280,9 @@ const PF2_CLASS = (function () {
         result.capacity_by_level = [];
         const tds = tableContainer.querySelectorAll( "td" );
         for ( let i = 1; i < tds.length; i += 2 ) {
-            result.capacity_by_level.push( tds[ i ].innerText.trim() );
+            let text = tds[ i ].innerText.trim();
+            text = text.replace( /Ascendance et historique,?\s*/i, "" ).trim();
+            result.capacity_by_level.push( text );
         }
     };
 
@@ -303,6 +305,11 @@ const PF2_CLASS = (function () {
 
             result._currentAbility = { name, description: [] };
             if ( level !== null ) result._currentAbility.level = level;
+
+            if ( id === "ascendance_et_historique" || id === "maitrises_initiales" ) {
+                result._currentAbility = null;
+                return;
+            }
 
             result.abilities[ id ] = result._currentAbility;
             return;
@@ -393,7 +400,6 @@ const PF2_CLASS = (function () {
     */
 
     self.buildMastery = ( raw ) => ({
-        initial   : raw.mastery_initial    || null,
         perception: raw.mastery_perception || null,
         saves     : raw.mastery_js         || null,
         skills    : raw.mastery_skill      || null,
