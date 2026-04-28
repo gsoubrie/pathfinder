@@ -35,23 +35,31 @@ const PF2_CLASS = (function () {
 
     // Mapping du segment compendium → catégorie lisible
     self.compendiumCategory = ( compendium ) => {
-        const map = {
-            "feats-srd"                     : "feat",
-            "equipment-srd"                 : "item",
-            "spells-srd"                    : "spell",
-            "actions-srd"                   : "action",
-            "bestiary-ability-glossary-srd" : "ability",
-            "conditionitems-srd"            : "condition",
-            "ancestryfeatures-srd"          : "ancestry-feature",
-            "classfeatures-srd"             : "class-feature",
-            "rituals-srd"                   : "ritual",
-            "deities-srd"                   : "deity",
-            "backgrounds-srd"               : "background",
-        };
-        for ( const key of Object.keys( map ) ) {
-            if ( compendium.includes( key ) ) return map[ key ];
-        }
-        return compendium; // fallback : nom brut du compendium
+        const c = compendium.toLowerCase();
+        if ( c.includes( "feat" ) )                    return "feat";
+        if ( c.includes( "equipment" )
+          || c.includes( "item" )
+          || c.includes( "armor" )
+          || c.includes( "weapon" )
+          || c.includes( "shield" )
+          || c.includes( "consumable" )
+          || c.includes( "treasure" ) )                return "item";
+        if ( c.includes( "spell" ) )                   return "spell";
+        if ( c.includes( "ritual" ) )                  return "ritual";
+        if ( c.includes( "action" ) )                  return "action";
+        if ( c.includes( "condition" ) )               return "condition";
+        if ( c.includes( "bestiary" )
+          || c.includes( "ability-glossary" ) )        return "ability";
+        if ( c.includes( "ancestryfeature" )
+          || c.includes( "ancestry-feature" ) )        return "ancestry-feature";
+        if ( c.includes( "classfeature" )
+          || c.includes( "class-feature" ) )           return "class-feature";
+        if ( c.includes( "deity" )
+          || c.includes( "deities" ) )                 return "deity";
+        if ( c.includes( "background" ) )              return "background";
+        if ( c.includes( "hazard" ) )                  return "hazard";
+        if ( c.includes( "npc" ) )                     return "npc";
+        return compendium; // fallback : on garde le nom brut pour investigation
     };
 
     // Remplace les elt-foundry-annotation par [[cat:id]] dans le texte
@@ -565,7 +573,7 @@ const PF2_CLASS = (function () {
         }
         return {
             classes: results,
-            links  : Object.values( self.links )
+            links  : self.links   // déjà un dict { uuid: { id, text, category, href } }
         };
     };
 
