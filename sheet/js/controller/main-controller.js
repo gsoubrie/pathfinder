@@ -6,6 +6,10 @@ CONTROLLER.Main = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__show_information":
+                return;
+        }
         CONTROLLER.Character.doActionAfter( event_name, params );
     };
     return self;

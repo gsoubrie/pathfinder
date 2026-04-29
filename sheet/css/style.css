@@ -161,19 +161,19 @@ body {
 }
 
 .property-tab-pane .property .value {
-    background      : linear-gradient(135deg, #BFC2C3 0%, #AFB2C3 100%);
-    border          : none;
-    color           : #2C1810;
-    font-weight     : 600;
-    font-family     : inherit;
-    font-size       : inherit;
-    min-height      : 24px;
-    height          : 100%;
-    border-radius   : 4px;
-    padding         : 4px 8px;
-    box-shadow      : inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align      : left;
-    outline         : none;
+    background    : linear-gradient(135deg, #BFC2C3 0%, #AFB2C3 100%);
+    border        : none;
+    color         : #2C1810;
+    font-weight   : 600;
+    font-family   : inherit;
+    font-size     : inherit;
+    min-height    : 24px;
+    height        : 100%;
+    border-radius : 4px;
+    padding       : 4px 8px;
+    box-shadow    : inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align    : left;
+    outline       : none;
 }
 .property-tab-pane .property .value:focus {
     background : white;
@@ -190,4 +190,15 @@ body {
 
 .property-tab-pane .property .value[contenteditable="false"] {
     cursor : pointer;
+}
+
+.gs-link-information {
+    display : inline-block;
+    color   : #C5C5F5;
+}
+.gs-link-information:before {
+    content : '"';
+}
+.gs-link-information:after {
+    content : '"';
 }

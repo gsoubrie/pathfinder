@@ -69,8 +69,14 @@ const PF2_CLASS = (function () {
 
         clone.querySelectorAll( "mat-icon" ).forEach( el => el.remove() );
 
-        clone.querySelectorAll( "elt-foundry-annotation" ).forEach( el => {
-            const formula = el.getAttribute( "formula" ) || "";
+        // On itère sur les annotations du clone en parallèle des originaux
+        // pour lire la formula sur le nœud original (case préservée)
+        const origAnnotations  = Array.from( node.querySelectorAll( "elt-foundry-annotation" ) );
+        const cloneAnnotations = Array.from( clone.querySelectorAll( "elt-foundry-annotation" ) );
+
+        cloneAnnotations.forEach( ( el, i ) => {
+            const orig    = origAnnotations[ i ];
+            const formula = ( orig?.getAttribute( "formula" ) || el.getAttribute( "formula" ) || "" );
             const text    = ( el.getAttribute( "text" ) || el.innerText ).trim();
 
             // formula : @UUID[Compendium.pf2e.feats-srd.Item.XXXX]
@@ -78,17 +84,17 @@ const PF2_CLASS = (function () {
 
             if ( match ) {
                 const compendium = match[ 2 ]; // ex: feats-srd
-                const id         = match[ 3 ]; // ex: is3Oz9wt11lNq62K
+                const id         = match[ 3 ]; // ex: jM72TjJ965jocBV8 (case préservée)
                 const category   = self.compendiumCategory( compendium );
 
                 // Enregistre dans le registre global (dédupliqué par id)
                 if ( !self.links[ id ] ) {
-                    const href = el.querySelector( "a" )?.getAttribute( "href" ) || null;
+                    const href = orig?.querySelector( "a" )?.getAttribute( "href" ) || null;
                     self.links[ id ] = { id, text, category, href };
                 }
 
-                // Remplace le nœud par un marqueur texte [[cat:id]]
-                el.replaceWith( `[[${category}:${id}]]` );
+                // Remplace le nœud par le div HTML de lien
+                el.replaceWith( `<div class="gs-link-information" onclick="CONTROLLER.Main.doActionAfter('event__show_information', {'param__information__uuid': '${id}'})">${text}</div>` );
             }
             else {
                 // Pas de formule reconnue → on garde juste le texte
