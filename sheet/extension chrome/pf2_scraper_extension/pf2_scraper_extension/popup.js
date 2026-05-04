@@ -49,10 +49,20 @@ $("btn-start").addEventListener("click", () => {
     // Normalise : accepte soit l'objet direct, soit { CONST: {...} }
     if (entries.CONST) entries = entries.CONST;
 
-    const ids   = Object.keys(entries);
+    // Ordre garanti : on reconstruit l'objet depuis le JSON parsé
+    // (les clés sont dans l'ordre d'insertion, préservé par JSON.parse)
+    // Limite à 10 pour le test — retirer `.slice(0, 10)` pour la prod
+    const ids   = Object.keys(entries).slice(0, 10);
+
+    // On ne garde dans entries que les 10 premiers pour ne pas
+    // polluer le storage avec tout l'objet pendant le test
+    const entriesSlice = {};
+    ids.forEach(id => { entriesSlice[id] = entries[id]; });
+
     const state = {
-        entries,
-        queue  : ids.slice(),    // copie de la liste
+        entries: entriesSlice,
+        order  : [...ids],       // ordre d'insertion original, jamais modifié
+        queue  : [...ids],       // consommé au fur et à mesure
         current: null,
         done   : 0,
         total  : ids.length,

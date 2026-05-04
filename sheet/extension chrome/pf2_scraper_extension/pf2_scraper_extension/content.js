@@ -151,7 +151,7 @@ const PF2S = (() => {
         // Prendre la prochaine entrée
         if (!state.queue || state.queue.length === 0) {
             console.log("[PF2S] ✅ Scraping terminé !");
-            chrome.runtime.sendMessage({ type: "done", entries: state.entries }).catch(() => {});
+            chrome.runtime.sendMessage({ type: "done", state }).catch(() => {});
             await clearState();
             return;
         }
