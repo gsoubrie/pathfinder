@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PF2e Scraper</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+        --gold:    #c9a44a;
+        --gold-lt: #e8c97a;
+        --dark:    #1a1208;
+        --mid:     #2d2010;
+        --panel:   #221808;
+        --text:    #e8d8b0;
+        --muted:   #8a7050;
+        --red:     #c0392b;
+        --green:   #27ae60;
+    }
+
+    body {
+        width: 320px;
+        min-height: 420px;
+        background: var(--dark);
+        color: var(--text);
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+        background: linear-gradient(135deg, #2d1e08 0%, #1a1208 100%);
+        border-bottom: 2px solid var(--gold);
+        padding: 16px 20px 12px;
+        position: relative;
+        overflow: hidden;
+    }
+    header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 20px,
+            rgba(201,164,74,.03) 20px,
+            rgba(201,164,74,.03) 40px
+        );
+    }
+    header h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+    header p {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 2px;
+        font-style: italic;
+    }
+
+    /* ── Main ── */
+    main { padding: 16px 20px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+
+    /* ── Textarea ── */
+    .field label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 6px;
+        font-family: 'Cinzel', serif;
+    }
+    textarea {
+        width: 100%;
+        height: 120px;
+        background: var(--panel);
+        border: 1px solid #4a3518;
+        border-radius: 4px;
+        color: var(--text);
+        font-family: 'Courier New', monospace;
+        font-size: 11px;
+        padding: 8px 10px;
+        resize: vertical;
+        transition: border-color .2s;
+        line-height: 1.5;
+    }
+    textarea:focus { outline: none; border-color: var(--gold); }
+    textarea::placeholder { color: var(--muted); }
+
+    /* ── Boutons ── */
+    .btn {
+        width: 100%;
+        padding: 10px 14px;
+        border: none;
+        border-radius: 4px;
+        font-family: 'Cinzel', serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all .2s;
+        position: relative;
+        overflow: hidden;
+    }
+    .btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,.06);
+        opacity: 0;
+        transition: opacity .15s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn:active { transform: translateY(1px); }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #8b6914, #c9a44a);
+        color: var(--dark);
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(201,164,74,.25);
+    }
+    .btn-secondary {
+        background: var(--panel);
+        color: var(--muted);
+        border: 1px solid #4a3518;
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+    .btn-danger {
+        background: rgba(192,57,43,.15);
+        color: #e74c3c;
+        border: 1px solid rgba(192,57,43,.3);
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn:disabled::after { display: none; }
+
+    .btn-row { display: flex; gap: 8px; }
+    .btn-row .btn { flex: 1; }
+
+    /* ── Statut ── */
+    #status-box {
+        background: var(--panel);
+        border: 1px solid #4a3518;
+        border-radius: 4px;
+        padding: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+    }
+    #status-box.visible { display: flex; }
+
+    .progress-bar {
+        height: 4px;
+        background: #4a3518;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+        border-radius: 2px;
+        transition: width .4s ease;
+        width: 0%;
+    }
+
+    .progress-text {
+        font-size: 13px;
+        color: var(--text);
+    }
+    .progress-text span { color: var(--gold); font-weight: 600; }
+
+    .last-item {
+        font-size: 11px;
+        color: var(--muted);
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ── Toast ── */
+    #toast {
+        position: fixed;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: var(--mid);
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        font-family: 'Cinzel', serif;
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        opacity: 0;
+        transition: all .3s;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+    #toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Ornement décoratif ── */
+    .divider {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #4a3518;
+        font-size: 10px;
+    }
+    .divider::before, .divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #4a3518;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>⚔ PF2e Links Scraper</h1>
+    <p>Enrichissement automatique des fiches</p>
+</header>
+
+<main>
+
+    <div class="field">
+        <label>JSON source (OBJECT.CONST)</label>
+        <textarea id="json-input" placeholder='{"is3Oz9wt11lNq62K": {"id": "...", "text": "...", "category": "...", "href": "..."}, ...}'></textarea>
+    </div>
+
+    <button class="btn btn-primary" id="btn-start">▶ Lancer le scraping</button>
+
+    <div class="divider">ou</div>
+
+    <div id="status-box">
+        <div class="progress-text">
+            Progression : <span id="prog-count">0 / 0</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="prog-bar"></div>
+        </div>
+        <div class="last-item" id="prog-last">—</div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-secondary" id="btn-save">💾 Sauvegarder</button>
+        <button class="btn btn-danger"    id="btn-stop">⏹ Arrêter</button>
+    </div>
+
+</main>
+
+<div id="toast"></div>
+
+<script src="popup.js"></script>
+</body>
+</html>

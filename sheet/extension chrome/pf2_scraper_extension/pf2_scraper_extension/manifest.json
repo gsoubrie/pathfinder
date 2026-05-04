@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "PF2e Links Scraper",
+    "version": "1.0",
+    "description": "Scrape les descriptions des entrées PF2e pathfinder-fr.org",
+
+    "permissions": [
+        "storage",
+        "downloads",
+        "tabs"
+    ],
+
+    "host_permissions": [
+        "https://pf2e.pathfinder-fr.org/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["https://pf2e.pathfinder-fr.org/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16":  "icons/icon16.png",
+            "48":  "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "icons": {
+        "16":  "icons/icon16.png",
+        "48":  "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
