@@ -34,75 +34,187 @@ const PF2S = (() => {
 
     const cleanText = (el) => el ? el.innerText.replace(/\s+/g, " ").trim() : "";
 
+    /* ── transformation HTML description ───────────────── */
+
+    /**
+     * Transforme le HTML brut d'un nœud .description en HTML propre :
+     *  - <strong>Texte</strong>  →  "Texte"
+     *  - <elt-foundry-annotation formula="@UUID[...Item.UUID]">
+     *      →  <div class="gs-link-information" onclick="...UUID...">Texte</div>
+     *  - <p>...</p>              →  contenu + <br>
+     *  - <ul>/<ol>/<li>          →  conservés tels quels
+     *  - <mat-icon> et balises Angular → supprimés
+     *  - \n multiples            →  nettoyés
+     */
+    const transformDescription = (descRoot) => {
+        if (!descRoot) return "";
+
+        // Clone pour ne pas toucher le DOM réel
+        const clone = descRoot.cloneNode(true);
+
+        // 1. Supprimer les balises inutiles (icônes Angular, router-outlet…)
+        clone.querySelectorAll("mat-icon, app-action-icon, router-outlet").forEach(el => el.remove());
+
+        // 2. Transformer elt-foundry-annotation → gs-link-information
+        clone.querySelectorAll("elt-foundry-annotation").forEach(el => {
+            const formula = el.getAttribute("formula") || "";
+            // Extraire l'UUID : @UUID[Compendium.pf2e.xxx.Item.UUID]
+            const match = formula.match(/\.([A-Za-z0-9]+)\]$/);
+            const uuid  = match ? match[1] : null;
+            const label = (el.querySelector("span") || el).innerText.trim();
+
+            if (uuid) {
+                const div = document.createElement("div");
+                div.className = "gs-link-information";
+                div.setAttribute("onclick",
+                    `CONTROLLER.Main.doActionAfter('event__show_information', {'param__information__uuid': '${uuid}'})`
+                );
+                div.textContent = label;
+                el.replaceWith(div);
+            } else {
+                // Pas d'UUID reconnu → texte brut
+                el.replaceWith(label);
+            }
+        });
+
+        // 3. Transformer <strong> → "texte entre guillemets"
+        clone.querySelectorAll("strong").forEach(el => {
+            const txt = el.innerText.trim();
+            el.replaceWith(`"${txt}"`);
+        });
+
+        // 4. Transformer <em> / <i> → <em> conservé (ou texte simple)
+        // On les garde tels quels, c'est du HTML de toute façon
+
+        // 5. Construire la sortie HTML propre nœud par nœud
+        const parts = [];
+
+        clone.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const t = node.textContent.trim();
+                if (t) parts.push(t);
+                return;
+            }
+            if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+            const tag = node.tagName.toLowerCase();
+
+            if (tag === "p") {
+                // Sérialiser le contenu interne (conserve les div gs-link etc.)
+                const inner = serializeInner(node);
+                if (inner.trim()) parts.push(`<p>${inner.trim()}</p>`);
+            }
+            else if (tag === "ul" || tag === "ol") {
+                parts.push(serializeList(node, tag));
+            }
+            else if (tag === "h1" || tag === "h2" || tag === "h3" || tag === "h4") {
+                const inner = serializeInner(node);
+                if (inner.trim()) parts.push(`<${tag}>${inner.trim()}</${tag}>`);
+            }
+            else {
+                // Autres balises → on prend le texte
+                const t = node.innerText?.trim();
+                if (t) parts.push(t);
+            }
+        });
+
+        return parts.join("\n");
+    };
+
+    /** Sérialise le contenu interne d'un nœud en HTML string */
+    const serializeInner = (node) => {
+        let html = "";
+        node.childNodes.forEach(child => {
+            if (child.nodeType === Node.TEXT_NODE) {
+                html += child.textContent;
+                return;
+            }
+            if (child.nodeType !== Node.ELEMENT_NODE) return;
+            const tag = child.tagName.toLowerCase();
+            if (tag === "div" && child.className.includes("gs-link-information")) {
+                // Déjà transformé — reconstruire l'attribut onclick
+                const onclick = child.getAttribute("onclick") || "";
+                html += `<div class="gs-link-information" onclick="${onclick}">${child.textContent}</div>`;
+            } else if (tag === "br") {
+                html += "<br>";
+            } else if (tag === "em" || tag === "i") {
+                html += `<em>${child.innerText}</em>`;
+            } else {
+                html += child.innerText || child.textContent || "";
+            }
+        });
+        return html;
+    };
+
+    /** Sérialise un ul/ol avec ses li */
+    const serializeList = (node, tag) => {
+        let html = `<${tag}>`;
+        node.querySelectorAll(":scope > li").forEach(li => {
+            const inner = serializeInner(li);
+            html += `<li>${inner.trim()}</li>`;
+        });
+        html += `</${tag}>`;
+        return html;
+    };
+
     const extractPageData = () => {
-        const result = { traits: [], required: [], description: "" };
+        const result = { element_type: null, action_cost: null, traits: [], required: [], price: null, bulk: null, description: "" };
+
+        // ── Element type ──────────────────────────────────
+        const elementTypeEl = document.querySelector(".header .element-type");
+        if (elementTypeEl) result.element_type = cleanText(elementTypeEl);
+
+        // ── Action cost ───────────────────────────────────
+        // Structure : .title > app-action-icon > span.pf2-icon
+        // Valeurs : "1", "2", "3", "4", "5" (5 = réaction)
+        const pf2IconEl = document.querySelector(".title .pf2-icon");
+        if (pf2IconEl) result.action_cost = cleanText(pf2IconEl);
 
         // ── Traits ────────────────────────────────────────
-        // Le site utilise diverses classes selon la catégorie
-        const traitSelectors = [
-            ".trait",
-            ".traits .trait",
-            "span.trait",
-            ".tag",
-            "[class*='trait']",
-            ".rarity",
-            ".alignment"
-        ];
+        // Structure réelle : div.trait dans .traits-container
         const traitSet = new Set();
-        for (const sel of traitSelectors) {
-            document.querySelectorAll(sel).forEach(el => {
-                const t = cleanText(el);
-                // Filtrer les textes trop longs (pas des traits)
-                if (t && t.length < 60 && !t.includes("\n")) traitSet.add(t);
-            });
-        }
+        document.querySelectorAll(".traits-container .trait").forEach(el => {
+            const t = cleanText(el);
+            if (t) traitSet.add(t);
+        });
         result.traits = [...traitSet];
 
-        // ── Prérequis ─────────────────────────────────────
-        const allNodes = document.querySelectorAll(
-            ".description p, .description li, main p, article p, .stat-block p"
-        );
-        for (const el of allNodes) {
-            const txt = cleanText(el);
-            if (/^pr[eé]requis\s*:/i.test(txt)) {
-                const afterColon = txt.split(":").slice(1).join(":").trim();
-                const parts = afterColon
-                    .split(/,\s*|\s+et\s+/)
-                    .map(s => s.trim())
-                    .filter(Boolean);
-                result.required.push(...parts);
+        // ── Prérequis / Prix / Encombrement ───────────────
+        // Structure réelle : .metadata > div > strong "Prérequis|Prix|Encombrement" + span ou texte
+        document.querySelectorAll(".metadata > div").forEach(div => {
+            const strong = div.querySelector("strong");
+            if (!strong) return;
+            const label = cleanText(strong).toLowerCase();
+
+            if (/pr[eé]requis/.test(label)) {
+                const spans = div.querySelectorAll("span");
+                if (spans.length) {
+                    spans.forEach(span => {
+                        const txt = cleanText(span);
+                        if (txt) result.required.push(txt);
+                    });
+                } else {
+                    const rest = cleanText(div).replace(cleanText(strong), "").trim();
+                    if (rest) result.required.push(rest);
+                }
             }
-        }
+
+            if (/prix/.test(label)) {
+                // Le prix est un texte direct après le <strong>, pas dans un <span>
+                const fullTxt = cleanText(div);
+                result.price  = fullTxt.replace(cleanText(strong), "").trim();
+            }
+
+            if (/encombrement/.test(label)) {
+                const fullTxt = cleanText(div);
+                result.bulk   = fullTxt.replace(cleanText(strong), "").trim();
+            }
+        });
 
         // ── Description ───────────────────────────────────
-        const descParts = [];
-
-        // Cherche le conteneur principal
-        const descRoot = document.querySelector(
-            ".description, .content, .stat-block, main article, main .entry"
-        );
-
-        const collectText = (root) => {
-            if (!root) return;
-            root.querySelectorAll("p, li, h3, h4").forEach(el => {
-                const txt = cleanText(el);
-                if (!txt || txt.length < 3)               return;
-                if (/^pr[eé]requis\s*:/i.test(txt))       return;
-                if (/^source\s*:/i.test(txt))              return;
-                if (/^fréquence\s*:/i.test(txt))           return; // on pourrait le capturer plus tard
-                if (result.traits.includes(txt))           return;
-                descParts.push(txt);
-            });
-        };
-
-        collectText(descRoot);
-
-        // Fallback : tout le main
-        if (!descParts.length) {
-            collectText(document.querySelector("main"));
-        }
-
-        result.description = descParts.join("\n\n");
+        // On conserve le HTML propre : p, ul/ol/li, gs-link-information
+        const descRoot = document.querySelector(".description");
+        result.description = transformDescription(descRoot);
         return result;
     };
 
@@ -127,9 +239,13 @@ const PF2S = (() => {
             await wait(500); // laisser Angular/React finir le rendu
 
             const data = extractPageData();
-            entry.traits      = data.traits;
-            entry.required    = data.required;
-            entry.description = data.description;
+            entry.element_type = data.element_type;
+            entry.action_cost  = data.action_cost;
+            entry.traits       = data.traits;
+            entry.required     = data.required;
+            entry.price        = data.price;
+            entry.bulk         = data.bulk;
+            entry.description  = data.description;
 
             state.entries[id] = entry;
             state.current     = null;
