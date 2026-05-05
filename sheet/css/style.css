@@ -202,3 +202,24 @@ body {
 .gs-link-information:after {
     content : '"';
 }
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+  }
+  
+  .popup-container {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    margin: 100px auto;
+    position: relative;
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }

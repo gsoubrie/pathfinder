@@ -8,6 +8,10 @@ CONTROLLER.Main = (function ( self ) {
     self.doActionAfter      = function ( event_name, params ) {
         switch ( event_name ) {
             case "event__show_information":
+                SERVICE.instance_popup.open({
+                    title: "dfwfcx",
+                    description: "dqsdqs"
+                  });
                 return;
         }
         CONTROLLER.Character.doActionAfter( event_name, params );
