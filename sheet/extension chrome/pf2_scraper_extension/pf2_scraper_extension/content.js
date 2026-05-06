@@ -67,7 +67,7 @@ const PF2S = (() => {
                 const div = document.createElement("div");
                 div.className = "gs-link-information";
                 div.setAttribute("onclick",
-                    `CONTROLLER.Main.doActionAfter('event__show_information', {'param__information__uuid': '${uuid}'})`
+                    `CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '${uuid}'})`
                 );
                 div.textContent = label;
                 el.replaceWith(div);

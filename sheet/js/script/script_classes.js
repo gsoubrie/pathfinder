@@ -94,7 +94,7 @@ const PF2_CLASS = (function () {
                 }
 
                 // Remplace le nœud par le div HTML de lien
-                el.replaceWith( `<div class="gs-link-information" onclick="CONTROLLER.Main.doActionAfter('event__show_information', {'param__information__uuid': '${id}'})">${text}</div>` );
+                el.replaceWith( `<div class="gs-link-information" onclick="CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '${id}'})">${text}</div>` );
             }
             else {
                 // Pas de formule reconnue → on garde juste le texte

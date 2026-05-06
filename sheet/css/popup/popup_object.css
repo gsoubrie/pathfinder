@@ -1,0 +1,359 @@
+
+/* ═══════════════════════════════════════════════
+   POPUP — Pathfinder Sheet  (dark fantasy theme)
+   ═══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Palatino+Linotype&display=swap');
+
+/* ── Variables ─────────────────────────────── */
+:root {
+    --pf-bg-deep:       #1a1008;
+    --pf-bg-panel:      #2c1f0e;
+    --pf-bg-card:       #3a2710;
+    --pf-bg-inset:      #251808;
+    --pf-border-gold:   #b8860b;
+    --pf-border-gold-light: #d4a017;
+    --pf-border-subtle: #4a3318;
+    --pf-gold:          #c9971c;
+    --pf-gold-bright:   #e8b84b;
+    --pf-text:          #d4c5a0;
+    --pf-text-muted:    #9a8a6a;
+    --pf-trait-bg:      #5c1a1a;
+    --pf-trait-border:  #8b2020;
+    --pf-trait-text:    #f0d0d0;
+    --pf-feat-accent:   #8b6914;
+    --pf-item-accent:   #2a5c3a;
+    --pf-action-accent: #3a2060;
+    --pf-class-accent:  #1a3a5c;
+    --pf-red:           #8b2020;
+    --popup-width:      640px;
+}
+
+/* ── Overlay ───────────────────────────────── */
+.popup-overlay {
+    display:         none;
+    position:        fixed;
+    inset:           0;
+    background:      rgba(0, 0, 0, 0.75);
+    z-index:         1000;
+    align-items:     center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+/* ── Container ─────────────────────────────── */
+.popup-container {
+    position:      relative;
+    width:         var(--popup-width);
+    max-width:     95vw;
+    max-height:    85vh;
+    overflow-y:    auto;
+    background:    var(--pf-bg-panel);
+    border:        2px solid var(--pf-border-gold);
+    border-radius: 4px;
+    box-shadow:
+        0 0 0 1px var(--pf-bg-deep),
+        0 0 30px rgba(184, 134, 11, 0.25),
+        0 20px 60px rgba(0, 0, 0, 0.8);
+    font-family:   'Palatino Linotype', Palatino, Georgia, serif;
+    color:         var(--pf-text);
+
+    /* Coin décoratif */
+    &::before, &::after {
+        content:  '';
+        position: absolute;
+        width:    18px;
+        height:   18px;
+        border-color: var(--pf-border-gold-light);
+        border-style: solid;
+        z-index:  1;
+    }
+    &::before { top: 4px; left: 4px;  border-width: 2px 0 0 2px; }
+    &::after  { top: 4px; right: 4px; border-width: 2px 2px 0 0; }
+}
+
+/* Coins bas via pseudo sur overlay */
+.popup-container .popup-content::before,
+.popup-container .popup-content::after {
+    content:  '';
+    position: absolute;
+    width:    18px;
+    height:   18px;
+    border-color: var(--pf-border-gold-light);
+    border-style: solid;
+    z-index:  1;
+    bottom: 4px;
+}
+.popup-container .popup-content::before { left:  4px; border-width: 0 0 2px 2px; }
+.popup-container .popup-content::after  { right: 4px; border-width: 0 2px 2px 0; }
+
+/* Scrollbar */
+.popup-container::-webkit-scrollbar       { width: 6px; }
+.popup-container::-webkit-scrollbar-track { background: var(--pf-bg-deep); }
+.popup-container::-webkit-scrollbar-thumb { background: var(--pf-border-gold); border-radius: 3px; }
+
+/* ── Close button ──────────────────────────── */
+.popup-close {
+    position:    absolute;
+    top:         8px;
+    right:       10px;
+    z-index:     10;
+    background:  var(--pf-bg-inset);
+    border:      1px solid var(--pf-border-gold);
+    color:       var(--pf-gold);
+    width:       28px;
+    height:      28px;
+    font-size:   18px;
+    line-height: 1;
+    cursor:      pointer;
+    border-radius: 2px;
+    transition:  background 0.15s, color 0.15s;
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-close:hover {
+    background: var(--pf-red);
+    color:      #fff;
+    border-color: #c03030;
+}
+
+/* ── Content wrapper ───────────────────────── */
+.popup-content {
+    position: relative;
+    padding:  0 0 16px;
+}
+
+/* ══════════════════════════════════════════
+   HEADER  (commun + variantes par catégorie)
+   ══════════════════════════════════════════ */
+.popup-header {
+    display:         flex;
+    align-items:     flex-start;
+    justify-content: space-between;
+    gap:             12px;
+    padding:         18px 48px 14px 20px;
+    background:      var(--pf-bg-inset);
+    border-bottom:   2px solid var(--pf-border-gold);
+    position:        relative;
+
+    /* Ligne décorative dorée sous le titre */
+    &::after {
+        content:    '';
+        position:   absolute;
+        bottom:     -4px;
+        left:       20px;
+        right:      20px;
+        height:     1px;
+        background: linear-gradient(90deg, transparent, var(--pf-border-gold-light), transparent);
+    }
+}
+
+.popup-header__left {
+    display:    flex;
+    flex-direction: column;
+    gap:        4px;
+    flex:       1;
+    min-width:  0;
+}
+
+/* Pastille de catégorie (DON / OBJET / ACTION…) */
+.popup-category-label {
+    font-family:    'Cinzel', serif;
+    font-size:      9px;
+    font-weight:    700;
+    letter-spacing: 0.2em;
+    color:          var(--pf-text-muted);
+    text-transform: uppercase;
+}
+
+/* Titre principal */
+.popup-title {
+    font-family:    'Cinzel', serif;
+    font-size:      20px;
+    font-weight:    700;
+    color:          var(--pf-gold-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin:         0;
+    line-height:    1.2;
+    text-shadow:    0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Accent coloré par catégorie (barre gauche) */
+.popup-header--feat         { border-left: 4px solid var(--pf-feat-accent); }
+.popup-header--item         { border-left: 4px solid var(--pf-item-accent); }
+.popup-header--action       { border-left: 4px solid var(--pf-action-accent); }
+.popup-header--class-feature{ border-left: 4px solid var(--pf-class-accent); }
+.popup-header--default      { border-left: 4px solid var(--pf-border-gold); }
+
+/* Badge niveau (DON 1, OBJET 0…) */
+.popup-level-badge {
+    flex-shrink:    0;
+    align-self:     flex-start;
+    background:     var(--pf-bg-card);
+    border:         1px solid var(--pf-border-gold);
+    color:          var(--pf-gold);
+    font-family:    'Cinzel', serif;
+    font-size:      11px;
+    font-weight:    600;
+    padding:        3px 8px;
+    border-radius:  2px;
+    white-space:    nowrap;
+    margin-top:     2px;
+}
+
+/* Coût d'action (◆◆◆) */
+.popup-action-cost {
+    flex-shrink: 0;
+    align-self:  flex-start;
+    color:       var(--pf-gold-bright);
+    font-size:   18px;
+    line-height: 1;
+    margin-top:  2px;
+    letter-spacing: -2px;
+}
+
+/* ══════════════════════════════════════════
+   TRAITS
+   ══════════════════════════════════════════ */
+.popup-traits {
+    display:     flex;
+    flex-wrap:   wrap;
+    gap:         6px;
+    padding:     10px 20px;
+    border-bottom: 1px solid var(--pf-border-subtle);
+}
+
+.popup-badge {
+    display:        inline-block;
+    font-family:    'Cinzel', serif;
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding:        3px 8px;
+    border-radius:  2px;
+    border:         1px solid currentColor;
+}
+
+.popup-badge--trait {
+    background: var(--pf-trait-bg);
+    border-color: var(--pf-trait-border);
+    color:       var(--pf-trait-text);
+}
+
+/* ══════════════════════════════════════════
+   ITEM STATS  (bulk / prix)
+   ══════════════════════════════════════════ */
+.popup-item-stats {
+    display:       flex;
+    gap:           0;
+    padding:       8px 20px;
+    border-bottom: 1px solid var(--pf-border-subtle);
+    background:    var(--pf-bg-inset);
+}
+
+.popup-meta-row {
+    display:     flex;
+    align-items: center;
+    gap:         6px;
+    padding:     4px 16px 4px 0;
+    font-size:   13px;
+}
+
+.popup-meta-icon  { font-size: 14px; }
+.popup-meta-label { color: var(--pf-text-muted); font-style: italic; }
+.popup-meta-value { color: var(--pf-gold); font-weight: 600; }
+
+/* ══════════════════════════════════════════
+   PRÉREQUIS
+   ══════════════════════════════════════════ */
+.popup-prerequisites {
+    padding:       10px 20px;
+    border-bottom: 1px solid var(--pf-border-subtle);
+}
+
+.popup-section-title {
+    display:        block;
+    font-family:    'Cinzel', serif;
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color:          var(--pf-gold);
+    margin-bottom:  6px;
+}
+
+.popup-prerequisites ul {
+    margin:     0;
+    padding:    0 0 0 16px;
+    font-size:  13px;
+    color:      var(--pf-text-muted);
+    font-style: italic;
+}
+
+.popup-prerequisites li + li { margin-top: 2px; }
+
+/* ══════════════════════════════════════════
+   DESCRIPTION
+   ══════════════════════════════════════════ */
+.popup-description {
+    padding:   12px 20px 4px;
+    font-size: 14px;
+    line-height: 1.65;
+    color:     var(--pf-text);
+}
+
+.popup-description p {
+    margin: 0 0 10px;
+}
+
+.popup-description p:last-child { margin-bottom: 0; }
+
+.popup-description ul {
+    margin:       8px 0;
+    padding-left: 18px;
+}
+
+.popup-description li {
+    margin-bottom: 6px;
+}
+
+/* Titres de section dans la description (ex: "Formules", "Avantage de champ") */
+.popup-description strong,
+.popup-description b {
+    color:       var(--pf-gold);
+    font-weight: 600;
+}
+
+/* Liens internes (gs-link-information) */
+.popup-description .gs-link-information {
+    color:           var(--pf-gold-bright);
+    cursor:          pointer;
+    border-bottom:   1px dotted var(--pf-border-gold);
+    transition:      color 0.15s;
+}
+
+.popup-description .gs-link-information:hover {
+    color: #fff;
+}
+
+/* Séparateur de section */
+.popup-description hr {
+    border:         none;
+    border-top:     1px solid var(--pf-border-subtle);
+    margin:         12px 0;
+}
+
+/* ══════════════════════════════════════════
+   ANIMATION D'OUVERTURE
+   ══════════════════════════════════════════ */
+@keyframes pf-popup-in {
+    from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)     scale(1);    }
+}
+
+.popup-overlay[style*="flex"] .popup-container {
+    animation: pf-popup-in 0.2s ease-out both;
+}
