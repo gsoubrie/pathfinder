@@ -203,7 +203,7 @@ body {
     content : '"';
 }
 
-.popup-overlay {
+/*.popup-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.5);
@@ -222,4 +222,4 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-  }
+  }*/
