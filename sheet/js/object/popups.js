@@ -1,40 +1,33 @@
 "use strict";
 /**
- * @class OBJECT.Popups
+ * @class OBJECT.PopupRenderers
  * @extends OBJECT.InterfaceHtml
  * @extends GS.OBJECT.PhaseInterface
  */
- OBJECT.Popups = function () {
+OBJECT.PopupRenderers = function () {
     this.init();
 };
-OBJECT.Popups.prototype = {
-    init : function () {
+OBJECT.PopupRenderers.prototype = {
+    init: function () {
         this.initContents();
     },
-       //********************************************  EVENT LISTENER  **************************************************//
-       self.doActionAfter      = function ( event_name, params ) {
-        console.log(event_name, params )
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        console.log( event_name, params );
         switch ( event_name ) {
             case "event__show_information": {
                 //const uuid = params["param__object__uuid"];
-                const uuid = "yzNJgwzV9XqEhKc6";
-                const obj  = OBJECT.CONST[uuid];
-
-                if (!obj) {
-                    console.warn("[Main - doActionAfter] Objet introuvable :", uuid);
-                    return;
+                const uuid         = "yzNJgwzV9XqEhKc6";
+                let existing_popup = this.getContentByUUID( uuid );
+                if ( !existing_popup ) {
+                    existing_popup = this.add( new OBJECT.PopupRenderer( OBJECT.CONST[ uuid ] ) );
+                    existing_popup.computeHtml();
                 }
-
-                const renderer = PopupRendererFactory.create(obj);
-                const html     = renderer.computeHtml();
-                const popup = new OBJECT.Popup();
-                popup.computeHtml();
-                console.log(html)
                 return;
             }
         }
         CONTROLLER.Character.doActionAfter( event_name, params );
-    };
-}
+    }
+};
 
-SERVICE.CLASS.addPrototype( OBJECT.Popups, OBJECT.InterfaceContainer );
+SERVICE.CLASS.addPrototype( OBJECT.PopupRenderers, OBJECT.InterfaceContainer );

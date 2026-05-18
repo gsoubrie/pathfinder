@@ -3,7 +3,7 @@ CONTROLLER.Main = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function () {
         CONTROLLER.Character.init();
-        self.popups_object = new OBJECT.Popups();
+        self.popups_object = new OBJECT.PopupRenderers();
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {

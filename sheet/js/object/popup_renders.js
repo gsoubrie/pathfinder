@@ -1,49 +1,52 @@
 "use strict";
 
-// ─────────────────────────────────────────────
-//  ABSTRACT BASE RENDERER
-// ─────────────────────────────────────────────
-
-class PopupRenderer {
-    /**
-     * @param {Object} obj  — entrée de OBJECT.CONST
-     */
-    constructor(obj) {
-        if (new.target === PopupRenderer) {
-            throw new Error("PopupRenderer est une classe abstraite.");
+/**
+ * @class OBJECT.BasePopupRenderer
+ */
+OBJECT.BasePopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.BasePopupRenderer.prototype = {
+    init: function ( object_data ) {
+        this.object_data = object_data;
+    },
+    
+    computeHtml: function () {
+        throw new Error( "computeHtml() doit être implémenté." );
+    },
+    
+    _badge: function ( label, extraClass ) {
+        if ( extraClass === undefined ) {
+            extraClass = "";
         }
-        this.obj = obj;
-    }
-
-    /** À surcharger dans chaque sous-classe */
-    computeHtml() {
-        throw new Error("computeHtml() doit être implémenté.");
-    }
-
-    // ── Helpers partagés ──────────────────────
-
-    _badge(label, extraClass = "") {
-        if (!label) return "";
+        if ( !label ) {
+            return "";
+        }
         return `<span class="popup-badge ${extraClass}">${label}</span>`;
-    }
-
-    _traitsList() {
-        const traits = this.obj.traits ?? [];
-        if (!traits.length) return "";
+    },
+    
+    _traitsList: function () {
+        const traits = this.object_data.traits ? this.object_data.traits : [];
+        if ( !traits.length ) {
+            return "";
+        }
         return `
           <div class="popup-traits">
-            ${traits.map(t => this._badge(t, "popup-badge--trait")).join("")}
+            ${traits.map( t => this._badge( t, "popup-badge--trait" ) ).join( "" )}
           </div>`;
-    }
-
-    _description() {
-        return this.obj.description
-            ? `<div class="popup-description">${this.obj.description}</div>`
-            : "";
-    }
-
-    _metaRow(icon, label, value) {
-        if (!value) return "";
+    },
+    
+    _description: function () {
+        if ( this.object_data.description ) {
+            return `<div class="popup-description">${this.object_data.description}</div>`;
+        }
+        return "";
+    },
+    
+    _metaRow: function ( icon, label, value ) {
+        if ( !value ) {
+            return "";
+        }
         return `
           <div class="popup-meta-row">
             <span class="popup-meta-icon">${icon}</span>
@@ -51,135 +54,159 @@ class PopupRenderer {
             <span class="popup-meta-value">${value}</span>
           </div>`;
     }
-}
+};
 
-// ─────────────────────────────────────────────
-//  FEAT  (don)
-// ─────────────────────────────────────────────
 
-class FeatPopupRenderer extends PopupRenderer {
-    computeHtml() {
-        const { obj } = this;
-        return `
+/**
+ * @class OBJECT.FeatPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.FeatPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.FeatPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        const required    = object_data.required ? object_data.required : [];
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
           <div class="popup-header popup-header--feat">
             <div class="popup-header__left">
               <div class="popup-category-label">DON</div>
-              <h2 class="popup-title">${obj.text ?? ""}</h2>
+              <h2 class="popup-title">${text}</h2>
             </div>
-            ${obj.element_type ? `<div class="popup-level-badge">${obj.element_type}</div>` : ""}
+            ${object_data.element_type ? `<div class="popup-level-badge">${object_data.element_type}</div>` : ""}
           </div>
 
           ${this._traitsList()}
 
-          ${obj.required?.length ? `
+          ${required.length ? `
           <div class="popup-prerequisites">
             <span class="popup-section-title">Prérequis</span>
-            <ul>${obj.required.map(r => `<li>${r}</li>`).join("")}</ul>
+            <ul>${required.map( r => `<li>${r}</li>` ).join( "" )}</ul>
           </div>` : ""}
 
-          ${this._description()}`;
+          ${this._description()}` );
     }
-}
+};
+SERVICE.CLASS.addPrototype( OBJECT.FeatPopupRenderer, OBJECT.BasePopupRenderer );
 
-// ─────────────────────────────────────────────
-//  ITEM  (objet / équipement)
-// ─────────────────────────────────────────────
 
-class ItemPopupRenderer extends PopupRenderer {
-    computeHtml() {
-        const { obj } = this;
-        return `
+/**
+ * @class OBJECT.ItemPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.ItemPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.ItemPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
           <div class="popup-header popup-header--item">
             <div class="popup-header__left">
               <div class="popup-category-label">OBJET</div>
-              <h2 class="popup-title">${obj.text ?? ""}</h2>
+              <h2 class="popup-title">${text}</h2>
             </div>
-            ${obj.element_type ? `<div class="popup-level-badge">${obj.element_type}</div>` : ""}
+            ${object_data.element_type ? `<div class="popup-level-badge">${object_data.element_type}</div>` : ""}
           </div>
 
           ${this._traitsList()}
 
           <div class="popup-item-stats">
-            ${this._metaRow("⚖️", "Encombrement", obj.bulk)}
-            ${this._metaRow("🪙", "Prix", obj.price)}
+            ${this._metaRow( "⚖️", "Encombrement", object_data.bulk )}
+            ${this._metaRow( "🪙", "Prix", object_data.price )}
           </div>
 
-          ${this._description()}`;
+          ${this._description()}` );
     }
-}
+};
+SERVICE.CLASS.addPrototype( OBJECT.ItemPopupRenderer, OBJECT.BasePopupRenderer );
 
-// ─────────────────────────────────────────────
-//  ACTION
-// ─────────────────────────────────────────────
 
-class ActionPopupRenderer extends PopupRenderer {
-    _actionCostLabel(cost) {
+/**
+ * @class OBJECT.ActionPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.ActionPopupRenderer = function ( object_data ) {
+    console.log( "GSOU", "[ActionPopupRenderer - ActionPopupRenderer]", this );
+    this.init( object_data );
+};
+OBJECT.ActionPopupRenderer.prototype = {
+    _actionCostLabel: function ( cost ) {
         const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "free": "⟳", "reaction": "⟲" };
-        return map[cost] ?? cost;
-    }
-
-    computeHtml() {
-        const { obj } = this;
-        return `
+        return map[ cost ] !== undefined ? map[ cost ] : cost;
+    },
+    
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
           <div class="popup-header popup-header--action">
             <div class="popup-header__left">
               <div class="popup-category-label">ACTION</div>
-              <h2 class="popup-title">${obj.text ?? ""}</h2>
+              <h2 class="popup-title">${text}</h2>
             </div>
-            ${obj.action_cost
-                ? `<div class="popup-action-cost">${this._actionCostLabel(obj.action_cost)}</div>`
-                : ""}
+            ${object_data.action_cost
+              ? `<div class="popup-action-cost">${this._actionCostLabel( object_data.action_cost )}</div>`
+              : ""}
           </div>
 
           ${this._traitsList()}
 
-          ${this._description()}`;
+          ${this._description()}` );
     }
-}
+};
+SERVICE.CLASS.addPrototype( OBJECT.ActionPopupRenderer, OBJECT.BasePopupRenderer );
 
-// ─────────────────────────────────────────────
-//  CLASS FEATURE  (capacité de classe)
-// ─────────────────────────────────────────────
 
-class ClassFeaturePopupRenderer extends PopupRenderer {
-    computeHtml() {
-        const { obj } = this;
-        return `
+/**
+ * @class OBJECT.ClassFeaturePopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.ClassFeaturePopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.ClassFeaturePopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
           <div class="popup-header popup-header--class-feature">
             <div class="popup-header__left">
               <div class="popup-category-label">CAPACITÉ DE CLASSE</div>
-              <h2 class="popup-title">${obj.text ?? ""}</h2>
+              <h2 class="popup-title">${text}</h2>
             </div>
           </div>
 
           ${this._traitsList()}
 
-          ${this._description()}`;
+          ${this._description()}` );
     }
-}
+};
+SERVICE.CLASS.addPrototype( OBJECT.ClassFeaturePopupRenderer, OBJECT.BasePopupRenderer );
 
-// ─────────────────────────────────────────────
-//  FALLBACK  (catégorie inconnue)
-// ─────────────────────────────────────────────
 
-class DefaultPopupRenderer extends PopupRenderer {
-    computeHtml() {
-        const { obj } = this;
-        return `
+/**
+ * @class OBJECT.DefaultPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.DefaultPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.DefaultPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
           <div class="popup-header popup-header--default">
-            <h2 class="popup-title">${obj.text ?? ""}</h2>
-            ${obj.element_type ? `<div class="popup-level-badge">${obj.element_type}</div>` : ""}
+            <h2 class="popup-title">${text}</h2>
+            ${object_data.element_type ? `<div class="popup-level-badge">${object_data.element_type}</div>` : ""}
           </div>
 
           ${this._traitsList()}
-          ${this._description()}`;
+          ${this._description()}` );
     }
-}
-
-// Export via namespace global (cohérent avec ton architecture)
-window.POPUP_RENDERER = window.POPUP_RENDERER || {};
-POPUP_RENDERER.FeatPopupRenderer        = FeatPopupRenderer;
-POPUP_RENDERER.ItemPopupRenderer        = ItemPopupRenderer;
-POPUP_RENDERER.ActionPopupRenderer      = ActionPopupRenderer;
-POPUP_RENDERER.ClassFeaturePopupRenderer = ClassFeaturePopupRenderer;
-POPUP_RENDERER.DefaultPopupRenderer     = DefaultPopupRenderer;
+};
+SERVICE.CLASS.addPrototype( OBJECT.DefaultPopupRenderer, OBJECT.BasePopupRenderer );

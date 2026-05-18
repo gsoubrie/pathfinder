@@ -13953,7 +13953,7 @@ SHINKEN_LIST.HeaderFromDataWithSort.prototype = {
             this.computeHtmlSorting();
             SERVICE.DOM.addElementTo( this.sorting_object.sort_priority_dom_element, this.dom_sort_priority_cell );
             SERVICE.DOM.addElementTo( this.sorting_object.sort_popup_button, this.dom_actions_button_cell );
-            SERVICE.DOM.addElementTo( this.sorting_object.popup_sort_container, this.cell_content );
+            SERVICE.DOM.addElementTo( this.sorting_OBJECT.PopupRenderer_sort_container, this.cell_content );
             this.setDomParentForSorting( this.dom_element );
         }
     },
