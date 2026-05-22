@@ -13,20 +13,23 @@ OBJECT.PopupRenderers.prototype = {
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        console.log( event_name, params );
         switch ( event_name ) {
-            case "event__show_information": {
-                //const uuid = params["param__object__uuid"];
-                const uuid         = "yzNJgwzV9XqEhKc6";
+            case "event__show_information":
+                let uuid = params["param__object__uuid"];
+                if ( this.getSize() === 0 ){
+                    uuid         = "yzNJgwzV9XqEhKc6";
+                }
                 let existing_popup = this.getContentByUUID( uuid );
                 if ( !existing_popup ) {
                     existing_popup = this.add( new OBJECT.PopupRenderer( OBJECT.CONST[ uuid ] ) );
                     existing_popup.computeHtml();
                 }
+                existing_popup.doActionAfter(event_name, params);
                 return;
-            }
+            case "event__popup__close":
+                this.getContentByUUID( params["param__popup__uuid"] ).doActionAfter(event_name, params);
+                return;
         }
-        CONTROLLER.Character.doActionAfter( event_name, params );
     }
 };
 

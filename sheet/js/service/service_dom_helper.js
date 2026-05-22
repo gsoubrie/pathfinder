@@ -11,7 +11,7 @@ SERVICE.DOM_HELPER = (function ( /** @type {SERVICE.DOM_HELPER} */ self ) {
         return self.createButton( "event__less_button", "-", params_for_events );
     };
     self.createButton                     = function ( event_name, label, params_for_events ) {
-        var toReturn = new COMPONENT.ButtonFromData_V3( event_name, label );
+        var toReturn = new COMPONENT.ButtonFromData_V4( event_name, label );
         toReturn.addParamsForEvents( params_for_events );
         toReturn.computeHtml();
         return toReturn.dom_element;

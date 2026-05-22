@@ -130,7 +130,6 @@ SERVICE.CLASS.addPrototype( OBJECT.ItemPopupRenderer, OBJECT.BasePopupRenderer )
  * @extends OBJECT.BasePopupRenderer
  */
 OBJECT.ActionPopupRenderer = function ( object_data ) {
-    console.log( "GSOU", "[ActionPopupRenderer - ActionPopupRenderer]", this );
     this.init( object_data );
 };
 OBJECT.ActionPopupRenderer.prototype = {

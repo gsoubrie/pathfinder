@@ -670,6 +670,12 @@ GS.OBJECT.GsObjectHtml.prototype  = {
         }
         return true;
     },
+    buildDoActionAfterEvent  : function ( event_name ) {
+        return { "onclick": this.getDoActionAfterEvent( event_name ) };
+    },
+    getDoActionAfterEvent    : function ( event_name ) {
+        return "MANAGER.EventManagerV2.doActionAfter(event,'" + event_name + "'," + this.parseParamForEventsToHtml() + ")";
+    },
     parseParamForEventsToHtml : function () {
         return GS.TOOLS.DICT.parseToHTMLParam( this.getParamForEvents() );
     },
@@ -721,7 +727,8 @@ GS.OBJECT.GsObjectHtml.prototype  = {
         else {
             _dom.setAttribute( "shi-tip-html", "" );
         }
-    }
+    },
+        //********************************************  PARAMS FOR EVENTS   **************************************************//
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.GsObject );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.InterfaceHtml );
@@ -10493,6 +10500,51 @@ COMPONENT.ButtonFromData_V3.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V3, COMPONENT.InterfaceButton_V3 );
+
+/**
+ *
+ * @class COMPONENT.ButtonFromData_V4
+ * @extends GS.InterfaceButton_V3
+ */
+COMPONENT.ButtonFromData_V4 = function ( event_name, label, params_event ) {
+    this.__class_name__ = 'COMPONENT.ButtonFromData_V4';
+    this.init( event_name, label, params_event );
+    
+};
+COMPONENT.ButtonFromData_V4.prototype = {
+    init: function ( event_name, label, params_event ) {
+        this.name  = event_name;
+        this.label = label;
+        this.class = "gs-button gs-button-V4 flex-layout-center-h-v";
+        this.addParamForEvents( COMPONENT.BUTTON.PARAM.BUTTON_NAME, this.name );
+        if ( params_event ) {
+            this.addParamsForEvents( params_event );
+        }
+    },
+    //********************************************  GETTER SETTER  ***********************************************//
+    getUUID           : function () {
+        return this.name;
+    },
+    setLabelDomElement: function ( dom_element_label ) {
+        SERVICE.DOM.addElementToAfterEmpty( dom_element_label, this.label_dom_element );
+    },
+    //********************************************  HTML  ***********************************************//
+    computeHtml: function () {
+        this.setDomElement( SERVICE.DOM.createElement( "div", {
+            class                  : this.getClass(),
+            "data-name"            : this.name,
+            "data-visibility-state": this.getVisibilityState(),
+            ...this.buildDoActionAfterEvent( this.name )
+        } ) );
+        this.label_dom_element = this.addDomElement( SERVICE.DOM.createElement( "div", { class: "gs-label" }, this.label ) );
+        let _tooltip_by_state  = this.getTooltipByState();
+        if ( _tooltip_by_state ) {
+            this.setTooltipHtml( _tooltip_by_state );
+        }
+    }
+};
+GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData_V4, COMPONENT.InterfaceButton_V3 );
+
 COMPONENT.ButtonWithCounter           = function ( event_name, label ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData';
     this.init( event_name, label );
