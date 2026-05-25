@@ -1340,8 +1340,8 @@ OBJECT.CONST = {
     "VaIHQzOE5ibmbtqU": {
         "id"      : "VaIHQzOE5ibmbtqU",
         "text"    : "Forme indomptée",
-        "category": "spell",
-        "href"    : "/spells/VaIHQzOE5ibmbtqU"
+        "category": "feat",
+        "href"    : "/feats/VaIHQzOE5ibmbtqU"
     },
     "B3tbO85GBpzQ3u8l": {
         "id"      : "B3tbO85GBpzQ3u8l",
