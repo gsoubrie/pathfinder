@@ -139,6 +139,7 @@ OBJECT.CONST = {
         ]
     },
     "P9quO9XZi3OWFe1k": {
+        "action_cost" : null,
         "bulk"        : null,
         "category"    : "feat",
         "description" : "<p>Vous vous spécialisez dans les toxines et les venins de toutes sortes.</p>\n<p>\"Formules\" deux poisons alchimiques courants de niveau 1.</p>\n<p>\"Avantage de champ de recherche\" Vous pouvez appliquer un poison de blessure que vous tenez à une arme ou une munition que vous maniez par une unique action, au lieu d'une activité à 2 actions. De plus, vous mélangez avec souplesse des composés alchimiques acides et toxiques. Vos poisons imprégnés peuvent affecter les créatures immunisées contre le poison. Une créature subit des dégâts d'acide au lieu de dégâts de poison à cause de vos poisons imprégnés si la créature est immunisée contre le poison ou si cela serait plus préjudiciable à la créature (en fonction de ce qui est indiqué par le MJ). En général, cet avantage s'applique lorsque la créature possède une immunité, une résistance ou une faiblesse à l'un des types de dégâts.</p>\n<p>\"Fioles de champ de recherches\" Vos fioles polyvalentes possèdent le trait poison au lieu d'avoir le trait acide et d'infliger les dégâts d'acide (bien que votre avantage de domaine s'applique toujours). Vous pouvez appliquer le contenu d'une fiole polyvalente à une arme ou une munition comme vous le feriez d'un poison de blessure. Ajoutez les dégâts initiaux de la fiole à la première Frappe réussie avec cette arme ou cette munition. La substance devient inerte à la fin de votre tour actuel.</p>\n<p>\"Découverte de domaine  (5e)\" Vous avez pris en main suffisamment de poisons pour devenir insensible à leurs effets. Vous obtenez une résistance au poison égale à la moitié de votre niveau.</p>\n<p>\"Fioles évoluées  (11e)\" Lorsque vous blessez une créature avec une fiole polyvalente que vous avez utilisé comme un poison de blessure, cette créature subit des dégâts de poison persistants égaux aux dégâts d'éclaboussure de la fiole en plus des dégâts initiaux.</p>\n<p>\"Découverte de domaine supérieure  (13e)\" Lorsqu'une créature obtient un échec sur son jet de sauvegarde initial contre un poison de blessure imprégné que vous avez créé, la blessure arrose de poison une autre créature qui lui est adjacente. L'attaquant qui vous a causé la blessure choisit quelle créature, s'il y en a plus d'une et peut choisir d'abandonner cet effet. Cette créature est exposée au poison. La seconde créature ne peut répandre le poison au-delà.</p>",
@@ -150,1551 +151,4088 @@ OBJECT.CONST = {
         "text"        : "Toxicologiste",
         "traits"      : [
             "Alchimiste"
-        ],
-        "action_cost" : null
+        ]
     },
-    
-    
     "nlCjDvLMf2EkV2dl": {
-        "id"      : "nlCjDvLMf2EkV2dl",
-        "text"    : "Accéléré",
-        "category": "item",
-        "href"    : "/conditions/nlCjDvLMf2EkV2dl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes capable d'agir plus rapidement. Vous obtenez 1 action supplémentaire au début de votre tour à chaque round. De nombreux effets qui vous rendent Accéléré vous imposent d'utiliser cette action supplémentaire d'une certaine manière. Si vous êtes Accéléré par plusieurs sources, vous pouvez utiliser l'action supplémentaire que vous obtenez pour entreprendre n'importe quelle action permise par toutes ces sources. Comme l'état Accéléré produit son effet au début de votre tour, vous n'obtenez pas immédiatement des actions si vous êtes Accéléré au cours de votre tour.</p>",
+        "element_type": null,
+        "href"        : "/conditions/nlCjDvLMf2EkV2dl",
+        "id"          : "nlCjDvLMf2EkV2dl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Accéléré",
+        "traits"      : []
     },
     "76cwNLJEm4Yetnee": {
-        "id"      : "76cwNLJEm4Yetnee",
-        "text"    : "Double breuvage",
-        "category": "feat",
-        "href"    : "/class-features/76cwNLJEm4Yetnee"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous connaissez vos formules tellement bien que vous pouvez concoctez deux objets à la fois.</p>\n<p>Quand vous utilisez l'action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yzNJgwzV9XqEhKc6'})\">Alchimie rapide</div> , vous pouvez créer deux objets. Ces objets n'ont pas besoin d'être les mêmes. Si vous créez deux consommables, vous devez dépenser une fiole polyvalente pour chacune.</p>",
+        "element_type": null,
+        "href"        : "/class-features/76cwNLJEm4Yetnee",
+        "id"          : "76cwNLJEm4Yetnee",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Double breuvage",
+        "traits"      : [
+            "Alchimiste"
+        ]
     },
     "a9PzINjFTO5GvAJN": {
-        "id"      : "a9PzINjFTO5GvAJN",
-        "text"    : "Impulsif",
-        "category": "action",
-        "href"    : "/actions/a9PzINjFTO5GvAJN"
+        "action_cost" : "f",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Déclencheur\" Vous déterminez l'initiative.</p>\n<p>\"Conditions\" Vous n'êtes pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'D5mg6Tc7Jzrj6ro7'})\">Surchargé</div>  et ne portez pas d'armure lourde.</p>\n<p>Du moment que vous êtes capable de vous déplacer librement, votre fureur est instinctive et instantanée. Vous entrez en  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ah5g9pDwWF9b9VW9'})\">Rage</div> .</p>",
+        "element_type": null,
+        "href"        : "/actions/a9PzINjFTO5GvAJN",
+        "id"          : "a9PzINjFTO5GvAJN",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Impulsif",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "Ah5g9pDwWF9b9VW9": {
-        "id"      : "Ah5g9pDwWF9b9VW9",
-        "text"    : "Rage",
-        "category": "action",
-        "href"    : "/actions/Ah5g9pDwWF9b9VW9"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Vous n'êtes pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw'})\">Fatigué</div>  ou en rage.</p>\n<p>Vous faites appel à votre fureur intérieure et entrez en rage. Vous obtenez une quantité de Points de vie temporaires égale à votre niveau plus votre modificateur de Constitution. Pendant que vous êtes enragé :</p>\n<ul><li>Vous infligez 2 dégâts supplémentaires avec vos Frappes au corps-à-corps. Ces dégâts supplémentaires sont réduits de moitié si votre arme ou votre attaque à mains nues possède le trait agile.</li><li>Vous ne pouvez pas utiliser d'actions avec le trait concentration, sauf si elles possèdent également le trait rage. Vous pouvez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Chercher</div>  pendant que vous êtes enragé.</li></ul>\n<p>La rage dure pendant 1 minute, jusqu'à ce que vous tombiez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf'})\">Inconscient</div>  ou que la rencontre se termine, selon ce qui se produit en premier. Vous ne pouvez pas volontairement mettre fin à votre rage. Quand vous mettez un terme à votre rage, vous perdez tous Points de vie temporaires restants obtenus grâce à la rage et vous ne pouvez plus obtenir de nouveau de Points de vie temporaires en utilisant l'action de Rage de nouveau pendant 1 minute.</p>",
+        "element_type": null,
+        "href"        : "/actions/Ah5g9pDwWF9b9VW9",
+        "id"          : "Ah5g9pDwWF9b9VW9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Rage",
+        "traits"      : [
+            "Barbare",
+            "Concentration",
+            "Émotion",
+            "Mental"
+        ]
     },
     "D5mg6Tc7Jzrj6ro7": {
-        "id"      : "D5mg6Tc7Jzrj6ro7",
-        "text"    : "Surchargé",
-        "category": "item",
-        "href"    : "/conditions/D5mg6Tc7Jzrj6ro7"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous transportez plus de poids que vous ne pouvez en gérer. Tant que vous êtes surchargé, vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm'})\">Maladroit 1</div>  et vous subissez une pénalité de 3 mètres à toutes vos Vitesses. Comme pour l'ensemble des pénalités infligées à votre Vitesse, cette dernière ne peut être réduite à moins de 1,50 mètre.</p>",
+        "element_type": null,
+        "href"        : "/conditions/D5mg6Tc7Jzrj6ro7",
+        "id"          : "D5mg6Tc7Jzrj6ro7",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Surchargé",
+        "traits"      : []
     },
     "HL2l2VRSaQHu9lUw": {
-        "id"      : "HL2l2VRSaQHu9lUw",
-        "text"    : "Fatigué",
-        "category": "item",
-        "href"    : "/conditions/HL2l2VRSaQHu9lUw"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes épuisé et ne pouvez pas rassembler plus d'énergie. Vous subissez une pénalité de statut de -1 à votre CA et à vos jets de sauvegarde. Vous ne pouvez utiliser d'activité d'exploration accomplies en voyageant.</p>\n<p>Vous vous remettez de la fatigue après une nuit de repos complète.</p>",
+        "element_type": null,
+        "href"        : "/conditions/HL2l2VRSaQHu9lUw",
+        "id"          : "HL2l2VRSaQHu9lUw",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Fatigué",
+        "traits"      : []
     },
     "BlAOM2X92SI6HMtJ": {
-        "id"      : "BlAOM2X92SI6HMtJ",
-        "text"    : "Chercher",
-        "category": "action",
-        "href"    : "/actions/BlAOM2X92SI6HMtJ"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous scrutez une zone à la recherche de signes de créatures ou d'objets, incluant possiblement des portes secrètes ou des dangers. Choisissez une zone à scruter. Le MJ détermine la zone que vous pouvez scruter avec une action Rechercher, toujours environ 9 mètres dans n'importe quelle dimension. Le MJ pourrait vous imposer une pénalité si vous Cherchez au loin ou ajuster le nombre d'actions qu'il vous faut ou si la zone est particulièrement encombrée.</p>\n<p>Le MJ fait un unique test de  Perception  secret à votre place et compare le résultat aux DD de Discrétion de toutes les créatures  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VRSef5y1LmL2Hkjf'})\">Non détectées</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Cachées</div>  dans la zone ou au DD nécessaire pour détecter chaque objet qui se trouve dans la zone (qui est alors déterminé par le MJ ou par quiconque a  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV'})\">Dissimulé cet objet</div> ). Une créature que vous détectez pourrait rester Cachée plutôt que dans l'état  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1wQY3JYyhMYeeV2G'})\">Observé</div>  si vous utilisez un sens imprécis ou si un effet (comme  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XXqE1eY3w3z6xJCB'})\">Invisibilité</div> ) empêche ce sujet d'être Observé.</p>\n<p>\"Succès critique\" Toute créature Non détectée ou Cachée contre laquelle vous avez obtenu un succès critique devient Observée. Vous apprenez l'emplacement des objets dans la zone contre lesquels vous avez obtenu un succès critique.</p>\n<p>\"Succès\" Toute créature Non détectée contre laquelle vous avez obtenu un succès devient Cachée au lieu de Non détectée et toute créature Cachée devient Observée. Vous apprenez l'emplacement ou obtenez un indice vous aidant à trouver celui-ci, selon ce que détermine le MJ.</p>",
+        "element_type": null,
+        "href"        : "/actions/BlAOM2X92SI6HMtJ",
+        "id"          : "BlAOM2X92SI6HMtJ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Chercher",
+        "traits"      : [
+            "Concentration",
+            "Secret"
+        ]
     },
     "fBnFDH2MTzgFijKf": {
-        "id"      : "fBnFDH2MTzgFijKf",
-        "text"    : "Inconscient",
-        "category": "item",
-        "href"    : "/conditions/fBnFDH2MTzgFijKf"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous dormez ou avez été assommé. Vous ne pouvez pas agir. Vous subissez une pénalité de -4 à votre CA, à votre Perception et à vos jets de Réflexes et vous avez les états  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XgEqL1kFApUbl5Z2'})\">Aveugle</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div> . Quand vous obtenez cet état, vous tombez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div>  et lâchez les objets que vous tenez en main, à moins que l'effet ne précise le contraire ou que le MJ détermine que vous êtes dans une situation qui ne s'y prête pas.</p>\n<p>Si vous êtes inconscient parce que vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yZRUzMqrMmfLu0V1'})\">Mourant</div> , vous ne pouvez pas vous réveiller tant que vous êtes réduit à 0 Point de vie. Si vous repassez à 1 Point de vie ou plus, vous perdez les états Mourant et Inconscient et pouvez agir normalement lors de votre prochain tour.</p>\n<p>Si vous êtes inconscient et avez 0 Point de vie mais n'êtes pas Mourant, vous regagnez naturellement 1 Point de vie et vous éveillez après qu'un certain temps a passé. Le MJ détermine alors combien de temps vous êtes inconscient : un intervalle allant d'un minimum de 10 minutes à plusieurs heures. Si vous êtes soigné, vous perdez l'état inconscient et pouvez agir normalement lors de votre prochain tour.</p>\n<p>Si vous êtes inconscient et avez plus de 1 Point de vie (typiquement parce que vous êtes endormi ou rendu inconscient par un effet), vous vous réveillez pour l'une des raisons suivantes.</p>\n<ul><li>Vous subissez des dégâts, bien que si ces dégâts vous réduisent à 0 Point de vie, vous restez inconscient et obtenez également l'état mourant comme à l'ordinaire.</li><li>Vous recevez des soins, autre que la guérison naturelle dont vous bénéficiez en vous reposant.</li><li>Quelqu'un vous réveille avec une action Interagir.</li><li>Un bruit fort autour de vous pourrait vous réveiller. Au début de votre tour, vous faites automatiquement un test de Perception contre le DD du bruit (ou, s'il s'agit de plusieurs bruits, le DD le moins élevé) et vous vous réveillez en cas de succès. Si des créatures se trouvent autour de vous et tentent de rester discrètes, ce test de Perception utilise leur DD de Discrétion. Certains effets vous font sombrer dans un sommeil si profond qu'ils n'autorisent pas ce test de Perception.</li><li>Si vous êtes simplement endormi, le MJ peut décider que vous vous réveillez parce que vous avez assez dormi ou parce que quelque chose a troublé votre sommeil.</li></ul>",
+        "element_type": null,
+        "href"        : "/conditions/fBnFDH2MTzgFijKf",
+        "id"          : "fBnFDH2MTzgFijKf",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Inconscient",
+        "traits"      : []
     },
     "0FtzFbUrN56KA67z": {
-        "id"      : "0FtzFbUrN56KA67z",
-        "text"    : "Instinct animal",
-        "category": "feat",
-        "href"    : "/class-features/0FtzFbUrN56KA67z"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Quand vous entrez en Rage, vous êtes envahi par la fureur d'un prédateur sauvage, vous accordant des attaques à mains nues terribles. Les barbares possédant cet instinct sont souvent issus de cultures qui révèrent des animaux sauvages (comme les grands singes ou les ours). Vous pouvez également vous opposer à cet aspect animal et incontrôlable de votre personnalité ou être le descendant d'un loup-garou ou d'un autre type de créature-garou. Sélectionnez dans le tableau des instincts animaux celui qui correspond le mieux à l'animal que vous avez choisi.</p>\n<p>\"Capacité d'instinct — Rage bestiale\" Lorsque vous êtes enragé, vous obtenez l'attaque (ou les attaques) à mains nues de l'animal choisi, mais vous êtes incapable d'utiliser des armes. L'attaque spécifique gagnée, les dégâts qu'elle inflige et ses traits sont indiqués sur la table des instincts animaux. Ces attaques sont dans le groupe pugilat. Votre action de Rage obtient les traits transformation et primordial.</p>\n<p>\"Capacité de spécialisation (7e)\" Augmentez la taille du dé de dégât des attaques à mains nues accordés par votre animal choisi d'un cran et augmentez les dégâts supplémentaires de la Rage de 2 à 5 pour les attaques animales de votre animal choisi. Si vous possédez la spécialisation martiale supérieure, augmentez les dégâts de la rage de 5 à 12 pour les attaques à mains nues de votre animal choisi.</p>\n<p>\"Résistance enragée (9e)\" Vous résistez aux dégâts perforants et tranchants.</p>\n<h2>Instincts animaux</h2>\nAnimal\nAttaque\nDégâts\nTraits\n\n\nAnkylosaure\nQueue\n1d10 C\nDémolition, mains nues\n\n\nAraignée\nCrocs\n1d8 P\nSaisir, venimeux, mains nues\n\n\nToile\nSpécial*\nFacteur de portée 4,50 mètres\n\n\nBrontosaure\nQueue\n1d10 C\nCroc-en-jambe, mains nues\n\n\nCerf\nBois\n1d10 P\nSaisir, mains nues\n\n\nChauve-souris\nCrocs\n1d10 P\nmains nues\n\n\nAiles\n1d4 P\nParade, mains nues\n\n\nCrabe\nGriffe\n1d10 C\nDémolition, mains nues\n\n\nGriffe\n1d4 T\nParade, mains nues\n\nCrocodile\nMâchoires\n1d10 P\nmains nues\n\n\nQueue\n1d6 C\nAgile, mains nues\n\n\nFélin\nMâchoires\n1d10 P\nMains nues\n\n\nGriffes\n1d6 T\nAgile, mains nues\n\n\n\nFourmi\nMandibules\n1d10 P\nSaisir, mains nues\n\n\n\nGrenouille\nMâchoires\n1d10 C\nMains nues\n\n\nLangue\n1d4 C\nAgile, mains nues\n\n\n\nGuêpe\nDard\n1d4 P\nTraître, mortel d8, venimeux, mains nues\n\n\n\nLoup\nMâchoires\n1d10 P\nCroc-en-jambe, mains nues\n\n\n\nOiseau\nBec\n1d10 P\nmains nues\n\n\nSerre\n1d6 T\nAgile, mains nues\n\n\n\nOrque\nMâchoires\n1d8 P\nPercutant, mains nues\n\n\n\nOurs\nMâchoires\n1d10 P\nMains nues\n\n\nGriffe\n1d6 T\nAgile, mains nues\n\n\n\nPhoque\nMâchoires\n1d10 P\nsaisir, mains nues\n\n\n\nPrimate\nPoing\n1d10 C\nSaisir, mains nues\n\n\n\nRequin\nMâchoires\n1d10 P\nSaisir, mains nues\n\n\n\nScorpion\nDard\n1d6 P\nAllonge, venimeux, mains nues\n\n\nPince\n1d4 T\nParade, mains nues\n\n\n\nSerpent\nCrocs\n1d10 P\nSaisir, mains nues\n\n\n\nTaureau\nCorne\n1d10 P\nPousser, mains nues\n\n\n\nTyrannosaure\nMâchoire\n1d8 P\nMortel d12, mains nues\n\n\nQueue\n1d6 C\nAgile, mains nues\n<p>* L'attaque de toile de l'araignée n'inflige pas de dégâts, mais la cible subit une pénalité de circonstances de -3 mètres à ses Vitesses pendant 1 round si elle touche. Si une cible est touchée une seconde fois par la même attaque de toile du personnage alors qu'elle subit cette pénalité, elle est à la place  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eIcWbB5o3pP6OIMe'})\">Immobilisée</div>  jusqu'à ce qu'elle réussisse un test pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9'})\">S'Échapper</div>  contre votre DD de classe.</p>",
+        "element_type": null,
+        "href"        : "/class-features/0FtzFbUrN56KA67z",
+        "id"          : "0FtzFbUrN56KA67z",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct animal",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "znxs0soGlusvRP39": {
-        "id"      : "znxs0soGlusvRP39",
-        "text"    : "Instinct de décomposition",
-        "category": "feat",
-        "href"    : "/class-features/znxs0soGlusvRP39"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre rage est intrinsèquement liée à la décomposition des êtres organiques et à la croissance que permet cette décomposition. Vous avez peut-être manipulé d'anciennes reliques créées par Ghorus, été infecté par le Fléau d'Ayrzul ou le Roncier ou encore avoir été béni par Zibik, l'homme vert. Lorsque vous déchaînez votre rage, vous pourrissez, devenant criblé de moisissures et de champignons mangeurs de chair. Bien que cette pourriture s'estompe lorsque vous laissez vos émotions se calmer, elle ne disparaît pas complètement et les cicatrices laissées derrière se répandent petit à petit tout au long de votre vie, se multipliant à chaque fois que vous êtes en colère.</p>\n<h2>Anathème</h2>\n<p>Empêcher la décomposition des créatures ou des plantes mortes est anathème, tout comme détruire ou entraver la croissance des moisissures ou des champignons dans un environnement naturel. Cela ne vous empêche pas de vous défendre contre les créatures ayant le trait champignon ou les dangers, ou de récolter des champignons ou des moisissures uniquement pour votre subsistance.</p>\n<h2>Rage décomposante (pouvoir d'instinct)</h2>\n<p>Lorsque vous êtes en rage, vous pouvez choisir d'augmenter les dégâts supplémentaires de la rage de 2 à 6 et changer leur type pour celui de poison à la place du type de dégâts de votre attaque à mains nues ou de votre arme. Si vous le faites, votre action de rage obtient les traits primordial et poison et vous subissez 1 point de dégât de poison à la fin de chacun de vos rounds car votre chair se décompose. Ces dégâts ne peuvent être réduits ou évités par aucun moyen. Vous pouvez faire ce choix seulement lorsque vous entrez dans votre rage et elle reste en effet jusqu'à ce que votre rage se termine.</p>\n<h2>Pouvoir de spécialisationNiveau 7</h2>\n<p>Lorsque vous utilisez rage décomposante, augmentez les dégâts supplémentaires de la rage de 6 à 10 mais les dégâts que vous subissez à la fin de votre tour passent à 5. Si vous possédez la spécialisation martiale supérieure, vous augmentez les dégâts de la rage lorsque vous utilisez rage de bois de 10 à 18 mais les dégâts que vous subissez passent à 10.</p>\n<h2>Résistance enragéeNiveau 9</h2>\n<p>Vous résistez aux dégâts de poison ainsi qu'aux dégâts infligés par des attaques et des capacités de créatures ayant le trait champignon, quel que soit le type de dégâts.</p>",
+        "element_type": null,
+        "href"        : "/class-features/znxs0soGlusvRP39",
+        "id"          : "znxs0soGlusvRP39",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct de décomposition",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "JuKD6k7nDwfO0Ckv": {
-        "id"      : "JuKD6k7nDwfO0Ckv",
-        "text"    : "Instinct de géant",
-        "category": "feat",
-        "href"    : "/class-features/JuKD6k7nDwfO0Ckv"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre rage vous confère la puissance brute et la taille d'un géant. Cela ne signifie pas nécessairement que vous vénérez les géants. Vous pourriez vous moquer d'eux ou même aspirer à les tuer ! Au contraire, vous pourriez passer pour un géant aux yeux des autres en raison de votre force exceptionnelle ou de vos émotions et de votre ego plus grands que nature.</p>\n<p>\"Capacité d'instinct — Cogneur titanesque\" Vous pouvez utiliser une arme conçue pour une Grande créature si vous êtes de taille Petite ou Moyenne (à la fois normalement et lorsque vous êtes enragé). Si vous n'êtes pas de taille Petite ou Moyenne, vous pouvez utiliser une arme conçue pour une créature d'une taille supérieure à la vôtre. Vous débutez avec une telle arme que vous recevez gratuitement. Il doit s'agit d'une arme au corps-à-corps ou à distance, elle doit avoir un Prix inférieur ou égal à 9 po (sans inclure l'ajustement de Prix du fait d'être une arme plus grande) et il doit s'agir d'une arme courante ou d'une arme à laquelle vous avez autrement accès. Il s'agit de votre arme personnelle et elle ne possède aucune valeur si elle est vendue à moins que vous ne lui fassiez graver des runes par la suite et elle possède un Encombrement ordinaire pour une arme de sa taille. Lorsque vous maniez une arme plus grande au combat, augmentez les dégâts supplémentaires de votre Rage de 2 à 6, mais vous subissez l'état  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm'})\">Maladroit 1</div>  du fait de la taille de l'arme qui rend difficile son maniement. Vous ne pouvez supprimer cet état Maladroit ou ignorer ses pénalités par aucune moyen lorsque vous maniez l'arme.</p>\n<p>\"Capacité de spécialisation (7e)\" Augmentez les dégâts de la Rage lorsque vous utiliser une arme plus grande de 6 à 10. Si vous possédez Spécialisation martiale supérieure, passez les de 10 à 18.</p>\n<p>\"Résistance enragée (9e)\" Vous résistez aux dégâts contondants et à votre choix, aux dégâts d'électricité, de feu ou de froid, choisi lorsque vous obtenez Résistance enragée.</p>",
+        "element_type": null,
+        "href"        : "/class-features/JuKD6k7nDwfO0Ckv",
+        "id"          : "JuKD6k7nDwfO0Ckv",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct de géant",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "k7M9jedvt31AJ5ZR": {
-        "id"      : "k7M9jedvt31AJ5ZR",
-        "text"    : "Instinct de la furie",
-        "category": "feat",
-        "href"    : "/class-features/k7M9jedvt31AJ5ZR"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre rage provient d'un puits profond et purement personnel en vous. Vous utilisez votre rage à votre gré.</p>\n<p>\"Capacité d'instinct — Frénésie inarrêtable\" Augmentez les dégâts supplémentaire de la Rage de 2 à 3. Vous obtenez un don de barbare de niveau 1 supplémentaire.</p>\n<p>\"Capacité de spécialisation (7e)\" Augmentez les dégâts supplémentaire de la Rage de 3 à 7. Si vous avez spécialisation mariale supérieure, augmentez les dégâts supplémentaire de la Rage à 13.</p>\n<p>\"Résistance enragée (9e)\" Vous résistez aux dégâts physiques des armes, mais pas aux dégâts physiques d'autres sources (comme les attaques à mains nues).</p>",
+        "element_type": null,
+        "href"        : "/class-features/k7M9jedvt31AJ5ZR",
+        "id"          : "k7M9jedvt31AJ5ZR",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct de la furie",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "VDot7CDcXElxmkkz": {
-        "id"      : "VDot7CDcXElxmkkz",
-        "text"    : "Instinct du dragon",
-        "category": "feat",
-        "href"    : "/class-features/VDot7CDcXElxmkkz"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous invoquez la furie d'un terrible dragon et faites preuve de capacités incroyables. Peut-être que votre culture vénère la majesté de la gent draconique ou que vous avez obtenu un lien en buvant ou en vous baignant dans le sang d'un dragon ou encore en observant un Ver en maraude brûler votre village. Choisissez un type de dragon dans la table des types d'instincts de dragon.</p>\n<p>Il s'agit des dragons du Monster Core, mais votre MJ pourrait vous permettre de choisir des dragons d'autres sources et déterminer leur tradition et leur type de souffle de dragon.</p>\n<p>\"Capacité d'instinct — Rage draconique\" Lorsque vous êtes enragé, vous pouvez augmenter les dégâts supplémentaire de la Rage de 2 à 4 et changer le type de dégâts pour correspondre à celui du souffle du dragon de votre instinct au lieu du type de dégâts de votre arme ou de votre attaque à mains nues. Si vous le faites, votre action de Rage obtient le trait correspondant à la tradition de votre instinct de dragon ainsi que le trait correspondant au type de dégâts lorsqu'il est applicable.</p>\n<p>\"Capacité de spécialisation (7e)\" Lorsque vous utilisez Rage draconique, vous augmentez les dégâts supplémentaires de la Rage de 4 à 8. Si vous possédez Spécialisation martiale supérieure, vous augmentez les dégâts de Rage lorsque vous utilisez rage draconique de 8 à 16.</p>\n<p>\"résistance enragée (9e)\" Vous résistez aux dégâts perforants et aux dégâts du type de votre souffle de dragon.</p>\n<h2>Instincts draconiques</h2>\nDragonTraditionSouffle de dragon\n\n\nAdamantiumPrimordialeContondant\nComploteurOccultePoison\nCornuPrimordialePoison\nDiaboliqueDivineFeu\nEmpyréenDivineSpirituel\nFortunéArcaniqueForce\nMirageArcaniqueMental\nPrésageOcculteMental\nLe supplément Lost Omens : Draconic Codex propose une liste plus complète de  dragons .\nLes dragons auxquels les règles prémaster font référence dans les premières campagnes PF2 publiées par Paizo sont les suivants :\n\"Dragons chromatiques\"\n\"Type\"\n\"Souffle\"\n\n\n\n\nBlanc\nChromatique\nCône de froid\n\n\nBleu\nChromatique\nLigne d'électricité\n\n\nNoir\nChromatique\nLigne d'acide\n\n\nRouge\nChromatique\nCône de feu\n\n\nVert\nChromatique\nCône de poison\n\n\nAirain\nMétallique\nLigne de feu\n\n\nArgent\nMétallique\nCône de froid\n\n\nBronze\nMétallique\nLigne d'électricité\n\n\nCuivre\nMétallique\nLigne d'acide\n\n\nOr\nMétallique\nCône de feu",
+        "element_type": null,
+        "href"        : "/class-features/VDot7CDcXElxmkkz",
+        "id"          : "VDot7CDcXElxmkkz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct du dragon",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "0jSS6pgNXsC8k4o7": {
-        "id"      : "0jSS6pgNXsC8k4o7",
-        "text"    : "Instinct élémentaire",
-        "category": "feat",
-        "href"    : "/class-features/0jSS6pgNXsC8k4o7"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Cette option d'Instinct pour les barbares leur permet de canaliser les forces élémentaires, se liant à un unique élément et son Plan associé. Peut-être vos ancêtres étaient des invocateurs élémentaires ou ont été bénis par un Seigneur élémentaire. Choisissez un élément sur la table des Instincts élémentaires qui soit votre élément d'instinct. Si votre élément vous offre plusieurs types de dégâts, choisissez un de ces types lorsque vous choisissez votre élément.</p>\nÉlément\nTrait\nDégâts\n\n\n\n\nAir\nAir\nÉlectricité ou tranchant\n\n\nBois\nBois\nContondant ou perforant\n\n\nEau\nEau\nContondant ou froid\n\n\nFeu\nFeu\nFeu\n\n\nMétal\nMétal\nPerforant ou tranchant\n\n\nTerre\nTerre\nContondant ou perforant\n<h2>Anathème</h2>\n<p>Manquer de respect à une créature élémentaire est anathème pour votre instinct ; se défendre contre elle ne l'est pas. Piller volontairement le Plan élémentaire associé à votre élément est un anathème pour votre instinct, ce qui ne vous empêche pas d'altérer ce plan de manière responsable.</p>\n<h2>Rage élémentaire</h2>\n<p>Lorsque vous êtes en rage, vous êtes enveloppé dans une vortex de matière élémentaire ; vous devenez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masqué</div>  contre les attaques à distance. Vous ne pouvez utiliser cet état Masqué pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa'})\">Vous cacher</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4'})\">Être furtif</div> . En rage, vous augmentez les dégâts supplémentaires de la Rage de 2 à 4 et changez son type de dégâts pour celui qui vous avez choisi comme votre élément.</p>\n<p>Si vous avez n'importe quelle impulsion de kinétiste avec le même type d'élément que celui que vous avez choisi avec votre instinct, tels que ceux obtenus en prenant le don de Dévouement multiclasse de kinétiste, vous pouvez les utiliser lorsque vous êtes en rage même s'ils possèdent le trait concentration.</p>\n<h2>Pouvoir de spécialisation</h2>\n<p>Lorsque vous utilisez rage élémentaire, vous augmentez les dégâts de la Rage de 4 à 6. Si vous avez spécialisation martiale supérieure, augmentez à la place les dégâts de la rage lorsque vous utilisez rage élémentaire de 6 à 12.</p>\n<h2>Résistance enragée</h2>\n<p>Vous résistez aux dégâts infligés par les attaques et les capacités des créatures élémentaires de votre élément choisi, ainsi qu'à celles des créatures constituées de votre élément, quel que soit le type de dégâts. Vous résistez aussi aux dégâts infligés par des attaques, des sorts et des capacités avec votre trait élémentaire.</p>",
+        "element_type": null,
+        "href"        : "/class-features/0jSS6pgNXsC8k4o7",
+        "id"          : "0jSS6pgNXsC8k4o7",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct élémentaire",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "qVAeSFTI1dq64bB8": {
-        "id"      : "qVAeSFTI1dq64bB8",
-        "text"    : "Instinct ligneux",
-        "category": "feat",
-        "href"    : "/class-features/qVAeSFTI1dq64bB8"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre rage est alimentée par la croissance constante du monde naturel, de l'éclosion des fleurs à la culture des légumes, en passant par la puissance imposante des plus grands arbres. Vous pouvez descendre de puissants druides ou de dryades, avoir été exposé à une puissante magie primordiale ou avoir été transformé par la résurgence du Plan du Bois. Lorsque vous déchaînez votre rage, votre chair se couvre d'excroissances ligneuses qui se propagent comme de l'écorce sur votre corps.</p>\n<h2>Anathème</h2>\n<p>Piller la nature et tuer des plantes inutilement est contraire à votre instinct. Se défendre contre les créatures végétales ou les dangers ne l'est pas.</p>\n<h2>Rage de bois (pouvoir d'instinct)</h2>\n<p>Lorsque vous êtes en rage, vous pouvez augmenter les dégâts supplémentaires de la rage de 2 à 6. Si vous le faites, vous réduisez votre Vitesse de 3 mètres, car les plaques d'écorce qui recouvrent votre corps sont une gêne pour votre mobilité. Cette réduction de vitesse ne peut être surmontée par aucun moyen, bien qu'elle puisse être compensées par des augmentations de vitesse.</p>\n<h2>Pouvoir de spécialisationNiveau 7</h2>\n<p>Lorsque vous utilisez rage de bois, augmentez les dégâts supplémentaires de la rage de 6 à 10. Si vous possédez la spécialisation martiale supérieure, vous augmentez les dégâts de la rage lorsque vous utilisez rage de bois de 10 à 18.</p>\n<h2>Résistance enragéeNiveau 9</h2>\n<p>Vous résistez aux dégâts perforants et tranchants, mais vous obtenez une faiblesse contre le feu égale à 3 + votre modificateur de Constitution, car votre peau semblable à l'écorce est très inflammable.</p>",
+        "element_type": null,
+        "href"        : "/class-features/qVAeSFTI1dq64bB8",
+        "id"          : "qVAeSFTI1dq64bB8",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct ligneux",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "TQqv9Q5mB4PW6LH9": {
-        "id"      : "TQqv9Q5mB4PW6LH9",
-        "text"    : "Instinct spirituel",
-        "category": "feat",
-        "href"    : "/class-features/TQqv9Q5mB4PW6LH9"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que vous soyez sensible émotionnellement aux esprits qui vous entourent, vénériez vos ancêtres ou les apparitions ou soyez hanté par le spectre d'un ancêtre, d'un parent, d'un ami ou d'un ennemi, votre rage prend la forme d'une possession spirituelle.</p>\n<p>\"Capacité d'instinct - Rage spirituelle\" Quand vous êtes enragé, vous pouvez passer les dégâts supplémentaires de la rage de 2 à 3 et changer leur type de dégâts pour qu'ils soient spirituels au lieu du type de dégâts normalement infligés par votre arme ou votre attaque à mains nues (choisissez à chaque fois que vous êtes Enragé). Si vous choisissez d'infliger des dégâts spirituels, votre arme ou votre attaque à mains nues obtient l'effet de la rune de propriété  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JQdwHECogcTzdd8R'})\">spectrale</div> , ce qui vous rend plus efficace contre les créatures intangibles et vos actions de rage obtiennent les traits divin et spirituel.</p>\n<p>\"Capacité de spécialisation (7e)\" Quand vous utilisez votre rage spirituelle, vous faites passer les dégâts supplémentaires de Rage de 3 à 7. Si vous possédez la spécialisation martiale supérieure et que vous utilisez la rage spirituelle, vous passez à la place les dégâts supplémentaires de Rage à 13.</p>\n<p>\"Résistance enragée (9e)\" Vous êtes résistant aux dégâts de vide ainsi qu'aux dégâts infligés par les attaques et les capacités des créatures mortes-vivantes, quel qu'en soit le type.</p>",
+        "element_type": null,
+        "href"        : "/class-features/TQqv9Q5mB4PW6LH9",
+        "id"          : "TQqv9Q5mB4PW6LH9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct spirituel",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "SCYSjUbMmw8JD9P9": {
-        "id"      : "SCYSjUbMmw8JD9P9",
-        "text"    : "Instinct superstitieux",
-        "category": "feat",
-        "href"    : "/class-features/SCYSjUbMmw8JD9P9"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Une profonde méfiance à l'égard de la magie vous a conduit à vous priver et à contrer le non sens métaphysique des lanceurs de sorts. Que vous soyez membre d'une famille superstitieuse ou d'une culture qui ne croit pas en la magie, un combattant en constant conflit contre des magiciens et des sorciers, le survivant d'un accident magique qui a instillé dans votre esprit et dans votre corps une profonde aversion pour la magie ou bien encore l'enfant d'une lignée connue pour sa résistance à la magie, votre rage se montre hostile à la magie. Cela fait de vous un excellent chasseur de mages.</p>\n<p>\"Capacité d'instinct — Résistance superstitieuse\" Votre profonde superstition signifie qu'il vous est anathème d'apprendre ou de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aBQ8ajvEBByv45yz'})\">Lancer un sort</div>  ou de manier ou d'utiliser un objet qui peut être activé pour Lancer un sort. Si vous violez cet anathème, vous perdez les capacités d'instinct et tout don qui comprend l'instinct dans ses prérequis jusqu'à ce que vous passiez 1 journée d'intermède à vous recentrer, et ce, bien que vous conserviez vos autres capacités de barbare. Lorsque vous êtes en rage, vous obtenez un bonus de statut de +2 à tous les jets de sauvegarde contre la magie. Augmentez les dégâts de la rage de 2 à 3, ou à 4 contre les créatures dont vous avez été témoin qu'elles ont Lancé un sort au cours de l'heure précédente. Lorsque vous êtes Enragé, vous regagnez des Points de vie égaux aux Points de vie temporaires que vous avez obtenu de l'action Rage. Puis vous ne pouvez pas regagner des PV de cette manière de nouveau pendant 10 minutes. Lorsque vous êtes Enragé, si vous consentez à accepter les effets d'un sort ou d'un effet magique, vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL'})\">Effrayé 1</div> . Vous ne pouvez réduire l'état Effrayé en dessous de 1 tant que vous êtes affecté par le sort ou l'effet.</p>\n<p>\"Capacité de spécialisation (7e)\" Augmentez les dégâts de la Rage de 3 à 7, ou à 8 contre les créatures dont vous avez été témoin qu'elles ont Lancé un sort au cours de l'heure précédente. Si vous possédez Spécialisation martiale supérieure, passez les dégâts de Rage à 13 ou à 16 contre les créatures dont vous avez été témoin qu'elles ont Lancé un sort au cours de l'heure précédente.</p>\n<p>\"Résistance enragée (9e)\" Choisissez deux traditions magiques associées : arcanique et occulte, arcanique et primordiale, divine et occulte ou divine et primordiale. La résistance accordée par résistance enragée s'applique contre tous les dégâts que vous subissez du fait de sorts lancés avec ces traditions magiques, et ce, quel que soit le type de dégâts infligés par le sort.</p>",
+        "element_type": null,
+        "href"        : "/class-features/SCYSjUbMmw8JD9P9",
+        "id"          : "SCYSjUbMmw8JD9P9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Instinct superstitieux",
+        "traits"      : [
+            "Barbare"
+        ]
     },
     "a898miJnjgD93ZsX": {
-        "id"      : "a898miJnjgD93ZsX",
-        "text"    : "Muse polyvalente",
-        "category": "feat",
-        "href"    : "/feats/a898miJnjgD93ZsX"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Il est impossible de catégoriser votre muse. Choisissez un type de muse autre que celui que vous avez déjà. Vous obtenez un don de niveau 1 nécessitant cette muse et votre muse est désormais aussi une muse du type choisi, ce qui vous permet de prendre des dons avec aussi ce type de muse en prérequis. Vous ne bénéficiez pas des autres effets du type de muse choisi.</p>\n<p>\"Spécial\" Vous pouvez sélectionner ce don plusieurs fois. Le cas échéant, vous devez choisir à chaque fois un type différent de ceux que votre muse a déjà.</p>",
+        "element_type": "DON 2",
+        "href"        : "/feats/a898miJnjgD93ZsX",
+        "id"          : "a898miJnjgD93ZsX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Muse polyvalente",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "N03BtRvjX9TeHRa4": {
-        "id"      : "N03BtRvjX9TeHRa4",
-        "text"    : "Combattante",
-        "category": "feat",
-        "href"    : "/class-features/N03BtRvjX9TeHRa4"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le champ de bataille est votre scène, le fracas de l'acier, votre musique. Votre muse a vu d'innombrables combats, qu'elle se révèle dans le combat ou qu'elle se résigne à sa nécessité. Un soldat ou un général peut vous inspirer, tout comme un champ de bataille ou une arme dont l'histoire est particulièrement riche. Si votre muse est une créature, il peut s'agir d'un soldat d'un autre monde, comme un archon ou un soldat du diable. S'il s'agit d'une divinité, ce peut être Gorum. L'art inspiré par une muse combattante est triomphant et strident, décrivant souvent des batailles épiques.</p>\n<p>En tant que barde avec une muse combattante, vous vous entraînez pour la bataille en plus de la représentation et vous préparez vos alliés aux dangers du combat. Vous pourriez même entrer dans le vif du sujet avec eux.</p>\n<p>\"Don de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q1iP3SjAF5uceI0M'})\">Représentation martiale</div></p>\n<p>\"Sort de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4koZzrnMXhhosn0D'})\">Terreur</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/N03BtRvjX9TeHRa4",
+        "id"          : "N03BtRvjX9TeHRa4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Combattante",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "4ripp6EfdVpS0d60": {
-        "id"      : "4ripp6EfdVpS0d60",
-        "text"    : "Énigmatique",
-        "category": "feat",
-        "href"    : "/class-features/4ripp6EfdVpS0d60"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre muse est un mystère qui vous pousse à percer les secrets bien cachés de la vie et du multivers. Ces muses peuvent être des personnes que vous n'arrivez pas à cerner, des textes profondément chargés de symbolisme ou des paradoxes émotionnels qui soulignent le travail de toute une vie. Si votre muse est une créature d'un autre monde, il peut s'agir d'un veilleur mystérieux ou d'un dragon occulte. S'il s'agit d'une divinité, il peut s'agir d'Irori ou de Néthys. L'art inspiré par une muse énigmatique peut être cryptique, inquiétant ou chargé de spéculations et de conspirations. En tant que barde ayant la muse énigmatique, vous soutenez vos alliés en leur apportant des connaissances, de l'inspiration et un soutien occulte.</p>\n<p>\"Don de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uVXEZblPRuCyPRua'})\">Connaissance bardique</div></p>\n<p>\"Sort de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Coup assuré</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/4ripp6EfdVpS0d60",
+        "id"          : "4ripp6EfdVpS0d60",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Énigmatique",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "YMBsi4bndRAk5CX4": {
-        "id"      : "YMBsi4bndRAk5CX4",
-        "text"    : "Maestro",
-        "category": "feat",
-        "href"    : "/class-features/YMBsi4bndRAk5CX4"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre muse vous inspire constamment à atteindre des hauteurs supérieures de prouesse artistique. Pour de nombreux bardes, un enseignant ou un rival remplit ce rôle, bien que certains voient plus loin et tentent de surpasser les plus grands compositeurs du passé ou à tracer un chemin entièrement nouveau. Si votre muse est une créature surnaturelle, il pourrait s'agir d'une qui aime à assurer des représentations comme un ange choral ou un azata lirakien ; s'il s'agit d'une divinité, il pourrait s'agir de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gxwmzxUWBOhdgFSN'})\">Shélyn</div> . L'art d'un barde inspiré par une muse maestro est précis et inventif, une réussite en terme de formalisme.</p>\n<p>En tant que barde avec une muse virtuose, vous êtes une source d'inspiration pour vos alliés et vous êtes confiant dans vos capacités musicales comme oratoires.</p>\n<p>\"Don de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sVjATEo8eqkAosNp'})\">Composition prolongée</div></p>\n<p>\"Sort de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'szIyEsvihc5e1w8n'})\">Apaiser</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/YMBsi4bndRAk5CX4",
+        "id"          : "YMBsi4bndRAk5CX4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Maestro",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "y0jGimYdMGDJWrEq": {
-        "id"      : "y0jGimYdMGDJWrEq",
-        "text"    : "Touche-à-tout",
-        "category": "feat",
-        "href"    : "/class-features/y0jGimYdMGDJWrEq"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre muse est un touche-à-tout aussi actif que talentueux, qui passe d'une compétence à une autre et d'un but à un autre. Certains bardes sont constamment attirés par de nouvelles muses ou tirent leur inspiration d'un être idéalisé, qu'il s'agisse d'une personne réelle ou d'un être purement philosophique. Si votre muse est une unique créature, il peut s'agir d'une créature éclectique comme une fée ou une personne qui a beaucoup appris au cours de sa longue vie ; s'il s'agit d'une divinité, il peut s'agir de Desna ou de Calistria. L'art inspiré par une muse touche-à-tout est agité, chaque composition présentant de nouvelles techniques et un style en perpétuelle évolution.</p>\n<p>En tant que barde dont la muse est touche-à-tout, vous vous intéressez à un large éventail de sujets, mais vous ne vous êtes que rarement dédié à l'un d'entre eux et vous ne vous décidez que rarement : vous voulez tout essayer.</p>\n<p>\"Don de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jBp91q4uzwd4FeSX'})\">Polyvalence artistique</div></p>\n<p>\"Sort de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xqmHD8JIjak15lRk'})\">Sbire fantasmagorique</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/y0jGimYdMGDJWrEq",
+        "id"          : "y0jGimYdMGDJWrEq",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Touche-à-tout",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "jHOlcSnGyjCnwoPP": {
-        "id"      : "jHOlcSnGyjCnwoPP",
-        "text"    : "Zoophonie",
-        "category": "feat",
-        "href"    : "/class-features/jHOlcSnGyjCnwoPP"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre muse est un maître du chant d'oiseau, des hurlements du loup, du barrissement des éléphants et des autre communications animales, vous poussant vers de nouveaux sommets et vous encourageant à vous lier avec la nature. Si votre muse est tune créature, il pourrait s'agir d'un animal éclairé ou d'un guide spirituel. S'il s'agit d'une divinité, elle pourrait être un des Gardiens de la nature, Gozreh ou un autre représentant de la nature.</p>\n<p>\"Don de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjQfJKeDc46cWtgk'})\">Communication zoophonique</div></p>\n<p>\"Sort de muse\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4YnON9JHYqtLzccu'})\">Convocation d'animal</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/jHOlcSnGyjCnwoPP",
+        "id"          : "jHOlcSnGyjCnwoPP",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Zoophonie",
+        "traits"      : [
+            "Barde"
+        ]
     },
     "WILXkjU5Yq3yw10r": {
-        "id"      : "WILXkjU5Yq3yw10r",
-        "text"    : "Contre-représentation",
-        "category": "spell",
-        "href"    : "/spells/WILXkjU5Yq3yw10r"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Vous ou un allié dans les 18 mètres lancez un jet de sauvegarde contre un effet audible ou visuel.</p>\n<p>Votre représentation vous protège vous et vos alliés. Effectuez un test de  Représentation  d'un type que vous connaissez : une représentation audible si le déclencheur était audible ou visuel si le déclencheur est visuel et cette action obtient les traits pour le type de Représentation. Vous et vos alliés dans la zone pouvez utiliser le meilleur résultat entre votre test de Représentation et leur jet de sauvegarde.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/WILXkjU5Yq3yw10r",
+        "id"          : "WILXkjU5Yq3yw10r",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Contre-représentation",
+        "traits"      : [
+            "Peu courant",
+            "Barde",
+            "Composition",
+            "Concentration",
+            "Focalisation",
+            "Fortune",
+            "Manipulation",
+            "Mental"
+        ]
     },
     "IAjvwqgiDr3qGYxY": {
-        "id"      : "IAjvwqgiDr3qGYxY",
-        "text"    : "Hymne de courage",
-        "category": "spell",
-        "href"    : "/spells/IAjvwqgiDr3qGYxY"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous inspirez vos alliés et vous-même par des discours ou des airs d'encouragement. Vous et tous vos alliés dans la zone obtenez un bonus de statut de +1 aux jets d'attaque, aux jets de dégâts et aux jets de sauvegarde contre les effets de terreur.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'beReeFroAx24hj83'})\">Effet : Hymne de courage</div></p>",
+        "element_type": "TOUR DE MAGIE 1",
+        "href"        : "/spells/IAjvwqgiDr3qGYxY",
+        "id"          : "IAjvwqgiDr3qGYxY",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Hymne de courage",
+        "traits"      : [
+            "Peu courant",
+            "Barde",
+            "Tour de magie",
+            "Composition",
+            "Concentration",
+            "Émotion",
+            "Mental"
+        ]
     },
     "K878asDgf1EF0B9S": {
-        "id"      : "K878asDgf1EF0B9S",
-        "text"    : "Aboutissement assuré",
-        "category": "action",
-        "href"    : "/actions/K878asDgf1EF0B9S"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous portez une attaque incroyablement élégante qui transperce les défenses de votre ennemi. Faites une Frappe avec l'effet suivant en cas d'échec.</p>\n<p>\"Échec\" Vous infligez la moitié de vos dégâts de votre  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RQH6vigvhmiYKKjg'})\">Frappe précise</div>  à la cible. Le type de ces dégâts est le même que celui de l'arme ou de l'attaque à mains nues que vous avez utilisée pour la Frappe.</p>",
+        "element_type": null,
+        "href"        : "/actions/K878asDgf1EF0B9S",
+        "id"          : "K878asDgf1EF0B9S",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Aboutissement assuré",
+        "traits"      : [
+            "Aboutissement"
+        ]
     },
     "uBJsxCzNhje8m8jj": {
-        "id"      : "uBJsxCzNhje8m8jj",
-        "text"    : "Effet : Panache",
-        "category": "feat",
-        "href"    : "/effects/uBJsxCzNhje8m8jj"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Accordé par  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LzYi0OuOoypNb6jd'})\">Panache</div></p>\n<p>Vous obtenez du panache.</p>",
+        "element_type": null,
+        "href"        : "/effects/uBJsxCzNhje8m8jj",
+        "id"          : "uBJsxCzNhje8m8jj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Effet : Panache",
+        "traits"      : []
     },
     "21WIfSu7Xd7uKqV8": {
-        "id"      : "21WIfSu7Xd7uKqV8",
-        "text"    : "Déplacement acrobatique",
-        "category": "action",
-        "href"    : "/actions/21WIfSu7Xd7uKqV8"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous Marchez rapidement d'une distance égale à votre Vitesse. Pendant ce mouvement, vous pouvez tenter de traverser l'espace occupé par un ennemi. Effectuez un test d' Acrobaties  contre le DD de Réflexes de l'ennemi dès que vous tentez de pénétrer dans l'espace qu'il occupe. Dans un environnement approprié, vous pouvez faire un Déplacement acrobatique en utilisant Escalader, Nager, Voler ou une autre action au lieu de Marcher rapidement.</p>\n<p>\"Succès\" Vous traversez l'espace occupé par l'ennemi, en considérant les cases dans son espace comme un terrain difficile (chaque mouvement de 1,50 mètre compte comme un mouvement de 3 mètres). Si votre Vitesse n'est pas suffisante pour traverser complètement l'espace qu'il occupe, vous obtenez le même résultat que lors d'un échec.</p>\n<p>\"Échec\" Votre mouvement se termine et vous déclenchez des réactions comme si vous étiez sorti de la case dans laquelle vous avez commencé.</p>",
+        "element_type": null,
+        "href"        : "/actions/21WIfSu7Xd7uKqV8",
+        "id"          : "21WIfSu7Xd7uKqV8",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Déplacement acrobatique",
+        "traits"      : [
+            "Déplacement"
+        ]
     },
     "5HoEwzLDJGTCZtFa": {
-        "id"      : "5HoEwzLDJGTCZtFa",
-        "text"    : "Danseur de combat",
-        "category": "feat",
-        "href"    : "/class-features/5HoEwzLDJGTCZtFa"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Pour vous, un combat est une sorte de représentation artistique et vous captez l'attention de vos ennemis par des mouvements hypnotisants. Vous êtes qualifié en Représentation et obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7LB00jkh6JaJr3vS'})\">Représentation fascinante</div> . Quand vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx'})\">Vous produisez</div> , l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/5HoEwzLDJGTCZtFa",
+        "id"          : "5HoEwzLDJGTCZtFa",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Danseur de combat",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "7LB00jkh6JaJr3vS": {
-        "id"      : "7LB00jkh6JaJr3vS",
-        "text"    : "Représentation fascinante",
-        "category": "feat",
-        "href"    : "/feats/7LB00jkh6JaJr3vS"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Quand vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx'})\">Vous produisez</div> , comparez votre résultat au DD de Volonté d'un observateur. Si vous obtenez un succès, la cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AdPVz7rbaVSRxHFg'})\">Fascinée</div>  pendant 1 round. Si l'observateur est dans une situation qui nécessite une attention immédiate, telle qu'un combat, vous devez obtenir un succès critique pour le fasciner et l'action Représentation obtient le trait mise hors de combat. Vous devez choisir quelle créature vous tentez de fasciner avant d'effectuer votre test et la cible est ensuite temporairement immunisée pendant 1 heure.</p>\n<p>Si vous êtes expert en Représentation, vous pouvez fasciner jusqu'à quatre observateurs. Si vous êtes maître, vous pouvez fasciner jusqu'à dix observateurs et si vous êtes légendaire, vous pouvez fasciner n'importe quel nombre d'observateurs en même temps.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/7LB00jkh6JaJr3vS",
+        "id"          : "7LB00jkh6JaJr3vS",
+        "price"       : null,
+        "required"    : [
+            "qualifié en Représentation"
+        ],
+        "text"        : "Représentation fascinante",
+        "traits"      : [
+            "Général",
+            "Compétence"
+        ]
     },
     "EEDElIyin4z60PXx": {
-        "id"      : "EEDElIyin4z60PXx",
-        "text"    : "Vous produisez",
-        "category": "action",
-        "href"    : "/actions/EEDElIyin4z60PXx"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Quand vous donnez une courte représentation (une chanson, une danse rapide ou quelques histoires drôles), vous utilisez l'action Se produire. Cette action s'avère particulièrement utile quand vous voulez prouver votre talent ou impressionner rapidement quelqu'un. Ce genre de représentations a rarement un impact en tant que tel mais vos représentations peuvent influencer le DD des tests de Diplomatie ultérieurs à l'égard des observateurs ou même changer leur attitude si le MJ le permet.</p>\nReprésentation\nTraits supplémentaires\nExemples\n\n\n Chant Audible et linguistiqueBallade, chant, mélodie, rimes\n\n\n Comédie Audible, linguistique et visuelBouffonnerie, raconter des blagues, poèmes humoristiques\n\n\n Danse Déplacement et visuelBallet, gigue\n\n\n Art oratoire Audible et linguistiqueConte, épopée, ode, poésie,\n\n\n Instruments à clavier Audible et manipulationClavecin, orgue, piano\n\n\n Instruments à cordes Audible et manipulationHarpe, luth, viole, violon\n\n\n Instruments à percussion Audible et manipulationSonneries, gong, tambour, xylophone\n\n\n Instruments à vent Audible et manipulationCornemuse, flûte, flûte à bec, trompette\n\n\n Art dramatique Audible, linguistique et visuelDrame, pantomime, marionnette\n<p>\"Succès critique\" Votre représentation impressionne les gens qui y assistent et ils parleront probablement autour d'eux de votre talent.</p>\n<p>\"Succès\" Vous faites vos preuves et les personnes présentes apprécient la qualité de votre représentation.</p>\n<p>\"Échec\" Votre représentation n'a pas l'effet escompté.</p>\n<p>\"Échec critique\" Vous ne parvenez à démontrer que votre incompétence.</p>\n<h2>Représentation : exemples de tâches</h2>\n<ul><li>\"Inexpérimenté\" Public de roturiers</li><li>\"Qualifié\" Public d'artisans</li><li>\"Expert\" Public de marchands ou de nobles mineurs</li><li>\"Maître\" Public de nobles importants ou de membres mineurs de la famille royale</li><li>\"Légendaire\" Public de membres majeurs de la famille royale ou d'entités d'outre-monde</li></ul>",
+        "element_type": null,
+        "href"        : "/actions/EEDElIyin4z60PXx",
+        "id"          : "EEDElIyin4z60PXx",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Vous produisez",
+        "traits"      : [
+            "Concentration"
+        ]
     },
     "Jgid6Ja6Y879COlN": {
-        "id"      : "Jgid6Ja6Y879COlN",
-        "text"    : "Escrimeur",
-        "category": "feat",
-        "href"    : "/class-features/Jgid6Ja6Y879COlN"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous déplacez précautionneusement, en feintant et en créant de fausses ouvertures pour conduire vos adversaires à faire des attaques inopportunes. Vous êtes qualifié en Duperie. Lorsque vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QNAVeNKtHA0EUw4X'})\">Feintez</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA'})\">Créez une diversion</div> , l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/Jgid6Ja6Y879COlN",
+        "id"          : "Jgid6Ja6Y879COlN",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Escrimeur",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "QNAVeNKtHA0EUw4X": {
-        "id"      : "QNAVeNKtHA0EUw4X",
-        "text"    : "Feintez",
-        "category": "action",
-        "href"    : "/actions/QNAVeNKtHA0EUw4X"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" L'adversaire que vous tentez de Feinter est dans votre allonge au corps-à-corps.</p>\n<p>À l'aide d'un moulinet trompeur, vous faites en sorte qu'un adversaire ne puisse pas voir venir votre véritable attaque. Effectuez un test de  Duperie  contre le DD de Perception de cet adversaire.</p>\n<p>\"Succès critique\" Les tentatives de défense de votre ennemi sont complètement inefficaces. La cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  contre les attaques au corps-à-corps que vous portez contre elle jusqu'à la fin de votre prochain tour.</p>\n<p>\"Succès\" Vous feintez votre adversaire, mais pour un court instant seulement. La cible est Prise au dépourvu contre la prochaine attaque au corps-à-corps que vous portez contre elle avant la fin de votre tour actuel.</p>\n<p>\"Échec critique\" Votre feinte se retourne contre vous. Vous êtes Pris au dépourvu contre les attaques au corps-à-corps que la cible porte contre vous jusqu'à la fin de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/actions/QNAVeNKtHA0EUw4X",
+        "id"          : "QNAVeNKtHA0EUw4X",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Feintez",
+        "traits"      : [
+            "Mental"
+        ]
     },
     "GkmbTGfg8KcgynOA": {
-        "id"      : "GkmbTGfg8KcgynOA",
-        "text"    : "Créez une diversion",
-        "category": "action",
-        "href"    : "/actions/GkmbTGfg8KcgynOA"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Avec un  geste , une  astuce  ou des  propos  destinés à détourner l'attention, vous pouvez Faire diversion pour attirer l'attention de créatures sur autre chose. Si vous utilisez un geste ou une astuce, cette action obtient le trait manipulation. Si vous prononcez quelques mots destinés à détourner l'attention, elle obtient les traits audible et linguistique.</p>\n<p>Faites un unique test de Duperie et comparez-le au DD de Perception des créatures dont vous tentez de détourner l'attention. Que vous y parveniez ou non, les créatures dont vous avez tenté de détourner l'attention bénéficient d'un bonus de circonstances de +4 à leur DD de Perception contre vos tentatives pour Faire diversion pendant 1 minute.</p>\n<p>\"Succès\" Vous devenez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Caché</div>  des créatures dont le DD de Perception est inférieur ou égal à votre résultat (l'état Caché vous permet d' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4'})\">Être furtif</div> ). Ceci dure jusqu'à la fin de votre tour ou jusqu'à ce que vous fassiez autre chose que de Faire un pas ou d'utiliser la Discrétion pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa'})\">Se cacher</div>  ou Être furtif. Si vous Frappez une créature, celle-ci est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  contre cette attaque et vous devenez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1wQY3JYyhMYeeV2G'})\">Observé</div> . Si vous faites quoi que ce soit d'autre, vous devenez Observé juste avant que vous n'agissiez, à moins que le MJ n'en décide autrement.</p>\n<p>\"Échec\" Vous ne parvenez à détourner l'attention d'aucune créature dont le DD de Perception est supérieur à votre résultat et ces créatures savent que vous avez essayé de vous jouer d'elles.</p>",
+        "element_type": null,
+        "href"        : "/actions/GkmbTGfg8KcgynOA",
+        "id"          : "GkmbTGfg8KcgynOA",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Créez une diversion",
+        "traits"      : [
+            "Mental"
+        ]
     },
     "4lGhbEjlEoGP4scl": {
-        "id"      : "4lGhbEjlEoGP4scl",
-        "text"    : "Esprit",
-        "category": "feat",
-        "href"    : "/class-features/4lGhbEjlEoGP4scl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes amical, intelligent et plein d'humour et vous savez toujours quoi dire. Vos traits d'esprit laissent vos ennemis à la merci du talent et de la rapidité de vos attaques. Vous êtes qualifié en Diplomatie et obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0GF2j54roPFIDmXf'})\">Bon Mot</div> . Lorsque vous utilisez Bon mot, l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/4lGhbEjlEoGP4scl",
+        "id"          : "4lGhbEjlEoGP4scl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Esprit",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "0GF2j54roPFIDmXf": {
-        "id"      : "0GF2j54roPFIDmXf",
-        "text"    : "Bon Mot",
-        "category": "feat",
-        "href"    : "/feats/0GF2j54roPFIDmXf"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous lancez une pique bien sentie à un ennemi pour le distraire. Choisissez un ennemi situé à 9 mètres ou moins de vous et lancez un test de Diplomatie contre son DD de Volonté.</p>\n<p>\"Succès critique\" La cible est distraite et subit une pénalité de statut de -3 aux tests de Perception et de Volonté pendant 1 minute.</p>\n<p>\"Succès\" Comme en cas de succès critique, mais la pénalité est de -2.</p>\n<p>\"Échec critique\" Votre trait d'esprit est atroce. Vous subissez la même pénalité que celle que l'ennemi aurait subi si vous aviez obtenu un succès. Cette pénalité prend fin après 1 minute ou dès que vous réussissez à placer un autre Bon mot.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GoSls6SKCFmSoDxT'})\">Effet : Bon Mot</div></p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/0GF2j54roPFIDmXf",
+        "id"          : "0GF2j54roPFIDmXf",
+        "price"       : null,
+        "required"    : [
+            "qualifié en Diplomatie"
+        ],
+        "text"        : "Bon Mot",
+        "traits"      : [
+            "Audible",
+            "Concentration",
+            "Émotion",
+            "Général",
+            "Linguistique",
+            "Mental",
+            "Compétence"
+        ]
     },
     "KBhwFjdptrKyN5EM": {
-        "id"      : "KBhwFjdptrKyN5EM",
-        "text"    : "Fanfaron",
-        "category": "feat",
-        "href"    : "/class-features/KBhwFjdptrKyN5EM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous vantez, vous moquez et aiguillonnez psychologiquement vos ennemis. Vous êtes qualifié en Intimidation. Lorsque vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF'})\">Démoralisez</div> , l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/KBhwFjdptrKyN5EM",
+        "id"          : "KBhwFjdptrKyN5EM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Fanfaron",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "2u915NdUyQan6uKF": {
-        "id"      : "2u915NdUyQan6uKF",
-        "text"    : "Démoralisez",
-        "category": "action",
-        "href"    : "/actions/2u915NdUyQan6uKF"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>D'un cri soudain, d'une raillerie bien sentie ou d'une réplique tranchante, vous pouvez ébranler la détermination d'un ennemi. Choisissez une créature située dans les 9 mètres de vous dont vous êtes conscient. Tentez un test d' Intimidation  contre le DD de Volonté de cette cible. Si la cible ne comprend pas la langue que vous parlez ou que vous ne parlez pas une langue, vous subissez une pénalité de circonstances de -4 au test. Quel que soit votre résultat, la cible est temporairement immunisée contre vos tentatives pour la Démoraliser pendant dix minutes.</p>\n<p>\"Succès critique\" La cible devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL'})\">Effrayée 2</div> .</p>\n<p>\"Succès\" La cible devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL'})\">Effrayée 1</div> .</p>",
+        "element_type": null,
+        "href"        : "/actions/2u915NdUyQan6uKF",
+        "id"          : "2u915NdUyQan6uKF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Démoralisez",
+        "traits"      : [
+            "Audible",
+            "Concentration",
+            "Émotion",
+            "Terreur",
+            "Mental"
+        ]
     },
     "XKhg55V7WmpLrvqL": {
-        "id"      : "XKhg55V7WmpLrvqL",
-        "text"    : "Fripouille",
-        "category": "feat",
-        "href"    : "/class-features/XKhg55V7WmpLrvqL"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous n'avez pas peur d'utiliser des tactiques fourbes pour prendre l'avantage sur vos adversaires. Vous êtes qualifié en Vol et obtenez le don général  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5eNKs6738aykAhK2'})\">Sale coup</div> . Lorsque vous utilisez Sale coup, l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/XKhg55V7WmpLrvqL",
+        "id"          : "XKhg55V7WmpLrvqL",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Fripouille",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "5eNKs6738aykAhK2": {
-        "id"      : "5eNKs6738aykAhK2",
-        "text"    : "Sale coup",
-        "category": "feat",
-        "href"    : "/feats/5eNKs6738aykAhK2"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>\"Conditions\" Vous disposez d'une main libre et avez un adversaire dans votre allonge au corps-à-corps.</p>\n<p>Vous accrochez les lacets des chaussures d'un ennemi, vous tirez son chapeau sur ses yeux, vous desserrez sa ceinture ou vous perturbez sa mobilité par une tactique déloyale. Faites un test de  Vol  contre le DD de Réflexes de la cible.</p>\n<p>\"Succès critique\" La cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm'})\">Maladroite 1</div>  jusqu'à ce qu'elle utilise une action Interagir  pour mettre un terme à l'empêchement.</p>\n<p>\"Succès\" Comme en cas de succès critique mais l'état cesse automatiquement après 1 round.</p>\n<p>\"Échec critique\" Vous vous retrouvez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div>  lorsque votre tentative se retourne contre vous.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/5eNKs6738aykAhK2",
+        "id"          : "5eNKs6738aykAhK2",
+        "price"       : null,
+        "required"    : [
+            "qualifié en Vol"
+        ],
+        "text"        : "Sale coup",
+        "traits"      : [
+            "Attaque",
+            "Général",
+            "Manipulation",
+            "Compétence"
+        ]
     },
     "B7RMnrHwQHlezlJT": {
-        "id"      : "B7RMnrHwQHlezlJT",
-        "text"    : "Gymnaste",
-        "category": "feat",
-        "href"    : "/class-features/B7RMnrHwQHlezlJT"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous repositionnez, manœuvrez et déroutez vos ennemis par des prouesses physiques audacieuses. Vous êtes qualifié en Athlétisme. Lorsque vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PMbdMWc2QroouFGD'})\">Saisissez</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731'})\">Poussez</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T'})\">Repositionnez</div>  ou faites un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP'})\">Croc-en-jambe</div>  à un adversaire, l'action obtient le trait bravade.</p>",
+        "element_type": null,
+        "href"        : "/class-features/B7RMnrHwQHlezlJT",
+        "id"          : "B7RMnrHwQHlezlJT",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Gymnaste",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "PMbdMWc2QroouFGD": {
-        "id"      : "PMbdMWc2QroouFGD",
-        "text"    : "Saisissez",
-        "category": "action",
-        "href"    : "/actions/PMbdMWc2QroouFGD"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Vous disposez d'au moins une main libre et votre cible n'est pas de plus d'une catégorie de taille supérieure à la vôtre.</p>\n<p>Vous tentez de saisir un adversaire avec votre main libre. Faites un test d' Athlétisme  contre le DD de Vigueur de la cible. Vous pouvez Saisir une cible que vous avez déjà  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei'})\">Agrippée</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VcDeM8A5oI6VqhbM'})\">Entravée</div>  sans disposer d'une main libre.</p>\n<p>\"Succès critique\" Votre cible est Entravée jusqu'à la fin de votre prochain tour, à moins que vous ne vous déplaciez ou que votre cible ne  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9'})\">S'Échappe</div> .</p>\n<p>\"Succès\" Votre cible est Agrippée jusqu'à la fin de votre prochain tour, à moins de vous déplacer ou que votre cible ne S'échappe.</p>\n<p>\"Échec\" Vous ne parvenez pas à saisir votre adversaire. Si vous aviez déjà Agrippé ou Entravé votre adversaire en utilisant l'action Saisir, ces états sur la cible disparaissent.</p>\n<p>\"Échec critique\" Si vous avez déjà Agrippé ou Entravé votre cible, elle se libère. Votre cible peut soit vous saisir, comme si elle avait réussi à effectuer l'action Saisir contre vous, soit vous obliger à chuter et tomber  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div> .</p>",
+        "element_type": null,
+        "href"        : "/actions/PMbdMWc2QroouFGD",
+        "id"          : "PMbdMWc2QroouFGD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Saisissez",
+        "traits"      : [
+            "Attaque"
+        ]
     },
     "7blmbDrQFNfdT731": {
-        "id"      : "7blmbDrQFNfdT731",
-        "text"    : "Poussez",
-        "category": "action",
-        "href"    : "/actions/7blmbDrQFNfdT731"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Vous disposez d'au moins une main libre. La cible ne peut pas être de plus d'une catégorie de taille supérieure à la vôtre.</p>\n<p>Vous repoussez un adversaire loin de vous. Faites un test d' Athlétisme  contre le DD de Vigueur de votre adversaire.</p>\n<p>\"Succès critique\" Vous repoussez votre adversaire à 3 mètres de vous. Vous pouvez Marcher rapidement derrière lui, mais vous devez vous déplacer de la même distance et dans la même direction.</p>\n<p>\"Succès\" Vous repoussez votre adversaire de 1,50 mètre. Vous pouvez Marcher rapidement derrière lui mais vous devez vous déplacer de la même distance et dans la même direction.</p>\n<p>\"Échec critique\" Vous perdez l'équilibre, chutez et tombez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div> .</p>",
+        "element_type": null,
+        "href"        : "/actions/7blmbDrQFNfdT731",
+        "id"          : "7blmbDrQFNfdT731",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Poussez",
+        "traits"      : [
+            "Attaque"
+        ]
     },
     "lOE4yjUnETTdaf2T": {
-        "id"      : "lOE4yjUnETTdaf2T",
-        "text"    : "Repositionnez",
-        "category": "action",
-        "href"    : "/actions/lOE4yjUnETTdaf2T"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Soit vous disposez d'au moins une main libre, soit vous saisissez ou entravez la cible. La cible ne peut être de plus d'une taille supérieure à la vôtre.</p>\n<p>Vous déplacez une créature ou un objet autour de vous. Faites un test d' Athlétisme  contre le DD de Vigueur de la cible.</p>\n<p>\"Succès critique\" Vous déplacez la créature de 3 mètres. Elle doit rester dans votre allonge durant ce déplacement et vous ne pouvez la déplacer dans ou à travers des obstacles.</p>\n<p>\"Succès\" Vous déplacez la créature de 1,50 mètre. Elle doit rester dans votre allonge durant ce déplacement et vous ne pouvez la déplacer dans ou à travers des obstacles.</p>\n<p>\"Échec critique\" La cible peut vous déplacer de 1,50 mètre comme si elle était parvenue à vous Repositionner avec succès.</p>",
+        "element_type": null,
+        "href"        : "/actions/lOE4yjUnETTdaf2T",
+        "id"          : "lOE4yjUnETTdaf2T",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Repositionnez",
+        "traits"      : [
+            "Attaque"
+        ]
     },
     "ge56Lu1xXVFYUnLP": {
-        "id"      : "ge56Lu1xXVFYUnLP",
-        "text"    : "Croc-en-jambe",
-        "category": "action",
-        "href"    : "/actions/ge56Lu1xXVFYUnLP"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Vous disposez d'au moins une main libre. Votre cible ne peut pas être de plus d'une catégorie de taille supérieure à la vôtre.</p>\n<p>Vous tentez de faire tomber un adversaire. Faites un test d' Athlétisme  contre le DD de Réflexes de la cible.</p>\n<p>\"Succès critique\" La cible chute, se retrouve  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div>  et subit  1d6 dégâts contondants .</p>\n<p>\"Succès\" La cible chute et se retrouve À terre.</p>\n<p>\"Échec critique\" Vous perdez l'équilibre, chutez et vous retrouvez À terre.</p>",
+        "element_type": null,
+        "href"        : "/actions/ge56Lu1xXVFYUnLP",
+        "id"          : "ge56Lu1xXVFYUnLP",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Croc-en-jambe",
+        "traits"      : [
+            "Attaque"
+        ]
     },
     "EfjoIuDmtUn4yiow": {
-        "id"      : "EfjoIuDmtUn4yiow",
-        "text"    : "Riposte opportune",
-        "category": "action",
-        "href"    : "/actions/EfjoIuDmtUn4yiow"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Déclencheur\" Un ennemi situé à votre portée obtient un échec critique lors d'une Frappe contre vous.</p>\n<p>Vous profitez de l'ouverture provoquée par l'échec de votre ennemi. Vous pouvez soit porter une Frappe au corps-à-corps contre l'ennemi déclencheur, soit tenter de le  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9'})\">Désarmer</div>  de l'arme qu'il a utilisée pour porter sa Frappe.</p>",
+        "element_type": null,
+        "href"        : "/actions/EfjoIuDmtUn4yiow",
+        "id"          : "EfjoIuDmtUn4yiow",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Riposte opportune",
+        "traits"      : [
+            "Bravade",
+            "Bretteur"
+        ]
     },
     "UHpkTuCtyaPqiCAB": {
-        "id"      : "UHpkTuCtyaPqiCAB",
-        "text"    : "Faire un pas",
-        "category": "action",
-        "href"    : "/actions/UHpkTuCtyaPqiCAB"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Conditions\" Votre Vitesse est d'au moins 3 mètres.</p>\n<p>Vous vous déplacez prudemment de 1,50 mètre. Contrairement à la plupart des autres types de déplacements, Faire un pas ne déclenche pas de réactions comme  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KAVf7AmRnbCAHrkT'})\">Frappe réactive</div>  qui peuvent être déclenchées par des actions de mouvement ou lorsque vous pénétrez ou que vous quittez une case.</p>\n<p>Vous ne pouvez pas Faire un pas sur un terrain difficile et vous ne pouvez pas Faire un pas en utilisant une autre Vitesse que votre Vitesse au sol.</p>",
+        "element_type": null,
+        "href"        : "/actions/UHpkTuCtyaPqiCAB",
+        "id"          : "UHpkTuCtyaPqiCAB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Faire un pas",
+        "traits"      : [
+            "Déplacement"
+        ]
     },
     "AJh5ex99aV6VTggg": {
-        "id"      : "AJh5ex99aV6VTggg",
-        "text"    : "Pris au dépourvu",
-        "category": "item",
-        "href"    : "/conditions/AJh5ex99aV6VTggg"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes distrait ou autrement incapable de consacrer votre pleine attention à votre défense. Vous subissez une pénalité de circonstances de -2 à la CA. Certains effets vous donnent l'état Pris au dépourvu seulement à l'encontre de certaines créatures ou contre certaines attaques. D'autres, plus particulièrement les états, peuvent vous rendre Pris au dépourvu contre tout. Si une règle ne spécifie pas que cet état ne s'applique que dans certaines circonstances, il s'applique à toutes les circonstances. Par exemple, nombre d'effets disent simplement : « la cible est Prise au dépourvu. »</p>",
+        "element_type": null,
+        "href"        : "/conditions/AJh5ex99aV6VTggg",
+        "id"          : "AJh5ex99aV6VTggg",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Pris au dépourvu",
+        "traits"      : []
     },
     "cu10OjQUdY0a9gpj": {
-        "id"      : "cu10OjQUdY0a9gpj",
-        "text"    : "Effet : Aboutissement exemplaire - Esprit",
-        "category": "feat",
-        "href"    : "/effects/cu10OjQUdY0a9gpj"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Accordé par  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KxpaxUSuBC7hr4F7'})\">Aboutissement exemplaire</div></p>\n<p>L'ennemi subit une pénalité de circonstances de -2 aux jets d'attaques contre vous jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/effects/cu10OjQUdY0a9gpj",
+        "id"          : "cu10OjQUdY0a9gpj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Effet : Aboutissement exemplaire - Esprit",
+        "traits"      : []
     },
     "fgz7lwg1xHsVW4dX": {
-        "id"      : "fgz7lwg1xHsVW4dX",
-        "text"    : "Effet : Aboutissement exemplaire - Fripouille",
-        "category": "feat",
-        "href"    : "/effects/fgz7lwg1xHsVW4dX"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Accordé par  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KxpaxUSuBC7hr4F7'})\">Aboutissement exemplaire</div></p>\n<p>L'ennemi subit une pénalité de circonstances de -3 mètres à sa vitesse jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/effects/fgz7lwg1xHsVW4dX",
+        "id"          : "fgz7lwg1xHsVW4dX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Effet : Aboutissement exemplaire - Fripouille",
+        "traits"      : []
     },
     "kWc1fhmv9LBiTuei": {
-        "id"      : "kWc1fhmv9LBiTuei",
-        "text"    : "Agrippé",
-        "category": "item",
-        "href"    : "/conditions/kWc1fhmv9LBiTuei"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes maintenu en place par une autre créature, ce qui vous confère les états  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eIcWbB5o3pP6OIMe'})\">Immobilisé</div> . Si vous tentez une action de manipulation alors que vous êtes agrippé, vous devez réussir un  Test nu, DD 5  ou elle est perdue. Faites le test après avoir dépensé l'action, mais avant que ses effets ne soient appliqués.</p>",
+        "element_type": null,
+        "href"        : "/conditions/kWc1fhmv9LBiTuei",
+        "id"          : "kWc1fhmv9LBiTuei",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Agrippé",
+        "traits"      : []
     },
     "VcDeM8A5oI6VqhbM": {
-        "id"      : "VcDeM8A5oI6VqhbM",
-        "text"    : "Entravé",
-        "category": "item",
-        "href"    : "/conditions/VcDeM8A5oI6VqhbM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes attaché et pouvez à peine bouger, ou une créature vous a coincé. Vous obtenez les états  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eIcWbB5o3pP6OIMe'})\">Immobilisé</div>  et vous ne pouvez utiliser aucune action dotée des traits attaque ou manipulation, sauf pour tenter de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9'})\">Vous échapper</div>  ou d' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SjmKHgI7a5Z9JzBx'})\">Ouvrir de force</div>  vos liens. Entravé est prépondérant sur  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei'})\">Agrippé</div> .</p>",
+        "element_type": null,
+        "href"        : "/conditions/VcDeM8A5oI6VqhbM",
+        "id"          : "VcDeM8A5oI6VqhbM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Entravé",
+        "traits"      : []
     },
     "j91X7x0XSomq8d60": {
-        "id"      : "j91X7x0XSomq8d60",
-        "text"    : "À terre",
-        "category": "item",
-        "href"    : "/conditions/j91X7x0XSomq8d60"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes étendu au sol. Vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  et subissez une pénalité de circonstances de -2 à vos jets d'attaque. Les seules actions de mouvement que vous pouvez utiliser lorsque vous êtes à terre sont  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Tj055UcNm6UEgtCg'})\">Ramper</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OdIUybJ3ddfL7wzj'})\">Vous relever</div> . Se relever met un terme à l'état À terre. Vous pouvez vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ust1jJSCZQUhBZIz'})\">Mettre à l'abri</div>  lorsque vous êtes à terre pour vous accroupir et bénéficier d'un abri contre les attaques à distance, même si vous ne vous abritez pas derrière un objet, vous faisant bénéficier d'un bonus de circonstances de +4 à votre CA contre les attaques à distance (mais restez Pris au dépourvu).</p>\n<p>Si vous devriez tomber à terre alors que vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy'})\">Escaladez</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p'})\">Volez</div> , vous chutez. Vous ne pouvez pas être À terre quand vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx'})\">Nagez</div> .</p>",
+        "element_type": null,
+        "href"        : "/conditions/j91X7x0XSomq8d60",
+        "id"          : "j91X7x0XSomq8d60",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "À terre",
+        "traits"      : []
     },
     "pyo0vmxUFIFX2GNl": {
-        "id"      : "pyo0vmxUFIFX2GNl",
-        "text"    : "Aboutissement assuré",
-        "category": "feat",
-        "href"    : "/class-features/pyo0vmxUFIFX2GNl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous obtenez une attaque finale élégante que vous pouvez porter quand vous possédez du panache. Le trait aboutissement est décrit ci-dessous. Vous obtenez l'action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'K878asDgf1EF0B9S'})\">Aboutissement assuré</div> .</p>\n<p>\"Aboutissement\" Les aboutissements sont des mouvements spectaculaires ultimes qui utilisent votre panache. Les aboutissements ne peuvent être utilisés qu'avec les armes qui infligent des dégâts supplémentaires avec Frappe précise (les armes au corps-à-corps avec les traits agile ou finesse ou les attaques à mains nues, pour la plupart des bretteurs). Vous ne pouvez utiliser un aboutissement que si vous possédez du panache et vous perdez votre panache immédiatement après avoir réalisé un aboutissement. Une fois que vous utilisez un aboutissement, vous ne pouvez plus utiliser d'action possédant le trait attaque pendant le reste de votre tour.</p>\n<p>Certaines actions possédant le trait aboutissement produisent également un effet en cas d'échec. Les effets ajoutés en cas d'échec ne s'appliquent pas sur un échec critique. Si votre action d'aboutissement est un succès, vous pouvez toujours choisir d'appliquer l'effet d'un échec au lieu de son effet normal. Par exemple, vous pourriez le faire parce qu'une attaque n'inflige aucun dégât à cause d'une résistance.</p>",
+        "element_type": null,
+        "href"        : "/class-features/pyo0vmxUFIFX2GNl",
+        "id"          : "pyo0vmxUFIFX2GNl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Aboutissement assuré",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "qeLpqH2cMSmIrILV": {
-        "id"      : "qeLpqH2cMSmIrILV",
-        "text"    : "Aboutissement précis",
-        "category": "feat",
-        "href"    : "/feats/qeLpqH2cMSmIrILV"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Même lorsque votre adversaire évite votre  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'K878asDgf1EF0B9S'})\">Aboutissement assuré</div> , vous pouvez toujours atteindre un point vital. En cas d'échec avec Aboutissement assuré, vous appliquez tous vos dégâts de Frappe précise au lieu de la moitié.</p>",
+        "element_type": "DON 6",
+        "href"        : "/feats/qeLpqH2cMSmIrILV",
+        "id"          : "qeLpqH2cMSmIrILV",
+        "price"       : null,
+        "required"    : [
+            "Aboutissement assuré"
+        ],
+        "text"        : "Aboutissement précis",
+        "traits"      : [
+            "Bretteur"
+        ]
     },
     "jM72TjJ965jocBV8": {
-        "id"      : "jM72TjJ965jocBV8",
-        "text"    : "Blocage au bouclier",
-        "category": "feat",
-        "href"    : "/feats/jM72TjJ965jocBV8"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>\"Déclencheur\" Alors que votre bouclier est levé, vous devriez subir des dégâts physiques (contondants, perforants ou tranchants) d'une attaque</p>\n<p>Vous interposez votre bouclier pour vous protéger du coup. Votre bouclier vous empêche de subir un nombre de dégâts égal à la Solidité du bouclier. Vous et le bouclier subissez chacun les dégâts restants, brisant ou détruisant éventuellement le bouclier.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/jM72TjJ965jocBV8",
+        "id"          : "jM72TjJ965jocBV8",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Blocage au bouclier",
+        "traits"      : [
+            "Général"
+        ]
     },
     "h1NGH4TVeBljftni": {
-        "id"      : "h1NGH4TVeBljftni",
-        "text"    : "Grandeur",
-        "category": "feat",
-        "href"    : "/class-features/h1NGH4TVeBljftni"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>La grandeur éclatante des royaumes célestes immaculés vous inspire, et vous exhortez leurs vertus à apporter l'humilité aux habitants d'autres mondes sinistres.</p>\n<p>\"Édits\" être un lumineux exemple pour les autres, apprécier et partager la beauté qui vous entoure, rester propre et soigné</p>\n<p>\"Anathèmes\" se souiller en s'associant à des démons et à des forces impies</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ITWUi1r8Z7EtChkB'})\">Éclair de grandeur</div></p>\n<p>\"Réaction implacable (8e)\" L'ennemi subit également des dégâts spirituels persistants égaux à votre modificateur de Charisme et il ne peut pas se remettre de ces dégâts persistants tant qu'il est affecté par la <em>Lumière révélatrice</em> de votre Éclair de grandeur.</p>\n<p>\"Réaction exaltée (11e)\" En plus de l'ennemi affecté par Éclair de grandeur, tout autre ennemi dans votre aura de champion est affecté par le sort <em>Lumière révélatrice</em> pendant 1 round.</p>",
+        "element_type": null,
+        "href"        : "/class-features/h1NGH4TVeBljftni",
+        "id"          : "h1NGH4TVeBljftni",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Grandeur",
+        "traits"      : [
+            "Champion"
+        ]
     },
     "EQ6DVIQHAUXUhY6Y": {
-        "id"      : "EQ6DVIQHAUXUhY6Y",
-        "text"    : "Iniquité",
-        "category": "feat",
-        "href"    : "/class-features/EQ6DVIQHAUXUhY6Y"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes dépourvu d'honneur, malhonnête et avez brisé les fausses espérances de la gentillesse.</p>\n<p>\"Édits\" détruisez ce qui vous offense ou se tient sur votre passage, tirez parti des autres, mentez, volez.</p>\n<p>\"Anathèmes\" vous lier vous-même à une loi autre que celle que votre divinité requiert</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r5Uth6yvCoE4tr9z'})\">Vengeance destructrice</div></p>\n<p>\"Réaction implacable (9e)\" Un adversaire blessé par les dégâts initiaux de votre Vengeance destructrice subit aussi des dégâts spirituels persistants égaux à votre modificateur de Charisme. Cela ne s'applique qu'aux dégâts de la réaction elle-même infligés à la créature déclencheuse, pas aux dégâts que vous infligez avec des Frappes ultérieures.</p>\n<p>\"Réaction exaltée\" (11e) Chaque ennemi dans votre aura de champion à l'exception de la créature déclencheuse subit la moitié des dégâts que vous avez infligés à l'ennemi déclencheur.</p>",
+        "element_type": null,
+        "href"        : "/class-features/EQ6DVIQHAUXUhY6Y",
+        "id"          : "EQ6DVIQHAUXUhY6Y",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Iniquité",
+        "traits"      : [
+            "Peu courant",
+            "Champion"
+        ]
     },
     "peEXunfbSD8WcMFk": {
-        "id"      : "peEXunfbSD8WcMFk",
-        "text"    : "Justice",
-        "category": "feat",
-        "href"    : "/class-features/peEXunfbSD8WcMFk"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Au nom de votre divinité, vous cherchez la justice, respectant la loi et punissant ceux qui la transgressent.</p>\n<p>\"Édits\" respecter la loi, respecter les autorités ou dirigeants légitimes.</p>\n<p>\"Anathèmes\" tirer avantage d'autrui, tricher</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EAP98XaChJEbgKcK'})\">Frappe punitive</div></p>\n<p>\"Réaction implacable (9e)\" Si votre Frappe touche, la cible subit un montant de dégâts spirituels persistants égal à votre modificateur de Charisme.</p>\n<p>\"Réaction exaltée (11e)\" Chaque allié dans votre aura de champion qui a la cible dans son allonge au corps-à-corps peut dépenser une réaction pour Frapper la cible avec une pénalité de -5.</p>",
+        "element_type": null,
+        "href"        : "/class-features/peEXunfbSD8WcMFk",
+        "id"          : "peEXunfbSD8WcMFk",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Justice",
+        "traits"      : [
+            "Champion"
+        ]
     },
     "FCoMFUsth4xB4veC": {
-        "id"      : "FCoMFUsth4xB4veC",
-        "text"    : "Libération",
-        "category": "feat",
-        "href"    : "/class-features/FCoMFUsth4xB4veC"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous souhaitez voir les gens libérés de leur servitude et des interdits.</p>\n<p>\"Édits\" s'opposer à l'esclavage et à la tyrannie, combattre pour la liberté des autres leur permettant de prendre leurs propres décisions, respecter les choix que les autres font pour leurs propres vies</p>\n<p>\"Anathèmes\" forcer ou menacer quelqu'un à agir d'une certaine manière, s'engager dans l'esclavage ou la tyrannie</p>\n<p>\"Réaction de champion\"</p>\nPas libérateur\n.\n<p>\"Réaction implacable (9e)\" Vous châtiez ceux qui entravent vos alliés par des liens. Si l'ennemi déclencheur a utilisé un effet qui fait que votre allié est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei'})\">Agrippé</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VcDeM8A5oI6VqhbM'})\">Entravé</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eIcWbB5o3pP6OIMe'})\">Immobilisé</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6uEgoh53GbXuHpTF'})\">Paralysé</div>  quand vous avez utilisé Pas libérateur, cet ennemi subit un montant de dégâts spirituels persistants égal à votre modificateur de Charisme.</p>\n<p>\"Réaction exaltée (11e)\" En plus de l'allié affecté par Pas libérateur, vous et tous vos alliés dans votre aura de champion pouvez Faire un pas par une action gratuite. Vous et vos alliés obtenez l'avantage même si l'allié qui a bénéficié de Pas libérateur ne peut pas se déplacer.</p>",
+        "element_type": null,
+        "href"        : "/class-features/FCoMFUsth4xB4veC",
+        "id"          : "FCoMFUsth4xB4veC",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Libération",
+        "traits"      : [
+            "Champion"
+        ]
     },
     "HiIvez0TqESbleB5": {
-        "id"      : "HiIvez0TqESbleB5",
-        "text"    : "Obéissance",
-        "category": "feat",
-        "href"    : "/class-features/HiIvez0TqESbleB5"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>La société est hiérarchisée pour une bonne raison et les gens devraient se conduire de manière appropriée en restant à leur place.</p>\n<p>\"Édits\" Renforcez les hiérarchies pertinentes, renversez les hiérarchies illégitimes, dirigez lorsque vous êtes le plus à même de remplir la tâche.</p>\n<p>\"Anathèmes\" laisser une personne inférieure avoir du pouvoir sur vous ou vous diriger.</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M8RCbthRhB4bxO9t'})\">Ordre de fer</div></p>\n<p>\"Réaction implacable\" Si un ennemi refuse, il subit des dégâts spirituels persistants égaux à votre modificateur de Charisme.</p>\n<p>\"Réaction exaltée (11e)\" Chaque ennemi dans votre aura de champion autre que la créature déclencheuse doit aussi se prosterner  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div>  ou subir des dégâts mentaux (chaque adversaire choisit). Ces créatures subissent uniquement les dégâts minimum (typiquement 3 dégâts au niveau 11, 4 au niveau 12, 5 au niveau 16 et 6 au niveau 19) et les effets qu'ils subissent ne peuvent être ajustés par rien qui puisse modifier votre Ordre de fer. Par exemple, le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XttSGDuAsRDTuvgS'})\">Répercussions de fer</div>  ne peut transformer les dégâts en dégâts mentaux persistants pour les créatures autres que la créature déclencheuse.</p>",
+        "element_type": null,
+        "href"        : "/class-features/HiIvez0TqESbleB5",
+        "id"          : "HiIvez0TqESbleB5",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Obéissance",
+        "traits"      : [
+            "Champion"
+        ]
     },
     "8YIA0jh64Ecz0TG6": {
-        "id"      : "8YIA0jh64Ecz0TG6",
-        "text"    : "Profanation",
-        "category": "feat",
-        "href"    : "/class-features/8YIA0jh64Ecz0TG6"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous prenez toujours ce qui vous plaît, quel que soit celui que ça blesse et vous répandez une influence maligne sur tout ce que vous touchez.</p>\n<p>\"Édits\" Minez ou corrompez tout ce qui se trouve sur votre chemin qui est pur ou saint, semez le doute parmi ceux qui poursuivent les idéaux de pureté et de sainteté.</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'enQieRrITuEQZxx2'})\">Bouclier égoïste</div> .</p>\n<p>\"Réaction implacable (9e)\" Si votre modificateur de Charisme est de +3 ou supérieur, votre résistance contre les dégâts déclencheurs est égale à votre modificateur de Charisme + la moitié de votre niveau.</p>\n<p>\"Réaction exaltée (11e)\" Chaque ennemi dans votre aura de champion subit une pénalité de statut de -1 à ses jets d'attaque contre vous jusqu'au début de votre prochain tour.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ef63SlxSKlZmHosM'})\">Effet : Réaction exaltée (Profanation)</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/8YIA0jh64Ecz0TG6",
+        "id"          : "8YIA0jh64Ecz0TG6",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Profanation",
+        "traits"      : [
+            "Peu courant",
+            "Champion"
+        ]
     },
     "UyuwFp0jQqYL2AdF": {
-        "id"      : "UyuwFp0jQqYL2AdF",
-        "text"    : "Rédemption",
-        "category": "feat",
-        "href"    : "/class-features/UyuwFp0jQqYL2AdF"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Souhaitant que tout le monde vive en harmonie, vous vous efforcez de racheter ceux que d'autres pourraient tuer ou rejeter.</p>\n<p>\"Édits\" essayer de racheter ceux qui commettent de mauvaises actions, montrer de la compassion envers les autres quel que soit leur autorité ou leur position</p>\n<p>\"Anathèmes\" tuer un ennemi intelligent sans lui offrir d'abord une chance de rédemption</p>\n<p>\"Réaction de champion\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tuZnRWHixLArvaIf'})\">Lueur de rédemption</div></p>\n<p>\"Réaction implacable (9e)\" Si l'ennemi refuse, il subit des  dégâts spirituels persistants  égaux à votre modificateur de Charisme.</p>\n<p>\"Réaction exaltée (11e)\" Si l'ennemi refuse, vous pouvez choisir d'accorder la résistance à vous-même et à tous les alliés dans votre aura de champion, y compris l'allié déclencheur. Si vous le faites, la résistance est réduite de 2 pour tous.</p>",
+        "element_type": null,
+        "href"        : "/class-features/UyuwFp0jQqYL2AdF",
+        "id"          : "UyuwFp0jQqYL2AdF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Rédemption",
+        "traits"      : [
+            "Champion"
+        ]
     },
     "7Fd4lxozd11MQ55N": {
-        "id"      : "7Fd4lxozd11MQ55N",
-        "text"    : "Pénitence",
-        "category": "spell",
-        "href"    : "/spells/7Fd4lxozd11MQ55N"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous tentez d'aider une créature véritablement pénitente qui souhaite sincèrement racheter ses fautes, typiquement les actions anathèmes à votre divinité. Si la créature n'est pas sincèrement repentante, le résultat aboutit toujours à un échec critique. Ce rituel utilise Nature si la cible est un druide et Religion dans tous les autres cas.</p>\n<p>\"Succès critique\" La créature est pardonnée pour ses méfaits, lui permettant de retrouver l'usage de toute capacité qu'elle avait perdu. Avant que la pénitence ne soit terminée, la créature doit accomplir une quête spéciale ou une autre tâche en rapport avec ses méfaits, choisie par votre divinité. Si elle est entreprise durant un intermède, cette tâche ne devrait pas pouvoir se faire en moins d'un mois. Pendant un mois, la cible bénéficie d'intuitions divines lorsqu'elle est sur le point d'accomplir un acte anathème à votre divinité.</p>\n<p>\"Succès\" Comme en cas de succès critique, mais la créature ne bénéficie d'aucune intuition spéciale sur ses actions futures.</p>\n<p>\"Échec\" La créature n'est pas pardonnée et doit continuer à méditer et à racheter ses fautes. Chaque rituel de <em>Pénitence</em> ultérieur pour tenter de racheter les mêmes fautes coûte deux fois moins cher et bénéficie d'un bonus de circonstances de +4 aux tests principal et secondaire.</p>\n<p>\"Échec critique\" La créature offense sa divinité et elle est définitivement exclue de son culte. Elle ne peut plus le rejoindre sans une intervention plus directe.</p>\n<p>\"Intensifié (+1)\" Augmentez le niveau maximum de la cible de 2 et le coût de base de 20 po.</p>",
+        "element_type": "RITUEL 4",
+        "href"        : "/spells/7Fd4lxozd11MQ55N",
+        "id"          : "7Fd4lxozd11MQ55N",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Pénitence",
+        "traits"      : [
+            "Peu courant"
+        ]
     },
     "ZL97DcoJ8us6EwAF": {
-        "id"      : "ZL97DcoJ8us6EwAF",
-        "text"    : "Boucliers de l'esprit",
-        "category": "spell",
-        "href"    : "/spells/ZL97DcoJ8us6EwAF"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Conditions\" Vous maniez un bouclier.</p>\n<p>Vous Levez votre bouclier, faisant flotter des boucliers spirituels éphémères dans votre aura de champion. Les boucliers durent jusqu'au début de votre prochain tour ou jusqu'à ce que vous ne leviez plus votre bouclier, selon ce qui se produit en premier. Tant qu'un de vos alliés se trouve dans votre aura de champion, les boucliers lui accordent un bonus de statut de +1 à la CA, et chaque fois qu'un ennemi porte une attaque contre l'allié, il subit 1d4 points de dégâts spirituels (même s'il rate son coup).</p>\n<p>Cet avantage ne s'applique que tant qu'un allié se trouve dans votre aura, il se termine pour tout allié qui quitte votre aura et s'applique à tout allié qui y entre plus tard. Comme d'habitude, vous ne comptez pas comme votre propre allié et ne bénéficiez donc pas vous-même des avantages des boucliers spirituels.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mlvDokpnQBhvQrSk'})\">Effet : Boucliers de l'esprit</div></p>\n<p>\"Intensifié (+2)\" Les dégâts augmentent de 1d4.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/ZL97DcoJ8us6EwAF",
+        "id"          : "ZL97DcoJ8us6EwAF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Boucliers de l'esprit",
+        "traits"      : [
+            "Peu courant",
+            "Champion",
+            "Concentration",
+            "Focalisation",
+            "Sanctifié",
+            "Spirituel"
+        ]
     },
     "zNN9212H2FGfM7VS": {
-        "id"      : "zNN9212H2FGfM7VS",
-        "text"    : "Imposition des mains",
-        "category": "spell",
-        "href"    : "/spells/zNN9212H2FGfM7VS"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vos mains s'imprègnent de vitalité puissante, capables de soigner une créature vivante ou de blesser une créature morte-vivante d'un simple contact.</p>\n<ul><li>\"Créature vivante consentante\" La cible récupère 6 Points de vie. Si la cible est quelqu'un d'autre que vous, elle obtient également un bonus de statut de +2 à la CA pendant 1 round.</li><li>\"Créature morte-vivante\" La cible subit 1d6 dégâts avec un jet de Vigueur basique. En cas d'échec, elle subit également une pénalité de statut de -2 à la CA pendant 1 round.</li></ul>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lyLMiauxIVUM3oF1'})\">Effet : Imposition des mains</div></p>\n<p>\"Intensifié (+1)\" Le montant des soins augmente de 6 et les dégâts infligés à une cible morte-vivante augmentent de 1d6.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/zNN9212H2FGfM7VS",
+        "id"          : "zNN9212H2FGfM7VS",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Imposition des mains",
+        "traits"      : [
+            "Peu courant",
+            "Champion",
+            "Focalisation",
+            "Guérison",
+            "Manipulation",
+            "Vitalité"
+        ]
     },
     "jFmWSIpJGGebim6y": {
-        "id"      : "jFmWSIpJGGebim6y",
-        "text"    : "Toucher du vide",
-        "category": "spell",
-        "href"    : "/spells/jFmWSIpJGGebim6y"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous insufflez de l'énergie du vide à la cible, guérissant les morts-vivants ou endommageant les créatures vivantes.</p>\n<ul><li>\"Créature morte-vivante consentante\" La cible regagne 6 Points de vie. Si la cible est vous-même, vous bénéficiez également d'un bonus de statut de +2 aux jets de dégâts pendant 1 round.</li><li>\"Créature vivante\" La cible subit 1d6 dégâts de vide avec un jet de Vigueur basique. En cas d'échec, la cible subit également une pénalité de statut de -2 à la CA pendant 1 round.</li></ul>\n<p>\"Intensifié (+1)\" Augmentez les soins de 6 et les dégâts infligés à une créature vivante de 1d6.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/jFmWSIpJGGebim6y",
+        "id"          : "jFmWSIpJGGebim6y",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Toucher du vide",
+        "traits"      : [
+            "Peu courant",
+            "Champion",
+            "Focalisation",
+            "Manipulation",
+            "Vide"
+        ]
     },
     "FNDq4NFSN0g2HKWO": {
-        "id"      : "FNDq4NFSN0g2HKWO",
-        "text"    : "Bandelettes de coups puissants",
-        "category": "item",
-        "href"    : "/equipment/FNDq4NFSN0g2HKWO"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>En investissant ces bandelettes de tissu brodées, vous devez méditer en les enroulant sur vos mains. Des runes d'arme sont inscrites sur ces bandelettes pour que vos attaques à mains nues bénéficient des avantages qu'elles procurent. Vos attaques à mains nues fonctionnent ainsi comme des armes magiques.</p>\n<p>Par exemple, des <em>Bandelettes de coups puissants de frappe +1</em> vous confèrent un bonus d'objet de +1 à vos jets d'attaque à mains nues et augmentent les dégâts de vos attaques à mains nues qui infligent ainsi non pas un mais deux dés d'arme (2d4 au lieu de 1d4 normalement, mais si vos poings ont un dé de dégâts différent ou si vous avez d'autres attaques à mains nues, utilisez deux dés de la taille correspondante).</p>\n<p>Vous pouvez améliorer, ajouter et transférer des runes depuis et vers les bandelettes, tout comme vous le feriez avec une arme, et vous pouvez aussi fixer dessus des talismans. Le cas échéant, considérez les bandelettes comme des armes de corps-à-corps du groupe pugilat ayant un Encombrement léger. Les runes de propriété ne s'appliquent que si l'attaque à mains nues que vous utilisez le permet. Par exemple, une propriété applicable à une arme tranchante ne fonctionne pas quand vous attaquez avec votre poing mais elle s'applique si vous attaquez avec des griffes ou tout autre attaque à mains nues tranchante.</p>",
+        "element_type": "OBJET 2",
+        "href"        : "/equipment/FNDq4NFSN0g2HKWO",
+        "id"          : "FNDq4NFSN0g2HKWO",
+        "price"       : "35 po",
+        "required"    : [],
+        "text"        : "Bandelettes de coups puissants",
+        "traits"      : [
+            "Investi",
+            "Magique"
+        ]
     },
     "qlunQzfnzPQpMG6U": {
-        "id"      : "qlunQzfnzPQpMG6U",
-        "text"    : "Boomerang",
-        "category": "item",
-        "href"    : "/equipment/qlunQzfnzPQpMG6U"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>Quand vous faites une Frappe de jet avec cette arme, celle-ci revient dans votre main en volant une fois la Frappe terminée. Si vos mains sont pleines quand l'arme revient, celle-ci tombe par terre dans votre espace.</p>",
+        "element_type": "OBJET 3",
+        "href"        : "/equipment/qlunQzfnzPQpMG6U",
+        "id"          : "qlunQzfnzPQpMG6U",
+        "price"       : "55 po",
+        "required"    : [],
+        "text"        : "Boomerang",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "P6v2AtJw7AUwaDzf": {
-        "id"      : "P6v2AtJw7AUwaDzf",
-        "text"    : "Effrayante",
-        "category": "item",
-        "href"    : "/equipment/P6v2AtJw7AUwaDzf"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>Lorsque vous obtenez un coup critique avec cette arme, la cible devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL'})\">Effrayée 1</div> .</p>",
+        "element_type": "OBJET 5",
+        "href"        : "/equipment/P6v2AtJw7AUwaDzf",
+        "id"          : "P6v2AtJw7AUwaDzf",
+        "price"       : "160 po",
+        "required"    : [],
+        "text"        : "Effrayante",
+        "traits"      : [
+            "Émotion",
+            "Terreur",
+            "Magique",
+            "Mental"
+        ]
     },
     "JQdwHECogcTzdd8R": {
-        "id"      : "JQdwHECogcTzdd8R",
-        "text"    : "Spectrale",
-        "category": "item",
-        "href"    : "/equipment/JQdwHECogcTzdd8R"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>L'arme peut blesser les créatures dénuées de forme physique. Une arme spectrale est particulièrement efficace contre les créatures intangibles dont la plupart ont toujours une faiblesse particulière aux armes <em>spectrales</em>. Les créatures intangibles peuvent toucher, tenir et manier des armes <em>spectrales</em> (au contraire de la plupart des objets physiques).</p>",
+        "element_type": "OBJET 4",
+        "href"        : "/equipment/JQdwHECogcTzdd8R",
+        "id"          : "JQdwHECogcTzdd8R",
+        "price"       : "75 po",
+        "required"    : [],
+        "text"        : "Spectrale",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "roeYtwlIe65BPMJ1": {
-        "id"      : "roeYtwlIe65BPMJ1",
-        "text"    : "Changeante",
-        "category": "item",
-        "href"    : "/equipment/roeYtwlIe65BPMJ1"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>En manipulant l'arme un bref instant, vous pouvez la transformer en une arme différente mais de forme similaire.</p>\n<p>\"Activation - Changer d'arme\" A (manipulation)</p>\n<p>\"Effet\" L'arme prend la forme d'une autre arme de corps-à-corps nécessitant le même nombre de mains pour la manier. Les runes de l'arme et tout éventuel matériau précieux dont elle est constituée s'appliquent à sa nouvelle forme. Les éventuelles runes de propriété qui ne peuvent pas s'appliquer à la nouvelle forme, sont réprimées jusqu'à ce que l'objet adopte une forme autorisant leur application.</p>\n<p>Les armes dans laquelle une arme <em>changeante</em> peut se transformer sont fonction des attributs de base de cette arme figurant dans l'entrée Mains de la table des armes, pour déterminer en quelle arme elle peut se transformer. Par exemple, une épée bâtarde est maniée à une main, même si son utilisateur obtient un avantage à la manier à deux mains du fait de son trait deux-mains. C'est pourquoi une <em>épée bâtarde changeante</em> pourrait devenir une épée longue, mais pas une épée à deux mains. Activer cette rune ne modifie en rien le nombre de mains qui tiennent l'arme lorsque vous changez sa forme.</p>",
+        "element_type": "OBJET 6",
+        "href"        : "/equipment/roeYtwlIe65BPMJ1",
+        "id"          : "roeYtwlIe65BPMJ1",
+        "price"       : "225 po",
+        "required"    : [],
+        "text"        : "Changeante",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "LwQb7ryTC8FlOXgX": {
-        "id"      : "LwQb7ryTC8FlOXgX",
-        "text"    : "Vitalisante",
-        "category": "item",
-        "href"    : "/equipment/LwQb7ryTC8FlOXgX"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>Une arme <em>vitalisante</em> bouillonne d'énergie de vitalité en infligeant 1d6 dégâts de vitalité supplémentaires aux morts-vivants. En cas de coup critique, le mort-vivant est également  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaibli 1</div>  jusqu'à la fin de votre prochain tour.</p>",
+        "element_type": "OBJET 5",
+        "href"        : "/equipment/LwQb7ryTC8FlOXgX",
+        "id"          : "LwQb7ryTC8FlOXgX",
+        "price"       : "150 po",
+        "required"    : [],
+        "text"        : "Vitalisante",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "x9SNVpAAnXKJeoqp": {
-        "id"      : "x9SNVpAAnXKJeoqp",
-        "text"    : "Renforcement",
-        "category": "item",
-        "href"    : "/equipment/x9SNVpAAnXKJeoqp"
+        "action_cost" : null,
+        "bulk"        : "L",
+        "category"    : "item",
+        "description" : "<p>Les runes de renforcement rendent un bouclier beaucoup plus durable, ce qui lui permet de bloquer efficacement des attaques plus puissantes.</p>\n<p>La Solidité du bouclier augmente de 3, il obtient 44 Points de vie supplémentaires et son SR augmente de 22 (au maximum : Solidité 8, PV 64 et SR 32)</p>",
+        "element_type": "OBJET 4",
+        "href"        : "/equipment/x9SNVpAAnXKJeoqp",
+        "id"          : "x9SNVpAAnXKJeoqp",
+        "price"       : "75 po",
+        "required"    : [],
+        "text"        : "Renforcement",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "f9ygr5Cjrmop8LWV": {
-        "id"      : "f9ygr5Cjrmop8LWV",
-        "text"    : "Bouclier renforcé",
-        "category": "item",
-        "href"    : "/equipment/f9ygr5Cjrmop8LWV"
+        "action_cost" : null,
+        "bulk"        : "1",
+        "category"    : "item",
+        "description" : "<p>Ce bouclier en acier, d'une conception supérieure et d'excellente facture, possède une solidité plus élevée que ses équivalents non magiques, ce qui le rend plus difficile à briser ou à détruire.</p>\n<p>Le bouclier possède une Solidité de 8, 64 PV et un SR de 32.</p>",
+        "element_type": "BOUCLIER 4",
+        "href"        : "/equipment/f9ygr5Cjrmop8LWV",
+        "id"          : "f9ygr5Cjrmop8LWV",
+        "price"       : "100 po",
+        "required"    : [],
+        "text"        : "Bouclier renforcé",
+        "traits"      : [
+            "Magique"
+        ]
     },
     "uGXWkR2h8q9MRzEM": {
-        "id"      : "uGXWkR2h8q9MRzEM",
-        "text"    : "Défi du héros",
-        "category": "spell",
-        "href"    : "/spells/uGXWkR2h8q9MRzEM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Une attaque devrait vous réduire à 0 Point de vie.</p>\n<p>Vous criez un défi et être empli d'une explosion de soins. Juste avant d'appliquer les dégâts de l'attaque, vous récupérez 6d8+20 Points de vie. Si cela est suffisant pour empêcher l'attaque de vous réduire à 0 Point de vie, vous ne vous retrouvez pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf'})\">Inconscient</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yZRUzMqrMmfLu0V1'})\">Mourant</div> . Dans tous les cas, tromper la mort est difficile et vous ne pouvez pas de nouveau utiliser <em>Défi du héros</em> jusqu'à vous être Refocalisé ou que vous fassiez vos préparatifs quotidiens.</p>\n<p><em>Défi du héros</em> ne peut pas être utilisé contre les effets avec le trait mort ou qui ne laisseraient aucun reste, tels que le sort <em>Désintégration</em>.</p>",
+        "element_type": "FOCALISÉ 10",
+        "href"        : "/spells/uGXWkR2h8q9MRzEM",
+        "id"          : "uGXWkR2h8q9MRzEM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Défi du héros",
+        "traits"      : [
+            "Peu courant",
+            "Champion",
+            "Concentration",
+            "Focalisation",
+            "Guérison",
+            "Vitalité"
+        ]
     },
     "aBQ8ajvEBByv45yz": {
-        "id"      : "aBQ8ajvEBByv45yz",
-        "text"    : "Lancer un sort",
-        "category": "action",
-        "href"    : "/actions/aBQ8ajvEBByv45yz"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Le nombre d'actions nécessaires pour lancer un sort peut varier, comme cela est indiqué dans le bloc de statistique du sort. Vous lancez des tours de magie, les sorts des emplacements de sorts et des sorts de focalisation de sorts en utilisant le même processus mais vous devez dépenser le sort lorsque vous lancez le sort à partir d'un emplacement de sort et vous devez dépenser 1 Point de focalisation pour lancer un sort focalisé. Certaines règles se réfèrent à l'activité Lancer un sort, comme par exemple \"si la prochaine action que vous entreprenez consiste à Lancer un sort.\" Tout sort se qualifie en tant qu'activité Lancer un sort et toute caractéristique du sort utilise celles du sort spécifique que vous incantez.</p>\n<p>\"Coûts et loci\" Certains sorts nécessitent que vous payez un coût ou fournissiez un locus. Si le sort indique un \"coût\", vous devez disposer du prix indiqué, de matériaux de valeur ou d'autres ressources pour lancer le sort (comme des gemmes ou des réactifs magiques) et ils sont dépensés au cours de l'incantation.</p>\n<p>Un \"locus\" est un objet qui canalise ou dirige l'énergie magique du sort mais qui n'est pas consommé lors de l'incantation de ce dernier. Lors du Lancement du sort, vous récupérez le locus (si nécessaire et si vous disposez d'une main libre) et vous pouvez le ranger si vous souhaitez le faire. Les \"loci\" ont tendance à être coûteux et vous avez besoin de les acquérir à l'avance pour lancer le sort mais ils ne sont pas dépensés, à la différence des coûts. À moins qu'il ne soit précisé le contraire, un locus possède un Encombrement négligeable.</p>\n<p>\"Temps d'incantation longs\" Il faut des minutes ou des heures pour lancer certains sorts. Vous ne pouvez utiliser d'autres actions ou des réactions tout en lançant un tel sort, bien qu'à la discrétion du MJ, vous puissiez être capable de prononcer quelques phrases. Comme avec d'autres activités qui prennent un long moment, ces sorts ont le trait exploration et vous ne pouvez les lancer lors d'une rencontre. Si un combat survient alors que vous en lancez un, votre sort est interrompu.</p>\n<p>\"Sorts interrompus et perdus\" Certaines capacités et sorts peuvent interrompre un sort, faisant en sorte qu'il n'ait aucun effet et soit perdu. Lorsque vous perdez un sort, vous avez déjà dépensé l'emplacement de sort et dépensé les coûts et les actions du sort. Si un sort est interrompu au cours d'une action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3f5DMFu8fPiqHpRg'})\">Maintenir</div> , le sort se termine immédiatement.</p>",
+        "element_type": null,
+        "href"        : "/actions/aBQ8ajvEBByv45yz",
+        "id"          : "aBQ8ajvEBByv45yz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Lancer un sort",
+        "traits"      : []
     },
     "POBvoXifa9HaejAg": {
-        "id"      : "POBvoXifa9HaejAg",
-        "text"    : "Ordre animal",
-        "category": "feat",
-        "href"    : "/class-features/POBvoXifa9HaejAg"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez un lien fort avec les bêtes, ressentant toujours comme si vous les compreniez (et qu'elles vous comprennent) mieux que les gens. Vous vous battez pour les animaux de la nature, un puissant compagnon animal à vos côtés.</p>\n<p>\"Compétence d'ordre\" Athlétisme.</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'f2Pl5dWEL9ZvEyI1'})\">Compagnon animal</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Zmh4ynfnCtwKeAYl'})\">Guérison des animaux</div> .</p>\n<p>\"Anathèmes\" commettre volontairement un acte de cruauté envers des animaux ou tuer des animaux sans nécessité (cela ne vous empêche pas de vous défendre contre des animaux ou de les tuer proprement pour obtenir de la nourriture).</p>",
+        "element_type": null,
+        "href"        : "/class-features/POBvoXifa9HaejAg",
+        "id"          : "POBvoXifa9HaejAg",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre animal",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "u4nlOzPj2WHkIj9l": {
-        "id"      : "u4nlOzPj2WHkIj9l",
-        "text"    : "Ordre de la feuille",
-        "category": "feat",
-        "href"    : "/class-features/u4nlOzPj2WHkIj9l"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vénérez la générosité de la nature, agissant à la fois comme un jardinier et comme un gardien de la nature sauvage. Avec votre familier léchi à vos côtés, vous aidez les zones à repoussez après des désastres ou l'expansion désordonnée et retournez la flore contre ceux qui voudraient en abuser.</p>\n<p>\"Compétence d'ordre\" Diplomatie</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7y1BCJLrdk9mKXlc'})\">Familier léchi</div> .</p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vQuwLqtFFYt0K15N'})\">Corne d'abondance</div></p>\n<p>\"Anathèmes\" commettre volontairement un acte de cruauté envers des végétaux ou des champignons ou les tuer sans nécessité (Cela ne vous empêche pas de vous défendre ou de les récolter pour survivre).</p>",
+        "element_type": null,
+        "href"        : "/class-features/u4nlOzPj2WHkIj9l",
+        "id"          : "u4nlOzPj2WHkIj9l",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre de la feuille",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "X0k3njLOLX0322Po": {
-        "id"      : "X0k3njLOLX0322Po",
-        "text"    : "Ordre des spores",
-        "category": "feat",
-        "href"    : "/class-features/X0k3njLOLX0322Po"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes fasciné par les moisissures et les champignons et vous comprenez le rôle important qu'ils jouent dans le maintien constant de la santé des écosystèmes. Cet intérêt vous met souvent en porte-à-faux avec les communautés locales qui considèrent les moisissures et les champignons comme des éléments à éradiquer plutôt qu'à entretenir.</p>\n<p>\"Compétence d'ordre\" Intimidation</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7y1BCJLrdk9mKXlc'})\">Familier léchi</div></p>\n<p>\"Order Spell\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xCfOskoogDf9LBlD'})\">Parterre de champignons</div></p>\n<p>\"Anathèmes\" commettre volontairement un acte de cruauté envers des moisissures ou des champignons ou les tuer sans nécessité, interférer avec le processus naturel de pourrissement est anathème pour votre ordre. Cela ne vous empêche pas de vous défendre ou de les récolter pour survivre.</p>\n<p>\"Spécial\" L'ordre des spores est une variante de l'ordre de la feuille. Si vous appartenez à l'ordre des spores, vous êtes considéré comme un membre de l'ordre de la feuille et vous vous qualifiez pour les dons de l'ordre de feuille.</p>",
+        "element_type": null,
+        "href"        : "/class-features/X0k3njLOLX0322Po",
+        "id"          : "X0k3njLOLX0322Po",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre des spores",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "IiYUhFGqq2Nw0b5Y": {
-        "id"      : "IiYUhFGqq2Nw0b5Y",
-        "text"    : "Ordre du cultivateur",
-        "category": "feat",
-        "href"    : "/class-features/IiYUhFGqq2Nw0b5Y"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous pensez qu'il est préférable de soigner, émonder et entretenir la nature. La nature est intrinsèquement aléatoire et chaotique par nécessité de survie - la fleur répand ses graines très loin, en espérant que certaines germeront, mais vous pensez que les plantes se développent vraiment dans des environnements ordonnés. C'est pourquoi vous donnez un coup de main, en désencombrant ce qui est en friche, en plantant dans les endroits idéaux, en replantant ce qui pousse dans des endroits moins favorables, en paillant le sol et en effectuant d'autres travaux d'entretien. Alors que de nombreux druides pourraient considérer votre approche comme de l'ingérence ou un acte contre nature, vous savez que le travail que vous accomplissez est vital pour la santé globale de l'environnement que vous entretenez.</p>\n<p>\"Compétence d'ordre\" Artisanat</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7y1BCJLrdk9mKXlc'})\">Familier léchi</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vQuwLqtFFYt0K15N'})\">Corne d'abondance</div></p>\n<p>\"Anathèmes\" commettre volontairement un acte de cruauté envers des végétaux ou des champignons ou les tuer sans nécessité (Cela ne vous empêche pas de vous défendre ou de les récolter pour survivre).</p>\n<p>\"Spécial\" L'ordre du cultivateur est une variante de l'ordre de la feuille. Si vous appartenez à l'ordre du cultivateur, vous êtes considéré comme un membre de l'ordre de la feuille et vous vous qualifiez pour les dons de l'ordre de feuille.</p>",
+        "element_type": null,
+        "href"        : "/class-features/IiYUhFGqq2Nw0b5Y",
+        "id"          : "IiYUhFGqq2Nw0b5Y",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre du cultivateur",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "NdeFvIXdHwKYLiUj": {
-        "id"      : "NdeFvIXdHwKYLiUj",
-        "text"    : "Ordre de la flamme",
-        "category": "feat",
-        "href"    : "/class-features/NdeFvIXdHwKYLiUj"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous ressentez une parenté avec les flammes et pouvez les utiliser pour secourir ou détruire.</p>\n<p>\"Compétence d'ordre\" Acrobaties</p>\n<p>\"Don d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yOloZIGkulrrPYG4'})\">Poumon de feu</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jks2h5pMsm8pCi8e'})\">Feu sauvage</div></p>\n<p>\"Anathèmes\" Permettre aux feux non naturels de se propager ou empêcher les feux naturels de se produire d'une manière qui nuit à l'environnement (cela ne vous empêche pas d'utiliser le feu de manière destructrice ou de vous forcer à combattre un feu contrôlé ou naturel).</p>",
+        "element_type": null,
+        "href"        : "/class-features/NdeFvIXdHwKYLiUj",
+        "id"          : "NdeFvIXdHwKYLiUj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre de la flamme",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "fKTewWlYgFuhl4KA": {
-        "id"      : "fKTewWlYgFuhl4KA",
-        "text"    : "Ordre de la pierre",
-        "category": "feat",
-        "href"    : "/class-features/fKTewWlYgFuhl4KA"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes aussi endurant que la pierre et vous tirez du réconfort de sa présence inébranlable, qu'elle soit naturelle ou taillée.</p>\n<p>\"Compétence d'ordre\" Artisanat</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QEOe9AhQzdqIx1ei'})\">Pierre stable</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AiWtiVmyasyL42J8'})\">Sol écrasant</div></p>\n<p>\"Anathèmes\" Empoisonner ou polluer la terre et la creuser sans réfléchir pour en piller les ressources naturelles (cela ne vous empêche pas de creuser ou de miner de manière responsable).</p>",
+        "element_type": null,
+        "href"        : "/class-features/fKTewWlYgFuhl4KA",
+        "id"          : "fKTewWlYgFuhl4KA",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre de la pierre",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "acqqlYmti8D9QJi0": {
-        "id"      : "acqqlYmti8D9QJi0",
-        "text"    : "Ordre de la tempête",
-        "category": "feat",
-        "href"    : "/class-features/acqqlYmti8D9QJi0"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que vous soyez né au cours d'une tempête ou que vous ayez survécu à la foudre tombée d'un ciel bleu limpide, vous portez désormais la fureur de la tempête dans votre cœur, canalisant le tonnerre pour obtenir un effet destructeur terrifiant et chevauchant les vents dans les airs.</p>\n<p>\"Compétence d'ordre\" Acrobaties.</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UpEjRfQkCJCruAfb'})\">Enfant de la tempête</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ho1jSoYKrHUNnM90'})\">Onde de tempête</div></p>\n<p>\"Anathèmes\" Polluer l'air, permettre à ceux qui provoquent une pollution majeure de l'air ou des changements climatiques de rester impunis (Cela ne vous oblige pas à prendre des mesures contre une simple atteinte à l'environnement potentielle ni à vous sacrifier face à un ennemi manifestement supérieur).</p>",
+        "element_type": null,
+        "href"        : "/class-features/acqqlYmti8D9QJi0",
+        "id"          : "acqqlYmti8D9QJi0",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre de la tempête",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "FuUXyv2yBs7zRgqT": {
-        "id"      : "FuUXyv2yBs7zRgqT",
-        "text"    : "Ordre de la vague",
-        "category": "feat",
-        "href"    : "/class-features/FuUXyv2yBs7zRgqT"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'eau est la source de la vie et vous avez appris à en façonner le flux.</p>\n<p>\"Compétence d'ordre\" Médecine</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kS4wxSKrZxcOvSNK'})\">Pas du littoral</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zTN6zuruDUKOea6h'})\">Vague porteuse</div></p>\n<p>\"Anathèmes\" Polluer l'eau ou permettre que ceux qui polluent les sources d'eau restent impunis (cela ne vous force pas à agir contre une pollution de l'eau potentielle ou à vous sacrifier contre un ennemi manifestement supérieur).</p>",
+        "element_type": null,
+        "href"        : "/class-features/FuUXyv2yBs7zRgqT",
+        "id"          : "FuUXyv2yBs7zRgqT",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre de la vague",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "v0EjtiwdeMj8ykI0": {
-        "id"      : "v0EjtiwdeMj8ykI0",
-        "text"    : "Ordre indompté",
-        "category": "feat",
-        "href"    : "/class-features/v0EjtiwdeMj8ykI0"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'appel incontrôlable du monde naturel traverse votre corps. Vous avez peut-être été élevé par un animal sauvage ou vous pourriez en être venu à rejeter les artifices des villes après avoir grandi dans l'une d'elles. Désormais, la magie primordiale vous permet de prendre la forme d'une créature indomptée.</p>\n<p>\"Compétence d'ordre\" Intimidation</p>\n<p>\"Don de druide\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VaIHQzOE5ibmbtqU'})\">Forme indomptée</div></p>\n<p>\"Sort d'ordre\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0xR9vrt6uDFl0Umo'})\">Transformation indomptée</div></p>\n<p>\"Anathèmes\" devenir totalement captif des tentations de la civilisation (cela ne vous empêche pas d'acheter ou d'utiliser des biens manufacturés ou de séjourner dans une ville lors d'une aventure mais vous ne devez jamais en venir à compter sur ces commodités ou faire d'un tel lieu votre foyer permanent).</p>",
+        "element_type": null,
+        "href"        : "/class-features/v0EjtiwdeMj8ykI0",
+        "id"          : "v0EjtiwdeMj8ykI0",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ordre indompté",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "cg816q76S5otM7yD": {
-        "id"      : "cg816q76S5otM7yD",
-        "text"    : "Empathie animale",
-        "category": "feat",
-        "href"    : "/feats/cg816q76S5otM7yD"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez un lien spécial avec les créatures du monde naturel qui vous permet de communiquer avec elles à un niveau rudimentaire. Vous pouvez poser des questions, recevoir des réponses et utiliser la compétence Diplomatie avec les animaux. Dans la plupart des cas, les animaux sauvages vous laisseront le temps d'exposer votre cas.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/cg816q76S5otM7yD",
+        "id"          : "cg816q76S5otM7yD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Empathie animale",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "ahyQpMVDIqhvXkQ4": {
-        "id"      : "ahyQpMVDIqhvXkQ4",
-        "text"    : "Empathie avec les plantes",
-        "category": "feat",
-        "href"    : "/feats/ahyQpMVDIqhvXkQ4"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous disposez d'un lien avec la flore qui vous permet de communiquer avec elle à un niveau rudimentaire. Vous pouvez poser des questions et recevoir des réponses, et utiliser la compétence Diplomatie avec les plantes et les champignons.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/ahyQpMVDIqhvXkQ4",
+        "id"          : "ahyQpMVDIqhvXkQ4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Empathie avec les plantes",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "Chu6s3xVnpOB64GH": {
-        "id"      : "Chu6s3xVnpOB64GH",
-        "text"    : "Puissance du hiérophante",
-        "category": "feat",
-        "href"    : "/feats/Chu6s3xVnpOB64GH"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes intimement lié au monde naturel et sa pleine puissance s'écoule à travers vous. Vous obtenez un emplacement de sort de rang 10 supplémentaire.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/Chu6s3xVnpOB64GH",
+        "id"          : "Chu6s3xVnpOB64GH",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Puissance du hiérophante",
+        "traits"      : [
+            "Druide"
+        ]
     },
     "m0f2B7G9eaaTmhFL": {
-        "id"      : "m0f2B7G9eaaTmhFL",
-        "text"    : "Concevoir un stratagème",
-        "category": "action",
-        "href"    : "/actions/m0f2B7G9eaaTmhFL"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Fréquence\" Une fois par round</p>\n<p>Vous évaluez les faiblesses d'un ennemi en combat et les utilisez pour formuler un plan d'attaque. Choisissez une créature que vous pouvez voir. Vous pouvez Concevoir un stratagème par une action gratuite si vous êtes conscient que cette créature pourrait vous aider à répondre à la question qui est au cœur d'une de vos enquêtes actives. Lancez un d20, puis décidez d'un stratagème d'attaque ou d'un stratagème de compétence.</p>\n<p>\"Stratagème d'attaque\" Si vous effectuez une Frappe sur la créature choisie avant le début de votre prochain tour, vous devez utiliser le résultat du d20 comme jet d'attaque de votre Frappe plutôt que de lancer les dés. Vous faites cette substitution uniquement pour la première Frappe que vous portez contre cette créature au cours de ce round et par sur une des Frappes suivantes. Lorsque vous opérez cette substitution, vous pouvez substituer votre modificateur d'Intelligence au modificateur de Force ou de Dextérité pour votre jet d'attaque tant que votre Frappe utilise une arme au corps-à-corps agile ou de finesse, une attaque à mains nues agile ou de finesse, une arme à distance (laquelle doit être agile ou de finesse s'il s'agit d'une arme de corps-à-corps disposant du trait jet) ou une matraque.</p>\n<p>\"Stratagème de compétence\" Vous ne pouvez tenter de Frapper cette cible jusqu'au début de votre prochain tour. Vous bénéficiez d'un bonus de circonstances de +1 à votre prochain test de compétence basé sur l'Intelligence, la Sagesse ou le Charisme ou test de Perception impliquant la cible avant le début de votre prochain tour. Si vous devriez obtenir votre bonus d'investigation pour Suivre une piste sur un tel test, ce bonus augmente de 1 au lieu de gagner le bonus de +1 indiqué.</p>",
+        "element_type": null,
+        "href"        : "/actions/m0f2B7G9eaaTmhFL",
+        "id"          : "m0f2B7G9eaaTmhFL",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Concevoir un stratagème",
+        "traits"      : [
+            "Concentration",
+            "Fortune",
+            "Enquêteur"
+        ]
     },
     "lgo65ldX7WkXC8Ir": {
-        "id"      : "lgo65ldX7WkXC8Ir",
-        "text"    : "Concevoir un stratagème",
-        "category": "feat",
-        "href"    : "/class-features/lgo65ldX7WkXC8Ir"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous pouvez simuler un combat dans votre esprit et utiliser votre cerveau plutôt que vos muscles pour porter une attaque.</p>\n<p>Vous obtenez l'action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm0f2B7G9eaaTmhFL'})\">Concevoir un stratagème</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/lgo65ldX7WkXC8Ir",
+        "id"          : "lgo65ldX7WkXC8Ir",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Concevoir un stratagème",
+        "traits"      : [
+            "Enquêteur"
+        ]
     },
     "g3mNzNphtVxyR9Xr": {
-        "id"      : "g3mNzNphtVxyR9Xr",
-        "text"    : "Empirisme",
-        "category": "feat",
-        "href"    : "/class-features/g3mNzNphtVxyR9Xr"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Tout repose sur les données. C'est en calculant des statistiques, en manipulant les nombres et en utilisant des méthodes de raisonnement déductif que vous parvenez à déterminer les conséquences les plus probables de chaque action, et tout ce qui sort de l'ordinaire attire votre attention affûtée.</p>\n<p>Vous êtes entraîné en une compétence basée sur l'Intelligence de votre choix. Vous obtenez le don d'enquêteur  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pIHjH1x0AVtiX5Tv'})\">C'est étrange</div>  ainsi que l'action gratuite  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jftNJjBNxp2cleoi'})\">Inspection expéditive</div> .</p>",
+        "element_type": null,
+        "href"        : "/class-features/g3mNzNphtVxyR9Xr",
+        "id"          : "g3mNzNphtVxyR9Xr",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Empirisme",
+        "traits"      : [
+            "Enquêteur"
+        ]
     },
     "UIHUNNYZyQ3p4Vmo": {
-        "id"      : "UIHUNNYZyQ3p4Vmo",
-        "text"    : "Interrogatoire",
-        "category": "feat",
-        "href"    : "/class-features/UIHUNNYZyQ3p4Vmo"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les gens ne peuvent s'empêcher de vous faire confiance, que ce soit grâce à votre capacité intrinsèque à vous faire apprécier ou par votre ferme insistance à les confronter à la vérité. Vous avez une manière de rendre les gens volubiles et vous avez développé des techniques d'interrogatoire pour vous aider à obtenir la vérité au fil de vos enquêtes.</p>\n<p>Vous êtes qualifié en Diplomatie. Vous obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6ON8DjFXSMITZleX'})\">Pas besoin de s'alarmer</div> . Vous pouvez aussi  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xTK2zsWFyxSJvYbX'})\">Suivre une piste</div>  en même temps que vous tentez de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q'})\">Faire bonne impression</div>  tant que vous posez une question en lien avec la créature avec laquelle vous conversez ou sur un sujet de votre conversation. Vous obtenez aussi l'action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xccOiNL2W1EtfUYl'})\">Question imparable</div> .</p>",
+        "element_type": null,
+        "href"        : "/class-features/UIHUNNYZyQ3p4Vmo",
+        "id"          : "UIHUNNYZyQ3p4Vmo",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Interrogatoire",
+        "traits"      : [
+            "Enquêteur"
+        ]
     },
     "O3IX7rTxXWWvDVM3": {
-        "id"      : "O3IX7rTxXWWvDVM3",
-        "text"    : "Médecine forensique",
-        "category": "feat",
-        "href"    : "/class-features/O3IX7rTxXWWvDVM3"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez appris que, dans la plupart des cas, et plus particulièrement les meurtres, les criminels ont tendance à laisser derrière eux plus de traces qu'ils ne le pensent. Les informations provenant d'hématomes, d'os fracturés, d'éclaboussures de sang ou même du cycle de vie des insectes charognards peuvent procurer des indices très précieux qui aident à reconstituer la scène.</p>\n<p>Vous êtes qualifié en Médecine et obtenez les dons de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ws9JlysHcFoz6WAQ'})\">Perspicacité forensique</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wYerMk6F1RZb0Fwt'})\">Médecine militaire</div> . Lorsque vous utilisez Médecine militaire, en cas de succès, la cible récupère un nombre de Points de vie supplémentaires égal à votre niveau et la cible n'est immunisée temporairement que pendant seulement 1 heure et pas un jour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/O3IX7rTxXWWvDVM3",
+        "id"          : "O3IX7rTxXWWvDVM3",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Médecine forensique",
+        "traits"      : [
+            "Enquêteur"
+        ]
     },
     "ln2Y1a4SxlU9sizX": {
-        "id"      : "ln2Y1a4SxlU9sizX",
-        "text"    : "Sciences alchimiques",
-        "category": "feat",
-        "href"    : "/class-features/ln2Y1a4SxlU9sizX"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre méthodologie se base sur les analyses chimiques et alchimiques, la récolte d'information à partir de l'étude de particules et de fluides trouvés sur les lieux. Vous possédez suffisamment de connaissances alchimiques pour fabriquer rapidement quelques concoctions qui vous aident à résoudre vos affaires.</p>\n<p>Vous êtes qualifié en Artisanat et obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'is3Oz9wt11lNq62K'})\">Artisanat alchimique</div> . De plus, vous débutez avec un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qCEOZ6109Yo34tRx'})\">recueil de formules</div>  standard qui contient les formules de 2 consommables de niveau 1 de votre choix (il doit s'agit d'élixirs ou d'outils), en plus des formules obtenues grâce à Artisanat alchimique. Chaque fois que vous gagnez un niveau, vous apprenez la formule d'un élixir ou d'un outil alchimique commun de n'importe quel niveau que vous pouvez créer.</p>\n<p>Au cours de vos préparatifs quotidiens, vous pouvez créer un nombre de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PBQh0amk1FlomV0r'})\">fioles polyvalentes</div>  égal à votre modificateur d'Intelligence.</p>\n<p>Vous obtenez l'action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QHFMeJGzFWj2QczA'})\">Préparation rapide</div> , que vous pouvez utiliser pour transformer une de ces fioles en un élixir ou un outil alchimique dont vous connaissez la formule. Si vous avez la capacité de créer des fioles polyvalentes par le biais d'une autre source (tel que l'archétype multiclasse d'alchimiste), vous pouvez utiliser n'importe laquelle de vos fioles polyvalentes pour n'importe quelle capacité qui le nécessite.</p>",
+        "element_type": null,
+        "href"        : "/class-features/ln2Y1a4SxlU9sizX",
+        "id"          : "ln2Y1a4SxlU9sizX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Sciences alchimiques",
+        "traits"      : [
+            "Enquêteur"
+        ]
     },
     "xTK2zsWFyxSJvYbX": {
-        "id"      : "xTK2zsWFyxSJvYbX",
-        "text"    : "Suivre une piste",
-        "category": "action",
-        "href"    : "/actions/xTK2zsWFyxSJvYbX"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Fréquence\" Une fois toutes les 10 minutes</p>\n<p>Vous nommez un détail que vous avez identifié et que vous pensez faire partie d'un plus grand mystère, puis vous passez 1 minute à l'examiner. Le détail est généralement évident ou quelque chose que vous avez déjà découvert en utilisant  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo'})\">Se Souvenir</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1xRFPTFtWtGJ9ELw'})\">Deviner les intentions</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8'})\">Recueillir des informations</div>  ou une action similaire. Une fois la minute écoulée, le MJ confirme l'existence d'un mystère plus vaste ou vous dit qu'il n'y a rien de plus à apprendre (le détail est sans importance ou vous connaissez déjà toutes les informations). S'il y a effectivement un mystère plus important en jeu, vous ne pouvez plus Suivre une piste pendant 10 minutes, mais vous pouvez choisir d'ouvrir une enquête. Pour ce faire, définissez la question au cœur du mystère, telle que \"Où a été emportée l'œuvre d'art inestimable qui devait être accrochée ici ?\" ou \"Qui ou quoi a tué ce prêtre ?\". Travaillez avec votre MJ pour affiner la question si nécessaire. Vous pouvez également donner un nom à votre enquête pour mieux en garder la trace (comme \"L'affaire du gobelin tricheur\" ou \"Les meurtres de Tranchepeau\").</p>\n<p>\"Bonus d'investigation\" Chaque fois que vous tentez un test de Perception ou un test de compétence pour vous rapprocher de la réponse à la question qui est au coeur d'une enquête active, vous obtenez un bonus de circonstances de +1 à ce test. Les tests auxquels cet avantage s'applique dépendent des actions que vous utilisez pour mener l'enquête et sont déterminés par le MJ, mais il s'agit généralement de tests de Perception ou de tests de compétence utilisant l'Intelligence, la Sagesse ou le Charisme.</p>\n<p>\"Enquête active\" Vous pouvez maintenir deux enquêtes actives en même temps. Si vous Suivez une autre piste alors que vous avez déjà deux enquêtes ouvertes, le sujet doit être différent de ces deux enquêtes (à votre connaissance, du moins) et vous devez abandonner un des deux autres enquêtes, au choix. Une fois que vous avez abandonné une enquête, vous ne pouvez plus Suivre cette piste à nouveau avant vos prochains préparatifs quotidiens.</p>\n<p>\"Résoudre une enquête\" Si vous répondez à la question au cœur de votre enquête, le MJ vous dit que vous l'avez fait. Vous ne perdez pas le bonus ou les autres avantages jusqu'à ce que vous choisissiez de clore l'enquête en reprenant une piste ou en l'abandonnant volontairement. Si ce que vous découvrez révèle un mystère encore plus grand, vous pouvez collaborer avec le MJ pour adapter la question et le nom de l'enquête aux nouvelles informations.</p>",
+        "element_type": null,
+        "href"        : "/actions/xTK2zsWFyxSJvYbX",
+        "id"          : "xTK2zsWFyxSJvYbX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Suivre une piste",
+        "traits"      : [
+            "Concentration",
+            "Exploration",
+            "Enquêteur"
+        ]
     },
     "25WDi1cVUrW92sUj": {
-        "id"      : "25WDi1cVUrW92sUj",
-        "text"    : "Partager les indices",
-        "category": "action",
-        "href"    : "/actions/25WDi1cVUrW92sUj"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Fréquence\" Une fois toutes les 10 minutes</p>\n<p>\"Déclencheur\" Une autre créature tente un test qui pourrait vous aider à répondre à la question au cœur de l'une de vos enquêtes actives.</p>\n<p>Vous partagez des informations avec la créature déclencheuse. Elle obtient un bonus de circonstances à son test égal à votre bonus d'investigation de Suivre une piste. Le MJ peut ajouter tout trait approprié à cette réaction en fonction de la situation, comme auditif et linguistique si vous partagez ces informations verbalement.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vhSYlQiAQMLuXqoc'})\">Effet : Partager les indices</div></p>",
+        "element_type": null,
+        "href"        : "/actions/25WDi1cVUrW92sUj",
+        "id"          : "25WDi1cVUrW92sUj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Partager les indices",
+        "traits"      : [
+            "Concentration",
+            "Enquêteur"
+        ]
     },
     "1OagaWtBpVXExToo": {
-        "id"      : "1OagaWtBpVXExToo",
-        "text"    : "Vous souvenir",
-        "category": "action",
-        "href"    : "/actions/1OagaWtBpVXExToo"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous tentez un test de compétence pour essayer de vous remémorer un peu des connaissances correspondant à un sujet en lien avec cette compétence. Suggérez quelle compétence vous aimeriez utiliser et posez au MJ une question. Le MJ détermine le DD. Vous pourriez avoir besoin de collaborer avec le MJ pour préciser la question ou les compétences et vous pouvez décider de ne pas Vous souvenir avant de réaliser l'action si vous n'aimez pas les options qui vous sont proposées.</p>\n<p>\"Succès critique\" Vous vous souvenez avec précision de vos connaissances. Le MJ répond sincèrement et soit vous donne une information ou du contexte supplémentaire, soit répond à une autre question.</p>\n<p>\"Succès\" Vous vous souvenez avec précision de vos connaissances. Le MJ répond à votre question sincèrement.</p>\n<p>\"Échec critique\" Vous vous souvenez d'une information incorrecte. Le MJ répond à votre question de manière inexacte (ou décide de ne pas vous donner d'information, comme en cas d'échec).</p>",
+        "element_type": null,
+        "href"        : "/actions/1OagaWtBpVXExToo",
+        "id"          : "1OagaWtBpVXExToo",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Vous souvenir",
+        "traits"      : [
+            "Concentration",
+            "Secret"
+        ]
     },
     "3qqvnC2U8W26yae7": {
-        "id"      : "3qqvnC2U8W26yae7",
-        "text"    : "Aberrant",
-        "category": "feat",
-        "href"    : "/class-features/3qqvnC2U8W26yae7"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Quelque chose d'ancien et d'inconnu vous parle d'au-delà des étoiles ou de sous la terre.</p>\n<p>\"Tradition\" occulte</p>\n<p>\"Compétences de lignage\" Intimidation, Occultisme</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4gBIw4IDrSfFHik4'})\">hébétement</div> , 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R8bqnYiThB6MYTxD'})\">Douleur fantôme</div> , 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CQb8HtQ1BPeZmu9h'})\">Abrutir</div> , 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'N1Z1oLPdBxaSgrEE'})\">Festin vampirique</div> , 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LiGbewa9pO0yjbsY'})\">Confusion</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xFp4EwVcYwSG336t'})\">Nid de serpent</div> , 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5BbU1V6wGSGbrmRD'})\">Écervelé</div> , 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8kJbiBEjMWG4VUjs'})\">Déformer l'esprit</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Jvyy6oVIQsD34MHB'})\">Danse incontrôlable</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FmNDwqMEjeTEGPrY'})\">Chant énigmatique</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i8PBZsnoCrK7IWph'})\">Membres tentaculaires</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qhJfRnkCRrMI4G1O'})\">Murmures aberrants</div> , supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ddKBoCjmSyPSHcws'})\">Étrange anatomie</div></p>\n<p>\"Magie du sang — Voile inquiétant\" Une atmosphère inquiétante se dégage de votre esprit. Soit une cible subit une pénalité de -1 aux jets de Volonté pendant 1 round, soit vous obtenez un bonus de statut de +2 aux jets de Volonté pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UQ7vZgmfK0VSFS8A'})\">Effet : Magie du sang aberrant</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/3qqvnC2U8W26yae7",
+        "id"          : "3qqvnC2U8W26yae7",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Aberrant",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "TFihgf3jDhmKd0fa": {
-        "id"      : "TFihgf3jDhmKd0fa",
-        "text"    : "Aesir",
-        "category": "feat",
-        "href"    : "/class-features/TFihgf3jDhmKd0fa"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'un de vos ancètres a été touché par un aesir et maintenant le fracas de l'acier contre l'acier et l'appel constant à se battre fait écho dans votre sang.</p>\n<p>\"Tradition\" divine</p>\n<p>\"Compétences de lignage\" Intimidation, Religion</p>\n<p>\"Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TVKNbcgTee19PXZR'})\">Bouclier</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div>  ; 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WPu3UE3kTXSLqO40'})\">Arsenal spirituel</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KqvqNAfGIE5a9wSv'})\">Héroïsme</div>  ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gfKhtVsXF3HKSdmY'})\">Sceller le destin</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hghGRzOSzEl4UXdS'})\">Invoquer les esprits</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NhGXgmI3AjkkwnPk'})\">Furie aveuglante</div>  ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Z9OrRXKgAPv6Hn5l'})\">Exécution</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ht35SDf9PDStJfoC'})\">Chant spirituel</div>  ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '10VcmSYNBrvBphu1'})\">Massacre</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dQ7LrD2HxJoCzi2M'})\">Lance acérée</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9ZwpT9RDwCxhYQXd'})\">Ailes de la valkyrie</div>  ; supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'USKnG2ZSzVs4xn85'})\">Relever ceux qui tombent</div></p>\n<p>\"Magie du sang — Invoquer la tempête\" Vous faites tomber un éclair pour infliger des dégâts à un ennemi ou vous donner de l'énergie. Soit vous obtenez un bonus de statut +2 aux jets de Réflexes pendant 1 round, soit une cible subit 1 dégât d'électricité par rang de sort (si le sort inflige déjà des dégâts d'électricité, combinez les avec les dégâts initiaux avant de déterminer les faiblesses et les résistances).</p>",
+        "element_type": null,
+        "href"        : "/class-features/TFihgf3jDhmKd0fa",
+        "id"          : "TFihgf3jDhmKd0fa",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Aesir",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "vhW3glAaEfq2DKrw": {
-        "id"      : "vhW3glAaEfq2DKrw",
-        "text"    : "Angélique",
-        "category": "feat",
-        "href"    : "/class-features/vhW3glAaEfq2DKrw"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'un de vos ancêtres est originaire d'un royaume céleste ou votre lignée a été bénie grâce à la dévotion de vos ancêtres.</p>\n<p>\"Tradition\" divine</p>\n<p>\"Compétences de lignage\" Diplomatie, Religion</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WBmvzNDfpwka3qT4'})\">Lumière</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rfZpqmj0AIIdkVIs'})\">Guérison</div> , 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Fq9yCbqI2RDt6Orw'})\">Arsenal spirituel</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DyiD239dNS7RIxZE'})\">Lumière sainte</div>  ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hVU9msO9yGkxKZ3J'})\">Colère divine</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'A16eFTRh82xIjMu8'})\">Immolation divine</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jj5d830iUi2ZlQfs'})\">Frontière bénie</div>  ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sX2o0HH4RjJDAZ8C'})\">Décret divin</div> ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4MOew29Z1oCX8O28'})\">Instant de renouveau</div>  ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qsNeG9KZpODSACMq'})\">Prémonition</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'w3uGXDVEdbLFZVO0'})\">Halo angélique</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kRsmUlSWhi6PJvZ7'})\">Ailes d'ange</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9WlTR9JlEcjRmGiD'})\">Marque céleste</div></p>\n<p>\"Magie du sang — Aura divine\" Vous projetez une aura chaleureuse qui vous protège ou protège une cible, conférant un bonus de statut de +1 aux jets de sauvegarde pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's1tulrmW6teTFjVd'})\">Effet : Magie du sang angélique</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/vhW3glAaEfq2DKrw",
+        "id"          : "vhW3glAaEfq2DKrw",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Angélique",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "dKTb959aCQIzSIXj": {
-        "id"      : "dKTb959aCQIzSIXj",
-        "text"    : "Béni du ver",
-        "category": "feat",
-        "href"    : "/class-features/dKTb959aCQIzSIXj"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous revendiquez la puissance des dragons, mais vos pouvoirs sont sacrés plutôt qu'arcaniques - nés d'un culte de la puissance draconique si puissant qu'il a imprégné votre sang ou, peut-être, d'une bénédiction de pouvoir céleste ou draconique reçue par l'un de vos ancêtres.</p>\n<p>\"Liste de sorts\" divine</p>\n<p>\"Compétences de lignage\" Intimidation, Religion</p>\n<p>\"Sorts accordés\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OhD2Z6rIGGD5ocZA'})\">Lecture d'aura</div> ; 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div> ; 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Fr58LDSrbndgld9n'})\">Résistance à l'énergie</div> ; 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o6YCGx4lycsYpww4'})\">Rapidité</div> ; 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Mv5L4201uk8hnAtD'})\">Écailles réfléchissantes</div> ; 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TCk2MDwf5L5OYjFC'})\">Cape colorée</div> ; 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yrZA4k2VAqEP8xx7'})\">Répulsion</div> ; 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'O6VQC1Bs4aSYDa6R'})\">Masque terrifiant</div> ; 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KtTGLbLG9nqMbUYL'})\">Inspiration divine</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fkDeKktdmbeplYRY'})\">Présence écrasante</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'K8vvrOgW4bGakXxm'})\">Déluge de griffes</div> ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JcobNl4iE9HmMYtE'})\">Souffle de dragon</div> ; supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HWJODX2zPg5cg34F'})\">Ailes de dragon</div></p>\n<p>\"Magie du sang\" La puissance draconique transparaît dans votre voix. Soit vous obtenez un bonus de statut de +1 aux tests d'intimidation pendant 1 round, soit la cible subit une pénalité de statut de -1 aux jets de Volonté pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fILVhS5NuCtGXfri'})\">Effet : Magie du sang Béni du ver (bonus de statut - Soi)</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aqnx6IDcB7ARLxS5'})\">Effet : Magie du sang Béni du ver (pénalité de statut - cible)</div></p>\n<h2>Type de dragon</h2>\n<p>Au niveau 1, choisissez le type de dragon qui a influencé votre lignage. Vous ne pourrez plus changer votre type de dragon par la suite. Ce choix affecte la façon dont fonctionnent certains sorts de votre lignage.</p>\n<p>Les dragons métalliques bons et leur type de dégâts sont airain (feu), argent (froid), bronze (électricité), cuivre (acide) et or (feu).</p>\n<p>Les dragons chromatiques mauvais et leurs types de dégâts sont blanc (froid), bleu (électricité), noir (acide), rouge (feu) et vert (poison).</p>\n<p>Les dragons primordiaux ou d'origine planaire et leurs types de dégâts sont cristal (perforant), magma (feu), nuage (électricité), ombral (vide) et saumure (acide).</p>\n<p>Les dragons impériaux et leur type de dégâts sont ciel (électricité), forêt (perforant), mers (contondants), souterrain (feu) et souverain (mental).</p>\n<p>Pour le sort focalisé Souffle du dragon, la zone est une  ligne de 18 mètres  pour un dragon de saumure ; un  cône de 9 mètres  pour un dragon des nuages, de cristal, des forêt, de magma, souverain ou ombral et une  explosion de 3 mètres  dans les 9 m pour un dragon des mers, céleste ou souterrain.</p>\n<h2>Lignage associé</h2>\n<p>Comme les lignages béni du ver et draconique ont des origines similaires, ils sont considérés à l'égal l'un de l'autre pour remplir les conditions d'accès et les prérequis.</p>",
+        "element_type": null,
+        "href"        : "/class-features/dKTb959aCQIzSIXj",
+        "id"          : "dKTb959aCQIzSIXj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Béni du ver",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "w5koctOVrEcpxTIq": {
-        "id"      : "w5koctOVrEcpxTIq",
-        "text"    : "Démoniaque",
-        "category": "feat",
-        "href"    : "/class-features/w5koctOVrEcpxTIq"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les démons corrompent tout ce qu'ils touchent. L'un de vos ancêtres a succombé à leur corruption et vous devez porter le poids de ce péché.</p>\n<p>\"Tradition\" divine</p>\n<p>\"Compétences de lignage\" Intimidation, Religion</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'thAHF1zxNplLCJPO'})\">Explosion caustique</div> , 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4koZzrnMXhhosn0D'})\">Terreur</div>  ; 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wzctak6BxOW8xvFV'})\">Agrandissement</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WsUwpfmhKrKwoIe3'})\">Lenteur</div>  ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hVU9msO9yGkxKZ3J'})\">Colère divine</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '59NR1hA2jPSgg2sW'})\">Pustule</div>  ; 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div>  ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sX2o0HH4RjJDAZ8C'})\">Décret divin</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qlxM7Ik3uUeUIOcv'})\">Cantique du chagrin éternel</div>  ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4WS7HrFjwNvTn8T2'})\">Implosion</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SdXFiQ4Py8761sNO'})\">Mâchoires du glouton</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iQD8OhhkwhvD8Blw'})\">Marais de paresse</div> , supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'crF4g9jRN1y84MSD'})\">Colère chthonienne</div></p>\n<p>\"Magie du sang — Corruption du péché\" Vous diffusez mentalement de brefs aperçus des désirs les plus sombres de l'esprit. Soit la cible subit une pénalité de statut de -1 à la CA pendant 1 round, soit vous obtenez un bonus de statut de +2 aux tests d'intimidation pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aKRo5TIhUtu0kyEr'})\">Effet : Magie du sang démoniaque</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/w5koctOVrEcpxTIq",
+        "id"          : "w5koctOVrEcpxTIq",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Démoniaque",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "o39zQMIdERWtmBSB": {
-        "id"      : "o39zQMIdERWtmBSB",
-        "text"    : "Diabolique",
-        "category": "feat",
-        "href"    : "/class-features/o39zQMIdERWtmBSB"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les diables incarnent le mal avec une langue mielleuse et l'un de vos ancêtres a plongé dans les ténèbres ou a conclu un pacte infernal.</p>\n<p>\"Tradition\" divine</p>\n<p>\"Compétences de lignage\" Duperie, Religion</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6DfLZBl8wKIV03Iq'})\">Allumage</div> , 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLA0q0WOK2YPuJs6'})\">Charme</div> , 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2ZdHjnpEQJuqOYSG'})\">Flamme flottante</div> , 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IihxWhRfpsBgQ5jS'})\">Discours captivant</div> , 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qwlh6aDgi86U3Q7H'})\">Suggestion</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GaRQlC9Yw1BGKHfN'})\">Vague de désespoir</div> , 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div> , 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sX2o0HH4RjJDAZ8C'})\">Décret divin</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KtTGLbLG9nqMbUYL'})\">Inspiration divine</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jrBa9deU2ULFWvSl'})\">Chute d'étoiles</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Vctwx1ewa8HUOA94'})\">Édit diabolique</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ilGsyGLGjjIPHbyP'})\">Étreinte de la fosse</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9LHr9SuDLTicdbXs'})\">Volute de feu infernal</div></p>\n<p>\"Magie du sang — Langue de flamme\" Votre langue est imprégnée des feux de l'Enfer et vous pouvez soit vous en servir pour frapper un ennemi, soit l'avaler pour rendre vos mensonges plus agréables. Soit une cible subit 1 dégât de feu par rang de sort (si le sort inflige déjà des dégâts initiaux de feu, combinez-les aux dégâts initiaux du sort avant de déterminer les faiblesses et les résistances), soit vous bénéficiez d'un bonus de statut de +2 aux tests de Duperie pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'n1vhmOd7aNiuR3nk'})\">Effet : Magie du sang diabolique (Soi)</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/o39zQMIdERWtmBSB",
+        "id"          : "o39zQMIdERWtmBSB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Diabolique",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "ZHabYxSgYK0XbjhM": {
-        "id"      : "ZHabYxSgYK0XbjhM",
-        "text"    : "Draconique",
-        "category": "feat",
-        "href"    : "/class-features/ZHabYxSgYK0XbjhM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le sang des dragons coule dans vos veines. Ces bêtes sont à la fois effrayantes en combat et habiles en magie.</p>\n<p>\"Tradition\" variable (voir les modèles draconiques ci-dessous)</p>\n<p>\"Compétences de lignage\" Intimidation et une autre compétence (voir les modèles draconiques ci-dessous)</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TVKNbcgTee19PXZR'})\">Bouclier</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4koZzrnMXhhosn0D'})\">Terreur</div>  ; 2e : voir les modèles draconiques ci-dessous ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o6YCGx4lycsYpww4'})\">Rapidité</div> , 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'A2JfEKe6BZcTG1S8'})\">Vol</div>  ; 5e : voir les modèles draconiques ci-dessous ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5c692cCcTDXjSEzk'})\">Forme de dragon</div>  (doit correspondre à votre modèle draconique), 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'O6VQC1Bs4aSYDa6R'})\">Masque terrifiant</div>  ; 8e : voir les modèles draconiques ci-dessous ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fkDeKktdmbeplYRY'})\">Présence écrasante</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'K8vvrOgW4bGakXxm'})\">Déluge de griffes</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JcobNl4iE9HmMYtE'})\">Souffle de dragon</div> , supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HWJODX2zPg5cg34F'})\">Ailes de dragon</div></p>\n<p>\"Magie du sang — Peau écailleuse\" Des écailles de dragon apparaissent brièvement sur vous ou une cible en conférant un bonus de statut de +1 à la CA pendant 1 round.</p>\n<h3>Modèles draconiques</h3>\n<p>Au niveau 1, choisissez le type de dragon qui a influencé votre lignage. Vous ne pouvez plus changer de modèle draconique par la suite. Comme indiqué, cela affecte à la fois les traits de votre lignage et les sorts de vos Legs d'ensorceleur.</p>\n<ul><li>\"Arcanique — Tradition\" arcanique ; \"Compétence de lignage\" Arcanes ; \"Legs d'ensorceleur\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZxHC7V7HtjUsB8zH'})\">Trait flamboyant</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GP3wewkQXEPrLxYj'})\">Suggestion subconsciente</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div></li><li>\"Divin — Tradition\" divine ; \"Compétence de lignage\" Religion ; \"Legs d'ensorceleur\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '41TZEjhO6D1nWw2X'})\">Augure</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'A16eFTRh82xIjMu8'})\">Immolation divine</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KtTGLbLG9nqMbUYL'})\">Inspiration divine</div></li><li>\"Occulte — Tradition\" occulte ; \"Compétence de lignage\" Occultisme ; \"Legs d'ensorceleur\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TaaMEYdZXQXF0Sks'})\">Vendetta du sang</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xFp4EwVcYwSG336t'})\">Nid de serpent</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"Primordial — Tradition\" primordiale ; \"Compétence de lignage\" Nature ; \"Legs d'ensorceleur\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1xbFBQDRs0hT5xZ9'})\">Fracassement</div> ; 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xxWhyl81w3ckslAU'})\">Blizzard hurlant</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x7SPrsRxGb2Vy2nu'})\">Tremblement de terre</div></li></ul>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dy1cyGJUfzyZ4EIy'})\">Lignages d'ensorceleur draconique</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/ZHabYxSgYK0XbjhM",
+        "id"          : "ZHabYxSgYK0XbjhM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Draconique",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "RXRnJcG4XSabZ35a": {
-        "id"      : "RXRnJcG4XSabZ35a",
-        "text"    : "Élémentaire",
-        "category": "feat",
-        "href"    : "/class-features/RXRnJcG4XSabZ35a"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Une influence élémentaire a imprégné votre sang de fureur primordiale. Vous obtenez des Legs d'ensorceleur et un type de dégât de magie du sang en fonction de l'élément qui a affecté votre lignage (voir les influences élémentaires ci-dessous).</p>\n<p>\"Tradition\" primordiale</p>\n<p>\"Compétences de lignage\" Intimidation, Nature</p>\n<p>\"Legs d'ensorceleur\" tour de magie voir influence élémentaire ci-dessous, 1er: voir influence élémentaire ci-dessous, 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Fr58LDSrbndgld9n'})\">Résistance à l'énergie</div> , 3e: voir influence élémentaire ci-dessous, 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aqRYNoSvxsVfqglH'})\">Mouvement sans entrave</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1K6AYGisvo9gqdhs'})\">Forme élémentaire</div>  (influence élémentaire seulement), 6e: voir influence élémentaire ci-dessous, 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm2xFMNyQiUKQDRaj'})\">Égide énergétique</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x7SPrsRxGb2Vy2nu'})\">Tremblement de terre</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r4HLQcYwB62bTayl'})\">Tempête vengeresse</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0JUOgbbFCapp3HlW'})\">Projectile élémentaire</div> *, avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'B8aCUMCHCIMUCEVK'})\">Mobilité élémentaire</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Qlp8G3knwLGhAxQ0'})\">Déflagration élémentaire</div></p>\n<p>\"Magie du sang — Furie élémentaire\" L'énergie élémentaire vous enveloppe et imprègne votre magie. Soit vous bénéficiez d'un bonus de statut de +2 aux tests d'Intimidation pendant 1 round, soit une cible subit 1 dégât par rang du sort. Le type de dégâts est indiqué sous votre influence élémentaire. Si le sort inflige déjà ce type de dégâts, combinez les dégâts aux dégâts initiaux du sort avant d'appliquer les faiblesses et les résistances.</p>\n<h3>Influences élémentaires</h3>\n<p>Au niveau 1, vous choisissez le type d'élémentaire qui a influencé votre lignage : air, bois, eau, feu, métal terre. Vous ne pourrez plus modifier ce choix par la suite. Vous bénéficiez de sorts différents à certains rangs en fonction de cette influence.</p>\n<ul><li>\"Air — Legs d'ensorceleur\" Tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dDiOnjcsBFbAvP6t'})\">Coup de vent</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KcLVELhCUcKXxiKE'})\">Vent arrière</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'it4ZsAi6XgvGcodc'})\">Mur de vent</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TDNlDWbYb58Y55Da'})\">Éclairs multiples</div>  ; \"Dégâts de magie du sang\" Tranchant</li><li>\"Bois — Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uZK2BYzPnxUBnDjr'})\">Liane gênante</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qXTB7Ec9yYh5JPPV'})\">Cuisine purifiée</div>  ; 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KsWhliKfUs3IpW3c'})\">Mur d'épines</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JbAcSLu62TU1OgNF'})\">Entraves végétales</div>  ; \"Dégâts de magie du sang\" contondant</li><li>\"Eau — Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IxhGEKl63R4QBvkj'})\">Morsure du froid</div>  ; 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jfVCuOpzC6mUrf6f'})\">Poussée hydraulique</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oUDNCArkQTdhllxD'})\">Orbe aqueux</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9W2Qv0wXLg6tQg3y'})\">Précaution scintillante</div>  ; \"Dégâts de magie du sang\" contondant</li><li>\"Feu — Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6DfLZBl8wKIV03Iq'})\">Allumage</div> , 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sxQZ6yqTn0czJxVd'})\">Boule de feu</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'u5FAOOXuqK7fLqKW'})\">Arbre des saisons</div>  (toutes les gousses sont estivales) ; \"Dégâts de magie du sang\" feu</li><li>\"Métal— Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kBhaPuzLUSwS6vVf'})\">Arc électrique</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zDJS8E66UI0himqV'})\">Foudroiement</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9AAkVUCwF6WVNNY2'})\">Éclair</div> ; 6th:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TDNlDWbYb58Y55Da'})\">Éclairs multiples</div>  ; \"Dégâts de magie du sang\" perforants</li><li>\"Terre — Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zA0jNIBRgLsyTpbm'})\">Projection d'éboulis</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Rn2LkoSq1XhLsODV'})\">Frappe de débris</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gPvtmKMRpg9I9D7H'})\">Cloué à terre</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'znv4ECL7ZtuiagtA'})\">Pétrifier</div>  ; \"Dégâts de magie du sang\" contondant</li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/RXRnJcG4XSabZ35a",
+        "id"          : "RXRnJcG4XSabZ35a",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Élémentaire",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "eW3cfCH7Wpx2vik2": {
-        "id"      : "eW3cfCH7Wpx2vik2",
-        "text"    : "Féerique",
-        "category": "feat",
-        "href"    : "/class-features/eW3cfCH7Wpx2vik2"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Une fée capricieuse ou un rendez-vous galant dans un bosquet au clair de lune a intégré la magie enchanteresse du Premier Monde dans la lignée de votre famille.</p>\n<p>\"Tradition\" primordiale</p>\n<p>\"Compétences de lignage\" Duperie, Nature</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0zU8CPejjQFnhZFI'})\">Fantasme</div> , 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLA0q0WOK2YPuJs6'})\">Charme</div> , 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tlSE7Ly8vi1Dgddv'})\">Accès de rigolade</div> , 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IihxWhRfpsBgQ5jS'})\">Discours captivant</div> , 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qwlh6aDgi86U3Q7H'})\">Suggestion</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'U58aQWJ47VrI36yP'})\">Hallucination</div> , 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WPXzPl7YbMEIGWfi'})\">Double illusoire</div> , 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jBGAYmR0BkkbpJvG'})\">Dangereuses visions</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Jvyy6oVIQsD34MHB'})\">Danse incontrôlable</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pswdik31kuHEvdno'})\">Métamorphose</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IkS3lDGUpIOMug7v'})\">Poussière féerique</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mBojKJatf9PTYC38'})\">Disparition féerique</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DdXKfIjDtORUtUvY'})\">Enchantement féerique</div></p>\n<p>\"Magie du sang — Cape de rubans\" Des rubans féerique colorés dansent autour de vous. Soit vous obtenez un bonus de statut de +2 aux tests de Représentation pendant 1 round, soit vous pouvez devenir  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masqué</div>  pendant 1 round. Une dissimulation aussi évidente ne peut pas être utilisée pour vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa'})\">Cacher</div> .</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rJpkKaPRGaH0pLse'})\">Effet : Magie du sang féerique</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/eW3cfCH7Wpx2vik2",
+        "id"          : "eW3cfCH7Wpx2vik2",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Féerique",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "tYOMBiH3HbViNWwn": {
-        "id"      : "tYOMBiH3HbViNWwn",
-        "text"    : "Génie",
-        "category": "feat",
-        "href"    : "/class-features/tYOMBiH3HbViNWwn"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Par le biais de votre lignée, la magie ou des vœux devenus réalité, le sang d'un noble génie coule dans vos veines.</p>\n<p>\"Tradition\" arcanique</p>\n<p>\"Compétences de lignage\" Arcanes, Duperie</p>\n<p>\"Legs d'ensorceleur\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i35dpZFI7jZcRoBo'})\">Déguisement illusoire</div>  ; 2e : variable (en fonction du type de génie, voir ci-dessous) ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IihxWhRfpsBgQ5jS'})\">Discours captivant</div>  ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TUj8eugNqAvB1vVR'})\">Création</div>  ; 5e : variable (en fonction du type de génie, voir ci-dessous) ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div>  ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm2xFMNyQiUKQDRaj'})\">Égide énergétique</div>  ; 8e : variable (en fonction du type de génie, voir ci-dessous); 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KPDHmmjJiw7PhTYF'})\">Manoir resplendissant</div></p>\n<p>\"Sorts de lignage\" initial  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OyiKIbWllLZC6sGz'})\">Voile du génie</div>  ; avancé  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PVXqMko4yGgw90uo'})\">désir du cœur</div>  ; supérieur  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'B3tbO85GBpzQ3u8l'})\">Forme modifiée par un souhait</div></p>\n<p>\"Magie du sang\" Votre incantation distord la réalité et distrait vos ennemis. Soit vous obtenez un bonus de statut de +1 aux tests de Duperie pendant 1 round, soit une cible subit une pénalité de statut de -1 à la Perception pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9AUcoY48H5LrVZiF'})\">Effet : Magie du sang génie</div></p>\n<h2>Type de génie</h2>\n<p>Au niveau 1, choisissez le type de génie qui a influencé votre lignage : djinn, éfrit, jann, maride ou shaitan. Vous ne pouvez plus changer le type de génie par la suite. Cela conditionne les sorts accordés que vous recevez aux niveaux 2, 5 et 8.</p>\n<ul><li>\"Éfrit\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wzctak6BxOW8xvFV'})\">Agrandissement</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1K6AYGisvo9gqdhs'})\">Forme élémentaire</div>  (feu uniquement) ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div></li><li>\"Faydhaan\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Seaah9amXg70RKw2'})\">Marche sur l'eau</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zfn5RqAdF63neqpP'})\">Contrôle de l'eau</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M0jQlpQYUr0pp2Sv'})\">Dessécher</div></li><li>\"Jaathoom\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XXqE1eY3w3z6xJCB'})\">Invisibilité</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ucf8eynbZMfUucjE'})\">Scène illusoire</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wi405lBjPcbF1DeR'})\">Vents punitifs</div></li><li>\"Jabali\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0qaqksrGGDj74HXE'})\">Lumière révélatrice</div> ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kOa055FIrO9Smnya'})\">Mur de pierre</div> ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x7SPrsRxGb2Vy2nu'})\">Tremblement de terre</div></li><li>\"Janni\" 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Mt6ZzkVX8Q4xigFq'})\">Création de nourriture</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bay4AfSu2iIozNNW'})\">Bannissement</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uEyfLoFQsRKBRIcB'})\">Couleurs déroutantes</div></li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/tYOMBiH3HbViNWwn",
+        "id"          : "tYOMBiH3HbViNWwn",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Génie",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "O0uXZRWMNliDbkxU": {
-        "id"      : "O0uXZRWMNliDbkxU",
-        "text"    : "Guenaude",
-        "category": "feat",
-        "href"    : "/class-features/O0uXZRWMNliDbkxU"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Une guenaude a maudit votre famille il y a longtemps ou vous êtes un descendant d'une guenaude ou d'un changelin et leur magie infeste votre sang et votre âme.</p>\n<p>\"Tradition\" occulte</p>\n<p>\"Compétences de lignage\" Duperie, Occultisme</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4gBIw4IDrSfFHik4'})\">Hébétement</div> , 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i35dpZFI7jZcRoBo'})\">Déguisement illusoire</div> , 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CQb8HtQ1BPeZmu9h'})\">Abrutir</div> , 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VosLNn2M8S7JH67D'})\">Cécité</div> , 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KSAEhNfZyXMO7Z7V'})\">Malédiction du paria</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'z2mfh3oPnfYqXflY'})\">Malédiction du marin</div> , 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dN8QBNuTiaBHCKUe'})\">Métamorphose maudite</div> , 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8kJbiBEjMWG4VUjs'})\">Déformer l'esprit</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MJx7DmjsWYzDZ3a4'})\">Fantasmagorie</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kvm68hVtmADiIvN4'})\">Maléfice de jalousie</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aZg3amDcrXz3cLCz'})\">Visage terrifiant</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x2LALaHXO7644GQA'})\">Tu es à moi</div></p>\n<p>\"Magie du sang — Rancune en représailles\" La méchanceté et l'acrimonie se manifestent physiquement autour de vous. Vous infligez 4 points de dégâts mentaux par rang de sort (jet de  Volonté ) à la première créature qui vous inflige des dégâts avant la fin de votre prochain tour. Si aucune créature ne vous inflige de dégâts au cours de ce laps de temps, vous consommez cette rancune pour gagner, au début de votre prochain tour, un nombre de Points de vie temporaires égal au rang du sort. Ces Points de vie temporaires durent jusqu'au début de votre tour suivant.</p>",
+        "element_type": null,
+        "href"        : "/class-features/O0uXZRWMNliDbkxU",
+        "id"          : "O0uXZRWMNliDbkxU",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Guenaude",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "ZEtJJ5UOlV5oTWWp": {
-        "id"      : "ZEtJJ5UOlV5oTWWp",
-        "text"    : "Impérial",
-        "category": "feat",
-        "href"    : "/class-features/ZEtJJ5UOlV5oTWWp"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'un de vos ancêtres était un mortel qui a maîtrisé la magie.</p>\n<p>\"Tradition\" arcanique</p>\n<p>\"Compétences de lignage\" Arcanes, Société</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div>  ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gKKqvLohtrSJj3BM'})\">Salve de force</div>  ; 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9HpwDN4MYQJnW0LG'})\">Dissipation de la magie</div>  ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o6YCGx4lycsYpww4'})\">Rapidité</div>  ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VlNcjmYyu95vOUe8'})\">Translocation</div>  ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ek5XI0aEdZhBgm21'})\">Œil éclaireur</div>  ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div>  ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rsZ5c0AUyywe5yoK'})\">Rétrocognition</div>  ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div>  ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4WS7HrFjwNvTn8T2'})\">Implosion</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dtOUkMC57izf93z5'})\">Souvenirs ancestraux</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LyqqvufOUIh8U25d'})\">Extension de magie du sang</div> , supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'h47yv6j6x1pUtzlr'})\">Contremesure arcanique</div></p>\n<p>\"Magie du sang — Défense impérieuse\" La magie brute émane de chaque cellule de votre corps, vous protégeant. Jusqu'au début de votre prochain tour, vous obtenez, à votre choix, un bonus de statut de +1 à la CA ou un bonus de statut de +1 aux jets de sauvegarde.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vguxP8ukwVTWWWaA'})\">Effet : Magie du sang impérial</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/ZEtJJ5UOlV5oTWWp",
+        "id"          : "ZEtJJ5UOlV5oTWWp",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Impérial",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "7WBZ2kkhZ7JorWu2": {
-        "id"      : "7WBZ2kkhZ7JorWu2",
-        "text"    : "Mort-vivant",
-        "category": "feat",
-        "href"    : "/class-features/7WBZ2kkhZ7JorWu2"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le contact de la mort-vivance coule dans vos veines. Votre arbre généalogique pourrait comprendre un puissant mort-vivant, tel qu'un vampire.</p>\n<p>\"Tradition\" divine</p>\n<p>\"Compétences de lignage\" Intimidation, Religion</p>\n<p>\"Legs d'ensorceleur\" tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mAMEt4FFbdqoRnkN'})\">Distorsion du vide</div> , 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wdA52JJnsuQWeyqz'})\">Mise à mal</div> , 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jwK43yKsHTkJQvQ9'})\">Discerner l'invisible</div> , 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GUeRTriJkMlMlVrk'})\">Lier un mort-vivant</div> , 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FM3SmEW8N1FCRjqt'})\">Cadavre loquace</div> , 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hghGRzOSzEl4UXdS'})\">Invoquer les esprits</div> , 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fd31tAHSSGXyOxW6'})\">Saignée du vampire</div> , 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Z9OrRXKgAPv6Hn5l'})\">Exécution</div> , 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qlxM7Ik3uUeUIOcv'})\">Cantique du chagrin éternel</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FEsuyf203wTNE2et'})\">Plainte des damnés</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FedTjedva2rYk33r'})\">Bénédiction de la mort-vivance</div> , avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cqdmSmQnM0q6wbWG'})\">Drain de vie</div> , supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2YIr0S2Gt14PMMQp'})\">Étreinte de la tombe</div></p>\n<p>\"Magie du sang — Vie volée\" Vous pouvez canaliser l'énergie nécromantique contenue dans votre sang. Soit vous obtenez des Points de vie temporaires égaux au rang du sort qui durent jusqu'au début de votre prochain tour, soit une cible subit 1 dégât de vide par rang de sort (si le sort inflige déjà des dégâts initiaux de vide, combinez-les aux dégâts initiaux du sort avant d'appliquer les faiblesses et les résistances).</p>",
+        "element_type": null,
+        "href"        : "/class-features/7WBZ2kkhZ7JorWu2",
+        "id"          : "7WBZ2kkhZ7JorWu2",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mort-vivant",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "5Wxjghw7lHuCxjZz": {
-        "id"      : "5Wxjghw7lHuCxjZz",
-        "text"    : "Nymphe",
-        "category": "feat",
-        "href"    : "/class-features/5Wxjghw7lHuCxjZz"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>L'un de vos ancêtres a été inspiré par une nymphe ou a été une nymphe et désormais la beauté de la nature vit en vous.</p>\n<p>\"Liste de sorts\" primordiale</p>\n<p>\"Compétences de lignage\" Diplomatie, Nature</p>\n<p>\"Sorts accordés\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uZK2BYzPnxUBnDjr'})\">Liane gênante</div> ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLA0q0WOK2YPuJs6'})\">Charme</div> ; 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'b515AZlB0sridKSq'})\">Apaisement</div> ; 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1HfusQ8NDWutGvMx'})\">Vision animale</div> ; 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ikSb3LRGnrwXJBVX'})\">Fanal de vie</div> ; 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GaRQlC9Yw1BGKHfN'})\">Vague de désespoir</div> ; 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yrZA4k2VAqEP8xx7'})\">Répulsion</div> ; 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bVtkBJvGLP69qVGI'})\">Meute sans entrave</div> ; 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4MOew29Z1oCX8O28'})\">Instant de renouveau</div> ; 9e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fkDeKktdmbeplYRY'})\">Présence écrasante</div></p>\n<p>\"Sort de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pHrVvoTKygXeczVG'})\">Amulette de la nymphe</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Q56HLIHVKY6bC5W3'})\">Beauté aveuglante</div>  ; supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XlQBVvlDWGrGlApl'})\">Etablir une protection</div></p>\n<p>\"Magie du sang\" La grâce de la nymphe accentue vos mouvements et distrait vos ennemis, soit en vous accordant un bonus de statut de +1 aux tests de Diplomatie pendant 1 round, soit en imposant une pénalité de statut aux jets de Volonté d'une cible pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SVGW8CLKwixFlnTv'})\">Effet : Magie du sang nymphe (Soi)</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ruRAfGJnik7lRavk'})\">Effet : Magie du sang nymphe (cible) (Soi)</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ruRAfGJnik7lRavk'})\">Effet : Magie du sang nymphe (Cible)</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/5Wxjghw7lHuCxjZz",
+        "id"          : "5Wxjghw7lHuCxjZz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Nymphe",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "uoQOm41BVdSo6pAS": {
-        "id"      : "uoQOm41BVdSo6pAS",
-        "text"    : "Ombre",
-        "category": "feat",
-        "href"    : "/class-features/uoQOm41BVdSo6pAS"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que ce soit la conséquence des manipulations d'un velstrac ou d'une promenade planaire qui a tourné horriblement mal, votre lignée a été imprégnée par une veine d'ombre.</p>\n<p>\"Liste de sorts\" occulte</p>\n<p>\"Compétences de lignage\" Discrétion, Occultisme</p>\n<p>\"Sorts accordés\" tour de magie:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mAMEt4FFbdqoRnkN'})\">Distorsion du vide</div> ; 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'k34hDOfIIMAxNL4a'})\">Sinistres volutes</div> ; 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4GE2ZdODgIQtg51c'})\">Ténèbres</div> ; 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sRfSBHWHdbIa0aGc'})\">Ténèbres glaciales</div> ; 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tlcrVRqW1MSKJ5IC'})\">Assassin imaginaire</div> ; 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tcwT97RWKxsJiefG'})\">Siphon d'ombre</div> ; 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c3XygMbzrZMgV1y3'})\">Transposition collective</div> ; 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '73rToy0v5Ra9NvL6'})\">Dupliquer l'ennemi</div> ; 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wfleiawxsfhpRRwf'})\">Disparition</div> ; 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qDjeG6dxT4aEEC6J'})\">Ennemi subconscient</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6UafOE1ZUbHamsZJ'})\">Diminuer la lumière</div> ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0chL1b4OFIZxpN3v'})\">Vol d'ombre</div> ; supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HMTloW1hvRFJ5Z2D'})\">Obscurité dévorante</div></p>\n<p>\"Magie du sang\" Les ombres sont plus profondes autour de vous ou d'une cible en accordant soit un bonus de statut de +1 à la Discrétion soit en imposant une pénalité de statut de -1 à la Perception pendant 1 round.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Nv70aqcQgCBpDYp8'})\">Effet : Magie du sang ombre</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/uoQOm41BVdSo6pAS",
+        "id"          : "uoQOm41BVdSo6pAS",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ombre",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "TWR1wbPJuCLnGdFZ": {
-        "id"      : "TWR1wbPJuCLnGdFZ",
-        "text"    : "Phénix",
-        "category": "feat",
-        "href"    : "/class-features/TWR1wbPJuCLnGdFZ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez été béni par un phénix, peut-être par le biais d'une interaction magique avec un individu ayant reçu la même bénédiction. Accordez cette nouvelle lignée de sorcier aux joueurs qui terminent la campagne des Poings du phénix de rubis. Les joueurs peuvent ensuite choisir cette lignée pour tout nouveau personnage de sorcier qu'ils créeront lors de futures campagnes.</p>\n<p>\"Liste de sorts\" primordiale</p>\n<p>\"Compétences de lignage\" Diplomatie, Nature</p>\n<p>\"Sorts accordés\" tour de magie:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div> ; 1er:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div> ; 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jwK43yKsHTkJQvQ9'})\">Discerner l'invisible</div> ; 3e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sxQZ6yqTn0czJxVd'})\">Boule de feu</div> ; 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SUKaxVZW2TlM8lu0'})\">Affliction purifiée</div> ; 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Hnc7eGi7vyZenAIm'})\">Souffle de vie</div> ; 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div> ; 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WG91Z5TiR6oO5FOw'})\">Contingence</div> ; 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4MOew29Z1oCX8O28'})\">Instant de renouveau</div> ; 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jrBa9deU2ULFWvSl'})\">Chute d'étoiles</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lZx8jZfKrMEtyGY0'})\">Flammes régénératrices</div> ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Q1OWufw6dUiY8yEI'})\">Voile de flammes</div> ; supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tf4PMMMzR5xxJDun'})\">Flammes purificatrices</div></p>\n<p>\"Magie du sang\" Le feu primitif de la vie et de la mort coule à travers vous ou une cible. Choisissez de faire en sorte que vous ou la cible du sort gagniez des Points de vie temporaires égaux au rang du sort pendant 1 round ou que la cible du sort subisse des dégâts de feu égaux au rang du sort (si le sort inflige déjà des dégâts de feu initiaux, combinez-les aux dégâts initiaux du sort avant de déterminer les faiblesses et les résistances).</p>",
+        "element_type": null,
+        "href"        : "/class-features/TWR1wbPJuCLnGdFZ",
+        "id"          : "TWR1wbPJuCLnGdFZ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Phénix",
+        "traits"      : [
+            "Peu courant",
+            "Ensorceleur"
+        ]
     },
     "PpzH9tJULk5ksX9w": {
-        "id"      : "PpzH9tJULk5ksX9w",
-        "text"    : "Psychopompe",
-        "category": "feat",
-        "href"    : "/class-features/PpzH9tJULk5ksX9w"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Pour le meilleur ou pour le pire, les exploits de vos ancêtres ont attiré l'attention des psychopompes ou vous pourriez en avoir compté un dans votre arbre généalogique. La présence de ces bergers des âmes et de ces ennemis des morts-vivants a laissé sur vous une marque indélébile.</p>\n<p>\"Liste de sorts\" divine</p>\n<p>\"Compétences de lignage\" Intimidation, Religion</p>\n<p>\"Sorts accordés\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kcelf6IHl3L9VXXg'})\">Déchaînement de vitalité</div> ; 1e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rfZpqmj0AIIdkVIs'})\">Guérison</div> ; 2e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'b515AZlB0sridKSq'})\">Apaisement</div> ; 3e: <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DyiD239dNS7RIxZE'})\">Lumière sainte</div> ; 4e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ksLCg62cLOojw3gN'})\">Bride planaire</div> ; 5e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'YvXKGlHOt7mdW2jZ'})\">Protection contre la mort</div> ; 6e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PHVHBbdHeQRfjLmE'})\">Coup spirituel</div> ; 7e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Z9OrRXKgAPv6Hn5l'})\">Exécution</div> ; 8e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ht35SDf9PDStJfoC'})\">Chant spirituel</div> ; 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '10VcmSYNBrvBphu1'})\">Massacre</div></p>\n<p>\"Sorts de lignage\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3mINzPzup2m9qzFU'})\">Masque sépulcral</div> ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pQ3NIzZXeIIcU81C'})\">Voile spirituel</div> ; supérieur:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SzKkzq3Rr6vKIxbp'})\">Berger des âmes</div></p>\n<p>\"Magie du sang\" La frontière entre la vie et la mort est devenue floue pour vous. Soit vous obtenez un bonus de statut de +2 aux jets de Vigueur pendant 1 round, soit une cible subit 1 point de dégât par rang du sort. Les dégâts sont de vide si la cible est vivante ou de vitalité si elle est morte-vivante. Si le sort inflige déjà ce type de dégâts, vous les combinez aux dégâts initiaux du sort avant de déterminer les faiblesses et les résistances.</p>",
+        "element_type": null,
+        "href"        : "/class-features/PpzH9tJULk5ksX9w",
+        "id"          : "PpzH9tJULk5ksX9w",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Psychopompe",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "b6hyZTs1rVGHDexz": {
-        "id"      : "b6hyZTs1rVGHDexz",
-        "text"    : "Tourment",
-        "category": "feat",
-        "href"    : "/class-features/b6hyZTs1rVGHDexz"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Tout comme la connaissance du Tourment s'est transmise de génération en génération depuis des temps immémoriaux, un lien spirituel profond avec les forces de l'autre monde liées au Tourment a également traversé les âges. Votre lignée familiale peut remonter à une branche de l'ancien clan Imlios ou l'un de vos ancêtres peut s'être échappé du royaume du Tourment et en avoir gardé l'influence dans son sang. Peut-être descendez-vous de liseurs de Tourment exceptionnellement puissants et leur talent résonne naturellement en vous. Quoi qu'il en soit, votre lien avec le mystérieux jeu de cartes vous confère un pouvoir magique sur les cartes du Tourment, des visions de l'avenir et la capacité d'invoquer des forces éphémères.</p>\n<p>\"Liste de sort\" occulte</p>\n<p>\"Compétences de lignage\" Occultisme, Représentation</p>\n<p>\"Sorts accordés\" tour de magie :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div> ; 1er :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6ZIKB0151LUR19Rw'})\">Mauvais présage</div> , 2e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '41TZEjhO6D1nWw2X'})\">Augure</div> , 3e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ppA1StEigPLKEQqR'})\">Guide du pèlerin</div> , 4e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qwlh6aDgi86U3Q7H'})\">Suggestion</div> , 5e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tcwT97RWKxsJiefG'})\">Siphon d'ombre</div> , 6e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div> , 7e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rsZ5c0AUyywe5yoK'})\">Rétrocognition</div> , 8e :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div> , 9e:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qDjeG6dxT4aEEC6J'})\">Ennemi subconscient</div></p>\n<p>\"Sorts de lignage\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PaHxcqXihXkkXPsB'})\">Explosion de dénouement</div> ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '82gDiXTKsCmdIF6Q'})\">Invoquer le Tourment</div> ; supérieur :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BAu5AgqoO556clyK'})\">Réécrire les éventualités</div></p>\n<p>\"Magie du sang\" Vous êtes enveloppé de possibilité, représenté sous forme de versions multiples de vous-même issus de futurs possibles superposés les uns aux autres. Vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masqué</div>  pendant 1 round, mais ne pouvez utiliser cet état Masqué pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa'})\">Vous cacher</div> .</p>",
+        "element_type": null,
+        "href"        : "/class-features/b6hyZTs1rVGHDexz",
+        "id"          : "b6hyZTs1rVGHDexz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Tourment",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "eZrftEihfuJBldG5": {
-        "id"      : "eZrftEihfuJBldG5",
-        "text"    : "Lignage avancé",
-        "category": "feat",
-        "href"    : "/feats/eZrftEihfuJBldG5"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous tirez plus de puissance de votre lignage. Vous gagnez le sort de lignage avancé associé à votre lignage.</p>",
+        "element_type": "DON 6",
+        "href"        : "/feats/eZrftEihfuJBldG5",
+        "id"          : "eZrftEihfuJBldG5",
+        "price"       : null,
+        "required"    : [
+            "sort de lignage"
+        ],
+        "text"        : "Lignage avancé",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "DpRMdytpPiCypmkJ": {
-        "id"      : "DpRMdytpPiCypmkJ",
-        "text"    : "Lignage supérieur",
-        "category": "feat",
-        "href"    : "/feats/DpRMdytpPiCypmkJ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous découvrez les secrets supérieurs de votre lignage. Vous gagnez le sort de lignage supérieur associé à votre lignage.</p>",
+        "element_type": "DON 10",
+        "href"        : "/feats/DpRMdytpPiCypmkJ",
+        "id"          : "DpRMdytpPiCypmkJ",
+        "price"       : null,
+        "required"    : [
+            "sort de lignage"
+        ],
+        "text"        : "Lignage supérieur",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "6SEDoht4dXEJE5SW": {
-        "id"      : "6SEDoht4dXEJE5SW",
-        "text"    : "Perfection du lignage",
-        "category": "feat",
-        "href"    : "/feats/6SEDoht4dXEJE5SW"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous maîtrisez les ultimes pouvoirs de votre lignage et de votre tradition. Vous gagnez un emplacement de sort de rang 10 de plus.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/6SEDoht4dXEJE5SW",
+        "id"          : "6SEDoht4dXEJE5SW",
+        "price"       : null,
+        "required"    : [
+            "Parangon du lignage"
+        ],
+        "text"        : "Perfection du lignage",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "lURKSJZAGKVD6cH9": {
-        "id"      : "lURKSJZAGKVD6cH9",
-        "text"    : "Répertoire de sorts",
-        "category": "feat",
-        "href"    : "/class-features/lURKSJZAGKVD6cH9"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>On appelle répertoire de sorts l'ensemble des sorts que vous pouvez lancer. Au niveau 1, vous apprenez deux sorts de rang 1 et quatre tours de magie de votre choix, ainsi qu'un sort et un tour de magie supplémentaires conférés par votre lignage. Vous les choisissez dans la liste des sorts courants de la tradition correspondant à votre lignage ou parmi les autres sorts de cette tradition auxquels vous avez accès. Vous pouvez lancer un sort de votre répertoire en utilisant un emplacement de sort du rang correspondant.</p>\n<p>Vous ajoutez à ce répertoire de sorts lorsque vous gagnez des niveaux. Chaque fois que vous obtenez un emplacement de sort (voir le tableau des sorts d'ensorceleur par jour), vous ajoutez un sort du même rang dans votre répertoire. Quand vous avez accès à un nouveau rang de sort, votre premier nouveau sort de ce rang est toujours celui conféré par votre lignage, mais vous pouvez choisir les autres sorts que vous obtenez. Au niveau 2, vous choisissez un autre sort de rang 1. Au niveau 3, vous obtenez un nouveau sort de lignage et deux autres sorts de rang 2, etc. Quand vous ajoutez des sorts, vous pourriez choisir une version de rang supérieur d'un sort que vous connaissez déjà afin de pouvoir lancer une version intensifiée de ce sort.</p>\n<p>Même si vous les obtenez au même rythme, vos emplacements de sort et les sorts dans votre répertoire sont deux choses distinctes. Si un don ou une autre capacité ajoute un sort à votre répertoire, cela ne vous donne pas pour autant un nouvel emplacement de sort, et vice versa.</p>\n<h3>Remplacer des sorts de votre répertoire</h3>\n<p>Lorsque vous ajoutez de nouveaux sorts dans votre répertoire de sorts, vous pourriez vouloir remplacer certains de ceux que vous avez déjà appris précédemment. Chaque fois que vous gagnez un niveau et que vous apprenez de nouveaux sorts, vous pouvez remplacer l'un de vos anciens sorts par un sort différent du même rang. Ce sort peut être un tour de magie mais vous ne pouvez pas remplacer vos sorts de lignage. Vous pouvez également remplacer des sorts grâce au réapprentissage durant les intermèdes.</p>",
+        "element_type": null,
+        "href"        : "/class-features/lURKSJZAGKVD6cH9",
+        "id"          : "lURKSJZAGKVD6cH9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Répertoire de sorts",
+        "traits"      : [
+            "Ensorceleur"
+        ]
     },
     "KAVf7AmRnbCAHrkT": {
-        "id"      : "KAVf7AmRnbCAHrkT",
-        "text"    : "Frappe réactive",
-        "category": "action",
-        "href"    : "/actions/KAVf7AmRnbCAHrkT"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "\"Déclencheur\"\nUne créature qui se trouve dans votre allonge utilise une action de manipulation ou de déplacement, fait une attaque à distance ou quitte une case lors d'une action de déplacement qu'elle entreprend.\n<p>Vous frappez un adversaire qui vous laisse une ouverture. Vous faites une Frappe au corps-à-corps contre la créature déclencheuse. Si votre attaque est un coup critique et que le déclencheur était une action de manipulation, vous interrompez cette action. Cette Frappe n'est pas prise en compte pour calculer votre pénalité d'attaques multiples et votre pénalité d'attaques multiples ne s'applique pas à cette Frappe.</p>",
+        "element_type": null,
+        "href"        : "/actions/KAVf7AmRnbCAHrkT",
+        "id"          : "KAVf7AmRnbCAHrkT",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Frappe réactive",
+        "traits"      : []
     },
     "TBSHQspnbcqxsmjL": {
-        "id"      : "TBSHQspnbcqxsmjL",
-        "text"    : "Effrayé",
-        "category": "item",
-        "href"    : "/conditions/TBSHQspnbcqxsmjL"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes paralysé par la peur et vous luttez pour ne pas céder à la panique. L'état Effrayé est toujours accompagné d'une intensité. Vous subissez une pénalité de statut égal à cette valeur pour tous vos tests et DD. Sauf indication contraire, l'intensité de votre état effrayé décroît de 1 à la fin de chacun de vos tours.</p>",
+        "element_type": null,
+        "href"        : "/conditions/TBSHQspnbcqxsmjL",
+        "id"          : "TBSHQspnbcqxsmjL",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Effrayé",
+        "traits"      : []
     },
     "XXqE1eY3w3z6xJCB": {
-        "id"      : "XXqE1eY3w3z6xJCB",
-        "text"    : "Invisibilité",
-        "category": "spell",
-        "href"    : "/spells/XXqE1eY3w3z6xJCB"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Des illusions courbent la lumière autour de la cible, la rendant  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zJxUflt9np0q4yML'})\">Invisible</div> . Cela la rend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VRSef5y1LmL2Hkjf'})\">Non détectée</div>  par toutes les créatures, bien que les créatures puissent tenter de trouver la cible, la rendant  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Cachée</div>  vis-à-vis d'elles à la place. Si la cible effectue une action hostile, le sort se termine une fois que cette action hostile est terminée.</p>\n<p>\"Intensifié (4e)\" Le sort dure 1 minute mais ne se termine pas si la cible utilise une action hostile.</p>",
+        "element_type": "SORT 2",
+        "href"        : "/spells/XXqE1eY3w3z6xJCB",
+        "id"          : "XXqE1eY3w3z6xJCB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Invisibilité",
+        "traits"      : [
+            "Illusion",
+            "Manipulation",
+            "Subtil"
+        ]
     },
     "A2JfEKe6BZcTG1S8": {
-        "id"      : "A2JfEKe6BZcTG1S8",
-        "text"    : "Vol",
-        "category": "spell",
-        "href"    : "/spells/A2JfEKe6BZcTG1S8"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>La cible peut s'élever dans les airs. Elle obtient une Vitesse de vol égale à sa Vitesse ou à 6 mètres (prendre la plus élevée).</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MuRBCiZn5IKeaoxi'})\">Effet : Vol</div></p>\n<p>\"Intensifié (7e)\" La durée passe à 1 heure.</p>",
+        "element_type": "SORT 4",
+        "href"        : "/spells/A2JfEKe6BZcTG1S8",
+        "id"          : "A2JfEKe6BZcTG1S8",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Vol",
+        "traits"      : [
+            "Concentration",
+            "Manipulation"
+        ]
     },
     "0qaqksrGGDj74HXE": {
-        "id"      : "0qaqksrGGDj74HXE",
-        "text"    : "Lumière révélatrice",
-        "category": "spell",
-        "href"    : "/spells/0qaqksrGGDj74HXE"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Une vague de lumière magique se propage sur la zone. Vous choisissez l'apparence de la lumière, sa coloration, des flammes sans chaleur ou des volutes scintillantes. Une créature affectée par <em>Lumière révélatrice</em> est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TkIyaNPgTZFBCCuh'})\">Éblouie</div> . Si la créature était invisible, elle est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masquée</div>  à la place. Si la créature était déjà Masquée pour toute autre raison, elle ne l'est plus.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La lumière affecte la créature pendant 2 rounds.</p>\n<p>\"Échec\" La lumière affecte la créature pendant 1 minute.</p>\n<p>\"Échec critique\" La lumière affecte la créature pendant 10 minutes.</p>",
+        "element_type": "SORT 2",
+        "href"        : "/spells/0qaqksrGGDj74HXE",
+        "id"          : "0qaqksrGGDj74HXE",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Lumière révélatrice",
+        "traits"      : [
+            "Concentration",
+            "Lumière",
+            "Manipulation"
+        ]
     },
     "gPvtmKMRpg9I9D7H": {
-        "id"      : "gPvtmKMRpg9I9D7H",
-        "text"    : "Cloué à terre",
-        "category": "spell",
-        "href"    : "/spells/gPvtmKMRpg9I9D7H"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>En utilisant l'attraction terrestre, vous ralentissez le vol d'une cible, avec des effets qui varient selon son jet de Vigueur. Si la créature atteint le sol en toute sécurité, elle ne subit pas de dégâts de chute.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible tombe en toute sécurité sur 36 mètres au maximum.</p>\n<p>\"Échec\" La cible tombe en toute sécurité sur 36 mètres au maximum. Si elle touche le sol, elle ne peut plus Voler, léviter ni quitter la terre ferme pendant 1 round.</p>\n<p>\"Échec critique\" La cible tombe en toute sécurité sur 36 mètres au maximum. Si elle touche le sol, elle ne peut plus Voler, léviter ni quitter la terre ferme pendant 1 minute.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/gPvtmKMRpg9I9D7H",
+        "id"          : "gPvtmKMRpg9I9D7H",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cloué à terre",
+        "traits"      : [
+            "Concentration",
+            "Terre",
+            "Manipulation"
+        ]
     },
     "kzxu2dI7tFxv6Ix6": {
-        "id"      : "kzxu2dI7tFxv6Ix6",
-        "text"    : "école arcanique",
         "category": "journals",
-        "href"    : null
+        "href"    : null,
+        "id"      : "kzxu2dI7tFxv6Ix6",
+        "text"    : "école arcanique"
     },
     "v82XtjAVN4ffgVVR": {
-        "id"      : "v82XtjAVN4ffgVVR",
-        "text"    : "Drain d'objet lié",
-        "category": "action",
-        "href"    : "/actions/v82XtjAVN4ffgVVR"
+        "action_cost" : "f",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Fréquence\" Une fois par jour</p>\n<p>\"Conditions\" Votre objet lié est sur votre personne.</p>\n<p>Vous dépensez la puissance magique contenue dans votre objet lié. Lors du tour actuel, vous pouvez lancer un sort que vous avez préparé pour la journée et déjà lancé, sans dépenser d'emplacement de sort. Vous devez toujours Lancer le sort et remplir les autres conditions du sort.</p>",
+        "element_type": null,
+        "href"        : "/actions/v82XtjAVN4ffgVVR",
+        "id"          : "v82XtjAVN4ffgVVR",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Drain d'objet lié",
+        "traits"      : [
+            "Arcanique",
+            "Magicien"
+        ]
     },
     "Klb35AwlkNrq1gpB": {
-        "id"      : "Klb35AwlkNrq1gpB",
-        "text"    : "Bâton nexus",
-        "category": "feat",
-        "href"    : "/class-features/Klb35AwlkNrq1gpB"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre thèse soutient que l'adoption anticipée et intense des bâtons à partir des premiers jours d'études peut créer un lien symbiotique entre le lanceur de sort et un bâton, leur permettant de créer ensemble une magie remarquable. Vous avez formé une telle connexion avec un bâton de fortune que vous avez fabriqué et vous êtes prêt à imprégner tout bâton que vous rencontrerez d'un pouvoir encore supérieur.</p>\n<p>Vous commencez le jeu avec un bâton de fortune de votre propre invention. Il possède le trait magique et contient un tour de magie et un sort de rang 1, tous deux issus de votre grimoire. Au cours de vos préparatifs quotidiens, vous pouvez dépenser un sort pour accorder au bâton un nombre de charges égal au rang du bâton qui se dissipe au bout de 24 heures. Tant que vous tenez le bâton, vous pouvez Lancer les sorts qu'il contient. Le sort de rang 1 consomme 1 charge mais le tour de magie ne nécessite pas de charge.</p>\n<p>Vous pouvez Fabriquer votre bâton de fortune pour lui donner toute autre forme de bâton magique au prix du coût de ce nouveau bâton, en ajoutant les deux sorts originels choisis au bâton que vous Fabriquez. Ce bâton obtient des charges lors de votre préparation ainsi que des sorts étendus.</p>\n<p>Au niveau 8, vous pouvez dépenser deux sorts au lieu d'un en préparant votre bâton, y ajoutant un nombre de charges supplémentaires égal aux rangs combinés des deux sorts dépensés. Au niveau 16, vous pouvez dépenser jusqu'à trois sorts au lieu d'un en préparant votre bâton, ajoutant un nombre de charges supplémentaires égal aux rangs combinés des trois sorts dépensés.</p>",
+        "element_type": null,
+        "href"        : "/class-features/Klb35AwlkNrq1gpB",
+        "id"          : "Klb35AwlkNrq1gpB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Bâton nexus",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "89zWKD2CN7nRu2xp": {
-        "id"      : "89zWKD2CN7nRu2xp",
-        "text"    : "Expérimentation mutamagique",
-        "category": "feat",
-        "href"    : "/class-features/89zWKD2CN7nRu2xp"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez compris que la pratique de ce que l'on appelle la mutamagie est un reliquat d'une époque lointaine, quand les magiciens devaient découvrir leurs propres sorts et leurs variations plutôt que de se baser sur des sorts écrits par autrui et transmis au fil des ans. Vous êtes donc plus efficace dans le maniement des effets de mutamagie. Vous obtenez un don de magicien de mutamagie de niveau 1 comme don supplémentaire. À partir du niveau 4, lors de vos préparatifs quotidiens, vous pouvez obtenir un don de magicien de mutamagie de votre choix, tant que le niveau figurant dans ses conditions est égal ou inférieur à la moitié du vôtre. Vous pouvez utiliser ce don jusqu'à vos prochains préparatifs quotidiens.</p>",
+        "element_type": null,
+        "href"        : "/class-features/89zWKD2CN7nRu2xp",
+        "id"          : "89zWKD2CN7nRu2xp",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Expérimentation mutamagique",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "SNZ46g3u7U6x0XJj": {
-        "id"      : "SNZ46g3u7U6x0XJj",
-        "text"    : "Harmonisation avec le familier améliorée",
-        "category": "feat",
-        "href"    : "/class-features/SNZ46g3u7U6x0XJj"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous pensez depuis longtemps qu'en affinant la magie qui lie un magicien à son familier, il est possible d'améliorer le lien mystique et d'obtenir de meilleurs résultats que le lien sûr mais générique que la plupart des magiciens utilisent actuellement. Vous avez conclu un tel pacte avec votre familier et en tirez plus d'avantages que la plupart des magiciens. Vous obtenez du don de magicien  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bcxIg7wi8ZAhvhOD'})\">Familier</div> . Votre familier obtient un pouvoir supplémentaire et il obtient un pouvoir supplémentaire lorsque vous atteignez les niveaux 6, 12 et 18.</p>\n<p>Votre lien avec votre familier altère votre capacité de classe lien arcanique de manière à stocker l'énergie magique dans votre familier plutôt que dans un objet en votre possession. Vous obtenez l'action gratuite  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmnhzmJqfzEVnz1h'})\">Drain de familier</div>  à la place de Drain d'objet lié. Drain de familier peut s'utiliser à chaque fois qu'une capacité vous permettrait d'utiliser Drain d'objet lié et fonctionne à l'identique, sauf que vous tirez votre magie du familier et non d'un objet.</p>",
+        "element_type": null,
+        "href"        : "/class-features/SNZ46g3u7U6x0XJj",
+        "id"          : "SNZ46g3u7U6x0XJj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Harmonisation avec le familier améliorée",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "OAcxS625AXSGrQIC": {
-        "id"      : "OAcxS625AXSGrQIC",
-        "text"    : "Mélange de sorts",
-        "category": "feat",
-        "href"    : "/class-features/OAcxS625AXSGrQIC"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Selon votre théorie, les emplacements de sorts sont le reflet d'une énergie sous-jacente qui alimente tous les sorts et vous avez trouvé un moyen pour modifier la hiérarchie des emplacements de sorts, en les combinant pour alimenter des sorts plus puissants.</p>\n<p>Au cours de vos préparatifs quotidiens, vous pouvez échanger deux emplacements de sort de même rang de sort contre un emplacement de sort supplémentaire de 2 rangs de sort maximum que les emplacements de sorts échangés. Vous pouvez échanger autant d'emplacements de sort que vous en avez de disponibles. Les emplacements de sorts supplémentaires doivent être d'un rang que vous êtes capable de lancer et doivent tous être de rangs différents. Vous pouvez aussi échanger n'importe quel emplacement de sort contre deux tours de magie supplémentaires, mais vous ne pouvez échanger qu'un seul emplacement de sort pour obtenir des tours de magie supplémentaires de la sorte.</p>",
+        "element_type": null,
+        "href"        : "/class-features/OAcxS625AXSGrQIC",
+        "id"          : "OAcxS625AXSGrQIC",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mélange de sorts",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "QzWXMCSGNfvvpYgF": {
-        "id"      : "QzWXMCSGNfvvpYgF",
-        "text"    : "Substitution de sort",
-        "category": "feat",
-        "href"    : "/class-features/QzWXMCSGNfvvpYgF"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous n'admettez pas qu'une fois vos sorts sont préparés, ils ne puissent plus être modifiés jusqu'à vos prochains préparatifs quotidiens et vous avez découvert un raccourci vous permettant de substituer de nouveaux sorts à ceux que vous aviez préparés à l'origine.</p>\n<p>Vous pouvez passer 10 minutes à vider l'un de vos emplacements de sort préparé et préparer à la place un sort différent tiré de votre grimoire. Si vous êtes interrompu lors de l'échange, le sort original reste préparé et vous pouvez toujours le lancer. Vous pouvez retenter l'échange plus tard, mais vous devez reprendre l'entier processus.</p>",
+        "element_type": null,
+        "href"        : "/class-features/QzWXMCSGNfvvpYgF",
+        "id"          : "QzWXMCSGNfvvpYgF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Substitution de sort",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "tP26mgaFPpr6df1i": {
-        "id"      : "tP26mgaFPpr6df1i",
-        "text"    : "Puissance de l'archimage",
-        "category": "feat",
-        "href"    : "/feats/tP26mgaFPpr6df1i"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez maîtrisé les plus grands secrets de la magie arcanique. Vous obtenez un emplacement de sort de rang 10 supplémentaire.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/tP26mgaFPpr6df1i",
+        "id"          : "tP26mgaFPpr6df1i",
+        "price"       : null,
+        "required"    : [
+            "Art magique de l'archimage"
+        ],
+        "text"        : "Puissance de l'archimage",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "ZBFICTkzUjE4BDGJ": {
-        "id"      : "ZBFICTkzUjE4BDGJ",
-        "text"    : "École de forme protéenne",
-        "category": "feat",
-        "href"    : "/class-features/ZBFICTkzUjE4BDGJ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les non-initiés pensent souvent que les magiciens sont des cérébraux, plus concentrés sur leurs études que sur leur corps, mais votre école de magie vous a enseigné la relation entre les deux. Votre magie, qu'elle ait été apprise dans un établissement prestigieux comme l'Académie d'albâtre de Kintargo ou dans un endroit plus sinistre, comme les Forges de chair du Nex, se concentre sur les façons dont la matière vivante peut être convaincue d'adopter une autre forme pendant un certain temps, ce qui vous permet de métamorphoser une graine en vigne, un humain en bête ou un germe inoffensif en une toxine mortelle.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MPxbKoR54gkYkqLO'})\">Gouge griffue</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uZK2BYzPnxUBnDjr'})\">Liane gênante</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gfPjmG6Fe6D3MFjl'})\">Forme de nuisible</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DYdvMZ8G2LiSLVWw'})\">Morsure d'araignée</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Q7QQ91vQtyi1Ux36'})\">Saut</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wzctak6BxOW8xvFV'})\">Agrandissement</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2qGqa33E4GPUCbMV'})\">Forme humanoïde</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'N1Z1oLPdBxaSgrEE'})\">Festin vampirique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RvBlSIJmxiqfCpR9'})\">Pieds en nageoires</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2BV2yYPfVJ5zirZt'})\">Résilience de la montagne</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'V8wXOsoejQhe6CyG'})\">Forme vaporeuse</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1K6AYGisvo9gqdhs'})\">Forme élémentaire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MlpbeZ61Euhl0d60'})\">Nuage toxique</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dN8QBNuTiaBHCKUe'})\">Métamorphose maudite</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'znv4ECL7ZtuiagtA'})\">Pétrifier</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '73rToy0v5Ra9NvL6'})\">Dupliquer l'ennemi</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XS7Wyh5YC0NWeWyB'})\">Corps enflammé</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M0jQlpQYUr0pp2Sv'})\">Flétrissure</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8AMvNVOUEtxBCDvJ'})\">Forme monstrueuse</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pswdik31kuHEvdno'})\">Métamorphose</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XcMObj2p9nIBp53b'})\">Corps brouillé</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SDkIFrrO1PsE02Kd'})\">Forme changeante</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/ZBFICTkzUjE4BDGJ",
+        "id"          : "ZBFICTkzUjE4BDGJ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de forme protéenne",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "jtAqb5rnhQblZuM8": {
-        "id"      : "jtAqb5rnhQblZuM8",
-        "text"    : "École de Kalistrade",
-        "category": "feat",
-        "href"    : "/class-features/jtAqb5rnhQblZuM8"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le pouvoir et l'argent sont particulièrement entremêlés et vous reconnaissez la magie qui possède le potentiel de vous aider dans votre objectif d'obtenir la fortune et l'influence. Bien que vous pourriez étudier cette école dans rejoindre les Prophètes de Kalistrade, la plupart sont soit membre de l'organisation soit des habitants de Kerse et déjà accoutumé et à la culture des Kalistocrates. Vous déployer la magie pour vous aider à percer les illusions et les ruses des autres. En même temps, vous poussez les frontières et exploitez les failles pour prendre de l'avance sur vos compétiteurs.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OhD2Z6rIGGD5ocZA'})\">Lecture d'aura</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Qw3fnUlaUbnn7ipC'})\">Prestidigitation</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4WAib3GichxLjp5p'})\">Alarme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLA0q0WOK2YPuJs6'})\">Charme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4ZGte0i9YbLh4dRi'})\">Façade</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XXqE1eY3w3z6xJCB'})\">Invisibilité</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rthC6dGm3nNrt1xN'})\">Porteur fantomatique</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HXhWYJviWalN5tQ2'})\">Clairaudience</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EoKBlgf6Smt8opaU'})\">Voile de confidentialité</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KSAEhNfZyXMO7Z7V'})\">Malédiction du paria</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qwlh6aDgi86U3Q7H'})\">Suggestion</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PERUlvKPtF7dMzN4'})\">Coffre fort imaginaire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GP3wewkQXEPrLxYj'})\">Suggestion subconsciente</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yrZA4k2VAqEP8xx7'})\">Répulsion</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r784cIz17eWujtQj'})\">Scrutation</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0873MWM0qKDDv81O'})\">Projection d'image</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rsZ5c0AUyywe5yoK'})\">Rétrocognition</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wfleiawxsfhpRRwf'})\">Disparition</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'C2w3YfBKjIRS07DP'})\">Esprit dissimulé</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KPDHmmjJiw7PhTYF'})\">Manoir resplendissant</div></li></ul>\n<p>\"Sorts d'école\" initial  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KR8WgdazifDBjDkW'})\">Aubaine inattendue</div>  ; avancé  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jXcsCpko8qNrWZ4x'})\">Dividende du capital</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/jtAqb5rnhQblZuM8",
+        "id"          : "jtAqb5rnhQblZuM8",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de Kalistrade",
+        "traits"      : [
+            "Peu courant",
+            "Magicien"
+        ]
     },
     "ZpFCZnVzIfZLfNii": {
-        "id"      : "ZpFCZnVzIfZLfNii",
-        "text"    : "École de la frontière",
-        "category": "feat",
-        "href"    : "/class-features/ZpFCZnVzIfZLfNii"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Pourquoi utiliser votre magie pour affecter quelque chose d'aussi prosaïque que le monde physique ? Que vous ayez étudié au Collège des Études Dimensionnelles du Katapesh ou dans une école souterraine de l'Ustalav hanté, vous avez fait passer votre magie de l'univers aux forces de l'au-delà, invoquant des esprits et des ombres, manipulant les dimensions et les plans, et pénétrant dans un lieu qui n'est pas destiné aux mortels.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mAMEt4FFbdqoRnkN'})\">Distorsion du vide</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pwzdSlJgYqN7bs2w'})\">Manipulation télékinétique</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9WGeBwIIbbUuWKq0'})\">Convocation de mort-vivant</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xqmHD8JIjak15lRk'})\">Sbire fantasmagorique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'k34hDOfIIMAxNL4a'})\">Sinistres volutes</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jwK43yKsHTkJQvQ9'})\">Discerner l'invisible</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4GE2ZdODgIQtg51c'})\">Ténèbres</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AMEu5zzLN7uCX645'})\">Arme fantomatique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GUeRTriJkMlMlVrk'})\">Lier un mort-vivant</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zR67Rt3UMHKC5evy'})\">Oscillation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VlNcjmYyu95vOUe8'})\">Translocation</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bay4AfSu2iIozNNW'})\">Bannissement</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hghGRzOSzEl4UXdS'})\">Invoquer les esprits</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '69L70wKfGDY66Mk9'})\">Téléportation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fd31tAHSSGXyOxW6'})\">Saignée du vampire</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0jadeyQIItIuRgeH'})\">Éclipse soudaine</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5bTt2CvYHPvaR7QQ'})\">Téléportation interplanaire</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '10VcmSYNBrvBphu1'})\">Massacre</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tWzxuJdbXqvskdIo'})\">Convocation fortifiée</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KPGGkyBFbKse7KpK'})\">Spirale d'horreurs</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/ZpFCZnVzIfZLfNii",
+        "id"          : "ZpFCZnVzIfZLfNii",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la frontière",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "YZ2XPmx1WHyWtM0g": {
-        "id"      : "YZ2XPmx1WHyWtM0g",
-        "text"    : "École de magie civique",
-        "category": "feat",
-        "href"    : "/class-features/YZ2XPmx1WHyWtM0g"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que vous ayez étudié dans l'Ocularium de Manaket ou à l'Académie de magie appliquée, vous avez appris que les fruits des études arcaniques, comme tout autre champ d'étude — doivent conduire à aider les citoyens. Vous avez appris l'humble art de la construction, celui de trouver des gens et des choses perdues, de vous déplacer rapidement entre les bâtiments et les douves — même si ces mêmes arts peuvent aussi servir à démolir, et les créatures artificielles que vous animez pour construire des ponts peuvent tout aussi facilement les mettre à bas.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OhD2Z6rIGGD5ocZA'})\">Lecture d'aura</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Qw3fnUlaUbnn7ipC'})\">Prestidigitation</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jfVCuOpzC6mUrf6f'})\">Poussée hydraulique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Rn2LkoSq1XhLsODV'})\">Frappe de débris</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lKcsmeOrgHtK4xQa'})\">Convocation de créature artificielle</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0qaqksrGGDj74HXE'})\">Lumière révélatrice</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Seaah9amXg70RKw2'})\">Marche sur l'eau</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mwPfoYfVGSMAaUec'})\">Cabane douillette</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IFuEzfmmWyNwVbhY'})\">Passage sûr</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TUj8eugNqAvB1vVR'})\">Création</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aqRYNoSvxsVfqglH'})\">Mouvement sans entrave</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zfn5RqAdF63neqpP'})\">Contrôle de l'eau</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kOa055FIrO9Smnya'})\">Mur de pierre</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7Iela4GgVeO3LfAo'})\">Mur de force</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vPWMEyVTreMOoFnm'})\">Palais planaire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rsZ5c0AUyywe5yoK'})\">Rétrocognition</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CeSh8QcVnqP5OlLj'})\">Déterminer la position</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x7SPrsRxGb2Vy2nu'})\">Tremblement de terre</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qsNeG9KZpODSACMq'})\">Prémonition</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ffz6wlSMzhaDpjg6'})\">Ouvrages de terre</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6RNymgUvS87lmQOj'})\">Récupération communautaire</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/YZ2XPmx1WHyWtM0g",
+        "id"          : "YZ2XPmx1WHyWtM0g",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de magie civique",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "wObrT6PytPdS5aUi": {
-        "id"      : "wObrT6PytPdS5aUi",
-        "text"    : "École des lettres",
-        "category": "feat",
-        "href"    : "/class-features/wObrT6PytPdS5aUi"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les runes et les protections, les chiffres et les lettres sont la base de toute magie, ce qui en fait le sujet logique pour un sorcier qui étudie les forces fondamentales. Peut-être avez-vous étudié à l'École des sorts de la Société des Éclaireurs ou dans un établissement similaire, mais que vous imprégniez vos mots de magie pour contraindre les autres, que vous jetiez des sorts autour de votre atelier ou que vous déstabilisiez la structure même des sorts d'un adversaire, vous savez que cette école sans prétention est porteuse d'une puissance élégante.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLzFcIaSXs7YTIqJ'})\">Message</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AUctDF2fqPZN2w4W'})\">Symbole</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TFitdEOpQC4SzKQQ'})\">Arme runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EE7Q5BHIrfWNCPtT'})\">Corps runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aIHY2DArKFweIrpf'})\">Injonction</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PRrZ7anETWPm90YY'})\">Magie déguisée</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9HpwDN4MYQJnW0LG'})\">Dissipation de la magie</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vTQvfYu2llKQedmY'})\">Traduire</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IihxWhRfpsBgQ5jS'})\">Discours captivant</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EoKBlgf6Smt8opaU'})\">Voile de confidentialité</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JOdOpbPDl7nqvJUm'})\">Globe de dissipation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qwlh6aDgi86U3Q7H'})\">Suggestion</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R9xqCBblkS5KE4y7'})\">Communication à distance</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SwUiVavHKMWG7t5K'})\">Langage universel</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yrZA4k2VAqEP8xx7'})\">Répulsion</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8Umt1AzYfFbC4fui'})\">Ravages magiques</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WG91Z5TiR6oO5FOw'})\">Contingence</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XZE4BawIlTf88Yl9'})\">Sceau planaire</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kUSShxXzY1sPtJA0'})\">Magie détonante</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lY9fOk1qBDDhBT8s'})\">Champs de protection</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4LSf04FFvDgMyDk6'})\">Rune d'observation</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/wObrT6PytPdS5aUi",
+        "id"          : "wObrT6PytPdS5aUi",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École des lettres",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "XXnGHBxNZvRsdkKM": {
-        "id"      : "XXnGHBxNZvRsdkKM",
-        "text"    : "École des portails",
-        "category": "feat",
-        "href"    : "/class-features/XXnGHBxNZvRsdkKM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Certains sont contents de rester sur place et de laisser le monde les façonner alors que vous préférez vous déplacer selon votre propre cadence. Vous avez étudié les anciens <em>aiudaras</em> et les autres structures pour apprendre la magie de transposition, en utilisant votre savoir pour vous déplacer sur de grandes distances et même d'autres plans. Avec le savoir comme chemin et la magie en tant que clé, Il n'existe aucune porte que vous ne pourriez ouvrir et aucun monde que vous ne pourriez explorer.</p>\n<p>\"Cursur\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLzFcIaSXs7YTIqJ'})\">Message</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pwzdSlJgYqN7bs2w'})\">Manipulation télékinésique</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qTr2oCgIXl703Whb'})\">Cadeau attentionné</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aEM2cttJ2eYcLssW'})\">Pas rapide</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Azoh0BSoCASrA1lr'})\">Verrouillage</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6Ot4N22t5tPD51BO'})\">Déblocage</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UtINSoEJ0u630ia4'})\">Tirer hors de danger</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rSpGzCyYrTMiWQoG'})\">Échange d'objets</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LpMeT0CW1OEKdaQL'})\">Écho détonnant</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zR67Rt3UMHKC5evy'})\">Oscillation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VlNcjmYyu95vOUe8'})\">Translocation</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vM8oBYaEPgEXBimM'})\">Roque du roi</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '115Xp9E38CJENhNS'})\">Passage magique</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '69L70wKfGDY66Mk9'})\">Téléportation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c3XygMbzrZMgV1y3'})\">Transposition collective</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5bTt2CvYHPvaR7QQ'})\">Téléportation interplanaire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XZE4BawIlTf88Yl9'})\">Sceau planaire</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2DFtBRLyYMPrimp7'})\">Transposition subite</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oKC36WjFD1jgqUN5'})\">Forêt de portails</div></li></ul>\n<p>\"Sorts d'école\" initial  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cCFDnmFB1EGeQUeA'})\">Poussée amicale</div>  ; avancé  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6sNjsNPipZvQ3BGe'})\">Retraite rapide</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/XXnGHBxNZvRsdkKM",
+        "id"          : "XXnGHBxNZvRsdkKM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École des portails",
+        "traits"      : [
+            "Peu courant",
+            "Magicien"
+        ]
     },
     "dPAwM9IdabdH68mW": {
-        "id"      : "dPAwM9IdabdH68mW",
-        "text"    : "École des technologies magiques",
-        "category": "feat",
-        "href"    : "/class-features/dPAwM9IdabdH68mW"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Au pinacle de l'ancien empire azlant, l'étude des technologies magiques, mieux connu sous le nom de technomagie, était considéré parmi les plus prestigieuses des spécialisations arcaniques et ses pratiquants étaient à la fois bien considérés et bien payés. Bien que certains spécialistes de technomagie se soient formés au sein d'académies ou comme apprentis, d'autres l'ont étudié en tant que religieux cloirtrés dévoués au culte d'Amaznen, un dieu de l'invention et de la magie, désormais mort. Aujourd'hui les praticiens sont plus à même d'étudier à partir de restes d'anciens grimoires, de connaissances longtemps enfouies dans les ruines azlantes ou auprès de diplômés déplacés dans le temps comme Anoreth Zorillen. Les écoles de technomagie modernes qui existent aujourd'hui, ont rompu avec leurs origines de l'ancien empire azlante mais ne sont pas moins prestigieuses, y compris la Cathédrale mécanique d'Absalom et les temples de Brigh, déesse de la mécanique et de l'invention.</p>\n<p>En tant qu'étudiant des technologies magiques, vous avez appris l'art de mêler la magie avec des technologies ordinaires pour créer quelque chose de véritablement unique.</p>\n<p>\"Cursus\"</p>\n<p>\"Tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TVKNbcgTee19PXZR'})\">Bouclier</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iYRDFxeVpJ5KIjmr'})\">Fléchettes aiguilles</div></p>\n<p>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TFitdEOpQC4SzKQQ'})\">Arme runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lKcsmeOrgHtK4xQa'})\">Convocation de créature artificielle</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dINQzhqGmIsqGMUY'})\">Réparation</div></p>\n<p>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WqPhJNzLa8vSjrH6'})\">Assaut animé</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jW2asKFchuoxniSH'})\">Démanteler</div></p>\n<p>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aUMmmtPmBdCdVDed'})\">Double de bois</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWh8sJH7yawidMyW'})\">Rétrécir un objet</div></p>\n<p>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TUj8eugNqAvB1vVR'})\">Création</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8M03UxGXjYyDFAoy'})\">Tempête d'armes</div></p>\n<p>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kOa055FIrO9Smnya'})\">Mur de pierre</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oXeEbcUdgJGWHGEJ'})\">Pique empaleuse</div></p>\n<p>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MLYTWHfewOpI3Cz7'})\">Champ de rasoirs</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'znv4ECL7ZtuiagtA'})\">Pétrifier</div></p>\n<p>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HES5jvGiNZZnJycK'})\">Cage de bois de vie</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dKWc83KKiXoIJkhp'})\">Scie à décapiter</div></p>\n<p>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '89Hj5QuqvcwVXcqj'})\">Forme ferreuse</div></p>\n<p>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KPDHmmjJiw7PhTYF'})\">Manoir resplendissant</div></p>\n<p>\"Sorts d'école\" <em>initial</em>  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pSepsfCrrAKuwA0N'})\">Corps amélioré</div>  <em>avancé</em>  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eob29LrDMH2IoeAj'})\">Mécanisme invoqué</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/dPAwM9IdabdH68mW",
+        "id"          : "dPAwM9IdabdH68mW",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École des technologies magiques",
+        "traits"      : [
+            "Peu courant",
+            "Magicien"
+        ]
     },
     "L5FiuXsfW6Sa31gO": {
-        "id"      : "L5FiuXsfW6Sa31gO",
-        "text"    : "École du mentalisme",
-        "category": "feat",
-        "href"    : "/class-features/L5FiuXsfW6Sa31gO"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>En tant qu'érudit, vous ne connaissez que trop bien l'importance d'un esprit sain. C'est pourquoi vous avez fréquenté une école - comme la Tour de la Longue-vue ou la Pierre des voyants - qui enseignait l'art d'embrouiller les esprits les plus modestes à l'aide d'images et d'illusions ou de sensations et de souvenirs implantés.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0zU8CPejjQFnhZFI'})\">Fantasme</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4gBIw4IDrSfFHik4'})\">Hébétement</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UKsIOWmMx4hSpafl'})\">Couleurs vertigineuses</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Frappe assurée</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o4lRVTwSxnOOn5vl'})\">Sommeil</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'f8SBoXiXQjlCKqly'})\">Créature illusoire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CQb8HtQ1BPeZmu9h'})\">Stupéfier</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KHnhPHL4x1AQHfbC'})\">Lecture des pensées</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yM3KTTSAIHhyuP14'})\">Message onirique</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Uqj344bezBq3ESdq'})\">Cauchemar</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Jmxru8zMdYMRuO5n'})\">Vision de mort</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'U58aQWJ47VrI36yP'})\">Hallucination</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ucf8eynbZMfUucjE'})\">Scène illusoire</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0XP2XOxT9VSiXFDr'})\">Calamité imaginaire</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5BbU1V6wGSGbrmRD'})\">Écervelé</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8kJbiBEjMWG4VUjs'})\">Déformer l'esprit</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0873MWM0qKDDv81O'})\">Projection d'image</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Jvyy6oVIQsD34MHB'})\">Danse incontrôlable</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wfleiawxsfhpRRwf'})\">Disparition</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MJx7DmjsWYzDZ3a4'})\">Fantasmagorie</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KMFRKzNCq7hVNH7H'})\">Poussée charmeuse</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Nun72GTmb31YqSKh'})\">Cape d'invisibilité</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/L5FiuXsfW6Sa31gO",
+        "id"          : "L5FiuXsfW6Sa31gO",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École du mentalisme",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "xYYhJtGhFSWNifcO": {
-        "id"      : "xYYhJtGhFSWNifcO",
-        "text"    : "École de la théorie magique unifiée",
-        "category": "feat",
-        "href"    : "/class-features/xYYhJtGhFSWNifcO"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous renoncez à l'idée que la magie peut être exprimée de manière claire par les enseignements d'une seule école ou d'un seul collège et vous vous efforcez plutôt de prendre le meilleur de chaque école de magie. En procédant ainsi, vous découvrirez les vérités qui se trouvent à l'intersection de chaque école, vous rapprochant ainsi de la nature idéale de la magie arcanique. Un jour, vous découvrirez cette théorie unique et élégante qui détaille l'ensemble de magie (peut-être une théorie qui portera votre nom ?), mais en attendant ce moment, vos études se poursuivent.</p>\n<p>\"Pas de cursus\" Vous n'avez pas de cursus de sorte que vous n'avez pas de sorts de cursus et ne tirez aucun avantage des capacités qui les affectent spécifiquement. À la place, vous obtenez un don de la classe de magicien de niveau 1 supplémentaire et vous ajoutez un sort de rang 1 de votre choix à votre grimoire pour représenter vos études diversifiées.</p>\n<p>Vos études de la nature essentielle de la magie elle-même vous a permis de l'utiliser efficacement — au lieu d'utiliser  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'v82XtjAVN4ffgVVR'})\">Drain d'objet lié</div>  uniquement une fois par jour, vous pouvez l'utiliser une fois par jour pour chaque rang de sort que vous pouvez lancer, rappelant un sort de ce rang à chaque fois.</p>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bSDTWUIvgXkBaEv8'})\">Main de l'apprenti</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sGenGMmE1ntkXCtN'})\">Incantation Interdisciplinaire</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/xYYhJtGhFSWNifcO",
+        "id"          : "xYYhJtGhFSWNifcO",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la théorie magique unifiée",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "n2LRzksKVSzOuzqN": {
-        "id"      : "n2LRzksKVSzOuzqN",
-        "text"    : "École de la récupération",
-        "category": "feat",
-        "href"    : "/class-features/n2LRzksKVSzOuzqN"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Qu'elles aient été perdues à la guerre, abandonnées lors d'une calamité ou simplement enterrées par les âges, il y a autant de connaissances importantes à trouver dans les recoins cachés du monde que dans les écoles et les bibliothèques de l'académie. Votre étude de la magie au service de la récupération des connaissances perdues pour la récupération du Sarkoris vous a appris que beaucoup de choses qui ont été perdues peuvent encore être retrouvées, mais seulement si quelqu'un est prêt à les chercher et à aller les récupérer. Vous avez concentré votre magie sur les lieux cachés et oubliés du monde, qu'ils se trouvent dans une ruine lointaine ou dans les profondeurs d'une mémoire perdue et vous avez ramené ce savoir à la surface, quel qu'en soit le prix.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pwzdSlJgYqN7bs2w'})\">Main télékinésique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '60sgbuMWN0268dB7'})\">Projectile télékinésique</div></li><li>\"1er :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'g8QqHpv2CWDwmIm1'})\">Bourrasque de vent</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aEM2cttJ2eYcLssW'})\">Pas rapide</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dINQzhqGmIsqGMUY'})\">Réparation</div></li><li>\"2e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PEGECeEtEmXEzwBT'})\">Carte mentale</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6Ot4N22t5tPD51BO'})\">Déblocage</div></li><li>\"3e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LQzlKbYjZSMFQawP'})\">Localisation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LJHrndGJRmLdxgXD'})\">Mémoire accablante</div></li><li>\"4e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'McnPlLFvKtQVXNcG'})\">Façonnage de la pierre</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VUUWjeapcyLZabVA'})\">Pont de lianes</div></li><li>\"5e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ek5XI0aEdZhBgm21'})\">Oeil éclaireur</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9BnhadUO8FMLmeZ3'})\">Sonde mentale</div></li><li>\"6e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7Iela4GgVeO3LfAo'})\">Mur de Force</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div></li><li>\"7e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ljo9CEmnCMZXqfOQ'})\">Restaurer le sol</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rsZ5c0AUyywe5yoK'})\">Rétrocognition</div></li><li>\"8e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CeSh8QcVnqP5OlLj'})\">Déterminer la position</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"9e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pswdik31kuHEvdno'})\">Métamorphose</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cQgPIohUja0DUiRL'})\">Liane agrippante</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iAmHJbFN3lOoOkNG'})\">Connaissance déstabilisante</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/n2LRzksKVSzOuzqN",
+        "id"          : "n2LRzksKVSzOuzqN",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la récupération",
+        "traits"      : [
+            "Peu courant",
+            "Magicien"
+        ]
     },
     "KGkWSv9rARpwWzXW": {
-        "id"      : "KGkWSv9rARpwWzXW",
-        "text"    : "École de la sagesse enracinée",
-        "category": "feat",
-        "href"    : "/class-features/KGkWSv9rARpwWzXW"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez étudié au Magaambya ou sous un de ses professeurs itinérants, apprenant la magie antique de l'académie la plus ancienne de Golarion. Votre cursus est auto-dirigé, vous permettant de choisir une branche d'étude et de personnaliser votre apprentissage. Si vous choisissez l'École de la sagesse enracinée, vous obtenez les sorts de cursus et d'école ci-dessous.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div></li><li>\"1er :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4WAib3GichxLjp5p'})\">Alarme</div></li><li>\"2e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9HpwDN4MYQJnW0LG'})\">Dissipation de la magie</div></li><li>\"3e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IFuEzfmmWyNwVbhY'})\">Passage sûr</div></li><li>\"4e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2BV2yYPfVJ5zirZt'})\">Résilience du rocher</div></li><li>\"5e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zfn5RqAdF63neqpP'})\">Contrôle de l'eau</div></li><li>\"6e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div></li><li>\"7e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm2xFMNyQiUKQDRaj'})\">Égide énergétique</div></li><li>\"8e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Oj1PJBMQD9vuwCv7'})\">Dilemme</div></li><li>\"9th:\"—</li></ul>\n<p>\"Sorts d'école\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IERHT6v4o5ISvuJG'})\">Brumes syncrétiques</div>  ; advanced:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'REBo9wSxDDx7Qdcc'})\">Appel des dix</div></p>\n<p>C'est votre tronc primaire d'étude, auquel vous ajoutez une des cinq branches secondaires suivantes, vous accordant des sorts de cursus supplémentaires.</p>\n<ul><li>\"Branches d'émeraude\"</li><li>\"Mages de la tempête solaire\"</li><li>\"Scribes de la pluie\"</li><li>\"Tisseur des flots\"</li><li>\"Uzunjati\"</li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/KGkWSv9rARpwWzXW",
+        "id"          : "KGkWSv9rARpwWzXW",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la sagesse enracinée",
+        "traits"      : [
+            "Peu courant",
+            "Magicien"
+        ]
     },
     "pUkUC8HHom2DmYzz": {
-        "id"      : "pUkUC8HHom2DmYzz",
-        "text"    : "Magie élémentaire",
-        "category": "feat",
-        "href"    : "/class-features/pUkUC8HHom2DmYzz"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes un lanceur de sorts qui se spécialise dans la maîtrise des éléments. Bien que vous puissiez sentir une plus grande proximité avec un élément par rapport aux autres, vous êtes capable d'en façonner plusieurs. En raison de votre spécialisation dans la magie élémentaire, vous disposez d'une liste de sorts plus restreinte et plus ciblée que les autres lanceurs de sorts, bien que votre magie soit issue de plusieurs traditions. Si vous choisissez cet archétype de classe, vous devez sélectionner le  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tx9pkrpmtqe4FnvS'})\">Dévouement d'élémentaliste</div>  en tant que don de classe au niveau 2.</p>\n<p>\"Prérequis\" Vous devez posséder une capacité de classe d'incantation qui choisit ses sorts à partir de la liste arcanique ou primordiale.</p>\n<p>\"Ajustements d'élémentaliste\" Remplacez votre liste de sorts par la liste des sorts élémentaires. Votre tradition magique actuelle reste inchangée, mais vous choisissez vos sorts dans la liste élémentaire à la place. Vous devez choisir une philosophie élémentaire (voir ci-dessous) qui détermine quels sorts et autre magie élémentaire vous pouvez utiliser.</p>\n<p>\"Ajustement du druide élémentaire\" Si vous êtes un druide de l'ordre de la tempête et que l'air est dans votre philosophie élémentaire, vous pouvez choisir de remplacer votre sort d'ordre de départ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ho1jSoYKrHUNnM90'})\">Onde de tempête</div>  par  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QozxgBbcmktLKdBs'})\">Courant ascendant</div> .</p>\n<p>\"Ajustement d'ensorceleur élémentaire\" Si vous êtes un ensorceleur de lignage élémentaire, vous pouvez remplacer votre sort de lignage initial par un sort focalisé élémentaire et votre sort de lignage avancé par un sort focalisé élémentaire avancé. Les sorts focalisés élémentaires initiaux et avancés que vous choisissez doivent avoir le même trait que votre lignage élémentaire.</p>\n<p>\"Ajustement de magicien élémentaire\" Si vous êtes un magicien, vous pouvez soit choisir d'avoir l' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYYhJtGhFSWNifcO'})\">École de la théorie magique unifiée</div>  soit suivre une école arcanique dédiée à un élément de votre philosophie élémentaire. Si vous choisissez une école élémentaire, vos sorts de cursus peuvent être n'importe quels sorts auxquels vous avez accès et qui possèdent le trait de l'élément que vous avez choisi. Vos sorts d'école sont les sorts focalisés élémentaires de l'élément que vous avez choisi avec le sort de rang 1 comme sort d'école initial et le sort de rang 3 comme sort d'école avancé.</p>\n<h3>Philosophie élémentaire</h3>\n<p>Choisissez une philosophie élémentaire, qui détermine quels éléments vous pouvez utiliser. Les options disponibles sont les suivantes.</p>\n<ul><li>\"Cycle élémentaire\" terre, feu, métal, eau, bois</li><li>\"Élémentalisme de la Mer Intérieure\" air, terre, feu, eau</li></ul>\n<p>Chaque élémentaliste dispose des sorts de la liste universelle des sorts élémentaires. Votre choix de philosophie élémentaire affecte vos autres sorts. Votre liste personnelle contient également tous les sorts qui partagent au moins un trait avec ceux de votre philosophie élémentaire et qui ne possèdent pas de traits qui ne font pas partie de votre philosophie élémentaire. Par exemple, un élémentaliste du cycle élémentaire peut choisir un sort possédant les traits terre et feu, mais pas un sort avec les traits air et feu, tandis qu'un élémentaliste de la Mer Intérieure peut choisir l'un ou l'autre de ces traits, mais pas un sort avec les traits métal et feu.</p>\n<p>Vous ne pouvez pas prendre des dons d'élémentaliste ou utiliser les capacités élémentaires pour un élément avec lequel vous êtes incapable de vous harmoniser. Par exemple, un élémentaliste de la Mer Intérieure ne pourrait choisir le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SNgOGKUHAxgFJgxW'})\">Sort réverbéré</div> , utiliser  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AmV13b9ncALtWJFt'})\">Rediriger les éléments</div>  contre un sort de métal ou de bois ou choisir une capacité de métal ou de bois pour son  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KZJJ0WxcRd4RZKJR'})\">Familier élémentaire</div> .</p>\n<h3>Sorts focalisés d'élémentaliste</h3>\n<p>\"Air\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QozxgBbcmktLKdBs'})\">Courant ascendant</div>   ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'v4QHuVOhFD1JMAqu'})\">Inhalation puissante</div></p>\n<p>\"Bois\" initial:  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aHu20NHj7YIqxr80'})\">Armes de la nature</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Up4zLmZDgciUDpIv'})\">Démarche de bois</div></p>\n<p>\"Eau\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zTN6zuruDUKOea6h'})\">Vague porteuse</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'E80SrXuBdZViPGiH'})\">Cascade pulvérisante</div></p>\n<p>\"Feu\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jks2h5pMsm8pCi8e'})\">Feu sauvage</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Z3kJty995FkrsZRb'})\">Combustion</div></p>\n<p>\"Métal\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'YKexU7BkwNq4ESCc'})\">Dentelé</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pZBovpzdBNLQQQmE'})\">Répulsion du métal</div></p>\n<p>\"Terre\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AiWtiVmyasyL42J8'})\">Sol écrasant</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ECApRjIIxD0JogOa'})\">Lance de pierre</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/pUkUC8HHom2DmYzz",
+        "id"          : "pUkUC8HHom2DmYzz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Magie élémentaire",
+        "traits"      : []
     },
     "5rFzX6JK6CXLFxUP": {
-        "id"      : "5rFzX6JK6CXLFxUP",
-        "text"    : "École élémentaire",
-        "category": "feat",
-        "href"    : "/class-features/5rFzX6JK6CXLFxUP"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Si vous choisissez une école élémentaire, vos sorts de cursus peuvent être n'importe lequel des sort auquel vous avez accès et qui possède le trait de l'élément que vous avez choisi. Vos sorts d'école sont les sorts focalisés élémentaires de l'élément que vous avez choisi, le sort de rang 1 étant votre sort d'école initial et le sort de rang 3 votre sort d'école avancé.</p>",
+        "element_type": null,
+        "href"        : "/class-features/5rFzX6JK6CXLFxUP",
+        "id"          : "5rFzX6JK6CXLFxUP",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École élémentaire",
+        "traits"      : []
     },
     "vky5bQfK7SG3uOMA": {
-        "id"      : "vky5bQfK7SG3uOMA",
-        "text"    : "Magie de guerre",
-        "category": "feat",
-        "href"    : "/class-features/vky5bQfK7SG3uOMA"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vos études se cont concentrées sur l'utilisation de la magie ainsi que sur les bases de l'art de la guerre. Avec une cuirrasse robuste pour détourner les flèches errantes, vous utilisez vos sorts en toute confiance pour renverser le cours de la bataille. Si vous choisissez cet archétype de classe, Vous devez choisir  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OlGO7dCLaghUXlQb'})\">Dévouement : Mage de guerre</div>  en tant que don de classe de niveau 2.</p>\n<p>\"Prérequis\" Vous devez être un magicien.</p>\n<p>\"Ajustements de mage de guerre\" Vous êtes qualifié en armure légère et intermédiaire. Au niveau 11, vous obtenez une maîtrise experte avec les armures légères et intermédiaires, ainsi qu'en défense sans armure.</p>\n<p>Vous obtenez le don général  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jM72TjJ965jocBV8'})\">Blocage au bouclier</div>  au niveau 1.</p>\n<p>Vous obtenez la capacité magie de guerreau niveau 1.</p>\n<p>Vous devez choisir l' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'E4GZDMn4DYk6qSEV'})\">École de la magie de combat</div>  comme école arcanique.</p>\n<p>Vous possédez une familiarité avec des armes de guerre, les considérant comme des armes simples pour ce qui concerne la maîtrise. Vous n'obtenez pas les capacités de classe  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'au0lwQ1nAcNQwcGh'})\">Lien arcanique</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M89l9FOnjHe63wD7'})\">Thèse arcanique</div> .</p>\n<p>Vous n'obtenez pas la capacité  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gU7epgcPSm0TD1UK'})\">Robes défensives</div>  au niveau 13.</p>\n<p>\"Magie de combat\" Par une action gratuite qui peut être utilisée une fois par round, au début de votre tour, vous pouvez échanger tout sort que vous avez actuellement mémorisé pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Coup assuré</div> , intensifié au même niveau que le sort remplacé. Comme à l'ordinaire, vous pouvez lancer des sorts en maniant une arme dans vos mains. Vous pouvez Refocaliser en étudiant des plans de guerre, des cartes de mouvements de troupe et des rapports du champ de bataille au cours d'un conflit actif au lieu d'étudier votre grimoire.</p>",
+        "element_type": null,
+        "href"        : "/class-features/vky5bQfK7SG3uOMA",
+        "id"          : "vky5bQfK7SG3uOMA",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Magie de guerre",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "E4GZDMn4DYk6qSEV": {
-        "id"      : "E4GZDMn4DYk6qSEV",
-        "text"    : "École de la magie de combat",
-        "category": "feat",
-        "href"    : "/class-features/E4GZDMn4DYk6qSEV"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>La magie, c'est le pouvoir et il y a toujours des gens qui utilisent le pouvoir pour l'art de la guerre. Vous avez peut-être étudié dans l'armée d'une nation au bord de la guerre - le Chéliax ou Andoran peut-être, ou le Geb ou Nex. Vous invoquez des énergies tourbillonnantes qui peuvent anéantir des soldats et des armées, tout en veillant à ne pas négliger les contre-mesures arcaniques pour les complications tactiques courantes ou les boucliers et les défenses qui maintiennent les combattants en vie sur le champ de bataille.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"Tours de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TVKNbcgTee19PXZR'})\">Bouclier</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '60sgbuMWN0268dB7'})\">Projectile télékinésique</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gKKqvLohtrSJj3BM'})\">Salve de force</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9XHmC2JgTUIQ1CCm'})\">Brume</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Fr58LDSrbndgld9n'})\">Résistance à l'énergie</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sxQZ6yqTn0czJxVd'})\">Boule de feu</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gPvtmKMRpg9I9D7H'})\">Cloué à terre</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IarZrgCeaiUqOuRu'})\">Mur de feu</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8M03UxGXjYyDFAoy'})\">tempête d'armes</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xxWhyl81w3ckslAU'})\">Blizzard hurlant</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oXeEbcUdgJGWHGEJ'})\">Pique empaleuse</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TDNlDWbYb58Y55Da'})\">Éclairs multiples</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AlbpWWN87yGegoAF'})\">Cible verrouillée</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm2xFMNyQiUKQDRaj'})\">Égide énergétique</div></li><li>\"8e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'C2GYCH3TtUFqPfdX'})\">Faille arctique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M0jQlpQYUr0pp2Sv'})\">Flétrissure</div></li><li>\"9e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jrBa9deU2ULFWvSl'})\">Chute d'étoiles</div></li></ul>\n<p>\"Sorts d'école\" initial :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Hu38hoAUSYeFpkVa'})\">Trait de force</div>  ; avancé :  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LoBjvguamA12iyW0'})\">Absorption d'énergie</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/E4GZDMn4DYk6qSEV",
+        "id"          : "E4GZDMn4DYk6qSEV",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la magie de combat",
+        "traits"      : [
+            "Magicien"
+        ]
     },
     "HYTaibaCGE85rhbZ": {
-        "id"      : "HYTaibaCGE85rhbZ",
-        "text"    : "Seigneur des runes",
-        "category": "feat",
-        "href"    : "/class-features/HYTaibaCGE85rhbZ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous tirez un pouvoir incommensurable des runes, parfois appelées la magie du péché. Vous vous associez à l'un des sept vices, également connus sous le nom des sept récompenses du règne : l'avarice, la colère, l'envie, la gourmandise, la luxure, l'orgueil et la paresse. Si vous choisissez cet archétype de classe, vous devez sélectionner le  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mz2x4HFrWT8usbEL'})\">Dévouement : Seigneur des runes</div>  comme don de classe de niveau 2.</p>\n<p>\"Prérequis\" Vous devez être un magicien.</p>\n<p>\"Ajustements de seigneur des runes\" Vous êtes qualifié avec les armes d'hast et les lances de guerre. Lorsque votre maîtrise avec les armes simples augmente, votre maîtrise avec ces armes augmente aussi. Vous apprenez la langue thassilonienne.</p>\n<p>Au lieu d'une thèse arcanique, vous obtenez une rune personnelle. Votre rune personnelleaffecte aussi votre lien arcanique.</p>\n<p>Vous devez aussi choisir l' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aYWPtW5T4Lx07Occ'})\">École de la magie runique thassilonienne</div>  comme école arcanique et vous devez choisir un péché dans lequel vous vous spécialisez. Lorsque vous lancez n'importe quel sort de cursus ou sort d'école de l'École de la magie runique thassilonienne, vous le faites simplement en traçant des runes de puissance dans les airs. Ceci retire le besoin de prononcer les incantations à voix haute. Lorsque vous Refocalisez, vous le faites en contemplant ou en vous adonnant à votre péché.</p>\n<p>Chaque péché s'oppose à deux autres. L'incompatibilité de ces péchés signifie que lancer une magie philosophiquement appropriée à ces péchés opposés, comme cela est représenté par l'anathème de chaque école, interrompte le lien que vous entretenez avec votre propré péché et votre rune personnel. Si vous violez l'anathème de votre péché, vous perdez les avantages de votre rune personnelle et lorsque vous tentez de lancer un sort de cursus ou un sort d'école, vous devez reussir un  Test nu, DD 15  sinon le sort est perdu. Cette interruption dure jusqu'à ce que vous acheviez un rituel de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7Fd4lxozd11MQ55N'})\">Pénitence</div> . Contrairement à un rituel de <em>Pénitence ordinaire</em>, Arcanes peut être utilisée à la fois pour les tests primaires et secondaires. Vos sorts de cursus (y compris ceux de votre propre péché) ne violent jamais cet anathème, fournissant quelques fois des alternatives à une magie interdite.</p>\n<p>Vous obtenez  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5hUj7glY8YnO5sBI'})\">Sort d'école avancé</div>  comme don supplémentaire au niveau 8, obtenant le sort d'école avancéé pour l'école de la magie runique thassilonienne. Une fois que vous avez entamé vos études de la magie du péché, il n'y a pas de retour en arrière possible pour résister à son charme.</p>\n<h3>École de la magie runique thassilonienne</h3>\n<p>Ce cursus, enseigné dans quelques académies select au sein de la Nouvelle Thassilon, peut être appris par des magiciens disposant de l'archétype de classe de Seigneur des runes. Vous avez commencé à étudier une des sept runes du péché, vous accordant un grand pouvoir mais au prix d'une magie anathème. Tous les seigneurs des runes obtiennent les sorts de cursus et d'école ci-dessous.</p>\n<p>De plus, vous devez choisir un des sept péchés pour se spécialiser. Vous ajoutez les sorts de votre péché et les sorts initiaux de votre école à votre cursus. La nature addictive de la magie du péché vous empêche d'utiliser la magie de manière alignée avec les autre péchés, représentés par l'anathème de ce péché. Lancer un sort de péché n'invoque jamais l'anathème de son école du péché.</p>\n<p>Contrairement à d'autres magiciens, certains de vos sorts de cursus peuvent être des sorts qui n'apparaissent pas habituellement sur la liste de sorts arcaniques (marqué d'un astérisque). Vous lancez toujours ces sorts comme des sorts arcaniques, la connaissance unificatrice du péché franchissant la faille entre les magies disparates.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"tour de magie :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AUctDF2fqPZN2w4W'})\">Symbole</div></li><li>\"1er :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EE7Q5BHIrfWNCPtT'})\">Corps runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TFitdEOpQC4SzKQQ'})\">Arme runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Coup assuré</div></li><li>\"2e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pZTqGY1MLRjgKasV'})\">Vision dans le noir</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jwK43yKsHTkJQvQ9'})\">Discerner l'invisible</div></li><li>\"3e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HXhWYJviWalN5tQ2'})\">Clairaudience</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EoKBlgf6Smt8opaU'})\">Voile de confidentialité</div></li><li>\"4e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zvKWclOZ7A53DObE'})\">Clairvoyance</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'A2JfEKe6BZcTG1S8'})\">Vol</div></li><li>\"5e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9BnhadUO8FMLmeZ3'})\">Sonde mentale</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R9xqCBblkS5KE4y7'})\">Communication à distance</div></li><li>\"6e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r784cIz17eWujtQj'})\">Scrutation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div></li><li>\"7e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WG91Z5TiR6oO5FOw'})\">Contingence</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9igi8LcrNQKwljK7'})\">Riposte de sort</div></li><li>\"8e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'C2w3YfBKjIRS07DP'})\">Esprit dissimulé</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"9e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qsNeG9KZpODSACMq'})\">Prémonition</div></li></ul>\n<p>\"Sort d'école avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'N91EI7H1p7YXKX0o'})\">Puits runique personnel</div></p>\n<ul><li>\"Avarice\"</li><li>\"Colère\"</li><li>\"Envie\"</li><li>\"Gourmandise\"</li><li>\"Luxure\"</li><li>\"Orgueil\"</li><li>\"Paresse\"</li></ul>\n<h3>Lien arcanique et Rune personnelle</h3>\n<p>Les seigneurs des runes sont issus d'une époque où même un érudit devait être capable de se défendre avec des armes en cas de besoin, ce qui a conduit à la pratique consistant à fixer une lame au bâton associé aux magiciens. Vous devez choisir une arme d'hast ou une lance comme lien arcanique. Au lieu d'une thèse arcanique, vous disposez d'une rune personnelle, qui apparaît sur l'arme à laquelle vous êtes lié. L'arme fonctionne comme un bâton que vous seul pouvez préparer et contient les sorts de péché de votre péché jusqu'au plus haut rang de sort que vous pouvez lancer (y compris vos tours de magie). Votre rune personnelle n'est pas une rune de propriété de sorte qu'elle n'est pas prise en compte dans le calcul de la limite de l'arme pour de telles runes.</p>\n<p>Lorsque vous préparez votre arme liée comme un bâton, vous pouvez physiquement fusionner un autre bâton en votre possession à l'intérieur, ajoutant les sorts du bâton à votre arme liée jusqu'à vos prochains préparatifs quotidiens. Lorsqu'il est fusionné, le manche de l'arme reprend les aspects esthétiques du bâton.</p>",
+        "element_type": null,
+        "href"        : "/class-features/HYTaibaCGE85rhbZ",
+        "id"          : "HYTaibaCGE85rhbZ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Seigneur des runes",
+        "traits"      : [
+            "Rare",
+            "Magicien"
+        ]
     },
     "aYWPtW5T4Lx07Occ": {
-        "id"      : "aYWPtW5T4Lx07Occ",
-        "text"    : "École de la magie runique thassilonienne",
-        "category": "feat",
-        "href"    : "/class-features/aYWPtW5T4Lx07Occ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Ce cursus, enseigné dans quelques académies select au sein de la Nouvelle Thassilon, peut être appris par des magiciens disposant de l'archétype de classe de Seigneur des runes. Vous avez commencé à étudier une des sept runes du péché, vous accordant un grand pouvoir mais au prix d'une magie anathème. Tous les seigneurs des runes obtiennent les sorts de cursus et d'école ci-dessous.</p>\n<p>De plus, vous devez choisir un des sept péchés pour se spécialiser. Vous ajoutez les sorts de votre péché et les sorts initiaux de votre école à votre cursus. La nature addictive de la magie du péché vous empêche d'utiliser la magie de manière alignée avec les autre péchés, représentés par l'anathème de ce péché. Lancer un sort de péché n'invoque jamais l'anathème de son école du péché.</p>\n<p>Contrairement à d'autres magiciens, certains de vos sorts de cursus peuvent être des sorts qui n'apparaissent pas habituellement sur la liste de sorts arcaniques (marqué d'un astérisque). Vous lancez toujours ces sorts comme des sorts arcaniques, la connaissance unificatrice du péché franchissant la faille entre les magies disparates.</p>\n<p>\"Cursus\"</p>\n<ul><li>\"tour de magie :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AUctDF2fqPZN2w4W'})\">Symbole</div></li><li>\"1er :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EE7Q5BHIrfWNCPtT'})\">Corps runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TFitdEOpQC4SzKQQ'})\">Arme runique</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Coup assuré</div></li><li>\"2e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pZTqGY1MLRjgKasV'})\">Vision dans le noir</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jwK43yKsHTkJQvQ9'})\">Discerner l'invisible</div></li><li>\"3e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HXhWYJviWalN5tQ2'})\">Clairaudience</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EoKBlgf6Smt8opaU'})\">Voile de confidentialité</div></li><li>\"4e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zvKWclOZ7A53DObE'})\">Clairvoyance</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'A2JfEKe6BZcTG1S8'})\">Vol</div></li><li>\"5e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9BnhadUO8FMLmeZ3'})\">Sonde mentale</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R9xqCBblkS5KE4y7'})\">Communication à distance</div></li><li>\"6e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r784cIz17eWujtQj'})\">Scrutation</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki'})\">Vision véritable</div></li><li>\"7e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WG91Z5TiR6oO5FOw'})\">Contingence</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9igi8LcrNQKwljK7'})\">Riposte de sort</div></li><li>\"8e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'C2w3YfBKjIRS07DP'})\">Esprit dissimulé</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y2cQYLr5mljDSu1G'})\">Observation implacable</div></li><li>\"9e :\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qsNeG9KZpODSACMq'})\">Prémonition</div></li></ul>\n<p>\"Sort d'école avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'N91EI7H1p7YXKX0o'})\">Puits runique personnel</div></p>\n<ul><li>\"Avarice\"</li><li>\"Colère\"</li><li>\"Envie\"</li><li>\"Gourmandise\"</li><li>\"Luxure\"</li><li>\"Orgueil\"</li><li>\"Paresse\"</li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/aYWPtW5T4Lx07Occ",
+        "id"          : "aYWPtW5T4Lx07Occ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "École de la magie runique thassilonienne",
+        "traits"      : [
+            "Rare",
+            "Magicien"
+        ]
     },
     "nbfNETdpee8CVM17": {
-        "id"      : "nbfNETdpee8CVM17",
-        "text"    : "Déluge de coups",
-        "category": "action",
-        "href"    : "/actions/nbfNETdpee8CVM17"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Faites deux Frappes à mains nues. Si les deux touchent la même créature, faites la somme de leurs dégâts avant d'appliquer les résistances et les faiblesses. Vous appliquez votre pénalité d'attaques multiples à ces Frappes comme à l'accoutumée. Étant donné que déluge de coups possède le trait sophistication, vous ne pouvez l'utiliser qu'une seule fois par tour.</p>",
+        "element_type": null,
+        "href"        : "/actions/nbfNETdpee8CVM17",
+        "id"          : "nbfNETdpee8CVM17",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Déluge de coups",
+        "traits"      : [
+            "Sophistication",
+            "Moine"
+        ]
     },
     "qvRlih3u7vK3FYUR": {
-        "id"      : "qvRlih3u7vK3FYUR",
-        "text"    : "Ancêtres",
-        "category": "feat",
-        "href"    : "/class-features/qvRlih3u7vK3FYUR"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les voix des générations passées vous parlent et vous entendez leurs propos. Vous pourriez être contrarié par ces interruptions constantes ou pourriez vénérer les esprits de ceux qui étaient là avant vous. Vous provenez peut-être d'une culture avec de fortes traditions ancestrales, comme le Skoan-Quah shoanti (Clan du crâne), d'une communauté naine traditionnelle qui vénère le panthéon familial de Torag ou d'un groupe qui vénère Érastil ou Pharasma. Vous pourriez communiquer avec de puissants psychopompes qui guident les âmes dans l'après-vie, avec la Rivière des âmes lui-même ou avec les esprits qui se sont retrouvés piégés en-dehors du cycle de la renaissance spirituelle. Vous apprenez de leurs murmures et des fragments de leurs souvenirs, mais ouvrir votre esprit à leurs connaissances et à leurs expériences leur permet également de s'immiscer dans vos affaires quotidiennes.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'izcxFQFwf3woCnFs'})\">Assistance</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6ZIKB0151LUR19Rw'})\">Mauvais présage</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rthC6dGm3nNrt1xN'})\">Porteur fantomatique</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y0Vy7iNL3ET8K00C'})\">Potentiel onirique</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd2pi7laQkzlr3wrS'})\">Toucher ancestral</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'J5KrjQKCg2PrF1vz'})\">Défense ancestrale</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xEjGEBvTfDJECSki'})\">Forme ancestrale</div></li></ul>\n<p>\"Domaines liés\" âme, devoir, mort, famille</p>\n<p>\"Compétence de mystère\" Société</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '55WR55op9BIdgF1B'})\">Murmures de faiblesse</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vXnMKFIxqLuCDW9q'})\">Malédiction de l'incursion ancestrale</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/qvRlih3u7vK3FYUR",
+        "id"          : "qvRlih3u7vK3FYUR",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ancêtres",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "g3HTg0z3doXZZzAV": {
-        "id"      : "g3HTg0z3doXZZzAV",
-        "text"    : "Cendres",
-        "category": "feat",
-        "href"    : "/class-features/g3HTg0z3doXZZzAV"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous considérez toutes les choses du monde comme passagères et temporaires, attendant d'être purifiées jusqu'à leur essence de base : la cendre laissée après un feu intense. Bien que vous compreniez que le feu est une partie nécessaire de ce processus, vous le voyez surtout comme un outil pour atteindre la pureté finale et non comme le véritable but. Vous avez beaucoup de points communs avec les oracles du mystère des flammes mais vous pouvez les considérer comme ayant une vision à court-terme ou, au mieux, simplement incapables de comprendre les vérités que leur feu brûlant apporte.</p>\n<p>Vous pourriez voir la cendre comme la seule véritable représentation de la nature impermanente de la vie et l'inutilité de l'existence. Vous pouvez aussi voir les bienfaits que la cendre apporte aux sols et aux terres agricoles comme faisant partie d'un cycle plus large de mort et de renaissance. Peut-être voyez-vous le phénix, avec son cycle de vie consistant à être réduit en cendres et à renaître, comme une créature sacrée qui a atteint un état d'être supérieur et qui est digne d'être imitée à moins de ne le voir comme une créature tragique qui ne pourra jamais atteindre un état de perfection.</p>\n<p>Si vous êtes fidèle à une divinité, vous pouvez suivre les dieux du feu comme Sarenrae, ceux qui réduisent les impuretés en cendres comme Brigh ou Torag ou ceux qui s'efforcent de tout réduire en cendres, comme l'archidémon Moloch ou le seigneur-démon Flauros.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"Tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6DfLZBl8wKIV03Iq'})\">Allumage</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9XHmC2JgTUIQ1CCm'})\">Brume</div>  (prend la forme de la cendre)</li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik'})\">Désintégration</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NtzNCW32UlPdY2xS'})\">Vent cendreux</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OTd17oXwJH9qb1cS'})\">Cendres incendiaires</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2B0C22OuX9YrIJ5y'})\">Forme de cendre</div></li></ul>\n<p>\"Domaines liés\" anéantissement, destruction, feu, poussière</p>\n<p>\"Compétence de mystère\" Occultisme</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '55WR55op9BIdgF1B'})\">Murmures de faiblesse</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2VclK5CWR1Vz1vqL'})\">Malédiction des cendres rampantes</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/g3HTg0z3doXZZzAV",
+        "id"          : "g3HTg0z3doXZZzAV",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cendres",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "gjOGOR30Czpnx3tM": {
-        "id"      : "gjOGOR30Czpnx3tM",
-        "text"    : "Combat",
-        "category": "feat",
-        "href"    : "/class-features/gjOGOR30Czpnx3tM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les forces belliqueuses vous remplissent de puissance physique et de connaissances tactiques, dans le but de vous faire défendre la gloire du combat, de vous battre pour améliorer le monde, de vous préparer à la nécessité d'un conflit ou d'endurer l'inévitabilité de la guerre. Vous pourriez tirer vos pouvoirs de divinités telles que Gorum, Iomédae, Rovagug, le Cavalier de la Guerre Szuriel, Eiseth la Reine de la Nuit, le dieu vudranais Diomazul ou d'autres ou vous pourriez puiser votre magie dans le conflit sans fin entre les armées du Paradis et de l'Enfer, les Plans élémentaires, les Dieux Extérieurs ou même de l'ensemble des esprits de ceux qui ont combattu lors des guerres à travers les âges.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TVKNbcgTee19PXZR'})\">Bouclier</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Coup assuré</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mrDi3v933gsmnw25'})\">Manoeuvre télékinétique</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8M03UxGXjYyDFAoy'})\">Tempête d'armes</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RpGB961b8FjXbGHi'})\">Transe d'arme</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2jWVNdVlbJq84dfT'})\">Persistance du champ de bataille</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Eed8QBWBtpufl1iP'})\">Se délecter du châtiment</div></li></ul>\n<p>\"Domaines liés\" destruction, protection, puissance, zèle</p>\n<p>\"Compétence de mystère\" Athlétisme</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gcliatty0MGYbTVV'})\">Avertissement oraculaire</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zLYqrQdheciiW2nm'})\">Malédiction du combattant mortel</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/gjOGOR30Czpnx3tM",
+        "id"          : "gjOGOR30Czpnx3tM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Combat",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "RI2EMRBBPNSoTJXu": {
-        "id"      : "RI2EMRBBPNSoTJXu",
-        "text"    : "Cosmos",
-        "category": "feat",
-        "href"    : "/class-features/RI2EMRBBPNSoTJXu"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les corps célestes, grands ou petits, exercent leur influence sur vous, vous donnant des pouvoirs cosmiques sublimes. Vous considérez peut-être les étoiles scintillantes comme une bénédiction divine ou vous vous sentez peut-être attiré par les espaces infiniment sombres qui les séparent. Vous pourriez peut-être tenir soutenir des divinités telles que Desna, Sarenrae ou les amoureux divins Shizuru et Tsukiyo qui représentent le soleil et la lune à moins que vous ne tiriez vos pouvoirs des entités sombres au-delà des étoiles, comme certains Dieux Extérieurs ou des divinités destructrices de la nuit comme Zon-Kuthon ou la déesse rat Lao Shu Po.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WBmvzNDfpwka3qT4'})\">Lumière</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UKsIOWmMx4hSpafl'})\">Couleurs vertigineuses</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4GE2ZdODgIQtg51c'})\">Ténèbres</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'YtesyvfAIwXOqISq'})\">Frénésie lunaire</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mlNYROcFrUF8nFgk'})\">Aspersion d'étoiles</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'L37RTc7K79OUpZ7X'})\">Vide intersidéral</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'In2A7GCyxxaqZdPI'})\">Pont de lumière lunaire</div></li></ul>\n<p>\"Domaines liés\" étoiles, ténèbres, lune, néant</p>\n<p>\"Compétence de mystère\" Nature</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gcliatty0MGYbTVV'})\">Avertissement oraculaire</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd03gBFLK4XJlDNNh'})\">Malédiction de l'appel des cieux</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/RI2EMRBBPNSoTJXu",
+        "id"          : "RI2EMRBBPNSoTJXu",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cosmos",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "1PHDn7WJFtR3NgTr": {
-        "id"      : "1PHDn7WJFtR3NgTr",
-        "text"    : "Décrépitude",
-        "category": "feat",
-        "href"    : "/class-features/1PHDn7WJFtR3NgTr"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Un bourgeon de printemps se flétrit, un chêne puissant s'écrase sur le sol de la forêt et une jeunesse fragile atteint la maturité avant de décliner jusqu'à la vieillesse. Vous savez qu'il n'y a pas lieu de s'alarmer ou de s'attrister. La décomposition est un élément essentiel du cycle de la nature, car les anciens disparaissent pour laisser la place aux jeunes ou pour les nourrir. Après tout, la fleur doit tomber pour que la graine pousse et l'arbre renversé ne fait pas seulement de la place pour que de nouvelles pousses s'épanouissent, mais constitue également le foyer d'une multitude de plantes, d'animaux et de champignons. La maladie, le poison et la pourriture sont autant d'outils qui vous permettent de vous débarrasser de créatures arrivées au terme de leur vie et qui reposent entre vos mains. Vous pouvez les manier pour mettre fin à des souffrances persistantes ou pour répandre la contagion sur des terres autrefois florissantes. Des médecins bien intentionnés, des guérisseurs obstinés ou des aventuriers zélés peuvent tenter de se mettre en travers de votre chemin, mais la pourriture finira par se répandre.</p>\n<p>Si vous êtes le fidèle d'une divinité, vous pourriez tendre vers les fins sinistres d'Apollyon, le Cavalier de la maladie, le Seigneur démon Cyth-V'sug ou Ghlaunder, le parasite. Vous pourriez trouver des alliés parmi les suivants de Groetus ou les cultes des Dieux extérieurs. Si vous considérez que votre vocation s'inscrit dans le cycle de l'existence, vous pouvez vénérer des demi-dieux veilleurs tels que Mère Vautour ou communier avec la nature.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"Tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'thAHF1zxNplLCJPO'})\">Explosion caustique</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1meVElIu1CEVYWkv'})\">Vapeurs nocives</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3VxVbZqIRvpKkg3O'})\">Infestation fongique</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MlpbeZ61Euhl0d60'})\">Nuage toxique</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DnVTBGCsai6zqMwL'})\">Chancre ulcéreux</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CBPcGH1FFDG9vf4Z'})\">Purging Toxins</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rqoWAxQv4RWbwyAr'})\">Accelerated Decomposition</div></li></ul>\n<p>\"Domaines liés\" mort, décomposition, désorientation, fléau</p>\n<p>\"Compétence de mystère\" Nature</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '55WR55op9BIdgF1B'})\">Murmures de faiblesse</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5QVUaQGT1FSkFOYP'})\">Malédiction de la pourriture inévitable</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/1PHDn7WJFtR3NgTr",
+        "id"          : "1PHDn7WJFtR3NgTr",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Décrépitude",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "GTSvbFb36InvuH0w": {
-        "id"      : "GTSvbFb36InvuH0w",
-        "text"    : "Flammes",
-        "category": "feat",
-        "href"    : "/class-features/GTSvbFb36InvuH0w"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le feu réside au centre du monde, au centre du soleil et au centre de la civilisation. Vous pourriez vénérer cette force élémentaire, siphonner vos pouvoirs depuis le Plan élémentaire du Feu ou adorer une collection de divinités telles que Asmodéus, Sarenrae, Dame Nanbyo la déesse tianaise des désastres et des volcans ou Yméri, la seigneur élémentaire du Feu.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6DfLZBl8wKIV03Iq'})\">Allumage</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZxHC7V7HtjUsB8zH'})\">Trait flamboyant</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sxQZ6yqTn0czJxVd'})\">Boule de feu</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"Initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AspA30tzKCHFWRf0'})\">Aura incendiaire</div></li><li>\"Avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Wi2HcreCfujKiCvW'})\">Flammes tourbillonnantes</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bynT1UKaDqr8dLNM'})\">Fusillade enflammée</div></li></ul>\n<p>\"Domaines liés\" étoile, feu, poussière, soleil</p>\n<p>\"Compétence de mystère\" Acrobaties</p>\n<p>\"Tour de magie accordé\" <em>  Flammes </em></p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CuVvDrBaVP9nYJlt'})\">Prédire le mal</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RI2UHuUZd3TC1OE8'})\">Malédiction des flammes engloutissantes</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/GTSvbFb36InvuH0w",
+        "id"          : "GTSvbFb36InvuH0w",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Flammes",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "IaxmCkdsPlA52spu": {
-        "id"      : "IaxmCkdsPlA52spu",
-        "text"    : "Ossements",
-        "category": "feat",
-        "href"    : "/class-features/IaxmCkdsPlA52spu"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre mystère vous permet de comprendre la mort et la mort-vivance dans toute leur complexité macabre. Vous pourriez avoir frôlé la mort de près vous-même, voire peut-être être mort avant de revenir à la vie ou porter en votre sang une trace de mort-vivance. Si vous communiez avec des divinités, vous pourriez parler avec des gardiens de la mort comme Pharasma et les huissiers psychopompes (les créatures les plus puissantes parmi celles qui guident les âmes dans l'après-vie), un semeur de mort comme le dieu Mante Achaékek ou Charon le Cavalier de l'Apocalypse ou encore une entité liée à la mort-vivance comme Urgathoa.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mAMEt4FFbdqoRnkN'})\">Distorsion du vide</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'k34hDOfIIMAxNL4a'})\">Sinistres volutes</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8ViwItUgwT4lOvvb'})\">Fausse Vitalité</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AMEu5zzLN7uCX645'})\">Arme fantomatique</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'D6T17BdazhNy3KPm'})\">Siphon d'âme</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pSNLufPPsReKQtJR'})\">Armure d'os</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GzN9bG6cKZ96YC6l'})\">Revendication de mort-vivant</div></li></ul>\n<p>\"Domaines liés\" décomposition, mort, mort-vivant, veille</p>\n<p>\"Compétence de mystère\" Médecine</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'acJkVtpX2GUvl90E'})\">Faire pencher la balance</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8ODGE24gqEdzWljj'})\">Malédiction de la mort vivante</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/IaxmCkdsPlA52spu",
+        "id"          : "IaxmCkdsPlA52spu",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ossements",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "tZBb3Kh4nJcNoUFI": {
-        "id"      : "tZBb3Kh4nJcNoUFI",
-        "text"    : "Savoir",
-        "category": "feat",
-        "href"    : "/class-features/tZBb3Kh4nJcNoUFI"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Les connaissances et les informations s'immiscent librement dans votre esprit. Vous pourriez utiliser ce savoir pour acquérir du pouvoir ou peut-être pour comprendre les mystères divins du multivers. Vous pourriez disposer d'un lien vers les célèbres Archives akashiques, maintenir un contact télépathique subtil avec la conscience collective de toutes les créatures vivantes ou suivre les pas de divinités telles qu'Abadar, Irori, Néthys ou le neveu érudit d'Irori, Gruhastha, la déesse féerique tripartite Magdh ou l'entité divine des veilleurs appelée la Monade.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OhD2Z6rIGGD5ocZA'})\">Lecture d'aura</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'D442XMADp01qJ7Cs'})\">Lien mental</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZYoC630tNGutgbE0'})\">Hypercognition</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5BbU1V6wGSGbrmRD'})\">Écervelé</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'k2QrUk7jWMAWozMh'})\">Drain du cerveau</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LbPLNWlLCxKCo5gF'})\">Accès au savoir</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XULNb8ItUsfupxqH'})\">Secret effroyable</div></li></ul>\n<p>\"Domaines liés\" connaissance, magie, secret, vérité</p>\n<p>\"Compétence de mystère\" Occultisme et une compétence de Connaissance de votre choix</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '55WR55op9BIdgF1B'})\">Murmures de faiblesse</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XQjR07LkDedC7tkc'})\">Malédiction de l'afflux de connaissances</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/tZBb3Kh4nJcNoUFI",
+        "id"          : "tZBb3Kh4nJcNoUFI",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Savoir",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "W9cF7wZztLDb1WGY": {
-        "id"      : "W9cF7wZztLDb1WGY",
-        "text"    : "Tempête",
-        "category": "feat",
-        "href"    : "/class-features/W9cF7wZztLDb1WGY"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>La fureur du vent et des vagues tambourine dans votre cœur, peu importe que votre pouvoir provienne de tempêtes naturelles, d'un conduit vers les plans élémentaires de l'air et de l'eau ou de la vénération de divinités telles que Gozreh, le dieu tengu des tempêtes Hei Feng, la reine pirate Besmara ou les seigneurs élémentaires de l'air et de l'eau.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kBhaPuzLUSwS6vVf'})\">Arc électrique</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zDJS8E66UI0himqV'})\">Foudroiement</div></li><li>\"4e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Y3G6Y6EDgCY0s3fq'})\">Torrent hydraulique</div></li><li>\"6e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TDNlDWbYb58Y55Da'})\">Éclairs multiples</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>Initial  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EzB9i7R6aBRAtJCh'})\">Toucher tempétueux</div></li><li>Avancé  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LFSwMtQVP05EzlZe'})\">Explosion tonitruante</div></li><li>Supérieur  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zhqnMOVPzVvWSUbC'})\">Forme tempétueuse</div></li></ul>\n<p>\"Domaines liés\" air, éclair, eau, froid</p>\n<p>\"Compétence de mystère\" Nature</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CuVvDrBaVP9nYJlt'})\">Prédire le mal</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LIV2gH3ZUFlu0zu4'})\">Malédiction des vents contraires</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/W9cF7wZztLDb1WGY",
+        "id"          : "W9cF7wZztLDb1WGY",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Tempête",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "EslxR2sbDK9XJaAl": {
-        "id"      : "EslxR2sbDK9XJaAl",
-        "text"    : "Temps",
-        "category": "feat",
-        "href"    : "/class-features/EslxR2sbDK9XJaAl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que ce soit par accident, par le destin ou par le jeu d'une intervention délibérée, vous existez légèrement en dehors du temps. Alors qu'au départ, vous n'êtes pas lié à l'instant, le défilé incessant des millisecondes s'accumule pour vous faire dévier de plus en plus de votre ligne de temps naturelle, souvent dans des directions contradictoires. Vous pourriez considérer cela comme une bénédiction, peut-être comme le signe que vous êtes en quelque sorte au-delà de la mortalité ou que vous ne pouvez pas être contenu dans les limites de la réalité ou vous pourriez le voir comme une malédiction cruelle qui fait que votre propre vie part à la dérive alors même que vous gagnez du pouvoir sur le temps. De nombreux oracles du temps sont sans foi et se fient à leurs propres instincts pour survivre ou se tournent vers des rituels étranges et des magies interdites pour tenter de se libérer de l'emprise du temps. Les oracles qui vénèrent des divinités adorent le plus souvent Pharasma, déesse du destin qui voit tous les futurs possibles pour tous ceux qui ont vécu ou Alséta, déesse des transitions et du passage du temps.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BvNbDwFYaidKJG9j'})\">Perception du temps</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rerNA6YZsdxuJYt3'})\">Déjà Vu</div></li><li>\"3e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0Rl3W7kiq9xVZRcr'})\">Poche de temps</div></li><li>\"7e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'G56DJkxlUjFv0C4Z'})\">Repère temporel</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"Initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UbHK19RYbxRXWgWX'})\">Distorsion temporelle</div></li><li>\"Avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LbqunTurwXB3u9Vp'})\">Passage du temps</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MT8usUfwudDVUm5H'})\">Vies multiples</div></li></ul>\n<p>\"Domaines liés\" anéantissement, changement, destin, temps</p>\n<p>\"Compétence de mystère\" Occultisme</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gcliatty0MGYbTVV'})\">Avertissement oraculaire</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'X6GQ4ngqpjP8SpCq'})\">Malédiction des moments de turbulence</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/EslxR2sbDK9XJaAl",
+        "id"          : "EslxR2sbDK9XJaAl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Temps",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "o1gGG36wpn9mxeop": {
-        "id"      : "o1gGG36wpn9mxeop",
-        "text"    : "Vie",
-        "category": "feat",
-        "href"    : "/class-features/o1gGG36wpn9mxeop"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous ressentez le flux incessant d'énergie de force vitale qui traverse les créatures vivantes. Vous pourriez vénérer l'aspect sacré de la vie ou, à l'inverse, chercher à la détruire. Vous pourriez tirer vos pouvoirs de la vitalité collective de l'ensemble des créatures vivantes du monde, posséder un certain lien avec la Forge de la création ou vénérer un groupe de divinités comme Irori, Pharasma, Sarenrae et le dieu de la médecine Qi Zhong.</p>\n<p>\"Sorts accordés\"</p>\n<ul><li>\"tour de magie\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kcelf6IHl3L9VXXg'})\">Déchaînement de vitalité</div></li><li>\"1er\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'szIyEsvihc5e1w8n'})\">Apaiser</div></li><li>\"2e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8ViwItUgwT4lOvvb'})\">Fausse vitalité</div></li><li>\"5e\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9sBzPOXX3KT8uTu'})\">Horribles excroissances</div></li></ul>\n<p>\"Sorts de révélation\"</p>\n<ul><li>\"initial\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2gQYrCPwBmwau26O'})\">Lien vital</div></li><li>\"avancé\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ziHDISWkFSwz3pmn'})\">Retarder l'affliction</div></li><li>\"supérieur\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9kOI14Jep97TzGO7'})\">Forme génératrice de vie</div></li></ul>\n<p>\"Domaines liés\" âme, douleur, guérison, mort</p>\n<p>\"Compétence de mystère\" Médecine</p>\n<p>\"Don d'oracle\"  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'acJkVtpX2GUvl90E'})\">Faire pencher la balance</div></p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zO7dvBgLuhdGfP5t'})\">Malédiction de la vie déversée</div></p>",
+        "element_type": null,
+        "href"        : "/class-features/o1gGG36wpn9mxeop",
+        "id"          : "o1gGG36wpn9mxeop",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Vie",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "FPVe3o7YctBicSQa": {
-        "id"      : "FPVe3o7YctBicSQa",
-        "text"    : "Révélation avancée",
-        "category": "feat",
-        "href"    : "/feats/FPVe3o7YctBicSQa"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>La puissance divine vous révèle de plus grands mystères. Vous apprenez un sort de révélation avancé associé à votre mystère.</p>",
+        "element_type": "DON 6",
+        "href"        : "/feats/FPVe3o7YctBicSQa",
+        "id"          : "FPVe3o7YctBicSQa",
+        "price"       : null,
+        "required"    : [
+            "Sort de révélation initial"
+        ],
+        "text"        : "Révélation avancée",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "HSW3N9pfHhM7upRB": {
-        "id"      : "HSW3N9pfHhM7upRB",
-        "text"    : "Révélation supérieure",
-        "category": "feat",
-        "href"    : "/feats/HSW3N9pfHhM7upRB"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous débloquez des révélations plus profondes cachées dans votre mystère. Vous gagnez le sort de révélation supérieure de votre mystère.</p>",
+        "element_type": "DON 12",
+        "href"        : "/feats/HSW3N9pfHhM7upRB",
+        "id"          : "HSW3N9pfHhM7upRB",
+        "price"       : null,
+        "required"    : [
+            "sort de révélation initial"
+        ],
+        "text"        : "Révélation supérieure",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "2HeRmbcHcsRMccir": {
-        "id"      : "2HeRmbcHcsRMccir",
-        "text"    : "Mystère diversifié",
-        "category": "feat",
-        "href"    : "/feats/2HeRmbcHcsRMccir"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez élargi votre compréhension du divin et pouvez puiser dans les merveilles d'un mystère différent. Choisissez un sort de révélation d'un mystère différent du vôtre. Vous ne pouvez choisir qu'un sort de révélation initial ou un sort de révélation avancé.</p>\n<p>Ce sort acquiert le trait malédiction pour vous, et quand vous le lancez, vous gagnez l'effet  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zXZjC8HLaRoLR17U'})\">Lié à la malédiction 1</div>  de ce mystère en plus de vos effets normaux de malédiction. Toute capacité qui vous permettrait de d'utiliser une capacité de malédiction sans augmenter la sévérité de votre malédiction vous empêche également d'obtenir cet effet de malédiction supplémentaire.</p>\n<p>Vous ne pouvez pas lancer le sort de révélation choisi si une des conditions suivantes est remplie :</p>\n<ul><li>ses effets de malédiction de mystère rentrent en conflit direct avec ou annule les effets de votre propre malédiction de mystère,</li><li>la malédiction n'aurait aucun effet sur vous (par exemple, supprimer une capacité de votre mystère originel que vous ne possédez pas)</li><li>ou que l'un de ces critères serait rempli une fois que vous aurez achevé de Lancer le sort.</li></ul>",
+        "element_type": "DON 16",
+        "href"        : "/feats/2HeRmbcHcsRMccir",
+        "id"          : "2HeRmbcHcsRMccir",
+        "price"       : null,
+        "required"    : [
+            "Révélation avancée"
+        ],
+        "text"        : "Mystère diversifié",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "qmFWCHOuubEl7VpX": {
-        "id"      : "qmFWCHOuubEl7VpX",
-        "text"    : "Sagacité du domaine",
-        "category": "feat",
-        "href"    : "/feats/qmFWCHOuubEl7VpX"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Chaque mystère d'oracle touche à un domaine divin des divinités qui l'alimentent. Vous avez accès à ce pouvoir. Choisissez un des domaines associés à votre mystère pour lequel vous n'avez pas déjà un sort de domaine initial. Vous obtenez un sort de domaine initial de ce domaine, que vous pouvez lancer comme un sort de révélation.</p>\n<p>\"Spécial\" Vous pouvez sélectionner ce don plusieurs fois et choisir, à chaque fois, un domaine différent en gagnant ainsi son sort de domaine comme un sort de révélation.</p>",
+        "element_type": "DON 2",
+        "href"        : "/feats/qmFWCHOuubEl7VpX",
+        "id"          : "qmFWCHOuubEl7VpX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Sagacité du domaine",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "ENoRkTXtdfsbs98S": {
-        "id"      : "ENoRkTXtdfsbs98S",
-        "text"    : "Maîtrise du domaine",
-        "category": "feat",
-        "href"    : "/feats/ENoRkTXtdfsbs98S"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez une profonde compréhension des domaines en rapport avec votre mystère. Choisissez un des domaines associés à votre mystère pour lequel vous avez un sort de domaine initial. Vous obtenez un sort de domaine avancé pour ce domaine, que vous lancez comme un sort de révélation.</p>",
+        "element_type": "DON 12",
+        "href"        : "/feats/ENoRkTXtdfsbs98S",
+        "id"          : "ENoRkTXtdfsbs98S",
+        "price"       : null,
+        "required"    : [
+            "Sagacité du domaine"
+        ],
+        "text"        : "Maîtrise du domaine",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "zXZjC8HLaRoLR17U": {
-        "id"      : "zXZjC8HLaRoLR17U",
-        "text"    : "Lié à la malédiction",
-        "category": "item",
-        "href"    : "/conditions/zXZjC8HLaRoLR17U"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Votre malédiction oraculaire vous enserre lorsque vous recevez une punition divine après avoir puisé trop profondément sur vos pouvoirs de mystère. Lié à la malédiction est un état qui n'affecte que les créatures avec une malédiction oraculaire et Lié à la malédiction inclut toujours une valeur. Votre malédiction oraculaire spécifique impose d'uniques effets négatifs en fonction de la valeur de l'état Lié à la malédiction. Vous pouvez retirer l'état Lié à la malédiction qu'en Refocalisant.</p>",
+        "element_type": null,
+        "href"        : "/conditions/zXZjC8HLaRoLR17U",
+        "id"          : "zXZjC8HLaRoLR17U",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Lié à la malédiction",
+        "traits"      : []
     },
     "DmAIPqOBomZ7H95W": {
-        "id"      : "DmAIPqOBomZ7H95W",
-        "text"    : "Masquées",
-        "category": "item",
-        "href"    : "/conditions/DmAIPqOBomZ7H95W"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes difficile à voir pour une ou plusieurs créatures à cause d'un épais brouillard ou d'un autre élément occultant. Vous pouvez être Masqué de certaines créatures mais pas à l'égard des autres. Lorsque vous êtes masqué, vous pouvez toujours être  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1wQY3JYyhMYeeV2G'})\">Observé</div> , mais vous êtes plus compliqué à cibler. Une créature face à laquelle vous êtes Masqué doit réussir un  Test nu  lorsqu'elle vous cible avec une attaque, un sort ou un autre effet. Si le jet est un échec, vous n'être pas affecté. Les zones d'effet ne sont pas sujettes à ce test nu.</p>",
+        "element_type": null,
+        "href"        : "/conditions/DmAIPqOBomZ7H95W",
+        "id"          : "DmAIPqOBomZ7H95W",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Masquées",
+        "traits"      : []
     },
     "Gb7SeieEvd0pL2Eh": {
-        "id"      : "Gb7SeieEvd0pL2Eh",
-        "text"    : "Coup assuré",
-        "category": "spell",
-        "href"    : "/spells/Gb7SeieEvd0pL2Eh"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Un aperçu de l'avenir vous assure que votre prochain coup frappera juste. La prochaine fois que vous effectuez un jet d'attaque avant la fin de votre tour, lancez l'attaque deux fois et utilisez le meilleur résultat. L'attaque ignore les pénalités de circonstances au jet d'attaque et vous n'avez pas besoin d'effectuer le test nu si la cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masquée</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Cachée</div> . Vous êtes temporairement immunisé à <em>Coup assuré</em> pendant 10 minutes.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fpGDAz2v5PG0zUSl'})\">Effet : Coup assuré</div></p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/Gb7SeieEvd0pL2Eh",
+        "id"          : "Gb7SeieEvd0pL2Eh",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Coup assuré",
+        "traits"      : [
+            "Concentration",
+            "Fortune"
+        ]
     },
     "SUKaxVZW2TlM8lu0": {
-        "id"      : "SUKaxVZW2TlM8lu0",
-        "text"    : "Affliction purifiée",
-        "category": "spell",
-        "href"    : "/spells/SUKaxVZW2TlM8lu0"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>La magie douce et réparatrice repousse les effets des toxines et de maladies plus complexes. Choisissez une affliction sur la cible, comme une malédiction, une maladie ou un poison. Si elle a dépassé le stade un, réduisez le stade de un. Cette réduction ne peut être appliquée qu'une seule fois à un cas donné d'affliction, le cas se terminant lorsqu'il est complètement guéri. Bien que la réduction ne puisse se reproduire, les versions intensifiées de ce sort tentent de la contrer à chaque incantation.</p>\n<p>\"Intensifié (3e)\" Tente de contrer l'affliction si c'est une maladie ou un poison.</p>\n<p>\"Intensifié (4e)\" Tente de contrer l'affliction si c'est une maladie, une malédiction ou un poison.</p>",
+        "element_type": "SORT 2",
+        "href"        : "/spells/SUKaxVZW2TlM8lu0",
+        "id"          : "SUKaxVZW2TlM8lu0",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Affliction purifiée",
+        "traits"      : [
+            "Concentration",
+            "Guérison",
+            "Manipulation"
+        ]
     },
     "PRJYLksQEwT39bTl": {
-        "id"      : "PRJYLksQEwT39bTl",
-        "text"    : "Mystère",
-        "category": "feat",
-        "href"    : "/class-features/PRJYLksQEwT39bTl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Un oracle manie la puissance divine, mais pas celle d'un unique être divin. Ce pouvoir pourrait avoir comme origine un concept puissant ou un idéal, l'attention de plusieurs entités divines dons les domaines d'attention concernent ce sujet ou un conduit direct et dangereux vers la puissance divine brute. C'est le mystère de l'oracle, une source de magie divine qui n'appartient pas à une divinité.</p>\n<p>Choisissez le mystère qui alimente votre magie. Votre mystère vous accorde des sorts supplémentaires et des sorts focalisés spécifiques appelés sorts de révélation. Votre mystère vous accorde également une capacité liée à la malédiction unique qui vous permet de puiser dans le divin, ainsi que de dicter les effets de la malédition oraculaire qui vous afflige lorsque vous touchez trop à cette puissance.</p>\n<ul><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qvRlih3u7vK3FYUR'})\">Ancêtres</div>  Les voix des générations précédentes vous enseignent et vous hantent.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'g3HTg0z3doXZZzAV'})\">Cendres</div>  Vous considérez toutes les choses du monde comme passagères et temporaires, attendant d'être purifiées jusqu'à leur essence de base : la cendre laissée après un feu intense.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gjOGOR30Czpnx3tM'})\">Combat</div>  Vous incarnez les vertus des héros de légende.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RI2EMRBBPNSoTJXu'})\">Cosmos</div>  Vous tirez votre puissance des étoiles et de l'espace qui les séparent.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1PHDn7WJFtR3NgTr'})\">Décrépitude</div>  Un bourgeon de printemps se fane, un chêne puissant s'écrase sur le sol de la forêt et un novice grandit jusqu'à la maturité, puis décline vers la vieillesse.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GTSvbFb36InvuH0w'})\">Flammes</div>  Vous dansez avec le feu et faites de votre mieux pour ne pas vous y brûler.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IaxmCkdsPlA52spu'})\">Ossements</div>  La mort semble toujours proche et les morts vous parlent.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tZBb3Kh4nJcNoUFI'})\">Savoir</div>  Vous obtenez un accès à une connaissance sans pareille mais écrasante.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'W9cF7wZztLDb1WGY'})\">Tempête</div>  Le vent, les vagues et les tempêtes se déchaînent sur vous.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EslxR2sbDK9XJaAl'})\">Temps</div>  Que ce soit par accident, par le destin ou par le jeu d'une intervention délibérée, vous existez légèrement en dehors du temps.</li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o1gGG36wpn9mxeop'})\">Vie</div>  Les énergies foisonnantes de la vie s'écoulent à travers vous vers le monde.</li></ul>\n<h3>Lire une description de mystère</h3>\n<p>Une description de mystère comprend les informations suivantes et est suivie d'une description de la malédiction de ce mystère.</p>\n<p>\"Sorts accordés\" Vous ajoutez automatiquement les sorts indiqués ici aux sorts de votre répertoire de sorts comme indiqué dans Répertoire de sorts. Au niveau 1, vous obtenez un tour de magie et un sort de rang 1. Vous apprenez les autres sorts de la liste dès que vous obtenez la capacité de lancer de sorts de ce rang.</p>\n<p>\"Sorts de révélation\" Vous obtenez automatiquement le sort de révélation initial de votre mystère au niveau 1 et pouvez en gagner d'autres en choisissant les dons d'oracle  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FPVe3o7YctBicSQa'})\">Révélation avancée</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HSW3N9pfHhM7upRB'})\">Révélation supérieure</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HeRmbcHcsRMccir'})\">Mystère diversifié</div> .</p>\n<p>\"Domaines liés\" Il s'agit des domaines de prêtre associés à votre mystère. Vous obtenez des sorts de domaine en prenant le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qmFWCHOuubEl7VpX'})\">Sagacité du domaine</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ENoRkTXtdfsbs98S'})\">Maîtrise du domaine</div> . Au niveau 11, la capacité de classe Accès divin vous donne également d'autres sorts d'emplacements supplémentaires en fonction de vos domaines.</p>\n<p>\"Compétence de mystère\" Vous êtes qualifié dans la compétence indiquée. Quelques mystères peuvent vous qualifier dans plus d'une compétence.</p>\n<p>\"Don d'oracle\" Vous obtenez ce don d'oracle de niveau 1. C'est un don Lié à la malédiction de sorte que son utilisation aggrave votre malédiction oraculaire.</p>",
+        "element_type": null,
+        "href"        : "/class-features/PRJYLksQEwT39bTl",
+        "id"          : "PRJYLksQEwT39bTl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mystère",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "PExiZZTSP4p7TZaW": {
-        "id"      : "PExiZZTSP4p7TZaW",
-        "text"    : "Providence oraculaire",
-        "category": "feat",
-        "href"    : "/feats/PExiZZTSP4p7TZaW"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre mystère vous accorde un accès à de profondes réserves de pouvoir divin réellement miraculeux. Vous obtenez un emplacement de sort de rang 10 supplémentaire.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/PExiZZTSP4p7TZaW",
+        "id"          : "PExiZZTSP4p7TZaW",
+        "price"       : null,
+        "required"    : [
+            "Clarté oraculaire"
+        ],
+        "text"        : "Providence oraculaire",
+        "traits"      : [
+            "Oracle"
+        ]
     },
     "ZZzLMOUAtBVgV1DF": {
-        "id"      : "ZZzLMOUAtBVgV1DF",
-        "text"    : "Prêtre cloîtré",
-        "category": "feat",
-        "href"    : "/class-features/ZZzLMOUAtBVgV1DF"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes un prêtre du clergé qui se concentre sur la magie divine et votre lien dans les domaines de votre divinité.</p>\n<p>\"Première doctrine\" (1er) vous obtenez le don de prêtre  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hT4INKGtly4QY8KN'})\">Initié du domaine</div> .</p>\n<p>\"Deuxième doctrine\" (3e) Vous devenez expert en jets de Vigueur.</p>\n<p>\"Troisième doctrine (7e)\" Votre degré de maîtrise pour le modificateur d'attaque de sort et les statistiques du DD passe à expert.</p>\n<p>\"Quatrième doctrine (11e)\" vous devenez expert avec l'arme de prédilection de votre divinité, les armes simples et les attaques à mains nues. Quand vous obtenez un coup critique sur un jet d'attaque en utilisant l'arme de prédilection de votre divinité, vous appliquez l'effet critique spécialisé de l'arme ; vous pouvez utiliser le DD de vos sorts au lieu de votre DD de classe.</p>\n<p>\"Cinquième doctrine\" Votre degré de maîtrise pour le modificateur d'attaque de sort et les statistiques du DD passe à maître.</p>\n<p>\"Dernière doctrine\" Votre degré de maîtrise pour le modificateur d'attaque de sort et les statistiques du DD passe à légendaire.</p>",
+        "element_type": null,
+        "href"        : "/class-features/ZZzLMOUAtBVgV1DF",
+        "id"          : "ZZzLMOUAtBVgV1DF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Prêtre cloîtré",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "0Aocw3igLwna9cjp": {
-        "id"      : "0Aocw3igLwna9cjp",
-        "text"    : "Prêtre combattant",
-        "category": "feat",
-        "href"    : "/class-features/0Aocw3igLwna9cjp"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous êtes entraîné auprès de la doctrine la plus militante de votre église, vous concentrant à la fois sur les sorts et le combat.</p>\n<p>\"Première doctrine (1er)\" vous êtes qualifié avec les armures légères et intermédiaires et vous êtes expert en jets de Vigueur. Vous obtenez le don général  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jM72TjJ965jocBV8'})\">Blocage au bouclier</div> , une réaction pour réduire les dégâts avec un bouclier. Si l'arme de prédilection de votre divinité est simple ou une attaque à mains nues, vous obtenez le don de prêtre  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DfLkIIg2reyYW3a8'})\">Simplicité mortelle</div> . Au niveau 13, si vous obtenez la capacité de classe  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '0mJTp4LdEHBLInoe'})\">Défense divine</div> , vous devenez aussi expert avec les armures légères et intermédiaires.</p>\n<p>\"Deuxième doctrine (3e)\" vous êtes qualifié avec les armes de guerre.</p>\n<p>\"Troisième doctrine (7e)\" vous devenez expert avec les attaques à mains nues, les armes simples et l'arme de prédilection de votre divinité. Quand vous obtenez un coup critique sur un jet d'attaque en maniant cette dernière, vous appliquez l'effet critique spécialisé de l'arme ; Vous pouvez utiliser le DD de vos sorts au lieu de votre DD de classe.</p>\n<p>\"Quatrième doctrine (11e)\" votre degré de maîtrise en modificateur d'attaque de sort et en statistiques de DD passe à expert.</p>\n<p>\"Cinquième doctrine (15e)\" votre degré de maîtrise en jets de Vigueur passe à maître. Quand vous obtenez un succès sur un jet de Vigueur, il devient un succès critique.</p>\n<p>\"Dernière doctrine (19e)\" Votre degré de maîtrise avec l'arme de prédilection de votre divinté, le modificateur d'attaque de sorts et en DD de sorts passe à maître.</p>",
+        "element_type": null,
+        "href"        : "/class-features/0Aocw3igLwna9cjp",
+        "id"          : "0Aocw3igLwna9cjp",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Prêtre combattant",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "hT4INKGtly4QY8KN": {
-        "id"      : "hT4INKGtly4QY8KN",
-        "text"    : "Initié du domaine",
-        "category": "feat",
-        "href"    : "/feats/hT4INKGtly4QY8KN"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre divinité vous octroie un sort spécial en rapport avec ses pouvoirs. Choisissez un domaine - un sujet qui vous intéresse plus particulièrement au sein de votre religion - issu de la liste de votre divinité. Vous obtenez le sort initial de ce domaine, un sort particulier au domaine que les autres prêtres ne peuvent obtenir.</p>\n<p>Les sorts de domaine forment un type particulier de sorts focalisés. Il faut dépenser 1 point de focalisation pour lancer un sort focalisé et vous commencez avec une réserve de focalisation de 1 point. Vous remplissez votre réserve de focalisation lors de vos préparatifs quotidiens et vous pouvez récupérer 1 point de focalisation en utilisant passant 10 minutes à réaliser l'activité Refocaliser pour prier votre divinité ou en office religieux en l'honneur de sa cause.</p>\n<p>Un sort focalisé est automatiquement intensifié à la moitié de votre niveau arrondi au supérieur, comme un tour de magie. Un sort focalisé ne nécessite pas d'emplacement de sort et vous ne pouvez pas le lancer en utilisant un emplacement de sort. Votre réserve de focalisation peut contenir un Point de focalisation par sort focalisé, sans jamais dépasser 3 points.</p>\n<p>\"Spécial\" Vous pouvez choisir ce don plusieurs fois, en sélectionnant à chaque fois un domaine différent en obtenant son sort de domaine.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/hT4INKGtly4QY8KN",
+        "id"          : "hT4INKGtly4QY8KN",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Initié du domaine",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "DfLkIIg2reyYW3a8": {
-        "id"      : "DfLkIIg2reyYW3a8",
-        "text"    : "Simplicité mortelle",
-        "category": "feat",
-        "href"    : "/feats/DfLkIIg2reyYW3a8"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Quand vous maniez l'arme de prédilection de votre divinité, augmentez la taille du dé de dégâts de cette arme d'un cran.</p>\n<p>Si l'arme de prédilection de votre divinité est une attaque à mains nues (comme le poing, si vous vénérez Irori) et que son dé de dégâts est inférieur au d6, augmentez à la place la taille de son dé de dégâts au d6.</p>",
+        "element_type": "DON 1",
+        "href"        : "/feats/DfLkIIg2reyYW3a8",
+        "id"          : "DfLkIIg2reyYW3a8",
+        "price"       : null,
+        "required"    : [
+            "divinité dont l'arme de prédilection est une arme simple ou une attaque à mains nues",
+            ", qualifié avec l'arme de prédilection de votre divinité"
+        ],
+        "text"        : "Simplicité mortelle",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "0mJTp4LdEHBLInoe": {
-        "id"      : "0mJTp4LdEHBLInoe",
-        "text"    : "Défense divine",
-        "category": "feat",
-        "href"    : "/class-features/0mJTp4LdEHBLInoe"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre entraînement et votre divinité vous protègent contre les coups. Votre degré de maîtrise pour la défense sans armure passe à expert.</p>",
+        "element_type": null,
+        "href"        : "/class-features/0mJTp4LdEHBLInoe",
+        "id"          : "0mJTp4LdEHBLInoe",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Défense divine",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "rfZpqmj0AIIdkVIs": {
-        "id"      : "rfZpqmj0AIIdkVIs",
-        "text"    : "Guérison",
-        "category": "spell",
-        "href"    : "/spells/rfZpqmj0AIIdkVIs"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous canalisez de l'énergie vitale pour soigner les vivants ou blesser les morts-vivants. Si la cible est une créature vivante consentante, vous lui redonnez 1d8 Points de vie. Si la cible est un mort-vivant, vous lui infligez ce montant de dégâts de vitalité et elle obtient un jet de Vigueur basique. Le nombre d'actions que vous passez à Lancer ce sort détermine ses cibles, sa portée, sa zone et d'autres paramètres.</p>\n<p>1 Le sort a une portée de contact.</p>\n<p>2 \"(concentration)\" Le sort a une portée de 9 mètres. Si vous soignez une créature vivante, augmentez de 8 les Points de vie récupérés.</p>\n<p>3 \"(concentration)\" Vous dispersez de l'énergie vitale dans une  émanation de 9 mètres . Cela cible toutes les créatures vivantes et mortes-vivantes dans l'explosion.</p>\n<p>\"Intensifié (+1)\" Le montant des soins ou des dégâts augmente de 1d8 et les soins supplémentaires de la version à 2 actions augmentent de 8.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/rfZpqmj0AIIdkVIs",
+        "id"          : "rfZpqmj0AIIdkVIs",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Guérison",
+        "traits"      : [
+            "Guérison",
+            "Manipulation",
+            "Vitalité"
+        ]
     },
     "wdA52JJnsuQWeyqz": {
-        "id"      : "wdA52JJnsuQWeyqz",
-        "text"    : "Mise à mal",
-        "category": "spell",
-        "href"    : "/spells/wdA52JJnsuQWeyqz"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous canalisez de l'énergie du vide pour blesser les vivants ou soigner les morts-vivants. Si la cible est une créature vivante, vous lui infligez 1d8 dégâts de vide et elle obtient un jet de Vigueur basique. Si la cible est un mort-vivant consentant, vous lui redonnez ce montant en Points de vie. Le nombre d'actions que vous passez à Lancer ce sort détermine ses cibles, sa portée, sa zone et d'autres paramètres.</p>\n<p>1 Le sort a une portée de contact.</p>\n<p>2 \"(concentration)\" Le sort a une portée de 9 mètres. Si vous soignez un mort-vivant, augmentez de 8 les Points de vie qu'il récupère.</p>\n<p>3 \"(concentration)\" Vous dispersez de l'énergie du vide dans une  émanation de 9 mètres . Cela cible toutes les créatures vivantes et mortes-vivantes dans la zone.</p>\n<p>\"Intensifié (+1)\" Le montant des soins ou des dégâts augmente de 1d8 et les soins supplémentaires de la version à 2 actions augmentent de 8.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/wdA52JJnsuQWeyqz",
+        "id"          : "wdA52JJnsuQWeyqz",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mise à mal",
+        "traits"      : [
+            "Manipulation",
+            "Vide"
+        ]
     },
     "QDjpZKOrWIV1G8XJ": {
-        "id"      : "QDjpZKOrWIV1G8XJ",
-        "text"    : "Faiseur de miracles",
-        "category": "feat",
-        "href"    : "/feats/QDjpZKOrWIV1G8XJ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes le vecteur d'un pouvoir véritablement divin. Vous obtenez un emplacement de sort de rang 10 supplémentaire.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/QDjpZKOrWIV1G8XJ",
+        "id"          : "QDjpZKOrWIV1G8XJ",
+        "price"       : null,
+        "required"    : [
+            "Sort miraculeux"
+        ],
+        "text"        : "Faiseur de miracles",
+        "traits"      : [
+            "Prêtre"
+        ]
     },
     "JYi4MnsdFu618hPm": {
-        "id"      : "JYi4MnsdFu618hPm",
-        "text"    : "Chasser une proie",
-        "category": "action",
-        "href"    : "/actions/JYi4MnsdFu618hPm"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous désignez une unique créature qui devient votre proie et vous concentrez vos attaques sur celle-ci. Vous devez voir ou entendre la proie ou vous devez être en train de la pister pendant l'exploration.</p>\n<p>Vous bénéficiez d'un bonus de circonstances de +2 aux tests de Perception quand vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Cherchez</div>  votre proie et aux tests de Survie quand vous la  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD'})\">Pistez</div> . Vous ignorez également la pénalité si la proie que vous chassez se trouve dans le deuxième facteur de portée de votre arme à distance.</p>\n<p>Vous ne pouvez désigner qu'une créature comme proie à la fois. Si vous utilisez Chasser une proie pour désigner une autre créature alors que vous avez déjà une créature désignée comme proie, la précédente est remplacée par la dernière qui devient votre nouvelle proie. Cette désignation dure jusqu'à vos prochains préparatifs quotidiens.</p>",
+        "element_type": null,
+        "href"        : "/actions/JYi4MnsdFu618hPm",
+        "id"          : "JYi4MnsdFu618hPm",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Chasser une proie",
+        "traits"      : [
+            "Concentration",
+            "Rôdeur"
+        ]
     },
     "EA5vuSgJfiHH7plD": {
-        "id"      : "EA5vuSgJfiHH7plD",
-        "text"    : "Pistez",
-        "category": "action",
-        "href"    : "/actions/EA5vuSgJfiHH7plD"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous suivez des traces en vous déplaçant à la moitié de votre Vitesse de voyage en utilisant les règles de la  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DUOb8QrlC5t0adkL'})\">Vitesse de voyage</div> . Après un succès sur un test pour Pister, vous pouvez continuer à suivre les traces à la moitié de votre Vitesse sans effectuer de test supplémentaire pendant une heure au maximum.</p>\n<p>Dans certains cas, vous pourriez Pister lors d'une rencontre. Dans ce cas, Pister est une action unique et n'a pas le trait exploration mais vous pourriez devoir faire des tests plus souvent car vous vous trouvez dans une situation tendue. Le MJ détermine à quel fréquence vous devez faire ces tests.</p>\n<p>Vous tentez un test de  Survie  lorsque vous commencez à Pister, une fois par heure lorsque vous continuez à pister et à chaque fois qu'une chose significative change dans les traces. Le MJ détermine le DD de tels tests en fonction de la fraîcheur de la trace, du climat et du type de sol.</p>\n<p>\"Succès\" Vous trouvez la trace ou continuez à suivre celle que vous suiviez déjà.</p>\n<p>\"Échec\" Vous perdez la trace mais vous pouvez essayer de nouveau passé un délai d'une heure.</p>\n<p>\"Échec critique\" Vous perdez la trace et ne pouvez pas essayer de nouveau pendant 24 heures.</p>\nExemples de tâches pour Pister\n\n\"Inexpérimenté\" Le chemin emprunté par une grande armée suivant une route\n\"Qualifié\" Les traces relativement fraîches d'un ours déchaîné à travers les plaines\n\"Expert\" La piste d'une panthère agile à travers une jungle, des traces détrempées par la pluie\n\"Maître\" Des traces recouvertes par la neige, les traces d'une souris ou d'une créature plus petite ou des traces laissées sur des surfaces sur lesquelles on ne laisse pas d'empreintes comme de la roche nue\n\"Légendaire\" De vieilles traces sur les sables d'un désert venteux, des traces obscurcies par un blizzard violent ou un ouragan",
+        "element_type": null,
+        "href"        : "/actions/EA5vuSgJfiHH7plD",
+        "id"          : "EA5vuSgJfiHH7plD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Pistez",
+        "traits"      : [
+            "Concentration",
+            "Exploration",
+            "Déplacement"
+        ]
     },
     "6v4Rj7wWfOH1882r": {
-        "id"      : "6v4Rj7wWfOH1882r",
-        "text"    : "Déluge",
-        "category": "feat",
-        "href"    : "/class-features/6v4Rj7wWfOH1882r"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous êtes entraîné à déclencher une rafale d'attaques dévastatrices sur votre proie. Votre pénalité d'attaques multiples pour les attaques contre votre proie est de -3 (-2 avec une attaque agile) pour votre deuxième attaque du tour au lieu de -5 et de -6 (-4 avec une attaque agile) pour votre troisième attaque ou les suivantes du tour, au lieu de -10.</p>",
+        "element_type": null,
+        "href"        : "/class-features/6v4Rj7wWfOH1882r",
+        "id"          : "6v4Rj7wWfOH1882r",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Déluge",
+        "traits"      : [
+            "Rôdeur"
+        ]
     },
     "u6cBjqz2fiRBadBt": {
-        "id"      : "u6cBjqz2fiRBadBt",
-        "text"    : "Précision",
-        "category": "feat",
-        "href"    : "/class-features/u6cBjqz2fiRBadBt"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous vous êtes entraîné à viser les points faibles de votre proie. La première fois que vous touchez votre proie lors d'un round, vous infligez aussi 1d8 dégâts de précision supplémentaires (les dégâts de précision augmentent les dégâts que vous avez déjà infligés et sont du même type que ceux de base mais restent inefficaces contre des créatures qui n'ont pas d'organes vitaux ou de points faibles). Au niveau 11, les dégâts de précision supplémentaires passent à 2d8 et à 3d8 au niveau 19.</p>",
+        "element_type": null,
+        "href"        : "/class-features/u6cBjqz2fiRBadBt",
+        "id"          : "u6cBjqz2fiRBadBt",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Précision",
+        "traits"      : [
+            "Rôdeur"
+        ]
     },
     "NBHyoTrI8q62uDsU": {
-        "id"      : "NBHyoTrI8q62uDsU",
-        "text"    : "Ruse",
-        "category": "feat",
-        "href"    : "/class-features/NBHyoTrI8q62uDsU"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes doué pour tromper votre proie. Vous bénéficiez d'un bonus de circonstances de +1 à la CA contre les attaques de votre proie et d'un bonus de circonstances de +2 aux tests de Discrétion, de Duperie, d'Intimidation et à tous les tests pour Vous souvenir à propos de votre proie.</p>",
+        "element_type": null,
+        "href"        : "/class-features/NBHyoTrI8q62uDsU",
+        "id"          : "NBHyoTrI8q62uDsU",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ruse",
+        "traits"      : [
+            "Rôdeur"
+        ]
     },
     "SB7cMECVtE06kByk": {
-        "id"      : "SB7cMECVtE06kByk",
-        "text"    : "Dissimuler des traces",
-        "category": "action",
-        "href"    : "/actions/SB7cMECVtE06kByk"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>Vous dissimulez vos traces, en vous déplaçant à la moitié de votre vitesse de voyage en utilisant les règles de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DUOb8QrlC5t0adkL'})\">Vitesse de voyage</div> . Vous n'avez pas besoin de faire un test de Survie pour dissimuler vos traces, mais quiconque vous piste doit obtenir un succès sur un test de  Survie  contre votre DD de Survie s'il est supérieur au DD normal pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD'})\">Pister</div> .</p>\n<p>Dans certains cas, vous pourriez Dissimuler des traces lors d'une rencontre. Dans ce cas, Dissimuler des traces est une action unique et n'a pas le trait exploration.</p>",
+        "element_type": null,
+        "href"        : "/actions/SB7cMECVtE06kByk",
+        "id"          : "SB7cMECVtE06kByk",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Dissimuler des traces",
+        "traits"      : [
+            "Concentration",
+            "Exploration",
+            "Déplacement"
+        ]
     },
     "D8qtAo2w4jsqjBrM": {
-        "id"      : "D8qtAo2w4jsqjBrM",
-        "text"    : "Mystificateur",
-        "category": "feat",
-        "href"    : "/class-features/D8qtAo2w4jsqjBrM"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Lorsque s'organise un gros coup, chaque roublard qui a de la jugeote sait que la magie peut contrecarrer les plans méticuleux pour le transformer en désastre, qu'il s'agisse de protections arcaniques ou de divinations enquiquinantes.</p>\n<p>Vous tâtez la magie juste assez pour aider à surmonter ces problèmes en bricolant les sorts et en mettant un peu de votre propre magie dans le mélange. Vous pourriez être un voleur solitaire, accomplissant des cambriolages qui ne peuvent être expliqués par la seule compétence ou un spécialiste auxquels d'autres voleurs font appel pour s'occuper des mesures de sécurité magiques. Vous pourriez même aller de succès en succès, embauché pour tester des défenses magiques ou même les construire vous-mêmes.</p>\n<p>Choisissez un archétype multiclasse qui possède le don incantation basique, incantation experte et incantation de maître. Vous obtenez ce don de dévouement d'archétype comme don supplémentaire même si vous n'en remplissez pas son prérequis de niveau, bien que vous deviez remplir les autres prérequis. Pour vous, le don de voleur  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mxO7u59ms58q7zyj'})\">Trompeur magique</div>  a un prérequis de niveau 2 au lieu de niveau 4. Vous pouvez choisir l'attribut d'incantation de l'archétype de multiclasse comme attribut essentiel.</p>",
+        "element_type": null,
+        "href"        : "/class-features/D8qtAo2w4jsqjBrM",
+        "id"          : "D8qtAo2w4jsqjBrM",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mystificateur",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "ZvfxtUMtfIOLYHyg": {
-        "id"      : "ZvfxtUMtfIOLYHyg",
-        "text"    : "Scélérat",
-        "category": "feat",
-        "href"    : "/class-features/ZvfxtUMtfIOLYHyg"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous êtes un beau-parleur, utilisant la flatterie et votre habileté à parler vous permet d'éviter le danger et de vous sortir de situations délicates. Vous pouvez être un arnaqueur ou un escroc ou vous pouvez utiliser vos compétences dans certaines professions réputées, comme avocat ou diplomate.</p>\n<p>Quand vous réussissez à  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QNAVeNKtHA0EUw4X'})\">Feinter</div> , votre cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  face aux attaques au corps-à-corps que vous portez contre elle jusqu'à la fin de votre prochain tour. Sur un succès critique, la cible est Prise au dépourvu face à toutes les attaques au corps-à-corps jusqu'à la fin de votre prochain tour, pas seulement aux vôtres.</p>\n<p>Si vous Feintez alors que vous maniez une arme agile ou finesse, vous pouvez Faire un pas immédiatement après la Feinte par une action gratuite. Vous êtes qualifié en Duperie et en Diplomatie. Vous pouvez choisir le Charisme comme attribut essentiel.</p>",
+        "element_type": null,
+        "href"        : "/class-features/ZvfxtUMtfIOLYHyg",
+        "id"          : "ZvfxtUMtfIOLYHyg",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Scélérat",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "RyOkmu0W9svavuAB": {
-        "id"      : "RyOkmu0W9svavuAB",
-        "text"    : "Stratège",
-        "category": "feat",
-        "href"    : "/class-features/RyOkmu0W9svavuAB"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous comptez sur votre intellect pour bâtir des plans complexes, planifiant toujours dix coups à l'avance, là où les autres pourraient en échafauder trois. Vous pourriez être un enquêteur déterminé, un maître-espion au service d'une puissante famille ou encore un aspirant seigneur du crime ou un courtier en information.</p>\n<p>Si vous réussissez à identifier une créature en utilisant  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo'})\">Se souvenir</div> , cette créature est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  contre vos attaques jusqu'au début de votre prochain tour. Si vous obtenez un succès critique, elle est Prise au dépourvu contre vos attaques pendant 1 minute.</p>\n<p>Vous êtes qualifié en Société et une des compétences suivantes de votre choix : Arcanes, Nature, Occultisme ou Religion. Vous pouvez choisir l'Intelligence comme attribut essentiel.</p>",
+        "element_type": null,
+        "href"        : "/class-features/RyOkmu0W9svavuAB",
+        "id"          : "RyOkmu0W9svavuAB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Stratège",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "wAh2riuFRzz0edPl": {
-        "id"      : "wAh2riuFRzz0edPl",
-        "text"    : "Voleur",
-        "category": "feat",
-        "href"    : "/class-features/wAh2riuFRzz0edPl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Rien ne vaut le plaisir de s'emparer d'un objet qui appartient à quelqu'un d'autre. Vous pouvez être un pickpocket dans la rue, un monte-en-l'air se faufilant à travers les fenêtres ou même un consultant testant l'ouverture des coffres de ses clients.</p>\n<p>Quand un combat éclate, vous préférez utiliser des armes rapides et légères et vous frappez là où ça fait mal. Quand vous attaquez à l'aide d'une arme de corps-à-corps ayant le trait finesse ou d'une attaque à mains nues ayant le trait finesse, vous pouvez ajouter votre modificateur de Dextérité à votre jet de dégâts au lieu de votre modificateur de Force.</p>\n<p>Vous êtes qualifié en Vol.</p>",
+        "element_type": null,
+        "href"        : "/class-features/wAh2riuFRzz0edPl",
+        "id"          : "wAh2riuFRzz0edPl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Voleur",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "3KPZ7svIO6kmmEKH": {
-        "id"      : "3KPZ7svIO6kmmEKH",
-        "text"    : "Voyou",
-        "category": "feat",
-        "href"    : "/class-features/3KPZ7svIO6kmmEKH"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous préférez l'approche directe : jouer les gros bras ou l'intimidation. Vous pourriez être un exécuteur travaillant pour le crime organisé, un bandit de grand chemin ou un noble qui tyrannise les autres en les menaçant des représailles de sa famille.</p>\n<p>Vous utilisez tout ce que vous avez sous la main pour accomplir votre travail. Vous pouvez infliger des dégâts d'attaque sournoise avec n'importe quelle arme, pas juste celles indiquées dans la capacité de classe attaque sournoise. Cet avantage ne s'applique pas à une arme simple avec un dé de dégât supérieur au d8 ou à une arme de guerre avec un dé supérieur au d6 (appliquer d'abord toute capacité qui altère le dé de dégât en premier). Les coups critiques que vous portez avec ces armes obtiennent l'effet critique spécialisé de l'arme si la cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  par rapport à l'arme.</p>\n<p>Vous êtes qualifié en Intimidation et avec les armures intermédiaires. Vous pouvez choisir la Force comme attribut essentiel. Lorsque vous obtenez Expertise avec les armures légères, vous devenez également expert avec les armures intermédiaires et quand vous obtenez Maîtrise des armures légères, vous devenez également maître avec les armures intermédiaires.</p>",
+        "element_type": null,
+        "href"        : "/class-features/3KPZ7svIO6kmmEKH",
+        "id"          : "3KPZ7svIO6kmmEKH",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Voyou",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "iU0fEDdBp3rXpTMC": {
-        "id"      : "iU0fEDdBp3rXpTMC",
-        "text"    : "Cachées",
-        "category": "item",
-        "href"    : "/conditions/iU0fEDdBp3rXpTMC"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Lorsque vous êtes Caché d'une créature, celle-ci sait dans quelle espace vous vous trouvez mais ne peut pas dire précisément où vous êtes. Vous devenez généralement Caché après avoir utilisé Discrétion pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa'})\">Vous cacher</div> . Quand vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Cherchez</div>  une créature en utilisant seulement un sens imprécis, elle reste Cachée plutôt qu' <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1wQY3JYyhMYeeV2G'})\">Observée</div> . Une créature par rapport à laquelle vous êtes Caché est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  face à vous et elle doit réussir un  Test nu  quand elle vous cible avec une attaque, un sort ou un autre effet ou elle ne parvient pas à vous affecter. Les effets de zone ne sont pas sujets à ce test nu.</p>\n<p>Une créature pourrait être capable d'utiliser l'action Chercher pour tenter de vous Observer.</p>",
+        "element_type": null,
+        "href"        : "/conditions/iU0fEDdBp3rXpTMC",
+        "id"          : "iU0fEDdBp3rXpTMC",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cachées",
+        "traits"      : []
     },
     "VRSef5y1LmL2Hkjf": {
-        "id"      : "VRSef5y1LmL2Hkjf",
-        "text"    : "Non détectées",
-        "category": "item",
-        "href"    : "/conditions/VRSef5y1LmL2Hkjf"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Lorsque vous êtes non détecté par une créature, celle-ci ne peut pas vous voir du tout, n'a aucune idée de l'espace que vous occupez et elle ne peut pas vous cibler, bien que vous puissiez toujours être affecté par les capacités qui ciblent une zone. Quand vous êtes non détecté par une créature, celle-ci se trouve  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  à votre égard.</p>\n<p>Une créature face à laquelle vous êtes non détecté peut tenter de deviner quel espace vous occupez afin de vous prendre pour cible. Elle doit choisir une case et tenter une attaque. Cela fonctionne comme cibler cibler une créature  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Cachée</div>  (nécessitant de faire un  Test nu, DD 11 ), mais le test nu et le jet d'attaque sont lancés en secret par le MJ qui ne révèle pas si l'attaque est un échec à cause du test nu, du jet d'attaque ou d'un mauvais choix de case. Une créature peut  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Chercher</div>  pour tenter de vous trouver.</p>",
+        "element_type": null,
+        "href"        : "/conditions/VRSef5y1LmL2Hkjf",
+        "id"          : "VRSef5y1LmL2Hkjf",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Non détectées",
+        "traits"      : []
     },
     "bp0Up04x3dzGK5bB": {
-        "id"      : "bp0Up04x3dzGK5bB",
-        "text"    : "Frappe incapacitante",
-        "category": "action",
-        "href"    : "/actions/bp0Up04x3dzGK5bB"
+        "action_cost" : "f",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Déclencheur\" Votre Frappe touche une créature Prise au dépourvu et lui inflige des dégâts.</p>\n<p>Vous appliquez l'un des handicaps suivants qui dure jusqu'à la fin de votre prochain tour.</p>\n<ul><li>\"Handicap\" La cible subit une pénalité de statut de -3 mètres à ses Vitesses.</li><li>\"Handicap\" La cible devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaiblie 1</div> .</li></ul>",
+        "element_type": null,
+        "href"        : "/actions/bp0Up04x3dzGK5bB",
+        "id"          : "bp0Up04x3dzGK5bB",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Frappe incapacitante",
+        "traits"      : [
+            "Roublard"
+        ]
     },
     "MIRkyAjyBeXivMa7": {
-        "id"      : "MIRkyAjyBeXivMa7",
-        "text"    : "Affaiblie 1",
-        "category": "item",
-        "href"    : "/conditions/MIRkyAjyBeXivMa7"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes physiquement affaibli. L'état affaibli est toujours accompagné d'une intensité. Quand vous êtes affaibli, vous subissez une pénalité de statut égal à l'intensité de votre état qui s'applique à vos jets et vos DD basés sur la Force, dont les jets d'attaque basés sur la Force, les jets de dégâts basés sur la Force et les tests d'Athlétisme.</p>",
+        "element_type": null,
+        "href"        : "/conditions/MIRkyAjyBeXivMa7",
+        "id"          : "MIRkyAjyBeXivMa7",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Affaiblie 1",
+        "traits"      : []
     },
     "Rlp7ND33yYfxiEWi": {
-        "id"      : "Rlp7ND33yYfxiEWi",
-        "text"    : "Frappe de maître",
-        "category": "action",
-        "href"    : "/actions/Rlp7ND33yYfxiEWi"
+        "action_cost" : "f",
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<p>\"Déclencheur\" Vous réussissez une Frappe contre une créature  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Prise au dépourvu</div>  et lui infligez des dégâts.</p>\n<p>La cible fait un jet de  Vigueur  contre votre DD de classe. Elle devient temporairement immunisée à votre Frappe de maître pour 1 journée.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaiblie 2</div>  jusqu'à la fin de votre prochain tour.</p>\n<p>\"Échec\" La cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6uEgoh53GbXuHpTF'})\">Paralysée</div>  pendant 4 rounds.</p>\n<p>\"Échec critique\" La cible est Paralysée pendant 4 rounds, se trouve dans l'état  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf'})\">Inconscient</div>  pendant 2 heures ou est tuée (à vous de décider).</p>",
+        "element_type": null,
+        "href"        : "/actions/Rlp7ND33yYfxiEWi",
+        "id"          : "Rlp7ND33yYfxiEWi",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Frappe de maître",
+        "traits"      : [
+            "Mise hors de combat",
+            "Roublard"
+        ]
     },
     "6uEgoh53GbXuHpTF": {
-        "id"      : "6uEgoh53GbXuHpTF",
-        "text"    : "Paralysée",
-        "category": "item",
-        "href"    : "/conditions/6uEgoh53GbXuHpTF"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "item",
+        "description" : "<p>Vous êtes figé sur place. Vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  et ne pouvez agir, sauf pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo'})\">Vous souvenir</div>  de quelque chose et entreprendre des actions qui ne nécessitent que votre esprit (déterminées par le MJ). Vos sens fonctionnent toujours, mais seulement dans les zones que vous pouvez percevoir sans bouger, de sorte que vous ne pouvez pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Chercher</div> .</p>",
+        "element_type": null,
+        "href"        : "/conditions/6uEgoh53GbXuHpTF",
+        "id"          : "6uEgoh53GbXuHpTF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Paralysée",
+        "traits"      : []
     },
     "Q5iIYCFdqJFM31GW": {
-        "id"      : "Q5iIYCFdqJFM31GW",
-        "text"    : "Apprendre un sort",
-        "category": "action",
-        "href"    : "/actions/Q5iIYCFdqJFM31GW"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "action",
+        "description" : "<h2>Traditions magiques et compétences</h2>\n<p>Chaque tradition magique possède une compétence qui lui correspond, comme indiqué sur la table ci-dessous. Vous devez être qualifié dans une compétence pour l'utiliser pour Identifier la magie ou Apprendre un sort. Quelque chose qui n'a pas de tradition spécifique, comme un objet avec le trait magique peut être identifié en utilisant n'importe laquelle de ces compétences.</p>\nTradition magique\nCompétence correspondante\n\n\n\n\nArcanique\nArcanes\n\n\nDivine\nReligion\n\n\nOcculte\nOccultisme\n\n\nPrimordiale\nNature\n<p>\"Conditions\" Vous avez une capacité de classe d'incantation et le sort que vous voulez apprendre est sur la liste de sorts de votre tradition magique.</p>\n<p>Vous pouvez obtenir l'accès à un nouveau sort de votre tradition auprès de quelqu'un qui connaît ce sort ou d'un écrit magique tel qu'un grimoire ou un parchemin. Si vous pouvez incanter des sorts de plusieurs traditions, vous pouvez Apprendre un sort de n'importe laquelle de ces traditions mais vous devez utiliser la compétence correspondante pour le faire. Par exemple, si vous êtes un prêtre avec l'archétype multiclasse de barde, vous ne pourriez pas utiliser Religion pour ajouter un sort occulte à votre répertoire de sorts de barde.</p>\n<p>Pour apprendre le sort, vous devez faire ce qui suit :</p>\n<ul><li>Passer une heure par rang du sort, durant laquelle vous restez en conversation avec une personne qui connaît le sort ou avoir l'écrit magique en votre possession.</li><li>Posséder les matériaux dont le prix est indiqué sur la table ci-dessous.</li><li>Tenter un test de la compétence correspondant à votre tradition (le DD est déterminé par le MJ, celui-ci étant souvent proche du DD indiqué sur la table). Les sorts peu courants ou rares ont des DD plus élevés.</li></ul>\n<h3>Table des prix des sorts</h3>\nRang du Sort\nPrix\nDD Typique\n\n\nTour de magie ou 1er\n2 po\n15\n\n\n2e\n6 po\n18\n\n\n3e\n16 po\n20\n\n\n4e\n36 po\n23\n\n\n5e\n70 po\n26\n\n\n6e\n140 po\n28\n\n\n7e\n300 po\n31\n\n\n8e\n650 po\n34\n\n\n9e\n1 500 po\n36\n\n\n10e\n7 000 po\n41\n<p>\"Succès critique\" Vous dépensez la moitié des matériaux et apprenez le sort.</p>\n<p>\"Succès\" Vous dépensez les matériaux et apprenez le sort.</p>\n<p>\"Échec\" Vous ne parvenez pas à apprendre le sort mais vous pouvez réessayer après avoir gagné un niveau. Les matériaux ne sont pas dépensés.</p>\n<p>\"Échec critique\" Comme en cas d'échec, sauf que vous dépensez la moitié des matériaux.</p>",
+        "element_type": null,
+        "href"        : "/actions/Q5iIYCFdqJFM31GW",
+        "id"          : "Q5iIYCFdqJFM31GW",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Apprendre un sort",
+        "traits"      : [
+            "Concentration",
+            "Exploration"
+        ]
     },
     "aq1yonHeYpbaj3XI": {
-        "id"      : "aq1yonHeYpbaj3XI",
-        "text"    : "Poupée du patron",
-        "category": "spell",
-        "href"    : "/spells/aq1yonHeYpbaj3XI"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Votre tour commence.</p>\n<p>Sur votre demande implicite, votre patron prend temporairement le contrôle de votre familier. Vous Dirigez votre familier, lui permettant d'effectuer ses actions normales lors de ce tour. Vos ordres pour Diriger n'ont pas les traits audition ou concentration ; votre patron déplace simplement son agent directement.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/aq1yonHeYpbaj3XI",
+        "id"          : "aq1yonHeYpbaj3XI",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Poupée du patron",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Sorcier"
+        ]
     },
     "rMOI8JFJ0nT2mrCF": {
-        "id"      : "rMOI8JFJ0nT2mrCF",
-        "text"    : "Déphasage de familier",
-        "category": "spell",
-        "href"    : "/spells/rMOI8JFJ0nT2mrCF"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Votre familier devrait subir des dégâts.</p>\n<p>Votre patron rappelle momentanément votre familier dans l'éther, le changeant de sa forme solide et physique à une version fantomatique de lui-même. Contre les dégâts déclencheurs, votre familier obtient une résistance 5 contre tous les dégâts et est immunisé contre les dégâts de précision.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '61Hl31nyzt63vvX9'})\">Effet : Déphasage de familier</div></p>\n<p>\"Intensifié (+1)\" Augmentez la résistance de 2.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/rMOI8JFJ0nT2mrCF",
+        "id"          : "rMOI8JFJ0nT2mrCF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Déphasage de familier",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "SOan0fqyFTrkqJLV": {
-        "id"      : "SOan0fqyFTrkqJLV",
-        "text"    : "Leçons du sorcier",
-        "category": "feat",
-        "href"    : "/class-features/SOan0fqyFTrkqJLV"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Le savoir d'un sorcier prend la forme de leçons que vous pouvez apprendre en choisissant des dons tels que Leçon basique. Chaque leçon vous accorde un maléfice et enseigne un nouveau sort à votre familier qui vient s'ajouter aux sorts que vous pouvez préparer avec Incantation de sorcier. Vous obtenez ce sort même s'il ne se trouve pas sur la liste de votre tradition.</p>\n<h4>\"Leçons basiques\"</h4>\n<p>Vous pouvez choisir l'une de ces leçons quand un don ou un autre effet vous octroie une leçon basique.</p>\n<ul><li>\"Leçon des éléments\" Les catastrophes naturelles et les intempéries ont plus de pouvoir que la plus puissante des créatures. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'f9uqHnNBMU0774SF'})\">Trahison élémentaire</div> . Votre familier apprend à votre choix soit  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'W69zswpj0Trdy5rj'})\">Bulle d'air</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y6rAdMK6EFlV6U0t'})\">Cracher du feu</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Rn2LkoSq1XhLsODV'})\">Frappe de débris</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jfVCuOpzC6mUrf6f'})\">Poussée hydraulique</div> .</li><li>\"Leçon de protection\" Une dose de protection vaut mieux que son poids en remèdes. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dFejDNEmVj3CwYLL'})\">Protection du sang</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aAbfKn8maGjJjk2W'})\">Armure mystique</div> .</li><li>\"Leçon des rêves\" Les rêves peuvent être une fenêtre vers des intuitions supérieures. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NNoKWiWKqJkdD2ln'})\">Voile des rêves</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o4lRVTwSxnOOn5vl'})\">Sommeil</div> .</li><li>\"Leçon de vengeance\" Ne pas souffrir le moindre affront. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aEitTTb9PnOyidRf'})\">Aiguillon de la vengeance</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R8bqnYiThB6MYTxD'})\">Douleur fantôme</div> .</li><li>\"Leçon de vie\" La vie peut être partagée. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fAlzXtQAASaJx0mY'})\">Gain de vie</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yHujiDQPdtXW797e'})\">Lien spirituel</div> .</li><li>\"Leçon de calamité\" Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'X8PSYw6WC2ePYSXd'})\">Malédiction titubante</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6ZIKB0151LUR19Rw'})\">Mauvais présage</div> .</li></ul>\n<h4>Leçons supérieures</h4>\n<p>Vous pouvez choisir parmi ces leçons lorsqu'un don ou un autre effet vous accorde une leçon supérieure.</p>\n<ul><li>\"Leçon d'ombre\" Une ombre est loin d'être inutile : elle contient quelque chose de la personne qui la projette. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vhMCd15ZwNJn0zen'})\">Ombre malicieuse</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sRfSBHWHdbIa0aGc'})\">Ténèbres glaciales</div> .</li><li>\"Leçon de faveurs\" Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9gMQPCaFM27PEIh4'})\">Rendre la faveur</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fPlFRu4dp09qJs3K'})\">Esprit de menace</div> .</li><li>\"Leçon de malice\" Il n'y a rien de mal à faire quelques bêtises, de temps à autre. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FrKPwgFxWIGMGgs4'})\">Cape de tromperie</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tFKJCPvOQZxKq6ON'})\">Singes fous</div> .</li><li>\"Leçon de neige\" Imitez la neige, car elle peut étouffer la vie malgré sa douceur. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'g4MAIQodRDVfNp1B'})\">Blizzard personnel</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'it4ZsAi6XgvGcodc'})\">Mur de vent</div> .</li><li>\"Leçon de pourriture\" Toutes les choses vivantes finissent par pourrir, nourrissant les champignons et les insectes. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'V4jrHiaMh4XuANOP'})\">Maladie mycologique</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XI6Lzd2B5pernkPd'})\">Forme d'insecte</div> .</li><li>\"Leçon du squale\" Vous apprenez les manières de ce prédateur océanique mortel. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CXpOlv2ZZq2jVbRX'})\">Sang dans l'eau</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RvBlSIJmxiqfCpR9'})\">Pieds en nageoires</div> .</li><li>\"Leçon du troupeau\" La puissance afflue lorsque plusieurs travaillent comme un seul. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gxK5XW4WAXOgY1mN'})\">Ailes protectrices</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fI20AVwOzJMHXRdo'})\">Lévitation</div> .</li></ul>\n<ul><li>peu courant</li></ul>\n\"Leçon de la mémoire\" Cobyslarni vous a appris à garder l'esprit ouvert et à rechercher la connaissance en toutes choses, en passant au crible un éventail de faits que d'autres trouveraient déconcertants. Vous obtenez le tour de magie de maléfice  Surcharge d'informations  et votre familier apprend  Déjà Vu .\n\"Leçon des voeux\" Les mots ont un pouvoir et ceux qui les utilisent pour duper devraient être préparés à faire face aux conséquences. Vous obtenez le maléfice  Censurer les impostures  et votre familier apprend  Anneau de vérité .\n<h3>Leçons majeures</h3>\n<p>Vous pouvez choisir parmi ces leçons lorsqu'un don ou un autre effet vous accorde une leçon majeure.</p>\n<ul><li>\"Leçon de marchandage\" Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PcmFpaHPCReNp1BD'})\">Sur des charbons ardents</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GP3wewkQXEPrLxYj'})\">Suggestion subconsciente</div> .</li><li>\"Leçon de mort\" La mort est définitive, mais pas aussi inéluctable qu'il n'y paraît. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'nQS4vPm5zprqkzFZ'})\">Malédiction de mort</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IkGYwHRLhkuoGReG'})\">Rappel à la vie</div> .</li><li>\"Leçon de renouveau\" L'entropie s'abat sur tous, mais il est possible de l'enrayer au prix d'un effort. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pCvJ4yoZJxDtgUMI'})\">Moment restauratif</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'x5rGOmhDRDVQPrnW'})\">Champ de vie</div> .</li><li>\"Leçon de la reine glacée\" Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZyREiMaul0VhDYh3'})\">Cœur glacial</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'R5FHRv7VqyRnxg2t'})\">Mur de glace</div> .</li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/SOan0fqyFTrkqJLV",
+        "id"          : "SOan0fqyFTrkqJLV",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Leçons du sorcier",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "nocYmxbi4rqCC2qS": {
-        "id"      : "nocYmxbi4rqCC2qS",
-        "text"    : "Thème de patron",
-        "category": "feat",
-        "href"    : "/class-features/nocYmxbi4rqCC2qS"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Lorsque votre patron entre en contact avec vous pour la première fois, il ne vous révèle généralement rien de plus que des aperçus ou des manifestations spécifiques - vous pouvez voir des yeux dans les ombres de la forêt ou entendre une voix sans paroles résonner dans la toundra gelée avant que votre familier ne se fasse connaître. La véritable identité de votre patron peut être une puissante guenaude, une fée souveraine, une divinité ou un demi-dieu, un archidiable ou une entité tout aussi puissante ou peut-être plusieurs entités de ce type travaillant en tandem, mais c'est à vous d'essayer de découvrir cette identité au fur et à mesure que vous apprenez les leçons de votre patron. Certains patrons ont de multiples facettes, se présentant sous différentes formes et accordant différents pouvoirs à différents sorciers. Dans certains cas, le sorcier peut connaître l'identité de son patron, mais d'autres aspects restent incertains : il peut connaître le nom de son patron, mais pas le motif ou même si il connaît l'identité du patron, il a reçu une malédiction pour l'empêcher de la révéler à d'autres.</p>\n<p>votre patron détermine les éléments suivants :</p>\n<ul><li>\"Liste de sorts\" Vous utilisez cette tradition magique et cette liste de sorts.</li><li>\"Compétence du patron\" Vous devenez qualifié dans la compétence indiquée.</li><li>\"Leçon initiale\" C'est la première leçon que votre patron vous enseigne et elle est propre à votre patron.</li><li>\"Capacité de familier\" Une des deux capacités supplémentaires de votre familier est toujours celle indiquée ici, une marque de l'influence indélébile de votre patron. L'avantage ne peut se produire qu'une fois par round lorsque vous Lancez ou Maintenez un maléfice, et vous pouvez choisir s'il se produit avant ou après les effets du lancement ou du Maintien du maléfice.</li></ul>\n<p>Les patrons disponibles sont les suivants :</p>\n<ul><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VVMMJdIWL7fAsQf3'})\">Baba Yaga</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'v2JQB6j3VIKWqPpQ'})\">Choeur politique</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'T9wA833bzZVlB3Lo'})\">Dévoreur de pourriture</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mFqMSQoNl0NMDklv'})\">Gardien de la flamme de la foi</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e0VhUyjz1clW3sC4'})\">Intendant de la nature</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FdLx4VODZEYLGOK9'})\">L'inscrit</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ydI39ViUy22nBRn6'})\">Le courtier invisible</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9OwWgOP8ZWxTAqbg'})\">Le ressentiment</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4zE3seVFtLPNw9EQ'})\">Murmure des ailes</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zy0toWeGIeQstbT4'})\">Moustique</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r2ZPRAw9c3VGZi8A'})\">Ombre sans étoile</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lgv4VIoj5TLhm9u0'})\">Ondulation dans les profondeurs</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RdOzBNPKLTMUWrJs'})\">Paradoxe des opposés</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9c57R18pfgfqlBCD'})\">Silence dans la neige</div></li><li><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ghIsqhEsJTvjJiNl'})\">Tisseur de fils</div></li></ul>",
+        "element_type": null,
+        "href"        : "/class-features/nocYmxbi4rqCC2qS",
+        "id"          : "nocYmxbi4rqCC2qS",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Thème de patron",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "SelPslNtTfzxp7fs": {
-        "id"      : "SelPslNtTfzxp7fs",
-        "text"    : "Vérité du patron",
-        "category": "feat",
-        "href"    : "/feats/SelPslNtTfzxp7fs"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous avez maîtrisé les plus grands secrets de la magie de votre patron et appris une vérité fondamentale à propos de votre patron, même si son identité reste toujours un mystère. Vous obtenez un emplacement de sort de rang 10 supplémentaire.</p>",
+        "element_type": "DON 20",
+        "href"        : "/feats/SelPslNtTfzxp7fs",
+        "id"          : "SelPslNtTfzxp7fs",
+        "price"       : null,
+        "required"    : [
+            "Don du patron"
+        ],
+        "text"        : "Vérité du patron",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "v2JQB6j3VIKWqPpQ": {
-        "id"      : "v2JQB6j3VIKWqPpQ",
-        "text"    : "Choeur politique",
-        "category": "feat",
-        "href"    : "/class-features/v2JQB6j3VIKWqPpQ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Lorsque votre patron s'exprime, c'est un chœur de voix qui résonne comme un seul homme. Elles vous sont apparues pour la première fois sur les visages de vos voisins au milieu d'une fête communale ou d'une réunion du conseil de la ville, lorsque le succès d'une entreprise dépendait de la collaboration de tous. Avec la force de votre patron derrière vous, vous avez alors rallié la communauté à un objectif commun. Votre patron peut être une entité unique rassemblant une coterie de sujets pour une cause inconnue ou une alliance de divinités et d'esprits partageant les mêmes idées. Quoi qu'il en soit, votre patron - et par extension, vous - comprend que les mortels sont plus forts ensemble.</p>\n<p>\"Liste de sort\" divine</p>\n<p>\"Compétence du patron\" Société</p>\n<p>\"Leçon de la connaissance communautaire\" Votre patron vous a enseigné l'importance de rassembler les informations pour aider un groupe pour une cause commune. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TRlI5zAbNW2hDiH9'})\">Partager la vision</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'nXmC2Xx9WmS5NsAo'})\">Connaissance partagée</div> .</p>\n<p>\"Familier de soutien bienveillant\" Votre familier connaît toutes sortes d'astuces qui peuvent aider ! Lorsque vous Lancez ou Maintenez un maléfice et que votre familier est adjacent à un allié, cet allié obtient un bonus de statut de +2 à son prochain test de compétence (qui n'est pas une attaque) avant le début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/v2JQB6j3VIKWqPpQ",
+        "id"          : "v2JQB6j3VIKWqPpQ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Choeur politique",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "T9wA833bzZVlB3Lo": {
-        "id"      : "T9wA833bzZVlB3Lo",
-        "text"    : "Dévoreur de pourriture",
-        "category": "feat",
-        "href"    : "/class-features/T9wA833bzZVlB3Lo"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre patron est apparu à la fin ou au moment de la fin d'une vie, sous la forme d'un reflet intermittent dans des yeux fiévreux ou sous la forme d'une lumière mystérieuse dans les yeux des charognards qui attendent. Bien qu'elle soit horrible pour certains, la pourriture crée les ressources nécessaires à une nouvelle vie. Ce destin vous attend et même possiblement votre patron, qu'il s'agisse d'un immense arboréen, d'une créature fongique souterraine ou l'un des psychopompes parmi les bergers qui accompagnent l'entier processus.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon du charognard affamé\" Your patron teaches ways to convert death into new life. You gain the  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VNv96dJPi0WXKSFN'})\">Scrounger's Glee</div>  hex cantrip, and your familiar learns  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'J7Y7tl0bbdz7TcCc'})\">Enfeeble</div> .</p>\n<p>\"Familier de la puissance parasitaire\" Votre familier semble famélique et mal nourri ou autrement à la porte de la mort, même s'il est plutôt en bonne santé. Quand vous Lancez ou Maintenez un maléfice, une créature située dans un rayon de 4,50 mètres de votre familier avec moins de la moitié de ses Points de vie devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18'})\">Nauséeuse 1</div>  à moins de réussir un jet de  Vigueur  contre votre DD de sort.</p>",
+        "element_type": null,
+        "href"        : "/class-features/T9wA833bzZVlB3Lo",
+        "id"          : "T9wA833bzZVlB3Lo",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Dévoreur de pourriture",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "mFqMSQoNl0NMDklv": {
-        "id"      : "mFqMSQoNl0NMDklv",
-        "text"    : "Gardien de la flamme de la foi",
-        "category": "feat",
-        "href"    : "/class-features/mFqMSQoNl0NMDklv"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre patron vous a contacté au moment où votre volonté était sur le point de s'éteindre. Sa présence rassurante a été comme le souffle et le petit bois qui ranime la braise, sa magie vous donnant la force de continuer et de rallier d'autres personnes à votre cause. Votre patron est probablement un être divin tel qu'un ange ou un veilleur agissant secrètement, bien qu'il soit possible qu'il s'agisse d'une entité plus sinistre, vous utilisant à des fins inconnues.</p>\n<p>\"Liste de sort\" divine</p>\n<p>\"Compétence du patron\" Religion</p>\n<p>\"Leçon de l'emprise de la ferveur\" Votre patron vous a enseigné que rien ne peut saisir le cœur comme la foi, qu'elle soit utilisée pour inspirer ou diriger. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GeUbPvwdZ4B4l0up'})\">Enflammer les cœurs</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aIHY2DArKFweIrpf'})\">Injonction</div> .</p>\n<p>\"Familier d'esprit récupéré\" Votre familier est agréablement chaud et doux, semblant laver les soucis par sa simple présence. Lorsque vous Lancez ou Maintenez un maléfice, une créature consentante située à moins de 4,50 mètres de votre familier obtient temporairement un nombre de Points de vie égal à 2 + la moitié de votre niveau, et ce, jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/mFqMSQoNl0NMDklv",
+        "id"          : "mFqMSQoNl0NMDklv",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Gardien de la flamme de la foi",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "e0VhUyjz1clW3sC4": {
-        "id"      : "e0VhUyjz1clW3sC4",
-        "text"    : "Intendant de la nature",
-        "category": "feat",
-        "href"    : "/class-features/e0VhUyjz1clW3sC4"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Lorsque votre patron est apparu devant vous, il s'est déplacé avec la grace et la férocité de la nature, sa voix étant le grincement des arbres et le bruit des sabots sur la terre vierge. Il pourrait s'agir d'une dryade souveraine ou d'une bête primitive, mais il a semblé que la nature entière était à défendre.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon du propos sauvage\" Votre patron vous a enseigné les complexités du discours non verbal, vous laissant influencer et invoquer les animaux et les plantes à vous. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GdN5YQE47gd79k7X'})\">Paroles sauvages</div>  et votre familier apprend à votre choix  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4YnON9JHYqtLzccu'})\">Convocation d'animal</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jSRAyd57kd4WZ4yE'})\">Convocation de plante ou de champignon</div> .</p>\n<p>\"Familier des sens acérés\" Votre familier a les yeux qui scintillent, les oreilles qui frétillent ou tout autre signe des puissants sens d'une bête. Lorsque vous Lancez ou Maintenez un maléfice, votre familier obtient un sens imprécis au choix entre Odorat, Perception des vibrations ou Perception des ondes, avec une portée de 18 mètres jusqu'au début de votre prochain tour et il peut immédiatement  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sn2hIy1iIJX9Vpgj'})\">Signaler</div>  par une action gratuite.</p>",
+        "element_type": null,
+        "href"        : "/class-features/e0VhUyjz1clW3sC4",
+        "id"          : "e0VhUyjz1clW3sC4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Intendant de la nature",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "FdLx4VODZEYLGOK9": {
-        "id"      : "FdLx4VODZEYLGOK9",
-        "text"    : "L'inscrit",
-        "category": "feat",
-        "href"    : "/class-features/FdLx4VODZEYLGOK9"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Aucun mot n'a franchi les lèvres de votre patron au moment où vous l'avez rencontré ; Au lieu de cela, des mots et des glyphes dansaient sur sa peau, tandis que des symboles et des chiffres nageaient au fond de ses yeux, énonçant sa volonté dans un torrent de mots et de sagesse. Votre patron pourrait être un puissant archimage ou même un de leurs artefacts abandonnés, à la recherche d'un successeur.</p>\n<p>\"Liste de sort\" arcanique</p>\n<p>\"Compétence du patron\" Arcanes</p>\n<p>\"Leçon de suprématie des glyphes\" Votre patron enseigne qu'un mot écrit peut accomplir plus que ce qu'il semble. Vous obtenez le maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UmXhuKrYZR3W16mQ'})\">Discerner les secrets</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TFitdEOpQC4SzKQQ'})\">Arme runique</div> .</p>\n<p>\"Familier d'inscriptions fluides\" Votre familier est couvert d'un motif qui ressemble aux lettres d'une langue incompréhensible, qui semble attirer l'attention, même s'il échappe à toute compréhension. Lorsque vous Lancez ou Maintenez un maléfice, les lettres commencent à changer rapidement, provoquant une distraction. Jusqu'au début de votre prochain tour, votre familier peut procurer la tenaille pour vous et vos alliés, comme s'il était capable d'attaquer et avait une allonge de 1,50 mètre. Il s'agit d'un effet visuel.</p>",
+        "element_type": null,
+        "href"        : "/class-features/FdLx4VODZEYLGOK9",
+        "id"          : "FdLx4VODZEYLGOK9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "L'inscrit",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "ydI39ViUy22nBRn6": {
-        "id"      : "ydI39ViUy22nBRn6",
-        "text"    : "Le courtier invisible",
-        "category": "feat",
-        "href"    : "/class-features/ydI39ViUy22nBRn6"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Que ce soit dans un rêve, en répondant à un sentiment qui vous habite ou en accomplissant un rituel mystérieux, vous avez accepté de jouer le rôle de médiateur entre votre patron et le reste du monde. Bien entendu, vous comprenez le pouvoir des accords et recevez d'autres connaissances en échange de vos services. Votre patron peut être un dieu, une figure énigmatique comme un être planaire ou même une entité extraterrestre. Quelle que soit son origine, il est clair que les accords que vous concluez avec les autres vous permettent de faire avancer les projets de votre patron.</p>\n<p>\"Liste de sort\" occulte</p>\n<p>\"Compétence du patron\" Occultisme</p>\n<p>\"Leçon des mots qui lient\" Votre patron vous enseigne les accords et comment ils vous donnent des pouvoirs sur les autres. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'YNAthsgsJjQIXbc8'})\">Négociateur de pacte</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aIHY2DArKFweIrpf'})\">Injonction</div> .</p>\n<p>\"Familier de la négociation alléchante\" Votre familier murmure constamment des offres de puissance, de fortune et d'autres tentations à vos ennemis, même si votre familier ne possède pas normalement les moyens de parler. Lorsque vous Lancez ou Maintenez un maléfice et que votre familier se trouve à 3 mètres d'un ennemi, l'ennemi est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  jusqu'au début de votre prochain tour. Votre familier ne peut distraire qu'un unique ennemi par round de cette manière.</p>",
+        "element_type": null,
+        "href"        : "/class-features/ydI39ViUy22nBRn6",
+        "id"          : "ydI39ViUy22nBRn6",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Le courtier invisible",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "9OwWgOP8ZWxTAqbg": {
-        "id"      : "9OwWgOP8ZWxTAqbg",
-        "text"    : "Le ressentiment",
-        "category": "feat",
-        "href"    : "/class-features/9OwWgOP8ZWxTAqbg"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Un sentiment unique irradie de votre patron dès que vous le rencontrez, aussi palpable que la chaleur d'un feu : le désir de voir chaque grand pavot abattu et chaque clou orgueilleux enfoncé, que ce soit pour rendre justice aux petites gens ou par simple envie de voir les puissants vaincus. Votre patron est probablement loin des échelons supérieurs de son espèce, comme une guenaude évincée de son cercle, une quasi-divinité ou un démon de rang inférieur. Il ne lui reste donc que des outils plus subtils et plus faibles pour parvenir à ses fins : les malédictions, les maléfices et vous.</p>\n<p>\"Liste de sort\" occulte</p>\n<p>\"Compétence du patron\" Occultisme</p>\n<p>\"Leçon de l'impermanence de la force\" Votre patron vous a enseigné que le pouvoir peut être pris beaucoup plus facilement qu'il peut être bâti. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'f45JpY7Ph2cAJGW2'})\">Mauvais oeil</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'J7Y7tl0bbdz7TcCc'})\">Affaiblissement</div> .</p>\n<p>\"Familier de misère persistante\" Votre familier semble hostile à toutes les créatures autres que vous, crachant s'ils s'approchent trop près. Lorsque vous Lancez ou Maintenez un maléfice, votre familier peut maudire une créature située à moins de 4,50 mètres de lui, prolongeant la durée des états négatifs qui l'affectent de 1 round. Il s'agit d'un effet de malédiction. Cet effet ne prolonge que les états ayant une durée déterminée (comme \"1 round\" ou \"jusqu'à la fin de votre prochain tour\") et n'empêche pas que les états soient supprimés par d'autres moyens.</p>",
+        "element_type": null,
+        "href"        : "/class-features/9OwWgOP8ZWxTAqbg",
+        "id"          : "9OwWgOP8ZWxTAqbg",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Le ressentiment",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "4zE3seVFtLPNw9EQ": {
-        "id"      : "4zE3seVFtLPNw9EQ",
-        "text"    : "Murmure des ailes",
-        "category": "feat",
-        "href"    : "/class-features/4zE3seVFtLPNw9EQ"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Des ailes et des vents tourbillonnants annonçaient l'approche de votre patron. Les ailes pouvaient avoir des plumes éclatantes, étinceler comme celles d'une libellule, être étrangement mécaniques ou en cuir avec une odeur de soufre, mais le chaos contrôlé de leurs mouvements contenait d'innombrables enseignements.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon de l'observation du ciel\" Votre patron vous enseigne que le ciel peut vous guider n'importe où lorsque vous le laissez faire. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4EmLum6EdvXxbxCj'})\">Murmure</div> , et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TTwOKGqmZeKSyNMH'})\">Atterrissage en douceur</div> .</p>\n<p>\"Familier du vol agile\" Même si votre familier ne dispose pas d'ailes, il peut parfois se déplacer comme s'il était emporté par le vent. Lorsque vous Lancez ou Maintenez un maléfice, votre familier peut voler jusqu'à 4,50 m. Ce déplacement ne provoque pas de réaction.</p>",
+        "element_type": null,
+        "href"        : "/class-features/4zE3seVFtLPNw9EQ",
+        "id"          : "4zE3seVFtLPNw9EQ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Murmure des ailes",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "zy0toWeGIeQstbT4": {
-        "id"      : "zy0toWeGIeQstbT4",
-        "text"    : "Moustique",
-        "category": "feat",
-        "href"    : "/class-features/zy0toWeGIeQstbT4"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre patron est un être mystérieux connu sous le nom du Sorcier Moustique. Vous ne savez pas pourquoi vous avez été choisi, et dans bien des cas, vous auriez préféré ne pas l'être. Il se peut qu'il se soit fait connaître par des visions prophétiques terrifiantes et des cauchemars, ou que vous ayez reçu son patronage sous la forme d'insectes grouillants, dont le bourdonnement ouvre vos oreilles à la magie et dont les piqûres remplissent votre corps de pouvoir. Des événements effrayants viennent troubler votre vie : accidents étranges, animaux morts et yeux rouges brillants dans l'obscurité. Que vous soyez conscient ou non de l'influence du sorcier moustique, vous avez une affinité avec les insectes et attirez leur attention partout où vous allez.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon de la ruche débridée\" Le Sorcier Moustique vous accorde le contrôle des insectes. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BItahht2hEHvR9Bt'})\">Piqûres bourdonnantes</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gfPjmG6Fe6D3MFjl'})\">Forme de nuisible</div></p>\n<p>\"Familier du coeur de la nuée\" Votre familier est entouré d'un nuage d'insectes inoffensifs. Lorsque vous Lancez ou Maintenez un maléfice, la nuée d'insecte vous protège ainsi que vos alliés. Jusqu'au début de votre prochain round, votre familier vous masque ou masque tout allié dont il partage le même espace.</p>",
+        "element_type": null,
+        "href"        : "/class-features/zy0toWeGIeQstbT4",
+        "id"          : "zy0toWeGIeQstbT4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Moustique",
+        "traits"      : [
+            "Rare",
+            "Sorcier"
+        ]
     },
     "r2ZPRAw9c3VGZi8A": {
-        "id"      : "r2ZPRAw9c3VGZi8A",
-        "text"    : "Ombre sans étoile",
-        "category": "feat",
-        "href"    : "/class-features/r2ZPRAw9c3VGZi8A"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre patron vous a contacté pour la première fois à l'heure du sorcier, alors que votre corps était paralysé par le sommeil et que votre esprit n'avait pas encore échappé au monde de l'éveil. Il peut s'agir d'une créature du Nébulmonde ou d'un esprit du crépuscule oublié depuis longtemps. Tout ce dont vous vous souvenez de lui, ce sont ses yeux hantés par le clair de lune, qui vous offrent le pouvoir des ténèbres.</p>\n<p>\"Compétence de sort\" occulte</p>\n<p>\"Compétence du patron\" Occultisme</p>\n<p>\"Leçon des terreurs nocturnes\" Votre protecteur vous a appris que l'obscurité peut cacher toutes sortes de choses qu'il vaut mieux ne pas voir. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cE7PRAX8Up7fmYef'})\">Voile de nuit</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4koZzrnMXhhosn0D'})\">Terreur</div> .</p>\n<p>\"Familier de la nuit de la traque\" Votre familier est noir de fourrure ou de plume et il semble aspirer la lumière. Lorsque vous Lancez ou Maintenez un maléfice et que votre familier est adjacent à un ennemi vis-à-vis duquel il est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masqué</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC'})\">Caché</div>  ou Non détectée, l'ennemi est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL'})\">Effrayé 1</div> .</p>",
+        "element_type": null,
+        "href"        : "/class-features/r2ZPRAw9c3VGZi8A",
+        "id"          : "r2ZPRAw9c3VGZi8A",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ombre sans étoile",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "lgv4VIoj5TLhm9u0": {
-        "id"      : "lgv4VIoj5TLhm9u0",
-        "text"    : "Ondulation dans les profondeurs",
-        "category": "feat",
-        "href"    : "/class-features/lgv4VIoj5TLhm9u0"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Lorsque votre patron est apparu, c'était sous la forme d'une ombre d'une taille insondable sous les vagues ou peut-être sous la forme d'un ancien habitant des vastes océacs omme le kraken. Qu'il canalise la terreur mortelle d'un prédateur océanique ou qu'il chante la sagesse ancestrale de ses doux géants, le léviathan qui vous sert de patron vous apporte des leçons des profondeurs inexplorées du monde.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon de la surface et des mers\" Votre patron vous enseigne les dangers et les merveilles de son domaine, même au bord des eaux. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jyYBuGRfpkZz2kxs'})\">Piqûre de la mer</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UKsIOWmMx4hSpafl'})\">Couleurs vertigineuses</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Wu0xFpewMKRK3HG8'})\">Graisse</div> .</p>\n<p>\"Familier des marées irrésistibles\" Votre familier dégouline constamment d'eau de l'océan. Lorsque vous Lancez ou Maintenez un maléfice, vous pouvez faire surgir une petite vague de votre familier. Une créature située à 3 mètres de votre familier est poussée par rapport à votre familier de 1,50 mètre.</p>",
+        "element_type": null,
+        "href"        : "/class-features/lgv4VIoj5TLhm9u0",
+        "id"          : "lgv4VIoj5TLhm9u0",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ondulation dans les profondeurs",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "RdOzBNPKLTMUWrJs": {
-        "id"      : "RdOzBNPKLTMUWrJs",
-        "text"    : "Paradoxe des opposés",
-        "category": "feat",
-        "href"    : "/class-features/RdOzBNPKLTMUWrJs"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Life and death, good and evil, light and shadow, vitality and void energy—these diametrically opposed concepts exist everywhere, and your patron walks the line between them. You first encountered your patron in a place or situation of such duality, such as witnessing a baby being born in a cemetery or feeling the natural light of a sunbeam in an otherwise dark cavern. There is power to be derived from the interplay between seemingly antithetical ideas and striking a balance between the two. Your patron could be a monitor demigod interested in cultivating a cosmic balance or an entity that plays fast and loose with morality. They are the difference between the two sides of the same coin while also being the entirety of the coin.</p>\n<p>\"Liste de sort\" divine</p>\n<p>\"Compétence du patron\" Religion</p>\n<p>\"Leçon de l'âme crépusculaire\" Pour votre patron, la vie et la mort, le sommeil et l'éveil ont la même signification. Vous obtenez le tour de magie  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4U2ZV1v38D0y2CRl'})\">Échanger la mort contre la vie</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o4lRVTwSxnOOn5vl'})\">Sommeil</div> .</p>\n<p>\"Familier de perplexité dédoublée\" Votre familier possède le double des petits traits qu'une créature ordinaire devrait posséder, telle qu'une seconde queue ou une paire supplémentaire de moustaches. Lorsque vous Lancez ou Maintenez un maléfice, votre familier semble se dédoubler en deux endroits en même temps. Une créature que vous choisissez se trouvant à 6 mètres de lui est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg'})\">Stupéfiée 1</div>  jusqu'au début de votre prochain tour. C'est un effet visuel.</p>",
+        "element_type": null,
+        "href"        : "/class-features/RdOzBNPKLTMUWrJs",
+        "id"          : "RdOzBNPKLTMUWrJs",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Paradoxe des opposés",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "9c57R18pfgfqlBCD": {
-        "id"      : "9c57R18pfgfqlBCD",
-        "text"    : "Silence dans la neige",
-        "category": "feat",
-        "href"    : "/class-features/9c57R18pfgfqlBCD"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Un froid glacial a annoncé l'apparition de votre patron, dans les profondeurs du solstice d'hiver ou sur un pic gelé à la fin du monde. Votre patron pourrait être une guenaude d'hiver, un yai de glace ou un autre esprit du froid, mais une chose est sûre : son pouvoir ne doit pas être sous-estimé.</p>\n<p>\"Liste de sort\" primordiale</p>\n<p>\"Compétence du patron\" Nature</p>\n<p>\"Leçon du froid hivernal\" Votre patron vous a enseigné la puissance de l'hiver en personne en vous assujettissant au froid et à la neige. Vous apprenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MraZBLJ4Be3ogmWL'})\">Glace tenace</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'g8QqHpv2CWDwmIm1'})\">Bourrasque de vent</div> .</p>\n<p>\"Familier de glace verglacée\" Votre familier est froid au toucher, son souffle étant toujours visible. Lorsque vous Lancez ou Maintenez un maléfice, vous pouvez provoquer la formation de la glace dans une  explosion de 1,50 mètre  centrée sur une case de l'espace de votre familier. Ces cases sont un terrain difficile jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/9c57R18pfgfqlBCD",
+        "id"          : "9c57R18pfgfqlBCD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Silence dans la neige",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "ghIsqhEsJTvjJiNl": {
-        "id"      : "ghIsqhEsJTvjJiNl",
-        "text"    : "Tisseur de fils",
-        "category": "feat",
-        "href"    : "/class-features/ghIsqhEsJTvjJiNl"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Vous rencontrez votre patron dans le souvenir d'une rencontre à venir ou dans la prémonition d'un événement passé depuis longtemps, alors qu'ils démêlent et retissent la tapisserie du temps et du destin. Votre protecteur était-il une norne ? le héraut d'une divinité comme Pharasma, Alséta ou de Grand-Mère Araignée ? Pourrait-il même s'agir d'un seul individu apparaissant à trois moments ou plus de sa ligne temporelle, de multiples versions du même être, de fils parallèles convergeant vers un seul et même moment ?</p>\n<p>\"Liste de sort\" occulte</p>\n<p>\"Compétence du patron\" Occultisme</p>\n<p>\"Leçon des vicissitudes du destin\" La dure leçon de votre patron est que le destin n'épargne personne, s'élevant et s'abaissant tour à tour pour tous. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'G0T1xv1FoZ23Jxvt'})\">Coup de pouce du destin</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Gb7SeieEvd0pL2Eh'})\">Frappe assurée</div> .</p>\n<p>\"Familier de la chance équilibrée\" Votre familier possède une tache sur son corps qui ressemble à un porte-bonheur ou à un mauvais présage, selon l'angle. Lorsque vous Lancez ou Maintenez un maléfice, une créature située à moins de 4,50 mètres de votre familier bénéficie au choix d'un bonus de statut de +1 à sa CA ou d'une pénalité de -1 à sa CA jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/ghIsqhEsJTvjJiNl",
+        "id"          : "ghIsqhEsJTvjJiNl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Tisseur de fils",
+        "traits"      : [
+            "Sorcier"
+        ]
     },
     "VVMMJdIWL7fAsQf3": {
-        "id"      : "VVMMJdIWL7fAsQf3",
-        "text"    : "Baba Yaga",
-        "category": "feat",
-        "href"    : "/class-features/VVMMJdIWL7fAsQf3"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "feat",
+        "description" : "<p>Votre patron est Baba Yaga, la Reine des sorciers. Vous êtes probablement une jeune femme qui a été entraînée dans des événements qui la dépassent, mais vous pourriez aussi être un jeune homme ou un chevalier courageux qui a juré fidélité à la vieille sorcière. Vous avez peut-être demandé l'aide de Baba Yaga et vous vous en êtes sorti indemne grâce à votre audace. Elle vous a peut-être tendu la main en envoyant un messager sous la forme d'un objet animé, comme un mortier auquel il aurait poussé des jambes. Il se peut aussi qu'elle soit apparue devant vous en personne, vous demandant de l'aider à accomplir une tâche impossible. Alors que beaucoup ont échoué et sont devenus le repas de Baba Yaga ou ont connu un sort pire encore, vous avez réussi à obtenir le respect de Baba Yaga. Son cadeau a été de vous accorder son patronage (et de vous laisser en vie).</p>\n<p>\"Liste de sort\" occulte</p>\n<p>\"Compétence du patron\" Occultisme</p>\n<p>\"Leçon de la compréhension de Baba\" Baba Yaga vous enseigne à être davantage comme elle, vous permettant de transférer des esprits dans des objets et à geler vos ennemis. Vous obtenez le tour de magie de maléfice  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yp4w9SG4RuqRM8KD'})\">Objet animé</div>  et votre familier apprend  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8TQiFzGf4feoHeH0'})\">Aspersion de froid</div></p>\n<p>\"Familier de chute de neige réfléchissante\" Votre familier est toujours couvert d'une fine couche de neige, qu'il perd au fil des besoins. Lorsque vous Lancez ou Maintenez un maléfice, vous pouvez provoquer la formation de neige collante dans une  explosion de 1,50 mètre  centrée sur une case de l'espace de votre familier. Cette neige persiste jusqu'au début de votre prochain tour et les ennemis qui pénètrent sur ces cases durant cette période sont  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TkIyaNPgTZFBCCuh'})\">Éblouis</div>  jusqu'au début de votre prochain tour.</p>",
+        "element_type": null,
+        "href"        : "/class-features/VVMMJdIWL7fAsQf3",
+        "id"          : "VVMMJdIWL7fAsQf3",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Baba Yaga",
+        "traits"      : [
+            "Rare",
+            "Sorcier"
+        ]
     },
     "f9uqHnNBMU0774SF": {
-        "id"      : "f9uqHnNBMU0774SF",
-        "text"    : "Trahison élémentaire",
-        "category": "spell",
-        "href"    : "/spells/f9uqHnNBMU0774SF"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron utilise sa maîtrise supérieure des éléments, les rendant plus forts pour saper votre adversaire. Lorsque vous Lancez ce sort, choisissez air, bois, eau, feu, métal ou terre. La cible obtient une faiblesse 2 contre ce trait.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'y4y0nusC97R7ZDL5'})\">Effet : Trahison élémentaire</div></p>\n<p>\"Intensifié (+2)\" Augmentez la faiblesse de 1.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/f9uqHnNBMU0774SF",
+        "id"          : "f9uqHnNBMU0774SF",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Trahison élémentaire",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Sorcier"
+        ]
     },
     "W69zswpj0Trdy5rj": {
-        "id"      : "W69zswpj0Trdy5rj",
-        "text"    : "Bulle d'air",
-        "category": "spell",
-        "href"    : "/spells/W69zswpj0Trdy5rj"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Une créature à portée pénètre dans un environnement où elle ne peut pas respirer</p>\n<p>Une bulle d'air pur apparaît autour de la tête de la cible, lui permettant de respirer normalement. L'effet se termine dès que la cible retourne dans un environnement où elle peut respirer normalement.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/W69zswpj0Trdy5rj",
+        "id"          : "W69zswpj0Trdy5rj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Bulle d'air",
+        "traits"      : [
+            "Air",
+            "Concentration"
+        ]
     },
     "y6rAdMK6EFlV6U0t": {
-        "id"      : "y6rAdMK6EFlV6U0t",
-        "text"    : "Cracher du feu",
-        "category": "spell",
-        "href"    : "/spells/y6rAdMK6EFlV6U0t"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Une projection de flammes jaillit de votre bouche. Vous infligez 2d6 dégâts de feu aux créatures dans la zone avec un jet de Réflexes basique.</p>\n<p>\"Intensifié (+1)\" Les dégâts augmentent de 2d6.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/y6rAdMK6EFlV6U0t",
+        "id"          : "y6rAdMK6EFlV6U0t",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cracher du feu",
+        "traits"      : [
+            "Concentration",
+            "Feu",
+            "Manipulation"
+        ]
     },
     "Rn2LkoSq1XhLsODV": {
-        "id"      : "Rn2LkoSq1XhLsODV",
-        "text"    : "Frappe de débris",
-        "category": "spell",
-        "href"    : "/spells/Rn2LkoSq1XhLsODV"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Une pluie de lourdes pierres vole dans les airs face à vous. Les débris infligent 2d4 dégâts contondants à chaque créature dans la zone. Chaque créature doit tenter un jet de Réflexes.</p>\n<p>\"Succès critique\" La créature n'est pas affectée.</p>\n<p>\"Succès\" La créature ne subit que la moitié des dégâts.</p>\n<p>\"Échec\" La créature subit la totalité des dégâts et est repoussée de 1,50 mètre en face de vous.</p>\n<p>\"Échec critique\" La créature subit le double des dégâts et est repoussée de 3 mètres en face de vous.</p>\n<p>\"Intensifié (+1)\" les dégâts augmentent de 2d4.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/Rn2LkoSq1XhLsODV",
+        "id"          : "Rn2LkoSq1XhLsODV",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Frappe de débris",
+        "traits"      : [
+            "Concentration",
+            "Terre",
+            "Manipulation"
+        ]
     },
     "jfVCuOpzC6mUrf6f": {
-        "id"      : "jfVCuOpzC6mUrf6f",
-        "text"    : "Poussée hydraulique",
-        "category": "spell",
-        "href"    : "/spells/jfVCuOpzC6mUrf6f"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous créez une éruption d'eau pressurisée qui asperge violemment la cible et la repousse. Faites un jet d'attaque de sort à distance.</p>\n<p>\"Succès critique\" La cible subit 6d6 dégâts contondants et elle est repoussée de 3 mètres.</p>\n<p>\"Succès\" La cible subit 3d6 dégâts contondants et elle est repoussée de 1,50 mètre.</p>\n<p>\"Intensifié (+1)\" Les dégâts contondants augmentent de 2d6.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/jfVCuOpzC6mUrf6f",
+        "id"          : "jfVCuOpzC6mUrf6f",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Poussée hydraulique",
+        "traits"      : [
+            "Attaque",
+            "Concentration",
+            "Manipulation",
+            "Eau"
+        ]
     },
     "dFejDNEmVj3CwYLL": {
-        "id"      : "dFejDNEmVj3CwYLL",
-        "text"    : "Protection du sang",
-        "category": "spell",
-        "href"    : "/spells/dFejDNEmVj3CwYLL"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>L'égide de votre patron descend pour faire rempart contre les blessures pour une cible. Désignez un des traits de créature suivant : aberration, animal, bête, céleste, champignon, créature artificielle, dragon, élémentaire, fée, fiélon, mort-vivant, plante, vase ou veilleur. La cible obtient un bonus de statut de +1 à ses jets de sauvegarde et à la CA contre les créatures avec ce trait.</p>\n<p>\"Intensifié (5e)\" Le bonus de statut augmente de +2.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aDOL3OAEWf3ka9oT'})\">Effet : Protection du sang</div></p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/dFejDNEmVj3CwYLL",
+        "id"          : "dFejDNEmVj3CwYLL",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Protection du sang",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "aAbfKn8maGjJjk2W": {
-        "id"      : "aAbfKn8maGjJjk2W",
-        "text"    : "Armure mystique",
-        "category": "spell",
-        "href"    : "/spells/aAbfKn8maGjJjk2W"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous vous entourez d'énergie magique scintillante qui vous confère un bonus d'objet de +1 à la CA et un modificateur de Dextérité maximum de +5. Tant que vous portez l'Armure mystique, vous utilisez votre maîtrise sans armure pour calculer votre CA.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qkwb5DD3zmKwvbk0'})\">Effet : Armure mystique</div></p>\n<p>\"Intensifié (4e)\" Vous bénéficiez d'un bonus d'objet de +1 aux jets de sauvegarde.</p>\n<p>\"Intensifié (6e)\" Le bonus d'objet à la CA passe à +2 et vous bénéficiez d'un bonus d'objet de +1 aux jets de sauvegarde.</p>\n<p>\"Intensifié (8e)\" Le bonus d'objet à la CA passe à +2 et vous bénéficiez d'un bonus d'objet de +2 aux jets de sauvegarde.</p>\n<p>\"Intensifié (10e)\" Le bonus d'objet à la CA passe à +3 et vous bénéficiez d'un bonus d'objet de +3 aux jets de sauvegarde.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/aAbfKn8maGjJjk2W",
+        "id"          : "aAbfKn8maGjJjk2W",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Armure mystique",
+        "traits"      : [
+            "Concentration",
+            "Manipulation"
+        ]
     },
     "NNoKWiWKqJkdD2ln": {
-        "id"      : "NNoKWiWKqJkdD2ln",
-        "text"    : "Voile des rêves",
-        "category": "spell",
-        "href"    : "/spells/NNoKWiWKqJkdD2ln"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron plonge la cible dans un état de somnolence, provoquant des rêves éveillés et de l'indolence. La cible doit tenter un jet de Volonté.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible subit une pénalité de statut de -1 à la Perception, aux jets d'attaques et aux jets de Volonté. Cette pénalité passe à -2 pour les jets de Volonté contre les effets de sommeil.</p>\n<p>\"Échec\" Comme en cas de succès et à chaque fois que la cible utilise une action de concentration, elle doit réussir un  Test nu, DD 5  ou l'action est interrompue.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hkLhZsH3T6jc9S1y'})\">Effet : Voile de rêves</div></p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/NNoKWiWKqJkdD2ln",
+        "id"          : "NNoKWiWKqJkdD2ln",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Voile des rêves",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Mental",
+            "Sorcier"
+        ]
     },
     "o4lRVTwSxnOOn5vl": {
-        "id"      : "o4lRVTwSxnOOn5vl",
-        "text"    : "Sommeil",
-        "category": "spell",
-        "href"    : "/spells/o4lRVTwSxnOOn5vl"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Chaque créature dans la zone devient somnolente, pouvant éventuellement s'assoupir. Une créature qui devient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf'})\">Inconsciente</div>  à cause de ce sort ne tombe pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div>  ni ne relâche ce qu'elle tient. Ce sort n'empêche pas les créatures de se réveiller grâce à un test de Perception réussi, ce qui limite son utilité en combat.</p>\n<p>\"Succès critique\" La créature n'est pas affectée.</p>\n<p>\"Succès\" La cible subit une pénalité de -1 à ses tests de Perception pendant 1 round.</p>\n<p>\"Échec\" La créature devient inconsciente. Si elle est toujours inconsciente après 1 minute, elle se réveille automatiquement.</p>\n<p>\"Échec critique\" La créature devient Inconsciente. Si elle est toujours inconsciente après 1 heure, elle se réveille automatiquement.</p>\n\"Intensifié (4e)\"\nLes créatures deviennent Inconscientes pendant 1 round sur un échec ou 1 minute sur un échec critique. Elles tombent\nÀ terre\net relâchent ce qu'elles tiennent. Elles ne peuvent pas tenter de tests de Perception pour se réveiller. Quand la durée s'achève, la créature est endormie comme à l'ordinaire au lieu de se réveiller automatiquement.",
+        "element_type": "SORT 1",
+        "href"        : "/spells/o4lRVTwSxnOOn5vl",
+        "id"          : "o4lRVTwSxnOOn5vl",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Sommeil",
+        "traits"      : [
+            "Concentration",
+            "Mise hors de combat",
+            "Manipulation",
+            "Mental",
+            "Sommeil"
+        ]
     },
     "aEitTTb9PnOyidRf": {
-        "id"      : "aEitTTb9PnOyidRf",
-        "text"    : "Aiguillon de la vengeance",
-        "category": "spell",
-        "href"    : "/spells/aEitTTb9PnOyidRf"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Une longue aiguille dentelée tape dans la psyché de l'ennemi ciblé lorsqu'il tente d'attaquer une créature que votre patron tient en haute estime. Nommez vous ou l'un de vos alliés. La cible subit 2 dégâts mentaux à chaque fois qu'elle utilise une action hostile contre la créature ainsi nommée avec un jet de Volonté basique.</p>\n<p>\"Intensifié (+1)\" Augmentez les dégâts mentaux de 2.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/aEitTTb9PnOyidRf",
+        "id"          : "aEitTTb9PnOyidRf",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Aiguillon de la vengeance",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Mental",
+            "Sorcier"
+        ]
     },
     "R8bqnYiThB6MYTxD": {
-        "id"      : "R8bqnYiThB6MYTxD",
-        "text"    : "Douleur fantôme",
-        "category": "spell",
-        "href"    : "/spells/R8bqnYiThB6MYTxD"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Une douleur illusoire déchire la cible en lui infligeant 2d4 dégâts mentaux et  1d4 dégâts mentaux persistants . La cible doit faire un jet de Volonté.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible subit les dégâts initiaux normalement mais pas les dégâts persistants et le sort se termine immédiatement.</p>\n<p>\"Échec\" La cible subit les dégâts initiaux et persistants normalement, et elle est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18'})\">Nauséeuse 1</div> . Si la cible se remet de l'état Nauséeux, les dégâts persistants prennent fin, tout comme le sort.</p>\n<p>\"Échec critique\" Comme en cas d'échec, mais la cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18'})\">Nauséeuse 2</div> .</p>\n<p>\"Intensifié (+1)\" Les dégâts augmentent de 2d4 et les dégâts persistants de 1d4.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/R8bqnYiThB6MYTxD",
+        "id"          : "R8bqnYiThB6MYTxD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Douleur fantôme",
+        "traits"      : [
+            "Concentration",
+            "Illusion",
+            "Manipulation",
+            "Mental",
+            "Non-létal"
+        ]
     },
     "fAlzXtQAASaJx0mY": {
-        "id"      : "fAlzXtQAASaJx0mY",
-        "text"    : "Gain de vie",
-        "category": "spell",
-        "href"    : "/spells/fAlzXtQAASaJx0mY"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>La force vitale de votre patron s'engouffre dans la cible, s'assurant qu'elle pourra accomplir la volonté de votre patron un peu plus longtemps. La cible obtient Guérison accélérée 2.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NQZ88IoKeMBsfjp7'})\">Effet : Gain de vie</div></p>\n<p>\"Intensifié (+1)\" La guérison accélérée augmente de 2.</p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/fAlzXtQAASaJx0mY",
+        "id"          : "fAlzXtQAASaJx0mY",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Gain de vie",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Guérison",
+            "Maléfice",
+            "Manipulation",
+            "Vitalité",
+            "Sorcier"
+        ]
     },
     "yHujiDQPdtXW797e": {
-        "id"      : "yHujiDQPdtXW797e",
-        "text"    : "Lien spirituel",
-        "category": "spell",
-        "href"    : "/spells/yHujiDQPdtXW797e"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous formez un lien spirituel avec une autre créature, vous permettant d'endurer ses souffrances à sa place. Quand vous Lancez ce sort et au début de chacun de vos tours, si la cible est en dessous de son maximum de Points de vie, elle en regagne 2 (ou la différence entre ses Points de vie actuels et son maximum, si elle est inférieure). Vous perdez autant de Points de vie que la cible en regagne.</p>\n<p>Il s'agit d'un transfert spirituel, par conséquent, aucun effet n'augmente les Points de vie regagnés par la cible ou ne diminue les Points de vie que vous perdez. Ce transfert ignore également tous vos Points de vie temporaires ou ceux de la cible. Comme cet effet n'implique pas de vitalité ou de vide, <em>Lien spirituel</em> fonctionne même si vous ou la cible êtes un mort-vivant. Tant que la durée persiste, vous ne tirez pas avantage de régénération ou de guérison accélérée. Vous pouvez Révoquer ce sort, et si vous êtes à 0 Point de vie, <em>Lien spirituel</em> prend fin automatiquement.</p>\n<p>\"Intensifié (+1)\" Le nombre de Points de vie transférés chaque fois augmente de 2.</p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/yHujiDQPdtXW797e",
+        "id"          : "yHujiDQPdtXW797e",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Lien spirituel",
+        "traits"      : [
+            "Concentration",
+            "Guérison",
+            "Manipulation",
+            "Spirituel"
+        ]
     },
     "X8PSYw6WC2ePYSXd": {
-        "id"      : "X8PSYw6WC2ePYSXd",
-        "text"    : "Malédiction titubante",
-        "category": "spell",
-        "href"    : "/spells/X8PSYw6WC2ePYSXd"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>D'une pichenette, vous envoyez une créature sur une trajectoire désordonnée. La cible doit tenter un jet de Réflexes.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible subit une pénalité de statut de -2 aux tests d'Athlétisme et d'Acrobaties.</p>\n<p>\"Échec\" Comme avec le succès et chaque fois que la cible Marche rapidement, elle utilise ses premiers 1,50 mètre de déplacement de sa Marche rapidement pour se déplacer de 1,50 mètre dans un direction aléatoire (c'est un déplacement forcé). Cela n'a aucun effet sur une créature avec seulement 1,50 mètre de déplacement.</p>\n<p>\"Échec critique\" Comme en cas d'échec, sauf que vous contrôlez la direction des premiers 1,50 mètre de déplacement de Marche rapide.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ViBlOrd6hno3DiPP'})\">Effet : Malédiction titubante</div></p>",
+        "element_type": "FOCALISÉ 1",
+        "href"        : "/spells/X8PSYw6WC2ePYSXd",
+        "id"          : "X8PSYw6WC2ePYSXd",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Malédiction titubante",
+        "traits"      : [
+            "Peu courant",
+            "Malédiction",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "6ZIKB0151LUR19Rw": {
-        "id"      : "6ZIKB0151LUR19Rw",
-        "text"    : "Mauvais présage",
-        "category": "spell",
-        "href"    : "/spells/6ZIKB0151LUR19Rw"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>La cible est touchée par la malchance, qui la place en déséquilibre. La cible doit tenter un jet de Volonté.</p>\n<p>\"Succès\" La cible n'est pas affectée.</p>\n<p>\"Échec\" La première fois que la cible lance un jet d'attaque ou un test de compétence, pendant la durée du sort, elle doit lancer deux fois les dés et utiliser le pire résultat.</p>\n<p>\"Échec critique\" Chaque fois que la cible lance un jet d'attaque ou un test de compétence pendant la durée du sort, elle doit lancer deux fois les dés et utiliser le pire résultat.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AmsVO5Q6078mEvNt'})\">Effet : Mauvais présage</div></p>",
+        "element_type": "SORT 1",
+        "href"        : "/spells/6ZIKB0151LUR19Rw",
+        "id"          : "6ZIKB0151LUR19Rw",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mauvais présage",
+        "traits"      : [
+            "Concentration",
+            "Malédiction",
+            "Manipulation",
+            "Infortune"
+        ]
     },
     "vhMCd15ZwNJn0zen": {
-        "id"      : "vhMCd15ZwNJn0zen",
-        "text"    : "Ombre malicieuse",
-        "category": "spell",
-        "href"    : "/spells/vhMCd15ZwNJn0zen"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron distord l'ombre de la cible en une forme mortelle, telle que des mains étrangleuses, une arme dangereuse, des runes harcelantes ou l'équivalent. L'ombre se déplace avec la cible, restant toujours dans son allonge. Lorsque vous Lancez le sort et chaque fois que vous Maintenez le sort, l'ombre porte une Frappe contre la cible. Les Frappes de l'ombre sont des attaques de sort au corps-à-corps qui infligent 2d10 dégâts. Vous choisissez le type de dégâts (contondant, perforant ou tranchant) lorsque vous Lancez le sort. L'ombre utilise utilise et contribue à votre pénalité d'attaques multiples. L'ombre malicieuse n'occupe aucun espace, n'accorde pas la tenaille et n'a pas les attributs qu'une créature pourrait avoir. L'ombre ne peut faire aucune autre attaque que sa Frappe.</p>\n<p>L'ombre s'évanouit si la cible cesse de projeter une ombre (habituellement si elle se déplace dans l'obscurité totale ou la lumière totale). Si un autre effet est en train de contrôler l'ombre de la cible lorsque vous Lancez <em>Ombre malicieuse</em>, vous pouvez essayer de contrer cet effet pour prendre temporairement le contrôle de l'ombre mais pendant la durée d'<em>Ombre malicieuse</em>.</p>\n<p>\"Intensifié (+2)\" Les dégâts de la Frappe augmentent de 1d10.</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/vhMCd15ZwNJn0zen",
+        "id"          : "vhMCd15ZwNJn0zen",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ombre malicieuse",
+        "traits"      : [
+            "Peu courant",
+            "Attaque",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Ombre",
+            "Sorcier"
+        ]
     },
     "sRfSBHWHdbIa0aGc": {
-        "id"      : "sRfSBHWHdbIa0aGc",
-        "text"    : "Ténèbres glaciales",
-        "category": "spell",
-        "href"    : "/spells/sRfSBHWHdbIa0aGc"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous lancez un rayon de ténèbres d'un froid absolu teintées d'énergie impie. Faites un jet d'attaque de sort à distance. Le rayon inflige 5d6 dégâts de froid. Si la cible possède le trait saint, vous infligez 5d6 dégâts spirituels supplémentaires.</p>\n<p>\"Succès critique\" La cible subit le double des dégâts.</p>\n<p>\"Succès\" La cible subit la totalité des dégâts.</p>\n<p>Si le rayon traverse une zone de lumière magique ou cible une créature affectée par une lumière magique, <em>Ténèbres glaciales</em> tente de contrer la lumière. Si vous avez besoin de savoir si le rayon traverse une zone de lumière, tracez une ligne entre vous et la cible du sort.</p>\n<p>\"Intensifié (+1)\" Les dégâts de froid augmentent de 2d6 et les dégâts spirituels contre les créatures saintes augmentent de 2d6.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/sRfSBHWHdbIa0aGc",
+        "id"          : "sRfSBHWHdbIa0aGc",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ténèbres glaciales",
+        "traits"      : [
+            "Attaque",
+            "Froid",
+            "Concentration",
+            "Ténèbres",
+            "Manipulation",
+            "Impie"
+        ]
     },
     "9gMQPCaFM27PEIh4": {
-        "id"      : "9gMQPCaFM27PEIh4",
-        "text"    : "Rendre la faveur",
-        "category": "spell",
-        "href"    : "/spells/9gMQPCaFM27PEIh4"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Un allié utilise une réaction pour vous accorder un effet bénéfique pendant une rencontre de combat.</p>\n<p>Vous ne pouvez laisser aucune dette impayée. Lorsqu'un allié vous soutient dans un combat, vous lui offrez une assistance pour lui rendre cette faveur. L'allié déclencheur obtient 12 Points de vie temporaires pendant 1 minute.</p>\n<p>\"Intensifié (+1)\" Les Points de vie temporaires augmentent de 4.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cSoL5aMy3PCzM4Yv'})\">Effet : Rendre la Faveur</div></p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/9gMQPCaFM27PEIh4",
+        "id"          : "9gMQPCaFM27PEIh4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Rendre la faveur",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "fPlFRu4dp09qJs3K": {
-        "id"      : "fPlFRu4dp09qJs3K",
-        "text"    : "Esprit de menace",
-        "category": "spell",
-        "href"    : "/spells/fPlFRu4dp09qJs3K"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Ce sort vous garde contre ceux qui tentent de subvertir votre esprit et retourne la magie mentale contre eux. Lorsque le sort est lancé, vous obtenez la réaction  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hi56uHG1aAb84Zzu'})\">Se débattre avec la peur</div> . Une fois la réaction utilisée, le sort s'achève.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7IUPl6dQUktXZh5t'})\">Effet : Esprit de menace</div></p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/fPlFRu4dp09qJs3K",
+        "id"          : "fPlFRu4dp09qJs3K",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Esprit de menace",
+        "traits"      : [
+            "Concentration",
+            "Contingence",
+            "Émotion",
+            "Terreur",
+            "Manipulation",
+            "Mental"
+        ]
     },
     "FrKPwgFxWIGMGgs4": {
-        "id"      : "FrKPwgFxWIGMGgs4",
-        "text"    : "Cape de tromperie",
-        "category": "spell",
-        "href"    : "/spells/FrKPwgFxWIGMGgs4"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron vous enveloppe d'un manteau d'illusion, vous faisant apparaître comme une autre créature de la même forme corporelle, de taille et de poids à peu près similaires aux vôtres. Cela vous confère les effets d'un sort de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i35dpZFI7jZcRoBo'})\">Déguisement illusoire</div>  au rang 3.</p>\n<p>\"Intensifié (6e)\" Vous pouvez apparaître comme n'importe quelle créature de la même taille, même avec une forme corporelle complètement différente.</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/FrKPwgFxWIGMGgs4",
+        "id"          : "FrKPwgFxWIGMGgs4",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cape de tromperie",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Illusion",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "tFKJCPvOQZxKq6ON": {
-        "id"      : "tFKJCPvOQZxKq6ON",
-        "text"    : "Singes fous",
-        "category": "spell",
-        "href"    : "/spells/tFKJCPvOQZxKq6ON"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Les esprits de singes magiques emplissent la zone lorsqu'ils s'empilent en s'escaladant les uns les autres. Comme les singes sont des esprits magiques, ils ne peuvent être attaqués ou blessés. Lancer  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'b515AZlB0sridKSq'})\">Apaisement</div>  ou un effet similaire sur les singes les rend dociles, leur faisant cesser de causer du désordre pendant la durée de <em>Singes fous</em>.</p>\n<p>Choisissez la sorte de désordre que les singes vont causer lorsque vous Lancez le sort. Ils produisent l'effet indiqué pour ce désordre lorsque vous Lancez le sort et chaque round lorsque vous Maintenez le sort. La première fois au cours de chaque round, lorsque vous Maintenez le sort, vous pouvez déplacer la zone des singes de 1,50 mètre.</p>\n<p>\"Cambriolage manifeste\" Les singes essaient de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k'})\">Voler</div>  n'importe quel objet d'une créature dans la zone. Utilisez votre DD de sort - 10 comme modificateur au test de Vol des singes. Leurs tentatives comptent davantage sur la distraction que sur la subtilité, de sorte que la victime sait quel objet les singes sont en train de prendre et s'il a été pris. Obtenir un objet volé des singes - même pour l'incantateur - nécessite de le leur Voler ou de les  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9'})\">Désarmer</div> , en utilisant votre DD de sort. Lorsque le sort s'achève, n'importe quel objet volé tombe sur le sol dans n'importe quelle case de la zone du sort que vous avez choisie.</p>\n<p>\"Vacarme tapageur\" Les singes crient bruyamment, assourdissant potentiellement les créatures dans la zone du sort. Chaque créature dans la zone du sort doit tenter un jet de Vigueur.</p>\n<p>\"Succès critique\" La créature n'est pas affectée et est temporairement immunisée pendant 10 minutes.</p>\n<p>\"Succès\" La créature n'est pas affectée.</p>\n<p>\"Échec\" La créature est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9PR9y0bi4JPKnHPR'})\">Sourde</div>  pendant 1 round.</p>\n<p>\"Échec critique\" La créature est Sourde pendant 1 minute.</p>\n<p>\"Gymnastique tumultueuse\" Les singes sautent et grimpent sur les créatures dans la zone du sort, interférant avec des mouvements complexes. Chaque créature dans la zone du sort doit tenter un jet de Réflexes.</p>\n<p>\"Succès critique\" La créature n'est pas affectée et est temporairement immunisée pendant 10 minutes.</p>\n<p>\"Succès\" La créature n'est pas affectée.</p>\n<p>\"Échec\" Pendant 1 round, la créature doit réussir un  Test nu, DD 5  lorsqu'elle tente une action de manipulation. Si elle obtient un échec, la créature perd cette action.</p>\n<p>\"Échec critique\" Comme en cas d'échec, mais les singes se cramponnent à la créature avec ténacité et l'effet dure jusqu'à ce que le sort se termine, même si la créature quitte la zone du sort.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/tFKJCPvOQZxKq6ON",
+        "id"          : "tFKJCPvOQZxKq6ON",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Singes fous",
+        "traits"      : [
+            "Concentration",
+            "Manipulation"
+        ]
     },
     "g4MAIQodRDVfNp1B": {
-        "id"      : "g4MAIQodRDVfNp1B",
-        "text"    : "Blizzard personnel",
-        "category": "spell",
-        "href"    : "/spells/g4MAIQodRDVfNp1B"
+        "action_cost" : "1",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Le souffle de votre patron devient un blizzard de glace obscurcissante et décapante qui suit votre cible. La cible tente un jet de Vigueur.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible subit  1d6 dégâts de froid  et le sort se termine.</p>\n<p>\"Échec\" La cible subit  1d6 dégâts de froid  et  1d6 dégâts persistants de froid . Les dégâts persistants se terminent automatiquement lorsque le sort s'achève. Elle est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masquée</div>  aux autres créatures et les autres créatures lui sont Masquées.</p>\n<p>\"Échec critique\" Comme en cas d'échec mais les dégâts de froid et les dégâts persistants de froid passent tous deux à 2d6.</p>\n<p>\"Intensifié (+1)\" Les dégâts de froid et les dégâts persistants de froid augmentent de 1 (de 2 en cas d'échec critique).</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/g4MAIQodRDVfNp1B",
+        "id"          : "g4MAIQodRDVfNp1B",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Blizzard personnel",
+        "traits"      : [
+            "Peu courant",
+            "Froid",
+            "Focalisation",
+            "Maléfice",
+            "Sorcier"
+        ]
     },
     "it4ZsAi6XgvGcodc": {
-        "id"      : "it4ZsAi6XgvGcodc",
-        "text"    : "Mur de vent",
-        "category": "spell",
-        "href"    : "/spells/it4ZsAi6XgvGcodc"
+        "action_cost" : "3",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous créez une barrière de vent soufflant en rafales qui gêne tout ce qui ler traverse. Le mur de vents tourbillonnants est épais de 1,50 mètre, long de 18 mètres et haut de 9 mètres. Le mur se dresse verticalement, mais vous pouvez façonner son tracé. Bien que le mur de vent distorde l'air, il ne gêne pas la vision. Le mur possède les effets suivants.</p>\n<ul><li>Les munitions provenant d'attaques à distance physiques - telles que les flèches, les carreaux, les billes de fronde et autres objets de taille similaire - ne peuvent pas franchir le mur. Les attaques effectuées avec des armes à distance plus grandes, comme une javeline, subissent une pénalité de circonstances de -2 à leurs jets d'attaque si leur trajectoire traverse le mur. Les armes à distance massives et les effets de sorts qui ne créent pas d'objet physique passent franchissent le mur sans pénalité.</li><li>Le mur est un terrain difficile pour les créatures qui tentent de se déplacer au travers. Les gaz, y compris les créatures sous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'V8wXOsoejQhe6CyG'})\">Forme vaporeuse</div> , ne peuvent pas passer à travers le mur.</li><li>Une créature qui tente de voler à travers le mur en utilisant une action de déplacement doit faire un jet de Vigueur.</li></ul>\n<p>\"Succès critique\" La créature peut se déplacer normalement à travers le mur à ce tour.</p>\n<p>\"Succès\" La créature volante peut se déplacer à travers le mur à ce tour, mais le mur est un terrain difficile.</p>\n<p>\"Échec\" Le mur arrête le déplacement de la créature volante et tout déplacement restant pour son action actuelle est perdu.</p>\n<p>\"Échec critique\" Comme en cas d'échec et la créature est repoussée de 3 mètres du mur.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/it4ZsAi6XgvGcodc",
+        "id"          : "it4ZsAi6XgvGcodc",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Mur de vent",
+        "traits"      : [
+            "Air",
+            "Concentration",
+            "Manipulation"
+        ]
     },
     "V4jrHiaMh4XuANOP": {
-        "id"      : "V4jrHiaMh4XuANOP",
-        "text"    : "Maladie mycologique",
-        "category": "spell",
-        "href"    : "/spells/V4jrHiaMh4XuANOP"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous infectez votre cible avec des spores fongiques pour accélérer le cycle de la décomposition. La cible doit tenter un jet de Vigueur. Les morts-vivants qui ne sont pas tangibles comme les squelettes et les zombies, ne bénéficient pas de leur immunité ordinaire contre cette maladie car les spores peuvent toujours coloniser leur chair et leurs os restants. Ceci pourrait aussi d'appliquer aux autres créatures non-vivantes composées de matériaux organiques à la discrétion du MJ.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" Des champignons jaillissent de la cible qui est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaiblie 2</div>  pendant 1 round.</p>\n<p>\"Échec\" La cible est affligée avec les spores à chapeau vide au stade 1.</p>\n<p>\"Échec critique\" La cible est affligée pas les spores à chapeau vide au stade 2.</p>\n<p>\"Spores à chapeau vide (maladie)\" Cette maladie se termine lorsque le sort se termine</p>\n<p>\"Stade 1\" Affaibli 2 (1 round)</p>\n<p>\"Stade 2\" Affaibli 2 et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3'})\">Ralenti 1</div>  (1 round)</p>\n<p>\"Stade 3\" Affaibli 2, Ralenti 1 et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg'})\">Stupéfié 2</div>  (1 round)</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/V4jrHiaMh4XuANOP",
+        "id"          : "V4jrHiaMh4XuANOP",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Maladie mycologique",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Maladie",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "XI6Lzd2B5pernkPd": {
-        "id"      : "XI6Lzd2B5pernkPd",
-        "text"    : "Forme d'insecte",
-        "category": "spell",
-        "href"    : "/spells/XI6Lzd2B5pernkPd"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous visualisez un simple insecte et prenez la forme de combat d'un animal de taille Moyenne. Lorsque vous Lancez ce sort, choisissez une forme de combat indiquée. Vous pouvez opter pour un type d'animal spécifique (comme une coccinelle ou un scarabée pour la forme de coléoptère) mais cela n'affecte ni la taille ni les statistiques de la forme. Sous cette forme, vous obtenez le trait animal. Vous pouvez Révoquer ce sort.</p>\n<p>Vous obtenez les statistiques et capacités suivantes, quelle que soit la forme de combat choisie :</p>\n<ul><li>CA = 18 + votre niveau. Ignore votre pénalité d'armure aux tests et la réduction de Vitesse liée à l'armure.</li><li>10 Points de vie temporaires.</li><li>Vision nocturne.</li><li>Une ou plusieurs attaques spécifiques à la forme de combat choisie qui deviennent vos seules attaques utilisables pour Frapper. Vous êtes qualifié pour vous en servir. Votre modificateur d'attaque est de +13 et votre bonus aux dégâts est de +2. Ces attaques sont basées sur la Force (vis-à-vis de l'état  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaibli</div>  par exemple). Si votre modificateur d'attaque à mains nues est plus élevé, utilisez-le à la place.</li><li>modificateur d'Athlétisme de +13, à moins que le vôtre ne soit plus élevé.</li></ul>\n<p>Vous obtenez également des capacités spécifiques basées sur la forme choisie :</p>\n<ul><li>\"Fourmi\"\n\nVitesse 9 mètres, Vitesse d'escalade 9 mètres\n\"Corps-à-corps\" 1 Mandibules \"Dégâts\" 2d6 contondants.</li><li>\"Coléoptère\"\n\nVitesse 7,50 mètres\n\"Corps-à-corps\" 1 Mandibules \"Dégâts\" 2d10 contondants.</li><li>\"Mille-pattes\"\n\nVitesse 7,50 mètres, Vitesse d'escalade 7,50 mètres\nvision dans le noir\n\"Corps-à-corps\" 1 Mandibules \"Dégâts\" 1d8 perforants plus 1d4 dégâts de poison persistants.</li><li>\"Mante\"\n\nVitesse 12 mètres\nodorat 9 mètres (imprécis)\n\"Corps-à-corps\" 1 Patte avant \"Dégâts\" 2d8 contondant</li><li>\"Scorpion\"\n\nVitesse 12 mètres\nVision dans le noir, perception des vibrations 18 mètres (imprécis)\n\"Corps-à-corps\" 1 Dard \"Dégâts\" 1d8 perforants plus 1d4 dégâts de poison persistants.</li><li>\"Araignée\"\n\nVitesse 7,50 mètres, Vitesse d'escalade 7,50 mètres\nVision dans le noir\n\"Corps-à-corps\" 1 Crocs \"dégâts\" 1d6 perforants plus 1d4 dégâts de poison persistants\n\"A distance\" 1 Toile (facteur de portée 6 mètres) \"dégâts\"  Immobilise  la cible pendant un round.</li></ul>\n<p>\"Intensifié (4e)\" Votre forme de combat est de Grande taille et vos attaques ont une allonge de 3 mètres. Vous obtenez à la place 15 Points de vie temporaires, un modificateur d'attaque de +16, un bonus aux dégâts de +6 et Athlétisme +16.</p>\n<p>\"Intensifié (5e)\" Votre forme de combat est de Très Grande taille et vos attaques ont une allonge de 4,50 mètres. Vous obtenez à la place 20 Points de vie temporaires, un modificateur d'attaque de +18, un bonus aux dégâts de +2 et vous doublez les dés de dégâts (y compris les dégâts persistants) et Athlétisme +20.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/XI6Lzd2B5pernkPd",
+        "id"          : "XI6Lzd2B5pernkPd",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Forme d'insecte",
+        "traits"      : [
+            "Concentration",
+            "Manipulation",
+            "Métamorphose"
+        ]
     },
     "CXpOlv2ZZq2jVbRX": {
-        "id"      : "CXpOlv2ZZq2jVbRX",
-        "text"    : "Sang dans l'eau",
-        "category": "spell",
-        "href"    : "/spells/CXpOlv2ZZq2jVbRX"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Conditions\" La cible subit des dégâts de saignement ou votre dernière action a infligé des dégâts tranchants à la cible.</p>\n<p>Les prédateurs sont attirés par l'odeur du sang et le sang peut disperser étonnamment loin dans l'eau. Vous invoquez les esprits des prédateurs aquatiques qui apparaissent en une nuée spectrale autour de la cible. Lorsque vous Lancez ou Maintenez ce sort, la cible subit 2d6 dégâts spirituels (jet de Réflexes basique). Si la cible subit n'importe quel dégât du sort, elle considère toutes les eaux comme un terrain difficile pendant 1 round lorsque les prédateurs tentent de les attirer. Les prédateurs spectraux ne prennent pas de place, ne fournissent pas la tenaille ou n'ont pas les autres attributs qu'une créature pourrait posséder. Si vous infligez des dégâts tranchants à la cible alors que le sort est actif, vous Maintenez automatiquement ce sort. Si vous lancez du sang dans l'eau alors qu'une incantation précédente de ce maléfice est toujours en effet, l'effet précédent se termine.</p>\n<p>\"Intensifié (+2)\" Les dégâts infligés augmentent de 2d6.</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/CXpOlv2ZZq2jVbRX",
+        "id"          : "CXpOlv2ZZq2jVbRX",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Sang dans l'eau",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Spirituel",
+            "Sorcier"
+        ]
     },
     "RvBlSIJmxiqfCpR9": {
-        "id"      : "RvBlSIJmxiqfCpR9",
-        "text"    : "Pieds en nageoires",
-        "category": "spell",
-        "href"    : "/spells/RvBlSIJmxiqfCpR9"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Les pieds de la cible se changent en nageoire, ce qui améliore sa mobilité dans l'eau, mais la réduit sur terre. La cible gagne une Vitesse de nage égale à sa Vitesse au sol normale, mais sa Vitesse au sol passe à 1,50 mètre.</p>\n<p>\"Intensifié (6e)\" Le sort dure jusqu'à vos prochains préparatifs quotidiens.</p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/RvBlSIJmxiqfCpR9",
+        "id"          : "RvBlSIJmxiqfCpR9",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Pieds en nageoires",
+        "traits"      : [
+            "Concentration",
+            "Manipulation",
+            "Transformation"
+        ]
     },
     "gxK5XW4WAXOgY1mN": {
-        "id"      : "gxK5XW4WAXOgY1mN",
-        "text"    : "Ailes protectrices",
-        "category": "spell",
-        "href"    : "/spells/gxK5XW4WAXOgY1mN"
+        "action_cost" : "r",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>\"Déclencheur\" Un allié se déplace à travers une case dans les 4,50 mètres de vous ou utilise une action qui possède le trait déplacement.</p>\n<p>Comme les oiseaux migrateurs, vous savez que tout le monde vole plus loin ensemble. Vous provoquez l'émergence d'ailes de votre familier. Votre familier Vole de 9 mètres, bien qu'il doive se déplacer vers l'allié déclencheur. Si votre familier termine ce déplacement adjacent à l'allié déclencheur, il atterrit sur son dos. Jusqu'au début de votre prochain tour, le familier est automatiquement transporté par l'allié et ses ailes lui procurent un abri. Lorsque le sort se termine, le familier bondit de votre allié dans une case adjacente.</p>",
+        "element_type": "FOCALISÉ 3",
+        "href"        : "/spells/gxK5XW4WAXOgY1mN",
+        "id"          : "gxK5XW4WAXOgY1mN",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Ailes protectrices",
+        "traits"      : [
+            "Peu courant",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "fI20AVwOzJMHXRdo": {
-        "id"      : "fI20AVwOzJMHXRdo",
-        "text"    : "Lévitation",
-        "category": "spell",
-        "href"    : "/spells/fI20AVwOzJMHXRdo"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous défiez la gravité et faites léviter la cible à 1,50 mètre au-dessus du sol. Vous pouvez Maintenir le sort pour déplacer la cible de 3 mètres vers le haut ou le bas. Une créature en lévitation grâce à ce sort subit une pénalité de circonstances de -2 aux jets d'attaque. Une créature en lévitation peut effectuer l'action Interagir pour se stabiliser et annuler cette pénalité pendant le reste de son tour. Si la cible est adjacente à un objet ou à un terrain suffisamment stable, elle peut l'escalader (si la surface est verticale, comme un mur) ou ramper dessus (si elle est horizontale, comme un plafond). Le MJ détermine quelles surfaces il est possible d'escalader ou sur lesquelles on peut ramper.</p>\n<p><div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JqrTrvwV7pYStMXz'})\">Effet : Lévitation</div></p>",
+        "element_type": "SORT 3",
+        "href"        : "/spells/fI20AVwOzJMHXRdo",
+        "id"          : "fI20AVwOzJMHXRdo",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Lévitation",
+        "traits"      : [
+            "Concentration",
+            "Manipulation"
+        ]
     },
     "PcmFpaHPCReNp1BD": {
-        "id"      : "PcmFpaHPCReNp1BD",
-        "text"    : "Sur des charbons ardents",
-        "category": "spell",
-        "href"    : "/spells/PcmFpaHPCReNp1BD"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous accusez la cible de ne pas tenir sa parole et invoquez la colère de votre protecteur pour lui réclamer son dû, en exigeant qu'elle vous paie en argent, qu'elle exécute un ordre ou qu'elle se retire. La demande ne doit pas être manifestement autodestructrice, sinon le sort échoue. Si la cible résiste, vous prélevez votre dû sur sa force vitale. La cible doit tenter un jet de Volonté. Quel que soit le résultat de son jet de sauvegarde, la cible est temporairement immunisée pendant 1 jour.</p>\n<p>\"Succès critique\" La cible n'est pas affectée et est immunisée à vos tours de magie <em>Négociateur de pacte</em> pendant 1 jour.</p>\n<p>\"Succès\" Si la cible de répond pas à votre sollicitation à la fin de son prochain tour, elle subit  3d8 dégâts de vide persistants . Si elle y donne suite après, le sort se termine automatiquement.</p>\n<p>\"Échec\" Comme en cas de succès, mais si la cible ne se conforme pas à votre requête, elle est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR'})\">Drainée 1</div>  et subit  6d8 dégâts de vide persistants .</p>\n<p>\"Échec critique\" Comme en cas de succès, mais si la cible ne se conforme pas à la requête, elle est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR'})\">Drainée 2</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv'})\">Condamnée 1</div>  et subit  6d8 dégâts de vide persistants . Même si la cible respecte votre ordre par la suite, le sort ne se termine pas jusqu'à ce que tous les états se terminent.</p>\n<p>\"Intensifié (9e)\" Vous pouvez cibler jusqu'à deux créatures.</p>",
+        "element_type": "FOCALISÉ 5",
+        "href"        : "/spells/PcmFpaHPCReNp1BD",
+        "id"          : "PcmFpaHPCReNp1BD",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Sur des charbons ardents",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Mental",
+            "Sorcier"
+        ]
     },
     "GP3wewkQXEPrLxYj": {
-        "id"      : "GP3wewkQXEPrLxYj",
-        "text"    : "Suggestion subconsciente",
-        "category": "spell",
-        "href"    : "/spells/GP3wewkQXEPrLxYj"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous implantez une suggestion subconsciente profondément dans l'esprit d'une cible pour la suivre quand un déclencheur que vous spécifiez se produit. Vous suggérez un plan d'action à la cible. Votre directive doit être formulée de façon à sembler être un plan d'action logique à la cible, et ne peut pas être autodestructrice ou à l'évidence contre les propres intérêts de la cible. La cible doit faire un jet de Volonté.</p>\n<p>\"Succès critique\" La cible n'est pas affectée et sait que vous avez tenté de la contrôler.</p>\n<p>\"Succès\" La cible n'est pas affectée et pense que vous lui avez parlé normalement, sans lui lancer de sort.</p>\n<p>\"Échec\" La suggestion reste dans le subconscient de la cible jusqu'à vos prochains préparatifs quotidiens. Si le déclencheur se produit avant cela, la cible suit immédiatement votre suggestion. L'effet a une durée d'une minute ou se termine quand la cible a complètement achevé la suggestion ou si la suggestion devient autodestructrice ou a d'autres effets néfastes évidents.</p>\n<p>\"Échec critique\" Comme en cas d'échec mais la durée passe à une heure.</p>\n<p>\"Intensifié (9e)\" Vous pouvez cibler jusqu'à 10 créatures.</p>",
+        "element_type": "SORT 5",
+        "href"        : "/spells/GP3wewkQXEPrLxYj",
+        "id"          : "GP3wewkQXEPrLxYj",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Suggestion subconsciente",
+        "traits"      : [
+            "Concentration",
+            "Mise hors de combat",
+            "Linguistique",
+            "Manipulation",
+            "Mental",
+            "Subtil"
+        ]
     },
     "nQS4vPm5zprqkzFZ": {
-        "id"      : "nQS4vPm5zprqkzFZ",
-        "text"    : "Malédiction de mort",
-        "category": "spell",
-        "href"    : "/spells/nQS4vPm5zprqkzFZ"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron enveloppe une main autour du coeur de votre cible. La cible doit tenter un jet de Vigueur. Quel que soit le résultat, la cible est temporairement immunisée contre toutes les <em>malédictions de mort</em> pendant 1 journée.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible est affligée de la <em>malédiction de la mort</em> au stade 1 et le stade de la malédiction ne peut augmenter au-delà du stade 1.</p>\n<p>\"Échec\" La cible est affligée de la <em>malédiction de la mort</em> au stade 1.</p>\n<p>\"Échec critique\" La cible est affligée de la <em>malédiction de la mort</em> au stade 2</p>\n<p>\"Malédiction de la mort\" (malédiction, mort, vide) cette malédiction se termine immédiatement lorsque le sort s'achève.</p>\n<p>\"Stade 1\"  4d6 dégâts de vide  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw'})\">Fatigué</div>  (1 round)</p>\n<p>\"Stade 2\"  8d6 dégâts de vide  et Fatigué (1 round)</p>\n<p>\"Stade 3\"  12d6 dégâts de vide  et Fatigué (1 round)</p>\n<p>\"Stade 4\" mort</p>\n<p>\"Intensifié (+1)\" Augmentez les dégâts de vide subis en cas de succès et durant les trois premiers stades de la malédiction de 1d6.</p>",
+        "element_type": "FOCALISÉ 5",
+        "href"        : "/spells/nQS4vPm5zprqkzFZ",
+        "id"          : "nQS4vPm5zprqkzFZ",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Malédiction de mort",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Malédiction",
+            "Mort",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Vide",
+            "Sorcier"
+        ]
     },
     "IkGYwHRLhkuoGReG": {
-        "id"      : "IkGYwHRLhkuoGReG",
-        "text"    : "Rappel à la vie",
-        "category": "spell",
-        "href"    : "/spells/IkGYwHRLhkuoGReG"
+        "action_cost" : null,
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Vous tentez de rappeler l'âme d'une créature morte, ce qui nécessite la présence de son corps relativement intact. La créature doit être morte depuis 3 jours au maximum. Si Pharasma a décidé que le temps de la créature était venu (à la discrétion du MJ) ou si la créature ne souhaite pas revenir à la vie, ce sort est un échec automatique mais le coût n'est' pas consommé au cours de l'incantation.</p>\n<p>Si le sort est un succès, la créature revient à la vie avec 1 Point de vie, aucun sort préparé ou aucun emplacement de sort disponible, aucun point dans aucune réserve, aucune autre de ses ressources quotidiennes et en conservant toujours les mêmes handicaps à long terme dont souffrait son ancien corps. Le temps passé dans le Cimetière laisse la cible temporairement handicapée la rendant  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm'})\">Maladroite 2</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR'})\">Drainée 2</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7'})\">Affaiblie 2</div>  pendant une semaine. Aucun moyen ne peut supprimer ou réduire ces états tant que la semaine ne s'est pas écoulée. La créature est également changée de manière permanente par cette période dans l'après-vie, comme un léger changement de personnalité, une mèche de cheveux blancs ou une étrange marque de naissance sur son corps.</p>\n<p>\"Intensifié (7e)\" Le niveau maximum de la cible passe à 15. Le coût passe à niveau de la cible (1 au minimum) x 400 po.</p>\n<p>\"Intensifié (8e)\" Le niveau maximum de la cible passe à 17. Le coût passe à niveau de la cible (1 au minimum) x 800 po.</p>\n<p>\"Intensifié (9e)\" Le niveau maximum de la cible passe à 19. Le coût passe à niveau de la cible (1 au minimum) x 1.600 po.</p>\n<p>\"Intensifié (10e)\" Le niveau maximum de la cible passe à 21. Le coût passe à niveau de la cible (1 au minimum) x 3.200 po.</p>",
+        "element_type": "SORT 6",
+        "href"        : "/spells/IkGYwHRLhkuoGReG",
+        "id"          : "IkGYwHRLhkuoGReG",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Rappel à la vie",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Guérison",
+            "Manipulation"
+        ]
     },
     "pCvJ4yoZJxDtgUMI": {
-        "id"      : "pCvJ4yoZJxDtgUMI",
-        "text"    : "Moment restauratif",
-        "category": "spell",
-        "href"    : "/spells/pCvJ4yoZJxDtgUMI"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Votre patron tisse les fils du temps autour de la cible, lui donnant certains des avantages du passage d'un jour. La cible diminue les valeurs de tout état  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv'})\">Condamné</div>  et  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR'})\">Drainé</div>  qu'elle possède de 1 et peut immédiatement tenter un jet de sauvegarde contre chaque affliction dont elle souffre ayant un stade de la longueur d'un jour ou inférieur. La cible est alors temporairement immunisée pendant 1 journée.</p>",
+        "element_type": "FOCALISÉ 5",
+        "href"        : "/spells/pCvJ4yoZJxDtgUMI",
+        "id"          : "pCvJ4yoZJxDtgUMI",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Moment restauratif",
+        "traits"      : [
+            "Peu courant",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "x5rGOmhDRDVQPrnW": {
-        "id"      : "x5rGOmhDRDVQPrnW",
-        "text"    : "Champ de vie",
-        "category": "spell",
-        "href"    : "/spells/x5rGOmhDRDVQPrnW"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Un champ d'énergie vitale emplit la zone, dégageant une douce chaleur et régénérant ceux qui s'y trouvent. Chaque créature vivante qui débute son tour dans la zone récupère 1d8 Points de vie et tout mort-vivant qui y débute son tour subit 1d8 dégâts de vitalité.</p>\n<p>\"Intensifié (8e)\" La guérison et les dégâts passent à 1d10.</p>\n<p>\"Intensifié (9e)\" La guérison et les dégâts passent à 1d12.</p>",
+        "element_type": "SORT 6",
+        "href"        : "/spells/x5rGOmhDRDVQPrnW",
+        "id"          : "x5rGOmhDRDVQPrnW",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Champ de vie",
+        "traits"      : [
+            "Concentration",
+            "Guérison",
+            "Manipulation",
+            "Vitalité"
+        ]
     },
     "ZyREiMaul0VhDYh3": {
-        "id"      : "ZyREiMaul0VhDYh3",
-        "text"    : "Cœur glacial",
-        "category": "spell",
-        "href"    : "/spells/ZyREiMaul0VhDYh3"
+        "action_cost" : "2",
+        "bulk"        : null,
+        "category"    : "spell",
+        "description" : "<p>Glacé jusqu'aux os - un froid profond assaille la cible, la gelant de l'intérieur.</p>\n<p>L'assaut glacé inflige 10d6 dégâts de froid, sujet à un jet de Vigueur de la cible. Après que ses effets soient résolus, la cible est temporairement immunisée pendant 1 jour.</p>\n<p>\"Succès critique\" La cible n'est pas affectée.</p>\n<p>\"Succès\" La cible ne subit que la moitié des dégâts et est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3'})\">Ralentie 1</div>  pendant 1 round. Le sort se termine.</p>\n<p>\"Échec\" La cible subit la totalité des dégâts, est Ralentie 1 et doit faire un jet de Vigueur à la fin de chacun de ses tours ; ce jet suivant possède le trait mise hors de combat. Sur un échec au jet, l'état Ralenti augmente de 1 (ou de 2 en cas d'échec critique), jusqu'à un maximum de  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3'})\">Ralenti 4</div> . En cas de succès, l'état Ralenti décroît de 1. Si à un moment, l'état Ralenti atteint 0, le sort s'achève. Une fois que les actions d'une créature sont réduites à 0 par cet état Ralenti, la créature est complètement enchâssée dans la glace. Elle continue à faire des jets contre <em>Cœur glacial</em>, lui permettant possiblement de réduire son état Ralenti assez pour qu'elle puisse agir. Cette glace possède une Solidité de 4 et 8 Points de vie et son DD pour l'Ouvrir de force est égal à votre DD de sort. Briser la glace libère la créature et met un terme au sort. Si quelqu'un d'autre que la cible casse la glace de l'extérieur, la cible est  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix'})\">Étourdie 1</div>  et subit tout dégât infligé par l'effet qui a brisé la glace au-delà des Points de vie de la glace.</p>\n<p>\"Échec critique\" Comme en cas d'échec, mais la cible subit le double des dégâts et est dès le début  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3'})\">Ralentie 2</div> .</p>\n<p>\"Intensifié (+1)\" Augmentez les dégâts de froid de 2d6.</p>",
+        "element_type": "FOCALISÉ 5",
+        "href"        : "/spells/ZyREiMaul0VhDYh3",
+        "id"          : "ZyREiMaul0VhDYh3",
+        "price"       : null,
+        "required"    : [],
+        "text"        : "Cœur glacial",
+        "traits"      : [
+            "Rare",
+            "Concentration",
+            "Focalisation",
+            "Maléfice",
+            "Manipulation",
+            "Sorcier"
+        ]
     },
     "R5FHRv7VqyRnxg2t": {
-        "id"      : "R5FHRv7VqyRnxg2t",
-        "text"    : "Mur de glace",
-        "category": "spell",
-        "href"    : "/spells/R5FHRv7VqyRnxg2t"
+        "category"    : "spell",
+        "href"        : "/spells/R5FHRv7VqyRnxg2t",
+        "id"          : "R5FHRv7VqyRnxg2t",
+        "text"        : "Mur de glace",
+        "element_type": "SORT 5",
+        "action_cost" : "3",
+        "traits"      : [
+            "Froid",
+            "Concentration",
+            "Manipulation",
+            "Eau"
+        ],
+        "required"    : [],
+        "price"       : null,
+        "bulk"        : null,
+        "description" : "<p>Vous sculptez une barrière de glace qui bloque la vue et, une fois brisée, fige les ennemis. Vous créez soit un mur de glace de 30 centimètres d'épaisseur en ligne droite jusqu'à 18 mètres de long et 3 mètres de haut (le mur n'a pas besoin d'être vertical, mais il doit être ancré des deux côtés à une surface solide) soit un hémisphère de glace de 30 centimètres d'épaisseur et de 3 mètres de rayon. La glace qui constitue le mur est opaque. Si vous le souhaitez, le mur peut être de longueur, hauteur ou rayon plus petits. Vous devez créer le mur dans un espace libre ininterrompu, son enveloppe ne doit donc pas traverser une créature ni un objet, sinon le sort est perdu.</p>\n<p>Chaque section du mur de 3x3 mètres possède une CA de 10, une Solidité de 10 et 40 Points de vie ; il est immunisé aux coups critiques, aux dégâts de froid et aux dégâts de précision. Une section a également une faiblesse contre le feu 15 ; une section détruite par le feu fond et s'évapore sous forme d'eau et de vapeur. Une section détruite par un moyen autre que le feu laisse derrière elle une masse de glace gelée qui est un terrain difficile et qui inflige 2d6 dégâts de froid à toute créature la franchissant.</p>\n<p>\"Intensifié (+2)\" Les Points de vie de chaque section du mur augmentent de 10 et les dégâts de froid infligés aux créatures traversant une section détruite augmentent de 1d6.</p>"
     }
 };

@@ -16,9 +16,6 @@ OBJECT.PopupRenderers.prototype = {
         switch ( event_name ) {
             case "event__show_information":
                 let uuid = params["param__object__uuid"];
-                if ( this.getSize() === 0 ){
-                    uuid         = "yzNJgwzV9XqEhKc6";
-                }
                 let existing_popup = this.getContentByUUID( uuid );
                 if ( !existing_popup ) {
                     existing_popup = this.add( new OBJECT.PopupRenderer( OBJECT.CONST[ uuid ] ) );

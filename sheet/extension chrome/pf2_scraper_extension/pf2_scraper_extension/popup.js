@@ -52,7 +52,8 @@ $("btn-start").addEventListener("click", () => {
     // Ordre garanti : on reconstruit l'objet depuis le JSON parsé
     // (les clés sont dans l'ordre d'insertion, préservé par JSON.parse)
     // Limite à 10 pour le test — retirer `.slice(0, 10)` pour la prod
-    const ids   = Object.keys(entries).slice(0, 10);
+    //const ids   = Object.keys(entries).slice(0, 10);
+    const ids   = Object.keys(entries);
 
     // On ne garde dans entries que les 10 premiers pour ne pas
     // polluer le storage avec tout l'objet pendant le test
