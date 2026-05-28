@@ -2,7 +2,7 @@
   "node": true,
   "camelcase": false,
   "browser": true,
-  "esversion": 6,
+  "esversion": 11,
   "bitwise": true,
   "curly": true,
   "eqeqeq": true,
@@ -23,7 +23,9 @@
   "funcscope": true,
   "laxbreak": true,
   "globals": {
+    "chrome": false,
     "ARCHETYPES": false,
+    "SCRAPPER": true,
     "ALIGNEMENT": false,
     "COMBAT": false,
     "HISTORICS": false,

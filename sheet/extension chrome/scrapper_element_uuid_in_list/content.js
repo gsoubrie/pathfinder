@@ -1,94 +1,88 @@
-// content.js — injecté sur pf2e.pathfinder-fr.org/*
+"use strict";
+/* global chrome */
 
-// Mapping URL path → category
-const CATEGORY_MAP = {
-  "spells":      "spell",
-  "ancestries":  "ancestry",
-  "classes":     "class",
-  "feats":       "feat",
-  "items":       "item",
-  "monsters":    "monster",
-  "conditions":  "condition",
-  "backgrounds": "background",
-  "deities":     "deity",
-  "domains":     "domain",
-  "traits":      "trait",
-};
+var SCRAPPER = SCRAPPER || {};
 
-function getCategoryFromUrl(url) {
-  const segment = url.split("/").filter(Boolean).pop(); // dernier segment de l'URL
-  return CATEGORY_MAP[segment] || segment || "unknown";
-}
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "scrape") {
-    const result = scrape();
-    sendResponse(result);
-  }
-  if (request.action === "get_page_info") {
-    const category = getCategoryFromUrl(window.location.pathname);
-    sendResponse({
-      url: window.location.href,
-      category,
-      ready: document.querySelectorAll("table tr").length > 1
-    });
-  }
-  return true;
-});
-
-function scrape() {
-  const category = getCategoryFromUrl(window.location.pathname);
-  const rows = document.querySelectorAll("tr[mat-row], tr.mat-mdc-row, tbody tr");
-
-  if (rows.length === 0) {
-    return { success: false, error: "Aucune ligne trouvée. La page est-elle bien chargée ?", count: 0 };
-  }
-
-  const entries = {};
-  let count = 0;
-  const errors = [];
-
-  rows.forEach((row, index) => {
-    try {
-      // Cherche n'importe quel lien interne /{segment}/{id}
-      const link = row.querySelector("a[href]");
-      if (!link) return;
-
-      const href = link.getAttribute("href");
-      // L'ID est toujours le dernier segment du href : /spells/abc123 → abc123
-      const id = href.split("/").filter(Boolean).pop();
-      if (!id) return;
-
-      // Cellule du nom
-      let nameCell = row.querySelector(
-        'td.cdk-column-name_trans, td.mat-column-name_trans, td[class*="column-name_trans"]'
-      );
-      if (!nameCell) {
-        const cells = row.querySelectorAll("td");
-        nameCell = cells[0] || null;
-      }
-      if (!nameCell) return;
-
-      const text = extractCleanName(nameCell);
-      if (!text) return;
-
-      entries[id] = { category, href, id, text };
-      count++;
-    } catch (e) {
-      errors.push(`Ligne ${index}: ${e.message}`);
+SCRAPPER.Content = (function ( self ) {
+    
+    //********************************************  CONSTANTS  **************************************************//
+    const CATEGORY_MAP = {
+        "spells"     : "spell",
+        "ancestries" : "ancestry",
+        "classes"    : "class",
+        "feats"      : "feat",
+        "items"      : "item",
+        "monsters"   : "monster",
+        "conditions" : "condition",
+        "backgrounds": "background",
+        "deities"    : "deity",
+        "domains"    : "domain",
+        "traits"     : "trait"
+    };
+    
+    //********************************************  PRIVATE  **************************************************//
+    
+    function _getCategory ( url ) {
+        const segment = url.split( "/" ).filter( Boolean ).pop();
+        return CATEGORY_MAP[ segment ] || segment || "unknown";
     }
-  });
+    
+    function _extractName ( dom_line ) {
+        const name = dom_line.querySelector( ".cdk-column-name_trans" ).innerText;
+        return name.replace( /\s+/g, " " ).trim();
+    }
+    
+    //********************************************  ACTIONS  **************************************************//
+    
+    self.scrape = function () {
+        const category = _getCategory( window.location.pathname );
+        const rows     = document.querySelectorAll( ".mdc-data-table__content .element-row" );
+        
+        const to_return = {};
+        let count       = 0;
+        const errors    = [];
+        
+        let current_dom;
+        for ( let i = 0, _size_i = rows.length; i < _size_i; i++ ) {
+            current_dom = rows[ i ];
+            const link  = current_dom.querySelector( "a[href]" );
+            const href  = link.getAttribute( "href" );
+            const id    = href.split( "/" ).filter( Boolean ).pop();
+            const text  = _extractName( current_dom );
+            
+            to_return[ id ] = { category, href, id, text };
+            count++;
+        }
+        return { success: true, to_return, count, errors, category };
+    };
+    
+    self.getPageInfo = function () {
+        const category = _getCategory( window.location.pathname );
+        return {
+            url  : window.location.href,
+            category,
+            ready: document.querySelectorAll( "table tr" ).length > 1
+        };
+    };
+    
+    //********************************************  MESSAGES  **************************************************//
+    
+    self.init = function () {
+        chrome.runtime.onMessage.addListener( ( request, sender, sendResponse ) => {
+            switch ( request.action ) {
+                case "scrape":
+                    sendResponse( self.scrape() );
+                    break;
+                case "get_page_info":
+                    sendResponse( self.getPageInfo() );
+                    break;
+            }
+            return true;
+        } );
+    };
+    
+    return self;
+    
+})( SCRAPPER.Content || {} );
 
-  if (count === 0) {
-    return { success: false, error: "Aucune entrée extraite. Structure HTML inattendue.", errors, count: 0 };
-  }
-
-  return { success: true, entries, count, errors, category };
-}
-
-function extractCleanName(cell) {
-  const clone = cell.cloneNode(true);
-  clone.querySelectorAll("app-action-icon, mat-icon, .mat-icon").forEach(el => el.remove());
-  let text = clone.textContent || clone.innerText || "";
-  return text.replace(/\s+/g, " ").trim();
-}
+SCRAPPER.Content.init();
