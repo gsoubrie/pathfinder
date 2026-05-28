@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "scrapper_spell_uuid",
+  "name": "PF2_scrapper_element_uuid_in_list",
   "version": "1.1.0",
   "description": "Scrape Pathfinder 2e UUIDs from pf2e.pathfinder-fr.org",
   "permissions": [
