@@ -1,12 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "scrapper_spell_uuid",
-  "version": "1.1.0",
-  "description": "Scrape Pathfinder 2e UUIDs from pf2e.pathfinder-fr.org",
+  "name": "extract_element_uuid_in_page",
+  "version": "1.0.0",
+  "description": "Extrait les données détaillées des pages PF2e (races, classes, etc.)",
   "permissions": [
     "activeTab",
     "scripting",
-    "downloads"
+    "downloads",
+    "tabs",
+    "storage"
   ],
   "host_permissions": [
     "https://pf2e.pathfinder-fr.org/*"
@@ -14,10 +16,13 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
       "128": "icons/icon128.png"
     }
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
