@@ -31,6 +31,7 @@
     "SKILLS": false,
     "COMPONENT": false,
     "GS": false,
+    "SPELL": false,
     "MANAGER": false,
     "WINDOW_V2": false,
     "PHASE": false,
