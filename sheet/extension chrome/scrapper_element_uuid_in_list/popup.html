@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrapper Spell UUID</title>
-    <link rel="stylesheet" href="css/popup.css" />
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Scrapper Spell UUID</title>
+	<link rel="stylesheet" href="css/popup.css"/>
 </head>
 <body>
 
 <div class="header">
-    <div class="rune">⚗</div>
-    <div class="header-text">
-        <h1>Scrapper Spell UUID</h1>
-        <p>Pathfinder 2e · pf2e.pathfinder-fr.org</p>
-    </div>
+	<div class="rune">⚗</div>
+	<div class="header-text">
+		<h1>Scrapper Spell UUID</h1>
+		<p>Pathfinder 2e · pf2e.pathfinder-fr.org</p>
+	</div>
 </div>
 
 <div class="content">
 
-    <div class="status-bar" id="status">
-        <div class="dot"></div>
-        <span id="status-text">Vérification de la page…</span>
-    </div>
+	<div class="status-bar" id="status">
+		<div class="dot"></div>
+		<span id="status-text">Vérification de la page…</span>
+	</div>
 
-    <button class="btn btn-primary" id="btn-scrape" disabled>
-        ⚔ Extraire…
-    </button>
+	<button class="btn btn-primary" id="btn-scrape" disabled>
+		⚔ Extraire…
+	</button>
 
-    <div class="results" id="results">
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-value" id="stat-count">0</span>
-                <span class="stat-label" id="stat-label">Entrées</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value" id="stat-errors">0</span>
-                <span class="stat-label">Erreurs</span>
-            </div>
-        </div>
+	<div class="results" id="results">
+		<div class="stats">
+			<div class="stat-item">
+				<span class="stat-value" id="stat-count">0</span>
+				<span class="stat-label" id="stat-label">Entrées</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-value" id="stat-errors">0</span>
+				<span class="stat-label">Erreurs</span>
+			</div>
+		</div>
 
-        <div class="preview" id="preview"></div>
+		<div class="preview" id="preview"></div>
 
-        <button class="btn btn-secondary" id="btn-download" disabled>
-            ↓ Télécharger JSON
-        </button>
-        <button class="btn btn-secondary" id="btn-copy" disabled>
-            ⎘ Copier dans le presse-papier
-        </button>
-    </div>
+		<button class="btn btn-secondary" id="btn-download" disabled>
+			↓ Télécharger JSON
+		</button>
+		<button class="btn btn-secondary" id="btn-copy" disabled>
+			⎘ Copier dans le presse-papier
+		</button>
+	</div>
 
-    <p class="warn" id="warn-msg"></p>
+	<p class="warn" id="warn-msg"></p>
 </div>
 
 <script src="popup.js"></script>

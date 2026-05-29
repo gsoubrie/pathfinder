@@ -21,8 +21,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://pf2e.pathfinder-fr.org/*"],
-      "js": ["content.js"],
+      "matches": [
+        "https://pf2e.pathfinder-fr.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_idle"
     }
   ]
