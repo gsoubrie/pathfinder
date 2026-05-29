@@ -7,7 +7,6 @@ var Script_don = (function ( self ) {
         let doms       = self.getAllDOM();
         self.to_return = [];
         let timeout    = 1000;
-        console.log( "GSOU", "[SCRIPT_DON_CLASSES - getAll]", doms.length );
         //for ( let i = 0, _size_i = doms.length; i < 15; i++ ) {
         for ( let i = 0, _size_i = doms.length; i < _size_i; i++ ) {
             setTimeout( function () {
@@ -19,7 +18,6 @@ var Script_don = (function ( self ) {
     self.parseDom        = function ( dom_element ) {
         let to_return              = {};
         to_return[ "name" ]        = dom_element.querySelector( ".cdk-column-name_trans" ).innerText;
-        console.log("GSOU", "[SCRIPT_DON_CLASSES - parseDom]", to_return[ "name" ] );
         to_return[ "level" ]       = dom_element.querySelector( ".level-cell" ).innerText;
         to_return[ "traits" ]      = [];
         to_return[ "required" ]    = [];

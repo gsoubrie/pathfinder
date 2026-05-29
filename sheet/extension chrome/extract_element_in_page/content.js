@@ -142,8 +142,8 @@ SCRAPPER.Content = (function ( self ) {
     function _extractAncestry () {
         const result = {};
         
-        const h1    = document.querySelector( "h1, .title, [class*='title']" );
-        result.name = h1 ? _cleanText( h1 ) : "";
+        const title    = document.querySelector( ".content .header .title" );
+        result.name = _cleanText( title );
         
         const detailBlock = document.querySelector( ".description, [class*='description'], .detail-content" );
         
@@ -164,7 +164,6 @@ SCRAPPER.Content = (function ( self ) {
             const tag  = el.tagName.toUpperCase();
             const text = _cleanText( el );
             
-            console.log("GSOU", "[_extractAncestry - ]", "[TO CONTINUE HERE]" );
             
             if ( tag === "H2" || tag === "H3" ) {
                 currentSection = _parseSectionTitle( text );
@@ -200,7 +199,6 @@ SCRAPPER.Content = (function ( self ) {
                     }
             }
         } );
-        
         return result;
     }
     
@@ -220,7 +218,11 @@ SCRAPPER.Content = (function ( self ) {
             default:
                 data = { _raw: true, text: document.body.innerText.slice( 0, 500 ) };
         }
-        return { category, id, href: path, data, links };
+        data["category"] = category;
+        data["id"] = id;
+        data["href"] = path;
+        
+        return { data, links };
     }
     
     //********************************************  MESSAGES  **************************************************//

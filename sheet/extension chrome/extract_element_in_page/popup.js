@@ -131,14 +131,14 @@ SCRAPPER.Popup = (function ( self ) {
         _dom.statsDiv.style.display = "none";
         _dom.btnStart.disabled      = true;
         _dom.btnDownload.disabled   = true;
-        _dom.btnCopy.disabled   = true;
+        _dom.btnCopy.disabled       = true;
         _dom.btnReset.disabled      = true;
         _setStatus( "", "Chargez un fichier JSON pour commencer." );
     }
     
     async function _downloadResults () {
-        const { results, errors } = await chrome.runtime.sendMessage( { action: "get_results" } );
-        const output              = { results, errors, exported_at: new Date().toISOString() };
+        const { results, links } = await chrome.runtime.sendMessage( { action: "get_results" } );
+        const output              = { results, links, exported_at: new Date().toISOString() };
         const blob                = new Blob( [JSON.stringify( output, null, 2 )], { type: "application/json" } );
         const url                 = URL.createObjectURL( blob );
         const cat                 = _loadedItems?.[ 0 ]?.category || "elements";
@@ -151,8 +151,8 @@ SCRAPPER.Popup = (function ( self ) {
     }
     
     async function _copyResults () {
-        const { results, errors } = await chrome.runtime.sendMessage( { action: "get_results" } );
-        await navigator.clipboard.writeText( JSON.stringify( results, null, 2 ) );
+        const { results, links } = await chrome.runtime.sendMessage( { action: "get_results" } );
+        await navigator.clipboard.writeText( JSON.stringify( { results, links }, null, 2 ) );
         _dom.btnCopy.textContent = "✓ Copié !";
         setTimeout( () => {
             _dom.btnCopy.textContent = "⎘ Copier dans le presse-papier";
@@ -180,7 +180,7 @@ SCRAPPER.Popup = (function ( self ) {
             const err = (state.errors || []).length;
             _dom.progressWrap.classList.add( "visible" );
             _dom.btnDownload.disabled = false;
-            _dom.btnCopy.disabled = false;
+            _dom.btnCopy.disabled     = false;
             _dom.btnReset.disabled    = false;
             _setProgress( state.done, state.total );
             _setStatus( "ok", `Résultats disponibles : ${ok} extraits, ${err} erreur(s).` );

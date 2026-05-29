@@ -79,12 +79,24 @@ SCRAPPER.Background = (function ( self ) {
     }
     
     async function _recordResult ( item, data ) {
-        const state              = await _getState();
-        console.warn("GSOU", "[_recordResult - _recordResult]", item, data );
-        state.results[ item.id ] = { ...item, extracted: data };
+        const state = await _getState();
+        
+        state.results[ item.id ] = { ...item, ...data.data };
+        state.links              = state.links || {};
+        Object.keys( data.links || {} ).forEach( function ( category ) {
+            state.links[ category ] = { ...(state.links[ category ] || {}), ...data.links[ category ] };
+        } );
+        
         state.done++;
+        
         await _setState( state );
-        _notifyPopup( { action: "progress", done: state.done, total: state.total, current: item } );
+        
+        _notifyPopup( {
+            action : "progress",
+            done   : state.done,
+            total  : state.total,
+            current: item
+        } );
     }
     
     async function _recordError ( item, error ) {
@@ -215,7 +227,7 @@ SCRAPPER.Background = (function ( self ) {
                     chrome.storage.local.remove( STATE_KEY, () => sendResponse( { ok: true } ) );
                     return true;
                 case "get_results":
-                    _getState().then( state => sendResponse( { results: state.results, errors: state.errors } ) );
+                    _getState().then( state => sendResponse( { results: state.results, links: state.links, errors: state.errors } ) );
                     return true;
             }
             return true;
