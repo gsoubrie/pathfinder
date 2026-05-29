@@ -750,3 +750,122 @@ LEGACIES.CONST = {
         "name"    : "Héritage talentueux"
     }
 };
+
+let toto = {
+  "results": {
+    "0B0M6CUnVDkeznRv": {
+      "category": "heritages",
+      "general_desc": [
+        "Vous êtes un kholo au corps agile avec une constitution préhistorique, ressemblant à celle d'un chien. Bien que vous vous déplaciez typiquement comme un quadrupède, vous pouvez toujours vous tenir debout et combattre comme un bipède, vous permettant d'utiliser tout votre équipement normalement. Si vous disposez de vos deux mains libres, votre Vitesse passe à 9 mètres lorsque vous courez sur vos quatre pattes."
+      ],
+      "href": "/heritages/0B0M6CUnVDkeznRv",
+      "id": "0B0M6CUnVDkeznRv",
+      "name": "Kholo chien",
+      "traits": []
+    },
+    "0Iv6LfT3UEt8taj5": {
+      "category": "heritages",
+      "general_desc": [
+        "Vous et votre famille êtes des survivants et vous avez appris comment prendre soin de vous-même. Choisissez un des avantages suivants.",
+        "Ajoutez 4 à votre minimum de Points de vie. Vous devenez expert en jets de Vigueur. Vous êtes qualifié en armure intermédiaire.",
+        "Note : cet héritage est issu de la Boîte d'Initiation et comporte des capacités d'héritage qui ne sont pas dans la norme."
+      ],
+      "href": "/heritages/0Iv6LfT3UEt8taj5",
+      "id": "0Iv6LfT3UEt8taj5",
+      "name": "Humain gardien (BI)",
+      "traits": []
+    },
+    "0vaeOoECfVD5EGbq": {
+      "category": "heritages",
+      "general_desc": [
+        "Vos ancêtres vivaient sous terre. Vos oreilles sont plus grandes que celles des autres hobgobelins et sensibles aux échos. Lorsque vous êtes sous terre, quand vous ciblez une cible qui vous est Masquée ou Cachée , réduisez le DD du test nu à 3 pour une cible masquée et à 9 pour une cible Cachée. De plus, si vous obtenez un succès sur un test d'Acrobaties pour Vous faufiler , il devient un succès critique."
+      ],
+      "href": "/heritages/0vaeOoECfVD5EGbq",
+      "id": "0vaeOoECfVD5EGbq",
+      "name": "Hobgobelin terrierné",
+      "traits": []
+    },
+    "1dYDucCIaZpCJqBc": {
+      "category": "heritages",
+      "general_desc": [
+        "Vous vivez dans les profondeurs glacées du Nord et avez développé une incroyable endurance aux environnements froids, qui vous confère une résistance au froid égale à la moitié de votre niveau (avec un minimum de 1). Vous subissez tous les effets environnementaux liés au froid comme si leur intensité était réduite d'un rang (le froid extraordinaire devient extrême, le froid extrême devient important, etc.)."
+      ],
+      "href": "/heritages/1dYDucCIaZpCJqBc",
+      "id": "1dYDucCIaZpCJqBc",
+      "name": "Elfe arctique",
+      "traits": []
+    },
+    "1lv7RMp7t5iqeUFT": {
+      "category": "heritages",
+      "general_desc": [
+        "Vous descendez d'une longue lignée de chasseurs et de pisteurs talentueux et avez développé un sens particulièrement aigu de l'odorat. Vous obtenez un odorat imprécis avec une portée de 9 mètres. Cela signifie que vous pouvez utilisez votre sens de l'odorat pour déterminer l'emplacement d'une créature. Le MJ doublera normalement la portée si vous êtes sous le vent par rapport à la créature ou la divisera par deux si vous êtes contre le vent.",
+        "De plus, vous obtenez un bonus de circonstances de +2 au test pour Pister une créature ou un objet si vous l'avez senti auparavant."
+      ],
+      "href": "/heritages/1lv7RMp7t5iqeUFT",
+      "id": "1lv7RMp7t5iqeUFT",
+      "name": "Homme-félin chasseur",
+      "traits": []
+    },
+    "1wVDYY9Wue0G5R9Q": {
+      "category": "heritages",
+      "general_desc": [
+        "Vous avez l'ouïe fine, capable de détecter même les plus légers chuchotements. Vous obtenez un bonus de circonstances de +2 lorsque vous utilisez votre ouïe en utilisant l'action Chercher pour trouver des créatures Cachées ou Non détectées qui se trouvent à moins de 9 mètres de vous.",
+        "Lorsque vous ciblez un adversaire qui vous est Masqué ou Caché, vous réduisez le DD du test nu à 3 si la cible est Masquée et à 9 si la cible est Cachée. Cet avantage ne s'applique pas si vous ne pouvez entendre ou si la créature est incapable de produire un son (par exemple, si elle est affectée par un sort de Silence )."
+      ],
+      "href": "/heritages/1wVDYY9Wue0G5R9Q",
+      "id": "1wVDYY9Wue0G5R9Q",
+      "name": "Elfe des murmures",
+      "traits": []
+    }
+  },
+  "links": {
+    "actions": {
+      "BlAOM2X92SI6HMtJ": {
+        "category": "actions",
+        "href": "/actions/BlAOM2X92SI6HMtJ",
+        "id": "BlAOM2X92SI6HMtJ",
+        "name": "sports_martial_artsChercher"
+      },
+      "EA5vuSgJfiHH7plD": {
+        "category": "actions",
+        "href": "/actions/EA5vuSgJfiHH7plD",
+        "id": "EA5vuSgJfiHH7plD",
+        "name": "sports_martial_artsPister"
+      },
+      "kMcV8e5EZUxa6evt": {
+        "category": "actions",
+        "href": "/actions/kMcV8e5EZUxa6evt",
+        "id": "kMcV8e5EZUxa6evt",
+        "name": "sports_martial_artsVous faufiler"
+      }
+    },
+    "conditions": {
+      "DmAIPqOBomZ7H95W": {
+        "category": "conditions",
+        "href": "/conditions/DmAIPqOBomZ7H95W",
+        "id": "DmAIPqOBomZ7H95W",
+        "name": "sentiment_very_dissatisfiedMasqué"
+      },
+      "VRSef5y1LmL2Hkjf": {
+        "category": "conditions",
+        "href": "/conditions/VRSef5y1LmL2Hkjf",
+        "id": "VRSef5y1LmL2Hkjf",
+        "name": "sentiment_very_dissatisfiedNon détectées"
+      },
+      "iU0fEDdBp3rXpTMC": {
+        "category": "conditions",
+        "href": "/conditions/iU0fEDdBp3rXpTMC",
+        "id": "iU0fEDdBp3rXpTMC",
+        "name": "sentiment_very_dissatisfiedCachées"
+      }
+    },
+    "spells": {
+      "gIdDLrbswTV3OBJy": {
+        "category": "spells",
+        "href": "/spells/gIdDLrbswTV3OBJy",
+        "id": "gIdDLrbswTV3OBJy",
+        "name": "auto_awesomeSilence"
+      }
+    }
+  }
+}

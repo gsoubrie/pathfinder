@@ -112,6 +112,32 @@ SCRAPPER.Content = (function ( self ) {
         }
     }
     
+    // Remplace les elt-foundry-annotation par des <div class="gs-link-information"> dans un clone
+    function _replaceAnnotationLinks ( block ) {
+        const clone = block.cloneNode( true );
+        
+        clone.querySelectorAll( "elt-foundry-annotation" ).forEach( annotation => {
+            const a = annotation.querySelector( "a[href]" );
+            if ( !a ) {
+                return;
+            }
+            
+            const href   = a.getAttribute( "href" );
+            const parts  = href.split( "/" ).filter( Boolean );
+            const linkId = parts[ 1 ];
+            const name   = _cleanText( a );
+            
+            const div     = document.createElement( "div" );
+            div.className = "gs-link-information";
+            div.setAttribute( "onclick", `CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '${linkId}'})` );
+            div.textContent = name;
+            
+            annotation.replaceWith( div );
+        } );
+        
+        return clone;
+    }
+    
     //********************************************  ACTIONS  **************************************************//
     
     function _extractLinks () {
@@ -123,7 +149,7 @@ SCRAPPER.Content = (function ( self ) {
             const parts  = href.split( "/" ).filter( Boolean );
             const cat    = parts[ 0 ];
             const linkId = parts[ 1 ];
-            const name   = a.textContent.trim();
+            const name   = _cleanText( a ); // _cleanText retire les mat-icon
             
             if ( !cat || !linkId ) {
                 return;
@@ -142,7 +168,7 @@ SCRAPPER.Content = (function ( self ) {
     function _extractAncestry () {
         const result = {};
         
-        const title    = document.querySelector( ".content .header .title" );
+        const title = document.querySelector( ".content .header .title" );
         result.name = _cleanText( title );
         
         const detailBlock = document.querySelector( ".description, [class*='description'], .detail-content" );
@@ -163,7 +189,6 @@ SCRAPPER.Content = (function ( self ) {
         children.forEach( el => {
             const tag  = el.tagName.toUpperCase();
             const text = _cleanText( el );
-            
             
             if ( tag === "H2" || tag === "H3" ) {
                 currentSection = _parseSectionTitle( text );
@@ -202,6 +227,32 @@ SCRAPPER.Content = (function ( self ) {
         return result;
     }
     
+    function _extractHeritage () {
+        const result = {};
+        
+        const title = document.querySelector( ".content .header .title" );
+        result.name = _cleanText( title );
+        
+        const traits  = document.querySelectorAll( ".trait" );
+        result.traits = Array.from( traits ).map( t => _cleanText( t ) );
+        
+        const detailBlock = document.querySelector( ".description, [class*='description'], .detail-content" );
+        
+        if ( !detailBlock ) {
+            result._fallback = true;
+            return result;
+        }
+        
+        // Remplace les annotations par des gs-link-information avant d'extraire le HTML
+        const processedBlock = _replaceAnnotationLinks( detailBlock );
+        
+        result.general_desc = Array.from( processedBlock.children )
+                                   .map( el => el.innerHTML.trim() )
+                                   .filter( html => html.length > 0 );
+        
+        return result;
+    }
+    
     function _extractPage () {
         const path     = window.location.pathname;
         const segments = path.split( "/" ).filter( Boolean );
@@ -215,12 +266,15 @@ SCRAPPER.Content = (function ( self ) {
             case "ancestries":
                 data = _extractAncestry();
                 break;
+            case "heritages":
+                data = _extractHeritage();
+                break;
             default:
                 data = { _raw: true, text: document.body.innerText.slice( 0, 500 ) };
         }
-        data["category"] = category;
-        data["id"] = id;
-        data["href"] = path;
+        data[ "category" ] = category;
+        data[ "id" ]       = id;
+        data[ "href" ]     = path;
         
         return { data, links };
     }
