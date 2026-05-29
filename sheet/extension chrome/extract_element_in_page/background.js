@@ -80,6 +80,7 @@ SCRAPPER.Background = (function ( self ) {
     
     async function _recordResult ( item, data ) {
         const state              = await _getState();
+        console.warn("GSOU", "[_recordResult - _recordResult]", item, data );
         state.results[ item.id ] = { ...item, extracted: data };
         state.done++;
         await _setState( state );
@@ -150,7 +151,6 @@ SCRAPPER.Background = (function ( self ) {
             await _setState( s );
         }
         
-        // Attend le chargement complet puis extrait
         _waitForTabReady( tabId, TIMEOUT_MS, async( loaded ) => {
             if ( !loaded ) {
                 if ( attempt < RETRY_MAX ) {

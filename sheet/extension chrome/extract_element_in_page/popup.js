@@ -22,6 +22,7 @@ SCRAPPER.Popup = (function ( self ) {
         btnLoad     : document.getElementById( "btn-load" ),
         btnStart    : document.getElementById( "btn-start" ),
         btnDownload : document.getElementById( "btn-download" ),
+        btnCopy     : document.getElementById( "btn-copy" ),
         btnReset    : document.getElementById( "btn-reset" ),
         statusBar   : document.getElementById( "status" ),
         statusText  : document.getElementById( "status-text" ),
@@ -130,6 +131,7 @@ SCRAPPER.Popup = (function ( self ) {
         _dom.statsDiv.style.display = "none";
         _dom.btnStart.disabled      = true;
         _dom.btnDownload.disabled   = true;
+        _dom.btnCopy.disabled   = true;
         _dom.btnReset.disabled      = true;
         _setStatus( "", "Chargez un fichier JSON pour commencer." );
     }
@@ -145,6 +147,15 @@ SCRAPPER.Popup = (function ( self ) {
         _dom.btnDownload.textContent = "✓ Téléchargé !";
         setTimeout( () => {
             _dom.btnDownload.textContent = "↓ Télécharger les résultats";
+        }, 2000 );
+    }
+    
+    async function _copyResults () {
+        const { results, errors } = await chrome.runtime.sendMessage( { action: "get_results" } );
+        await navigator.clipboard.writeText( JSON.stringify( results, null, 2 ) );
+        _dom.btnCopy.textContent = "✓ Copié !";
+        setTimeout( () => {
+            _dom.btnCopy.textContent = "⎘ Copier dans le presse-papier";
         }, 2000 );
     }
     
@@ -169,6 +180,7 @@ SCRAPPER.Popup = (function ( self ) {
             const err = (state.errors || []).length;
             _dom.progressWrap.classList.add( "visible" );
             _dom.btnDownload.disabled = false;
+            _dom.btnCopy.disabled = false;
             _dom.btnReset.disabled    = false;
             _setProgress( state.done, state.total );
             _setStatus( "ok", `Résultats disponibles : ${ok} extraits, ${err} erreur(s).` );
@@ -186,6 +198,7 @@ SCRAPPER.Popup = (function ( self ) {
         _dom.btnStart.addEventListener( "click", () => _startExtraction() );
         _dom.btnReset.addEventListener( "click", () => _resetExtraction() );
         _dom.btnDownload.addEventListener( "click", () => _downloadResults() );
+        _dom.btnCopy.addEventListener( "click", () => _copyResults() );
         
         _dom.jsonInput.addEventListener( "keydown", e => {
             if ( e.key === "Enter" && e.ctrlKey ) {

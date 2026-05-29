@@ -47,7 +47,7 @@ SCRAPPER.Content = (function ( self ) {
     
     function _parseSectionTitle ( text ) {
         if ( text.startsWith( "Méchaniques" ) || text.startsWith( "Mécaniques" ) ) {
-            return "mecanic";
+            return "mechanic";
         }
         if ( text.startsWith( "Héritages" ) ) {
             return "legacies";
@@ -59,14 +59,14 @@ SCRAPPER.Content = (function ( self ) {
         return TAILLE_MAP[ value ] || value;
     }
     
-    function _parseMecanic ( el, result ) {
+    function _parseMechanic ( el, result ) {
         const strong = el.querySelector( "strong" );
         
         if ( !strong ) {
-            if ( !result[ "mecanic" ] ) {
-                result[ "mecanic" ] = [];
+            if ( !result[ "mechanic" ] ) {
+                result[ "mechanic" ] = [];
             }
-            result[ "mecanic" ].push( _cleanText( el ) );
+            result[ "mechanic" ].push( _cleanText( el ) );
             return;
         }
         
@@ -105,10 +105,10 @@ SCRAPPER.Content = (function ( self ) {
                 result.sens = value;
                 break;
             default:
-                if ( !result[ "mecanic" ] ) {
-                    result[ "mecanic" ] = [];
+                if ( !result[ "mechanic" ] ) {
+                    result[ "mechanic" ] = [];
                 }
-                result[ "mecanic" ].push( _cleanText( el ) );
+                result[ "mechanic" ].push( _cleanText( el ) );
         }
     }
     
@@ -164,6 +164,8 @@ SCRAPPER.Content = (function ( self ) {
             const tag  = el.tagName.toUpperCase();
             const text = _cleanText( el );
             
+            console.log("GSOU", "[_extractAncestry - ]", "[TO CONTINUE HERE]" );
+            
             if ( tag === "H2" || tag === "H3" ) {
                 currentSection = _parseSectionTitle( text );
                 if ( !INLINE_SECTIONS.includes( currentSection ) ) {
@@ -185,8 +187,8 @@ SCRAPPER.Content = (function ( self ) {
                 case "noms":
                     break; // ignorés
                 
-                case "mecanic":
-                    _parseMecanic( el, result );
+                case "mechanic":
+                    _parseMechanic( el, result );
                     break;
                 
                 default:
@@ -218,7 +220,6 @@ SCRAPPER.Content = (function ( self ) {
             default:
                 data = { _raw: true, text: document.body.innerText.slice( 0, 500 ) };
         }
-        
         return { category, id, href: path, data, links };
     }
     
@@ -228,7 +229,6 @@ SCRAPPER.Content = (function ( self ) {
         chrome.runtime.onMessage.addListener( ( request, sender, sendResponse ) => {
             switch ( request.action ) {
                 case "extract_page":
-                    // Petit délai pour laisser Angular finir le rendu
                     setTimeout( () => {
                         try {
                             sendResponse( { success: true, data: _extractPage() } );

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "extract_element_uuid_in_page",
+  "name": "extract_element_in_page",
   "version": "1.0.0",
   "description": "Extrait les données détaillées des pages PF2e (races, classes, etc.)",
   "permissions": [
