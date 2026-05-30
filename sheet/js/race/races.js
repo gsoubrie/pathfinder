@@ -3,17 +3,17 @@
  * @class RACES.Races
  * @extends OBJECT.InterfaceContainerHtml
  */
-RACES.Races           = function () {
+RACES.Races = function () {
     this.init();
 };
 RACES.Races.prototype = {
     init: function () {
         this.initContents();
-        let keys = Object.keys(RACES.ENUM);
+        let keys = Object.keys( RACES.ENUM );
         for ( let i = 0, _size_i = keys.length; i < _size_i; i++ ) {
-            this.add( new RACES.RacePopup(RACES.ENUM[keys[i]]));
+            this.add( new RACES.RacePopup( RACES.ENUM[ keys[ i ] ] ) );
         }
-    },
+    }
 };
 
 SERVICE.CLASS.addPrototype( RACES.Races, OBJECT.InterfaceContainerHtml );
@@ -21,7 +21,7 @@ SERVICE.CLASS.addPrototype( RACES.Races, OBJECT.InterfaceContainerHtml );
  * @class RACES.RacePopup
  * @extends RACES.Race
  */
-RACES.RacePopup           = function ( data ) {
+RACES.RacePopup = function ( data ) {
     this.init( data );
 };
 RACES.RacePopup.prototype = {
@@ -34,7 +34,7 @@ RACES.RacePopup.prototype = {
             case "key":
             case "name":
                 this[ "name" ] = value;
-                this[ "key" ] = value;
+                this[ "key" ]  = value;
                 break;
             case "start_life":
             case "body_size":
@@ -56,8 +56,9 @@ RACES.RacePopup.prototype = {
                 break;
             case "characteristics_bonus":
             case "characteristics_malus":
-                this[ key ] = new CHARACTERISTICS.Bonus( key === "characteristics_bonus" );
-                this[ key ].initWithData( value );
+                let bonus = new CHARACTERISTICS.Bonus( key === "characteristics_bonus" );
+                bonus.initWithData( value );
+                this[ key ] = bonus;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -65,7 +66,7 @@ RACES.RacePopup.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHTMLEdition: function () {
-        let params = { param__window: "param__popup__select"};
+        let params = { param__window: "param__popup__select" };
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "race-edition" } ) );
         let traits_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "traits" } ), this.getDomElement() );
         for ( let index = 0; index < this.traits.length; index++ ) {
@@ -96,7 +97,7 @@ SERVICE.CLASS.addPrototype( RACES.RacePopup, RACES.Race );
  * @class RACES.WindowGroup
  * @extends WINDOW_V2.ElementGroupFromData
  */
-RACES.WindowGroup           = function () {
+RACES.WindowGroup = function () {
     this.init( "race_window_group" );
 };
 RACES.WindowGroup.prototype = {

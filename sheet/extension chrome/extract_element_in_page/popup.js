@@ -138,10 +138,10 @@ SCRAPPER.Popup = (function ( self ) {
     
     async function _downloadResults () {
         const { results, links } = await chrome.runtime.sendMessage( { action: "get_results" } );
-        const output              = { results, links, exported_at: new Date().toISOString() };
-        const blob                = new Blob( [JSON.stringify( output, null, 2 )], { type: "application/json" } );
-        const url                 = URL.createObjectURL( blob );
-        const cat                 = _loadedItems?.[ 0 ]?.category || "elements";
+        const output             = { results, links, exported_at: new Date().toISOString() };
+        const blob               = new Blob( [JSON.stringify( output, null, 2 )], { type: "application/json" } );
+        const url                = URL.createObjectURL( blob );
+        const cat                = _loadedItems?.[ 0 ]?.category || "elements";
         
         chrome.downloads.download( { url, filename: `pf2e_${cat}_extracted.json`, saveAs: false } );
         _dom.btnDownload.textContent = "✓ Téléchargé !";
@@ -152,7 +152,13 @@ SCRAPPER.Popup = (function ( self ) {
     
     async function _copyResults () {
         const { results, links } = await chrome.runtime.sendMessage( { action: "get_results" } );
-        await navigator.clipboard.writeText( JSON.stringify( { results, links }, null, 2 ) );
+        
+        const sortedResults = Object.fromEntries(
+            Object.entries( results )
+                  .sort( ( [, a], [, b] ) => a.name.localeCompare( b.name, "fr" ) )
+        );
+        
+        await navigator.clipboard.writeText( JSON.stringify( { results: sortedResults, links }, null, 2 ) );
         _dom.btnCopy.textContent = "✓ Copié !";
         setTimeout( () => {
             _dom.btnCopy.textContent = "⎘ Copier dans le presse-papier";

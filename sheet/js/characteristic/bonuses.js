@@ -77,6 +77,7 @@ CHARACTERISTICS.Bonus.prototype = {
         if ( !data ) {
             return;
         }
+        console.log("GSOU", "[Bonus - initWithData]", data );
         this.setNumber( data[ "number" ] );
         this.setChoices( data[ "choice" ] );
     },

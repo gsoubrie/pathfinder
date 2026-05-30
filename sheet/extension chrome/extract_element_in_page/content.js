@@ -32,7 +32,27 @@ SCRAPPER.Content = (function ( self ) {
     
     const INLINE_SECTIONS = ["Vous", "Les autres", "Vous pourriez...", "Les autres pourraient…"];
     
+    const CHARACTERISTICS_MAP = {
+        "Force"        : "FOR",
+        "Dextérité"    : "DEX",
+        "Constitution" : "CON",
+        "Intelligence" : "INT",
+        "Sagesse"      : "SAG",
+        "Charisme"     : "CHA",
+        "Libre"        : "FREE"
+    };
+    
     //********************************************  PRIVATE  **************************************************//
+    
+    function _parseCharacteristics ( value ) {
+        const choice   = value.split( ", " ).map( s => CHARACTERISTICS_MAP[ s.trim() ] || s.trim() );
+        const nb_free  = choice.filter( s => s === "FREE" ).length;
+        return {
+            number  : choice.length,
+            nb_free,
+            choice
+        };
+    }
     
     function _cleanText ( el ) {
         if ( !el ) {
@@ -85,11 +105,11 @@ SCRAPPER.Content = (function ( self ) {
                 result.speed = parseInt( value ) || value;
                 break;
             case "Primes d'attributs":
-                result.characteristics_bonus = value.split( ", " ).map( s => s.trim() );
+                result.characteristics_bonus = _parseCharacteristics( value );
                 break;
             case "Pénalité d'attribut":
             case "Pénalités d'attribut":
-                result.characteristics_malus = value.split( ", " ).map( s => s.trim() );
+                result.characteristics_malus = _parseCharacteristics( value );
                 break;
             case "Langues":
                 result.language = value.split( ", " ).map( s => s.trim() );
