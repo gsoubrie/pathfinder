@@ -5,6 +5,7 @@ POPUP.PropertyEdition           = function ( property_name, value ) {
 POPUP.PropertyEdition.prototype = {
     init: function ( property_name, value ) {
         let default_value = "";
+        console.log("GSOU", "[PropertyEdition - init]", property_name, value );
         switch ( property_name ) {
             case RACES.key_element:
                 this.current_property = RACES;

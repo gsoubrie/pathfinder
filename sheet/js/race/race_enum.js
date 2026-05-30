@@ -1,4 +1,4 @@
-RACES.CONST    = {
+RACES.ENUM    = {
     "18xDKYPDBLEv2myX": {
         "Exemples de noms"     : [
             "Arkkak, Chuko, Dolgra, Dorodara, Kakkariel, Kora, Marrak, Mossarah, Pularrka, Rarorel, Ruk, Tak-Tak, Tsukotarra"

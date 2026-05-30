@@ -1,4 +1,4 @@
-SPELL.CONST = {
+SPELLS.CONST = {
     "w7BHU5rk5JKuIRCe": {
         "action_cost" : "2",
         "category"    : "spell",

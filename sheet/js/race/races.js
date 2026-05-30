@@ -9,8 +9,9 @@ RACES.Races           = function () {
 RACES.Races.prototype = {
     init: function () {
         this.initContents();
-        for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {
-            this.add( new RACES.RacePopup(RACES.ENUM[i]));
+        let keys = Object.keys(RACES.ENUM);
+        for ( let i = 0, _size_i = keys.length; i < _size_i; i++ ) {
+            this.add( new RACES.RacePopup(RACES.ENUM[keys[i]]));
         }
     },
 };

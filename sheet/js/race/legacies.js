@@ -7,6 +7,7 @@ LEGACIES.Legacies           = function () {
 };
 LEGACIES.Legacies.prototype = {
     init: function ( data ) {
+        console.log("GSOU", "[Legacies - init]", data );
         this.initContents();
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
             let to_add = new LEGACIES.LegacyPopup(LEGACIES.getDataByName(data[ i ]));
