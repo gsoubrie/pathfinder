@@ -18,11 +18,14 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__health_history__load":
                 this.updateHealthDisplay();
                 break;
+            case "event__form__element_changed":
+                this.computeHtmlWithData();
+                break;
         }
     },
     //********************************************  HTML   **************************************************//
-    computeHtmlWithData: function ( character_object ) {
-        console.warn("GSOU", "[GeneralWindow - computeHtmlWithData]", "[xxx]" );
+    computeHtmlWithData: function () {
+        let character_object = CONTROLLER.Character.current_character;
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );

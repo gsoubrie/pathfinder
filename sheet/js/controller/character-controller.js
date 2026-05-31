@@ -10,6 +10,7 @@ CONTROLLER.Character = (function ( self ) {
     };
     //********************************************  EVENT LISTENER  **************************************************//
     self.doActionAfter      = function ( event_name, params ) {
+        console.log("GSOU", "[Character - doActionAfter]", event_name );
         switch ( event_name ) {
             case "click_on_button_V3":
                 if ( params[ "param__current_character__uuid" ] ) {
