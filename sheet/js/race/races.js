@@ -41,9 +41,9 @@ RACES.RacePopup.prototype = {
             case "speed":
             case "language":
             case "language_sup":
-            case "name_example":
             case "traits":
             case "sens":
+            case "Ethnies":
             case "physical_desc":
             case "society_desc":
             case "believe_desc":
@@ -52,6 +52,7 @@ RACES.RacePopup.prototype = {
             case "edit_desc":
             case "legacies":
             case "dons":
+            case "name_example":
                 this[ key ] = value;
                 break;
             case "characteristics_bonus":
@@ -60,8 +61,18 @@ RACES.RacePopup.prototype = {
                 bonus.initWithData( value );
                 this[ key ] = bonus;
                 break;
+            case "category":
+                this[ key ] = value;
+                 break;
+            case "id":
+                this[ "uuid" ] = value;
+                break;
+            case "href":
+            case "mechanic":
+            case "text":
+                break;
             default:
-                console.warn( "[IGNORED DATA]", key, value );
+                console.warn( "[IGNORED DATA]", key, value, this );
         }
     },
     //********************************************  HTML   **************************************************//
@@ -117,9 +128,12 @@ RACES.WindowGroup.prototype = {
 SERVICE.CLASS.addPrototype( RACES.WindowGroup, WINDOW_V2.ElementGroupFromData );
 
 RACES.getDataByName = function ( race_name ) {
-    for ( let i = 0, _size_i = RACES.ENUM.length; i < _size_i; i++ ) {
-        if ( RACES.ENUM[ i ].name === race_name ) {
-            return RACES.ENUM[ i ];
+    var _keys = Object.keys( RACES.ENUM );
+    var _current_key;
+    for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
+        _current_key = _keys[ i ];
+        if ( RACES.ENUM[ _current_key ].name === race_name ) {
+            return RACES.ENUM[ _current_key ];
         }
     }
     return null;

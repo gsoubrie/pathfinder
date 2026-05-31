@@ -22,6 +22,7 @@ CHARACTER.GeneralWindow.prototype = {
     },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
+        console.warn("GSOU", "[GeneralWindow - computeHtmlWithData]", "[xxx]" );
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );

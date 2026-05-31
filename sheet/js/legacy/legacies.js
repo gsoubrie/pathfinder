@@ -7,7 +7,6 @@ LEGACIES.Legacies           = function () {
 };
 LEGACIES.Legacies.prototype = {
     init: function ( data ) {
-        console.log("GSOU", "[Legacies - init]", data );
         this.initContents();
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
             let to_add = new LEGACIES.LegacyPopup(LEGACIES.getDataByName(data[ i ]));
@@ -37,7 +36,13 @@ LEGACIES.LegacyPopup.prototype = {
                 break;
             case "general_desc":
             case "name_lower_case":
+            case "category":
+            case "href":
+            case "traits":
                 this[ key ] = value;
+                break;
+            case "id":
+                this[ "uuid" ] = value;
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );

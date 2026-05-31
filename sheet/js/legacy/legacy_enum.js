@@ -1,4 +1,4 @@
-LEGACIES.CONST = {
+LEGACIES.ENUM = {
     "0B0M6CUnVDkeznRv": {
         "category"    : "heritages",
         "general_desc": [

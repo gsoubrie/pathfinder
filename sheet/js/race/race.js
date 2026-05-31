@@ -79,8 +79,17 @@ RACES.Race.prototype = {
             case "believe_desc":
             case "society_desc":
             case "traits":
+            case "category":
             case "legacies":
                 this[ key ] = value;
+                break;
+            case "id":
+                this[ "uuid" ] = value;
+                break;
+            case "name_example":
+            case "href":
+            case "text":
+            case "mechanic":
                 break;
             default:
                 console.warn( "[Race - setData]", key, value );
