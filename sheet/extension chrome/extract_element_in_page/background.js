@@ -189,7 +189,7 @@ SCRAPPER.Background = (function ( self ) {
                 // Le content script n'est peut-être pas prêt : on réinjecte
                 if ( attempt < RETRY_MAX ) {
                     try {
-                        await chrome.scripting.executeScript( { target: { tabId }, files: ["content.js"] } );
+                        await chrome.scripting.executeScript( { target: { tabId }, files: ["content.js", "content_ancestry.js", "content_heritage.js"] } );
                         await _sleep( 1000 );
                         const r2 = await chrome.tabs.sendMessage( tabId, { action: "extract_page" } );
                         if ( r2 && r2.success ) {

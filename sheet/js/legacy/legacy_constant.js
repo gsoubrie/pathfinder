@@ -12,7 +12,7 @@ LEGACIES.getDataByName = function ( legacies_name ) {
     var _current_key;
     for ( let i = 0, _size = _keys.length; i < _size; i++ ) {
         _current_key = _keys[ i ];
-        if ( LEGACIES.ENUM[ _current_key ].name === legacies_name ) {
+        if ( SERVICE.STRING.containsIgnoreCase( LEGACIES.ENUM[ _current_key ].name, legacies_name ) ) {
             return LEGACIES.ENUM[ _current_key ];
         }
     }
