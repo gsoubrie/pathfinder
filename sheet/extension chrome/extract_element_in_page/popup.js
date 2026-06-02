@@ -131,7 +131,6 @@ SCRAPPER.Popup = (function ( self ) {
         _dom.statsDiv.style.display = "none";
         _dom.btnStart.disabled      = true;
         _dom.btnDownload.disabled   = true;
-        _dom.btnCopy.disabled       = true;
         _dom.btnReset.disabled      = true;
         _setStatus( "", "Chargez un fichier JSON pour commencer." );
     }
@@ -186,7 +185,6 @@ SCRAPPER.Popup = (function ( self ) {
             const err = (state.errors || []).length;
             _dom.progressWrap.classList.add( "visible" );
             _dom.btnDownload.disabled = false;
-            _dom.btnCopy.disabled     = false;
             _dom.btnReset.disabled    = false;
             _setProgress( state.done, state.total );
             _setStatus( "ok", `Résultats disponibles : ${ok} extraits, ${err} erreur(s).` );

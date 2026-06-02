@@ -30,6 +30,8 @@
         "https://pf2e.pathfinder-fr.org/*"
       ],
       "js": [
+        "content_ancestry.js",
+        "content_heritage.js",
         "content.js"
       ],
       "run_at": "document_idle"
