@@ -89,6 +89,49 @@ SCRAPPER.Heritage = (function ( self ) {
                 .map( s => s.replace( /\s*et (?:d[eo] (?:votre|leur)|celle d[eo]).*$/i, "" ).trim() )
                 .filter( Boolean ),
             multiple: false
+        },
+        {
+            // "âgé d'au moins 100 ans mais peut être plus jeune à la discrétion du MJ"
+            // "âgé d'au moins 200 ans"
+            field   : "required.age",
+            regex   : /âgé d'au moins (\d+) ans(?:[^\.]*discrétion)?/i,
+            extract : ( match ) => ({
+                min     : parseInt( match[ 1 ] ),
+                flexible: /discrétion/i.test( match[ 0 ] )
+            }),
+            multiple: false
+        },
+        {
+            // "Vous obtenez le don de dévouement multiclasse de cette classe"
+            field   : "bonus.dons.multiclasse",
+            regex   : /don de dévouement multiclasse/i,
+            extract : () => ({ type: "dévouement" }),
+            multiple: false
+        },
+        {
+            // "résistance au froid égale à la moitié de votre niveau (avec un minimum de 1)"
+            // "résistance au feu égale à votre niveau"
+            field   : "bonus.resistances",
+            regex   : /résistance (?:à la?|au|aux) (\w+) égale à (?:la moitié de votre niveau|votre niveau)(?:[^\.]*minimum de (\d+))?/gi,
+            extract : ( match ) => {
+                const isHalf = /moitié/i.test( match[ 0 ] );
+                const entry  = {
+                    type : match[ 1 ].toLowerCase(),
+                    value: isHalf ? "level/2" : "level"
+                };
+                if ( match[ 2 ] ) {
+                    entry.min = parseInt( match[ 2 ] );
+                }
+                return entry;
+            },
+            multiple: true
+        },
+        {
+            // "effets environnementaux liés au froid comme si leur intensité était réduite d'un rang"
+            field   : "bonus.capacites",
+            regex   : /effets environnementaux liés au (\w+)[^\.]*réduite? d'un rang/gi,
+            extract : ( match ) => `effets environnementaux ${match[ 1 ].toLowerCase()} réduits d'un rang`,
+            multiple: true
         }
     ];
 
