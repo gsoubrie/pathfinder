@@ -34,6 +34,31 @@ var TRAIT           = {
     HUMANOIDE: "humanoide",
     GOBELIN  : "gobelin"
 };
+var DAMAGE_TYPE = {
+    SLASHING   : "tranchant",
+    PIERCING   : "perforant",
+    BLUDGEONING: "contondant"
+};
+
+var ATTACK = {
+    CLAW    : { value: "griffe",    damage: DAMAGE_TYPE.SLASHING    },
+    TALON   : { value: "serre",     damage: DAMAGE_TYPE.SLASHING    },
+    FANG    : { value: "croc",      damage: DAMAGE_TYPE.PIERCING    },
+    JAW     : { value: "mâchoire",  damage: DAMAGE_TYPE.PIERCING    },
+    BITE    : { value: "morsure",   damage: DAMAGE_TYPE.PIERCING    },
+    BEAK    : { value: "bec",       damage: DAMAGE_TYPE.PIERCING    },
+    HORN    : { value: "corne",     damage: DAMAGE_TYPE.PIERCING    },
+    TUSK    : { value: "défenses",  damage: DAMAGE_TYPE.PIERCING    },
+    SPINE   : { value: "épine",     damage: DAMAGE_TYPE.PIERCING    },
+    TAIL    : { value: "queue",     damage: DAMAGE_TYPE.BLUDGEONING },
+    HOOF    : { value: "sabot",     damage: DAMAGE_TYPE.BLUDGEONING },
+    FIST    : { value: "poing",     damage: DAMAGE_TYPE.BLUDGEONING },
+    SLAM    : { value: "coup",      damage: DAMAGE_TYPE.BLUDGEONING },
+    TENTACLE: { value: "tentacule", damage: DAMAGE_TYPE.BLUDGEONING },
+    WING    : { value: "aile",      damage: DAMAGE_TYPE.BLUDGEONING },
+    STING   : { value: "dard",      damage: DAMAGE_TYPE.PIERCING    },
+    PINCER  : { value: "pince",     damage: DAMAGE_TYPE.BLUDGEONING }
+};
 var VM              = {
     _0: "aucun",
     _1: "faible",
@@ -326,4 +351,18 @@ COMBAT.WOUND_SEVERITY = {
     MODERATE: "modérée",
     SEVERE  : "grave",
     CRITICAL: "critique"
+};
+
+var TRADITION = {
+    PRIMAL    : "primordial",
+    ARCANE    : "arcanique",
+    DIVINE    : "divin",
+    OCCULT    : "occulte"
+};
+
+var FREQUENCY = {
+    AT_WILL   : "at_will",
+    DAILY_1   : "1/day",
+    DAILY_2   : "2/day",
+    DAILY_3   : "3/day"
 };
