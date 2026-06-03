@@ -216,6 +216,7 @@ SCRAPPER.Heritage = (function ( self ) {
         },
         {
             // "sort inné primordial à volonté" / "sort inné divin une fois par jour"
+            // Gnome source : "entre les traditions arcanique, divine ou occulte"
             field   : "bonus.spells",
             regex   : /sort inné (\w+)(?: à volonté| une fois par jour| deux fois par jour| trois fois par jour)?/gi,
             extract : function ( match ) {
@@ -234,13 +235,35 @@ SCRAPPER.Heritage = (function ( self ) {
                 else {
                     frequency = "FREQUENCY.AT_WILL";
                 }
-                var entry = { type: "innate", tradition: tradition, frequency: frequency, free: true };
+                
+                // Gnome source : tradition libre parmi arcanique/divine/occulte
+                var isFreeChoice = /entre les traditions/i.test( match.input );
+                var entry        = {
+                    type     : "innate",
+                    tradition: isFreeChoice ? "FREE" : tradition,
+                    frequency: frequency,
+                    free     : true
+                };
+                if ( isFreeChoice ) {
+                    entry.tradition_choices = ["TRADITION.ARCANE", "TRADITION.DIVINE", "TRADITION.OCCULT"];
+                }
                 if ( /tour de magie/i.test( match.input ) ) {
                     entry.level = "level/2";
                 }
                 return entry;
             },
             multiple: true
+        },
+        {
+            // "le don général <gs-link-information … uuid>Nom</gs-link-information>"
+            // Travaille sur le HTML brut de general_desc (useHtml: true)
+            field   : "bonus.dons.general",
+            regex   : /don général\s+<div[^>]*onclick="[^"]*'([A-Za-z0-9]+)'[^"]*"[^>]*>([^<]+)<\/div>/gi,
+            extract : function ( match ) {
+                return { name: match[ 2 ].trim(), id: match[ 1 ] };
+            },
+            multiple: true,
+            useHtml : true
         },
         {
             // "vitesse au sol de 9 mètres"
@@ -315,9 +338,11 @@ SCRAPPER.Heritage = (function ( self ) {
             return;
         }
         
-        var text = _descToText( result.general_desc );
+        var text     = _descToText( result.general_desc );
+        var htmlText = result.general_desc.join( " " );
         var i,
             pattern,
+            source,
             values,
             match,
             re,
@@ -326,18 +351,19 @@ SCRAPPER.Heritage = (function ( self ) {
         
         for ( i = 0; i < PATTERNS.length; i++ ) {
             pattern = PATTERNS[ i ];
+            source  = pattern.useHtml ? htmlText : text;
             
             if ( pattern.multiple ) {
                 values = [];
                 re     = new RegExp( pattern.regex.source, pattern.regex.flags );
-                match  = re.exec( text );
+                match  = re.exec( source );
                 
                 while ( match !== null ) {
                     v = pattern.extract( match );
                     if ( v !== null && v !== undefined ) {
                         values.push( v );
                     }
-                    match = re.exec( text );
+                    match = re.exec( source );
                 }
                 
                 if ( values.length > 0 ) {
@@ -346,7 +372,7 @@ SCRAPPER.Heritage = (function ( self ) {
                 }
             }
             else {
-                match = text.match( pattern.regex );
+                match = source.match( pattern.regex );
                 if ( match ) {
                     _setPath( result, pattern.field, pattern.extract( match ) );
                 }
