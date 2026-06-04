@@ -64,6 +64,14 @@ var VM              = {
     _1: "faible",
     _2: "sombre"
 };
+var ACTION_TYPE = {
+    ACTION_1 : "action",
+    ACTION_2 : "2_actions",
+    ACTION_3 : "3_actions",
+    REACTION  : "reaction",
+    FREE      : "free_action",
+    PASSIVE   : "passive"
+};
 var CHARACTERISTICS = {
     key          : "characteristics",
     label        : "Caractéritiques",

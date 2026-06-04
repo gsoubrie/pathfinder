@@ -294,6 +294,42 @@ SCRAPPER.Heritage = (function ( self ) {
                 return [{ type: "FREE", count: count, examples: examples }];
             },
             multiple: false
+        },
+        {
+            // "le don général <gs-link-information … uuid>Nom</gs-link-information>"
+            field   : "bonus.dons.general",
+            regex   : /don général\s+<div[^>]*onclick="[^"]*'([A-Za-z0-9]+)'[^"]*"[^>]*>([^<]+)<\/div>/gi,
+            extract : function ( match ) {
+                return { name: match[ 2 ].trim(), id: match[ 1 ] };
+            },
+            multiple: true,
+            useHtml : true
+        },
+        {
+            // "la réaction <gs-link-information>Nom</gs-link-information>"
+            // "l'action <gs-link-information>Nom</gs-link-information>"
+            // "l'activité libre <gs-link-information>Nom</gs-link-information>"
+            field   : "bonus.actions",
+            regex   : /(la réaction|l'action|les deux actions|l'activité libre)\s+<div[^>]*onclick="[^"]*'([A-Za-z0-9]+)'[^"]*"[^>]*>([^<]+)<\/div>/gi,
+            extract : function ( match ) {
+                var typeText = match[ 1 ].toLowerCase();
+                var type;
+                if ( typeText === "la réaction" ) {
+                    type = "ACTION_TYPE.REACTION";
+                }
+                else if ( typeText === "les deux actions" ) {
+                    type = "ACTION_TYPE.ACTION_2";
+                }
+                else if ( typeText === "l'activité libre" ) {
+                    type = "ACTION_TYPE.FREE";
+                }
+                else {
+                    type = "ACTION_TYPE.ACTION_1";
+                }
+                return { type: type, name: match[ 3 ].trim(), id: match[ 2 ] };
+            },
+            multiple: true,
+            useHtml : true
         }
     ];
     
