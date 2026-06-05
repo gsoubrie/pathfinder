@@ -4,36 +4,36 @@
 var SCRAPPER = SCRAPPER || {};
 
 SCRAPPER.Heritage = (function ( self ) {
-    
+
     //********************************************  PRIVATE  **************************************************//
-    
+
     function _replaceAnnotationLinks ( block ) {
         var clone = block.cloneNode( true );
-        
+
         clone.querySelectorAll( "elt-foundry-annotation" ).forEach( function ( annotation ) {
             var a = annotation.querySelector( "a[href]" );
             if ( !a ) {
                 return;
             }
-            
+
             var href   = a.getAttribute( "href" );
             var parts  = href.split( "/" ).filter( Boolean );
             var linkId = parts[ 1 ];
             var name   = SCRAPPER.Shared.cleanText( a );
-            
-            var div       = document.createElement( "div" );
+
+            var div     = document.createElement( "div" );
             div.className = "gs-link-information";
             div.setAttribute( "onclick", "CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '" + linkId + "'})" );
             div.textContent = name;
-            
+
             annotation.replaceWith( div );
         } );
-        
+
         return clone;
     }
-    
+
     //********************************************  MAPPINGS  **************************************************//
-    
+
     var FR_TO_ATTACK = {
         "griffe"    : "ATTACK.CLAW",
         "serre"     : "ATTACK.TALON",
@@ -59,7 +59,7 @@ SCRAPPER.Heritage = (function ( self ) {
         "pince"     : "ATTACK.PINCER",
         "pinces"    : "ATTACK.PINCER"
     };
-    
+
     var FR_TO_TRADITION = {
         "primordial" : "TRADITION.PRIMAL",
         "primordiaux": "TRADITION.PRIMAL",
@@ -72,7 +72,7 @@ SCRAPPER.Heritage = (function ( self ) {
         "occulte"    : "TRADITION.OCCULT",
         "occultes"   : "TRADITION.OCCULT"
     };
-    
+
     function _normalize ( str ) {
         return str.toLowerCase()
                   .replace( /[àâä]/g, "a" )
@@ -82,24 +82,24 @@ SCRAPPER.Heritage = (function ( self ) {
                   .replace( /[ùûü]/g, "u" )
                   .replace( /ç/g, "c" );
     }
-    
+
     function _frToAttackKey ( fr ) {
         return FR_TO_ATTACK[ _normalize( fr ) ] || null;
     }
-    
+
     function _frToTraditionKey ( fr ) {
         return FR_TO_TRADITION[ fr.toLowerCase() ] || null;
     }
-    
+
     //********************************************  PATTERNS  **************************************************//
-    
+
     // Chaque pattern travaille sur le texte brut de general_desc (HTML strippé),
     // sans modifier le champ d'origine.
     // - field    : chemin dans result (notation pointée)
     // - regex    : expression à appliquer sur le texte complet
     // - extract  : transforme le(s) match(es) en valeur(s) à stocker
     // - multiple : si true, accumule tous les matches dans un tableau
-    
+
     var PATTERNS = [
         {
             // "Vous obtenez le trait elfe, le trait aiuvarin et la capacité X"
@@ -110,7 +110,7 @@ SCRAPPER.Heritage = (function ( self ) {
                 var found   = [];
                 var re      = /le trait ([^,. ]+(?:\s[^,. ]+)*?)(?=\s*(,|et\s+le|et\s+la|$))/g;
                 var m;
-                while ( (m = re.exec( segment )) !== null ) {
+                while ( ( m = re.exec( segment ) ) !== null ) {
                     found.push( m[ 1 ].trim() );
                 }
                 return found;
@@ -118,36 +118,21 @@ SCRAPPER.Heritage = (function ( self ) {
             multiple: false
         },
         {
-            // "la capacité vision nocturne"
+            // Sens reconnus — liste blanche pour éviter les faux positifs
+            // Couvre : "la capacité X", "et la X", "Vous obtenez X", "Vous obtenez aussi X"
             field   : "bonus.sens",
-            regex   : /la capacité ([^,.<]+?)(?=\s*[,.]|\s+et\s+(?:la|le)\s+|\s+Lorsque|$)/g,
-            extract : function ( match ) {
-                return match[ 1 ].trim();
-            },
+            regex   : /(vision nocturne|vision dans le noir|odorat précis|odorat imprécis|tremblesens|perception aveugle|sens magique)/gi,
+            extract : function ( match ) { return match[ 1 ].toLowerCase(); },
             multiple: true
         },
         {
-            // "et la vision nocturne" (sans "capacité", ex: Dromaar)
-            field   : "bonus.sens",
-            regex   : /et la (?!capacité)([^,.<]+?)(?=\s*[,.]|\s+et\s+(?:la|le)\s+|\s+Lorsque|$)/g,
+            // "la capacité X" qui n'est PAS un sens connu → capacite
+            field   : "bonus.capacites",
+            regex   : /(?:la capacité|Vous avez la capacité) ([^,.<]+?)(?=\s*[,.]|\s+et\s+(?:la|le)\s+|\s+Lorsque|$)/g,
             extract : function ( match ) {
-                var val = match[ 1 ].trim();
-                if ( /^le trait/i.test( val ) ) {
-                    return null;
-                }
-                return val;
-            },
-            multiple: true
-        },
-        {
-            // "Vous obtenez vision dans le noir" (ex: Elfe des cavernes)
-            field   : "bonus.sens",
-            regex   : /Vous obtenez ((?!le trait|le don|la capacité)[^,.<]+?)(?=\s*[,.]|\s+et\s+|\s+Lorsque|$)/g,
-            extract : function ( match ) {
-                var val = match[ 1 ].trim();
-                if ( /^le trait|^le don|^la capacité/i.test( val ) ) {
-                    return null;
-                }
+                var val        = match[ 1 ].trim();
+                var knownSense = /vision nocturne|vision dans le noir|odorat précis|odorat imprécis|tremblesens|perception aveugle|sens magique/i;
+                if ( knownSense.test( val ) ) { return null; }
                 return val;
             },
             multiple: true
@@ -159,11 +144,21 @@ SCRAPPER.Heritage = (function ( self ) {
             regex   : /la liste d(?:es|e) dons des ([^.]+)/,
             extract : function ( match ) {
                 return match[ 1 ]
-                .split( /,?\s*(?:des|et des)\s+/ )
-                .map( function ( s ) {
-                    return s.replace( /\s*et (?:d[eo] (?:votre|leur)|celle d[eo]).*$/i, "" ).trim();
-                } )
-                .filter( Boolean );
+                    .split( /,?\s*(?:des|et des)\s+/ )
+                    .map( function ( s ) { return s.replace( /\s*et (?:d[eo] (?:votre|leur)|celle d[eo]).*$/i, "" ).trim(); } )
+                    .filter( Boolean );
+            },
+            multiple: false
+        },
+        {
+            // "choisir parmi les dons de dhampir et ceux de votre autre ascendance"
+            field   : "bonus.dons.ancestraux",
+            regex   : /choisir parmi les dons de ([^.]+)/,
+            extract : function ( match ) {
+                return match[ 1 ]
+                    .split( /,?\s*(?:et ceux de(?: votre)?|et de)\s+/i )
+                    .map( function ( s ) { return s.replace( /\s*(?:votre )?autre ascendance.*$/i, "" ).trim(); } )
+                    .filter( Boolean );
             },
             multiple: false
         },
@@ -183,9 +178,7 @@ SCRAPPER.Heritage = (function ( self ) {
             // "Vous obtenez le don de dévouement multiclasse de cette classe"
             field   : "bonus.dons.multiclasse",
             regex   : /don de dévouement multiclasse/i,
-            extract : function () {
-                return { type: "dévouement" };
-            },
+            extract : function () { return { type: "dévouement" }; },
             multiple: false
         },
         {
@@ -225,17 +218,14 @@ SCRAPPER.Heritage = (function ( self ) {
                 var frequency;
                 if ( freqText.indexOf( "trois fois par jour" ) !== -1 ) {
                     frequency = "FREQUENCY.DAILY_3";
-                }
-                else if ( freqText.indexOf( "deux fois par jour" ) !== -1 ) {
+                } else if ( freqText.indexOf( "deux fois par jour" ) !== -1 ) {
                     frequency = "FREQUENCY.DAILY_2";
-                }
-                else if ( freqText.indexOf( "une fois par jour" ) !== -1 ) {
+                } else if ( freqText.indexOf( "une fois par jour" ) !== -1 ) {
                     frequency = "FREQUENCY.DAILY_1";
-                }
-                else {
+                } else {
                     frequency = "FREQUENCY.AT_WILL";
                 }
-                
+
                 // Gnome source : tradition libre parmi arcanique/divine/occulte
                 var isFreeChoice = /entre les traditions/i.test( match.input );
                 var entry        = {
@@ -245,7 +235,7 @@ SCRAPPER.Heritage = (function ( self ) {
                     free     : true
                 };
                 if ( isFreeChoice ) {
-                    entry.tradition_choices = ["TRADITION.ARCANE", "TRADITION.DIVINE", "TRADITION.OCCULT"];
+                    entry.tradition_choices = [ "TRADITION.ARCANE", "TRADITION.DIVINE", "TRADITION.OCCULT" ];
                 }
                 if ( /tour de magie/i.test( match.input ) ) {
                     entry.level = "level/2";
@@ -269,9 +259,7 @@ SCRAPPER.Heritage = (function ( self ) {
             // "vitesse au sol de 9 mètres"
             field   : "bonus.speed.ground",
             regex   : /vitesse au sol de (\d+) mètres?/i,
-            extract : function ( match ) {
-                return parseInt( match[ 1 ], 10 );
-            },
+            extract : function ( match ) { return parseInt( match[ 1 ], 10 ); },
             multiple: false
         },
         {
@@ -286,24 +274,12 @@ SCRAPPER.Heritage = (function ( self ) {
                     var parts = match[ 2 ].split( /,\s*|\s+ou\s+/ );
                     for ( var i = 0; i < parts.length; i++ ) {
                         var key = _frToAttackKey( parts[ i ].trim() );
-                        if ( key ) {
-                            examples.push( key );
-                        }
+                        if ( key ) { examples.push( key ); }
                     }
                 }
                 return [{ type: "FREE", count: count, examples: examples }];
             },
             multiple: false
-        },
-        {
-            // "le don général <gs-link-information … uuid>Nom</gs-link-information>"
-            field   : "bonus.dons.general",
-            regex   : /don général\s+<div[^>]*onclick="[^"]*'([A-Za-z0-9]+)'[^"]*"[^>]*>([^<]+)<\/div>/gi,
-            extract : function ( match ) {
-                return { name: match[ 2 ].trim(), id: match[ 1 ] };
-            },
-            multiple: true,
-            useHtml : true
         },
         {
             // "la réaction <gs-link-information>Nom</gs-link-information>"
@@ -316,14 +292,11 @@ SCRAPPER.Heritage = (function ( self ) {
                 var type;
                 if ( typeText === "la réaction" ) {
                     type = "ACTION_TYPE.REACTION";
-                }
-                else if ( typeText === "les deux actions" ) {
+                } else if ( typeText === "les deux actions" ) {
                     type = "ACTION_TYPE.ACTION_2";
-                }
-                else if ( typeText === "l'activité libre" ) {
+                } else if ( typeText === "l'activité libre" ) {
                     type = "ACTION_TYPE.FREE";
-                }
-                else {
+                } else {
                     type = "ACTION_TYPE.ACTION_1";
                 }
                 return { type: type, name: match[ 3 ].trim(), id: match[ 2 ] };
@@ -332,9 +305,9 @@ SCRAPPER.Heritage = (function ( self ) {
             useHtml : true
         }
     ];
-    
+
     //********************************************  HELPERS  **************************************************//
-    
+
     function _setPath ( obj, path, value ) {
         var keys = path.split( "." );
         var cur  = obj;
@@ -347,53 +320,42 @@ SCRAPPER.Heritage = (function ( self ) {
         }
         cur[ keys[ keys.length - 1 ] ] = value;
     }
-    
+
     function _getPath ( obj, path ) {
         var keys = path.split( "." );
         var cur  = obj;
         var i;
         for ( i = 0; i < keys.length; i++ ) {
-            if ( cur === undefined || cur === null ) {
-                return undefined;
-            }
+            if ( cur === undefined || cur === null ) { return undefined; }
             cur = cur[ keys[ i ] ];
         }
         return cur;
     }
-    
+
     function _descToText ( general_desc ) {
         return general_desc
-        .map( function ( html ) {
-            return html.replace( /<[^>]+>/g, " " ).replace( /\s+/g, " " ).trim();
-        } )
-        .join( " " );
+            .map( function ( html ) { return html.replace( /<[^>]+>/g, " " ).replace( /\s+/g, " " ).trim(); } )
+            .join( " " );
     }
-    
+
     function _parseHeritageBonuses ( result ) {
         if ( !result.general_desc || result.general_desc.length === 0 ) {
             return;
         }
-        
+
         var text     = _descToText( result.general_desc );
         var htmlText = result.general_desc.join( " " );
-        var i,
-            pattern,
-            source,
-            values,
-            match,
-            re,
-            v,
-            existing;
-        
+        var i, pattern, source, values, match, re, v, existing;
+
         for ( i = 0; i < PATTERNS.length; i++ ) {
             pattern = PATTERNS[ i ];
             source  = pattern.useHtml ? htmlText : text;
-            
+
             if ( pattern.multiple ) {
                 values = [];
                 re     = new RegExp( pattern.regex.source, pattern.regex.flags );
                 match  = re.exec( source );
-                
+
                 while ( match !== null ) {
                     v = pattern.extract( match );
                     if ( v !== null && v !== undefined ) {
@@ -401,10 +363,10 @@ SCRAPPER.Heritage = (function ( self ) {
                     }
                     match = re.exec( source );
                 }
-                
+
                 if ( values.length > 0 ) {
                     existing = _getPath( result, pattern.field ) || [];
-                    _setPath( result, pattern.field, existing.concat( values ) );
+                    _setPath( result, pattern.field, _dedupe( existing.concat( values ) ) );
                 }
             }
             else {
@@ -415,47 +377,85 @@ SCRAPPER.Heritage = (function ( self ) {
             }
         }
     }
-    
+
+    function _dedupe ( arr ) {
+        if ( !arr.length || typeof arr[ 0 ] !== "string" ) { return arr; }
+        var seen   = {};
+        var result = [];
+        var j, s;
+        for ( j = 0; j < arr.length; j++ ) {
+            s = arr[ j ];
+            if ( !seen[ s ] ) {
+                seen[ s ] = true;
+                result.push( s );
+            }
+        }
+        return result;
+    }
+
+    function _cleanEmpty ( obj ) {
+        var key, val, cleaned;
+        var result = {};
+        for ( key in obj ) {
+            if ( !obj.hasOwnProperty( key ) ) { continue; }
+            val = obj[ key ];
+            if ( Array.isArray( val ) ) {
+                if ( val.length > 0 ) { result[ key ] = val; }
+            } else if ( val !== null && typeof val === "object" ) {
+                cleaned = _cleanEmpty( val );
+                if ( Object.keys( cleaned ).length > 0 ) { result[ key ] = cleaned; }
+            } else if ( val !== null && val !== undefined ) {
+                result[ key ] = val;
+            }
+        }
+        return result;
+    }
+
     //********************************************  ACTIONS  **************************************************//
-    
+
     self.extract = function () {
         var cleanText = SCRAPPER.Shared.cleanText;
         var result    = {};
-        var title,
-            traits,
-            detailBlock,
-            processedBlock;
-        
+        var title, traits, detailBlock, processedBlock;
+
         title       = document.querySelector( ".content .header .title" );
         result.name = cleanText( title );
-        
+
         traits        = document.querySelectorAll( ".trait" );
-        result.traits = Array.from( traits ).map( function ( t ) {
-            return cleanText( t );
-        } );
-        
+        result.traits = Array.from( traits ).map( function ( t ) { return cleanText( t ); } );
+
         detailBlock = document.querySelector( ".description, [class*='description'], .detail-content" );
-        
+
         if ( !detailBlock ) {
             result._fallback = true;
             return result;
         }
-        
+
         processedBlock = _replaceAnnotationLinks( detailBlock );
-        
+
         result.general_desc = Array.from( processedBlock.children )
-                                   .map( function ( el ) {
-                                       return el.innerHTML.trim();
-                                   } )
-                                   .filter( function ( html ) {
-                                       return html.length > 0;
-                                   } );
-        
+                                   .map( function ( el ) { return el.innerHTML.trim(); } )
+                                   .filter( function ( html ) { return html.length > 0; } );
+
         _parseHeritageBonuses( result );
-        
+
+        // Nettoie les tableaux vides et objets vides dans bonus et required
+        if ( result.bonus ) {
+            result.bonus = _cleanEmpty( result.bonus );
+            if ( Object.keys( result.bonus ).length === 0 ) {
+                delete result.bonus;
+            }
+        }
+        if ( result.required ) {
+            result.required = _cleanEmpty( result.required );
+            if ( Object.keys( result.required ).length === 0 ) {
+                delete result.required;
+            }
+        }
+
         return result;
     };
-    
+
     return self;
-    
+
 })( SCRAPPER.Heritage || {} );

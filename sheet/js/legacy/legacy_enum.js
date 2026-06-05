@@ -30,7 +30,8 @@ LEGACIES.ENUM = {
     "EKY9v7SF1hVsUdbH": {
         "bonus"       : {
             "sens"  : [
-                "aussi vision nocturne ou vision dans le noir si votre ascendance possède déjà vision nocturne"
+                "vision nocturne",
+                "vision dans le noir"
             ],
             "traits": [
                 "changelin"
@@ -52,7 +53,8 @@ LEGACIES.ENUM = {
     "ZZKZkeSP5TuT62IA": {
         "bonus"       : {
             "sens"  : [
-                "aussi vision nocturne ou vous obtenez vision dans le noir si votre ascendance bénéficie déjà de la vision nocturne"
+                "vision nocturne",
+                "vision dans le noir"
             ],
             "traits": [
                 "crépusculaire"
@@ -73,11 +75,19 @@ LEGACIES.ENUM = {
     },
     "UaD5VDoFlILEmbyz": {
         "bonus"       : {
-            "sens"  : [
-                "guérison du vide",
-                "aussi vision nocturne ou vision dans le noir si votre ascendance possède déjà vision nocturne"
+            "capacites": [
+                "guérison du vide"
             ],
-            "traits": [
+            "dons"     : {
+                "ancestraux": [
+                    "dhampir"
+                ]
+            },
+            "sens"     : [
+                "vision nocturne",
+                "vision dans le noir"
+            ],
+            "traits"   : [
                 "dhampir"
             ]
         },
@@ -124,12 +134,11 @@ LEGACIES.ENUM = {
     },
     "Nd9hdX8rdYyRozw8": {
         "bonus"       : {
-            "dons"  : {
+            "dons": {
                 "multiclasse": {
                     "type": "dévouement"
                 }
-            },
-            "traits": []
+            }
         },
         "category"    : "heritages",
         "general_desc": [
@@ -193,10 +202,9 @@ LEGACIES.ENUM = {
     },
     "NfIAGatB1KIzt8G7": {
         "bonus"       : {
-            "sens"  : [
+            "sens": [
                 "vision dans le noir"
-            ],
-            "traits": []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -216,11 +224,7 @@ LEGACIES.ENUM = {
                     "name": "Chercher",
                     "type": "ACTION_TYPE.ACTION_1"
                 }
-            ],
-            "sens"   : [
-                "un bonus de circonstances de +2 lorsque vous utilisez votre ouïe en utilisant l'action Chercher pour trouver des créatures Cachées ou Non détectées qui se trouvent à moins de 9 mètres de vous"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -282,13 +286,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "XeXWsvcWU3Zaj5WC": {
-        "bonus"       : {
-            "sens"  : [
-                "couleur exacte et cette coloration peut être différente selon les parties de votre corps",
-                "ainsi un bonus de circonstances de +2 à vos tests de Discrétion jusqu'à ce que votre environnement change de couleur ou de motifs"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "La couleur de vos cheveux et de votre peau peut évoluer, peut-être grâce à la magie latente des influences du Premier Monde ou d'effets d'illusions persistantes. Vous pouvez lentement modifier l'éclat et la couleur exacte et cette coloration peut être différente selon les parties de votre corps, vous permettant de créer des motifs ou des dessins colorés. Il vous suffit d'une action unique pour effectuer des changements mineurs et localisés sur votre corps ou vous pouvez consacrer une heure aux changements importants qui affectent alors votre corps entier. Quand vous dormez, ces couleurs changent naturellement en fonction de vos rêves et vous vous réveillez chaque matin avec un coloris inattendu. Lorsque vous vous trouvez dans un endroit où votre coloration est proche de la couleur de votre environnement (par exemple, un vert végétal dans une forêt), vous pouvez utiliser l'action unique pour faire des modifications mineures et localisées pour mieux vous fondre dans votre environnement. Vous obtenez ainsi un bonus de circonstances de +2 à vos tests de Discrétion jusqu'à ce que votre environnement change de couleur ou de motifs."
@@ -301,10 +298,9 @@ LEGACIES.ENUM = {
     },
     "d0bNxgGqvaCkFlhN": {
         "bonus"       : {
-            "sens"  : [
-                "Vision dans le noir"
-            ],
-            "traits": []
+            "sens": [
+                "vision dans le noir"
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -317,6 +313,11 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "tXC5Gwn9D5x0ouJh": {
+        "bonus"       : {
+            "sens": [
+                "odorat imprécis"
+            ]
+        },
         "category"    : "heritages",
         "general_desc": [
             "Par rapport à vos congénères, vous voyez toutes les couleurs avec plus d'intensité, vous entendez les sons avec plus de finesse et vous pouvez identifier les innombrables nuances qui composent une odeur. Vous gagnez le sens spécial : odorat imprécis avec une portée de 9 mètres. Cela signifie que vous pouvez utiliser votre odorat pour déterminer l'emplacement exact d'une créature. Le MJ double généralement la portée de ce pouvoir si vous êtes sous le vent par rapport à cette créature, ou la divise par deux si c'est l'inverse.",
@@ -330,9 +331,6 @@ LEGACIES.ENUM = {
     },
     "etkuQkjkNLPLnjkA": {
         "bonus"       : {
-            "sens"  : [
-                "un tour de magie choisi dans la liste de sorts de cette tradition"
-            ],
             "spells": [
                 {
                     "free"             : true,
@@ -358,8 +356,7 @@ LEGACIES.ENUM = {
                     ],
                     "type"             : "innate"
                 }
-            ],
-            "traits": []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -373,12 +370,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "gyoN45SVfRZwHMkk": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +2 à vos jets de sauvegarde contre les afflictions"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous pouvez vous nourrir d'aliments que la plupart des gens considéreraient comme avariés. Quand vous vous trouvez dans une agglomération, tant qu'il y a des ordures disponibles, vous pouvez vous nourrir convenablement avec de maigres repas, sans devoir utiliser l'activité d'intermède  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3'})\">Subsister</div> . Vous pouvez manger et boire même quand vous êtes  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18'})\">Nauséeux</div> .",
@@ -391,12 +382,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "a6F2WjYU8D0suT8T": {
-        "bonus"       : {
-            "sens"  : [
-                "une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Dans votre famille, les dents constituent des armes formidables. Vous obtenez une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants. Vos mâchoires font partie du groupe pugilat et possèdent les traits finesse et mains nues."
@@ -418,11 +403,7 @@ LEGACIES.ENUM = {
                     "type" : "froid",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au froid égale à la moitié de votre niveau (avec un minimum de 1)"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -453,11 +434,7 @@ LEGACIES.ENUM = {
                     "type" : "feu",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au feu égale à la moitié de votre niveau (avec un minimum de 1)"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -470,12 +447,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "SqEcb1c3yeoJMxm0": {
-        "bonus"       : {
-            "sens"  : [
-                "10 Points de vie du fait de votre ascendance au lieu de 8"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes un kholo grand et puissant, avec une fourrure fauve et des taches brunes sur votre peau. Vous obtenez 10 Points de vie du fait de votre ascendance au lieu de 8 et bénéficiez d'un bonus de circonstances de +1 aux tests d'Athlétisme pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T'})\">Repositionner</div> ,  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731'})\">Pousser</div>  ou faire un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP'})\">Croc-en-jambe</div>  à vos ennemis."
@@ -498,11 +469,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "Mj7uHxxVkRUlOFwJ": {
-        "bonus"       : {
-            "sens": [
-                "relaxation réconfortants"
-            ]
-        },
         "category"    : "heritages",
         "general_desc": [
             "Habitué à la vie calme dans les collines, votre peuple trouve le repos et la relaxation réconfortants, plus particulièrement quand vous profitez des joies du confort. Quand vous regagnez des Points de vie pendant la nuit, ajoutez votre niveau aux PV récupérés. Quand quelqu'un fait appel à la compétence Médecine pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9'})\">Soigner vos blessures</div> , vous pouvez manger un en-cas pour ajouter votre niveau aux Points de vie que vous récupérez de ce traitement."
@@ -515,10 +481,9 @@ LEGACIES.ENUM = {
     },
     "cCy8vsZENlwiAyZ6": {
         "bonus"       : {
-            "sens"  : [
+            "sens": [
                 "vision nocturne"
-            ],
-            "traits": []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -542,12 +507,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "idGDjqi1q3Ft8bAZ": {
-        "bonus"       : {
-            "sens"  : [
-                "une langue supplémentaire"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos ancêtres parcourent les routes depuis des générations, sans jamais avoir ressenti la nécessité de s'installer quelque part. Vous gagnez deux langues de votre choix parmi les langues courantes et peu courantes auxquelles vous avez accès et, à chaque fois que vous choisissez le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'P9HCz0uR6xPHuw72'})\">Polyglotte</div> , Vous obtenez une langue supplémentaire."
@@ -581,9 +540,6 @@ LEGACIES.ENUM = {
         ]
     },
     "CzOHITB2ihLGqMuJ": {
-        "bonus"       : {
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous descendez d'une longue lignée de hobgobelins qui ont dirigé des gobelins. Vous êtes plus petit que les autres hobgobelins, mais les gobelins écoutent toujours chacun des ordres que vous beuglez. Vous obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gUqvezs2zzoTXFAI'})\">Contraindre un groupe</div> . Si vous obtenez un succès sur un test d'Intimidation pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd'})\">Contraindre</div>  un gobelin, il devient un succès critique. Si vous obtenez un échec critique, il devient un échec."
@@ -595,9 +551,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "rQJBtQ9uKUzK9ktK": {
-        "bonus"       : {
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous avez un torse plus long et des épaules plus larges que la plupart des hobgobelins, de sorte que vos jambes semblent plus courtes en comparaison. Cela vous donne une ceinture abdominale forte et muclée et abaisse votre centre de gravité — traits qui vous aident sur une monture et à grimper — et vous êtes entraîné à monter en selle à un âge particulièrement jeune. Vous obtenez le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Rq5wkA8DtsmbzoGV'})\">Chevaucher</div> . De plus, vous n'êtes pas  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg'})\">Pris au dépourvu</div>  lorsque vous Escaladez."
@@ -616,11 +569,7 @@ LEGACIES.ENUM = {
                     "name": "Résister à la magie elfique",
                     "type": "ACTION_TYPE.REACTION"
                 }
-            ],
-            "sens"   : [
-                "la réaction Résister à la magie elfique"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -651,12 +600,7 @@ LEGACIES.ENUM = {
                     "type" : "feu",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au feu égale à la moitié de votre niveau (minimum 1)",
-                "automatiquement un succès sur le test nu DD 5 pour cibler une créature Masquée si cette créature est camouflée uniquement par la fumée"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -686,10 +630,6 @@ LEGACIES.ENUM = {
                     {
                         "id"  : "I0BhPWqYf1bbzEYg",
                         "name": "Dur à cuire"
-                    },
-                    {
-                        "id"  : "I0BhPWqYf1bbzEYg",
-                        "name": "Dur à cuire"
                     }
                 ]
             }
@@ -705,12 +645,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "NWsZ0cIeghyzk9bU": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +2 pour localiser les créatures Non détectées que vous pouvez entendre dans les 9 mètres en utilisant une action Chercher"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes né avec des grandes oreilles expressives qui se meuvent en fonction de votre humeur et se redressent au moindre son inattendu. Vous obtenez un bonus de circonstances de +2 pour localiser les créatures Non détectées que vous pouvez entendre dans les 9 mètres en utilisant une action  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ'})\">Chercher</div> . Tant que vous êtes conscient de la présence d'une créature par le son, une fois par round, vos oreilles peuvent vous aider à  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sn2hIy1iIJX9Vpgj'})\">Signaler</div>  la créature à tous les alliés par une action gratuite."
@@ -723,10 +657,9 @@ LEGACIES.ENUM = {
     },
     "1lv7RMp7t5iqeUFT": {
         "bonus"       : {
-            "sens"  : [
-                "un odorat imprécis avec une portée de 9 mètres"
-            ],
-            "traits": []
+            "sens": [
+                "odorat imprécis"
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -751,12 +684,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "bLhIBwqdjTiVJ5qm": {
-        "bonus"       : {
-            "sens"  : [
-                "une attaque à mains nues de griffe qui inflige 1d6 dégâts tranchants"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre famille possède des griffes particulièrement longues et aiguisées capables de délivrer des blessures sanglantes par un coup traître. Vous obtenez une attaque à mains nues de griffe qui inflige 1d6 dégâts tranchants. Vos griffes font partie du groupe pugilat et possèdent les traits agile, finesse et à mains nues."
@@ -775,11 +702,7 @@ LEGACIES.ENUM = {
                     "type" : "froid",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au froid égale à la moitié de votre niveau (minimum 1)"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -792,12 +715,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "3F5ffk7cmnrBhPcT": {
-        "bonus"       : {
-            "sens"  : [
-                "aussi un bonus de circonstances de +1 aux tests d'Occultisme pour Vous souvenir au sujet de créatures qui ont pour origine d'autres Plans que l'Univers"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous avez hérité d'une proximité avec les lointains confins du monde, là où les frontières entre les dimensions deviennent minces. Vous pouvez lancer  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl'})\">Détection de la magie</div>  comme un tour de magie occulte inné à volonté. Un tour de magie est intensifié à la moitié de votre niveau, arrondi au supérieur. Vous obtenez aussi un bonus de circonstances de +1 aux tests d'Occultisme pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo'})\">Vous souvenir</div>  au sujet de créatures qui ont pour origine d'autres Plans que l'Univers."
@@ -816,11 +733,7 @@ LEGACIES.ENUM = {
                     "name": "Approche menaçante",
                     "type": "ACTION_TYPE.ACTION_1"
                 }
-            ],
-            "sens"   : [
-                "également l'action Approche menaçante"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -840,11 +753,7 @@ LEGACIES.ENUM = {
                     "name": "Mise à l'abri",
                     "type": "ACTION_TYPE.ACTION_1"
                 }
-            ],
-            "sens"   : [
-                "jungle en utilisant chaque branche ou chaque buisson"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -864,11 +773,7 @@ LEGACIES.ENUM = {
                     "type" : "feu",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au feu égale à la moitié de votre niveau (minimum 1)"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -881,12 +786,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "dJeiekfqGQ8dkwsO": {
-        "bonus"       : {
-            "sens"  : [
-                "une Vitesse de nage de 4"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre famille descend du plus commun des héritages des hommes-lézards et vous êtes accoutumé aux environnements aquatiques. Vous obtenez une Vitesse de nage de 4,50 mètres."
@@ -898,9 +797,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "OoUqJJB77VfWbWRM": {
-        "bonus"       : {
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos orteils se sont adaptés pour agripper et escalader. Vous obtenez le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '09PurtIanNUPfNRq'})\">Combattant-grimpeur</div>  comme don supplémentaire et aussi longtemps que vous ne portez rien aux pieds, vous pouvez utilisez les coussinets collants sur vos pieds pour escalader, en gardant vos mains libres. De plus, si vous obtenez un succès sur un test d'Athlétisme pour Escalader, il devient un succès critique."
@@ -956,12 +852,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "B89BCo6LtI3SJq54": {
-        "bonus"       : {
-            "sens"  : [
-                "également un bonus de circonstances de +1 aux tests pour Faire bonne impression si la cible peut sentir votre haleine"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes un kholo rayé, à la fourrure pâle, avec une haleine étrangement agréable que vous pouvez utiliser pour attirer vos proies. Vous êtes qualifié en Diplomatie (ou une autre compétence si vous étiez déjà qualifié en Diplomatie). Vous obtenez également un bonus de circonstances de +1 aux tests pour Faire bonne impression si la cible peut sentir votre haleine."
@@ -974,10 +864,9 @@ LEGACIES.ENUM = {
     },
     "JW45oQRHaqthjmIx": {
         "bonus"       : {
-            "sens"  : [
+            "sens": [
                 "vision dans le noir"
-            ],
-            "traits": []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1001,12 +890,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "udMXXjFirjARYr4p": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +1 aux tests de Duperie pour Mentir lorsque vous clamez spécifiquement votre innocence"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes un kholo d'un mètre de haut, aux grandes oreilles et au visage anguleux. Beaucoup sont sceptiques sur le fait que soyez réellement un kholo. Votre taille est petite au lieu de moyenne. Vous êtes qualifié en Duperie (ou dans une autre compétence si vous êtes déjà qualifié en Duperie). Vous obtenez un bonus de circonstances de +1 aux tests de Duperie pour Mentir lorsque vous clamez spécifiquement votre innocence, aux DD de Duperie contre les tests pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1xRFPTFtWtGJ9ELw'})\">Deviner les intentions</div>  pour découvrir de tels mensonges et aux tests d'initiative lorsque vous faites un test de Duperie pour déterminer l'initiative."
@@ -1025,11 +908,7 @@ LEGACIES.ENUM = {
                     "type" : "froid",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au froid égale à la moitié de votre niveau (minimum 1)"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1064,13 +943,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "P8BP1un5BTrwXoBy": {
-        "bonus"       : {
-            "sens"  : [
-                "10 Points de vie de votre ascendance au lieu de 6",
-                "un bonus de circonstances de +1 contre le souffle de dragon"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Du fait de l'association de votre terrier avec un dragon, vos écailles sont plus robustes que celles des autres kobolds. Vous obtenez 10 Points de vie de votre ascendance au lieu de 6. Vous obtenez un bonus de circonstances de +1 contre le souffle de dragon, les effets avec le trait sommeil et les effets qui vous rendraient  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6uEgoh53GbXuHpTF'})\">Paralysé</div> ."
@@ -1082,12 +954,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "WaCn0mcivFv1omNK": {
-        "bonus"       : {
-            "sens"  : [
-                "une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre lignée est réputée pour ses puissantes mâchoires et ses dents aiguisées, soit pour vous protéger des prédateurs naturels soit par respect pour un animal puissant. Vous obtenez une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants. Vos mâchoires font partie du groupe pugilat et possèdent les traits finesse et à mains nues."
@@ -1106,11 +972,7 @@ LEGACIES.ENUM = {
                     "name": "Queue à toxine",
                     "type": "ACTION_TYPE.ACTION_1"
                 }
-            ],
-            "sens"   : [
-                "l'action Queue à toxine"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1135,12 +997,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "dbj1cbkYeAAdkDSM": {
-        "bonus"       : {
-            "sens"  : [
-                "une résistance égale à la moitié de votre niveau (minimum 1) contre les dégâts associés à votre bienfaiteur élémentaire : froid pour l'air"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Lorsque vous avez éclos, vous vous êtes imprégné d'une créature fortement associée avec l'un des plans élémentaires, tel qu'un élémentaire ou un génie. Choisissez votre bienfaiteur élémentaire parmi air, bois, eau, feu, métal ou terre. Vous obtenez une résistance égale à la moitié de votre niveau (minimum 1) contre les dégâts associés à votre bienfaiteur élémentaire : froid pour l'air, électricité pour la terre, feu pour le feu, son pour le métal, acide pour l'eau ou poison pour le bois."
@@ -1174,12 +1030,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "ZW8GX14n3ZGievK1": {
-        "bonus"       : {
-            "sens"  : [
-                "une Vitesse de Nage de 4"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous avez grandi dans un terrier traversé de passages sous l'eau, qu'ils soient naturels ou aient été creusés et avez été influencé par une entité aquatique ou un être des eaux primordiales. Vous obtenez une Vitesse de Nage de 4,50 mètres."
@@ -1191,12 +1041,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "hTl3uc6y1kTuo9ac": {
-        "bonus"       : {
-            "sens"  : [
-                "une Vitesse de nage de 6 mètres"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre corps est constitué d'algues entremêlées et vous vous sentez aussi à l'aise sous l'eau qu'à la surface. Vous obtenez une Vitesse de nage de 6 mètres et vous pouvez toujours respirer sous l'eau. Quoiqu'il en soit, votre Vitesse au sol est réduite de 1,50 mètre (soit 6 mètres pour la plupart des léchis algues)."
@@ -1208,12 +1052,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "2cii5ZkBsJ4DYdd2": {
-        "bonus"       : {
-            "sens"  : [
-                "une attaque à mains nues d'épine qui inflige 1d6 dégâts perforants"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Des épines couvrent votre corps. Vous obtenez une attaque à mains nues d'épine qui inflige 1d6 dégâts perforants. Vos épines sont dans le groupe pugilat et possèdent les traits finesse et à mains nues."
@@ -1248,10 +1086,9 @@ LEGACIES.ENUM = {
     },
     "87h0jepQuzIbN7jN": {
         "bonus"       : {
-            "sens"  : [
-                "Vision dans le noir"
-            ],
-            "traits": []
+            "sens": [
+                "vision dans le noir"
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1297,13 +1134,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "CZx9HMmoOwcpkLY8": {
-        "bonus"       : {
-            "sens"  : [
-                "10 Points de vie par votre ascendance au lieu de 8",
-                "un bonus de circonstances de +2 à vos DD de Vigueur"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre corps est constitué de racines robustes qui vous attachent fermement au sol. Vous obtenez 10 Points de vie par votre ascendance au lieu de 8. Vous pouvez aller sans lumière du soleil pendant 2 semaines avant de commencer à mourir de faim. Vous obtenez un bonus de circonstances de +2 à vos DD de Vigueur et de Réflexes contre les tentatives pour vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731'})\">Pousser</div> , vous faire un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP'})\">Croc-en-jambe</div>  ou vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T'})\">Repositionner</div> . Ce bonus s'applique aussi aux jets de sauvegarde contre les sorts ou les effets qui tentent de vous déplacer ou de vous mettre  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div> ."
@@ -1335,12 +1165,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "VSyOvtgJ1ZNpIVgC": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +2 à votre DD de Vigueur ou de Réflexes contre les tentatives pour vous Pousser"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos ancêtres ont vécu et travaillé parmi les pierres vénérables des montagnes ou des profondeurs de la terre. Cela vous a rendu aussi solide que le roc lorsque vous plantez vos pieds. Vous obtenez un bonus de circonstances de +2 à votre DD de Vigueur ou de Réflexes contre les tentatives pour vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731'})\">Pousser</div> , vous faire un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP'})\">Croc-en-jambe</div>  ou vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T'})\">Repositionner</div> . Ce bonus s'applique également aux jets de sauvegarde contre les sorts ou les effets qui tentent de vous faire tomber  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60'})\">À terre</div> .",
@@ -1391,11 +1215,7 @@ LEGACIES.ENUM = {
                     "type" : "poison",
                     "value": "level/2"
                 }
-            ],
-            "sens"       : [
-                "une résistance au poison égale à la moitié de votre niveau (avec un minimum de 1) et"
-            ],
-            "traits"     : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1409,6 +1229,10 @@ LEGACIES.ENUM = {
     },
     "1oLMOmLpurfWTTff": {
         "bonus"       : {
+            "sens"  : [
+                "vision nocturne",
+                "vision dans le noir"
+            ],
             "traits": [
                 "néphilim"
             ]
@@ -1438,9 +1262,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "wn4EbYk1QN3tyFhh": {
-        "bonus"       : {
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos mains calleuses et vos yeux rouges évoquent une vie passée dans les ténèbres profondes des cavernes des montagnes, où vous avez appris à combattre sur les falaises rocheuses et à survivre avec un minimum de ressources. Vous obtenez le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4tTkRyOQ0VuRBac3'})\">Expertise du terrain</div>  pour les souterrains et de don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '09PurtIanNUPfNRq'})\">Combattant-grimpeur</div> ."
@@ -1474,13 +1295,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "MTTU2t7x6TjvUDnE": {
-        "bonus"       : {
-            "sens"  : [
-                "12 Points de vie de votre héritage au lieu de 10",
-                "aussi le don Dur à cuir"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes un membre d'une communauté orque qui pratique un rituel de scarification ou de tatouage. Les marques de votre peau montrent votre exceptionnelle robustesse et votre vitalité. Vous obtenez 12 Points de vie de votre héritage au lieu de 10. Vous obtenez aussi le don  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'I0BhPWqYf1bbzEYg'})\">Dur à cuir</div> ."
@@ -1492,13 +1306,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "VvEAFoxuddYNBmNc": {
-        "bonus"       : {
-            "sens"  : [
-                "une résistance aux dégâts de vide égale à la moitié de votre niveau (minimum 1)",
-                "aussi un bonus de circonstances de +1 aux jets de sauvegarde contre les effets ayant le trait mort ou vide"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous avez été exposé à de puissantes énergies nécromantiques qui auraient dû vous tuer — mais vous avez survécu. Votre peau est froide, moite et grise. Vous obtenez une résistance aux dégâts de vide égale à la moitié de votre niveau (minimum 1). Vous obtenez aussi un bonus de circonstances de +1 aux jets de sauvegarde contre les effets ayant le trait mort ou vide."
@@ -1510,12 +1317,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "dwKCwwtWetvPmJks": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +2 aux tests d'Athlétisme pour Escalader ou Nager"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes né dans une forêt humide avec la canopée pour seule protection contre les pluies torrentielles et les inondations brutales. Vous avez appris à vous déplacer de manière athlétique à travers la jungle et à résister aux diverses plaies communes en milieu humide. Vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy'})\">Escalader</div>  ou  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx'})\">Nager</div>  et un bonus de circonstances de +1 aux jets de sauvegarde contre les maladies."
@@ -1528,10 +1329,9 @@ LEGACIES.ENUM = {
     },
     "fROPRHGyUn4PgcER": {
         "bonus"       : {
-            "sens"  : [
-                "un sens de l'odorat imprécis avec une portée de 9 mètres"
-            ],
-            "traits": []
+            "sens": [
+                "odorat imprécis"
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1546,11 +1346,9 @@ LEGACIES.ENUM = {
     },
     "eFsD7W6hnK33jlDQ": {
         "bonus"       : {
-            "sens"  : [
-                "de guerrier Endurci au combat )",
-                "un bonus de circonstances de +1 contre les maladies"
-            ],
-            "traits": []
+            "capacites": [
+                "de guerrier Endurci au combat )"
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1576,10 +1374,9 @@ LEGACIES.ENUM = {
     },
     "7p9HtLzWBHc18JDW": {
         "bonus"       : {
-            "sens"  : [
+            "sens": [
                 "vision dans le noir"
-            ],
-            "traits": []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1603,9 +1400,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "U882U2NUUGL6u3rL": {
-        "bonus"       : {
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos pouvez facilement compresser votre corps et Vous faufiler à travers les trous. Vous obtenez le don de compétence  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3G8xUlgCjRmRJNfP'})\">Se faufiler rapidement</div>  en tant que don supplémentaire même si vous n'êtes pas qualifié en Acrobaties. Les espaces étroits qui ne sont pas suffisamment étroits pour que vous ayez à utiliser l'action Se faufiler ne sont pas des terrains difficiles pour vous."
@@ -1656,12 +1450,6 @@ LEGACIES.ENUM = {
         ]
     },
     "qM566kCXljkOpocA": {
-        "bonus"       : {
-            "sens"  : [
-                "une attaque à mains nues de serre qui inflige 1d4 dégâts tranchants"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos serres sont aussi dures et robustes que votre bec. Vous obtenez une attaque à mains nues de serre qui inflige 1d4 dégâts tranchants. Vos serres font partie du groupe pugilat et possèdent les traits agile, finesse, à mains nues et polyvalent P."
@@ -1673,12 +1461,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "7vHLPleFpSqKAjWG": {
-        "bonus"       : {
-            "sens"  : [
-                "une résistance à l'électricité égale à la moitié de votre niveau (minimum 1)"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Que ce soit grâce à une bénédiction de Hei Feng ou à l'éclosion de votre œuf durant un grain, vous êtes résistant aux tempêtes. Vous obtenez une résistance à l'électricité égale à la moitié de votre niveau (minimum 1). Vous réussissez automatiquement le test nu pour cibler une créature  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W'})\">Masquée</div>  si cette créature est masquée seulement par la pluie ou le brouillard."
@@ -1734,12 +1516,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "WEzgrxBRFBGdj8Hx": {
-        "bonus"       : {
-            "sens"  : [
-                "une Vitesse de nage de 4"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vous êtes l'un des rares tengus qui peut fendre les vagues comme un oiseau fend les airs et vous rôdez souvent dans les rivières ou les océans où peu vous attendent. Vous obtenez une Vitesse de nage de 4,50 mètres."
@@ -1780,11 +1556,7 @@ LEGACIES.ENUM = {
                     "name": "Peau toxique",
                     "type": "ACTION_TYPE.REACTION"
                 }
-            ],
-            "sens"   : [
-                "la réaction Peau toxique"
-            ],
-            "traits" : []
+            ]
         },
         "category"    : "heritages",
         "general_desc": [
@@ -1797,13 +1569,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "2QLKvmCimT9ai0Bi": {
-        "bonus"       : {
-            "sens"  : [
-                "8 Points de vie de votre ascendance au lieu de 6",
-                "un bonus de circonstances de +1 aux jets de sauvegarde contre maladies"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Votre peau semblable à du cuir ressemble à celle d'un crapaud. Vous obtenez 8 Points de vie de votre ascendance au lieu de 6. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre maladies et poisons."
@@ -1815,12 +1580,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "rFdVYKtHsZzRCsSd": {
-        "bonus"       : {
-            "sens"  : [
-                "un bonus de circonstances de +2 à vos DD de Vigueur"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos mains et vos pieds exsudent un film qui les aide à adhérer sur les surfaces. Vous obtenez un bonus de circonstances de +2 à vos DD de Vigueur et de Réflexes contre les tentatives pour vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9'})\">Désarmer</div> , vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731'})\">Pousser</div> , vous  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T'})\">Repositionner</div>  ou vous faire un  <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP'})\">Croc-en-jambe</div> . Lorsque vous grimpez aux arbres, aux lianes ou d'autres feuillages, si vous obtenez un succès au test d'Athlétisme pour Escalader, il devient un succès critique."
@@ -1832,12 +1591,6 @@ LEGACIES.ENUM = {
         "traits"      : []
     },
     "87Eej7uEvTxXeli7": {
-        "bonus"       : {
-            "sens"  : [
-                "une vitesse de nage de 4"
-            ],
-            "traits": []
-        },
         "category"    : "heritages",
         "general_desc": [
             "Vos ancêtres vivent autant dans que sur l'eau. Vous obtenez une vitesse de nage de 4,50 mètres."
