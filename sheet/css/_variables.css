@@ -1,0 +1,140 @@
+/* PATHFINDER - CSS CUSTOM PROPERTIES */
+
+:root {
+    /* COLORES */
+    
+    --c-gold: #D4AF37;
+    --c-gold-light: #FFD700;
+    --c-gold-dark: #8B6914;
+    --c-gold-bright: #E8B84B;
+    
+    --c-bg-deep: #0D0604;
+    --c-bg-dark: #1A0F08;
+    --c-bg-medium: #2C1810;
+    --c-bg-card: #3D2817;
+    --c-bg-card-light: #4A3520;
+    --c-bg-inset: #2A1B10;
+    --c-bg-paper-light: #D6C6B8;
+    --c-bg-paper-dark: #C4B4A6;
+    
+    --c-text: #E8D4A8;
+    --c-text-muted: #C8B89A;
+    --c-text-dark: #1A0F08;
+    --c-text-gold: #F0D890;
+    
+    --c-border-dark: #6B4E2A;
+    --c-border-gold: #D4AF37;
+    
+    
+    /* GRADIENTS */
+    
+    --g-bg-body: linear-gradient(135deg, #1A0F08 0%, #0D0604 100%);
+    --g-bg-paper: linear-gradient(135deg, #D6C6B8 0%, #C4B4A6 100%);
+    --g-panel-dark: linear-gradient(135deg, #2C1810 0%, #1A0F08 100%);
+    --g-panel: linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    --g-card: linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+    --g-card-hover: linear-gradient(135deg, #4A3520 0%, #33231A 100%);
+    --g-button: linear-gradient(135deg, #8B6914 0%, #6B4E10 100%);
+    --g-button-hover: linear-gradient(135deg, #A87D1A 0%, #8B6914 100%);
+    --g-gold: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+    --g-value: linear-gradient(135deg, #BFC2C3 0%, #AFB2C3 100%);
+    
+    
+    /* BORDERS */
+    
+    --b-thin: 1px;
+    --b-normal: 2px;
+    --b-thick: 3px;
+    
+    
+    /* BORDER RADIUS */
+    
+    --r-sm: 4px;
+    --r-md: 6px;
+    --r-lg: 8px;
+    --r-xl: 10px;
+    --r-2xl: 12px;
+    --r-full: 50%;
+    
+    
+    /* SPACING */
+    
+    --s-xs: 2px;
+    --s-sm: 4px;
+    --s-md: 8px;
+    --s-lg: 12px;
+    --s-xl: 16px;
+    --s-2xl: 20px;
+    --s-3xl: 24px;
+    
+    
+    /* SHADOWS */
+    
+    --sh-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --sh-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --sh-lg: 0 8px 32px rgba(0, 0, 0, 0.8);
+    --sh-gold-sm: 0 4px 12px rgba(212, 175, 55, 0.2);
+    --sh-gold-md: 0 4px 12px rgba(212, 175, 55, 0.4);
+    --sh-gold-lg: 0 4px 16px rgba(212, 175, 55, 0.4);
+    --sh-inset-sm: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    
+    /* TRANSITIONS */
+    
+    --t-normal: all 0.3s ease;
+    --t-fast: all 0.2s ease;
+    --t-transform: transform 0.3s ease;
+    
+    
+    /* MASTERY */
+    
+    --c-mastery-trained: #2A4A2A;
+    --c-mastery-trained-border: #4A8B4A;
+    --c-mastery-trained-text: #A0D4A0;
+    --g-mastery-trained: linear-gradient(135deg, #2A4A2A 0%, #1A3A1A 100%);
+    
+    --c-mastery-expert: #2A3D5A;
+    --c-mastery-expert-border: #4A7CB8;
+    --c-mastery-expert-text: #A8D0F0;
+    --g-mastery-expert: linear-gradient(135deg, #2A3D5A 0%, #1A2A40 100%);
+    
+    --c-mastery-master: #3D1A4A;
+    --c-mastery-master-border: #8B4AB8;
+    --c-mastery-master-text: #D4A8F0;
+    --g-mastery-master: linear-gradient(135deg, #3D1A4A 0%, #2A0F3A 100%);
+    
+    --c-mastery-legendary: #8B6914;
+    --c-mastery-legendary-border: #FFD700;
+    --c-mastery-legendary-text: #1A0F08;
+    --g-mastery-legendary: linear-gradient(135deg, #8B6914 0%, #6B4E10 100%);
+    
+    
+    /* RACES / CLASSES */
+    
+    --c-trait-bg: #5C1A1A;
+    --c-trait-border: #8B2020;
+    --c-trait-text: #F0D0D0;
+    --c-red-accent: #8B2020;
+    
+    
+    /* SIZES */
+    
+    --size-sheet-width: 1240px;
+    --size-sheet-height: 1754px;
+    --size-button-sm: 20px;
+
+    
+    /* FONTS */
+
+    --font-family-primary: 'Uncial Antiqua', serif;
+    --font-size-xs: 10px;
+    --font-size-sm: 13px;
+    --font-size-base: 12px;
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 28px;
+    --font-weight-bold: 600;
+    --text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    --text-shadow-md: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}

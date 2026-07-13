@@ -1,0 +1,100 @@
+/* PATHFINDER - UTILITY CLASSES */
+
+/* RESET & BASE */
+
+* {
+    outline: none !important;
+}
+
+.gs-hidden {
+    display: none !important;
+}
+
+/* FLEXBOX UTILITIES */
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-row { display: flex; flex-direction: row; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.flex-1 { flex: 1; }
+.flex-grow { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.gap-xs { gap: var(--s-xs); }
+.gap-sm { gap: var(--s-sm); }
+.gap-md { gap: var(--s-md); }
+.gap-lg { gap: var(--s-lg); }
+.gap-xl { gap: var(--s-xl); }
+
+/* FLEX UTILITIES */
+
+.flex-layout-center-v { display: flex; align-items: center; }
+.flex-layout-bottom-v { display: flex; align-items: flex-end; }
+.flex-layout-center-h-v { display: flex; justify-content: center; align-items: center; min-width: 0; }
+.flex-layout-right-h-center-v { display: flex; justify-content: flex-end; align-items: center; min-width: 0; }
+.flex-layout-left-h-center-v { display: flex; justify-content: flex-start; align-items: center; min-width: 0; }
+.flex-layout-inline-center-h-v { display: inline-flex; justify-content: center; align-items: center; min-width: 0; }
+.flex-layout-wrap { display: flex; flex-wrap: wrap; }
+.flex-layout-column { display: flex; flex-direction: column; }
+.flex-layout-row { display: flex; flex-direction: row; }
+.flex-layout-column-center-h { display: flex; flex-direction: column; align-items: center; }
+.flex-layout-column-start-h { display: flex; flex-direction: column; align-items: flex-start; }
+.flex-layout-justify-between { display: flex; justify-content: space-between; }
+.flex-layout-justify-around { display: flex; justify-content: space-around; }
+.flex-layout-in-end-position { display: flex; justify-content: flex-end; }
+.flex-layout-in-start-position { display: flex; justify-content: flex-start; }
+.flex-layout-expand-1 { flex-grow: 1; }
+.flex-layout-order-first { order: -1; }
+
+/* STATE UTILITIES */
+
+[data-visibility-state="hidden"] { display: none; }
+[data-visibility-state="disabled"] { cursor: not-allowed; }
+[data-visibility-state="disabled"] .gs-window-label { font-style: italic; }
+[data-current-phase="SLEEPING"] { cursor: not-allowed; }
+[data-current-phase="SLEEPING"] > * { pointer-events: none; }
+[data-current-phase="RUNNING"] { background-color: #93D5F3; }
+
+/* COUNTER UTILITIES */
+
+.gs-counter[data-number=""] { display: none; }
+.gs-counter .gs-counter-label {
+    vertical-align: baseline;
+    white-space: nowrap;
+    padding: var(--s-xs) var(--s-sm);
+    font-size: var(--font-size-xs);
+    color: white;
+    line-height: 12px;
+    border-radius: var(--r-sm);
+    margin: 0 var(--s-xs);
+}
+.gs-errors-counter .gs-counter-label { background-color: #EC5757; color: white !important; }
+.gs-warnings-counter .gs-counter-label { background-color: #FFBA0B; color: white !important; }
+
+/* TEXT UTILITIES */
+
+.between-parentheses:before { content: '('; }
+.between-parentheses:after { content: ')'; }
+
+/* GS LINK INFORMATION */
+
+.gs-link-information {
+    display: inline-block;
+    color: #C5C5F5;
+}
+.gs-link-information:before { content: '"'; }
+.gs-link-information:after { content: '"'; }
