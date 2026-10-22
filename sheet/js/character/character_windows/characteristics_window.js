@@ -4,7 +4,7 @@
  * @extends WINDOW_V2.ElementFromData
  */
 CHARACTER.CharacteristicWindow           = function ( parent_name ) {
-    this.initSpecific( CHARACTER.CharacteristicWindow.NAME, parent_name, "Characteristique" );
+    this.initSpecific( CHARACTER.CharacteristicWindow.NAME, parent_name, "Caractéristiques" );
 };
 CHARACTER.CharacteristicWindow.prototype = {
     initSpecific: WINDOW_V2.ElementFromData.initSpecific,

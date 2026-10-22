@@ -45,6 +45,9 @@ CHARACTER.Current.prototype = {
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
+                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
+                this.windows.setVisibilityWindowState( this.getClass().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelWindow.NAME );
+                this.windows.setVisibilityWindowState( this.getClass().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__more_button":
             case "event__less_button":

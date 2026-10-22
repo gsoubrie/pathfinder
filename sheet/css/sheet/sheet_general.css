@@ -43,7 +43,6 @@
         ".      .           .           .          surprise   ca";
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-logo { grid-area : logo; }
 .property-tab-pane[data-name="general_sheet"] .area-save { grid-area : save; }
 .property-tab-pane[data-name="general_sheet"] .area-name { grid-area : name; }
 .property-tab-pane[data-name="general_sheet"] .area-player { grid-area : player; }
@@ -88,17 +87,6 @@
 .property-tab-pane[data-name="general_sheet"] .grid-area:not(.neutral):hover {
     border-color : #D4AF37;
     box-shadow   : 0 4px 12px rgba(212, 175, 55, 0.2);
-}
-
-/* =============================== Zone LOGO =========================== */
-.property-tab-pane[data-name="general_sheet"] .area-logo .logo-pathfinder {
-    background-image    : url("../../img/logo.png");
-    background-size     : cover;
-    background-repeat   : no-repeat;
-    background-position : center center;
-    width               : 100%;
-    height              : 49px;
-    filter              : drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 /* =============================== Zone SAVE =========================== */

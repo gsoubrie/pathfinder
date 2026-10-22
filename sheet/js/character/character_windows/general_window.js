@@ -4,7 +4,7 @@
  * @extends WINDOW_V2.ElementFromData
  */
 CHARACTER.GeneralWindow = function ( parent_name ) {
-    this.initSpecific( CHARACTER.GeneralWindow.NAME, parent_name );
+    this.initSpecific( CHARACTER.GeneralWindow.NAME, parent_name, "Général" );
 };
 
 CHARACTER.GeneralWindow.prototype = {
@@ -22,6 +22,7 @@ CHARACTER.GeneralWindow.prototype = {
                 this.computeHtmlWithData();
                 break;
         }
+        WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function () {
@@ -31,7 +32,6 @@ CHARACTER.GeneralWindow.prototype = {
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
         }
         
-        this.computeArea__logo();
         this.computeArea__save();
         this.computeComponent(character_object.getNameObject());
         this.computeComponent(character_object.getPlayer());
@@ -65,14 +65,6 @@ CHARACTER.GeneralWindow.prototype = {
     computeComponent: function (object) {
         object.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
     },
-    computeArea__logo: function () {
-        if ( this.area_logo ) {
-            return;
-        }
-        this.area_logo = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-logo neutral" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), this.area_logo );
-    },
-    
     computeArea__save: function () {
         if ( this.area_save ) {
             return;

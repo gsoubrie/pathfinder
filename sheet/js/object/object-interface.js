@@ -136,7 +136,7 @@ OBJECT.InterfaceContainer.prototype = {
         return to_add;
     },
     insertAtIndex                 : function ( to_add, index ) {
-        SHINKEN.TOOLS.ARRAY.insert( this.contents, to_add, index );
+        GS.TOOLS.ARRAY.insert( this.contents, to_add, index );
         this.computeMapping();
     },
     removeContent                 : function ( uuid_to_remove, params, avoid_revert_content ) {
@@ -147,22 +147,22 @@ OBJECT.InterfaceContainer.prototype = {
         if ( !avoid_revert_content ) {
             _to_remove.remove( params );
         }
-        SHINKEN.TOOLS.ARRAY.removeElementByIndex( this.contents, this.mapping[ uuid_to_remove ] );
+        GS.TOOLS.ARRAY.removeElementByIndex( this.contents, this.mapping[ uuid_to_remove ] );
         this.computeMapping();
     },
     removeContentByIndex          : function ( index_to_remove, avoid_revert_content ) {
         if ( !avoid_revert_content ) {
             this.getContent( index_to_remove ).remove();
         }
-        SHINKEN.TOOLS.ARRAY.removeElementByIndex( this.contents, index_to_remove );
+        GS.TOOLS.ARRAY.removeElementByIndex( this.contents, index_to_remove );
         this.computeMapping();
     },
     removeAllContentFromIndex     : function ( index_to_remove ) {
-        SHINKEN.TOOLS.ARRAY.removeAllElementsFromIndex( this.contents, index_to_remove );
+        GS.TOOLS.ARRAY.removeAllElementsFromIndex( this.contents, index_to_remove );
         this.computeMapping();
     },
     removeFirstXContent           : function ( nb_to_remove ) {
-        SHINKEN.TOOLS.ARRAY.removeXElementsFromIndex( this.contents, 0, nb_to_remove );
+        GS.TOOLS.ARRAY.removeXElementsFromIndex( this.contents, 0, nb_to_remove );
         this.computeMapping();
     },
     resetContents                 : function () {

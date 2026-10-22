@@ -135,6 +135,7 @@ CHARACTER.LevelUpWindow.prototype = {
                 this._onSelect( params );
                 break;
         }
+        WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
 
     //********************************************  HTML   **************************************************//

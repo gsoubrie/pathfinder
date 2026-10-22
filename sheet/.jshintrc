@@ -24,6 +24,7 @@
   "laxbreak": true,
   "globals": {
     "chrome": false,
+    "TEST": false,
     "ARCHETYPES": false,
     "SCRAPPER": true,
     "ALIGNEMENT": false,

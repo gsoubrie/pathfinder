@@ -23,6 +23,7 @@ CHARACTER.GiftsWindow.prototype = {
                 }
                 return;
         }
+        WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
     
     //********************************************  HTML   **************************************************//
