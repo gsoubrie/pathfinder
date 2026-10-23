@@ -101,7 +101,7 @@ SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
 
 - Chaque objet qui participe au cycle d'événements expose `doActionAfter( event_name, params )` : un `switch` sur `event_name` avec `return;` en fin de case.
 - Nommage : événements `"event__<nom>"`, paramètres `"param__<nom>"` (double underscore). Ex. `params[ "param__dom_element_parent" ]`.
-- Déclenchement depuis le HTML : attribut inline `onclick="MANAGER.EventManagerV2.doActionAfter(event,'event__nom',{'param__key':'valeur'})"`.
+- Déclenchement depuis le HTML : attribut inline `onclick="MANAGER.EventManagerV2.doActionAfter(event,'event__nom',{'param__key':'valeur'})"`. **Jamais** de `CONTROLLER.Character.doActionAfter(...)` ni de `event.stopPropagation()` dans un inline `onclick` : le bus appelle `stopPropagation()` lui-même (les boutons imbriqués n'ont donc pas de fuite vers le parent), et `CONTROLLER.Main` route tout vers `CONTROLLER.Character`.
 - Les contrôleurs (`CONTROLLER.Main.doActionAfter`) routent vers `CONTROLLER.Character` puis vers le personnage courant ; c'est l'entrée unique des événements. Les événements d'interface d'une fenêtre (boutons d'un panneau) peuvent être routés par le contrôleur directement vers `current_character.windows.doActionAfterContentChildren(...)` — la fenêtre concernée traite ensuite l'événement.
 - Machine à états : `PHASE.Phase` / `initPhase()`, valeurs de phase en `SCREAMING_CASE` (`PHASE.INIT`), l'état est reflété dans `element.dataset.currentPhase` / `previousPhase` si un élément DOM est attaché via `setPhaseDomElement`.
 

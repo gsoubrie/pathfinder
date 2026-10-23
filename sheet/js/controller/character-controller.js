@@ -28,6 +28,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
+                self.current_character.doActionAfter( event_name, params );
+                break;
             case "event__level_up__select_class":
             case "event__level_up__take_level":
             case "event__level_up__remove_level":

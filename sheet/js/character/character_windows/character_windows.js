@@ -28,7 +28,7 @@ CHARACTER.WindowGroup.prototype = {
         this.computeHtml();
         let _windows_container = document.querySelector( ".character-sheet-windows" );
         SERVICE.DOM.addElementTo( this.computeHtmlLogo(), _windows_container );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class  : "save-button", title  : "Sauvegarder le personnage", onclick: "CONTROLLER.Character.doActionAfter('event__current_character__save')" }, "💾" ), _windows_container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", title: "Sauvegarder le personnage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__current_character__save')" }, "💾" ), _windows_container );
         SERVICE.DOM.addElementTo( this.getDomElement(), _windows_container );
         this.computeHtmlTargets( document.querySelector( ".characters-sheet-content" ) );
     },

@@ -94,7 +94,7 @@ CHARACTER.LevelWindow.prototype = {
             let _toggle_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td" ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
                 class  : "level-toggle",
-                onclick: "event.stopPropagation();CONTROLLER.Character.doActionAfter('event__level__toggle',{'param__level_name':'" + lvl.getUUID() + "'})"
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level__toggle',{'param__level_name':'" + lvl.getUUID() + "'})"
             }, lvl.isEnabled() ? "Activé" : "Désactivé" ), _toggle_cell );
         } );
 

@@ -224,7 +224,7 @@ CHARACTER.LevelUpWindow.prototype = {
                 SERVICE.DOM.createElement( "div", {
                     class         : "levelup-class-option" + ( current.getName() === this._selected_class ? " selected" : "" ),
                     "data-name"   : current.getName(),
-                    onclick       : "CONTROLLER.Character.doActionAfter('event__level_up__select_class',{'param__class_name':'" + current.getName() + "'})"
+                    onclick       : "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__select_class',{'param__class_name':'" + current.getName() + "'})"
                 } ),
                 selector
             );
@@ -232,11 +232,11 @@ CHARACTER.LevelUpWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-class-option-name" }, current.getName() + " " + current.getLevel() ), option );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
                 class  : "levelup-class-option-take",
-                onclick: "event.stopPropagation();CONTROLLER.Character.doActionAfter('event__level_up__take_level',{'param__class_name':'" + current.getName() + "'})"
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__take_level',{'param__class_name':'" + current.getName() + "'})"
             }, "+" ), option );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
                 class  : "levelup-class-option-remove",
-                onclick: "event.stopPropagation();CONTROLLER.Character.doActionAfter('event__level_up__remove_level',{'param__class_name':'" + current.getName() + "'})"
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__remove_level',{'param__class_name':'" + current.getName() + "'})"
             }, "-" ), option );
         }
     },
