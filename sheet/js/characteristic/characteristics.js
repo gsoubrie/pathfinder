@@ -31,10 +31,12 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "event__less_button":
                 params[ "param__characteristics__object" ] = this;
                 this.getContentByUUID( params[ "param__key" ] ).doActionAfter( event_name, params );
+                this.updateWarningsBadge();
                 return;
             case "event__set_object_bonuses":
                 params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
+                this.updateWarningsBadge();
                 return;
             case "event__unset_object_bonuses":
                 params[ "param__characteristics__object" ] = this;
@@ -45,6 +47,7 @@ CHARACTERISTICS.Characteristics.prototype = {
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__set_free_bonus_done", params );
                 break;
         }
+        this.updateWarningsBadge();
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     getObjectForDoActionAfter: function ( event_name, params ) {
@@ -66,6 +69,28 @@ CHARACTERISTICS.Characteristics.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
+    updateWarningsBadge: function () {
+        let _character = CONTROLLER.Character.current_character;
+        if ( !_character ) {
+            return;
+        }
+        let _pending   = this.getRaceBonus().bonus.getFreeNumber() + this.getClassBonus().bonus.getFreeNumber();
+        let _tab       = document.getElementById( "id-gs-window-V2-" + CHARACTER.CharacteristicWindow.NAME + "-character_group" );
+        if ( !_tab ) {
+            return;
+        }
+        let _badge     = _tab.querySelector( ".characteristic-warning-badge" );
+        if ( _pending > 0 ) {
+            if ( !_badge ) {
+                _badge = SERVICE.DOM.createElement( "span", { class: "characteristic-warning-badge" } );
+                SERVICE.DOM.addElementTo( _badge, _tab.querySelector( ".gs-div-tab" ) );
+            }
+            _badge.textContent = _pending;
+        }
+        else if ( _badge ) {
+            SERVICE.DOM.removeElement( _badge );
+        }
+    },
     getRaceBonus : function () {
         return this.race_bonus;
     },

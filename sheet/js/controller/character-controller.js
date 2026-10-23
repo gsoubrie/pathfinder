@@ -36,6 +36,8 @@ CONTROLLER.Character = (function ( self ) {
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__level__toggle":
+            case "event__more_button":
+            case "event__less_button":
             case "click_on__window_navigation__done":
                 self.current_character.doActionAfter( event_name, params );
                 break;
