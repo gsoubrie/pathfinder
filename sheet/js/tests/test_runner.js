@@ -198,3 +198,29 @@ TEST.clickTab                               = function ( container_selector, win
     );
     return new Promise( function ( resolve ) { setTimeout( resolve, 50 ); } );
 };
+
+/**
+ * Reinitialisation de la feuille en cours de suite : nouveau personnage,
+ * fenetres reconstruites, indicateurs data-* nettoyes, popup fermee.
+ * A appeler en tete d'un scenario pour repartir d'un etat vierge sans
+ * recharger la page (les scenarios precedents mutent le personnage).
+ */
+TEST.RESET                                  = TEST.RESET || {};
+TEST.RESET.sheet                            = function () {
+    let _empty                             = function ( dom_element ) {
+        while ( dom_element && dom_element.firstChild ) {
+            dom_element.removeChild( dom_element.firstChild );
+        }
+    };
+    _empty( document.querySelector( ".character-sheet-windows" ) );
+    _empty( document.querySelector( ".characters-sheet-content" ) );
+    let _popup                             = document.querySelector( "body > .popup" );
+    if ( _popup ) {
+        _popup.parentNode.removeChild( _popup );
+    }
+    CONTROLLER.Character.edition_popup     = null;
+    delete document.body.dataset.isRaceSet;
+    delete document.body.dataset.isClassSet;
+    delete document.body.dataset.levelupMissing;
+    CONTROLLER.Character.init();
+};

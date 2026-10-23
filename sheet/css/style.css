@@ -52,7 +52,6 @@ body {
 
 .character-sheet-windows .gs-window-element-V2 {
     cursor: pointer;
-    transition: var(--t-normal);
 }
 
 .character-sheet-windows .gs-window-element-V2 .gs-div-tab {
@@ -225,4 +224,15 @@ body {
 
 .gs-link-information:after {
     content: '"';
+}
+
+.character-sheet-windows .save-button {
+    font-size : 22px;
+    line-height : 1;
+    cursor     : pointer;
+    transition : transform 0.3s ease;
+}
+
+.character-sheet-windows .save-button:hover {
+    transform : scale(1.1);
 }

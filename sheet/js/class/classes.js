@@ -272,3 +272,163 @@ CLASSES.ClassPopup.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CLASSES.ClassPopup, CLASSES.Class );
+/**
+ * @class CLASSES.CharacterClasses
+ * @extends OBJECT.InterfaceContainerHtml
+ */
+CLASSES.CharacterClasses           = function () {
+    this.init();
+};
+CLASSES.CharacterClasses.prototype = {
+    init: function () {
+        this.initContents();
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__property_popup__open":
+                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( CLASSES.key_element, this.isEmpty() ? CLASSES.default_value : this.getContent( 0 ).getName() );
+                return;
+            case "event__form__element_changed":
+                this.addClassFromEdition( params );
+                return;
+            case "event__compute__html":
+                switch ( params[ "param__window" ] ) {
+                    case CHARACTER.GeneralWindow.NAME:
+                        this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
+                        return;
+                }
+                return;
+        }
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    getObjectByKey: function ( key_name ) {
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let current = this.getContent( i ).getObjectByKey( key_name );
+            if ( current ) {
+                return current;
+            }
+        }
+        return null;
+    },
+    getUUID         : function () {
+        return CLASSES.key;
+    },
+    getLevel        : function () {
+        let to_return = 0;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return += this.getContent( i ).getLevel();
+        }
+        return to_return;
+    },
+    getHighestClassName: function () {
+        let to_return = null;
+        let max_level = -1;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let _current = this.getContent( i );
+            if ( _current.getLevel() > max_level ) {
+                max_level = _current.getLevel();
+                to_return = _current.getName();
+            }
+        }
+        return to_return;
+    },
+    getDisplayValue : function () {
+        let to_return = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return.push( this.getContent( i ).getName() + " " + this.getContent( i ).getLevel() );
+        }
+        return to_return.join( ", " );
+    },
+    getBonusesData  : function () {
+        let _number = 0;
+        let _choice = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let _data = CLASSES.getDataByName( this.getContent( i ).getName() );
+            if ( _data && _data.characteristics_bonus ) {
+                _number += _data.characteristics_bonus.number;
+                _choice  = _choice.concat( _data.characteristics_bonus.choice );
+            }
+        }
+        return { "characteristics_bonus": { "number": _number, "choice": _choice } };
+    },
+    //********************************************  DATA   **************************************************//
+    addClassFromEdition: function ( params ) {
+        let _name = params[ "param__edition_value" ];
+        if ( !_name || this.containsUUID( _name ) ) {
+            return;
+        }
+        let _character     = params[ "param__current_character__object" ];
+        let _characteristics = params[ "param__characteristics__object" ];
+        this.add( new CLASSES.Class( _name ) );
+        let _class_data = CLASSES.getDataByName( _name );
+        let _entry      = new CHARACTER.LevelHistory( _character.getLevelHistory().getNextLevelName() );
+        _entry.setData( "life_class", _class_data ? _class_data.life_point_by_level : 0 );
+        _entry.setData( "class_name", _name );
+        _character.getLevelHistory().add( _entry );
+        _character.computeTotalLife();
+        _characteristics.doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": CLASSES.key_element } );
+        _characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getBonusesData(), "param__is_for": CLASSES.key_element } );
+        document.body.dataset.isClassSet = 1;
+        this.updateHtmlData();
+    },
+    updateData: function ( data ) {
+        if ( !data ) {
+            return;
+        }
+        for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
+            let _class = this.getContentByUUID( data[ i ][ "name" ] );
+            if ( !_class ) {
+                _class = this.add( new CLASSES.Class( data[ i ][ "name" ] ) );
+            }
+            _class.updateData( data[ i ] );
+        }
+        document.body.dataset.isClassSet = this.isEmpty() ? 0 : 1;
+        this.updateHtmlData();
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            this.updateHtmlData();
+            return;
+        }
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + CLASSES.key_element } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": CLASSES.key_element } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, CLASSES.label_element ), div );
+        this.dom_element__class_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-list" } ), div );
+        this.dom_element__add_button = SERVICE.DOM.createElement( "div", {
+            class  : "button class-add-button",
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "'})"
+        }, "+" );
+        this.updateHtmlData();
+    },
+    updateHtmlData: function () {
+        if ( !this.dom_element__class_list ) {
+            return;
+        }
+        SERVICE.DOM.empty( this.dom_element__class_list );
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let _class = this.getContent( i );
+            let _entry = SERVICE.DOM.createElement( "div", {
+                class     : "class-entry",
+                "data-name": _class.getName(),
+                title      : _class.getName() + " — Niveau " + _class.getLevel()
+            } );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-icon" }, CLASSES.ICONS[ _class.getName() ] || "⚔" ), _entry );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-level" }, "" + _class.getLevel() ), _entry );
+            SERVICE.DOM.addElementTo( _entry, this.dom_element__class_list );
+        }
+        SERVICE.DOM.addElementTo( this.dom_element__add_button, this.dom_element__class_list );
+    },
+    //********************************************  SAVE   **************************************************//
+    getDataToSave: function () {
+        let to_return            = {};
+        to_return[ CLASSES.key ] = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            to_return[ CLASSES.key ].push( this.getContent( i ).getDataToSave() );
+        }
+        return to_return;
+    }
+};
+
+SERVICE.CLASS.addPrototype( CLASSES.CharacterClasses, OBJECT.InterfaceContainerHtml );

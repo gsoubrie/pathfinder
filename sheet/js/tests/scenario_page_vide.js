@@ -14,13 +14,29 @@ TEST.RUNNER.register( "[PAGE VIDE] La page se charge.", function () {
     TEST.ASSERT.ok( typeof CONTROLLER.Character.current_character.getUUID() === "string" && CONTROLLER.Character.current_character.getUUID().length > 0, "Le personnage devrait avoir un uuid genere" );
 } );
 
-TEST.RUNNER.register( "[PAGE VIDE] zone save presente", function () {
-    let _save_zone                       = document.querySelector( ".characters-sheet-content .area-save" );
-    TEST.ASSERT.notNull( _save_zone, "La zone sauvegarde devrait etre rendue dans le premier onglet" );
-    let _save_button                     = _save_zone ? _save_zone.querySelector( ".save-button" ) : null;
-    TEST.ASSERT.notNull( _save_button, "Le bouton de sauvegarde devrait etre rendu dans la zone save" );
+TEST.RUNNER.register( "[PAGE VIDE][SAVE] bouton barre d'onglets + contenu vide", function () {
+    let _save_button                     = document.querySelector( ".character-sheet-windows .save-button" );
+    TEST.ASSERT.notNull( _save_button, "Le bouton de sauvegarde devrait etre rendu dans la barre d'onglets (.character-sheet-windows .save-button)" );
     if ( _save_button ) {
         TEST.ASSERT.ok( _save_button.getAttribute( "onclick" ).indexOf( "event__current_character__save" ) !== -1, "Le bouton sauvegarde devrait declencher event__current_character__save" );
+    }
+    TEST.ASSERT.isNull( document.querySelector( ".characters-sheet-content .area-save" ), "L'ancienne zone save ne devrait plus etre rendue dans l'onglet General" );
+    let _character                       = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _saved                           = _character.getDataToSave();
+    TEST.ASSERT.isArray( _saved.classes, "La sauvegarde devrait contenir un tableau de classes" );
+    if ( _saved.classes ) {
+        TEST.ASSERT.equal( _saved.classes.length, 0, "La sauvegarde ne devrait contenir aucune classe sur une page vide, obtenu : " + _saved.classes.length );
+    }
+    TEST.ASSERT.isArray( _saved.levels_history, "La sauvegarde devrait contenir un tableau d'historique" );
+    if ( _saved.levels_history ) {
+        TEST.ASSERT.equal( _saved.levels_history.length, 0, "La sauvegarde ne devrait contenir aucun niveau sur une page vide, obtenu : " + _saved.levels_history.length );
+    }
+    if ( _saved.race ) {
+        TEST.ASSERT.equal( _saved.race.value, "", "La sauvegarde ne devrait pas contenir de race sur une page vide, obtenu : " + _saved.race.value );
     }
 } );
 

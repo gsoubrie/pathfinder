@@ -32,7 +32,6 @@ CHARACTER.GeneralWindow.prototype = {
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
         }
         
-        this.computeArea__save();
         this.computeComponent(character_object.getNameObject());
         this.computeComponent(character_object.getPlayer());
         this.computeComponent(character_object.getRace());
@@ -42,11 +41,13 @@ CHARACTER.GeneralWindow.prototype = {
         //this.computeComponent( character_object.getRace().getBodySize() );
         this.computeComponent( character_object.getRace().getLegacy() );
         this.computeComponent(character_object.getCharacteristics());
-        this.computeComponent(character_object.getClass());
-        if ( !character_object.getClass().isSet() ) {
+        this.computeComponent(character_object.getClasses());
+        if ( character_object.getClasses().isEmpty() ) {
             return;
         }
-        this.computeComponent( character_object.getClass().getArchetype() );
+        for ( let i = 0, _size_i = character_object.getClasses().getSize(); i < _size_i; i++ ) {
+            this.computeComponent( character_object.getClasses().getContent( i ).getArchetype() );
+        }
         //this.computeArea__class( character_object );
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );
@@ -65,13 +66,6 @@ CHARACTER.GeneralWindow.prototype = {
     computeComponent: function (object) {
         object.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
     },
-    computeArea__save: function () {
-        if ( this.area_save ) {
-            return;
-        }
-        this.area_save = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-save neutral" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", onclick: "CONTROLLER.Character.doActionAfter('event__current_character__save')" } ), this.area_save );
-    },
     
     
     computeArea__heritage: function ( character_object ) {
@@ -83,7 +77,7 @@ CHARACTER.GeneralWindow.prototype = {
                                                                                                                                                                      .getLabel(), LEGACIES.label_element, false ), this.area_heritage );
     },
     computeArea__health  : function ( character_object ) {
-        if ( this.area_health || !character_object.getClass().getName() ) {
+        if ( this.area_health || character_object.getClasses().isEmpty() ) {
             return;
         }
         this.area_health = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
@@ -128,8 +122,8 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.addElementTo(
             SERVICE.DOM_HELPER.createPropertyVertical(
                 CLASSES.key_element,
-                character_object.getClass().getName(),
-                character_object.getClass().getLabel(),
+                character_object.getClasses().getDisplayValue(),
+                CLASSES.label_element,
                 CLASSES.label_element,
                 false
             ),
@@ -171,7 +165,7 @@ CHARACTER.GeneralWindow.prototype = {
             this.content_dom_element_target
         );
         SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "level", CONTROLLER.Character.current_character.level, "Niveau", true ),
+            SERVICE.DOM_HELPER.createPropertyHorizontal( "level", CONTROLLER.Character.current_character.getLevel(), "Niveau", true ),
             area
         );
     },

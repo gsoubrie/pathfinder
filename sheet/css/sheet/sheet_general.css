@@ -43,7 +43,7 @@
         ".      .           .           .          surprise   ca";
 }
 
-.property-tab-pane[data-name="general_sheet"] .area-save { grid-area : save; }
+/* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
 .property-tab-pane[data-name="general_sheet"] .area-name { grid-area : name; }
 .property-tab-pane[data-name="general_sheet"] .area-player { grid-area : player; }
 .property-tab-pane[data-name="general_sheet"] .area-health { grid-area : health; }
@@ -87,20 +87,6 @@
 .property-tab-pane[data-name="general_sheet"] .grid-area:not(.neutral):hover {
     border-color : #D4AF37;
     box-shadow   : 0 4px 12px rgba(212, 175, 55, 0.2);
-}
-
-/* =============================== Zone SAVE =========================== */
-.property-tab-pane[data-name="general_sheet"] .area-save .save-button {
-    width      : 15px;
-    height     : 15px;
-    background : url("../../img/save.png") center/contain no-repeat;
-    cursor     : pointer;
-    filter     : drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-    transition : transform 0.3s ease;
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-save .save-button:hover {
-    transform : scale(1.1);
 }
 
 /* =============================== Zone NAME & PLAYER =========================== */
@@ -363,4 +349,67 @@
     color           : #D4AF37;
     background      : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
     box-shadow      : 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+/* ===== Zone classe (multiclasse) ===== */
+.property-tab-pane[data-name="general_sheet"] .area-class .class-list {
+    display     : flex;
+    flex-wrap   : wrap;
+    align-items : center;
+    gap         : var(--s-md);
+    width       : 100%;
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-class .class-entry {
+    position         : relative;
+    width            : 30px;
+    height           : 30px;
+    display          : flex;
+    align-items      : center;
+    justify-content  : center;
+    background       : var(--g-card);
+    border           : var(--b-thin) solid var(--c-border-gold);
+    border-radius    : var(--r-sm);
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-class .class-entry .class-entry-icon {
+    font-size   : 16px;
+    line-height : 1;
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-class .class-entry .class-entry-level {
+    position         : absolute;
+    right            : -6px;
+    bottom           : -6px;
+    min-width        : 14px;
+    height           : 14px;
+    padding          : 0 2px;
+    display          : flex;
+    align-items      : center;
+    justify-content  : center;
+    background       : var(--c-gold);
+    border-radius    : var(--r-full);
+    color            : var(--c-text-dark);
+    font-size        : 10px;
+    font-weight      : var(--font-weight-bold);
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-class .class-add-button {
+    display           : inline-flex;
+    align-items       : center;
+    justify-content   : center;
+    width             : 30px;
+    height            : 30px;
+    background        : var(--g-card);
+    border            : var(--b-thin) dashed var(--c-gold);
+    border-radius     : var(--r-sm);
+    color             : var(--c-text-gold);
+    font-weight       : var(--font-weight-bold);
+    cursor            : pointer;
+    transition        : var(--t-normal);
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-class .class-add-button:hover {
+    background  : var(--g-card-hover);
+    border-style: solid;
+    box-shadow  : var(--sh-gold-sm);
 }

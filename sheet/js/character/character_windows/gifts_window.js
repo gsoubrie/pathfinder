@@ -74,7 +74,7 @@ CHARACTER.GiftsWindow.prototype = {
         }
         
         for ( var j = 0; j < DON.CLASS.ENUM.length; j++ ) {
-            if ( this._hasTrait( DON.CLASS.ENUM[ j ], character_object.getClass().getValue() ) ) {
+            if ( this._hasClassTrait( character_object, DON.CLASS.ENUM[ j ] ) ) {
                 to_return.push( { skill: DON.CLASS.ENUM[ j ], type: "class" } );
             }
         }
@@ -99,7 +99,7 @@ CHARACTER.GiftsWindow.prototype = {
         
         for ( var a = 0; a < ARCHETYPES.ENUM.length; a++ ) {
             var arch = ARCHETYPES.ENUM[ a ];
-            if ( arch.name !== character_object.getClass().getArchetype().getValue() ) {
+            if ( !this._hasClassArchetype( character_object, arch.name ) ) {
                 continue;
             }
             var skills = arch.skills || [];
@@ -128,6 +128,24 @@ CHARACTER.GiftsWindow.prototype = {
         }
         for ( var i = 0; i < skill.traits.length; i++ ) {
             if ( skill.traits[ i ] === trait_name ) {
+                return true;
+            }
+        }
+        return false;
+    },
+    _hasClassTrait: function ( character_object, skill ) {
+        var classes = character_object.getClasses();
+        for ( var c = 0; c < classes.getSize(); c++ ) {
+            if ( this._hasTrait( skill, classes.getContent( c ).getName() ) ) {
+                return true;
+            }
+        }
+        return false;
+    },
+    _hasClassArchetype: function ( character_object, archetype_name ) {
+        var classes = character_object.getClasses();
+        for ( var c = 0; c < classes.getSize(); c++ ) {
+            if ( classes.getContent( c ).getArchetype().getValue() === archetype_name ) {
                 return true;
             }
         }

@@ -57,22 +57,28 @@ CHARACTER.LevelUpChoices.prototype = {
                type === "skill_feat" || type === "ancestry_feat";
     },
     _buildLevels: function ( character_object ) {
-        var class_name = character_object.getClass().getValue();
-        var class_data = CLASSES.getDataByName( class_name );
-        var char_level = character_object.level || 1;
-        var capacities = class_data ? ( class_data.capacity_by_level || [] ) : [];
-        var levels     = [];
-        for ( var n = 1; n <= char_level; n++ ) {
-            var str     = capacities[ n - 1 ] || "";
-            var parts   = str.split( "," );
-            var unlocks = [];
+        var history        = character_object.getLevelHistory();
+        var class_counters = {};
+        var levels         = [];
+        for ( var i = 0; i < history.getSize(); i++ ) {
+            var entry      = history.getContent( i );
+            var class_name = entry.getClassName();
+            if ( !class_name || !entry.isEnabled() ) {
+                continue;
+            }
+            class_counters[ class_name ] = ( class_counters[ class_name ] || 0 ) + 1;
+            var class_data = CLASSES.getDataByName( class_name );
+            var capacities = class_data ? ( class_data.capacity_by_level || [] ) : [];
+            var str        = capacities[ class_counters[ class_name ] - 1 ] || "";
+            var parts      = str.split( "," );
+            var unlocks    = [];
             for ( var p = 0; p < parts.length; p++ ) {
                 var label = parts[ p ].trim();
                 if ( label ) {
                     unlocks.push( { label: label, type: CHARACTER.Level.detectType( label ) } );
                 }
             }
-            levels.push( { level_number: n, unlocks: unlocks } );
+            levels.push( { level_number: i + 1, unlocks: unlocks } );
         }
         return levels;
     },
@@ -134,6 +140,26 @@ CHARACTER.LevelUpWindow.prototype = {
             case "event__levelup__select":
                 this._onSelect( params );
                 break;
+            case "event__form__element_changed":
+                if ( params[ "param__property" ] === CLASSES.key_element ) {
+                    SERVICE.DOM.empty( this.content_dom_element_target );
+                    this._buildContent( CONTROLLER.Character.current_character );
+                }
+                break;
+            case "event__level_up__select_class":
+                this._selected_class = params[ "param__class_name" ];
+                this._refreshSelectorState();
+                break;
+            case "event__level_up__take_level":
+            case "event__level_up__remove_level":
+                CONTROLLER.Character.current_character.doActionAfter( event_name, params );
+                SERVICE.DOM.empty( this.content_dom_element_target );
+                this._buildContent( CONTROLLER.Character.current_character );
+                break;
+            case "event__level__toggle":
+                SERVICE.DOM.empty( this.content_dom_element_target );
+                this._buildContent( CONTROLLER.Character.current_character );
+                break;
         }
         WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
@@ -147,22 +173,21 @@ CHARACTER.LevelUpWindow.prototype = {
     _buildContent: function ( character_object ) {
         var self       = this;
         var choices    = character_object.getLevelUpChoices();
-        var class_name = character_object.getClass().getValue();
-        var class_data = class_name ? CLASSES.getDataByName( class_name ) : null;
-        var char_level = character_object.level || 1;
-        var capacities = class_data ? ( class_data.capacity_by_level || [] ) : [];
+        var levels     = choices._buildLevels( character_object );
+        var char_level = character_object.getLevel();
+        if ( !this._selected_class ) {
+            this._selected_class = character_object.getClasses().getHighestClassName();
+        }
 
         // En-tête récap
+        var active     = character_object.getActiveLevel();
+        var level_text = "Niveau " + char_level + ( active < char_level ? " (" + active + ( active > 1 ? " actifs" : " actif" ) + ")" : "" );
         var header = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "levelup-header" } ),
             this.content_dom_element_target
         );
         SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "levelup-header-class" }, class_name || "Aucune classe" ),
-            header
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "levelup-header-level" }, "Niveau " + char_level ),
+            SERVICE.DOM.createElement( "span", { class: "levelup-header-level" }, level_text ),
             header
         );
 
@@ -175,23 +200,61 @@ CHARACTER.LevelUpWindow.prototype = {
             this.content_dom_element_target
         );
 
+        // Sélecteur de classe + prise de niveau
+        this._buildClassSelector( character_object );
+
         // Un bloc par niveau
-        for ( var n = 1; n <= char_level; n++ ) {
-            this._buildLevelBlock( n, capacities[ n - 1 ] || "", choices, character_object );
+        for ( var n = 0; n < levels.length; n++ ) {
+            this._buildLevelBlock( levels[ n ].level_number, levels[ n ].unlocks, choices, character_object );
         }
     },
 
-    _buildLevelBlock: function ( level_number, capacity_str, choices, character_object ) {
-        var self    = this;
-        var parts   = capacity_str.split( "," );
-        var unlocks = [];
-        for ( var p = 0; p < parts.length; p++ ) {
-            var lbl = parts[ p ].trim();
-            if ( lbl ) {
-                unlocks.push( { label: lbl, type: CHARACTER.Level.detectType( lbl ) } );
+    _buildClassSelector: function ( character_object ) {
+        var classes = character_object.getClasses();
+        if ( classes.isEmpty() ) {
+            return;
+        }
+        var selector = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "levelup-class-selector" } ),
+            this.content_dom_element_target
+        );
+        for ( var c = 0; c < classes.getSize(); c++ ) {
+            var current = classes.getContent( c );
+            var option  = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class         : "levelup-class-option" + ( current.getName() === this._selected_class ? " selected" : "" ),
+                    "data-name"   : current.getName(),
+                    onclick       : "CONTROLLER.Character.doActionAfter('event__level_up__select_class',{'param__class_name':'" + current.getName() + "'})"
+                } ),
+                selector
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-class-option-icon" }, CLASSES.ICONS[ current.getName() ] || "⚔" ), option );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-class-option-name" }, current.getName() + " " + current.getLevel() ), option );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class  : "levelup-class-option-take",
+                onclick: "event.stopPropagation();CONTROLLER.Character.doActionAfter('event__level_up__take_level',{'param__class_name':'" + current.getName() + "'})"
+            }, "+" ), option );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class  : "levelup-class-option-remove",
+                onclick: "event.stopPropagation();CONTROLLER.Character.doActionAfter('event__level_up__remove_level',{'param__class_name':'" + current.getName() + "'})"
+            }, "-" ), option );
+        }
+    },
+
+    _refreshSelectorState: function () {
+        var options = this.content_dom_element_target.querySelectorAll( ".levelup-class-option" );
+        for ( var i = 0; i < options.length; i++ ) {
+            if ( options[ i ].getAttribute( "data-name" ) === this._selected_class ) {
+                options[ i ].classList.add( "selected" );
+            }
+            else {
+                options[ i ].classList.remove( "selected" );
             }
         }
+    },
 
+    _buildLevelBlock: function ( level_number, unlocks, choices, character_object ) {
+        var self    = this;
         var block = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "levelup-block" } ),
             this.content_dom_element_target
@@ -378,9 +441,9 @@ CHARACTER.LevelUpWindow.prototype = {
 
     // Retourne la pool de dons disponibles selon le type et le niveau
     _getPool: function ( unlock_type, level_number, character_object ) {
-        var pool       = [];
-        var class_name = character_object.getClass().getValue();
-        var race_name  = character_object.getRace().getValue();
+        var pool      = [];
+        var race_name = character_object.getRace().getValue();
+        var classes   = character_object.getClasses();
 
         if ( unlock_type === "general_feat" ) {
             for ( var i = 0; i < DON.GENERAL.ENUM.length; i++ ) {
@@ -392,7 +455,7 @@ CHARACTER.LevelUpWindow.prototype = {
         } else if ( unlock_type === "class_feat" ) {
             for ( var j = 0; j < DON.CLASS.ENUM.length; j++ ) {
                 var fc = DON.CLASS.ENUM[ j ];
-                if ( this._hasTrait( fc, class_name ) && parseInt( fc.level ) <= level_number ) {
+                if ( this._hasClassTrait( classes, fc ) && parseInt( fc.level ) <= level_number ) {
                     pool.push( fc );
                 }
             }
@@ -437,6 +500,13 @@ CHARACTER.LevelUpWindow.prototype = {
         if ( !feat || !feat.traits ) { return false; }
         for ( var i = 0; i < feat.traits.length; i++ ) {
             if ( feat.traits[ i ] === trait_name ) { return true; }
+        }
+        return false;
+    },
+
+    _hasClassTrait: function ( classes, feat ) {
+        for ( var c = 0; c < classes.getSize(); c++ ) {
+            if ( this._hasTrait( feat, classes.getContent( c ).getName() ) ) { return true; }
         }
         return false;
     },

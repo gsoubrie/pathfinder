@@ -102,8 +102,17 @@ SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
 - Chaque objet qui participe au cycle d'événements expose `doActionAfter( event_name, params )` : un `switch` sur `event_name` avec `return;` en fin de case.
 - Nommage : événements `"event__<nom>"`, paramètres `"param__<nom>"` (double underscore). Ex. `params[ "param__dom_element_parent" ]`.
 - Déclenchement depuis le HTML : attribut inline `onclick="MANAGER.EventManagerV2.doActionAfter(event,'event__nom',{'param__key':'valeur'})"`.
-- Les contrôleurs (`CONTROLLER.Main.doActionAfter`) routent vers `CONTROLLER.Character` puis vers le personnage courant ; c'est l'entrée unique des événements.
+- Les contrôleurs (`CONTROLLER.Main.doActionAfter`) routent vers `CONTROLLER.Character` puis vers le personnage courant ; c'est l'entrée unique des événements. Les événements d'interface d'une fenêtre (boutons d'un panneau) peuvent être routés par le contrôleur directement vers `current_character.windows.doActionAfterContentChildren(...)` — la fenêtre concernée traite ensuite l'événement.
 - Machine à états : `PHASE.Phase` / `initPhase()`, valeurs de phase en `SCREAMING_CASE` (`PHASE.INIT`), l'état est reflété dans `element.dataset.currentPhase` / `previousPhase` si un élément DOM est attaché via `setPhaseDomElement`.
+
+### Passer le plat (règle imposée par l'utilisateur)
+
+- **Jamais d'appel de méthode métier direct depuis une fenêtre** (`character.takeLevel(...)`, `character.xxx()` interdits). La fenêtre re-dispatche l'événement au domaine : `CONTROLLER.Character.current_character.doActionAfter( event_name, params );` puis reconstruit son rendu. Chaque objet traite sa part (la classe porte son niveau, `Current` orchestre historique/PV), personne n'écrit ni ne teste au mauvais endroit.
+- **La logique courte reste inline dans le case du switch** : pas de méthode dédiée tant que ça ne dépasse pas 5-6 lignes. Une méthode ne s'extraite que si le case devient long.
+- **Pas de garde `if ( params[ ... ] )` superflue** : si l'émetteur garantit le paramètre (bouton rendu pour une classe possédée), le case l'utilise directement.
+- **Les requêtes métier vivent sur l'objet qui porte la donnée** : `CLASSES.CharacterClasses.getHighestClassName()`, pas de `_getHighestClassName` dans une fenêtre. Une fenêtre ne calcule pas sur les données du personnage, elle les demande au domaine.
+- **Pas de cas particulier `if ( key === ... )` dans le routage** : l'objet doit être atteignable par `getObjectByKey` — la propriété du personnage porte le **nom de la clé** (`this.race` ↔ `"race"`, `this.class` ↔ `"class"` même pour un conteneur multivalué). Si un `if` de routage apparaît, c'est la propriété qui est mal nommée.
+- Le plat peut circuler : contrôleur → fenêtre (événement d'interface) → personnage (`doActionAfter`) — mais **jamais en boucle** : l'objet qui exécute la logique ne re-dispatche pas le même événement.
 
 ## DOM
 
@@ -119,6 +128,8 @@ SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
 - Données métier : cartes indexées par UUID du site source (pathfinder-fr), de la forme `OBJECT.FEATS = { "<uuid>": { id, name, category, href, ... } }` — dans les fichiers `js/object/*_contant.js`.
 - Accès par UUID : `SERVICE.DATA.loadDataByUUID( uuid )` (implémentation par `eval` — ne pas remplacer, c'est le mécanisme de chargement des fichiers `sheet/save/`).
 - Sauvegarde : le personnage exporte via `getDataToSave()` un objet plat ; le fichier généré est `sheet/save/<uuid>.js` contenant `let <uuid> = {...};` et est chargé par une balise `<script>` dans `index.html`.
+- Tout objet sérialisable du personnage est un **child** de `CHARACTER.Current` : le merge de `ComponentInterface.getDataToSave` sur les `children` fait le reste — jamais de sérialisation à la main dans `getSpecificDataToSave`.
+- Un conteneur child retourne un **objet clé** (`{ "levels_history": [...] }`, `{ "classes": [...] }`), jamais le tableau brut de la lib : le merge passe par `Object.assign`, qui aplatirait un tableau en `{0: ...}`. Attention : deux clés identiques dans un même littéral d'objet, la dernière gagne.
 - Sérialisation : chaque classe métier définit `getSpecificDataToSave()` / `getDataToSave()` et `updateData( data )` + `setData( key, value )` (switch sur la clé) pour la relance.
 
 ## Formatage (obligatoire, à reproduire à l'identique)
@@ -148,6 +159,7 @@ for ( let i = 0, _size_i = array.length; i < _size_i; i++ ) {
   - Méthodes "privées" préfixées `_` (ex. `_setPhaseInDomElement`).
   - Paramètres d'entrée : `to_set`, `to_remove`, `to_test`, `to_add` ; retours : `to_return`.
   - Locales de boucle : `_keys`, `_size_i`, `_current_key`.
+  - Les autres locales portent un nom **explicite orienté métier**, pas une abréviation : `life_point_from_cons` (jamais `_con`), `data_from_class`, `level_name` ; le nom décrit la valeur portée, pas son type.
   - Éléments DOM : `dom_element`, `dom_element__input`, `dom_element_popup`, `dom_element_general` (double underscore pour les variantes).
 - Bannières de sections, à copier tel quel :
 

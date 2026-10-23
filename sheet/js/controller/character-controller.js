@@ -25,9 +25,15 @@ CONTROLLER.Character = (function ( self ) {
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
             case "event__health_history__load":
-            case "event__heal_modal__confirm":                
+            case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
+            case "event__level_up__select_class":
+            case "event__level_up__take_level":
+            case "event__level_up__remove_level":
+                self.current_character.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            case "event__level__toggle":
             case "click_on__window_navigation__done":
                 self.current_character.doActionAfter( event_name, params );
                 break;

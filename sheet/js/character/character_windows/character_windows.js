@@ -19,7 +19,7 @@ CHARACTER.WindowGroup.prototype = {
         if ( !character_object.getRace().isSet() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
         }
-        if ( !character_object.getClass().isSet() ) {
+        if ( character_object.getClasses().isEmpty() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelWindow.NAME );
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
         }
@@ -28,6 +28,7 @@ CHARACTER.WindowGroup.prototype = {
         this.computeHtml();
         let _windows_container = document.querySelector( ".character-sheet-windows" );
         SERVICE.DOM.addElementTo( this.computeHtmlLogo(), _windows_container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class  : "save-button", title  : "Sauvegarder le personnage", onclick: "CONTROLLER.Character.doActionAfter('event__current_character__save')" }, "💾" ), _windows_container );
         SERVICE.DOM.addElementTo( this.getDomElement(), _windows_container );
         this.computeHtmlTargets( document.querySelector( ".characters-sheet-content" ) );
     },

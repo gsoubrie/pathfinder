@@ -130,14 +130,33 @@ TEST.RUNNER.register( "[ASCENDANCE] validation Elfe → champ Classe affiché", 
     TEST.ASSERT.notNull( _class_area, "Le champ Classe devrait etre affiche apres le choix de l'ascendance (div.grid-area.area-class)" );
     if ( _class_area ) {
         TEST.ASSERT.notNull( _class_area.querySelector( ".property[data-name='class']" ), "La propriete class devrait exister" );
-        let _class_input                = _class_area.querySelector( "input.value" );
-        TEST.ASSERT.notNull( _class_input, "Le champ Classe devrait avoir un input" );
-        if ( _class_input ) {
-            TEST.ASSERT.equal( _class_input.value, "", "Le champ Classe devrait etre vide (aucune classe choisie)" );
-            TEST.ASSERT.ok( _class_input.getAttribute( "onclick" ) !== null && _class_input.getAttribute( "onclick" ).indexOf( "event__property_popup__open" ) !== -1, "Le champ Classe devrait ouvrir le popup au clic" );
+        TEST.ASSERT.equal( _class_area.querySelectorAll( ".class-entry" ).length, 0, "Aucune entree de classe ne devrait etre affichee (aucune classe choisie)" );
+        let _add_button                = _class_area.querySelector( ".class-add-button" );
+        TEST.ASSERT.notNull( _add_button, "Le bouton d'ajout de classe devrait etre rendu (.class-add-button)" );
+        if ( _add_button ) {
+            TEST.ASSERT.ok( _add_button.getAttribute( "onclick" ) !== null && _add_button.getAttribute( "onclick" ).indexOf( "event__property_popup__open" ) !== -1, "Le bouton d'ajout devrait ouvrir le popup au clic" );
         }
     }
-    TEST.ASSERT.notOk( _character.getClass().isSet(), "Aucune classe ne devrait etre posee" );
+    TEST.ASSERT.ok( _character.getClasses().isEmpty(), "Aucune classe ne devrait etre posee" );
+} );
+
+TEST.RUNNER.register( "[ASCENDANCE][SAVE] contenu = Elfe, aucune classe", function () {
+    let _character                     = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.ok( _character.getClasses().isEmpty(), "Pre-condition : aucune classe posee" );
+    let _saved                         = _character.getDataToSave();
+    TEST.ASSERT.ok( _saved.race && _saved.race.value === "Elfe", "La sauvegarde devrait contenir la race Elfe, obtenu : " + ( _saved.race ? _saved.race.value : "absent" ) );
+    TEST.ASSERT.isArray( _saved.classes, "La sauvegarde devrait contenir un tableau de classes" );
+    if ( _saved.classes ) {
+        TEST.ASSERT.equal( _saved.classes.length, 0, "La sauvegarde ne devrait contenir aucune classe apres l'ascendance, obtenu : " + _saved.classes.length );
+    }
+    TEST.ASSERT.isArray( _saved.levels_history, "La sauvegarde devrait contenir un tableau d'historique" );
+    if ( _saved.levels_history ) {
+        TEST.ASSERT.equal( _saved.levels_history.length, 0, "La sauvegarde ne devrait contenir aucun niveau apres l'ascendance, obtenu : " + _saved.levels_history.length );
+    }
 } );
 
 TEST.RUNNER.register( "[ASCENDANCE] champs visibles apres validation = Ascendance, Héritage, Caractéristiques, Classe", function () {
@@ -145,8 +164,7 @@ TEST.RUNNER.register( "[ASCENDANCE] champs visibles apres validation = Ascendanc
         { key: "name" },
         { key: "player" },
         { key: "race" },
-        { key: "legacy",       expected_input: "Aucun" },
-        { key: "class",        expected_input: "" }
+        { key: "legacy",       expected_input: "Aucun" }
     ];
     for ( let i = 0, _size_i = _visible_areas.length; i < _size_i; i++ ) {
         let _expected                    = _visible_areas[ i ];

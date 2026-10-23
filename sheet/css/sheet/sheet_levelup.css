@@ -24,13 +24,6 @@
     margin-bottom   : 4px;
 }
 
-.levelup-window .levelup-header-class {
-    color       : #f0d890;
-    font-size   : 18px;
-    font-weight : bold;
-    text-shadow : 1px 1px 2px rgba(0,0,0,0.8);
-}
-
 .levelup-window .levelup-header-level {
     background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
     border        : 1px solid #ffd700;
@@ -315,4 +308,90 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     margin-bottom : 12px;
     padding       : 8px 14px;
     text-align    : center;
+}
+
+/* ===== Sélecteur de classe (multiclasse) ===== */
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-selector {
+    display         : flex;
+    align-items     : center;
+    flex-wrap       : wrap;
+    gap             : var(--s-md);
+    background      : var(--g-card);
+    border          : var(--b-thin) solid var(--c-border-dark);
+    border-radius   : var(--r-lg);
+    padding         : var(--s-md) var(--s-lg);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option {
+    display          : flex;
+    align-items      : center;
+    gap              : var(--s-sm);
+    background       : var(--g-card);
+    border           : var(--b-thin) solid var(--c-border-dark);
+    border-radius    : var(--r-sm);
+    padding          : var(--s-sm) var(--s-md);
+    color            : var(--c-text);
+    cursor           : pointer;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-icon {
+    font-size   : 16px;
+    line-height : 1;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-name {
+    font-weight : var(--font-weight-bold);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-take {
+    display           : inline-flex;
+    align-items       : center;
+    justify-content   : center;
+    min-width         : 18px;
+    height            : 18px;
+    padding           : 0 2px;
+    background        : var(--g-gold);
+    border            : var(--b-thin) solid var(--c-gold-light);
+    border-radius     : var(--r-sm);
+    color             : var(--c-text-dark);
+    font-weight       : var(--font-weight-bold);
+    cursor            : pointer;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option:hover {
+    background  : var(--g-card-hover);
+    border-color : var(--c-gold-dark);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option.selected {
+    background    : var(--g-gold);
+    border        : var(--b-normal) solid var(--c-gold);
+    color         : var(--c-text-dark);
+    font-weight   : var(--font-weight-bold);
+    box-shadow    : var(--sh-gold-sm);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option.selected .levelup-class-option-take {
+    background : var(--c-gold-light);
+}
+
+/* ===== Moins de niveau par tag ===== */
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-remove {
+    display           : inline-flex;
+    align-items       : center;
+    justify-content   : center;
+    min-width         : 18px;
+    height            : 18px;
+    padding           : 0 2px;
+    background        : var(--g-card);
+    border            : var(--b-thin) solid var(--c-border-dark);
+    border-radius     : var(--r-sm);
+    color             : var(--c-text);
+    font-weight       : var(--font-weight-bold);
+    cursor            : pointer;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-remove:hover {
+    border-color : var(--c-gold-dark);
+    color        : var(--c-text-gold);
 }

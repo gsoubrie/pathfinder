@@ -77,6 +77,9 @@ CHARACTERISTICS.Bonus.prototype = {
         if ( !data ) {
             return;
         }
+        this.initContents();
+        this.number      = 0;
+        this.number_free = 0;
         this.setNumber( data[ "number" ] );
         this.setChoices( data[ "choice" ] );
     },

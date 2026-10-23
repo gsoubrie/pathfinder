@@ -8,9 +8,9 @@
  */
 
 function TEST_openClassPopup() {
-    // le onclick reel du champ class (cf _component_interface.js)
+    // le onclick reel du bouton d'ajout de classe (cf CharacterClasses)
     MANAGER.EventManagerV2.doActionAfter(
-        { target: document.querySelector( ".grid-area.area-class input" ), button: 0, stopPropagation: function () {} },
+        { target: document.querySelector( ".grid-area.area-class .class-add-button" ), button: 0, stopPropagation: function () {} },
         "event__property_popup__open",
         { "property_name": "class" }
     );
@@ -102,13 +102,22 @@ TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affich�
     if ( !_character ) {
         return;
     }
-    TEST.ASSERT.ok( _character.getClass().isSet(), "La classe devrait etre posee apres validation" );
-    TEST.ASSERT.equal( _character.getClass().getValue(), "Champion", "Classe posee" );
+    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "La classe devrait etre posee apres validation" );
+    TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Champion" ).getLevel(), 1, "Champion devrait etre posee a niveau 1 par defaut" );
+    TEST.ASSERT.equal( _character.getLevel(), 1, "Le niveau total devrait etre 1 apres la posee de la classe" );
     TEST.ASSERT.equal( document.body.dataset.isClassSet, "1", "data-is-class-set devrait passer a 1" );
-    let _class_input                    = document.querySelector( ".characters-sheet-content .grid-area.area-class input" );
-    if ( _class_input ) {
-        TEST.ASSERT.equal( _class_input.value, "Champion", "Le champ Classe devrait afficher Champion" );
+    let _class_entries                 = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
+    TEST.ASSERT.equal( _class_entries.length, 1, "Une entree de classe devrait etre affichee apres la posee de la classe, obtenu : " + _class_entries.length );
+    let _champion_entry                = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-entry[data-name='Champion']" );
+    TEST.ASSERT.notNull( _champion_entry, "L'entree de la classe Champion devrait exister (.class-entry[data-name])" );
+    if ( _champion_entry ) {
+        TEST.ASSERT.notNull( _champion_entry.querySelector( ".class-entry-icon" ), "L'entree Champion devrait afficher son icone (.class-entry-icon)" );
+        TEST.ASSERT.equal( _champion_entry.querySelector( ".class-entry-icon" ).textContent, CLASSES.ICONS[ "Champion" ], "L'icone de l'entree Champion devrait venir de CLASSES.ICONS, obtenu : " + _champion_entry.querySelector( ".class-entry-icon" ).textContent );
+        TEST.ASSERT.equal( _champion_entry.querySelector( ".class-entry-level" ).textContent, "1", "L'entree Champion devrait afficher son niveau (chiffre seul), obtenu : " + _champion_entry.querySelector( ".class-entry-level" ).textContent );
+        TEST.ASSERT.ok( ( _champion_entry.getAttribute( "title" ) || "" ).indexOf( "Champion" ) !== -1, "L'entree Champion devrait porter une info-bulle avec son nom, obtenu : " + _champion_entry.getAttribute( "title" ) );
     }
+    let _add_button                   = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-add-button" );
+    TEST.ASSERT.notNull( _add_button, "Le bouton d'ajout de classe devrait rester rendu" );
     let _archetype_area                 = document.querySelector( ".characters-sheet-content .grid-area.area-archetype" );
     TEST.ASSERT.notNull( _archetype_area, "Le champ Archetype devrait etre affiche apres le choix de la classe (div.grid-area.area-archetype)" );
     if ( _archetype_area ) {
@@ -118,6 +127,32 @@ TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affich�
         if ( _archetype_input ) {
             TEST.ASSERT.equal( _archetype_input.value, "", "Le champ Archetype devrait etre vide (aucun archetype choisi)" );
             TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__property_popup__open" ) !== -1, "Le champ Archetype devrait ouvrir le popup au clic" );
+        }
+    }
+} );
+
+TEST.RUNNER.register( "[CLASSE][SAVE] contenu = Champion 1 + 1 niveau actif", function () {
+    let _character                     = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "Pre-condition : une classe posee" );
+    let _saved                         = _character.getDataToSave();
+    TEST.ASSERT.isArray( _saved.classes, "La sauvegarde devrait contenir un tableau de classes" );
+    if ( _saved.classes ) {
+        TEST.ASSERT.equal( _saved.classes.length, 1, "La sauvegarde devrait contenir 1 classe, obtenu : " + _saved.classes.length );
+        if ( _saved.classes.length === 1 ) {
+            TEST.ASSERT.equal( _saved.classes[ 0 ].name, "Champion", "La classe sauvegardee devrait etre Champion, obtenu : " + _saved.classes[ 0 ].name );
+            TEST.ASSERT.equal( _saved.classes[ 0 ].level, 1, "Le niveau sauvegarde de Champion devrait etre 1, obtenu : " + _saved.classes[ 0 ].level );
+        }
+    }
+    TEST.ASSERT.isArray( _saved.levels_history, "La sauvegarde devrait contenir un tableau d'historique" );
+    if ( _saved.levels_history ) {
+        TEST.ASSERT.equal( _saved.levels_history.length, 1, "La sauvegarde devrait contenir 1 niveau, obtenu : " + _saved.levels_history.length );
+        if ( _saved.levels_history.length === 1 ) {
+            TEST.ASSERT.equal( _saved.levels_history[ 0 ].class_name, "Champion", "Le niveau sauvegarde devrait porter la classe Champion, obtenu : " + _saved.levels_history[ 0 ].class_name );
+            TEST.ASSERT.ok( _saved.levels_history[ 0 ].enabled !== false, "Le niveau sauvegarde devrait etre actif par defaut" );
         }
     }
 } );

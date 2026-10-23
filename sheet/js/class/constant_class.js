@@ -5001,3 +5001,22 @@ CLASSES.getDataByName = function ( name ) {
     return null;
 };
 
+
+CLASSES.ICONS = {
+    "Alchimiste"  : "⚗️",
+    "Barbare"     : "🪓",
+    "Barde"       : "🎻",
+    "Bretteur"    : "🤺",
+    "Champion"    : "🛡️",
+    "Druide"      : "🌿",
+    "Enquêteur"   : "🔍",
+    "Ensorceleur" : "🌟",
+    "Guerrier"    : "⚔️",
+    "Magicien"    : "🔮",
+    "Moine"       : "👊",
+    "Oracle"      : "👁️",
+    "Prêtre"      : "🙏",
+    "Rôdeur"      : "🏹",
+    "Roublard"    : "🗡️",
+    "Sorcier"     : "🧙"
+};

@@ -19,12 +19,33 @@ CHARACTER.LevelsHistory.prototype = {
     getUUID          : function () {
         return this.uuid;
     },
+    //********************************************  SAVE   **************************************************//
     getDataToSave    : function () {
-        let to_return = [];
+        let to_return                 = {};
+        to_return[ "levels_history" ] = [];
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            to_return.push( this.getContent( i ).getDataToSave() );
+            to_return[ "levels_history" ].push( this.getContent( i ).getDataToSave() );
         }
         return to_return;
+    },
+    getActiveSize    : function () {
+        let to_return = 0;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            if ( this.getContent( i ).isEnabled() ) {
+                to_return++;
+            }
+        }
+        return to_return;
+    },
+    getNextLevelName: function () {
+        let to_return = 1;
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let _current = parseInt( this.getContent( i ).getUUID() );
+            if ( !isNaN( _current ) && _current >= to_return ) {
+                to_return = _current + 1;
+            }
+        }
+        return "" + to_return;
     },
     getTotalLife     : function () {
         let to_return = 0;
@@ -72,6 +93,8 @@ CHARACTER.LevelHistory.prototype = {
     init: function ( uuid ) {
         this.uuid       = uuid;
         this.life_class = null;
+        this.class_name = null;
+        this.enabled    = true;
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -82,10 +105,21 @@ CHARACTER.LevelHistory.prototype = {
     getUUID      : function () {
         return this.uuid;
     },
+    getClassName : function () {
+        return this.class_name;
+    },
+    isEnabled    : function () {
+        return !!this.enabled;
+    },
+    setEnabled   : function ( to_set ) {
+        this.enabled = !!to_set;
+    },
     getDataToSave: function () {
         let to_return             = {};
         to_return[ "level_name" ] = this.uuid;
         to_return[ "life_class" ] = this.life_class;
+        to_return[ "class_name" ] = this.class_name;
+        to_return[ "enabled" ]    = this.enabled;
         if ( this.skills ) {
             to_return[ "skills" ] = this.skills.getDataToSave();
         }
@@ -99,6 +133,12 @@ CHARACTER.LevelHistory.prototype = {
                 break;
             case "life_class":
                 this.life_class = value;
+                break;
+            case "class_name":
+                this.class_name = value;
+                break;
+            case "enabled":
+                this.setEnabled( value );
                 break;
             case "skills":
                 this.skills = new CHARACTER.LevelHistorySkills( this.uuid, value );

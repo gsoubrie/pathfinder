@@ -12,7 +12,7 @@ CHARACTER.Current = function () {
     this.point_heroism   = null;
     this.race            = new RACES.Race();
     this.health          = new CHARACTER.Health();
-    this.class           = new CLASSES.Class();
+    this.class           = new CLASSES.CharacterClasses();
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
     this.gifts           = new CHARACTER.Gifts();
@@ -23,6 +23,7 @@ CHARACTER.Current = function () {
     this.children.add( this.race );
     this.children.add( this.class );
     this.children.add( this.characteristics );
+    this.children.add( this.levels_history );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -46,8 +47,53 @@ CHARACTER.Current.prototype = {
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
-                this.windows.setVisibilityWindowState( this.getClass().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelWindow.NAME );
-                this.windows.setVisibilityWindowState( this.getClass().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
+                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
+                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
+                break;
+            case "event__level_up__take_level":
+                params[ "param__level_name" ] = this.getLevelHistory().getNextLevelName();
+                this.class.getContentByUUID( params[ "param__class_name" ] ).doActionAfter( event_name, params );
+                let _new_entry = this.getLevelHistory().add( new CHARACTER.LevelHistory( params[ "param__level_name" ] ) );
+                _new_entry.setData( "class_name", params[ "param__class_name" ] );
+                _new_entry.setData( "life_class", CLASSES.getDataByName( params[ "param__class_name" ] ).life_point_by_level );
+                this.computeTotalLife();
+                this.class.updateHtmlData();
+                break;
+            case "event__level_up__remove_level":
+                let _removed_class = this.class.getContentByUUID( params[ "param__class_name" ] );
+                if ( !_removed_class ) {
+                    break;
+                }
+                let _removed_entry_name = null;
+                for ( let i = this.getLevelHistory().getSize() - 1; i >= 0; i-- ) {
+                    if ( this.getLevelHistory().getContent( i ).getClassName() === _removed_class.getName() ) {
+                        _removed_entry_name = this.getLevelHistory().getContent( i ).getUUID();
+                        break;
+                    }
+                }
+                if ( _removed_entry_name === null ) {
+                    break;
+                }
+                this.getLevelHistory().removeContent( _removed_entry_name, null, true );
+                _removed_class.doActionAfter( event_name, params );
+                if ( _removed_class.getLevel() === 0 ) {
+                    this.class.removeContent( _removed_class.getName(), null, true );
+                    document.body.dataset.isClassSet = this.class.isEmpty() ? 0 : 1;
+                    this.getCharacteristics().doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": CLASSES.key_element } );
+                    this.getCharacteristics().doActionAfter( "event__set_object_bonuses", { "param__current__object": this.class.getBonusesData(), "param__is_for": CLASSES.key_element } );
+                }
+                this.computeTotalLife();
+                this.class.updateHtmlData();
+                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
+                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
+                break;
+            case "event__level__toggle":
+                let _level_entry = this.getLevelHistory().getContentByUUID( params[ "param__level_name" ] );
+                if ( _level_entry ) {
+                    _level_entry.setEnabled( !_level_entry.isEnabled() );
+                    this.computeTotalLife();
+                    this.windows.doActionAfterContentChildren( event_name, params );
+                }
                 break;
             case "event__more_button":
             case "event__less_button":
@@ -105,10 +151,15 @@ CHARACTER.Current.prototype = {
     },
     //********************************************  COMPUTE   **************************************************//
     computeTotalLife: function () {
-        let total_life = 0;
-        for ( let i = 0, _size_i = this.level; i < _size_i; i++ ) {
-            total_life += this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.name ).getModifierValue();
-            total_life += this.getLevelHistory().getContent( i ).life_class;
+        let total_life           = 0;
+        let life_point_from_cons = this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
+        for ( let i = 0, _size_i = this.getLevelHistory().getSize(); i < _size_i; i++ ) {
+            let _level = this.getLevelHistory().getContent( i );
+            if ( !_level.isEnabled() ) {
+                continue;
+            }
+            total_life += life_point_from_cons.getModifierValue();
+            total_life += _level.life_class;
         }
         this.health.setMaxHP( total_life );
     },
@@ -119,9 +170,9 @@ CHARACTER.Current.prototype = {
                 this.race.updateData( value );
                 this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getRace(), "param__is_for": RACES.key_element } );
                 break;
-            case CLASSES.key_element:
+            case CLASSES.key:
                 this.class.updateData( value );
-                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getClass(), "param__is_for": CLASSES.key_element } );
+                this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.class.getBonusesData(), "param__is_for": CLASSES.key_element } );
                 break;
             case CHARACTERISTICS.key:
                 this.characteristics.updateData( value );
@@ -191,10 +242,22 @@ CHARACTER.Current.prototype = {
         return this.getRace().getLegacy();
     },
     /**
-     * @returns {CLASSES.Class}
+     * @returns {CLASSES.CharacterClasses}
      */
-    getClass          : function () {
+    getClasses: function () {
         return this.class;
+    },
+    /**
+     * @returns {number}
+     */
+    getLevel: function () {
+        return this.class.getLevel();
+    },
+    /**
+     * @returns {number}
+     */
+    getActiveLevel    : function () {
+        return this.levels_history.getActiveSize();
     },
     getHistoric       : function () {
         return this.getLevelHistory().getSpecialContent( HISTORICS.key_element );
