@@ -87,17 +87,17 @@
     gap            : 8px;
 }
 
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V3[data-name="event__more_button"],
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V3[data-name="event__less_button"],
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V3,
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V3 {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V4[data-name="event__more_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V4[data-name="event__less_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORBIDDEN"] .gs-button-V4,
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_FORCED"] .gs-button-V4 {
     display : none;
 }
 
 
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V3[data-name="event__more_button"],
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V3[data-name="event__less_button"],
-.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V3 {
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITED"] .gs-button-V4[data-name="event__more_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"] .gs-button-V4[data-name="event__less_button"],
+.property-tab-pane[data-name="characteristic_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V4 {
     opacity        : 0.3;
     pointer-events : none;
 }
