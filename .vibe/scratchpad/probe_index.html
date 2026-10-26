@@ -1,0 +1,173 @@
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Pathfinder</title>
+
+	<!-- CSS Variables & Utilities (must load first) -->
+	<link href="../../sheet/css/_variables.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/_utilities.css" rel="stylesheet" type="text/css">
+	<!-- GS Library CSS -->
+	<link href="../../sheet/css/libs/gs_lib_common.css" rel="stylesheet" type="text/css">
+	<!-- Main Styles -->
+	<link href="../../sheet/css/style.css" rel="stylesheet" type="text/css">
+	<!-- Sheet Specific Styles -->
+	<link href="../../sheet/css/sheet/sheet_general.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/sheet/sheet_level.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/sheet/sheet_levelup.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/sheet/sheet_characteristic.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/sheet/sheet_gifts.css" rel="stylesheet" type="text/css">
+	<!-- Popup Styles -->
+	<link href="../../sheet/css/popup/popup.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/popup/popup_class.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/popup/popup_object.css" rel="stylesheet" type="text/css">
+
+	<script src="../../sheet/js/libs/gs_lib_common.js"></script>
+	<script src="../../sheet/js/libs/gs_lib_common_V02_01.js"></script>
+
+	<script src="../../sheet/js/constant.js"></script>
+	<script src="../../sheet/js/constant_divers.js"></script>
+
+	<script src="../../sheet/js/service/service_string.js"></script>
+	<script src="../../sheet/js/service/service_data.js"></script>
+	<script src="../../sheet/js/service/service_dom.js"></script>
+	<script src="../../sheet/js/service/service_dom_helper.js"></script>
+
+	<script src="../../sheet/js/object/constant_objects.js"></script>
+	<script src="../../sheet/js/object/object-interface.js"></script>
+	<script src="../../sheet/js/object/configurable_value.js"></script>
+	<script src="../../sheet/js/object/popup_renders.js"></script>
+	<script src="../../sheet/js/object/popup.js"></script>
+	<script src="../../sheet/js/object/popups.js"></script>
+
+
+	<script src="../../sheet/js/component/_component_interface.js"></script>
+	<script src="../../sheet/js/component/name_object.js"></script>
+	<script src="../../sheet/js/component/player.js"></script>
+	<script src="../../sheet/js/component/body_size.js"></script>
+
+	<script src="../../sheet/js/class/constant_class.js"></script>
+	<script src="../../sheet/js/archetype/constant_archetype.js"></script>
+	<script src="../../sheet/js/archetype/archetype.js"></script>
+	<script src="../../sheet/js/archetype/archetypes.js"></script>
+	<script src="../../sheet/js/class/class.js"></script>
+	<script src="../../sheet/js/class/classes.js"></script>
+	<script src="../../sheet/js/class/class_skills.js"></script>
+
+	<script src="../../sheet/js/characteristic/bonuses.js"></script>
+	<script src="../../sheet/js/characteristic/characteristic.js"></script>
+	<script src="../../sheet/js/characteristic/characteristics.js"></script>
+
+
+	<script src="../../sheet/js/historics/constant_historic.js"></script>
+	<script src="../../sheet/js/historics/historics.js"></script>
+
+	<script src="../../sheet/js/race/race_constant.js"></script>
+	<script src="../../sheet/js/race/race_enum.js"></script>
+	<script src="../../sheet/js/race/race.js"></script>
+	<script src="../../sheet/js/race/races.js"></script>
+	<script src="../../sheet/js/race/windows_group.js"></script>
+
+	<script src="../../sheet/js/legacy/legacy_constant.js"></script>
+	<script src="../../sheet/js/legacy/legacy_enum.js"></script>
+	<script src="../../sheet/js/legacy/legacy.js"></script>
+	<script src="../../sheet/js/legacy/legacies.js"></script>
+
+	<script src="../../sheet/js/gift/constant_gift_general.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_class.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_race.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_skill.js"></script>
+	<script src="../../sheet/js/gift/gifts.js"></script>
+
+	<script src="../../sheet/js/character/character.js"></script>
+	<script src="../../sheet/js/character/health_object.js"></script>
+	<script src="../../sheet/js/character/level_history/levels_history.js"></script>
+	<script src="../../sheet/js/character/level_history/level_history_skills.js"></script>
+
+	<script src="../../sheet/js/character/character_windows/character_windows.js"></script>
+	<script src="../../sheet/js/character/character_windows/general_window.js"></script>
+	<script src="../../sheet/js/level/level.js"></script>
+	<script src="../../sheet/js/level/levels.js"></script>
+	<script src="../../sheet/js/character/character_windows/level_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/characteristics_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/gifts_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/levelup_window.js"></script>
+
+	<script src="../../sheet/js/phase.js"></script>
+	<script src="../../sheet/js/controller/main-controller.js"></script>
+	<script src="../../sheet/js/controller/character-controller.js"></script>
+	<script src="../../sheet/js/popup.js"></script>
+
+	<script src="../../sheet/save/a9b2dfe206c0Ab01Dc3c75a66230924b.js"></script>
+	<script src="../../sheet/save/U574c03fcb107edc5aef21f8a55cef9ea.js"></script>
+	<script src="../../sheet/save/a9b2dfe206c0Ab01Dc3c75a66230924c.js"></script>
+
+	<script src="../../sheet/js/tests/test_runner.js"></script>
+	<script>
+		window.addEventListener( "load", function () {
+			let out = document.getElementById( "probe-out" );
+			let log = function ( txt ) {
+				let div = document.createElement( "div" );
+				div.innerText = txt;
+				out.appendChild( div );
+			};
+
+			// crochet : trace toute mise a jour non nulle d'un compteur errors
+			let _update_originale = GS.OBJECT.CounterV2.prototype.update;
+			GS.OBJECT.CounterV2.prototype.update = function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
+				if ( this.type === "errors" && nb_counter ) {
+					log( "ERROR-COUNTER SET name=" + name + " nb=" + nb_counter );
+					log( "STACK " + ( new Error().stack || "" ).split( "\n" ).slice( 1, 7 ).join( " || " ) );
+				}
+				return _update_originale.call( this, name, nb_counter, tooltip, retry_update_html, is_force );
+			};
+
+			let _character = CONTROLLER.Character.current_character;
+			log( "CHARGE : uuid=" + _character.getUUID() + " race=" + _character.getRace().getValue() );
+			let _characteristics = _character.getCharacteristics();
+			log( "RACE_BONUS free_number=" + _characteristics.getRaceBonus().bonus.getFreeNumber() );
+			log( "CLASS_BONUS free_number=" + _characteristics.getClassBonus().bonus.getFreeNumber() );
+
+			TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME ).then( function () {
+				let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
+				let _columns = ["characteristic-initial-value", "characteristic-bonus-race", "characteristic-bonus-class"];
+				let _keys = ["FOR", "DEX", "CON", "INT", "SAG", "CHA"];
+				for ( let c = 0; c < _columns.length; c++ ) {
+					for ( let k = 0; k < _keys.length; k++ ) {
+						let _less = _pane.querySelector( ".characteristic-line[data-name='" + _keys[ k ] + "'] ." + _columns[ c ] + " [data-name='event__less_button']" );
+						if ( !_less ) {
+							continue;
+						}
+						let _avant = _characteristics.getContentByUUID( _keys[ k ] ).race_bonus.getValue();
+						_less.click();
+						log( "CLIC - " + _columns[ c ] + " " + _keys[ k ]
+							+ " : race_bonus=" + _characteristics.getContentByUUID( _keys[ k ] ).race_bonus.getValue()
+							+ " phase=" + _characteristics.getContentByUUID( _keys[ k ] ).race_bonus.getCurrentPhase()
+							+ " | free race=" + _characteristics.getRaceBonus().bonus.getFreeNumber()
+							+ " free classe=" + _characteristics.getClassBonus().bonus.getFreeNumber() );
+					}
+				}
+				setTimeout( function () {
+					let _tab = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
+					log( "TAB errors = [" + ( _tab ? _tab.querySelector( ".gs-errors-counter" ).getAttribute( "data-number" ) : "?" ) + "]" );
+					log( "TAB warnings = [" + ( _tab ? _tab.querySelector( ".gs-warnings-counter" ).getAttribute( "data-number" ) : "?" ) + "]" );
+					let _all_errors = document.querySelectorAll( ".gs-errors-counter" );
+					for ( let i = 0; i < _all_errors.length; i++ ) {
+						log( "ERRORS-DOM[" + i + "] data-number=[" + _all_errors[ i ].getAttribute( "data-number" ) + "]" );
+					}
+					log( "PROBE-DONE" );
+				}, 500 );
+			} );
+		} );
+	</script>
+</head>
+
+<body class="gs-parent-event-listener" data-controller="Main" data-is-race-set="0" data-is-level-set="0">
+<div class="character-content">
+	<div class="character-sheet-windows"></div>
+	<div class="characters-sheet-content"></div>
+</div>
+<div id="probe-out"></div>
+</body>
+
+</html>

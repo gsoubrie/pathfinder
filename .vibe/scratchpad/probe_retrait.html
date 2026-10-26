@@ -1,0 +1,168 @@
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Probe Humain retrait</title>
+
+	<link href="../../sheet/css/_variables.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/_utilities.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/libs/gs_lib_common.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/style.css" rel="stylesheet" type="text/css">
+	<link href="../../sheet/css/sheet/sheet_characteristic.css" rel="stylesheet" type="text/css">
+
+	<script src="../../sheet/js/libs/gs_lib_common.js"></script>
+	<script src="../../sheet/js/libs/gs_lib_common_V02_01.js"></script>
+
+	<script src="../../sheet/js/constant.js"></script>
+	<script src="../../sheet/js/constant_divers.js"></script>
+
+	<script src="../../sheet/js/service/service_string.js"></script>
+	<script src="../../sheet/js/service/service_data.js"></script>
+	<script src="../../sheet/js/service/service_dom.js"></script>
+	<script src="../../sheet/js/service/service_dom_helper.js"></script>
+
+	<script src="../../sheet/js/object/constant_objects.js"></script>
+	<script src="../../sheet/js/object/object-interface.js"></script>
+	<script src="../../sheet/js/object/configurable_value.js"></script>
+	<script src="../../sheet/js/object/popup_renders.js"></script>
+	<script src="../../sheet/js/object/popup.js"></script>
+	<script src="../../sheet/js/object/popups.js"></script>
+
+	<script src="../../sheet/js/component/_component_interface.js"></script>
+	<script src="../../sheet/js/component/name_object.js"></script>
+	<script src="../../sheet/js/component/player.js"></script>
+	<script src="../../sheet/js/component/body_size.js"></script>
+
+	<script src="../../sheet/js/class/constant_class.js"></script>
+	<script src="../../sheet/js/archetype/constant_archetype.js"></script>
+	<script src="../../sheet/js/archetype/archetype.js"></script>
+	<script src="../../sheet/js/archetype/archetypes.js"></script>
+	<script src="../../sheet/js/class/class.js"></script>
+	<script src="../../sheet/js/class/classes.js"></script>
+	<script src="../../sheet/js/class/class_skills.js"></script>
+
+	<script src="../../sheet/js/characteristic/bonuses.js"></script>
+	<script src="../../sheet/js/characteristic/characteristic.js"></script>
+	<script src="../../sheet/js/characteristic/characteristics.js"></script>
+
+	<script src="../../sheet/js/historics/constant_historic.js"></script>
+	<script src="../../sheet/js/historics/historics.js"></script>
+
+	<script src="../../sheet/js/race/race_constant.js"></script>
+	<script src="../../sheet/js/race/race_enum.js"></script>
+	<script src="../../sheet/js/race/race.js"></script>
+	<script src="../../sheet/js/race/races.js"></script>
+	<script src="../../sheet/js/race/windows_group.js"></script>
+
+	<script src="../../sheet/js/legacy/legacy_constant.js"></script>
+	<script src="../../sheet/js/legacy/legacy_enum.js"></script>
+	<script src="../../sheet/js/legacy/legacy.js"></script>
+	<script src="../../sheet/js/legacy/legacies.js"></script>
+
+	<script src="../../sheet/js/gift/constant_gift_general.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_class.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_race.js"></script>
+	<script src="../../sheet/js/gift/constant_gift_skill.js"></script>
+	<script src="../../sheet/js/gift/gifts.js"></script>
+
+	<script src="../../sheet/js/character/character.js"></script>
+	<script src="../../sheet/js/character/health_object.js"></script>
+	<script src="../../sheet/js/character/level_history/levels_history.js"></script>
+	<script src="../../sheet/js/character/level_history/level_history_skills.js"></script>
+
+	<script src="../../sheet/js/character/character_windows/character_windows.js"></script>
+	<script src="../../sheet/js/character/character_windows/general_window.js"></script>
+	<script src="../../sheet/js/level/level.js"></script>
+	<script src="../../sheet/js/level/levels.js"></script>
+	<script src="../../sheet/js/character/character_windows/level_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/characteristics_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/gifts_window.js"></script>
+	<script src="../../sheet/js/character/character_windows/levelup_window.js"></script>
+
+	<script src="../../sheet/js/phase.js"></script>
+	<script src="../../sheet/js/controller/main-controller.js"></script>
+	<script src="../../sheet/js/controller/character-controller.js"></script>
+	<script src="../../sheet/js/popup.js"></script>
+
+	<script src="../../sheet/js/tests/test_runner.js"></script>
+	<script>
+		function PROBE_openRacePopup() {
+			MANAGER.EventManagerV2.doActionAfter(
+				{ target: document.querySelector( ".grid-area.area-race input" ), button: 0, stopPropagation: function () {} },
+				"event__property_popup__open",
+				{ "property_name": "race" }
+			);
+		}
+
+		window.addEventListener( "load", function () {
+			let out = document.getElementById( "probe-out" );
+			let log = function ( txt ) {
+				let div = document.createElement( "div" );
+				div.innerText = txt;
+				out.appendChild( div );
+			};
+
+			let _update_originale = GS.OBJECT.CounterV2.prototype.update;
+			GS.OBJECT.CounterV2.prototype.update = function ( name, nb_counter, tooltip, retry_update_html, is_force ) {
+				if ( this.type === "errors" && nb_counter ) {
+					log( "ERROR-COUNTER SET name=" + name + " nb=" + nb_counter );
+					log( "STACK " + ( new Error().stack || "" ).split( "\n" ).slice( 1, 7 ).join( " || " ) );
+				}
+				return _update_originale.call( this, name, nb_counter, tooltip, retry_update_html, is_force );
+			};
+
+			TEST.RESET.sheet();
+			PROBE_openRacePopup();
+			TEST.clickTab( "body > .popup", "Humain" ).then( function () {
+				CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
+				return TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME );
+			} ).then( function () {
+				let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
+				let _characteristics = CONTROLLER.Character.current_character.getCharacteristics();
+
+				let _for_more = _pane.querySelector( ".characteristic-line[data-name='FOR'] .characteristic-bonus-race [data-name='event__more_button']" );
+				let _dex_more = _pane.querySelector( ".characteristic-line[data-name='DEX'] .characteristic-bonus-race [data-name='event__more_button']" );
+				_for_more.click();
+				_dex_more.click();
+				log( "POSE : FOR=" + _characteristics.getContentByUUID( "FOR" ).race_bonus.getValue()
+					+ " DEX=" + _characteristics.getContentByUUID( "DEX" ).race_bonus.getValue()
+					+ " free_number=" + _characteristics.getRaceBonus().bonus.getFreeNumber() );
+
+				let _for_less = _pane.querySelector( ".characteristic-line[data-name='FOR'] .characteristic-bonus-race [data-name='event__less_button']" );
+				let _dex_less = _pane.querySelector( ".characteristic-line[data-name='DEX'] .characteristic-bonus-race [data-name='event__less_button']" );
+				_for_less.click();
+				log( "RETRAIT FOR : valeur=" + _characteristics.getContentByUUID( "FOR" ).race_bonus.getValue()
+					+ " phase=" + _characteristics.getContentByUUID( "FOR" ).race_bonus.getCurrentPhase()
+					+ " free_number=" + _characteristics.getRaceBonus().bonus.getFreeNumber() );
+				_dex_less.click();
+				log( "RETRAIT DEX : valeur=" + _characteristics.getContentByUUID( "DEX" ).race_bonus.getValue()
+					+ " phase=" + _characteristics.getContentByUUID( "DEX" ).race_bonus.getCurrentPhase()
+					+ " free_number=" + _characteristics.getRaceBonus().bonus.getFreeNumber() );
+
+				setTimeout( function () {
+					let _tab = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
+					log( "TAB errors = [" + ( _tab ? _tab.querySelector( ".gs-errors-counter" ).getAttribute( "data-number" ) : "?" ) + "]" );
+					log( "TAB warnings = [" + ( _tab ? _tab.querySelector( ".gs-warnings-counter" ).getAttribute( "data-number" ) : "?" ) + "]" );
+					let _badge = _tab ? _tab.querySelector( ".characteristic-warning-badge" ) : null;
+					log( "BADGE = [" + ( _badge ? _badge.textContent : "absent" ) + "]" );
+					let _all_errors = document.querySelectorAll( ".gs-errors-counter" );
+					log( "NB ERRORS-COUNTERS DANS LE DOM = " + _all_errors.length );
+					for ( let i = 0; i < _all_errors.length; i++ ) {
+						log( "ERRORS-DOM[" + i + "] data-number=[" + _all_errors[ i ].getAttribute( "data-number" ) + "] html=" + _all_errors[ i ].outerHTML );
+					}
+					log( "PROBE-DONE" );
+				}, 500 );
+			} );
+		} );
+	</script>
+</head>
+
+<body class="gs-parent-event-listener" data-controller="Main" data-is-race-set="0" data-is-level-set="0">
+	<div id="probe-out"></div>
+	<div class="character-content">
+		<div class="character-sheet-windows"></div>
+		<div class="characters-sheet-content"></div>
+	</div>
+</body>
+
+</html>
