@@ -75,7 +75,7 @@
 .property-tab-pane[data-name="level_sheet"] .life-table tr:hover,
 .property-tab-pane[data-name="level_sheet"] .skill-table tr:hover {
     background : linear-gradient(135deg, #5A4028 0%, #3D2D1A 100%);
-    transition : 0.2s;
+    transition : background 0.2s;
 }
 /* ===== Niveaux desactives (effet temporaire) ===== */
 .property-tab-pane[data-name="level_sheet"] .life-table tr.disabled {
