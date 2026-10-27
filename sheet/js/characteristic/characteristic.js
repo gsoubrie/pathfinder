@@ -59,7 +59,11 @@ CHARACTERISTICS.Characteristic.prototype = {
                 if ( object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
                     return;
                 }
-                object.setPhaseOrPhase( params[ "param__bonuses__object" ].getContentByUUID( this.getUUID() ), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                let bonus_choice = params[ "param__bonuses__object" ].getContentByUUID( this.getUUID() );
+                if ( !bonus_choice ) {
+                    bonus_choice = params[ "param__bonuses__object" ].getContentByUUID( CHARACTERISTICS.FREE.key );
+                }
+                object.setPhaseOrPhase( bonus_choice, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
                 return;
             case "event__set_free_bonus":
                 if ( this.getObjectForDoActionAfter( params ).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {

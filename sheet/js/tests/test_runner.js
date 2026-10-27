@@ -200,6 +200,14 @@ TEST.clickTab                               = function ( container_selector, win
 };
 
 /**
+ * Attente avant une assertion DOM sur un rendu differé (counters de la lib :
+ * mise a jour du data-number debounced a 50 ms).
+ */
+TEST.wait                                   = function ( delay ) {
+    return new Promise( function ( resolve ) { setTimeout( resolve, delay || 60 ); } );
+};
+
+/**
  * Reinitialisation de la feuille en cours de suite : nouveau personnage,
  * fenetres reconstruites, indicateurs data-* nettoyes, popup fermee.
  * A appeler en tete d'un scenario pour repartir d'un etat vierge sans

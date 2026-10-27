@@ -4,25 +4,25 @@
  * Depart : feuille vide (TEST.RESET.sheet()). Ajout de la race Elfe via le
  * popup, puis travail dans l'onglet Caracteristiques.
  * Elfe : bonus forces DEX et INT, malus force CON, 1 bonus libre (choice FREE).
- * 1. Page vide : pas de badge ; ajout de la race Elfe → onglet actif + badge
- *    warning "1" (un choix de bonus de race en attente).
+ * 1. Page vide : compteur d'onglet masque ; ajout de la race Elfe → onglet
+ *    actif + compteur warning "1" (un choix de bonus de race en attente).
  * 2. Ouverture de l'onglet : conteneur + 6 lignes rendues, bonus forces de la
  *    race appliques (DEX et INT a 12, malus CON a 8).
  * 3. Prise du bonus libre sur FOR via le + de la colonne Race : bonus pose
- *    (final 12), badge absent.
- * 4. Retrait du bonus FOR via le - : badge de retour a "1" ; nouveau choix sur
- *    CHA : bonus pose sur CHA, badge absent.
+ *    (final 12), compteur d'onglet masque.
+ * 4. Retrait du bonus FOR via le - : compteur de retour a "1" ; nouveau choix
+ *    sur CHA : bonus pose sur CHA, compteur masque.
  * 5. Bonus forces de la race (DEX, INT, malus CON) : phase SETTINGS_FORCED,
  *    boutons + et - masques (non modifiables) ; contraste : le bouton - du
  *    bonus libre pose sur CHA reste visible.
- * 6. Changement de race pour Humain (2 libres, aucun force) : badge "2",
+ * 6. Changement de race pour Humain (2 libres, aucun force) : compteur "2",
  *    bonus et malus forces de l'Elfe retires, toutes les cellules en
  *    SETTINGS_TO_EDIT avec le + visible.
- * 7. Pose des 2 libres sur FOR puis DEX : badge "1" puis absent ; contraste :
+ * 7. Pose des 2 libres sur FOR puis DEX : compteur "1" puis masque ; contraste :
  *    le - du bonus pose reste actif, le + est attenue.
  */
 
-TEST.RUNNER.register( "[CARACTERISTIQUES] page vide → race Elfe → badge warning = 1", function () {
+TEST.RUNNER.register( "[CARACTERISTIQUES] page vide → race Elfe → compteur warning = 1", function () {
     TEST.RESET.sheet();
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Un nouveau personnage devrait etre instancie apres le reset" );
@@ -31,8 +31,12 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] page vide → race Elfe → badge warn
     }
     TEST.ASSERT.notOk( _character.getRace().isSet(), "Pre-condition : race vide apres le reset" );
     TEST.ASSERT.ok( _character.getClasses().isEmpty(), "Pre-condition : aucune classe apres le reset" );
-    let _badge_vide                    = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.isNull( _badge_vide, "Aucun badge ne devrait etre present sur une page vide" );
+    let _counter_vide                  = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+    TEST.ASSERT.notNull( _counter_vide, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+    if ( _counter_vide ) {
+        TEST.ASSERT.equal( _counter_vide.getAttribute( "data-number" ), "", "Le compteur warning devrait etre vide sur une page vide, obtenu : [" + _counter_vide.getAttribute( "data-number" ) + "]" );
+        TEST.ASSERT.equal( getComputedStyle( _counter_vide ).display, "none", "Le compteur vide devrait etre masque, obtenu : " + getComputedStyle( _counter_vide ).display );
+    }
     TEST_openRacePopup();
     return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
         CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
@@ -43,11 +47,16 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] page vide → race Elfe → badge warn
             return;
         }
         TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet Caracteristiques devrait etre actif apres le choix de l'ascendance" );
-        let _badge                     = _tab.querySelector( ".characteristic-warning-badge" );
-        TEST.ASSERT.notNull( _badge, "L'onglet devrait porter un badge de choix en attente (.characteristic-warning-badge)" );
-        if ( _badge ) {
-            TEST.ASSERT.equal( _badge.textContent, "1", "Le badge devrait afficher 1 choix de bonus de race en attente, obtenu : " + _badge.textContent );
+        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 1, "Le compteur warning devrait valoir 1 : un choix de bonus de race en attente" );
+        return TEST.wait();
+    } ).then( function () {
+        let _counter                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter ) {
+            TEST.ASSERT.notNull( _counter, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
         }
+        TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "1", "Le compteur d'onglet devrait afficher 1 choix de bonus de race en attente, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        TEST.ASSERT.equal( _counter.textContent, "1", "Le libelle du compteur devrait afficher 1, obtenu : [" + _counter.textContent + "]" );
     } );
 } );
 
@@ -84,7 +93,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] affichage = 6 lignes", function () {
     } );
 } );
 
-TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR → bonus posé, badge absent", function () {
+TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR → bonus posé, compteur masqué", function () {
     let _character                     = CONTROLLER.Character.current_character;
     let _pane                          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
     TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Caracteristiques ouvert" );
@@ -109,8 +118,16 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR → bonus posé, badge absent", 
     if ( _for_final ) {
         TEST.ASSERT.ok( _for_final.textContent.indexOf( "12" ) !== -1, "La ligne FOR devrait afficher 12 apres le bonus, obtenu : " + _for_final.textContent );
     }
-    let _badge                         = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.isNull( _badge, "Le badge devrait disparaitre une fois le choix fait" );
+    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 0, "Le compteur warning devrait revenir a 0 une fois le choix fait" );
+    return TEST.wait().then( function () {
+        let _counter                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter ) {
+            TEST.ASSERT.notNull( _counter, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
+        }
+        TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "", "Le compteur d'onglet devrait etre vide une fois le choix fait, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        TEST.ASSERT.equal( getComputedStyle( _counter ).display, "none", "Le compteur vide devrait etre masque, obtenu : " + getComputedStyle( _counter ).display );
+    } );
 } );
 
 TEST.RUNNER.register( "[CARACTERISTIQUES] − FOR puis + CHA → choix déplacé", function () {
@@ -129,27 +146,39 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] − FOR puis + CHA → choix déplacé
     let _for                           = _character.getCharacteristics().getContentByUUID( "FOR" );
     TEST.ASSERT.equal( _for.race_bonus.getValue(), 0, "Le bonus de race de FOR devrait etre retire, obtenu : " + _for.race_bonus.getValue() );
     TEST.ASSERT.equal( _for.getModifierValue(), 0, "Le modificateur de FOR devrait revenir a 0, obtenu : " + _for.getModifierValue() );
-    let _badge                         = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.notNull( _badge, "Le badge devrait reapparaitre apres le retrait du bonus" );
-    if ( _badge ) {
-        TEST.ASSERT.equal( _badge.textContent, "1", "Le badge devrait reafficher 1 choix en attente, obtenu : " + _badge.textContent );
-    }
-    let _cha_line                      = _pane.querySelector( ".characteristic-line[data-name='CHA']" );
-    TEST.ASSERT.notNull( _cha_line, "La ligne CHA devrait exister" );
-    if ( !_cha_line ) {
-        return;
-    }
-    let _cha_more                      = _cha_line.querySelector( ".characteristic-bonus-race [data-name='event__more_button']" );
-    TEST.ASSERT.notNull( _cha_more, "Le bouton + du bonus de race de CHA devrait etre rendu" );
-    if ( !_cha_more ) {
-        return;
-    }
-    _cha_more.click();
-    let _cha                           = _character.getCharacteristics().getContentByUUID( "CHA" );
-    TEST.ASSERT.equal( _cha.race_bonus.getValue(), 2, "Le bonus de race de CHA devrait valoir 2, obtenu : " + _cha.race_bonus.getValue() );
-    TEST.ASSERT.equal( _cha.getModifierValue(), 1, "Le modificateur de CHA devrait valoir +1, obtenu : " + _cha.getModifierValue() );
-    let _badge_after                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.isNull( _badge_after, "Le badge devrait disparaitre apres le nouveau choix" );
+    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 1, "Le compteur warning devrait reafficher 1 choix en attente apres le retrait du bonus" );
+    return TEST.wait().then( function () {
+        let _counter                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter ) {
+            TEST.ASSERT.notNull( _counter, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
+        }
+        TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "1", "Le compteur d'onglet devrait reafficher 1 choix en attente, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        let _cha_line                  = _pane.querySelector( ".characteristic-line[data-name='CHA']" );
+        TEST.ASSERT.notNull( _cha_line, "La ligne CHA devrait exister" );
+        if ( !_cha_line ) {
+            return;
+        }
+        let _cha_more                  = _cha_line.querySelector( ".characteristic-bonus-race [data-name='event__more_button']" );
+        TEST.ASSERT.notNull( _cha_more, "Le bouton + du bonus de race de CHA devrait etre rendu" );
+        if ( !_cha_more ) {
+            return;
+        }
+        _cha_more.click();
+        let _cha                       = _character.getCharacteristics().getContentByUUID( "CHA" );
+        TEST.ASSERT.equal( _cha.race_bonus.getValue(), 2, "Le bonus de race de CHA devrait valoir 2, obtenu : " + _cha.race_bonus.getValue() );
+        TEST.ASSERT.equal( _cha.getModifierValue(), 1, "Le modificateur de CHA devrait valoir +1, obtenu : " + _cha.getModifierValue() );
+        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 0, "Le compteur warning devrait revenir a 0 apres le nouveau choix" );
+        return TEST.wait();
+    } ).then( function () {
+        let _counter_after             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter_after ) {
+            TEST.ASSERT.notNull( _counter_after, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
+        }
+        TEST.ASSERT.equal( _counter_after.getAttribute( "data-number" ), "", "Le compteur d'onglet devrait etre vide apres le nouveau choix, obtenu : [" + _counter_after.getAttribute( "data-number" ) + "]" );
+        TEST.ASSERT.equal( getComputedStyle( _counter_after ).display, "none", "Le compteur vide devrait etre masque, obtenu : " + getComputedStyle( _counter_after ).display );
+    } );
 } );
 
 TEST.RUNNER.register( "[CARACTERISTIQUES] bonus forcés → boutons masqués", function () {
@@ -206,7 +235,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] bonus forcés → boutons masqués", f
     } );
 } );
 
-TEST.RUNNER.register( "[CARACTERISTIQUES] Humain → badge 2, bonus forcés retirés", function () {
+TEST.RUNNER.register( "[CARACTERISTIQUES] Humain → compteur 2, bonus forcés retirés", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
@@ -220,10 +249,15 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] Humain → badge 2, bonus forcés reti
     return TEST.clickTab( "body > .popup", "Humain" ).then( function () {
         CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
         TEST.ASSERT.equal( _character.getRace().getValue(), "Humain", "La race devrait etre Humain apres validation, obtenu : " + _character.getRace().getValue() );
-        let _badge                     = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-        TEST.ASSERT.notNull( _badge, "L'onglet devrait porter un badge : 2 choix libres Humain en attente" );
-        if ( _badge ) {
-            TEST.ASSERT.equal( _badge.textContent, "2", "Le badge devrait afficher 2 choix libres en attente, obtenu : " + _badge.textContent );
+        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 2, "Le compteur warning devrait valoir 2 : les 2 choix libres Humain en attente" );
+        return TEST.wait();
+    } ).then( function () {
+        let _counter                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter ) {
+            TEST.ASSERT.notNull( _counter, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+        }
+        else {
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "2", "Le compteur d'onglet devrait afficher 2 choix libres Humain en attente, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME );
     } ).then( function () {
@@ -271,25 +305,37 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR et + DEX → 2 libres posés", f
     let _for                           = _character.getCharacteristics().getContentByUUID( "FOR" );
     TEST.ASSERT.equal( _for.race_bonus.getValue(), 2, "Le premier bonus libre devrait etre pose sur FOR, obtenu : " + _for.race_bonus.getValue() );
     TEST.ASSERT.equal( _for.getModifierValue(), 1, "Le modificateur de FOR devrait valoir +1, obtenu : " + _for.getModifierValue() );
-    let _badge                         = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.notNull( _badge, "Le badge devrait afficher 1 choix restant apres le premier bonus" );
-    if ( _badge ) {
-        TEST.ASSERT.equal( _badge.textContent, "1", "Le badge devrait descendre a 1, obtenu : " + _badge.textContent );
-    }
-    let _dex_more                     = _pane.querySelector( ".characteristic-line[data-name='DEX'] .characteristic-bonus-race [data-name='event__more_button']" );
-    TEST.ASSERT.notNull( _dex_more, "Le bouton + du bonus de race de DEX devrait etre rendu" );
-    if ( !_dex_more ) {
-        return;
-    }
-    _dex_more.click();
-    let _dex                           = _character.getCharacteristics().getContentByUUID( "DEX" );
-    TEST.ASSERT.equal( _dex.race_bonus.getValue(), 2, "Le deuxieme bonus libre devrait etre pose sur DEX, obtenu : " + _dex.race_bonus.getValue() );
-    TEST.ASSERT.equal( _dex.getModifierValue(), 1, "Le modificateur de DEX devrait valoir +1, obtenu : " + _dex.getModifierValue() );
-    let _badge_after                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .characteristic-warning-badge" );
-    TEST.ASSERT.isNull( _badge_after, "Le badge devrait disparaitre une fois les 2 choix faits" );
-    let _for_less                     = _pane.querySelector( ".characteristic-line[data-name='FOR'] .characteristic-bonus-race [data-name='event__less_button']" );
-    if ( _for_less ) {
-        TEST.ASSERT.equal( getComputedStyle( _for_less ).pointerEvents, "auto", "Le bouton - du bonus pose sur FOR devrait rester actif (retrait possible), obtenu : " + getComputedStyle( _for_less ).pointerEvents );
-    }
-    TEST.ASSERT.equal( getComputedStyle( _for_more ).pointerEvents, "none", "Le bouton + du bonus pose sur FOR devrait etre attenue (pointer-events none), obtenu : " + getComputedStyle( _for_more ).pointerEvents );
+    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 1, "Le compteur warning devrait descendre a 1 apres le premier bonus" );
+    return TEST.wait().then( function () {
+        let _counter                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter ) {
+            TEST.ASSERT.notNull( _counter, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
+        }
+        TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "1", "Le compteur d'onglet devrait afficher 1 choix restant apres le premier bonus, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        let _dex_more                  = _pane.querySelector( ".characteristic-line[data-name='DEX'] .characteristic-bonus-race [data-name='event__more_button']" );
+        TEST.ASSERT.notNull( _dex_more, "Le bouton + du bonus de race de DEX devrait etre rendu" );
+        if ( !_dex_more ) {
+            return;
+        }
+        _dex_more.click();
+        let _dex                       = _character.getCharacteristics().getContentByUUID( "DEX" );
+        TEST.ASSERT.equal( _dex.race_bonus.getValue(), 2, "Le deuxieme bonus libre devrait etre pose sur DEX, obtenu : " + _dex.race_bonus.getValue() );
+        TEST.ASSERT.equal( _dex.getModifierValue(), 1, "Le modificateur de DEX devrait valoir +1, obtenu : " + _dex.getModifierValue() );
+        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 0, "Le compteur warning devrait revenir a 0 une fois les 2 choix faits" );
+        return TEST.wait();
+    } ).then( function () {
+        let _counter_after             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+        if ( !_counter_after ) {
+            TEST.ASSERT.notNull( _counter_after, "Le compteur warning devrait exister sur l'onglet (.gs-warnings-counter)" );
+            return;
+        }
+        TEST.ASSERT.equal( _counter_after.getAttribute( "data-number" ), "", "Le compteur d'onglet devrait etre vide une fois les 2 choix faits, obtenu : [" + _counter_after.getAttribute( "data-number" ) + "]" );
+        TEST.ASSERT.equal( getComputedStyle( _counter_after ).display, "none", "Le compteur vide devrait etre masque, obtenu : " + getComputedStyle( _counter_after ).display );
+        let _for_less                  = _pane.querySelector( ".characteristic-line[data-name='FOR'] .characteristic-bonus-race [data-name='event__less_button']" );
+        if ( _for_less ) {
+            TEST.ASSERT.equal( getComputedStyle( _for_less ).pointerEvents, "auto", "Le bouton - du bonus pose sur FOR devrait rester actif (retrait possible), obtenu : " + getComputedStyle( _for_less ).pointerEvents );
+        }
+        TEST.ASSERT.equal( getComputedStyle( _for_more ).pointerEvents, "none", "Le bouton + du bonus pose sur FOR devrait etre attenue (pointer-events none), obtenu : " + getComputedStyle( _for_more ).pointerEvents );
+    } );
 } );

@@ -35,6 +35,7 @@ RACES.Race.prototype = {
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
         let data_from_race = Object.assign( {}, RACES.getDataByName( this.getValue() ) );
         delete data_from_race[ "name" ];
+        this.characteristics_malus = undefined;
         var _keys = Object.keys( data_from_race );
         var _current_key;
         for ( let i = 0, _size = _keys.length; i < _size; i++ ) {

@@ -74,12 +74,12 @@ CHARACTERISTICS.Bonus.prototype = {
         this.number_free = 0;
     },
     initWithData: function ( data ) {
-        if ( !data ) {
-            return;
-        }
         this.initContents();
         this.number      = 0;
         this.number_free = 0;
+        if ( !data ) {
+            return;
+        }
         this.setNumber( data[ "number" ] );
         this.setChoices( data[ "choice" ] );
     },
