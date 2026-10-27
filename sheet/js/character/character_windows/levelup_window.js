@@ -6,6 +6,10 @@
 // ex: { 1: { "general_feat": "Animal de compagnie" }, 3: { "class_feat": "..." } }
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * @class CHARACTER.LevelUpChoices
+ * @extends OBJECT.InterfaceHtml
+ */
 CHARACTER.LevelUpChoices = function () {
     this.init();
 };

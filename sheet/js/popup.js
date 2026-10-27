@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * @class POPUP.PropertyEdition
+ * @extends PHASE.PhaseInterface
+ * @extends OBJECT.InterfaceHtml
+ */
 POPUP.PropertyEdition           = function ( property_name, value, is_consultation ) {
     this.init( property_name, value, is_consultation );
 };
