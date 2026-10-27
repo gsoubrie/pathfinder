@@ -82,6 +82,7 @@
     opacity : 0.4;
 }
 
+/* Libelle Actif/Désactivé (information seule : l'interrupteur vit dans l'onglet Passage de niveau) */
 .property-tab-pane[data-name="level_sheet"] .life-table .level-toggle {
     display         : inline-flex;
     align-items     : center;
@@ -91,17 +92,18 @@
     border          : var(--b-thin) solid var(--c-border-dark);
     border-radius   : var(--r-sm);
     color           : var(--c-text);
-    cursor          : pointer;
+    cursor          : default;
     white-space     : nowrap;
 }
 
-.property-tab-pane[data-name="level_sheet"] .life-table .level-toggle:hover {
-    border-color : var(--c-gold-dark);
-}
-
-/* ===== Icone de la classe d'origine du niveau ===== */
+/* ===== Icone et nom de la classe d'origine du niveau ===== */
 .property-tab-pane[data-name="level_sheet"] .life-table .level-class-icon {
     font-size   : 14px;
+    margin-right: var(--s-sm);
+}
+.property-tab-pane[data-name="level_sheet"] .life-table .level-class-name {
+    color       : var(--c-gold);
+    font-weight : bold;
     margin-right: var(--s-sm);
 }
 

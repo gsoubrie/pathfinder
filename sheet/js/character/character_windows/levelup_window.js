@@ -207,9 +207,19 @@ CHARACTER.LevelUpWindow.prototype = {
         // Sélecteur de classe + prise de niveau
         this._buildClassSelector( character_object );
 
-        // Un bloc par niveau
-        for ( var n = 0; n < levels.length; n++ ) {
-            this._buildLevelBlock( levels[ n ].level_number, levels[ n ].unlocks, choices, character_object );
+        // Un bloc par niveau de l'historique, y compris desactive :
+        // le bloc desactive porte l'interrupteur de re-activation
+        var history       = character_object.getLevelHistory();
+        var enabled_index = 0;
+        for ( var h = 0; h < history.getSize(); h++ ) {
+            var entry = history.getContent( h );
+            if ( entry.isEnabled() && enabled_index < levels.length && levels[ enabled_index ].level_number === h + 1 ) {
+                this._buildLevelBlock( levels[ enabled_index ].level_number, levels[ enabled_index ].unlocks, choices, character_object, entry );
+                enabled_index++;
+            }
+            else {
+                this._buildLevelBlock( h + 1, [], choices, character_object, entry );
+            }
         }
     },
 
@@ -257,10 +267,15 @@ CHARACTER.LevelUpWindow.prototype = {
         }
     },
 
-    _buildLevelBlock: function ( level_number, unlocks, choices, character_object ) {
-        var self    = this;
+    _buildLevelBlock: function ( level_number, unlocks, choices, character_object, history_entry ) {
+        var self       = this;
+        var is_enabled = history_entry ? history_entry.isEnabled() : true;
+        var level_name = history_entry ? history_entry.getUUID() : ( "" + level_number );
         var block = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "levelup-block" } ),
+            SERVICE.DOM.createElement( "div", {
+                class           : "levelup-block" + ( is_enabled ? "" : " disabled" ),
+                "data-level-name": level_name
+            } ),
             this.content_dom_element_target
         );
 
@@ -283,6 +298,15 @@ CHARACTER.LevelUpWindow.prototype = {
                 title
             );
         }
+
+        // Interrupteur Actif / Désactivé (vivant ici, l'onglet Niveau n'affiche qu'un libelle)
+        SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", {
+                class  : "levelup-level-toggle",
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level__toggle',{'param__level_name':'" + level_name + "'})"
+            }, is_enabled ? "Activé" : "Désactivé" ),
+            title
+        );
 
         // Lignes d'unlock
         for ( var u = 0; u < unlocks.length; u++ ) {

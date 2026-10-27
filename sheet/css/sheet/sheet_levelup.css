@@ -94,6 +94,31 @@
     width         : 18px;
 }
 
+/* ── Interrupteur Actif / Désactivé d'un bloc de niveau ── */
+.levelup-window .levelup-level-toggle {
+    background    : linear-gradient(135deg, #6b4e10 0%, #3d2817 100%);
+    border        : 1px solid #8b6914;
+    border-radius : 6px;
+    color         : #e8d4a8;
+    cursor        : pointer;
+    font-size     : 12px;
+    font-weight   : bold;
+    margin-left   : auto;
+    padding       : 3px 12px;
+    white-space   : nowrap;
+}
+
+.levelup-window .levelup-level-toggle:hover {
+    border : 1px solid #ffd700;
+    color  : #ffd700;
+}
+
+/* ── Bloc de niveau désactivé : interrupteur de ré-activation uniquement ── */
+.levelup-window .levelup-block.disabled {
+    border : 1px dashed #6b4e2a;
+    opacity: 0.6;
+}
+
 /* ── Ligne unlock ── */
 .levelup-window .levelup-row {
     align-items  : center;

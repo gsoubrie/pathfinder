@@ -86,16 +86,15 @@ CHARACTER.LevelWindow.prototype = {
 
             let _level_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td" ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-class-icon" }, CLASSES.ICONS[ lvl.getClassName() ] || "⚔" ), _level_cell );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-class-name" }, lvl.getClassName() ), _level_cell );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, lvl.getUUID() ), _level_cell );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class + character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key ).modifier_value.value ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.life_class ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key ).modifier_value.value ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.bonus || "" ), tr );
             let _toggle_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td" ), tr );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-                class  : "level-toggle",
-                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level__toggle',{'param__level_name':'" + lvl.getUUID() + "'})"
-            }, lvl.isEnabled() ? "Activé" : "Désactivé" ), _toggle_cell );
+            // libelle uniquement : l'interrupteur vit dans l'onglet Passage de niveau
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-toggle" }, lvl.isEnabled() ? "Activé" : "Désactivé" ), _toggle_cell );
         } );
 
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
