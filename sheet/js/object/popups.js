@@ -17,11 +17,13 @@ OBJECT.PopupRenderers.prototype = {
             case "event__show_information":
                 let uuid = params["param__object__uuid"];
                 let existing_popup = this.getContentByUUID( uuid );
-                if ( !existing_popup ) {
-                    existing_popup = this.add( new OBJECT.PopupRenderer( OBJECT.CONST[ uuid ] ) );
+                if ( !existing_popup && OBJECT.COMPENDIUM[ uuid ] ) {
+                    existing_popup = this.add( new OBJECT.PopupRenderer( OBJECT.COMPENDIUM[ uuid ] ) );
                     existing_popup.computeHtml();
                 }
-                existing_popup.doActionAfter(event_name, params);
+                if ( existing_popup ) {
+                    existing_popup.doActionAfter( event_name, params );
+                }
                 return;
             case "event__popup__close":
                 this.getContentByUUID( params["param__popup__uuid"] ).doActionAfter(event_name, params);

@@ -1,4 +1,4 @@
-OBJECT.CONST = {
+OBJECT.COMPENDIUM = {
     "KxpaxUSuBC7hr4F7": {
         "action_cost": null,
         "bulk": null,
@@ -3453,10 +3453,17 @@ OBJECT.CONST = {
         "traits": []
     },
     "kzxu2dI7tFxv6Ix6": {
+        "action_cost": null,
+        "bulk": null,
         "category": "journals",
+        "description": "<p>Votre école arcanique est l'endroit où vous vous êtes consacré à l'étude de la magie. Que vous ayez appris dans les salles prestigieuses d'une institution officielle, par le biais d'un apprentissage auprès d'un archimage ou en autodidacte dans des ouvrages de seconde main, votre école arcanique a défini de manière indélébile votre cursus et l'orientation de votre magie.</p>\n<p>Sorts de cursus Vous ajoutez automatiquement à votre grimoire certains des sorts figurant dans le programme de votre école. Au niveau 1, vous ajoutez un tour de magie et deux sorts de rang 1 de votre choix. Dès que vous obtenez la capacité de lancer des sorts de magicien d'un rang nouveau, choisissez l'un des sorts de votre cursus de ce rang pour l'ajouter à votre grimoire. Votre MJ peut vous permettre d'échanger ou d'ajouter d'autres sorts à votre cursus s'ils s'intègrent bien à son thème.</p>\n<p>Emplacements de sorts Chaque jour, vous pouvez préparer un tour de magie supplémentaire issu de votre cursus. Vous obtenez un emplacement de sort supplémentaire de chaque rang de sort pour lequel vous disposez d'emplacements de sort de magicien. Vous ne pouvez préparer que des sorts de votre cursus dans ces emplacements de sorts. Tout sort indiqué dans votre cursus qui est d'un rang de sort convenable est éligible et peut être préparé dans chacun de ces emplacements de sorts supplémentaires, quelle que soit la manière dont vous l'avez ajouté à votre grimoire.</p>\n<p>Sort d'école Les sorts d'école sont un type de sorts focalisés. Il faut dépenser 1 point de focalisation pour lancer un sort focalisé et vous commencez avec une réserve de focalisation de 1 point de focalisation. Vous remplissez votre réserve de focalisation lors de vos préparatifs quotidiens et vous pouvez récupérer 1 point de focalisation en utilisant l'activité Refocaliser pendant dix minutes pour étudier votre grimoire ou conduire une recherche arcanique.</p>\n<p>Un sort focalisé est automatiquement intensifié à la moitié de votre niveau arrondi au supérieur, comme un tour de magie. Un sort focalisé n'a pas besoin d'emplacement de sort et vous ne pouvez pas le lancer en utilisant un emplacement de sort. Le nombre maximum de points de focalisation que peut contenir votre réserve de focalisation est égal au nombre de sorts focalisés que vous possédez mais ne peut jamais dépasser 3 points.</p>\n<p>Vous apprenez le sort d'école initial, qui est propre à votre école. Vous pouvez apprendre le sort d'école avancé avec le don Sort d'école avancé.</p>",
+        "element_type": null,
         "href": null,
         "id": "kzxu2dI7tFxv6Ix6",
-        "text": "école arcanique"
+        "price": null,
+        "required": [],
+        "text": "école arcanique",
+        "traits": []
     },
     "v82XtjAVN4ffgVVR": {
         "action_cost": "f",

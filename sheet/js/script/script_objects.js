@@ -3,7 +3,7 @@
 /*
 =========================================================
 PF2_LINKS_SCRAPER
-Enrichit chaque entrée de OBJECT.CONST avec :
+Enrichit chaque entrée de OBJECT.COMPENDIUM avec :
   - traits       : string[]
   - required     : string[]   (prérequis)
   - description  : string
@@ -12,7 +12,7 @@ Enrichit chaque entrée de OBJECT.CONST avec :
   https://pf2e.pathfinder-fr.org/
   (le script navigue lui-même vers chaque href)
 
-Prérequis : avoir OBJECT.CONST en mémoire (coller links.json
+Prérequis : avoir OBJECT.COMPENDIUM en mémoire (coller links.json
 avant, ou laisser le script le chercher dans window.LINKS_DATA)
 =========================================================
 */
@@ -133,8 +133,8 @@ const PF2_LINKS_SCRAPER = (function () {
      * puis navigue vers la suivante.
      *
      * Usage :
-     *   1. Charger OBJECT.CONST (coller le JSON dans la console)
-     *   2. PF2_LINKS_SCRAPER.start(OBJECT.CONST)
+     *   1. Charger OBJECT.COMPENDIUM (coller le JSON dans la console)
+     *   2. PF2_LINKS_SCRAPER.start(OBJECT.COMPENDIUM)
      *
      * Le script se relance automatiquement à chaque navigation.
      * Quand tout est fini, il télécharge enriched_links.json.
@@ -164,7 +164,7 @@ const PF2_LINKS_SCRAPER = (function () {
 
         const raw = sessionStorage.getItem("pf2scraper");
         if (!raw) {
-            console.warn("[PF2_SCRAPER] Aucun état trouvé. Appelle start(OBJECT.CONST) d'abord.");
+            console.warn("[PF2_SCRAPER] Aucun état trouvé. Appelle start(OBJECT.COMPENDIUM) d'abord.");
             return;
         }
 
@@ -289,8 +289,8 @@ ET n'est pas en pause → on reprend automatiquement.
     const raw = sessionStorage.getItem("pf2scraper");
     if (!raw) {
         console.log(`[PF2_SCRAPER] Prêt.
-► Pour lancer : PF2_LINKS_SCRAPER.start(OBJECT.CONST)
-  (assure-toi d'avoir OBJECT.CONST en mémoire)
+► Pour lancer : PF2_LINKS_SCRAPER.start(OBJECT.COMPENDIUM)
+  (assure-toi d'avoir OBJECT.COMPENDIUM en mémoire)
 ► Pour reprendre après un rechargement manuel : PF2_LINKS_SCRAPER.resume()
 ► Pour sauvegarder l'état intermédiaire : PF2_LINKS_SCRAPER.saveNow()`);
         return;

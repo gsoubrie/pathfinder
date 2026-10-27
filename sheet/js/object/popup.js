@@ -39,7 +39,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.FeatPopupRenderer( object_data );
             case "item":
                 return new OBJECT.ItemPopupRenderer( object_data );
-            
+            default:
+                return new OBJECT.DefaultPopupRenderer( object_data );
         }
     },
     //********************************************  HTML  **************************************************//

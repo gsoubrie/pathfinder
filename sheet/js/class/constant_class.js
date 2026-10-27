@@ -2924,7 +2924,7 @@ var CLASSES = {
             "ecole_arcanique": {
                 "name": "École arcanique",
                 "description": [
-                    "La plupart des magiciens acquièrent leurs connaissances des sorts par le biais d'un enseignement éducatif formel, dispensés dans un établissement tel que l'Arcanamirium ou le Magaambya. Au niveau 1, vous choisissez votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kzxu2dI7tFxv6Ix6.JournalEntryPage.wDukeO3euLEGn6FA#arcane-schools'})\">école arcanique</div> qui vous accorde vos capacités magiques.",
+                    "La plupart des magiciens acquièrent leurs connaissances des sorts par le biais d'un enseignement éducatif formel, dispensés dans un établissement tel que l'Arcanamirium ou le Magaambya. Au niveau 1, vous choisissez votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kzxu2dI7tFxv6Ix6'})\">école arcanique</div> qui vous accorde vos capacités magiques.",
                     "Vous obtenez des sorts supplémentaires et des emplacements de sorts du cursus enseigné par l'école au sein de laquelle vous avez étudié. Certains magiciens suivent l'école de la théorie magique unifiée qui tente de construire une nouvelle école en étudiant différemment et en tirant des informations de toutes sortes de textes et de tuteurs. Bien qu'un magicien de cette école manque de la spécialisation propre à une formation formelle, il possède une meilleure polyvalence."
                 ]
             },
