@@ -4,8 +4,9 @@
  * Le popup de selection d'une classe affiche, dans la description, les
  * caracteristiques que le niveau 1 va rajouter — comme le fait deja le popup
  * de race ("Prime d'attribut : Nombre de choix / Dextérité / Libre").
- * 1. Magicien (bonus force) : la propriete "Attribut clé" affiche
- *    "Nombre de choix : 1" et "Intelligence".
+ * La ligne "Nombre de choix" n'apparait que s'il y a un vrai choix.
+ * 1. Magicien (attribut unique force) : la propriete "Attribut clé"
+ *    affiche "Intelligence", sans ligne "Nombre de choix".
  * 2. Champion (choix entre candidates) : "Nombre de choix : 1" avec "Force"
  *    et "Dextérité" ; puis fermeture du popup via Quitter.
  */
@@ -38,7 +39,7 @@ TEST.RUNNER.register( "[CLASSE] popup Magicien → attribut clé = Intelligence"
         if ( !_prime ) {
             return;
         }
-        TEST.ASSERT.ok( _prime.indexOf( "Nombre de choix : 1" ) !== -1, "L'attribut clé devrait afficher le nombre de choix, obtenu : [" + _prime + "]" );
+        TEST.ASSERT.ok( _prime.indexOf( "Nombre de choix" ) === -1, "L'attribut clé unique de Magicien ne devrait pas afficher de ligne Nombre de choix, obtenu : [" + _prime + "]" );
         TEST.ASSERT.ok( _prime.indexOf( "Intelligence" ) !== -1, "L'attribut clé de Magicien devrait afficher Intelligence, obtenu : [" + _prime + "]" );
     } );
 } );

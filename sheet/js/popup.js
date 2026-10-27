@@ -1,10 +1,11 @@
 "use strict";
-POPUP.PropertyEdition           = function ( property_name, value ) {
-    this.init( property_name, value );
+POPUP.PropertyEdition           = function ( property_name, value, is_consultation ) {
+    this.init( property_name, value, is_consultation );
 };
 POPUP.PropertyEdition.prototype = {
-    init: function ( property_name, value ) {
+    init: function ( property_name, value, is_consultation ) {
         let default_value = "";
+        this.is_consultation = !!is_consultation;
         console.log("GSOU", "[PropertyEdition - init]", property_name, value );
         switch ( property_name ) {
             case RACES.key_element:
@@ -47,7 +48,9 @@ POPUP.PropertyEdition.prototype = {
         this.container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup" } ), this.getDomElement() );
         let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
         let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__form__element_changed')" }, "Valider" ), actions );
+        if ( !this.is_consultation ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__form__element_changed')" }, "Valider" ), actions );
+        }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
         this.windows.computeHtml();
         SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );

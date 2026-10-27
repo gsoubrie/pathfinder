@@ -148,8 +148,11 @@ CHARACTERISTICS.Bonus.prototype = {
     //********************************************  HTML  *****************************************************//
     computePopupDomElement: function ( params ) {
         this.dom_element_popup = SERVICE.DOM.createElement( "div", { class: "gs-characteristics-bonuses" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
-        
+        let _is_unique_choice = this.number === 1 && this.getSize() === 1 && this.getContent( 0 ).getUUID() !== CHARACTERISTICS.FREE.key;
+        if ( !params[ "param__hide_number_when_unique" ] || !_is_unique_choice ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Nombre de choix : " + this.number ), this.dom_element_popup );
+        }
+
         params[ "param__dom_element_parent" ] = this.dom_element_popup;
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).doActionAfter( "event__compute__html", params );

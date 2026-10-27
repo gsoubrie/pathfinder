@@ -261,6 +261,8 @@ CLASSES.ClassPopup.prototype = {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "class-edition" } ) );
 
         SERVICE.DOM.addElementTo( this.computeHTMLHeader(), this.getDomElement() );
+        let params_key_attribute = { "param__window": "param__popup__select", "param__hide_number_when_unique": true };
+        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createFieldPropertyHorizontal( this.characteristics_bonus, "Attribut clé", params_key_attribute ), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLRoles(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLPersonality(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLMastery(), this.getDomElement() );
@@ -287,7 +289,7 @@ CLASSES.CharacterClasses.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__property_popup__open":
-                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( CLASSES.key_element, this.isEmpty() ? CLASSES.default_value : this.getContent( 0 ).getName() );
+                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( CLASSES.key_element, params[ "param__class_name" ] || ( this.isEmpty() ? CLASSES.default_value : this.getContent( 0 ).getName() ), !!params[ "param__class_name" ] );
                 return;
             case "event__form__element_changed":
                 this.addClassFromEdition( params );
@@ -412,7 +414,8 @@ CLASSES.CharacterClasses.prototype = {
             let _entry = SERVICE.DOM.createElement( "div", {
                 class     : "class-entry",
                 "data-name": _class.getName(),
-                title      : _class.getName() + " — Niveau " + _class.getLevel()
+                title      : _class.getName() + " — Niveau " + _class.getLevel(),
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "','param__class_name':'" + _class.getName() + "'})"
             } );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-icon" }, CLASSES.ICONS[ _class.getName() ] || "⚔" ), _entry );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-level" }, "" + _class.getLevel() ), _entry );

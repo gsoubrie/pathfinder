@@ -132,7 +132,8 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] Champion niv1 → choix FOR/DEX", func
             }
             let _less                   = _cell.querySelector( ".gs-button-V4[data-name='event__less_button']" );
             if ( _less ) {
-                TEST.ASSERT.equal( getComputedStyle( _less ).display, "none", "Le bouton - du candidat " + _candidates[ i ] + " devrait etre masque (rien a retirer), obtenu : " + getComputedStyle( _less ).display );
+                TEST.ASSERT.notEqual( getComputedStyle( _less ).display, "none", "Le bouton - du candidat " + _candidates[ i ] + " devrait rester affiche (rien a retirer), obtenu : " + getComputedStyle( _less ).display );
+                TEST.ASSERT.equal( getComputedStyle( _less ).pointerEvents, "none", "Le bouton - du candidat " + _candidates[ i ] + " devrait etre desactive (pointer-events none), obtenu : " + getComputedStyle( _less ).pointerEvents );
             }
         }
         let _con_cell                   = _pane.querySelector( ".characteristic-line[data-name='CON'] .characteristic-bonus-class" );
@@ -186,7 +187,8 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR classe → bonus posé, compteur
         }
         let _more                      = _for_cell.querySelector( ".gs-button-V4[data-name='event__more_button']" );
         if ( _more ) {
-            TEST.ASSERT.equal( getComputedStyle( _more ).display, "none", "Le bouton + du bonus pose sur FOR devrait etre masque, obtenu : " + getComputedStyle( _more ).display );
+            TEST.ASSERT.notEqual( getComputedStyle( _more ).display, "none", "Le bouton + du bonus pose sur FOR devrait rester affiche, obtenu : " + getComputedStyle( _more ).display );
+            TEST.ASSERT.equal( getComputedStyle( _more ).pointerEvents, "none", "Le bouton + du bonus pose sur FOR devrait etre desactive (pointer-events none), obtenu : " + getComputedStyle( _more ).pointerEvents );
         }
         let _less                      = _for_cell.querySelector( ".gs-button-V4[data-name='event__less_button']" );
         if ( _less ) {

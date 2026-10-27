@@ -87,6 +87,13 @@ TEST.RUNNER                             = (function ( self ) {
         _title.className                  = "test-report-title";
         _title.innerText                  = "TESTS : " + _summary.passes + " OK / " + _summary.failures + " ECHECS (" + _summary.total + ")";
         _container.appendChild( _title );
+        let _close                        = document.createElement( "div" );
+        _close.className                  = "test-report-close";
+        _close.innerText                  = "Fermer";
+        _close.onclick                    = function () {
+            _container.style.display      = "none";
+        };
+        _title.appendChild( _close );
         for ( let i = 0, _size_i = self.results.length; i < _size_i; i++ ) {
             let _current                  = self.results[ i ];
             let _line                     = document.createElement( "div" );

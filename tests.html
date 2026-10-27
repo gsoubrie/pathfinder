@@ -102,6 +102,8 @@
 	<script src="./sheet/js/tests/scenario_caracteristiques.js"></script>
 	<script src="./sheet/js/tests/scenario_caracteristiques_classe.js"></script>
 	<script src="./sheet/js/tests/scenario_classe_prime.js"></script>
+	<script src="./sheet/js/tests/scenario_classe_entree.js"></script>
+	<script src="./sheet/js/tests/scenario_archetype.js"></script>
 
 	<script>
 		window.addEventListener( "load", function () {
@@ -126,8 +128,24 @@
 			border          : 1px solid #555;
 		}
 		#test-report .test-report-title {
-			font-weight : bold;
-			margin      : 4px 0 8px 0;
+			display      : flex;
+			align-items  : center;
+			font-weight  : bold;
+			margin       : 4px 0 8px 0;
+		}
+		#test-report .test-report-close {
+			margin-left    : auto;
+			cursor         : pointer;
+			color          : #d4d4d4;
+			background     : #333;
+			border         : 1px solid #555;
+			border-radius  : 3px;
+			padding        : 2px 8px;
+			font-size      : 11px;
+			font-family    : monospace;
+		}
+		#test-report .test-report-close:hover {
+			background : #444;
 		}
 		#test-report .test-pass {
 			color  : #7ee787;
