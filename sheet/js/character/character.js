@@ -16,7 +16,7 @@ CHARACTER.Current = function () {
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
     this.gifts           = new CHARACTER.Gifts();
-    this.levelup_choices = new CHARACTER.LevelUpChoices();
+    this.level_up_skills = new CHARACTER.LevelUpSkills();
     this.children        = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
@@ -24,6 +24,7 @@ CHARACTER.Current = function () {
     this.children.add( this.class );
     this.children.add( this.characteristics );
     this.children.add( this.levels_history );
+    this.children.add( this.level_up_skills );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -45,6 +46,7 @@ CHARACTER.Current.prototype = {
                 params[ "param__current_character__object" ] = this;
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
+                this.level_up_skills.buildSkills( this );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
@@ -58,6 +60,7 @@ CHARACTER.Current.prototype = {
                 _new_entry.setData( "life_class", CLASSES.getDataByName( params[ "param__class_name" ] ).life_point_by_level );
                 this.computeTotalLife();
                 this.class.updateHtmlData();
+                this.level_up_skills.buildSkills( this );
                 break;
             case "event__level_up__remove_level":
                 let _removed_class = this.class.getContentByUUID( params[ "param__class_name" ] );
@@ -84,6 +87,7 @@ CHARACTER.Current.prototype = {
                 }
                 this.computeTotalLife();
                 this.class.updateHtmlData();
+                this.level_up_skills.buildSkills( this );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
                 break;
@@ -92,8 +96,15 @@ CHARACTER.Current.prototype = {
                 if ( _level_entry ) {
                     _level_entry.setEnabled( !_level_entry.isEnabled() );
                     this.computeTotalLife();
+                    this.level_up_skills.buildSkills( this );
                     this.windows.doActionAfterContentChildren( event_name, params );
                 }
+                break;
+            case "event__levelup__select":
+            case "event__inline_selector__open":
+            case "event__inline_selector__search":
+            case "event__inline_selector__entry":
+                this.level_up_skills.doActionAfter( event_name, params );
                 break;
             case "event__more_button":
             case "event__less_button":
@@ -106,6 +117,7 @@ CHARACTER.Current.prototype = {
                 this.characteristics.doActionAfter( event_name, params );
                 break;
             case "event__data_loaded__done":
+                this.level_up_skills.buildSkills( this );
                 this.computeTotalLife();
                 break;
             case "event__compute_html__done":
@@ -205,7 +217,8 @@ CHARACTER.Current.prototype = {
                 this.gifts.updateData( value );
                 break;
             case "levelup_choices":
-                this.levelup_choices.updateData( value );
+            case "level_up_skills":
+                this.level_up_skills.updateData( value );
                 break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
@@ -274,8 +287,8 @@ CHARACTER.Current.prototype = {
     getGifts          : function () {
         return this.gifts;
     },
-    getLevelUpChoices : function () {
-        return this.levelup_choices;
+    getLevelUpSkills : function () {
+        return this.level_up_skills;
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {

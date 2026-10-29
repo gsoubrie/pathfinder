@@ -82,18 +82,6 @@
     text-transform: uppercase;
 }
 
-.levelup-window .levelup-pending-badge {
-    background    : #d4500a;
-    border-radius : 50%;
-    color         : #fff;
-    font-size     : 11px;
-    font-weight   : bold;
-    height        : 18px;
-    line-height   : 18px;
-    text-align    : center;
-    width         : 18px;
-}
-
 /* ── Interrupteur Actif / Désactivé d'un bloc de niveau ── */
 .levelup-window .levelup-level-toggle {
     background    : linear-gradient(135deg, #6b4e10 0%, #3d2817 100%);
@@ -157,6 +145,23 @@
 .levelup-window .levelup-row--choice .levelup-row-label {
     color       : #e8d4a8;
     font-weight : 600;
+}
+
+/* ── Groupe libellé + lien d'information (?) : le ? reste colle au libellé ── */
+.levelup-window .levelup-row-label-group {
+    align-items : center;
+    display     : flex;
+    flex        : 1;
+    gap         : 5px;
+}
+
+.levelup-window .levelup-row-label-group .levelup-row-label {
+    flex : 0 1 auto;
+}
+
+/* ── Counter de warning de la ligne (enfant du counter de la fenêtre) ── */
+.levelup-window .levelup-row-warning {
+    flex-shrink : 0;
 }
 
 /* ── Sélecteur ── */
@@ -292,23 +297,6 @@
     font-size  : 12px;
 }
 
-/* ── Badge warning sur l'onglet ── */
-.levelup-warning-badge {
-    background    : #d4500a;
-    border-radius : 50%;
-    color         : #fff;
-    font-size     : 10px;
-    font-weight   : bold;
-    height        : 16px;
-    line-height   : 16px;
-    margin-left   : 6px;
-    min-width     : 16px;
-    text-align    : center;
-    display       : inline-block;
-    padding       : 0 2px;
-    vertical-align: middle;
-}
-
 /* ── Warning dans characteristics (body dataset) ── */
 body[data-levelup-missing]:not([data-levelup-missing="0"]) #id-gs-window-V2-characteristic_sheet-character_group .gs-div-tab::after {
     content       : attr(data-levelup-missing-label);
@@ -419,4 +407,132 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
 .property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-remove:hover {
     border-color : var(--c-gold-dark);
     color        : var(--c-text-gold);
+}
+
+/* ===== Ligne de choix pilotée par les données (ex : école arcanique) ===== */
+.property-tab-pane[data-name="levelup_sheet"] .levelup-row--choice {
+    flex-wrap: wrap;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .levelup-row-info {
+    font-size : 11px;
+}
+
+/* ===== Sélecteur générique (OBJECT.InlineSelector) ===== */
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector {
+    flex : 0 1 auto;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open-btn {
+    background    : var(--g-card);
+    border        : var(--b-thin) solid var(--c-border-dark);
+    border-radius : var(--r-sm);
+    color         : var(--c-text-gold);
+    cursor        : pointer;
+    font-size     : 11px;
+    font-weight   : var(--font-weight-bold);
+    padding       : 2px 8px;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open-btn:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-gold-dark);
+    color       : var(--c-text-gold);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-value {
+    align-items     : center;
+    background      : var(--g-card);
+    border          : var(--b-thin) solid var(--c-border-dark);
+    border-radius   : var(--r-sm);
+    display         : flex;
+    gap             : var(--s-md);
+    justify-content : space-between;
+    padding         : var(--s-sm) var(--s-md);
+    max-width       : 420px;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-value-name {
+    color      : var(--c-text-gold);
+    font-weight : var(--font-weight-bold);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-clear-btn {
+    background    : var(--g-card);
+    border        : var(--b-thin) solid var(--c-border-dark);
+    border-radius : var(--r-sm);
+    color         : var(--c-text-muted);
+    cursor        : pointer;
+    font-weight   : var(--font-weight-bold);
+    padding       : 0 var(--s-md);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-clear-btn:hover {
+    border-color : var(--c-gold-dark);
+    color        : var(--c-text-gold);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open {
+    background      : var(--g-card);
+    border          : var(--b-thin) solid var(--c-gold-dark);
+    border-radius   : var(--r-sm);
+    display         : flex;
+    flex-direction  : column;
+    gap             : var(--s-sm);
+    padding         : var(--s-sm);
+    min-width       : 260px;
+    max-width       : 420px;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-search {
+    background    : var(--g-card);
+    border        : var(--b-thin) solid var(--c-border-dark);
+    border-radius : var(--r-sm);
+    color         : var(--c-text);
+    font-family   : inherit;
+    font-size     : 12px;
+    outline      : none;
+    padding       : var(--s-sm) var(--s-md);
+    width         : 100%;
+    box-sizing    : border-box;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-search:focus {
+    border-color : var(--c-gold);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-list {
+    display         : flex;
+    flex-direction  : column;
+    gap             : 2px;
+    max-height      : 240px;
+    overflow-y     : auto;
+    scrollbar-width: thin;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry {
+    align-items     : center;
+    background      : var(--g-card);
+    border          : var(--b-thin) solid transparent;
+    border-radius   : var(--r-sm);
+    cursor          : pointer;
+    display         : flex;
+    gap             : var(--s-md);
+    justify-content : space-between;
+    padding         : var(--s-sm) var(--s-md);
+    transition      : all 0.15s ease;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-gold-dark);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry-name {
+    color     : var(--c-text);
+    font-size : 12px;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry-info {
+    font-size : 11px;
 }
