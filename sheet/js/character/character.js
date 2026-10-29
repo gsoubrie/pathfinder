@@ -17,6 +17,7 @@ CHARACTER.Current = function () {
     this.levels_history  = new CHARACTER.LevelsHistory();
     this.gifts           = new CHARACTER.Gifts();
     this.level_up_skills = new CHARACTER.LevelUpSkills();
+    this.masteries       = new CHARACTER.Masteries( this );
     this.children        = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
@@ -289,6 +290,9 @@ CHARACTER.Current.prototype = {
     },
     getLevelUpSkills : function () {
         return this.level_up_skills;
+    },
+    getMasteries     : function () {
+        return this.masteries;
     },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {

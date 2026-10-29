@@ -35,6 +35,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.ActionPopupRenderer( object_data );
             case "class-feature":
                 return new OBJECT.ClassFeaturePopupRenderer( object_data );
+            case "masteries":
+                return new OBJECT.MasteriesPopupRenderer( object_data );
             case "feat":
                 return new OBJECT.FeatPopupRenderer( object_data );
             case "item":

@@ -42,6 +42,9 @@ CHARACTER.LevelUpSkills.prototype = {
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  GETTER SETTER  **************************************************//
+    getUUID: function () {
+        return this.key;
+    },
     getSkill: function ( level, slot_key ) {
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             let skill = this.getContent( i );

@@ -6,8 +6,9 @@
  * 1. Bloc Niveau 1 : ligne "école arcanique" avec le lien d'information "?"
  *    (popup de la capacité de classe) colle a droite du libelle dans le groupe
  *    label, et selecteur generique replie (bouton Choisir...). Toute capacité
- *    décrite porte son "?" : le bloc niveau 1 du Magicien en compte 3 (école
- *    arcanique, lien arcanique, thèse arcanique). La ligne porte un counter de
+ *    décrite porte son "?" : le bloc niveau 1 du Magicien en compte 5 (école
+ *    arcanique, incantation arcanique via l'alias de renommage, lien arcanique,
+ *    maîtrises initiales, thèse arcanique). La ligne porte un counter de
  *    warning enfant de celui de la fenêtre, affiche 1 ; le counter warnings de
  *    l'onglet vaut 1 par cumul, pas de badge "!" dans le bloc.
  * 2. Lien "?" de école arcanique → popup de la capacité ouverte (renderer
@@ -24,6 +25,10 @@
  *    DON car categorie feat) puis fermee.
  * 6. Effacement : choix retire, bouton Choisir... de retour, ligne et warning
  *    de nouveau en attente, counters de la ligne et de l'onglet de retour a 1.
+ * 7. Niveau 5 : la capacité "expertise en réflexes" du niveau 5 élève le rang
+ *    de la maîtrise Réflexes du personnage de Qualifié a Expert (agrégation
+ *    CHARACTER.Masteries, contributions du bloc mastery + upgrades des
+ *    niveaux actifs), Vigueur reste Qualifié jusqu'au niveau 9.
  */
 
 TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → ligne école arcanique + ? au libellé + counters ligne et onglet = 1", function () {
@@ -63,7 +68,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → ligne école arcanique 
             TEST.ASSERT.equal( _block.querySelector( ".levelup-block-level-num" ).textContent, "Niveau 1", "Le premier bloc devrait etre celui du niveau 1, obtenu : " + _block.querySelector( ".levelup-block-level-num" ).textContent );
             TEST.ASSERT.isNull( _block.querySelector( ".levelup-pending-badge" ), "Le badge '!' ne devrait plus etre rendu (remplace par le counter de l'onglet)" );
             let _block_infos                 = _block.querySelectorAll( ".levelup-row-info" );
-            TEST.ASSERT.equal( _block_infos.length, 3, "Toute capacité décrite du niveau 1 devrait porter le ? (école arcanique, lien arcanique, thèse arcanique), obtenu : " + _block_infos.length );
+            TEST.ASSERT.equal( _block_infos.length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique), obtenu : " + _block_infos.length );
         }
         let _row                          = _pane.querySelector( ".levelup-row[data-slot-key='ecole_arcanique']" );
         TEST.ASSERT.notNull( _row, "La ligne école arcanique devrait etre rendue (.levelup-row[data-slot-key='ecole_arcanique'])" );
@@ -115,7 +120,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → ligne école arcanique 
     } );
 } );
 
-TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups École arcanique puis Lien arcanique", function () {
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias incantation et maîtrises", function () {
     let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
     TEST.ASSERT.notNull( _row, "Pre-condition : ligne école arcanique rendue" );
     if ( !_row ) {
@@ -174,6 +179,63 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups École arcanique pu
     }
     CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "Magicien__lien_arcanique" } );
     TEST.ASSERT.equal( _lien_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup de Lien arcanique devrait etre masquee apres fermeture" );
+    let _incantation_row                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='incantation_arcanique']" );
+    TEST.ASSERT.notNull( _incantation_row, "La ligne incantation arcanique devrait etre rendue au niveau 1" );
+    if ( !_incantation_row ) {
+        return;
+    }
+    let _incantation_info                = _incantation_row.querySelector( ".levelup-row-info" );
+    TEST.ASSERT.notNull( _incantation_info, "La ligne incantation arcanique devrait porter le ? (alias vers la capacité Incantation de magicien)" );
+    if ( !_incantation_info ) {
+        return;
+    }
+    _incantation_info.click();
+    let _incantation_overlay             = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _incantation_overlay, "La popup de la capacité d'incantation devrait etre ouverte" );
+    if ( !_incantation_overlay ) {
+        return;
+    }
+    let _incantation_title               = _incantation_overlay.querySelector( ".popup-title" );
+    TEST.ASSERT.notNull( _incantation_title, "La popup d'incantation devrait afficher un titre" );
+    if ( _incantation_title ) {
+        TEST.ASSERT.equal( _incantation_title.textContent, "Incantation de magicien", "Le libelle du tableau de niveaux (incantation arcanique) designe la capacité Incantation de magicien, obtenu : " + _incantation_title.textContent );
+    }
+    CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "Magicien__incantation_de_magicien" } );
+    TEST.ASSERT.equal( _incantation_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup d'incantation devrait etre masquee apres fermeture" );
+    let _masteries_row                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='maitrises_initiales']" );
+    TEST.ASSERT.notNull( _masteries_row, "La ligne maîtrises initiales devrait etre rendue au niveau 1" );
+    if ( !_masteries_row ) {
+        return;
+    }
+    let _masteries_info                 = _masteries_row.querySelector( ".levelup-row-info" );
+    TEST.ASSERT.notNull( _masteries_info, "La ligne maîtrises initiales devrait porter le ? (rangs courants du personnage)" );
+    if ( !_masteries_info ) {
+        return;
+    }
+    _masteries_info.click();
+    let _masteries_overlay              = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _masteries_overlay, "La popup des maîtrises du personnage devrait etre ouverte" );
+    if ( !_masteries_overlay ) {
+        return;
+    }
+    let _masteries_title               = _masteries_overlay.querySelector( ".popup-title" );
+    TEST.ASSERT.notNull( _masteries_title, "La popup des maîtrises devrait afficher un titre" );
+    if ( _masteries_title ) {
+        TEST.ASSERT.equal( _masteries_title.textContent, "Maîtrises", "Le titre de la popup devrait etre Maîtrises, obtenu : " + _masteries_title.textContent );
+    }
+    let _masteries_groups               = _masteries_overlay.querySelectorAll( ".class-mastery-group" );
+    TEST.ASSERT.ok( _masteries_groups.length >= 4, "La popup devrait regrouper les rangs par section (Perception, sauvegardes, attaques, défenses, sorts), obtenu : " + _masteries_groups.length );
+    let _masteries_descs               = _masteries_overlay.querySelectorAll( ".class-mastery-row .class-mastery-desc" );
+    let _has_vigueur                   = false;
+    let _has_volonte                   = false;
+    for ( let _i = 0; _i < _masteries_descs.length; _i++ ) {
+        if ( _masteries_descs[ _i ].textContent === "Vigueur" ) { _has_vigueur = true; }
+        if ( _masteries_descs[ _i ].textContent === "Volonté" ) { _has_volonte = true; }
+    }
+    TEST.ASSERT.ok( _has_vigueur, "Les maîtrises du Magicien devraient inclure Vigueur (rang du bloc mastery de la classe)" );
+    TEST.ASSERT.ok( _has_volonte, "Les maîtrises du Magicien devraient inclure Volonté" );
+    CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__masteries" } );
+    TEST.ASSERT.equal( _masteries_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup des maîtrises devrait etre masquee apres fermeture" );
 } );
 
 TEST.RUNNER.register( "[LEVELUP MAGICIEN] selecteur ouvert = 11 écoles + recherche filtrante", function () {
@@ -345,5 +407,56 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] effacement → choix retiré + counter
             TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "1", "Le counter de l'onglet devrait etre de retour a 1, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _counter ).display, "none", "Le counter devrait etre de nouveau visible, obtenu : " + getComputedStyle( _counter ).display );
         }
+    } );
+} );
+
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → maîtrise Réflexes experte", function () {
+    let _character                        = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.equal( _character.getLevel(), 1, "Pre-condition : Magicien niveau 1, obtenu : " + _character.getLevel() );
+    let _rank_before                     = _character.getMasteries().getFinalRank( "save__reflexes" );
+    TEST.ASSERT.equal( _rank_before, "Q", "La maîtrise Réflexes devrait etre qualifiee au niveau 1, obtenu : " + _rank_before );
+    for ( let _take = 0; _take < 4; _take++ ) {
+        let _take_button                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-class-option[data-name='Magicien'] .levelup-class-option-take" );
+        TEST.ASSERT.notNull( _take_button, "Le plus de prise de niveau devrait etre rendu (iteration " + _take + ")" );
+        if ( !_take_button ) {
+            return;
+        }
+        _take_button.click();
+    }
+    return TEST.wait().then( function () {
+        TEST.ASSERT.equal( _character.getLevel(), 5, "Le Magicien devrait etre niveau 5, obtenu : " + _character.getLevel() );
+        let _rank_after                  = _character.getMasteries().getFinalRank( "save__reflexes" );
+        TEST.ASSERT.equal( _rank_after, "E", "La maîtrise Réflexes devrait etre experte au niveau 5 (expertise en réflexes), obtenu : " + _rank_after );
+        let _rank_vigueur                = _character.getMasteries().getFinalRank( "save__vigueur" );
+        TEST.ASSERT.equal( _rank_vigueur, "Q", "La maîtrise Vigueur devrait rester qualifiee avant le niveau 9 (vigueur magique), obtenu : " + _rank_vigueur );
+        let _masteries_info              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='maitrises_initiales'] .levelup-row-info" );
+        TEST.ASSERT.notNull( _masteries_info, "Le ? de la ligne maîtrises initiales devrait etre rendu au niveau 5" );
+        if ( !_masteries_info ) {
+            return;
+        }
+        _masteries_info.click();
+        let _overlay                     = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _overlay, "La popup des maîtrises devrait etre ouverte apres les prises de niveau" );
+        if ( !_overlay ) {
+            return;
+        }
+        let _rows                        = _overlay.querySelectorAll( ".class-mastery-row" );
+        let _reflexes_badge              = null;
+        for ( let _i = 0; _i < _rows.length; _i++ ) {
+            let _desc                    = _rows[ _i ].querySelector( ".class-mastery-desc" );
+            if ( _desc && _desc.textContent === "Réflexes" ) {
+                _reflexes_badge          = _rows[ _i ].querySelector( ".class-mastery-badge" );
+            }
+        }
+        TEST.ASSERT.notNull( _reflexes_badge, "La popup devrait afficher la ligne Réflexes" );
+        if ( _reflexes_badge ) {
+            TEST.ASSERT.equal( _reflexes_badge.textContent, "Expert", "Le badge de Réflexes dans la popup devrait etre Expert, obtenu : " + _reflexes_badge.textContent );
+        }
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__masteries" } );
+        TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup des maîtrises devrait etre masquee apres fermeture" );
     } );
 } );

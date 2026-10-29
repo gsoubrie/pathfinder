@@ -10,6 +10,7 @@ CONTROLLER.Main = (function ( self ) {
         switch ( event_name ) {
             case "event__show_information":
             case "event__show_information__class_ability":
+            case "event__show_information__masteries":
             case "event__popup__close":
                 self.popups_object.doActionAfter( event_name, params );
                 return;

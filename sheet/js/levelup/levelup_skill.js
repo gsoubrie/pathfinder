@@ -66,6 +66,12 @@ CHARACTER.LevelUpSkill.prototype = {
     getSlotKey: function () {
         return this.slot_key;
     },
+    getClassName: function () {
+        return this.class_name;
+    },
+    getAbilityKey: function () {
+        return this.ability_key;
+    },
     getValue: function () {
         return this.value;
     },
@@ -107,21 +113,25 @@ CHARACTER.LevelUpSkill.prototype = {
         );
     },
     _computeHtmlLabel: function () {
-        // Libellé : groupe libellé + lien d'information (?) pour toute capacité décrite dans les données de classe
-        let label_parent = this.dom_element;
-        if ( CLASSES.getAbilityInformation( this.class_name, this.ability_key ) !== null ) {
-            label_parent = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "levelup-row-label-group" } ),
-                this.dom_element
-            );
-        }
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-row-label" }, this.label ), label_parent );
-        if ( label_parent === this.dom_element ) {
+        // Libellé : groupe libellé + lien d'information (?) pour toute capacité décrite dans les données de classe.
+        // La ligne "maîtrises initiales" ouvre les maîtrises courantes du personnage, pas une capacité de classe.
+        let is_masteries_line = this.ability_key === "maitrises_initiales";
+        let has_information    = is_masteries_line || CLASSES.getAbilityInformation( this.class_name, this.ability_key ) !== null;
+        if ( !has_information ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-row-label" }, this.label ), this.dom_element );
             return;
         }
+        let label_parent = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "levelup-row-label-group" } ),
+            this.dom_element
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-row-label" }, this.label ), label_parent );
+        let info_onclick = is_masteries_line ?
+            "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})" :
+            "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__class_ability',{'param__class_name':'" + this.class_name + "','param__ability_key':'" + this.ability_key + "'})";
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : "levelup-row-info gs-link-information",
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__class_ability',{'param__class_name':'" + this.class_name + "','param__ability_key':'" + this.ability_key + "'})"
+            onclick: info_onclick
         }, "?" ), label_parent );
     },
     _computeHtmlWarning: function () {

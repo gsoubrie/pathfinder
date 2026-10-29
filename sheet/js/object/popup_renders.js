@@ -188,6 +188,60 @@ SERVICE.CLASS.addPrototype( OBJECT.ClassFeaturePopupRenderer, OBJECT.BasePopupRe
 
 
 /**
+ * @class OBJECT.MasteriesPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * Renders the aggregated masteries of the character: one grid group per
+ * section, one badge row per line (data built by CHARACTER.Masteries).
+ */
+OBJECT.MasteriesPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.MasteriesPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--default">
+            <h2 class="popup-title">${text}</h2>
+          </div>
+
+          <div class="popup-description">${this._masteriesGrid()}</div>` );
+    },
+
+    _masteriesGrid: function () {
+        const by_slot = this.object_data.character_masteries || {};
+        const slots   = Object.keys( by_slot );
+        if ( !slots.length ) {
+            return `<div class="class-mastery-desc">Aucune maîtrise : posez d'abord une classe.</div>`;
+        }
+        let grid   = `<div class="class-mastery-grid">`;
+        let placed = {};
+        for ( let i = 0, _size_i = MASTERY.SECTIONS.length; i < _size_i; i++ ) {
+            const section = MASTERY.SECTIONS[ i ];
+            const lines   = slots
+                .filter( ( slot ) => !placed[ slot ] && slot.indexOf( section.key ) === 0 )
+                .sort( ( slot_a, slot_b ) => by_slot[ slot_a ].label.localeCompare( by_slot[ slot_b ].label ) );
+            for ( let j = 0, _size_j = lines.length; j < _size_j; j++ ) {
+                placed[ lines[ j ] ] = true;
+            }
+            if ( !lines.length ) {
+                continue;
+            }
+            grid += `<div class="class-mastery-group"><div class="class-mastery-group-title">${section.title}</div>`;
+            for ( let k = 0, _size_k = lines.length; k < _size_k; k++ ) {
+                const line  = by_slot[ lines[ k ] ];
+                const badge = MASTERY.getByShort( line.rank );
+                grid += `<div class="class-mastery-row"><span class="class-mastery-badge ${badge.css}">${badge.label}</span><span class="class-mastery-desc">${line.label}</span></div>`;
+            }
+            grid += `</div>`;
+        }
+        return grid + `</div>`;
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.MasteriesPopupRenderer, OBJECT.BasePopupRenderer );
+
+
+/**
  * @class OBJECT.DefaultPopupRenderer
  * @extends OBJECT.BasePopupRenderer
  */

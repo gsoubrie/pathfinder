@@ -28,6 +28,22 @@ OBJECT.PopupRenderers.prototype = {
                     ability_popup.doActionAfter( "event__show_information", params );
                 }
                 return;
+            case "event__show_information__masteries":
+                let character = CONTROLLER.Character.current_character;
+                let masteries_data = character ? character.getMasteries().getInformationData() : null;
+                if ( !masteries_data ) {
+                    return;
+                }
+                // Les maîtrises sont un état du personnage : la popup est
+                // reconstruite a chaque ouverture, jamais servie du cache
+                if ( this.getContentByUUID( masteries_data[ "id" ] ) ) {
+                    this.removeContent( masteries_data[ "id" ], null, true );
+                }
+                let masteries_popup = this._openPopup( masteries_data );
+                if ( masteries_popup ) {
+                    masteries_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;
