@@ -28,8 +28,6 @@ CHARACTER.LevelUpWindow.prototype = {
                 break;
             case "event__level_up__toggle_skill":
                 CONTROLLER.Character.current_character.doActionAfter( event_name, params );
-                this._updateGlobalWarning( CONTROLLER.Character.current_character );
-                this._updateLevelBlockState( CONTROLLER.Character.current_character, parseInt( params[ "param__level" ], 10 ) );
                 break;
             case "event__form__element_changed":
                 if ( params[ "param__property" ] === CLASSES.key_element ) {
@@ -59,7 +57,14 @@ CHARACTER.LevelUpWindow.prototype = {
     computeHtmlWithData: function ( character_object ) {
         // Chaîne de compteurs : conteneur des skills → fenêtre (badge de l'onglet)
         character_object.getLevelUpSkills().setCountersParent( this );
-        this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "levelup-window" } );
+        // Global warning label: consumer of the window warnings counter
+        if ( !this._global_warning ) {
+            let window_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+            this._global_warning = new CHARACTER.LevelUpGlobalWarning();
+            window_counter.setParent( this._global_warning );
+            this._global_warning.update( window_counter.uuid, window_counter.getValue() );
+        }
+        this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-up-window" } );
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
     },
 
@@ -72,16 +77,16 @@ CHARACTER.LevelUpWindow.prototype = {
         var active     = character_object.getActiveLevel();
         var level_text = "Niveau " + char_level + ( active < char_level ? " (" + active + ( active > 1 ? " actifs" : " actif" ) + ")" : "" );
         var header = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "levelup-header" } ),
+            SERVICE.DOM.createElement( "div", { class: "level-up-header" } ),
             this.content_dom_element_target
         );
         SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "levelup-header-level" }, level_text ),
+            SERVICE.DOM.createElement( "span", { class: "level-up-header-level" }, level_text ),
             header
         );
 
-        // Nombre de choix manquants : compteur du conteneur, alimenté par les compteurs des skills
-        this._buildGlobalWarning( character_object );
+        // Nombre de choix manquants : label piloté par le compteur warnings de la fenêtre
+        SERVICE.DOM.addElementTo( this._global_warning.computeHtml(), this.content_dom_element_target );
 
         // Sélecteur de classe + prise de niveau
         this._buildClassSelector( character_object );
@@ -90,50 +95,14 @@ CHARACTER.LevelUpWindow.prototype = {
         // le bloc desactive porte l'interrupteur de re-activation
         var history = character_object.getLevelHistory();
         for ( var h = 0; h < history.getSize(); h++ ) {
-            var entry       = history.getContent( h );
-            var block_skills = entry.isEnabled() ? skills.getSkillsForLevel( h + 1 ) : [];
-            this._buildLevelBlock( h + 1, block_skills, skills, character_object, entry );
-        }
-    },
-
-    _buildGlobalWarning: function ( character_object ) {
-        var missing      = character_object.getLevelUpSkills().getMissingCount();
-        this._warningDiv = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "levelup-global-warning" + ( missing > 0 ? " visible" : "" ) },
-                missing > 0 ? "⚠ " + missing + ( missing > 1 ? " capacités non validées" : " capacité non validée" ) : "✓ Toutes les capacités sont validées"
-            ),
-            this.content_dom_element_target
-        );
-    },
-
-    _updateGlobalWarning: function ( character_object ) {
-        if ( !this._warningDiv ) {
-            return;
-        }
-        var missing = character_object.getLevelUpSkills().getMissingCount();
-        this._warningDiv.className = "levelup-global-warning" + ( missing > 0 ? " visible" : "" );
-        this._warningDiv.innerHTML = missing > 0 ? "⚠ " + missing + ( missing > 1 ? " capacités non validées" : " capacité non validée" ) : "✓ Toutes les capacités sont validées";
-    },
-
-    // Le titre du bloc porte has-pending tant qu'une capacite du niveau n'est pas validee :
-    // recalcule apres chaque bascule, le rendu initial ne suit pas les toggles
-    _updateLevelBlockState: function ( character_object, level_number ) {
-        if ( !this.content_dom_element_target ) {
-            return;
-        }
-        var block = this.content_dom_element_target.querySelector( ".levelup-block[data-level-number='" + level_number + "']" );
-        if ( !block ) {
-            return;
-        }
-        var title = block.querySelector( ".levelup-block-title" );
-        if ( !title ) {
-            return;
-        }
-        if ( character_object.getLevelUpSkills().isLevelPending( level_number ) ) {
-            title.classList.add( "has-pending" );
-        }
-        else {
-            title.classList.remove( "has-pending" );
+            var entry        = history.getContent( h );
+            var block_skills = [];
+            if ( entry.isEnabled() ) {
+                var level_params = { "param__level": h + 1 };
+                skills.doActionAfter( "event__get__level_up__with_level", level_params );
+                block_skills = level_params[ "param__level_up__with_level" ];
+            }
+            this._buildLevelBlock( h + 1, block_skills, entry );
         }
     },
 
@@ -143,33 +112,33 @@ CHARACTER.LevelUpWindow.prototype = {
             return;
         }
         var selector = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "levelup-class-selector" } ),
+            SERVICE.DOM.createElement( "div", { class: "level-up-class-selector" } ),
             this.content_dom_element_target
         );
         for ( var c = 0; c < classes.getSize(); c++ ) {
             var current = classes.getContent( c );
             var option  = SERVICE.DOM.addElementTo(
                 SERVICE.DOM.createElement( "div", {
-                    class         : "levelup-class-option" + ( current.getName() === this._selected_class ? " selected" : "" ),
+                    class         : "level-up-class-option" + ( current.getName() === this._selected_class ? " selected" : "" ),
                     "data-name"   : current.getName(),
                     onclick       : "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__select_class',{'param__class_name':'" + current.getName() + "'})"
                 } ), selector
             );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-class-option-icon" }, CLASSES.ICONS[ current.getName() ] || "⚔" ), option );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "levelup-class-option-name" }, current.getName() + " " + current.getLevel() ), option );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-class-option-icon" }, CLASSES.ICONS[ current.getName() ] || "⚔" ), option );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-class-option-name" }, current.getName() + " " + current.getLevel() ), option );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-                class  : "levelup-class-option-take",
+                class  : "level-up-class-option-take",
                 onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__take_level',{'param__class_name':'" + current.getName() + "'})"
             }, "+" ), option );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-                class  : "levelup-class-option-remove",
+                class  : "level-up-class-option-remove",
                 onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__remove_level',{'param__class_name':'" + current.getName() + "'})"
             }, "-" ), option );
         }
     },
 
     _refreshSelectorState: function () {
-        var options = this.content_dom_element_target.querySelectorAll( ".levelup-class-option" );
+        var options = this.content_dom_element_target.querySelectorAll( ".level-up-class-option" );
         for ( var i = 0; i < options.length; i++ ) {
             if ( options[ i ].getAttribute( "data-name" ) === this._selected_class ) {
                 options[ i ].classList.add( "selected" );
@@ -180,12 +149,12 @@ CHARACTER.LevelUpWindow.prototype = {
         }
     },
 
-    _buildLevelBlock: function ( level_number, block_skills, skills, character_object, history_entry ) {
+    _buildLevelBlock: function ( level_number, block_skills, history_entry ) {
         var is_enabled = history_entry ? history_entry.isEnabled() : true;
         var level_name = history_entry ? history_entry.getUUID() : ( "" + level_number );
         var block = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", {
-                class             : "levelup-block" + ( is_enabled ? "" : " disabled" ),
+                class             : "level-up-block" + ( is_enabled ? "" : " disabled" ),
                 "data-level-name" : level_name,
                 "data-level-number": level_number
             } ),
@@ -194,17 +163,17 @@ CHARACTER.LevelUpWindow.prototype = {
 
         // Titre du niveau
         var title = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "levelup-block-title" + ( skills.isLevelPending( level_number ) ? " has-pending" : "" ) } ),
+            SERVICE.DOM.createElement( "div", { class: "level-up-block-title" } ),
             block
         );
         SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "levelup-block-level-num" }, "Niveau " + level_number ),
+            SERVICE.DOM.createElement( "span", { class: "level-up-block-level-num" }, "Niveau " + level_number ),
             title
         );
         // Interrupteur Actif / Désactivé (vivant ici, l'onglet Niveau n'affiche qu'un libelle)
         SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", {
-                class  : "levelup-level-toggle",
+                class  : "level-up-level-toggle",
                 onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level__toggle',{'param__level_name':'" + level_name + "'})"
             }, is_enabled ? "Activé" : "Désactivé" ),
             title

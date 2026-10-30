@@ -28,10 +28,11 @@ CHARACTER.LevelUpSkills.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__level_up__toggle_skill":
-                let skill = this.getSkill( params[ "param__level" ], params[ "param__slot_key" ] );
-                if ( skill ) {
-                    skill.doActionAfter( event_name, params );
-                }
+                this.getContentByUUID( params[ "param__level_up_skill__uuid" ] ).doActionAfter( event_name, params );
+                return;
+            case "event__get__level_up__with_level":
+                params[ "param__level_up__with_level" ] = [];
+                this.doActionAfterContentChildren( event_name, params );
                 return;
         }
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
@@ -39,36 +40,6 @@ CHARACTER.LevelUpSkills.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     getUUID: function () {
         return this.key;
-    },
-    getSkill: function ( level, slot_key ) {
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            let skill = this.getContent( i );
-            if ( skill.getLevel() === parseInt( level, 10 ) && skill.getSlotKey() === slot_key ) {
-                return skill;
-            }
-        }
-        return null;
-    },
-    getSkillsForLevel: function ( level ) {
-        let to_return = [];
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            if ( this.getContent( i ).getLevel() === level ) {
-                to_return.push( this.getContent( i ) );
-            }
-        }
-        return to_return;
-    },
-    isLevelPending: function ( level ) {
-        let level_skills = this.getSkillsForLevel( level );
-        for ( let i = 0, _size_i = level_skills.length; i < _size_i; i++ ) {
-            if ( level_skills[ i ].isPending() ) {
-                return true;
-            }
-        }
-        return false;
-    },
-    getMissingCount: function () {
-        return this.getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
     //********************************************  DATA   **************************************************//
     buildSkills: function ( character_object ) {
@@ -105,7 +76,7 @@ CHARACTER.LevelUpSkills.prototype = {
                     "class_name" : class_name,
                     "ability_key": ability_key,
                     "is_active"  : !!preserved_values[ ( i + 1 ) + "__" + slot_key ]
-                }, character_object, this ) );
+                }, this ) );
             }
         }
     },
@@ -118,7 +89,7 @@ CHARACTER.LevelUpSkills.prototype = {
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             let skill = this.getContent( i );
             if ( skill.isActive() ) {
-                to_return[ skill.getLevel() + "__" + skill.getSlotKey() ] = true;
+                to_return[ skill.getUUID() ] = true;
             }
         }
         this.values_from_save = {};

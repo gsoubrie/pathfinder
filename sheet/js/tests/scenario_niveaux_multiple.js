@@ -37,7 +37,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets
             return;
         }
         for ( let i = 0; i < 2; i++ ) {
-            let _take_button           = _levelup_pane.querySelector( ".levelup-class-option[data-name='Champion'] .levelup-class-option-take" );
+            let _take_button           = _levelup_pane.querySelector( ".level-up-class-option[data-name='Champion'] .level-up-class-option-take" );
             TEST.ASSERT.notNull( _take_button, "Le plus devrait etre rendu sur le tag Champion (prise " + ( i + 1 ) + ")" );
             if ( !_take_button ) {
                 return;
@@ -46,16 +46,16 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets
         }
         TEST.ASSERT.equal( _character.getLevel(), 3, "Le personnage devrait atteindre le niveau 3, obtenu : " + _character.getLevel() );
         TEST.ASSERT.equal( _character.getActiveLevel(), 3, "Les 3 niveaux devraient etre actifs, obtenu : " + _character.getActiveLevel() );
-        let _blocks                     = _levelup_pane.querySelectorAll( ".levelup-block" );
+        let _blocks                     = _levelup_pane.querySelectorAll( ".level-up-block" );
         TEST.ASSERT.equal( _blocks.length, 3, "Chaque niveau devrait avoir son bloc, obtenu : " + _blocks.length );
         for ( let i = 0, _size_i = 3; i < _size_i; i++ ) {
-            let _block                 = _levelup_pane.querySelector( ".levelup-block[data-level-name='" + ( i + 1 ) + "']" );
+            let _block                 = _levelup_pane.querySelector( ".level-up-block[data-level-name='" + ( i + 1 ) + "']" );
             TEST.ASSERT.notNull( _block, "Le bloc du niveau " + ( i + 1 ) + " devrait exister (data-level-name)" );
             if ( !_block ) {
                 continue;
             }
-            let _toggle                = _block.querySelector( ".levelup-level-toggle" );
-            TEST.ASSERT.notNull( _toggle, "Le bloc du niveau " + ( i + 1 ) + " devrait porter l'interrupteur (.levelup-level-toggle)" );
+            let _toggle                = _block.querySelector( ".level-up-level-toggle" );
+            TEST.ASSERT.notNull( _toggle, "Le bloc du niveau " + ( i + 1 ) + " devrait porter l'interrupteur (.level-up-level-toggle)" );
             if ( _toggle ) {
                 TEST.ASSERT.ok( _toggle.getAttribute( "onclick" ).indexOf( "event__level__toggle" ) !== -1, "L'interrupteur du niveau " + ( i + 1 ) + " devrait etre câble sur event__level__toggle, obtenu : [" + _toggle.getAttribute( "onclick" ) + "]" );
             }
@@ -114,7 +114,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux → désactivation 2 = actif 2, resta
         if ( !_levelup_pane ) {
             return;
         }
-        let _toggle                    = _levelup_pane.querySelector( ".levelup-block[data-level-name='2'] .levelup-level-toggle" );
+        let _toggle                    = _levelup_pane.querySelector( ".level-up-block[data-level-name='2'] .level-up-level-toggle" );
         TEST.ASSERT.notNull( _toggle, "L'interrupteur du niveau 2 devrait etre rendu dans son bloc" );
         if ( !_toggle ) {
             return;
@@ -126,11 +126,11 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux → désactivation 2 = actif 2, resta
             let _expected_hp           = _max_hp_before - _con.getModifierValue() - CLASSES.getDataByName( "Champion" ).life_point_by_level;
             TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV devraient exclure le niveau desactive, obtenu : " + _character.getHealth().getMaxHP() );
         }
-        let _disabled_block            = _levelup_pane.querySelector( ".levelup-block[data-level-name='2']" );
+        let _disabled_block            = _levelup_pane.querySelector( ".level-up-block[data-level-name='2']" );
         TEST.ASSERT.notNull( _disabled_block, "Le bloc du niveau 2 devrait rester rendu (desactive)" );
         if ( _disabled_block ) {
             TEST.ASSERT.ok( _disabled_block.classList.contains( "disabled" ), "Le bloc desactive devrait porter la classe disabled" );
-            TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".levelup-row" ).length, 0, "Le bloc desactive ne devrait pas afficher de lignes de deblocage, obtenu : " + _disabled_block.querySelectorAll( ".levelup-row" ).length );
+            TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".level-up-row" ).length, 0, "Le bloc desactive ne devrait pas afficher de lignes de deblocage, obtenu : " + _disabled_block.querySelectorAll( ".level-up-row" ).length );
         }
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelWindow.NAME ).then( function () {
             let _level_pane            = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
@@ -152,7 +152,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux → désactivation 2 = actif 2, resta
                 TEST.ASSERT.equal( _state_3.textContent, "Activé", "Le libelle de la ligne 3 devrait rester Activé, obtenu : " + _state_3.textContent );
             }
             return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-                let _re_toggle         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-name='2'] .levelup-level-toggle" );
+                let _re_toggle         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name='2'] .level-up-level-toggle" );
                 TEST.ASSERT.notNull( _re_toggle, "L'interrupteur du bloc desactive devrait rester rendu" );
                 if ( !_re_toggle ) {
                     return;
@@ -187,7 +187,7 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
         if ( !_levelup_pane ) {
             return;
         }
-        let _take_button               = _levelup_pane.querySelector( ".levelup-class-option[data-name='Guerrier'] .levelup-class-option-take" );
+        let _take_button               = _levelup_pane.querySelector( ".level-up-class-option[data-name='Guerrier'] .level-up-class-option-take" );
         TEST.ASSERT.notNull( _take_button, "Le plus devrait etre rendu sur le tag Guerrier" );
         if ( !_take_button ) {
             return;
@@ -223,7 +223,7 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
             TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient melanger les PV des deux classes, obtenu : " + _character.getHealth().getMaxHP() );
             let _max_hp_before         = _character.getHealth().getMaxHP();
             return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-                let _toggle            = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-name='3'] .levelup-level-toggle" );
+                let _toggle            = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name='3'] .level-up-level-toggle" );
                 TEST.ASSERT.notNull( _toggle, "L'interrupteur du niveau 3 devrait etre rendu dans son bloc" );
                 if ( !_toggle ) {
                     return;
@@ -236,7 +236,7 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
                 }
                 TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Guerrier" ).getLevel(), 2, "Le niveau de la classe Guerrier ne devrait pas bouger, obtenu : " + _character.getClasses().getContentByUUID( "Guerrier" ).getLevel() );
                 TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Champion" ).getLevel(), 1, "Le niveau de la classe Champion ne devrait pas bouger, obtenu : " + _character.getClasses().getContentByUUID( "Champion" ).getLevel() );
-                let _re_toggle         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-name='3'] .levelup-level-toggle" );
+                let _re_toggle         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name='3'] .level-up-level-toggle" );
                 if ( _re_toggle ) {
                     _re_toggle.click();
                     TEST.ASSERT.equal( _character.getActiveLevel(), 3, "Le niveau re-active devrait compter a nouveau, obtenu : " + _character.getActiveLevel() );

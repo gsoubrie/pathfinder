@@ -42,7 +42,7 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 
 ### Domaine levelup (`sheet/js/levelup/`)
 
-- `CHARACTER.LevelUpSkill` (`levelup_skill.js`) — un objet par capacité débloquée
+- `CHARACTER.LevelUpSkill` (`level-up-skill.js`) — un objet par capacité débloquée
   par l'historique de niveaux : porte son état **validé** (`is_active`, booléen
   sauvegardé `"<niveau>__<slot>" → true`), rend sa propre ligne
   (`computeHtml()`) avec un interrupteur on/off **sans texte**
@@ -50,7 +50,7 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   WARNINGS enfant du compteur du conteneur. Sur `event__level_up__toggle_skill`
   il bascule l'état + compteur et re-rend sa ligne en place
   (`SERVICE.DOM.replaceElement`) — pas de rebuild complet de la fenêtre.
-- `CHARACTER.LevelUpSkills` (`levelup_skills.js`) — conteneur sur le personnage
+- `CHARACTER.LevelUpSkills` (`level-up-skills.js`) — conteneur sur le personnage
   (`this.level_up_skills`, enfant de `children`, clé de save `level_up_skills`).
   `buildSkills( character )` re-dérive les skills de l'historique (parsing de
   `capacity_by_level`), en préservant l'état validé. Rebuild déclenché par le
@@ -58,10 +58,15 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   `event__level_up__take_level`, `event__level_up__remove_level`,
   `event__level__toggle`.
 - `CHARACTER.LevelUpWindow` — ne calcule plus rien : assemble des blocs,
-  demande `getSkillsForLevel()` / `isLevelPending()` / `getMissingCount()`.
-  Le bloc porte `data-level-number` : sur `event__level_up__toggle_skill` la
-  fenêtre recalcule le `has-pending` du titre du niveau concerné
-  (`_updateLevelBlockState`).
+  demande les lignes d'un niveau par `event__get__level_up__with_level`.
+  Le bloc porte `data-level-number` (ancre des scénarios) : sur
+  `event__level_up__toggle_skill` la fenêtre re-dispatch au personnage, le
+  warning global se met à jour tout seul par la chaîne de compteurs.
+- `CHARACTER.LevelUpGlobalWarning` (`level-up-global-warning.js`) — label
+  "N capacités non validées" de la fenêtre : objet compteur dédié,
+  consommateur du compteur warnings de la fenêtre (`setParent` + contrat
+  `update( name, nb )`), rend et re-rend son div tout seul ; plus aucun
+  `_buildGlobalWarning` / `_updateGlobalWarning` ni `getMissingCount()`.
 - Chaîne de compteurs : skill → conteneur → fenêtre (badge d'onglet), branchée
   par `setCountersParent` dans `computeHtmlWithData` de la fenêtre. Plus aucun
   `setCounterValue` manuel côté fenêtre. Les uuids enfants morts sont purgés par
@@ -251,3 +256,93 @@ niveau 5, "expertise en réflexes" validée) :
    clé, données (`SLOT_KEYWORDS`, `MASTERY_UPGRADES`) + code + tests.
 7. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
    règle d'affichage ci-dessus.
+8. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
+   domaine par domaine au fil du nettoyage : levelup est fait, restent
+   mastery, character (fenêtres, historique), class, level, characteristic,
+   race, gift, historics, legacy, archetype, spell, stuffs, object, service,
+   component, controller + `<script>` de index.html et tests.html.
+
+## Review code
+
+Décisions prises lors des allers-retours de relecture fichier par fichier.
+Chaque retour de l'utilisateur devient une règle ci-dessous, en plus des
+conventions des skills. Elles s'appliquent à tout le code, y compris les
+fichiers déjà relus. Historique : Round 1 = `level-up-skill.js` + domaine
+levelup, Round 2 = compteurs et label global de la fenêtre.
+
+### Style, commentaires, nommage
+
+- Pas de prose descriptive dans le bloc JSDoc d'une classe : seul
+  `@class` / `@extends` reste.
+- Pas de commentaire qui répète ce que le code montre déjà.
+- Aucun identifiant français dans le code, même dérivé du scraping : les
+  corrections passent par des cartes écrites à la main qui survivent au
+  re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`
+  devient `initial_masteries`, lu via `LEVELUP.INITIAL_MASTERIES_KEY`).
+- Fichiers JS en kebab-case : `level-up-skill.js`, `level-up-global-warning.js`,
+  `constant-level-up.js` (le dossier du domaine reste en un mot :
+  `sheet/js/levelup/`). Renommage par `git mv` + balises `<script>` de
+  index.html et tests.html mises à jour en même temps. Les autres domaines
+  suivront au fil du nettoyage (voir À faire).
+- Classes CSS avec trait d'union : `level-up-row-label`, `level-up-block`,
+  `level-up-window` — jamais `levelup-*` (idem data attributes).
+
+### Identité, événements, accesseurs
+
+- Un objet s'identifie par son uuid : un événement ciblant un objet porte
+  uniquement son uuid (`param__level_up_skill__uuid`), jamais un couple de
+  paramètres redondants. Routage par `getContentByUUID`, pas de garde null
+  quand l'émetteur (le rendu vivant de l'objet dans son conteneur) garantit
+  l'uuid. Les clés dérivées de l'identité se construisent avec
+  `getUUID()` (cf. `_getPreservedValues`).
+- Les requêtes d'un conteneur sur ses enfants passent par des événements de
+  collecte, pas par des méthodes de filtrage : le conteneur initialise un
+  paramètre-résultat et le propage par `doActionAfterContentChildren` (les
+  params passent en 2e position), chaque enfant y pousse sa part
+  (`event__get__level_up__with_level` → `param__level_up__with_level`).
+- Minimiser le code : un accesseur ne survit que s'il a un consommateur
+  productif (un message d'assertion de test ne compte pas), et un objet
+  expose des intentions métier, pas ses champs bruts — masteries demande
+  `getMasteriesUpgrades()` et `getSourceLabel()` au skill validé, jamais la
+  classe ni la clé de capacité. Un seul accesseur d'état par donnée
+  (`isActive()` ; l'inversion se fait aux points d'appel). Le re-render en
+  place s'appelle `updateHtml()`.
+- Pas de signal visuel redondant : `has-pending` (barre sur le titre du bloc
+  de niveau) a été supprimé avec son événement de collecte — quand les
+  badges de ligne et le warning global portent déjà l'information, un
+  signal de zone n'ajoute rien.
+
+### Les compteurs dans toutes leurs forces
+
+- Un compteur GS n'est pas forcément un composant graphique. Mécanique lib :
+  `setCountersParent( parent )` branche chaque compteur sur le compteur du
+  même type du parent (`parent.getCounter( type )`), la chaîne est donc
+  compteur → compteur ; `counter.setParent( obj )` fait pousser le total à
+  chaque changement via le contrat `obj.update( name, nb )` ;
+  `addTargetsDomElement( dom, data_name )` pousse la valeur en data
+  attribute sur n'importe quel DOM (`updateTargetsDomElement`), et le CSS
+  réagit à cette data. Un même compteur peut alimenter plusieurs DOM
+  (badge d'onglet + div de zone).
+- Un label peut être un objet compteur dédié : `CHARACTER.LevelUpGlobalWarning`
+  (`level-up-global-warning.js`) consomme le compteur warnings de la fenêtre
+  et rend/re-rend son div tout seul ; `_buildGlobalWarning`,
+  `_updateGlobalWarning` et `getMissingCount()` sont supprimés. À la
+  souscription, synchroniser la valeur courante (le compteur ne repousse
+  qu'au changement) : `label.update( counter.uuid, counter.getValue() )`.
+- Généralisation : si la valeur d'un compteur doit influencer une zone
+  (style, présence), l'objet qui gère la zone porte le compteur et le style
+  se déduit de la data poussée ; jamais de recalcul manuel de classe dans la
+  fenêtre.
+
+### Méthode de travail
+
+- Nettoyage fichier par fichier avec arrêt et relecture utilisateur à
+  chaque fichier ; une décision par run de tests, le run `tests.html`
+  appartient à l'utilisateur (le code et le scénario s'adaptent ensemble).
+- Les renommages mécaniques (classes CSS, clés, uuid) se propagent aux
+  scénarios dans la foulée ; les scénarios identifient les objets par uuid
+  (`getContentByUUID( "5__expertise_en_reflexes" )`), pas par comparaison
+  de clés.
+- Le CSS mort se supprime au passage : bloc `body[data-levelup-missing]` de
+  `sheet_levelup.css` enlevé (aucun JS ne posait l'attribut, et couleurs
+  brutes interdites par la règle des variables `--*`).

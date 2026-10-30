@@ -4,8 +4,8 @@
  * Depart : feuille vide (TEST.RESET.sheet()). Race Elfe posee, classe
  * Magicien posee a niveau 1, onglet Passage de niveau ouvert.
  * 1. Bloc Niveau 1 : 5 lignes de capacites, chacune portant un interrupteur
- *    de validation en pilule sans texte (.levelup-row-toggle : piste
- *    allongee aux bouts ronds + bouton coulissant .levelup-row-toggle-knob,
+ *    de validation en pilule sans texte (.level-up-row-toggle : piste
+ *    allongee aux bouts ronds + bouton coulissant .level-up-row-toggle-knob,
  *    pas de libelle), eteint par defaut : ligne en attente, counter de ligne a 1 visible,
  *    warning global "5 capacites non validees", counter de l'onglet a 5.
  *    Toute capacite decrite porte son "?" : le bloc niveau 1 du Magicien en
@@ -17,14 +17,13 @@
  *    (rangs courants du personnage).
  * 3. Clic sur l'interrupteur de ecole arcanique : capacite validee (isActive
  *    true, sauvegarde "1__ecole_arcanique": true), ligne repasse au vert
- *    (levelup-row--active), bouton dore (degrade or du theme), counter de la
+ *    (level-up-row--active), bouton dore (degrade or du theme), counter de la
  *    ligne vide et masque, warning global a "4 capacites non validees",
  *    counter de l'onglet a 4.
  * 4. Second clic : capacite de nouveau non validee, ligne en attente,
  *    counters de retour (ligne 1, onglet 5, warning 5).
  * 5. Validation des 5 lignes du niveau 1 : warning global vert "Toutes les
- *    capacites sont validees", counter de l'onglet vide et masque, titre du
- *    bloc sans has-pending.
+ *    capacites sont validees", counter de l'onglet vide et masque.
  * 6. Niveau 5 : tant que "expertise en reflexes" n'est pas validee, la
  *    maitrise Reflexes du personnage reste Qualifiee (seules les capacites
  *    validees alimentent CHARACTER.Masteries). Validation de la ligne →
@@ -56,7 +55,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
             return;
         }
         let _skills                        = _character.getLevelUpSkills();
-        let _skill                         = _skills.getSkill( 1, "ecole_arcanique" );
+        let _skill                         = _skills.getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill, "Le skill école arcanique du niveau 1 devrait exister dans le conteneur" );
         if ( !_skill ) {
             return;
@@ -67,27 +66,27 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
         if ( !_pane ) {
             return;
         }
-        let _block                        = _pane.querySelector( ".levelup-block" );
+        let _block                        = _pane.querySelector( ".level-up-block" );
         TEST.ASSERT.notNull( _block, "Le bloc du niveau 1 devrait etre rendu" );
         if ( !_block ) {
             return;
         }
-        TEST.ASSERT.equal( _block.querySelector( ".levelup-block-level-num" ).textContent, "Niveau 1", "Le premier bloc devrait etre celui du niveau 1, obtenu : " + _block.querySelector( ".levelup-block-level-num" ).textContent );
-        let _rows                         = _block.querySelectorAll( ".levelup-row" );
+        TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Niveau 1", "Le premier bloc devrait etre celui du niveau 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
+        let _rows                         = _block.querySelectorAll( ".level-up-row" );
         TEST.ASSERT.equal( _rows.length, 5, "Le bloc du niveau 1 devrait rendre ses 5 capacités (école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique), obtenu : " + _rows.length );
-        TEST.ASSERT.equal( _block.querySelectorAll( ".levelup-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ?, obtenu : " + _block.querySelectorAll( ".levelup-row-info" ).length );
+        TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ?, obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
         for ( let _i = 0; _i < _rows.length; _i++ ) {
             let _row                      = _rows[ _i ];
-            let _toggle                  = _row.querySelector( ".levelup-row-toggle" );
-            TEST.ASSERT.notNull( _toggle, "Chaque ligne devrait porter son interrupteur de validation (.levelup-row-toggle), ligne " + _i + " sans bouton" );
+            let _toggle                  = _row.querySelector( ".level-up-row-toggle" );
+            TEST.ASSERT.notNull( _toggle, "Chaque ligne devrait porter son interrupteur de validation (.level-up-row-toggle), ligne " + _i + " sans bouton" );
             if ( !_toggle ) {
                 return;
             }
             TEST.ASSERT.equal( _toggle.textContent, "", "L'interrupteur devrait etre sans texte, obtenu : [" + _toggle.textContent + "]" );
-            TEST.ASSERT.notNull( _toggle.querySelector( ".levelup-row-toggle-knob" ), "L'interrupteur radio devrait porter son bouton coulissant (.levelup-row-toggle-knob), ligne " + _i );
+            TEST.ASSERT.notNull( _toggle.querySelector( ".level-up-row-toggle-knob" ), "L'interrupteur radio devrait porter son bouton coulissant (.level-up-row-toggle-knob), ligne " + _i );
             TEST.ASSERT.notOk( _toggle.classList.contains( "active" ), "L'interrupteur devrait etre eteint par défaut, ligne " + _i );
-            TEST.ASSERT.ok( _row.classList.contains( "levelup-row--pending" ), "Toute ligne non validée devrait etre en attente (.levelup-row--pending), ligne " + _i );
-            let _row_counter              = _row.querySelector( ".levelup-row-warning" );
+            TEST.ASSERT.ok( _row.classList.contains( "level-up-row--pending" ), "Toute ligne non validée devrait etre en attente (.level-up-row--pending), ligne " + _i );
+            let _row_counter              = _row.querySelector( ".level-up-row-warning" );
             TEST.ASSERT.notNull( _row_counter, "Chaque ligne devrait porter un counter de warning enfant de celui de la fenêtre, ligne " + _i + " sans counter" );
             if ( _row_counter ) {
                 TEST.ASSERT.equal( _row_counter.getAttribute( "data-number" ), "1", "Le counter d'une ligne non validée devrait valoir 1, ligne " + _i + ", obtenu : [" + _row_counter.getAttribute( "data-number" ) + "]" );
@@ -96,7 +95,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
             let _onclick                  = _toggle.getAttribute( "onclick" ) || "";
             TEST.ASSERT.ok( _onclick.indexOf( "event__level_up__toggle_skill" ) !== -1, "L'interrupteur devrait emettre event__level_up__toggle_skill, ligne " + _i + ", obtenu : " + _onclick );
         }
-        let _warning                      = _pane.querySelector( ".levelup-global-warning" );
+        let _warning                      = _pane.querySelector( ".level-up-global-warning" );
         TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "5 capacités non validées" ) !== -1, "Le warning global devrait annoncer 5 capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings (.gs-warnings-counter)" );
@@ -108,12 +107,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
 } );
 
 TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias incantation et maîtrises", function () {
-    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
+    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
     TEST.ASSERT.notNull( _row, "Pre-condition : ligne école arcanique rendue" );
     if ( !_row ) {
         return;
     }
-    let _info                             = _row.querySelector( ".levelup-row-info" );
+    let _info                             = _row.querySelector( ".level-up-row-info" );
     TEST.ASSERT.notNull( _info, "Pre-condition : lien d'information (?) rendu" );
     if ( !_info ) {
         return;
@@ -143,12 +142,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias in
     CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "Magicien__ecole_arcanique" } );
     TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup devrait passer en phase masquee apres fermeture" );
     TEST.ASSERT.equal( getComputedStyle( _overlay ).display, "none", "L'overlay devrait etre masque a l'ecran, obtenu : " + getComputedStyle( _overlay ).display );
-    let _lien_row                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='lien_arcanique']" );
+    let _lien_row                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='lien_arcanique']" );
     TEST.ASSERT.notNull( _lien_row, "La ligne lien arcanique devrait etre rendue au niveau 1" );
     if ( !_lien_row ) {
         return;
     }
-    let _lien_info                       = _lien_row.querySelector( ".levelup-row-info" );
+    let _lien_info                       = _lien_row.querySelector( ".level-up-row-info" );
     TEST.ASSERT.notNull( _lien_info, "La ligne lien arcanique devrait porter le ? (capacité décrite)" );
     if ( !_lien_info ) {
         return;
@@ -166,12 +165,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias in
     }
     CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "Magicien__lien_arcanique" } );
     TEST.ASSERT.equal( _lien_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup de Lien arcanique devrait etre masquee apres fermeture" );
-    let _incantation_row                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='incantation_arcanique']" );
+    let _incantation_row                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='incantation_arcanique']" );
     TEST.ASSERT.notNull( _incantation_row, "La ligne incantation arcanique devrait etre rendue au niveau 1" );
     if ( !_incantation_row ) {
         return;
     }
-    let _incantation_info                = _incantation_row.querySelector( ".levelup-row-info" );
+    let _incantation_info                = _incantation_row.querySelector( ".level-up-row-info" );
     TEST.ASSERT.notNull( _incantation_info, "La ligne incantation arcanique devrait porter le ? (alias vers la capacité Incantation de magicien)" );
     if ( !_incantation_info ) {
         return;
@@ -189,12 +188,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias in
     }
     CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "Magicien__incantation_de_magicien" } );
     TEST.ASSERT.equal( _incantation_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup d'incantation devrait etre masquee apres fermeture" );
-    let _masteries_row                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='maitrises_initiales']" );
+    let _masteries_row                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='initial_masteries']" );
     TEST.ASSERT.notNull( _masteries_row, "La ligne maîtrises initiales devrait etre rendue au niveau 1" );
     if ( !_masteries_row ) {
         return;
     }
-    let _masteries_info                 = _masteries_row.querySelector( ".levelup-row-info" );
+    let _masteries_info                 = _masteries_row.querySelector( ".level-up-row-info" );
     TEST.ASSERT.notNull( _masteries_info, "La ligne maîtrises initiales devrait porter le ? (rangs courants du personnage)" );
     if ( !_masteries_info ) {
         return;
@@ -231,33 +230,33 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] interrupteur école arcanique → capa
     if ( !_character ) {
         return;
     }
-    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
+    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
     TEST.ASSERT.notNull( _row, "Pre-condition : ligne école arcanique rendue" );
     if ( !_row ) {
         return;
     }
-    let _toggle                           = _row.querySelector( ".levelup-row-toggle" );
+    let _toggle                           = _row.querySelector( ".level-up-row-toggle" );
     TEST.ASSERT.notNull( _toggle, "Pre-condition : interrupteur rendu" );
     if ( !_toggle ) {
         return;
     }
     _toggle.click();
     return TEST.wait().then( function () {
-        let _skill                         = _character.getLevelUpSkills().getSkill( 1, "ecole_arcanique" );
+        let _skill                         = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill, "Le skill école arcanique devrait rester dans le conteneur apres bascule" );
         if ( !_skill ) {
             return;
         }
         TEST.ASSERT.ok( _skill.isActive(), "La capacité devrait etre validée apres le clic sur l'interrupteur, obtenu : " + _skill.isActive() );
         TEST.ASSERT.deepEqual( _skill.getSpecificDataToSave(), { "1__ecole_arcanique": true }, "La capacité validée devrait se sauvegarder sous sa clé uuid → true, obtenu : " + JSON.stringify( _skill.getSpecificDataToSave() ) );
-        let _row_after                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
+        let _row_after                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
         TEST.ASSERT.notNull( _row_after, "La ligne école arcanique devrait rester rendue apres bascule" );
         if ( !_row_after ) {
             return;
         }
-        TEST.ASSERT.ok( _row_after.classList.contains( "levelup-row--active" ), "La ligne validée devrait porter levelup-row--active" );
-        TEST.ASSERT.notOk( _row_after.classList.contains( "levelup-row--pending" ), "La ligne validée ne devrait plus etre en attente" );
-        let _toggle_after                 = _row_after.querySelector( ".levelup-row-toggle" );
+        TEST.ASSERT.ok( _row_after.classList.contains( "level-up-row--active" ), "La ligne validée devrait porter level-up-row--active" );
+        TEST.ASSERT.notOk( _row_after.classList.contains( "level-up-row--pending" ), "La ligne validée ne devrait plus etre en attente" );
+        let _toggle_after                 = _row_after.querySelector( ".level-up-row-toggle" );
         TEST.ASSERT.notNull( _toggle_after, "La ligne devrait toujours porter son interrupteur apres bascule" );
         if ( !_toggle_after ) {
             return;
@@ -265,38 +264,35 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] interrupteur école arcanique → capa
         TEST.ASSERT.ok( _toggle_after.classList.contains( "active" ), "L'interrupteur d'une ligne validée devrait porter la classe active" );
         let _style_active                  = getComputedStyle( _toggle_after );
         TEST.ASSERT.ok( _style_active.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'interrupteur allumé devrait etre dore (degrade du theme), obtenu : " + _style_active.backgroundImage );
-        let _knob_after                    = _toggle_after.querySelector( ".levelup-row-toggle-knob" );
+        let _knob_after                    = _toggle_after.querySelector( ".level-up-row-toggle-knob" );
         TEST.ASSERT.notNull( _knob_after, "L'interrupteur allumé devrait porter son bouton coulissant" );
         if ( _knob_after ) {
             TEST.ASSERT.equal( getComputedStyle( _knob_after ).left, "19px", "Le bouton coulissant allumé devrait etre pousse a droite (19px), obtenu : " + getComputedStyle( _knob_after ).left );
         }
-        let _other_row                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='lien_arcanique']" );
-        let _other_toggle                 = _other_row ? _other_row.querySelector( ".levelup-row-toggle" ) : null;
+        let _other_row                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='lien_arcanique']" );
+        let _other_toggle                 = _other_row ? _other_row.querySelector( ".level-up-row-toggle" ) : null;
         if ( _other_toggle ) {
             TEST.ASSERT.ok( getComputedStyle( _other_toggle ).backgroundImage.indexOf( "212, 175, 55" ) === -1, "L'interrupteur eteint d'une autre ligne ne devrait pas etre dore, obtenu : " + getComputedStyle( _other_toggle ).backgroundImage );
-            let _other_knob              = _other_toggle.querySelector( ".levelup-row-toggle-knob" );
+            let _other_knob              = _other_toggle.querySelector( ".level-up-row-toggle-knob" );
             if ( _other_knob ) {
                 TEST.ASSERT.equal( getComputedStyle( _other_knob ).left, "1px", "Le bouton coulissant eteint devrait rester a gauche (1px), obtenu : " + getComputedStyle( _other_knob ).left );
             }
         }
-        let _row_counter_after            = _row_after.querySelector( ".levelup-row-warning" );
+        let _row_counter_after            = _row_after.querySelector( ".level-up-row-warning" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait toujours porter son counter de warning apres bascule" );
         if ( _row_counter_after ) {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "", "Le counter de la ligne validée devrait etre vide, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne validée devrait etre masque, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
-        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-global-warning" );
+        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
         TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "4 capacités non validées" ) !== -1, "Le warning global devrait annoncer 4 capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
         if ( _counter ) {
             TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "4", "Le counter de l'onglet devrait valoir 4 apres la première validation, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
-        let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-number='1'] .levelup-block-title" );
+        let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
         TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
-        if ( _block_title ) {
-            TEST.ASSERT.ok( _block_title.classList.contains( "has-pending" ), "Le titre du bloc devrait rester has-pending tant que des capacités du niveau ne sont pas validées (4 restantes)" );
-        }
     } );
 } );
 
@@ -306,49 +302,49 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] second clic → capacité retirée + c
     if ( !_character ) {
         return;
     }
-    let _skill                          = _character.getLevelUpSkills().getSkill( 1, "ecole_arcanique" );
+    let _skill                          = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
     TEST.ASSERT.notNull( _skill, "Pre-condition : skill école arcanique present" );
     if ( !_skill ) {
         return;
     }
     TEST.ASSERT.ok( _skill.isActive(), "Pre-condition : école arcanique validée" );
-    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
+    let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
     TEST.ASSERT.notNull( _row, "Pre-condition : ligne école arcanique rendue" );
     if ( !_row ) {
         return;
     }
-    let _toggle                         = _row.querySelector( ".levelup-row-toggle" );
+    let _toggle                         = _row.querySelector( ".level-up-row-toggle" );
     TEST.ASSERT.notNull( _toggle, "Pre-condition : interrupteur rendu" );
     if ( !_toggle ) {
         return;
     }
     _toggle.click();
     return TEST.wait().then( function () {
-        let _skill_after                  = _character.getLevelUpSkills().getSkill( 1, "ecole_arcanique" );
+        let _skill_after                  = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill_after, "Le skill école arcanique devrait rester dans le conteneur apres la seconde bascule" );
         if ( !_skill_after ) {
             return;
         }
         TEST.ASSERT.notOk( _skill_after.isActive(), "La capacité ne devrait plus etre validée apres le second clic, obtenu : " + _skill_after.isActive() );
         TEST.ASSERT.deepEqual( _skill_after.getSpecificDataToSave(), {}, "Une capacité non validée ne devrait rien se sauvegarder, obtenu : " + JSON.stringify( _skill_after.getSpecificDataToSave() ) );
-        let _row_after                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='ecole_arcanique']" );
+        let _row_after                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
         TEST.ASSERT.notNull( _row_after, "La ligne école arcanique devrait rester rendue apres la seconde bascule" );
         if ( !_row_after ) {
             return;
         }
-        TEST.ASSERT.ok( _row_after.classList.contains( "levelup-row--pending" ), "La ligne devrait etre de nouveau en attente apres la seconde bascule" );
-        let _toggle_after                 = _row_after.querySelector( ".levelup-row-toggle" );
+        TEST.ASSERT.ok( _row_after.classList.contains( "level-up-row--pending" ), "La ligne devrait etre de nouveau en attente apres la seconde bascule" );
+        let _toggle_after                 = _row_after.querySelector( ".level-up-row-toggle" );
         TEST.ASSERT.notNull( _toggle_after, "La ligne devrait toujours porter son interrupteur" );
         if ( _toggle_after ) {
             TEST.ASSERT.notOk( _toggle_after.classList.contains( "active" ), "L'interrupteur ne devrait plus porter la classe active" );
         }
-        let _row_counter_after            = _row_after.querySelector( ".levelup-row-warning" );
+        let _row_counter_after            = _row_after.querySelector( ".level-up-row-warning" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait porter son counter de warning apres la seconde bascule" );
         if ( _row_counter_after ) {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "1", "Le counter de la ligne devrait etre de retour a 1, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne devrait etre de nouveau visible, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
-        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-global-warning" );
+        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
         TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "5 capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau 5 capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
@@ -364,13 +360,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
     if ( !_pane ) {
         return;
     }
-    let _block                           = _pane.querySelector( ".levelup-block" );
+    let _block                           = _pane.querySelector( ".level-up-block" );
     TEST.ASSERT.notNull( _block, "Pre-condition : bloc du niveau 1 rendu" );
     if ( !_block ) {
         return;
     }
     let _character                        = CONTROLLER.Character.current_character;
-    let _toggles                         = _block.querySelectorAll( ".levelup-row-toggle" );
+    let _toggles                         = _block.querySelectorAll( ".level-up-row-toggle" );
     TEST.ASSERT.equal( _toggles.length, 5, "Pre-condition : 5 interrupteurs rendus dans le bloc du niveau 1, obtenu : " + _toggles.length );
     for ( let _i = 0; _i < _toggles.length; _i++ ) {
         if ( !_toggles[ _i ].classList.contains( "active" ) ) {
@@ -378,11 +374,14 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
         }
     }
     return TEST.wait().then( function () {
-        for ( let _i = 0, _size_i = _character.getLevelUpSkills().getSkillsForLevel( 1 ).length; _i < _size_i; _i++ ) {
-            let _skill                   = _character.getLevelUpSkills().getSkillsForLevel( 1 )[ _i ];
-            TEST.ASSERT.ok( _skill.isActive(), "Toute capacité du niveau 1 devrait etre validée, " + _skill.getSlotKey() + " obtenu : " + _skill.isActive() );
+        let _level_params                = { "param__level": 1 };
+        _character.getLevelUpSkills().doActionAfter( "event__get__level_up__with_level", _level_params );
+        let _level_skills                = _level_params[ "param__level_up__with_level" ];
+        for ( let _i = 0, _size_i = _level_skills.length; _i < _size_i; _i++ ) {
+            let _skill                   = _level_skills[ _i ];
+            TEST.ASSERT.ok( _skill.isActive(), "Toute capacité du niveau 1 devrait etre validée, " + _skill.getUUID() + " obtenu : " + _skill.isActive() );
         }
-        let _warning                      = _pane.querySelector( ".levelup-global-warning" );
+        let _warning                      = _pane.querySelector( ".level-up-global-warning" );
         TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "Toutes les capacités sont validées" ) !== -1, "Le warning global devrait annoncer que toutes les capacités sont validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         TEST.ASSERT.notOk( _warning.classList.contains( "visible" ), "Le warning global ne devrait plus porter la classe visible" );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
@@ -391,11 +390,8 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
             TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "", "Le counter de l'onglet devrait etre vide quand tout est validé, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _counter ).display, "none", "Le counter devrait etre masque quand tout est validé, obtenu : " + getComputedStyle( _counter ).display );
         }
-        let _title                        = _pane.querySelector( ".levelup-block-title" );
+        let _title                        = _pane.querySelector( ".level-up-block-title" );
         TEST.ASSERT.notNull( _title, "Le titre du bloc du niveau 1 devrait etre rendu" );
-        if ( _title ) {
-            TEST.ASSERT.notOk( _title.classList.contains( "has-pending" ), "Le titre du bloc ne devrait plus porter has-pending quand tout le niveau est validé" );
-        }
     } );
 } );
 
@@ -407,7 +403,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
     }
     TEST.ASSERT.equal( _character.getLevel(), 1, "Pre-condition : Magicien niveau 1, obtenu : " + _character.getLevel() );
     for ( let _take = 0; _take < 4; _take++ ) {
-        let _take_button                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-class-option[data-name='Magicien'] .levelup-class-option-take" );
+        let _take_button                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-class-option[data-name='Magicien'] .level-up-class-option-take" );
         TEST.ASSERT.notNull( _take_button, "Le plus de prise de niveau devrait etre rendu (iteration " + _take + ")" );
         if ( !_take_button ) {
             return;
@@ -419,9 +415,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
         let _rank_gated                  = _character.getMasteries().getFinalRank( "save__reflexes" );
         TEST.ASSERT.equal( _rank_gated, "Q", "La maîtrise Réflexes devrait rester qualifiée tant que expertise en réflexes n'est pas validée (seules les capacités validées alimentent les maîtrises), obtenu : " + _rank_gated );
         let _expertise_row               = null;
-        let _rows                        = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-name] .levelup-row" );
+        let _rows                        = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name] .level-up-row" );
         for ( let _i = 0; _i < _rows.length; _i++ ) {
-            let _label                   = _rows[ _i ].querySelector( ".levelup-row-label" );
+            let _label                   = _rows[ _i ].querySelector( ".level-up-row-label" );
             if ( _label && _label.textContent === "expertise en réflexes" ) {
                 _expertise_row           = _rows[ _i ];
                 break;
@@ -431,7 +427,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
         if ( !_expertise_row ) {
             return;
         }
-        let _toggle                     = _expertise_row.querySelector( ".levelup-row-toggle" );
+        let _toggle                     = _expertise_row.querySelector( ".level-up-row-toggle" );
         TEST.ASSERT.notNull( _toggle, "La ligne expertise en réflexes devrait porter son interrupteur" );
         if ( !_toggle ) {
             return;
@@ -442,7 +438,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
             TEST.ASSERT.equal( _rank_after, "E", "La maîtrise Réflexes devrait etre experte apres validation d'expertise en réflexes, obtenu : " + _rank_after );
             let _rank_vigueur            = _character.getMasteries().getFinalRank( "save__vigueur" );
             TEST.ASSERT.equal( _rank_vigueur, "Q", "La maîtrise Vigueur devrait rester qualifiee avant le niveau 9 (vigueur magique), obtenu : " + _rank_vigueur );
-            let _masteries_info          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-row[data-slot-key='maitrises_initiales'] .levelup-row-info" );
+            let _masteries_info          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='initial_masteries'] .level-up-row-info" );
             TEST.ASSERT.notNull( _masteries_info, "Le ? de la ligne maîtrises initiales devrait etre rendu au niveau 5" );
             if ( !_masteries_info ) {
                 return;
@@ -478,7 +474,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] prise du niveau 6 → état validé co
         return;
     }
     TEST.ASSERT.equal( _character.getLevel(), 5, "Pre-condition : Magicien niveau 5, obtenu : " + _character.getLevel() );
-    let _take_button                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-class-option[data-name='Magicien'] .levelup-class-option-take" );
+    let _take_button                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-class-option[data-name='Magicien'] .level-up-class-option-take" );
     TEST.ASSERT.notNull( _take_button, "Pre-condition : bouton de prise de niveau rendu" );
     if ( !_take_button ) {
         return;
@@ -487,22 +483,16 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] prise du niveau 6 → état validé co
     return TEST.wait().then( function () {
         TEST.ASSERT.equal( _character.getLevel(), 6, "Le Magicien devrait etre niveau 6, obtenu : " + _character.getLevel() );
         let _skills                      = _character.getLevelUpSkills();
-        let _ecole                       = _skills.getSkill( 1, "ecole_arcanique" );
+        let _ecole                       = _skills.getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _ecole, "Le skill école arcanique devrait exister apres le rebuild" );
         if ( _ecole ) {
             TEST.ASSERT.ok( _ecole.isActive(), "La validation de école arcanique devrait survivre au rebuild de la prise de niveau, obtenu : " + _ecole.isActive() );
         }
-        let _expertise_found             = false;
-        let _expertise_active             = false;
-        for ( let _i = 0, _size_i = _skills.getSkillsForLevel( 5 ).length; _i < _size_i; _i++ ) {
-            let _skill                   = _skills.getSkillsForLevel( 5 )[ _i ];
-            if ( _skill.getAbilityKey() === "expertise_en_reflexes" ) {
-                _expertise_found         = true;
-                _expertise_active        = _skill.isActive();
-            }
+        let _expertise = _skills.getContentByUUID( "5__expertise_en_reflexes" );
+        TEST.ASSERT.notNull( _expertise, "Le skill expertise en réflexes du niveau 5 devrait exister apres le rebuild" );
+        if ( _expertise ) {
+            TEST.ASSERT.ok( _expertise.isActive(), "La validation d'expertise en réflexes devrait survivre au rebuild, obtenu : " + _expertise.isActive() );
         }
-        TEST.ASSERT.ok( _expertise_found, "Le skill expertise en réflexes du niveau 5 devrait exister apres le rebuild" );
-        TEST.ASSERT.ok( _expertise_active, "La validation d'expertise en réflexes devrait survivre au rebuild, obtenu : " + _expertise_active );
         let _rank                        = _character.getMasteries().getFinalRank( "save__reflexes" );
         TEST.ASSERT.equal( _rank, "E", "La maîtrise Réflexes devrait rester experte apres le rebuild, obtenu : " + _rank );
     } );

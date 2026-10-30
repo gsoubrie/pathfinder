@@ -58,13 +58,13 @@ CHARACTER.Masteries.prototype = {
             if ( !skill.isActive() ) {
                 continue;
             }
-            let upgrades = CLASSES.getMasteriesUpgrade( skill.getClassName(), skill.getAbilityKey() );
+            let upgrades = skill.getMasteriesUpgrades();
             for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
                 to_return.push( {
                     slot  : upgrades[ u ].slot,
                     rank  : upgrades[ u ].rank,
                     label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
-                    source: skill.getLabel() + " (niveau " + skill.getLevel() + ")"
+                    source: skill.getSourceLabel()
                 } );
             }
         }

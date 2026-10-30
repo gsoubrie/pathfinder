@@ -1,6 +1,6 @@
 /* =============================== LEVELUP WINDOW =========================== */
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-window {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-window {
     display        : flex;
     flex-direction : column;
     gap            : 10px;
@@ -13,7 +13,7 @@
 }
 
 /* ── En-tête ── */
-.levelup-window .levelup-header {
+.level-up-window .level-up-header {
     display         : flex;
     justify-content : space-between;
     align-items     : center;
@@ -24,7 +24,7 @@
     margin-bottom   : 4px;
 }
 
-.levelup-window .levelup-header-level {
+.level-up-window .level-up-header-level {
     background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
     border        : 1px solid #ffd700;
     border-radius : 6px;
@@ -35,7 +35,7 @@
 }
 
 /* ── Warning global ── */
-.levelup-window .levelup-global-warning {
+.level-up-window .level-up-global-warning {
     border-radius : 6px;
     font-size     : 13px;
     font-weight   : bold;
@@ -46,21 +46,21 @@
     color         : #90d080;
 }
 
-.levelup-window .levelup-global-warning.visible {
+.level-up-window .level-up-global-warning.visible {
     background : linear-gradient(135deg, #3a2010 0%, #2a1408 100%);
     border     : 1px solid #c06030;
     color      : #f0a060;
 }
 
 /* ── Bloc niveau ── */
-.levelup-window .levelup-block {
+.level-up-window .level-up-block {
     background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
     border        : 1px solid #6b4e2a;
     border-radius : 8px;
     overflow      : hidden;
 }
 
-.levelup-window .levelup-block-title {
+.level-up-window .level-up-block-title {
     align-items      : center;
     background       : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
     border-bottom    : 1px solid #6b4e2a;
@@ -69,11 +69,7 @@
     padding          : 8px 14px;
 }
 
-.levelup-window .levelup-block-title.has-pending {
-    border-left : 4px solid #d4500a;
-}
-
-.levelup-window .levelup-block-level-num {
+.level-up-window .level-up-block-level-num {
     color       : #d4af37;
     font-size   : 14px;
     font-weight : bold;
@@ -83,7 +79,7 @@
 }
 
 /* ── Interrupteur Actif / Désactivé d'un bloc de niveau ── */
-.levelup-window .levelup-level-toggle {
+.level-up-window .level-up-level-toggle {
     background    : linear-gradient(135deg, #6b4e10 0%, #3d2817 100%);
     border        : 1px solid #8b6914;
     border-radius : 6px;
@@ -96,19 +92,19 @@
     white-space   : nowrap;
 }
 
-.levelup-window .levelup-level-toggle:hover {
+.level-up-window .level-up-level-toggle:hover {
     border : 1px solid #ffd700;
     color  : #ffd700;
 }
 
 /* ── Bloc de niveau désactivé : interrupteur de ré-activation uniquement ── */
-.levelup-window .levelup-block.disabled {
+.level-up-window .level-up-block.disabled {
     border : 1px dashed #6b4e2a;
     opacity: 0.6;
 }
 
 /* ── Ligne unlock ── */
-.levelup-window .levelup-row {
+.level-up-window .level-up-row {
     align-items  : center;
     border-bottom: 1px solid rgba(107, 78, 42, 0.3);
     display      : flex;
@@ -117,50 +113,50 @@
     transition   : background 0.15s ease;
 }
 
-.levelup-window .levelup-row:last-child {
+.level-up-window .level-up-row:last-child {
     border-bottom : none;
 }
 
-.levelup-window .levelup-row--active {
+.level-up-window .level-up-row--active {
     background : linear-gradient(135deg, #1f2a14 0%, #14200c 100%);
 }
 
-.levelup-window .levelup-row--pending {
+.level-up-window .level-up-row--pending {
     border-left : 3px solid #d4500a;
 }
 
-.levelup-window .levelup-row-icon {
+.level-up-window .level-up-row-icon {
     flex-shrink : 0;
     font-size   : 15px;
     width       : 20px;
     text-align  : center;
 }
 
-.levelup-window .levelup-row-label {
+.level-up-window .level-up-row-label {
     color     : #c8b090;
     flex      : 1;
     font-size : 13px;
 }
 
 /* ── Groupe libellé + lien d'information (?) : le ? reste colle au libellé ── */
-.levelup-window .levelup-row-label-group {
+.level-up-window .level-up-row-label-group {
     align-items : center;
     display     : flex;
     flex        : 1;
     gap         : 5px;
 }
 
-.levelup-window .levelup-row-label-group .levelup-row-label {
+.level-up-window .level-up-row-label-group .level-up-row-label {
     flex : 0 1 auto;
 }
 
 /* ── Counter de warning de la ligne (enfant du counter de la fenêtre) ── */
-.levelup-window .levelup-row-warning {
+.level-up-window .level-up-row-warning {
     flex-shrink : 0;
 }
 
 /* ── Interrupteur de validation de la ligne : pilule allongee + bouton coulissant, sans texte ── */
-.levelup-window .levelup-row-toggle {
+.level-up-window .level-up-row-toggle {
     background      : var(--g-card);
     border          : var(--b-thin) solid var(--c-border-dark);
     border-radius   : 999px;
@@ -172,11 +168,11 @@
     width           : 34px;
 }
 
-.levelup-window .levelup-row-toggle:hover {
+.level-up-window .level-up-row-toggle:hover {
     border-color : var(--c-gold-dark);
 }
 
-.levelup-window .levelup-row-toggle-knob {
+.level-up-window .level-up-row-toggle-knob {
     background    : var(--c-text-muted);
     border-radius : 999px;
     height        : 12px;
@@ -188,45 +184,19 @@
     width         : 12px;
 }
 
-.levelup-window .levelup-row-toggle.active {
+.level-up-window .level-up-row-toggle.active {
     background : var(--g-gold);
     border     : var(--b-thin) solid var(--c-gold-light);
     box-shadow : var(--sh-gold-sm);
 }
 
-.levelup-window .levelup-row-toggle.active .levelup-row-toggle-knob {
+.level-up-window .level-up-row-toggle.active .level-up-row-toggle-knob {
     background : var(--c-text-dark);
     left       : 19px;
 }
 
-/* ── Warning dans characteristics (body dataset) ── */
-body[data-levelup-missing]:not([data-levelup-missing="0"]) #id-gs-window-V2-characteristic_sheet-character_group .gs-div-tab::after {
-    content       : attr(data-levelup-missing-label);
-    background    : #d4500a;
-    border-radius : 3px;
-    color         : #fff;
-    font-size     : 10px;
-    font-weight   : bold;
-    margin-left   : 6px;
-    padding       : 1px 6px;
-}
-
-body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-container::before {
-    content       : "⚠ Des choix de passage de niveau sont en attente";
-    display       : block;
-    background    : linear-gradient(135deg, #3a2010 0%, #2a1408 100%);
-    border        : 1px solid #c06030;
-    border-radius : 6px;
-    color         : #f0a060;
-    font-size     : 13px;
-    font-weight   : bold;
-    margin-bottom : 12px;
-    padding       : 8px 14px;
-    text-align    : center;
-}
-
 /* ===== Sélecteur de classe (multiclasse) ===== */
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-selector {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-selector {
     display         : flex;
     align-items     : center;
     flex-wrap       : wrap;
@@ -237,7 +207,7 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     padding         : var(--s-md) var(--s-lg);
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option {
     display          : flex;
     align-items      : center;
     gap              : var(--s-sm);
@@ -249,16 +219,16 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     cursor           : pointer;
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-icon {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option .level-up-class-option-icon {
     font-size   : 16px;
     line-height : 1;
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-name {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option .level-up-class-option-name {
     font-weight : var(--font-weight-bold);
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-take {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option .level-up-class-option-take {
     display           : inline-flex;
     align-items       : center;
     justify-content   : center;
@@ -273,12 +243,12 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     cursor            : pointer;
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option:hover {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option:hover {
     background  : var(--g-card-hover);
     border-color : var(--c-gold-dark);
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option.selected {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option.selected {
     background    : var(--g-gold);
     border        : var(--b-normal) solid var(--c-gold);
     color         : var(--c-text-dark);
@@ -286,12 +256,12 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     box-shadow    : var(--sh-gold-sm);
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option.selected .levelup-class-option-take {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option.selected .level-up-class-option-take {
     background : var(--c-gold-light);
 }
 
 /* ===== Moins de niveau par tag ===== */
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-remove {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option .level-up-class-option-remove {
     display           : inline-flex;
     align-items       : center;
     justify-content   : center;
@@ -306,13 +276,13 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     cursor            : pointer;
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .levelup-class-option .levelup-class-option-remove:hover {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-class-option .level-up-class-option-remove:hover {
     border-color : var(--c-gold-dark);
     color        : var(--c-text-gold);
 }
 
 /* ===== Lien d'information (?) d'une ligne ===== */
-.property-tab-pane[data-name="levelup_sheet"] .levelup-row-info {
+.property-tab-pane[data-name="levelup_sheet"] .level-up-row-info {
     font-size : 11px;
 }
 

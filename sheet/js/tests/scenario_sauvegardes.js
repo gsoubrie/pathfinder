@@ -177,7 +177,7 @@ TEST.RUNNER.register( "[SAUVEGARDES] niveau 5 + expertise validée → jet Réfl
     TEST.ASSERT.equal( _character.getLevel(), 1, "Pre-condition : Magicien niveau 1, obtenu : " + _character.getLevel() );
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         for ( let _take = 0; _take < 4; _take++ ) {
-            let _take_button             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-class-option[data-name='Magicien'] .levelup-class-option-take" );
+            let _take_button             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-class-option[data-name='Magicien'] .level-up-class-option-take" );
             TEST.ASSERT.notNull( _take_button, "Le plus de prise de niveau devrait etre rendu (iteration " + _take + ")" );
             if ( !_take_button ) {
                 return null;
@@ -202,9 +202,9 @@ TEST.RUNNER.register( "[SAUVEGARDES] niveau 5 + expertise validée → jet Réfl
             TEST.ASSERT.equal( _reflexes_row.querySelector( ".saves-value" ).textContent, "" + _expected_level_5, "Le jet Réflexes devrait être recalculé au niveau 5 (5 + mod DEX + 2 = " + _expected_level_5 + "), obtenu : " + _reflexes_row.querySelector( ".saves-value" ).textContent );
             return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
                 let _expertise_row   = null;
-                let _rows            = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .levelup-block[data-level-name] .levelup-row" );
+                let _rows            = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name] .level-up-row" );
                 for ( let _i = 0; _i < _rows.length; _i++ ) {
-                    let _label       = _rows[ _i ].querySelector( ".levelup-row-label" );
+                    let _label       = _rows[ _i ].querySelector( ".level-up-row-label" );
                     if ( _label && _label.textContent === "expertise en réflexes" ) {
                         _expertise_row = _rows[ _i ];
                         break;
@@ -214,7 +214,7 @@ TEST.RUNNER.register( "[SAUVEGARDES] niveau 5 + expertise validée → jet Réfl
                 if ( !_expertise_row ) {
                     return null;
                 }
-                let _toggle         = _expertise_row.querySelector( ".levelup-row-toggle" );
+                let _toggle         = _expertise_row.querySelector( ".level-up-row-toggle" );
                 TEST.ASSERT.notNull( _toggle, "La ligne expertise en réflexes devrait porter son interrupteur" );
                 if ( !_toggle ) {
                     return null;

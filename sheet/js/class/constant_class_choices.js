@@ -275,15 +275,22 @@ CLASSES.getMasteriesContributions = function ( class_name ) {
     return to_return;
 };
 
+// Hand-written overrides of scraped ability keys: data identifiers are English,
+// this map survives a re-scrap of the class data
+CLASSES.ABILITY_KEY_OVERRIDES = {
+    "maitrises_initiales": "initial_masteries"
+};
+
 /**
  * @param {string} label  Unlock label from capacity_by_level, ex: "école arcanique"
  * @returns {string}      Normalized ability key, ex: "ecole_arcanique"
  */
 CLASSES.getAbilityKey = function ( label ) {
-    return label.toLowerCase()
+    let slug = label.toLowerCase()
         .normalize( "NFD" )
         .replace( /[\u0300-\u036f]/g, "" )
         .replace( /[^a-z0-9]+/g, "_" );
+    return CLASSES.ABILITY_KEY_OVERRIDES[ slug ] || slug;
 };
 
 /**

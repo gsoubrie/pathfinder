@@ -78,30 +78,30 @@ TEST.RUNNER.register( "[MULTICLASSE] passage niveau Guerrier → Guerrier 2, tot
         if ( !_pane ) {
             return;
         }
-        let _selector                  = _pane.querySelector( ".levelup-class-selector" );
-        TEST.ASSERT.notNull( _selector, "Le selecteur de classe devrait etre rendu (.levelup-class-selector)" );
+        let _selector                  = _pane.querySelector( ".level-up-class-selector" );
+        TEST.ASSERT.notNull( _selector, "Le selecteur de classe devrait etre rendu (.level-up-class-selector)" );
         if ( !_selector ) {
             return;
         }
-        let _options                   = _selector.querySelectorAll( ".levelup-class-option" );
+        let _options                   = _selector.querySelectorAll( ".level-up-class-option" );
         TEST.ASSERT.equal( _options.length, 2, "Le selecteur devrait proposer les 2 classes possedees, obtenu : " + _options.length );
-        let _guerrier_option           = _selector.querySelector( ".levelup-class-option[data-name='Guerrier']" );
+        let _guerrier_option           = _selector.querySelector( ".level-up-class-option[data-name='Guerrier']" );
         TEST.ASSERT.notNull( _guerrier_option, "Le selecteur devrait proposer Guerrier" );
         if ( !_guerrier_option ) {
             return;
         }
-        TEST.ASSERT.equal( _guerrier_option.querySelector( ".levelup-class-option-icon" ).textContent, CLASSES.ICONS[ "Guerrier" ], "L'option Guerrier devrait afficher l'icone de la classe, obtenu : " + _guerrier_option.querySelector( ".levelup-class-option-icon" ).textContent );
-        TEST.ASSERT.ok( _guerrier_option.querySelector( ".levelup-class-option-name" ).textContent.indexOf( "Guerrier" ) !== -1, "L'option Guerrier devrait afficher le nom de la classe, obtenu : " + _guerrier_option.querySelector( ".levelup-class-option-name" ).textContent );
+        TEST.ASSERT.equal( _guerrier_option.querySelector( ".level-up-class-option-icon" ).textContent, CLASSES.ICONS[ "Guerrier" ], "L'option Guerrier devrait afficher l'icone de la classe, obtenu : " + _guerrier_option.querySelector( ".level-up-class-option-icon" ).textContent );
+        TEST.ASSERT.ok( _guerrier_option.querySelector( ".level-up-class-option-name" ).textContent.indexOf( "Guerrier" ) !== -1, "L'option Guerrier devrait afficher le nom de la classe, obtenu : " + _guerrier_option.querySelector( ".level-up-class-option-name" ).textContent );
         _guerrier_option.click();
         let _guerrier_style            = getComputedStyle( _guerrier_option );
         TEST.ASSERT.ok( _guerrier_style.borderColor.indexOf( "212, 175, 55" ) !== -1, "L'option Guerrier cliquee devrait porter la bordure doree (selection visible), obtenu : " + _guerrier_style.borderColor );
-        let _champion_option           = _selector.querySelector( ".levelup-class-option[data-name='Champion']" );
+        let _champion_option           = _selector.querySelector( ".level-up-class-option[data-name='Champion']" );
         if ( _champion_option ) {
             let _champion_style        = getComputedStyle( _champion_option );
             TEST.ASSERT.ok( _champion_style.borderColor.indexOf( "212, 175, 55" ) === -1, "L'option Champion non selectionnee ne devrait pas etre doree, obtenu : " + _champion_style.borderColor );
         }
-        let _take_button               = _guerrier_option.querySelector( ".levelup-class-option-take" );
-        TEST.ASSERT.notNull( _take_button, "Le plus de prise de niveau devrait etre rendu sur l'option Guerrier (.levelup-class-option-take)" );
+        let _take_button               = _guerrier_option.querySelector( ".level-up-class-option-take" );
+        TEST.ASSERT.notNull( _take_button, "Le plus de prise de niveau devrait etre rendu sur l'option Guerrier (.level-up-class-option-take)" );
         if ( !_take_button ) {
             return;
         }
@@ -128,7 +128,7 @@ TEST.RUNNER.register( "[MULTICLASSE] passage niveau Guerrier → Guerrier 2, tot
         }
         let _expected_hp               = _max_hp_before + _con.modifier_value.value + CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
         TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient inclure le nouveau niveau pris en Guerrier" );
-        let _header_level              = _pane.querySelector( ".levelup-header-level" );
+        let _header_level              = _pane.querySelector( ".level-up-header-level" );
         if ( _header_level ) {
             TEST.ASSERT.equal( _header_level.textContent, "Niveau 3", "L'entete du panneau devrait afficher Niveau 3, obtenu : " + _header_level.textContent );
         }

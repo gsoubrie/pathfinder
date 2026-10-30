@@ -6,6 +6,9 @@ var LEVELUP = {};
 
 LEVELUP.key = "level_up_skills";
 
+// Ability key of the "maîtrises initiales" unlock line, English override of the scraped label
+LEVELUP.INITIAL_MASTERIES_KEY = "initial_masteries";
+
 // Unlock types opening a choice (feats): they carry a positional slot key
 // (type + index) so the validated state stays stable across rebuilds
 LEVELUP.CHOICE_TYPES = [

@@ -54,13 +54,13 @@ TEST.RUNNER.register( "[NIVEAUX] moins Guerrier → Guerrier 1, total 2", functi
         if ( !_pane ) {
             return;
         }
-        let _guerrier_option           = _pane.querySelector( ".levelup-class-option[data-name='Guerrier']" );
+        let _guerrier_option           = _pane.querySelector( ".level-up-class-option[data-name='Guerrier']" );
         TEST.ASSERT.notNull( _guerrier_option, "Le tag Guerrier devrait etre rendu" );
         if ( !_guerrier_option ) {
             return;
         }
-        let _remove_button             = _guerrier_option.querySelector( ".levelup-class-option-remove" );
-        TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Guerrier (.levelup-class-option-remove)" );
+        let _remove_button             = _guerrier_option.querySelector( ".level-up-class-option-remove" );
+        TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Guerrier (.level-up-class-option-remove)" );
         if ( !_remove_button ) {
             return;
         }
@@ -76,7 +76,7 @@ TEST.RUNNER.register( "[NIVEAUX] moins Guerrier → Guerrier 1, total 2", functi
             let _expected_hp           = _max_hp_before - _con.modifier_value.value - CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
             TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient etre diminues d'un niveau de Guerrier" );
         }
-        let _guerrier_name             = _pane.querySelector( ".levelup-class-option[data-name='Guerrier'] .levelup-class-option-name" );
+        let _guerrier_name             = _pane.querySelector( ".level-up-class-option[data-name='Guerrier'] .level-up-class-option-name" );
         if ( _guerrier_name ) {
             TEST.ASSERT.ok( _guerrier_name.textContent.indexOf( "Guerrier 1" ) !== -1, "Le tag Guerrier devrait reafficher Guerrier 1 apres reconstruction, obtenu : " + _guerrier_name.textContent );
         }
@@ -98,12 +98,12 @@ TEST.RUNNER.register( "[NIVEAUX] suppression Guerrier → classes = Champion 1",
         if ( !_pane ) {
             return;
         }
-        let _guerrier_option           = _pane.querySelector( ".levelup-class-option[data-name='Guerrier']" );
+        let _guerrier_option           = _pane.querySelector( ".level-up-class-option[data-name='Guerrier']" );
         TEST.ASSERT.notNull( _guerrier_option, "Le tag Guerrier devrait etre rendu" );
         if ( !_guerrier_option ) {
             return;
         }
-        let _remove_button             = _guerrier_option.querySelector( ".levelup-class-option-remove" );
+        let _remove_button             = _guerrier_option.querySelector( ".level-up-class-option-remove" );
         TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Guerrier" );
         if ( !_remove_button ) {
             return;
@@ -139,12 +139,12 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglets désac
         if ( !_pane ) {
             return;
         }
-        let _champion_option           = _pane.querySelector( ".levelup-class-option[data-name='Champion']" );
+        let _champion_option           = _pane.querySelector( ".level-up-class-option[data-name='Champion']" );
         TEST.ASSERT.notNull( _champion_option, "Le tag Champion devrait etre rendu" );
         if ( !_champion_option ) {
             return;
         }
-        let _remove_button             = _champion_option.querySelector( ".levelup-class-option-remove" );
+        let _remove_button             = _champion_option.querySelector( ".level-up-class-option-remove" );
         TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Champion" );
         if ( !_remove_button ) {
             return;
@@ -189,7 +189,7 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
         if ( !_pane ) {
             return;
         }
-        let _take_button               = _pane.querySelector( ".levelup-class-option[data-name='Champion'] .levelup-class-option-take" );
+        let _take_button               = _pane.querySelector( ".level-up-class-option[data-name='Champion'] .level-up-class-option-take" );
         TEST.ASSERT.notNull( _take_button, "Le plus devrait etre rendu sur le tag Champion" );
         if ( !_take_button ) {
             return;
@@ -198,8 +198,8 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
         TEST.ASSERT.equal( _character.getLevel(), 2, "Le niveau total devrait passer a 2, obtenu : " + _character.getLevel() );
         TEST.ASSERT.equal( _character.getLevelHistory().getSize(), 2, "L'historique devrait contenir 2 niveaux" );
         let _max_hp_before             = _character.getHealth().getMaxHP();
-        let _block_toggle              = _pane.querySelector( ".levelup-block[data-level-name='2'] .levelup-level-toggle" );
-        TEST.ASSERT.notNull( _block_toggle, "Le bloc du niveau 2 devrait porter l'interrupteur (.levelup-level-toggle)" );
+        let _block_toggle              = _pane.querySelector( ".level-up-block[data-level-name='2'] .level-up-level-toggle" );
+        TEST.ASSERT.notNull( _block_toggle, "Le bloc du niveau 2 devrait porter l'interrupteur (.level-up-level-toggle)" );
         if ( !_block_toggle ) {
             return;
         }
@@ -246,18 +246,18 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
                 if ( !_levelup_pane ) {
                     return;
                 }
-                let _header_level      = _levelup_pane.querySelector( ".levelup-header-level" );
+                let _header_level      = _levelup_pane.querySelector( ".level-up-header-level" );
                 if ( _header_level ) {
                     TEST.ASSERT.equal( _header_level.textContent, "Niveau 2 (1 actif)", "L'entete devrait afficher le total et les niveaux actifs, obtenu : " + _header_level.textContent );
                 }
-                let _blocks            = _levelup_pane.querySelectorAll( ".levelup-block" );
+                let _blocks            = _levelup_pane.querySelectorAll( ".level-up-block" );
                 TEST.ASSERT.equal( _blocks.length, 2, "Chaque niveau devrait garder son bloc (meme desactive, pour son interrupteur), obtenu : " + _blocks.length );
-                let _disabled_block    = _levelup_pane.querySelector( ".levelup-block[data-level-name='2']" );
+                let _disabled_block    = _levelup_pane.querySelector( ".level-up-block[data-level-name='2']" );
                 TEST.ASSERT.notNull( _disabled_block, "Le bloc du niveau 2 devrait exister" );
                 if ( _disabled_block ) {
                     TEST.ASSERT.ok( _disabled_block.classList.contains( "disabled" ), "Le bloc du niveau desactive devrait porter la classe disabled" );
-                    TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".levelup-row" ).length, 0, "Le bloc du niveau desactive ne devrait pas afficher de lignes de deblocage" );
-                    let _block_state   = _disabled_block.querySelector( ".levelup-level-toggle" );
+                    TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".level-up-row" ).length, 0, "Le bloc du niveau desactive ne devrait pas afficher de lignes de deblocage" );
+                    let _block_state   = _disabled_block.querySelector( ".level-up-level-toggle" );
                     if ( _block_state ) {
                         TEST.ASSERT.equal( _block_state.textContent, "Désactivé", "L'interrupteur du bloc desactive devrait afficher Désactivé, obtenu : " + _block_state.textContent );
                     }
@@ -281,7 +281,7 @@ TEST.RUNNER.register( "[NIVEAUX] ré-activation → totaux restaurés", function
         if ( !_levelup_pane ) {
             return;
         }
-        let _toggle                    = _levelup_pane.querySelector( ".levelup-block[data-level-name='2'] .levelup-level-toggle" );
+        let _toggle                    = _levelup_pane.querySelector( ".level-up-block[data-level-name='2'] .level-up-level-toggle" );
         TEST.ASSERT.notNull( _toggle, "L'interrupteur du niveau desactive devrait etre trouve dans son bloc" );
         if ( !_toggle ) {
             return;
@@ -311,7 +311,7 @@ TEST.RUNNER.register( "[NIVEAUX] ré-activation → totaux restaurés", function
                 if ( !_levelup_pane ) {
                     return;
                 }
-                let _header_level      = _levelup_pane.querySelector( ".levelup-header-level" );
+                let _header_level      = _levelup_pane.querySelector( ".level-up-header-level" );
                 if ( _header_level ) {
                     TEST.ASSERT.equal( _header_level.textContent, "Niveau 2", "L'entete devrait reafficher le total sans mention d'actifs, obtenu : " + _header_level.textContent );
                 }
@@ -332,7 +332,7 @@ TEST.RUNNER.register( "[NIVEAUX][SAVE] save → load = enabled restauré", funct
         return;
     }
     let _level_name                    = "2";
-    let _toggle                        = _levelup_pane.querySelector( ".levelup-block[data-level-name='" + _level_name + "'] .levelup-level-toggle" );
+    let _toggle                        = _levelup_pane.querySelector( ".level-up-block[data-level-name='" + _level_name + "'] .level-up-level-toggle" );
     TEST.ASSERT.notNull( _toggle, "L'interrupteur du niveau 2 devrait etre rendu dans son bloc" );
     if ( !_toggle ) {
         return;
