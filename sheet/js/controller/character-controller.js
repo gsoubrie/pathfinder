@@ -33,10 +33,7 @@ CONTROLLER.Character = (function ( self ) {
             case "event__level_up__select_class":
             case "event__level_up__take_level":
             case "event__level_up__remove_level":
-            case "event__levelup__select":
-            case "event__inline_selector__open":
-            case "event__inline_selector__search":
-            case "event__inline_selector__entry":
+            case "event__level_up__toggle_skill":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__level__toggle":

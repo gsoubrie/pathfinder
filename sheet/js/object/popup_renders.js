@@ -232,6 +232,9 @@ OBJECT.MasteriesPopupRenderer.prototype = {
                 const line  = by_slot[ lines[ k ] ];
                 const badge = MASTERY.getByShort( line.rank );
                 grid += `<div class="class-mastery-row"><span class="class-mastery-badge ${badge.css}">${badge.label}</span><span class="class-mastery-desc">${line.label}</span></div>`;
+                if ( line.sources && line.sources.length ) {
+                    grid += `<div class="class-mastery-sources">${line.sources.join( " · " )}</div>`;
+                }
             }
             grid += `</div>`;
         }
@@ -263,3 +266,82 @@ OBJECT.DefaultPopupRenderer.prototype = {
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.DefaultPopupRenderer, OBJECT.BasePopupRenderer );
+
+/**
+ * @class OBJECT.SkillActionsPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * Renders one skill of the character: its description, the rank of the
+ * character on it, then every action of the skill and the general actions
+ * usable with it. An action shows usable or locked, the data carries the
+ * rank requirement and the usable flag (built by CHARACTER.Masteries).
+ */
+OBJECT.SkillActionsPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.SkillActionsPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--default">
+            <h2 class="popup-title">${text}</h2>
+            <span class="class-mastery-badge ${object_data.skill_badge_css} skill-current-rank">${object_data.skill_rank_label}</span>
+          </div>
+
+          <div class="popup-description">
+            ${object_data.skill_description ? `<div class="skill-description">${object_data.skill_description}</div>` : ""}
+            ${this._actionsHtml( object_data.actions, "" )}
+            ${this._actionsHtml( object_data.general_actions, "skill-general-actions", "Actions de compétence générales" )}
+          </div>` );
+    },
+
+    _actionsHtml: function ( actions, wrap_class, section_title ) {
+        if ( !actions || !actions.length ) {
+            return "";
+        }
+        const lines = actions.map( ( action ) => this._actionHtml( action ) ).join( "" );
+        return `
+          <div class="${wrap_class}">
+            ${section_title ? `<div class="skill-section-title">${section_title}</div>` : ""}
+            ${lines}
+          </div>`;
+    },
+
+    _actionHtml: function ( action ) {
+        const locked = action.usable ? "" : " locked";
+        const traits = ( action.traits || [] ).map( ( trait ) => this._badge( trait, "popup-badge--trait" ) ).join( "" );
+        const cost   = action.cost ? `<span class="skill-action-cost">${action.cost}</span>` : "";
+        return `
+          <div class="skill-action${locked}">
+            <div class="skill-action-header">
+              <span class="skill-action-name">${action.name}</span>
+              ${cost}
+              <span class="class-mastery-badge ${MASTERY.getByShort( action.rank ).css}">${action.rank_label}</span>
+            </div>
+            ${traits ? `<div class="popup-traits skill-action-traits">${traits}</div>` : ""}
+            ${action.prerequisite ? `<div class="skill-action-line"><span class="skill-action-line-label">Prérequis</span>${action.prerequisite}</div>` : ""}
+            ${action.condition ? `<div class="skill-action-line"><span class="skill-action-line-label">Conditions</span>${action.condition}</div>` : ""}
+            ${action.description ? `<div class="skill-action-description">${action.description}</div>` : ""}
+            ${this._tasksHtml( action.tasks )}
+            ${this._resultsHtml( action.results )}
+            ${action.usable ? "" : `<div class="skill-action-locked-hint">Rang ${action.rank_label} requis</div>`}
+          </div>`;
+    },
+
+    _tasksHtml: function ( tasks ) {
+        if ( !tasks || !tasks.length ) {
+            return "";
+        }
+        const lines = tasks.map( ( task ) => `<span class="skill-action-task"><span class="skill-action-task-rank">${task.rank_label}</span>${task.text}</span>` ).join( "" );
+        return `<div class="skill-action-tasks">${lines}</div>`;
+    },
+
+    _resultsHtml: function ( results ) {
+        if ( !results || !results.length ) {
+            return "";
+        }
+        const lines = results.map( ( result ) => `<div class="skill-action-result"><span class="skill-action-result-label">${result.label}</span>${result.text}</div>` ).join( "" );
+        return `<div class="skill-action-results">${lines}</div>`;
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.SkillActionsPopupRenderer, OBJECT.BasePopupRenderer );

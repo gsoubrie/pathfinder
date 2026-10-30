@@ -121,8 +121,8 @@
     border-bottom : none;
 }
 
-.levelup-window .levelup-row--choice {
-    background : linear-gradient(135deg, #33231a 0%, #241810 100%);
+.levelup-window .levelup-row--active {
+    background : linear-gradient(135deg, #1f2a14 0%, #14200c 100%);
 }
 
 .levelup-window .levelup-row--pending {
@@ -142,11 +142,6 @@
     font-size : 13px;
 }
 
-.levelup-window .levelup-row--choice .levelup-row-label {
-    color       : #e8d4a8;
-    font-weight : 600;
-}
-
 /* ── Groupe libellé + lien d'information (?) : le ? reste colle au libellé ── */
 .levelup-window .levelup-row-label-group {
     align-items : center;
@@ -164,137 +159,44 @@
     flex-shrink : 0;
 }
 
-/* ── Sélecteur ── */
-.levelup-window .levelup-selector-wrap {
-    flex-shrink : 0;
-    min-width   : 220px;
-}
-
-.levelup-window .levelup-chosen {
-    align-items     : center;
-    background      : linear-gradient(135deg, #2a3a10 0%, #1a2a08 100%);
-    border          : 1px solid #4a8a2a;
-    border-radius   : 5px;
-    display         : flex;
-    gap             : 8px;
-    justify-content : space-between;
-    padding         : 4px 10px;
-}
-
-.levelup-window .levelup-chosen-name {
-    color       : #a0e060;
-    font-size   : 12px;
-    font-weight : bold;
-}
-
-.levelup-window .levelup-clear-btn,
-.levelup-window .levelup-choose-btn,
-.levelup-window .levelup-cancel-btn {
-    background  : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
-    border      : 1px solid #8b6914;
-    border-radius: 4px;
-    color       : #d4af37;
-    cursor      : pointer;
-    font-family : inherit;
-    font-size   : 12px;
-    font-weight : bold;
-    padding     : 3px 10px;
-    transition  : all 0.2s ease;
-}
-
-.levelup-window .levelup-clear-btn:hover,
-.levelup-window .levelup-cancel-btn:hover {
-    background   : linear-gradient(135deg, #5a2010 0%, #3a1008 100%);
-    border-color : #d4500a;
-    color        : #f08060;
-}
-
-.levelup-window .levelup-choose-btn {
-    width : 100%;
-}
-
-.levelup-window .levelup-choose-btn:hover {
-    background   : linear-gradient(135deg, #6b4e10 0%, #4a3508 100%);
-    border-color : #ffd700;
-    color        : #ffd700;
-}
-
-/* ── Sélecteur inline ── */
-.levelup-window .levelup-inline-selector {
-    background    : linear-gradient(135deg, #1a0f08 0%, #0d0604 100%);
-    border        : 2px solid #8b6914;
-    border-radius : 6px;
-    display       : flex;
-    flex-direction: column;
-    gap           : 6px;
-    padding       : 8px;
-    max-width     : 400px;
-}
-
-.levelup-window .levelup-inline-search {
-    background    : linear-gradient(135deg, #2a1b10 0%, #1a0f08 100%);
-    border        : 1px solid #6b4e2a;
-    border-radius : 4px;
-    color         : #e8d4a8;
-    font-family   : inherit;
-    font-size     : 12px;
-    outline       : none;
-    padding       : 5px 10px;
-    width         : 100%;
-    box-sizing    : border-box;
-}
-
-.levelup-window .levelup-inline-search:focus {
-    border-color : #d4af37;
-}
-
-.levelup-window .levelup-inline-list {
-    display        : flex;
-    flex-direction : column;
-    gap            : 2px;
-    max-height     : 260px;
-    overflow-y     : auto;
-    scrollbar-width: thin;
-    scrollbar-color: #8b6914 #1a0f08;
-}
-
-.levelup-window .levelup-inline-entry {
-    align-items     : center;
-    background      : linear-gradient(135deg, #2a1b10 0%, #1a0f08 100%);
-    border          : 1px solid transparent;
-    border-radius   : 4px;
+/* ── Interrupteur de validation de la ligne : pilule allongee + bouton coulissant, sans texte ── */
+.levelup-window .levelup-row-toggle {
+    background      : var(--g-card);
+    border          : var(--b-thin) solid var(--c-border-dark);
+    border-radius   : 999px;
     cursor          : pointer;
-    display         : flex;
-    justify-content : space-between;
-    padding         : 5px 10px;
+    flex-shrink     : 0;
+    height          : 16px;
+    position        : relative;
     transition      : all 0.15s ease;
+    width           : 34px;
 }
 
-.levelup-window .levelup-inline-entry:hover {
-    background   : linear-gradient(135deg, #4a3520 0%, #2a1b10 100%);
-    border-color : #d4af37;
+.levelup-window .levelup-row-toggle:hover {
+    border-color : var(--c-gold-dark);
 }
 
-.levelup-window .levelup-inline-name {
-    color     : #e8d4a8;
-    font-size : 12px;
+.levelup-window .levelup-row-toggle-knob {
+    background    : var(--c-text-muted);
+    border-radius : 999px;
+    height        : 12px;
+    left          : 1px;
+    position      : absolute;
+    top           : 50%;
+    transform     : translateY( -50% );
+    transition    : all 0.15s ease;
+    width         : 12px;
 }
 
-.levelup-window .levelup-inline-level {
-    background    : #3d2817;
-    border        : 1px solid #6b4e2a;
-    border-radius : 3px;
-    color         : #a08050;
-    font-size     : 10px;
-    padding       : 1px 6px;
+.levelup-window .levelup-row-toggle.active {
+    background : var(--g-gold);
+    border     : var(--b-thin) solid var(--c-gold-light);
+    box-shadow : var(--sh-gold-sm);
 }
 
-.levelup-window .levelup-inline-empty {
-    color      : #7a6040;
-    font-style : italic;
-    padding    : 8px;
-    text-align : center;
-    font-size  : 12px;
+.levelup-window .levelup-row-toggle.active .levelup-row-toggle-knob {
+    background : var(--c-text-dark);
+    left       : 19px;
 }
 
 /* ── Warning dans characteristics (body dataset) ── */
@@ -409,130 +311,8 @@ body[data-levelup-missing]:not([data-levelup-missing="0"]) .characteristic-conta
     color        : var(--c-text-gold);
 }
 
-/* ===== Ligne de choix pilotée par les données (ex : école arcanique) ===== */
-.property-tab-pane[data-name="levelup_sheet"] .levelup-row--choice {
-    flex-wrap: wrap;
-}
-
+/* ===== Lien d'information (?) d'une ligne ===== */
 .property-tab-pane[data-name="levelup_sheet"] .levelup-row-info {
     font-size : 11px;
 }
 
-/* ===== Sélecteur générique (OBJECT.InlineSelector) ===== */
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector {
-    flex : 0 1 auto;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open-btn {
-    background    : var(--g-card);
-    border        : var(--b-thin) solid var(--c-border-dark);
-    border-radius : var(--r-sm);
-    color         : var(--c-text-gold);
-    cursor        : pointer;
-    font-size     : 11px;
-    font-weight   : var(--font-weight-bold);
-    padding       : 2px 8px;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open-btn:hover {
-    background  : var(--g-card-hover);
-    border-color: var(--c-gold-dark);
-    color       : var(--c-text-gold);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-value {
-    align-items     : center;
-    background      : var(--g-card);
-    border          : var(--b-thin) solid var(--c-border-dark);
-    border-radius   : var(--r-sm);
-    display         : flex;
-    gap             : var(--s-md);
-    justify-content : space-between;
-    padding         : var(--s-sm) var(--s-md);
-    max-width       : 420px;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-value-name {
-    color      : var(--c-text-gold);
-    font-weight : var(--font-weight-bold);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-clear-btn {
-    background    : var(--g-card);
-    border        : var(--b-thin) solid var(--c-border-dark);
-    border-radius : var(--r-sm);
-    color         : var(--c-text-muted);
-    cursor        : pointer;
-    font-weight   : var(--font-weight-bold);
-    padding       : 0 var(--s-md);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-clear-btn:hover {
-    border-color : var(--c-gold-dark);
-    color        : var(--c-text-gold);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-open {
-    background      : var(--g-card);
-    border          : var(--b-thin) solid var(--c-gold-dark);
-    border-radius   : var(--r-sm);
-    display         : flex;
-    flex-direction  : column;
-    gap             : var(--s-sm);
-    padding         : var(--s-sm);
-    min-width       : 260px;
-    max-width       : 420px;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-search {
-    background    : var(--g-card);
-    border        : var(--b-thin) solid var(--c-border-dark);
-    border-radius : var(--r-sm);
-    color         : var(--c-text);
-    font-family   : inherit;
-    font-size     : 12px;
-    outline      : none;
-    padding       : var(--s-sm) var(--s-md);
-    width         : 100%;
-    box-sizing    : border-box;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-search:focus {
-    border-color : var(--c-gold);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-list {
-    display         : flex;
-    flex-direction  : column;
-    gap             : 2px;
-    max-height      : 240px;
-    overflow-y     : auto;
-    scrollbar-width: thin;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry {
-    align-items     : center;
-    background      : var(--g-card);
-    border          : var(--b-thin) solid transparent;
-    border-radius   : var(--r-sm);
-    cursor          : pointer;
-    display         : flex;
-    gap             : var(--s-md);
-    justify-content : space-between;
-    padding         : var(--s-sm) var(--s-md);
-    transition      : all 0.15s ease;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry:hover {
-    background  : var(--g-card-hover);
-    border-color: var(--c-gold-dark);
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry-name {
-    color     : var(--c-text);
-    font-size : 12px;
-}
-
-.property-tab-pane[data-name="levelup_sheet"] .inline-selector .inline-selector-entry-info {
-    font-size : 11px;
-}

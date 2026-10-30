@@ -68,6 +68,24 @@ MASTERY.SECTIONS = [
     { key: "",           title: "Sorts et DD de classe" }
 ];
 
+// Jets affichés dans la colonne dédiée du Général : le jet de Perception
+// (l'initiative y default), puis les trois jets de sauvegarde, chacun avec
+// sa caractéristique
+MASTERY.SAVES = [
+    { slot: "perception",  label: "Perception / Initiative", characteristic: "SAG" },
+    { slot: "save__vigueur",  label: "Vigueur",  characteristic: "CON" },
+    { slot: "save__reflexes", label: "Réflexes", characteristic: "DEX" },
+    { slot: "save__volonte",  label: "Volonté",  characteristic: "SAG" }
+];
+
+/**
+ * @param {string} skill_label  Display label of the skill, ex: "Acrobaties"
+ * @returns {string}            The normalized mastery slot of the skill
+ */
+MASTERY.getSkillSlot = function ( skill_label ) {
+    return "skill__" + CLASSES.getAbilityKey( skill_label );
+};
+
 /**
  * @param {Array|Object|null} mastery_lines  Mastery lines of the class data,
  *                                           a single object or an array of them

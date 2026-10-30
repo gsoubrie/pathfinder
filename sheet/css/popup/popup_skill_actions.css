@@ -1,0 +1,124 @@
+/* =============================== POPUP SKILL ACTIONS =========================== */
+
+.skill-current-rank {
+    margin-left : var(--s-md);
+}
+
+.skill-description {
+    color       : var(--c-text);
+    font-size   : 13px;
+    line-height : 1.5;
+    margin      : var(--s-md) 0;
+}
+
+.skill-section-title {
+    color         : var(--c-text-gold);
+    font-size     : 12px;
+    letter-spacing: 0.5px;
+    margin        : var(--s-lg) 0 var(--s-sm);
+}
+
+.skill-action {
+    background    : var(--g-card);
+    border        : var(--b-thin) solid var(--c-border-dark);
+    border-left   : 3px solid var(--c-gold);
+    border-radius : var(--r-sm);
+    margin-bottom : var(--s-sm);
+    padding       : var(--s-sm) var(--s-md);
+    transition    : var(--t-normal);
+}
+
+.skill-action.locked {
+    border-left-color : var(--c-border-dark);
+    opacity           : 0.55;
+}
+
+.skill-action-header {
+    align-items : center;
+    display      : flex;
+    flex-wrap    : wrap;
+    gap          : var(--s-sm);
+}
+
+.skill-action-name {
+    color     : var(--c-text);
+    font-size : 14px;
+}
+
+.skill-action-cost {
+    color     : var(--c-text-muted);
+    font-size : 11px;
+}
+
+.skill-action-traits {
+    margin : var(--s-xs) 0;
+}
+
+.skill-action-line {
+    color       : var(--c-text-muted);
+    font-size   : 12px;
+    line-height : 1.4;
+    margin-top  : var(--s-xs);
+}
+
+.skill-action-line-label {
+    color      : var(--c-text-gold);
+    margin-right : var(--s-sm);
+}
+
+.skill-action-description {
+    color       : var(--c-text);
+    font-size   : 12px;
+    line-height : 1.5;
+    margin-top  : var(--s-sm);
+}
+
+.skill-action-tasks {
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--s-xs);
+    margin-top     : var(--s-sm);
+}
+
+.skill-action-task {
+    color       : var(--c-text-muted);
+    font-size   : 11px;
+    line-height : 1.4;
+}
+
+.skill-action-task-rank {
+    background    : var(--c-mastery-trained);
+    border-radius : var(--r-sm);
+    color         : var(--c-mastery-trained-text);
+    margin-right  : var(--s-sm);
+    padding       : 0 var(--s-sm);
+}
+
+.skill-action-results {
+    border-left  : var(--b-thin) solid var(--c-border-dark);
+    margin-top    : var(--s-sm);
+    padding-left  : var(--s-sm);
+}
+
+.skill-action-result {
+    color       : var(--c-text);
+    font-size   : 11px;
+    line-height : 1.4;
+    margin-top  : var(--s-xs);
+}
+
+.skill-action-result-label {
+    color     : var(--c-text-gold);
+    margin-right : var(--s-sm);
+}
+
+.skill-action-locked-hint {
+    color      : var(--c-text-muted);
+    font-size  : 11px;
+    font-style : italic;
+    margin-top : var(--s-sm);
+}
+
+.skill-general-actions {
+    margin-top : var(--s-md);
+}

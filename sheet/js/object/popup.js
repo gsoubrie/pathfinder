@@ -37,6 +37,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.ClassFeaturePopupRenderer( object_data );
             case "masteries":
                 return new OBJECT.MasteriesPopupRenderer( object_data );
+            case "skill-actions":
+                return new OBJECT.SkillActionsPopupRenderer( object_data );
             case "feat":
                 return new OBJECT.FeatPopupRenderer( object_data );
             case "item":
@@ -48,7 +50,13 @@ OBJECT.PopupRenderer.prototype = {
     //********************************************  HTML  **************************************************//
     computeHtml: function () {
         this.content.computeHtml();
-        this.dom_element         = SERVICE.DOM.createElement( "div", { class: "popup-overlay" } );
+        // Le clic sur le fond de l'overlay referme la popup : le handler ne
+        // se declenche que quand la cible est l'overlay lui-meme, jamais quand
+        // le clic remonte d'un enfant de la zone de contenu
+        this.dom_element         = SERVICE.DOM.createElement( "div", {
+            class  : "popup-overlay",
+            onclick: "if ( event.target === this ) { MANAGER.EventManagerV2.doActionAfter(event,'event__popup__close',{'param__popup__uuid':'" + this.uuid + "'}) }"
+        } );
         const popup              = SERVICE.DOM.createElement( "div", { class: "popup-container" } );
         const close_button       = SERVICE.DOM_HELPER.createButton( "event__popup__close", "x", { param__popup__uuid: this.uuid } );
         this.dom_element_content = SERVICE.DOM.createElement( "div", { class: "popup-content" } );

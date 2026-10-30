@@ -291,6 +291,15 @@
     line-height : 1.4;
 }
 
+.class-mastery-sources {
+    color       : #7a6040;
+    font-size   : 10px;
+    font-style  : italic;
+    line-height : 1.3;
+    margin      : 0 0 4px 2px;
+    padding-left: 52px;
+}
+
 /* ── Timeline niveaux ────────────────────── */
 
 .class-timeline {

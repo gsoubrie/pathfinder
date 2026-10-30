@@ -1,10 +1,11 @@
 "use strict";
 
 /**
- * One skill unlocked at a class level of the level history. It knows whether
- * it opens a choice (requiresChoice) and carries the chosen value: it feeds
- * its own warning counter, child of the container counter feeding the
- * level-up window counter, and renders its own row of the window.
+ * One skill unlocked at a class level of the level history. It carries its
+ * validated state: an on/off button toggles it, only a validated skill feeds
+ * the final values of the character. It feeds its own warning counter, child
+ * of the container counter feeding the level-up window counter, and renders
+ * its own row of the window.
  *
  * @class CHARACTER.LevelUpSkill
  * @extends CHARACTER.ComponentInterface
@@ -21,12 +22,10 @@ CHARACTER.LevelUpSkill.prototype = {
         this.type         = skill_data[ "type" ];
         this.class_name   = skill_data[ "class_name" ];
         this.ability_key  = skill_data[ "ability_key" ];
-        this.choices_data = skill_data[ "choices_data" ];
         this.character    = character_object;
-        this.value        = skill_data[ "value" ] || null;
+        this.is_active    = !!skill_data[ "is_active" ];
         this.uuid         = skill_data[ "level" ] + "__" + skill_data[ "slot_key" ];
         this.dom_element  = null;
-        this.selector     = null;
         this.initCounterCommon();
         this.setCountersParent( parent_object );
         this._updateWarningCounter();
@@ -38,20 +37,8 @@ CHARACTER.LevelUpSkill.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__levelup__select":
-                if ( params[ "param__value" ] ) {
-                    this.setValue( params[ "param__value" ] );
-                }
-                else {
-                    this.clearValue();
-                }
-                return;
-            case "event__inline_selector__open":
-            case "event__inline_selector__search":
-            case "event__inline_selector__entry":
-                if ( this.selector && params[ "param__selector__id" ] === this.selector.getUUID() ) {
-                    this.selector.doActionAfter( event_name, params );
-                }
+            case "event__level_up__toggle_skill":
+                this.setActive( !this.is_active );
                 return;
         }
         CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
@@ -66,28 +53,23 @@ CHARACTER.LevelUpSkill.prototype = {
     getSlotKey: function () {
         return this.slot_key;
     },
+    getLabel: function () {
+        return this.label;
+    },
     getClassName: function () {
         return this.class_name;
     },
     getAbilityKey: function () {
         return this.ability_key;
     },
-    getValue: function () {
-        return this.value;
-    },
-    requiresChoice: function () {
-        return LEVELUP.CHOICE_TYPES.indexOf( this.type ) !== -1 || this.choices_data !== null;
+    isActive: function () {
+        return this.is_active;
     },
     isPending: function () {
-        return this.requiresChoice() && !this.value;
+        return !this.is_active;
     },
-    setValue: function ( to_set ) {
-        this.value = to_set;
-        this._updateWarningCounter();
-        this._renderInPlace();
-    },
-    clearValue: function () {
-        this.value = null;
+    setActive: function ( to_set ) {
+        this.is_active = !!to_set;
         this._updateWarningCounter();
         this._renderInPlace();
     },
@@ -97,13 +79,13 @@ CHARACTER.LevelUpSkill.prototype = {
     //********************************************  HTML   **************************************************//
     computeHtml: function () {
         this.dom_element = SERVICE.DOM.createElement( "div", {
-            class         : "levelup-row" + ( this.requiresChoice() ? " levelup-row--choice" : "" ) + ( this.isPending() ? " levelup-row--pending" : "" ),
+            class         : "levelup-row" + ( this.isPending() ? " levelup-row--pending" : " levelup-row--active" ),
             "data-slot-key": this.slot_key
         } );
         this._computeHtmlIcon();
         this._computeHtmlLabel();
         this._computeHtmlWarning();
-        this._computeHtmlSelector();
+        this._computeHtmlToggle();
         return this.dom_element;
     },
     _computeHtmlIcon: function () {
@@ -135,23 +117,21 @@ CHARACTER.LevelUpSkill.prototype = {
         }, "?" ), label_parent );
     },
     _computeHtmlWarning: function () {
-        // Badge de warning de la ligne : compteur enfant de celui du conteneur, masque quand le choix est fait
+        // Badge de warning de la ligne : compteur enfant de celui du conteneur, masque quand la capacite est validee
         let warning_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         warning_counter.computeHtml();
         SERVICE.DOM.addClasses( warning_counter.getDomElement(), "levelup-row-warning" );
         SERVICE.DOM.addElementTo( warning_counter.getDomElement(), this.dom_element );
     },
-    _computeHtmlSelector: function () {
-        if ( this.choices_data ) {
-            this.selector = new OBJECT.InlineSelector( {
-                "selector_id": "levelup__" + this.level_number + "__" + this.slot_key,
-                "entries"    : this.choices_data.entries,
-                "value"      : this.value,
-                "event_name" : "event__levelup__select",
-                "params"     : { "param__level": this.level_number, "param__slot_key": this.slot_key }
-            } );
-            SERVICE.DOM.addElementTo( this.selector.computeHtml(), this.dom_element );
-        }
+    _computeHtmlToggle: function () {
+        // Interrupteur radio de validation : piste allongee + bouton coulissant,
+        // sans texte, allume quand la capacite est validee
+        let toggle_switch = SERVICE.DOM.createElement( "div", {
+            class  : "levelup-row-toggle" + ( this.is_active ? " active" : "" ),
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__toggle_skill',{'param__level':" + this.level_number + ",'param__slot_key':'" + this.slot_key + "'})"
+        } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "levelup-row-toggle-knob" } ), toggle_switch );
+        SERVICE.DOM.addElementTo( toggle_switch, this.dom_element );
     },
     _renderInPlace: function () {
         if ( !this.dom_element || !this.dom_element.parentNode ) {
@@ -161,11 +141,11 @@ CHARACTER.LevelUpSkill.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getSpecificDataToSave: function () {
-        if ( !this.value ) {
+        if ( !this.is_active ) {
             return {};
         }
         let to_return = {};
-        to_return[ this.level_number + "__" + this.slot_key ] = this.value;
+        to_return[ this.uuid ] = true;
         return to_return;
     }
 };

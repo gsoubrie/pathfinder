@@ -120,76 +120,76 @@ var SKILLS     = {
     LIST            : {
         ACROBATICS  : {
             label         : "Acrobaties",
-            characteristic: CHARACTERISTICS.DEX.name,
+            characteristic: CHARACTERISTICS.DEX.key,
             armor_penalty : true
         },
         ARCANA      : {
             label         : "Arcanes",
-            characteristic: CHARACTERISTICS.INT.name
+            characteristic: CHARACTERISTICS.INT.key
         },
         CRAFTING    : {
             label         : "Artisanat",
-            characteristic: CHARACTERISTICS.INT.name,
+            characteristic: CHARACTERISTICS.INT.key,
             need_qualifier: true
         },
         ATHLETICS   : {
             label         : "Athlétisme",
-            characteristic: CHARACTERISTICS.FOR.name,
+            characteristic: CHARACTERISTICS.FOR.key,
             armor_penalty : true
         },
         LORE        : {
             label         : "Connaissance",
-            characteristic: CHARACTERISTICS.INT.name,
+            characteristic: CHARACTERISTICS.INT.key,
             need_qualifier: true
         },
         DIPLOMACY   : {
             label         : "Diplomatie",
-            characteristic: CHARACTERISTICS.CHA.name
+            characteristic: CHARACTERISTICS.CHA.key
         },
         STEALTH     : {
             label         : "Discrétion",
-            characteristic: CHARACTERISTICS.DEX.name,
+            characteristic: CHARACTERISTICS.DEX.key,
             armor_penalty : true
         },
         DECEPTION   : {
             label         : "Duperie",
-            characteristic: CHARACTERISTICS.CHA.name
+            characteristic: CHARACTERISTICS.CHA.key
         },
         INTIMIDATION: {
             label         : "Intimidation",
-            characteristic: CHARACTERISTICS.CHA.name
+            characteristic: CHARACTERISTICS.CHA.key
         },
         MEDICINE    : {
             label         : "Médecine",
-            characteristic: CHARACTERISTICS.SAG.name
+            characteristic: CHARACTERISTICS.SAG.key
         },
         NATURE      : {
             label         : "Nature",
-            characteristic: CHARACTERISTICS.SAG.name
+            characteristic: CHARACTERISTICS.SAG.key
         },
         OCCULTISM   : {
             label         : "Occultisme",
-            characteristic: CHARACTERISTICS.INT.name
+            characteristic: CHARACTERISTICS.INT.key
         },
         RELIGION    : {
             label         : "Religion",
-            characteristic: CHARACTERISTICS.SAG.name
+            characteristic: CHARACTERISTICS.SAG.key
         },
         PERFORMANCE : {
             label         : "Représentation",
-            characteristic: CHARACTERISTICS.CHA.name
+            characteristic: CHARACTERISTICS.CHA.key
         },
         SOCIETY     : {
             label         : "Société",
-            characteristic: CHARACTERISTICS.INT.name
+            characteristic: CHARACTERISTICS.INT.key
         },
         SURVIVAL    : {
             label         : "Survie",
-            characteristic: CHARACTERISTICS.SAG.name
+            characteristic: CHARACTERISTICS.SAG.key
         },
         THIEVERY    : {
             label         : "Vol",
-            characteristic: CHARACTERISTICS.DEX.name,
+            characteristic: CHARACTERISTICS.DEX.key,
             armor_penalty : true
         }
     },

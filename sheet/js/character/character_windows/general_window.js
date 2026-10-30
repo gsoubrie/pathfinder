@@ -21,6 +21,15 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__form__element_changed":
                 this.computeHtmlWithData();
                 break;
+            case "click_on__window_navigation__done":
+                // Les prises de niveau et validations vivent dans l'onglet Passage de
+                // niveau, apres cette fenetre dans le groupe : recalcul des jets a
+                // l'activation de l'onglet, toujours sur l'etat frais du personnage
+                if ( this.name === params[ "window_name" ] ) {
+                    this.computeArea__saves( CONTROLLER.Character.current_character );
+                    this.computeArea__skills( CONTROLLER.Character.current_character );
+                }
+                break;
         }
         WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
@@ -48,6 +57,8 @@ CHARACTER.GeneralWindow.prototype = {
         for ( let i = 0, _size_i = character_object.getClasses().getSize(); i < _size_i; i++ ) {
             this.computeComponent( character_object.getClasses().getContent( i ).getArchetype() );
         }
+        this.computeArea__saves( character_object );
+        this.computeArea__skills( character_object );
         //this.computeArea__class( character_object );
         //this.computeArea__health( character_object );
         //this.computeArea__heritage( character_object );
@@ -65,6 +76,122 @@ CHARACTER.GeneralWindow.prototype = {
     
     computeComponent: function (object) {
         object.doActionAfter("event__compute__html", {"param__window" : CHARACTER.GeneralWindow.NAME, "param__dom_element_parent" : this.content_dom_element_target });
+    },
+
+    // Zone dédiée des jets et compétences (une seule colonne de grille
+    // élargie) : le bloc des jets puis le bloc des compétences, à la suite.
+    computeArea__saves: function ( character_object ) {
+        if ( !this.content_dom_element_target || !character_object || character_object.getClasses().isEmpty() ) {
+            return;
+        }
+        if ( !this.block_saves ) {
+            this.block_saves = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "jets-block jets-saves-block" } ), this._computeJetsArea() );
+        }
+        SERVICE.DOM.empty( this.block_saves );
+        this._computeJetsHeader( this.block_saves );
+        var masteries = character_object.getMasteries();
+        for ( var i = 0; i < MASTERY.SAVES.length; i++ ) {
+            var save           = MASTERY.SAVES[ i ];
+            var rank           = masteries.getFinalRank( save.slot );
+            var rank_data      = rank ? MASTERY.getByShort( rank ) : MASTERY.LIST.UNKNOWN;
+            var save_value     = masteries.getSaveModifier( save );
+            var characteristic = character_object.getCharacteristics().getContentByUUID( save.characteristic );
+            var modifier       = characteristic ? characteristic.getModifierValue() : 0;
+            var row            = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class  : "saves-row",
+                    "data-slot": save.slot,
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})"
+                } ),
+                this.block_saves
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, save.label ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, save_value ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class: "saves-rank class-mastery-badge " + rank_data.css,
+                title: rank ? rank_data.label : "?"
+            }, rank ? rank_data.short : "?" ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class      : "saves-cell",
+                "data-name": "modifier",
+                title      : "Modificateur de " + this._getCharacteristicLabel( save.characteristic )
+            }, modifier ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
+            if ( save.slot === "perception" ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Jets de sauvegarde" ), this.block_saves );
+            }
+        }
+    },
+
+    // Bloc des compétences, à la suite des jets dans la même zone : une ligne
+    // par compétence du jeu (SKILLS.LIST), charac associée au libellé, jet au
+    // même format que les jets, rang I (bonus 0) quand le personnage ne l'a
+    // pas maîtrisée
+    computeArea__skills: function ( character_object ) {
+        if ( !this.content_dom_element_target || !character_object || character_object.getClasses().isEmpty() ) {
+            return;
+        }
+        if ( !this.block_skills ) {
+            this.block_skills = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "jets-block jets-skills-block" } ), this._computeJetsArea() );
+        }
+        SERVICE.DOM.empty( this.block_skills );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Compétences" ), this.block_skills );
+        var masteries = character_object.getMasteries();
+        var skill_keys = Object.keys( SKILLS.LIST ).sort( function ( key_a, key_b ) {
+            return SKILLS.LIST[ key_a ].label.localeCompare( SKILLS.LIST[ key_b ].label );
+        } );
+        for ( var i = 0; i < skill_keys.length; i++ ) {
+            var skill_data    = SKILLS.LIST[ skill_keys[ i ] ];
+            var skill_key     = CLASSES.getAbilityKey( skill_data.label );
+            var slot          = MASTERY.getSkillSlot( skill_data.label );
+            var rank          = masteries.getFinalRank( slot ) || "I";
+            var rank_data     = MASTERY.getByShort( rank );
+            var skill_value   = masteries.getSaveModifier( { "slot": slot, "characteristic": skill_data.characteristic } );
+            var characteristic = character_object.getCharacteristics().getContentByUUID( skill_data.characteristic );
+            var modifier      = characteristic ? characteristic.getModifierValue() : 0;
+            var row           = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class  : "saves-row",
+                    "data-slot": slot,
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__skill_actions',{'param__skill':'" + skill_key + "'})"
+                } ),
+                this.block_skills
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, skill_data.label ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, skill_value ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-rank class-mastery-badge " + rank_data.css, title: rank_data.label }, rank_data.short ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class      : "saves-cell",
+                "data-name": "modifier",
+                title      : "Modificateur de " + this._getCharacteristicLabel( skill_data.characteristic )
+            }, modifier ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
+        }
+    },
+
+    _computeJetsArea: function () {
+        if ( !this.area_jets ) {
+            this.area_jets = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-jets jets-grid" } ), this.content_dom_element_target );
+        }
+        return this.area_jets;
+    },
+
+    _computeJetsHeader: function ( dom_element_parent ) {
+        var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-row saves-header-row" } ), dom_element_parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" } ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Jet" ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Rang" ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Mod" ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Niv" ), header );
+    },
+
+    _getCharacteristicLabel: function ( characteristic_key ) {
+        for ( var i = 0; i < CHARACTERISTICS.ENUM.length; i++ ) {
+            if ( CHARACTERISTICS.ENUM[ i ].key === characteristic_key ) {
+                return CHARACTERISTICS.ENUM[ i ].label;
+            }
+        }
+        return characteristic_key;
     },
     
     

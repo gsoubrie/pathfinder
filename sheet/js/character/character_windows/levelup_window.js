@@ -26,14 +26,10 @@ CHARACTER.LevelUpWindow.prototype = {
                     this._buildContent( params[ "param__current_character__object" ] );
                 }
                 break;
-            case "event__levelup__select":
+            case "event__level_up__toggle_skill":
                 CONTROLLER.Character.current_character.doActionAfter( event_name, params );
                 this._updateGlobalWarning( CONTROLLER.Character.current_character );
-                break;
-            case "event__inline_selector__open":
-            case "event__inline_selector__search":
-            case "event__inline_selector__entry":
-                CONTROLLER.Character.current_character.doActionAfter( event_name, params );
+                this._updateLevelBlockState( CONTROLLER.Character.current_character, parseInt( params[ "param__level" ], 10 ) );
                 break;
             case "event__form__element_changed":
                 if ( params[ "param__property" ] === CLASSES.key_element ) {
@@ -104,7 +100,7 @@ CHARACTER.LevelUpWindow.prototype = {
         var missing      = character_object.getLevelUpSkills().getMissingCount();
         this._warningDiv = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "levelup-global-warning" + ( missing > 0 ? " visible" : "" ) },
-                missing > 0 ? "⚠ " + missing + " choix en attente" : "✓ Tous les choix sont faits"
+                missing > 0 ? "⚠ " + missing + ( missing > 1 ? " capacités non validées" : " capacité non validée" ) : "✓ Toutes les capacités sont validées"
             ),
             this.content_dom_element_target
         );
@@ -116,7 +112,29 @@ CHARACTER.LevelUpWindow.prototype = {
         }
         var missing = character_object.getLevelUpSkills().getMissingCount();
         this._warningDiv.className = "levelup-global-warning" + ( missing > 0 ? " visible" : "" );
-        this._warningDiv.innerHTML = missing > 0 ? "⚠ " + missing + " choix en attente" : "✓ Tous les choix sont faits";
+        this._warningDiv.innerHTML = missing > 0 ? "⚠ " + missing + ( missing > 1 ? " capacités non validées" : " capacité non validée" ) : "✓ Toutes les capacités sont validées";
+    },
+
+    // Le titre du bloc porte has-pending tant qu'une capacite du niveau n'est pas validee :
+    // recalcule apres chaque bascule, le rendu initial ne suit pas les toggles
+    _updateLevelBlockState: function ( character_object, level_number ) {
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        var block = this.content_dom_element_target.querySelector( ".levelup-block[data-level-number='" + level_number + "']" );
+        if ( !block ) {
+            return;
+        }
+        var title = block.querySelector( ".levelup-block-title" );
+        if ( !title ) {
+            return;
+        }
+        if ( character_object.getLevelUpSkills().isLevelPending( level_number ) ) {
+            title.classList.add( "has-pending" );
+        }
+        else {
+            title.classList.remove( "has-pending" );
+        }
     },
 
     _buildClassSelector: function ( character_object ) {
@@ -167,8 +185,9 @@ CHARACTER.LevelUpWindow.prototype = {
         var level_name = history_entry ? history_entry.getUUID() : ( "" + level_number );
         var block = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", {
-                class           : "levelup-block" + ( is_enabled ? "" : " disabled" ),
-                "data-level-name": level_name
+                class             : "levelup-block" + ( is_enabled ? "" : " disabled" ),
+                "data-level-name" : level_name,
+                "data-level-number": level_number
             } ),
             this.content_dom_element_target
         );

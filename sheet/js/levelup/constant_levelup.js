@@ -6,7 +6,8 @@ var LEVELUP = {};
 
 LEVELUP.key = "level_up_skills";
 
-// Unlock types opening a choice (feats): the skill row then waits for a value
+// Unlock types opening a choice (feats): they carry a positional slot key
+// (type + index) so the validated state stays stable across rebuilds
 LEVELUP.CHOICE_TYPES = [
     "general_feat",
     "class_feat",

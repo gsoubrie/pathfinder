@@ -19,31 +19,98 @@ Le workflow de validation est toujours le même : on code + on adapte le
 scenario, **l'utilisateur lance `tests.html` dans son navigateur et colle le
 rapport**, on corrige d'après le rapport. Une décision par run.
 
-## Chantier en cours : passage de niveau + maîtrises (non commité)
+## Règles d'affichage et de nommage (décisions utilisateur, non négociables)
+
+- Pas de gras ni de majuscules à tout va dans l'interface : `font-weight: bold`
+  et `text-transform: uppercase` ne se posent QUE sur l'élément qui le mérite
+  (la valeur clé d'une ligne, l'onglet actif), jamais par défaut sur les
+  titres, séparateurs, badges ou libellés. Le rendu par défaut de la fonte
+  suffit. Même discipline dans les réponses de l'agent : pas de gras
+  systématique.
+- Les variables, événements et clés de données sont en anglais, mots collés
+  sans underscore superflu : `event__level_up__toggle_skill` (pas
+  `event__level_up__toggle_skill`), `save__fortitude` (pas `save__vigueur`),
+  `skill__acrobatics` (pas `skill__acrobaties`). Le français est la langue des
+  libellés affichés (`label`), jamais des identifiants.
+- Le renommage des clés françaises déjà en place (`save__vigueur`,
+  `save__reflexes`, `save__volonte`, `skill__acrobaties`,
+  `maitrises_initiales`, `capacity_by_level`...) est un chantier à part : à
+  faire d'une traite, clé par clé, données + code + tests, jamais au fil de
+  l'eau.
+
+## Chantier en cours : passage de niveau, maîtrises, zone jets/compétences (non commité)
 
 ### Domaine levelup (`sheet/js/levelup/`)
 
 - `CHARACTER.LevelUpSkill` (`levelup_skill.js`) — un objet par capacité débloquée
-  par l'historique de niveaux : porte sa `value`, sait `requiresChoice()` /
-  `isPending()`, rend sa propre ligne (`computeHtml()`), possède SON compteur
-  WARNINGS enfant du compteur du conteneur. Sur `event__levelup__select` il met
-  à jour valeur + compteur et re-rend sa ligne en place
+  par l'historique de niveaux : porte son état **validé** (`is_active`, booléen
+  sauvegardé `"<niveau>__<slot>" → true`), rend sa propre ligne
+  (`computeHtml()`) avec un interrupteur on/off **sans texte**
+  (`.levelup-row-toggle`, pas de sélecteur de choix), possède SON compteur
+  WARNINGS enfant du compteur du conteneur. Sur `event__level_up__toggle_skill`
+  il bascule l'état + compteur et re-rend sa ligne en place
   (`SERVICE.DOM.replaceElement`) — pas de rebuild complet de la fenêtre.
 - `CHARACTER.LevelUpSkills` (`levelup_skills.js`) — conteneur sur le personnage
   (`this.level_up_skills`, enfant de `children`, clé de save `level_up_skills`).
   `buildSkills( character )` re-dérive les skills de l'historique (parsing de
-  `capacity_by_level`), en préservant les valeurs. Rebuild déclenché par le
+  `capacity_by_level`), en préservant l'état validé. Rebuild déclenché par le
   personnage sur : `event__data_loaded__done`, `event__form__element_changed`,
   `event__level_up__take_level`, `event__level_up__remove_level`,
   `event__level__toggle`.
 - `CHARACTER.LevelUpWindow` — ne calcule plus rien : assemble des blocs,
   demande `getSkillsForLevel()` / `isLevelPending()` / `getMissingCount()`.
+  Le bloc porte `data-level-number` : sur `event__level_up__toggle_skill` la
+  fenêtre recalcule le `has-pending` du titre du niveau concerné
+  (`_updateLevelBlockState`).
 - Chaîne de compteurs : skill → conteneur → fenêtre (badge d'onglet), branchée
   par `setCountersParent` dans `computeHtmlWithData` de la fenêtre. Plus aucun
   `setCounterValue` manuel côté fenêtre. Les uuids enfants morts sont purgés par
   `resetCounterByType(WARNINGS)` au début de `buildSkills`.
 - Plat des événements : fenêtre → `CONTROLLER.Character.current_character.doActionAfter(...)`
   → personnage → conteneur → skill. Jamais d'appel métier direct fenêtre → domaine.
+- **Seules les capacités validées** (`skill.isActive()`) alimentent les calculs
+  finaux du personnage (maîtrises aujourd'hui, dons/compétences ensuite).
+
+### Zone jets + compétences de l'onglet Général (`general_window.js`)
+
+- Une seule zone de grille `jets` (7 colonnes, la zone couvre 3.25fr : col 2
+  2fr + division fine 1.25fr), class partagée `jets-grid`, `align-self: start`.
+  Contenu : UN en-tête `Jet | Rang | Mod | Niv` en haut, ligne
+  `Perception / Initiative`, séparateur titré `Jets de sauvegarde`, les 3
+  sauvegardes, séparateur `Compétences`, les 17 compétences (SKILLS.LIST,
+  triées par libellé, nom seul). Pas de titre de zone, pas de gras ni
+  majuscules, valeurs SANS "+" (le moins s'affiche seul au besoin).
+- Chaque ligne : valeur du jet en premier, badge de rang à l'initiale
+  (rang I + bonus 0 si non maîtrisée), modificateur, niveau. Jet complet
+  PF2 = niveau + modificateur de caractéristique + bonus de rang
+  (`MASTERY.LIST[*].bonus`), calcul domaine dans
+  `CHARACTER.Masteries.getSaveModifier( { slot, characteristic } )`.
+- Clic : ligne de jet → popup maîtrises (`event__show_information__masteries`),
+  ligne de compétence → popup des actions
+  (`event__show_information__skill_actions` + `param__skill`).
+- Rafraîchissement : `computeHtmlWithData` au chargement, puis recalcul à
+  l'activation de l'onglet (`click_on__window_navigation__done` avec le nom de
+  la fenêtre) — PAS sur les événements de prise de niveau : la fenêtre Générale
+  est traitée AVANT le LevelUpWindow dans le groupe, elle lirait un personnage
+  pas encore mis à jour.
+
+### Actions de compétences (`sheet/js/object/constant_skill_actions.js`)
+
+- `OBJECT.SKILL_ACTIONS` — données scrapées de grimoire-vf.fr (une entrée par
+  compétence, clé = `CLASSES.getAbilityKey` du libellé `SKILLS.LIST`) :
+  description, actions propres (rang requis I/Q/E/M/L, coût, traits,
+  prérequis, conditions, résultats, exemples de tâches) et actions générales
+  utilisables avec la compétence. **Fichier généré : ne pas éditer à la main,
+  re-scrap au besoin.** Le `_contant.js` (typo) des autres data n'est PAS
+  chargé : la convention vivante est `constant_*.js` déclaré dans index.html
+  et tests.html.
+- Clic sur une ligne de compétence du Général → `event__show_information__skill_actions`
+  avec `param__skill` → `PopupRenderers` reconstruit la popup (état dynamique)
+  via `CHARACTER.Masteries.getSkillActionsInformationData()` : chaque action
+  porte son rang requis et `usable` (rang du personnage ≥ rang requis).
+- `OBJECT.SkillActionsPopupRenderer` (catégorie `skill-actions`) : une action
+  utilisable est pleine, une verrouillée porte la classe `locked` (opacité
+  0.55) et le hint "Rang X requis".
 
 ### Domaine mastery (`sheet/js/mastery/`)
 
@@ -51,10 +118,18 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   (I < Q < E < M < L), jamais de cumul. `MASTERY.SLOT_KEYWORDS` mappe les
   descriptions du bloc `mastery` des classes vers des slots normalisés
   (`save__vigueur`, `attack__armes_simples`, `spell_attack`, `skill__<nom>`...).
+- `MASTERY.SAVES` — les 4 lignes de la zone jets : `perception` (libellé
+  "Perception / Initiative", SAG) puis les 3 sauvegardes, chacune avec sa
+  caractéristique. `MASTERY.getSkillSlot( label )` → `"skill__" + getAbilityKey`.
 - `CHARACTER.Masteries` (`masteries.js`) — sur le personnage, **état dérivé non
   sauvegardé**, calculé à la demande. `getSourcesData()` = contributions du
-  bloc `mastery` initial de chaque classe posée + upgrades des capacités des
-  niveaux **actifs** (lus depuis les `LevelUpSkill`).
+  bloc `mastery` initial de chaque classe posée (source `"<classe> — maîtrises
+  initiales"`) + upgrades des capacités **validées** du passage de niveau
+  (source `"<capacité> (niveau N)"`). `getDataBySlot()` garde par slot les
+  sources qui portent le rang final : la popup maîtrises les affiche sous
+  chaque ligne (`.class-mastery-sources`).
+- `getSaveModifier( { slot, characteristic } )` — jet complet PF2 utilisé par
+  la zone jets ET les compétences (rang inconnu → bonus 0).
 - `CLASSES.MASTERY_UPGRADES` (`constant_class_choices.js`) — carte écrite à la
   main (validée par l'utilisateur) : capacité → `[{ slot, rank }]`, pour les
   16 classes. Accesseur `CLASSES.getMasteriesUpgrade`.
@@ -64,8 +139,20 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   → `incantation_de_magicien`, etc.).
 - Le "?" de la ligne "maîtrises initiales" émet `event__show_information__masteries`
   → popup catégorie `masteries` (`MasteriesPopupRenderer`) montrant les rangs
-  **courants agrégés du personnage**. Cette popup est reconstruite à chaque
-  ouverture (pas de cache `_openPopup`, c'est un état dynamique).
+  **courants agrégés du personnage** avec leurs sources. Cette popup est
+  reconstruite à chaque ouverture (pas de cache `_openPopup`, c'est un état
+  dynamique).
+
+### Popups (`sheet/js/object/popup.js` + `popup_renders.js`)
+
+- Tout popup d'information passe par `OBJECT.PopupRenderer` : l'overlay
+  referme la popup au clic sur son fond uniquement (`event.target === this`),
+  un clic dans la zone de contenu ne remonte pas (le bus stoppe la propagation
+  des handlers enfants).
+- Catégories : `masteries`, `skill-actions`, `class-feature`, `feat`, `item`,
+  `action`, défaut. `PopupRenderers` (`popups.js`) construit les données et
+  reconstruit à chaque ouverture les popups à état dynamique (maîtrises,
+  actions de compétence).
 
 ### Pièges découverts (ne pas réapprendre)
 
@@ -82,27 +169,71 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   (voir "À faire").
 - Les libellés de `capacity_by_level` et les clés `abilities` divergent parfois
   (scraping) : passer par `CLASSES.resolveAbilityKey`, jamais par accès direct.
+- `SKILLS.LIST[*].characteristic` pointait `CHARACTERISTICS.X.name` (propriété
+  inexistante → `undefined`) : corrigé en `.key`. Toujours vérifier qu'une clé
+  de données morte n'est pas déjà consommée ailleurs avant d'y toucher.
+- Les fichiers `object/*_contant.js` (typo) ne sont PAS chargés par index.html :
+  la convention vivante est `constant_*.js` + balise `<script>` dans index.html
+  ET tests.html.
+- grimoire-vf.fr bloque le connecteur web : le scrap passe par curl en local
+  (UA navigateur). Les données générées ne s'éditent jamais à la main.
+- Fenêtre Générale traitée AVANT le LevelUpWindow dans le groupe : tout
+  rafraîchissement déclenché par les événements du passage de niveau y lirait
+  un personnage périmé — recalcul à l'activation de l'onglet à la place.
+- Les cellules des lignes jets/compétences s'alignent par largeurs fractionnaires
+  partagées (`grid-template-columns` identique header + lignes), jamais `auto`
+  (chaque ligne se dimensionnerait sur son propre contenu).
+
+### Scénarios de test (chaîne séquentielle, ordre = ordre des balises)
+
+Les scénarios s'enchaînent sur le même personnage, chacun repart de l'état
+laissé par le précédent (fin de `scenario_levelup_magicien` : Elfe + Magicien
+niveau 5, "expertise en réflexes" validée) :
+
+1. `scenario_levelup_magicien.js` — interrupteurs, counters, maîtrise Réflexes
+   gated par validation, persistance au rebuild (reset la feuille lui-même).
+2. `scenario_sauvegardes.js` — zone jets niveau 1 : colonnes, ordre
+   Jet|Rang|Mod|Niv, initiales, alignement, infobulles desktop, clic →
+   popup maîtrises ; puis niveau 5 : recalculs.
+3. `scenario_competences.js` — bloc compétences : 17 lignes triées, rangs
+   (Arcanes Q, autres I), jets croisés domaine, clic → popup actions.
+4. `scenario_actions_competences.js` — popup actions : rang I utilisable vs
+   rang Q verrouillé (classe `locked`, opacité 0.55, hint), résultats,
+   exemples de tâches, actions générales.
+5. `scenario_fermeture_popup.js` — clic dans la zone → ouverte, clic sur le
+   fond de l'overlay → refermée (maîtrises + actions).
 
 ### État au moment de la pause
 
-- Tout le chantier est dans le working tree, **non commis** (domaines `levelup`
-  + `mastery` nouveaux, `constant_class_choices.js`, `character.js`, fenêtre,
-  popups, scenario_levelup_magicien.js étendu à 7 tests).
-- Syntaxe validée par Node sur tous les fichiers ; les tests navigateur du
-  dernier câblage (MASTERY_UPGRADES + test "niveau 5 → Réflexes experte")
-  **attendent le rapport `tests.html` de l'utilisateur**.
+- Tout le chantier est dans le working tree, **non commis** : domaines `levelup`
+  + `mastery`, zone jets/compétences du Général (grille 7 colonnes + CSS
+  `sheet_general.css`), `constant_skill_actions.js` (scrap grimoire-vf),
+  popups (`SkillActionsPopupRenderer`, fermeture au clic hors zone),
+  `character.js`, `popups.js`, `popup.js`, `main-controller.js`, fenêtres.
+- Modèle : chaque capacité du passage de niveau porte un interrupteur on/off
+  sans texte ; seules les capacités validées alimentent les calculs. Le Général
+  affiche Perception/Initiative + 3 sauvegardes + 17 compétences avec jets
+  complets, actions de compétence au clic (utilisables/verrouillées selon le
+  rang).
+- Valeurs SANS "+" (le moins seul au besoin), pas de gras ni majuscules dans
+  la zone (règles ci-dessus).
+- Syntaxe validée par Node sur tous les fichiers touchés ; le run complet
+  `tests.html` (5 scénarios de la chaîne) **attend le rapport de
+  l'utilisateur** — dernier run partiel : levelup OK, sauvegardes/compétences
+  corrigés côté scénario (libellés, initiales), actions et fermeture jamais
+  encore runnés.
 - `constant_class.js` est un fichier de données scrapées : ne pas l'éditer pour
   corriger des incohérences — passer par les cartes écrites à la main
-  (`ABILITY_ALIASES`, `MASTERY_UPGRADES`) qui survivent au re-scrap.
+  (`ABILITY_ALIASES`, `MASTERY_UPGRADES`) qui survivent au re-scrap. Idem
+  `constant_skill_actions.js` : re-scrap, jamais d'édition manuelle.
 
 ## À faire (dans l'ordre logique)
 
-1. Valider le rapport `tests.html` du câblage MASTERY_UPGRADES, corriger si rouge.
-2. Activer les choix de dons sur les lignes `*_feat` du passage de niveau :
-   reconstruire le sélecteur de pool (dons généraux / de classe / de compétence /
-   ancestraux depuis `DON.*`) sur `OBJECT.InlineSelector` — question restée
-   en suspens ("question 3"). Au passage aligner `LEVELUP.CHOICE_TYPES` sur ce
-   que `detectType` renvoie réellement.
+1. Valider le rapport `tests.html` complet (chaîne de 5 scénarios ci-dessus),
+   corriger si rouge.
+2. Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
+   sur ce que `detectType` renvoie réellement — les capacités se valident par
+   interrupteur, plus de sélecteur de dons prévu sur la ligne.
 3. Choix de compétences (INT + choix par divinité/lignage/style) : les lignes
    "compétences supplémentaires" des blocs mastery + dons/améliorations de
    compétence. Cela débloquera aussi Moine "voie vers la perfection", Guerrier
@@ -113,3 +244,10 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 5. Sauvegarde : vérifier `level_up_skills` dans un vrai fichier `sheet/save/`
    (les choix étaient perdus avant le refactor — le conteneur est maintenant
    dans `children`).
+6. Renommage anglais des identifiants français (règle ci-dessus) :
+   `save__vigueur` → `save__fortitude`, `save__reflexes` → `save__reflex`,
+   `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
+   `maitrises_initiales` → `initial_masteries`, etc. — d'une traite, clé par
+   clé, données (`SLOT_KEYWORDS`, `MASTERY_UPGRADES`) + code + tests.
+7. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
+   règle d'affichage ci-dessus.

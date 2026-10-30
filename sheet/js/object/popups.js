@@ -44,6 +44,24 @@ OBJECT.PopupRenderers.prototype = {
                     masteries_popup.doActionAfter( "event__show_information", params );
                 }
                 return;
+            case "event__show_information__skill_actions":
+                let skill_key        = params[ "param__skill" ];
+                let skill_character  = CONTROLLER.Character.current_character;
+                let skill_data       = OBJECT.SKILL_ACTIONS ? OBJECT.SKILL_ACTIONS[ skill_key ] : null;
+                if ( !skill_character || !skill_data ) {
+                    return;
+                }
+                let skill_popup_data = skill_character.getMasteries().getSkillActionsInformationData( skill_key, skill_data );
+                // Les actions affichées dépendent du rang courant du personnage :
+                // la popup est reconstruite a chaque ouverture, jamais servie du cache
+                if ( this.getContentByUUID( skill_popup_data[ "id" ] ) ) {
+                    this.removeContent( skill_popup_data[ "id" ], null, true );
+                }
+                let skill_popup = this._openPopup( skill_popup_data );
+                if ( skill_popup ) {
+                    skill_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

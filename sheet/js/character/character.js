@@ -101,10 +101,7 @@ CHARACTER.Current.prototype = {
                     this.windows.doActionAfterContentChildren( event_name, params );
                 }
                 break;
-            case "event__levelup__select":
-            case "event__inline_selector__open":
-            case "event__inline_selector__search":
-            case "event__inline_selector__entry":
+            case "event__level_up__toggle_skill":
                 this.level_up_skills.doActionAfter( event_name, params );
                 break;
             case "event__more_button":

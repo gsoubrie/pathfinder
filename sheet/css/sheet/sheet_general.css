@@ -11,10 +11,11 @@
     grid-template-columns :
         var(--col-1-width, 1fr)
         var(--col-2-width, 2fr)
-        var(--col-3-width, 2fr)
+        var(--col-3-width, 1.25fr)
         var(--col-4-width, 2fr)
-        var(--col-5-width, 2fr)
-        var(--col-6-width, 2fr);
+        var(--col-5-width, 1.25fr)
+        var(--col-6-width, 2fr)
+        var(--col-7-width, 2fr);
 
     grid-template-rows    :
         var(--row-1-height, auto)
@@ -30,17 +31,17 @@
         var(--row-11-height, auto);
 
     grid-template-areas   :
-        "logo   name        ancestry    class      .         ."
-        "save   player      legacy      archetype  heroism    ."
-        "FOR    .           .           historic   level      ."
-        "DEX    .           .           .          .          ."
-        "CON    .           .           size       health     health"
-        "INT    .           .           alignment  health     health"
-        "SAG    temp-health temp-health divinity   health     health"
-        "CHA    wound       wound       .          health     health"
-        ".      .           .           .          health     health"
-        ".      .           .           .          health     health"
-        ".      .           .           .          surprise   ca";
+        "logo   name   name   ancestry   class       .          ."
+        ".      player player legacy     archetype   heroism    ."
+        "FOR    jets   jets   .          historic    level      ."
+        "DEX    jets   jets   .          .           .          ."
+        "CON    jets   jets   .          size        health     health"
+        "INT    jets   jets   .          alignment   health     health"
+        "SAG    jets   jets   .          divinity    health     health"
+        "CHA    jets   jets   .          temp-health health     health"
+        ".      jets   jets   .          wound       health     health"
+        ".      jets   jets   .          .           health     health"
+        ".      jets   jets   .          .           surprise   ca";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -67,6 +68,11 @@
 .property-tab-pane[data-name="general_sheet"] .area-INT { grid-area : INT; }
 .property-tab-pane[data-name="general_sheet"] .area-SAG { grid-area : SAG; }
 .property-tab-pane[data-name="general_sheet"] .area-CHA { grid-area : CHA; }
+.property-tab-pane[data-name="general_sheet"] .area-jets { grid-area : jets; align-self : start; }
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .jets-saves-block {
+    margin-bottom : var(--s-sm);
+}
 
 .property-tab-pane[data-name="general_sheet"] .grid-area {
     padding        : 4px;
@@ -412,4 +418,67 @@
     background  : var(--g-card-hover);
     border-style: solid;
     box-shadow  : var(--sh-gold-sm);
+}
+/* =============================== Zone SAVE + Zone SKILLS (jets et compétences) =========================== */
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-row,
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-header-row {
+    display           : grid;
+    grid-template-columns: minmax( 0, 1.3fr ) minmax( 0, 1fr ) minmax( 0, 1fr ) minmax( 0, 1fr ) minmax( 0, 1fr );
+    align-items       : center;
+    justify-items     : center;
+    gap               : var(--s-xs);
+    padding           : var(--s-xs) var(--s-sm);
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-header-row {
+    color             : var(--c-text-muted);
+    font-size         : 10px;
+    border-bottom     : var(--b-thin) solid var(--c-border-dark);
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-row {
+    border-bottom     : var(--b-thin) solid var(--c-border-dark);
+    cursor            : pointer;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-row:last-child {
+    border-bottom : none;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-label {
+    color        : var(--c-text-muted);
+    font-size    : 12px;
+    justify-self : start;
+    text-align   : left;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-separator {
+    align-items    : center;
+    color          : var(--c-text-gold);
+    display        : flex;
+    font-size      : 11px;
+    gap            : var(--s-sm);
+    justify-content: center;
+    margin         : var(--s-sm) 0;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-separator::before,
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-separator::after {
+    background : var(--c-border-dark);
+    content    : "";
+    flex       : 1;
+    height     : 1px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-cell {
+    color      : var(--c-text);
+    font-size  : 12px;
+    text-align : center;
+}
+
+.property-tab-pane[data-name="general_sheet"] .jets-grid .saves-value {
+    color       : var(--c-text);
+    font-size   : 14px;
+    font-weight : var(--font-weight-bold);
+    text-align  : center;
 }

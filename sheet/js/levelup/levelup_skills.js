@@ -3,8 +3,8 @@
 /**
  * All skills unlocked by the level history, one child per skill. Rebuilt from
  * the character at every history change (load, class edition, take/remove
- * level, toggle), preserving the chosen values. Owns the warning counter fed
- * by the skill counters, wired as parent of the level-up window counter.
+ * level, toggle), preserving the validated state. Owns the warning counter
+ * fed by the skill counters, wired as parent of the level-up window counter.
  *
  * @class CHARACTER.LevelUpSkills
  * @extends CHARACTER.ContainerComponentInterface
@@ -27,16 +27,11 @@ CHARACTER.LevelUpSkills.prototype = {
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__levelup__select":
+            case "event__level_up__toggle_skill":
                 let skill = this.getSkill( params[ "param__level" ], params[ "param__slot_key" ] );
                 if ( skill ) {
                     skill.doActionAfter( event_name, params );
                 }
-                return;
-            case "event__inline_selector__open":
-            case "event__inline_selector__search":
-            case "event__inline_selector__entry":
-                this.doActionAfterContentChildren( event_name, params );
                 return;
         }
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
@@ -109,8 +104,7 @@ CHARACTER.LevelUpSkills.prototype = {
                     "type"       : type,
                     "class_name" : class_name,
                     "ability_key": ability_key,
-                    "choices_data": CLASSES.getChoices( class_name, ability_key ),
-                    "value"      : preserved_values[ ( i + 1 ) + "__" + slot_key ] || null
+                    "is_active"  : !!preserved_values[ ( i + 1 ) + "__" + slot_key ]
                 }, character_object, this ) );
             }
         }
@@ -123,8 +117,8 @@ CHARACTER.LevelUpSkills.prototype = {
         }
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             let skill = this.getContent( i );
-            if ( skill.getValue() ) {
-                to_return[ skill.getLevel() + "__" + skill.getSlotKey() ] = skill.getValue();
+            if ( skill.isActive() ) {
+                to_return[ skill.getLevel() + "__" + skill.getSlotKey() ] = true;
             }
         }
         this.values_from_save = {};
