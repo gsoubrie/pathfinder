@@ -3,10 +3,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // CHARACTER.LevelUpWindow
 // Onglet "Passage de niveau" : récapitulatif par niveau de l'historique, les
-// blocs sont rendus par les CHARACTER.LevelUpSkills (un par niveau) du
-// conteneur du personnage (getLevelUpSkills), qui alimentent le compteur
-// warnings de la fenêtre par la chaîne ligne → classe → niveau → conteneur
-// → fenêtre.
+// entrées CHARACTER.LevelHistory rendent chacune leur section (computeHtml)
+// et leurs lignes alimentent le compteur warnings de la fenêtre directement
+// (chaîne ligne → fenêtre, branchée à chaque rendu).
 // ─────────────────────────────────────────────────────────────────────────────
 /**
  * @class CHARACTER.LevelUpWindow
@@ -56,8 +55,6 @@ CHARACTER.LevelUpWindow.prototype = {
 
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        // Chaîne de compteurs : conteneur des skills → fenêtre (badge de l'onglet)
-        character_object.getLevelUpSkills().setCountersParent( this );
         // Global warning label: consumer of the window warnings counter
         if ( !this._global_warning ) {
             let window_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
@@ -70,8 +67,8 @@ CHARACTER.LevelUpWindow.prototype = {
     },
 
     _buildContent: function ( character_object ) {
-        var skills       = character_object.getLevelUpSkills();
-        var char_level   = character_object.getLevel();
+        var history     = character_object.getLevelHistory();
+        var char_level  = character_object.getLevel();
         this._selected_class = this._selected_class || character_object.getClasses().getHighestClassName();
 
         // En-tête récap
@@ -87,15 +84,21 @@ CHARACTER.LevelUpWindow.prototype = {
         );
 
         // Nombre de choix manquants : label piloté par le compteur warnings de la fenêtre
-        SERVICE.DOM.addElementTo( this._global_warning.computeHtml(), this.content_dom_element_target );
+        this._global_warning.computeHtml();
+        SERVICE.DOM.addElementTo( this._global_warning.getDomElement(), this.content_dom_element_target );
 
         // Sélecteur de classe + prise de niveau
         this._buildClassSelector( character_object );
 
-        // Un bloc par niveau de l'historique, y compris desactive :
-        // le bloc desactive porte l'interrupteur de re-activation
-        for ( var h = 0, _size_h = skills.getSize(); h < _size_h; h++ ) {
-            SERVICE.DOM.addElementTo( skills.getContent( h ).computeHtml(), this.content_dom_element_target );
+        // Une section par niveau de l'historique, y compris desactive :
+        // la section desactivee porte l'interrupteur de re-activation
+        for ( var h = 0, _size_h = history.getSize(); h < _size_h; h++ ) {
+            var entry = history.getContent( h );
+            // Chaîne de compteurs : ligne → fenêtre (badge de l'onglet),
+            // rebranchée à chaque rendu pour couvrir les lignes construites depuis
+            entry.setLinesCountersParent( this );
+            entry.computeHtml();
+            SERVICE.DOM.addElementTo( entry.getDomElement(), this.content_dom_element_target );
         }
     },
 

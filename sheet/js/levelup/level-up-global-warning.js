@@ -13,13 +13,14 @@ CHARACTER.LevelUpGlobalWarning.prototype = {
         this.setDomElement( SERVICE.DOM.createElement( "div", {
             class: "level-up-global-warning" + ( this.getValue() > 0 ? " visible" : "" )
         }, this._computeText() ) );
-        return this.getDomElement();
     },
     updateHtml: function () {
         if ( !this.getDomElement() || !this.getDomElement().parentNode ) {
             return;
         }
-        SERVICE.DOM.replaceElement( this.getDomElement(), this.computeHtml() );
+        let dom_element_before = this.getDomElement();
+        this.computeHtml();
+        SERVICE.DOM.replaceElement( dom_element_before, this.getDomElement() );
     },
     _computeText: function () {
         let missing = this.getValue();

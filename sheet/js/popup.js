@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @class POPUP.PropertyEdition
- * @extends PHASE.PhaseInterface
+ * @extends GS.OBJECT.PhaseInterface
  * @extends OBJECT.InterfaceHtml
  */
 POPUP.PropertyEdition           = function ( property_name, value, is_consultation ) {
@@ -65,5 +65,5 @@ POPUP.PropertyEdition.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( POPUP.PropertyEdition, PHASE.PhaseInterface );
+SERVICE.CLASS.addPrototype( POPUP.PropertyEdition, GS.OBJECT.PhaseInterface );
 SERVICE.CLASS.addPrototype( POPUP.PropertyEdition, OBJECT.InterfaceHtml );

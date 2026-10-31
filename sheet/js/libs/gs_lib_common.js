@@ -1,10 +1,10 @@
 "use strict";
-var GS                                    = GS || {};
-GS.TOOLS                                  = GS.TOOLS || {};
-GS.TOOLS.ARRAY                            = GS.TOOLS.ARRAY || {};
-GS.OBJECT                                 = GS.OBJECT || {};
-GS.OBJECT.CONST                           = GS.OBJECT.CONST || {};
-GS.CONST                                  = {
+var GS                            = GS || {};
+GS.TOOLS                          = GS.TOOLS || {};
+GS.TOOLS.ARRAY                    = GS.TOOLS.ARRAY || {};
+GS.OBJECT                         = GS.OBJECT || {};
+GS.OBJECT.CONST                   = GS.OBJECT.CONST || {};
+GS.CONST                          = {
     KEY_CODE        : {
         TAB      : 9,
         ENTER    : 13,
@@ -56,7 +56,7 @@ GS.CONST                                  = {
         }
     }
 };
-GS.TOOLS.CLASS                            = (function ( self ) {
+GS.TOOLS.CLASS                    = (function ( self ) {
     self.CONST        = {
         COMPONENT: {
             SELECT: "component-select"
@@ -74,10 +74,10 @@ GS.TOOLS.CLASS                            = (function ( self ) {
     };
     return self;
 })( GS.TOOLS.CLASS || {} );
-var GS                                    = GS || {};
-GS.OBJECT                                 = GS.OBJECT || {};
-var COMPONENT                             = COMPONENT || {};
-COMPONENT.CONST                           = {
+var GS                            = GS || {};
+GS.OBJECT                         = GS.OBJECT || {};
+var COMPONENT                     = COMPONENT || {};
+COMPONENT.CONST                   = {
     PARAM                   : {
         STATUS                : "component_status",
         TEXT_DEFAULT_SELECTOR : "text_default_selector",
@@ -203,8 +203,8 @@ COMPONENT.CONST                           = {
         }
     }
 };
-var MANAGER                               = MANAGER || {};
-MANAGER.CONST                             = MANAGER.CONST || {
+var MANAGER                       = MANAGER || {};
+MANAGER.CONST                     = MANAGER.CONST || {
     STATE          : {
         WORK_FLOW: {
             STAGING     : "save-direct-in-staging",
@@ -246,10 +246,10 @@ MANAGER.CONST                             = MANAGER.CONST || {
         }
     }
 };
-GS.OBJECT.GsObject                        = function () {
+GS.OBJECT.GsObject                = function () {
     this.__class_name__ = "GS.OBJECT.GsObject";
 };
-GS.OBJECT.GsObject.prototype              = {
+GS.OBJECT.GsObject.prototype      = {
     setShinkenDebug            : function ( to_set ) {
         this.is_shinken_debug = to_set;
         var _components       = this.getChildrenObject();
@@ -486,10 +486,10 @@ GS.OBJECT.GsObjectHtml.prototype  = {
         }
         return true;
     },
-    buildDoActionAfterEvent  : function ( event_name ) {
+    buildDoActionAfterEvent   : function ( event_name ) {
         return { "onclick": this.getDoActionAfterEvent( event_name ) };
     },
-    getDoActionAfterEvent    : function ( event_name ) {
+    getDoActionAfterEvent     : function ( event_name ) {
         return "MANAGER.EventManagerV2.doActionAfter(event,'" + event_name + "'," + this.parseParamForEventsToHtml() + ")";
     },
     parseParamForEventsToHtml : function () {
@@ -543,8 +543,8 @@ GS.OBJECT.GsObjectHtml.prototype  = {
         else {
             _dom.setAttribute( "shi-tip-html", "" );
         }
-    },
-        //********************************************  PARAMS FOR EVENTS   **************************************************//
+    }
+    //********************************************  PARAMS FOR EVENTS   **************************************************//
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.GsObject );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.GsObjectHtml, GS.OBJECT.InterfaceHtml );
@@ -2666,7 +2666,7 @@ GS.OBJECT.CounterInterface.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.CounterInterface, GS.OBJECT.GsObject );
-GS.TOOLS.ARRAY                           = (function ( self ) {
+GS.TOOLS.ARRAY                   = (function ( self ) {
     "use strict";
     
     self.cleanEmpty                      = function ( array ) {
@@ -3347,12 +3347,12 @@ GS.TOOLS.ARRAY                           = (function ( self ) {
     return self;
 })
 ( GS.TOOLS.ARRAY || {} );
-GS.TOOLS.ARRAY.NOT_FOUND                 = -1;
-var DATE_TIME                            = DATE_TIME || {};
-DATE_TIME.getTimestampNow                = function () {
+GS.TOOLS.ARRAY.NOT_FOUND         = -1;
+var DATE_TIME                    = DATE_TIME || {};
+DATE_TIME.getTimestampNow        = function () {
     return Date.now();
 };
-GS.TOOLS.NUMBER                = (function ( self ) {
+GS.TOOLS.NUMBER                  = (function ( self ) {
     self.roundTo                      = function ( number, precision ) {
         if ( !precision ) {
             precision = 0;
@@ -3428,9 +3428,9 @@ GS.TOOLS.NUMBER                = (function ( self ) {
     };
     return self;
 })( GS.TOOLS.NUMBER || {} );
-var DICTIONARY_COMMON          = "common";
-var DICTIONARY_COMMON_UI       = "common_ui";
-GS.OBJECT.JSON_EDITOR                        = {
+var DICTIONARY_COMMON            = "common";
+var DICTIONARY_COMMON_UI         = "common_ui";
+GS.OBJECT.JSON_EDITOR            = {
     SHINKEN_JSON_UUID_ANCHOR: "__SHINKEN_JSON_UUID_ANCHOR_ANCHOR__",
     JSON_FORMAT_INFORMATION : "__JSON_FORMAT_INFORMATION__",
     JSON_INDEX_ALREADY_WRITE: "__JSON_INDEX_ALREADY_WRITE__",
@@ -3667,7 +3667,6 @@ GS.OBJECT.DoActionAfter.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.DoActionAfter, GS.OBJECT.GsObject );
 GS.OBJECT.CONST.PHASE                  = {
-    RUNNING                 : 0,
     REFRESHING              : 1,
     INIT                    : 2,
     EDITING                 : 3,
@@ -3681,7 +3680,7 @@ GS.OBJECT.CONST.PHASE                  = {
     WAITING_FOR_READY       : 10,
     STOPPING                : "STOPPING",
     SLEEPING                : "SLEEPING",
-    RUNNING_TO_STRING       : "RUNNING",
+    RUNNING                 : "RUNNING",
     STARTING                : 12,
     STUCK                   : 13,
     HIDDEN                  : 14,
@@ -3909,7 +3908,7 @@ GS.OBJECT.PhaseInterface.prototype     = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.PhaseInterface, GS.OBJECT.GsObject );
-GS.HIGHWAY                                           = (function ( self ) {
+GS.HIGHWAY                          = (function ( self ) {
     "use strict";
     self.goToParentUrl                  = function () {
         var _floors        = location.pathname.split( '/' );
@@ -4133,7 +4132,7 @@ GS.HIGHWAY                                           = (function ( self ) {
     };
     return self;
 })( GS.HIGHWAY || {} );
-GS.HIGHWAY.CONST                                     = {
+GS.HIGHWAY.CONST                    = {
     NAVIGATION_TYPE: {
         TARGET_BLANK: "TARGET_BLANK",
         NORMAL      : "NORMAL",
@@ -4436,7 +4435,7 @@ COMPONENT.ButtonFromData.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.ButtonFromData, COMPONENT.InterfaceButton );
-COMPONENT.ButtonFromData_V4 = function ( event_name, label, params_event ) {
+COMPONENT.ButtonFromData_V4           = function ( event_name, label, params_event ) {
     this.__class_name__ = 'COMPONENT.ButtonFromData_V4';
     this.init( event_name, label, params_event );
     
@@ -4578,7 +4577,7 @@ COMPONENT.LabelFromData.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, COMPONENT.InterfaceLabel );
 GS.TOOLS.CLASS.addPrototype( COMPONENT.LabelFromData, GS.OBJECT.GsObjectHtml );
-GS.OBJECT.CONST.LAST_MODIFICATION                     = {
+GS.OBJECT.CONST.LAST_MODIFICATION            = {
     INITIAL_STEP: -1,
     ACTION      : {
         CREATE               : "CREATE",
@@ -4612,10 +4611,10 @@ GS.OBJECT.CONST.LAST_MODIFICATION                     = {
         PARAM_FOR_EVENT  : "param_for_event"
     }
 };
-GS.OBJECT.EditableElementInterface                    = function () {
+GS.OBJECT.EditableElementInterface           = function () {
     throw new TypeError( "Interface EditableElementInterface cant be constructed." );
 };
-GS.OBJECT.EditableElementInterface.prototype          = {
+GS.OBJECT.EditableElementInterface.prototype = {
     undoLastModification          : function ( modification_data ) {
         throw new TypeError( "Function undoLastModification from EditableElementInterface have to be surcharged" );
     },
@@ -4629,10 +4628,10 @@ GS.OBJECT.EditableElementInterface.prototype          = {
         this.previous_modication_data = this.getDataForLastModification( params );
     }
 };
-GS.OBJECT.LastModificationElement           = function ( type_modification, element_modified, previous, next ) {
+GS.OBJECT.LastModificationElement            = function ( type_modification, element_modified, previous, next ) {
     this.init( type_modification, element_modified, previous, next );
 };
-GS.OBJECT.LastModificationElement.prototype = {
+GS.OBJECT.LastModificationElement.prototype  = {
     init               : function ( type_modification, element_modified, previous, next ) {
         this.uuid              = SERVICE.STRING.buildUUID();
         this.type_modification = type_modification;
@@ -4721,11 +4720,11 @@ GS.OBJECT.LastModification.prototype = {
     }
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.LastModification, GS.OBJECT.GsObjectContainer );
-MANAGER.DistributorCounterManagerV2             = function () {
+MANAGER.DistributorCounterManagerV2           = function () {
     this.counters = {};
     this.objects  = {};
 };
-MANAGER.DistributorCounterManagerV2.prototype   = {
+MANAGER.DistributorCounterManagerV2.prototype = {
     createCounter: function ( name, type ) {
         let _to_return = new GS.OBJECT.CounterV2( type );
         this.setCounter( name, _to_return );
@@ -4780,12 +4779,12 @@ MANAGER.DistributorCounterManagerV2.prototype   = {
         this.objects  = {};
     }
 };
-MANAGER.__instance_counter_distributorV2        = new MANAGER.DistributorCounterManagerV2();
-MANAGER.DistributorElementManager               = function () {
+MANAGER.__instance_counter_distributorV2      = new MANAGER.DistributorCounterManagerV2();
+MANAGER.DistributorElementManager             = function () {
     this.elements        = {};
     this.mapping_by_name = {};
 };
-MANAGER.DistributorElementManager.prototype     = {
+MANAGER.DistributorElementManager.prototype   = {
     createElement   : function ( data ) {
         var _to_return = new GS.OBJECT.ShinkenElement();
         _to_return.updateData( data );
@@ -4816,12 +4815,12 @@ MANAGER.DistributorElementManager.prototype     = {
         return this.elements[ this.mapping_by_name[ name ] ];
     }
 };
-MANAGER.__instance_element_distributor          = new MANAGER.DistributorElementManager();
-MANAGER.DistributorWindowManager                = function () {
+MANAGER.__instance_element_distributor        = new MANAGER.DistributorElementManager();
+MANAGER.DistributorWindowManager              = function () {
     this.windows        = {};
     this.parent_windows = {};
 };
-MANAGER.DistributorWindowManager.prototype      = {
+MANAGER.DistributorWindowManager.prototype    = {
     createWindow                      : function ( name, is_menu, has_properties ) {
         var _id          = WINDOW.CONST.ID.WINDOW_TAB + name;
         var _dom_element = document.getElementById( _id );
@@ -4884,8 +4883,8 @@ MANAGER.DistributorWindowManager.prototype      = {
         this.parent_windows = {};
     }
 };
-MANAGER.__instance_window_distributor           = new MANAGER.DistributorWindowManager();
-MANAGER.EventManager                            = {
+MANAGER.__instance_window_distributor         = new MANAGER.DistributorWindowManager();
+MANAGER.EventManager                          = {
     last_element_hovered            : null,
     stop_propagation                : false,
     mouse_down_target               : null,
@@ -5421,7 +5420,7 @@ MANAGER.EventManager                            = {
         }
     }
 };
-MANAGER.WindowModalManager                      = function () {
+MANAGER.WindowModalManager                    = function () {
     this.dom_element         = document.getElementById( 'id-gs-window-modal' );
     this.dom_element_content = this.dom_element.querySelector( '.gs-window-modal-content' );
     this.dom_element_loading = this.dom_element.querySelector( '.gs-loading-text' );
@@ -5429,7 +5428,7 @@ MANAGER.WindowModalManager                      = function () {
     this.class_added         = "";
     this.is_open             = false;
 };
-MANAGER.WindowModalManager.prototype            = {
+MANAGER.WindowModalManager.prototype          = {
     setContent        : function ( to_set ) {
         this.dom_element_content.innerHTML = to_set;
         this.dom_element.classList.remove( "gs-hidden" );
@@ -5493,7 +5492,7 @@ MANAGER.WindowModalManager.prototype            = {
     }
 };
 MANAGER.__instance_window_modal_manager; //INIT IN LOADING MANAGER
-GS.OBJECT.MESSAGE                  = {
+GS.OBJECT.MESSAGE            = {
     ICON       : {
         ERROR  : '<span class="gs-icon-error shinkon-warning"></span>',
         WARNING: '<span class="gs-icon-warning shinkon-warning"></span>',
@@ -5502,10 +5501,10 @@ GS.OBJECT.MESSAGE                  = {
     MAX_ERROR  : 5,
     MAX_WARNING: 5
 };
-GS.OBJECT.Messages                 = function ( footer ) {
+GS.OBJECT.Messages           = function ( footer ) {
     this.init( footer );
 };
-GS.OBJECT.Messages.prototype       = {
+GS.OBJECT.Messages.prototype = {
     init                : function ( footer ) {
         this.__class_name__ = "GS.OBJECT.Messages";
         this.resetMessages();
@@ -5720,11 +5719,11 @@ GS.OBJECT.Messages.prototype       = {
         this.messages_error = [];
     }
 };
-GS.OBJECT.Message                 = function ( type, text, line_index ) {
+GS.OBJECT.Message            = function ( type, text, line_index ) {
     this._type = type;
     this._text = text;
 };
-GS.OBJECT.Message.prototype       = {
+GS.OBJECT.Message.prototype  = {
     buildHtml: function () {
         return '<li class=\'' + this._type + '\'>' + this._text + '</li>';
     },
@@ -5732,7 +5731,7 @@ GS.OBJECT.Message.prototype       = {
         return this._text;
     }
 };
-GS.OBJECT.Messageservice                   = (function ( self ) {
+GS.OBJECT.Messageservice     = (function ( self ) {
     self.parseBackendStatus = function ( status ) {
         switch ( status ) {
             case GS.OBJECT.CONST.VALIDATION.FIELD.WARNINGS:
@@ -5744,7 +5743,7 @@ GS.OBJECT.Messageservice                   = (function ( self ) {
     };
     return self;
 })( GS.OBJECT.Messageservice || {} );
-GS.OBJECT.CONST.PARAM             = {
+GS.OBJECT.CONST.PARAM        = {
     VALUE       : "value",
     CFG_VALUE   : "cfg_value",
     SOURCE_VALUE: "source_value",
@@ -5753,10 +5752,10 @@ GS.OBJECT.CONST.PARAM             = {
         PARAM_DATA    : "param_object__data"
     }
 };
-GS.OBJECT.Param                   = function ( key, value_object, parameter, default_value ) {
+GS.OBJECT.Param              = function ( key, value_object, parameter, default_value ) {
     this.init( key, value_object, parameter, default_value );
 };
-GS.OBJECT.Param.prototype         = {
+GS.OBJECT.Param.prototype    = {
     __class_name__            : 'GS.OBJECT.Param',
     init                      : function ( key, value_object, parameter, default_value ) {
         this.initCounterCommon();
@@ -6118,7 +6117,7 @@ GS.OBJECT.ShinkenElement.prototype = {
 };
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.GsObjectJson );
 GS.TOOLS.CLASS.addPrototype( GS.OBJECT.ShinkenElement, GS.OBJECT.PhaseInterface );
-GS.SlaQualityService                       = (function ( self ) {
+GS.SlaQualityService          = (function ( self ) {
     "use strict";
     self.templates            = {};
     self.getTemplateInnerHtml = function ( sla_quality ) {
@@ -6138,10 +6137,10 @@ GS.SlaQualityService                       = (function ( self ) {
     
     return self;
 })( GS.StatusService || {} );
-GS.SlaQuality                              = function ( status_code, sla_status_code ) {
+GS.SlaQuality                 = function ( status_code, sla_status_code ) {
     this.init( status_code, sla_status_code );
 };
-GS.SlaQuality.prototype                    = {
+GS.SlaQuality.prototype       = {
     init                   : function ( status_code, sla_status_code ) {
         this.status_code     = status_code;
         this.sla_status_code = sla_status_code;
@@ -6167,7 +6166,7 @@ GS.SlaQuality.prototype                    = {
         }
     }
 };
-GS.SLA_QUALITY                             = {
+GS.SLA_QUALITY                = {
     MAPPING: [
         ["sun", "cloud_sunny", "cloud", "sun"],
         ["sun_cloudy", "dark_cloud", "storm", "cloud"],
@@ -6175,7 +6174,7 @@ GS.SLA_QUALITY                             = {
     ],
     LOCK   : "lock"
 };
-GS.StatusService               = (function ( self ) {
+GS.StatusService              = (function ( self ) {
     "use strict";
     
     self.buildPaths     = function ( status, context ) {
@@ -6274,9 +6273,9 @@ GS.StatusService               = (function ( self ) {
     
     return self;
 })( GS.StatusService || {} );
-GS.Status                      = function () {
+GS.Status                     = function () {
 };
-GS.Status.prototype            = {
+GS.Status.prototype           = {
     setCode      : function ( toSet ) {
         this.code = toSet;
         this.key  = GS.STATUS.CODE_TO_KEY[ this.code ];
@@ -6375,7 +6374,7 @@ GS.Status.prototype            = {
         return this.name;
     }
 };
-GS.STATUS                      = {
+GS.STATUS                     = {
     OK                        : {
         CODE    : 0,
         NAME    : 'ok',
@@ -6544,9 +6543,9 @@ GS.STATUS                      = {
     }
     
 };
-GS.TOOLS                                 = GS.TOOLS || {};
-var SHINKEN_GRID                         = {};
-SHINKEN_GRID.CONST                       = {
+GS.TOOLS                      = GS.TOOLS || {};
+var SHINKEN_GRID              = {};
+SHINKEN_GRID.CONST            = {
     PARAM        : {
         GRID     : {
             SHINKEN_GRID_UUID              : "shinken_grid_uuid",
@@ -6693,14 +6692,14 @@ WINDOW.ElementGroup.prototype = {
 GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.GsObjectContainerHtml );
 GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.CounterInterface );
 GS.TOOLS.CLASS.addPrototype( WINDOW.ElementGroup, GS.OBJECT.PhaseInterface );
-WINDOW.Element                                 = function ( name, dom_element, is_menu ) {
+WINDOW.Element           = function ( name, dom_element, is_menu ) {
     this.__class_name__ = "WINDOW.Element";
     this.name           = name;
     this.dom_element    = dom_element;
     this.is_menu        = !!is_menu;
     this.init();
 };
-WINDOW.Element.prototype                       = {
+WINDOW.Element.prototype = {
     init                      : function () {
         this.initCounters();
     },

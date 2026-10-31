@@ -17,7 +17,7 @@ OBJECT.PopupRenderer.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__show_information":
-                this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+                this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
                 return;
             case "event__popup__close":
                 this.setPhase( GS.OBJECT.CONST.PHASE.HIDDEN_TO_STRING );

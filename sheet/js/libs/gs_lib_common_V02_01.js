@@ -72,7 +72,7 @@ WINDOW_V2.ElementGroup.prototype = {
     getActiveWindow           : function () {
         if ( !this.active_window ) {
             for ( var i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
-                if ( this.contents[ i ].isPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING ) ) {
+                if ( this.contents[ i ].isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ) {
                     this.active_window = this.contents[ i ];
                     break;
                 }
@@ -192,18 +192,18 @@ WINDOW_V2.Element.prototype = {
     },
     setActiveWindow           : function ( window_name ) {
         if ( this.getName() === window_name ) {
-            this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+            this.setPhase( GS.OBJECT.CONST.PHASE.RUNNING );
             return true;
         }
         else {
-            this.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.STOPPING, GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING );
+            this.setPhaseIfPhase( GS.OBJECT.CONST.PHASE.STOPPING, GS.OBJECT.CONST.PHASE.RUNNING );
         }
         return false;
     },
     isClickable               : function () {
         var current_phase = this.getCurrentPhase();
         switch ( current_phase ) {
-            case GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING:
+            case GS.OBJECT.CONST.PHASE.RUNNING:
             case GS.OBJECT.CONST.PHASE.HIDDEN_TO_STRING:
                 return false;
         }
@@ -226,7 +226,7 @@ WINDOW_V2.Element.prototype = {
             return;
         }
         switch ( current ) {
-            case GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING:
+            case GS.OBJECT.CONST.PHASE.RUNNING:
                 this.dom_element_target.classList.remove( "gs-hidden" );
                 break;
             case GS.OBJECT.CONST.PHASE.STOPPING:
@@ -279,7 +279,7 @@ WINDOW_V2.ElementFromData.prototype = {
             return;
         }
         var _class = "gs-tab-pane property-tab-pane gs-prop-table gs-parent-tab-id-parent";
-        if ( !this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING ) ) {
+        if ( !this.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ) ) {
             _class += " gs-hidden";
         }
         this.dom_element_target = SERVICE.DOM.createElement( "div", { "class": _class, "id": this.getUUID() + "-target", "data-name": this.getName() } );

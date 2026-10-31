@@ -29,7 +29,6 @@ js/object/*.js                  -> interfaces et objets transverses (OBJECT.Inte
 js/component/_component_interface.js puis composants
 js/<domaine>/constant_<domaine>.js, <domaine>_enum.js, <domaine>.js, <domaine>s.js
 js/character/**                -> personnage, historique de niveaux, fenêtres (character_windows)
-js/phase.js                    -> machine à états PHASE
 js/controller/*.js             -> contrôleurs (CONTROLLER.Main, CONTROLLER.Character)
 js/popup.js
 js/save/*.js                   -> données sauvegardées (fichiers générés `let <uuid> = {...}`)
@@ -103,7 +102,7 @@ SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
 - Nommage : événements `"event__<nom>"`, paramètres `"param__<nom>"` (double underscore). Ex. `params[ "param__dom_element_parent" ]`.
 - Déclenchement depuis le HTML : attribut inline `onclick="MANAGER.EventManagerV2.doActionAfter(event,'event__nom',{'param__key':'valeur'})"`. **Jamais** de `CONTROLLER.Character.doActionAfter(...)` ni de `event.stopPropagation()` dans un inline `onclick` : le bus appelle `stopPropagation()` lui-même (les boutons imbriqués n'ont donc pas de fuite vers le parent), et `CONTROLLER.Main` route tout vers `CONTROLLER.Character`.
 - Les contrôleurs (`CONTROLLER.Main.doActionAfter`) routent vers `CONTROLLER.Character` puis vers le personnage courant ; c'est l'entrée unique des événements. Les événements d'interface d'une fenêtre (boutons d'un panneau) peuvent être routés par le contrôleur directement vers `current_character.windows.doActionAfterContentChildren(...)` — la fenêtre concernée traite ensuite l'événement.
-- Machine à états : `PHASE.Phase` / `initPhase()`, valeurs de phase en `SCREAMING_CASE` (`PHASE.INIT`), l'état est reflété dans `element.dataset.currentPhase` / `previousPhase` si un élément DOM est attaché via `setPhaseDomElement`.
+- Machine à états : mixin `GS.OBJECT.PhaseInterface` de la lib (`initPhase()`, `setPhase`, `setPhaseDomElement`, `callbackForPhase`), l'état est reflété dans `element.dataset.currentPhase` / `previousPhase` si un élément DOM est attaché via `setPhaseDomElement`. **Valeurs de phase : une valeur n'est pas qu'une chaîne, c'est un contrat de style** — `SLEEPING` et `RUNNING` portent des styles utilitaires globaux (`cursor: not-allowed` + enfants en `pointer-events: none`, fond bleu) : ne les emprunte QUE si la sémantique correspond (inert, actif-lib). Un état de domaine qui reste interactif définit SES constantes dans son `constant_*.js` (ex. `LEVELUP.PHASE.ACTIVE/PENDING`). Le fork applicatif `js/phase.js` a été supprimé : une seule machine, celle de la lib.
 
 ### Passer le plat (règle imposée par l'utilisateur)
 
@@ -141,7 +140,7 @@ SERVICE.DOM = (function ( /** @type {SERVICE.DOM} */ self ) {
 
 ```javascript
 this.previous_phase             = null;
-this.current_phase              = PHASE.INIT;
+this.current_phase              = "INIT";
 this.timeout_set_phase_callback = null;
 ```
 

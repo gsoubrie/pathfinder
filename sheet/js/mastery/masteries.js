@@ -4,17 +4,16 @@
  * @class CHARACTER.Masteries
  * @extends OBJECT.InterfaceHtml
  */
-CHARACTER.Masteries = function ( character_object ) {
-    this.init( character_object );
+CHARACTER.Masteries = function () {
+    this.init();
 };
 CHARACTER.Masteries.prototype = {
-    init: function ( character_object ) {
-        this.character = character_object;
+    init: function () {
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getFinalRank: function ( slot ) {
+    getFinalRank: function ( character_object, slot ) {
         let to_return = null;
-        let sources   = this.getSourcesData();
+        let sources   = this.getSourcesData( character_object );
         for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
             if ( sources[ i ].slot === slot ) {
                 to_return = MASTERY.getHigherRank( to_return, sources[ i ].rank );
@@ -23,18 +22,18 @@ CHARACTER.Masteries.prototype = {
         return to_return;
     },
     // Full PF2 roll: character level + characteristic modifier + rank bonus, bonus 0 while the rank is unknown
-    getSaveModifier: function ( save ) {
-        let rank           = this.getFinalRank( save.slot );
+    getSaveModifier: function ( character_object, save ) {
+        let rank           = this.getFinalRank( character_object, save.slot );
         let rank_bonus     = rank ? MASTERY.getByShort( rank ).bonus : 0;
-        let characteristic = this.character.getCharacteristics().getContentByUUID( save.characteristic );
-        return this.character.getLevel() + ( characteristic ? characteristic.getModifierValue() : 0 ) + rank_bonus;
+        let characteristic = character_object.getCharacteristics().getContentByUUID( save.characteristic );
+        return character_object.getLevel() + ( characteristic ? characteristic.getModifierValue() : 0 ) + rank_bonus;
     },
     // Flattened contributions of every source: [{ slot, rank, label, source }].
     // Sources: the initial mastery block of each class taken, then the validated
     // level-up abilities granting a higher rank.
-    getSourcesData: function () {
+    getSourcesData: function ( character_object ) {
         let to_return = [];
-        let classes   = this.character.getClasses();
+        let classes   = character_object.getClasses();
         for ( let i = 0, _size_i = classes.getSize(); i < _size_i; i++ ) {
             let contributions = CLASSES.getMasteriesContributions( classes.getContent( i ).getName() );
             for ( let c = 0, _size_c = contributions.length; c < _size_c; c++ ) {
@@ -46,38 +45,35 @@ CHARACTER.Masteries.prototype = {
                 } );
             }
         }
-        let skills = this.character.getLevelUpSkills();
-        for ( let i = 0, _size_i = skills.getSize(); i < _size_i; i++ ) {
-            let level_object = skills.getContent( i );
+        let history = character_object.getLevelHistory();
+        for ( let i = 0, _size_i = history.getSize(); i < _size_i; i++ ) {
+            let history_entry = history.getContent( i );
             // A disabled level keeps its lines alive, they just do not count
-            if ( !level_object.isEnabled() ) {
+            if ( !history_entry.isEnabled() ) {
                 continue;
             }
-            for ( let c = 0, _size_c = level_object.getSize(); c < _size_c; c++ ) {
-                let class_container = level_object.getContent( c );
-                for ( let s = 0, _size_s = class_container.getSize(); s < _size_s; s++ ) {
-                    let skill = class_container.getContent( s );
-                    if ( !skill.isActive() ) {
-                        continue;
-                    }
-                    let upgrades = skill.getMasteriesUpgrades();
-                    for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
-                        to_return.push( {
-                            slot  : upgrades[ u ].slot,
-                            rank  : upgrades[ u ].rank,
-                            label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
-                            source: skill.getSourceLabel()
-                        } );
-                    }
+            for ( let s = 0, _size_s = history_entry.getSize(); s < _size_s; s++ ) {
+                let skill = history_entry.getContent( s );
+                if ( !history_entry.isSkillValidated( skill.getSlotKey() ) ) {
+                    continue;
+                }
+                let upgrades = skill.getMasteriesUpgrades( history_entry.getClassName() );
+                for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
+                    to_return.push( {
+                        slot  : upgrades[ u ].slot,
+                        rank  : upgrades[ u ].rank,
+                        label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
+                        source: skill.getSourceLabel()
+                    } );
                 }
             }
         }
         return to_return;
     },
     // Final rank by slot with the sources carrying it: { slot: { rank, label, sources } }
-    getDataBySlot: function () {
+    getDataBySlot: function ( character_object ) {
         let to_return = {};
-        let sources   = this.getSourcesData();
+        let sources   = this.getSourcesData( character_object );
         for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
             let source  = sources[ i ];
             let current = to_return[ source.slot ];
@@ -93,7 +89,7 @@ CHARACTER.Masteries.prototype = {
         let _slots = Object.keys( to_return );
         for ( let i = 0, _size_i = _slots.length; i < _size_i; i++ ) {
             let slot_data = to_return[ _slots[ i ] ];
-            let carrying   = [];
+            let carrying  = [];
             for ( let s = 0, _size_s = slot_data.sources.length; s < _size_s; s++ ) {
                 if ( slot_data.sources[ s ].rank === slot_data.rank ) {
                     carrying.push( slot_data.sources[ s ].source );
@@ -105,18 +101,18 @@ CHARACTER.Masteries.prototype = {
     },
     //********************************************  DATA   **************************************************//
     // Data of the masteries popup: aggregated current ranks of the character
-    getInformationData: function () {
+    getInformationData: function ( character_object ) {
         return {
             "id"                 : "character__masteries",
             "category"           : "masteries",
             "text"               : "Maîtrises",
-            "character_masteries": this.getDataBySlot()
+            "character_masteries": this.getDataBySlot( character_object )
         };
     },
     // Data of the skill actions popup: each action carries its required rank
     // and its usable state, computed against the current character rank
-    getSkillActionsInformationData: function ( skill_key, skill_data ) {
-        let skill_rank = this.getFinalRank( MASTERY.getSkillSlot( skill_data.label ) ) || "I";
+    getSkillActionsInformationData: function ( character_object, skill_key, skill_data ) {
+        let skill_rank = this.getFinalRank( character_object, MASTERY.getSkillSlot( skill_data.label ) ) || "I";
         let is_usable  = function ( rank_required ) {
             return MASTERY.ORDER[ rank_required ] <= MASTERY.ORDER[ skill_rank ];
         };

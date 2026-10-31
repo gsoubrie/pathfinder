@@ -106,6 +106,9 @@
 /* ── Ligne unlock ── */
 .level-up-window .level-up-row {
     align-items  : center;
+    /* fond explicite : l'emprunt de la phase RUNNING (en attente) hériterait
+       du fond bleu utilitaire global, la spécificité de cette règle le couvre */
+    background   : none;
     border-bottom: 1px solid rgba(107, 78, 42, 0.3);
     display      : flex;
     gap          : 10px;
@@ -117,7 +120,7 @@
     border-bottom : none;
 }
 
-.level-up-window .level-up-row--active {
+.level-up-window .level-up-row[data-current-phase='SELECTED'] {
     background : linear-gradient(135deg, #1f2a14 0%, #14200c 100%);
 }
 
@@ -179,13 +182,13 @@
     width         : 12px;
 }
 
-.level-up-window .level-up-row-toggle.active {
+.level-up-window .level-up-row[data-current-phase='SELECTED'] .level-up-row-toggle {
     background : var(--g-gold);
     border     : var(--b-thin) solid var(--c-gold-light);
     box-shadow : var(--sh-gold-sm);
 }
 
-.level-up-window .level-up-row-toggle.active .level-up-row-toggle-knob {
+.level-up-window .level-up-row[data-current-phase='SELECTED'] .level-up-row-toggle-knob {
     background : var(--c-text-dark);
     left       : 19px;
 }

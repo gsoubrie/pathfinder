@@ -32,7 +32,7 @@ TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
         return;
     }
     TEST.ASSERT.equal( _active_window.getName(), CHARACTER.GeneralWindow.NAME, "Fenetre active" );
-    TEST.ASSERT.ok( _active_window.isPhase( GS.OBJECT.CONST.PHASE.RUNNING_TO_STRING ), "La fenetre active devrait etre en phase RUNNING_TO_STRING" );
+    TEST.ASSERT.ok( _active_window.isPhase( GS.OBJECT.CONST.PHASE.RUNNING ), "La fenetre active devrait etre en phase RUNNING" );
     let _running_tabs                    = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
     TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet devrait porter data-current-phase='RUNNING' dans le DOM, trouve : " + _running_tabs.length );
     if ( _running_tabs.length === 1 ) {

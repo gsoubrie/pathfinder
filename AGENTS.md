@@ -42,47 +42,66 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 
 ### Domaine levelup (`sheet/js/levelup/`)
 
+Le domaine porte TOUT le passage de niveau (fusions Rounds 5-7) : la source
+de vérité (`levels-history.js` : `LevelsHistory` + `LevelHistory`, l'entrée
+possède `enabled`, `validated_skills` ET ses lignes de capacités), le vieux
+mécanisme de choix par origine (`level-history-skills.js`, à unifier avec les
+lignes un jour), et le warning global de la fenêtre.
+
 - `CHARACTER.LevelUpSkillClass` (`level-up-skill-class.js`) — un objet par
-  capacité débloquée : porte son état **validé** (`is_active`, booléen,
-  uuid `"<niveau>__<slot>"`), rend sa propre ligne (`computeHtml()`) avec un
-  interrupteur on/off **sans texte** (`.level-up-row-toggle`, pas de sélecteur
-  de choix), possède SON compteur WARNINGS enfant du compteur de sa classe.
-  Sur `event__level_up__toggle_skill` il bascule l'état + compteur et re-rend
-  sa ligne en place (`SERVICE.DOM.replaceElement`) — pas de rebuild complet
-  de la fenêtre. API : `getUUID`, `isActive`, `getMasteriesUpgrades`,
-  `getSourceLabel`.
-- `CHARACTER.LevelUpSkillsClass` (`level-up-skills-class.js`) — un par classe
-  du niveau (uuid = nom de classe) : conteneur des lignes de la classe, SON
-  compteur WARNINGS. Routage du toggle : chaque conteneur de classe reçoit
-  l'événement, seul le porteur de l'uuid route à la ligne (garde null
-  justifiée). `buildSkills( history_entry, class_level_number, saved_values )`
-  dérive ses lignes de l'entrée d'historique (uuid de ligne
-  `"<nom d'entrée>__<slot>"`, état validé semé par le save à l'init).
-- `CHARACTER.LevelUpSkills` (`level-up-skills.js`) — un objet par niveau de
-  l'historique (uuid = nom de l'entrée d'historique), conteneur des classes
-  du niveau : rend son propre bloc (`computeHtml()` : titre, numéro,
-  interrupteur Actif/Désactivé, lignes de toutes ses classes), possède SON
-  compteur WARNINGS, diffuse le toggle vers ses classes. La couche
-  désactivation est un état : les lignes restent vivantes avec leurs états,
-  le bloc ne les rend pas tant que `is_enabled` est faux, et masteries saute
-  le niveau via `isEnabled()`. Sur `event__level__toggle` le bloc
-  resynchronise `is_enabled` depuis son entrée (la fenêtre re-rend).
-- `CHARACTER.LevelsUpSkills` (`levels-up-skills.js`) — conteneur sur le
-  personnage (`this.level_up_skills`, enfant de `children`, clé de save
-  `level_up_skills`), ses enfants sont les **niveaux**, identifiés par le nom
-  de l'entrée d'historique (stable, jamais réutilisé). `buildSkills(
-  character )` = construction initiale au `event__data_loaded__done` (graine
-  = le save aplati par `_flattenValues`, consommé une fois). Ensuite
-  maintenance incrémentale : `buildLevel` (sur `event__form__element_changed`
-  classe + `event__level_up__take_level`) ajoute le bloc de la nouvelle
-  entrée, `removeLevel` (sur `event__level_up__remove_level`,
-  `param__level_name` passé par le personnage) retire le bloc,
-  `event__level__toggle` route au bloc qui resynchronise son état. Plus
-  aucun preserve d'état vivant.
+  capacité débloquée (uuid `"<niveau>__<slot>"`) : rend sa propre ligne
+  avec un interrupteur on/off **sans texte** (`.level-up-row-toggle`, pas de
+  sélecteur de choix), possède SON compteur WARNINGS, branché sur la fenêtre
+  au rendu. **La ligne est sans état ni référence** (Round 8) : elle ne
+  stocke ni `is_active`, ni son entrée, **ni `class_name`** (l'entrée
+  porte la classe) — la dépendance passe en paramètre au moment du besoin :
+  `computeHtml( class_name )` au rendu (l'entrée passe SA classe),
+  `getMasteriesUpgrades( class_name )` à masteries. La PHASE porte l'état
+  validé
+  (Round 9 : phases de domaine `LEVELUP.PHASE.SELECTED/RUNNING`, mixin
+  `GS.OBJECT.PhaseInterface` de la lib — pas les constantes
+  `GS.OBJECT.CONST.PHASE` : SLEEPING porte `cursor: not-allowed` + enfants
+  en `pointer-events: none`, RUNNING un fond bleu, styles utilitaires
+  globaux (`_utilities.css`) qui contredisent une ligne cliquable en
+  attente ; une valeur de phase est un contrat de style
+  de la lib — le fork applicatif `phase.js` a été supprimé au Round 9, la
+  machine vit dans la lib et son callback part au tick suivant,
+  `CALLBACK_PHASE_TIMEOUT = 0`)
+  : `setIsActive( to_set )` → `setPhaseOrPhase`, la phase est branchée sur
+  le DOM de la ligne (`setPhaseDomElement` → `data-current-phase`, le CSS
+  key dessus : fond de ligne doré, interrupteur doré + bouton coulissant,
+  plus de classes `--active/--pending`), et `callbackForPhase` met à jour
+  le compteur warnings. Plus de re-render au
+  toggle : le DOM suit la phase en place. Construction par `updateData` +\n  `setData` par clé (`\"is_active\"` → `setIsActive`, consommé à la volée).
+  API : `getUUID`, `setUUID`, `getSlotKey`, `setIsActive`,
+  `getMasteriesUpgrades`, `getSourceLabel`.
+- `CHARACTER.LevelHistory` (`levels-history.js`, entrée) — la source de
+  vérité DU niveau ET de sa vue (Round 7 : les blocs et conteneurs de classe
+  ont disparu, l'entrée EST le conteneur de ses lignes, `OBJECT.InterfaceContainerHtml`)
+  : identité `level_name` (`getUUID()` dérivé : le champ porte son nom
+  métier, jamais un `uuid` générique), `enabled` + `validated_skills`
+  (Round 5), `buildSkills( class_level_number )` idempotent construit ses
+  lignes (une par capacité du niveau de classe), `computeHtml()` rend SA
+  section (`.level-up-block` avec `data-level-name`/`data-level-number`,
+  titre, interrupteur Actif/Désactivé — ancre des scénarios ; la couche
+  désactivation cache les lignes, elles restent vivantes), et
+  `setLinesCountersParent( window )` branche les compteurs de ses lignes.
+  Routage d'entrée : `toggle_skill` — le porteur de l'uuid bascule SA carte
+  (`toggleSkillValidation`) puis pousse la nouvelle valeur à sa ligne
+  (`setIsActive( to_set )`), `remove_level` pousse 0 au compteur de
+  CHAQUE ligne AVANT que le personnage retire l'entrée (pas de clé fantôme).
+- `CHARACTER.LevelsHistory` (`levels-history.js`, conteneur) — diffuse les
+  événements aux entrées (le parent `OBJECT.InterfaceContainer` broadcast,
+  son `doActionAfter` ne les avalait pas avant le Round 6) et porte
+  `buildSkills()` : construit les lignes de toute entrée qui en manque —
+  le chargement (`case levels_history` du personnage, juste après
+  `updateData`), la prise de niveau et l'ajout de classe par popup
+  (`event__form__element_changed` → `addClassFromEdition`) partagent le
+  MÊME chemin idempotent. Plus de `buildLevel` ni de `removeLevel`.
 - `CHARACTER.LevelUpWindow` — ne calcule plus rien : elle ajoute l'en-tête,
-  le warning global, le sélecteur de classe, puis un bloc par niveau du
-  conteneur (`level.computeHtml()`). Le bloc porte `data-level-number`
-  (ancre des scénarios) : sur `event__level_up__toggle_skill` la fenêtre
+  le warning global, le sélecteur de classe, puis une section par entrée
+  de l'historique (`entry.setLinesCountersParent( this )` puis
+  `entry.computeHtml()`). Sur `event__level_up__toggle_skill` la fenêtre
   re-dispatch au personnage, le warning global se met à jour tout seul par
   la chaîne de compteurs.
 - `CHARACTER.LevelUpGlobalWarning` (`level-up-global-warning.js`) — label
@@ -90,14 +109,18 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   consommateur du compteur warnings de la fenêtre (`setParent` + contrat
   `update( name, nb )`), rend et re-rend son div tout seul ; plus aucun
   `_buildGlobalWarning` / `_updateGlobalWarning` ni `getMissingCount()`.
-- Chaîne de compteurs : ligne → classe → niveau → conteneur du personnage →
-  fenêtre (badge d'onglet), branchée
-  par `setCountersParent` dans `computeHtmlWithData` de la fenêtre. Plus aucun
-  `setCounterValue` manuel côté fenêtre. Les uuids enfants morts sont purgés par
-  `resetCounterByType(WARNINGS)` au début de `buildSkills`.
+- Chaîne de compteurs : ligne → fenêtre (badge d'onglet), branchée par
+  `setLinesCountersParent( window )` sur chaque entrée dans `_buildContent`
+  de la fenêtre, rebranchée à chaque rendu pour couvrir les lignes
+  construites depuis. Plus aucun `setCounterValue` manuel côté fenêtre.
+  Les lignes meurent avec leur entrée : `remove_level` route à l'entrée
+  qui pousse 0 à CHAQUE ligne AVANT le retrait, pas de clé fantôme, et plus
+  aucun `resetCounterByType` de purge (les lignes ne sont jamais reconstruites).
 - Plat des événements : fenêtre → `CONTROLLER.Character.current_character.doActionAfter(...)`
-  → personnage → conteneur → skill. Jamais d'appel métier direct fenêtre → domaine.
-- **Seules les capacités validées** (`skill.isActive()`) alimentent les calculs
+  → personnage → historique → entrée → ligne. Jamais d'appel métier
+  direct fenêtre → domaine.
+- **Seules les capacités validées** (`entry.isSkillValidated( slot_key )`,
+  lue par masteries sur la ligne) alimentent les calculs
   finaux du personnage (maîtrises aujourd'hui, dons/compétences ensuite).
 
 ### Zone jets + compétences de l'onglet Général (`general_window.js`)
@@ -274,9 +297,10 @@ niveau 5, "expertise en réflexes" validée) :
    personnage agrège.
 5. Écriture des fichiers de save : `CONTROLLER.Character.save()` est un stub
    (seul `console.log` reste) et les vrais fichiers `sheet/save/` prédatent
-   `level_up_skills`. La graine save→load (updateData → data_loaded →
-   buildSkills) est couverte par `[LEVELUP MAGICIEN][SAVE]` ; reste à
-   restaurer l'écriture du fichier puis à re-générer un save réel.
+   `validated_skills`. La graine save→load (`case levels_history` →
+   `LevelsHistory.buildSkills()`, cf. Rounds 5-6) est couverte par
+   `[LEVELUP MAGICIEN][SAVE]` ; reste à restaurer l'écriture du fichier puis
+   à re-générer un save réel.
 6. Renommage anglais des identifiants français (règle ci-dessus) :
    `save__vigueur` → `save__fortitude`, `save__reflexes` → `save__reflex`,
    `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
@@ -291,8 +315,9 @@ niveau 5, "expertise en réflexes" validée) :
 8. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
    règle d'affichage ci-dessus.
 9. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
-   domaine par domaine au fil du nettoyage : levelup est fait, restent
-   mastery, character (fenêtres, historique), class, level, characteristic,
+   domaine par domaine au fil du nettoyage : levelup est fait (Round 5 y a
+   intégré l'historique : `levels-history.js`, `level-history-skills.js`),
+   restent mastery, character (fenêtres), class, level, characteristic,
    race, gift, historics, legacy, archetype, spell, stuffs, object, service,
    component, controller + `<script>` de index.html et tests.html.
 
@@ -304,7 +329,28 @@ conventions des skills. Elles s'appliquent à tout le code, y compris les
 fichiers déjà relus. Historique : Round 1 = `level-up-skill.js` + domaine
 levelup, Round 2 = compteurs et label global de la fenêtre, Round 3 =
 `levels-up-skills.js` : modèle incrémental, identité par entrée
-d'historique, fin du preserve.
+d'historique, fin du preserve, Round 4 = domaine mastery (fin du parent
+stocké dans `Masteries`) puis graine de save : `updateData` construit
+directement, chaque ligne sauvegardée avec son état true/false, Round 5 =
+fusion du save : l'entrée d'historique possède `validated_skills`
+(comme `enabled`), le conteneur levelup ne sauvegarde plus rien, les
+dossiers `character/level_history/` et `levelup/` fusionnent dans
+`sheet/js/levelup/` (fichiers en kebab-case), Round 6 = fusion des objets :
+le bloc de capacités vit SUR son entrée (`getLevelUpBlock`), le conteneur
+`LevelsUpSkills` disparaît, la fenêtre et masteries itèrent l'historique,
+Round 7 = fusion complète : bloc et conteneur de classe disparaissent,
+l'entrée EST le conteneur de ses lignes et rend sa section (`computeHtml`),
+la chaîne de compteurs devient ligne → fenêtre, Round 8 = fin de TOUTE
+référence parent : la ligne est sans état ni référence, l'entrée (seul
+propriétaire) lui pousse l'état à la construction, au rendu et au toggle,
+Round 9 = la ligne porte une PHASE (`LEVELUP.PHASE.SELECTED/RUNNING`, valeurs
+de domaine — les constantes de la lib traînent des styles utilitaires
+globaux : SLEEPING rend inert, RUNNING peint en bleu)
+branchée sur son DOM
+(`data-current-phase` + CSS), le compteur warnings vit dans
+`callbackForPhase` (plus de re-render ni de classes d'état), fin du fork :
+`sheet/js/phase.js` supprimé, la machine de phases est celle de la lib
+(`GS.OBJECT.PhaseInterface`), comme `configurable_value` et les popups.
 
 ### Style, commentaires, nommage
 
@@ -320,6 +366,15 @@ d'historique, fin du preserve.
   reste en un mot : `sheet/js/levelup/`). Renommage par `git mv` + balises
   `<script>` de index.html et tests.html mises à jour en même temps. Les
   autres domaines suivront au fil du nettoyage (voir À faire).
+- `computeHtml()` est une **commande** : elle construit et stocke son DOM
+  (`this.dom_element`), ne retourne RIEN — l'élément se récupère par
+  `getDomElement()` (jamais de `addElementTo( x.computeHtml(), ... )`,
+  l'idiome est `x.computeHtml(); addElementTo( x.getDomElement(), ... )`).
+- Un champ d'identité porte son **nom métier**, l'uuid s'en dérive :
+  `LevelHistory.level_name`, la ligne reçoit `level_name` par données —
+  jamais de `this.uuid`/`this.key` générique
+  quand la valeur est un nom du domaine (le renommage va jusqu'au bout,
+  `getUUID()` retourne le champ métier).
 - Classes CSS avec trait d'union : `level-up-row-label`, `level-up-block`,
   `level-up-window` — jamais `levelup-*` (idem data attributes).
 
@@ -343,26 +398,36 @@ d'historique, fin du preserve.
   plus rien n'est filtré. Le broadcast d'un événement ciblé (`toggle_skill`)
   se fait par `doActionAfterContentChildren` (params en 2e position), le
   porteur de l'uuid route, les autres ignorent (garde null justifiée).
+- Pas de garde défensive sur les données de save : les fichiers `sheet/save/`
+  sont **générés par `getDataToSave`, jamais écrits ni édités à la main**
+  (décision Round 4). Une clé absente ne déclenche jamais le case, une clé
+  présente est un objet bien formé. Une garde ne survit que si un émetteur
+  réel ne garantit pas le paramètre (broadcast uuid, re-render vivant).
 - L'événement déclencheur circule le plus longtemps possible : quand un objet
   re-dispatche le plat, il repasse l'événement D'ORIGINE
   (`this.level_up_skills.doActionAfter( event_name, params )`), jamais un
   événement synthétique de conséquence (`event__level_up__build_skills` a été
   supprimé pour ça). Chaque consommateur écoute les événements déclencheurs qui
-  le concernent (`LevelsUpSkills` rebuild sur `data_loaded__done`,
-  `form__element_changed`, `take_level`, `remove_level`, `level__toggle`) et
+  le concernent (`LevelsUpSkills` maintenance sur `form__element_changed`,
+  `take_level`, `remove_level`, `level__toggle` — le build initial vit dans
+  `updateData`, plus dans un événement) et
   garde la main pour faire du spécifique par événement si besoin.
-- Pas de référence au parent stockée dans un objet enfant : la dépendance
-  passe en paramètre de l'événement au moment où l'objet en a besoin
-  (`param__current_character__object`, clé existante posée par le personnage
-  avant son re-dispatch), jamais en champ construit au départ
-  (`new CHARACTER.LevelsUpSkills( this )` a été refusé pour ça).
+- Pas de référence au parent **structurel** stockée dans un objet enfant :
+  la dépendance passe en paramètre de l'événement au moment où l'objet en a
+  besoin (`param__current_character__object`, clé existante posée par le
+  personnage avant son re-dispatch), jamais en champ construit au départ
+  (`new CHARACTER.LevelsUpSkills( this )` a été refusé pour ça ; le bloc
+  levelup a fini par disparaître, Round 7). Round 8 : plus AUCUNE exception —
+  la ligne elle-même ne stocke plus son entrée : le propriétaire d'état lui
+  pousse la valeur (construction, rendu, toggle), jamais l'objet parent.
 - Minimiser le code : un accesseur ne survit que s'il a un consommateur
   productif (un message d'assertion de test ne compte pas), et un objet
   expose des intentions métier, pas ses champs bruts — masteries demande
   `getMasteriesUpgrades()` et `getSourceLabel()` au skill validé, jamais la
   classe ni la clé de capacité. Un seul accesseur d'état par donnée
-  (`isActive()` ; l'inversion se fait aux points d'appel). Le re-render en
-  place s'appelle `updateHtml()`.
+  (`isSkillValidated` / `isEnabled` ; l'inversion se fait aux points
+  d'appel). Le re-render en place s'appelle `updateHtml()` (la ligne levelup
+  reçoit l'état en paramètre, Round 8).
 - Pas de signal visuel redondant : `has-pending` (barre sur le titre du bloc
   de niveau) a été supprimé avec son événement de collecte — quand les
   badges de ligne et le warning global portent déjà l'information, un
@@ -371,9 +436,12 @@ d'historique, fin du preserve.
 ### Conteneurs dérivés d'une source de vérité (modèle incrémental)
 
 - Un conteneur qui dérive d'une source (historique, classes, ...) se
-  construit **une fois** au chargement (`event__data_loaded__done`, graine =
-  le save), puis se **maintient** : un objet par entrée ajoutée, retrait de
-  l'objet par entrée retirée, synchronisation d'état en place pour le reste.
+  construit **une fois** au chargement (le personnage appelle
+  `levels_history.buildSkills()` dans son case `levels_history`, juste
+  après `updateData` — la structure ET les états arrivent ensemble), puis
+  se **maintient** : un objet par entrée ajoutée (le MÊME appel idempotent
+  couvre chargement, prise de niveau et ajout de classe), retrait de
+  l'objet avec son entrée, synchronisation d'état en place pour le reste.
   La re-dérivation complète à chaque événement est un anti-pattern, et le
   "preserve" (récolter l'état vivant avant de tout casser) n'existe que
   parce qu'on a détruit ce qu'il ne fallait pas détruire.
@@ -381,11 +449,18 @@ d'historique, fin du preserve.
   nom de l'entrée, jamais réutilisé), jamais de sa position : remove et
   toggle deviennent du routage `getContentByUUID` pur, aucune renumérotation
   à maintenir. Les clés de save et les ancres de scénarios suivent.
-- Graine de save : `updateData` stocke le brut, le build initial l'aplatit
-  au format de contrat (uuid → valeur, l'imbrication par clés de conteneurs
-  n'a aucune valeur en lecture) et le **consomme une fois** — ensuite les
-  objets vivants font foi, le fichier ne doit plus écraser les actions de
-  l'utilisateur.
+- Graine de save (Rounds 5-6) : **l'état d'une donnée dérivée vit sur sa
+  source de vérité**, jamais sur l'objet UI — les validations de capacités
+  vivent sur l'entrée `LevelHistory` (champ `validated_skills`, clé par
+  slot, true/false) comme `enabled`, et la ligne levelup lit/écrit via
+  `isSkillValidated` / `toggleSkillValidation`. Conséquences : le save de
+  l'état est porté par la source (une seule clé `levels_history`, plus de
+  clé `level_up_skills` séparée), le contrat d'ordre des clés du save
+  disparaît (structure et états arrivent ensemble), et l'objet dérivé ne
+  sauvegarde rien (le bloc vit sur l'entrée, hors du merge des `children`).
+  Chaque slot rendu est posé à false par `initSkillValidation` si absent :
+  la carte de l'entrée liste toutes ses lignes, les non validées ne sont
+  pas omises.
 - Un état actif/désactivé est une **couche** posée sur un environnement qui
   reste vivant : les objets gardent leurs états, la couche s'exprime au
   rendu (l'objet ne rend pas ses enfants) et dans les calculs (le
