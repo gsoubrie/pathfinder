@@ -6,11 +6,17 @@ dans `index.html`. Les tests vivent dans `tests.html` + `sheet/js/tests/`.
 
 ## Règles à lire avant de toucher au code
 
-Deux skills Vibe décrivent les conventions obligatoires du projet :
+Trois skills Vibe décrivent les conventions obligatoires du projet :
 
 - `.vibe/skills/pathfinder-style/SKILL.md` — architecture (namespaces globaux,
   classes prototype + `SERVICE.CLASS.addPrototype`, bus `doActionAfter`,
   SERVICE.DOM, formatage exact, règle du "passer le plat").
+- `.vibe/skills/pathfinder-object-model/SKILL.md` — modèle d'objets issu des
+  rounds de relecture (référence : `level-up-skill-class.js`) : un seul
+  propriétaire d'état, dépendants passifs sans référence ni miroir, tout
+  coule par paramètre ou par poussée, affichage réactif par phase branchée
+  sur le DOM (`data-current-phase` + CSS, compteurs dans
+  `callbackForPhase`), `computeHtml` en commande, nommage métier honnête.
 - `.vibe/skills/pathfinder-tests/SKILL.md` — méthode de test : scénarios de
   parcours utilisateur de bout en bout, workflow test → rapport utilisateur →
   correctif, jamais de test unitaire de fonction.
