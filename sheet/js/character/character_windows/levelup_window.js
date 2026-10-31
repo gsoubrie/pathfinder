@@ -3,9 +3,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // CHARACTER.LevelUpWindow
 // Onglet "Passage de niveau" : récapitulatif par niveau de l'historique, les
-// lignes sont rendues par les CHARACTER.LevelUpSkill du conteneur du
-// personnage (getLevelUpSkills), qui alimentent le compteur warnings de la
-// fenêtre par la chaîne skill → conteneur → fenêtre.
+// blocs sont rendus par les CHARACTER.LevelUpSkills (un par niveau) du
+// conteneur du personnage (getLevelUpSkills), qui alimentent le compteur
+// warnings de la fenêtre par la chaîne ligne → classe → niveau → conteneur
+// → fenêtre.
 // ─────────────────────────────────────────────────────────────────────────────
 /**
  * @class CHARACTER.LevelUpWindow
@@ -93,16 +94,8 @@ CHARACTER.LevelUpWindow.prototype = {
 
         // Un bloc par niveau de l'historique, y compris desactive :
         // le bloc desactive porte l'interrupteur de re-activation
-        var history = character_object.getLevelHistory();
-        for ( var h = 0; h < history.getSize(); h++ ) {
-            var entry        = history.getContent( h );
-            var block_skills = [];
-            if ( entry.isEnabled() ) {
-                var level_params = { "param__level": h + 1 };
-                skills.doActionAfter( "event__get__level_up__with_level", level_params );
-                block_skills = level_params[ "param__level_up__with_level" ];
-            }
-            this._buildLevelBlock( h + 1, block_skills, entry );
+        for ( var h = 0, _size_h = skills.getSize(); h < _size_h; h++ ) {
+            SERVICE.DOM.addElementTo( skills.getContent( h ).computeHtml(), this.content_dom_element_target );
         }
     },
 
@@ -146,42 +139,6 @@ CHARACTER.LevelUpWindow.prototype = {
             else {
                 options[ i ].classList.remove( "selected" );
             }
-        }
-    },
-
-    _buildLevelBlock: function ( level_number, block_skills, history_entry ) {
-        var is_enabled = history_entry ? history_entry.isEnabled() : true;
-        var level_name = history_entry ? history_entry.getUUID() : ( "" + level_number );
-        var block = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", {
-                class             : "level-up-block" + ( is_enabled ? "" : " disabled" ),
-                "data-level-name" : level_name,
-                "data-level-number": level_number
-            } ),
-            this.content_dom_element_target
-        );
-
-        // Titre du niveau
-        var title = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "level-up-block-title" } ),
-            block
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "level-up-block-level-num" }, "Niveau " + level_number ),
-            title
-        );
-        // Interrupteur Actif / Désactivé (vivant ici, l'onglet Niveau n'affiche qu'un libelle)
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", {
-                class  : "level-up-level-toggle",
-                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level__toggle',{'param__level_name':'" + level_name + "'})"
-            }, is_enabled ? "Activé" : "Désactivé" ),
-            title
-        );
-
-        // Lignes d'unlock : rendues par les skills eux-mêmes
-        for ( var i = 0; i < block_skills.length; i++ ) {
-            SERVICE.DOM.addElementTo( block_skills[ i ].computeHtml(), block );
         }
     }
 };

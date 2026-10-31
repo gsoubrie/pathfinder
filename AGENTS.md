@@ -42,32 +42,49 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 
 ### Domaine levelup (`sheet/js/levelup/`)
 
-- `CHARACTER.LevelUpSkill` (`level-up-skill.js`) — un objet par capacité débloquée
-  par l'historique de niveaux : porte son état **validé** (`is_active`, booléen
-  sauvegardé `"<niveau>__<slot>" → true`), rend sa propre ligne
-  (`computeHtml()`) avec un interrupteur on/off **sans texte**
-  (`.levelup-row-toggle`, pas de sélecteur de choix), possède SON compteur
-  WARNINGS enfant du compteur du conteneur. Sur `event__level_up__toggle_skill`
-  il bascule l'état + compteur et re-rend sa ligne en place
-  (`SERVICE.DOM.replaceElement`) — pas de rebuild complet de la fenêtre.
-- `CHARACTER.LevelUpSkills` (`level-up-skills.js`) — conteneur sur le personnage
-  (`this.level_up_skills`, enfant de `children`, clé de save `level_up_skills`).
-  `buildSkills( character )` re-dérive les skills de l'historique (parsing de
-  `capacity_by_level`), en préservant l'état validé. Rebuild déclenché par le
-  personnage sur : `event__data_loaded__done`, `event__form__element_changed`,
-  `event__level_up__take_level`, `event__level_up__remove_level`,
-  `event__level__toggle`.
-- `CHARACTER.LevelUpWindow` — ne calcule plus rien : assemble des blocs,
-  demande les lignes d'un niveau par `event__get__level_up__with_level`.
-  Le bloc porte `data-level-number` (ancre des scénarios) : sur
-  `event__level_up__toggle_skill` la fenêtre re-dispatch au personnage, le
-  warning global se met à jour tout seul par la chaîne de compteurs.
+- `CHARACTER.LevelUpSkillClass` (`level-up-skill-class.js`) — un objet par
+  capacité débloquée : porte son état **validé** (`is_active`, booléen,
+  uuid `"<niveau>__<slot>"`), rend sa propre ligne (`computeHtml()`) avec un
+  interrupteur on/off **sans texte** (`.level-up-row-toggle`, pas de sélecteur
+  de choix), possède SON compteur WARNINGS enfant du compteur de sa classe.
+  Sur `event__level_up__toggle_skill` il bascule l'état + compteur et re-rend
+  sa ligne en place (`SERVICE.DOM.replaceElement`) — pas de rebuild complet
+  de la fenêtre. API : `getUUID`, `isActive`, `getMasteriesUpgrades`,
+  `getSourceLabel`.
+- `CHARACTER.LevelUpSkillsClass` (`level-up-skills-class.js`) — un par classe
+  du niveau (uuid = nom de classe) : conteneur des lignes de la classe, SON
+  compteur WARNINGS. Routage du toggle : chaque conteneur de classe reçoit
+  l'événement, seul le porteur de l'uuid route à la ligne (garde null
+  justifiée).
+- `CHARACTER.LevelUpSkills` (`level-up-skills.js`) — un objet par niveau de
+  l'historique (uuid/clé = numéro), conteneur des classes du niveau : rend
+  son propre bloc (`computeHtml()` : titre, numéro, interrupteur
+  Actif/Désactivé depuis l'entrée d'historique captée au build, lignes de
+  toutes ses classes), possède SON compteur WARNINGS, diffuse le toggle vers
+  ses classes.
+- `CHARACTER.LevelsUpSkills` (`levels-up-skills.js`) — conteneur sur le
+  personnage (`this.level_up_skills`, enfant de `children`, clé de save
+  `level_up_skills`), ses enfants sont les **niveaux**.
+  `buildSkills( character )` re-dérive niveaux → classes → lignes de
+  l'historique (parsing de `capacity_by_level`), en préservant l'état validé
+  (le save imbriqué `{ "1": { "Magicien": { "1__slot": true } } }` est
+  aplati récursivement par `_flattenValues`, les anciens formats restent
+  lus). Rebuild déclenché par le personnage sur : `event__data_loaded__done`,
+  `event__form__element_changed`, `event__level_up__take_level`,
+  `event__level_up__remove_level`, `event__level__toggle`.
+- `CHARACTER.LevelUpWindow` — ne calcule plus rien : elle ajoute l'en-tête,
+  le warning global, le sélecteur de classe, puis un bloc par niveau du
+  conteneur (`level.computeHtml()`). Le bloc porte `data-level-number`
+  (ancre des scénarios) : sur `event__level_up__toggle_skill` la fenêtre
+  re-dispatch au personnage, le warning global se met à jour tout seul par
+  la chaîne de compteurs.
 - `CHARACTER.LevelUpGlobalWarning` (`level-up-global-warning.js`) — label
   "N capacités non validées" de la fenêtre : objet compteur dédié,
   consommateur du compteur warnings de la fenêtre (`setParent` + contrat
   `update( name, nb )`), rend et re-rend son div tout seul ; plus aucun
   `_buildGlobalWarning` / `_updateGlobalWarning` ni `getMissingCount()`.
-- Chaîne de compteurs : skill → conteneur → fenêtre (badge d'onglet), branchée
+- Chaîne de compteurs : ligne → classe → niveau → conteneur du personnage →
+  fenêtre (badge d'onglet), branchée
   par `setCountersParent` dans `computeHtmlWithData` de la fenêtre. Plus aucun
   `setCounterValue` manuel côté fenêtre. Les uuids enfants morts sont purgés par
   `resetCounterByType(WARNINGS)` au début de `buildSkills`.
@@ -164,7 +181,8 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 - `SERVICE.CLASS.addPrototype` ne copie que les méthodes PROPRES du prototype
   parent, et seulement si l'enfant ne les a pas déjà. En pratique : **tout enfant
   de conteneur doit définir son propre `getUUID`** (cf. `Characteristics`,
-  `LevelsHistory`, `LevelUpSkills`, `LevelUpSkill`).
+  `LevelsHistory`, `LevelsUpSkills`, `LevelUpSkills`, `LevelUpSkillsClass`,
+  `LevelUpSkillClass`).
 - Les compteurs poussent vers les parents sous leur uuid : un enfant disparu
   laisse une clé fantôme dans le mapping du parent → reset du parent quand les
   enfants sont reconstruits.
@@ -254,9 +272,15 @@ niveau 5, "expertise en réflexes" validée) :
    `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
    `maitrises_initiales` → `initial_masteries`, etc. — d'une traite, clé par
    clé, données (`SLOT_KEYWORDS`, `MASTERY_UPGRADES`) + code + tests.
-7. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
+7. `CHARACTER.Masteries` stocke encore `this.character` depuis son
+   constructeur (`new CHARACTER.Masteries( this )`) : contraire à la règle
+   Review code "pas de référence au parent stockée dans l'enfant". À régler
+   quand on relit le domaine mastery — la dépendance passera par
+   `param__current_character__object` dans les appels des popups et de la
+   zone jets.
+8. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
    règle d'affichage ci-dessus.
-8. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
+9. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
    domaine par domaine au fil du nettoyage : levelup est fait, restent
    mastery, character (fenêtres, historique), class, level, characteristic,
    race, gift, historics, legacy, archetype, spell, stuffs, object, service,
@@ -279,11 +303,11 @@ levelup, Round 2 = compteurs et label global de la fenêtre.
   corrections passent par des cartes écrites à la main qui survivent au
   re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`
   devient `initial_masteries`, lu via `LEVELUP.INITIAL_MASTERIES_KEY`).
-- Fichiers JS en kebab-case : `level-up-skill.js`, `level-up-global-warning.js`,
-  `constant-level-up.js` (le dossier du domaine reste en un mot :
-  `sheet/js/levelup/`). Renommage par `git mv` + balises `<script>` de
-  index.html et tests.html mises à jour en même temps. Les autres domaines
-  suivront au fil du nettoyage (voir À faire).
+- Fichiers JS en kebab-case : `level-up-skill-class.js`,
+  `level-up-global-warning.js`, `constant-level-up.js` (le dossier du domaine
+  reste en un mot : `sheet/js/levelup/`). Renommage par `git mv` + balises
+  `<script>` de index.html et tests.html mises à jour en même temps. Les
+  autres domaines suivront au fil du nettoyage (voir À faire).
 - Classes CSS avec trait d'union : `level-up-row-label`, `level-up-block`,
   `level-up-window` — jamais `levelup-*` (idem data attributes).
 
@@ -296,10 +320,26 @@ levelup, Round 2 = compteurs et label global de la fenêtre.
   l'uuid. Les clés dérivées de l'identité se construisent avec
   `getUUID()` (cf. `_getPreservedValues`).
 - Les requêtes d'un conteneur sur ses enfants passent par des événements de
-  collecte, pas par des méthodes de filtrage : le conteneur initialise un
-  paramètre-résultat et le propage par `doActionAfterContentChildren` (les
-  params passent en 2e position), chaque enfant y pousse sa part
-  (`event__get__level_up__with_level` → `param__level_up__with_level`).
+  collecte quand le regroupement est calculé, mais un regroupement
+  **structurel** devient un objet : `LevelUpSkills` (un objet par niveau, son
+  compteur, son bloc rendu par lui-même) a remplacé
+  `event__get__level_up__with_level` — le routage par niveau est structurel,
+  plus rien n'est filtré. Le broadcast d'un événement ciblé (`toggle_skill`)
+  se fait par `doActionAfterContentChildren` (params en 2e position), le
+  porteur de l'uuid route, les autres ignorent (garde null justifiée).
+- L'événement déclencheur circule le plus longtemps possible : quand un objet
+  re-dispatche le plat, il repasse l'événement D'ORIGINE
+  (`this.level_up_skills.doActionAfter( event_name, params )`), jamais un
+  événement synthétique de conséquence (`event__level_up__build_skills` a été
+  supprimé pour ça). Chaque consommateur écoute les événements déclencheurs qui
+  le concernent (`LevelsUpSkills` rebuild sur `data_loaded__done`,
+  `form__element_changed`, `take_level`, `remove_level`, `level__toggle`) et
+  garde la main pour faire du spécifique par événement si besoin.
+- Pas de référence au parent stockée dans un objet enfant : la dépendance
+  passe en paramètre de l'événement au moment où l'objet en a besoin
+  (`param__current_character__object`, clé existante posée par le personnage
+  avant son re-dispatch), jamais en champ construit au départ
+  (`new CHARACTER.LevelsUpSkills( this )` a été refusé pour ça).
 - Minimiser le code : un accesseur ne survit que s'il a un consommateur
   productif (un message d'assertion de test ne compte pas), et un objet
   expose des intentions métier, pas ses champs bruts — masteries demande

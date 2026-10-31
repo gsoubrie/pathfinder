@@ -55,7 +55,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
             return;
         }
         let _skills                        = _character.getLevelUpSkills();
-        let _skill                         = _skills.getContentByUUID( "1__ecole_arcanique" );
+        let _skill                         = _skills.getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill, "Le skill école arcanique du niveau 1 devrait exister dans le conteneur" );
         if ( !_skill ) {
             return;
@@ -86,7 +86,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes + interrupteur
             TEST.ASSERT.notNull( _toggle.querySelector( ".level-up-row-toggle-knob" ), "L'interrupteur radio devrait porter son bouton coulissant (.level-up-row-toggle-knob), ligne " + _i );
             TEST.ASSERT.notOk( _toggle.classList.contains( "active" ), "L'interrupteur devrait etre eteint par défaut, ligne " + _i );
             TEST.ASSERT.ok( _row.classList.contains( "level-up-row--pending" ), "Toute ligne non validée devrait etre en attente (.level-up-row--pending), ligne " + _i );
-            let _row_counter              = _row.querySelector( ".level-up-row-warning" );
+            let _row_counter              = _row.querySelector( ".gs-warnings-counter" );
             TEST.ASSERT.notNull( _row_counter, "Chaque ligne devrait porter un counter de warning enfant de celui de la fenêtre, ligne " + _i + " sans counter" );
             if ( _row_counter ) {
                 TEST.ASSERT.equal( _row_counter.getAttribute( "data-number" ), "1", "Le counter d'une ligne non validée devrait valoir 1, ligne " + _i + ", obtenu : [" + _row_counter.getAttribute( "data-number" ) + "]" );
@@ -242,7 +242,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] interrupteur école arcanique → capa
     }
     _toggle.click();
     return TEST.wait().then( function () {
-        let _skill                         = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
+        let _skill                         = _character.getLevelUpSkills().getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill, "Le skill école arcanique devrait rester dans le conteneur apres bascule" );
         if ( !_skill ) {
             return;
@@ -278,7 +278,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] interrupteur école arcanique → capa
                 TEST.ASSERT.equal( getComputedStyle( _other_knob ).left, "1px", "Le bouton coulissant eteint devrait rester a gauche (1px), obtenu : " + getComputedStyle( _other_knob ).left );
             }
         }
-        let _row_counter_after            = _row_after.querySelector( ".level-up-row-warning" );
+        let _row_counter_after            = _row_after.querySelector( ".gs-warnings-counter" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait toujours porter son counter de warning apres bascule" );
         if ( _row_counter_after ) {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "", "Le counter de la ligne validée devrait etre vide, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
@@ -302,7 +302,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] second clic → capacité retirée + c
     if ( !_character ) {
         return;
     }
-    let _skill                          = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
+    let _skill                          = _character.getLevelUpSkills().getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
     TEST.ASSERT.notNull( _skill, "Pre-condition : skill école arcanique present" );
     if ( !_skill ) {
         return;
@@ -320,7 +320,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] second clic → capacité retirée + c
     }
     _toggle.click();
     return TEST.wait().then( function () {
-        let _skill_after                  = _character.getLevelUpSkills().getContentByUUID( "1__ecole_arcanique" );
+        let _skill_after                  = _character.getLevelUpSkills().getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill_after, "Le skill école arcanique devrait rester dans le conteneur apres la seconde bascule" );
         if ( !_skill_after ) {
             return;
@@ -338,7 +338,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] second clic → capacité retirée + c
         if ( _toggle_after ) {
             TEST.ASSERT.notOk( _toggle_after.classList.contains( "active" ), "L'interrupteur ne devrait plus porter la classe active" );
         }
-        let _row_counter_after            = _row_after.querySelector( ".level-up-row-warning" );
+        let _row_counter_after            = _row_after.querySelector( ".gs-warnings-counter" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait porter son counter de warning apres la seconde bascule" );
         if ( _row_counter_after ) {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "1", "Le counter de la ligne devrait etre de retour a 1, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
@@ -374,11 +374,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
         }
     }
     return TEST.wait().then( function () {
-        let _level_params                = { "param__level": 1 };
-        _character.getLevelUpSkills().doActionAfter( "event__get__level_up__with_level", _level_params );
-        let _level_skills                = _level_params[ "param__level_up__with_level" ];
-        for ( let _i = 0, _size_i = _level_skills.length; _i < _size_i; _i++ ) {
-            let _skill                   = _level_skills[ _i ];
+        let _level                      = _character.getLevelUpSkills().getContentByUUID( "1" ).getContentByUUID( "Magicien" );
+        for ( let _i = 0, _size_i = _level.getSize(); _i < _size_i; _i++ ) {
+            let _skill                   = _level.getContent( _i );
             TEST.ASSERT.ok( _skill.isActive(), "Toute capacité du niveau 1 devrait etre validée, " + _skill.getUUID() + " obtenu : " + _skill.isActive() );
         }
         let _warning                      = _pane.querySelector( ".level-up-global-warning" );
@@ -483,12 +481,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] prise du niveau 6 → état validé co
     return TEST.wait().then( function () {
         TEST.ASSERT.equal( _character.getLevel(), 6, "Le Magicien devrait etre niveau 6, obtenu : " + _character.getLevel() );
         let _skills                      = _character.getLevelUpSkills();
-        let _ecole                       = _skills.getContentByUUID( "1__ecole_arcanique" );
+        let _ecole                       = _skills.getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _ecole, "Le skill école arcanique devrait exister apres le rebuild" );
         if ( _ecole ) {
             TEST.ASSERT.ok( _ecole.isActive(), "La validation de école arcanique devrait survivre au rebuild de la prise de niveau, obtenu : " + _ecole.isActive() );
         }
-        let _expertise = _skills.getContentByUUID( "5__expertise_en_reflexes" );
+        let _expertise                    = _skills.getContentByUUID( "5" ).getContentByUUID( "Magicien" ).getContentByUUID( "5__expertise_en_reflexes" );
         TEST.ASSERT.notNull( _expertise, "Le skill expertise en réflexes du niveau 5 devrait exister apres le rebuild" );
         if ( _expertise ) {
             TEST.ASSERT.ok( _expertise.isActive(), "La validation d'expertise en réflexes devrait survivre au rebuild, obtenu : " + _expertise.isActive() );
@@ -496,4 +494,35 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] prise du niveau 6 → état validé co
         let _rank                        = _character.getMasteries().getFinalRank( "save__reflexes" );
         TEST.ASSERT.equal( _rank, "E", "La maîtrise Réflexes devrait rester experte apres le rebuild, obtenu : " + _rank );
     } );
+} );
+
+TEST.RUNNER.register( "[LEVELUP MAGICIEN][SAVE] save → load = validations restaurées", function () {
+    let _character                        = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _saved                            = _character.getDataToSave();
+    let _saved_skills                     = _saved.level_up_skills;
+    TEST.ASSERT.notNull( _saved_skills, "La sauvegarde devrait contenir level_up_skills, obtenu : " + JSON.stringify( _saved.level_up_skills ) );
+    if ( !_saved_skills ) {
+        return;
+    }
+    TEST.ASSERT.ok( _saved_skills[ "1" ] && _saved_skills[ "1" ][ "Magicien" ] && _saved_skills[ "1" ][ "Magicien" ][ "1__ecole_arcanique" ] === true, "La validation d'école arcanique devrait etre sauvegardee" );
+    TEST.ASSERT.ok( _saved_skills[ "5" ] && _saved_skills[ "5" ][ "Magicien" ] && _saved_skills[ "5" ][ "Magicien" ][ "5__expertise_en_reflexes" ] === true, "La validation d'expertise en réflexes devrait etre sauvegardee" );
+    let _reloaded                         = new CHARACTER.Current();
+    _reloaded.updateData( _saved );
+    _reloaded.doActionAfter( "event__data_loaded__done", { "param__current_character__object": _reloaded } );
+    let _ecole                            = _reloaded.getLevelUpSkills().getContentByUUID( "1" ).getContentByUUID( "Magicien" ).getContentByUUID( "1__ecole_arcanique" );
+    TEST.ASSERT.notNull( _ecole, "La ligne école arcanique devrait exister apres relecture" );
+    if ( _ecole ) {
+        TEST.ASSERT.ok( _ecole.isActive(), "La validation d'école arcanique devrait etre restauree apres relecture, obtenu : " + _ecole.isActive() );
+    }
+    let _expertise                        = _reloaded.getLevelUpSkills().getContentByUUID( "5" ).getContentByUUID( "Magicien" ).getContentByUUID( "5__expertise_en_reflexes" );
+    TEST.ASSERT.notNull( _expertise, "La ligne expertise en réflexes devrait exister apres relecture" );
+    if ( _expertise ) {
+        TEST.ASSERT.ok( _expertise.isActive(), "La validation d'expertise en réflexes devrait etre restauree apres relecture, obtenu : " + _expertise.isActive() );
+    }
+    let _rank                             = _reloaded.getMasteries().getFinalRank( "save__reflexes" );
+    TEST.ASSERT.equal( _rank, "E", "La maîtrise Réflexes devrait rester experte apres relecture, obtenu : " + _rank );
 } );

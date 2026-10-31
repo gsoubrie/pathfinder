@@ -121,10 +121,6 @@
     background : linear-gradient(135deg, #1f2a14 0%, #14200c 100%);
 }
 
-.level-up-window .level-up-row--pending {
-    border-left : 3px solid #d4500a;
-}
-
 .level-up-window .level-up-row-icon {
     flex-shrink : 0;
     font-size   : 15px;
@@ -150,8 +146,7 @@
     flex : 0 1 auto;
 }
 
-/* ── Counter de warning de la ligne (enfant du counter de la fenêtre) ── */
-.level-up-window .level-up-row-warning {
+.level-up-window .level-up-row .gs-warnings-counter {
     flex-shrink : 0;
 }
 

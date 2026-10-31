@@ -1,11 +1,6 @@
 "use strict";
 
 /**
- * Masteries of the character: derived state aggregating the mastery
- * contributions of every source (the classes today, the race, the gifts and
- * the items later). Masteries take the highest rank of all sources, they
- * never add, and the state is computed on demand: nothing is saved.
- *
  * @class CHARACTER.Masteries
  * @extends OBJECT.InterfaceHtml
  */
@@ -27,17 +22,16 @@ CHARACTER.Masteries.prototype = {
         }
         return to_return;
     },
-    // Jet de sauvegarde complet (PF2) : niveau du personnage + modificateur de
-    // caractéristique + bonus de rang, bonus 0 tant que le rang est inconnu
+    // Full PF2 roll: character level + characteristic modifier + rank bonus, bonus 0 while the rank is unknown
     getSaveModifier: function ( save ) {
         let rank           = this.getFinalRank( save.slot );
         let rank_bonus     = rank ? MASTERY.getByShort( rank ).bonus : 0;
         let characteristic = this.character.getCharacteristics().getContentByUUID( save.characteristic );
         return this.character.getLevel() + ( characteristic ? characteristic.getModifierValue() : 0 ) + rank_bonus;
     },
-    // Toutes les contributions des sources, aplaties : [{ slot, rank, label, source }]
-    // Sources : le bloc mastery initial de chaque classe posée, puis les
-    // capacités validées du passage de niveau qui garantissent un rang supérieur.
+    // Flattened contributions of every source: [{ slot, rank, label, source }].
+    // Sources: the initial mastery block of each class taken, then the validated
+    // level-up abilities granting a higher rank.
     getSourcesData: function () {
         let to_return = [];
         let classes   = this.character.getClasses();
@@ -54,24 +48,33 @@ CHARACTER.Masteries.prototype = {
         }
         let skills = this.character.getLevelUpSkills();
         for ( let i = 0, _size_i = skills.getSize(); i < _size_i; i++ ) {
-            let skill = skills.getContent( i );
-            if ( !skill.isActive() ) {
+            let level_object = skills.getContent( i );
+            // A disabled level keeps its lines alive, they just do not count
+            if ( !level_object.isEnabled() ) {
                 continue;
             }
-            let upgrades = skill.getMasteriesUpgrades();
-            for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
-                to_return.push( {
-                    slot  : upgrades[ u ].slot,
-                    rank  : upgrades[ u ].rank,
-                    label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
-                    source: skill.getSourceLabel()
-                } );
+            for ( let c = 0, _size_c = level_object.getSize(); c < _size_c; c++ ) {
+                let class_container = level_object.getContent( c );
+                for ( let s = 0, _size_s = class_container.getSize(); s < _size_s; s++ ) {
+                    let skill = class_container.getContent( s );
+                    if ( !skill.isActive() ) {
+                        continue;
+                    }
+                    let upgrades = skill.getMasteriesUpgrades();
+                    for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
+                        to_return.push( {
+                            slot  : upgrades[ u ].slot,
+                            rank  : upgrades[ u ].rank,
+                            label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
+                            source: skill.getSourceLabel()
+                        } );
+                    }
+                }
             }
         }
         return to_return;
     },
-    // Rang final par slot avec les sources qui le portent, trie par section
-    // puis libelle pour l'affichage : { slot: { rank, label, sources } }
+    // Final rank by slot with the sources carrying it: { slot: { rank, label, sources } }
     getDataBySlot: function () {
         let to_return = {};
         let sources   = this.getSourcesData();
@@ -101,7 +104,7 @@ CHARACTER.Masteries.prototype = {
         return to_return;
     },
     //********************************************  DATA   **************************************************//
-    // Donnee de la popup d'information : rangs finaux agrégés du personnage
+    // Data of the masteries popup: aggregated current ranks of the character
     getInformationData: function () {
         return {
             "id"                 : "character__masteries",
@@ -110,9 +113,8 @@ CHARACTER.Masteries.prototype = {
             "character_masteries": this.getDataBySlot()
         };
     },
-    // Donnee de la popup des actions d'une compétence : chaque action porte
-    // son rang requis et son etat utilisable, calcule contre le rang courant
-    // du personnage sur la compétence
+    // Data of the skill actions popup: each action carries its required rank
+    // and its usable state, computed against the current character rank
     getSkillActionsInformationData: function ( skill_key, skill_data ) {
         let skill_rank = this.getFinalRank( MASTERY.getSkillSlot( skill_data.label ) ) || "I";
         let is_usable  = function ( rank_required ) {

@@ -1,14 +1,14 @@
 "use strict";
 
 /**
- * @class CHARACTER.LevelUpSkill
+ * @class CHARACTER.LevelUpSkillClass
  * @extends CHARACTER.ComponentInterface
  * @extends GS.OBJECT.CounterInterfaceV2
  */
-CHARACTER.LevelUpSkill = function ( skill_data, parent_object ) {
+CHARACTER.LevelUpSkillClass = function ( skill_data, parent_object ) {
     this.init( skill_data, parent_object );
 };
-CHARACTER.LevelUpSkill.prototype = {
+CHARACTER.LevelUpSkillClass.prototype = {
     init: function ( skill_data, parent_object ) {
         this.level_number = skill_data[ "level" ];
         this.slot_key     = skill_data[ "slot_key" ];
@@ -32,11 +32,6 @@ CHARACTER.LevelUpSkill.prototype = {
         switch ( event_name ) {
             case "event__level_up__toggle_skill":
                 this.setActive( !this.is_active );
-                return;
-            case "event__get__level_up__with_level":
-                if ( this.level_number === params[ "param__level" ] ) {
-                    params[ "param__level_up__with_level" ].push( this );
-                }
                 return;
         }
         CHARACTER.ComponentInterface.prototype.doActionAfter.call( this, event_name, params );
@@ -70,17 +65,13 @@ CHARACTER.LevelUpSkill.prototype = {
             class         : "level-up-row" + ( this.isActive() ? " level-up-row--active" : " level-up-row--pending" ),
             "data-slot-key": this.slot_key
         } );
-        this._computeHtmlIcon();
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-row-icon" }, LEVELUP.ICONS[ this.type ] || "•" ), this.dom_element );
         this._computeHtmlLabel();
-        this._computeHtmlWarning();
+        let warning_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        warning_counter.computeHtml();
+        SERVICE.DOM.addElementTo( warning_counter.getDomElement(), this.dom_element );
         this._computeHtmlToggle();
         return this.dom_element;
-    },
-    _computeHtmlIcon: function () {
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "span", { class: "level-up-row-icon" }, LEVELUP.ICONS[ this.type ] || "•" ),
-            this.dom_element
-        );
     },
     _computeHtmlLabel: function () {
         let is_masteries_line = this.ability_key === LEVELUP.INITIAL_MASTERIES_KEY;
@@ -89,27 +80,14 @@ CHARACTER.LevelUpSkill.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-row-label" }, this.label ), this.dom_element );
             return;
         }
-        let label_parent = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "level-up-row-label-group" } ),
-            this.dom_element
-        );
+        let label_parent = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-up-row-label-group" } ), this.dom_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-row-label" }, this.label ), label_parent );
         let info_onclick = is_masteries_line ?
             "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})" :
             "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__class_ability',{'param__class_name':'" + this.class_name + "','param__ability_key':'" + this.ability_key + "'})";
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-            class  : "level-up-row-info gs-link-information",
-            onclick: info_onclick
-        }, "?" ), label_parent );
-    },
-    _computeHtmlWarning: function () {
-        let warning_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-        warning_counter.computeHtml();
-        SERVICE.DOM.addClasses( warning_counter.getDomElement(), "level-up-row-warning" );
-        SERVICE.DOM.addElementTo( warning_counter.getDomElement(), this.dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class  : "level-up-row-info gs-link-information", onclick: info_onclick }, "?" ), label_parent );
     },
     _computeHtmlToggle: function () {
-        // Validation toggle: track and sliding knob, no text, on when the skill is validated
         let toggle_switch = SERVICE.DOM.createElement( "div", {
             class  : "level-up-row-toggle" + ( this.is_active ? " active" : "" ),
             onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__toggle_skill',{'param__level_up_skill__uuid':'" + this.uuid + "'})"
@@ -134,5 +112,5 @@ CHARACTER.LevelUpSkill.prototype = {
     }
 };
 
-SERVICE.CLASS.addPrototype( CHARACTER.LevelUpSkill, CHARACTER.ComponentInterface );
-SERVICE.CLASS.addPrototype( CHARACTER.LevelUpSkill, GS.OBJECT.CounterInterfaceV2 );
+SERVICE.CLASS.addPrototype( CHARACTER.LevelUpSkillClass, CHARACTER.ComponentInterface );
+SERVICE.CLASS.addPrototype( CHARACTER.LevelUpSkillClass, GS.OBJECT.CounterInterfaceV2 );

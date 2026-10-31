@@ -16,7 +16,7 @@ CHARACTER.Current = function () {
     this.characteristics = new CHARACTERISTICS.Characteristics();
     this.levels_history  = new CHARACTER.LevelsHistory();
     this.gifts           = new CHARACTER.Gifts();
-    this.level_up_skills = new CHARACTER.LevelUpSkills();
+    this.level_up_skills = new CHARACTER.LevelsUpSkills();
     this.masteries       = new CHARACTER.Masteries( this );
     this.children        = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
@@ -32,7 +32,7 @@ CHARACTER.Current.prototype = {
         this.uuid = uuid || SERVICE.STRING.buildUUID();
         this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
-        this.doActionAfter( "event__data_loaded__done" );
+        this.doActionAfter( "event__data_loaded__done", { "param__current_character__object": this } );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -47,23 +47,25 @@ CHARACTER.Current.prototype = {
                 params[ "param__current_character__object" ] = this;
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
-                this.level_up_skills.buildSkills( this );
+                this.level_up_skills.doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__level_up__take_level":
-                params[ "param__level_name" ] = this.getLevelHistory().getNextLevelName();
+                params[ "param__level_name" ]                = this.getLevelHistory().getNextLevelName();
+                params[ "param__current_character__object" ] = this;
                 this.class.getContentByUUID( params[ "param__class_name" ] ).doActionAfter( event_name, params );
                 let _new_entry = this.getLevelHistory().add( new CHARACTER.LevelHistory( params[ "param__level_name" ] ) );
                 _new_entry.setData( "class_name", params[ "param__class_name" ] );
                 _new_entry.setData( "life_class", CLASSES.getDataByName( params[ "param__class_name" ] ).life_point_by_level );
                 this.computeTotalLife();
                 this.class.updateHtmlData();
-                this.level_up_skills.buildSkills( this );
+                this.level_up_skills.doActionAfter( event_name, params );
                 break;
             case "event__level_up__remove_level":
+                params[ "param__current_character__object" ] = this;
                 let _removed_class = this.class.getContentByUUID( params[ "param__class_name" ] );
                 if ( !_removed_class ) {
                     break;
@@ -88,16 +90,18 @@ CHARACTER.Current.prototype = {
                 }
                 this.computeTotalLife();
                 this.class.updateHtmlData();
-                this.level_up_skills.buildSkills( this );
+                params[ "param__level_name" ] = _removed_entry_name;
+                this.level_up_skills.doActionAfter( event_name, params );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__level__toggle":
+                params[ "param__current_character__object" ] = this;
                 let _level_entry = this.getLevelHistory().getContentByUUID( params[ "param__level_name" ] );
                 if ( _level_entry ) {
                     _level_entry.setEnabled( !_level_entry.isEnabled() );
                     this.computeTotalLife();
-                    this.level_up_skills.buildSkills( this );
+                    this.level_up_skills.doActionAfter( event_name, params );
                     this.windows.doActionAfterContentChildren( event_name, params );
                 }
                 break;
@@ -115,7 +119,7 @@ CHARACTER.Current.prototype = {
                 this.characteristics.doActionAfter( event_name, params );
                 break;
             case "event__data_loaded__done":
-                this.level_up_skills.buildSkills( this );
+                this.level_up_skills.doActionAfter( event_name, params );
                 this.computeTotalLife();
                 break;
             case "event__compute_html__done":
