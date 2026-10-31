@@ -55,23 +55,30 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   du niveau (uuid = nom de classe) : conteneur des lignes de la classe, SON
   compteur WARNINGS. Routage du toggle : chaque conteneur de classe reçoit
   l'événement, seul le porteur de l'uuid route à la ligne (garde null
-  justifiée).
+  justifiée). `buildSkills( history_entry, class_level_number, saved_values )`
+  dérive ses lignes de l'entrée d'historique (uuid de ligne
+  `"<nom d'entrée>__<slot>"`, état validé semé par le save à l'init).
 - `CHARACTER.LevelUpSkills` (`level-up-skills.js`) — un objet par niveau de
-  l'historique (uuid/clé = numéro), conteneur des classes du niveau : rend
-  son propre bloc (`computeHtml()` : titre, numéro, interrupteur
-  Actif/Désactivé depuis l'entrée d'historique captée au build, lignes de
-  toutes ses classes), possède SON compteur WARNINGS, diffuse le toggle vers
-  ses classes.
+  l'historique (uuid = nom de l'entrée d'historique), conteneur des classes
+  du niveau : rend son propre bloc (`computeHtml()` : titre, numéro,
+  interrupteur Actif/Désactivé, lignes de toutes ses classes), possède SON
+  compteur WARNINGS, diffuse le toggle vers ses classes. La couche
+  désactivation est un état : les lignes restent vivantes avec leurs états,
+  le bloc ne les rend pas tant que `is_enabled` est faux, et masteries saute
+  le niveau via `isEnabled()`. Sur `event__level__toggle` le bloc
+  resynchronise `is_enabled` depuis son entrée (la fenêtre re-rend).
 - `CHARACTER.LevelsUpSkills` (`levels-up-skills.js`) — conteneur sur le
   personnage (`this.level_up_skills`, enfant de `children`, clé de save
-  `level_up_skills`), ses enfants sont les **niveaux**.
-  `buildSkills( character )` re-dérive niveaux → classes → lignes de
-  l'historique (parsing de `capacity_by_level`), en préservant l'état validé
-  (le save imbriqué `{ "1": { "Magicien": { "1__slot": true } } }` est
-  aplati récursivement par `_flattenValues`, les anciens formats restent
-  lus). Rebuild déclenché par le personnage sur : `event__data_loaded__done`,
-  `event__form__element_changed`, `event__level_up__take_level`,
-  `event__level_up__remove_level`, `event__level__toggle`.
+  `level_up_skills`), ses enfants sont les **niveaux**, identifiés par le nom
+  de l'entrée d'historique (stable, jamais réutilisé). `buildSkills(
+  character )` = construction initiale au `event__data_loaded__done` (graine
+  = le save aplati par `_flattenValues`, consommé une fois). Ensuite
+  maintenance incrémentale : `buildLevel` (sur `event__form__element_changed`
+  classe + `event__level_up__take_level`) ajoute le bloc de la nouvelle
+  entrée, `removeLevel` (sur `event__level_up__remove_level`,
+  `param__level_name` passé par le personnage) retire le bloc,
+  `event__level__toggle` route au bloc qui resynchronise son état. Plus
+  aucun preserve d'état vivant.
 - `CHARACTER.LevelUpWindow` — ne calcule plus rien : elle ajoute l'en-tête,
   le warning global, le sélecteur de classe, puis un bloc par niveau du
   conteneur (`level.computeHtml()`). Le bloc porte `data-level-number`
@@ -214,7 +221,8 @@ laissé par le précédent (fin de `scenario_levelup_magicien` : Elfe + Magicien
 niveau 5, "expertise en réflexes" validée) :
 
 1. `scenario_levelup_magicien.js` — interrupteurs, counters, maîtrise Réflexes
-   gated par validation, persistance au rebuild (reset la feuille lui-même).
+   gated par validation, persistance au take, puis save → load : la graine du
+   save restaure les validations (reset la feuille lui-même).
 2. `scenario_sauvegardes.js` — zone jets niveau 1 : colonnes, ordre
    Jet|Rang|Mod|Niv, initiales, alignement, infobulles desktop, clic →
    popup maîtrises ; puis niveau 5 : recalculs.
@@ -264,9 +272,11 @@ niveau 5, "expertise en réflexes" validée) :
 4. Sources maîtrises supplémentaires : race/héritage, dons, objets magiques —
    chaque source porte ses contributions (`getMasteriesData()`), le conteneur
    personnage agrège.
-5. Sauvegarde : vérifier `level_up_skills` dans un vrai fichier `sheet/save/`
-   (les choix étaient perdus avant le refactor — le conteneur est maintenant
-   dans `children`).
+5. Écriture des fichiers de save : `CONTROLLER.Character.save()` est un stub
+   (seul `console.log` reste) et les vrais fichiers `sheet/save/` prédatent
+   `level_up_skills`. La graine save→load (updateData → data_loaded →
+   buildSkills) est couverte par `[LEVELUP MAGICIEN][SAVE]` ; reste à
+   restaurer l'écriture du fichier puis à re-générer un save réel.
 6. Renommage anglais des identifiants français (règle ci-dessus) :
    `save__vigueur` → `save__fortitude`, `save__reflexes` → `save__reflex`,
    `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
@@ -292,7 +302,9 @@ Décisions prises lors des allers-retours de relecture fichier par fichier.
 Chaque retour de l'utilisateur devient une règle ci-dessous, en plus des
 conventions des skills. Elles s'appliquent à tout le code, y compris les
 fichiers déjà relus. Historique : Round 1 = `level-up-skill.js` + domaine
-levelup, Round 2 = compteurs et label global de la fenêtre.
+levelup, Round 2 = compteurs et label global de la fenêtre, Round 3 =
+`levels-up-skills.js` : modèle incrémental, identité par entrée
+d'historique, fin du preserve.
 
 ### Style, commentaires, nommage
 
@@ -317,7 +329,11 @@ levelup, Round 2 = compteurs et label global de la fenêtre.
   uniquement son uuid (`param__level_up_skill__uuid`), jamais un couple de
   paramètres redondants. Routage par `getContentByUUID`, pas de garde null
   quand l'émetteur (le rendu vivant de l'objet dans son conteneur) garantit
-  l'uuid. Les clés dérivées de l'identité se construisent avec
+  l'uuid. Exception systématique : dans un broadcast
+  (`doActionAfterContentChildren`), TOUS les conteneurs frères reçoivent
+  l'événement — celui qui route par uuid DOIT garder le null, sinon le
+  premier non-porteur crashe et le porteur ne reçoit jamais rien (bug du
+  Round 3). Les clés dérivées de l'identité se construisent avec
   `getUUID()` (cf. `_getPreservedValues`).
 - Les requêtes d'un conteneur sur ses enfants passent par des événements de
   collecte quand le regroupement est calculé, mais un regroupement
@@ -352,6 +368,38 @@ levelup, Round 2 = compteurs et label global de la fenêtre.
   badges de ligne et le warning global portent déjà l'information, un
   signal de zone n'ajoute rien.
 
+### Conteneurs dérivés d'une source de vérité (modèle incrémental)
+
+- Un conteneur qui dérive d'une source (historique, classes, ...) se
+  construit **une fois** au chargement (`event__data_loaded__done`, graine =
+  le save), puis se **maintient** : un objet par entrée ajoutée, retrait de
+  l'objet par entrée retirée, synchronisation d'état en place pour le reste.
+  La re-dérivation complète à chaque événement est un anti-pattern, et le
+  "preserve" (récolter l'état vivant avant de tout casser) n'existe que
+  parce qu'on a détruit ce qu'il ne fallait pas détruire.
+- L'uuid d'un objet dérivé vient de l'**identité stable de sa source** (le
+  nom de l'entrée, jamais réutilisé), jamais de sa position : remove et
+  toggle deviennent du routage `getContentByUUID` pur, aucune renumérotation
+  à maintenir. Les clés de save et les ancres de scénarios suivent.
+- Graine de save : `updateData` stocke le brut, le build initial l'aplatit
+  au format de contrat (uuid → valeur, l'imbrication par clés de conteneurs
+  n'a aucune valeur en lecture) et le **consomme une fois** — ensuite les
+  objets vivants font foi, le fichier ne doit plus écraser les actions de
+  l'utilisateur.
+- Un état actif/désactivé est une **couche** posée sur un environnement qui
+  reste vivant : les objets gardent leurs états, la couche s'exprime au
+  rendu (l'objet ne rend pas ses enfants) et dans les calculs (le
+  consommateur saute l'objet via son accesseur d'état), jamais par
+  destruction/reconstruction.
+- Vider un conteneur : `removeAllContentFromIndex( 0 )`, jamais
+  `resetContents()` — elle appelle `remove()` sur chaque enfant, méthode
+  qu'aucun enfant de conteneur ne définit (seul `DoActionAfter` en fournit
+  un, no-op).
+- Renommer la propriété d'identité d'un enfant de conteneur oblige à
+  compenser le contrat de save du parent : le `getDataToSave` hérité groupe
+  les enfants sous `getKey()`, donc l'enfant définit son propre `getKey`
+  (cf. `LevelUpSkillsClass.class_name`).
+
 ### Les compteurs dans toutes leurs forces
 
 - Un compteur GS n'est pas forcément un composant graphique. Mécanique lib :
@@ -373,6 +421,11 @@ levelup, Round 2 = compteurs et label global de la fenêtre.
   (style, présence), l'objet qui gère la zone porte le compteur et le style
   se déduit de la data poussée ; jamais de recalcul manuel de classe dans la
   fenêtre.
+- Retirer un objet d'un conteneur : son compteur pousse 0 au parent AVANT
+  le retrait (`counter.showForParent( false )` → `updateParents` pousse 0 →
+  le `update( name, 0 )` du parent **supprime** la clé du mapping, pas de
+  clé fantôme, pas de reset du conteneur). Le mapping du parent est clé par
+  l'uuid du compteur enfant, pas par l'uuid de l'objet.
 
 ### Méthode de travail
 
