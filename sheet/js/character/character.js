@@ -191,10 +191,9 @@ CHARACTER.Current.prototype = {
             case "uuid":
                 break;
             case "levels_history":
+                // The entries rebuild their lines while loading: the case
+                // level_skill of each entry constructs them from the save
                 this.levels_history.updateData( value );
-                // The entries stage the loaded validations: their lines, which
-                // own the state through their phase, derive right after the load
-                this.levels_history.buildSkills();
                 break;
             case this.player.getKey():
                 this.player.setValue( value );

@@ -55,9 +55,9 @@ CHARACTER.LevelsHistory.prototype = {
         return to_return;
     },
     //********************************************  DATA   **************************************************//
-    // Builds the level-up block of every entry missing one: initial load and
-    // incremental adds (take level, class from the popup) share the same
-    // idempotent path
+    // Builds the level-up block of every entry missing one: the incremental
+    // adds (take level, class from the popup), the initial load builds in the
+    // level_skill case of each entry
     buildSkills: function () {
         let class_level_counts = {};
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
@@ -76,10 +76,19 @@ CHARACTER.LevelsHistory.prototype = {
         if ( !data ) {
             return;
         }
+        // The class level number (ordinal of the class among the entries) is
+        // container knowledge: each entry needs it to rebuild its lines while
+        // its level_skill is loaded
+        let class_level_counts = {};
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
             let current = this.getContentByUUID( data[ i ][ "level_name" ] );
             if ( !current ) {
                 current = this.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
+            }
+            let class_name = data[ i ][ "class_name" ];
+            if ( class_name ) {
+                class_level_counts[ class_name ] = ( class_level_counts[ class_name ] || 0 ) + 1;
+                current.setData( "class_level_number", class_level_counts[ class_name ] );
             }
             current.updateData( data[ i ] );
         }

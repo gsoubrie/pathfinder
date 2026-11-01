@@ -12,7 +12,7 @@ Trois skills Vibe décrivent les conventions obligatoires du projet :
   classes prototype + `SERVICE.CLASS.addPrototype`, bus `doActionAfter`,
   SERVICE.DOM, formatage exact, règle du "passer le plat").
 - `.vibe/skills/pathfinder-object-model/SKILL.md` — modèle d'objets issu des
-  rounds de relecture (référence : `3-level-up-skill-class.js`) : un seul
+  rounds de relecture (référence : `3-level-up-skill-basic.js`) : un seul
   propriétaire d'état, dépendants passifs sans référence ni miroir, tout
   coule par paramètre ou par poussée, affichage réactif par phase branchée
   sur le DOM (`data-current-phase` + CSS, compteurs dans
@@ -55,7 +55,7 @@ phase de la ligne, Round 10), le vieux
 mécanisme de choix par origine (`4-level-history-skills.js`, à unifier avec les
 lignes un jour), et le warning global de la fenêtre.
 
-- `CHARACTER.LevelUpSkillClass` (`3-level-up-skill-class.js`) — un objet par
+- `CHARACTER.LevelUpSkillBasic` (`3-level-up-skill-basic.js`) — un objet par
   capacité débloquée (uuid `"<niveau>__<slot>"`) : rend sa propre ligne
   avec un interrupteur on/off **sans texte** (`.level-up-row-toggle`) — le
   contrôle de validation s'appelle `_computeHtmlValidation`, la classe de
@@ -80,25 +80,26 @@ lignes un jour), et le warning global de la fenêtre.
   key dessus : fond de ligne doré, interrupteur doré + bouton coulissant,
   plus de classes `--active/--pending`), et `callbackForPhase` met à jour
   le compteur warnings. Plus de re-render au
-  toggle : le DOM suit la phase en place. Construction par `updateData` +\n  `setData` par clé (`\"is_active\"` → `setIsActive`, consommé à la volée).
+  toggle : le DOM suit la phase en place. Construction par `updateData` +\n  `setData` par clé (`\"level_skill\"` (la carte entière du load) → `setIsActive` sur SON slot, consommé à la volée).
   API : `getUUID`, `setUUID`, `getSlotKey`, `setIsActive`, `isActive`,
-  `getValidatedValue` (ce que l'entrée sauvegarde : la phase pour une ligne
+  `getDataToSave` (ce que l'entrée sauvegarde : la phase pour une ligne
   simple), `getMasteriesUpgrades`, `getSourceLabel`.
-- `CHARACTER.LevelUpSkillChoice` (`3-level-up-skill-choice.js`) — la ligne
-  des capacités ouvrant un choix (Round 11) : hérite de `LevelUpSkillClass`,
+- `CHARACTER.LevelUpSkillWithSelect` (`3-level-up-skill-with-select.js`) — la ligne
+  des capacités ouvrant un choix (Round 11) : hérite de `LevelUpSkillBasic`,
   même uuid, même phase, mais la valeur choisie dans le sélecteur EST la
   validation — `setSelectedValue( to_set )` dérive la phase (`SELECTED`
   quand une valeur est posée, retour à `RUNNING` sur l'option vide), le
   sélecteur `.level-up-row-select` (option vide + entrées de
   `CLASSES.CHOICES`, valeur = nom de l'entrée) remplace l'interrupteur via
-  `_computeHtmlValidation`, et `getValidatedValue()` retourne l'entrée
-  choisie (le save `validated_skills` vaut donc le nom du choix pour ces
+  `_computeHtmlValidation`, et `getDataToSave()` retourne l'entrée
+  choisie (le save `level_skill` vaut donc le nom du choix pour ces
   lignes). Routage : `event__level_up__select_choice`
   (`param__level_up_skill__uuid` + `param__choice_value`), même plat que
   `toggle_skill` (fenêtre → personnage → historique → entrée → ligne).
   Construction : l'entrée choisit la classe par ligne dans `buildSkills`
   (`CLASSES.getChoices( class_name, ability_key )`), la valeur sauvegardée
-  arrive par `"selected_value"` (staging du load).
+  arrive par `"level_skill"` (la carte entière, la ligne pique son slot :
+  valeur choisie ou rien).
 - `CHARACTER.LevelHistory` (`2-level-history.js`, entrée) — la source de
   vérité DU niveau ET de sa vue (Round 7 : les blocs et conteneurs de classe
   ont disparu, l'entrée EST le conteneur de ses lignes, `OBJECT.InterfaceContainerHtml`)
@@ -118,11 +119,14 @@ lignes un jour), et le warning global de la fenêtre.
 - `CHARACTER.LevelsHistory` (`1-levels-history.js`, conteneur) — diffuse les
   événements aux entrées (le parent `OBJECT.InterfaceContainer` broadcast,
   son `doActionAfter` ne les avalait pas avant le Round 6) et porte
-  `buildSkills()` : construit les lignes de toute entrée qui en manque —
-  le chargement (`case levels_history` du personnage, juste après
-  `updateData`), la prise de niveau et l'ajout de classe par popup
-  (`event__form__element_changed` → `addClassFromEdition`) partagent le
-  MÊME chemin idempotent. Plus de `buildLevel` ni de `removeLevel`.
+  `buildSkills()` : construit les lignes de toute entrée qui en manque pour
+  la prise de niveau et l'ajout de classe par popup
+  (`event__form__element_changed` → `addClassFromEdition`) — le chargement
+  construit dans le case `level_skill` de chaque entrée. Son `updateData`
+  pose le `class_level_number` (ordinal de la classe, connaissance du
+  conteneur) sur chaque entrée AVANT son `updateData` : l'entrée en a
+  besoin pour reconstruire ses lignes en chargeant son `level_skill`.
+  Plus de `buildLevel` ni de `removeLevel`.
 - `CHARACTER.LevelUpWindow` — ne calcule plus rien : elle ajoute l'en-tête,
   le warning global, le sélecteur de classe, puis une section par entrée
   de l'historique (`entry.setLinesCountersParent( this )` puis
@@ -135,9 +139,12 @@ lignes un jour), et le warning global de la fenêtre.
   `update( name, nb )`), rend et re-rend son div tout seul ; plus aucun
   `_buildGlobalWarning` / `_updateGlobalWarning` ni `getMissingCount()`.
 - Chaîne de compteurs : ligne → fenêtre (badge d'onglet), branchée par
-  `setLinesCountersParent( window )` sur chaque entrée dans `_buildContent`
-  de la fenêtre, rebranchée à chaque rendu pour couvrir les lignes
-  construites depuis. Plus aucun `setCounterValue` manuel côté fenêtre.
+  `setLinesCountersParent( window )` sur chaque entrée au rendu de la
+  fenêtre. Le branchement ne PEUT pas se faire au `add` des lignes :
+  elles se posent toujours avant que leur entrée ne connaisse la fenêtre
+  (load, prise de niveau, ajout de classe — l'entrée est vierge à chaque
+  fois), un `add` redéfini ne se déclencherait jamais. Plus aucun
+  `setCounterValue` manuel côté fenêtre.
   Les lignes meurent avec leur entrée : `remove_level` route à l'entrée
   qui pousse 0 à CHAQUE ligne AVANT le retrait, pas de clé fantôme, et plus
   aucun `resetCounterByType` de purge (les lignes ne sont jamais reconstruites).
@@ -233,11 +240,17 @@ lignes un jour), et le warning global de la fenêtre.
 
 ### Pièges découverts (ne pas réapprendre)
 
+- Les compteurs des lignes levelup ne peuvent PAS être branchés à leur
+  `add` : les lignes ne se posent que dans `buildSkills`, qui ne tourne
+  que pour une entrée vierge — donc toujours avant que la fenêtre ne se soit
+  présentée à l'entrée. Le branchement vit au rendu de la fenêtre
+  (`setLinesCountersParent`), point final (tentative retirée après
+  vérification des flux).
 - `SERVICE.CLASS.addPrototype` ne copie que les méthodes PROPRES du prototype
   parent, et seulement si l'enfant ne les a pas déjà. En pratique : **tout enfant
   de conteneur doit définir son propre `getUUID`** (cf. `Characteristics`,
   `LevelsHistory`, `LevelsUpSkills`, `LevelUpSkills`, `LevelUpSkillsClass`,
-  `LevelUpSkillClass`).
+  `LevelUpSkillBasic`).
 - Les compteurs poussent vers les parents sous leur uuid : un enfant disparu
   laisse une clé fantôme dans le mapping du parent → reset du parent quand les
   enfants sont reconstruits.
@@ -289,18 +302,21 @@ niveau 5, "expertise en réflexes" validée) :
   `sheet_general.css`), `constant_skill_actions.js` (scrap grimoire-vf),
   popups (`SkillActionsPopupRenderer`, fermeture au clic hors zone),
   `character.js`, `popups.js`, `popup.js`, `main-controller.js`, fenêtres.
-- Modèle : chaque capacité du passage de niveau porte un interrupteur on/off
-  sans texte ; seules les capacités validées alimentent les calculs. Le Général
+- Modèle : deux classes de lignes au passage de niveau (Round 11) —
+  `LevelUpSkillBasic` (interrupteur on/off sans texte) et
+  `LevelUpSkillWithSelect` (sélecteur de choix, la valeur choisie EST la
+  validation, ex. école arcanique) ; seules les capacités validées
+  alimentent les calculs. Le Général
   affiche Perception/Initiative + 3 sauvegardes + 17 compétences avec jets
   complets, actions de compétence au clic (utilisables/verrouillées selon le
   rang).
 - Valeurs SANS "+" (le moins seul au besoin), pas de gras ni majuscules dans
   la zone (règles ci-dessus).
 - Syntaxe validée par Node sur tous les fichiers touchés ; le run complet
-  `tests.html` (5 scénarios de la chaîne) **attend le rapport de
-  l'utilisateur** — dernier run partiel : levelup OK, sauvegardes/compétences
-  corrigés côté scénario (libellés, initiales), actions et fermeture jamais
-  encore runnés.
+  `tests.html` (5 scénarios de la chaîne) **a passé** — validé par
+  l'utilisateur après le Round 11 (ligne à choix par sélecteur incluse :
+  école arcanique se valide en choisissant une école, se dévalide sur
+  l'option vide, save→load restaure le choix).
 - `constant_class.js` est un fichier de données scrapées : ne pas l'éditer pour
   corriger des incohérences — passer par les cartes écrites à la main
   (`ABILITY_ALIASES`, `MASTERY_UPGRADES`) qui survivent au re-scrap. Idem
@@ -308,12 +324,12 @@ niveau 5, "expertise en réflexes" validée) :
 
 ## À faire (dans l'ordre logique)
 
-1. Valider le rapport `tests.html` complet (chaîne de 5 scénarios ci-dessus),
-   corriger si rouge.
+1. ~~Valider le rapport `tests.html` complet (chaîne de 5 scénarios
+   ci-dessus)~~ — fait, run complet validé par l'utilisateur (Rounds 10-11).
 2. Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
    sur ce que `detectType` renvoie réellement — les lignes simples se valident
    par interrupteur, les capacités ouvrant un choix ont leur sélecteur
-   (`LevelUpSkillChoice`, Round 11) ; restent à écrire les entrées de
+   (`LevelUpSkillWithSelect`, Round 11) ; restent à écrire les entrées de
    `CLASSES.CHOICES` pour les autres capacités à choix.
 3. Choix de compétences (INT + choix par divinité/lignage/style) : les lignes
    "compétences supplémentaires" des blocs mastery + dons/améliorations de
@@ -324,8 +340,8 @@ niveau 5, "expertise en réflexes" validée) :
    personnage agrège.
 5. Écriture des fichiers de save : `CONTROLLER.Character.save()` est un stub
    (seul `console.log` reste) et les vrais fichiers `sheet/save/` prédatent
-   `validated_skills`. La graine save→load (`case levels_history` →
-   `LevelsHistory.buildSkills()`, cf. Rounds 5-6) est couverte par
+   `level_skill`. La graine save→load (case `level_skill` de l'entrée,
+   cf. Rounds 5-6 et 13) est couverte par
    `[LEVELUP MAGICIEN][SAVE]` ; reste à restaurer l'écriture du fichier puis
    à re-générer un save réel.
 6. Renommage anglais des identifiants français (règle ci-dessus) :
@@ -384,11 +400,21 @@ carte `validated_skills` de l'entrée disparaît — les valeurs du save ne
 font que staging vers `buildSkills` (consommées au build), et
 `getDataToSave` dérive `validated_skills` des phases des lignes.
 Round 11 = retour du sélecteur de choix, en classe dérivée : la capacité
-ouvrant un choix rend `CHARACTER.LevelUpSkillChoice`, la valeur choisie
+ouvrant un choix rend `CHARACTER.LevelUpSkillWithSelect`, la valeur choisie
 dans le sélecteur EST la validation (elle dérive la phase), le save en
 garde le nom au lieu d'un booléen — le contrôle de validation de la ligne
 s'appelle `_computeHtmlValidation` (interrupteur pour la ligne simple,
 sélecteur pour la ligne à choix).
+Round 12 = la clé de save `validated_skills` devient `level_skill`
+(format du save, staging du load, scénarios) — la carte dérivée porte
+l'état de validation par slot, booléen ou valeur choisie.
+Round 13 = la reconstruction des lignes vit DANS le case `level_skill`
+de l'entrée : le chargement construit ses lignes immédiatement (`setData`
+→ `buildSkills`), plus de staging différéré ni d'appel `buildSkills` du
+conteneur au chargement — le conteneur pose le `class_level_number`
+(ordinal de la classe, calcul multiclasse) sur l'entrée avant son
+`updateData`, `buildSkills()` du conteneur ne sert plus que la prise de
+niveau et l'ajout de classe.
 
 ### Style, commentaires, nommage
 
@@ -399,7 +425,7 @@ sélecteur pour la ligne à choix).
   corrections passent par des cartes écrites à la main qui survivent au
   re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`
   devient `initial_masteries`, lu via `LEVELUP.INITIAL_MASTERIES_KEY`).
-- Fichiers JS en kebab-case : `3-level-up-skill-class.js`,
+- Fichiers JS en kebab-case : `3-level-up-skill-basic.js`,
   `level-up-global-warning.js`, `constant-level-up.js` (le dossier du domaine
   reste en un mot : `sheet/js/levelup/`). Préfixe numérique = ordre
   d'utilisation des classes du domaine (`1-` = le conteneur d'entrée), les
@@ -495,10 +521,12 @@ sélecteur pour la ligne à choix).
 - Graine de save (Rounds 5-6, Round 10) : **la structure dérivée vit sur sa
   source de vérité** (l'entrée construit ses lignes une fois) et **la phase
   de la ligne EST la donnée de validation** (Round 10) — `isActive()` lit la
-  phase, `getDataToSave` dérive `validated_skills` des lignes
-  ( `{ slot_key: line.isActive() }`, chaque ligne rendue y figure, validée
-  ou non), et les valeurs chargées ne font que staging vers `buildSkills`,
-  consommé au build. Conséquences : le save de l'état reste porté par la clé
+  phase, `getDataToSave` dérive `level_skill` des lignes
+  ( `{ slot_key: line.getDataToSave() }`, booléen pour une ligne simple,
+  valeur choisie pour une ligne à sélecteur, chaque ligne rendue y figure,
+  validée ou non), et les valeurs chargées reconstruisent les lignes dans
+  le case `level_skill` de l'entrée (Round 13).
+  Conséquences : le save de l'état reste porté par la clé
   unique `levels_history` (plus de clé `level_up_skills` séparée), le
   contrat d'ordre des clés du save disparaît (structure et états arrivent
   ensemble), et la ligne ne sauvegarde rien (l'entrée dérive).

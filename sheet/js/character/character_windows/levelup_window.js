@@ -98,7 +98,8 @@ CHARACTER.LevelUpWindow.prototype = {
         for ( var h = 0, _size_h = history.getSize(); h < _size_h; h++ ) {
             var entry = history.getContent( h );
             // Chaîne de compteurs : ligne → fenêtre (badge de l'onglet),
-            // rebranchée à chaque rendu pour couvrir les lignes construites depuis
+            // branchée au rendu — les lignes se posent toujours avant que
+            // l'entrée ne connaisse la fenêtre
             entry.setLinesCountersParent( this );
             entry.computeHtml();
             SERVICE.DOM.addElementTo( entry.getDomElement(), this.content_dom_element_target );

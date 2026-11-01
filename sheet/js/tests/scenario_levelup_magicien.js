@@ -336,7 +336,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
         }
         TEST.ASSERT.notOk( _skill_after.isActive(), "La capacité ne devrait plus etre validée apres le retour a l'option vide, obtenu : " + _skill_after.isActive() );
         let _save_entry_1                  = _character.getLevelHistory().getContentByUUID( "1" ).getDataToSave();
-        TEST.ASSERT.ok( _save_entry_1[ "validated_skills" ][ "ecole_arcanique" ] === false, "Le save de l'entrée 1 devrait dériver école arcanique à false des phases de ses lignes, obtenu : " + JSON.stringify( _save_entry_1[ "validated_skills" ] ) );
+        TEST.ASSERT.ok( _save_entry_1[ "level_skill" ][ "ecole_arcanique" ] === false, "Le save de l'entrée 1 devrait dériver école arcanique à false des phases de ses lignes, obtenu : " + JSON.stringify( _save_entry_1[ "level_skill" ] ) );
         let _row_after                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='ecole_arcanique']" );
         TEST.ASSERT.notNull( _row_after, "La ligne école arcanique devrait rester rendue apres la seconde bascule" );
         if ( !_row_after ) {
@@ -537,9 +537,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN][SAVE] save → load = validations rest
     if ( !_entry_1 || !_entry_5 ) {
         return;
     }
-    TEST.ASSERT.ok( _entry_1[ "validated_skills" ] && _entry_1[ "validated_skills" ][ "ecole_arcanique" ] === "École de forme protéenne", "Le choix d'école arcanique devrait etre sauvegarde (l'école choisie) dans validated_skills de l'entree 1, obtenu : " + JSON.stringify( _entry_1[ "validated_skills" ] ) );
-    TEST.ASSERT.ok( _entry_5[ "validated_skills" ] && _entry_5[ "validated_skills" ][ "expertise_en_reflexes" ] === true, "La validation d'expertise en réflexes devrait etre sauvegardee dans validated_skills de l'entree 5, obtenu : " + JSON.stringify( _entry_5[ "validated_skills" ] ) );
-    TEST.ASSERT.ok( _entry_5[ "validated_skills" ] && _entry_5[ "validated_skills" ][ "sorts_de_rang_3" ] === false, "La ligne non validee sorts de rang 3 devrait etre sauvegardee a false dans l'entree 5, obtenu : " + JSON.stringify( _entry_5[ "validated_skills" ] ) );
+    TEST.ASSERT.ok( _entry_1[ "level_skill" ] && _entry_1[ "level_skill" ][ "ecole_arcanique" ] === "École de forme protéenne", "Le choix d'école arcanique devrait etre sauvegarde (l'école choisie) dans level_skill de l'entree 1, obtenu : " + JSON.stringify( _entry_1[ "level_skill" ] ) );
+    TEST.ASSERT.ok( _entry_5[ "level_skill" ] && _entry_5[ "level_skill" ][ "expertise_en_reflexes" ] === true, "La validation d'expertise en réflexes devrait etre sauvegardee dans level_skill de l'entree 5, obtenu : " + JSON.stringify( _entry_5[ "level_skill" ] ) );
+    TEST.ASSERT.ok( _entry_5[ "level_skill" ] && _entry_5[ "level_skill" ][ "sorts_de_rang_3" ] === false, "La ligne non validee sorts de rang 3 devrait etre sauvegardee a false dans l'entree 5, obtenu : " + JSON.stringify( _entry_5[ "level_skill" ] ) );
     let _reloaded                         = new CHARACTER.Current();
     _reloaded.updateData( _saved );
     _reloaded.doActionAfter( "event__data_loaded__done", { "param__current_character__object": _reloaded } );
@@ -549,7 +549,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN][SAVE] save → load = validations rest
         TEST.ASSERT.ok( _ecole.isActive(), "La validation d'école arcanique devrait etre restauree apres relecture, obtenu : " + _ecole.isActive() );
     }
     let _reloaded_save_entry_1           = _reloaded.getLevelHistory().getContentByUUID( "1" ).getDataToSave();
-    TEST.ASSERT.equal( _reloaded_save_entry_1[ "validated_skills" ][ "ecole_arcanique" ], "École de forme protéenne", "Le choix d'école arcanique devrait etre restaure apres relecture (staging → phase → save derivé), obtenu : " + JSON.stringify( _reloaded_save_entry_1[ "validated_skills" ] ) );
+    TEST.ASSERT.equal( _reloaded_save_entry_1[ "level_skill" ][ "ecole_arcanique" ], "École de forme protéenne", "Le choix d'école arcanique devrait etre restaure apres relecture (staging → phase → save derivé), obtenu : " + JSON.stringify( _reloaded_save_entry_1[ "level_skill" ] ) );
     let _expertise                        = _reloaded.getLevelHistory().getContentByUUID( "5" ).getContentByUUID( "5__expertise_en_reflexes" );
     TEST.ASSERT.notNull( _expertise, "La ligne expertise en réflexes devrait exister apres relecture" );
     if ( _expertise ) {

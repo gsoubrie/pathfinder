@@ -264,7 +264,7 @@ OBJECT.InterfaceContainerHtml.prototype = {
         if ( !event ) {
             return null;
         }
-        var _parent_dom_element = DOM.Service.findParentElementWithDataSet( event.target, "name", 10 );
+        var _parent_dom_element = SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 10 );
         if ( !_parent_dom_element ) {
             return null;
         }
@@ -277,7 +277,7 @@ OBJECT.InterfaceContainerHtml.prototype = {
         if ( !event ) {
             return null;
         }
-        return DOM.Service.findParentElementWithDataSet( event.target, "name", 10 );
+        return SERVICE.DOM.findParentElementWithDataSet( event.target, "name", 10 );
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.InterfaceContainerHtml, OBJECT.InterfaceContainer );

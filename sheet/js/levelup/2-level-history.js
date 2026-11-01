@@ -18,8 +18,6 @@ CHARACTER.LevelHistory.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__level_up__toggle_skill": {
-                // Broadcast: every entry receives it, the holder of the uuid
-                // inverts the phase of its line, which owns the state
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
                     level_up_skill.setIsActive( !level_up_skill.isActive() );
@@ -27,8 +25,6 @@ CHARACTER.LevelHistory.prototype = {
                 return;
             }
             case "event__level_up__select_choice": {
-                // Broadcast: every entry receives it, the holder of the uuid
-                // stores the chosen value, which owns its phase
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
                     level_up_skill.setSelectedValue( params[ "param__choice_value" ] );
@@ -36,7 +32,6 @@ CHARACTER.LevelHistory.prototype = {
                 return;
             }
             case "event__level_up__remove_level":
-                // The lines die with their entry: their counters stop contributing before the removal
                 for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
                     this.getContent( i ).getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).showForParent( false );
                 }
@@ -44,66 +39,51 @@ CHARACTER.LevelHistory.prototype = {
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
-    getUUID      : function () {
+    getUUID     : function () {
         return this.level_name;
     },
-    getClassName : function () {
+    getClassName: function () {
         return this.class_name;
     },
-    isEnabled    : function () {
+    isEnabled   : function () {
         return !!this.enabled;
     },
-    setEnabled   : function ( to_set ) {
+    setEnabled  : function ( to_set ) {
         this.enabled = !!to_set;
     },
     //********************************************  DATA   **************************************************//
-    // One line per capacity of the class's level, idempotent: the lines stay
-    // the only build of the entry, the loaded validations seed their phase
     buildSkills: function ( class_level_number ) {
         if ( this.getSize() > 0 ) {
             return;
         }
         let class_name = this.getClassName();
-        if ( !class_name ) {
-            return;
-        }
-        let class_data  = CLASSES.getDataByName( class_name );
-        let capacities  = class_data ? ( class_data.capacity_by_level || [] ) : [];
-        let parts       = ( capacities[ class_level_number - 1 ] || "" ).split( "," );
+        let capacities = CLASSES.getDataByName( class_name ).capacity_by_level;
+        let parts      = ( capacities[ class_level_number - 1 ] || "" ).split( "," );
+
         for ( let p = 0, _size_p = parts.length; p < _size_p; p++ ) {
             let label = parts[ p ].trim();
-            if ( !label ) {
-                continue;
-            }
             let type        = CHARACTER.Level.detectType( label );
             let ability_key = CLASSES.getAbilityKey( label );
-            let slot_key    = LEVELUP.CHOICE_TYPES.indexOf( type ) !== -1 ? ( type + "_" + p ) : ability_key;
+            let slot_key    = LEVELUP.CHOICE_TYPES.indexOf( type ) !== -1 ? (type + "_" + p) : ability_key;
             let skill_data  = {
                 "level_name" : this.level_name,
                 "slot_key"   : slot_key,
                 "label"      : label,
                 "type"       : type,
-                "ability_key": ability_key
+                "ability_key": ability_key,
+                "level_skill": this.level_skill
             };
-            let staged      = this.validated_skills ? this.validated_skills[ slot_key ] : undefined;
-            // A capacity opening a choice renders a choice line: its selector
-            // drives the phase, the staged value seeds it
-            let choice_data = CLASSES.getChoices( class_name, ability_key );
-            if ( choice_data ) {
-                skill_data[ "choice_data" ]   = choice_data;
-                skill_data[ "selected_value" ] = staged || null;
-                this.add( new CHARACTER.LevelUpSkillChoice( skill_data ) );
+            let choices = CLASSES.getChoices( class_name, ability_key );
+            if ( choices ) {
+                skill_data[ "options" ] = choices.entries;
+                this.add( new CHARACTER.LevelUpSkillWithSelect( skill_data ) );
             }
             else {
-                skill_data[ "is_active" ] = !!staged;
-                this.add( new CHARACTER.LevelUpSkillClass( skill_data ) );
+                this.add( new CHARACTER.LevelUpSkillBasic( skill_data ) );
             }
         }
-        // The staging of the loaded validations is consumed: the phase of each
-        // line owns the live state from here
-        this.validated_skills = null;
+        this.level_skill = null;
     },
-    // Counter chain: line → window, branched at each render of the level-up window
     setLinesCountersParent: function ( parent ) {
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).setCountersParent( parent );
@@ -111,16 +91,15 @@ CHARACTER.LevelHistory.prototype = {
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
-        let to_return                   = {};
-        to_return[ "level_name" ]       = this.level_name;
-        to_return[ "life_class" ]       = this.life_class;
-        to_return[ "class_name" ]       = this.class_name;
-        to_return[ "enabled" ]          = this.enabled;
-        let validated_skills            = {};
+        let to_return               = {};
+        to_return[ "level_name" ]   = this.level_name;
+        to_return[ "life_class" ]  = this.life_class;
+        to_return[ "class_name" ]   = this.class_name;
+        to_return[ "enabled" ]     = this.enabled;
+        to_return[ "level_skill" ] = {};
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            validated_skills[ this.getContent( i ).getSlotKey() ] = this.getContent( i ).getValidatedValue();
+            to_return[ "level_skill" ][ this.getContent( i ).getSlotKey() ] = this.getContent( i ).getDataToSave();
         }
-        to_return[ "validated_skills" ] = validated_skills;
         if ( this.skills ) {
             to_return[ "skills" ] = this.skills.getDataToSave();
         }
@@ -141,11 +120,12 @@ CHARACTER.LevelHistory.prototype = {
             case "enabled":
                 this.setEnabled( value );
                 break;
-            case "validated_skills":
-                // Staging of the loaded validations, consumed by buildSkills
-                // when the lines are built: the phase of each line owns the
-                // live state
-                this.validated_skills = value;
+            case "class_level_number":
+                this.class_level_number = value;
+                break;
+            case "level_skill":
+                this.level_skill = value;
+                this.buildSkills( this.class_level_number );
                 break;
             case "skills":
                 this.skills = new CHARACTER.LevelHistorySkills( this.level_name, value );
@@ -155,15 +135,13 @@ CHARACTER.LevelHistory.prototype = {
         }
     },
     //********************************************  HTML   **************************************************//
-    // The entry renders its own level section: title, activation toggle, then
-    // its lines (the disabled layer hides them, they stay alive)
     computeHtml: function () {
         this.dom_element = SERVICE.DOM.createElement( "div", {
-            class              : "level-up-block" + ( this.isEnabled() ? "" : " disabled" ),
+            class              : "level-up-block" + (this.isEnabled() ? "" : " disabled"),
             "data-level-name"  : this.level_name,
             "data-level-number": this.level_name
         } );
-        let title = SERVICE.DOM.addElementTo(
+        let title        = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "level-up-block-title" } ),
             this.dom_element
         );
