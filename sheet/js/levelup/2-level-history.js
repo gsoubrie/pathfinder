@@ -1,106 +1,5 @@
 "use strict";
 /**
- * @class CHARACTER.LevelsHistory
- * @extends OBJECT.InterfaceContainerHtml
- */
-CHARACTER.LevelsHistory = function () {
-    this.init();
-};
-CHARACTER.LevelsHistory.prototype = {
-    init: function () {
-        this.initContents();
-    },
-    //********************************************  EVENT LISTENER  **************************************************//
-    doActionAfter: function ( event_name, params ) {
-        switch ( event_name ) {
-        }
-        OBJECT.InterfaceContainer.prototype.doActionAfter.call( this, event_name, params );
-    },
-    //********************************************  GETTER SETTER  **************************************************//
-    getUUID          : function () {
-        return this.uuid;
-    },
-    //********************************************  SAVE   **************************************************//
-    getDataToSave    : function () {
-        let to_return                 = {};
-        to_return[ "levels_history" ] = [];
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            to_return[ "levels_history" ].push( this.getContent( i ).getDataToSave() );
-        }
-        return to_return;
-    },
-    getActiveSize    : function () {
-        let to_return = 0;
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            if ( this.getContent( i ).isEnabled() ) {
-                to_return++;
-            }
-        }
-        return to_return;
-    },
-    getNextLevelName: function () {
-        let to_return = 1;
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            let _current = parseInt( this.getContent( i ).getUUID() );
-            if ( !isNaN( _current ) && _current >= to_return ) {
-                to_return = _current + 1;
-            }
-        }
-        return "" + to_return;
-    },
-    getTotalLife     : function () {
-        let to_return = 0;
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            to_return += this.getContent( i ).life_class;
-        }
-        return to_return;
-    },
-    getSpecialContent: function ( key_name ) {
-        switch ( key_name ) {
-            case HISTORICS.key_element :
-                return this.getContent( 0 ).skills.getContentByUUID( "1 - " + key_name );
-        }
-    },
-    //********************************************  DATA   **************************************************//
-    // Builds the level-up block of every entry missing one: initial load and
-    // incremental adds (take level, class from the popup) share the same
-    // idempotent path
-    buildSkills: function () {
-        let class_level_counts = {};
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            let history_entry      = this.getContent( i );
-            let class_name         = history_entry.getClassName();
-            let class_level_number = 0;
-            if ( class_name ) {
-                class_level_counts[ class_name ] = ( class_level_counts[ class_name ] || 0 ) + 1;
-                class_level_number               = class_level_counts[ class_name ];
-            }
-            history_entry.buildSkills( class_level_number );
-        }
-    },
-    //********************************************  UPDATE DATA   **************************************************//
-    updateData: function ( data ) {
-        if ( !data ) {
-            return;
-        }
-        for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
-            let current = this.getContentByUUID( data[ i ][ "level_name" ] );
-            if ( !current ) {
-                current = this.add( new CHARACTER.LevelHistory( data[ i ][ "level_name" ] ) );
-            }
-            current.updateData( data[ i ] );
-        }
-    },
-    //********************************************  HTML   **************************************************//
-    updateHtmlData : function ( key, value ) {
-    },
-    computePageHTML: function () {
-    }
-};
-
-SERVICE.CLASS.addPrototype( CHARACTER.LevelsHistory, OBJECT.InterfaceContainerHtml );
-
-/**
  * @class CHARACTER.LevelHistory
  * @extends OBJECT.InterfaceContainerHtml
  */
@@ -109,25 +8,33 @@ CHARACTER.LevelHistory = function ( level_name ) {
 };
 CHARACTER.LevelHistory.prototype = {
     init: function ( level_name ) {
-        this.level_name       = level_name;
-        this.life_class       = null;
-        this.class_name       = null;
-        this.enabled          = true;
-        this.validated_skills = {};
+        this.level_name = level_name;
+        this.life_class = null;
+        this.class_name = null;
+        this.enabled    = true;
         this.initContents();
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
-            case "event__level_up__toggle_skill":
+            case "event__level_up__toggle_skill": {
                 // Broadcast: every entry receives it, the holder of the uuid
-                // toggles ITS state then pushes the new value to its line
+                // inverts the phase of its line, which owns the state
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
-                    this.toggleSkillValidation( level_up_skill.getSlotKey() );
-                    level_up_skill.setIsActive( this.isSkillValidated( level_up_skill.getSlotKey() ) );
+                    level_up_skill.setIsActive( !level_up_skill.isActive() );
                 }
                 return;
+            }
+            case "event__level_up__select_choice": {
+                // Broadcast: every entry receives it, the holder of the uuid
+                // stores the chosen value, which owns its phase
+                let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
+                if ( level_up_skill ) {
+                    level_up_skill.setSelectedValue( params[ "param__choice_value" ] );
+                }
+                return;
+            }
             case "event__level_up__remove_level":
                 // The lines die with their entry: their counters stop contributing before the removal
                 for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
@@ -149,21 +56,9 @@ CHARACTER.LevelHistory.prototype = {
     setEnabled   : function ( to_set ) {
         this.enabled = !!to_set;
     },
-    // Validation states of the level-up capacities of this entry, owned here
-    // like enabled: the level-up lines read and write through these
-    initSkillValidation  : function ( slot_key ) {
-        if ( this.validated_skills[ slot_key ] === undefined ) {
-            this.validated_skills[ slot_key ] = false;
-        }
-    },
-    isSkillValidated     : function ( slot_key ) {
-        return !!this.validated_skills[ slot_key ];
-    },
-    toggleSkillValidation: function ( slot_key ) {
-        this.validated_skills[ slot_key ] = !this.validated_skills[ slot_key ];
-    },
+    //********************************************  DATA   **************************************************//
     // One line per capacity of the class's level, idempotent: the lines stay
-    // the only build of the entry and read their validation state right here
+    // the only build of the entry, the loaded validations seed their phase
     buildSkills: function ( class_level_number ) {
         if ( this.getSize() > 0 ) {
             return;
@@ -183,16 +78,30 @@ CHARACTER.LevelHistory.prototype = {
             let type        = CHARACTER.Level.detectType( label );
             let ability_key = CLASSES.getAbilityKey( label );
             let slot_key    = LEVELUP.CHOICE_TYPES.indexOf( type ) !== -1 ? ( type + "_" + p ) : ability_key;
-            this.initSkillValidation( slot_key );
-            this.add( new CHARACTER.LevelUpSkillClass( {
+            let skill_data  = {
                 "level_name" : this.level_name,
                 "slot_key"   : slot_key,
                 "label"      : label,
                 "type"       : type,
-                "ability_key": ability_key,
-                "is_active"  : this.isSkillValidated( slot_key )
-            } ) );
+                "ability_key": ability_key
+            };
+            let staged      = this.validated_skills ? this.validated_skills[ slot_key ] : undefined;
+            // A capacity opening a choice renders a choice line: its selector
+            // drives the phase, the staged value seeds it
+            let choice_data = CLASSES.getChoices( class_name, ability_key );
+            if ( choice_data ) {
+                skill_data[ "choice_data" ]   = choice_data;
+                skill_data[ "selected_value" ] = staged || null;
+                this.add( new CHARACTER.LevelUpSkillChoice( skill_data ) );
+            }
+            else {
+                skill_data[ "is_active" ] = !!staged;
+                this.add( new CHARACTER.LevelUpSkillClass( skill_data ) );
+            }
         }
+        // The staging of the loaded validations is consumed: the phase of each
+        // line owns the live state from here
+        this.validated_skills = null;
     },
     // Counter chain: line → window, branched at each render of the level-up window
     setLinesCountersParent: function ( parent ) {
@@ -200,13 +109,18 @@ CHARACTER.LevelHistory.prototype = {
             this.getContent( i ).setCountersParent( parent );
         }
     },
+    //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                   = {};
         to_return[ "level_name" ]       = this.level_name;
         to_return[ "life_class" ]       = this.life_class;
         to_return[ "class_name" ]       = this.class_name;
         to_return[ "enabled" ]          = this.enabled;
-        to_return[ "validated_skills" ] = this.validated_skills;
+        let validated_skills            = {};
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            validated_skills[ this.getContent( i ).getSlotKey() ] = this.getContent( i ).getValidatedValue();
+        }
+        to_return[ "validated_skills" ] = validated_skills;
         if ( this.skills ) {
             to_return[ "skills" ] = this.skills.getDataToSave();
         }
@@ -228,6 +142,9 @@ CHARACTER.LevelHistory.prototype = {
                 this.setEnabled( value );
                 break;
             case "validated_skills":
+                // Staging of the loaded validations, consumed by buildSkills
+                // when the lines are built: the phase of each line owns the
+                // live state
                 this.validated_skills = value;
                 break;
             case "skills":
@@ -262,10 +179,6 @@ CHARACTER.LevelHistory.prototype = {
             this.getContent( i ).computeHtml( this.class_name );
             SERVICE.DOM.addElementTo( this.getContent( i ).getDomElement(), this.dom_element );
         }
-    },
-    updateHtmlData : function ( key, value ) {
-    },
-    computePageHTML: function () {
     }
 };
 

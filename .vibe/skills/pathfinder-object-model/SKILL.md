@@ -1,12 +1,12 @@
 ---
 name: pathfinder-object-model
-description: Charger ce skill avant d'écrire, modifier ou relire une classe JS de la feuille Pathfinder (domaines, fenêtres, popups). Il définit le modèle d'objets obligatoire issu des rounds de relecture : un seul propriétaire d'état, des dépendants passifs (aucune référence parent stockée, aucun miroir), l'affichage réactif par phase branchée sur le DOM, computeHtml en commande, le nommage métier honnête. Le fichier de référence est sheet/js/levelup/level-up-skill-class.js.
+description: Charger ce skill avant d'écrire, modifier ou relire une classe JS de la feuille Pathfinder (domaines, fenêtres, popups). Il définit le modèle d'objets obligatoire issu des rounds de relecture : un seul propriétaire d'état, des dépendants passifs (aucune référence parent stockée, aucun miroir), l'affichage réactif par phase branchée sur le DOM, computeHtml en commande, le nommage métier honnête. Le fichier de référence est sheet/js/levelup/3-level-up-skill-class.js.
 ---
 
 # Pathfinder — Modèle d'objets
 
 Toute classe nouvelle ou relue se conforme au modèle ci-dessous. Le fichier
-de référence est `sheet/js/levelup/level-up-skill-class.js` (rounds 1 à 9) :
+de référence est `sheet/js/levelup/3-level-up-skill-class.js` (rounds 1 à 9) :
 quand un choix d'implémentation se présente, imiter la référence.
 
 ## 1. Un seul propriétaire d'état

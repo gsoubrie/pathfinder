@@ -193,6 +193,35 @@
     left       : 19px;
 }
 
+/* ── Sélecteur de validation (ligne à choix) : choisir une valeur valide la ligne ── */
+.level-up-window .level-up-row-select {
+    background   : var(--g-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text-muted);
+    cursor       : pointer;
+    flex-shrink  : 0;
+    font-size    : 12px;
+    max-width    : 190px;
+    padding      : 2px 6px;
+    transition   : all 0.15s ease;
+}
+
+.level-up-window .level-up-row-select:hover {
+    border-color : var(--c-gold-dark);
+}
+
+.level-up-window .level-up-row-select option {
+    background : var(--g-card);
+    color      : var(--c-text);
+}
+
+.level-up-window .level-up-row[data-current-phase='SELECTED'] .level-up-row-select {
+    border-color : var(--c-gold-light);
+    box-shadow   : var(--sh-gold-sm);
+    color        : var(--c-text-gold);
+}
+
 /* ===== Sélecteur de classe (multiclasse) ===== */
 .property-tab-pane[data-name="levelup_sheet"] .level-up-class-selector {
     display         : flex;

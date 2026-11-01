@@ -37,8 +37,16 @@ CHARACTER.LevelUpSkillClass.prototype = {
     getSourceLabel: function () {
         return this.label + " (niveau " + this.level_name + ")";
     },
+    // The phase is the data: the validated state lives on it
+    isActive  : function () {
+        return this.isPhase( LEVELUP.PHASE.SELECTED );
+    },
     setIsActive: function ( to_set ) {
         this.setPhaseOrPhase( to_set, LEVELUP.PHASE.SELECTED, LEVELUP.PHASE.RUNNING );
+    },
+    // What the entry saves: the phase for a plain line, the chosen value for a choice line
+    getValidatedValue: function () {
+        return this.isActive();
     },
     callbackForPhase: function () {
         this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "pending", this.isPhase( LEVELUP.PHASE.SELECTED ) ? 0 : 1 );
@@ -51,7 +59,7 @@ CHARACTER.LevelUpSkillClass.prototype = {
         this._computeHtmlLabel( class_name );
         this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).computeHtml();
         SERVICE.DOM.addElementTo( this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getDomElement(), this.dom_element );
-        this._computeHtmlToggle();
+        this._computeHtmlValidation();
     },
     _computeHtmlLabel: function ( class_name ) {
         let is_masteries_line = this.ability_key === LEVELUP.INITIAL_MASTERIES_KEY;
@@ -67,7 +75,9 @@ CHARACTER.LevelUpSkillClass.prototype = {
             "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__class_ability',{'param__class_name':'" + class_name + "','param__ability_key':'" + this.ability_key + "'})";
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class  : "level-up-row-info gs-link-information", onclick: info_onclick }, "?" ), label_parent );
     },
-    _computeHtmlToggle: function () {
+    // The validation control of the line: the toggle for a plain line, the
+    // choice class overrides it with its selector
+    _computeHtmlValidation: function () {
         let toggle_switch = SERVICE.DOM.createElement( "div", {
             class  : "level-up-row-toggle",
             onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__toggle_skill',{'param__level_up_skill__uuid':'" + this.uuid + "'})"

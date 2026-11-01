@@ -54,7 +54,7 @@ CHARACTER.Masteries.prototype = {
             }
             for ( let s = 0, _size_s = history_entry.getSize(); s < _size_s; s++ ) {
                 let skill = history_entry.getContent( s );
-                if ( !history_entry.isSkillValidated( skill.getSlotKey() ) ) {
+                if ( !skill.isActive() ) {
                     continue;
                 }
                 let upgrades = skill.getMasteriesUpgrades( history_entry.getClassName() );

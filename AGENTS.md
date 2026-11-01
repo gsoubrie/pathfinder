@@ -12,7 +12,7 @@ Trois skills Vibe décrivent les conventions obligatoires du projet :
   classes prototype + `SERVICE.CLASS.addPrototype`, bus `doActionAfter`,
   SERVICE.DOM, formatage exact, règle du "passer le plat").
 - `.vibe/skills/pathfinder-object-model/SKILL.md` — modèle d'objets issu des
-  rounds de relecture (référence : `level-up-skill-class.js`) : un seul
+  rounds de relecture (référence : `3-level-up-skill-class.js`) : un seul
   propriétaire d'état, dépendants passifs sans référence ni miroir, tout
   coule par paramètre ou par poussée, affichage réactif par phase branchée
   sur le DOM (`data-current-phase` + CSS, compteurs dans
@@ -49,15 +49,17 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 ### Domaine levelup (`sheet/js/levelup/`)
 
 Le domaine porte TOUT le passage de niveau (fusions Rounds 5-7) : la source
-de vérité (`levels-history.js` : `LevelsHistory` + `LevelHistory`, l'entrée
-possède `enabled`, `validated_skills` ET ses lignes de capacités), le vieux
-mécanisme de choix par origine (`level-history-skills.js`, à unifier avec les
+de vérité (`1-levels-history.js` + `2-level-history.js` : `LevelsHistory` + `LevelHistory`, l'entrée
+possède `enabled` ET ses lignes de capacités — la validation vit sur la
+phase de la ligne, Round 10), le vieux
+mécanisme de choix par origine (`4-level-history-skills.js`, à unifier avec les
 lignes un jour), et le warning global de la fenêtre.
 
-- `CHARACTER.LevelUpSkillClass` (`level-up-skill-class.js`) — un objet par
+- `CHARACTER.LevelUpSkillClass` (`3-level-up-skill-class.js`) — un objet par
   capacité débloquée (uuid `"<niveau>__<slot>"`) : rend sa propre ligne
-  avec un interrupteur on/off **sans texte** (`.level-up-row-toggle`, pas de
-  sélecteur de choix), possède SON compteur WARNINGS, branché sur la fenêtre
+  avec un interrupteur on/off **sans texte** (`.level-up-row-toggle`) — le
+  contrôle de validation s'appelle `_computeHtmlValidation`, la classe de
+  choix le remplace par son sélecteur —, possède SON compteur WARNINGS, branché sur la fenêtre
   au rendu. **La ligne est sans état ni référence** (Round 8) : elle ne
   stocke ni `is_active`, ni son entrée, **ni `class_name`** (l'entrée
   porte la classe) — la dépendance passe en paramètre au moment du besoin :
@@ -79,24 +81,41 @@ lignes un jour), et le warning global de la fenêtre.
   plus de classes `--active/--pending`), et `callbackForPhase` met à jour
   le compteur warnings. Plus de re-render au
   toggle : le DOM suit la phase en place. Construction par `updateData` +\n  `setData` par clé (`\"is_active\"` → `setIsActive`, consommé à la volée).
-  API : `getUUID`, `setUUID`, `getSlotKey`, `setIsActive`,
-  `getMasteriesUpgrades`, `getSourceLabel`.
-- `CHARACTER.LevelHistory` (`levels-history.js`, entrée) — la source de
+  API : `getUUID`, `setUUID`, `getSlotKey`, `setIsActive`, `isActive`,
+  `getValidatedValue` (ce que l'entrée sauvegarde : la phase pour une ligne
+  simple), `getMasteriesUpgrades`, `getSourceLabel`.
+- `CHARACTER.LevelUpSkillChoice` (`3-level-up-skill-choice.js`) — la ligne
+  des capacités ouvrant un choix (Round 11) : hérite de `LevelUpSkillClass`,
+  même uuid, même phase, mais la valeur choisie dans le sélecteur EST la
+  validation — `setSelectedValue( to_set )` dérive la phase (`SELECTED`
+  quand une valeur est posée, retour à `RUNNING` sur l'option vide), le
+  sélecteur `.level-up-row-select` (option vide + entrées de
+  `CLASSES.CHOICES`, valeur = nom de l'entrée) remplace l'interrupteur via
+  `_computeHtmlValidation`, et `getValidatedValue()` retourne l'entrée
+  choisie (le save `validated_skills` vaut donc le nom du choix pour ces
+  lignes). Routage : `event__level_up__select_choice`
+  (`param__level_up_skill__uuid` + `param__choice_value`), même plat que
+  `toggle_skill` (fenêtre → personnage → historique → entrée → ligne).
+  Construction : l'entrée choisit la classe par ligne dans `buildSkills`
+  (`CLASSES.getChoices( class_name, ability_key )`), la valeur sauvegardée
+  arrive par `"selected_value"` (staging du load).
+- `CHARACTER.LevelHistory` (`2-level-history.js`, entrée) — la source de
   vérité DU niveau ET de sa vue (Round 7 : les blocs et conteneurs de classe
   ont disparu, l'entrée EST le conteneur de ses lignes, `OBJECT.InterfaceContainerHtml`)
   : identité `level_name` (`getUUID()` dérivé : le champ porte son nom
-  métier, jamais un `uuid` générique), `enabled` + `validated_skills`
-  (Round 5), `buildSkills( class_level_number )` idempotent construit ses
+  métier, jamais un `uuid` générique), `enabled`, `buildSkills(
+  class_level_number )` idempotent construit ses
   lignes (une par capacité du niveau de classe), `computeHtml()` rend SA
   section (`.level-up-block` avec `data-level-name`/`data-level-number`,
   titre, interrupteur Actif/Désactivé — ancre des scénarios ; la couche
   désactivation cache les lignes, elles restent vivantes), et
   `setLinesCountersParent( window )` branche les compteurs de ses lignes.
-  Routage d'entrée : `toggle_skill` — le porteur de l'uuid bascule SA carte
-  (`toggleSkillValidation`) puis pousse la nouvelle valeur à sa ligne
-  (`setIsActive( to_set )`), `remove_level` pousse 0 au compteur de
+  Routage d'entrée : `toggle_skill` — le porteur de l'uuid inverse SA phase
+  (`setIsActive( !isActive() )`, Round 10 : la phase de la ligne est la
+  donnée), `select_choice` — le porteur stocke la valeur choisie
+  (`setSelectedValue`, Round 11), `remove_level` pousse 0 au compteur de
   CHAQUE ligne AVANT que le personnage retire l'entrée (pas de clé fantôme).
-- `CHARACTER.LevelsHistory` (`levels-history.js`, conteneur) — diffuse les
+- `CHARACTER.LevelsHistory` (`1-levels-history.js`, conteneur) — diffuse les
   événements aux entrées (le parent `OBJECT.InterfaceContainer` broadcast,
   son `doActionAfter` ne les avalait pas avant le Round 6) et porte
   `buildSkills()` : construit les lignes de toute entrée qui en manque —
@@ -125,8 +144,8 @@ lignes un jour), et le warning global de la fenêtre.
 - Plat des événements : fenêtre → `CONTROLLER.Character.current_character.doActionAfter(...)`
   → personnage → historique → entrée → ligne. Jamais d'appel métier
   direct fenêtre → domaine.
-- **Seules les capacités validées** (`entry.isSkillValidated( slot_key )`,
-  lue par masteries sur la ligne) alimentent les calculs
+- **Seules les capacités validées** (`line.isActive()` — la phase de la
+  ligne, lue par masteries) alimentent les calculs
   finaux du personnage (maîtrises aujourd'hui, dons/compétences ensuite).
 
 ### Zone jets + compétences de l'onglet Général (`general_window.js`)
@@ -292,8 +311,10 @@ niveau 5, "expertise en réflexes" validée) :
 1. Valider le rapport `tests.html` complet (chaîne de 5 scénarios ci-dessus),
    corriger si rouge.
 2. Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
-   sur ce que `detectType` renvoie réellement — les capacités se valident par
-   interrupteur, plus de sélecteur de dons prévu sur la ligne.
+   sur ce que `detectType` renvoie réellement — les lignes simples se valident
+   par interrupteur, les capacités ouvrant un choix ont leur sélecteur
+   (`LevelUpSkillChoice`, Round 11) ; restent à écrire les entrées de
+   `CLASSES.CHOICES` pour les autres capacités à choix.
 3. Choix de compétences (INT + choix par divinité/lignage/style) : les lignes
    "compétences supplémentaires" des blocs mastery + dons/améliorations de
    compétence. Cela débloquera aussi Moine "voie vers la perfection", Guerrier
@@ -322,7 +343,7 @@ niveau 5, "expertise en réflexes" validée) :
    règle d'affichage ci-dessus.
 9. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
    domaine par domaine au fil du nettoyage : levelup est fait (Round 5 y a
-   intégré l'historique : `levels-history.js`, `level-history-skills.js`),
+   intégré l'historique : `1-levels-history.js`, `2-level-history.js`, `4-level-history-skills.js`),
    restent mastery, character (fenêtres), class, level, characteristic,
    race, gift, historics, legacy, archetype, spell, stuffs, object, service,
    component, controller + `<script>` de index.html et tests.html.
@@ -357,6 +378,17 @@ branchée sur son DOM
 `callbackForPhase` (plus de re-render ni de classes d'état), fin du fork :
 `sheet/js/phase.js` supprimé, la machine de phases est celle de la lib
 (`GS.OBJECT.PhaseInterface`), comme `configurable_value` et les popups.
+Round 10 = **la phase de la ligne EST la donnée** : `isActive()` lit la
+phase SELECTED, le toggle l'inverse (`setIsActive( !isActive() )`), la
+carte `validated_skills` de l'entrée disparaît — les valeurs du save ne
+font que staging vers `buildSkills` (consommées au build), et
+`getDataToSave` dérive `validated_skills` des phases des lignes.
+Round 11 = retour du sélecteur de choix, en classe dérivée : la capacité
+ouvrant un choix rend `CHARACTER.LevelUpSkillChoice`, la valeur choisie
+dans le sélecteur EST la validation (elle dérive la phase), le save en
+garde le nom au lieu d'un booléen — le contrôle de validation de la ligne
+s'appelle `_computeHtmlValidation` (interrupteur pour la ligne simple,
+sélecteur pour la ligne à choix).
 
 ### Style, commentaires, nommage
 
@@ -367,9 +399,12 @@ branchée sur son DOM
   corrections passent par des cartes écrites à la main qui survivent au
   re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`
   devient `initial_masteries`, lu via `LEVELUP.INITIAL_MASTERIES_KEY`).
-- Fichiers JS en kebab-case : `level-up-skill-class.js`,
+- Fichiers JS en kebab-case : `3-level-up-skill-class.js`,
   `level-up-global-warning.js`, `constant-level-up.js` (le dossier du domaine
-  reste en un mot : `sheet/js/levelup/`). Renommage par `git mv` + balises
+  reste en un mot : `sheet/js/levelup/`). Préfixe numérique = ordre
+  d'utilisation des classes du domaine (`1-` = le conteneur d'entrée), les
+  fichiers `constant_*.js` se chargent avant les classes numérotées.
+  Renommage par `git mv` + balises
   `<script>` de index.html et tests.html mises à jour en même temps. Les
   autres domaines suivront au fil du nettoyage (voir À faire).
 - `computeHtml()` est une **commande** : elle construit et stocke son DOM
@@ -424,14 +459,16 @@ branchée sur son DOM
   personnage avant son re-dispatch), jamais en champ construit au départ
   (`new CHARACTER.LevelsUpSkills( this )` a été refusé pour ça ; le bloc
   levelup a fini par disparaître, Round 7). Round 8 : plus AUCUNE exception —
-  la ligne elle-même ne stocke plus son entrée : le propriétaire d'état lui
-  pousse la valeur (construction, rendu, toggle), jamais l'objet parent.
+  la ligne elle-même ne stocke plus son entrée : la valeur lui arrive en
+  paramètre (construction, rendu), jamais l'objet parent — et depuis le
+  Round 10 la phase de la ligne EST l'état de validation : l'entrée ne lui
+  pousse plus rien au toggle, elle inverse sa propre phase.
 - Minimiser le code : un accesseur ne survit que s'il a un consommateur
   productif (un message d'assertion de test ne compte pas), et un objet
   expose des intentions métier, pas ses champs bruts — masteries demande
   `getMasteriesUpgrades()` et `getSourceLabel()` au skill validé, jamais la
   classe ni la clé de capacité. Un seul accesseur d'état par donnée
-  (`isSkillValidated` / `isEnabled` ; l'inversion se fait aux points
+  (`isActive` / `isEnabled` ; l'inversion se fait aux points
   d'appel). Le re-render en place s'appelle `updateHtml()` (la ligne levelup
   reçoit l'état en paramètre, Round 8).
 - Pas de signal visuel redondant : `has-pending` (barre sur le titre du bloc
@@ -455,18 +492,16 @@ branchée sur son DOM
   nom de l'entrée, jamais réutilisé), jamais de sa position : remove et
   toggle deviennent du routage `getContentByUUID` pur, aucune renumérotation
   à maintenir. Les clés de save et les ancres de scénarios suivent.
-- Graine de save (Rounds 5-6) : **l'état d'une donnée dérivée vit sur sa
-  source de vérité**, jamais sur l'objet UI — les validations de capacités
-  vivent sur l'entrée `LevelHistory` (champ `validated_skills`, clé par
-  slot, true/false) comme `enabled`, et la ligne levelup lit/écrit via
-  `isSkillValidated` / `toggleSkillValidation`. Conséquences : le save de
-  l'état est porté par la source (une seule clé `levels_history`, plus de
-  clé `level_up_skills` séparée), le contrat d'ordre des clés du save
-  disparaît (structure et états arrivent ensemble), et l'objet dérivé ne
-  sauvegarde rien (le bloc vit sur l'entrée, hors du merge des `children`).
-  Chaque slot rendu est posé à false par `initSkillValidation` si absent :
-  la carte de l'entrée liste toutes ses lignes, les non validées ne sont
-  pas omises.
+- Graine de save (Rounds 5-6, Round 10) : **la structure dérivée vit sur sa
+  source de vérité** (l'entrée construit ses lignes une fois) et **la phase
+  de la ligne EST la donnée de validation** (Round 10) — `isActive()` lit la
+  phase, `getDataToSave` dérive `validated_skills` des lignes
+  ( `{ slot_key: line.isActive() }`, chaque ligne rendue y figure, validée
+  ou non), et les valeurs chargées ne font que staging vers `buildSkills`,
+  consommé au build. Conséquences : le save de l'état reste porté par la clé
+  unique `levels_history` (plus de clé `level_up_skills` séparée), le
+  contrat d'ordre des clés du save disparaît (structure et états arrivent
+  ensemble), et la ligne ne sauvegarde rien (l'entrée dérive).
 - Un état actif/désactivé est une **couche** posée sur un environnement qui
   reste vivant : les objets gardent leurs états, la couche s'exprime au
   rendu (l'objet ne rend pas ses enfants) et dans les calculs (le

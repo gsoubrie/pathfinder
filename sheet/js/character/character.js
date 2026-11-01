@@ -103,6 +103,7 @@ CHARACTER.Current.prototype = {
                 }
                 break;
             case "event__level_up__toggle_skill":
+            case "event__level_up__select_choice":
                 this.levels_history.doActionAfter( event_name, params );
                 break;
             case "event__more_button":
@@ -191,8 +192,8 @@ CHARACTER.Current.prototype = {
                 break;
             case "levels_history":
                 this.levels_history.updateData( value );
-                // The entries own the validation states: their level-up blocks
-                // derive right after the history is loaded
+                // The entries stage the loaded validations: their lines, which
+                // own the state through their phase, derive right after the load
                 this.levels_history.buildSkills();
                 break;
             case this.player.getKey():
