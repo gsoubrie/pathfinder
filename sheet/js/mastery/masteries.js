@@ -29,7 +29,42 @@ CHARACTER.Masteries.prototype = {
     getRankContributions: function ( character_object ) {
         let params = { "param__rank_contributions": [] };
         character_object.doActionAfter( "event__get__rank_contributions", params );
-        return params[ "param__rank_contributions" ];
+        return this._resolveRankIncreases( params[ "param__rank_contributions" ] );
+    },
+    // A skill increase line pushes its slot without rank: the granted rank
+    // derives from the skill's current rank and the level of the increase
+    _resolveRankIncreases: function ( contributions ) {
+        let to_return          = [];
+        let base_rank_by_slot   = {};
+        let increases_by_slot  = {};
+        for ( let i = 0, _size_i = contributions.length; i < _size_i; i++ ) {
+            let contribution = contributions[ i ];
+            if ( contribution.skill_increase ) {
+                let slot_list = increases_by_slot[ contribution.slot ] = increases_by_slot[ contribution.slot ] || [];
+                slot_list.push( contribution );
+                continue;
+            }
+            to_return.push( contribution );
+            base_rank_by_slot[ contribution.slot ] = MASTERY.getHigherRank( base_rank_by_slot[ contribution.slot ], contribution.rank );
+        }
+        let _slots = Object.keys( increases_by_slot );
+        for ( let s = 0, _size_s = _slots.length; s < _size_s; s++ ) {
+            let slot       = _slots[ s ];
+            let increases  = increases_by_slot[ slot ].sort( function ( increase_a, increase_b ) {
+                return increase_a.level - increase_b.level;
+            } );
+            let current_rank = base_rank_by_slot[ slot ];
+            for ( let i = 0, _size_i = increases.length; i < _size_i; i++ ) {
+                current_rank = MASTERY.getIncreasedRank( current_rank, increases[ i ].level );
+                to_return.push( {
+                    slot  : slot,
+                    rank  : current_rank,
+                    label : MASTERY.getSlotLabel( slot ),
+                    source: increases[ i ].source
+                } );
+            }
+        }
+        return to_return;
     },
     getDataBySlot: function ( character_object ) {
         let to_return = {};

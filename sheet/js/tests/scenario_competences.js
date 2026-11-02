@@ -68,7 +68,7 @@ TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac asso
         if ( !_skill_data ) {
             return;
         }
-        TEST.ASSERT.equal( _row.getAttribute( "data-slot" ), "skill__" + CLASSES.getAbilityKey( _label ), "La ligne " + _label + " devrait porter le slot de maîtrise de la compétence, obtenu : " + _row.getAttribute( "data-slot" ) );
+        TEST.ASSERT.equal( _row.getAttribute( "data-slot" ), MASTERY.getSkillSlot( _label ), "La ligne " + _label + " devrait porter le slot de maîtrise de la compétence, obtenu : " + _row.getAttribute( "data-slot" ) );
         TEST.ASSERT.isNull( _row.querySelector( ".saves-label-charac" ), "La ligne " + _label + " ne devrait afficher que son nom, sans la caractéristique" );
         let _expected_rank             = _label === "Arcanes" ? "Q" : "I";
         let _expected_bonus            = _expected_rank === "Q" ? 2 : 0;
@@ -82,7 +82,7 @@ TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac asso
         TEST.ASSERT.ok( _row_onclick.indexOf( "event__show_information__skill_actions" ) !== -1, "La ligne " + _label + " devrait être cliquable vers la popup des actions de la compétence, obtenu : " + _row_onclick );
         TEST.ASSERT.ok( _row_onclick.indexOf( "'param__skill'" ) !== -1, "La ligne " + _label + " devrait passer la clé de la compétence au clic, obtenu : " + _row_onclick );
     }
-    let _arcanes_row                   = _area.querySelector( ".saves-row[data-slot='skill__arcanes']" );
+    let _arcanes_row                   = _area.querySelector( ".saves-row[data-slot='skill__arcana']" );
     TEST.ASSERT.notNull( _arcanes_row, "La ligne Arcanes devrait être rendue" );
     if ( _arcanes_row ) {
         _arcanes_row.click();

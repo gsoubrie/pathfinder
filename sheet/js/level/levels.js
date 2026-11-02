@@ -1,31 +1,31 @@
 "use strict";
 /**
  * @param {string} label
- * @returns {string}  "skill_skill" | "skill_increase" | "general_skill" | "ancestry_skill" |
- *                    "attribute_boost" | "spell" | "class_skill" | "class_feature"
+ * @returns {string}  "skill_feat" | "skill_increase" | "general_feat" | "ancestry_feat" |
+ *                    "attribute_boost" | "spell" | "class_feat" | "class_feature"
  */
 CHARACTER.Level.detectType = function ( label ) {
     var low = label.toLowerCase();
-    
+
     if ( LEVELS.KEYWORDS.SKILL_INCREASE.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
         return "skill_increase";
     }
-    if ( LEVELS.KEYWORDS.GENERAL_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.GENERAL_FEAT.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "general_skill";
+        return "general_feat";
     }
-    if ( LEVELS.KEYWORDS.SKILL_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.SKILL_FEAT.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "skill_skill";
+        return "skill_feat";
     }
-    if ( LEVELS.KEYWORDS.ANCESTRY_SKILL.some( function ( k ) {
+    if ( LEVELS.KEYWORDS.ANCESTRY_FEAT.some( function ( k ) {
         return low.indexOf( k ) !== -1;
     } ) ) {
-        return "ancestry_skill";
+        return "ancestry_feat";
     }
     if ( LEVELS.KEYWORDS.ATTRIBUTE_BOOST.some( function ( k ) {
         return low.indexOf( k ) !== -1;
@@ -37,9 +37,8 @@ CHARACTER.Level.detectType = function ( label ) {
     } ) ) {
         return "spell";
     }
-    // Don de classe = "don de X" ou "don d'X" (pas "don général", "don de compétence", "don ancestral")
     if ( low.indexOf( "don de " ) !== -1 || low.indexOf( "don d'" ) !== -1 ) {
-        return "class_skill";
+        return "class_feat";
     }
     return "class_feature";
 };
@@ -98,14 +97,12 @@ SERVICE.CLASS.addPrototype( CHARACTER.Levels, OBJECT.InterfaceContainerHtml );
 
 var LEVELS = {
     KEY_NAME : "levels",
-    GENERAL_SKILL_LEVELS  : [3, 7, 11, 15, 19],
-    ATTRIBUTE_BOOST_LEVELS: [5, 10, 15, 20],
-    KEYWORDS              : {
-        SKILL_SKILL    : ["don de compétence"],
+    KEYWORDS : {
+        SKILL_FEAT     : ["don de compétence"],
         SKILL_INCREASE : ["amélioration de compétence"],
-        GENERAL_SKILL  : ["don général"],
-        ANCESTRY_SKILL : ["don ancestral"],
-        CLASS_SKILL    : ["don de ", "don d'"],  // suivi du nom de classe
+        GENERAL_FEAT   : ["don général"],
+        ANCESTRY_FEAT  : ["don ancestral"],
+        CLASS_FEAT     : ["don de ", "don d'"],
         ATTRIBUTE_BOOST: ["primes d'attribut", "prime d'attribut"],
         SPELL          : ["sorts de rang", "sort "],
         CLASS_FEATURE  : []

@@ -81,15 +81,16 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
         TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ?, obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
         for ( let _i = 0; _i < _rows.length; _i++ ) {
             let _row                      = _rows[ _i ];
-            if ( _row.dataset.slotKey === "ecole_arcanique" ) {
+            let _choice_options           = _row.dataset.slotKey === "ecole_arcanique" ? 12 : ( _row.dataset.slotKey === "these_arcanique" ? 6 : 0 );
+            if ( _choice_options > 0 ) {
                 // Ligne à choix : le sélecteur remplace l'interrupteur, choisir une valeur valide la ligne
                 let _select               = _row.querySelector( ".level-up-row-select" );
-                TEST.ASSERT.notNull( _select, "La ligne école arcanique devrait porter son sélecteur de choix (.level-up-row-select)" );
+                TEST.ASSERT.notNull( _select, "La ligne " + _row.dataset.slotKey + " devrait porter son sélecteur de choix (.level-up-row-select)" );
                 if ( !_select ) {
                     return;
                 }
                 TEST.ASSERT.equal( _select.value, "", "Le sélecteur devrait etre sur l'option vide par défaut, obtenu : [" + _select.value + "]" );
-                TEST.ASSERT.equal( _select.options.length, 12, "Le sélecteur devrait proposer l'option vide + les 11 écoles, obtenu : " + _select.options.length );
+                TEST.ASSERT.equal( _select.options.length, _choice_options, "Le sélecteur de " + _row.dataset.slotKey + " devrait proposer l'option vide + ses entrées, obtenu : " + _select.options.length );
                 let _onchange              = _select.getAttribute( "onchange" ) || "";
                 TEST.ASSERT.ok( _onchange.indexOf( "event__level_up__select_choice" ) !== -1, "Le sélecteur devrait emettre event__level_up__select_choice, obtenu : " + _onchange );
             }
@@ -377,8 +378,8 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
     }
     let _character                        = CONTROLLER.Character.current_character;
     let _toggles                         = _block.querySelectorAll( ".level-up-row-toggle" );
-    TEST.ASSERT.equal( _toggles.length, 4, "Pre-condition : 4 interrupteurs rendus dans le bloc du niveau 1, obtenu : " + _toggles.length );
-    TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-select" ).length, 1, "Pre-condition : 1 sélecteur de choix rendu (école arcanique), obtenu : " + _block.querySelectorAll( ".level-up-row-select" ).length );
+    TEST.ASSERT.equal( _toggles.length, 3, "Pre-condition : 3 interrupteurs rendus dans le bloc du niveau 1, obtenu : " + _toggles.length );
+    TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-select" ).length, 2, "Pre-condition : 2 sélecteurs de choix rendus (école arcanique, thèse arcanique), obtenu : " + _block.querySelectorAll( ".level-up-row-select" ).length );
     let _rows                           = _block.querySelectorAll( ".level-up-row" );
     for ( let _i = 0; _i < _rows.length; _i++ ) {
         if ( _rows[ _i ].dataset.currentPhase !== "SELECTED" ) {
@@ -429,7 +430,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
     }
     return TEST.wait().then( function () {
         TEST.ASSERT.equal( _character.getLevel(), 5, "Le Magicien devrait etre niveau 5, obtenu : " + _character.getLevel() );
-        let _rank_gated                  = _character.getMasteries().getFinalRank( _character, "save__reflexes" );
+        let _rank_gated                  = _character.getMasteries().getFinalRank( _character, "save__reflex" );
         TEST.ASSERT.equal( _rank_gated, "Q", "La maîtrise Réflexes devrait rester qualifiée tant que expertise en réflexes n'est pas validée (seules les capacités validées alimentent les maîtrises), obtenu : " + _rank_gated );
         let _expertise_row               = null;
         let _rows                        = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name] .level-up-row" );
@@ -451,9 +452,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 5 → Réflexes experte seuleme
         }
         _toggle.click();
         return TEST.wait().then( function () {
-            let _rank_after              = _character.getMasteries().getFinalRank( _character, "save__reflexes" );
+            let _rank_after              = _character.getMasteries().getFinalRank( _character, "save__reflex" );
             TEST.ASSERT.equal( _rank_after, "E", "La maîtrise Réflexes devrait etre experte apres validation d'expertise en réflexes, obtenu : " + _rank_after );
-            let _rank_vigueur            = _character.getMasteries().getFinalRank( _character, "save__vigueur" );
+            let _rank_vigueur            = _character.getMasteries().getFinalRank( _character, "save__fortitude" );
             TEST.ASSERT.equal( _rank_vigueur, "Q", "La maîtrise Vigueur devrait rester qualifiee avant le niveau 9 (vigueur magique), obtenu : " + _rank_vigueur );
             let _masteries_info          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='initial_masteries'] .level-up-row-info" );
             TEST.ASSERT.notNull( _masteries_info, "Le ? de la ligne maîtrises initiales devrait etre rendu au niveau 5" );
@@ -510,7 +511,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] prise du niveau 6 → état validé co
         if ( _expertise ) {
             TEST.ASSERT.ok( _expertise.isActive(), "La validation d'expertise en réflexes devrait survivre au rebuild, obtenu : " + _expertise.isActive() );
         }
-        let _rank                        = _character.getMasteries().getFinalRank( _character, "save__reflexes" );
+        let _rank                        = _character.getMasteries().getFinalRank( _character, "save__reflex" );
         TEST.ASSERT.equal( _rank, "E", "La maîtrise Réflexes devrait rester experte apres le rebuild, obtenu : " + _rank );
     } );
 } );
@@ -555,6 +556,6 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN][SAVE] save → load = validations rest
     if ( _expertise ) {
         TEST.ASSERT.ok( _expertise.isActive(), "La validation d'expertise en réflexes devrait etre restauree apres relecture, obtenu : " + _expertise.isActive() );
     }
-    let _rank                             = _reloaded.getMasteries().getFinalRank( _reloaded, "save__reflexes" );
+    let _rank                             = _reloaded.getMasteries().getFinalRank( _reloaded, "save__reflex" );
     TEST.ASSERT.equal( _rank, "E", "La maîtrise Réflexes devrait rester experte apres relecture, obtenu : " + _rank );
 } );

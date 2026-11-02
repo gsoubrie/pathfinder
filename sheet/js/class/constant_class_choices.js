@@ -11,6 +11,116 @@
  * (CLASSES.getAbilityInformation), built from the class data itself.
  */
 CLASSES.CHOICES = {
+    "Alchimiste": {
+        "champ_de_recherche": {
+            "entries": [
+                { "name": "Bombardier" },
+                { "name": "Chirurgien" },
+                { "name": "Mutagéniste" },
+                { "name": "Toxicologiste" }
+            ]
+        }
+    },
+    "Barbare": {
+        "instinct": {
+            "entries": [
+                { "name": "Instinct animal" },
+                { "name": "Instinct de décomposition" },
+                { "name": "Instinct de géant" },
+                { "name": "Instinct de la furie" },
+                { "name": "Instinct du dragon" },
+                { "name": "Instinct élémentaire" },
+                { "name": "Instinct ligneux" },
+                { "name": "Instinct spirituel" },
+                { "name": "Instinct superstitieux" }
+            ]
+        }
+    },
+    "Barde": {
+        "muse": {
+            "entries": [
+                { "name": "Combattante" },
+                { "name": "Énigmatique" },
+                { "name": "Maestro" },
+                { "name": "Touche-à-tout" },
+                { "name": "Zoophonie" }
+            ]
+        }
+    },
+    "Bretteur": {
+        "style_de_bretteur": {
+            "entries": [
+                { "name": "Danseur de combat" },
+                { "name": "Escrimeur" },
+                { "name": "Esprit" },
+                { "name": "Fanfaron" },
+                { "name": "Fripouille" },
+                { "name": "Gymnaste" }
+            ]
+        }
+    },
+    "Champion": {
+        "cause": {
+            "entries": [
+                { "name": "Grandeur" },
+                { "name": "Iniquité" },
+                { "name": "Justice" },
+                { "name": "Libération" },
+                { "name": "Obéissance" },
+                { "name": "Profanation" },
+                { "name": "Rédemption" }
+            ]
+        }
+    },
+    "Druide": {
+        "ordre_druidique": {
+            "entries": [
+                { "name": "Ordre animal" },
+                { "name": "Ordre de la feuille" },
+                { "name": "Ordre des spores" },
+                { "name": "Ordre du cultivateur" },
+                { "name": "Ordre de la flamme" },
+                { "name": "Ordre de la pierre" },
+                { "name": "Ordre de la tempête" },
+                { "name": "Ordre de la vague" },
+                { "name": "Ordre indompté" }
+            ]
+        }
+    },
+    "Enquêteur": {
+        "methodologie": {
+            "entries": [
+                { "name": "Empirisme" },
+                { "name": "Interrogatoire" },
+                { "name": "Médecine forensique" },
+                { "name": "Sciences alchimiques" }
+            ]
+        }
+    },
+    "Ensorceleur": {
+        "lignage": {
+            "entries": [
+                { "name": "Aberrant" },
+                { "name": "Aesir" },
+                { "name": "Angélique" },
+                { "name": "Béni du ver" },
+                { "name": "Démoniaque" },
+                { "name": "Diabolique" },
+                { "name": "Draconique" },
+                { "name": "Élémentaire" },
+                { "name": "Féerique" },
+                { "name": "Génie" },
+                { "name": "Guenaude" },
+                { "name": "Impérial" },
+                { "name": "Mort-vivant" },
+                { "name": "Nymphe" },
+                { "name": "Ombre" },
+                { "name": "Phénix" },
+                { "name": "Psychopompe" },
+                { "name": "Tourment" }
+            ]
+        }
+    },
     "Magicien": {
         "ecole_arcanique": {
             "entries": [
@@ -25,6 +135,80 @@ CLASSES.CHOICES = {
                 { "name": "École de la théorie magique unifiée",  "uuid": "xYYhJtGhFSWNifcO" },
                 { "name": "École de la récupération",             "uuid": "n2LRzksKVSzOuzqN" },
                 { "name": "École de la sagesse enracinée",        "uuid": "KGkWSv9rARpwWzXW" }
+            ]
+        },
+        "these_arcanique": {
+            "entries": [
+                { "name": "Bâton nexus" },
+                { "name": "Expérimentation mutamagique" },
+                { "name": "Harmonisation avec le familier améliorée" },
+                { "name": "Mélange de sorts" },
+                { "name": "Substitution de sort" }
+            ]
+        }
+    },
+    "Oracle": {
+        "mystere": {
+            "entries": [
+                { "name": "Ancêtres" },
+                { "name": "Cendres" },
+                { "name": "Combat" },
+                { "name": "Cosmos" },
+                { "name": "Décrépitude" },
+                { "name": "Flammes" },
+                { "name": "Ossements" },
+                { "name": "Savoir" },
+                { "name": "Tempête" },
+                { "name": "Temps" },
+                { "name": "Vie" }
+            ]
+        }
+    },
+    "Prêtre": {
+        "doctrine": {
+            "entries": [
+                { "name": "Prêtre cloîtré" },
+                { "name": "Prêtre combattant" }
+            ]
+        }
+    },
+    "Rôdeur": {
+        "specialite_du_chasseur": {
+            "entries": [
+                { "name": "Déluge" },
+                { "name": "Précision" },
+                { "name": "Ruse" }
+            ]
+        }
+    },
+    "Roublard": {
+        "trafic_de_roublard": {
+            "entries": [
+                { "name": "Mystificateur" },
+                { "name": "Scélérat" },
+                { "name": "Stratège" },
+                { "name": "Voleur" },
+                { "name": "Voyou" }
+            ]
+        }
+    },
+    "Sorcier": {
+        "patron": {
+            "entries": [
+                { "name": "Chœur politique" },
+                { "name": "Dévoreur de pourriture" },
+                { "name": "Gardien de la flamme de la foi" },
+                { "name": "Intendant de la nature" },
+                { "name": "L'inscrit" },
+                { "name": "Le courtier invisible" },
+                { "name": "Le ressentiment" },
+                { "name": "Murmure des ailes" },
+                { "name": "Moustique" },
+                { "name": "Ombre sans étoile" },
+                { "name": "Ondulation dans les profondeurs" },
+                { "name": "Paradoxe des opposés" },
+                { "name": "Silence dans la neige" },
+                { "name": "Tisseur de fils" }
             ]
         }
     }
@@ -62,166 +246,166 @@ CLASSES.ABILITY_ALIASES = {
  */
 CLASSES.MASTERY_UPGRADES = {
     "alchimiste": {
-        "expertise_avec_les_armes_alchimiques" : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__bombes_alchimiques", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "expertise_avec_les_armes_alchimiques" : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__alchemical_bombs", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "expertise_alchimique"                 : [ { "slot": "class_dc", "rank": "E" } ],
-        "expertise_en_volonte"                 : [ { "slot": "save__volonte", "rank": "E" } ],
+        "expertise_en_volonte"                 : [ { "slot": "save__will", "rank": "E" } ],
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "resistance_aux_produits_chimiques"    : [ { "slot": "save__vigueur", "rank": "M" } ],
-        "expertise_avec_les_armures_intermediaires": [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__armures_intermediaires", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "esquiveur_d_explosion"                : [ { "slot": "save__reflexes", "rank": "M" } ],
-        "maitrise_des_armes_alchimiques"       : [ { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__bombes_alchimiques", "rank": "M" }, { "slot": "attack__mains_nues", "rank": "M" } ],
+        "resistance_aux_produits_chimiques"    : [ { "slot": "save__fortitude", "rank": "M" } ],
+        "expertise_avec_les_armures_intermediaires": [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__medium_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "esquiveur_d_explosion"                : [ { "slot": "save__reflex", "rank": "M" } ],
+        "maitrise_des_armes_alchimiques"       : [ { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__alchemical_bombs", "rank": "M" }, { "slot": "attack__unarmed", "rank": "M" } ],
         "maitrise_alchimique"                  : [ { "slot": "class_dc", "rank": "M" } ],
-        "maitrise_des_armures_intermediaires"  : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__armures_intermediaires", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "maitrise_des_armures_intermediaires"  : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__medium_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "barbare": {
-        "brutalite"                            : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "juggernaut"                           : [ { "slot": "save__vigueur", "rank": "M" } ],
+        "brutalite"                            : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "juggernaut"                           : [ { "slot": "save__fortitude", "rank": "M" } ],
         "rage_formidable"                      : [ { "slot": "class_dc", "rank": "E" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
-        "expertise_avec_les_armures_intermediaires": [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__armures_intermediaires", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "maitrise_des_armes"                   : [ { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__armes_de_guerre", "rank": "M" }, { "slot": "attack__mains_nues", "rank": "M" } ],
-        "volonte_indomptable"                  : [ { "slot": "save__volonte", "rank": "M" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
+        "expertise_avec_les_armures_intermediaires": [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__medium_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "maitrise_des_armes"                   : [ { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__martial_weapons", "rank": "M" }, { "slot": "attack__unarmed", "rank": "M" } ],
+        "volonte_indomptable"                  : [ { "slot": "save__will", "rank": "M" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
         "devastateur"                          : [ { "slot": "class_dc", "rank": "M" } ],
-        "maitrise_des_armures"                 : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__armures_intermediaires", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "maitrise_des_armures"                 : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__medium_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "barde": {
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
         "incantateur_expert"                   : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "c_ur_de_performeur"                   : [ { "slot": "save__volonte", "rank": "M" } ],
-        "expertise_en_vigueur"                 : [ { "slot": "save__vigueur", "rank": "E" } ],
-        "expertise_avec_les_armes_du_barde"    : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "c_ur_de_performeur"                   : [ { "slot": "save__will", "rank": "M" } ],
+        "expertise_en_vigueur"                 : [ { "slot": "save__fortitude", "rank": "E" } ],
+        "expertise_avec_les_armes_du_barde"    : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
-        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
+        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
         "maitre_incantateur"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ],
         "incantateur_legendaire"               : [ { "slot": "spell_attack", "rank": "L" }, { "slot": "spell_dc", "rank": "L" } ]
     },
     "bretteur": {
-        "expertise_en_vigueur"                 : [ { "slot": "save__vigueur", "rank": "E" } ],
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "evasion_confiante"                   : [ { "slot": "save__reflexes", "rank": "M" } ],
+        "expertise_en_vigueur"                 : [ { "slot": "save__fortitude", "rank": "E" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "evasion_confiante"                   : [ { "slot": "save__reflex", "rank": "M" } ],
         "expertise_du_bretteur"                : [ { "slot": "class_dc", "rank": "E" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
-        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "weapon_mastery"                       : [ { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__armes_de_guerre", "rank": "M" }, { "slot": "attack__mains_nues", "rank": "M" } ],
-        "ego_renforce"                         : [ { "slot": "save__volonte", "rank": "M" } ],
+        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "weapon_mastery"                       : [ { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__martial_weapons", "rank": "M" }, { "slot": "attack__unarmed", "rank": "M" } ],
+        "ego_renforce"                         : [ { "slot": "save__will", "rank": "M" } ],
         "confiance_eternelle"                  : [ { "slot": "class_dc", "rank": "M" } ],
-        "maitrise_des_armures_legeres"         : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "maitrise_des_armures_legeres"         : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "champion": {
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "expertise_en_armure"                  : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__armures_intermediaires", "rank": "E" }, { "slot": "defense__armures_lourdes", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "corps_sacre"                          : [ { "slot": "save__vigueur", "rank": "M" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "expertise_en_armure"                  : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__medium_armor", "rank": "E" }, { "slot": "defense__heavy_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "corps_sacre"                          : [ { "slot": "save__fortitude", "rank": "M" } ],
         "expertise_du_champion"                : [ { "slot": "class_dc", "rank": "E" }, { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "maitrise_des_armures"                 : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__armures_intermediaires", "rank": "M" }, { "slot": "defense__armures_lourdes", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ],
+        "maitrise_des_armures"                 : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__medium_armor", "rank": "M" }, { "slot": "defense__heavy_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ],
         "maitrise_du_champion"                 : [ { "slot": "class_dc", "rank": "M" }, { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ]
     },
     "druide": {
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "expertise_en_vigueur"                 : [ { "slot": "save__vigueur", "rank": "E" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_en_vigueur"                 : [ { "slot": "save__fortitude", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
         "incantateur_expert"                   : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "determination_sauvage"                : [ { "slot": "save__volonte", "rank": "M" } ],
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "determination_sauvage"                : [ { "slot": "save__will", "rank": "M" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "incantateur_maitre"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ]
     },
     "enqueteur": {
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
-        "expertise_en_vigueur"                 : [ { "slot": "save__vigueur", "rank": "E" } ],
-        "volonte_inebranlable"                 : [ { "slot": "save__volonte", "rank": "M" } ],
-        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "reflexes_avises"                      : [ { "slot": "save__reflexes", "rank": "M" } ],
-        "maitrise_des_armures_legeres"         : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "expertise_en_vigueur"                 : [ { "slot": "save__fortitude", "rank": "E" } ],
+        "volonte_inebranlable"                 : [ { "slot": "save__will", "rank": "M" } ],
+        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "reflexes_avises"                      : [ { "slot": "save__reflex", "rank": "M" } ],
+        "maitrise_des_armures_legeres"         : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "ensorceleur": {
-        "vigueur_magique"                       : [ { "slot": "save__vigueur", "rank": "E" } ],
+        "vigueur_magique"                       : [ { "slot": "save__fortitude", "rank": "E" } ],
         "incantation_experte"                  : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "robes_defensives"                     : [ { "slot": "defense__sans_armure", "rank": "E" } ],
+        "robes_defensives"                     : [ { "slot": "defense__unarmored", "rank": "E" } ],
         "incantateur_maitre"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ],
-        "volonte_majestueuse"                  : [ { "slot": "save__volonte", "rank": "M" } ]
+        "volonte_majestueuse"                  : [ { "slot": "save__will", "rank": "M" } ]
     },
     "guerrier": {
-        "bravoure"                             : [ { "slot": "save__volonte", "rank": "E" } ],
+        "bravoure"                             : [ { "slot": "save__will", "rank": "E" } ],
         "arpenteur_du_champ_de_bataille"       : [ { "slot": "perception", "rank": "M" } ],
-        "endurci_au_combat"                    : [ { "slot": "save__vigueur", "rank": "M" } ],
-        "expertise_avec_les_armures"           : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__armures_intermediaires", "rank": "E" }, { "slot": "defense__armures_lourdes", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
+        "endurci_au_combat"                    : [ { "slot": "save__fortitude", "rank": "M" } ],
+        "expertise_avec_les_armures"           : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__medium_armor", "rank": "E" }, { "slot": "defense__heavy_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
         "expertise_du_guerrier"                : [ { "slot": "class_dc", "rank": "E" } ],
-        "reflexes_exerces"                    : [ { "slot": "save__reflexes", "rank": "M" } ],
-        "legende_des_armes"                    : [ { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__armes_de_guerre", "rank": "M" }, { "slot": "attack__mains_nues", "rank": "M" } ],
-        "maitrise_des_armures"                 : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__armures_intermediaires", "rank": "M" }, { "slot": "defense__armures_lourdes", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ],
-        "legende_polyvalente"                  : [ { "slot": "attack__armes_simples", "rank": "L" }, { "slot": "attack__armes_de_guerre", "rank": "L" }, { "slot": "attack__mains_nues", "rank": "L" } ]
+        "reflexes_exerces"                    : [ { "slot": "save__reflex", "rank": "M" } ],
+        "legende_des_armes"                    : [ { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__martial_weapons", "rank": "M" }, { "slot": "attack__unarmed", "rank": "M" } ],
+        "maitrise_des_armures"                 : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__medium_armor", "rank": "M" }, { "slot": "defense__heavy_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ],
+        "legende_polyvalente"                  : [ { "slot": "attack__simple_weapons", "rank": "L" }, { "slot": "attack__martial_weapons", "rank": "L" }, { "slot": "attack__unarmed", "rank": "L" } ]
     },
     "magicien": {
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
         "incantateur_expert"                   : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "vigueur_magique"                      : [ { "slot": "save__vigueur", "rank": "E" } ],
+        "vigueur_magique"                      : [ { "slot": "save__fortitude", "rank": "E" } ],
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "expertise_avec_les_armes_du_magicien" : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "robes_defensives"                     : [ { "slot": "defense__sans_armure", "rank": "E" } ],
+        "expertise_avec_les_armes_du_magicien" : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "robes_defensives"                     : [ { "slot": "defense__unarmored", "rank": "E" } ],
         "incantateur_maitre"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ],
-        "volonte_prodigieuse"                  : [ { "slot": "save__volonte", "rank": "M" } ]
+        "volonte_prodigieuse"                  : [ { "slot": "save__will", "rank": "M" } ]
     },
     "moine": {
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "frappes_expertes"                    : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "frappes_expertes"                    : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "expertise_du_moine"                   : [ { "slot": "class_dc", "rank": "E" } ],
-        "frappes_de_maitre"                    : [ { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__mains_nues", "rank": "M" } ],
-        "maitrise_gracieuse"                   : [ { "slot": "defense__sans_armure", "rank": "M" } ],
-        "legende_gracieuse"                    : [ { "slot": "defense__sans_armure", "rank": "L" }, { "slot": "class_dc", "rank": "M" } ]
+        "frappes_de_maitre"                    : [ { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__unarmed", "rank": "M" } ],
+        "maitrise_gracieuse"                   : [ { "slot": "defense__unarmored", "rank": "M" } ],
+        "legende_gracieuse"                    : [ { "slot": "defense__unarmored", "rank": "L" }, { "slot": "class_dc", "rank": "M" } ]
     },
     "oracle": {
         "incantateur_expert"                   : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "resolution_mysterieuse"               : [ { "slot": "save__volonte", "rank": "M" } ],
-        "vigueur_magique"                      : [ { "slot": "save__vigueur", "rank": "E" } ],
-        "expertise_avec_les_armes"             : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
+        "resolution_mysterieuse"               : [ { "slot": "save__will", "rank": "M" } ],
+        "vigueur_magique"                      : [ { "slot": "save__fortitude", "rank": "E" } ],
+        "expertise_avec_les_armes"             : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
         "sens_oraculaires"                    : [ { "slot": "perception", "rank": "E" } ],
-        "expertise_avec_les_armure_legeres"    : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "reflexes_premonitoires"               : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_avec_les_armure_legeres"    : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "reflexes_premonitoires"               : [ { "slot": "save__reflex", "rank": "E" } ],
         "incantateur_maitre"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ]
     },
     "pretre": {
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "foi_resolue"                          : [ { "slot": "save__volonte", "rank": "M" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
-        "defense_divine"                       : [ { "slot": "defense__sans_armure", "rank": "E" } ]
+        "foi_resolue"                          : [ { "slot": "save__will", "rank": "M" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
+        "defense_divine"                       : [ { "slot": "defense__unarmored", "rank": "E" } ]
     },
     "rodeur": {
-        "expertise_en_volonte"                 : [ { "slot": "save__volonte", "rank": "E" } ],
-        "expertise_avec_les_armes_de_rodeur"   : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "reflexes_naturels"                   : [ { "slot": "save__reflexes", "rank": "M" } ],
+        "expertise_en_volonte"                 : [ { "slot": "save__will", "rank": "E" } ],
+        "expertise_avec_les_armes_de_rodeur"   : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "reflexes_naturels"                   : [ { "slot": "save__reflex", "rank": "M" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
         "expertise_du_rodeur"                 : [ { "slot": "class_dc", "rank": "E" } ],
-        "endurance_du_gardien"                : [ { "slot": "save__vigueur", "rank": "M" } ],
+        "endurance_du_gardien"                : [ { "slot": "save__fortitude", "rank": "M" } ],
         "maitre_chasseur"                      : [ { "slot": "class_dc", "rank": "M" } ],
-        "maitrise_des_armures_intermediaires"  : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__armures_intermediaires", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "maitrise_des_armures_intermediaires"  : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__medium_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "roublard": {
-        "astuces_martiales"                    : [ { "slot": "attack__mains_nues", "rank": "E" }, { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__armes_de_guerre", "rank": "E" } ],
+        "astuces_martiales"                    : [ { "slot": "attack__unarmed", "rank": "E" }, { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__martial_weapons", "rank": "E" } ],
         "maitrise_en_perception"               : [ { "slot": "perception", "rank": "M" } ],
-        "reflexes_d_evitement"                : [ { "slot": "save__reflexes", "rank": "M" } ],
-        "resilience_du_roublard"               : [ { "slot": "save__vigueur", "rank": "E" } ],
+        "reflexes_d_evitement"                : [ { "slot": "save__reflex", "rank": "M" } ],
+        "resilience_du_roublard"               : [ { "slot": "save__fortitude", "rank": "E" } ],
         "expertise_du_roublard"               : [ { "slot": "class_dc", "rank": "E" } ],
-        "astuces_de_maitre"                    : [ { "slot": "attack__mains_nues", "rank": "M" }, { "slot": "attack__armes_simples", "rank": "M" }, { "slot": "attack__armes_de_guerre", "rank": "M" } ],
-        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__armures_legeres", "rank": "E" }, { "slot": "defense__sans_armure", "rank": "E" } ],
-        "esprit_fuyant"                        : [ { "slot": "save__volonte", "rank": "M" } ],
+        "astuces_de_maitre"                    : [ { "slot": "attack__unarmed", "rank": "M" }, { "slot": "attack__simple_weapons", "rank": "M" }, { "slot": "attack__martial_weapons", "rank": "M" } ],
+        "expertise_avec_les_armures_legeres"   : [ { "slot": "defense__light_armor", "rank": "E" }, { "slot": "defense__unarmored", "rank": "E" } ],
+        "esprit_fuyant"                        : [ { "slot": "save__will", "rank": "M" } ],
         "frappe_de_maitre"                     : [ { "slot": "class_dc", "rank": "M" } ],
-        "maitrise_des_armures_legeres"         : [ { "slot": "defense__armures_legeres", "rank": "M" }, { "slot": "defense__sans_armure", "rank": "M" } ]
+        "maitrise_des_armures_legeres"         : [ { "slot": "defense__light_armor", "rank": "M" }, { "slot": "defense__unarmored", "rank": "M" } ]
     },
     "sorcier": {
-        "vigueur_magique"                      : [ { "slot": "save__vigueur", "rank": "E" } ],
+        "vigueur_magique"                      : [ { "slot": "save__fortitude", "rank": "E" } ],
         "incantateur_expert"                   : [ { "slot": "spell_attack", "rank": "E" }, { "slot": "spell_dc", "rank": "E" } ],
-        "expertise_en_reflexes"                : [ { "slot": "save__reflexes", "rank": "E" } ],
+        "expertise_en_reflexes"                : [ { "slot": "save__reflex", "rank": "E" } ],
         "expertise_en_perception"              : [ { "slot": "perception", "rank": "E" } ],
-        "expertise_martiale"                   : [ { "slot": "attack__armes_simples", "rank": "E" }, { "slot": "attack__mains_nues", "rank": "E" } ],
-        "robes_defensives"                     : [ { "slot": "defense__sans_armure", "rank": "E" } ],
+        "expertise_martiale"                   : [ { "slot": "attack__simple_weapons", "rank": "E" }, { "slot": "attack__unarmed", "rank": "E" } ],
+        "robes_defensives"                     : [ { "slot": "defense__unarmored", "rank": "E" } ],
         "incantateur_maitre"                   : [ { "slot": "spell_attack", "rank": "M" }, { "slot": "spell_dc", "rank": "M" } ],
-        "volonte_du_pupille"                   : [ { "slot": "save__volonte", "rank": "M" } ]
+        "volonte_du_pupille"                   : [ { "slot": "save__will", "rank": "M" } ]
     }
 };
 
@@ -293,6 +477,56 @@ CLASSES.getAbilityKey = function ( label ) {
     return CLASSES.ABILITY_KEY_OVERRIDES[ slug ] || slug;
 };
 
+// Choices shared by every class: the skill increase line picks any skill of
+// the game, the entries derive from SKILLS.LIST (single source)
+CLASSES.COMMON_CHOICES = {
+    "amelioration_de_competence": {
+        "entries": ( function () {
+            let entries = [];
+            let _keys   = Object.keys( SKILLS.LIST ).sort( function ( key_a, key_b ) {
+                return SKILLS.LIST[ key_a ].label.localeCompare( SKILLS.LIST[ key_b ].label );
+            } );
+            for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+                entries.push( { "name": SKILLS.LIST[ _keys[ i ] ].label } );
+            }
+            return entries;
+        } )()
+    }
+};
+
+/**
+ * Masteries granted by the value chosen on a choice line, per class key and
+ * ability key: chosen value -> [ { slot, rank } ]. Only entries backed by the
+ * class data descriptions belong here.
+ */
+CLASSES.CHOICE_MASTERIES = {
+    "bretteur": {
+        "style_de_bretteur": {
+            "Danseur de combat": [ { "slot": "skill__performance",  "rank": "Q" } ],
+            "Escrimeur"       : [ { "slot": "skill__deception",     "rank": "Q" } ],
+            "Esprit"          : [ { "slot": "skill__diplomacy",     "rank": "Q" } ],
+            "Fanfaron"        : [ { "slot": "skill__intimidation",  "rank": "Q" } ],
+            "Fripouille"      : [ { "slot": "skill__thievery",      "rank": "Q" } ],
+            "Gymnaste"        : [ { "slot": "skill__athletics",     "rank": "Q" } ]
+        }
+    }
+};
+
+/**
+ * @param {string} class_name    Class name, ex: "Bretteur"
+ * @param {string} ability_key   Normalized ability key, ex: "style_de_bretteur"
+ * @param {string} choice_value  Value chosen on the line, ex: "Gymnaste"
+ * @returns {Array}              [ { slot, rank } ] of the granted upgrades, empty when the choice grants nothing
+ */
+CLASSES.getChoiceMasteriesUpgrade = function ( class_name, ability_key, choice_value ) {
+    let class_data = CLASSES.getDataByName( class_name );
+    let class_map  = class_data && CLASSES.CHOICE_MASTERIES[ class_data.key ];
+    if ( !class_map || !class_map[ ability_key ] ) {
+        return [];
+    }
+    return class_map[ ability_key ][ choice_value ] || [];
+};
+
 /**
  * @param {string} class_name   Class name, ex: "Magicien"
  * @param {string} ability_key  Normalized ability key, ex: "ecole_arcanique"
@@ -300,7 +534,7 @@ CLASSES.getAbilityKey = function ( label ) {
  */
 CLASSES.getChoices = function ( class_name, ability_key ) {
     if ( !CLASSES.CHOICES[ class_name ] || !CLASSES.CHOICES[ class_name ][ ability_key ] ) {
-        return null;
+        return CLASSES.COMMON_CHOICES[ ability_key ] || null;
     }
     return CLASSES.CHOICES[ class_name ][ ability_key ];
 };

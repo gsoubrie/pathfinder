@@ -37,6 +37,10 @@ CHARACTER.LevelUpSkillBasic.prototype = {
                         source: this.getSourceLabel()
                     } );
                 }
+                let increase = this.getRankIncreaseContribution();
+                if ( increase ) {
+                    params[ "param__rank_contributions" ].push( increase );
+                }
                 return;
             }
         }
@@ -53,6 +57,9 @@ CHARACTER.LevelUpSkillBasic.prototype = {
     },
     getMasteriesUpgrades: function ( class_name ) {
         return CLASSES.getMasteriesUpgrade( class_name, this.ability_key );
+    },
+    getRankIncreaseContribution: function () {
+        return null;
     },
     getSourceLabel      : function () {
         return this.label + " (niveau " + this.level_name + ")";

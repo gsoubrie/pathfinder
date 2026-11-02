@@ -16,6 +16,26 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         this.selected_value = to_set || null;
         this.setPhaseOrPhase( !!this.selected_value, LEVELUP.PHASE.SELECTED, LEVELUP.PHASE.RUNNING );
     },
+    getMasteriesUpgrades: function ( class_name ) {
+        let upgrades = CHARACTER.LevelUpSkillBasic.prototype.getMasteriesUpgrades.call( this, class_name );
+        if ( this.selected_value ) {
+            upgrades = upgrades.concat( CLASSES.getChoiceMasteriesUpgrade( class_name, this.ability_key, this.selected_value ) );
+        }
+        return upgrades;
+    },
+    // A skill increase validates by its chosen skill: the contribution carries
+    // no rank, the granted rank derives from the skill's current one
+    getRankIncreaseContribution: function () {
+        if ( this.type !== "skill_increase" || !this.selected_value ) {
+            return null;
+        }
+        return {
+            slot          : MASTERY.getSkillSlot( this.selected_value ),
+            skill_increase: true,
+            level         : parseInt( this.level_name, 10 ),
+            source        : this.getSourceLabel()
+        };
+    },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {

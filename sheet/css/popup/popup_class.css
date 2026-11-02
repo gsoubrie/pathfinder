@@ -59,7 +59,6 @@
 .class-stat-hp .stat-chip-label {
     font-size   : 11px;
     color       : #f0c0c0;
-    text-transform: uppercase;
     letter-spacing: 0.8px;
 }
 
@@ -70,7 +69,6 @@
 .class-stat-mastery .stat-chip-label {
     font-size   : 11px;
     color       : #b09070;
-    text-transform: uppercase;
     letter-spacing: 0.8px;
 }
 
@@ -91,9 +89,7 @@
 
 .class-section-title {
     font-size      : 13px;
-    font-weight    : bold;
     color          : #d4af37;
-    text-transform : uppercase;
     letter-spacing : 2px;
     margin-bottom  : 14px;
     padding-bottom : 8px;
@@ -139,9 +135,7 @@
 
 .class-role-label {
     font-size      : 12px;
-    font-weight    : bold;
     color          : #d4af37;
-    text-transform : uppercase;
     letter-spacing : 1px;
 }
 
@@ -174,8 +168,6 @@
 
 .class-personality-heading {
     font-size      : 12px;
-    font-weight    : bold;
-    text-transform : uppercase;
     letter-spacing : 1px;
     margin-bottom  : 10px;
     padding-bottom : 6px;
@@ -229,9 +221,7 @@
 
 .class-mastery-group-title {
     font-size      : 11px;
-    font-weight    : bold;
     color          : #b09070;
-    text-transform : uppercase;
     letter-spacing : 1.5px;
     margin-bottom  : 4px;
     padding-bottom : 5px;
@@ -246,8 +236,6 @@
 
 .class-mastery-badge {
     font-size      : 10px;
-    font-weight    : bold;
-    text-transform : uppercase;
     letter-spacing : 0.5px;
     padding        : 2px 7px;
     border-radius  : 4px;
@@ -392,7 +380,6 @@
 
 .class-ability-name {
     font-size   : 14px;
-    font-weight : bold;
     color       : #f0d890;
     text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
     flex        : 1;
@@ -404,7 +391,6 @@
     border-radius : 4px;
     color         : #1a0f08;
     font-size     : 11px;
-    font-weight   : bold;
     padding       : 2px 10px;
     white-space   : nowrap;
     flex-shrink   : 0;

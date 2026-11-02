@@ -29,7 +29,7 @@ TEST.RUNNER.register( "[ACTIONS COMPETENCES] Acrobaties → actions I utilisable
     if ( !_pane ) {
         return;
     }
-    let _acrobaties_row                = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__acrobaties']" );
+    let _acrobaties_row                = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__acrobatics']" );
     TEST.ASSERT.notNull( _acrobaties_row, "Pre-condition : ligne Acrobaties rendue" );
     if ( !_acrobaties_row ) {
         return;
@@ -103,7 +103,7 @@ TEST.RUNNER.register( "[ACTIONS COMPETENCES] Occultisme → actions générales 
     if ( !_pane ) {
         return;
     }
-    let _occultisme_row                = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__occultisme']" );
+    let _occultisme_row                = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__occultism']" );
     TEST.ASSERT.notNull( _occultisme_row, "Pre-condition : ligne Occultisme rendue" );
     if ( !_occultisme_row ) {
         return;

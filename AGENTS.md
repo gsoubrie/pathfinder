@@ -38,11 +38,11 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   `event__level_up__toggle_skill`), `save__fortitude` (pas `save__vigueur`),
   `skill__acrobatics` (pas `skill__acrobaties`). Le français est la langue des
   libellés affichés (`label`), jamais des identifiants.
-- Le renommage des clés françaises déjà en place (`save__vigueur`,
-  `save__reflexes`, `save__volonte`, `skill__acrobaties`,
-  `maitrises_initiales`, `capacity_by_level`...) est un chantier à part : à
+- Le renommage des clés françaises déjà en place est un chantier à part : à
   faire d'une traite, clé par clé, données + code + tests, jamais au fil de
-  l'eau.
+  l'eau. Les slots de maîtrise sont passés en anglais (Round 17) ; les
+  ability keys des capacités restent françaises (dérivées des libellés
+  scrapés, cf. `getAbilityKey`).
 
 ## Chantier en cours : passage de niveau, maîtrises, zone jets/compétences (non commité)
 
@@ -204,10 +204,13 @@ lignes un jour), et le warning global de la fenêtre.
 - `MASTERY.ORDER` + `getHigherRank` — l'agrégation prend le MEILLEUR rang
   (I < Q < E < M < L), jamais de cumul. `MASTERY.SLOT_KEYWORDS` mappe les
   descriptions du bloc `mastery` des classes vers des slots normalisés
-  (`save__vigueur`, `attack__armes_simples`, `spell_attack`, `skill__<nom>`...).
+  anglais (`save__fortitude`, `attack__simple_weapons`, `spell_attack`,
+  `skill__<clé anglaise>`...). `MASTERY.getSkillKey( label )` résout la clé
+  anglaise via `SKILLS.LIST` (singulier contre les divergences de scrape,
+  "Représentations" → `performance`), fallback `getAbilityKey`.
 - `MASTERY.SAVES` — les 4 lignes de la zone jets : `perception` (libellé
   "Perception / Initiative", SAG) puis les 3 sauvegardes, chacune avec sa
-  caractéristique. `MASTERY.getSkillSlot( label )` → `"skill__" + getAbilityKey`.
+  caractéristique. `MASTERY.getSkillSlot( label )` → `"skill__" + getSkillKey`.
 - `CHARACTER.Masteries` (`masteries.js`) — sur le personnage, **état dérivé non
   sauvegardé**, calculé à la demande, **sans héritage d'interface** (il ne rend
   jamais de HTML). `getRankContributions()` collecte par événement
@@ -263,10 +266,6 @@ lignes un jour), et le warning global de la fenêtre.
 - Les compteurs poussent vers les parents sous leur uuid : un enfant disparu
   laisse une clé fantôme dans le mapping du parent → reset du parent quand les
   enfants sont reconstruits.
-- `detectType` renvoie des `*_skill` / `general_skill` etc., JAMAIS de
-  `*_feat` : `LEVELUP.CHOICE_TYPES` (general_feat, class_feat...) ne matche
-  donc rien aujourd'hui — le sélecteur générique de dons n'est PAS actif
-  (voir "À faire").
 - Les libellés de `capacity_by_level` et les clés `abilities` divergent parfois
   (scraping) : passer par `CLASSES.resolveAbilityKey`, jamais par accès direct.
 - `SKILLS.LIST[*].characteristic` pointait `CHARACTERISTICS.X.name` (propriété
@@ -303,6 +302,12 @@ niveau 5, "expertise en réflexes" validée) :
    exemples de tâches, actions générales.
 5. `scenario_fermeture_popup.js` — clic dans la zone → ouverte, clic sur le
    fond de l'overlay → refermée (maîtrises + actions).
+6. `scenario_ameliorations_competence.js` — la ligne "Amélioration de
+   compétence" de l'entrée 3 rend son sélecteur (vide + 17 compétences) ;
+   choisir "Arcanes" valide la ligne, Arcanes passe Q → E, la zone jets du
+   Général affiche badge E + jet complet croisé avec le domaine, la source
+   de l'augmentation apparaît dans les sources du slot ; save → load
+   restaure le choix et le rang E.
 
 ### État au moment de la pause
 
@@ -335,36 +340,60 @@ niveau 5, "expertise en réflexes" validée) :
 
 1. ~~Valider le rapport `tests.html` complet (chaîne de 5 scénarios
    ci-dessus)~~ — fait, run complet validé par l'utilisateur (Rounds 10-11).
-2. Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
-   sur ce que `detectType` renvoie réellement — les lignes simples se valident
-   par interrupteur, les capacités ouvrant un choix ont leur sélecteur
-   (`LevelUpSkillWithSelect`, Round 11) ; restent à écrire les entrées de
-   `CLASSES.CHOICES` pour les autres capacités à choix.
-3. Choix de compétences (INT + choix par divinité/lignage/style) : les lignes
-   "compétences supplémentaires" des blocs mastery + dons/améliorations de
-   compétence. Cela débloquera aussi Moine "voie vers la perfection", Guerrier
-   "maîtrise martiale", Prêtre doctrines (choix → upgrade de maîtrise).
+2. ~~Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
+   sur ce que `detectType` renvoie réellement~~ — fait (Round 16 :
+   `detectType` renvoie les `*_feat`, les lignes de don portent leur slot key
+   positionnel). ~~Restent à écrire les entrées de
+   `CLASSES.CHOICES` pour les autres capacités à choix~~ — fait (Round 18 :
+   14 classes, entrées extraites des descriptions scrapées — à valider par
+   l'utilisateur ; `divinité` du Champion/Prêtre laissée de côté, trop
+   grande). Les dons de classe/compétence/général/ancestral restent des
+   interrupteurs : leurs choix exigent le navigateur de dons (données à
+   venir).
+3. Choix de compétences : ~~les améliorations de compétence~~ — fait
+   (Round 18 : sélecteur des 17 compétences via `CLASSES.COMMON_CHOICES`, la
+   compétence choisie EST la validation, le rang octroyé dérive du rang
+   courant + portes de niveau dans `MASTERY.getIncreasedRank`, enchaînement
+   dans `Masteries._resolveRankIncreases` ; les upgrades dérivées d'un
+   choix passent par `CLASSES.CHOICE_MASTERIES` — seul le style de bretteur
+   est écrit, données présentes dans les descriptions). Restent : les
+   "compétences supplémentaires" (N + mod INT, choix du joueur — design UI à
+   décider : où choisir, porté par la classe ?), et les cartes
+   choix → compétence des autres classes (lignage, mystère, patron, ordre,
+   méthodologie, trafic, divinité) — les compétences ne sont pas dans nos
+   données scrapées, à écrire à la main ou re-scrap.
 4. Sources maîtrises supplémentaires : race/héritage, dons, objets magiques —
-   chaque source porte ses contributions (`getMasteriesData()`), le conteneur
-   personnage agrège.
-5. Écriture des fichiers de save : `CONTROLLER.Character.save()` est un stub
-   (seul `console.log` reste) et les vrais fichiers `sheet/save/` prédatent
-   `level_skill`. La graine save→load (case `level_skill` de l'entrée,
-   cf. Rounds 5-6 et 13) est couverte par
-   `[LEVELUP MAGICIEN][SAVE]` ; reste à restaurer l'écriture du fichier puis
-   à re-générer un save réel.
-6. Renommage anglais des identifiants français (règle ci-dessus) :
-   `save__vigueur` → `save__fortitude`, `save__reflexes` → `save__reflex`,
-   `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
-   `maitrises_initiales` → `initial_masteries`, etc. — d'une traite, clé par
-   clé, données (`SLOT_KEYWORDS`, `MASTERY_UPGRADES`) + code + tests.
+   bloqué sur la donnée : les données race/héritage ne portent que de la
+   prose ("qualifié en Diplomatie" dans les descriptions), aucun bloc
+   maîtrise structuré. Cartes écrites à la main à prévoir, ou re-scrap
+   structuré. Le mécanisme est prêt : le personnage route
+   `event__get__rank_contributions` à ses domaines, ajouter race/dons au
+   case suffit.
+5. ~~Écriture des fichiers de save~~ — restaure (Round 18) :
+   `CONTROLLER.Character.save()` télécharge `let <uuid> = <getDataToSave>;`
+   en `.js` (via `SERVICE.DOM`, plus de `console.log`). Reste à re-générer un
+   save réel : action du joueur dans son navigateur, fichier à poser dans
+   `sheet/save/` + balise `<script>` dans index.html.
+6. ~~Renommage anglais des identifiants français (règle ci-dessus)~~ — fait
+   pour les slots de maîtrise (Round 17) : `save__fortitude`, `save__reflex`,
+   `save__will`, `skill__<clé anglaise>`, `attack__unarmed`,
+   `attack__simple_weapons`, `attack__martial_weapons`,
+   `attack__advanced_weapons`, `attack__alchemical_bombs`,
+   `attack__favored_weapon`, `defense__unarmored`, `defense__light_armor`,
+   `defense__medium_armor`, `defense__heavy_armor`, `defense__all_armor`,
+   dans `SLOT_KEYWORDS`, `SAVES`, `MASTERY_UPGRADES` + tests. Les ability
+   keys des capacités (libellés scrapés) restent françaises tant que le
+   fichier généré `constant_skill_actions.js` n'est pas re-scrapé avec des
+   clés anglaises.
 7. ~~`CHARACTER.Masteries` stocke encore `this.character` depuis son
    constructeur~~ — résolu : toutes les méthodes de `Masteries` prennent le
    personnage en premier paramètre (`getFinalRank( character_object, ... )`),
    le constructeur est `new CHARACTER.Masteries()` sans dépendance, et la
    classe vit hors des `children` du personnage (état dérivé non sauvegardé).
-8. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
-   règle d'affichage ci-dessus.
+8. ~~Pass de nettoyage gras/majuscules existants (levelup, popups)~~ — fait
+   (Round 18 : levelup était déjà propre, 41 lignes retirées des popups ;
+   le gras ne survit que sur les valeurs clés — rang, valeur de ligne,
+   PV — et le `strong` du contenu scrapé reste du balisage auteur).
 9. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
    domaine par domaine au fil du nettoyage : levelup est fait (Round 5 y a
    intégré l'historique : `1-levels-history.js`, `2-level-history.js`, `4-level-history-skills.js`),
@@ -439,6 +468,40 @@ dans le plat (`param__rank_contributions`) : la classe pousse ses
 maîtrises initiales, l'entrée d'historique (active) pose
 `param__class_name` et re-broadcast à ses lignes, la ligne validée pousse
 ses upgrades.
+Round 16 = `detectType` dit la vérité : les types de don deviennent
+`general_feat` / `class_feat` / `skill_feat` / `ancestry_feat` (les clés de
+`LEVELS.KEYWORDS` suivent, `skill_increase` / `attribute_boost` / `spell` /
+`class_feature` ne bougent pas) — `LEVELUP.CHOICE_TYPES` matche enfin : les
+lignes de don portent leur slot key positionnel (`<type>_<index>`) et
+leurs icônes s'affichent (l'ancien `*_skill` ne matchait jamais `ICONS`).
+Les listes mortes `GENERAL_SKILL_LEVELS` / `ATTRIBUTE_BOOST_LEVELS` partent.
+Round 17 = slots de maîtrise en anglais, d'une traite : `save__fortitude` /
+`save__reflex` / `save__will`, `skill__<clé anglaise>` (résolus par
+`MASTERY.getSkillKey` via `SKILLS.LIST`, singulier contre les pluriels
+scrapés), `attack__unarmed` / `simple_weapons` / `martial_weapons` /
+`advanced_weapons` / `alchemical_bombs` / `favored_weapon`,
+`defense__unarmored` / `light_armor` / `medium_armor` / `heavy_armor` /
+`all_armor` — dans `SLOT_KEYWORDS`, `SAVES`, `MASTERY_UPGRADES` + scénarios.
+Les mots-clés morts `armes_martiales` / `armes_avancees` partent (aucune
+description scrapée ne les contient ; "armes de guerre" et "armes évoluées"
+sont les termes réels des données). Les ability keys des capacités restent
+françaises : le fichier généré `constant_skill_actions.js` y est indexé.
+Round 18 = fin des TODOs d'une traite : (a) `CLASSES.CHOICES` écrit pour
+14 classes (entrées extraites des descriptions scrapées, à valider par
+l'utilisateur) + `CLASSES.COMMON_CHOICES` (`amelioration_de_competence` :
+les 17 compétences, dérivées de `SKILLS.LIST`) avec fallback dans
+`getChoices` ; (b) l'amélioration de compétence se valide en choisissant SA
+compétence — la ligne pousse une contribution d'augmentation
+(`getRankIncreaseContribution` : slot + niveau, SANS rang), `Masteries`
+enchaîne après la collecte (`_resolveRankIncreases` : rang de base par
+slot, puis chaque augmentation trie par niveau et monte d'un pas, portes
+E < 7, M < 15, L au-delà) ; (c) `CLASSES.CHOICE_MASTERIES` : les upgrades
+d'un choix validé (carte classe → capacité → valeur → slots, seul le style
+de bretteur est écrit, données des descriptions) fusionnent dans
+`getMasteriesUpgrades` du sélecteur, `MASTERY.getSlotLabel` résout les
+labels des slots skills via `SKILLS.LIST` ; (d) save restauré (téléchargement
+du fichier `let <uuid> = ...;`) ; (e) pass gras/majuscules des popups ;
+(f) nouveau scénario `scenario_ameliorations_competence.js` (chaîne, 6e).
 
 ### Style, commentaires, nommage
 
@@ -459,7 +522,7 @@ ses upgrades.
   du projet : `save` prête à confusion avec la sauvegarde du
   personnage — un jet s'appelle roll (`getRollModifier`), "save" ne
   survit que dans le vocabulaire des jets de sauvegarde PF2
-  (`save__vigueur`, à renommer anglais plus tard comme le reste).
+  (`save__fortitude` et ses frères, passés en anglais au Round 17).
 - Aucun identifiant français dans le code, même dérivé du scraping : les
   corrections passent par des cartes écrites à la main qui survivent au
   re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`

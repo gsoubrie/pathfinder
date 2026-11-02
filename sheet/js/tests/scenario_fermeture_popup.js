@@ -21,7 +21,7 @@ TEST.RUNNER.register( "[FERMETURE POPUP] clic hors zone → popup refermée, cli
     if ( !_pane ) {
         return;
     }
-    let _jets_row                      = _pane.querySelector( ".jets-saves-block .saves-row[data-slot='save__vigueur']" );
+    let _jets_row                      = _pane.querySelector( ".jets-saves-block .saves-row[data-slot='save__fortitude']" );
     TEST.ASSERT.notNull( _jets_row, "Pre-condition : ligne de jet Vigueur rendue" );
     if ( !_jets_row ) {
         return;
@@ -44,7 +44,7 @@ TEST.RUNNER.register( "[FERMETURE POPUP] clic hors zone → popup refermée, cli
     TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "Un clic sur le fond de l'overlay devrait refermer la popup" );
     TEST.ASSERT.equal( getComputedStyle( _overlay ).display, "none", "L'overlay refermé devrait être masqué à l'écran, obtenu : " + getComputedStyle( _overlay ).display );
 
-    let _arcanes_row                   = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__arcanes']" );
+    let _arcanes_row                   = _pane.querySelector( ".jets-skills-block .saves-row[data-slot='skill__arcana']" );
     TEST.ASSERT.notNull( _arcanes_row, "Pre-condition : ligne Arcanes rendue" );
     if ( !_arcanes_row ) {
         return;

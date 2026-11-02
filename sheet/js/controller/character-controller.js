@@ -56,16 +56,18 @@ CONTROLLER.Character = (function ( self ) {
         }
     };
     //********************************************  SAVE  **************************************************//
-    self.save               = function ( event_name ) {
+    self.save               = function () {
         let to_return = self.current_character.getDataToSave();
-        console.log("GSOU", "[Character - save]", to_return);
-        //const link    = document.createElement( "a" );
-        //const file    = new Blob( ["let " + self.current_character.getUUID() + "=" + JSON.stringify( to_return )], { type: 'application/json' } );
-        //link.href     = URL.createObjectURL( file );
-        //link.download = self.current_character.getUUID() + ".js";
+        //let file_name = self.current_character.getUUID();
+        //let file_data = "let " + file_name + " = " + JSON.stringify( to_return ) + ";";
+        //let file      = new Blob( [ file_data ], { "type": "application/javascript" } );
+        //let link      = SERVICE.DOM.createElement( "a", {
+        //    "href"    : URL.createObjectURL( file ),
+        //    "download": file_name + ".js"
+        //} );
         //link.click();
         //URL.revokeObjectURL( link.href );
-        //return to_return;
+        return to_return;
     };
     //********************************************  HTML  **************************************************//
     self.computeHtml__title = function () {

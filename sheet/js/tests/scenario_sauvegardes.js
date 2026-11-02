@@ -77,9 +77,9 @@ TEST.RUNNER.register( "[SAUVEGARDES] Magicien 1 → colonne dédiée = 3 jets co
         TEST.ASSERT.equal( _rows[ 0 ].getAttribute( "data-slot" ), "perception", "La première ligne devrait être le jet de Perception, obtenu : " + _rows[ 0 ].getAttribute( "data-slot" ) );
         let _expected                     = {
             "perception"    : { "label": "Perception / Initiative", "rank": "Q", "bonus": 2, "characteristic": "SAG", "characteristic_label": "Sagesse" },
-            "save__vigueur" : { "label": "Vigueur",  "rank": "Q", "bonus": 2, "characteristic": "CON", "characteristic_label": "Constitution" },
-            "save__reflexes": { "label": "Réflexes", "rank": "Q", "bonus": 2, "characteristic": "DEX", "characteristic_label": "Dextérité" },
-            "save__volonte" : { "label": "Volonté",  "rank": "E", "bonus": 4, "characteristic": "SAG", "characteristic_label": "Sagesse" }
+            "save__fortitude" : { "label": "Vigueur",  "rank": "Q", "bonus": 2, "characteristic": "CON", "characteristic_label": "Constitution" },
+            "save__reflex": { "label": "Réflexes", "rank": "Q", "bonus": 2, "characteristic": "DEX", "characteristic_label": "Dextérité" },
+            "save__will" : { "label": "Volonté",  "rank": "E", "bonus": 4, "characteristic": "SAG", "characteristic_label": "Sagesse" }
         };
         let _level                        = _character.getLevel();
         for ( let _i = 0; _i < _rows.length; _i++ ) {
@@ -128,11 +128,11 @@ TEST.RUNNER.register( "[SAUVEGARDES] Magicien 1 → colonne dédiée = 3 jets co
                 TEST.ASSERT.ok( Math.abs( _level_rect.left - _next_level_rect.left ) < 2 && Math.abs( _badge_rect.left - _next_badge_rect.left ) < 2, "Les colonnes devraient être alignées entre les lignes (" + _slot + "), obtenu : niv gauche " + _level_rect.left + "/" + _next_level_rect.left + " et rang gauche " + _badge_rect.left + "/" + _next_badge_rect.left );
             }
         }
-        let _badge_trained                = _area.querySelector( ".saves-row[data-slot='save__vigueur'] .saves-rank" );
-        let _badge_expert                 = _area.querySelector( ".saves-row[data-slot='save__volonte'] .saves-rank" );
+        let _badge_trained                = _area.querySelector( ".saves-row[data-slot='save__fortitude'] .saves-rank" );
+        let _badge_expert                 = _area.querySelector( ".saves-row[data-slot='save__will'] .saves-rank" );
         TEST.ASSERT.ok( getComputedStyle( _badge_trained ).backgroundImage.indexOf( "42, 74, 42" ) !== -1, "Le badge Qualifié devrait porter le fond vert entraîné (#2a4a2a), obtenu : " + getComputedStyle( _badge_trained ).backgroundImage );
         TEST.ASSERT.ok( getComputedStyle( _badge_expert ).backgroundImage.indexOf( "42, 61, 90" ) !== -1, "Le badge Expert devrait porter le fond bleu expert (#2a3d5a), obtenu : " + getComputedStyle( _badge_expert ).backgroundImage );
-        let _row_vigueur                  = _area.querySelector( ".saves-row[data-slot='save__vigueur']" );
+        let _row_vigueur                  = _area.querySelector( ".saves-row[data-slot='save__fortitude']" );
         TEST.ASSERT.notNull( _row_vigueur, "La ligne Vigueur devrait être rendue pour le test du clic" );
         let _row_onclick                  = _row_vigueur.getAttribute( "onclick" ) || "";
         TEST.ASSERT.ok( _row_onclick.indexOf( "event__show_information__masteries" ) !== -1, "La ligne de jet devrait ouvrir la popup des maîtrises du personnage au clic, obtenu : " + _row_onclick );
@@ -194,7 +194,7 @@ TEST.RUNNER.register( "[SAUVEGARDES] niveau 5 + expertise validée → jet Réfl
             return TEST.wait();
         } ).then( function () {
             let _pane                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
-            let _reflexes_row         = _pane.querySelector( ".jets-saves-block .saves-row[data-slot='save__reflexes']" );
+            let _reflexes_row         = _pane.querySelector( ".jets-saves-block .saves-row[data-slot='save__reflex']" );
             TEST.ASSERT.notNull( _reflexes_row, "La ligne Réflexes devrait rester rendue au niveau 5" );
             let _mod_dex              = _character.getCharacteristics().getContentByUUID( "DEX" ).getModifierValue();
             TEST.ASSERT.equal( _reflexes_row.querySelector( ".saves-rank" ).textContent, "Q", "Le badge Réflexes devrait encore être Q (Qualifié) avant validation d'expertise en réflexes, obtenu : " + _reflexes_row.querySelector( ".saves-rank" ).textContent );
@@ -229,15 +229,15 @@ TEST.RUNNER.register( "[SAUVEGARDES] niveau 5 + expertise validée → jet Réfl
                     return TEST.wait();
                 } ).then( function () {
                     let _pane_after      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
-                    let _reflexes_after  = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__reflexes']" );
+                    let _reflexes_after  = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__reflex']" );
                     let _mod_dex         = _character.getCharacteristics().getContentByUUID( "DEX" ).getModifierValue();
                     let _expected_expert = 5 + _mod_dex + 4;
                     TEST.ASSERT.equal( _reflexes_after.querySelector( ".saves-rank" ).textContent, "E", "Le badge Réflexes devrait être E (Expert) après validation d'expertise en réflexes, obtenu : " + _reflexes_after.querySelector( ".saves-rank" ).textContent );
                     TEST.ASSERT.equal( _reflexes_after.querySelector( ".saves-value" ).textContent, "" + _expected_expert, "Le jet Réflexes devrait valoir 5 + mod DEX + 4 = " + _expected_expert + ", obtenu : " + _reflexes_after.querySelector( ".saves-value" ).textContent );
-                    let _vigueur_after   = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__vigueur']" );
+                    let _vigueur_after   = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__fortitude']" );
                     let _mod_con         = _character.getCharacteristics().getContentByUUID( "CON" ).getModifierValue();
                     TEST.ASSERT.equal( _vigueur_after.querySelector( ".saves-value" ).textContent, "" + ( 5 + _mod_con + 2 ), "Le jet Vigueur ne devrait pas bouger (vigueur magique au niveau 9), obtenu : " + _vigueur_after.querySelector( ".saves-value" ).textContent );
-                    let _volonte_after   = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__volonte']" );
+                    let _volonte_after   = _pane_after.querySelector( ".jets-saves-block .saves-row[data-slot='save__will']" );
                     let _mod_sag         = _character.getCharacteristics().getContentByUUID( "SAG" ).getModifierValue();
                     TEST.ASSERT.equal( _volonte_after.querySelector( ".saves-rank" ).textContent, "E", "Le badge Volonté devrait rester E (Expert), obtenu : " + _volonte_after.querySelector( ".saves-rank" ).textContent );
                     TEST.ASSERT.equal( _volonte_after.querySelector( ".saves-value" ).textContent, "" + ( 5 + _mod_sag + 4 ), "Le jet Volonté devrait valoir 5 + mod SAG + 4, obtenu : " + _volonte_after.querySelector( ".saves-value" ).textContent );
