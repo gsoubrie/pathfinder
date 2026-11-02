@@ -35,15 +35,19 @@ TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] sélecteur = option vide + 17 
     if ( !_row ) {
         return;
     }
-    let _select                           = _row.querySelector( ".level-up-row-select" );
-    TEST.ASSERT.notNull( _select, "La ligne Amélioration de compétence devrait porter son sélecteur (.level-up-row-select)" );
-    if ( !_select ) {
+    let _selector                         = _row.querySelector( ".single-select-selector" );
+    TEST.ASSERT.notNull( _selector, "La ligne Amélioration de compétence devrait porter son sélecteur (.single-select-selector)" );
+    if ( !_selector ) {
         return;
     }
-    TEST.ASSERT.equal( _select.value, "", "Le sélecteur devrait etre sur l'option vide par défaut, obtenu : [" + _select.value + "]" );
-    TEST.ASSERT.equal( _select.options.length, 18, "Le sélecteur devrait proposer l'option vide + les 17 compétences, obtenu : " + _select.options.length );
-    _select.value                         = "Arcanes";
-    _select.dispatchEvent( new Event( "change" ) );
+    TEST.ASSERT.equal( _row.querySelector( ".single-select-selector-label" ).textContent, "--", "Le sélecteur devrait etre sur l'option vide par défaut, obtenu : [" + _row.querySelector( ".single-select-selector-label" ).textContent + "]" );
+    TEST.ASSERT.equal( _row.querySelectorAll( ".single-select-option" ).length, 18, "Le sélecteur devrait proposer l'option vide + les 17 compétences, obtenu : " + _row.querySelectorAll( ".single-select-option" ).length );
+    let _option                          = _row.querySelector( ".single-select-option[data-value='Arcanes']" );
+    TEST.ASSERT.notNull( _option, "Pre-condition : option Arcanes rendue" );
+    if ( !_option ) {
+        return;
+    }
+    _option.click();
     return TEST.wait().then( function () {
         TEST.ASSERT.ok( _increase.isActive(), "Choisir une compétence devrait valider la ligne, obtenu : " + _increase.isActive() );
         TEST.ASSERT.equal( _row.dataset.currentPhase, "SELECTED", "La ligne validée devrait porter la phase SELECTED, obtenu : " + _row.dataset.currentPhase );

@@ -7,7 +7,7 @@
  *    de validation en pilule sans texte (.level-up-row-toggle : piste
  *    allongee aux bouts ronds + bouton coulissant .level-up-row-toggle-knob,
  *    pas de libelle), la ligne ecole arcanique porte un selecteur de choix
- *    (.level-up-row-select, option vide + 11 ecoles : choisir une valeur
+ *    (composant sélecteur, option vide + 11 ecoles : choisir une valeur
  *    valide la ligne), tout eteint par defaut : ligne en attente, counter de ligne a 1 visible,
  *    warning global et counter de l'onglet a 5 + les K competences
  *    supplementaires (2 + mod INT), chacune un selecteur des 17 competences.
@@ -86,16 +86,19 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
             let _row                      = _rows[ _i ];
             let _choice_options           = _row.dataset.slotKey === "ecole_arcanique" ? 12 : ( _row.dataset.slotKey === "these_arcanique" ? 6 : ( _row.dataset.slotKey.indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ? 18 : 0 ) );
             if ( _choice_options > 0 ) {
-                // Ligne à choix : le sélecteur remplace l'interrupteur, choisir une valeur valide la ligne
-                let _select               = _row.querySelector( ".level-up-row-select" );
-                TEST.ASSERT.notNull( _select, "La ligne " + _row.dataset.slotKey + " devrait porter son sélecteur de choix (.level-up-row-select)" );
-                if ( !_select ) {
+                // Ligne à choix : le composant sélecteur remplace l'interrupteur, choisir une valeur valide la ligne
+                let _selector            = _row.querySelector( ".single-select-selector" );
+                TEST.ASSERT.notNull( _selector, "La ligne " + _row.dataset.slotKey + " devrait porter son sélecteur de choix (.single-select-selector)" );
+                if ( !_selector ) {
                     return;
                 }
-                TEST.ASSERT.equal( _select.value, "", "Le sélecteur devrait etre sur l'option vide par défaut, obtenu : [" + _select.value + "]" );
-                TEST.ASSERT.equal( _select.options.length, _choice_options, "Le sélecteur de " + _row.dataset.slotKey + " devrait proposer l'option vide + ses entrées, obtenu : " + _select.options.length );
-                let _onchange              = _select.getAttribute( "onchange" ) || "";
-                TEST.ASSERT.ok( _onchange.indexOf( "event__level_up__select_choice" ) !== -1, "Le sélecteur devrait emettre event__level_up__select_choice, obtenu : " + _onchange );
+                TEST.ASSERT.equal( _row.querySelector( ".single-select-selector-label" ).textContent, "--", "Le sélecteur devrait etre sur l'option vide par défaut, obtenu : [" + _row.querySelector( ".single-select-selector-label" ).textContent + "]" );
+                let _options             = _row.querySelectorAll( ".single-select-option" );
+                TEST.ASSERT.equal( _options.length, _choice_options, "Le sélecteur de " + _row.dataset.slotKey + " devrait proposer l'option vide + ses entrées, obtenu : " + _options.length );
+                let _onclick             = _options[ 1 ].getAttribute( "onclick" ) || "";
+                TEST.ASSERT.ok( _onclick.indexOf( "event__level_up__select_choice" ) !== -1, "Les options devraient emettre event__level_up__select_choice, obtenu : " + _onclick );
+                let _ontoggle            = _selector.getAttribute( "onclick" ) || "";
+                TEST.ASSERT.ok( _ontoggle.indexOf( "event__level_up__toggle_selector" ) !== -1, "Le header devrait emettre event__level_up__toggle_selector, obtenu : " + _ontoggle );
             }
             else {
                 let _toggle                = _row.querySelector( ".level-up-row-toggle" );
@@ -257,13 +260,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
     if ( !_row ) {
         return;
     }
-    let _select                           = _row.querySelector( ".level-up-row-select" );
-    TEST.ASSERT.notNull( _select, "Pre-condition : sélecteur de choix rendu" );
-    if ( !_select ) {
+    let _option                           = _row.querySelector( ".single-select-option[data-value='École du mentalisme']" );
+    TEST.ASSERT.notNull( _option, "Pre-condition : option École du mentalisme rendue" );
+    if ( !_option ) {
         return;
     }
-    _select.value                         = "École du mentalisme";
-    _select.dispatchEvent( new Event( "change" ) );
+    _option.click();
     return TEST.wait( 300 ).then( function () {
         let _skill                         = _character.getLevelHistory().getContentByUUID( "1" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill, "Le skill école arcanique devrait rester dans le conteneur apres bascule" );
@@ -277,10 +279,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
             return;
         }
         TEST.ASSERT.ok( _row_after.dataset.currentPhase === "SELECTED", "La ligne validée devrait etre en phase SELECTED, obtenu : " + _row_after.dataset.currentPhase );
-        let _select_after                 = _row_after.querySelector( ".level-up-row-select" );
-        TEST.ASSERT.notNull( _select_after, "La ligne devrait toujours porter son sélecteur apres bascule" );
-        if ( _select_after ) {
-            TEST.ASSERT.equal( _select_after.value, "École du mentalisme", "Le sélecteur devrait afficher l'école choisie, obtenu : [" + _select_after.value + "]" );
+        let _label_after                  = _row_after.querySelector( ".single-select-selector-label" );
+        TEST.ASSERT.notNull( _label_after, "La ligne devrait toujours porter son sélecteur apres bascule" );
+        if ( _label_after ) {
+            TEST.ASSERT.equal( _label_after.textContent, "École du mentalisme", "Le sélecteur devrait afficher l'école choisie, obtenu : [" + _label_after.textContent + "]" );
         }
         let _other_row                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='lien_arcanique']" );
         let _other_toggle                 = _other_row ? _other_row.querySelector( ".level-up-row-toggle" ) : null;
@@ -326,13 +328,12 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
     if ( !_row ) {
         return;
     }
-    let _select                           = _row.querySelector( ".level-up-row-select" );
-    TEST.ASSERT.notNull( _select, "Pre-condition : sélecteur de choix rendu" );
-    if ( !_select ) {
+    let _option                           = _row.querySelector( ".single-select-option[data-value='']" );
+    TEST.ASSERT.notNull( _option, "Pre-condition : option vide rendue" );
+    if ( !_option ) {
         return;
     }
-    _select.value                         = "";
-    _select.dispatchEvent( new Event( "change" ) );
+    _option.click();
     return TEST.wait( 300 ).then( function () {
         let _skill_after                  = _character.getLevelHistory().getContentByUUID( "1" ).getContentByUUID( "1__ecole_arcanique" );
         TEST.ASSERT.notNull( _skill_after, "Le skill école arcanique devrait rester dans le conteneur apres la seconde bascule" );
@@ -348,10 +349,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
             return;
         }
         TEST.ASSERT.ok( _row_after.dataset.currentPhase === "RUNNING", "La ligne devrait etre de nouveau en phase RUNNING apres la seconde bascule, obtenu : " + _row_after.dataset.currentPhase );
-        let _select_after                 = _row_after.querySelector( ".level-up-row-select" );
-        TEST.ASSERT.notNull( _select_after, "La ligne devrait toujours porter son sélecteur" );
-        if ( _select_after ) {
-            TEST.ASSERT.equal( _select_after.value, "", "Le sélecteur devrait etre de retour sur l'option vide, obtenu : [" + _select_after.value + "]" );
+        let _label_after                  = _row_after.querySelector( ".single-select-selector-label" );
+        TEST.ASSERT.notNull( _label_after, "La ligne devrait toujours porter son sélecteur" );
+        if ( _label_after ) {
+            TEST.ASSERT.equal( _label_after.textContent, "--", "Le sélecteur devrait etre de retour sur l'option vide, obtenu : [" + _label_after.textContent + "]" );
         }
         let _row_counter_after            = _row_after.querySelector( ".gs-warnings-counter" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait porter son counter de warning apres la seconde bascule" );
@@ -385,14 +386,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
     let _additional_count                 = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
     let _toggles                         = _block.querySelectorAll( ".level-up-row-toggle" );
     TEST.ASSERT.equal( _toggles.length, 3, "Pre-condition : 3 interrupteurs rendus dans le bloc du niveau 1, obtenu : " + _toggles.length );
-    TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-select" ).length, 2 + _additional_count, "Pre-condition : 2 sélecteurs de capacité (école, thèse) + " + _additional_count + " compétences supplémentaires rendus, obtenu : " + _block.querySelectorAll( ".level-up-row-select" ).length );
+    TEST.ASSERT.equal( _block.querySelectorAll( ".single-select-container" ).length, 2 + _additional_count, "Pre-condition : 2 sélecteurs de capacité (école, thèse) + " + _additional_count + " compétences supplémentaires rendus, obtenu : " + _block.querySelectorAll( ".single-select-container" ).length );
     let _rows                           = _block.querySelectorAll( ".level-up-row" );
     for ( let _i = 0; _i < _rows.length; _i++ ) {
         if ( _rows[ _i ].dataset.currentPhase !== "SELECTED" ) {
-            let _select                   = _rows[ _i ].querySelector( ".level-up-row-select" );
-            if ( _select ) {
-                _select.value             = _select.options[ 1 ].value;
-                _select.dispatchEvent( new Event( "change" ) );
+            let _option                   = _rows[ _i ].querySelector( ".single-select-option:not([data-value=''])" );
+            if ( _option ) {
+                _option.click();
             }
             else {
                 _rows[ _i ].querySelector( ".level-up-row-toggle" ).click();

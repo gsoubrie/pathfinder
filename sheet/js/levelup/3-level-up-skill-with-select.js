@@ -72,76 +72,44 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         CHARACTER.LevelUpSkillBasic.prototype.computeHtml.call( this, class_name );
     },
     _computeHtmlValidation: function () {
-        if ( LEVELUP.FEAT_TYPES.indexOf( this.type ) !== -1 ) {
-            this._computeHtmlSelect();
-            return;
-        }
-        let select = SERVICE.DOM.createElement( "select", {
-            class   : "level-up-row-select",
-            onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__select_choice',{'param__level_up_skill__uuid':'" + this.uuid + "','param__choice_value':this.value})"
-        } );
-        this._buildSelectOptions( select );
-        SERVICE.DOM.addElementTo( select, this.dom_element );
-    },
-    // A native select cannot host a "?" per option: the feat lines render the
-    // single select component of the lib pattern, every option carries its
-    // own info link
-    _computeHtmlSelect: function () {
         this.select_component = new COMPONENT.SingleSelectFromData();
         this.select_component.addParamsForEvents( { "param__level_up_skill__uuid": this.uuid } );
         this.select_component.setToggleEventName( "event__level_up__toggle_selector" );
         this.select_component.setClickEventName( "event__level_up__select_choice" );
-        this.select_component.setInfoEvent( "event__show_information__feat", { "param__feat_category": this.type === "skill_feat" ? "skill" : "class" }, "param__feat_name" );
-        this.select_component.setOptions( this.options );
+        if ( LEVELUP.FEAT_TYPES.indexOf( this.type ) !== -1 ) {
+            this.select_component.setInfoEvent( "event__show_information__feat", { "param__feat_category": this.type === "skill_feat" ? "skill" : "class" }, "param__feat_name" );
+        }
+        this.select_component.setOptions( this._getAvailableOptions() );
         this.select_component.setSelectedName( this.selected_value );
         this.select_component.computeHtml();
         SERVICE.DOM.addElementTo( this.select_component.getDomElement(), this.dom_element );
     },
     // A qualification cannot be taken twice: the entry passes the values
-    // already chosen by the sibling lines, the line rebuilds its options
-    _buildSelectOptions: function ( select ) {
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { value: "" }, "—" ), select );
-        let options = this.options;
-        for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
-            if ( this.taken_values.indexOf( options[ i ].name ) !== -1 ) {
+    // already chosen by the sibling lines, they leave the options
+    _getAvailableOptions: function () {
+        let to_return = [];
+        for ( let i = 0, _size_i = this.options.length; i < _size_i; i++ ) {
+            if ( this.taken_values.indexOf( this.options[ i ].name ) !== -1 ) {
                 continue;
             }
-            let option = SERVICE.DOM.createElement( "option", { value: options[ i ].name }, options[ i ].name );
-            if ( this.selected_value === options[ i ].name ) {
-                option.selected = true;
-            }
-            SERVICE.DOM.addElementTo( option, select );
+            to_return.push( this.options[ i ] );
         }
+        return to_return;
     },
+    // A sibling chose or cleared its value: the taken values move
     updateSelectOptions: function ( taken_values ) {
         this.taken_values = taken_values || [];
-        if ( !this.dom_element ) {
-            return;
+        if ( this.select_component ) {
+            this.select_component.setOptions( this._getAvailableOptions() );
         }
-        let select = this.dom_element.querySelector( ".level-up-row-select" );
-        if ( !select ) {
-            return;
-        }
-        SERVICE.DOM.empty( select );
-        this._buildSelectOptions( select );
     },
     // The feat lines receive their options by sync, after their build: the
     // available feats depend on the character state
     setOptions: function ( options ) {
         this.options = options;
         if ( this.select_component ) {
-            this.select_component.setOptions( options );
-            return;
+            this.select_component.setOptions( this._getAvailableOptions() );
         }
-        if ( !this.dom_element ) {
-            return;
-        }
-        let select = this.dom_element.querySelector( ".level-up-row-select" );
-        if ( !select ) {
-            return;
-        }
-        SERVICE.DOM.empty( select );
-        this._buildSelectOptions( select );
     },
     updateHtml: function () {
         if ( this.select_component ) {

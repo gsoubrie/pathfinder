@@ -73,6 +73,25 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN 10] cinq prises → niveau 10, état co
             // décrite), hors liste déroulante
             let _capacity_infos             = _block_2.querySelectorAll( ".level-up-row-label-group .level-up-row-info" );
             TEST.ASSERT.equal( _capacity_infos.length, 2, "Chaque ligne de don du niveau 2 devrait porter le ? de sa capacité, obtenu : " + _capacity_infos.length );
+            // Le clic sur le sélecteur ouvre la liste : l'état vit dans le
+            // data-state-selector du conteneur, la liste s'affiche
+            if ( _class_feat_dropdown ) {
+                let _selector_header          = _class_feat_dropdown.querySelector( ".single-select-selector" );
+                TEST.ASSERT.notNull( _selector_header, "Le sélecteur de Don de magicien devrait porter son header cliquable" );
+                let _class_list               = _class_feat_dropdown.querySelector( ".single-select-list" );
+                TEST.ASSERT.notNull( _class_list, "Le sélecteur de Don de magicien devrait porter sa liste d'options" );
+                if ( _selector_header && _class_list ) {
+                    _selector_header.click();
+                    return TEST.wait().then( function () {
+                        TEST.ASSERT.equal( _class_feat_dropdown.getAttribute( "data-state-selector" ), "1", "Le clic sur le sélecteur devrait ouvrir la liste (data-state-selector a 1), obtenu : [" + _class_feat_dropdown.getAttribute( "data-state-selector" ) + "]" );
+                        TEST.ASSERT.notEqual( getComputedStyle( _class_list ).display, "none", "La liste ouverte devrait etre affichée, obtenu : " + getComputedStyle( _class_list ).display );
+                        _selector_header.click();
+                        return TEST.wait();
+                    } ).then( function () {
+                        TEST.ASSERT.equal( _class_feat_dropdown.getAttribute( "data-state-selector" ), "0", "Le second clic devrait refermer la liste, obtenu : [" + _class_feat_dropdown.getAttribute( "data-state-selector" ) + "]" );
+                    } );
+                }
+            }
         }
         // Rien ne doit rester sous le pli : le dernier bloc est révélé au
         // scroll (ou tient dans la fenêtre), la dernière ligne du bloc 1

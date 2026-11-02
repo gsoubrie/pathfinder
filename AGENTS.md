@@ -337,30 +337,39 @@ niveau 5, "expertise en réflexes" validée) :
 
 ### État au moment de la pause
 
-- Tout le chantier est dans le working tree, **non commis** : domaines `levelup`
-  + `mastery`, zone jets/compétences du Général (grille 7 colonnes + CSS
-  `sheet_general.css`), `constant_skill_actions.js` (scrap grimoire-vf),
-  popups (`SkillActionsPopupRenderer`, fermeture au clic hors zone),
-  `character.js`, `popups.js`, `popup.js`, `main-controller.js`, fenêtres.
-- Modèle : deux classes de lignes au passage de niveau (Round 11) —
-  `LevelUpSkillBasic` (interrupteur on/off sans texte) et
-  `LevelUpSkillWithSelect` (sélecteur de choix, la valeur choisie EST la
-  validation, ex. école arcanique) ; seules les capacités validées
-  alimentent les calculs. Le Général
-  affiche Perception/Initiative + 3 sauvegardes + 17 compétences avec jets
-  complets, actions de compétence au clic (utilisables/verrouillées selon le
-  rang).
-- Valeurs SANS "+" (le moins seul au besoin), pas de gras ni majuscules dans
-  la zone (règles ci-dessus).
-- Syntaxe validée par Node sur tous les fichiers touchés ; le run complet
-  `tests.html` (5 scénarios de la chaîne) **a passé** — validé par
-  l'utilisateur après le Round 11 (ligne à choix par sélecteur incluse :
-  école arcanique se valide en choisissant une école, se dévalide sur
-  l'option vide, save→load restaure le choix).
-- `constant_class.js` est un fichier de données scrapées : ne pas l'éditer pour
-  corriger des incohérences — passer par les cartes écrites à la main
-  (`ABILITY_ALIASES`, `MASTERY_UPGRADES`) qui survivent au re-scrap. Idem
-  `constant_skill_actions.js` : re-scrap, jamais d'édition manuelle.
+- **Non commis** (depuis le commit `53fb278 review code 4`, qui porte les
+  Rounds 12-23) : le working tree contient les Rounds 24-29 — le nettoyage
+  des textes scrapés (outil `sheet/tools/clean_scraped_text.js`), le "?"
+  par option de don, le composant `COMPONENT.SingleSelectFromData` en lib,
+  l'uniformisation de TOUS les sélecteurs sur ce composant, le "?" de
+  popup branché dans les DEUX listes de contrôleurs, les correctifs CSS
+  (hauteurs bornées de la fenêtre levelup, `overflow` du bloc retiré,
+  popup overlay centrée en flex, animation vivante), et les scénarios
+  passés aux clics d'options du composant.
+- Modèle : TOUTES les lignes à choix du passage de niveau rendent le
+  composant `COMPONENT.SingleSelectFromData` (école, thèse, compétences
+  supplémentaires, améliorations, dons — le "?" par option réservé aux
+  dons) ; les lignes simples restent des interrupteurs sans texte ;
+  seules les capacités validées alimentent les calculs (collecte par
+  événement, boîtes noires).
+- Les dons se choisissent : `DON.getAvailableSkillFeats` (niveau +
+  prérequis parsés) / `DON.getAvailableClassFeats` (trait de classe) ;
+  le "?" ouvre la popup "feat" par nom (`DON.getFeatInformation`) ; le
+  choix d'un don sur plusieurs lignes peut encore dupliquer le même don
+  (à trancher — voir Round 23).
+- La chaîne de tests court EN DERNIER dans tests.html : le run se termine
+  sur le Magicien niveau 10, l'utilisateur reprend la feuille à cet état.
+- Syntaxe validée par Node sur tous les fichiers touchés ; le dernier run
+  complet `tests.html` a passé avant les Rounds 24-29 — **le run des
+  Rounds 24-29 reste à lancer** : ouverture du sélecteur (header clic),
+  "?" de don dans la liste ouverte, uniformisation de toutes les lignes à
+  choix, popup feat centrée.
+- `constant_class.js`, `constant_gift_*.js` et
+  `constant_skill_actions.js` sont des données scrapées : jamais
+  d'édition manuelle — les corrections passent par
+  `sheet/tools/clean_scraped_text.js` (icônes collées) et les cartes
+  écrites à la main (`ABILITY_ALIASES`, `MASTERY_UPGRADES`,
+  `CHOICE_MASTERIES`).
 
 ## À faire (dans l'ordre logique)
 
@@ -666,6 +675,37 @@ triangle CSS (span vide peinte par le CSS, plus de caractère), option
 sélectionnée teintée + `pointer-events: none` (on ne re-choisit pas
 l'option courante), `overflow-x: hidden`, `max-height` 250, z-index 100 —
 couleurs via les variables `--*` du thème Pathfinder.
+PIÈGE du plat (trouvé au run) : un NOUVEL événement de fenêtre doit etre
+ajouté à la liste du CONTRÔLEUR Character
+(`character-controller.js` : `windows.doActionAfterContentChildren`) —
+fenêtre → personnage → historique → entrée — sinon il tombe dans le vide
+du switch du contrôleur. Le scénario couvre maintenant l'ouverture : clic
+header → `data-state-selector` à 1 + liste affichée, second clic →
+refermée.
+Round 28 = retours UI du sélecteur (demande utilisateur) : (a) le header
+a une taille minimale conséquente (`min-width: 190px`) et une borne
+(`max-width: 260px`), le libellé ellipsé ; (b) le `overflow: hidden` du
+`.level-up-block` est RETIRÉ — la liste ouverte du sélecteur y vivait
+clippée (position absolue coupée au bord du bloc, liste minuscule) : un
+conteneur qui doit laisser sortir un menu ne peut pas clipper ses
+enfants. Les coins arrondis du bloc restent (les lignes sont
+transparentes, rien ne perce).
+Round 29 = uniformisation (demande utilisateur) : TOUTES les lignes à
+choix rendent le composant `COMPONENT.SingleSelectFromData` (école
+arcanique, thèse, compétences supplémentaires, améliorations, dons) — le
+select natif disparaît de la feuille (le "?" par option reste réservé
+aux dons, via `setInfoEvent`). Le filtre des valeurs prises vit dans la
+ligne (`_getAvailableOptions` : options moins `taken_values`), alimenté
+par `computeHtml( class_name, taken_values )` et
+`updateSelectOptions( taken_values )`. PIÈGE (encore le plat) : le "?"
+des options n'ouvrait rien — `event__show_information__feat` manquait à
+la liste popup du CONTRÔLEUR Main : un événement popup se déclare dans
+Main (popups), un événement de fenêtre dans Character
+(windows.doActionAfterContentChildren) — DEUX listes à penser. Les
+scénarios cliquent les options du composant (`.single-select-option
+[data-value=...]`, `.click()` — le clic JS fonctionne même liste fermée)
+au lieu de `select.value` + dispatch change ; le CSS mort du select
+natif est retiré.
 
 ### Style, commentaires, nommage
 

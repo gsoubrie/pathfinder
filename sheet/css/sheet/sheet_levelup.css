@@ -71,7 +71,6 @@
     background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
     border        : 1px solid #6b4e2a;
     border-radius : 8px;
-    overflow      : hidden;
 }
 
 .level-up-window .level-up-block-title {
@@ -206,36 +205,6 @@
     background : var(--c-text-dark);
     left       : 19px;
 }
-
-/* ── Sélecteur de validation (ligne à choix) : choisir une valeur valide la ligne ── */
-.level-up-window .level-up-row-select {
-    background   : var(--c-bg-card);
-    border       : var(--b-thin) solid var(--c-border-dark);
-    border-radius: var(--r-sm);
-    color        : var(--c-text);
-    cursor       : pointer;
-    flex-shrink  : 0;
-    font-size    : 12px;
-    max-width    : 190px;
-    padding      : 2px 6px;
-    transition   : all 0.15s ease;
-}
-
-.level-up-window .level-up-row-select:hover {
-    border-color : var(--c-gold-dark);
-}
-
-.level-up-window .level-up-row-select option {
-    background : var(--c-bg-card);
-    color      : var(--c-text);
-}
-
-.level-up-window .level-up-row[data-current-phase='SELECTED'] .level-up-row-select {
-    border-color : var(--c-gold-light);
-    box-shadow   : var(--sh-gold-sm);
-    color        : var(--c-text-gold);
-}
-
 /* ── Sélecteur simple (composant lib) : header + liste d'options, un "?"
       par option, état ouvert dans le data-state-selector ── */
 .level-up-window .single-select-container {
@@ -254,7 +223,8 @@
     font-size    : 12px;
     gap          : var(--s-sm);
     justify-content: space-between;
-    max-width    : 190px;
+    max-width    : 260px;
+    min-width    : 190px;
     padding      : 2px 6px;
     transition   : all 0.15s ease;
     white-space  : nowrap;
@@ -275,8 +245,15 @@
     border-left : 4px solid transparent;
     border-right: 4px solid transparent;
     border-top  : 4px solid var(--c-text-muted);
+    flex        : 0 0 auto;
     height      : 0;
     width       : 0;
+}
+
+.level-up-window .single-select-selector-label {
+    flex         : 1 1 auto;
+    overflow     : hidden;
+    text-overflow: ellipsis;
 }
 
 .level-up-window .single-select-list {
@@ -324,7 +301,17 @@
 }
 
 .level-up-window .single-select-option-label {
-    font-size : 12px;
+    flex         : 1 1 auto;
+    font-size    : 12px;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+
+/* Le "?" reste dedans : le libellé ellipsé, le lien d'info fixe */
+.level-up-window .single-select-option .level-up-row-info {
+    flex        : 0 0 auto;
+    padding-left: var(--s-sm);
 }
 
 /* ===== Sélecteur de classe (multiclasse) ===== */

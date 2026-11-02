@@ -35,13 +35,13 @@ TEST.RUNNER.register( "[COMPETENCES SUPPLEMENTAIRES] lignes niveau 1 = 2 + mod I
         return;
     }
     for ( let _i = 0; _i < _rows.length; _i++ ) {
-        let _select                       = _rows[ _i ].querySelector( ".level-up-row-select" );
-        TEST.ASSERT.notNull( _select, "Chaque compétence supplémentaire devrait porter son sélecteur, ligne " + _i );
-        if ( !_select ) {
+        let _selector                     = _rows[ _i ].querySelector( ".single-select-selector" );
+        TEST.ASSERT.notNull( _selector, "Chaque compétence supplémentaire devrait porter son sélecteur, ligne " + _i );
+        if ( !_selector ) {
             return;
         }
-        TEST.ASSERT.equal( _select.options.length, 18, "Le sélecteur devrait proposer l'option vide + les 17 compétences, ligne " + _i + ", obtenu : " + _select.options.length );
-        TEST.ASSERT.equal( _select.value, "", "La compétence supplémentaire non validée devrait porter l'option vide, ligne " + _i + ", obtenu : [" + _select.value + "]" );
+        TEST.ASSERT.equal( _rows[ _i ].querySelectorAll( ".single-select-option" ).length, 18, "Le sélecteur devrait proposer l'option vide + les 17 compétences, ligne " + _i + ", obtenu : " + _rows[ _i ].querySelectorAll( ".single-select-option" ).length );
+        TEST.ASSERT.equal( _rows[ _i ].querySelector( ".single-select-selector-label" ).textContent, "--", "La compétence supplémentaire non validée devrait porter l'option vide, ligne " + _i + ", obtenu : [" + _rows[ _i ].querySelector( ".single-select-selector-label" ).textContent + "]" );
         TEST.ASSERT.equal( _rows[ _i ].dataset.currentPhase, "RUNNING", "Toute ligne en attente devrait porter la phase RUNNING, ligne " + _i + ", obtenu : " + _rows[ _i ].dataset.currentPhase );
     }
 } );
@@ -67,14 +67,13 @@ TEST.RUNNER.register( "[COMPETENCES SUPPLEMENTAIRES] choix Diplomatie = rang Q, 
     if ( !_row ) {
         return;
     }
-    let _select                           = _row.querySelector( ".level-up-row-select" );
-    TEST.ASSERT.notNull( _select, "La première compétence supplémentaire devrait porter son sélecteur" );
-    if ( !_select ) {
+    let _diplomacy_option                 = _row.querySelector( ".single-select-option[data-value='Diplomatie']" );
+    TEST.ASSERT.notNull( _diplomacy_option, "La première compétence supplémentaire devrait proposer Diplomatie" );
+    if ( !_diplomacy_option ) {
         return;
     }
-    _select.value                         = "Diplomatie";
-    _select.dispatchEvent( new Event( "change" ) );
-    let _other_select                     = null;
+    _diplomacy_option.click();
+    let _other_row                        = null;
     return TEST.wait().then( function () {
         TEST.ASSERT.ok( _first_line.isActive(), "Choisir une compétence devrait valider la ligne, obtenu : " + _first_line.isActive() );
         TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, "skill__diplomacy" ), "Q", "Diplomatie devrait etre Qualifiée après le choix, obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__diplomacy" ) );
@@ -90,34 +89,26 @@ TEST.RUNNER.register( "[COMPETENCES SUPPLEMENTAIRES] choix Diplomatie = rang Q, 
             }
         }
         TEST.ASSERT.ok( _has_additional_source, "Les sources de Diplomatie devraient citer la compétence supplémentaire du niveau 1, obtenu : " + JSON.stringify( _slot_data.sources ) );
-        _other_select                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='additional_skill_1'] .level-up-row-select" );
-        TEST.ASSERT.notNull( _other_select, "Pre-condition : sélecteur de la seconde compétence supplémentaire rendu" );
-        if ( _other_select ) {
-            let _has_diplomacy            = false;
-            for ( let _o = 0, _size_o = _other_select.options.length; _o < _size_o; _o++ ) {
-                if ( _other_select.options[ _o ].value === "Diplomatie" ) {
-                    _has_diplomacy        = true;
-                }
-            }
-            TEST.ASSERT.notOk( _has_diplomacy, "Le sélecteur de la seconde ligne ne devrait plus proposer Diplomatie (déjà qualifiée par la première), obtenu : " + _has_diplomacy );
+        _other_row                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='additional_skill_1']" );
+        TEST.ASSERT.notNull( _other_row, "Pre-condition : seconde compétence supplémentaire rendue" );
+        if ( _other_row ) {
+            TEST.ASSERT.isNull( _other_row.querySelector( ".single-select-option[data-value='Diplomatie']" ), "Le sélecteur de la seconde ligne ne devrait plus proposer Diplomatie (déjà qualifiée par la première), obtenu : rendue" );
         }
-        _select.value                     = "";
-        _select.dispatchEvent( new Event( "change" ) );
+        let _empty_option                 = _row.querySelector( ".single-select-option[data-value='']" );
+        TEST.ASSERT.notNull( _empty_option, "Pre-condition : option vide rendue" );
+        _empty_option.click();
         return TEST.wait();
     } ).then( function () {
         TEST.ASSERT.ok( !_first_line.isActive(), "Vider le sélecteur devrait dévalider la ligne, obtenu : " + !_first_line.isActive() );
         TEST.ASSERT.isNull( _character.getMasteries().getFinalRank( _character, "skill__diplomacy" ), "Diplomatie devrait perdre son rang quand aucune ligne ne la porte, obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__diplomacy" ) );
-        if ( _other_select ) {
-            let _has_diplomacy_again      = false;
-            for ( let _o = 0, _size_o = _other_select.options.length; _o < _size_o; _o++ ) {
-                if ( _other_select.options[ _o ].value === "Diplomatie" ) {
-                    _has_diplomacy_again  = true;
-                }
-            }
-            TEST.ASSERT.ok( _has_diplomacy_again, "Le sélecteur de la seconde ligne devrait proposer Diplomatie de nouveau après le vidage de la première, obtenu : " + _has_diplomacy_again );
+        if ( _other_row ) {
+            TEST.ASSERT.notNull( _other_row.querySelector( ".single-select-option[data-value='Diplomatie']" ), "Le sélecteur de la seconde ligne devrait proposer Diplomatie de nouveau après le vidage de la première, obtenu : absente" );
         }
-        _select.value                     = "Diplomatie";
-        _select.dispatchEvent( new Event( "change" ) );
+        _diplomacy_option                  = _row.querySelector( ".single-select-option[data-value='Diplomatie']" );
+        if ( !_diplomacy_option ) {
+            return;
+        }
+        _diplomacy_option.click();
         return TEST.wait();
     } ).then( function () {
         TEST.ASSERT.ok( _first_line.isActive(), "Re-choisir une compétence devrait valider la ligne de nouveau, obtenu : " + _first_line.isActive() );

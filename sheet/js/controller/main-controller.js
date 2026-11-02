@@ -12,6 +12,7 @@ CONTROLLER.Main = (function ( self ) {
             case "event__show_information__class_ability":
             case "event__show_information__masteries":
             case "event__show_information__skill_actions":
+            case "event__show_information__feat":
             case "event__popup__close":
                 self.popups_object.doActionAfter( event_name, params );
                 return;
