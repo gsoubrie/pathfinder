@@ -115,7 +115,10 @@ lignes un jour), et le warning global de la fenêtre.
   (`setIsActive( !isActive() )`, Round 10 : la phase de la ligne est la
   donnée), `select_choice` — le porteur stocke la valeur choisie
   (`setSelectedValue`, Round 11), `remove_level` pousse 0 au compteur de
-  CHAQUE ligne AVANT que le personnage retire l'entrée (pas de clé fantôme).
+  CHAQUE ligne AVANT que le personnage retire l'entrée (pas de clé fantôme),
+  `get__rank_contributions` — l'entrée active pose `param__class_name` et
+  re-broadcast à ses lignes, la ligne validée pousse ses upgrades dans le
+  plat (Round 15).
 - `CHARACTER.LevelsHistory` (`1-levels-history.js`, conteneur) — diffuse les
   événements aux entrées (le parent `OBJECT.InterfaceContainer` broadcast,
   son `doActionAfter` ne les avalait pas avant le Round 6) et porte
@@ -168,7 +171,7 @@ lignes un jour), et le warning global de la fenêtre.
   (rang I + bonus 0 si non maîtrisée), modificateur, niveau. Jet complet
   PF2 = niveau + modificateur de caractéristique + bonus de rang
   (`MASTERY.LIST[*].bonus`), calcul domaine dans
-  `CHARACTER.Masteries.getSaveModifier( { slot, characteristic } )`.
+  `CHARACTER.Masteries.getRollModifier( { slot, characteristic } )`.
 - Clic : ligne de jet → popup maîtrises (`event__show_information__masteries`),
   ligne de compétence → popup des actions
   (`event__show_information__skill_actions` + `param__skill`).
@@ -206,13 +209,19 @@ lignes un jour), et le warning global de la fenêtre.
   "Perception / Initiative", SAG) puis les 3 sauvegardes, chacune avec sa
   caractéristique. `MASTERY.getSkillSlot( label )` → `"skill__" + getAbilityKey`.
 - `CHARACTER.Masteries` (`masteries.js`) — sur le personnage, **état dérivé non
-  sauvegardé**, calculé à la demande. `getSourcesData()` = contributions du
-  bloc `mastery` initial de chaque classe posée (source `"<classe> — maîtrises
-  initiales"`) + upgrades des capacités **validées** du passage de niveau
-  (source `"<capacité> (niveau N)"`). `getDataBySlot()` garde par slot les
+  sauvegardé**, calculé à la demande, **sans héritage d'interface** (il ne rend
+  jamais de HTML). `getRankContributions()` collecte par événement
+  (`event__get__rank_contributions`, plat `param__rank_contributions`) : le
+  plat part au personnage, qui route à ses domaines — les objets restent des
+  boîtes noires. Chaque
+  classe posée pousse son bloc `mastery` initial (source `"<classe> — maîtrises
+  initiales"`), chaque ligne validée du passage de niveau pousse ses upgrades
+  (source `"<capacité> (niveau N)"` — l'entrée pose `param__class_name` et
+  broadcast à ses lignes, une entrée désactivée ne participe pas).
+  `getDataBySlot()` garde par slot les
   sources qui portent le rang final : la popup maîtrises les affiche sous
   chaque ligne (`.class-mastery-sources`).
-- `getSaveModifier( { slot, characteristic } )` — jet complet PF2 utilisé par
+- `getRollModifier( { slot, characteristic } )` — jet complet PF2 utilisé par
   la zone jets ET les compétences (rang inconnu → bonus 0).
 - `CLASSES.MASTERY_UPGRADES` (`constant_class_choices.js`) — carte écrite à la
   main (validée par l'utilisateur) : capacité → `[{ slot, rank }]`, pour les
@@ -349,12 +358,11 @@ niveau 5, "expertise en réflexes" validée) :
    `save__volonte` → `save__will`, `skill__acrobaties` → `skill__acrobatics`,
    `maitrises_initiales` → `initial_masteries`, etc. — d'une traite, clé par
    clé, données (`SLOT_KEYWORDS`, `MASTERY_UPGRADES`) + code + tests.
-7. `CHARACTER.Masteries` stocke encore `this.character` depuis son
-   constructeur (`new CHARACTER.Masteries( this )`) : contraire à la règle
-   Review code "pas de référence au parent stockée dans l'enfant". À régler
-   quand on relit le domaine mastery — la dépendance passera par
-   `param__current_character__object` dans les appels des popups et de la
-   zone jets.
+7. ~~`CHARACTER.Masteries` stocke encore `this.character` depuis son
+   constructeur~~ — résolu : toutes les méthodes de `Masteries` prennent le
+   personnage en premier paramètre (`getFinalRank( character_object, ... )`),
+   le constructeur est `new CHARACTER.Masteries()` sans dépendance, et la
+   classe vit hors des `children` du personnage (état dérivé non sauvegardé).
 8. Pass de nettoyage gras/majuscules existants (levelup, popups) selon la
    règle d'affichage ci-dessus.
 9. Renommage des fichiers JS en kebab-case (règle Review code ci-dessous),
@@ -415,12 +423,43 @@ conteneur au chargement — le conteneur pose le `class_level_number`
 (ordinal de la classe, calcul multiclasse) sur l'entrée avant son
 `updateData`, `buildSkills()` du conteneur ne sert plus que la prise de
 niveau et l'ajout de classe.
+Round 14 = relecture du domaine mastery : `CHARACTER.Masteries` ne descend
+plus de `OBJECT.InterfaceHtml` (objet de calcul sans rendu), les closures
+de `getSkillActionsInformationData` deviennent la méthode privée
+`_getSkillActionData`, les commentaires qui répètent le code partent, et
+`getSaveModifier` devient `getRollModifier` (le nom ne doit pas évoquer
+la sauvegarde du personnage, et la méthode sert aussi bien les
+compétences que les sauvegardes).
+Round 15 = la collecte des rangs passe par événement : `getSourcesData`
+devient `getRankContributions` et ne fouille plus les conteneurs — elle
+pose le plat et le passe au PERSONNAGE seul (`doActionAfter`), qui route
+à ses domaines : les objets restent des boîtes noires, seule la structure
+du personnage connaît ses parties. Chaque objet pousse ses contributions
+dans le plat (`param__rank_contributions`) : la classe pousse ses
+maîtrises initiales, l'entrée d'historique (active) pose
+`param__class_name` et re-broadcast à ses lignes, la ligne validée pousse
+ses upgrades.
 
 ### Style, commentaires, nommage
 
 - Pas de prose descriptive dans le bloc JSDoc d'une classe : seul
   `@class` / `@extends` reste.
-- Pas de commentaire qui répète ce que le code montre déjà.
+- Un commentaire ne se pose PAS par défaut : il ne survit que s'il porte une
+  connaissance que le code ne peut pas montrer (règle PF2 non lisible dans
+  l'opération, piège de la lib, format de données scrapées). Tout commentaire
+  qui explique ce que la ligne d'à côté montre (un `if` de garde, un nom de
+  méthode, une valeur de retour) se supprime. En cas de doute : on le supprime.
+- L'héritage suit le rôle, pas l'habitude : un objet qui ne rend jamais
+  de HTML n'hérite pas d'une interface de rendu (`CHARACTER.Masteries`
+  ne descend plus de `OBJECT.InterfaceHtml` — aucun consommateur n'en
+  attend le contrat).
+- Pas de fonction dans une fonction : une closure locale devient une
+  méthode privée de la classe (préfixe `_`) ou s'inline dans la boucle.
+- Le nom décrit la chose calculée, sans collision avec un autre concept
+  du projet : `save` prête à confusion avec la sauvegarde du
+  personnage — un jet s'appelle roll (`getRollModifier`), "save" ne
+  survit que dans le vocabulaire des jets de sauvegarde PF2
+  (`save__vigueur`, à renommer anglais plus tard comme le reste).
 - Aucun identifiant français dans le code, même dérivé du scraping : les
   corrections passent par des cartes écrites à la main qui survivent au
   re-scrap (ex. `CLASSES.ABILITY_KEY_OVERRIDES` : `maitrises_initiales`

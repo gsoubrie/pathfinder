@@ -21,6 +21,26 @@ CHARACTER.LevelUpSkillBasic.prototype = {
         this.counters = {};
         this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__get__rank_contributions": {
+                if ( !this.isActive() ) {
+                    return;
+                }
+                let upgrades = this.getMasteriesUpgrades( params[ "param__class_name" ] );
+                for ( let u = 0, _size_u = upgrades.length; u < _size_u; u++ ) {
+                    params[ "param__rank_contributions" ].push( {
+                        slot  : upgrades[ u ].slot,
+                        rank  : upgrades[ u ].rank,
+                        label : MASTERY.getSlotLabel( upgrades[ u ].slot ),
+                        source: this.getSourceLabel()
+                    } );
+                }
+                return;
+            }
+        }
+    },
     //********************************************  GETTER SETTER  **************************************************//
     getUUID             : function () {
         return this.uuid;

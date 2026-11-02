@@ -10,7 +10,7 @@
  *    maitrises avec la source de chaque rang), puis le modificateur de
  *    caracteristique et le niveau. Le jet complet vaut "niveau + modificateur
  *    de caracteristique + bonus de rang" (Q +2, E +4). Les valeurs affichees
- *    croisees avec le domaine : getSaveModifier de CHARACTER.Masteries et les
+ *    croisees avec le domaine : getRollModifier de CHARACTER.Masteries et les
  *    modificateurs des caracteristiques.
  * 2. Passage de niveau : 4 prises de niveau (niveau 5) → retour au General,
  *    jets recalculés au niveau 5 (badge Reflexes encore Q, valeur
@@ -113,7 +113,7 @@ TEST.RUNNER.register( "[SAUVEGARDES] Magicien 1 → colonne dédiée = 3 jets co
             TEST.ASSERT.ok( _value_rect.right <= _badge_rect.left, "La colonne Jet devrait venir en premier, à gauche du rang (" + _slot + "), obtenu : jet droite " + _value_rect.right + " contre rang gauche " + _badge_rect.left );
             TEST.ASSERT.ok( _badge_rect.right <= _modifier_rect.left, "La colonne Rang devrait venir avant Mod (" + _slot + "), obtenu : rang droite " + _badge_rect.right + " contre mod gauche " + _modifier_rect.left );
             TEST.ASSERT.ok( _modifier_rect.right <= _level_rect.left, "La colonne Mod devrait venir avant Niv, en dernier (" + _slot + "), obtenu : mod droite " + _modifier_rect.right + " contre niv gauche " + _level_rect.left );
-            let _expected_value           = _character.getMasteries().getSaveModifier( _character, MASTERY.SAVES[ _i ] );
+            let _expected_value           = _character.getMasteries().getRollModifier( _character, MASTERY.SAVES[ _i ] );
             let _expected_from_character  = _level + _modifier + _expected_save.bonus;
             TEST.ASSERT.equal( _expected_value, _expected_from_character, "Le jet " + _slot + " du domaine devrait valoir niveau + modificateur + bonus de rang (" + _expected_from_character + "), obtenu : " + _expected_value );
             TEST.ASSERT.equal( _value.textContent, ( "" + _expected_value ), "La colonne Jet de " + _slot + " devrait afficher le jet complet " + ( "" + _expected_value ) + ", obtenu : " + _value.textContent );

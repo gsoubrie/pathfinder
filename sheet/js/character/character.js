@@ -106,6 +106,10 @@ CHARACTER.Current.prototype = {
             case "event__level_up__select_choice":
                 this.levels_history.doActionAfter( event_name, params );
                 break;
+            case "event__get__rank_contributions":
+                this.class.doActionAfterContentChildren( event_name, params );
+                this.levels_history.doActionAfterContentChildren( event_name, params );
+                break;
             case "event__more_button":
             case "event__less_button":
                 if ( params[ "param__characteristics__is" ] ) {

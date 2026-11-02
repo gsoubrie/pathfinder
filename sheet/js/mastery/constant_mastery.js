@@ -35,26 +35,26 @@ MASTERY.getHigherRank = function ( rank_a, rank_b ) {
 // underscores), the descriptions are normalized before matching.
 // The more specific keywords come first.
 MASTERY.SLOT_KEYWORDS = [
-    { keywords: [ "perception" ],                    slot: "perception",                   label: "Perception" },
-    { keywords: [ "en_vigueur" ],                 slot: "save__vigueur",                label: "Vigueur" },
-    { keywords: [ "en_reflexes" ],                slot: "save__reflexes",               label: "Réflexes" },
-    { keywords: [ "en_volonte" ],                 slot: "save__volonte",                label: "Volonté" },
-    { keywords: [ "mains_nues" ],                 slot: "attack__mains_nues",           label: "Attaques à mains nues" },
-    { keywords: [ "armes_simples" ],              slot: "attack__armes_simples",        label: "Armes simples" },
-    { keywords: [ "armes_martiales" ],            slot: "attack__armes_martiales",      label: "Armes martiales" },
-    { keywords: [ "armes_de_guerre" ],            slot: "attack__armes_de_guerre",      label: "Armes de guerre" },
-    { keywords: [ "armes_avancees" ],             slot: "attack__armes_avancees",       label: "Armes avancées" },
-    { keywords: [ "armes_evoluees" ],             slot: "attack__armes_evoluees",       label: "Armes évoluées" },
-    { keywords: [ "bombes_alchimiques" ],         slot: "attack__bombes_alchimiques",   label: "Bombes alchimiques" },
-    { keywords: [ "arme_de_predilection" ],       slot: "attack__arme_de_predilection", label: "Arme de prédilection" },
-    { keywords: [ "sans_armure" ],                slot: "defense__sans_armure",         label: "Défense sans armure" },
-    { keywords: [ "armures_legeres" ],            slot: "defense__armures_legeres",     label: "Armures légères" },
-    { keywords: [ "armures_intermediaires" ],    slot: "defense__armures_intermediaires", label: "Armures intermédiaires" },
-    { keywords: [ "armures_lourdes" ],            slot: "defense__armures_lourdes",     label: "Armures lourdes" },
-    { keywords: [ "toutes_les_armures" ],         slot: "defense__toutes_les_armures",  label: "Toutes les armures" },
+    { keywords: [ "perception" ],                 slot: "perception",                       label: "Perception" },
+    { keywords: [ "en_vigueur" ],                 slot: "save__vigueur",                    label: "Vigueur" },
+    { keywords: [ "en_reflexes" ],                slot: "save__reflexes",                   label: "Réflexes" },
+    { keywords: [ "en_volonte" ],                 slot: "save__volonte",                    label: "Volonté" },
+    { keywords: [ "mains_nues" ],                 slot: "attack__mains_nues",               label: "Attaques à mains nues" },
+    { keywords: [ "armes_simples" ],              slot: "attack__armes_simples",            label: "Armes simples" },
+    { keywords: [ "armes_martiales" ],            slot: "attack__armes_martiales",          label: "Armes martiales" },
+    { keywords: [ "armes_de_guerre" ],            slot: "attack__armes_de_guerre",          label: "Armes de guerre" },
+    { keywords: [ "armes_avancees" ],             slot: "attack__armes_avancees",           label: "Armes avancées" },
+    { keywords: [ "armes_evoluees" ],             slot: "attack__armes_evoluees",           label: "Armes évoluées" },
+    { keywords: [ "bombes_alchimiques" ],         slot: "attack__bombes_alchimiques",       label: "Bombes alchimiques" },
+    { keywords: [ "arme_de_predilection" ],       slot: "attack__arme_de_predilection",     label: "Arme de prédilection" },
+    { keywords: [ "sans_armure" ],                slot: "defense__sans_armure",             label: "Défense sans armure" },
+    { keywords: [ "armures_legeres" ],            slot: "defense__armures_legeres",         label: "Armures légères" },
+    { keywords: [ "armures_intermediaires" ],     slot: "defense__armures_intermediaires",  label: "Armures intermédiaires" },
+    { keywords: [ "armures_lourdes" ],            slot: "defense__armures_lourdes",         label: "Armures lourdes" },
+    { keywords: [ "toutes_les_armures" ],         slot: "defense__toutes_les_armures",      label: "Toutes les armures" },
     { keywords: [ "attaques_de_sort", "attaque_de_sort", "modificateurs_de_sort", "modificateur_de_sort" ], slot: "spell_attack", label: "Attaques de sort" },
-    { keywords: [ "dd_des_sorts", "dd_de_sort" ],  slot: "spell_dc",                     label: "DD des sorts" },
-    { keywords: [ "dd_de_classe" ],               slot: "class_dc",                     label: "DD de classe" }
+    { keywords: [ "dd_des_sorts", "dd_de_sort" ], slot: "spell_dc",                         label: "DD des sorts" },
+    { keywords: [ "dd_de_classe" ],               slot: "class_dc",                         label: "DD de classe" }
 ];
 
 // Sections of the character masteries popup, in display order.
@@ -68,14 +68,14 @@ MASTERY.SECTIONS = [
     { key: "",           title: "Sorts et DD de classe" }
 ];
 
-// Jets affichés dans la colonne dédiée du Général : le jet de Perception
-// (l'initiative y default), puis les trois jets de sauvegarde, chacun avec
-// sa caractéristique
+// Saves displayed in the jets column of the General window: the Perception
+// roll (the initiative rolls with it), then the three saving throws, each
+// with its characteristic
 MASTERY.SAVES = [
-    { slot: "perception",  label: "Perception / Initiative", characteristic: "SAG" },
-    { slot: "save__vigueur",  label: "Vigueur",  characteristic: "CON" },
-    { slot: "save__reflexes", label: "Réflexes", characteristic: "DEX" },
-    { slot: "save__volonte",  label: "Volonté",  characteristic: "SAG" }
+    { slot: "perception",     label: "Perception / Initiative", characteristic: "SAG" },
+    { slot: "save__vigueur",  label: "Vigueur",                 characteristic: "CON" },
+    { slot: "save__reflexes", label: "Réflexes",                characteristic: "DEX" },
+    { slot: "save__volonte",  label: "Volonté",                 characteristic: "SAG" }
 ];
 
 /**
@@ -135,7 +135,7 @@ MASTERY.getSlotFromDescription = function ( description ) {
             }
         }
     }
-    // Compétence : "<rang> en <compétence>", le nom reste court
+    // A skill line: "<rank> en <skill>", the name stays short
     let rank_match = description.match( /^(?:Inexpérimenté|Qualifié|Expert|Maître|Légende)\s+en\s+(.+)$/i );
     if ( rank_match ) {
         let skill_name = rank_match[ 1 ].trim();

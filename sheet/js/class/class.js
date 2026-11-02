@@ -24,6 +24,18 @@ CLASSES.Class.prototype = {
             case "event__level_up__remove_level":
                 this.setLevel( this.getLevel() - 1 );
                 return;
+            case "event__get__rank_contributions": {
+                let contributions = CLASSES.getMasteriesContributions( this.getName() );
+                for ( let i = 0, _size_i = contributions.length; i < _size_i; i++ ) {
+                    params[ "param__rank_contributions" ].push( {
+                        slot  : contributions[ i ].slot,
+                        rank  : contributions[ i ].rank,
+                        label : contributions[ i ].label,
+                        source: this.getName() + " — maîtrises initiales"
+                    } );
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

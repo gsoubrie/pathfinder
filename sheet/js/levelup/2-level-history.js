@@ -36,6 +36,13 @@ CHARACTER.LevelHistory.prototype = {
                     this.getContent( i ).getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).showForParent( false );
                 }
                 return;
+            case "event__get__rank_contributions":
+                if ( !this.isEnabled() ) {
+                    return;
+                }
+                params[ "param__class_name" ] = this.getClassName();
+                this.doActionAfterContentChildren( event_name, params );
+                return;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
