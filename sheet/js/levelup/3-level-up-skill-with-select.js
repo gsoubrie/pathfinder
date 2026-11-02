@@ -9,6 +9,7 @@ CHARACTER.LevelUpSkillWithSelect = function ( skill_data ) {
 CHARACTER.LevelUpSkillWithSelect.prototype = {
     init: function ( skill_data ) {
         this.selected_value = null;
+        this.taken_values   = [];
         CHARACTER.LevelUpSkillBasic.prototype.init.call( this, skill_data );
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -16,8 +17,14 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         this.selected_value = to_set || null;
         this.setPhaseOrPhase( !!this.selected_value, LEVELUP.PHASE.SELECTED, LEVELUP.PHASE.RUNNING );
     },
+    getSelectedValue  : function () {
+        return this.selected_value;
+    },
     getMasteriesUpgrades: function ( class_name ) {
         let upgrades = CHARACTER.LevelUpSkillBasic.prototype.getMasteriesUpgrades.call( this, class_name );
+        if ( this.type === LEVELUP.ADDITIONAL_SKILL_TYPE && this.selected_value ) {
+            upgrades = upgrades.concat( [ { "slot": MASTERY.getSkillSlot( this.selected_value ), "rank": "Q" } ] );
+        }
         if ( this.selected_value ) {
             upgrades = upgrades.concat( CLASSES.getChoiceMasteriesUpgrade( class_name, this.ability_key, this.selected_value ) );
         }
@@ -50,21 +57,45 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         }
     },
     //********************************************  HTML   **************************************************//
+    computeHtml: function ( class_name, taken_values ) {
+        this.taken_values = taken_values || [];
+        CHARACTER.LevelUpSkillBasic.prototype.computeHtml.call( this, class_name );
+    },
     _computeHtmlValidation: function () {
         let select = SERVICE.DOM.createElement( "select", {
             class   : "level-up-row-select",
             onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__select_choice',{'param__level_up_skill__uuid':'" + this.uuid + "','param__choice_value':this.value})"
         } );
+        this._buildSelectOptions( select );
+        SERVICE.DOM.addElementTo( select, this.dom_element );
+    },
+    // A qualification cannot be taken twice: the entry passes the values
+    // already chosen by the sibling lines, the line rebuilds its options
+    _buildSelectOptions: function ( select ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { value: "" }, "—" ), select );
         let options = this.options;
         for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
+            if ( this.taken_values.indexOf( options[ i ].name ) !== -1 ) {
+                continue;
+            }
             let option = SERVICE.DOM.createElement( "option", { value: options[ i ].name }, options[ i ].name );
             if ( this.selected_value === options[ i ].name ) {
                 option.selected = true;
             }
             SERVICE.DOM.addElementTo( option, select );
         }
-        SERVICE.DOM.addElementTo( select, this.dom_element );
+    },
+    updateSelectOptions: function ( taken_values ) {
+        this.taken_values = taken_values || [];
+        if ( !this.dom_element ) {
+            return;
+        }
+        let select = this.dom_element.querySelector( ".level-up-row-select" );
+        if ( !select ) {
+            return;
+        }
+        SERVICE.DOM.empty( select );
+        this._buildSelectOptions( select );
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

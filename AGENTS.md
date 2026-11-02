@@ -118,7 +118,14 @@ lignes un jour), et le warning global de la fenêtre.
   CHAQUE ligne AVANT que le personnage retire l'entrée (pas de clé fantôme),
   `get__rank_contributions` — l'entrée active pose `param__class_name` et
   re-broadcast à ses lignes, la ligne validée pousse ses upgrades dans le
-  plat (Round 15).
+  plat (Round 15), `sync__additional_skills` — l'entrée aligne ses lignes
+  "Compétence supplémentaire" sur N + mod INT (Round 19 : ajout des
+  manquantes en consommant le staging `level_skill`, retrait des surplus
+  avec compteur à 0 avant retrait — le staging n'est plus consommé par
+  `buildSkills`). Piège : `class_level_number` n'était posé sur l'entrée que
+  par le chargement (`setData` du conteneur) — les entrées créées au fil du
+  jeu ne l'avaient jamais en champ, donc `buildSkills` de l'entrée stocke
+  l'ordinal qu'elle reçoit, toutes les voies de création l'alignent.
 - `CHARACTER.LevelsHistory` (`1-levels-history.js`, conteneur) — diffuse les
   événements aux entrées (le parent `OBJECT.InterfaceContainer` broadcast,
   son `doActionAfter` ne les avalait pas avant le Round 6) et porte
@@ -308,6 +315,12 @@ niveau 5, "expertise en réflexes" validée) :
    Général affiche badge E + jet complet croisé avec le domaine, la source
    de l'augmentation apparaît dans les sources du slot ; save → load
    restaure le choix et le rang E.
+7. `scenario_competences_supplementaires.js` — le bloc du niveau 1 rend ses
+   lignes "Compétence supplémentaire" (2 + mod INT), en attente (le
+   personnage est reconstruit par scenario_sauvegardes : RESET, Elfe,
+   Magicien) ; choisir "Diplomatie" la valide (rang Q, source citée), la
+   vider la dévalide (rang perdu), la re-choisir la re-valide ; jets Général
+   badge Q ; save → load restaure le choix et le compte de lignes.
 
 ### État au moment de la pause
 
@@ -356,9 +369,9 @@ niveau 5, "expertise en réflexes" validée) :
    courant + portes de niveau dans `MASTERY.getIncreasedRank`, enchaînement
    dans `Masteries._resolveRankIncreases` ; les upgrades dérivées d'un
    choix passent par `CLASSES.CHOICE_MASTERIES` — seul le style de bretteur
-   est écrit, données présentes dans les descriptions). Restent : les
-   "compétences supplémentaires" (N + mod INT, choix du joueur — design UI à
-   décider : où choisir, porté par la classe ?), et les cartes
+   est écrit, données présentes dans les descriptions). ~~Les
+   "compétences supplémentaires" (N + mod INT)~~ — fait (Round 19, décision
+   utilisateur : lignes du niveau 1). Restent : les cartes
    choix → compétence des autres classes (lignage, mystère, patron, ordre,
    méthodologie, trafic, divinité) — les compétences ne sont pas dans nos
    données scrapées, à écrire à la main ou re-scrap.
@@ -502,6 +515,38 @@ de bretteur est écrit, données des descriptions) fusionnent dans
 labels des slots skills via `SKILLS.LIST` ; (d) save restauré (téléchargement
 du fichier `let <uuid> = ...;`) ; (e) pass gras/majuscules des popups ;
 (f) nouveau scénario `scenario_ameliorations_competence.js` (chaîne, 6e).
+Round 19 = compétences supplémentaires en lignes du niveau 1 (décision
+utilisateur) : `CLASSES.getAdditionalSkillsNumber` lit le N de la ligne
+"compétences supplémentaires" des blocs mastery ("égal à N plus votre
+modificateur d'Intelligence"), l'entrée de niveau 1 de la classe porte une
+ligne-sélecteur par choix (`LEVELUP.ADDITIONAL_SKILL_KEY + index`, slot key
+positionnel, options = les 17 compétences), le compte = N + mod INT arrive
+par le plat : le personnage broadcast `event__level_up__sync_additional_skills`
+(avec `param__current_character__object`) au chargement (les
+caractéristiques se chargent avant l'historique), à la prise/fin de niveau,
+à l'ajout de classe et aux boutons +/− de caractéristique ; l'entrée ajoute
+les lignes manquantes (consommant le staging `level_skill`, devenu sa
+consommation à lui) et retire les surplus (compteur poussé à 0 AVANT le
+retrait, pas de clé fantôme). La ligne validée qualifie sa compétence
+choisie (rank Q) via `getMasteriesUpgrades` du sélecteur. Piège découvert
+au premier run : `class_level_number` n'était posé qu'au chargement —
+`buildSkills` de l'entrée stocke maintenant l'ordinal reçu. Nouveau scénario
+`scenario_competences_supplementaires.js` (chaîne, 7e) ; piège de chaîne :
+scenario_sauvegardes fait `TEST.RESET.sheet()` et RECONSTRUIT le personnage —
+l'état du scénario levelup ne survit pas au reset, scenario_competences
+garde "Arcanes seule Qualifiée", les lignes supplémentaires y sont en
+attente.
+Round 20 = retours UI de l'utilisateur : (a) un dégradé (`--g-*`) ne se
+pose JAMAIS sur un `select`/`option` natif — les options ne rendent pas
+les gradients (blanc système + texte clair = illisible) : couleurs solides
+(`--c-bg-card`, `--c-text`) pour `.level-up-row-select` et ses options ;
+(b) une qualification ne se prend pas deux fois : l'entrée connaît ses
+lignes supplémentaires, elle leur passe les valeurs prises par leurs
+sœurs (2e paramètre de `computeHtml`, `taken_values`), la ligne filtre ses
+options (`_buildSelectOptions`) et se rafraîchit en place au choix d'une
+sœur (`updateSelectOptions`, appelé par l'entrée depuis le case
+`select_choice`) ; les améliorations de compétence, elles, PEUVENT
+s'empiler sur la même compétence (rang + rang) : pas de filtre pour elles.
 
 ### Style, commentaires, nommage
 

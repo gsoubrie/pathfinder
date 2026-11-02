@@ -195,10 +195,10 @@
 
 /* ── Sélecteur de validation (ligne à choix) : choisir une valeur valide la ligne ── */
 .level-up-window .level-up-row-select {
-    background   : var(--g-card);
+    background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-border-dark);
     border-radius: var(--r-sm);
-    color        : var(--c-text-muted);
+    color        : var(--c-text);
     cursor       : pointer;
     flex-shrink  : 0;
     font-size    : 12px;
@@ -212,7 +212,7 @@
 }
 
 .level-up-window .level-up-row-select option {
-    background : var(--g-card);
+    background : var(--c-bg-card);
     color      : var(--c-text);
 }
 

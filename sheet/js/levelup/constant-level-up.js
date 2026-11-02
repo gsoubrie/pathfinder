@@ -7,6 +7,13 @@ var LEVELUP = {};
 // Ability key of the "maîtrises initiales" unlock line, English override of the scraped label
 LEVELUP.INITIAL_MASTERIES_KEY = "initial_masteries";
 
+// Additional trained skills of a class (N + Intelligence modifier): the lines
+// live on the class level-1 entry, the slot key is positional so the chosen
+// values stay stable while the Intelligence modifier moves the count
+LEVELUP.ADDITIONAL_SKILL_TYPE  = "additional_skill";
+LEVELUP.ADDITIONAL_SKILL_KEY   = "additional_skill_";
+LEVELUP.ADDITIONAL_SKILL_LABEL = "Compétence supplémentaire";
+
 // Phases of a level-up line. Domain values, NOT GS.OBJECT.CONST.PHASE ones:
 // a phase value carries global utility styles (SLEEPING = cursor not-allowed
 // + children pointer-events none) that contradict a line which stays
@@ -33,6 +40,7 @@ LEVELUP.ICONS = {
     "skill_feat"     : "📚",
     "ancestry_feat"  : "🌿",
     "skill_increase" : "📈",
+    "additional_skill": "➕",
     "attribute_boost": "💪",
     "spell"          : "✨",
     "class_feature"  : "🔧"

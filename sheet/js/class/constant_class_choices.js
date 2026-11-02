@@ -513,6 +513,29 @@ CLASSES.CHOICE_MASTERIES = {
 };
 
 /**
+ * Number of additional trained skills of a class, from its mastery block:
+ * the "compétences supplémentaires" line counts "<N> plus votre
+ * modificateur d'Intelligence", 0 when the class grants none.
+ *
+ * @param {string} class_name  Class name, ex: "Magicien"
+ * @returns {number}           The fixed part of the additional skills count
+ */
+CLASSES.getAdditionalSkillsNumber = function ( class_name ) {
+    let class_data = CLASSES.getDataByName( class_name );
+    if ( !class_data || !class_data.mastery || !class_data.mastery.skills ) {
+        return 0;
+    }
+    let skills_lines = MASTERY.toArray( class_data.mastery.skills );
+    for ( let i = 0, _size_i = skills_lines.length; i < _size_i; i++ ) {
+        let number_match = skills_lines[ i ].description.match( /(\d+)\s*plus\s*votre\s*modificateur/i );
+        if ( number_match ) {
+            return parseInt( number_match[ 1 ], 10 );
+        }
+    }
+    return 0;
+};
+
+/**
  * @param {string} class_name    Class name, ex: "Bretteur"
  * @param {string} ability_key   Normalized ability key, ex: "style_de_bretteur"
  * @param {string} choice_value  Value chosen on the line, ex: "Gymnaste"

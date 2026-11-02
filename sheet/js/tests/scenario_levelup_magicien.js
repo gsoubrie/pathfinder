@@ -9,7 +9,8 @@
  *    pas de libelle), la ligne ecole arcanique porte un selecteur de choix
  *    (.level-up-row-select, option vide + 11 ecoles : choisir une valeur
  *    valide la ligne), tout eteint par defaut : ligne en attente, counter de ligne a 1 visible,
- *    warning global "5 capacites non validees", counter de l'onglet a 5.
+ *    warning global et counter de l'onglet a 5 + les K competences
+ *    supplementaires (2 + mod INT), chacune un selecteur des 17 competences.
  *    Toute capacite decrite porte son "?" : le bloc niveau 1 du Magicien en
  *    compte 5 (ecole arcanique, incantation arcanique via l'alias de
  *    renommage, lien arcanique, maitrises initiales, these arcanique).
@@ -19,14 +20,15 @@
  *    (rangs courants du personnage).
  * 3. Choix d'une ecole dans le selecteur de ecole arcanique : capacite
  *    validee (isActive true, le choix porte la phase de la ligne), ligne
- *    repasse au vert
+ *    repassee au vert
  *    (phase ACTIVE sur la ligne), selecteur dore, counter de la
- *    ligne vide et masque, warning global a "4 capacites non validees",
- *    counter de l'onglet a 4.
+ *    ligne vide et masque, warning global et counter de l'onglet a
+ *    4 + K competences supplementaires.
  * 4. Retour a l'option vide du selecteur : capacite de nouveau non validee,
  *    ligne en attente,
- *    counters de retour (ligne 1, onglet 5, warning 5).
- * 5. Validation des 5 lignes du niveau 1 : warning global vert "Toutes les
+ *    counters de retour (ligne 1, onglet 5 + K, warning 5 + K).
+ * 5. Validation des 5 + K lignes du niveau 1 (les competences
+ *    supplementaires choisissent Survie) : warning global vert "Toutes les
  *    capacites sont validees", counter de l'onglet vide et masque.
  * 6. Niveau 5 : tant que "expertise en reflexes" n'est pas validee, la
  *    maitrise Reflexes du personnage reste Qualifiee (seules les capacites
@@ -76,12 +78,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
             return;
         }
         TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Niveau 1", "Le premier bloc devrait etre celui du niveau 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
+        let _additional_count            = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
         let _rows                         = _block.querySelectorAll( ".level-up-row" );
-        TEST.ASSERT.equal( _rows.length, 5, "Le bloc du niveau 1 devrait rendre ses 5 capacités (école arcanique, incantation arcanique, lien arcanique, maîtrises initiales, thèse arcanique), obtenu : " + _rows.length );
-        TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ?, obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
+        TEST.ASSERT.equal( _rows.length, 5 + _additional_count, "Le bloc du niveau 1 devrait rendre ses 5 capacités + les " + _additional_count + " compétences supplémentaires (2 + mod INT), obtenu : " + _rows.length );
+        TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (pas les compétences supplémentaires), obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
         for ( let _i = 0; _i < _rows.length; _i++ ) {
             let _row                      = _rows[ _i ];
-            let _choice_options           = _row.dataset.slotKey === "ecole_arcanique" ? 12 : ( _row.dataset.slotKey === "these_arcanique" ? 6 : 0 );
+            let _choice_options           = _row.dataset.slotKey === "ecole_arcanique" ? 12 : ( _row.dataset.slotKey === "these_arcanique" ? 6 : ( _row.dataset.slotKey.indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ? 18 : 0 ) );
             if ( _choice_options > 0 ) {
                 // Ligne à choix : le sélecteur remplace l'interrupteur, choisir une valeur valide la ligne
                 let _select               = _row.querySelector( ".level-up-row-select" );
@@ -114,11 +117,11 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
             }
         }
         let _warning                      = _pane.querySelector( ".level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "5 capacités non validées" ) !== -1, "Le warning global devrait annoncer 5 capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 5 + _additional_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings (.gs-warnings-counter)" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "5", "Le counter de l'onglet devrait valoir 5 (5 lignes en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count ), "Le counter de l'onglet devrait valoir " + ( 5 + _additional_count ) + " (" + ( 5 + _additional_count ) + " lignes en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _counter ).display, "none", "Le counter devrait etre visible quand des capacités sont en attente, obtenu : " + getComputedStyle( _counter ).display );
         }
     } );
@@ -244,6 +247,7 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias in
 
 TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur → capacité validée + counters à 4", function () {
     let _character                        = CONTROLLER.Character.current_character;
+    let _additional_count                 = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
         return;
@@ -294,11 +298,11 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
             TEST.ASSERT.equal( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne validée devrait etre masque, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
         let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "4 capacités non validées" ) !== -1, "Le warning global devrait annoncer 4 capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "4", "Le counter de l'onglet devrait valoir 4 apres la première validation, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count ) + " apres la première validation (" + _additional_count + " compétences supplémentaires encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
         let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
         TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
@@ -355,12 +359,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "1", "Le counter de la ligne devrait etre de retour a 1, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne devrait etre de nouveau visible, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
+        let _additional_count             = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
         let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "5 capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau 5 capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau " + ( 5 + _additional_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "5", "Le counter de l'onglet devrait etre de retour a 5, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count ), "Le counter de l'onglet devrait etre de retour a " + ( 5 + _additional_count ) + ", obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
     } );
 } );
@@ -377,9 +382,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
         return;
     }
     let _character                        = CONTROLLER.Character.current_character;
+    let _additional_count                 = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
     let _toggles                         = _block.querySelectorAll( ".level-up-row-toggle" );
     TEST.ASSERT.equal( _toggles.length, 3, "Pre-condition : 3 interrupteurs rendus dans le bloc du niveau 1, obtenu : " + _toggles.length );
-    TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-select" ).length, 2, "Pre-condition : 2 sélecteurs de choix rendus (école arcanique, thèse arcanique), obtenu : " + _block.querySelectorAll( ".level-up-row-select" ).length );
+    TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-select" ).length, 2 + _additional_count, "Pre-condition : 2 sélecteurs de capacité (école, thèse) + " + _additional_count + " compétences supplémentaires rendus, obtenu : " + _block.querySelectorAll( ".level-up-row-select" ).length );
     let _rows                           = _block.querySelectorAll( ".level-up-row" );
     for ( let _i = 0; _i < _rows.length; _i++ ) {
         if ( _rows[ _i ].dataset.currentPhase !== "SELECTED" ) {

@@ -28,6 +28,7 @@ CHARACTER.LevelHistory.prototype = {
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
                     level_up_skill.setSelectedValue( params[ "param__choice_value" ] );
+                    this._updateAdditionalSelectOptions( level_up_skill );
                 }
                 return;
             }
@@ -36,6 +37,11 @@ CHARACTER.LevelHistory.prototype = {
                     this.getContent( i ).getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).showForParent( false );
                 }
                 return;
+            case "event__level_up__sync_additional_skills": {
+                let int_characteristic = params[ "param__current_character__object" ].getCharacteristics().getContentByUUID( "INT" );
+                this.syncAdditionalSkills( int_characteristic.getModifierValue() );
+                return;
+            }
             case "event__get__rank_contributions":
                 if ( !this.isEnabled() ) {
                     return;
@@ -63,6 +69,10 @@ CHARACTER.LevelHistory.prototype = {
         if ( this.getSize() > 0 ) {
             return;
         }
+        // The container passes the ordinal of the class among the entries:
+        // the entry keeps it, the additional skills lines only live on the
+        // first level of a class
+        this.class_level_number = class_level_number;
         let class_name = this.getClassName();
         let capacities = CLASSES.getDataByName( class_name ).capacity_by_level;
         let parts      = ( capacities[ class_level_number - 1 ] || "" ).split( "," );
@@ -88,6 +98,38 @@ CHARACTER.LevelHistory.prototype = {
             else {
                 this.add( new CHARACTER.LevelUpSkillBasic( skill_data ) );
             }
+        }
+    },
+    // Additional trained skills of the class (N + Intelligence modifier):
+    // one selector line per pick on the class level-1 entry, the count is the
+    // entry's own (its class data) plus the Intelligence modifier by param
+    syncAdditionalSkills: function ( int_modifier ) {
+        let target_count = 0;
+        if ( this.class_level_number === 1 ) {
+            target_count = Math.max( 0, CLASSES.getAdditionalSkillsNumber( this.getClassName() ) + int_modifier );
+        }
+        let additional_lines = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            if ( this.getContent( i ).getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ) {
+                additional_lines.push( this.getContent( i ) );
+            }
+        }
+        for ( let i = additional_lines.length; i < target_count; i++ ) {
+            let slot_key = LEVELUP.ADDITIONAL_SKILL_KEY + i;
+            this.add( new CHARACTER.LevelUpSkillWithSelect( {
+                "level_name" : this.level_name,
+                "slot_key"   : slot_key,
+                "label"      : LEVELUP.ADDITIONAL_SKILL_LABEL,
+                "type"       : LEVELUP.ADDITIONAL_SKILL_TYPE,
+                "ability_key": slot_key,
+                "options"    : CLASSES.COMMON_CHOICES[ "amelioration_de_competence" ].entries,
+                "level_skill": this.level_skill
+            } ) );
+        }
+        for ( let i = target_count; i < additional_lines.length; i++ ) {
+            let removed_line = additional_lines[ i ];
+            removed_line.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).showForParent( false );
+            this.removeContent( removed_line.getUUID(), null, true );
         }
         this.level_skill = null;
     },
@@ -161,8 +203,38 @@ CHARACTER.LevelHistory.prototype = {
             return;
         }
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            this.getContent( i ).computeHtml( this.class_name );
-            SERVICE.DOM.addElementTo( this.getContent( i ).getDomElement(), this.dom_element );
+            let line = this.getContent( i );
+            if ( line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ) {
+                line.computeHtml( this.class_name, this._getTakenValues( line ) );
+            }
+            else {
+                line.computeHtml( this.class_name );
+            }
+            SERVICE.DOM.addElementTo( line.getDomElement(), this.dom_element );
+        }
+    },
+    // A qualification cannot be taken twice: the values chosen on the other
+    // additional skill lines leave their selectors
+    _getTakenValues: function ( except_line ) {
+        let to_return = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let line = this.getContent( i );
+            if ( line === except_line || line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) !== 0 ) {
+                continue;
+            }
+            if ( line.getSelectedValue() ) {
+                to_return.push( line.getSelectedValue() );
+            }
+        }
+        return to_return;
+    },
+    _updateAdditionalSelectOptions: function ( changed_line ) {
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let line = this.getContent( i );
+            if ( line === changed_line || line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) !== 0 ) {
+                continue;
+            }
+            line.updateSelectOptions( this._getTakenValues( line ) );
         }
     }
 };
