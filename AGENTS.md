@@ -292,6 +292,14 @@ lignes un jour), et le warning global de la fenêtre.
 
 ### Scénarios de test (chaîne séquentielle, ordre = ordre des balises)
 
+La chaîne du levelup court EN DERNIER dans tests.html : le run se termine
+sur son état final (Magicien niveau 10), l'utilisateur reprend la feuille à
+cet état pour tester la frontière à la main. Les suites indépendantes
+(page_vide, onglets, ascendance, classe, multiclasse, niveaux,
+niveaux_multiple, reset, caracteristiques, caracteristiques_classe,
+classe_prime, classe_entree, archetype) courent avant : chacune se RESET
+elle-même, aucune ne dépend d'une autre.
+
 Les scénarios s'enchaînent sur le même personnage, chacun repart de l'état
 laissé par le précédent (fin de `scenario_levelup_magicien` : Elfe + Magicien
 niveau 5, "expertise en réflexes" validée) :
@@ -321,6 +329,11 @@ niveau 5, "expertise en réflexes" validée) :
    Magicien) ; choisir "Diplomatie" la valide (rang Q, source citée), la
    vider la dévalide (rang perdu), la re-choisir la re-valide ; jets Général
    badge Q ; save → load restaure le choix et le compte de lignes.
+8. `scenario_levelup_niveau10.js` — parcours structurel (le test des choix
+   jusqu'au niveau 10 appartient à l'utilisateur, règle de travail) : cinq
+   prises → niveau 10, entrées 6-10 rendues, validations du niveau 3
+   conservées aux rebuilds ; save → load restaure les dix entrées et le rang
+   expert d'Arcanes.
 
 ### État au moment de la pause
 
@@ -547,6 +560,106 @@ options (`_buildSelectOptions`) et se rafraîchit en place au choix d'une
 sœur (`updateSelectOptions`, appelé par l'entrée depuis le case
 `select_choice`) ; les améliorations de compétence, elles, PEUVENT
 s'empiler sur la même compétence (rang + rang) : pas de filtre pour elles.
+Round 21 = retour UI : le niveau 10 dépassait la feuille (papier fixe
+1240×1754, `overflow: hidden`), la 4e compétence supplémentaire restait
+cachée — le `overflow-y: auto` de la fenêtre levelup ne pouvait pas agir,
+aucune hauteur n'était bornée dans sa chaîne d'ancêtres. Le papier devient
+une colonne flex (`.character-content`), la zone de contenu prend la
+hauteur restante (`flex: 1; min-height: 0; overflow: hidden`), le panneau
+levelup est borné (`height: 100%`) : la fenêtre scrolle enfin sa propre
+zone. Maillon manquant du premier essai : les panneaux ne sont pas des
+enfants directs de la zone de contenu — ils vivent dans le conteneur de
+cibles `.gs-window-targets-V2`, qui doit être borné aussi
+(`.characters-sheet-content .gs-window-targets-V2 { height: 100% }`).
+DEUXIÈME maillon, trouvé par l'utilisateur : la fenêtre bornée est un flex
+column et ses enfants RÉTRÉCISSENT par défaut (`flex-shrink: 1`) — les
+blocs se compressaient pour tenir et le `overflow: hidden` du bloc (coupure
+des coins arrondis, son rôle légitime) tranchait leurs dernières lignes :
+"présentes dans le HTML, pas affichées". Correctif :
+`.level-up-window > * { flex-shrink: 0 }` — les blocs gardent leur
+hauteur, c'est la fenêtre qui scrolle.
+Le scénario niveau 10 asserte la VISIBILITÉ, pas le débordement : le
+contenu peut légitimement tenir dans la fenêtre (`scrollHeight ===
+`clientHeight` à la fixture — le contenu de niveau 10 tient dans la zone) ;
+ce qui est asserté : la dernière ligne du bloc 1 et celle du dernier bloc
+occupent une hauteur et tombent dans les bornes de la fenêtre après
+`scrollIntoView`. Au passage : `scrollbar-color` passe aux variables.
+Round 22 = retour UI : `popup-action-cost` affichait la lettre brute des
+données scrapées ("f", "r") — la carte de `_actionCostLabel` parlait
+anglais ("free"/"reaction", entrées mortes). Une carte de mappage parle la
+langue RÉELLE des données : `"f"` → ⟳ (gratuite), `"r"` → ⟲ (réaction),
+`"1"/"2"/"3"` → ◆. Les coûts des actions de compétence restent en mots
+français lisibles ("1 action"), pas de mappage.
+Round 23 = les dons se choisissent (demande utilisateur) : les lignes de
+don (`skill_feat`, `class_feat` — `LEVELUP.FEAT_TYPES`) portent un
+sélecteur dès le build (options vides), rempli par le sync — l'événement
+`sync_additional_skills` devient `event__level_up__sync_lines` (il porte le
+compte des compétences supplémentaires ET les options de dons), re-broadcast
+après chaque toggle/select_choice (les rangs bougent). Options par
+`DON.getAvailableSkillFeats( ranks_by_label, max_level )` — prérequis
+"<rang> en <compétence> ou en <compétence>" parsés
+(`DON.isSkillRequirementMet`), les extras non-compétence sont permissifs,
+les "Connaissance de X" (Lore) ne matchent pas nos compétences (donc
+exclus, honnête) — et `DON.getAvailableClassFeats( class_name, max_level )`
+(trait = classe). Les rangs par libellé viennent de
+`Masteries.getSkillRanksByLabel`. Verrou structurel dans le parcours
+niveau 10 : le bloc 2 porte 2 sélecteurs remplis ; le choix et les
+prérequis appartiennent à la vérification manuelle de l'utilisateur.
+Le même don peut encore être pris sur deux lignes différentes
+(entries 2 et 4 donnent toutes deux un don de compétence) — à trancher.
+Round 24 = contamination des textes scrapés (retour utilisateur) : les
+classes d'icônes Material du site se sont collées aux mots suivants
+("casinoDiplomatie", "crop_freeémanation", "auto_awesomeÀ trois temps",
+"casino(floor(@actor.level/2))d6"). Outil durable
+`sheet/tools/clean_scraped_text.js` (dry run avec `--dry`), à RELANCER
+après chaque re-scrap : retrait des icônes snake_case partout
+(`sports_martial_arts`, `sentiment_very_dissatisfied`, `auto_awesome`,
+`military_tech`, `crop_free`), des icônes mono-mot uniquement collées au
+mot ou à une parenthèse suivante (`casino`, `flare`, `work`, avec frontière
+de mot), et du cas collé après un `\n` échappé (le "n" casse la frontière).
+Les `<div class="gs-link-information">` des descriptions de classes sont
+des liens d'info INTENTIONNELS (stylés par la popup), pas une
+contamination. Les formules Foundry (`@actor.level`) restent : elles
+portent le sens des dés.
+Round 25 = le "?" des dons (demande utilisateur, rectifié au Round 26) :
+routage `event__show_information__feat` (params `param__feat_category`
+"skill"|"class" + `param__feat_name`) → `DON.getFeatInformation` (accès
+par nom dans la liste de la catégorie) → catégorie popup "feat"
+(renderer existant : titre, badge de niveau, traits, prérequis,
+description).
+Round 26 = le "?" vit DANS le sélecteur (rectification utilisateur) :
+un `select` natif ne peut pas héberger un bouton par option — les lignes
+de don rendent une liste déroulante MAISON (`.level-up-row-dropdown`) :
+header (tabindex, `:focus-within` ouvre la liste, ZÉRO état JS — le
+choix referme en blurant le header inline), options
+(`.level-up-row-dropdown-option`, `data-value`) portant chacune leur "?"
+de popup. Les valeurs ne s'embarquent JAMAIS en dur dans le handler
+inline : les noms de dons portent des apostrophes — elles passent par
+`this.getAttribute('data-value')` (et `this.parentNode` pour le "?").
+Le choix émet le même `event__level_up__select_choice` que le sélecteur
+natif ; `setSelectedValue` met le DOM à jour en place (`updateHtml` :
+texte du header + classe selected des options) ; `setOptions` reconstruit
+la liste ou le select selon le type. Les autres lignes à choix (école,
+thèse, compétences, améliorations) restent en select natif.
+Round 27 = le sélecteur des dons devient un COMPOSANT (demande
+utilisateur : extension du patron de la lib, sur le modèle
+`SingleSelectFromData_V4` de Shinken) : `sheet/js/component/single-select.js`
+déclare le namespace `COMPONENT` et porte `COMPONENT.SingleSelectFromData`
+(hérite `GS.OBJECT.GsObjectHtml` — addParamsForEvents,
+getDoActionAfterEvent, la chaîne askHidePopup de la lib). Le composant
+possède : header + liste d'options, état ouvert dans le dataset
+`data-state-selector` (`toggleState`, `hidePopup` branché au contrat
+askHidePopup), `setOptions`/`setSelectedName` (titre + classe selected),
+et deux événements configurables : `setToggleEventName` (ouverture du
+header) et `setClickEventName` (choix d'une option) + `setInfoEvent`
+(le "?" par option). Les valeurs ne s'embarquent JAMAIS en dur dans les
+handlers inline — `parseToHTMLParam` de la lib n'échappe pas les
+apostrophes et les noms de dons en portent : elles se lisent du
+`data-value` de l'option au clic. L'ouverture route par le plat :
+`event__level_up__toggle_selector` (fenêtre → personnage → historique →
+entrée par uuid → ligne → `select_component.toggleState()`), le choix
+reste `event__level_up__select_choice`. Les autres lignes à choix
+restent en select natif (à généraliser si l'utilisateur le demande).
 
 ### Style, commentaires, nommage
 
@@ -720,6 +833,13 @@ s'empiler sur la même compétence (rang + rang) : pas de filtre pour elles.
 
 ### Méthode de travail
 
+- Le test de la partie la plus avancée appartient à l'UTILISATEUR : les
+  scénarios verrouillent le comportement déjà vérifié, l'utilisateur explore
+  la frontière lui-même dans la vraie feuille (ses retours manuels — fond du
+  sélecteur, doublons de compétence — trouvent ce que les scénarios ne
+  voient pas). On n'automatise pas au-delà du dernier état vérifié ; quand
+  l'utilisateur a vérifié un comportement de frontière, il entre dans le
+  scénario au run suivant.
 - Nettoyage fichier par fichier avec arrêt et relecture utilisateur à
   chaque fichier ; une décision par run de tests, le run `tests.html`
   appartient à l'utilisateur (le code et le scénario s'adaptent ensemble).
