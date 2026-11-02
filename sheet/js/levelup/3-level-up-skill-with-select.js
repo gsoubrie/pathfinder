@@ -12,10 +12,20 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         this.taken_values   = [];
         CHARACTER.LevelUpSkillBasic.prototype.init.call( this, skill_data );
     },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "event__level_up__toggle_selector":
+                this.select_component.toggleState();
+                return;
+        }
+        CHARACTER.LevelUpSkillBasic.prototype.doActionAfter.call( this, event_name, params );
+    },
     //********************************************  GETTER SETTER  **************************************************//
     setSelectedValue  : function ( to_set ) {
         this.selected_value = to_set || null;
         this.setPhaseOrPhase( !!this.selected_value, LEVELUP.PHASE.SELECTED, LEVELUP.PHASE.RUNNING );
+        this.updateHtml();
     },
     getSelectedValue  : function () {
         return this.selected_value;
@@ -62,12 +72,30 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         CHARACTER.LevelUpSkillBasic.prototype.computeHtml.call( this, class_name );
     },
     _computeHtmlValidation: function () {
+        if ( LEVELUP.FEAT_TYPES.indexOf( this.type ) !== -1 ) {
+            this._computeHtmlSelect();
+            return;
+        }
         let select = SERVICE.DOM.createElement( "select", {
             class   : "level-up-row-select",
             onchange: "MANAGER.EventManagerV2.doActionAfter(event,'event__level_up__select_choice',{'param__level_up_skill__uuid':'" + this.uuid + "','param__choice_value':this.value})"
         } );
         this._buildSelectOptions( select );
         SERVICE.DOM.addElementTo( select, this.dom_element );
+    },
+    // A native select cannot host a "?" per option: the feat lines render the
+    // single select component of the lib pattern, every option carries its
+    // own info link
+    _computeHtmlSelect: function () {
+        this.select_component = new COMPONENT.SingleSelectFromData();
+        this.select_component.addParamsForEvents( { "param__level_up_skill__uuid": this.uuid } );
+        this.select_component.setToggleEventName( "event__level_up__toggle_selector" );
+        this.select_component.setClickEventName( "event__level_up__select_choice" );
+        this.select_component.setInfoEvent( "event__show_information__feat", { "param__feat_category": this.type === "skill_feat" ? "skill" : "class" }, "param__feat_name" );
+        this.select_component.setOptions( this.options );
+        this.select_component.setSelectedName( this.selected_value );
+        this.select_component.computeHtml();
+        SERVICE.DOM.addElementTo( this.select_component.getDomElement(), this.dom_element );
     },
     // A qualification cannot be taken twice: the entry passes the values
     // already chosen by the sibling lines, the line rebuilds its options
@@ -96,6 +124,30 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         }
         SERVICE.DOM.empty( select );
         this._buildSelectOptions( select );
+    },
+    // The feat lines receive their options by sync, after their build: the
+    // available feats depend on the character state
+    setOptions: function ( options ) {
+        this.options = options;
+        if ( this.select_component ) {
+            this.select_component.setOptions( options );
+            return;
+        }
+        if ( !this.dom_element ) {
+            return;
+        }
+        let select = this.dom_element.querySelector( ".level-up-row-select" );
+        if ( !select ) {
+            return;
+        }
+        SERVICE.DOM.empty( select );
+        this._buildSelectOptions( select );
+    },
+    updateHtml: function () {
+        if ( this.select_component ) {
+            this.select_component.setSelectedName( this.selected_value );
+            this.select_component.hidePopup();
+        }
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

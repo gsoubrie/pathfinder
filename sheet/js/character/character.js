@@ -46,7 +46,7 @@ CHARACTER.Current.prototype = {
                 params[ "param__characteristics__object" ]   = this.getCharacteristics();
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
                 this.levels_history.buildSkills();
-                this.levels_history.doActionAfter( "event__level_up__sync_additional_skills", { "param__current_character__object": this } );
+                this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
@@ -62,7 +62,7 @@ CHARACTER.Current.prototype = {
                 this.computeTotalLife();
                 this.class.updateHtmlData();
                 this.levels_history.buildSkills();
-                this.levels_history.doActionAfter( "event__level_up__sync_additional_skills", { "param__current_character__object": this } );
+                this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level_up__remove_level":
                 params[ "param__current_character__object" ] = this;
@@ -94,7 +94,7 @@ CHARACTER.Current.prototype = {
                 this.class.updateHtmlData();
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
-                this.levels_history.doActionAfter( "event__level_up__sync_additional_skills", { "param__current_character__object": this } );
+                this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level__toggle":
                 params[ "param__current_character__object" ] = this;
@@ -108,6 +108,12 @@ CHARACTER.Current.prototype = {
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
                 this.levels_history.doActionAfter( event_name, params );
+                // The validation may move the skill ranks: the feat options
+                // depend on them
+                this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            case "event__level_up__toggle_selector":
+                this.levels_history.doActionAfter( event_name, params );
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -117,7 +123,7 @@ CHARACTER.Current.prototype = {
             case "event__less_button":
                 if ( params[ "param__characteristics__is" ] ) {
                     this.characteristics.doActionAfter( event_name, params );
-                    this.levels_history.doActionAfter( "event__level_up__sync_additional_skills", { "param__current_character__object": this } );
+                    this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                     return;
                 }
                 break;
@@ -204,7 +210,7 @@ CHARACTER.Current.prototype = {
                 this.levels_history.updateData( value );
                 // The characteristics are loaded before the history: the
                 // additional skills lines sync on the fresh Intelligence
-                this.levels_history.doActionAfter( "event__level_up__sync_additional_skills", { "param__current_character__object": this } );
+                this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case this.player.getKey():
                 this.player.setValue( value );

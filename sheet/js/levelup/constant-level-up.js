@@ -14,6 +14,13 @@ LEVELUP.ADDITIONAL_SKILL_TYPE  = "additional_skill";
 LEVELUP.ADDITIONAL_SKILL_KEY   = "additional_skill_";
 LEVELUP.ADDITIONAL_SKILL_LABEL = "Compétence supplémentaire";
 
+// Feat lines: chosen through a selector, the options come by sync (they
+// depend on the character state: feat level and skill prerequisites)
+LEVELUP.FEAT_TYPES = [
+    "skill_feat",
+    "class_feat"
+];
+
 // Phases of a level-up line. Domain values, NOT GS.OBJECT.CONST.PHASE ones:
 // a phase value carries global utility styles (SLEEPING = cursor not-allowed
 // + children pointer-events none) that contradict a line which stays

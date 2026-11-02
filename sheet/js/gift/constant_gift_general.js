@@ -10,7 +10,7 @@ DON.GENERAL = {
         ],
         "required": [],
         "description": [
-            "Vous obtenez un animal de compagnie de taille Très Petite, d'un type que vous choisissez, comme par exemple un chat, un oiseau ou un rongeur. Il possède le trait sbire, ce qui signifie qu'il obtient 2 actions lors de votre tour si vous utilisez l'action Diriger un animal pour lui donner un ordre. Ceci remplace les effets habituels de sports_martial_artsDiriger un animal et vous n'avez pas à tenter un test de Nature. Un animal de compagnie ne peut effectuer de Frappe.",
+            "Vous obtenez un animal de compagnie de taille Très Petite, d'un type que vous choisissez, comme par exemple un chat, un oiseau ou un rongeur. Il possède le trait sbire, ce qui signifie qu'il obtient 2 actions lors de votre tour si vous utilisez l'action Diriger un animal pour lui donner un ordre. Ceci remplace les effets habituels de Diriger un animal et vous n'avez pas à tenter un test de Nature. Un animal de compagnie ne peut effectuer de Frappe.",
             "Niveau Le niveau de votre animal de compagnie est égal au vôtre.",
             "Modificateurs et CA Les modificateurs aux jets de sauvegarde et à la CA de votre animal de compagnie sont les mêmes que les vôtres avant d'appliquer les bonus et les pénalités de circonstances. Il utilise 3 + votre niveau pour déterminer ses modificateurs de Perception, d'Acrobaties et de Discrétion, et juste votre niveau comme modificateur pour ses autres tests de compétence. Il n'a pas ou n'utilise pas ses propres modificateurs d'attribut et ne peut jamais bénéficier de bonus d'objet.",
             "Points de vie Votre animal de compagnie possède 5 Points de vie par niveau.",
@@ -89,7 +89,7 @@ DON.GENERAL = {
         ],
         "required": [],
         "description": [
-            "Lorsque vous sports_martial_artsDirigez un animal sur lequel vous êtes monté pour effectuer une action de déplacement (comme Marcher rapidement), vous obtenez automatiquement un succès au lieu de devoir tenter un test. Tout animal sur lequel vous êtes monté agit à votre tour, comme un sbire. Si vous sports_martial_artsMontez un animal au milieu d'une rencontre, il passe son prochain tour puis agit ensuite à votre prochain tour."
+            "Lorsque vous Dirigez un animal sur lequel vous êtes monté pour effectuer une action de déplacement (comme Marcher rapidement), vous obtenez automatiquement un succès au lieu de devoir tenter un test. Tout animal sur lequel vous êtes monté agit à votre tour, comme un sbire. Si vous Montez un animal au milieu d'une rencontre, il passe son prochain tour puis agit ensuite à votre prochain tour."
         ]
     },
     {
@@ -102,7 +102,7 @@ DON.GENERAL = {
             "Planificateur prescient"
         ],
         "description": [
-            "Vous pouvez prédire quels sont les consommables dont vous pourriez avoir besoin à l'avance. Lorsque vous utilisez military_techPlanificateur prescient , vous pouvez tirer un objet consommable de votre sac à dos, au lieu d'un élément d'équipement d'aventurier. L'objet consommable doit toujours être courant et d'un niveau qui n'est pas supérieur à la moitié de votre niveau et son Encombrement doit être suffisamment faible pour que le porter ne vous ait pas rendu Surchargé."
+            "Vous pouvez prédire quels sont les consommables dont vous pourriez avoir besoin à l'avance. Lorsque vous utilisez Planificateur prescient , vous pouvez tirer un objet consommable de votre sac à dos, au lieu d'un élément d'équipement d'aventurier. L'objet consommable doit toujours être courant et d'un niveau qui n'est pas supérieur à la moitié de votre niveau et son Encombrement doit être suffisamment faible pour que le porter ne vous ait pas rendu Surchargé."
         ]
     },
     {
@@ -137,7 +137,7 @@ DON.GENERAL = {
         ],
         "required": [],
         "description": [
-            "Il en faut plus pour vous tuer que la plupart des gens. Vous mourez de l'état sentiment_very_dissatisfiedmourant à mourant 5 plutôt qu'à mourant 4."
+            "Il en faut plus pour vous tuer que la plupart des gens. Vous mourez de l'état mourant à mourant 5 plutôt qu'à mourant 4."
         ]
     },
     {
@@ -151,7 +151,7 @@ DON.GENERAL = {
             "maître en Perception"
         ],
         "description": [
-            "Lorsque vous partez en reconnaissance, vous êtes particulièrement attentif au danger, offrant à vos alliés de précieux instants pour se préparer au combat. Lorsque vous utilisez l'activité d'exploration sports_martial_artsReconnaître , vous accordez à vos alliés un bonus de circonstances de +2 à leurs jets d'initiative au lieu d'un bonus de circonstances de +1.",
+            "Lorsque vous partez en reconnaissance, vous êtes particulièrement attentif au danger, offrant à vos alliés de précieux instants pour se préparer au combat. Lorsque vous utilisez l'activité d'exploration Reconnaître , vous accordez à vos alliés un bonus de circonstances de +2 à leurs jets d'initiative au lieu d'un bonus de circonstances de +1.",
             "Effet : Reconnaître (Éclaireur incroyable)"
         ]
     },
@@ -165,7 +165,7 @@ DON.GENERAL = {
             "maître en Perception"
         ],
         "description": [
-            "Vous disposez d'un système qui vous permet d'effectuer des recherches très rapidement, en trouvant les détails et les secrets deux fois plus vite que les autres. Quand vous Cherchez, vous mettez la moitié de la durée habituelle pour sports_martial_artsChercher dans une zone donnée. Cela signifie que pendant que vous explorez, vous doublez la Vitesse à laquelle vous pouvez vous déplacer, tout en ayant l'assurance que vous avez bien Fouillé une zone avant d'y pénétrer (jusqu'à la moitié de votre Vitesse). Si vous êtes légendaire en Perception, vous Fouillez des zones quatre fois plus rapidement."
+            "Vous disposez d'un système qui vous permet d'effectuer des recherches très rapidement, en trouvant les détails et les secrets deux fois plus vite que les autres. Quand vous Cherchez, vous mettez la moitié de la durée habituelle pour Chercher dans une zone donnée. Cela signifie que pendant que vous explorez, vous doublez la Vitesse à laquelle vous pouvez vous déplacer, tout en ayant l'assurance que vous avez bien Fouillé une zone avant d'y pénétrer (jusqu'à la moitié de votre Vitesse). Si vous êtes légendaire en Perception, vous Fouillez des zones quatre fois plus rapidement."
         ]
     },
     {
@@ -178,7 +178,7 @@ DON.GENERAL = {
             "expert en Perception"
         ],
         "description": [
-            "Vous prenez votre temps pour chercher de façon à vous assurer de tout trouver. Lorsque vous Fouillez, vous pouvez passer deux fois plus de temps à chercher. Normalement cela signifie que vous sports_martial_artsFouillez à un quart de votre Vitesse, jusqu'à un maximum de 45 m par minute pour tout vérifier ou 22,50 mètres par minute pour tout vérifier avant de vous avancer dans une zone. Si vous le faites et que le MJ lance votre test secret de l'action sports_martial_artsChercher pour remarquer quelque chose, vous obtenez un bonus de circonstances de +2 à ce test de Perception et si c'est un succès, il devient un succès critique."
+            "Vous prenez votre temps pour chercher de façon à vous assurer de tout trouver. Lorsque vous Fouillez, vous pouvez passer deux fois plus de temps à chercher. Normalement cela signifie que vous Fouillez à un quart de votre Vitesse, jusqu'à un maximum de 45 m par minute pour tout vérifier ou 22,50 mètres par minute pour tout vérifier avant de vous avancer dans une zone. Si vous le faites et que le MJ lance votre test secret de l'action Chercher pour remarquer quelque chose, vous obtenez un bonus de circonstances de +2 à ce test de Perception et si c'est un succès, il devient un succès critique."
         ]
     },
     {
@@ -191,7 +191,7 @@ DON.GENERAL = {
             "Dextérité +3, Vélocité"
         ],
         "description": [
-            "Vous pouvez filer rapidement sur le sol. Vous pouvez sports_martial_artsRamper à la moitié de votre Vitesse."
+            "Vous pouvez filer rapidement sur le sol. Vous pouvez Ramper à la moitié de votre Vitesse."
         ]
     },
     {
@@ -302,7 +302,7 @@ DON.GENERAL = {
             "légendaire en Perception"
         ],
         "description": [
-            "Vos facultés de perception et votre capacité à interpréter les informations sensorielles sont tellement au-delà des limites que vous remarquez les moindres divergences dans toutes sortes d'illusions et de transformations physiques. Vous êtes constamment sous l'effet d'un sort de auto_awesomeVision véritable au rang 6, en utilisant votre modificateur de Perception pour le test de contre."
+            "Vos facultés de perception et votre capacité à interpréter les informations sensorielles sont tellement au-delà des limites que vous remarquez les moindres divergences dans toutes sortes d'illusions et de transformations physiques. Vous êtes constamment sous l'effet d'un sort de Vision véritable au rang 6, en utilisant votre modificateur de Perception pour le test de contre."
         ]
     },
     {
@@ -386,7 +386,7 @@ DON.GENERAL = {
         ],
         "required": [],
         "description": [
-            "Votre physiologie répond particulièrement bien aux premiers soins. Vous obtenez un bonus de circonstances au nombre de Points de vie que vous regagnez égal à votre niveau lors d'une tentative réussie pour sports_martial_artsSoigner vos blessures ou d'utilisation military_techMédecine militaire sur vous. Après une utilisation de Médecine militaire sur vous par vous-même ou un allié, vous êtes temporairement immunisé à cette Médecine militaire pendant seulement 1 heure, au lieu d'un jour."
+            "Votre physiologie répond particulièrement bien aux premiers soins. Vous obtenez un bonus de circonstances au nombre de Points de vie que vous regagnez égal à votre niveau lors d'une tentative réussie pour Soigner vos blessures ou d'utilisation Médecine militaire sur vous. Après une utilisation de Médecine militaire sur vous par vous-même ou un allié, vous êtes temporairement immunisé à cette Médecine militaire pendant seulement 1 heure, au lieu d'un jour."
         ]
     },
     {

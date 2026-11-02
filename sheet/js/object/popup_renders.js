@@ -134,7 +134,7 @@ OBJECT.ActionPopupRenderer = function ( object_data ) {
 };
 OBJECT.ActionPopupRenderer.prototype = {
     _actionCostLabel: function ( cost ) {
-        const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "free": "⟳", "reaction": "⟲" };
+        const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "f": "⟳", "r": "⟲" };
         return map[ cost ] !== undefined ? map[ cost ] : cost;
     },
     

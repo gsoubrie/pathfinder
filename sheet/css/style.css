@@ -21,6 +21,8 @@ body {
     box-shadow: var(--sh-lg);
     border: var(--b-thick) solid var(--c-gold-dark);
     border-radius: var(--r-2xl);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 
@@ -99,7 +101,14 @@ body {
 }
 
 .characters-sheet-content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
     padding: var(--s-xl);
+}
+
+.characters-sheet-content .gs-window-targets-V2 {
+    height: 100%;
 }
 
 /* BUTTONS */

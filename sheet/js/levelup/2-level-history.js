@@ -24,6 +24,13 @@ CHARACTER.LevelHistory.prototype = {
                 }
                 return;
             }
+            case "event__level_up__toggle_selector": {
+                let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
+                if ( level_up_skill ) {
+                    level_up_skill.doActionAfter( event_name, params );
+                }
+                return;
+            }
             case "event__level_up__select_choice": {
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
@@ -37,9 +44,11 @@ CHARACTER.LevelHistory.prototype = {
                     this.getContent( i ).getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).showForParent( false );
                 }
                 return;
-            case "event__level_up__sync_additional_skills": {
-                let int_characteristic = params[ "param__current_character__object" ].getCharacteristics().getContentByUUID( "INT" );
+            case "event__level_up__sync_lines": {
+                let character_object = params[ "param__current_character__object" ];
+                let int_characteristic = character_object.getCharacteristics().getContentByUUID( "INT" );
                 this.syncAdditionalSkills( int_characteristic.getModifierValue() );
+                this._syncFeatLinesOptions( character_object );
                 return;
             }
             case "event__get__rank_contributions":
@@ -91,8 +100,10 @@ CHARACTER.LevelHistory.prototype = {
                 "level_skill": this.level_skill
             };
             let choices = CLASSES.getChoices( class_name, ability_key );
-            if ( choices ) {
-                skill_data[ "options" ] = choices.entries;
+            if ( choices || LEVELUP.FEAT_TYPES.indexOf( type ) !== -1 ) {
+                // The feat lines open their selector at build, their options
+                // arrive by sync (they depend on the character state)
+                skill_data[ "options" ] = choices ? choices.entries : [];
                 this.add( new CHARACTER.LevelUpSkillWithSelect( skill_data ) );
             }
             else {
@@ -132,6 +143,25 @@ CHARACTER.LevelHistory.prototype = {
             this.removeContent( removed_line.getUUID(), null, true );
         }
         this.level_skill = null;
+    },
+    // The feat line options depend on the character state: the feat level and
+    // the skill prerequisites — they refresh at every sync, the chosen value
+    // of a line stays
+    _syncFeatLinesOptions: function ( character_object ) {
+        let skill_ranks  = character_object.getMasteries().getSkillRanksByLabel( character_object );
+        let level_number = parseInt( this.level_name, 10 );
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let line = this.getContent( i );
+            if ( line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ) {
+                continue;
+            }
+            if ( line.type === "skill_feat" ) {
+                line.setOptions( DON.getAvailableSkillFeats( skill_ranks, level_number ) );
+            }
+            else if ( line.type === "class_feat" ) {
+                line.setOptions( DON.getAvailableClassFeats( this.getClassName(), level_number ) );
+            }
+        }
     },
     setLinesCountersParent: function ( parent ) {
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {

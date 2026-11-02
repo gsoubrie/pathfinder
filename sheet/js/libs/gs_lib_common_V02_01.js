@@ -492,3 +492,172 @@ MANAGER.EventManagerV2   = {
         }
     }
 };
+
+/**
+ * Single select with HTML options: container + selector header + option
+ * list, open state in the data-state-selector dataset. Every option may
+ * carry an info link and a choice event: the option values never travel
+ * inline in the handlers (the labels may carry apostrophes), they are read
+ * from the data-value attribute at click time.
+ *
+ * @class COMPONENT.SingleSelectFromData
+ * @extends GS.OBJECT.GsObjectHtml
+ */
+COMPONENT.SingleSelectFromData           = function () {
+    this.init();
+};
+COMPONENT.SingleSelectFromData.prototype = {
+    init: function () {
+        this.options           = [];
+        this.selected_name     = "";
+        this.default_label     = "--";
+        this.toggle_event_name = "click_on_selector";
+        this.click_event_name  = "click_on_item_selector";
+        this.info_event_name   = null;
+        this.info_params       = {};
+        this.info_value_key    = "";
+        this.dom_element       = null;
+        this.dom_header        = null;
+        this.dom_list          = null;
+    },
+    //********************************************  EVENT LISTENER  **************************************************//
+    doActionAfter: function ( event_name, params ) {
+        switch ( event_name ) {
+            case "click_on_selector":
+                this.toggleState();
+                return;
+        }
+    },
+    // Plugs the askHidePopup chain: a click outside closes the list
+    hidePopup: function () {
+        SERVICE.DOM.setDataSet( this.dom_element, "stateSelector", 0 );
+    },
+    //********************************************  GETTER SETTER  **************************************************//
+    setToggleEventName: function ( to_set ) {
+        this.toggle_event_name = to_set;
+    },
+    setClickEventName : function ( to_set ) {
+        this.click_event_name = to_set;
+    },
+    setInfoEvent      : function ( event_name, params, value_param_key ) {
+        this.info_event_name = event_name;
+        this.info_params     = params;
+        this.info_value_key  = value_param_key;
+    },
+    getValue          : function () {
+        return this.selected_name;
+    },
+    toggleState       : function () {
+        let to_set = this.dom_element.dataset.stateSelector === "1" ? 0 : 1;
+        SERVICE.DOM.setDataSet( this.dom_element, "stateSelector", to_set );
+        return to_set;
+    },
+    setSelectedName   : function ( to_set ) {
+        this.selected_name = to_set || "";
+        this.computeTitle();
+        this._refreshSelectedOptions();
+    },
+    //********************************************  DATA   **************************************************//
+    setOptions: function ( options_data ) {
+        this.options = [];
+        for ( let i = 0, _size_i = options_data.length; i < _size_i; i++ ) {
+            this.options.push( {
+                "name" : options_data[ i ].name,
+                "label": options_data[ i ].label !== undefined ? options_data[ i ].label : options_data[ i ].name
+            } );
+        }
+        if ( this.dom_list ) {
+            this._computeOptionsHtml();
+        }
+    },
+    //********************************************  HTML   **************************************************//
+    computeHtml: function () {
+        this.dom_element = SERVICE.DOM.createElement( "div", { class: "single-select-container" } );
+        this.dom_header  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class  : "single-select-selector",
+            onclick: this.getDoActionAfterEvent( this.toggle_event_name )
+        } ), this.dom_element );
+        this.computeTitle();
+        this.dom_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "single-select-list" } ), this.dom_element );
+        this._computeOptionsHtml();
+    },
+    computeTitle: function () {
+        if ( !this.dom_header ) {
+            return;
+        }
+        SERVICE.DOM.empty( this.dom_header );
+        let label = this.default_label;
+        for ( let i = 0, _size_i = this.options.length; i < _size_i; i++ ) {
+            if ( this.options[ i ].name === this.selected_name ) {
+                label = this.options[ i ].label;
+            }
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "single-select-selector-label" }, label ), this.dom_header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "single-select-selector-chevron" } ), this.dom_header );
+    },
+    _computeOptionsHtml: function () {
+        SERVICE.DOM.empty( this.dom_list );
+        // The empty option first: choosing it clears the selection
+        let option_names = [ "" ];
+        for ( let i = 0, _size_i = this.options.length; i < _size_i; i++ ) {
+            option_names.push( this.options[ i ].name );
+        }
+        for ( let i = 0, _size_i = option_names.length; i < _size_i; i++ ) {
+            let option_name = option_names[ i ];
+            let option      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class      : "single-select-option" + ( option_name === this.selected_name ? " selected" : "" ),
+                "data-value": option_name,
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'" + this.click_event_name + "'," + this._parseParamsHtml( "'param__choice_value':this.getAttribute('data-value')" ) + ")"
+            } ), this.dom_list );
+            let option_data = null;
+            for ( let o = 0, _size_o = this.options.length; o < _size_o; o++ ) {
+                if ( this.options[ o ].name === option_name ) {
+                    option_data = this.options[ o ];
+                }
+            }
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "single-select-option-label" }, option_data ? option_data.label : "--" ), option );
+            if ( option_name && this.info_event_name ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                    class  : "level-up-row-info gs-link-information",
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'" + this.info_event_name + "'," + this._parseParamsHtml( "'" + this.info_value_key + "':this.parentNode.getAttribute('data-value')" ) + ")"
+                }, "?" ), option );
+            }
+        }
+    },
+    _refreshSelectedOptions: function () {
+        if ( !this.dom_list ) {
+            return;
+        }
+        let option_elements = this.dom_list.querySelectorAll( ".single-select-option" );
+        for ( let i = 0, _size_i = option_elements.length; i < _size_i; i++ ) {
+            if ( option_elements[ i ].getAttribute( "data-value" ) === this.selected_name ) {
+                option_elements[ i ].classList.add( "selected" );
+            }
+            else {
+                option_elements[ i ].classList.remove( "selected" );
+            }
+        }
+    },
+    //********************************************  DATA   **************************************************//
+    // The params of the component plus one read expression: the values of
+    // the options never travel inline — they are read from the data-value
+    // attribute at click time
+    _parseParamsHtml: function ( extra_read ) {
+        let params    = this.getParamForEvents();
+        let _keys     = Object.keys( params );
+        let info_keys = Object.keys( this.info_params );
+        let parts     = [];
+        for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+            parts.push( "'" + _keys[ i ] + "':'" + params[ _keys[ i ] ] + "'" );
+        }
+        for ( let i = 0, _size_i = info_keys.length; i < _size_i; i++ ) {
+            parts.push( "'" + info_keys[ i ] + "':'" + this.info_params[ info_keys[ i ] ] + "'" );
+        }
+        if ( extra_read ) {
+            parts.push( extra_read );
+        }
+        return "{" + parts.join( "," ) + "}";
+    }
+};
+
+GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData, GS.OBJECT.GsObjectHtml );

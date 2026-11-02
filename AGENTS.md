@@ -641,11 +641,11 @@ natif ; `setSelectedValue` met le DOM à jour en place (`updateHtml` :
 texte du header + classe selected des options) ; `setOptions` reconstruit
 la liste ou le select selon le type. Les autres lignes à choix (école,
 thèse, compétences, améliorations) restent en select natif.
-Round 27 = le sélecteur des dons devient un COMPOSANT (demande
-utilisateur : extension du patron de la lib, sur le modèle
-`SingleSelectFromData_V4` de Shinken) : `sheet/js/component/single-select.js`
-déclare le namespace `COMPONENT` et porte `COMPONENT.SingleSelectFromData`
-(hérite `GS.OBJECT.GsObjectHtml` — addParamsForEvents,
+Round 27 = le sélecteur des dons devient un COMPOSANT DE LA LIB (demande
+utilisateur — EXCEPTION au périmètre : `COMPONENT.SingleSelectFromData`
+vit dans `sheet/js/libs/gs_lib_common_V02_01.js`, déclaré
+`var COMPONENT = COMPONENT || {}` + `GS.TOOLS.CLASS.addPrototype`,
+hérite `GS.OBJECT.GsObjectHtml` — addParamsForEvents,
 getDoActionAfterEvent, la chaîne askHidePopup de la lib). Le composant
 possède : header + liste d'options, état ouvert dans le dataset
 `data-state-selector` (`toggleState`, `hidePopup` branché au contrat
@@ -660,6 +660,12 @@ apostrophes et les noms de dons en portent : elles se lisent du
 entrée par uuid → ligne → `select_component.toggleState()`), le choix
 reste `event__level_up__select_choice`. Les autres lignes à choix
 restent en select natif (à généraliser si l'utilisateur le demande).
+Le CSS emprunte au `select-comp.css` de la lib Shinken (demande
+utilisateur) : liste fluide (`left/right: 0` + `min-width`), caret en
+triangle CSS (span vide peinte par le CSS, plus de caractère), option
+sélectionnée teintée + `pointer-events: none` (on ne re-choisit pas
+l'option courante), `overflow-x: hidden`, `max-height` 250, z-index 100 —
+couleurs via les variables `--*` du thème Pathfinder.
 
 ### Style, commentaires, nommage
 

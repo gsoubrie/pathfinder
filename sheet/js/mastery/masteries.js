@@ -26,6 +26,17 @@ CHARACTER.Masteries.prototype = {
         let characteristic = character_object.getCharacteristics().getContentByUUID( roll.characteristic );
         return character_object.getLevel() + ( characteristic ? characteristic.getModifierValue() : 0 ) + rank_bonus;
     },
+    // Rank of every skill of the game, by display label: the skill feat
+    // prerequisites are written against labels
+    getSkillRanksByLabel: function ( character_object ) {
+        let to_return = {};
+        let _keys     = Object.keys( SKILLS.LIST );
+        for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+            let skill_label = SKILLS.LIST[ _keys[ i ] ].label;
+            to_return[ skill_label ] = this.getFinalRank( character_object, MASTERY.getSkillSlot( skill_label ) );
+        }
+        return to_return;
+    },
     getRankContributions: function ( character_object ) {
         let params = { "param__rank_contributions": [] };
         character_object.doActionAfter( "event__get__rank_contributions", params );

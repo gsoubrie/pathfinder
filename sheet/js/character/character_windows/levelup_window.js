@@ -28,6 +28,7 @@ CHARACTER.LevelUpWindow.prototype = {
                 break;
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
+            case "event__level_up__toggle_selector":
                 // The line phase updates in place, the counter chain refreshes
                 // the tab badge and the global warning: nothing to re-render
                 CONTROLLER.Character.current_character.doActionAfter( event_name, params );

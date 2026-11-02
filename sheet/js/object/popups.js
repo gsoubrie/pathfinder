@@ -62,6 +62,14 @@ OBJECT.PopupRenderers.prototype = {
                     skill_popup.doActionAfter( "event__show_information", params );
                 }
                 return;
+            case "event__show_information__feat": {
+                let feat_data = params[ "param__feat_name" ] ? DON.getFeatInformation( params[ "param__feat_category" ], params[ "param__feat_name" ] ) : null;
+                let feat_popup = feat_data ? this._openPopup( feat_data ) : null;
+                if ( feat_popup ) {
+                    feat_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

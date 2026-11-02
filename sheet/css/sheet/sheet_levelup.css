@@ -1,5 +1,11 @@
 /* =============================== LEVELUP WINDOW =========================== */
 
+/* The paper is a fixed-height column flex: the pane takes the remaining
+   height so the window below can scroll its own content */
+.property-tab-pane[data-name="levelup_sheet"] {
+    height : 100%;
+}
+
 .property-tab-pane[data-name="levelup_sheet"] .level-up-window {
     display        : flex;
     flex-direction : column;
@@ -9,7 +15,15 @@
     box-sizing     : border-box;
     overflow-y     : auto;
     scrollbar-width: thin;
-    scrollbar-color: #8b6914 #2c1810;
+    scrollbar-color: var(--c-gold-dark) var(--c-bg-dark);
+}
+
+/* Les enfants ne rétrécissent pas : flex-shrink par défaut comprimerait les
+   blocs dans la fenêtre bornée, leur overflow:hidden (coupure des coins
+   arrondis) couperait alors leurs dernières lignes — c'est la fenêtre qui
+   scrolle quand le contenu dépasse */
+.property-tab-pane[data-name="levelup_sheet"] .level-up-window > * {
+    flex-shrink: 0;
 }
 
 /* ── En-tête ── */
@@ -220,6 +234,97 @@
     border-color : var(--c-gold-light);
     box-shadow   : var(--sh-gold-sm);
     color        : var(--c-text-gold);
+}
+
+/* ── Sélecteur simple (composant lib) : header + liste d'options, un "?"
+      par option, état ouvert dans le data-state-selector ── */
+.level-up-window .single-select-container {
+    flex-shrink: 0;
+    position   : relative;
+}
+
+.level-up-window .single-select-selector {
+    align-items  : center;
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text);
+    cursor       : pointer;
+    display      : flex;
+    font-size    : 12px;
+    gap          : var(--s-sm);
+    justify-content: space-between;
+    max-width    : 190px;
+    padding      : 2px 6px;
+    transition   : all 0.15s ease;
+    white-space  : nowrap;
+}
+
+.level-up-window .single-select-selector:hover {
+    border-color : var(--c-gold-dark);
+}
+
+.level-up-window .level-up-row[data-current-phase='SELECTED'] .single-select-selector {
+    border-color : var(--c-gold-light);
+    box-shadow   : var(--sh-gold-sm);
+    color        : var(--c-text-gold);
+}
+
+/* Caret en triangle CSS */
+.level-up-window .single-select-selector-chevron {
+    border-left : 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top  : 4px solid var(--c-text-muted);
+    height      : 0;
+    width       : 0;
+}
+
+.level-up-window .single-select-list {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-gold-dark);
+    border-radius: var(--r-sm);
+    box-shadow   : var(--sh-lg);
+    display      : none;
+    left         : 0;
+    max-height   : 250px;
+    min-width    : 260px;
+    overflow-x   : hidden;
+    overflow-y   : auto;
+    padding      : 2px;
+    position     : absolute;
+    right        : 0;
+    top          : 100%;
+    z-index      : 100;
+}
+
+.level-up-window .single-select-container[data-state-selector='1'] .single-select-list {
+    display: block;
+}
+
+.level-up-window .single-select-option {
+    align-items: center;
+    border-radius: var(--r-sm);
+    color       : var(--c-text);
+    cursor      : pointer;
+    display     : flex;
+    gap         : var(--s-sm);
+    justify-content: space-between;
+    padding     : 3px 8px;
+}
+
+.level-up-window .single-select-option:hover {
+    background : var(--c-bg-card-light);
+}
+
+/* L'option déjà choisie se tinte et ne se re-choisit pas */
+.level-up-window .single-select-option.selected {
+    background    : var(--c-bg-card-light);
+    color         : var(--c-gold);
+    pointer-events: none;
+}
+
+.level-up-window .single-select-option-label {
+    font-size : 12px;
 }
 
 /* ===== Sélecteur de classe (multiclasse) ===== */

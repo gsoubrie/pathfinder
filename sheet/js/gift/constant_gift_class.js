@@ -9,7 +9,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le tour de magie de composition auto_awesomeÀ trois temps qui augmente votre rapidité et celle de vos alliés pendant un round."
+                "Vous apprenez le tour de magie de composition À trois temps qui augmente votre rapidité et celle de vos alliés pendant un round."
             ]
         },
         {
@@ -23,11 +23,11 @@ DON.CLASS = {
             "description": [
                 "Votre attaque blesse et handicape votre adversaire. Choisissez une partie particulière de votre adversaire dans la liste ci-dessous et Frappez. Si vous touchez et blessez la cible, appliquez l'effet correspondant à la partie choisie. Le handicap dure jusqu'à la fin de votre prochain tour. Sur un coup critique, vous appliquez aussi un effet moindre qui dure pendant 1 minute.",
                 [
-                    "Bras (ou autre membre utilisé pour les attaques, tel qu'un tentacule) La cible est sentiment_very_dissatisfiedAffaiblie 2 . En cas de coup critique, elle est aussi sentiment_very_dissatisfiedAffaiblie 1 pendant 1 minute.",
-                    "Tête La cible est sentiment_very_dissatisfiedStupéfiée 2 . En cas de coup critique, elle est aussi sentiment_very_dissatisfiedStupéfiée 1 pendant 1 minute.",
+                    "Bras (ou autre membre utilisé pour les attaques, tel qu'un tentacule) La cible est Affaiblie 2 . En cas de coup critique, elle est aussi Affaiblie 1 pendant 1 minute.",
+                    "Tête La cible est Stupéfiée 2 . En cas de coup critique, elle est aussi Stupéfiée 1 pendant 1 minute.",
                     "Jambes La cible subit une pénalité de -3 mètres à ses Vitesses. En cas de coup critique, elle subit une pénalité de -1,50 mètre à ses Vitesses pendant 1 minute."
                 ],
-                "flareEffet : Aboutissement ciblé"
+                "Effet : Aboutissement ciblé"
             ]
         },
         {
@@ -75,7 +75,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous menez un assaut démonstratif qui laisse votre cible en déséquilibre. Faites une Frappe au corps-à-corps. Si vous touchez et infligez des dégâts, la cible est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de son prochain tour."
+                "Vous menez un assaut démonstratif qui laisse votre cible en déséquilibre. Faites une Frappe au corps-à-corps. Si vous touchez et infligez des dégâts, la cible est Prise au dépourvu jusqu'à la fin de son prochain tour."
             ]
         },
         {
@@ -101,7 +101,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez deux armes de corps-à-corps, une dans chaque main.",
-                "Vous divisez vos attaques. Faites deux sports_martial_artsFrappes de corps-à-corps, une avec chaque arme requise, chacune contre un adversaire différent. Si la seconde Frappe est portée avec une arme non-agile, elle subit une pénalité de -2.",
+                "Vous divisez vos attaques. Faites deux Frappes de corps-à-corps, une avec chaque arme requise, chacune contre un adversaire différent. Si la seconde Frappe est portée avec une arme non-agile, elle subit une pénalité de -2.",
                 "Augmentez votre pénalité d'attaques multiples seulement après avoir effectué les deux Frappes."
             ]
         },
@@ -128,11 +128,11 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous tentez un coup qui donne le tournis. Faites une Frappe au corps-à-corps. Si vous touchez, votre adversaire doit tenter un jet de casinoVigueur contre votre DD de classe avec les résultats suivants ; le jet de sauvegarde possède le trait mise hors de combat.",
+                "Vous tentez un coup qui donne le tournis. Faites une Frappe au corps-à-corps. Si vous touchez, votre adversaire doit tenter un jet de Vigueur contre votre DD de classe avec les résultats suivants ; le jet de sauvegarde possède le trait mise hors de combat.",
                 "Succès critique La cible n'est pas affectée.",
                 "Succès La cible ne peut utiliser de réactions jusqu'à son prochain tour.",
-                "Échec La cible est sentiment_very_dissatisfiedÉtourdie 1 .",
-                "Échec critique La cible est sentiment_very_dissatisfiedÉtourdie 3 ."
+                "Échec La cible est Étourdie 1 .",
+                "Échec critique La cible est Étourdie 3 ."
             ]
         },
         {
@@ -173,7 +173,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous poignardez votre adversaire dans un organe vital, le tuant possiblement sur le champ. Faites une Frappe. Sur un succès, vous renoncez aux dégâts de Frappe précise de l'aboutissement.",
-                "À la place, votre cible subit des dégâts supplémentaires de précision basés sur un jet de casinoVigueur contre votre DD de classe. Si votre Frappe est un coup critique, le résultat du jet de sauvegarde de la cible est d'un degré inférieur.",
+                "À la place, votre cible subit des dégâts supplémentaires de précision basés sur un jet de Vigueur contre votre DD de classe. Si votre Frappe est un coup critique, le résultat du jet de sauvegarde de la cible est d'un degré inférieur.",
                 "Succès critique Vous infligez 6 dégâts de précision.",
                 "Succès Vous infligez 6d6 dégâts de précision.",
                 "Échec Vous infligez 12d6 dégâts de précision.",
@@ -190,7 +190,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous attaquez durant votre mouvement. Marchez rapidement puis Frappez.",
-                "Vous pouvez utiliser Aboutissement mobile pendant que vous sports_martial_artsCreusez , sports_martial_artsEscaladez , sports_martial_artsVolez ou sports_martial_artsNagez au lieu de Marcher rapidement si vous disposez des types de déplacement correspondant."
+                "Vous pouvez utiliser Aboutissement mobile pendant que vous Creusez , Escaladez , Volez ou Nagez au lieu de Marcher rapidement si vous disposez des types de déplacement correspondant."
             ]
         },
         {
@@ -216,7 +216,7 @@ DON.CLASS = {
                 "Aboutissement assuré"
             ],
             "description": [
-                "Même lorsque votre adversaire évite votre sports_martial_artsAboutissement assuré , vous pouvez toujours atteindre un point vital. En cas d'échec avec Aboutissement assuré, vous appliquez tous vos dégâts de Frappe précise au lieu de la moitié."
+                "Même lorsque votre adversaire évite votre Aboutissement assuré , vous pouvez toujours atteindre un point vital. En cas d'échec avec Aboutissement assuré, vous appliquez tous vos dégâts de Frappe précise au lieu de la moitié."
             ]
         },
         {
@@ -230,7 +230,7 @@ DON.CLASS = {
             "description": [
                 "Votre assurance vous donne confiance en vous et en vos alliés. Faites une Frappe. Si elle touche, vous et tous les alliés dans les 9 mètres obtenez un nombre de Points de vie temporaires égal à la moitié de votre niveau.",
                 "Échec Vous obtenez un nombre de Points de vie temporaires égal à la moitié de votre niveau.",
-                "flareEffet : Aboutissement revitalisant"
+                "Effet : Aboutissement revitalisant"
             ]
         },
         {
@@ -244,7 +244,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Un allié dans les 9 m Lance un sort.",
-                "Vous utilisez vos représentations pour compléter l'incantation des sorts d'un allié, lui fournissant l'énergie magique pour ses sorts à sa place. Faites un test de casinoReprésentation , en utilisant un DD très élevé pour le niveau de l'allié et soit vous dépensez un Point de focalisation (si le sort déclencheur est un sort focalisé) soit vous dépensez un emplacement de sort d'au moins 1 rang supérieur au sort déclencheur. Si vous réussissez le test de Représentation, le sort de votre allié ne lui coûte ni le Point de focalisation ni l'emplacement du sort que l'allié aurait normalement dû dépenser."
+                "Vous utilisez vos représentations pour compléter l'incantation des sorts d'un allié, lui fournissant l'énergie magique pour ses sorts à sa place. Faites un test de Représentation , en utilisant un DD très élevé pour le niveau de l'allié et soit vous dépensez un Point de focalisation (si le sort déclencheur est un sort focalisé) soit vous dépensez un emplacement de sort d'au moins 1 rang supérieur au sort déclencheur. Si vous réussissez le test de Représentation, le sort de votre allié ne lui coûte ni le Point de focalisation ni l'emplacement du sort que l'allié aurait normalement dû dépenser."
             ]
         },
         {
@@ -258,7 +258,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Cela paraît impossible, mais vous avez analysé tout les angles et êtes capable de tirer exactement l'objet dont vous avez besoin, même lorsque vous vous trouvez à l'autre bout du monde.",
-                "Vous pouvez utiliser military_techPlanificateur prescient même si vous l'avez déjà utilisé après avoir acheté des biens et vous pouvez l'utiliser par une action unique au lieu d'une activité à deux actions, durant laquelle vous sports_martial_artsInteragissez pour sortir l'objet.",
+                "Vous pouvez utiliser Planificateur prescient même si vous l'avez déjà utilisé après avoir acheté des biens et vous pouvez l'utiliser par une action unique au lieu d'une activité à deux actions, durant laquelle vous Interagissez pour sortir l'objet.",
                 "De plus, cinq fois par jour, vous pouvez utiliser Planificateur prescient pour sortir un consommable courant dont le niveau est inférieur de 6 au vôtre."
             ]
         },
@@ -272,7 +272,7 @@ DON.CLASS = {
                 "Achat intuitif"
             ],
             "description": [
-                "Vous pouvez utiliser military_techPlanificateur prescient même si vous l'avez déjà utilisé après avoir acheté des biens et vous pouvez Interagir pour sortir l'objet par une action unique au lieu d'une activité à 2 actions. De plus, cinq fois par jour, vous pouvez utiliser Planificateur prescient pour sortir un consommable courant qui est de 6 niveaux inférieur au vôtre."
+                "Vous pouvez utiliser Planificateur prescient même si vous l'avez déjà utilisé après avoir acheté des biens et vous pouvez Interagir pour sortir l'objet par une action unique au lieu d'une activité à 2 actions. De plus, cinq fois par jour, vous pouvez utiliser Planificateur prescient pour sortir un consommable courant qui est de 6 niveaux inférieur au vôtre."
             ]
         },
         {
@@ -283,7 +283,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez juste la chose dont vous avez besoin pour faire face à la situation. Vous obtenez les dons military_techPlanificateur prescient et military_techConsommable prescient .",
+                "Vous avez juste la chose dont vous avez besoin pour faire face à la situation. Vous obtenez les dons Planificateur prescient et Consommable prescient .",
                 "Lorsque vous utilisez Planificateur prescient, vous pouvez tirer de votre sac à dos (ou d'un contenant équivalent) l'objet par une activité nécessitant 2 actions, plutôt qu'en y passant 1 minute."
             ]
         },
@@ -295,7 +295,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous vous arrangez pour disposer de la chose dont vous avez besoin pour faire face à la situation. Vous obtenez les dons military_techPlanificateur prescient et military_techConsommable prescient . Lorsque vous utilisez Planificateur prescient, vous pouvez tirer de votre sac à dos (ou d'un contenant équivalent) l'objet par une activité nécessitant 2 actions, plutôt qu'en y passant 1 minute."
+                "Vous vous arrangez pour disposer de la chose dont vous avez besoin pour faire face à la situation. Vous obtenez les dons Planificateur prescient et Consommable prescient . Lorsque vous utilisez Planificateur prescient, vous pouvez tirer de votre sac à dos (ou d'un contenant équivalent) l'objet par une activité nécessitant 2 actions, plutôt qu'en y passant 1 minute."
             ]
         },
         {
@@ -308,7 +308,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous vous déplacez autour de vos adversaires, en évitant habilement leurs réactions. Marchez rapidement jusqu'à la moitié de votre Vitesse au sol et faites un test d'Acrobaties. Comparez le résultat avec le DD de Réflexes de chaque ennemi dont l'allonge vous atteint lorsque vous avez débuté ou dans laquelle vous avez pénétré durant le déplacement, de manière séquentielle.",
-                "Succès critique Ce déplacement ne déclenche pas de réaction de l'ennemi, et l'ennemi est sentiment_very_dissatisfiedPris au dépourvu par rapport à vous jusqu'à la fin de votre tour.",
+                "Succès critique Ce déplacement ne déclenche pas de réaction de l'ennemi, et l'ennemi est Pris au dépourvu par rapport à vous jusqu'à la fin de votre tour.",
                 "Succès Ce déplacement ne déclenche pas de réaction de l'ennemi.",
                 "Échec critique Votre déplacement s'arrête immédiatement lorsque vous entrez dans l'allonge de la créature. Si vous avez débuté dans l'allonge de la créature, vous ne vous déplacez pas."
             ]
@@ -323,7 +323,7 @@ DON.CLASS = {
                 "maître en Discrétion"
             ],
             "description": [
-                "Il est presque impossible de vous repérer. Quand vous obtenez un échec à une action pour sports_martial_artsÊtre furtif , celui-ci se transforme en succès. Vous pouvez toujours obtenir un échec critique."
+                "Il est presque impossible de vous repérer. Quand vous obtenez un échec à une action pour Être furtif , celui-ci se transforme en succès. Vous pouvez toujours obtenir un échec critique."
             ]
         },
         {
@@ -365,7 +365,7 @@ DON.CLASS = {
             "description": [
                 "Fréquence Une fois par jour",
                 "Conditions Vous avez moins que votre nombre maximum de fioles polyvalentes et vous tenez ou maniez du Matériel d'alchimiste.",
-                "Vous récupérez suffisamment d'ingrédients dans ce qui reste de votre Matériel d'alchimiste pour produire quelques fioles polyvalentes de plus à la volée. Tentez un test d' casinoArtisanat . Le DD est généralement un DD de difficulté standard pour votre niveau, mais le MJ peut attribuer un DD différent en fonction des circonstances. Le nombre de fioles que vous récupérez dépend du résultat de votre test (jusqu'à votre maximum).",
+                "Vous récupérez suffisamment d'ingrédients dans ce qui reste de votre Matériel d'alchimiste pour produire quelques fioles polyvalentes de plus à la volée. Tentez un test d' Artisanat . Le DD est généralement un DD de difficulté standard pour votre niveau, mais le MJ peut attribuer un DD différent en fonction des circonstances. Le nombre de fioles que vous récupérez dépend du résultat de votre test (jusqu'à votre maximum).",
                 "Succès critique Vous récupérez 3 fioles polyvalentes.",
                 "Succès Vous récupérez 2 fioles polyvalentes.",
                 "Échec Vous récupérez 1 fiole polyvalente.",
@@ -382,7 +382,7 @@ DON.CLASS = {
                 "Posture de sang de fer"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture du sang-de-fer",
+                "Conditions Vous êtes dans la Posture du sang-de-fer",
                 "Vous vous cuirassez en vous apprêtant à encaisser des attaques imminentes et à utiliser vos muscles pour absorber les impacts. Vous bénéficiez des avantages du trait parade de votre balayage de fer (qui vous confère un bonus de circonstances de +1 à la CA jusqu'au début de votre prochain tour) et la résistance conférée par la Posture du sang-de-fer est à présent égale à votre modificateur de Force (s'il est plus élevé) pendant la même durée."
             ]
         },
@@ -418,7 +418,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous signalez les vulnérabilités présentes de votre proie, faisant bénéficier un allié des avantages décrits dans sports_martial_artsChasser une proie et ceux de votre Spécialité du chasseur jusqu'à la fin de son prochain tour. Selon que vous transmettez ces informations par gestes ou par la voix, cette action possède soit le trait visuel, soit le trait audible."
+                "Vous signalez les vulnérabilités présentes de votre proie, faisant bénéficier un allié des avantages décrits dans Chasser une proie et ceux de votre Spécialité du chasseur jusqu'à la fin de son prochain tour. Selon que vous transmettez ces informations par gestes ou par la voix, cette action possède soit le trait visuel, soit le trait audible."
             ]
         },
         {
@@ -447,7 +447,7 @@ DON.CLASS = {
                 "Double taille"
             ],
             "description": [
-                "En adoptant la bonne position, votre main secondaire peut frapper comme le ferait le dard d'un scorpion. Tant que vous êtes dans cette posture, si vous effectuez votre deuxième Frappe grâce à military_techDouble taille avec une arme agile, Double taille compte comme une attaque pour calculer votre pénalité d'attaques multiples."
+                "En adoptant la bonne position, votre main secondaire peut frapper comme le ferait le dard d'un scorpion. Tant que vous êtes dans cette posture, si vous effectuez votre deuxième Frappe grâce à Double taille avec une arme agile, Double taille compte comme une attaque pour calculer votre pénalité d'attaques multiples."
             ]
         },
         {
@@ -458,7 +458,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez appris à mieux utiliser votre énergie afin d'allonger légèrement l'effet de vos décoctions éphémères. Quand vous utilisez sports_martial_artsAlchimie rapide pour créer un outil ou un élixir alchimique, l'efficacité de cet outil ou élixir persiste jusqu'à la fin de votre prochain tour, au lieu du début de votre prochain tour."
+                "Vous avez appris à mieux utiliser votre énergie afin d'allonger légèrement l'effet de vos décoctions éphémères. Quand vous utilisez Alchimie rapide pour créer un outil ou un élixir alchimique, l'efficacité de cet outil ou élixir persiste jusqu'à la fin de votre prochain tour, au lieu du début de votre prochain tour."
             ]
         },
         {
@@ -470,7 +470,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Depuis le temps que vous avez passé à étudier et expérimenter, avez appris à doser vos formules afin d'obtenir des lots plus importants qui ne nécessitent pas davantage d'attention. Augmentez le nombre d'objets que vous pouvez créer chaque jour avec Alchimie avancée à 6 + votre modificateur d'intelligence.",
-                "De plus, quand vous sports_martial_artsFabriquez des objets alchimiques au cours d'un intermède, vous pouvez en créer deux fois plus en un seul lot sans passer du temps de préparation supplémentaire. Par exemple, si vous créez des workÉlixirs de vie lors d'un intermède, vous pouvez en fabriquer jusqu'à huit en un seul lot au lieu de quatre. Cela ne change cependant pas le nombre de réactifs alchimiques ou autres ingrédients requis pour fabriquer chaque objet et ne change pas davantage votre rythme de production pour les jours passés au delà du temps d'intermède de base."
+                "De plus, quand vous Fabriquez des objets alchimiques au cours d'un intermède, vous pouvez en créer deux fois plus en un seul lot sans passer du temps de préparation supplémentaire. Par exemple, si vous créez des Élixirs de vie lors d'un intermède, vous pouvez en fabriquer jusqu'à huit en un seul lot au lieu de quatre. Cela ne change cependant pas le nombre de réactifs alchimiques ou autres ingrédients requis pour fabriquer chaque objet et ne change pas davantage votre rythme de production pour les jours passés au delà du temps d'intermède de base."
             ]
         },
         {
@@ -507,8 +507,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Un allié bénéficiant d'un de vos sorts de composition est sujet d'un effet avec les traits audible, illusion, linguistique, de son ou visuel.",
-                "Vous ajustez les propriétés de votre sort de composition pour convoyer une parcelle de votre connaissance défensive. Tous les alliés qui sont affectés par votre sort de composition obtiennent votre bonus de circonstances de +1 issu de military_techConnaisseur jusqu'au début de votre prochain tour. Enseigner à vos alliés renforce aussi vos propres compétences ; votre bonus de circonstances personnel issu de Connaisseur passe à +2 jusqu'au début de votre prochain tour.",
-                "flareEffet : Alliés instruits"
+                "Vous ajustez les propriétés de votre sort de composition pour convoyer une parcelle de votre connaissance défensive. Tous les alliés qui sont affectés par votre sort de composition obtiennent votre bonus de circonstances de +1 issu de Connaisseur jusqu'au début de votre prochain tour. Enseigner à vos alliés renforce aussi vos propres compétences ; votre bonus de circonstances personnel issu de Connaisseur passe à +2 jusqu'au début de votre prochain tour.",
+                "Effet : Alliés instruits"
             ]
         },
         {
@@ -532,7 +532,7 @@ DON.CLASS = {
                 "Attaque sournoise 2d6"
             ],
             "description": [
-                "Conditions Vous devez avoir identifié une créature avec sports_martial_artsSe souvenir .",
+                "Conditions Vous devez avoir identifié une créature avec Se souvenir .",
                 "Votre connaissance de la physiologie d'une créature vous aide à attaquer avec précision. Vous étudiez soigneusement une créature que vous avez identifiée pour trouver les points particulièrement faibles de son positionnement ou de sa forme physique. La prochaine fois que vous infligez des dégâts d'attaque sournoise à la créature choisie avec une Frappe avant la fin de votre tour, ajoutez 2d6 dégâts de précision supplémentaires.",
                 "Aux niveaux 11, les dégâts supplémentaires passent à 3d6 et à 4d6 au niveau 17."
             ]
@@ -552,7 +552,7 @@ DON.CLASS = {
                     "Bouclier Quand l'utilisateur a Levé son bouclier, il ajoute le bonus de circonstances du bouclier aux jets de sauvegarde contre la magie et il peut utiliser Blocage au bouclier contre les dégâts des sorts ennemis.",
                     "Arme Quand celui qui manie l'arme obtient un coup critique avec l'arme, il peut tenter de contrer un sort sur sa cible, en utilisant la moitié de son niveau comme rang de contre. S'il tente de le faire, le symbole blasonné disparaît immédiatement."
                 ],
-                "flareEffet : Antimagie blasonnée"
+                "Effet : Antimagie blasonnée"
             ]
         },
         {
@@ -577,7 +577,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez pousser votre compagnon à faire le maximum.",
-                "Vous dépensez 2 actions au lieu de 1 pour sports_martial_artsDiriger un animal quand vous donnez un ordre à votre compagnon animal. Le cas échéant, celui-ci peut faire une action supplémentaire."
+                "Vous dépensez 2 actions au lieu de 1 pour Diriger un animal quand vous donnez un ordre à votre compagnon animal. Le cas échéant, celui-ci peut faire une action supplémentaire."
             ]
         },
         {
@@ -588,7 +588,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous convoquez des créatures sauvages pour qu'elles viennent à votre aide. Vous pouvez passer 10 minutes en symbiose avec la nature pour remplacer l'un des sorts que vous avez préparés dans l'un de vos emplacements de sort de druide par un sort de auto_awesomeConvocation d'animal ou de auto_awesomeConvocation de plantes et de champignons du même rang."
+                "Vous convoquez des créatures sauvages pour qu'elles viennent à votre aide. Vous pouvez passer 10 minutes en symbiose avec la nature pour remplacer l'un des sorts que vous avez préparés dans l'un de vos emplacements de sort de druide par un sort de Convocation d'animal ou de Convocation de plantes et de champignons du même rang."
             ]
         },
         {
@@ -630,7 +630,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous avez appris certains des subterfuges que les fées utilisent pour plier la magie primordiale pour créer des illusions et des supercheries avec la magie primordiale.",
-                "Ajoutez auto_awesomeDéguisement illusoire , auto_awesomeObjet illusoire et auto_awesomeScène illusoire à votre liste de sorts que vous pouvez utiliser comme des sorts primordiaux."
+                "Ajoutez Déguisement illusoire , Objet illusoire et Scène illusoire à votre liste de sorts que vous pouvez utiliser comme des sorts primordiaux."
             ]
         },
         {
@@ -642,7 +642,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous allez lancer l'initiative.",
-                "Vous autorisez vos adversaires à faire le premier mouvement dans une démonstration incroyable de confiance en vos talents. Vous ne tirez pas l'initiative, au lieu de quoi vous consentez à être le dernier. Vous obtenez du flarePanache . Si plus d'un personnage utilise cette capacité ou une autre capacité pour être le dernier, utilisez les règles normales pour résoudre une égalité : PNJ et monstres agissent avant les PJ et, au sein de ces groupes, les créatures peuvent choisir dans quel ordre elles agissent."
+                "Vous autorisez vos adversaires à faire le premier mouvement dans une démonstration incroyable de confiance en vos talents. Vous ne tirez pas l'initiative, au lieu de quoi vous consentez à être le dernier. Vous obtenez du Panache . Si plus d'un personnage utilise cette capacité ou une autre capacité pour être le dernier, utilisez les règles normales pour résoudre une égalité : PNJ et monstres agissent avant les PJ et, au sein de ces groupes, les créatures peuvent choisir dans quel ordre elles agissent."
             ]
         },
         {
@@ -654,7 +654,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arbalète ayant rechargement 1 ou plus.",
-                "Vous savez parfaitement comment fonctionne une arbalète qui vous permet de la recharger pendant que vous vous déplacez hors de la ligne de mire des ennemis. Vous pouvez soit sports_martial_artsFaire Diversion ou vous sports_martial_artsMettre à l'abri , puis Interagir pour recharger. Comme à l'ordinaire, vous devez remplir les conditions pour vous Mettre à l'abri : Vous bénéficiez d'un abri, vous vous trouvez près d'une caractéristique de votre environnement derrière laquelle vous abriter ou êtes sentiment_very_dissatisfiedÀ terre ."
+                "Vous savez parfaitement comment fonctionne une arbalète qui vous permet de la recharger pendant que vous vous déplacez hors de la ligne de mire des ennemis. Vous pouvez soit Faire Diversion ou vous Mettre à l'abri , puis Interagir pour recharger. Comme à l'ordinaire, vous devez remplir les conditions pour vous Mettre à l'abri : Vous bénéficiez d'un abri, vous vous trouvez près d'une caractéristique de votre environnement derrière laquelle vous abriter ou êtes À terre ."
             ]
         },
         {
@@ -665,7 +665,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos chansons submergent la cible d'une émotion insoutenable, pouvant la frapper mortellement sur place. Vous apprenez le sort de composition auto_awesomeAria fatale ."
+                "Vos chansons submergent la cible d'une émotion insoutenable, pouvant la frapper mortellement sur place. Vous apprenez le sort de composition Aria fatale ."
             ]
         },
         {
@@ -703,7 +703,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous maniez une arme.",
                 "Vous appliquez un poison de contact ou un poison de blessure sur l'arme requise. Si vous disposez d'une main disponible, vous pouvez Interagir pour prendre un poison au cours de cette action. Ce poison peut être un des poisons de blessure simples que vous pouvez créer grâce à ce don ou tout autre poison de contact ou de blessure que vous avez acquis.",
-                "Spécial Au cours de vos préparatifs quotidiens, vous pouvez préparer un nombre de poisons de blessure simples égal à votre niveau. Cela suit les règles des poisons de blessure, sauf qu'ils infligent casino1d4 dégâts de poison sans jet de sauvegarde. Vous seul pouvez appliquer ces poisons proprement et ils expirent au cours de vos prochains préparatifs quotidiens."
+                "Spécial Au cours de vos préparatifs quotidiens, vous pouvez préparer un nombre de poisons de blessure simples égal à votre niveau. Cela suit les règles des poisons de blessure, sauf qu'ils infligent 1d4 dégâts de poison sans jet de sauvegarde. Vous seul pouvez appliquer ces poisons proprement et ils expirent au cours de vos prochains préparatifs quotidiens."
             ]
         },
         {
@@ -716,7 +716,7 @@ DON.CLASS = {
                 "Arme empoisonnée"
             ],
             "description": [
-                "Vous administrez des poisons de manière à en optimiser les effets nocifs. Quand vous enduisez votre arme d'un poison simple avec military_techArme empoisonnée , le poison inflige casino2d4 dégâts de poison au lieu d'1d4 dégâts de poison. Vous ne gâchez pas le poison enduit avec Arme empoisonnée si vous obtenez un échec critique sur votre jet d'attaque."
+                "Vous administrez des poisons de manière à en optimiser les effets nocifs. Quand vous enduisez votre arme d'un poison simple avec Arme empoisonnée , le poison inflige 2d4 dégâts de poison au lieu d'1d4 dégâts de poison. Vous ne gâchez pas le poison enduit avec Arme empoisonnée si vous obtenez un échec critique sur votre jet d'attaque."
             ]
         },
         {
@@ -742,7 +742,7 @@ DON.CLASS = {
                 "Arme verdoyante"
             ],
             "description": [
-                "Votre arme verdoyante peut franchir les résistances des créatures magiques. L'arme est considérée comme en fer froid et en argent. Si vous obtenez un succès critique pour toucher une créature qui possède une faiblesse contre le fer froid ou l'argent, la cible subit casino1d6 dégâts de saignement parce que les énergies primordiales contenues dans votre arme ralentissent sa guérison naturelle."
+                "Votre arme verdoyante peut franchir les résistances des créatures magiques. L'arme est considérée comme en fer froid et en argent. Si vous obtenez un succès critique pour toucher une créature qui possède une faiblesse contre le fer froid ou l'argent, la cible subit 1d6 dégâts de saignement parce que les énergies primordiales contenues dans votre arme ralentissent sa guérison naturelle."
             ]
         },
         {
@@ -767,7 +767,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous cultivez une graine qui peut éclore sous la forme d'un bâton, d'une liane fouet ou d'une autre arme. Vous passez 10 minutes à concentrer de l'énergie primordiale dans une graine, lui imprimant le potentiel de devenir une unique arme de niveau 0 dans le maniement de laquelle vous êtes qualifié et qui n'a aucune partie mécanique ou métallique. Lorsque vous portez la graine imprimée, vous pouvez dépenser une unique action sports_martial_artsInteragir pour provoquer sa croissance immédiate en cette arme. Une seconde action Interagir la ramène à sa forme de graine. Votre arme verdoyante fonctionne comme l'arme imprimée et peut être gravée avec des runes ou peut se voir fixer un talisman comme les autres, lesquels sont réprimés lorsque l'arme est sous sa forme de graine.",
+                "Vous cultivez une graine qui peut éclore sous la forme d'un bâton, d'une liane fouet ou d'une autre arme. Vous passez 10 minutes à concentrer de l'énergie primordiale dans une graine, lui imprimant le potentiel de devenir une unique arme de niveau 0 dans le maniement de laquelle vous êtes qualifié et qui n'a aucune partie mécanique ou métallique. Lorsque vous portez la graine imprimée, vous pouvez dépenser une unique action Interagir pour provoquer sa croissance immédiate en cette arme. Une seconde action Interagir la ramène à sa forme de graine. Votre arme verdoyante fonctionne comme l'arme imprimée et peut être gravée avec des runes ou peut se voir fixer un talisman comme les autres, lesquels sont réprimés lorsque l'arme est sous sa forme de graine.",
                 "Vous ne pouvez avoir qu'une unique graine verdoyante au même moment. Si vous en préparez une seconde, votre première graine verdoyante devient immédiatement un spécimen banal. N'importe quelle rune sur la graine précédente qui est valide pour la nouvelle graine se transfère entre les deux, sans aucun coût, mais les runes inapplicables sont réprimées."
             ]
         },
@@ -818,7 +818,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous êtes touché par une Frappe qui inflige des dégâts physiques.",
-                "Grâce à une prémonition divine, vous déplacez votre corps pour amoindrir l'impact d'une attaque. Réduisez les dégâts que vous subissez d'un montant égal à deux fois le niveau de votre armure. Votre armure devient sentiment_very_dissatisfiedBrisée , réduisant ses Points de vie au niveau de son Seuil de rupture. Si votre armure était déjà endommagée, elle est détruite à la place."
+                "Grâce à une prémonition divine, vous déplacez votre corps pour amoindrir l'impact d'une attaque. Réduisez les dégâts que vous subissez d'un montant égal à deux fois le niveau de votre armure. Votre armure devient Brisée , réduisant ses Points de vie au niveau de son Seuil de rupture. Si votre armure était déjà endommagée, elle est détruite à la place."
             ]
         },
         {
@@ -829,7 +829,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous portez une attaque rapide et dérobez votre adversaire durant le processus. Faites une Frappe au corps-à-corps contre un ennemi adjacent. Si vous le touchez et lui infligez des dégâts d'attaque sournoise, vous pouvez aussi tenter de sports_martial_artsVoler la cible, même si elle est en train de se battre."
+                "Vous portez une attaque rapide et dérobez votre adversaire durant le processus. Faites une Frappe au corps-à-corps contre un ennemi adjacent. Si vous le touchez et lui infligez des dégâts d'attaque sournoise, vous pouvez aussi tenter de Voler la cible, même si elle est en train de se battre."
             ]
         },
         {
@@ -843,7 +843,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "La créature que vous avez invoquée apparaît avec une détonation de runes arcaniques. Si votre prochaine action consiste à Lancer un sort avec le trait convocation, toutes les créatures dans une crop_freeémanation de 3 mètres autour de la créature convoquée subissent 1d4 dégâts de feu par rang de sort. Si la créature convoquée possède le trait acide, froid, électricité, son ou spirituel, vous pouvez infliger des dégâts de ce type à la place."
+                "La créature que vous avez invoquée apparaît avec une détonation de runes arcaniques. Si votre prochaine action consiste à Lancer un sort avec le trait convocation, toutes les créatures dans une émanation de 3 mètres autour de la créature convoquée subissent 1d4 dégâts de feu par rang de sort. Si la créature convoquée possède le trait acide, froid, électricité, son ou spirituel, vous pouvez infliger des dégâts de ce type à la place."
             ]
         },
         {
@@ -875,7 +875,7 @@ DON.CLASS = {
                     "Bouclier Le bouclier bénéficie d'un bonus de statut de +1 à sa Solidité (il réduit ainsi plus de dégâts avec la réaction Blocage au bouclier).",
                     "Arme L'utilisateur de l'arme bénéficie d'un bonus de statut de +1 aux jets de dégâts."
                 ],
-                "flareEffet : Arsenal blasonné"
+                "Effet : Arsenal blasonné"
             ]
         },
         {
@@ -905,10 +905,10 @@ DON.CLASS = {
                 "allié divin (lame), Esprit lame radieux"
             ],
             "description": [
-                "Ajoutez les runes de propriété suivantes à la liste que vous avez choisie pour votre arsenal béni : workAnimée , workEffrayante supérieure , workDouloureuse , workAcérée et workVitalisante supérieure .",
-                "Si vous possédez le don military_techArsenal radieux , ajoutez workAstrale supérieure and workBrillante supérieure également à la liste.",
+                "Ajoutez les runes de propriété suivantes à la liste que vous avez choisie pour votre arsenal béni : Animée , Effrayante supérieure , Douloureuse , Acérée et Vitalisante supérieure .",
+                "Si vous possédez le don Arsenal radieux , ajoutez Astrale supérieure and Brillante supérieure également à la liste.",
                 "De plus, vous pouvez changer la rune que vous avez choisie pendant la journée pour une rune différente de votre liste par une unique action qui possède les traits concentration et divin. Changer la rune ne permet par de récupérer les capacités qui ne peuvent être utilisées qu'un nombre limité de fois.",
-                "flareEffet : Arsenal béni"
+                "Effet : Arsenal béni"
             ]
         },
         {
@@ -921,9 +921,9 @@ DON.CLASS = {
                 "Arsenal béni"
             ],
             "description": [
-                "Votre arsenal béni irradie de puissance, améliorant encore l'arme que vous avez choisie. Lorsque vous choisissez l'arme pour votre arsenal béni au cours de vos préparatifs quotidiens, ajoutez les runes de propriété workAstrale et workBrillante à la liste des effets parmi laquelle vous pouvez choisir. Si vous êtes saint, ajoutez également la rune workSainte et si vous êtes impie, ajoutez aussi la rune workImpie .",
+                "Votre arsenal béni irradie de puissance, améliorant encore l'arme que vous avez choisie. Lorsque vous choisissez l'arme pour votre arsenal béni au cours de vos préparatifs quotidiens, ajoutez les runes de propriété Astrale et Brillante à la liste des effets parmi laquelle vous pouvez choisir. Si vous êtes saint, ajoutez également la rune Sainte et si vous êtes impie, ajoutez aussi la rune Impie .",
                 "De plus, vous pouvez changer la rune que vous avez choisie pour la journée pour une rune différente de votre liste en y consacrant une activité de 10 minutes qui possède les traits concentration, divin et exploration. Changer la rune ne permet pas de récupérer des capacités qui ne peuvent être utilisées qu'un nombre limité de fois, tel que Guérison sainte de la rune sainte.",
-                "flareEffet : Arsenal béni"
+                "Effet : Arsenal béni"
             ]
         },
         {
@@ -951,7 +951,7 @@ DON.CLASS = {
                 "Arsenal sanctifié"
             ],
             "description": [
-                "Lorsque vous sanctifiez votre arme, elle obtiendra le trait sanctifié pour une plus longue période. La durée de votre military_techArsenal sanctifié passe à une minute."
+                "Lorsque vous sanctifiez votre arme, elle obtiendra le trait sanctifié pour une plus longue période. La durée de votre Arsenal sanctifié passe à une minute."
             ]
         },
         {
@@ -962,7 +962,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous conservez vos bombes et les réactifs liés à vos bombes à portée de main dans des poches d'où vous pouvez les sortir sans avoir à réfléchir. Vous Interagissez pour sortir une bombe, une fiole polyvalente ou utiliser sports_martial_artsAlchimie rapide pour créer une bombe, puis vous effectuez une sports_martial_artsFrappe avec la bombe. Si vous disposez de la capacité qui vous permet de créer plus d'une bombe à la fois avec Alchimie rapide (comme avec la capacité de classe Double préparation), vous ne pouvez effectuer de Frappe qu'avec une seule des bombes que vous créez avec cette action."
+                "Vous conservez vos bombes et les réactifs liés à vos bombes à portée de main dans des poches d'où vous pouvez les sortir sans avoir à réfléchir. Vous Interagissez pour sortir une bombe, une fiole polyvalente ou utiliser Alchimie rapide pour créer une bombe, puis vous effectuez une Frappe avec la bombe. Si vous disposez de la capacité qui vous permet de créer plus d'une bombe à la fois avec Alchimie rapide (comme avec la capacité de classe Double préparation), vous ne pouvez effectuer de Frappe qu'avec une seule des bombes que vous créez avec cette action."
             ]
         },
         {
@@ -975,7 +975,7 @@ DON.CLASS = {
                 "Montée de sang"
             ],
             "description": [
-                "Lorsque vous souhaitez bénéficier d'un effet de magie du sang par le biais de military_techMontée de sang , vous pouvez choisir de bénéficier de deux effets de magie du sang différents que vous connaissez. Les effets suivent les mêmes règles que celles données dans Montée de sang et chaque effet peut avoir une cible différente."
+                "Lorsque vous souhaitez bénéficier d'un effet de magie du sang par le biais de Montée de sang , vous pouvez choisir de bénéficier de deux effets de magie du sang différents que vous connaissez. Les effets suivent les mêmes règles que celles données dans Montée de sang et chaque effet peut avoir une cible différente."
             ]
         },
         {
@@ -1000,7 +1000,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Après avoir compromis le déplacement d'un ennemi, vous lui assénez un coup encore plus mortel. Faites une Frappe contre une créature sentiment_very_dissatisfiedÀ terre , sentiment_very_dissatisfiedAgrippée ou sentiment_very_dissatisfiedEntravée . Vous bénéficiez d'un bonus de circonstances aux dégâts sur cette Frappe égal au nombre de dés de dégâts de l'arme ou à ce nombre + 2 si vous maniez l'arme à deux mains. Cette Frappe obtient l'effet d'échec suivant.",
+                "Après avoir compromis le déplacement d'un ennemi, vous lui assénez un coup encore plus mortel. Faites une Frappe contre une créature À terre , Agrippée ou Entravée . Vous bénéficiez d'un bonus de circonstances aux dégâts sur cette Frappe égal au nombre de dés de dégâts de l'arme ou à ce nombre + 2 si vous maniez l'arme à deux mains. Cette Frappe obtient l'effet d'échec suivant.",
                 "Échec Vous infligez à la créature un montant de dégâts égal au nombre de dés de dégâts d'arme ou à ce nombre + 2 si vous maniez l'arme à deux mains. Ces dégâts possèdent le même type de dégâts que l'arme."
             ]
         },
@@ -1030,7 +1030,7 @@ DON.CLASS = {
                 "Combattant (Muse de barde)"
             ],
             "description": [
-                "D'un cri puissant, vous pouvez inciter un allié à attaquer. Si votre prochaine action consiste à lancer le tour de magie de composition auto_awesomeHymne de courage , un allié qui obtient le bonus de statut du sort peut immédiatement utiliser une réaction pour porter une Frappe au corps-à-corps."
+                "D'un cri puissant, vous pouvez inciter un allié à attaquer. Si votre prochaine action consiste à lancer le tour de magie de composition Hymne de courage , un allié qui obtient le bonus de statut du sort peut immédiatement utiliser une réaction pour porter une Frappe au corps-à-corps."
             ]
         },
         {
@@ -1043,7 +1043,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme de corps-à-corps à deux mains et votre cible est dans votre allonge.",
-                "À l'aide de coups contraignants, vous forcez votre adversaire à se déplacer vers l'endroit voulu. Faites une Frappe avec l'arme requise. Si vous touchez, vous sports_martial_artsRepositionnez la cible de 1,50 mètre."
+                "À l'aide de coups contraignants, vous forcez votre adversaire à se déplacer vers l'endroit voulu. Faites une Frappe avec l'arme requise. Si vous touchez, vous Repositionnez la cible de 1,50 mètre."
             ]
         },
         {
@@ -1058,7 +1058,7 @@ DON.CLASS = {
                 "qualifié en Athlétisme"
             ],
             "description": [
-                "Vous attaquez avec suffisamment de force pour arracher l'arme des mains de votre adversaire. Faites une Frappe au corps-à-corps ; si vous touchez, vous pouvez effectuer un test d'Athlétisme pour sports_martial_artsDésarmer cet ennemi."
+                "Vous attaquez avec suffisamment de force pour arracher l'arme des mains de votre adversaire. Faites une Frappe au corps-à-corps ; si vous touchez, vous pouvez effectuer un test d'Athlétisme pour Désarmer cet ennemi."
             ]
         },
         {
@@ -1071,7 +1071,7 @@ DON.CLASS = {
                 "qualifié en Discrétion"
             ],
             "description": [
-                "Vous capitalisez sur la diversion que vous procure un allié. Vous sports_martial_artsÊtes furtif jusqu'à un adversaire adjacent à l'un de vos alliés. Vous pouvez lancer le test contre l'adversaire face auquel vous Êtes furtif, même s'il vous observe, comme si vous étiez Caché. Vous subissez une pénalité de -2 à votre test de Discrétion. Si votre test de Discrétion contre l'adversaire choisi est un succès, vous pouvez faire une Frappe au corps-à-corps contre cet adversaire à la fin de votre déplacement Furtif."
+                "Vous capitalisez sur la diversion que vous procure un allié. Vous Êtes furtif jusqu'à un adversaire adjacent à l'un de vos alliés. Vous pouvez lancer le test contre l'adversaire face auquel vous Êtes furtif, même s'il vous observe, comme si vous étiez Caché. Vous subissez une pénalité de -2 à votre test de Discrétion. Si votre test de Discrétion contre l'adversaire choisi est un succès, vous pouvez faire une Frappe au corps-à-corps contre cet adversaire à la fin de votre déplacement Furtif."
             ]
         },
         {
@@ -1084,7 +1084,7 @@ DON.CLASS = {
                 "Assaut courageux"
             ],
             "description": [
-                "Dans le feu de la bataille, vous pouvez partager la gloire avec un autre allié. Lorsque l'allié que vous avez choisi pour military_techOffensive courageuse obtient un coup critique sur la Frappe accordée par cette action, un autre allié affecté par votre sort de composition auto_awesomeHymne de courage peut immédiatement utiliser une réaction pour faire une Frappe au corps-à-corps. Cet effet ne se poursuit pas vers un troisième allié, même si le deuxième allié obtient un coup critique sur sa Frappe."
+                "Dans le feu de la bataille, vous pouvez partager la gloire avec un autre allié. Lorsque l'allié que vous avez choisi pour Offensive courageuse obtient un coup critique sur la Frappe accordée par cette action, un autre allié affecté par votre sort de composition Hymne de courage peut immédiatement utiliser une réaction pour faire une Frappe au corps-à-corps. Cet effet ne se poursuit pas vers un troisième allié, même si le deuxième allié obtient un coup critique sur sa Frappe."
             ]
         },
         {
@@ -1111,7 +1111,7 @@ DON.CLASS = {
                 "expert en Athlétisme"
             ],
             "description": [
-                "Les obstacles physiques ne suffisent pas à arrêter votre furie. Quand vous êtes enragé, vous obtenez une Vitesse d'escalade et une Vitesse de nage égales à votre Vitesse au sol, le DD de vos sports_martial_artsSauts en hauteur et de vos sports_martial_artsSauts en longueur est abaissé de 10. La distance pour un sports_martial_artsBond vertical passe à 1,50 mètre verticalement et votre distance pour un Bond horizontal passe à 4,50 mètres si votre Vitesse est d'au moins 4,50 mètres et à 6 mètres si votre Vitesse est d'au moins 9 mètres."
+                "Les obstacles physiques ne suffisent pas à arrêter votre furie. Quand vous êtes enragé, vous obtenez une Vitesse d'escalade et une Vitesse de nage égales à votre Vitesse au sol, le DD de vos Sauts en hauteur et de vos Sauts en longueur est abaissé de 10. La distance pour un Bond vertical passe à 1,50 mètre verticalement et votre distance pour un Bond horizontal passe à 4,50 mètres si votre Vitesse est d'au moins 4,50 mètres et à 6 mètres si votre Vitesse est d'au moins 9 mètres."
             ]
         },
         {
@@ -1124,11 +1124,11 @@ DON.CLASS = {
                 "expert en Athlétisme"
             ],
             "description": [
-                "Votre Panache vous permet d'accomplir d'incroyables faits : sports_martial_artsEscalader , sports_martial_artsNager et sports_martial_artsBondir bien au-delà de votre capacité normale. Lorsque vous avez du Panache, vous obtenez les avantages suivants.",
+                "Votre Panache vous permet d'accomplir d'incroyables faits : Escalader , Nager et Bondir bien au-delà de votre capacité normale. Lorsque vous avez du Panache, vous obtenez les avantages suivants.",
                 [
                     "Vous obtenez une Vitesse d'escalade et de Natation égale à la moitié de votre Vitesse au sol.",
-                    "Les DD de sports_martial_artsSauter en hauteur et de sports_martial_artsSauter en longueur sont diminués de 10. Cela ne peut se combiner avec d'autres capacités qui réduisent ces DD.",
-                    "La distance que vous pouvez parcourir avec un sports_martial_artsBond vertical augmente de 1,50 mètre. La distance pour un Bond horizontal passe à 1,50 mètre si votre Vitesse au sol est d'au moins 4,50 mètres ou à 3 mètres si votre Vitesse est d'au moins 9 mètres."
+                    "Les DD de Sauter en hauteur et de Sauter en longueur sont diminués de 10. Cela ne peut se combiner avec d'autres capacités qui réduisent ces DD.",
+                    "La distance que vous pouvez parcourir avec un Bond vertical augmente de 1,50 mètre. La distance pour un Bond horizontal passe à 1,50 mètre si votre Vitesse au sol est d'au moins 4,50 mètres ou à 3 mètres si votre Vitesse est d'au moins 9 mètres."
                 ]
             ]
         },
@@ -1167,7 +1167,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous tombez d'au moins 3 mètres et atterrissez sur une surface solide",
-                "Vous frappez le sol, le brisant autour de vous. Traitez la chute comme si elle était plus courte de 3 mètres. Vous atterrissez sur vos pieds. Le sol dans une crop_freeémanation de 1,50 mètre devient du terrain difficile. Toute créature dans l'émanation lorsque vous atterrissez subit casino5 dégâts contondants lorsque les débris les touchent et se trouve sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de son prochain tour."
+                "Vous frappez le sol, le brisant autour de vous. Traitez la chute comme si elle était plus courte de 3 mètres. Vous atterrissez sur vos pieds. Le sol dans une émanation de 1,50 mètre devient du terrain difficile. Toute créature dans l'émanation lorsque vous atterrissez subit 5 dégâts contondants lorsque les débris les touchent et se trouve Prise au dépourvu jusqu'au début de son prochain tour."
             ]
         },
         {
@@ -1178,7 +1178,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos services dévoués vous octroient certains privilèges divins. Premièrement, toute créature que vous rencontrez sait instinctivement que vous parlez au nom de votre divinité. Deuxièmement, si vous accomplissez un rituel de auto_awesomeCommunion pour contacter votre divinité, vous n'avez à payer aucun coût et vous obtenez automatiquement un succès critique. Troisièmement, une fois par jour, vous pouvez lancer auto_awesomeTéléportation interplanaire comme un sort divin inné, mais uniquement pour voyager vers le royaume de votre divinité. Quand vous le lancez de cette façon, son temps d'incantation est de une minute, votre symbole religieux est une clé planaire appropriée pour ce sort et vous apparaissez à l'endroit précis où vous souhaitez vous rendre. Si vous vous trouvez dans le royaume de votre divinité grâce à ce sort, vous pouvez retourner à l'endroit d'où vous êtes parti quand vous l'avez lancé, en effectuant une action unique qui possède les traits divin et concentration."
+                "Vos services dévoués vous octroient certains privilèges divins. Premièrement, toute créature que vous rencontrez sait instinctivement que vous parlez au nom de votre divinité. Deuxièmement, si vous accomplissez un rituel de Communion pour contacter votre divinité, vous n'avez à payer aucun coût et vous obtenez automatiquement un succès critique. Troisièmement, une fois par jour, vous pouvez lancer Téléportation interplanaire comme un sort divin inné, mais uniquement pour voyager vers le royaume de votre divinité. Quand vous le lancez de cette façon, son temps d'incantation est de une minute, votre symbole religieux est une clé planaire appropriée pour ce sort et vous apparaissez à l'endroit précis où vous souhaitez vous rendre. Si vous vous trouvez dans le royaume de votre divinité grâce à ce sort, vous pouvez retourner à l'endroit d'où vous êtes parti quand vous l'avez lancé, en effectuant une action unique qui possède les traits divin et concentration."
             ]
         },
         {
@@ -1219,7 +1219,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre présence telle une incarnation maléfique rend vos adversaires plus susceptibles à la peur et il leur est presque impossible de récupérer de leur peur lorsque vous êtes à proximité. Les adversaires dans votre aura de champion subissent une pénalité de circonstances de -1 à leurs jets de sauvegarde contre la terreur. De plus, un ennemi qui termine son tour dans votre aura de champion ne peut réduire la valeur de sa condition Effrayé en dessous de 1.",
-                "flareEffet : Aura de Désespoir"
+                "Effet : Aura de Désespoir"
             ]
         },
         {
@@ -1314,7 +1314,7 @@ DON.CLASS = {
                 "Célérité bénie"
             ],
             "description": [
-                "Vous obtenez le sort de dévotion auto_awesomeAvancée spectrale qui vous permet de vous déplacer vers un ennemi en contournant les obstacles."
+                "Vous obtenez le sort de dévotion Avancée spectrale qui vous permet de vous déplacer vers un ennemi en contournant les obstacles."
             ]
         },
         {
@@ -1330,7 +1330,7 @@ DON.CLASS = {
                 "Combattant (Muse de barde)"
             ],
             "description": [
-                "Par un appel énergique, vous exhortez un allié à avancer. Si votre prochaine action consiste à lancer le tour de magie de composition auto_awesomeHymne de courage , un allié de votre choix qui obtient un bonus de statut du sort peut immédiatement utiliser une réaction pour Marcher rapidement."
+                "Par un appel énergique, vous exhortez un allié à avancer. Si votre prochaine action consiste à lancer le tour de magie de composition Hymne de courage , un allié de votre choix qui obtient un bonus de statut du sort peut immédiatement utiliser une réaction pour Marcher rapidement."
             ]
         },
         {
@@ -1343,7 +1343,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Un ennemi dont vous avez conscience rate son jet de sauvegarde contre un sort d'émotion.",
-                "Vous vous préparez à tirer avantage du changement soudain des émotions de votre ennemi. La cible est sentiment_very_dissatisfiedPrise au dépourvu à l'encontre de votre prochaine attaque avant la fin de votre prochain tour."
+                "Vous vous préparez à tirer avantage du changement soudain des émotions de votre ennemi. La cible est Prise au dépourvu à l'encontre de votre prochaine attaque avant la fin de votre prochain tour."
             ]
         },
         {
@@ -1356,8 +1356,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous êtes sur le point de faire un test de Perception, de Discrétion ou de Survie pour déterminer votre initiative.",
-                "Vous avertissez vos alliés du danger, visuellement ou verbalement, accordant à chacun un bonus de circonstances de +1 à son jet d'initiative ou de +2 si vous utilisiez l'activité d'exploration sports_martial_artsReconnaître . Selon que vous avez averti vos alliés par geste ou verbalement, cette action possède respectivement soit le trait visuel soit le trait audible.",
-                "flareEffet : Avertissement de l'éclaireur"
+                "Vous avertissez vos alliés du danger, visuellement ou verbalement, accordant à chacun un bonus de circonstances de +1 à son jet d'initiative ou de +2 si vous utilisiez l'activité d'exploration Reconnaître . Selon que vous avez averti vos alliés par geste ou verbalement, cette action possède respectivement soit le trait visuel soit le trait audible.",
+                "Effet : Avertissement de l'éclaireur"
             ]
         },
         {
@@ -1374,8 +1374,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous êtes sur le poind de lancer l'initiative.",
-                "Vous avez la prémonition d'un danger imminent que vous utilisez pour avertir vos alliés. Chaque allié dans un rayon de 6 mètres obtient un bonus de statut de +2 à son jet d'initiative et obtient des Points de vie temporaires égaux à la moitié de votre niveau, qui durent 1 minute. Si vous êtes sentiment_very_dissatisfiedLié à la malédiction 2 lorsque vous utilisez Avertissement Oraculaire, le bonus passe à +3 et à +4 si vous êtes Lié à la malédiction 3.",
-                "flareEffet : Avertissement oraculaire"
+                "Vous avez la prémonition d'un danger imminent que vous utilisez pour avertir vos alliés. Chaque allié dans un rayon de 6 mètres obtient un bonus de statut de +2 à son jet d'initiative et obtient des Points de vie temporaires égaux à la moitié de votre niveau, qui durent 1 minute. Si vous êtes Lié à la malédiction 2 lorsque vous utilisez Avertissement Oraculaire, le bonus passe à +3 et à +4 si vous êtes Lié à la malédiction 3.",
+                "Effet : Avertissement oraculaire"
             ]
         },
         {
@@ -1387,7 +1387,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Un balai est la seule monture dont vous avez besoin pour voler dans le ciel nocturne. Pendant vos préparatifs quotidiens, vous appliquez une huile de vol composée de plantes et huiles spéciales sur un simple balai, un bâton, une arme d'hast ou tout objet similaire. Jusqu'à vos prochains préparatifs quotidiens, l'objet obtient le trait magique et vous pouvez le monter si vous avez au moins une main libre. Il se déplace à une Vitesse de 6 mètres. Le balai subit une pénalité de 3 mètres à sa Vitesse s'il est chargé avec plus de 20 Encombrements et s'écrase au sol si c'est plus de 30 Encombrement. Le balai ne peut être contrôlé que par vous. Si vous appliquez l'huile sur une arme ou tout autre objet tenu, vous ne pouvez pas chevaucher le balai et le manier en même temps.",
-                "Vous pouvez Fabriquer votre manche à balai pour en faire un workBalai aérien comme si vous aviez la formule pour cet objet. Si vous appliquez une huile sur un balai qui est déjà un balai aérien, le balai obtient un bonus de statut de +3 mètres à sa Vitesse et vous pouvez choisir que chacun puisse le faire fonctionner ou vous seulement."
+                "Vous pouvez Fabriquer votre manche à balai pour en faire un Balai aérien comme si vous aviez la formule pour cet objet. Si vous appliquez une huile sur un balai qui est déjà un balai aérien, le balai obtient un bonus de statut de +3 mètres à sa Vitesse et vous pouvez choisir que chacun puisse le faire fonctionner ou vous seulement."
             ]
         },
         {
@@ -1399,7 +1399,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous faites un grand balayage autour de vous, faisant trébucher les créatures et les repoussez au loin. Choisissez jusqu'à trois ennemis adjacents et choisissez soit de tous les sports_martial_artsPousser ou de tous les sports_martial_artsCroc-en-jambe . Quelle que soit l'option choisie, lancer un test d'Athlétisme séparé contre chaque ennemi, en accomplissant la même action contre chacun. Chaque tentative s'ajoute à votre pénalité d'attaques multiples, mais ne l'augmente pas tant que vous n'avez pas fait toutes les tentatives."
+                "Vous faites un grand balayage autour de vous, faisant trébucher les créatures et les repoussez au loin. Choisissez jusqu'à trois ennemis adjacents et choisissez soit de tous les Pousser ou de tous les Croc-en-jambe . Quelle que soit l'option choisie, lancer un test d'Athlétisme séparé contre chaque ennemi, en accomplissant la même action contre chacun. Chaque tentative s'ajoute à votre pénalité d'attaques multiples, mais ne l'augmente pas tant que vous n'avez pas fait toutes les tentatives."
             ]
         },
         {
@@ -1410,7 +1410,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apaisez les blessures de vos alliés grâce à la puissance de votre représentation. Vous apprenez le sort de composition auto_awesomeBallade apaisante ."
+                "Vous apaisez les blessures de vos alliés grâce à la puissance de votre représentation. Vous apprenez le sort de composition Ballade apaisante ."
             ]
         },
         {
@@ -1422,8 +1422,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous infligez un coup critique à une créature qui n'est pas sur son plan d'origine.",
-                "Conditions Vous avez préparé un sort de auto_awesomeBannissement",
-                "La puissance de vos coups renvoie votre adversaire vers son plan d'origine. Vous dépensez un sort auto_awesomeBannissement que vous avez préparé et qui affecte la créature à laquelle vous avez infligé un coup critique sans avoir à lancer le sort. La créature peut tenter de résister au sort comme à l'ordinaire."
+                "Conditions Vous avez préparé un sort de Bannissement",
+                "La puissance de vos coups renvoie votre adversaire vers son plan d'origine. Vous dépensez un sort Bannissement que vous avez préparé et qui affecte la créature à laquelle vous avez infligé un coup critique sans avoir à lancer le sort. La créature peut tenter de résister au sort comme à l'ordinaire."
             ]
         },
         {
@@ -1436,7 +1436,7 @@ DON.CLASS = {
                 "Bannissement rapide"
             ],
             "description": [
-                "Vous bannissez aisément les créatures avec votre arme. Vous pouvez utiliser military_techBannissement rapide tant qu'il vous reste un emplacement de sort de rang 5 ou plus, même si vous n'avez pas préparé auto_awesomeBannissement . Vous devez sacrifier un sort préparé de niveau 5 ou supérieur et l'effet de Bannissement que vous créez est intensifié au rang de ce sort. La cible subit une pénalité de circonstances de -2 à son jet de sauvegarde comme si vous aviez payé le coût supplémentaire de Bannissement."
+                "Vous bannissez aisément les créatures avec votre arme. Vous pouvez utiliser Bannissement rapide tant qu'il vous reste un emplacement de sort de rang 5 ou plus, même si vous n'avez pas préparé Bannissement . Vous devez sacrifier un sort préparé de niveau 5 ou supérieur et l'effet de Bannissement que vous créez est intensifié au rang de ce sort. La cible subit une pénalité de circonstances de -2 à son jet de sauvegarde comme si vous aviez payé le coût supplémentaire de Bannissement."
             ]
         },
         {
@@ -1449,7 +1449,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous détournez une partie de l'énergie de votre sort vers une barrière runique instable. Si votre prochaine action consiste à Lancer un sort qui inflige des dégâts, ne possède pas de durée et affecte une zone, un cercle magique brillant apparaît dans une crop_freeexplosion de 1,50 mètre dans cette zone, infligeant casino1d6 dégâts de force par rang de sort à toutes les créatures au sein du cercle runique, avec un jet de casinoRéflexes contre votre DD de sort. Si le sort a infligé des dégâts d'un type différent, le cercle runique utilisera les dégâts du sort à la place (ou un type de votre choix si le sort peut infliger plusieurs types de dégâts)."
+                "Vous détournez une partie de l'énergie de votre sort vers une barrière runique instable. Si votre prochaine action consiste à Lancer un sort qui inflige des dégâts, ne possède pas de durée et affecte une zone, un cercle magique brillant apparaît dans une explosion de 1,50 mètre dans cette zone, infligeant 1d6 dégâts de force par rang de sort à toutes les créatures au sein du cercle runique, avec un jet de Réflexes contre votre DD de sort. Si le sort a infligé des dégâts d'un type différent, le cercle runique utilisera les dégâts du sort à la place (ou un type de votre choix si le sort peut infliger plusieurs types de dégâts)."
             ]
         },
         {
@@ -1462,8 +1462,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous inscrivez un cercle de runes arcaniques qui atténue la magie ennemie. Vous créez un cercle magique brillant dans une crop_freeexplosion de 1,50 mètre située dans les 9 mètres. Les créatures dans le cercle obtiennent un bonus de statut de +1 à leur jets de sauvegarde contre la magie. Le cercle dure jusqu'à la fin de votre prochain tour et vous pouvez le Maintenir, jusqu'à 1 minute maximum.",
-                "flareEffet : Barrière de protection contre les sorts"
+                "Vous inscrivez un cercle de runes arcaniques qui atténue la magie ennemie. Vous créez un cercle magique brillant dans une explosion de 1,50 mètre située dans les 9 mètres. Les créatures dans le cercle obtiennent un bonus de statut de +1 à leur jets de sauvegarde contre la magie. Le cercle dure jusqu'à la fin de votre prochain tour et vous pouvez le Maintenir, jusqu'à 1 minute maximum.",
+                "Effet : Barrière de protection contre les sorts"
             ]
         },
         {
@@ -1476,10 +1476,10 @@ DON.CLASS = {
                 "Posture de la montagne"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture de la montagne",
+                "Conditions Vous êtes dans la Posture de la montagne",
                 "Vous vous concentrez sur votre lien avec la terre et invoquez la montagne pour qu'elle bloque les attaques qui vous sont destinées. Vous bénéficiez d'un bonus de circonstances de +2 à la CA jusqu'au début de votre prochain tour.",
-                "flareEffet : Bastion de la montagne",
-                "Spécial Si vous avez ce don, le modificateur de Dextérité maximal à la CA lorsque vous êtes dans la military_techPosture de la montagne passe de +0 à +1."
+                "Effet : Bastion de la montagne",
+                "Spécial Si vous avez ce don, le modificateur de Dextérité maximal à la CA lorsque vous êtes dans la Posture de la montagne passe de +0 à +1."
             ]
         },
         {
@@ -1493,7 +1493,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Vous êtes ciblé par une attaque par une créature observée.",
-                "Conditions Vous êtes dans la military_techPosture de la grue .",
+                "Conditions Vous êtes dans la Posture de la grue .",
                 "Vous placez votre bras entre vous et votre adversaire. Votre bonus de circonstances à la CA conféré par la Posture de la grue passe à +3 contre l'attaque déclencheuse. Si l'attaque vous rate et que l'attaquant est dans votre allonge, vous pouvez immédiatement effectuer une Frappe d'aile de grue contre l'attaquant avec une pénalité de -2."
             ]
         },
@@ -1507,7 +1507,7 @@ DON.CLASS = {
                 "saint"
             ],
             "description": [
-                "Vos exploits vous ont mis dans les grâces de votre divinité pour l'éternité. Vous êtes continuellement entouré par un sort de auto_awesomeBénédiction offensive dont le rang est égal à la moitié de votre niveau (arrondi au supérieur). Le rayon est de 4,50 mètres et vous ne pouvez pas l'augmenter. Vous pouvez Révoquer le sort. Si vous le faites, il réapparaît automatiquement au bout d'une minute."
+                "Vos exploits vous ont mis dans les grâces de votre divinité pour l'éternité. Vous êtes continuellement entouré par un sort de Bénédiction offensive dont le rang est égal à la moitié de votre niveau (arrondi au supérieur). Le rayon est de 4,50 mètres et vous ne pouvez pas l'augmenter. Vous pouvez Révoquer le sort. Si vous le faites, il réapparaît automatiquement au bout d'une minute."
             ]
         },
         {
@@ -1520,7 +1520,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous utilisez la réaction Blocage au bouclier et l'adversaire qui l'a déclenchée vous est adjacent et de votre taille ou inférieure.",
-                "Vous bloquez l'attaque en repoussant votre adversaire ou en le déséquilibrant. Vous utilisez votre bouclier pour repousser la créature à l'origine du déclenchement, soit en la sports_martial_artsPoussant automatiquement de 1,50 mètre, soit en la rendant sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour. La créature déclencheuse choisit si elle est déplacée ou Prise au dépourvu. Si elle choisit d'être déplacée, vous en déterminez la direction. Si la créature Poussée devrait cogner un objet solide, pénétrer dans une case de terrain difficile ou dans l'espace d'une autre créature à cause de ce déplacement, elle est forcément Prise au dépourvu au lieu d'être déplacée."
+                "Vous bloquez l'attaque en repoussant votre adversaire ou en le déséquilibrant. Vous utilisez votre bouclier pour repousser la créature à l'origine du déclenchement, soit en la Poussant automatiquement de 1,50 mètre, soit en la rendant Prise au dépourvu jusqu'au début de votre prochain tour. La créature déclencheuse choisit si elle est déplacée ou Prise au dépourvu. Si elle choisit d'être déplacée, vous en déterminez la direction. Si la créature Poussée devrait cogner un objet solide, pénétrer dans une case de terrain difficile ou dans l'espace d'une autre créature à cause de ce déplacement, elle est forcément Prise au dépourvu au lieu d'être déplacée."
             ]
         },
         {
@@ -1534,7 +1534,7 @@ DON.CLASS = {
                 "blocage au bouclier"
             ],
             "description": [
-                "Vous maniez votre bouclier sans même y penser. Au début de chacun de vos tours, Vous obtenez une réaction supplémentaire que vous pouvez utiliser uniquement pour faire un military_techBlocage au bouclier ."
+                "Vous maniez votre bouclier sans même y penser. Au début de chacun de vos tours, Vous obtenez une réaction supplémentaire que vous pouvez utiliser uniquement pour faire un Blocage au bouclier ."
             ]
         },
         {
@@ -1547,7 +1547,7 @@ DON.CLASS = {
                 "Blocage au bouclier"
             ],
             "description": [
-                "Vous déversez de l'énergie divine pour effectuer un blocage désespéré. Lorsque vous effectuez un Blocage au bouclier, vous pouvez dépenser un sort de auto_awesomeMise à mal ou de auto_awesomeGuérison . Lancez 1d8 pour chaque rang du sort et augmentez la Solidité du bouclier du total obtenu pour ce blocage."
+                "Vous déversez de l'énergie divine pour effectuer un blocage désespéré. Lorsque vous effectuez un Blocage au bouclier, vous pouvez dépenser un sort de Mise à mal ou de Guérison . Lancez 1d8 pour chaque rang du sort et augmentez la Solidité du bouclier du total obtenu pour ce blocage."
             ]
         },
         {
@@ -1598,7 +1598,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez ajouter un additif goudronneux à une bombe alchimique pour qu'elle produise de la fumée. Quand vous lancez la bombe, en plus de son effet normal, elle crée un nuage de fumée dans un crop_freeexplosion de 3 mètres . Vous choisissez à partir de quel coin de l'espace de la cible (ou de l'espace dans lequel atterrit la bombe) le nuage est centré. Les créatures au sein de cette zone se trouvent dans l'état sentiment_very_dissatisfiedMasqué et toutes les autres créatures sont Masquées à leurs yeux. La fumée persiste 1 minute ou jusqu'à ce qu'elle soit dissipée par un vent fort."
+                "Vous pouvez ajouter un additif goudronneux à une bombe alchimique pour qu'elle produise de la fumée. Quand vous lancez la bombe, en plus de son effet normal, elle crée un nuage de fumée dans un explosion de 3 mètres . Vous choisissez à partir de quel coin de l'espace de la cible (ou de l'espace dans lequel atterrit la bombe) le nuage est centré. Les créatures au sein de cette zone se trouvent dans l'état Masqué et toutes les autres créatures sont Masquées à leurs yeux. La fumée persiste 1 minute ou jusqu'à ce qu'elle soit dissipée par un vent fort."
             ]
         },
         {
@@ -1610,7 +1610,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez ajouter un additif cristallin à une bombe alchimique pour qu'elle ébranle votre ennemi. Choisissez entre les états sentiment_very_dissatisfiedÉbloui , sentiment_very_dissatisfiedPris au dépourvu , sentiment_very_dissatisfiedSourd ou une pénalité de statut de -1,50 mètre à toutes les Vitesses. Si l'attaque avec cette bombe touche, la cible doit réussir un jet de casinoVigueur ou subir l'effet choisi jusqu'au début de votre prochain tour. Utilisez votre DD de classe pour ce jet de sauvegarde, même si quelqu'un d'autre lance la bombe."
+                "Vous pouvez ajouter un additif cristallin à une bombe alchimique pour qu'elle ébranle votre ennemi. Choisissez entre les états Ébloui , Pris au dépourvu , Sourd ou une pénalité de statut de -1,50 mètre à toutes les Vitesses. Si l'attaque avec cette bombe touche, la cible doit réussir un jet de Vigueur ou subir l'effet choisi jusqu'au début de votre prochain tour. Utilisez votre DD de classe pour ce jet de sauvegarde, même si quelqu'un d'autre lance la bombe."
             ]
         },
         {
@@ -1623,7 +1623,7 @@ DON.CLASS = {
                 "Bombe incapacitante"
             ],
             "description": [
-                "Vous avez appris des techniques avancées et des secrets alchimiques qui vous permettent d'étendre la liste d'effets que vous pouvez causer avec vos bombes. Quand vous utilisez military_techBombe incapacitante , ajoutez les effets suivants à la liste de ceux que vous pouvez causer : sentiment_very_dissatisfiedAffaibli 1 , sentiment_very_dissatisfiedMaladroit 1 , sentiment_very_dissatisfiedStupéfié 1 ou une pénalité à toutes les Vitesses de -3 mètres."
+                "Vous avez appris des techniques avancées et des secrets alchimiques qui vous permettent d'étendre la liste d'effets que vous pouvez causer avec vos bombes. Quand vous utilisez Bombe incapacitante , ajoutez les effets suivants à la liste de ceux que vous pouvez causer : Affaibli 1 , Maladroit 1 , Stupéfié 1 ou une pénalité à toutes les Vitesses de -3 mètres."
             ]
         },
         {
@@ -1636,7 +1636,7 @@ DON.CLASS = {
                 "Bombe incapacitante supérieure"
             ],
             "description": [
-                "Vous avez découvert de nouvelles façons de gêner vos adversaires grâce à vos bombes. Quand vous utilisez military_techBombe incapacitante , ajoutez les effets suivants à la liste d'effets que vous pouvez causer : sentiment_very_dissatisfiedAffaibli 2 , sentiment_very_dissatisfiedStupéfié 2 ou une pénalité de -4,50 mètres à ses Vitesses."
+                "Vous avez découvert de nouvelles façons de gêner vos adversaires grâce à vos bombes. Quand vous utilisez Bombe incapacitante , ajoutez les effets suivants à la liste d'effets que vous pouvez causer : Affaibli 2 , Stupéfié 2 ou une pénalité de -4,50 mètres à ses Vitesses."
             ]
         },
         {
@@ -1647,8 +1647,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez balancer vos bombes avec une telle force et sur une trajectoire si précise que l'angle de l'éclaboussure arrose un cône partant dans une seule direction, permettant potentiellement d'éviter vos alliés et d'éclabousser dans la profondeur les lignes ennemies. Quand vous jetez une bombe alchimique qui possède le trait éclaboussure, au lieu d'éclabousser toutes les cases adjacentes à la cible, vous pouvez créer une zone d'éclaboussure dans un crop_freecône de 4,50 mètres . Vous choisissez la direction du cône, mais sa première case doit être dans l'espace de la cible.",
-                "Spécial Si vous avez le don military_techÉclaboussure élargie ou une autre capacité qui accroît le rayon de la zone d'éclaboussure, vous pouvez appliquer les dégâts d'éclaboussure dans un crop_freecône de 6 mètres ."
+                "Vous pouvez balancer vos bombes avec une telle force et sur une trajectoire si précise que l'angle de l'éclaboussure arrose un cône partant dans une seule direction, permettant potentiellement d'éviter vos alliés et d'éclabousser dans la profondeur les lignes ennemies. Quand vous jetez une bombe alchimique qui possède le trait éclaboussure, au lieu d'éclabousser toutes les cases adjacentes à la cible, vous pouvez créer une zone d'éclaboussure dans un cône de 4,50 mètres . Vous choisissez la direction du cône, mais sa première case doit être dans l'espace de la cible.",
+                "Spécial Si vous avez le don Éclaboussure élargie ou une autre capacité qui accroît le rayon de la zone d'éclaboussure, vous pouvez appliquer les dégâts d'éclaboussure dans un cône de 6 mètres ."
             ]
         },
         {
@@ -1661,7 +1661,7 @@ DON.CLASS = {
                 "Lanceur à grande distance"
             ],
             "description": [
-                "Vous lancez vos bombes de manière remarquable, en dépit des obstacles ou de la distance. Lorsque vous lancez un objet alchimique avec le trait bombe, son facteur de portée passe à 18 mètres, vous réduisez toute pénalité de circonstances de CA de la cible liée à un abri de 1 et vous réussissez automatiquement le test nu lorsque vous ciblez une créature sentiment_very_dissatisfiedMasquée ."
+                "Vous lancez vos bombes de manière remarquable, en dépit des obstacles ou de la distance. Lorsque vous lancez un objet alchimique avec le trait bombe, son facteur de portée passe à 18 mètres, vous réduisez toute pénalité de circonstances de CA de la cible liée à un abri de 1 et vous réussissez automatiquement le test nu lorsque vous ciblez une créature Masquée ."
             ]
         },
         {
@@ -1704,7 +1704,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous êtes capable d'utiliser un aboutissement.",
                 "Vous bondissez avec style et portez un puissant aboutissement.",
-                "Faites un sports_martial_artsBond , un sports_martial_artsSaut en hauteur ou un sports_martial_artsSaut en longueur et effectuez un aboutissement à une action n'importe quand au cours de votre saut ; l'aboutissement ne peut pas être un de ceux qui inclut un autre déplacement, comme military_techAboutissement mobile . Immédiatement après l'aboutissement, vous retombez sur le sol si vous étiez en l'air, même si vous n'avez pas atteint la distance maximale de votre saut. Si la distance de chute n'est pas supérieure à la hauteur de votre saut, vous ne subissez pas de dégâts et atterrissez sur vos pieds.",
+                "Faites un Bond , un Saut en hauteur ou un Saut en longueur et effectuez un aboutissement à une action n'importe quand au cours de votre saut ; l'aboutissement ne peut pas être un de ceux qui inclut un autre déplacement, comme Aboutissement mobile . Immédiatement après l'aboutissement, vous retombez sur le sol si vous étiez en l'air, même si vous n'avez pas atteint la distance maximale de votre saut. Si la distance de chute n'est pas supérieure à la hauteur de votre saut, vous ne subissez pas de dégâts et atterrissez sur vos pieds.",
                 "Lorsque vous tentez un saut en hauteur ou un Saut en longueur durant un Bond flamboyant, déterminez le DD en utilisant le DD du Saut en longueur et augmentez la distance maximale au double de votre Vitesse, plutôt qu'à votre Vitesse."
             ]
         },
@@ -1719,9 +1719,9 @@ DON.CLASS = {
             "description": [
                 "Barbare Vous frappez un ennemi alors que vous êtes en plein saut.",
                 "Guerrier Vous faites un bond impressionnant et frappez alors que vous êtes en l'air.",
-                "Faites un sports_martial_artsBond , un sports_martial_artsSaut en hauteur ou un sports_martial_artsSaut en longueur et tentez de faire une Frappe au corps-à-corps à n'importe quel moment pendant votre saut. Immédiatement après la frappe, si vous étiez encore en l'air, vous tombez au sol, même si vous n'avez pas atteint la distance maximale de votre saut. Si vous chutez d'une distance inférieure ou égale à la hauteur de votre saut, vous ne subissez aucun dégât et retombez sur vos pieds.",
+                "Faites un Bond , un Saut en hauteur ou un Saut en longueur et tentez de faire une Frappe au corps-à-corps à n'importe quel moment pendant votre saut. Immédiatement après la frappe, si vous étiez encore en l'air, vous tombez au sol, même si vous n'avez pas atteint la distance maximale de votre saut. Si vous chutez d'une distance inférieure ou égale à la hauteur de votre saut, vous ne subissez aucun dégât et retombez sur vos pieds.",
                 "Quand vous faites un Saut en hauteur ou en longueur dans le cadre de l'action Bond soudain, le DD est déterminé en utilisant le DD du Saut en longueur et augmentez votre distance maximale au double de votre Vitesse.",
-                "Spécial Si vous avez military_techFrappe renversante , vous pouvez utiliser Frappe renversante au lieu d'une Frappe normale. Cela ne change pas le nombre d'actions nécessaires pour Bond soudain."
+                "Spécial Si vous avez Frappe renversante , vous pouvez utiliser Frappe renversante au lieu d'une Frappe normale. Cela ne change pas le nombre d'actions nécessaires pour Bond soudain."
             ]
         },
         {
@@ -1733,8 +1733,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous bondissez de votre cachette et attaquez votre cible. Vous Marchez rapidement jusqu'à votre Vitesse, mais vous devez terminer votre mouvement à côté d'un ennemi vis-à-vis duquel vous êtes sentiment_very_dissatisfiedCaché ou sentiment_very_dissatisfiedNon détecté . Vous sports_martial_artsFrappez cet ennemi, mais restez Caché ou Non détecté aux yeux de cette créature jusqu'à la fin de votre Frappe.",
-                "Vous pouvez utiliser Bondir depuis les ombres en sports_martial_artsCreusant , sports_martial_artsEscaladant , sports_martial_artsVolant ou sports_martial_artsNageant au lieu de Marcher rapidement si vous possédez le type de déplacement correspondant."
+                "Vous bondissez de votre cachette et attaquez votre cible. Vous Marchez rapidement jusqu'à votre Vitesse, mais vous devez terminer votre mouvement à côté d'un ennemi vis-à-vis duquel vous êtes Caché ou Non détecté . Vous Frappez cet ennemi, mais restez Caché ou Non détecté aux yeux de cette créature jusqu'à la fin de votre Frappe.",
+                "Vous pouvez utiliser Bondir depuis les ombres en Creusant , Escaladant , Volant ou Nageant au lieu de Marcher rapidement si vous possédez le type de déplacement correspondant."
             ]
         },
         {
@@ -1761,7 +1761,7 @@ DON.CLASS = {
             ],
             "description": [
                 "L'énergie résiduelle de vos sorts de domaine renforce vos défenses. Lorsque vous dépensez un Point de Focalisation pour lancer un sort de domaine, vous obtenez un bonus de statut de +1 à votre CA jusqu'au début de votre prochain tour.",
-                "flareEffet : Bouclier de la foi"
+                "Effet : Bouclier de la foi"
             ]
         },
         {
@@ -1789,8 +1789,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous utilisez votre bouclier pour encaisser les explosions et autres. Quand vous sports_martial_artsLevez votre bouclier , vous obtenez son bonus de circonstances à vos jets de Réflexes.",
-                "Spécial Si vous avez la réaction military_techBlocage au bouclier , les dégâts que vous prenez comme résultat de votre jet de Réflexes peuvent déclencher cette réaction, même si les dégâts ne sont pas physiques."
+                "Vous utilisez votre bouclier pour encaisser les explosions et autres. Quand vous Levez votre bouclier , vous obtenez son bonus de circonstances à vos jets de Réflexes.",
+                "Spécial Si vous avez la réaction Blocage au bouclier , les dégâts que vous prenez comme résultat de votre jet de Réflexes peuvent déclencher cette réaction, même si les dégâts ne sont pas physiques."
             ]
         },
         {
@@ -1817,7 +1817,7 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Un ennemi vous touche avec une Frappe au corps-à-corps",
                 "Conditions Vous maniez un bouclier",
-                "Vous pouvez mettre votre bouclier en place juste au moment où vous devriez recevoir un coup, en évitant d'être touché à la dernière seconde. Vous utilisez immédiatement l'action sports_martial_artsLever un bouclier et obtenez le bonus de votre bouclier à la CA. Le bonus de circonstances du bouclier s'applique à votre CA lorsque vous déterminez le résultat de l'attaque déclencheuse."
+                "Vous pouvez mettre votre bouclier en place juste au moment où vous devriez recevoir un coup, en évitant d'être touché à la dernière seconde. Vous utilisez immédiatement l'action Lever un bouclier et obtenez le bonus de votre bouclier à la CA. Le bonus de circonstances du bouclier s'applique à votre CA lorsque vous déterminez le résultat de l'attaque déclencheuse."
             ]
         },
         {
@@ -1833,8 +1833,8 @@ DON.CLASS = {
                 "Initié des vents violents"
             ],
             "description": [
-                "Conditions Vous êtes dans la auto_awesomePosture des vents violents .",
-                "Vous augmentez la pression de l'air par des mouvements répétés, avant de relâcher un énorme croissant de vent impétueux. Faites une Frappe de coup de vent contre chaque créature dans un crop_freecône de 9 mètres ou sur une crop_freeligne de 18 mètres . Ces attaques comptent toutes dans le calcul de votre pénalité d'attaques multiples mais la pénalité n'augmente qu'après les avoir toutes effectuées."
+                "Conditions Vous êtes dans la Posture des vents violents .",
+                "Vous augmentez la pression de l'air par des mouvements répétés, avant de relâcher un énorme croissant de vent impétueux. Faites une Frappe de coup de vent contre chaque créature dans un cône de 9 mètres ou sur une ligne de 18 mètres . Ces attaques comptent toutes dans le calcul de votre pénalité d'attaques multiples mais la pénalité n'augmente qu'après les avoir toutes effectuées."
             ]
         },
         {
@@ -1847,7 +1847,7 @@ DON.CLASS = {
                 "Chaudron"
             ],
             "description": [
-                "Vous passez 10 minutes et dépensez 1 Point de focalisation pour brasser une potion spéciale contenant la puissance d'un de vos maléfices qui cible une créature. Une créature qui consomme cette potion est ciblée par le maléfice. Si le maléfice a une durée maintenue et que vous possédez auto_awesomeGloussement , vous pouvez lancer Gloussement dans la bouteille juste avant de la sceller. Si vous le faites, la durée du maléfice est étendue comme si vous aviez lancé Gloussement le round qui suit le lancement du sort (typiquement, cela étend la durée d'un round). Votre gloussement se fait entendre lorsque la bouteille est débouchée.",
+                "Vous passez 10 minutes et dépensez 1 Point de focalisation pour brasser une potion spéciale contenant la puissance d'un de vos maléfices qui cible une créature. Une créature qui consomme cette potion est ciblée par le maléfice. Si le maléfice a une durée maintenue et que vous possédez Gloussement , vous pouvez lancer Gloussement dans la bouteille juste avant de la sceller. Si vous le faites, la durée du maléfice est étendue comme si vous aviez lancé Gloussement le round qui suit le lancement du sort (typiquement, cela étend la durée d'un round). Votre gloussement se fait entendre lorsque la bouteille est débouchée.",
                 "Toute potion que vous créez de cette manière perd son pouvoir lors de vos prochains préparatifs quotidiens. Tant que la potion est en votre possession, vous pouvez la rendre inerte en utilisant une unique action qui possède le trait concentration. Vous ne pouvez récupérer le Point de focalisation que vous avez dépensé en créant la potion (ou le Point de focalisation que vous avez dépensé pour lancer Gloussement) jusqu'à ce que la potion soit consommée ou ait perdu sa magie."
             ]
         },
@@ -1870,12 +1870,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous êtes sentiment_very_dissatisfiedLié à la malédiction 4 .",
+                "Conditions Vous êtes Lié à la malédiction 4 .",
                 "Votre esprit et votre corps peuvent, pour un court moment et à grand péril, surpasser les limites finales de votre malédiction. Pendant 1 minute, vous répandez des flammes torrentielles, vous êtes entouré d'esprits ou vous débordez de puissance divine d'une manière qui convient à votre mystère. À chacun de vos tours pendant cette période, vous pouvez lancer un sort de révélation sans dépenser de points de focalisation.",
-                "Au bout de cette minute, les durées de tout sort de révélation que vous avez lancé pendant ce moment prennent fin et vous devez tenter un jet de casinoVigueur, DD 40 .",
+                "Au bout de cette minute, les durées de tout sort de révélation que vous avez lancé pendant ce moment prennent fin et vous devez tenter un jet de Vigueur, DD 40 .",
                 "Succès critique Vous ne subissez pas d'autres effets.",
-                "Succès Vous êtes sentiment_very_dissatisfiedDrainé 2 et ne pouvez réduire ou retirer cet état jusqu'à vos prochains préparatifs quotidiens.",
-                "Échec Vous êtes sentiment_very_dissatisfiedDrainé 4 et ne pouvez réduire ou retirer cet état jusqu'à vos prochains préparatifs quotidiens.",
+                "Succès Vous êtes Drainé 2 et ne pouvez réduire ou retirer cet état jusqu'à vos prochains préparatifs quotidiens.",
+                "Échec Vous êtes Drainé 4 et ne pouvez réduire ou retirer cet état jusqu'à vos prochains préparatifs quotidiens.",
                 "Échec critique Vous mourrez."
             ]
         },
@@ -1887,7 +1887,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous avez obtenu du flarePanache durant ce tour.",
+                "Conditions Vous avez obtenu du Panache durant ce tour.",
                 "Votre ego enfle, accordant un répit temporaire à votre douleur. Vous obtenez des Points de vie temporaires égaux à votre niveau plus votre modificateur de Charisme qui dure jusqu'au début de votre prochain tour."
             ]
         },
@@ -1900,7 +1900,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous combinez Panache avec encore davantage de bravoure, cela tend à mieux fonctionner. Lorsque vous avez déjà du Panache , vous pouvez lancer deux fois les dés et utiliser le plus haut résultat sur les tests pour lesquels le bonus de circonstances de Combattant stylé s'applique ( sports_martial_artsDéplacement acrobatique et toutes les actions de compétences qui possèdent le trait bravade)."
+                "Lorsque vous combinez Panache avec encore davantage de bravoure, cela tend à mieux fonctionner. Lorsque vous avez déjà du Panache , vous pouvez lancer deux fois les dés et utiliser le plus haut résultat sur les tests pour lesquels le bonus de circonstances de Combattant stylé s'applique ( Déplacement acrobatique et toutes les actions de compétences qui possèdent le trait bravade)."
             ]
         },
         {
@@ -1914,7 +1914,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Même vos peurs servent de combustible à votre esprit guerrier. Lorsque vous obtenez un succès critique sur un jet de Volonté contre une capacité d'un adversaire, vous obtenez un bonus de statut de +1 à vos jets de sauvegarde et un nombre de Points de vie temporaires égal à la moitié de votre niveau pendant 1 minute. Ces avantages sont doublés si vous obtenez un succès critique contre un effet de terreur.",
-                "flareEffet : Bravoure retentissante"
+                "Effet : Bravoure retentissante"
             ]
         },
         {
@@ -1940,7 +1940,7 @@ DON.CLASS = {
                 "Poigne écrasante, Projection en rotation"
             ],
             "description": [
-                "Conditions Vous avez sentiment_very_dissatisfiedAgrippé ou sentiment_very_dissatisfiedEntravé une créature.",
+                "Conditions Vous avez Agrippé ou Entravé une créature.",
                 "Vous avez maîtrisé une technique d'agrippement ultime capable de briser même les ennemis les plus puissants. Vous projetez la créature à 6 mètres dans les airs, en la suivant d'un saut puissant, puis vous portez une Frappe à mains nues. Si la Frappe est un succès, vous pouvez répéter ce processus jusqu'à deux fois de plus, en déplaçant la créature de 6 mètres supplémentaires dans les airs à chaque Frappe. La créature reste Agrippée ou Entravée tout au long de la séquence. Si vous ratez l'une des Frappes, Brisedieu et l'état Agrippé ou Entravé prennent fin immédiatement et vous et l'adversaire tombez, subissant les dégâts de chute normaux en fonction de la hauteur totale de votre saut.",
                 "Si les trois Frappes sont réussies, vous saisissez immédiatement la créature et vous l'amenez au sol pour qu'elle s'y écrase, lui infligeant vos dégâts de Frappe à mains nues plus les dégâts de chute. Vous atterrissez sur vos pieds, à côté de la créature, sans subit de dégât de la chute et la créature reste Agrippée ou Entravé par vos soins."
             ]
@@ -1954,8 +1954,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Une créature sentiment_very_dissatisfiedEffrayée est dans votre allonge au corps-à-corps.",
-                "Votre agressivité entretient la terreur de votre ennemi. Faites une Frappe au corps-à-corps contre une créature sentiment_very_dissatisfiedEffrayée . Si vous touchez et infligez des dégâts, la cible est sentiment_very_dissatisfiedPrise au dépourvu tant qu'elle conserve son état Effrayé. Si la cible était déjà Prise au dépourvu par rapport à vous quand vous lui infligez des dégâts avec cette Frappe, elle ne peut pas réduire la valeur de son état Effrayé en dessous de 1 jusqu'au début de votre prochain tour."
+                "Conditions Une créature Effrayée est dans votre allonge au corps-à-corps.",
+                "Votre agressivité entretient la terreur de votre ennemi. Faites une Frappe au corps-à-corps contre une créature Effrayée . Si vous touchez et infligez des dégâts, la cible est Prise au dépourvu tant qu'elle conserve son état Effrayé. Si la cible était déjà Prise au dépourvu par rapport à vous quand vous lui infligez des dégâts avec cette Frappe, elle ne peut pas réduire la valeur de son état Effrayé en dessous de 1 jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -1972,7 +1972,7 @@ DON.CLASS = {
                 "Instinct animal"
             ],
             "description": [
-                "Vous approfondissez votre connexion à vos instincts animaux. Votre attaque à mains nues issue de rage bestiale obtient l'un des traits suivants jusqu'à ce que vous cessiez d'être en rage : balayage, démolition, parade, percutant, prise d'élan. Vous ne pouvez pas utiliser cette capacité jusqu'à ce que vous entriez de nouveau en sports_martial_artsRage . Vous pouvez choisir un trait différent à chaque fois que vous utilisez Brutalité Animale."
+                "Vous approfondissez votre connexion à vos instincts animaux. Votre attaque à mains nues issue de rage bestiale obtient l'un des traits suivants jusqu'à ce que vous cessiez d'être en rage : balayage, démolition, parade, percutant, prise d'élan. Vous ne pouvez pas utiliser cette capacité jusqu'à ce que vous entriez de nouveau en Rage . Vous pouvez choisir un trait différent à chaque fois que vous utilisez Brutalité Animale."
             ]
         },
         {
@@ -1983,7 +1983,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "La peur affaiblit vos ennemis et les rend plus vulnérables à vos attaques. Vous obtenez un bonus de circonstances aux jets de dégâts sur vos Frappes contre les créatures sentiment_very_dissatisfiedEffrayées . Le bonus est égal au double de la valeur de l'état Effrayé de la cible.",
+                "La peur affaiblit vos ennemis et les rend plus vulnérables à vos attaques. Vous obtenez un bonus de circonstances aux jets de dégâts sur vos Frappes contre les créatures Effrayées . Le bonus est égal au double de la valeur de l'état Effrayé de la cible.",
                 "Si vous êtes maître en Intimidation, le bonus s'élève au triple de la valeur de l'état Effrayé de la cible."
             ]
         },
@@ -2009,7 +2009,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Vous devriez subir des dégâts d'une Frappe ou d'un sort qui ne possède pas le trait mort ou qui ne cause pas autrement une mort instantanée (tel que auto_awesomeDésintégration ).",
+                "Déclencheur Vous devriez subir des dégâts d'une Frappe ou d'un sort qui ne possède pas le trait mort ou qui ne cause pas autrement une mort instantanée (tel que Désintégration ).",
                 "En utilisant vos liens occultes et vos immenses pouvoirs de persuasion, vous parvenez à vous convaincre vous-même que les dégâts déclencheurs sont le fruit de votre imagination. Les dégâts changent de forme pour devenir des dégâts mentaux et les effets des dégâts obtiennent le trait non-létal. Vous ne pouvez pas utiliser cette réaction si vous êtes immunisé aux effets mentaux ou aux dégâts mentaux."
             ]
         },
@@ -2023,7 +2023,7 @@ DON.CLASS = {
                 "maître en Discrétion"
             ],
             "description": [
-                "Vous modifiez votre apparence pour vous fondre dans la nature. Dans un environnement naturel, vous pouvez sports_martial_artsVous cacher ou sports_martial_artsÊtre furtif même sans avoir d'abri ou être sentiment_very_dissatisfiedMasqué ."
+                "Vous modifiez votre apparence pour vous fondre dans la nature. Dans un environnement naturel, vous pouvez Vous cacher ou Être furtif même sans avoir d'abri ou être Masqué ."
             ]
         },
         {
@@ -2034,7 +2034,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez diriger avec précision dans une direction l'énergie que vous canalisez, ce qui vous permet de prendre pour cibles des créatures plus éloignées de manière plus directe. Quand vous lancez une version de auto_awesomeMise à mal ou de auto_awesomeGuérison qui affecte une zone, vous pouvez choisir un crop_freecône de 18 mètres à la place d'une crop_freezone d'émanation de 9 mètres ."
+                "Vous pouvez diriger avec précision dans une direction l'énergie que vous canalisez, ce qui vous permet de prendre pour cibles des créatures plus éloignées de manière plus directe. Quand vous lancez une version de Mise à mal ou de Guérison qui affecte une zone, vous pouvez choisir un cône de 18 mètres à la place d'une zone d'émanation de 9 mètres ."
             ]
         },
         {
@@ -2046,7 +2046,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre profonde compréhension des révélations divines sur la nature de l'essence vitale vous permet de manipuler sans contrainte l'énergie de la vie et de la mort. Utilisez gratuitement une action de mutamagie que vous savez accomplir, qui demande normalement 1 action et que vous pouvez appliquer au sort auto_awesomeMise à mal ou auto_awesomeGuérison . Si vous l'utilisez de cette façon, ses effets s'appliquent uniquement à un sort de Mise à mal ou à un sort de Guérison."
+                "Votre profonde compréhension des révélations divines sur la nature de l'essence vitale vous permet de manipuler sans contrainte l'énergie de la vie et de la mort. Utilisez gratuitement une action de mutamagie que vous savez accomplir, qui demande normalement 1 action et que vous pouvez appliquer au sort Mise à mal ou Guérison . Si vous l'utilisez de cette façon, ses effets s'appliquent uniquement à un sort de Mise à mal ou à un sort de Guérison."
             ]
         },
         {
@@ -2059,7 +2059,7 @@ DON.CLASS = {
                 "Source de mise à mal ou de guérison"
             ],
             "description": [
-                "La puissance divine est toujours à portée de main, répondant rapidement à votre appel. Quand vous Lancez auto_awesomeMise à mal ou auto_awesomeGuérison en dépensant 2 actions, vous pouvez produire les effets de la version à 3 actions au lieu de celle à 2 actions.",
+                "La puissance divine est toujours à portée de main, répondant rapidement à votre appel. Quand vous Lancez Mise à mal ou Guérison en dépensant 2 actions, vous pouvez produire les effets de la version à 3 actions au lieu de celle à 2 actions.",
                 "Vous pouvez faire ceci avec Mise à mal si vous avez la source de mise à mal ou avec Guérison si vous avez la source de guérison (ou avec les deux si vous avez Source polyvalente)."
             ]
         },
@@ -2077,7 +2077,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Animist Lorsque vous canalisez les pouvoirs de la vie et de la mort, votre apparition absorbe et améliore l'énergie spirituelle, le transportant jusqu'à un allié proche.",
-                "Prêtre Lorsque vous extrayez de l'énergie de vitalité ou du vide, vous créez également une plus petite poche de cette énergie. Si la prochaine action que vous effectuez consiste à lancer la version à 2 actions de auto_awesomeMise à mal ou de auto_awesomeGuérison pour soigner ou blesser une unique créature dans la portée. Ciblez cette créature avec la version à 1 action du même sort. Ce sort a le même rang que la Mise à mal ou la Guérison à 2 actions que vous lancez et ne coûte pas d'autre emplacement de sort."
+                "Prêtre Lorsque vous extrayez de l'énergie de vitalité ou du vide, vous créez également une plus petite poche de cette énergie. Si la prochaine action que vous effectuez consiste à lancer la version à 2 actions de Mise à mal ou de Guérison pour soigner ou blesser une unique créature dans la portée. Ciblez cette créature avec la version à 1 action du même sort. Ce sort a le même rang que la Mise à mal ou la Guérison à 2 actions que vous lancez et ne coûte pas d'autre emplacement de sort."
             ]
         },
         {
@@ -2091,7 +2091,7 @@ DON.CLASS = {
             ],
             "description": [
                 "La grâce divine vous permet de supprimer des états nuisibles.",
-                "Vous pouvez sacrifier un sort de auto_awesomeGuérison préparé dans vos emplacements de sort supplémentaires conférés par la source de guérison pour lancer l'un des sorts suivants à la place : auto_awesomeAffliction purifiée , auto_awesomeClarté d'esprit , auto_awesomeCorps assaini , or auto_awesomeRemise sur pied . Le sort est intensifié jusqu'au même niveau que celui de la Guérison que vous avez sacrifiée."
+                "Vous pouvez sacrifier un sort de Guérison préparé dans vos emplacements de sort supplémentaires conférés par la source de guérison pour lancer l'un des sorts suivants à la place : Affliction purifiée , Clarté d'esprit , Corps assaini , or Remise sur pied . Le sort est intensifié jusqu'au même niveau que celui de la Guérison que vous avez sacrifiée."
             ]
         },
         {
@@ -2117,7 +2117,7 @@ DON.CLASS = {
                 "Ordre de la tempête"
             ],
             "description": [
-                "Vous ordonnez aux vents de vous aider et de vous transporter dans les airs et à vous autorisez le passage au sein des vents les plus forts. Vous obtenez le sort d'ordre auto_awesomeVol de l'ouragan ."
+                "Vous ordonnez aux vents de vous aider et de vous transporter dans les airs et à vous autorisez le passage au sein des vents les plus forts. Vous obtenez le sort d'ordre Vol de l'ouragan ."
             ]
         },
         {
@@ -2143,7 +2143,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous êtes si suspicieux à l'égard de qui vous rencontrez que vous conservez des notes mentales sur la manière de les défaire — même vos propres alliés.",
-                "Après avoir interagi avec une créature pendant au moins 1 minute, vous sports_martial_artsSuivez une piste automatiquement avec cette créature comme sujet. Vous pouvez avoir n'importe quel nombre de pistes au même moment et lorsque vous Suivez une piste de nouveau, vous n'abandonnez aucun de ces sujets automatiques."
+                "Après avoir interagi avec une créature pendant au moins 1 minute, vous Suivez une piste automatiquement avec cette créature comme sujet. Vous pouvez avoir n'importe quel nombre de pistes au même moment et lorsque vous Suivez une piste de nouveau, vous n'abandonnez aucun de ces sujets automatiques."
             ]
         },
         {
@@ -2157,7 +2157,7 @@ DON.CLASS = {
                 "Vie chanceuse"
             ],
             "description": [
-                "Vous semblez toujours pouvoir vous sortir du pire. Lorsque vous utilisez military_techVie chanceuse , lancez le dé deux fois (en incluant le bonus de circonstances de +2 de Vie chanceuse) et utilisez le meilleur résultat."
+                "Vous semblez toujours pouvoir vous sortir du pire. Lorsque vous utilisez Vie chanceuse , lancez le dé deux fois (en incluant le bonus de circonstances de +2 de Vie chanceuse) et utilisez le meilleur résultat."
             ]
         },
         {
@@ -2184,11 +2184,11 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Vous êtes ciblé par une attaque à distance.",
                 "Conditions Vous êtes adjacent à un ennemi et avez du panache.",
-                "Vous tentez de changer adroitement de place avec un ennemi adjacent pour éviter l'attaque. Choisissez un ennemi adjacent et tentez de le sports_martial_artsRepositionner . Au lieu des résultats ordinaires de Repositionner, utiliser les suivants.",
+                "Vous tentez de changer adroitement de place avec un ennemi adjacent pour éviter l'attaque. Choisissez un ennemi adjacent et tentez de le Repositionner . Au lieu des résultats ordinaires de Repositionner, utiliser les suivants.",
                 "Succès critique Vous échangez vos places avec l'ennemi ciblé etl'ennemi devient la cible de l'attaque déclencheuse.",
                 "Succès Comme en cas de succès critique sauf que la cible obtient un abri partiel contre l'attaque déclencheuse et vous perdez votre panache.",
                 "Échec Vous perdez votre panache.",
-                "Échec critique Vous êtes sentiment_very_dissatisfiedPris au dépourvu contre l'attaque déclencheuse et vous perdez votre panache."
+                "Échec critique Vous êtes Pris au dépourvu contre l'attaque déclencheuse et vous perdez votre panache."
             ]
         },
         {
@@ -2201,7 +2201,7 @@ DON.CLASS = {
                 "Combattant (muse de barde)"
             ],
             "description": [
-                "Vos représentations donnent à vos alliés de la force pour les aider à accomplir des tâches physiques. Vous apprenez le tour de magie de composition auto_awesomeChanson de force ."
+                "Vos représentations donnent à vos alliés de la force pour les aider à accomplir des tâches physiques. Vous apprenez le tour de magie de composition Chanson de force ."
             ]
         },
         {
@@ -2212,7 +2212,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le tour de magie de composition auto_awesomeChanson de marche , qui vous permet ainsi qu'à vos alliés de parcourir de longues distances sans effort."
+                "Vous apprenez le tour de magie de composition Chanson de marche , qui vous permet ainsi qu'à vos alliés de parcourir de longues distances sans effort."
             ]
         },
         {
@@ -2223,7 +2223,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le tour de magie de composition auto_awesomeChant funeste qui terrorise vos ennemis et les empêche de pleinement se remettre de leur terreur."
+                "Vous apprenez le tour de magie de composition Chant funeste qui terrorise vos ennemis et les empêche de pleinement se remettre de leur terreur."
             ]
         },
         {
@@ -2238,7 +2238,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous frappez, cassez et chargez sans hésiter à travers des obstacles solides. Marchez rapidement deux fois.",
-                "Une seule fois au cours de ce mouvement, si votre déplacement passe à travers ou se termine à côté d'une porte, d'une fenêtre, d'une palissade, d'un mur ou d'un obstacle similaire, vous pouvez exécuter un test d'Athlétisme pour sports_martial_artsOuvrir de force l'ouverture dans l'obstacle avec un bonus de circonstances de +1 ; en cas d'échec, votre mouvement est interrompu au niveau de cet obstacle."
+                "Une seule fois au cours de ce mouvement, si votre déplacement passe à travers ou se termine à côté d'une porte, d'une fenêtre, d'une palissade, d'un mur ou d'un obstacle similaire, vous pouvez exécuter un test d'Athlétisme pour Ouvrir de force l'ouverture dans l'obstacle avec un bonus de circonstances de +1 ; en cas d'échec, votre mouvement est interrompu au niveau de cet obstacle."
             ]
         },
         {
@@ -2253,7 +2253,7 @@ DON.CLASS = {
                 "qualifié en Athlétisme"
             ],
             "description": [
-                "Vous vous précipitez en avant, déplaçant les ennemis sur le côté pour atteindre votre adversaire. Vous Marchez rapidement, en tentant de vous déplacer dans l'espace occupé par vos ennemis. Faites un test d' casinoAthlétisme et comparez le résultat au DD de Vigueur de chaque créature dont vous tentez de traverser l'espace au cours de votre déplacement, passant à travers celui-ci en cas de succès mais interrompant votre déplacement avant de pénétrer son espace en cas d'échec. Vous pouvez alors Frapper, quelle que soit la manière dont s'est terminée votre Marche rapide. Vous pouvez utiliser Charge irrépressible en Creusant, en Grimpant, en Volant ou en Nageant plutôt qu'en Marchant rapidement si vous disposez du type de déplacement correspondant."
+                "Vous vous précipitez en avant, déplaçant les ennemis sur le côté pour atteindre votre adversaire. Vous Marchez rapidement, en tentant de vous déplacer dans l'espace occupé par vos ennemis. Faites un test d' Athlétisme et comparez le résultat au DD de Vigueur de chaque créature dont vous tentez de traverser l'espace au cours de votre déplacement, passant à travers celui-ci en cas de succès mais interrompant votre déplacement avant de pénétrer son espace en cas d'échec. Vous pouvez alors Frapper, quelle que soit la manière dont s'est terminée votre Marche rapide. Vous pouvez utiliser Charge irrépressible en Creusant, en Grimpant, en Volant ou en Nageant plutôt qu'en Marchant rapidement si vous disposez du type de déplacement correspondant."
             ]
         },
         {
@@ -2265,7 +2265,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous lancez une arme pour distraire votre adversaire pendant que vous vous rapprochez de lui pour commencer votre assaut. Vous Marchez rapidement deux fois. À n'importe quel point durant ce déplacement, vous pouvez effectuer une attaque à distance avec une arme de jet. Si la frappe touche, la cible est sentiment_very_dissatisfiedPrise au dépourvu contre la prochaine attaque au corps-à-corps que vous tentez contre elle avant la fin de votre tour actuel."
+                "Vous lancez une arme pour distraire votre adversaire pendant que vous vous rapprochez de lui pour commencer votre assaut. Vous Marchez rapidement deux fois. À n'importe quel point durant ce déplacement, vous pouvez effectuer une attaque à distance avec une arme de jet. Si la frappe touche, la cible est Prise au dépourvu contre la prochaine attaque au corps-à-corps que vous tentez contre elle avant la fin de votre tour actuel."
             ]
         },
         {
@@ -2278,7 +2278,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Après un bref sprint, vous vous précipitez sur un adversaire en le frappant. Vous Marchez rapidement deux fois. Si vous terminez votre déplacement avec au moins un ennemi dans votre allonge au corps-à-corps, vous pouvez faire une Frappe au corps-à-corps. Vous pouvez utiliser la military_techCharge soudaine pour Creuser, Escalader, Nager ou Voler au lieu de Marcher rapidement si vous possédez le type de déplacement correspondant."
+                "Après un bref sprint, vous vous précipitez sur un adversaire en le frappant. Vous Marchez rapidement deux fois. Si vous terminez votre déplacement avec au moins un ennemi dans votre allonge au corps-à-corps, vous pouvez faire une Frappe au corps-à-corps. Vous pouvez utiliser la Charge soudaine pour Creuser, Escalader, Nager ou Voler au lieu de Marcher rapidement si vous possédez le type de déplacement correspondant."
             ]
         },
         {
@@ -2292,7 +2292,7 @@ DON.CLASS = {
                 "Charge irrépressible"
             ],
             "description": [
-                "Vous piétinez vos ennemis lorsque votre charge passe sur eux. Lorsque vous utilisez military_techCharge irrépressible et parvenez à traverser l'espace d'une créature, celle-ci subit des casinodégâts contondants égaux à votre modificateur de Force. Si vous obtenez un succès critique, la créature subit le double de ce montant de dégâts et devient sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre prochain tour."
+                "Vous piétinez vos ennemis lorsque votre charge passe sur eux. Lorsque vous utilisez Charge irrépressible et parvenez à traverser l'espace d'une créature, celle-ci subit des dégâts contondants égaux à votre modificateur de Force. Si vous obtenez un succès critique, la créature subit le double de ce montant de dégâts et devient Prise au dépourvu jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -2305,7 +2305,7 @@ DON.CLASS = {
                 "Camouflage"
             ],
             "description": [
-                "Vous vous fondez si parfaitement dans votre environnement qu'il est impossible de vous repérer. Dans un environnement naturel, vous êtes toujours sentiment_very_dissatisfiedMasqué vis-à-vis de tous les adversaires si tel est votre souhait, sauf de votre proie."
+                "Vous vous fondez si parfaitement dans votre environnement qu'il est impossible de vous repérer. Dans un environnement naturel, vous êtes toujours Masqué vis-à-vis de tous les adversaires si tel est votre souhait, sauf de votre proie."
             ]
         },
         {
@@ -2320,7 +2320,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous avez vu la cible Lancer un sort",
-                "Vous utilisez votre haine de la magie pour vous déchaîner contre un lanceur de sort reconnu comme tel. Faites une Frappe au corps-à-corps contre la créature requise. Si vous touchez et infligez des dégâts, la cible devient sentiment_very_dissatisfiedStupéfiée 1 ou sentiment_very_dissatisfiedStupéfiée 2 en cas de coup critique, jusqu'au début de votre prochain tour."
+                "Vous utilisez votre haine de la magie pour vous déchaîner contre un lanceur de sort reconnu comme tel. Faites une Frappe au corps-à-corps contre la créature requise. Si vous touchez et infligez des dégâts, la cible devient Stupéfiée 1 ou Stupéfiée 2 en cas de coup critique, jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -2331,8 +2331,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous évaluez rapidement votre proie et mettez en pratique ce que vous savez à son propos. Dans le cadre de l'action utilisée pour Chasser votre proie, vous pouvez tenter un test pour Vous souvenir d'une information sur votre proie. Quand vous obtenez un succès critique lors de l'identification de votre proie avec sports_martial_artsSe Souvenir , vous relevez une faiblesse dans ses défenses en plus de ses autres avantages. Vous obtenez un bonus de circonstances de +1 à votre prochain jet d'attaque contre cette proie et tout allié à qui vous le dites obtient le même avantage. Vous ne pouvez octroyer les bonus de Chasseur de monstres qu'une fois par jour contre une créature en particulier.",
-                "flareEffet : Chasseur de monstres"
+                "Vous évaluez rapidement votre proie et mettez en pratique ce que vous savez à son propos. Dans le cadre de l'action utilisée pour Chasser votre proie, vous pouvez tenter un test pour Vous souvenir d'une information sur votre proie. Quand vous obtenez un succès critique lors de l'identification de votre proie avec Se Souvenir , vous relevez une faiblesse dans ses défenses en plus de ses autres avantages. Vous obtenez un bonus de circonstances de +1 à votre prochain jet d'attaque contre cette proie et tout allié à qui vous le dites obtient le même avantage. Vous ne pouvez octroyer les bonus de Chasseur de monstres qu'une fois par jour contre une créature en particulier.",
+                "Effet : Chasseur de monstres"
             ]
         },
         {
@@ -2345,7 +2345,7 @@ DON.CLASS = {
                 "légendaire en Nature, Maître chasseur de monstres"
             ],
             "description": [
-                "Votre connaissance des monstres est tellement incroyable qu'elle vous révèle les faiblesses flagrantes de votre proie. Le bonus issu de military_techChasseur de monstres (et celui de military_techGarde-monstres si vous le possédez) passe de +1 à +2 pour vous et tout allié qui en bénéficie."
+                "Votre connaissance des monstres est tellement incroyable qu'elle vous révèle les faiblesses flagrantes de votre proie. Le bonus issu de Chasseur de monstres (et celui de Garde-monstres si vous le possédez) passe de +1 à +2 pour vous et tout allié qui en bénéficie."
             ]
         },
         {
@@ -2370,7 +2370,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Coût Dépensez un sort de auto_awesomeMise à mal ou auto_awesomeGuérison .",
+                "Coût Dépensez un sort de Mise à mal ou Guérison .",
                 "Vous siphonnez la puissance destructrice de l'énergie de vie et de mort à travers une attaque au corps-à-corps dans votre ennemi. Faites une Frappe au corps-à-corps. Si vous touchez, vous lancez la version à 1 action du sort dépensé pour blesser la cible, en plus des dégâts normaux de votre Frappe. La cible obtient automatiquement un échec à son jet de sauvegarde (ou un échec critique si votre Frappe était un coup critique). Le sort n'a pas de trait manipulation lorsqu'il est lancé de cette manière. Le sort est dépensé sans produire d'effet si votre Frappe échoue ou touche une créature qui ne peut pas être blessée par ce type d'énergie (si vous réussissez à frapper une créature autre qu'un mort-vivant avec le sort Guérison, par exemple)."
             ]
         },
@@ -2386,7 +2386,7 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Un adversaire adjacent vous inflige un coup critique avec une arme de corps-à-corps ou une attaque à mains nues au corps-à-corps.",
                 "Conditions Vous avez au moins 1 point de focalisation disponible.",
-                "Vous vous défendez en déclenchant une explosion de fureur tempétueuse sur une créature qui vous a blessé. Vous lancez auto_awesomeOnde de tempête sur l'adversaire déclencheur et vous le repoussez de 1,50 mètre s'il rate son jet de Réflexes ou de 3 mètres s'il obtient un échec critique. Ceci est un déplacement forcé."
+                "Vous vous défendez en déclenchant une explosion de fureur tempétueuse sur une créature qui vous a blessé. Vous lancez Onde de tempête sur l'adversaire déclencheur et vous le repoussez de 1,50 mètre s'il rate son jet de Réflexes ou de 3 mètres s'il obtient un échec critique. Ceci est un déplacement forcé."
             ]
         },
         {
@@ -2399,8 +2399,8 @@ DON.CLASS = {
                 "Châtiment canalisé"
             ],
             "description": [
-                "Déclencheur Vous avez raté votre Frappe d'un military_techChâtiment canalisé .",
-                "L'énergie de votre châtiment persiste pendant un instant, vous donnant l'opportunité de la transférer à une nouvelle cible. Lancez la version de auto_awesomeMise à mal ou de auto_awesomeGuérison à 1 action, ciblant une créature autre que la cible de votre Frappe."
+                "Déclencheur Vous avez raté votre Frappe d'un Châtiment canalisé .",
+                "L'énergie de votre châtiment persiste pendant un instant, vous donnant l'opportunité de la transférer à une nouvelle cible. Lancez la version de Mise à mal ou de Guérison à 1 action, ciblant une créature autre que la cible de votre Frappe."
             ]
         },
         {
@@ -2411,7 +2411,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez utilisez l'activité sports_martial_artsFabriquer pour créer huiles et potions.",
+                "Vous pouvez utilisez l'activité Fabriquer pour créer huiles et potions.",
                 "Vous obtenez immédiatement les formules de quatre huiles ou potions courantes de niveau 1. Au niveau 4 et tous les 2 niveaux par la suite, vous obtenez la formule d'une huile ou d'une potion courante de ce niveau ou inférieur (une potion de niveau 4 si vous êtes de niveau 4, une potion de niveau 6 si vous êtes de niveau 6,...).",
                 "Si vous possédez un familier, vous pouvez faire en sorte que votre familier apprenne ces formules plutôt que de les conserver dans un recueil. Votre familier peut apprendre de nouvelles formules de la même manière qu'il apprend de nouveaux sorts et ces formules sont transférées d'un familier tué à un nouveau familier de la même manière que le sont les sorts.",
                 "Au cours de vos préparatifs quotidiens, vous pouvez créer une huile ou une potion temporaire en utilisant une formule que vous connaissez. Si vous êtes Maître dans la maîtrise du DD des sorts de votre tradition, vous pouvez créer un lot de deux huiles ou potions temporaires pendant vos préparatifs quotidiens, et si vous êtes légendaire, vous pouvez en créer un lot de trois. Tous les objets ainsi créés deviennent des bouteilles de liquide inertes lors de vos prochains préparatifs quotidiens, et les effets restants des objets temporaires prennent fin. Une huile ou une potion temporaire n'a aucune valeur."
@@ -2455,11 +2455,11 @@ DON.CLASS = {
                 "Méthodologie : Médecine forensique"
             ],
             "description": [
-                "Avec quelques coups de poing ou d'arme bien placés, vous rendez votre adversaire désorienté ou gauche. Tentez un test de casinoMédecine contre le DD de Vigueur d'une cible dans votre allonge. Le résultat de votre test détermine la gravité de l'état que vous infligez.",
-                "Succès critique La cible est soit sentiment_very_dissatisfiedMaladroite 3 soit sentiment_very_dissatisfiedStupéfiée 3 jusqu'à la fin de votre prochain tour. La cible est alors immunisée contre Choc chirurgical pendant 1 heure.",
-                "Succès Comme en cas de succès, mais la cible est soit sentiment_very_dissatisfiedMaladroite 2 soit sentiment_very_dissatisfiedStupéfiée 2 .",
+                "Avec quelques coups de poing ou d'arme bien placés, vous rendez votre adversaire désorienté ou gauche. Tentez un test de Médecine contre le DD de Vigueur d'une cible dans votre allonge. Le résultat de votre test détermine la gravité de l'état que vous infligez.",
+                "Succès critique La cible est soit Maladroite 3 soit Stupéfiée 3 jusqu'à la fin de votre prochain tour. La cible est alors immunisée contre Choc chirurgical pendant 1 heure.",
+                "Succès Comme en cas de succès, mais la cible est soit Maladroite 2 soit Stupéfiée 2 .",
                 "Échec La cible est légèrement incommodée. Vous obtenez un bonus de circonstances de +1 à la prochaine action d'attaque que vous tenterez contre elle avant la fin de votre tour.",
-                "flareEffet : Choc chirurgical (échec)",
+                "Effet : Choc chirurgical (échec)",
                 "Échec critique La cible n'est pas affectée et vous vous fendez trop loin, déclenchant des réactions identiques à celles provoquées par une action de manipulation."
             ]
         },
@@ -2489,8 +2489,8 @@ DON.CLASS = {
                 "Clarté prémonitoire"
             ],
             "description": [
-                "Vous pouvez projeter votre clarté prémonitoire sur vos alliés. Lorsque vous utilisez military_techClarté prémonitoire , vos alliés à 4,50 mètres de vous qui ont obtenu un échec au même jet de sauvegarde contre le même effet mental peuvent aussi utiliser leurs réactions pour relancer le jet de sauvegarde avec un bonus de circonstances de +2.",
-                "flareEffet : Clarté partagée"
+                "Vous pouvez projeter votre clarté prémonitoire sur vos alliés. Lorsque vous utilisez Clarté prémonitoire , vos alliés à 4,50 mètres de vous qui ont obtenu un échec au même jet de sauvegarde contre le même effet mental peuvent aussi utiliser leurs réactions pour relancer le jet de sauvegarde avec un bonus de circonstances de +2.",
+                "Effet : Clarté partagée"
             ]
         },
         {
@@ -2517,7 +2517,7 @@ DON.CLASS = {
                 "expert en Athlétisme"
             ],
             "description": [
-                "Vous bousculez vos adversaires et leur laissez des bleus. Quand vous êtes enragé et que vous réussissez à sports_martial_artsDésarmer , sports_martial_artsSaisir , sports_martial_artsRepositionner , sports_martial_artsPousser , or sports_martial_artsFaire un Croc-en-jambe à un ennemi, vous lui infligez une quantité de casinodégâts contondants égale à votre modificateur de Force. Vous ajoutez ces dégâts à ceux que vous infligez en cas de succès critique sur un Croc-en-jambe."
+                "Vous bousculez vos adversaires et leur laissez des bleus. Quand vous êtes enragé et que vous réussissez à Désarmer , Saisir , Repositionner , Pousser , or Faire un Croc-en-jambe à un ennemi, vous lui infligez une quantité de dégâts contondants égale à votre modificateur de Force. Vous ajoutez ces dégâts à ceux que vous infligez en cas de succès critique sur un Croc-en-jambe."
             ]
         },
         {
@@ -2546,7 +2546,7 @@ DON.CLASS = {
                 "Instinct spirituel"
             ],
             "description": [
-                "Vous invoquez un esprit éphémère, généralement l'apparition d'un ancêtre ou un esprit de la nature qui prend la forme d'un feu follet. Ce feu follet spirituel se précipite pour faire une attaque de corps-à-corps à mains nues contre un ennemi qui se trouve dans un rayon de 36 mètres de vous. Le modificateur d'attaque du feu follet est égal à votre bonus de Maîtrise des armes de guerre plus votre modificateur de Force plus un bonus d'objet de +2, et il est soumis aux mêmes bonus et pénalité de circonstances et de statut que vous. S'il réussit à toucher sa cible, le feu follet inflige des casinodégâts spirituels égaux à 4d8 plus votre modificateur de Constitution. Vous ne leur ajoutez pas vos dégâts de rage ou de spécialisation martiale, mais les bonus et pénalités de circonstances et de statut qui affectent les dégâts du feu follet s'appliquent. Sur un coup critique, le feu follet inflige le double des dégâts et la cible devient sentiment_very_dissatisfiedEffrayée 1 . Cette attaque est soumise à votre pénalité d'attaques multiples et s'ajoute à celui-ci, comme si vous étiez celui qui attaque."
+                "Vous invoquez un esprit éphémère, généralement l'apparition d'un ancêtre ou un esprit de la nature qui prend la forme d'un feu follet. Ce feu follet spirituel se précipite pour faire une attaque de corps-à-corps à mains nues contre un ennemi qui se trouve dans un rayon de 36 mètres de vous. Le modificateur d'attaque du feu follet est égal à votre bonus de Maîtrise des armes de guerre plus votre modificateur de Force plus un bonus d'objet de +2, et il est soumis aux mêmes bonus et pénalité de circonstances et de statut que vous. S'il réussit à toucher sa cible, le feu follet inflige des dégâts spirituels égaux à 4d8 plus votre modificateur de Constitution. Vous ne leur ajoutez pas vos dégâts de rage ou de spécialisation martiale, mais les bonus et pénalités de circonstances et de statut qui affectent les dégâts du feu follet s'appliquent. Sur un coup critique, le feu follet inflige le double des dégâts et la cible devient Effrayée 1 . Cette attaque est soumise à votre pénalité d'attaques multiples et s'ajoute à celui-ci, comme si vous étiez celui qui attaque."
             ]
         },
         {
@@ -2562,11 +2562,11 @@ DON.CLASS = {
                 "maître en Perception"
             ],
             "description": [
-                "Guerrier, Roublard, Enquêteur Vos instincts de combat vous rendent plus conscients des adversaires sentiment_very_dissatisfiedMasqués et sentiment_very_dissatisfiedInvisibles .",
+                "Guerrier, Roublard, Enquêteur Vos instincts de combat vous rendent plus conscients des adversaires Masqués et Invisibles .",
                 "Rôdeur Vos sens intensifiés vous permettent instinctivement de détecter des opposants non visibles.",
                 "Vous n'avez pas besoin de réussir de test nu pour cibler les créatures Masquées.",
-                "Vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu face aux créatures qui vous sont sentiment_very_dissatisfiedCachées (à moins que vous ne soyez Pris au dépourvu pour d'autres raisons que celle liée à l'état Caché) et vous avez uniquement besoin d'un casinoTest nu, DD 5 pour cibler une créature Cachée.",
-                "Lorsque vous êtes adjacent à une créature sentiment_very_dissatisfiedNon détectée de votre niveau ou de niveau inférieur, vous considérez qu'elle vous est seulement Cachée."
+                "Vous n'êtes pas Pris au dépourvu face aux créatures qui vous sont Cachées (à moins que vous ne soyez Pris au dépourvu pour d'autres raisons que celle liée à l'état Caché) et vous avez uniquement besoin d'un Test nu, DD 5 pour cibler une créature Cachée.",
+                "Lorsque vous êtes adjacent à une créature Non détectée de votre niveau ou de niveau inférieur, vous considérez qu'elle vous est seulement Cachée."
             ]
         },
         {
@@ -2590,7 +2590,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez ajouter les ingrédients d'un second élixir à un élixir que vous fabriquez pour créer une concoction hybride. Vous devez utiliser une fiole polyvalente supplémentaire pour faire cet élixir combiné et les ingrédients doivent être ceux d'un élixir que vous pourriez créer avec Alchimie rapide . Quand cet élixir combiné est consommé, les deux élixirs qui le constituent font effet. Par exemple vous pouvez combiner deux workÉlixirs de vie inférieurs pour créer un élixir combiné qui soignera deux fois le montant normal ou vous pouvez combiner un workÉlixir de vision dans le noir inférieur avec un workÉlixir d'œil de faucon inférieur pour à la fois gagner une vision dans le noir et trouver des portes dérobées plus facilement."
+                "Vous pouvez ajouter les ingrédients d'un second élixir à un élixir que vous fabriquez pour créer une concoction hybride. Vous devez utiliser une fiole polyvalente supplémentaire pour faire cet élixir combiné et les ingrédients doivent être ceux d'un élixir que vous pourriez créer avec Alchimie rapide . Quand cet élixir combiné est consommé, les deux élixirs qui le constituent font effet. Par exemple vous pouvez combiner deux Élixirs de vie inférieurs pour créer un élixir combiné qui soignera deux fois le montant normal ou vous pouvez combiner un Élixir de vision dans le noir inférieur avec un Élixir d'œil de faucon inférieur pour à la fois gagner une vision dans le noir et trouver des portes dérobées plus facilement."
             ]
         },
         {
@@ -2616,7 +2616,7 @@ DON.CLASS = {
                 "Un compagnon animal, Sorts de gardien"
             ],
             "description": [
-                "Vous rendez votre compagnon énorme. Vous obtenez le sort de gardien auto_awesomeCompagnon agrandi . Augmentez le nombre de points de focalisation de votre réserve de focalisation de 1."
+                "Vous rendez votre compagnon énorme. Vous obtenez le sort de gardien Compagnon agrandi . Augmentez le nombre de points de focalisation de votre réserve de focalisation de 1."
             ]
         },
         {
@@ -2640,7 +2640,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous obtenez les services d'un jeune compagnon animal qui voyage avec vous et obéit aux ordres simples. Lorsque vous sports_martial_artsChassez une proie , votre compagnon animal obtient les avantages de l'action et les avantages de votre Spécialité du chasseur si vous en avez une."
+                "Vous obtenez les services d'un jeune compagnon animal qui voyage avec vous et obéit aux ordres simples. Lorsque vous Chassez une proie , votre compagnon animal obtient les avantages de l'action et les avantages de votre Spécialité du chasseur si vous en avez une."
             ]
         },
         {
@@ -2668,7 +2668,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre compagnon animal devient un compagnon animal adulte et obtient des capacités supplémentaires.",
-                "Votre compagnon animal possède une plus grande indépendance. Lors d'une rencontre, même si vous n'utilisez pas l'action sports_martial_artsDiriger un animal , votre compagnon animal peut toujours utiliser une action à votre tour pour Marcher rapidement ou pour Frapper. Il peut le faire à n'importe quel moment de votre tour, tant que vous n'êtes pas en train d'effectuer une action. Si elle le fait, c'est la seule action qu'elle obtient durant ce round - vous ne pouvez pas le Diriger plus tard."
+                "Votre compagnon animal possède une plus grande indépendance. Lors d'une rencontre, même si vous n'utilisez pas l'action Diriger un animal , votre compagnon animal peut toujours utiliser une action à votre tour pour Marcher rapidement ou pour Frapper. Il peut le faire à n'importe quel moment de votre tour, tant que vous n'êtes pas en train d'effectuer une action. Si elle le fait, c'est la seule action qu'elle obtient durant ce round - vous ne pouvez pas le Diriger plus tard."
             ]
         },
         {
@@ -2681,7 +2681,7 @@ DON.CLASS = {
                 "Compagnon animal, Camouflage"
             ],
             "description": [
-                "Vous avez dressé votre compagnon animal pour qu'il se fonde dans son environnement. Votre compagnon animal bénéficie des avantages du don military_techCamouflage . Si votre compagnon est un embusqueur spécialisé, son degré de maîtrise en Discrétion passe à maître (ou légendaire s'il était déjà maître)."
+                "Vous avez dressé votre compagnon animal pour qu'il se fonde dans son environnement. Votre compagnon animal bénéficie des avantages du don Camouflage . Si votre compagnon est un embusqueur spécialisé, son degré de maîtrise en Discrétion passe à maître (ou légendaire s'il était déjà maître)."
             ]
         },
         {
@@ -2694,7 +2694,7 @@ DON.CLASS = {
                 "Maître chasseur, compagnon animal"
             ],
             "description": [
-                "Votre compagnon animal maîtrise à présent toutes vos incroyables compétences de chasse, ce qui lui permet d'abattre avec facilité la proie que vous pourchassez. Quand vous sports_martial_artsChassez une proie , votre compagnon animal bénéficie de l'avantage de Maître chasseur associé à votre spécialité du chasseur, au lieu du simple avantage de votre spécialité du chasseur."
+                "Votre compagnon animal maîtrise à présent toutes vos incroyables compétences de chasse, ce qui lui permet d'abattre avec facilité la proie que vous pourchassez. Quand vous Chassez une proie , votre compagnon animal bénéficie de l'avantage de Maître chasseur associé à votre spécialité du chasseur, au lieu du simple avantage de votre spécialité du chasseur."
             ]
         },
         {
@@ -2749,7 +2749,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "En transcrivant la composition sur le papier, vous pouvez créer une source de mots émouvants ou une chanson que d'autres peuvent lire et comprendre. Vous passez 10 minutes et dépensez un Point de composition pour transposer un sort de composition sur un parchemin spécial que vous ou une autre créature pouvez activer par la suite. Ce sort doit prendre une unique action pour être lancé. Si le sort de composition choisi nécessite un test de Représentation comme faisant partie de son incantation, le MJ effectue un test secret lorsque vous annotez votre enregistrement.",
-                "Si vous possédez auto_awesomeComposition fortissimo ou auto_awesomeComposition prolongée , vous pouvez utiliser aussi un de ces sorts pour modifier la composition annotée, tant que la composition annotée peut bénéficier de cette composition. Le MJ lance en secret le test de Représentation. Si vous le faites, vous dépensez un Point de focalisation supplémentaire, même si le test secret est un échec.",
+                "Si vous possédez Composition fortissimo ou Composition prolongée , vous pouvez utiliser aussi un de ces sorts pour modifier la composition annotée, tant que la composition annotée peut bénéficier de cette composition. Le MJ lance en secret le test de Représentation. Si vous le faites, vous dépensez un Point de focalisation supplémentaire, même si le test secret est un échec.",
                 "Toute créature qui peut lire le langage que vous avez utilisé lorsque vous avez annoté votre composition peut Activer l'objet en dépensant une unique action, qui possède le trait concentration. Cela produit les effets de la composition comme si la créature l'activant avait Lancé le sort.",
                 "Une composition que vous créez de cette manière perd son pouvoir lors de vos prochains préparatifs quotidiens. Tant que la composition est en votre possession, vous pouvez la rendre inerte en utilisant une unique action qui possède le trait concentration. Vous ne pouvez pas regagner les Points de focalisation que vous avez dépensés pour créer la composition annotée jusqu'à ce qu'elle soit activée ou perde sa magie."
             ]
@@ -2764,7 +2764,7 @@ DON.CLASS = {
                 "Virtuose (muse de barde), Réserve de focalisation"
             ],
             "description": [
-                "Vos représentations inspirent vos alliés pour les pousser à accomplir des exploits toujours plus grands. Vous apprenez le sort focalisé de mutamagie military_techComposition fortissimo . Augmentez de 1 le nombre de points de focalisation de votre réserve."
+                "Vos représentations inspirent vos alliés pour les pousser à accomplir des exploits toujours plus grands. Vous apprenez le sort focalisé de mutamagie Composition fortissimo . Augmentez de 1 le nombre de points de focalisation de votre réserve."
             ]
         },
         {
@@ -2793,7 +2793,7 @@ DON.CLASS = {
                 "Virtuose (muse de barde)"
             ],
             "description": [
-                "Le monde est une scène sur laquelle vous vous produisez sans cesse. Vous êtes constamment sentiment_very_dissatisfiedAccéléré . Vous pouvez utiliser votre action supplémentaire uniquement pour Lancer un tour de magie de composition nécessitant 1 action pour le lancer. En mode exploration, vous pouvez déclarer que vous produisez un tour de magie de composition éligible pendant que vous utilisez n'importe quelle tactique d'exploration. Même avant votre premier tour lors d'une rencontre de combat, ce tour de magie est actif comme si vous l'aviez lancé lors du tour précédent."
+                "Le monde est une scène sur laquelle vous vous produisez sans cesse. Vous êtes constamment Accéléré . Vous pouvez utiliser votre action supplémentaire uniquement pour Lancer un tour de magie de composition nécessitant 1 action pour le lancer. En mode exploration, vous pouvez déclarer que vous produisez un tour de magie de composition éligible pendant que vous utilisez n'importe quelle tactique d'exploration. Même avant votre premier tour lors d'une rencontre de combat, ce tour de magie est actif comme si vous l'aviez lancé lors du tour précédent."
             ]
         },
         {
@@ -2806,7 +2806,7 @@ DON.CLASS = {
                 "Virtuose (muse de barde)"
             ],
             "description": [
-                "En ajoutant des fioritures, vous rendez vos compositions plus durables. Vous apprenez le sort focalisé auto_awesomeComposition prolongée ."
+                "En ajoutant des fioritures, vous rendez vos compositions plus durables. Vous apprenez le sort focalisé Composition prolongée ."
             ]
         },
         {
@@ -2823,7 +2823,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Votre tour commence.",
-                "Vous maintenez vos sorts actifs avec à peine une pensée. Vous obtenez immédiatement les effets de l'action sports_martial_artsMaintenir pour l'un de vos sorts de classe actif."
+                "Vous maintenez vos sorts actifs avec à peine une pensée. Vous obtenez immédiatement les effets de l'action Maintenir pour l'un de vos sorts de classe actif."
             ]
         },
         {
@@ -2835,7 +2835,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez mélanger un liquide merveilleux mais volatile à un consommable alchimique si son effet initial utilise des dés. Vous augmentez la taille des dés de l'effet initial de l'objet d'un degré. Par exemple, vous pouvez augmenter les dégâts d'un workFeu grégeois modéré à 2d10 ou les soins d'un workÉlixir de vie modéré à 5d8+12. Comme cela n'affecte que les dés initiaux, cela n'augmenterait pas les dégâts d'attaque à mains nues d'un mutagène bestial, les dégâts persistants d'une fiole d'acide, et ce genre de choses. Lorsque cet objet est activé, la créature qui l'active doit réussir un casinoTest nu, DD 10 ou subir des dégâts d'acide égaux au niveau de l'objet."
+                "Vous pouvez mélanger un liquide merveilleux mais volatile à un consommable alchimique si son effet initial utilise des dés. Vous augmentez la taille des dés de l'effet initial de l'objet d'un degré. Par exemple, vous pouvez augmenter les dégâts d'un Feu grégeois modéré à 2d10 ou les soins d'un Élixir de vie modéré à 5d8+12. Comme cela n'affecte que les dés initiaux, cela n'augmenterait pas les dégâts d'attaque à mains nues d'un mutagène bestial, les dégâts persistants d'une fiole d'acide, et ce genre de choses. Lorsque cet objet est activé, la créature qui l'active doit réussir un Test nu, DD 10 ou subir des dégâts d'acide égaux au niveau de l'objet."
             ]
         },
         {
@@ -2850,8 +2850,8 @@ DON.CLASS = {
                 "tout mystère d'oracle"
             ],
             "description": [
-                "Conditions auto_awesomeGuérison ou auto_awesomeMise à mal est un sort emblématique et vous disposez d'une emplacement disponible pour le lancer.",
-                "Vous utilisez l'énergie instable de votre malédiction pour manipuler la plus basique des énergies divines. Vous lancez le sort Guérison ou Mise à mal à 3 actions, en dépensant l'emplacement du sort comme à l'ordinaire. Si le sort fait récupérer des Points de vie à une ou plusieurs créatures, alors une des créatures soignées par ce sort regagne un nombre supplémentaire de Points de vie égal à 1d8 x la valeur de votre état sentiment_very_dissatisfiedLié à la malédiction . Si le sort inflige des dégâts à une ou plusieurs créatures, alors une des créatures blessées par ce sort subit un nombre de dégâts supplémentaires égal à 1d8 x la valeur de votre état Lié à la malédiction."
+                "Conditions Guérison ou Mise à mal est un sort emblématique et vous disposez d'une emplacement disponible pour le lancer.",
+                "Vous utilisez l'énergie instable de votre malédiction pour manipuler la plus basique des énergies divines. Vous lancez le sort Guérison ou Mise à mal à 3 actions, en dépensant l'emplacement du sort comme à l'ordinaire. Si le sort fait récupérer des Points de vie à une ou plusieurs créatures, alors une des créatures soignées par ce sort regagne un nombre supplémentaire de Points de vie égal à 1d8 x la valeur de votre état Lié à la malédiction . Si le sort inflige des dégâts à une ou plusieurs créatures, alors une des créatures blessées par ce sort subit un nombre de dégâts supplémentaires égal à 1d8 x la valeur de votre état Lié à la malédiction."
             ]
         },
         {
@@ -2905,8 +2905,8 @@ DON.CLASS = {
                 "Énigmatique (Muse de barde)"
             ],
             "description": [
-                "Vous pouvez fournir des informations en toute confiance. Lorsque vous sports_martial_artsVous souvenez en utilisant n'importe quelle compétence (incluant Connaissance bardique), vous pouvez ne pas effectuer de test pour obtenir à la place un résultat de 10 + votre bonus de maîtrise (n'appliquer aucun autre bonus, aucune pénalité ou aucun autre modificateur).",
-                "Tant que vous avez le rang expert dans une compétence, vous remplissez les conditions du don de compétence military_techConnaissance automatique dans cette compétence, même si vous n'avez pas le don military_techAssurance dans cette compétence."
+                "Vous pouvez fournir des informations en toute confiance. Lorsque vous Vous souvenez en utilisant n'importe quelle compétence (incluant Connaissance bardique), vous pouvez ne pas effectuer de test pour obtenir à la place un résultat de 10 + votre bonus de maîtrise (n'appliquer aucun autre bonus, aucune pénalité ou aucun autre modificateur).",
+                "Tant que vous avez le rang expert dans une compétence, vous remplissez les conditions du don de compétence Connaissance automatique dans cette compétence, même si vous n'avez pas le don Assurance dans cette compétence."
             ]
         },
         {
@@ -2919,7 +2919,7 @@ DON.CLASS = {
                 "Énigmatique (muse de barde)"
             ],
             "description": [
-                "Vos recherches vous permettent de rester informé dans pratiquement tous les domaines. Vous êtes qualifié en Connaissance bardique, une compétence de Connaissance spéciale que vous pouvez utiliser pour sports_martial_artsVous souvenir à propos de tout sujet. Si vous êtes légendaire en Occultisme, vous devenez expert en Connaissance bardique mais vous ne pouvez améliorer votre degré de maîtrise dans cette compétence par aucun autre moyen."
+                "Vos recherches vous permettent de rester informé dans pratiquement tous les domaines. Vous êtes qualifié en Connaissance bardique, une compétence de Connaissance spéciale que vous pouvez utiliser pour Vous souvenir à propos de tout sujet. Si vous êtes légendaire en Occultisme, vous devenez expert en Connaissance bardique mais vous ne pouvez améliorer votre degré de maîtrise dans cette compétence par aucun autre moyen."
             ]
         },
         {
@@ -2932,7 +2932,7 @@ DON.CLASS = {
                 "Connaissance assurée"
             ],
             "description": [
-                "Votre muse vous murmure son savoir à tous les moments utiles. Vous obtenez les avantages du don de compétence military_techSavoir automatique avec toute compétence que vous pouvez utiliser pour sports_martial_artsVous souvenir . Comme avec la clause spéciale du don Savoir automatique, vous ne pouvez utiliser Savoir automatique qu'une seule fois par round."
+                "Votre muse vous murmure son savoir à tous les moments utiles. Vous obtenez les avantages du don de compétence Savoir automatique avec toute compétence que vous pouvez utiliser pour Vous souvenir . Comme avec la clause spéciale du don Savoir automatique, vous ne pouvez utiliser Savoir automatique qu'une seule fois par round."
             ]
         },
         {
@@ -2947,7 +2947,7 @@ DON.CLASS = {
                 "Sort éloigné ou Sort élargi"
             ],
             "description": [
-                "L'inspiration vous permet de dépasser vos idées préconçues sur les limites de vos sorts. Vous utilisez military_techSort éloigné ou military_techSort élargi par une action gratuite."
+                "L'inspiration vous permet de dépasser vos idées préconçues sur les limites de vos sorts. Vous utilisez Sort éloigné ou Sort élargi par une action gratuite."
             ]
         },
         {
@@ -2969,7 +2969,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez entraîné votre corps et votre esprit à tolérer la magie de métamorphose pendant de plus longues périodes de temps, tant que vous pouvez vous préparer pour le changement de manière appropriée. Lorsque vous préparez un sort de métamorphose qui dure 1 minute et accorde une forme de combat, vous pouvez préparer le sort dans un emplacement de 2 rangs supérieurs à la normale. Cela ne vous donne pas les avantages normaux de l'intensification d'un sort mais vous permet de faire durer le sort jusqu'à 10 minutes. Par exemple, si vous avez préparé auto_awesomeForme animale dans un emplacement de sort de rang 4 avec Conservation de forme, vous pourriez lancer Forme animale au rang 2 qui dure jusqu'à 10 minutes. Si le sort peut être Révoqué, cela ne change pas."
+                "Vous avez entraîné votre corps et votre esprit à tolérer la magie de métamorphose pendant de plus longues périodes de temps, tant que vous pouvez vous préparer pour le changement de manière appropriée. Lorsque vous préparez un sort de métamorphose qui dure 1 minute et accorde une forme de combat, vous pouvez préparer le sort dans un emplacement de 2 rangs supérieurs à la normale. Cela ne vous donne pas les avantages normaux de l'intensification d'un sort mais vous permet de faire durer le sort jusqu'à 10 minutes. Par exemple, si vous avez préparé Forme animale dans un emplacement de sort de rang 4 avec Conservation de forme, vous pourriez lancer Forme animale au rang 2 qui dure jusqu'à 10 minutes. Si le sort peut être Révoqué, cela ne change pas."
             ]
         },
         {
@@ -2984,7 +2984,7 @@ DON.CLASS = {
                 "lien arcanique"
             ],
             "description": [
-                "Conditions La dernière action que vous avez utilisée a été de Lancer un sort par le biais de sports_martial_artsDrain d'objet lié .",
+                "Conditions La dernière action que vous avez utilisée a été de Lancer un sort par le biais de Drain d'objet lié .",
                 "En manipulant soigneusement les énergies magiques libérées par votre objet lié, vous pouvez conserver juste assez de puissance pour lancer un autre sort, bien que ce second sort soit légèrement plus faible. Vous obtenez une utilisation supplémentaire de Drain d'objet lié. Vous pouvez l'utiliser pour lancer un sort d'au minimum deux rangs de moins que le précédent sort lancé et devez l'utiliser avant la fin de votre prochain tour ou le perdre."
             ]
         },
@@ -2998,7 +2998,7 @@ DON.CLASS = {
                 "Contresort"
             ],
             "description": [
-                "Lorsque vous réussissez à military_techContrer un sort de la tradition qui correspond à votre lignage, vous le consommez, en vous réapprovisionnant en énergie. Vous êtes alors nourri comme si vous aviez mangé un repas et vous regagnez des Points de vie correspondant au double du rang du sort contré."
+                "Lorsque vous réussissez à Contrer un sort de la tradition qui correspond à votre lignage, vous le consommez, en vous réapprovisionnant en énergie. Vous êtes alors nourri comme si vous aviez mangé un repas et vous regagnez des Points de vie correspondant au double du rang du sort contré."
             ]
         },
         {
@@ -3011,8 +3011,8 @@ DON.CLASS = {
                 "sort de dévotion (Imposition des mains)"
             ],
             "description": [
-                "Vos énergies qui permettent de soigner sont également imprégnées d'énergie motrice. Une créature qui récupère des Points de vie grâce à votre auto_awesomeImposition des mains obtient un bonus de statut de +3 mètres à sa Vitesse jusqu'à la fin de son prochain tour.",
-                "flareEffet : Contact accélérant"
+                "Vos énergies qui permettent de soigner sont également imprégnées d'énergie motrice. Une créature qui récupère des Points de vie grâce à votre Imposition des mains obtient un bonus de statut de +3 mètres à sa Vitesse jusqu'à la fin de son prochain tour.",
+                "Effet : Contact accélérant"
             ]
         },
         {
@@ -3023,7 +3023,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos plans tiennent compte des résistances de vos ennemis, vous permettant d'infliger des coups terribles. Lorsque vous touchez avec une Frappe à laquelle vous avez substitué le jet d'attaque en utilisant sports_martial_artsConcevoir un stratagème , vous ignorez un montant de résistance égal à votre modificateur d'Intelligence pour chaque résistance qui s'applique contre votre attaque."
+                "Vos plans tiennent compte des résistances de vos ennemis, vous permettant d'infliger des coups terribles. Lorsque vous touchez avec une Frappe à laquelle vous avez substitué le jet d'attaque en utilisant Concevoir un stratagème , vous ignorez un montant de résistance égal à votre modificateur d'Intelligence pour chaque résistance qui s'applique contre votre attaque."
             ]
         },
         {
@@ -3034,7 +3034,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos moqueries et menaces vous valent la colère de vos ennemis. Lorsque vous réussissez à sports_martial_artsDémoraliser une créature, son état sentiment_very_dissatisfiedEffrayé ne peut décroître à moins de 1 à la fin de son tour tant qu'elle n'a pas soit utilisé une action hostile contre vous soit ne puisse plus vous observer ou vous sentir pendant au moins 1 round."
+                "Vos moqueries et menaces vous valent la colère de vos ennemis. Lorsque vous réussissez à Démoraliser une créature, son état Effrayé ne peut décroître à moins de 1 à la fin de son tour tant qu'elle n'a pas soit utilisé une action hostile contre vous soit ne puisse plus vous observer ou vous sentir pendant au moins 1 round."
             ]
         },
         {
@@ -3050,7 +3050,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Un ennemi a déclenché votre réaction de champion depuis la fin de votre dernier tour.",
                 "Vous faites appel à la puissance divine et portez une Frappe avec une arme ou à mains nues contre l'ennemi qui a déclenché votre réaction de champion. La Frappe inflige un dé de dégâts d'arme supplémentaire. Si cette Frappe touche, jusqu'au début de votre prochain tour, la cible obtient une faiblesse égale à la moitié de votre niveau à toutes les Frappes que vous et vos alliés lui portez.",
-                "flareEffet : Contre-frappe bénie"
+                "Effet : Contre-frappe bénie"
             ]
         },
         {
@@ -3074,7 +3074,7 @@ DON.CLASS = {
                 "Contresort, Reconnaissance rapide"
             ],
             "description": [
-                "Vous appliquez de façon créative vos sorts préparés pour contrer une plus grande variété de magie ennemie. Au lieu de ne pouvoir contrer qu'un sort ennemi avec military_techContresort que si vous avez préparé ce même sort, vous pouvez utiliser Contresort tant que le sort que lance l'ennemi figure dans votre grimoire. Quand vous utilisez Contresort de cette manière, le sort préparé dépensé doit partager un trait autre que concentration ou manipulation ou le trait de sa tradition avec celui qu'il contre. Le MJ pourrait vous autoriser à utiliser à la place utiliser un sort doté d'un trait opposé ou qui contre logiquement le sort adverse (en vous servant par exemple d'un sort de froid ou d'eau pour contrer Boule de feu ou Clarté d'esprit pour contrer un sort de Terreur)."
+                "Vous appliquez de façon créative vos sorts préparés pour contrer une plus grande variété de magie ennemie. Au lieu de ne pouvoir contrer qu'un sort ennemi avec Contresort que si vous avez préparé ce même sort, vous pouvez utiliser Contresort tant que le sort que lance l'ennemi figure dans votre grimoire. Quand vous utilisez Contresort de cette manière, le sort préparé dépensé doit partager un trait autre que concentration ou manipulation ou le trait de sa tradition avec celui qu'il contre. Le MJ pourrait vous autoriser à utiliser à la place utiliser un sort doté d'un trait opposé ou qui contre logiquement le sort adverse (en vous servant par exemple d'un sort de froid ou d'eau pour contrer Boule de feu ou Clarté d'esprit pour contrer un sort de Terreur)."
             ]
         },
         {
@@ -3117,7 +3117,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Avec des efforts et des précautions supplémentaires, vous pouvez prendre une forme alternative pour une plus grande période de temps. Si votre prochaine action consiste à lancer auto_awesomeForme indomptée , le rang du sort est de 2 inférieur à la normale (rang 1 au minimum), mais vous pouvez rester transformé pendant 1 heure ou pendant toute la durée indiquée (si cette durée est plus longue). Vous pouvez toujours Révoquer Forme indomptée comme à l'ordinaire."
+                "Avec des efforts et des précautions supplémentaires, vous pouvez prendre une forme alternative pour une plus grande période de temps. Si votre prochaine action consiste à lancer Forme indomptée , le rang du sort est de 2 inférieur à la normale (rang 1 au minimum), mais vous pouvez rester transformé pendant 1 heure ou pendant toute la durée indiquée (si cette durée est plus longue). Vous pouvez toujours Révoquer Forme indomptée comme à l'ordinaire."
             ]
         },
         {
@@ -3132,7 +3132,7 @@ DON.CLASS = {
                 "Source de mise à mal, Alignement mauvais"
             ],
             "description": [
-                "Vous saisissez la force qui circule dans le corps d'un mort-vivant et qui permet de l'animer afin de le plier à votre volonté. Si la prochaine action que vous effectuez consiste à lancer auto_awesomeMise à mal en prenant pour cible un mort-vivant, vous transformez les effets de ce sort. Au lieu des effets normaux de Mise à mal, vous contrôlez la cible si son niveau est égal ou inférieur au vôtre -3. Elle peut faire un jet de Volonté pour ne pas être contrôlée. Si elle est déjà sous le contrôle de quelqu'un d'autre, celui-ci fait aussi un jet de sauvegarde et le mort-vivant utilise le meilleur résultat.",
+                "Vous saisissez la force qui circule dans le corps d'un mort-vivant et qui permet de l'animer afin de le plier à votre volonté. Si la prochaine action que vous effectuez consiste à lancer Mise à mal en prenant pour cible un mort-vivant, vous transformez les effets de ce sort. Au lieu des effets normaux de Mise à mal, vous contrôlez la cible si son niveau est égal ou inférieur au vôtre -3. Elle peut faire un jet de Volonté pour ne pas être contrôlée. Si elle est déjà sous le contrôle de quelqu'un d'autre, celui-ci fait aussi un jet de sauvegarde et le mort-vivant utilise le meilleur résultat.",
                 "Succès critique La cible ne subit aucun effet et elle est temporairement immunisée pendant 24 h.",
                 "Succès La cible n'est pas affectée.",
                 "Échec Le mort-vivant devient un sbire sous votre contrôle. Le sort a une durée d'une minute, mais il est révoqué si vous ou un allié attaquez le sbire mort-vivant.",
@@ -3149,7 +3149,7 @@ DON.CLASS = {
                 "alignement mauvais, Contrôle des morts-vivants, source de mise à mal"
             ],
             "description": [
-                "Les morts-vivants se retrouvent dans l'impossibilité presque totale de résister à vos ordres. Quand vous utilisez military_techContrôle des morts-vivants , si le mort-vivant réussit son jet de sauvegarde mais n'obtient pas un succès critique, il devient votre sbire pendant un round. Si le mort-vivant rate son jet de sauvegarde, il devient votre sbire pendant dix minutes. S'il obtient un échec critique, il devient votre sbire pendant 24 h."
+                "Les morts-vivants se retrouvent dans l'impossibilité presque totale de résister à vos ordres. Quand vous utilisez Contrôle des morts-vivants , si le mort-vivant réussit son jet de sauvegarde mais n'obtient pas un succès critique, il devient votre sbire pendant un round. Si le mort-vivant rate son jet de sauvegarde, il devient votre sbire pendant dix minutes. S'il obtient un échec critique, il devient votre sbire pendant 24 h."
             ]
         },
         {
@@ -3162,7 +3162,7 @@ DON.CLASS = {
                 "Contrôle de la forme, Force +4"
             ],
             "description": [
-                "Grâce à la magie et à votre mémoire musculaire, vous pouvez rester indéfiniment dans vos formes alternatives. Quand vous utilisez military_techContrôle de la forme , au lieu de durer 1 heure, la durée de auto_awesomeForme indomptée est illimitée (Vous pouvez toujours le Révoquer)."
+                "Grâce à la magie et à votre mémoire musculaire, vous pouvez rester indéfiniment dans vos formes alternatives. Quand vous utilisez Contrôle de la forme , au lieu de durer 1 heure, la durée de Forme indomptée est illimitée (Vous pouvez toujours le Révoquer)."
             ]
         },
         {
@@ -3173,7 +3173,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez faire appel aux éléments Vous pouvez passer 10 minutes en symbiose avec la nature pour remplacer un des sorts que vous avez préparé dans un des emplacements de sort de druide avec un sort de auto_awesomeConvocation d'élémentaire de même rang."
+                "Vous pouvez faire appel aux éléments Vous pouvez passer 10 minutes en symbiose avec la nature pour remplacer un des sorts que vous avez préparé dans un des emplacements de sort de druide avec un sort de Convocation d'élémentaire de même rang."
             ]
         },
         {
@@ -3186,7 +3186,7 @@ DON.CLASS = {
                 "Appel de la nature"
             ],
             "description": [
-                "Chaque fois que vous invoquez un allié, vous pouvez le renforcer avec la puissance élémentaire de l'air, de la terre, du feu ou de l'eau. Vous obtenez le sort d'ordre auto_awesomeConvocations primordiales ."
+                "Chaque fois que vous invoquez un allié, vous pouvez le renforcer avec la puissance élémentaire de l'air, de la terre, du feu ou de l'eau. Vous obtenez le sort d'ordre Convocations primordiales ."
             ]
         },
         {
@@ -3202,7 +3202,7 @@ DON.CLASS = {
                 "Combattant (Muse de barde), Hymne de ralliement"
             ],
             "description": [
-                "Comme les héros des contes qui persistent face à des auspices écrasants, vous et vos alliés tenez la ligne. Si votre prochaine action consiste à lancer le tour de magie de composition auto_awesomeHymne de ralliement , vous pouvez Lever un bouclier et un allié qui obtient un bonus de statut à l'aide de ce sort peut immédiatement utiliser sa réaction pour Lever un bouclier."
+                "Comme les héros des contes qui persistent face à des auspices écrasants, vous et vos alliés tenez la ligne. Si votre prochaine action consiste à lancer le tour de magie de composition Hymne de ralliement , vous pouvez Lever un bouclier et un allié qui obtient un bonus de statut à l'aide de ce sort peut immédiatement utiliser sa réaction pour Lever un bouclier."
             ]
         },
         {
@@ -3241,7 +3241,7 @@ DON.CLASS = {
                 "Frappes expertes"
             ],
             "description": [
-                "Vous placez toute votre force en un unique et puissant coup soigneusement contrôlé. Faites une sports_martial_artsFrappe à mains nues. Si vous dépensez deux actions et que cette Frappe touche, vous infligez un dé supplémentaire de dégâts d'arme. Vous pouvez à la place dépenser 3 actions pour accomplir un coup encore plus puissant, infligeant un second dé de dégâts d'arme supplémentaire si vous touchez.",
+                "Vous placez toute votre force en un unique et puissant coup soigneusement contrôlé. Faites une Frappe à mains nues. Si vous dépensez deux actions et que cette Frappe touche, vous infligez un dé supplémentaire de dégâts d'arme. Vous pouvez à la place dépenser 3 actions pour accomplir un coup encore plus puissant, infligeant un second dé de dégâts d'arme supplémentaire si vous touchez.",
                 "Si vous êtes au moins au niveau 10, le nombre de dés supplémentaires que vous ajoutez du fait de ce don double, pour un total de 2 dés supplémentaires si vous dépensez 2 actions ou 4 dés supplémentaires si vous dépensez 3 actions. Si vous êtes au moins au niveau 18, le nombre de dés supplémentaires que vous ajoutez du fait de ce don est triplé, pour un total de 3 dés supplémentaires si vous dépensez 2 actions ou 6 dés supplémentaires si vous dépensez 3 actions."
             ]
         },
@@ -3255,7 +3255,7 @@ DON.CLASS = {
                 "Coup à courte distance"
             ],
             "description": [
-                "Vos coups de poings ont une force et un contrôle incroyable. Lorsque vous infligez des dégâts à une cible en utilisant Coup à courte distance, vous pouvez concentrer votre Qi pour l'envoyer voler. Si vous le faites, la cible doit tenter un jet de casinoVigueur contre votre DD de classe.",
+                "Vos coups de poings ont une force et un contrôle incroyable. Lorsque vous infligez des dégâts à une cible en utilisant Coup à courte distance, vous pouvez concentrer votre Qi pour l'envoyer voler. Si vous le faites, la cible doit tenter un jet de Vigueur contre votre DD de classe.",
                 "Succès critique La cible n'est pas affectée.",
                 "Succès La cible est repoussée d'1,50 m.",
                 "Échec La cible est repoussée de 3 mètres.",
@@ -3282,8 +3282,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous prenez un moment pour vous recentrer vous-même, puis relâchez un coup puissant qui envoie valdinguer au loin votre cible.",
-                "Faites une Frappe à mains nues. Si vous touchez, la cible doit réussir un jet de casinoVigueur contre votre DD de classe ou être Poussée à 3 mètres directement face à vous (ou à 6 mètres en cas de coup critique) et se retrouver sentiment_very_dissatisfiedÀ terre .",
-                "Si une autre créature ou objet physique vient faire obstacle à ce déplacement, votre cible comme l'objet ou la créature qui la bloquent subissent casino1d6 dégâts contondants par tranche de 1,50 mètre de déplacement qui a été ainsi empêché."
+                "Faites une Frappe à mains nues. Si vous touchez, la cible doit réussir un jet de Vigueur contre votre DD de classe ou être Poussée à 3 mètres directement face à vous (ou à 6 mètres en cas de coup critique) et se retrouver À terre .",
+                "Si une autre créature ou objet physique vient faire obstacle à ce déplacement, votre cible comme l'objet ou la créature qui la bloquent subissent 1d6 dégâts contondants par tranche de 1,50 mètre de déplacement qui a été ainsi empêché."
             ]
         },
         {
@@ -3294,7 +3294,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous bondissez sur un ennemi. Faites un sports_martial_artsBond ou tentez un sports_martial_artsSaut en hauteur ou un sports_martial_artsSaut en longueur . À la fin du saut, si vous êtes adjacent à un adversaire, vous pouvez immédiatement le Frapper à mains nues, même s'il est dans les airs. Vous retombez au sol après la Frappe. Si vous chutez d'une distance inférieure ou égale à la hauteur de votre saut, vous ne subissez aucun dégât et retombez sur vos pieds."
+                "Vous bondissez sur un ennemi. Faites un Bond ou tentez un Saut en hauteur ou un Saut en longueur . À la fin du saut, si vous êtes adjacent à un adversaire, vous pouvez immédiatement le Frapper à mains nues, même s'il est dans les airs. Vous retombez au sol après la Frappe. Si vous chutez d'une distance inférieure ou égale à la hauteur de votre saut, vous ne subissez aucun dégât et retombez sur vos pieds."
             ]
         },
         {
@@ -3319,7 +3319,7 @@ DON.CLASS = {
                 "Trafic de voleur"
             ],
             "description": [
-                "Vous enchaînez vos attaques les plus puissantes avec grâce et désarçonnez temporairement vos adversaires. À chaque fois que votre Frappe est un coup critique qui inflige des dégâts, la cible se trouve sentiment_very_dissatisfiedPrise au dépourvu face à vos attaques jusqu'à la fin de votre prochain tour."
+                "Vous enchaînez vos attaques les plus puissantes avec grâce et désarçonnez temporairement vos adversaires. À chaque fois que votre Frappe est un coup critique qui inflige des dégâts, la cible se trouve Prise au dépourvu face à vos attaques jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -3331,12 +3331,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous sentiment_very_dissatisfiedAgrippez une créature.",
-                "Vous donnez un coup de poing à votre adversaire agrippé, en espérant le faire chanceler. Faites une Frappe au corps-à-corps contre une créature que vous avez agrippée. Les dégâts de l'arme de cette Frappe sont des dégâts contondants. Si la Frappe touche, la créature doit effectuer un jet de casinoVigueur contre votre DD de classe ; c'est un effet de mise hors de combat.",
+                "Conditions Vous Agrippez une créature.",
+                "Vous donnez un coup de poing à votre adversaire agrippé, en espérant le faire chanceler. Faites une Frappe au corps-à-corps contre une créature que vous avez agrippée. Les dégâts de l'arme de cette Frappe sont des dégâts contondants. Si la Frappe touche, la créature doit effectuer un jet de Vigueur contre votre DD de classe ; c'est un effet de mise hors de combat.",
                 "Succès critique La créature n'est pas affectée.",
-                "Succès La créature est sentiment_very_dissatisfiedÉtourdie 1 .",
-                "Échec La créature est sentiment_very_dissatisfiedÉtourdie 2 .",
-                "Échec critique La créature est sentiment_very_dissatisfiedÉtourdie 3 ."
+                "Succès La créature est Étourdie 1 .",
+                "Échec La créature est Étourdie 2 .",
+                "Échec critique La créature est Étourdie 3 ."
             ]
         },
         {
@@ -3351,8 +3351,8 @@ DON.CLASS = {
                 "Repousser"
             ],
             "description": [
-                "Vos attaques sont si puissantes qu'elles peuvent écraser vos adversaires. Quand vous utilisez military_techRepousser , vous pouvez faire un test d' casinoAthlétisme contre le DD de Vigueur de votre cible.",
-                "Succès critique Vous obtenez l'effet d'un succès critique pour sports_martial_artsPousser puis la cible subit l'effet de succès critique d'un sports_martial_artsCroc-en-jambe .",
+                "Vos attaques sont si puissantes qu'elles peuvent écraser vos adversaires. Quand vous utilisez Repousser , vous pouvez faire un test d' Athlétisme contre le DD de Vigueur de votre cible.",
+                "Succès critique Vous obtenez l'effet d'un succès critique pour Pousser puis la cible subit l'effet de succès critique d'un Croc-en-jambe .",
                 "Succès Vous obtenez l'effet d'un succès pour Pousser, puis la cible subit l'effet d'un succès avec Croc-en-jambe.",
                 "Échec Vous appliquez les effets normaux de Repousser."
             ]
@@ -3367,7 +3367,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme au corps-à-corps qui inflige des dégâts contondants",
-                "Vous frappez votre ennemi à la tête avec une telle force que ses oreilles bourdonnent. Faites une Frappe au corps-à-corps. Si cette Frappe touche et inflige des dégâts, la cible est sentiment_very_dissatisfiedSourde jusqu'au début de votre prochain tour (ou pendant 1 minute en cas de coup critique)."
+                "Vous frappez votre ennemi à la tête avec une telle force que ses oreilles bourdonnent. Faites une Frappe au corps-à-corps. Si cette Frappe touche et inflige des dégâts, la cible est Sourde jusqu'au début de votre prochain tour (ou pendant 1 minute en cas de coup critique)."
             ]
         },
         {
@@ -3378,7 +3378,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous mettez votre poids dans votre attaque puissante mais cela vous laisse vulnérable. Faites une Frappe au corps-à-corps. Cela compte comme trois attaques lorsque vous calculez votre pénalité d'attaques multiples. Si cette Frappe touche, vous obtenez un coup critique. Si vous obtenez un coup critique, votre attaque obtient aussi le trait mortel d12 (Cela remplace tout trait mortel qu'elle aurait déjà). Que vous touchiez ou non, vous êtes sentiment_very_dissatisfiedÉtourdi 1 et êtes sentiment_very_dissatisfiedPris au dépourvu jusqu'au début de votre prochain tour."
+                "Vous mettez votre poids dans votre attaque puissante mais cela vous laisse vulnérable. Faites une Frappe au corps-à-corps. Cela compte comme trois attaques lorsque vous calculez votre pénalité d'attaques multiples. Si cette Frappe touche, vous obtenez un coup critique. Si vous obtenez un coup critique, votre attaque obtient aussi le trait mortel d12 (Cela remplace tout trait mortel qu'elle aurait déjà). Que vous touchiez ou non, vous êtes Étourdi 1 et êtes Pris au dépourvu jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -3414,7 +3414,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre attaque sournoise tranche les fils qui lient la magie à une cible. Faites une Frappe contre une créature sentiment_very_dissatisfiedPrise au dépourvu . Si votre Frappe inflige des dégâts d'attaque sournoise, vous tentez de casinoclass un unique sort qui affecte cette cible (à votre choix). Votre rang de contre est égal à la moitié de votre niveau (arrondi au supérieur) et votre modificateur de test est égal à votre DD de classe -10."
+                "Votre attaque sournoise tranche les fils qui lient la magie à une cible. Faites une Frappe contre une créature Prise au dépourvu . Si votre Frappe inflige des dégâts d'attaque sournoise, vous tentez de class un unique sort qui affecte cette cible (à votre choix). Votre rang de contre est égal à la moitié de votre niveau (arrondi au supérieur) et votre modificateur de test est égal à votre DD de classe -10."
             ]
         },
         {
@@ -3427,7 +3427,7 @@ DON.CLASS = {
                 "Déluge de coups"
             ],
             "description": [
-                "La puissance focalisée de votre déluge peut venir à bout de votre adversaire. Quand vous prenez pour cible la même créature avec deux Frappes de votre sports_martial_artsDéluge de coups , vous pouvez tenter de l'étourdir. Si l'une de ces deux Frappes touche et inflige des dégâts, la cible doit réussir un jet de casinoVigueur contre votre DD de classe ou être sentiment_very_dissatisfiedÉtourdie 1 (ou sentiment_very_dissatisfiedÉtourdie 3 en cas d'échec critique). Il s'agit d'un effet de mise hors de combat."
+                "La puissance focalisée de votre déluge peut venir à bout de votre adversaire. Quand vous prenez pour cible la même créature avec deux Frappes de votre Déluge de coups , vous pouvez tenter de l'étourdir. Si l'une de ces deux Frappes touche et inflige des dégâts, la cible doit réussir un jet de Vigueur contre votre DD de classe ou être Étourdie 1 (ou Étourdie 3 en cas d'échec critique). Il s'agit d'un effet de mise hors de combat."
             ]
         },
         {
@@ -3455,7 +3455,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Une créature dans votre allonge utilise un effet audible, une action de manipulation ou une action de déplacement ; fait une attaque à distance ; ou quitte une case durant son action de déplacement.",
-                "Conditions Vous êtes affecté par auto_awesomeHymne de courage .",
+                "Conditions Vous êtes affecté par Hymne de courage .",
                 "Vous beuglez un féroce appel aux armes, vous donnant l'inspiration pour vous défouler contre un adversaire. Faites une Frappe au corps-à-corps contre la créature déclencheuse. Si l'attaque est un coup critique et que le déclencheur était une action de manipulation, l'action est interrompue."
             ]
         },
@@ -3470,7 +3470,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Lorsque vous utilisez la magie pour manipuler l'air ou l'eau, vous détournez une partie de ses courants pour former une barrière autour de vous. Si votre prochaine action consiste à Lancer un sort avec le trait air ou eau, jusqu'au début de votre prochain tour, vous obtenez un bonus de circonstances de +1 à la CA ou un bonus de circonstances de +2 à la CA contre les attaques à distance. Cet effet possède le trait air ou eau, voire les deux, en fonction des traits du sort que vous lancez. Vous obtenez aussi un bonus de circonstances de +1 à tous les jets de sauvegarde contre les effets avec le trait air, le trait eau ou les deux jusqu'au début de votre prochain tour, en fonction des traits du sort.",
-                "flareEffet : Courant de sort"
+                "Effet : Courant de sort"
             ]
         },
         {
@@ -3495,8 +3495,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous défiez la gravité en franchissant avec aisance des surfaces verticales. Vous Marchez rapidement d'une distance égale à votre Vitesse. Vous devez commencer votre déplacement sur une surface horizontale.",
-                "Pendant ce déplacement, vous pouvez marcher sur des surfaces verticales, comme des murs, à votre Vitesse normale. Si vous terminez votre déplacement ailleurs que sur le sol, vous chutez après votre prochaine action ou quand votre tour se termine, selon ce qui se produit en premier (mais vous pouvez toujours sports_martial_artsVous raccrocher in extremis , si la situation le permet).",
-                "Si vous possédez military_techFoulée sur l'eau ou un pouvoir similaire, la Course à la verticale vous permet de fouler des surfaces verticales fragiles, ainsi que des surfaces liquides verticales, comme une chute d'eau."
+                "Pendant ce déplacement, vous pouvez marcher sur des surfaces verticales, comme des murs, à votre Vitesse normale. Si vous terminez votre déplacement ailleurs que sur le sol, vous chutez après votre prochaine action ou quand votre tour se termine, selon ce qui se produit en premier (mais vous pouvez toujours Vous raccrocher in extremis , si la situation le permet).",
+                "Si vous possédez Foulée sur l'eau ou un pouvoir similaire, la Course à la verticale vous permet de fouler des surfaces verticales fragiles, ainsi que des surfaces liquides verticales, comme une chute d'eau."
             ]
         },
         {
@@ -3508,7 +3508,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous vous précipitez en avant. Vous Marchez rapidement 5 fois ou jusqu'à 8 fois si vous avez utilisé 3 actions. L'entièreté de ce déplacement doit se faire en ligne droite (bien que le MJ puisse autoriser des ajustements raisonnables). Vous pouvez remplacer n'importe laquelle de ces Marches rapides par une action de sports_martial_artsGarder l'équilibre si cela s'avère nécessaire, pour lequel vous tentez d'utiliser un test d' sports_martial_artsAthlétisme au lieu d'utiliser Acrobaties, en utilisant le même DD."
+                "Vous vous précipitez en avant. Vous Marchez rapidement 5 fois ou jusqu'à 8 fois si vous avez utilisé 3 actions. L'entièreté de ce déplacement doit se faire en ligne droite (bien que le MJ puisse autoriser des ajustements raisonnables). Vous pouvez remplacer n'importe laquelle de ces Marches rapides par une action de Garder l'équilibre si cela s'avère nécessaire, pour lequel vous tentez d'utiliser un test d' Athlétisme au lieu d'utiliser Acrobaties, en utilisant le même DD."
             ]
         },
         {
@@ -3555,7 +3555,7 @@ DON.CLASS = {
                 "Toucher du vide"
             ],
             "description": [
-                "Le mal que vous infligez par votre toucher corrupteur sape les forces du corps de votre ennemi. Vous pouvez lancer Toucher du vide sur une créature vivante en 2 actions au lieu de 1. Ce faisant, la cible est également sentiment_very_dissatisfiedAffaiblie 1 pendant 1 minute si elle obtient un échec à son jet de sauvegarde ( sentiment_very_dissatisfiedAffaiblie 2 si elle obtient un échec critique)."
+                "Le mal que vous infligez par votre toucher corrupteur sape les forces du corps de votre ennemi. Vous pouvez lancer Toucher du vide sur une créature vivante en 2 actions au lieu de 1. Ce faisant, la cible est également Affaiblie 1 pendant 1 minute si elle obtient un échec à son jet de sauvegarde ( Affaiblie 2 si elle obtient un échec critique)."
             ]
         },
         {
@@ -3569,7 +3569,7 @@ DON.CLASS = {
                 "Cruauté"
             ],
             "description": [
-                "L'étendue de votre corruption dévaste l'esprit et les réflexes de vos adversaires. Lorsque vous utilisez military_techCruauté , vous pouvez choisir si vous rendez la créature sentiment_very_dissatisfiedMaladroite ou sentiment_very_dissatisfiedStupéfiée à la place, avec la même valeur d'état. Faites ce choix quand vous lancez le sort (avant de connaître le résultat du jet de sauvegarde de la cible)."
+                "L'étendue de votre corruption dévaste l'esprit et les réflexes de vos adversaires. Lorsque vous utilisez Cruauté , vous pouvez choisir si vous rendez la créature Maladroite ou Stupéfiée à la place, avec la même valeur d'état. Faites ce choix quand vous lancez le sort (avant de connaître le résultat du jet de sauvegarde de la cible)."
             ]
         },
         {
@@ -3584,7 +3584,7 @@ DON.CLASS = {
                 "Instinct animal"
             ],
             "description": [
-                "Votre degré de maîtrise pour la défense sans armure passe à expert. Quand vous êtes enragé et ne portez pas d'armure, votre peau s'épaissit jusqu'à ressembler à l'épais cuir de votre animal. Vous obtenez un bonus d'objet de +2 à votre CA (+3 si vous possédez la capacité de classe Juggernaut supérieur ). L'épaisseur de votre cuir vous confère un Bonus de Dextérité maximal de +3 à votre CA. Ce bonus d'objet est cumulatif avec les runes de workpuissance d'armure sur vos vêtements d'explorateur, auto_awesomeArmure mystique et les workBandes de force ."
+                "Votre degré de maîtrise pour la défense sans armure passe à expert. Quand vous êtes enragé et ne portez pas d'armure, votre peau s'épaissit jusqu'à ressembler à l'épais cuir de votre animal. Vous obtenez un bonus d'objet de +2 à votre CA (+3 si vous possédez la capacité de classe Juggernaut supérieur ). L'épaisseur de votre cuir vous confère un Bonus de Dextérité maximal de +3 à votre CA. Ce bonus d'objet est cumulatif avec les runes de puissance d'armure sur vos vêtements d'explorateur, Armure mystique et les Bandes de force ."
             ]
         },
         {
@@ -3599,7 +3599,7 @@ DON.CLASS = {
                 "Déclencheur Une créature vous cible avec une attaque et vous pouvez voir l'attaquant.",
                 "Vous percevez toutes les façons possibles dont les attaques de votre adversaire pourraient porter et tentez de les éviter toutes.",
                 "Le jet de l'attaque déclencheuse se fait contre votre DD de Perception au lieu de votre CA. Bien que cela vous permette d'éviter de subir les pénalités à votre CA, cela n'a pas pour effet de retirer toute condition ou effet qui causent de telles pénalités.",
-                "Par exemple, un ennemi avec Attaque sournoise vous infligera toujours des dégâts supplémentaires lorsque vous êtes sentiment_very_dissatisfiedPris au dépourvu , même si vous ne subissez pas la pénalité de circonstances de -2 lorsque vous vous défendez contre l'attaque."
+                "Par exemple, un ennemi avec Attaque sournoise vous infligera toujours des dégâts supplémentaires lorsque vous êtes Pris au dépourvu , même si vous ne subissez pas la pénalité de circonstances de -2 lorsque vous vous défendez contre l'attaque."
             ]
         },
         {
@@ -3610,7 +3610,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous visez soigneusement afin d'éviter la dissimulation et l'abri dont bénéficie votre adversaire. Lors de votre prochaine Frappe avec une arme de jet avant la fin de votre tour, vous obtenez un bonus de circonstances de +1 à votre jet d'attaque et vous ignorez l'état sentiment_very_dissatisfiedMasqué de votre cible ainsi que les abris partiel et standard. Si la cible bénéficie d'un abri important, elle n'a qu'un abri standard contre cette Frappe."
+                "Vous visez soigneusement afin d'éviter la dissimulation et l'abri dont bénéficie votre adversaire. Lors de votre prochaine Frappe avec une arme de jet avant la fin de votre tour, vous obtenez un bonus de circonstances de +1 à votre jet d'attaque et vous ignorez l'état Masqué de votre cible ainsi que les abris partiel et standard. Si la cible bénéficie d'un abri important, elle n'a qu'un abri standard contre cette Frappe."
             ]
         },
         {
@@ -3622,8 +3622,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous maniez une workTarge .",
-                "Vous faites tourner votre targe de manière défensive contre chaque attaque. Vous avez constamment votre targe levée comme si vous aviez utilisé sports_martial_artsLever un bouclier , tant que vous remplissez les conditions de cette action."
+                "Conditions Vous maniez une Targe .",
+                "Vous faites tourner votre targe de manière défensive contre chaque attaque. Vous avez constamment votre targe levée comme si vous aviez utilisé Lever un bouclier , tant que vous remplissez les conditions de cette action."
             ]
         },
         {
@@ -3638,7 +3638,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une unique arme de corps-à-corps à une main et votre autre main ou vos autres mains sont libres.",
-                "En utilisant votre main libre comme balancier pour vous équilibrer, vous attaquez et défendez avec votre arme. Tant que vous êtes dans cette posture, vous bénéficiez constamment de military_techParade extravagante ."
+                "En utilisant votre main libre comme balancier pour vous équilibrer, vous attaquez et défendez avec votre arme. Tant que vous êtes dans cette posture, vous bénéficiez constamment de Parade extravagante ."
             ]
         },
         {
@@ -3653,7 +3653,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une unique arme de corps-à-corps à une main et ne tenez rien d'autre dans vos mains.",
-                "En utilisant une main libre pour vous équilibrer et faire balancier, vous parvenez à la fois à attaquer et à vous défendre avec votre arme. Tant que vous êtes dans cette posture, vous bénéficiez constamment de military_techParade en duel ."
+                "En utilisant une main libre pour vous équilibrer et faire balancier, vous parvenez à la fois à attaquer et à vous défendre avec votre arme. Tant que vous êtes dans cette posture, vous bénéficiez constamment de Parade en duel ."
             ]
         },
         {
@@ -3665,7 +3665,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous êtes la cible d'une Frappe à distance physique.",
-                "Conditions Vous êtes conscient de l'attaque, pas sentiment_very_dissatisfiedPris au dépourvu à son encontre et vous avez soit une main libre, soit vous maniez une arme au corps-à-corps.",
+                "Conditions Vous êtes conscient de l'attaque, pas Pris au dépourvu à son encontre et vous avez soit une main libre, soit vous maniez une arme au corps-à-corps.",
                 "Vous pouvez écarter les attaques à distance. Vous obtenez un bonus de circonstances de +4 à la CA contre l'attaque déclencheuse. Si l'attaque est un échec, vous l'avez écartée ou l'avez découpée dans les airs."
             ]
         },
@@ -3690,7 +3690,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre esprit travaille sur les indices à une vitesse incroyable. Vous utilisez instantanément jusqu'à cinq actions sports_martial_artsSe souvenir . Si vous avez des capacités spéciales ou des actions gratuites qui devraient normalement être déclenchées lorsque vous Vous souvenez, vous ne pouvez pas les utiliser pour ces actions."
+                "Votre esprit travaille sur les indices à une vitesse incroyable. Vous utilisez instantanément jusqu'à cinq actions Se souvenir . Si vous avez des capacités spéciales ou des actions gratuites qui devraient normalement être déclenchées lorsque vous Vous souvenez, vous ne pouvez pas les utiliser pour ces actions."
             ]
         },
         {
@@ -3705,7 +3705,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez deux armes de corps-à-corps, une dans chaque main.",
-                "Vous êtes toujours prêt à utiliser l'arme dans votre main secondaire pour bloquer les attaques qui vous sont destinées. Tant que vous restez dans cette posture, vous bénéficiez en permanence des avantages de l'action military_techParade jumelée ."
+                "Vous êtes toujours prêt à utiliser l'arme dans votre main secondaire pour bloquer les attaques qui vous sont destinées. Tant que vous restez dans cette posture, vous bénéficiez en permanence des avantages de l'action Parade jumelée ."
             ]
         },
         {
@@ -3720,7 +3720,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez deux armes de corps-à-corps, chacune dans une main",
-                "Vous êtes toujours prêt à utiliser l'arme dans votre main secondaire pour bloquer les attaques qui vous sont destinées. Tant que vous restez dans cette posture, vous bénéficiez en permanence des avantages de l'action military_techParade jumelée ."
+                "Vous êtes toujours prêt à utiliser l'arme dans votre main secondaire pour bloquer les attaques qui vous sont destinées. Tant que vous restez dans cette posture, vous bénéficiez en permanence des avantages de l'action Parade jumelée ."
             ]
         },
         {
@@ -3774,7 +3774,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez deux armes de corps-à-corps, chacune dans une main différente.",
-                "Vous raffinez la précision de votre incroyable déluge de coups. Lorsque vous accomplissez un military_techDéluge invraisemblable , votre première attaque avec chaque arme subit la pénalité d'attaques multiples comme si vous aviez déjà porté une attaque durant ce tour. Toutes les attaques subséquentes subissent la pénalité d'attaque maximale comme si vous aviez déjà fait deux ou plus attaques durant ce tour."
+                "Vous raffinez la précision de votre incroyable déluge de coups. Lorsque vous accomplissez un Déluge invraisemblable , votre première attaque avec chaque arme subit la pénalité d'attaques multiples comme si vous aviez déjà porté une attaque durant ce tour. Toutes les attaques subséquentes subissent la pénalité d'attaque maximale comme si vous aviez déjà fait deux ou plus attaques durant ce tour."
             ]
         },
         {
@@ -3787,7 +3787,7 @@ DON.CLASS = {
                 "expert en Athlétisme"
             ],
             "description": [
-                "Votre déluge est une combinaison de manœuvres. Vous pouvez remplacer l'une de vos attaques, ou les deux, lors d'un déluge de coups par des sports_martial_artsSaisies , des sports_martial_artsRepositionnements , des sports_martial_artsPoussées ou des sports_martial_artsCrocs-en-jambe ."
+                "Votre déluge est une combinaison de manœuvres. Vous pouvez remplacer l'une de vos attaques, ou les deux, lors d'un déluge de coups par des Saisies , des Repositionnements , des Poussées ou des Crocs-en-jambe ."
             ]
         },
         {
@@ -3798,7 +3798,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous dressez une barrière imaginaire que les autres croient réelle. Vous apprenez le tour de magie de composition auto_awesomeDemeure aux murs imaginaires ."
+                "Vous dressez une barrière imaginaire que les autres croient réelle. Vous apprenez le tour de magie de composition Demeure aux murs imaginaires ."
             ]
         },
         {
@@ -3809,7 +3809,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous percevez instinctivement le danger. Vous obtenez un bonus de circonstances de +1 à vos tests de Perception pour trouver des pièges et des dangers, à votre CA contre leurs attaques et aux jets de sauvegarde contre leurs effets. Vous pouvez trouver des dangers qui nécessitent normalement une sports_martial_artsFouille de votre part, même si vous ne Fouillez pas."
+                "Vous percevez instinctivement le danger. Vous obtenez un bonus de circonstances de +1 à vos tests de Perception pour trouver des pièges et des dangers, à votre CA contre leurs attaques et aux jets de sauvegarde contre leurs effets. Vous pouvez trouver des dangers qui nécessitent normalement une Fouille de votre part, même si vous ne Fouillez pas."
             ]
         },
         {
@@ -3847,7 +3847,7 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Vous subissez des dégâts d'un effet de zone qui permet un jet de Réflexes.",
                 "Vous esquivez un coup au dernier moment possible.",
-                "Vous sports_martial_artsFaites un pas et obtenez une résistance à tous les dégâts égale à votre niveau contre l'effet déclencheur. Si votre Pas vous place en dehors de la zone de l'effet, alors cette résistance est égale à votre niveau auquel s'ajoute votre modificateur de Dextérité."
+                "Vous Faites un pas et obtenez une résistance à tous les dégâts égale à votre niveau contre l'effet déclencheur. Si votre Pas vous place en dehors de la zone de l'effet, alors cette résistance est égale à votre niveau auquel s'ajoute votre modificateur de Dextérité."
             ]
         },
         {
@@ -3858,7 +3858,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez sports_martial_artsDésarmer une créature avec un tour de passe-passe plutôt que d'utiliser la force brute. Vous pouvez utiliser sports_martial_artsVol au lieu d'Athlétisme pour tenter de désarmer. Lorsque vous utilisez Vol pour tenter de Désarmer et que vous obtenez un succès, la cible est sentiment_very_dissatisfiedPrise au dépourvu contre la prochaine attaque que vous effectuez avant la fin de votre tour."
+                "Vous pouvez Désarmer une créature avec un tour de passe-passe plutôt que d'utiliser la force brute. Vous pouvez utiliser Vol au lieu d'Athlétisme pour tenter de désarmer. Lorsque vous utilisez Vol pour tenter de Désarmer et que vous obtenez un succès, la cible est Prise au dépourvu contre la prochaine attaque que vous effectuez avant la fin de votre tour."
             ]
         },
         {
@@ -3885,7 +3885,7 @@ DON.CLASS = {
                 "Destruction de sort"
             ],
             "description": [
-                "Vous pouvez concentrer votre superstition pour briser la magie d'un objet, en plus de détruire les sorts autonomes et ceux actifs sur les créatures. Lorsque vous military_techDétruisez un sort , vous pouvez à la place tenter de contrer soit un objet magique non tenu ou un des objets magiques de votre cible. Si votre tentative de contre est réussie, l'objet devient un objet ordinaire de son type pendant 10 minutes. Si vous ciblez un artefact, un objet intelligent ou un objet particulièrement puissant de ce type, votre tentative de contre échoue automatiquement."
+                "Vous pouvez concentrer votre superstition pour briser la magie d'un objet, en plus de détruire les sorts autonomes et ceux actifs sur les créatures. Lorsque vous Détruisez un sort , vous pouvez à la place tenter de contrer soit un objet magique non tenu ou un des objets magiques de votre cible. Si votre tentative de contre est réussie, l'objet devient un objet ordinaire de son type pendant 10 minutes. Si vous ciblez un artefact, un objet intelligent ou un objet particulièrement puissant de ce type, votre tentative de contre échoue automatiquement."
             ]
         },
         {
@@ -3901,7 +3901,7 @@ DON.CLASS = {
                 "Instinct superstitieux"
             ],
             "description": [
-                "Vous tirez de votre propre rage superstitieuse de quoi détruire un sort. Faites une Frappe au corps-à-corps avec une arme ou une attaque à mains nues contre une créature, un objet ou la manifestation d'un sort (comme un mur créé par auto_awesomeMur de feu ou le gardien de auto_awesomeGardien spirituel ).",
+                "Vous tirez de votre propre rage superstitieuse de quoi détruire un sort. Faites une Frappe au corps-à-corps avec une arme ou une attaque à mains nues contre une créature, un objet ou la manifestation d'un sort (comme un mur créé par Mur de feu ou le gardien de Gardien spirituel ).",
                 "Si vous ciblez quelque chose qui n'a pas de CA, cette CA contre cette Frappe est habituellement de 10 pour les cibles qui sont faciles à toucher, comme un mur ou ont une CA différente qui est déterminée par le MJ.",
                 "Si votre Frappe touche, vous pouvez essayer de contrer un unique sort ou effet magique sur la cible. Votre rang de contre pour cette tentative est égal à la moitié de votre niveau arrondi au supérieur et vous utilisez le résultat de votre jet d'attaque pour le test de contresort.",
                 "Que vous réussissiez ou non la Frappe, la cible devient temporairement immunisée à votre Destruction de sort pendant 24 heures."
@@ -3917,7 +3917,7 @@ DON.CLASS = {
                 "Méthodologie : Empirisme ou Méthodologie : Interrogatoire"
             ],
             "description": [
-                "Vous êtes habitué à remarquer les racontars d'un menteur — sueur, rougissement, voix tremblante, pouls qui s'accélère. Vous obtenez un bonus de circonstances de +1 aux tests de pour sports_martial_artsDeviner les intentions et aux DD de Perception contre les tentatives pour Mentir. Lorsque vous déterminez que quelqu'un vous ment, vous pouvez utiliser sa duperie à votre avantage pour gagner un bonus de circonstances de +1 au prochain test de Duperie, de Diplomatie, d'Intimidation ou de Représentation que vous tentez contre cette créature durant la minute suivante.",
+                "Vous êtes habitué à remarquer les racontars d'un menteur — sueur, rougissement, voix tremblante, pouls qui s'accélère. Vous obtenez un bonus de circonstances de +1 aux tests de pour Deviner les intentions et aux DD de Perception contre les tentatives pour Mentir. Lorsque vous déterminez que quelqu'un vous ment, vous pouvez utiliser sa duperie à votre avantage pour gagner un bonus de circonstances de +1 au prochain test de Duperie, de Diplomatie, d'Intimidation ou de Représentation que vous tentez contre cette créature durant la minute suivante.",
                 "Si vous bénéficiez d'un bonus d'investigation de Suivre une piste pour quelconque de ces tests, ce bonus est augmenté de 1 plutôt que de gagner le bonus de +1 spécifié."
             ]
         },
@@ -3930,7 +3930,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous ressentez les dangers magiques. Lorsque vous utilisez l'activité d'exploration sports_martial_artsDétection de la magie , vous pouvez lancer l'initiative deux fois et utiliser le meilleur résultat tant qu'au moins un des adversaires possède un effet magique ou un objet magique et qu'il est dans la portée de votre Détection de la magie."
+                "Vous ressentez les dangers magiques. Lorsque vous utilisez l'activité d'exploration Détection de la magie , vous pouvez lancer l'initiative deux fois et utiliser le meilleur résultat tant qu'au moins un des adversaires possède un effet magique ou un objet magique et qu'il est dans la portée de votre Détection de la magie."
             ]
         },
         {
@@ -3955,7 +3955,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez vous concentrer sur deux adversaires à la fois, les traquant tous les deux. Quand vous utilisez l'action sports_martial_artsChasser une proie , vous pouvez désigner deux créatures comme étant vos proies."
+                "Vous pouvez vous concentrer sur deux adversaires à la fois, les traquant tous les deux. Quand vous utilisez l'action Chasser une proie , vous pouvez désigner deux créatures comme étant vos proies."
             ]
         },
         {
@@ -3981,8 +3981,8 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Un allié dans votre allonge au corps-à-corps est touché par une attaque, vous pouvez voir l'attaquant et un bonus de circonstances de +2 à la CA pourrait transformer le succès critique en succès ou le succès en échec.",
                 "Conditions Vous maniez une seule arme de corps-à-corps à une main et votre autre main (ou mains) est libre.",
-                "Vous utilisez votre arme pour dévier l'attaque contre votre allié, ce qui lui confère un bonus de circonstances de +2 à sa CA contre l'attaque déclencheuse. Ceci transforme le coup critique déclencheur en un coup normal ou le coup déclencheur normal en un échec. Vous gagnez du flarePanache jusqu'à la fin de votre prochain tour.",
-                "flareEffet : Déviation du gardien"
+                "Vous utilisez votre arme pour dévier l'attaque contre votre allié, ce qui lui confère un bonus de circonstances de +2 à sa CA contre l'attaque déclencheuse. Ceci transforme le coup critique déclencheur en un coup normal ou le coup déclencheur normal en un échec. Vous gagnez du Panache jusqu'à la fin de votre prochain tour.",
+                "Effet : Déviation du gardien"
             ]
         },
         {
@@ -4010,7 +4010,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous donnez un aperçu des conflits impossibles entre les anathèmes divins à l'origine de votre malédiction, ce qui vous oblige à prendre en compte les conflits d'autrui. Vous et une créature dans les 9 mètres subissez chacun avec un jet de casinoVolonté , et la cible est sentiment_very_dissatisfiedEtourdie 1 si elle obtient un échec critique à son jet de sauvegarde. Vous augmentez d'un degré le résultat de votre jet de sauvegarde. Au niveau 10, puis chaque 2 niveaux, les dégâts augmentent de 3d6."
+                "Vous donnez un aperçu des conflits impossibles entre les anathèmes divins à l'origine de votre malédiction, ce qui vous oblige à prendre en compte les conflits d'autrui. Vous et une créature dans les 9 mètres subissez chacun avec un jet de Volonté , et la cible est Etourdie 1 si elle obtient un échec critique à son jet de sauvegarde. Vous augmentez d'un degré le résultat de votre jet de sauvegarde. Au niveau 10, puis chaque 2 niveaux, les dégâts augmentent de 3d6."
             ]
         },
         {
@@ -4021,7 +4021,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous communiquez l'emplacement de votre proie à vos alliés par une série de mots ou de gestes prudents. Tant que vous observez votre proie, tous les échecs et les échecs critiques obtenus par vos alliés en la sports_martial_artsCherchant sont remplacés par des succès. Vos alliés doivent pouvoir vous voir ou vous entendre pour bénéficier de cet avantage et vous devez pouvoir parler ou faire des gestes pour qu'ils en bénéficient."
+                "Vous communiquez l'emplacement de votre proie à vos alliés par une série de mots ou de gestes prudents. Tant que vous observez votre proie, tous les échecs et les échecs critiques obtenus par vos alliés en la Cherchant sont remplacés par des succès. Vos alliés doivent pouvoir vous voir ou vous entendre pour bénéficier de cet avantage et vous devez pouvoir parler ou faire des gestes pour qu'ils en bénéficient."
             ]
         },
         {
@@ -4035,7 +4035,7 @@ DON.CLASS = {
                 "Dissipation de la magie dans votre répertoire de sorts"
             ],
             "description": [
-                "Vous tissez de l'énergie dissipatrice dans un sort. Si votre prochaine action consiste à Lancer un sort à cible unique contre un ennemi et que vous le touchez avec un jet d'attaque de sort ou qu'il rate son jet de sauvegarde, vous pouvez lancer auto_awesomeDissipation de la magie sur l'ennemi par une action gratuite, en dépensant un emplacement de sort comme à l'accoutumée et en ciblant un effet de sort qui l'affecte."
+                "Vous tissez de l'énergie dissipatrice dans un sort. Si votre prochaine action consiste à Lancer un sort à cible unique contre un ennemi et que vous le touchez avec un jet d'attaque de sort ou qu'il rate son jet de sauvegarde, vous pouvez lancer Dissipation de la magie sur l'ennemi par une action gratuite, en dépensant un emplacement de sort comme à l'accoutumée et en ciblant un effet de sort qui l'affecte."
             ]
         },
         {
@@ -4049,7 +4049,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez deux armes au corps-à-corps, chacune dans une main différente.",
-                "Vos mouvements avec deux armes sont si rapides et désorientants qu'ils désarçonnent votre adversaire. Lorsque vous utilisez military_techFeinte jumelée , si deux de vos Frappes infligent des dégâts à la créature ciblée, la cible doit réussir un jet de casinoVolonté contre votre DD de classe ou être sentiment_very_dissatisfiedStupéfiée 1 jusqu'à la fin de votre prochain tour."
+                "Vos mouvements avec deux armes sont si rapides et désorientants qu'ils désarçonnent votre adversaire. Lorsque vous utilisez Feinte jumelée , si deux de vos Frappes infligent des dégâts à la créature ciblée, la cible doit réussir un jet de Volonté contre votre DD de classe ou être Stupéfiée 1 jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -4062,8 +4062,8 @@ DON.CLASS = {
                 "légendaire en Duperie"
             ],
             "description": [
-                "Vous utilisez la ruse pour duper vos adversaires pendant que vous vous esquivez discrètement. Vous sports_martial_artsÊtes furtif en laissant un leurre derrière vous.",
-                "Le leurre se comporte comme le sort auto_awesomeDouble illusoire , mais vous n'êtes pas sentiment_very_dissatisfiedInvisible , seulement sentiment_very_dissatisfiedNon détecté . Comme avec le sort, vous pouvez continuer de vous concentrer pour diriger votre leurre, que vous restiez ou non sentiment_very_dissatisfiedCaché pendant la durée. Une fois que vous avez utilisé Diversion parfaite, vous devez passer 10 minutes à composer un nouveau leurre avant de pouvoir l'utiliser de nouveau."
+                "Vous utilisez la ruse pour duper vos adversaires pendant que vous vous esquivez discrètement. Vous Êtes furtif en laissant un leurre derrière vous.",
+                "Le leurre se comporte comme le sort Double illusoire , mais vous n'êtes pas Invisible , seulement Non détecté . Comme avec le sort, vous pouvez continuer de vous concentrer pour diriger votre leurre, que vous restiez ou non Caché pendant la durée. Une fois que vous avez utilisé Diversion parfaite, vous devez passer 10 minutes à composer un nouveau leurre avant de pouvoir l'utiliser de nouveau."
             ]
         },
         {
@@ -4079,8 +4079,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Vous devriez être touché par une attaque, ciblé par un effet ou vous trouvez dans une zone d'effet.",
-                "Conditions Vous êtes prêt à employer military_techDiversion parfaite .",
-                "Vous remplacez votre leurre de façon réactive pour tromper votre ennemi. Vous utilisez Diversion parfaite, même si vous êtes Observé, tant que vous terminez votre déplacement Furtif en étant sentiment_very_dissatisfiedMasqué ou à un endroit ayant un abri ou un abri important.",
+                "Conditions Vous êtes prêt à employer Diversion parfaite .",
+                "Vous remplacez votre leurre de façon réactive pour tromper votre ennemi. Vous utilisez Diversion parfaite, même si vous êtes Observé, tant que vous terminez votre déplacement Furtif en étant Masqué ou à un endroit ayant un abri ou un abri important.",
                 "Votre leurre est ciblé par l'attaque ou l'effet à votre place. Dans le cas d'une zone d'effet, si votre déplacement Furtif ne vous permet pas de quitter la zone, vous et votre leurre êtes tous les deux ciblés par l'effet."
             ]
         },
@@ -4183,7 +4183,7 @@ DON.CLASS = {
                 "cause du rédempteur"
             ],
             "description": [
-                "Quand vous semez le doute dans l'esprit de vos ennemis, l'effet dure plus longtemps que d'habitude. Après avoir été Affaibli 2 à cause de votre sports_martial_artsLueur de rédemption , l'adversaire est Affaibli 1 pendant une minute. Si vous avez military_techPoids de la culpabilité , après avoir été sentiment_very_dissatisfiedStupéfié 2 à cause de votre Lueur de rédemption, l'adversaire est Stupéfié 1 pendant une minute ou jusqu'à ce que le test nu de l'état Stupéfié lui fasse perdre un sort, selon ce qui se produit en premier."
+                "Quand vous semez le doute dans l'esprit de vos ennemis, l'effet dure plus longtemps que d'habitude. Après avoir été Affaibli 2 à cause de votre Lueur de rédemption , l'adversaire est Affaibli 1 pendant une minute. Si vous avez Poids de la culpabilité , après avoir été Stupéfié 2 à cause de votre Lueur de rédemption, l'adversaire est Stupéfié 1 pendant une minute ou jusqu'à ce que le test nu de l'état Stupéfié lui fasse perdre un sort, selon ce qui se produit en premier."
             ]
         },
         {
@@ -4201,7 +4201,7 @@ DON.CLASS = {
                 "Mystère de la vie ou de la tempête"
             ],
             "description": [
-                "L'eau est la source de la vie et vous puisez dans cette force primordiale pour soigner les blessures de vos alliés. Un doux anneau s'échappe de vous dans une crop_freeémanation de 4,50 mètres , restaurant casino(floor(@actor.level/2))d6 soins, vitalité Points de vie aux créatures dans la zone. Au niveau 12 et tous les deux niveaux suivants, le montant restauré augmente de 1d6. Si vous êtes sentiment_very_dissatisfiedLié à la malédiction 3 lorsque vous utilisez Eaux de la création, le montant des soins passe à casino(floor(@actor.level/2))d8 soins, vitalité Points de vie."
+                "L'eau est la source de la vie et vous puisez dans cette force primordiale pour soigner les blessures de vos alliés. Un doux anneau s'échappe de vous dans une émanation de 4,50 mètres , restaurant (floor(@actor.level/2))d6 soins, vitalité Points de vie aux créatures dans la zone. Au niveau 12 et tous les deux niveaux suivants, le montant restauré augmente de 1d6. Si vous êtes Lié à la malédiction 3 lorsque vous utilisez Eaux de la création, le montant des soins passe à (floor(@actor.level/2))d8 soins, vitalité Points de vie."
             ]
         },
         {
@@ -4229,7 +4229,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Un ennemi termine son déplacement adjacent à vous.",
-                "Faites un test d' casinoAcrobaties contre le DD de Réflexes de votre ennemi. Si vous réussissez, soit vous Marchez rapidement vers une case différente adjacente à l'adversaire, soit vous déplacez l'ennemi vers une case différente adjacente à la vôtre."
+                "Faites un test d' Acrobaties contre le DD de Réflexes de votre ennemi. Si vous réussissez, soit vous Marchez rapidement vers une case différente adjacente à l'adversaire, soit vous déplacez l'ennemi vers une case différente adjacente à la vôtre."
             ]
         },
         {
@@ -4264,7 +4264,7 @@ DON.CLASS = {
                 "Cause : grandeur"
             ],
             "description": [
-                "Votre lumière purifie les âmes de la peur. Quand vous utilisez sports_martial_artsÉclair de grandeur , l'attaquant est aussi sentiment_very_dissatisfiedPris au dépourvu pendant 1 round."
+                "Votre lumière purifie les âmes de la peur. Quand vous utilisez Éclair de grandeur , l'attaquant est aussi Pris au dépourvu pendant 1 round."
             ]
         },
         {
@@ -4277,7 +4277,7 @@ DON.CLASS = {
                 "ordre de la Feuille"
             ],
             "description": [
-                "Vous octroyez à votre peau et celle de votre familier l'endurance d'écorce d'un chêne ancien. Vous pouvez lancer le sort auto_awesomeRésilience du chêne à volonté comme un sort inné primordial avec un rang de sort inférieur de un au plus haut rang de sort que vous pouvez lancer. Ce sort vous cible ainsi que votre familier léchi, s'il se trouve dans les 9 mètres de vous."
+                "Vous octroyez à votre peau et celle de votre familier l'endurance d'écorce d'un chêne ancien. Vous pouvez lancer le sort Résilience du chêne à volonté comme un sort inné primordial avec un rang de sort inférieur de un au plus haut rang de sort que vous pouvez lancer. Ce sort vous cible ainsi que votre familier léchi, s'il se trouve dans les 9 mètres de vous."
             ]
         },
         {
@@ -4303,7 +4303,7 @@ DON.CLASS = {
                 "Fréquence Une fois toutes les 10 minutes",
                 "Déclencheur Votre tour commence.",
                 "Conditions Vous être pris en tenaille.",
-                "Vous brillez de mille feux dans les moments désespérés. Vous affichez un sourire ou une pose confiante et vous obtenez du flarePanache jusqu'à la fin de votre tour."
+                "Vous brillez de mille feux dans les moments désespérés. Vous affichez un sourire ou une pose confiante et vous obtenez du Panache jusqu'à la fin de votre tour."
             ]
         },
         {
@@ -4341,7 +4341,7 @@ DON.CLASS = {
                 "Cause : profanation"
             ],
             "description": [
-                "Votre puissante personnalité et votre égo incroyable exige que vous vous protégiez vous-même par dessus tout autre. Après avoir utilisé sports_martial_artsBouclier égoïste , vous obtenez une résistance contre tous les dégâts infligés par l'ennemi déclencheur jusqu'à la fin du tour au cours duquel vous avez utilisé la réaction. Cette résistance est égale à la moitié de la résistance de votre Bouclier égoïste."
+                "Votre puissante personnalité et votre égo incroyable exige que vous vous protégiez vous-même par dessus tout autre. Après avoir utilisé Bouclier égoïste , vous obtenez une résistance contre tous les dégâts infligés par l'ennemi déclencheur jusqu'à la fin du tour au cours duquel vous avez utilisé la réaction. Cette résistance est égale à la moitié de la résistance de votre Bouclier égoïste."
             ]
         },
         {
@@ -4354,7 +4354,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Rien ne peut vous empêcher d'atteindre votre ennemi. Marchez rapidement deux fois. Durant ce déplacement, vous ignorez les terrains difficiles, les terrains très difficiles et tout effet qui imposerait une pénalité à votre Vitesse.",
-                "Vous pouvez effectuer un test d' sports_martial_artsAthlétisme au lieu d'Acrobaties pour sports_martial_artsGarder l'équilibre lorsque vous vous déplacez le long de surfaces étroites ou un sol inégal, en utilisant le même DD. Cela ne vous empêche pas d'être blessé par des terrains dangereux.",
+                "Vous pouvez effectuer un test d' Athlétisme au lieu d'Acrobaties pour Garder l'équilibre lorsque vous vous déplacez le long de surfaces étroites ou un sol inégal, en utilisant le même DD. Cela ne vous empêche pas d'être blessé par des terrains dangereux.",
                 "Vous pouvez augmenter le nombre d'actions de cette activité à 3 pour Marcher rapidement trois fois à la place."
             ]
         },
@@ -4381,7 +4381,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous faites tomber les armes des mains de vos ennemis avec style. Quand vous sports_martial_artsDésarmez , l'action obtient le trait bravade."
+                "Vous faites tomber les armes des mains de vos ennemis avec style. Quand vous Désarmez , l'action obtient le trait bravade."
             ]
         },
         {
@@ -4392,7 +4392,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez un sens aiguisé pour éviter les fausses pistes d'enquête. Lorsque vous obtenez un échec critique sur un test de compétence pour sports_martial_artsVous souvenir en lien avec une question à propos d'une de vos enquêtes actives, il devient un échec."
+                "Vous avez un sens aiguisé pour éviter les fausses pistes d'enquête. Lorsque vous obtenez un échec critique sur un test de compétence pour Vous souvenir en lien avec une question à propos d'une de vos enquêtes actives, il devient un échec."
             ]
         },
         {
@@ -4403,7 +4403,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "La part de votre énergie que vous intégrez dans vos élixirs étend la durée de leurs effets quand vous les buvez. Quand vous consommez l'un de vos objets alchimiques qui possède les traits élixir et imprégné et a une durée supérieure ou égale à 1 minute, vous doublez la durée de cet élixir. Si vous avez crée cet objet avec sports_martial_artsAlchimie rapide , cela ne peut pas entraîner un dépassement de la durée limite de 10 minutes."
+                "La part de votre énergie que vous intégrez dans vos élixirs étend la durée de leurs effets quand vous les buvez. Quand vous consommez l'un de vos objets alchimiques qui possède les traits élixir et imprégné et a une durée supérieure ou égale à 1 minute, vous doublez la durée de cet élixir. Si vous avez crée cet objet avec Alchimie rapide , cela ne peut pas entraîner un dépassement de la durée limite de 10 minutes."
             ]
         },
         {
@@ -4429,8 +4429,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par round",
-                "Déclencheur Vous fabriquez un workÉlixir de vie à l'aide d' Alchimie rapide , qui est inférieur d'au moins 2 niveaux à votre niveau d'alchimie avancée",
-                "Vous ajoutez une substance spéciale dans votre élixir qui calme le corps et l'esprit de celui qui le consomme. L'élixir de vie tente de contrer un effet de auto_awesomeTerreur ou un effet causant l'état auto_awesomeParalysé ."
+                "Déclencheur Vous fabriquez un Élixir de vie à l'aide d' Alchimie rapide , qui est inférieur d'au moins 2 niveaux à votre niveau d'alchimie avancée",
+                "Vous ajoutez une substance spéciale dans votre élixir qui calme le corps et l'esprit de celui qui le consomme. L'élixir de vie tente de contrer un effet de Terreur ou un effet causant l'état Paralysé ."
             ]
         },
         {
@@ -4443,7 +4443,7 @@ DON.CLASS = {
                 "Élixir miséricordieux"
             ],
             "description": [
-                "Vos additifs contiennent des panacées qui peuvent soigner une pléthore de maladies. Quand vous utilisez military_techÉlixir miséricordieux , votre élixir peut à la place tenter de contrer les effets des états sentiment_very_dissatisfiedAveugle , sentiment_very_dissatisfiedSourd , sentiment_very_dissatisfiedNauséeux ou sentiment_very_dissatisfiedRalenti ."
+                "Vos additifs contiennent des panacées qui peuvent soigner une pléthore de maladies. Quand vous utilisez Élixir miséricordieux , votre élixir peut à la place tenter de contrer les effets des états Aveugle , Sourd , Nauséeux ou Ralenti ."
             ]
         },
         {
@@ -4455,8 +4455,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez mélanger une pommade aromatique dans un élixir avec le trait guérison pour soulager les maladies physiques. En plus de ses effets normaux, l'élixir peut être ingéré par une créature qui en est empêchée (comme une créature sentiment_very_dissatisfiedNauséeuse ).",
-                "En plus de ses autres effets, l'élixir tente de contrer un effet imposant l'une des états suivants, au choix de celui qui le boit : sentiment_very_dissatisfiedAffaibli , sentiment_very_dissatisfiedMaladroit , sentiment_very_dissatisfiedNauséeux ou sentiment_very_dissatisfiedStupéfié . Utilisez la moitié de votre niveau arrondi à l'entier supérieur comme rang de contre et votre DD de classe - 10 comme modificateur de contre. Le buveur est alors temporairement immunisé contre les effets de cet additif pendant 10 minutes. L'additif ne peut pas contrer les malédictions, les maladies ou les états qui font partie de l'état normal de la créature."
+                "Vous pouvez mélanger une pommade aromatique dans un élixir avec le trait guérison pour soulager les maladies physiques. En plus de ses effets normaux, l'élixir peut être ingéré par une créature qui en est empêchée (comme une créature Nauséeuse ).",
+                "En plus de ses autres effets, l'élixir tente de contrer un effet imposant l'une des états suivants, au choix de celui qui le boit : Affaibli , Maladroit , Nauséeux ou Stupéfié . Utilisez la moitié de votre niveau arrondi à l'entier supérieur comme rang de contre et votre DD de classe - 10 comme modificateur de contre. Le buveur est alors temporairement immunisé contre les effets de cet additif pendant 10 minutes. L'additif ne peut pas contrer les malédictions, les maladies ou les états qui font partie de l'état normal de la créature."
             ]
         },
         {
@@ -4471,7 +4471,7 @@ DON.CLASS = {
             "description": [
                 "Choisissez la revigoration physique ou la revigoration mentale et ajoutez les états indiqués à ceux que vous pouvez choisir de contrer avec un élixir revigorant :",
                 [
-                    "Revigoration physique sentiment_very_dissatisfiedAveugle , sentiment_very_dissatisfiedDrainé , sentiment_very_dissatisfiedParalysé , sentiment_very_dissatisfiedRalenti , sentiment_very_dissatisfiedSourd"
+                    "Revigoration physique Aveugle , Drainé , Paralysé , Ralenti , Sourd"
                 ],
                 "Spécial Vous pouvez sélectionner ce don une seconde fois pour choisir un autre type de revigoration et ajouter ses options à celles que vous pouvez choisir."
             ]
@@ -4486,7 +4486,7 @@ DON.CLASS = {
                 "Élixir revigorant"
             ],
             "description": [
-                "Lorsqu'il est nécessaire de contrer des effets avec des élixirs revigorants, vous considérez votre niveau comme s'il était supérieur de 2. Ajoutez aux états indiqués que vous pouvez contrer avec un élixir revigorant que vous créez, les états suivants : sentiment_very_dissatisfiedÉtourdi , sentiment_very_dissatisfiedPétrifié . Vous pouvez également choisir une maladie sans tenir compte des états qu'elle impose, le cas échéant."
+                "Lorsqu'il est nécessaire de contrer des effets avec des élixirs revigorants, vous considérez votre niveau comme s'il était supérieur de 2. Ajoutez aux états indiqués que vous pouvez contrer avec un élixir revigorant que vous créez, les états suivants : Étourdi , Pétrifié . Vous pouvez également choisir une maladie sans tenir compte des états qu'elle impose, le cas échéant."
             ]
         },
         {
@@ -4497,7 +4497,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos concoctions réparatrices ont un effet coagulant sur le sang du buveur. Lorsqu'une créature vivante boit un élixir imprégné avec le trait guérison que vous avez créé, elle peut immédiatement tenter un casinoTest nu, DD 10 pour supprimer tout dégât de saignement."
+                "Vos concoctions réparatrices ont un effet coagulant sur le sang du buveur. Lorsqu'une créature vivante boit un élixir imprégné avec le trait guérison que vous avez créé, elle peut immédiatement tenter un Test nu, DD 10 pour supprimer tout dégât de saignement."
             ]
         },
         {
@@ -4508,7 +4508,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos traitements contre les maladies et les poisons peuvent être très efficaces, bien qu'ils aient tendance à durer moins longtemps. Une créature sous l'effet d'un workAntidote ou d'un workAntimaladie imprégné que vous avez créé peut choisir de relancer jet de Vigueur manqué contre une affliction appropriée (poison pour l'antidote et maladie pour l'antimaladie). La créature ne bénéficie pas du bonus d'objet habituel de l'élixir sur ce nouveau jet et après l'avoir relancé, la durée de l'élixir s'achève immédiatement. Il s'agit d'un effet de fortune."
+                "Vos traitements contre les maladies et les poisons peuvent être très efficaces, bien qu'ils aient tendance à durer moins longtemps. Une créature sous l'effet d'un Antidote ou d'un Antimaladie imprégné que vous avez créé peut choisir de relancer jet de Vigueur manqué contre une affliction appropriée (poison pour l'antidote et maladie pour l'antimaladie). La créature ne bénéficie pas du bonus d'objet habituel de l'élixir sur ce nouveau jet et après l'avoir relancé, la durée de l'élixir s'achève immédiatement. Il s'agit d'un effet de fortune."
             ]
         },
         {
@@ -4520,7 +4520,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Votre maîtrise des secrets alchimiques vous permet de reproduire des effets que la plupart des gens pensent pouvoir n'être atteints que par la seule magie. Choisissez un nombre de potions égal à votre modificateur d'Intelligence (1 au minimum). Ces potions doivent être d'un niveau inférieur ou égal à 9. Vous obtenez les formules pour créer ces potions sous forme de consommables alchimiques avec le trait élixir.",
-                "Lorsque vous fabriquez ces élixirs alchimiques, vous pouvez substituer une valeur égale de réactifs alchimiques aux composants magiques et utiliser du Matériel d'alchimiste (pour l' sports_martial_artsAlchimie rapide ) ou un Laboratoire d'alchimie (pour l'activité Fabriquer) au lieu de tout autre matériel requis. À part ça, la formule ne change pas. Une fois que vous avez choisi les formules des potions, elles ne peuvent plus être changées."
+                "Lorsque vous fabriquez ces élixirs alchimiques, vous pouvez substituer une valeur égale de réactifs alchimiques aux composants magiques et utiliser du Matériel d'alchimiste (pour l' Alchimie rapide ) ou un Laboratoire d'alchimie (pour l'activité Fabriquer) au lieu de tout autre matériel requis. À part ça, la formule ne change pas. Une fois que vous avez choisi les formules des potions, elles ne peuvent plus être changées."
             ]
         },
         {
@@ -4534,7 +4534,7 @@ DON.CLASS = {
                 "expert en Discrétion"
             ],
             "description": [
-                "Vous gardez un œil pour toute créature sentiment_very_dissatisfiedCachée ou site dangereux, en vous déplaçant à la moitié de votre Vitesse de voyage. Si vous Anticipez une embuscade au début d'une rencontre, vous lancez un test de Perception pour votre initiative et tous les ennemis lancent un test de Discrétion pour l'initiative et subissent une pénalité de circonstances de -2 à leurs tests de Discrétion."
+                "Vous gardez un œil pour toute créature Cachée ou site dangereux, en vous déplaçant à la moitié de votre Vitesse de voyage. Si vous Anticipez une embuscade au début d'une rencontre, vous lancez un test de Perception pour votre initiative et tous les ennemis lancent un test de Discrétion pour l'initiative et subissent une pénalité de circonstances de -2 à leurs tests de Discrétion."
             ]
         },
         {
@@ -4545,7 +4545,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous entretenez une relation spéciale avec les créatures du monde naturel qui vous permet de communiquer avec elles à un niveau rudimentaire. Vous pouvez utiliser Diplomatie pour sports_martial_artsFaire bonne impression sur des animaux et pour les sports_martial_artsSolliciter en leur demandant des choses très simples. Dans la plupart des cas, les animaux sauvages vous laisseront le temps d'exposer votre cas."
+                "Vous entretenez une relation spéciale avec les créatures du monde naturel qui vous permet de communiquer avec elles à un niveau rudimentaire. Vous pouvez utiliser Diplomatie pour Faire bonne impression sur des animaux et pour les Solliciter en leur demandant des choses très simples. Dans la plupart des cas, les animaux sauvages vous laisseront le temps d'exposer votre cas."
             ]
         },
         {
@@ -4580,7 +4580,7 @@ DON.CLASS = {
                 "ordre de la feuille"
             ],
             "description": [
-                "Vous savez communiquer de manière rudimentaire avec les plantes et les champignons et vous pouvez utiliser la Diplomatie pour leur Faire bonne impression et les sports_martial_artsSolliciter en leur demandant des choses très simples. Les plantes qui ne sont pas des créatures, ne peuvent généralement pas répondre à vos sollicitations, à moins que vous ayez accès à une autre magie comme communication avec les plantes.",
+                "Vous savez communiquer de manière rudimentaire avec les plantes et les champignons et vous pouvez utiliser la Diplomatie pour leur Faire bonne impression et les Solliciter en leur demandant des choses très simples. Les plantes qui ne sont pas des créatures, ne peuvent généralement pas répondre à vos sollicitations, à moins que vous ayez accès à une autre magie comme communication avec les plantes.",
                 "Du fait de votre affiliation avec l'ordre de la feuille, les plantes sentent que vous les soutenez, ce qui vous confère un bonus de circonstances de +2 à votre test pour Solliciter une plante en utilisant Empathie végétale."
             ]
         },
@@ -4592,7 +4592,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez préparer deux sorts dans un emplacement, vous donnant la liberté de choisir le sort lorsque vous le lancez. Lorsque vous préparez vos sorts de la journée, vous pouvez choisir un emplacement de sort d'au moins un rang inférieur au sort du rang le plus élevé que vous pouvez lancer et préparer deux sorts dans cet emplacement. Lorsque vous Lancez un sort à partir de cet emplacement, choisissez quel sort vous lancez. Une fois choisi, le sort inutilisé se dissipe comme si vous ne l'aviez jamais préparé du tout — par exemple, il n'est plus disponible pour être utilisé avec sports_martial_artsDrain d'objet lié ."
+                "Vous pouvez préparer deux sorts dans un emplacement, vous donnant la liberté de choisir le sort lorsque vous le lancez. Lorsque vous préparez vos sorts de la journée, vous pouvez choisir un emplacement de sort d'au moins un rang inférieur au sort du rang le plus élevé que vous pouvez lancer et préparer deux sorts dans cet emplacement. Lorsque vous Lancez un sort à partir de cet emplacement, choisissez quel sort vous lancez. Une fois choisi, le sort inutilisé se dissipe comme si vous ne l'aviez jamais préparé du tout — par exemple, il n'est plus disponible pour être utilisé avec Drain d'objet lié ."
             ]
         },
         {
@@ -4605,7 +4605,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous disposez d'une main libre et votre cible est dans l'allonge de cette main.",
-                "Utilisant votre attaque précédente pour déplacer la garde de votre adversaire, vous portez un autre coup et l'attrapez. Faites une Frappe au corps-à-corps tout en gardant une main libre. Si la Frappe touche, vous agrippez la cible en utilisant votre main libre. La créature reste sentiment_very_dissatisfiedAgrippée jusqu'à la fin de votre prochain tour ou jusqu'à ce qu'elle sports_martial_artsS'Échappe , selon ce qui se produit en premier."
+                "Utilisant votre attaque précédente pour déplacer la garde de votre adversaire, vous portez un autre coup et l'attrapez. Faites une Frappe au corps-à-corps tout en gardant une main libre. Si la Frappe touche, vous agrippez la cible en utilisant votre main libre. La créature reste Agrippée jusqu'à la fin de votre prochain tour ou jusqu'à ce qu'elle S'Échappe , selon ce qui se produit en premier."
             ]
         },
         {
@@ -4618,7 +4618,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Votre dernière action était une Frappe réussie et vous disposez d'une main libre ou vous avez Frappé à l'aide d'une arme dotée du trait saisir.",
-                "Vous profitez que votre adversaire est distrait par votre attaque pour l'agripper. L'adversaire que vous avez Frappé devient sentiment_very_dissatisfiedAgrippé , comme si vous aviez réussi un test d'Athlétisme pour le sports_martial_artsSaisir ."
+                "Vous profitez que votre adversaire est distrait par votre attaque pour l'agripper. L'adversaire que vous avez Frappé devient Agrippé , comme si vous aviez réussi un test d'Athlétisme pour le Saisir ."
             ]
         },
         {
@@ -4629,8 +4629,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes capable de libérer des toxines avec une workSarbacane . Vos Frappes de sarbacane peuvent appliquer des poisons de blessure même si elles n'infligent pas de dégâts à cause d'une résistance de la créature. Si vous obtenez un succès critique sur votre Frappe de sarbacane en utilisant une fléchette empoisonnée, le jet de sauvegarde initial de la cible contre le poison sera d'un degré inférieur à celui obtenu sur le jet. C'est un effet d'infortune.",
-                "De plus, si vous effectuez une Frappe de sarbacane alors que vous êtes sentiment_very_dissatisfiedCaché ou sentiment_very_dissatisfiedNon détecté , vous ne devenez pas immédiatement sentiment_very_dissatisfiedObservé . À la place, faites immédiatement un test de casinoDiscrétion contre le DD de perception de la cible. Sur un succès, vous ne devenez pas observé et êtes Caché (Si vous étiez non détecté, vous êtes Caché au lieu de rester Non détecté)."
+                "Vous êtes capable de libérer des toxines avec une Sarbacane . Vos Frappes de sarbacane peuvent appliquer des poisons de blessure même si elles n'infligent pas de dégâts à cause d'une résistance de la créature. Si vous obtenez un succès critique sur votre Frappe de sarbacane en utilisant une fléchette empoisonnée, le jet de sauvegarde initial de la cible contre le poison sera d'un degré inférieur à celui obtenu sur le jet. C'est un effet d'infortune.",
+                "De plus, si vous effectuez une Frappe de sarbacane alors que vous êtes Caché ou Non détecté , vous ne devenez pas immédiatement Observé . À la place, faites immédiatement un test de Discrétion contre le DD de perception de la cible. Sur un succès, vous ne devenez pas observé et êtes Caché (Si vous étiez non détecté, vous êtes Caché au lieu de rester Non détecté)."
             ]
         },
         {
@@ -4641,8 +4641,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Les cibles sans méfiance sont particulièrement vulnérables à vos poisons. Lorsque vous réussissez une Frappe contre une créature sentiment_very_dissatisfiedPrise au dépourvu avec une arme empoisonnée ou à exposer une créature Prise au dépourvu à un poison inhalé, cette créature subit une pénalité de circonstances de -2 à son jet de sauvegarde initial contre ce poison.",
-                "flareEffet : Empoisonneur opportun"
+                "Les cibles sans méfiance sont particulièrement vulnérables à vos poisons. Lorsque vous réussissez une Frappe contre une créature Prise au dépourvu avec une arme empoisonnée ou à exposer une créature Prise au dépourvu à un poison inhalé, cette créature subit une pénalité de circonstances de -2 à son jet de sauvegarde initial contre ce poison.",
+                "Effet : Empoisonneur opportun"
             ]
         },
         {
@@ -4667,7 +4667,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous dirigez de l'énergie destructrice sur vos ennemis, vous pouvez conserver une part de sa puissance pour former une barrière protectrice qui vous fait un rempart contre les blessures. Si votre prochaine action consiste à sports_martial_artsLancer un sort qui inflige des dégâts d'au moins un type d'énergie (acide, électricité, feu, froid, force, vide ou vitalité), vous obtenez une résistance contre un type de dégâts d'énergie de votre choix égale au rang du sort (minimum 1) jusqu'à la fin de votre prochain tour. Vous obtenez cette résistance que le sort ait ou non infligé des dégâts."
+                "Lorsque vous dirigez de l'énergie destructrice sur vos ennemis, vous pouvez conserver une part de sa puissance pour former une barrière protectrice qui vous fait un rempart contre les blessures. Si votre prochaine action consiste à Lancer un sort qui inflige des dégâts d'au moins un type d'énergie (acide, électricité, feu, froid, force, vide ou vitalité), vous obtenez une résistance contre un type de dégâts d'énergie de votre choix égale au rang du sort (minimum 1) jusqu'à la fin de votre prochain tour. Vous obtenez cette résistance que le sort ait ou non infligé des dégâts."
             ]
         },
         {
@@ -4683,7 +4683,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous accordez votre grand talent d'interprète à un autre, lui accordant une petite partie de votre maîtrise comme si n'importe qui pourrait le faire. Si votre prochaine action consiste à lancer un sort de composition dont la zone est une émanation, celle-ci s'étend à partir d'un allié consentant de votre choix, situé dans un rayon de 18 mètres, au lieu de vous",
-                "Si vous possédez le don military_techPublic choisi , vous pouvez faire en sorte que le cône prenne pour origine cet allié à la place."
+                "Si vous possédez le don Public choisi , vous pouvez faire en sorte que le cône prenne pour origine cet allié à la place."
             ]
         },
         {
@@ -4696,7 +4696,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur vous obtenez un coup critique sur un ennemi adjacent.",
-                "Votre frappe vicieuse attire votre ennemi à proximité, vous donnant l'opportunité de l'attraper. Essayez de sports_martial_artsSaisir l'ennemi déclencheur."
+                "Votre frappe vicieuse attire votre ennemi à proximité, vous donnant l'opportunité de l'attraper. Essayez de Saisir l'ennemi déclencheur."
             ]
         },
         {
@@ -4708,9 +4708,9 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Votre plus récente action était de sports_martial_artsFeinter , sports_martial_artsSolliciter ou de sports_martial_artsDémoraliser et vous avez obtenu un échec mais pas un échec critique.",
-                "Après votre tentative d'influencer quelqu'un sans y parvenir vous ajoutez une autre information ou vous posez une question pertinente, en rattrapant potentiellement votre précédente tentative. Relancez le test échoué et utilisez le nouveau résultat. Si la cible du test manqué est impliquée dans l'une de vos enquêtes actives, doublez votre bonus d'investigation provenant de sports_martial_artsSuivre une piste sur le test relancé. Cette créature est temporairement immunisée à Encore une chose pendant une journée.",
-                "Vous pouvez aussi utiliser cette action si vous avez obtenu un échec mais pas un échec critique sur un test pour sports_martial_artsMentir , sports_martial_artsRecueillir des informations , sports_martial_artsFaire bonne impression ou pour sports_martial_artsContraindre . Dans ce cas, plutôt que de dépenser une action en ajoutant Encore rune chose, cela vous prend la moitié du temps initialement dépensé pour le test échoué, avec un minimum de un round supplémentaire."
+                "Conditions Votre plus récente action était de Feinter , Solliciter ou de Démoraliser et vous avez obtenu un échec mais pas un échec critique.",
+                "Après votre tentative d'influencer quelqu'un sans y parvenir vous ajoutez une autre information ou vous posez une question pertinente, en rattrapant potentiellement votre précédente tentative. Relancez le test échoué et utilisez le nouveau résultat. Si la cible du test manqué est impliquée dans l'une de vos enquêtes actives, doublez votre bonus d'investigation provenant de Suivre une piste sur le test relancé. Cette créature est temporairement immunisée à Encore une chose pendant une journée.",
+                "Vous pouvez aussi utiliser cette action si vous avez obtenu un échec mais pas un échec critique sur un test pour Mentir , Recueillir des informations , Faire bonne impression ou pour Contraindre . Dans ce cas, plutôt que de dépenser une action en ajoutant Encore rune chose, cela vous prend la moitié du temps initialement dépensé pour le test échoué, avec un minimum de un round supplémentaire."
             ]
         },
         {
@@ -4726,9 +4726,9 @@ DON.CLASS = {
                 "Grâce aux forces élémentaires, vous rendez les symboles que vous blasonnez avec plus puissant. Quand vous utilisez Arsenal blasonné, vous pouvez choisir l'un des effets suivants au lieu de ceux de ce don. Ces effets imposent les mêmes restrictions que les options de base.",
                 [
                     "Arme Choisissez acide, électricité, feu, froid ou son. L'arme inflige 1d4 dégâts supplémentaires de ce type. Ces dégâts passent à 1d6 si vous avez un sort de domaine avec un trait correspondant à ce type (Rayon de feu, par exemple).",
-                    "Bouclier Choisissez l'acide, l'électricité, le feu, le froid ou le son. Le porteur bénéficie du bonus de circonstances du bouclier à ses jets de sauvegarde contre ce type de dégâts et peut effectuer un Blocage au bouclier contre les dégâts de ce type. Le bouclier obtient également une résistance contre ce type de dégâts égale à la moitié de votre niveau si vous avez un sort de domaine avec un trait correspondant à ce type ( auto_awesomeRayon de feu , par exemple)."
+                    "Bouclier Choisissez l'acide, l'électricité, le feu, le froid ou le son. Le porteur bénéficie du bonus de circonstances du bouclier à ses jets de sauvegarde contre ce type de dégâts et peut effectuer un Blocage au bouclier contre les dégâts de ce type. Le bouclier obtient également une résistance contre ce type de dégâts égale à la moitié de votre niveau si vous avez un sort de domaine avec un trait correspondant à ce type ( Rayon de feu , par exemple)."
                 ],
-                "flareEffet : Énergie blasonnée"
+                "Effet : Énergie blasonnée"
             ]
         },
         {
@@ -4746,7 +4746,7 @@ DON.CLASS = {
                 "Druide D'un geste complexe, vous invoquez la puissance primordiale de votre sort pour franchir les résistances de vos ennemis.",
                 "Ensorceleur Vous modifiez vos sorts pour percer les défenses de l'ennemi.",
                 "Magicien De multiples cercles de runes tournent autour de votre main lorsque vous surchargez votre sort pour passer à travers les défenses ennemies.",
-                "Si votre prochaine action consiste à Lancer un sort, le sort ignore un nombre de points de résistance de la cible contre l'acide, au froid, à l'électricité, au feu ou au son égal à votre niveau. Cela s'applique à tous les dégâts qu'inflige le sort, y compris les dégâts persistants et ceux causés par un effet continu du sort, comme ceux d'un auto_awesomeMur de feu . Les immunités d'une créature ne sont pas affectées."
+                "Si votre prochaine action consiste à Lancer un sort, le sort ignore un nombre de points de résistance de la cible contre l'acide, au froid, à l'électricité, au feu ou au son égal à votre niveau. Cela s'applique à tous les dégâts qu'inflige le sort, y compris les dégâts persistants et ceux causés par un effet continu du sort, comme ceux d'un Mur de feu . Les immunités d'une créature ne sont pas affectées."
             ]
         },
         {
@@ -4757,7 +4757,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous invoquez la puissance divine, vous pouvez empêcher certains ennemis d'en bénéficier ou certains alliés d'être blessés. Quand vous lancez une version de auto_awesomeMise à mal ou de auto_awesomeGuérison qui affecte une zone, vous pouvez désigner jusqu'à 5 créatures dans la zone. Elles ne sont ciblées par le sort."
+                "Lorsque vous invoquez la puissance divine, vous pouvez empêcher certains ennemis d'en bénéficier ou certains alliés d'être blessés. Quand vous lancez une version de Mise à mal ou de Guérison qui affecte une zone, vous pouvez désigner jusqu'à 5 créatures dans la zone. Elles ne sont ciblées par le sort."
             ]
         },
         {
@@ -4771,7 +4771,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous accomplissez des manipulations complexes pour rendre l'énergie de vos sorts si puissante que vos ennemis y sont par la suite plus sensibles. Si votre prochaine action consiste à Lancer un sort qui inflige des dégâts d'acide, d'électricité, de feu, de froid ou de son, vous pouvez choisir une cible qui a été blessée pour qu'elle souffre d'une faiblesse de 5 à ce type de dégâts jusqu'à la fin de votre prochain tour. Si un sort inflige des dégâts de différents types d'énergies, choisissez celui contre lequel la cible souffre d'une faiblesse. Cela n'a pas d'effet sur les créatures avec une résistance ou une immunité contre le type d'énergie choisi.",
-                "flareEffet : Énergie vigoureuse"
+                "Effet : Énergie vigoureuse"
             ]
         },
         {
@@ -4784,7 +4784,7 @@ DON.CLASS = {
                 "ordre de la tempête"
             ],
             "description": [
-                "Vous êtes chez vous au milieu des éléments, à savourer la puissance débridée de la nature. Vous ne subissez aucune pénalité de circonstances aux attaques de sort à distance ou aux tests de Perception provoqués par le climat et vos sorts ciblés ne nécessitent aucun test nu pour toucher une cible sentiment_very_dissatisfiedMasquée par les conditions climatiques (comme le brouillard)."
+                "Vous êtes chez vous au milieu des éléments, à savourer la puissance débridée de la nature. Vous ne subissez aucune pénalité de circonstances aux attaques de sort à distance ou aux tests de Perception provoqués par le climat et vos sorts ciblés ne nécessitent aucun test nu pour toucher une cible Masquée par les conditions climatiques (comme le brouillard)."
             ]
         },
         {
@@ -4795,7 +4795,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre travail en tant qu'enquêteur vous a rendu familier avec la gent criminelle. Vous pourriez être vous-même un criminel ou avoir gagné une compréhension de la manière dont les criminels opèrent sans en faire partie. Vous devenez qualifié en Connaissance de la pègre et vous obtenez votre bonus de circonstances d'enquête avec sports_martial_artsSuivre une piste aux tests de Vol pour Enquêter au sujet d'une piste (tels que des tests de sports_martial_artsVol d'un indice à un suspect ou pour sports_martial_artsCrocheter une serrure pour ouvrir un coffre contenant des documents compromettants)."
+                "Votre travail en tant qu'enquêteur vous a rendu familier avec la gent criminelle. Vous pourriez être vous-même un criminel ou avoir gagné une compréhension de la manière dont les criminels opèrent sans en faire partie. Vous devenez qualifié en Connaissance de la pègre et vous obtenez votre bonus de circonstances d'enquête avec Suivre une piste aux tests de Vol pour Enquêter au sujet d'une piste (tels que des tests de Vol d'un indice à un suspect ou pour Crocheter une serrure pour ouvrir un coffre contenant des documents compromettants)."
             ]
         },
         {
@@ -4809,7 +4809,7 @@ DON.CLASS = {
                 "Mise en commun des indices"
             ],
             "description": [
-                "Vous passez 1 minute à exposer à un maximum de quatre alliés les indices concernant une de vos enquêtes en cours. Ces alliés obtiennent le même bonus de circonstances que vous, issus de sports_martial_artsSuivre une piste , aux tests pour enquêter sur cette piste. Ce bonus dure jusqu'à ce que vous cessiez de Suivre cette piste ou pendant 1 jour, selon ce qui se produit en premier. Cela ne confère pas d'autre avantage lié à la poursuite d'une piste, comme l'ajout d'un bonus de circonstances à vos jets de sauvegarde avec military_techVivacité du détective ."
+                "Vous passez 1 minute à exposer à un maximum de quatre alliés les indices concernant une de vos enquêtes en cours. Ces alliés obtiennent le même bonus de circonstances que vous, issus de Suivre une piste , aux tests pour enquêter sur cette piste. Ce bonus dure jusqu'à ce que vous cessiez de Suivre cette piste ou pendant 1 jour, selon ce qui se produit en premier. Cela ne confère pas d'autre avantage lié à la poursuite d'une piste, comme l'ajout d'un bonus de circonstances à vos jets de sauvegarde avec Vivacité du détective ."
             ]
         },
         {
@@ -4835,7 +4835,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Une créature ou un danger devrait vous infliger des dégâts de son",
-                "Vous pouvez manipuler l'acoustique autour de vous pour dévier les dégâts de son et les renvoyer à leur source. Faites un test de Représentation contre le casinoReprésentation de la créature ou le casinoReprésentation d'un danger. Si les dégâts proviennent d'un sort, utilisez le DD de sort de la créature s'il est inférieur",
+                "Vous pouvez manipuler l'acoustique autour de vous pour dévier les dégâts de son et les renvoyer à leur source. Faites un test de Représentation contre le Représentation de la créature ou le Représentation d'un danger. Si les dégâts proviennent d'un sort, utilisez le DD de sort de la créature s'il est inférieur",
                 "Succès critique Vous réduisez les dégâts déclencheurs d'un montant égal à quatre fois votre niveau. Le lanceur subit des dégâts de son égaux au montant des dégâts réduits de cette manière.",
                 "Succès Comme avec un succès critique, mais vous réduisez les dégâts déclencheurs par un montant égal à deux fois votre niveau."
             ]
@@ -4851,17 +4851,17 @@ DON.CLASS = {
                 "Vous avez étudié un type d'environnement particulier pour mieux surmonter ses défis. Choisissez votre environnement de prédilection parmi les suivants : aquatique, arctique, désertique, forestier, montagnard, plaine, ciel, marécageux ou souterrain. Dans cet environnement, vous ignorez les effets des terrains difficiles non magiques. Si vous avez la capacité de classe Parcours sans obstacle, vous obtenez un second avantage, déterminé par votre choix, lorsque vous évoluez dans votre environnement de prédilection.",
                 [
                     "Aquatique Vous obtenez une Vitesse de nage égale à votre Vitesse. Si vous avez déjà une Vitesse de nage, vous obtenez à la place un bonus de statut de +3 mètres à votre Vitesse de nage.",
-                    "Arctique Vous n'avez besoin de manger et de boire qu'un dixième de la normale, vous n'êtes pas affecté par le froid important ou extrême et vous pouvez traverser la glace et la neige à votre pleine vitesse sans avoir besoin de sports_martial_artsGarder l'équilibre .",
+                    "Arctique Vous n'avez besoin de manger et de boire qu'un dixième de la normale, vous n'êtes pas affecté par le froid important ou extrême et vous pouvez traverser la glace et la neige à votre pleine vitesse sans avoir besoin de Garder l'équilibre .",
                     "Ciel Vous obtenez un bonus de statut de +3 mètres à votre Vitesse de vol, si vous en avez une.",
                     "Désert Vous n'avez besoin de manger et de boire qu'un dixième de la normale, vous n'êtes pas affecté par la chaleur importante ou extrême et vous pouvez marcher dans le sable à votre pleine vitesse sans avoir besoin de Garder l'équilibre.",
                     "Forêt, Montagne ou Souterrain Vous obtenez une Vitesse d'escalade égale à votre Vitesse. Si vous avez déjà une Vitesse d'escalade, vous obtenez un bonus de statut de +3 mètres à votre Vitesse d'escalade à la place.",
                     "Marais Vous pouvez vous déplacer à travers les tourbières à pleine vitesse, même si elles sont suffisamment profondes pour constituer un terrain très difficile ou pour nécessiter normalement que vous nagiez.",
                     "Plaines Vous obtenez un bonus de statut de +3 mètres à votre Vitesse."
                 ],
-                "flareEffet : Environnement de prédilection (Obtenir une Vitesse d'escalade)",
-                "flareEffet : Environnement de prédilection (Vitesse d'escalade augmentée)",
-                "flareEffet : Environnement de prédilection (Obtenir une Vitesse de nage)",
-                "flareEffet : Environnement de prédilection (Vitesse de nage augmentée)"
+                "Effet : Environnement de prédilection (Obtenir une Vitesse d'escalade)",
+                "Effet : Environnement de prédilection (Vitesse d'escalade augmentée)",
+                "Effet : Environnement de prédilection (Obtenir une Vitesse de nage)",
+                "Effet : Environnement de prédilection (Vitesse de nage augmentée)"
             ]
         },
         {
@@ -4874,8 +4874,8 @@ DON.CLASS = {
                 "qualifié en Athlétisme"
             ],
             "description": [
-                "Conditions Votre dernière action était une sports_martial_artsPoussée réussie.",
-                "Vous utilisez votre poids pour faire trébucher les ennemis que vous déplacez. Vous tentez de faire un sports_martial_artsCroc-en-jambe à la cible, même si la cible n'est plus dans votre allonge."
+                "Conditions Votre dernière action était une Poussée réussie.",
+                "Vous utilisez votre poids pour faire trébucher les ennemis que vous déplacez. Vous tentez de faire un Croc-en-jambe à la cible, même si la cible n'est plus dans votre allonge."
             ]
         },
         {
@@ -4889,8 +4889,8 @@ DON.CLASS = {
             "description": [
                 "Fréquence Une fois par jour",
                 "Déclencheur Votre tour commence.",
-                "Conditions Vous êtes sentiment_very_dissatisfiedInconscient et avez l'état sentiment_very_dissatisfiedMourant .",
-                "La croisée des chemins entre la vie et la mort est un lieu qui peut révéler bien des secrets. Vous obtenez les effets d'un sort auto_awesomeAugure au cours de cette étrange expérience de mort imminente. Conscient de cette issue, vous perdez alors l'état Mourant (devenant sentiment_very_dissatisfiedBlessé 1 ou augmentant la valeur de votre état Blessé de 1, comme à l'ordinaire), regagnez casino2*@actor.level soins Points de vie égaux à deux fois votre niveau et pouvez Vous relever."
+                "Conditions Vous êtes Inconscient et avez l'état Mourant .",
+                "La croisée des chemins entre la vie et la mort est un lieu qui peut révéler bien des secrets. Vous obtenez les effets d'un sort Augure au cours de cette étrange expérience de mort imminente. Conscient de cette issue, vous perdez alors l'état Mourant (devenant Blessé 1 ou augmentant la valeur de votre état Blessé de 1, comme à l'ordinaire), regagnez 2*@actor.level soins Points de vie égaux à deux fois votre niveau et pouvez Vous relever."
             ]
         },
         {
@@ -4903,7 +4903,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Une créature dans votre allonge vous inflige des dégâts avec une attaque au corps-à-corps.",
-                "Ignorant votre douleur, vous tendez le bras et saisissez la créature ou l'arme qui vous a causé des dégâts. Tentez un test d'Athlétisme pour sports_martial_artsSaisir la créature déclencheuse ou pour sports_martial_artsDésarmer la créature de l'arme avec laquelle elle vous a infligé des dégâts."
+                "Ignorant votre douleur, vous tendez le bras et saisissez la créature ou l'arme qui vous a causé des dégâts. Tentez un test d'Athlétisme pour Saisir la créature déclencheuse ou pour Désarmer la créature de l'arme avec laquelle elle vous a infligé des dégâts."
             ]
         },
         {
@@ -4919,7 +4919,7 @@ DON.CLASS = {
                 "Mystère du cosmos ou des flammes"
             ],
             "description": [
-                "Vos lèvres murmurent en prédisant un grand désastre, un auquel vous espérez survivre. Une pluie d'éclairs flamboyants commence à tomber des cieux dans une crop_freeémanation de 3 mètres , centrée sur vous, qui inflige casino2d6 dégâts de feu à toutes les créatures dans l'émanation à la fin de chacun de vos tours ( casinoRéflexes ). Vous ne pouvez pas vous exclure de l'émanation. Le feu céleste persiste pendant 1 minute. Vous ne pouvez pas le Révoquer, mais vous pouvez en supprimer l'effet pendant 1 round en utilisant une action pour Maintenir. La pluie de feu est supprimée si vous tombez sentiment_very_dissatisfiedInconscient . Si vous devenez sentiment_very_dissatisfiedLié à la malédiction 3 ou sentiment_very_dissatisfied4 à n'importe quel moment de la durée de l'Épreuve du feu céleste, l'émanation passe à crop_free4,50 mètres et les dégâts passent à casino4d6 dégâts de feu ."
+                "Vos lèvres murmurent en prédisant un grand désastre, un auquel vous espérez survivre. Une pluie d'éclairs flamboyants commence à tomber des cieux dans une émanation de 3 mètres , centrée sur vous, qui inflige 2d6 dégâts de feu à toutes les créatures dans l'émanation à la fin de chacun de vos tours ( Réflexes ). Vous ne pouvez pas vous exclure de l'émanation. Le feu céleste persiste pendant 1 minute. Vous ne pouvez pas le Révoquer, mais vous pouvez en supprimer l'effet pendant 1 round en utilisant une action pour Maintenir. La pluie de feu est supprimée si vous tombez Inconscient . Si vous devenez Lié à la malédiction 3 ou 4 à n'importe quel moment de la durée de l'Épreuve du feu céleste, l'émanation passe à 4,50 mètres et les dégâts passent à 4d6 dégâts de feu ."
             ]
         },
         {
@@ -4931,8 +4931,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par heure",
-                "Vous érigez un monument druidique, tel qu'une pierre dressée ou un arbre protecteur, à partir du sol, créant une puissante protection primordiale qui bloque tous les autres types de magie. Ce monument apparaît dans une case inoccupée sur le sol dans les 9 mètres, cette case devenant un terrain difficile. Choisissez le trait arcanique, divin ou occulte : toutes les créatures dans une crop_freeémanation de 4,50 mètres du monument obtiennent un bonus de statut de +2 à tous leurs jets de sauvegarde contre les effets ayant ce trait. Le monument reste en place pendant 1 round avant de s'écrouler et retourner dans la terre ou de se flétrir et disparaître mais vous pouvez Maintenir le monument jusqu'à 1 minute.",
-                "flareEffet : Ériger un menhir"
+                "Vous érigez un monument druidique, tel qu'une pierre dressée ou un arbre protecteur, à partir du sol, créant une puissante protection primordiale qui bloque tous les autres types de magie. Ce monument apparaît dans une case inoccupée sur le sol dans les 9 mètres, cette case devenant un terrain difficile. Choisissez le trait arcanique, divin ou occulte : toutes les créatures dans une émanation de 4,50 mètres du monument obtiennent un bonus de statut de +2 à tous leurs jets de sauvegarde contre les effets ayant ce trait. Le monument reste en place pendant 1 round avant de s'écrouler et retourner dans la terre ou de se flétrir et disparaître mais vous pouvez Maintenir le monument jusqu'à 1 minute.",
+                "Effet : Ériger un menhir"
             ]
         },
         {
@@ -5010,7 +5010,7 @@ DON.CLASS = {
                 "Énigmatique (muse de barde)"
             ],
             "description": [
-                "Vous débloquez par magie vos souvenirs, les rendant plus faciles à se remémorer. Vous apprenez le sort de composition auto_awesomeÉtude du maître savant ."
+                "Vous débloquez par magie vos souvenirs, les rendant plus faciles à se remémorer. Vous apprenez le sort de composition Étude du maître savant ."
             ]
         },
         {
@@ -5035,7 +5035,7 @@ DON.CLASS = {
                 "qualifié en Artisanat"
             ],
             "description": [
-                "Vous pouvez rapidement identifier des objets alchimiques. Quand vous utilisez la compétence Artisanat pour sports_martial_artsIdentifier l'alchimie sur un objet alchimique que vous tenez, vous pouvez le faire par une action unique, plutôt que d'y passer 10 minutes."
+                "Vous pouvez rapidement identifier des objets alchimiques. Quand vous utilisez la compétence Artisanat pour Identifier l'alchimie sur un objet alchimique que vous tenez, vous pouvez le faire par une action unique, plutôt que d'y passer 10 minutes."
             ]
         },
         {
@@ -5047,7 +5047,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous faites une attaque télégraphiée pour en apprendre davantage sur votre cible. Faites une Frappe au corps-à-corps. Si vous touchez, vous pouvez immédiatement tenter un test pour sports_martial_artsVous souvenir à propos de votre cible. Sur un coup critique, vous obtenez un bonus de circonstances de +2 au test pour Vous souvenir.",
+                "Vous faites une attaque télégraphiée pour en apprendre davantage sur votre cible. Faites une Frappe au corps-à-corps. Si vous touchez, vous pouvez immédiatement tenter un test pour Vous souvenir à propos de votre cible. Sur un coup critique, vous obtenez un bonus de circonstances de +2 au test pour Vous souvenir.",
                 "La cible est immunisée temporairement à Évaluation du combat pendant 1 journée."
             ]
         },
@@ -5094,7 +5094,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous portez une frappe vicieuse qui mutile votre ennemi.",
-                "Faites une Frappe au corps-à-corps. Si la Frappe touche et inflige des dégâts, la cible est sentiment_very_dissatisfiedDrainée 1 ou sentiment_very_dissatisfiedDrainée 2 en cas de coup critique."
+                "Faites une Frappe au corps-à-corps. Si la Frappe touche et inflige des dégâts, la cible est Drainée 1 ou Drainée 2 en cas de coup critique."
             ]
         },
         {
@@ -5107,8 +5107,8 @@ DON.CLASS = {
                 "Évitement prémonitoire"
             ],
             "description": [
-                "Vous pouvez projeter vos prémonitions du danger à vos alliés. Lorsque vous utilisez military_techÉvitement prémonitoire , vos alliés dans les 6 mètres de vous qui lancent le même jet de sauvegarde contre le même danger obtiennent aussi le bonus de circonstances de +2 à leur jet de sauvegarde.",
-                "flareEffet : Évitement partagé"
+                "Vous pouvez projeter vos prémonitions du danger à vos alliés. Lorsque vous utilisez Évitement prémonitoire , vos alliés dans les 6 mètres de vous qui lancent le même jet de sauvegarde contre le même danger obtiennent aussi le bonus de circonstances de +2 à leur jet de sauvegarde.",
+                "Effet : Évitement partagé"
             ]
         },
         {
@@ -5136,7 +5136,7 @@ DON.CLASS = {
             "description": [
                 "Votre héritage arcanique vous permet de percevoir comment la magie affecte tout. Vous devenez qualifié dans une compétence de votre choix.",
                 "De plus, vous pouvez utiliser les arts arcaniques pour bricoler votre sélection de sorts. Lors de vos préparatifs quotidiens, choisissez l'un des sorts de votre livre de sorts arcaniques pour qu'il devienne un sort emblématique pour la journée.",
-                "Vous pouvez utiliser l'activité sports_martial_artsApprendre un sort pour ajouter davantage de sorts arcaniques à la liste dans laquelle vous pouvez choisir, mais si vous préparez un sort qui ne figure pas dans votre répertoire, ajoutez-le temporairement à votre répertoire au rang de sort de votre choix plutôt que d'en faire un sort emblématique."
+                "Vous pouvez utiliser l'activité Apprendre un sort pour ajouter davantage de sorts arcaniques à la liste dans laquelle vous pouvez choisir, mais si vous préparez un sort qui ne figure pas dans votre répertoire, ajoutez-le temporairement à votre répertoire au rang de sort de votre choix plutôt que d'en faire un sort emblématique."
             ]
         },
         {
@@ -5150,7 +5150,7 @@ DON.CLASS = {
                 "Lignage qui accorde des sorts divins"
             ],
             "description": [
-                "La puissance divine accordée par votre lignage s'écoule à travers vous. Vous gagnez un emplacement de sort supplémentaire du rang le plus élevé que vous pouvez lancer. Vous pouvez l'utiliser uniquement pour lancer auto_awesomeMise à mal ou auto_awesomeGuérison . Vous pouvez lancer l'un ou l'autre de ces sorts en utilisant cet emplacement de sort même si ces sorts ne font pas partie de votre répertoire."
+                "La puissance divine accordée par votre lignage s'écoule à travers vous. Vous gagnez un emplacement de sort supplémentaire du rang le plus élevé que vous pouvez lancer. Vous pouvez l'utiliser uniquement pour lancer Mise à mal ou Guérison . Vous pouvez lancer l'un ou l'autre de ces sorts en utilisant cet emplacement de sort même si ces sorts ne font pas partie de votre répertoire."
             ]
         },
         {
@@ -5214,7 +5214,7 @@ DON.CLASS = {
                 "Évolution arcanique ou Évolution primordiale"
             ],
             "description": [
-                "Vous changez facilement de forme. Une fois par jour, vous pouvez utiliser un emplacement de sort d'ensorceleur pour lancer n'importe quel sort courant de métamorphose ayant une forme de combat du rang de l'emplacement du sort comme s'il s'agissait d'un sort emblématique de votre répertoire. Vous pouvez utiliser l'emplacement de sort supplémentaire pour une military_techÉvolution Arcanique ou une military_techÉvolution Primordiale au lieu d'un emplacement de sort d'ensorceleur."
+                "Vous changez facilement de forme. Une fois par jour, vous pouvez utiliser un emplacement de sort d'ensorceleur pour lancer n'importe quel sort courant de métamorphose ayant une forme de combat du rang de l'emplacement du sort comme s'il s'agissait d'un sort emblématique de votre répertoire. Vous pouvez utiliser l'emplacement de sort supplémentaire pour une Évolution Arcanique ou une Évolution Primordiale au lieu d'un emplacement de sort d'ensorceleur."
             ]
         },
         {
@@ -5228,7 +5228,7 @@ DON.CLASS = {
                 "Lignage qui accorde des sorts primordiaux"
             ],
             "description": [
-                "Vous pouvez invoquer des créatures de la nature sauvage pour bénéficier de leur aide. Vous gagnez un emplacement de sort supplémentaire du rang le plus élevé que vous pouvez lancer. Vous pouvez l'utiliser uniquement pour lancer auto_awesomeConvocation d'animal ou auto_awesomeConvocation de plantes et de champignons . Vous pouvez lancer l'un ou l'autre de ces sorts en utilisant cet emplacement de sort, même si ces sorts ne font pas partie de votre répertoire."
+                "Vous pouvez invoquer des créatures de la nature sauvage pour bénéficier de leur aide. Vous gagnez un emplacement de sort supplémentaire du rang le plus élevé que vous pouvez lancer. Vous pouvez l'utiliser uniquement pour lancer Convocation d'animal ou Convocation de plantes et de champignons . Vous pouvez lancer l'un ou l'autre de ces sorts en utilisant cet emplacement de sort, même si ces sorts ne font pas partie de votre répertoire."
             ]
         },
         {
@@ -5241,7 +5241,7 @@ DON.CLASS = {
                 "Évolution divine ou Évolution occulte"
             ],
             "description": [
-                "Votre sang magique permet à vos sorts d'être pleinement efficaces contre les créatures incorporelles. Vos sorts ont les effets d'une rune de propriété workspectrale . Ils peuvent cibler ou affecter une créature projetant sa conscience (comme par le biais de workProjection d'image ) ou possédant une autre créature, même si son corps se trouve ailleurs, bien que vous deviez être au courant de la possession ou de la projection et choisir de procéder de la sorte. Vos sorts peuvent affecter les créatures du Plan éthéré, mais cela ne vous donne aucune capacité particulière pour les localiser."
+                "Votre sang magique permet à vos sorts d'être pleinement efficaces contre les créatures incorporelles. Vos sorts ont les effets d'une rune de propriété spectrale . Ils peuvent cibler ou affecter une créature projetant sa conscience (comme par le biais de Projection d'image ) ou possédant une autre créature, même si son corps se trouve ailleurs, bien que vous deviez être au courant de la possession ou de la projection et choisir de procéder de la sorte. Vos sorts peuvent affecter les créatures du Plan éthéré, mais cela ne vous donne aucune capacité particulière pour les localiser."
             ]
         },
         {
@@ -5267,7 +5267,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par heure",
-                "En un clin d'œil, vous calculez les mouvements de votre ennemi et savez exactement où porter votre prochain coup. Si votre prochaine action consiste à sports_martial_artsConcevoir un stratagème , vous pouvez lancer deux fois le d20 et conserver le résultat le plus élevé."
+                "En un clin d'œil, vous calculez les mouvements de votre ennemi et savez exactement où porter votre prochain coup. Si votre prochaine action consiste à Concevoir un stratagème , vous pouvez lancer deux fois le d20 et conserver le résultat le plus élevé."
             ]
         },
         {
@@ -5324,7 +5324,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Une créature contre laquelle vous avez sports_martial_artsConçu un stratagème lors de votre tour le plus récent obtient un échec ou un échec critique sur une Frappe contre vous.",
+                "Déclencheur Une créature contre laquelle vous avez Conçu un stratagème lors de votre tour le plus récent obtient un échec ou un échec critique sur une Frappe contre vous.",
                 "En observant vos ennemis attentivement, vous pouvez tirer le meilleur parti de leurs erreurs. Vous Faites un pas."
             ]
         },
@@ -5351,10 +5351,10 @@ DON.CLASS = {
                 "Vous pouvez installer vos bombes sur des objets inanimés afin de détruire la zone environnante.",
                 "Cette activité qui vous prend une minute, consiste à attacher entre une et quatre bombes à un objet inanimé à votre portée, tel qu'un coffre, une porte, un mur ou une colonne.",
                 "Cela crée un piège sur une case occupée ou adjacente à l'objet inanimé. Le DD de Discrétion du piège pour le détecter et le DD de Vol pour le désactiver sont égaux à votre DD de classe.",
-                "Le piège possède la réaction sports_martial_artsMise à feu ! que vous pouvez également déclencher à l'aide d'une action unique tant que vous êtes à moins de 9 mètres du piège. Le piège conserve son potentiel jusqu'à ce qu'il soit déclenché, que l'objet inanimé quitte son espace ou que vous fassiez vos prochains préparatifs quotidiens selon ce qui se produit en premier.",
-                "sports_martial_artsMise à feu ! R",
+                "Le piège possède la réaction Mise à feu ! que vous pouvez également déclencher à l'aide d'une action unique tant que vous êtes à moins de 9 mètres du piège. Le piège conserve son potentiel jusqu'à ce qu'il soit déclenché, que l'objet inanimé quitte son espace ou que vous fassiez vos prochains préparatifs quotidiens selon ce qui se produit en premier.",
+                "Mise à feu ! R",
                 "Déclencheur Une créature se déplace dans la case du piège.",
-                "Effet Le piège explose, infligeant les dégâts des bombes et les dégâts d'éclaboussures à l'objet inanimé. Combinez ces dégâts pour les besoins de calculer les résistances et les faiblesses et ces dégâts ignorent un montant de la Solidité de l'objet égal à votre niveau. Toute créature adjacente au piège subit les dégâts d'éclaboussures des bombes, combinés de la même façon, pour les besoins de calculer les résistances et les faiblesses. Souvenez vous que comme vous ne lancez pas les bombes, military_techÉclaboussure calculée et les effets similaires ne s'appliquent pas."
+                "Effet Le piège explose, infligeant les dégâts des bombes et les dégâts d'éclaboussures à l'objet inanimé. Combinez ces dégâts pour les besoins de calculer les résistances et les faiblesses et ces dégâts ignorent un montant de la Solidité de l'objet égal à votre niveau. Toute créature adjacente au piège subit les dégâts d'éclaboussures des bombes, combinés de la même façon, pour les besoins de calculer les résistances et les faiblesses. Souvenez vous que comme vous ne lancez pas les bombes, Éclaboussure calculée et les effets similaires ne s'appliquent pas."
             ]
         },
         {
@@ -5366,7 +5366,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Votre magie explose. Vous connaissez l'effet de magie du sang suivant :",
-                "Magie du sang - Explosion de puissance Une puissance brute explose à partir de vous. Chaque créature située dans une crop_freeémanation de 1,50 mètre subit 1d6 dégâts par rang du sort que vous venez de lancer ( casinoRéflexes ). Le type de dégâts dépend de la tradition de votre lignage. Si vous lancez des sorts arcaniques, vous infligez des dégâts de force. Si vous lancez des sorts divins, vous infligez des dégâts spirituels. Si vous lancez des sorts occultes, vous infligez des dégâts mentaux. Si vous lancez des sorts primordiaux, vous infligez des dégâts de feu."
+                "Magie du sang - Explosion de puissance Une puissance brute explose à partir de vous. Chaque créature située dans une émanation de 1,50 mètre subit 1d6 dégâts par rang du sort que vous venez de lancer ( Réflexes ). Le type de dégâts dépend de la tradition de votre lignage. Si vous lancez des sorts arcaniques, vous infligez des dégâts de force. Si vous lancez des sorts divins, vous infligez des dégâts spirituels. Si vous lancez des sorts occultes, vous infligez des dégâts mentaux. Si vous lancez des sorts primordiaux, vous infligez des dégâts de feu."
             ]
         },
         {
@@ -5378,7 +5378,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois toutes les 10 minutes",
-                "Votre maîtrise de l'alchimie vous permet de ressusciter des morts récents. Vous pouvez administrer un Élixir de vie majeur ou ultime à une créature qui n'est pas morte depuis plus de 2 rounds. Quand vous effectuez cela, la créature revient immédiatement à la vie avec 1 Point de vie et se trouve dans l'état sentiment_very_dissatisfiedBlessé 1 ."
+                "Votre maîtrise de l'alchimie vous permet de ressusciter des morts récents. Vous pouvez administrer un Élixir de vie majeur ou ultime à une créature qui n'est pas morte depuis plus de 2 rounds. Quand vous effectuez cela, la créature revient immédiatement à la vie avec 1 Point de vie et se trouve dans l'état Blessé 1 ."
             ]
         },
         {
@@ -5389,7 +5389,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos recherches ont porté leurs fruits et vous avez découvert la légendaire pierre philosophale. Vous apprenez la formule de la workPierre philosophale et vous pouvez l'ajouter à votre recueil."
+                "Vos recherches ont porté leurs fruits et vous avez découvert la légendaire pierre philosophale. Vous apprenez la formule de la Pierre philosophale et vous pouvez l'ajouter à votre recueil."
             ]
         },
         {
@@ -5400,8 +5400,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous sports_martial_artsConcevez un stratagème , vous pouvez aussi tenter un test pour sports_martial_artsVous souvenir faisant partie de cette action avant de lancer le d20. Si vous obtenez un succès critique au test pour Vous souvenir, vous remarquez une faiblesse et pouvez communiquer l'information à vos alliés pour leur donner un bonus de circonstances de +1 à leur prochaine attaque contre le sujet, tant que cette attaque est portée avant le début de votre prochain tour. Si vous choisissez un stratagème d'attaque, ce bonus s'applique également à ce jet d'attaque.",
-                "flareEffet : Faiblesses connues"
+                "Lorsque vous Concevez un stratagème , vous pouvez aussi tenter un test pour Vous souvenir faisant partie de cette action avant de lancer le d20. Si vous obtenez un succès critique au test pour Vous souvenir, vous remarquez une faiblesse et pouvez communiquer l'information à vos alliés pour leur donner un bonus de circonstances de +1 à leur prochaine attaque contre le sujet, tant que cette attaque est portée avant le début de votre prochain tour. Si vous choisissez un stratagème d'attaque, ce bonus s'applique également à ce jet d'attaque.",
+                "Effet : Faiblesses connues"
             ]
         },
         {
@@ -5416,7 +5416,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous posez un doigt sur la balance de la vie et de la mort pour soigner une créature, qu'elle soit vivante ou morte-vivante. Vous rendez casino2 + le double de votre niveau de Points de vie à une créature dans les 9 mètres.",
+                "Vous posez un doigt sur la balance de la vie et de la mort pour soigner une créature, qu'elle soit vivante ou morte-vivante. Vous rendez 2 + le double de votre niveau de Points de vie à une créature dans les 9 mètres.",
                 "En outre, vous pouvez servir de médiateur au cours de vos préparatifs quotidiens et vous placer d'un des deux côtés de la balance. Choisissez la vie ou la mort. Si vous vous alignez sur la vie, vous êtes soigné par les effets de guérison de vitalité, comme c'est le cas pour la plupart des créatures vivantes. Si vous vous alignez sur la mort, vous obtenez la capacité guérison du vide, qui vous permet d'être soigné par les effets du vide qui restaurent des Points de vie et tous les autres effets qui redonnent des Points de vie aux créatures mortes-vivantes."
             ]
         },
@@ -5433,8 +5433,8 @@ DON.CLASS = {
                 "qualifié en Intimidation"
             ],
             "description": [
-                "Vous menacez la cible, utilisant ses craintes et attirant son attention. Faites un test d' casinoIntimidation contre le DD de Volonté d'une cible dans les 9 mètres. Si vous réussissez, pendant 1 minute, cette cible obtient un bonus de statut de +2 aux tests de Perception contre vous, mais elle subit une pénalité de statut de -2 aux jets de Volonté contre les effets de terreur.",
-                "flareEffet : Fais attention"
+                "Vous menacez la cible, utilisant ses craintes et attirant son attention. Faites un test d' Intimidation contre le DD de Volonté d'une cible dans les 9 mètres. Si vous réussissez, pendant 1 minute, cette cible obtient un bonus de statut de +2 aux tests de Perception contre vous, mais elle subit une pénalité de statut de -2 aux jets de Volonté contre les effets de terreur.",
+                "Effet : Fais attention"
             ]
         },
         {
@@ -5460,7 +5460,7 @@ DON.CLASS = {
                 "Méthodologie : Interrogatoire"
             ],
             "description": [
-                "Votre méthode d'interrogation permet à un suspect de savoir que vous voyez clair dans son jeu, l'ébranlant au plus profond de lui-même. Lorsque vous réussissez à utiliser sports_martial_artsQuestion imparable , la cible est également sentiment_very_dissatisfiedEffrayée 1 (ou sentiment_very_dissatisfiedEffrayée 2 en cas de succès critique). Cet effet supplémentaire est un effet d'émotion et de terreur, mais les autres effets de Question imparable s'appliquent toujours, même si la cible est immunisée contre la terreur."
+                "Votre méthode d'interrogation permet à un suspect de savoir que vous voyez clair dans son jeu, l'ébranlant au plus profond de lui-même. Lorsque vous réussissez à utiliser Question imparable , la cible est également Effrayée 1 (ou Effrayée 2 en cas de succès critique). Cet effet supplémentaire est un effet d'émotion et de terreur, mais les autres effets de Question imparable s'appliquent toujours, même si la cible est immunisée contre la terreur."
             ]
         },
         {
@@ -5538,7 +5538,7 @@ DON.CLASS = {
                 "patron arcanique ou primordial"
             ],
             "description": [
-                "Votre familier peut se débarrasser de sa forme matérielle et devenir une masse de magie animée. Votre familier obtient l'activité sports_martial_artsFrappe effilochée"
+                "Votre familier peut se débarrasser de sa forme matérielle et devenir une masse de magie animée. Votre familier obtient l'activité Frappe effilochée"
             ]
         },
         {
@@ -5564,7 +5564,7 @@ DON.CLASS = {
                 "patron divin ou occulte"
             ],
             "description": [
-                "Votre familier peut subsumer son corps pour devenir un pur esprit. Votre familier obtient l'activité sports_martial_artsDépouiller ."
+                "Votre familier peut subsumer son corps pour devenir un pur esprit. Votre familier obtient l'activité Dépouiller ."
             ]
         },
         {
@@ -5577,7 +5577,7 @@ DON.CLASS = {
                 "Représentation fascinante"
             ],
             "description": [
-                "Lorsque vous utilisez military_techReprésentation fascinante lors d'une rencontre de combat, vous n'avez besoin que d'un succès à la place d'un succès critique pour sentiment_very_dissatisfiedFasciner votre cible. Cela ne fonctionne que si vous tentez de fasciner une cible. Par exemple, si vous êtes un expert en Représentation, vous pouvez choisir de cibler plusieurs créatures normalement ou de n'en cibler qu'une seule pour parvenir à la fasciner sur un succès."
+                "Lorsque vous utilisez Représentation fascinante lors d'une rencontre de combat, vous n'avez besoin que d'un succès à la place d'un succès critique pour Fasciner votre cible. Cela ne fonctionne que si vous tentez de fasciner une cible. Par exemple, si vous êtes un expert en Représentation, vous pouvez choisir de cibler plusieurs créatures normalement ou de n'en cibler qu'une seule pour parvenir à la fasciner sur un succès."
             ]
         },
         {
@@ -5590,9 +5590,9 @@ DON.CLASS = {
                 "expert en Duperie, Posture chancelante"
             ],
             "description": [
-                "Conditions vous avez adopté la military_techPosture chancelante .",
+                "Conditions vous avez adopté la Posture chancelante .",
                 "Vous déchaînez de manière déroutante ce qui ressemble à un mouvement faible mais à la place, vous permet de déchaîner un déluge de coups dangereux sur votre ennemi qui ne se doute de rien.",
-                "Lorsque vous utilisez sports_martial_artsDéluge de coups , vous pouvez tenter un test pour sports_martial_artsFeinter par une action gratuite, juste avant la première sports_martial_artsFrappe . En cas de succès, au lieu de rendre la cible sentiment_very_dissatisfiedPrise au dépourvu contre votre prochaine attaque, elle le devient contre les deux attaques du Déluge de coups."
+                "Lorsque vous utilisez Déluge de coups , vous pouvez tenter un test pour Feinter par une action gratuite, juste avant la première Frappe . En cas de succès, au lieu de rendre la cible Prise au dépourvu contre votre prochaine attaque, elle le devient contre les deux attaques du Déluge de coups."
             ]
         },
         {
@@ -5605,8 +5605,8 @@ DON.CLASS = {
                 "Trafic de scélérat"
             ],
             "description": [
-                "Vos sports_martial_artsFeintes sont bien plus distrayantes que la normale. Lorsqu'une créature est sentiment_very_dissatisfiedprise au dépourvu suite à votre Feinte, elle subit également une pénalité de circonstances de -2 à ses tests de Perception et à ses jets de Réflexes.",
-                "flareEffet : Feinte de diversion"
+                "Vos Feintes sont bien plus distrayantes que la normale. Lorsqu'une créature est prise au dépourvu suite à votre Feinte, elle subit également une pénalité de circonstances de -2 à ses tests de Perception et à ses jets de Réflexes.",
+                "Effet : Feinte de diversion"
             ]
         },
         {
@@ -5619,7 +5619,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous lancez une arme en l'air en guise de distraction pendant que vous en lancez une autre. Choisissez une créature dans les 9 mètres et faites une sports_martial_artsFeinte contre elle. Vous pouvez tenter cette feinte même si la cible n'est pas dans votre allonge au corps-à-corps et, si la cible devient sentiment_very_dissatisfiedPrise au dépourvu à la suite de la feinte, cet état s'applique pour vos attaques avec les armes de jet pendant sa durée.",
+                "Vous lancez une arme en l'air en guise de distraction pendant que vous en lancez une autre. Choisissez une créature dans les 9 mètres et faites une Feinte contre elle. Vous pouvez tenter cette feinte même si la cible n'est pas dans votre allonge au corps-à-corps et, si la cible devient Prise au dépourvu à la suite de la feinte, cet état s'applique pour vos attaques avec les armes de jet pendant sa durée.",
                 "Quel que soit le résultat, vous pouvez alors Interagir pour dégainer une arme de jet et faire une Frappe d'arme de jet contre la cible. Si vous disposez d'une main libre, vous rattrapez l'arme que vous avez lancé en l'air à l'origine à moins que vous n'ayez obtenu un échec critique à votre tentative pour Feinter, auquel cas, elle atterrit sur le sol à à vos pieds."
             ]
         },
@@ -5633,7 +5633,7 @@ DON.CLASS = {
                 "Posture du ricochet"
             ],
             "description": [
-                "Lorsque vous adoptez la military_techPosture du ricochet , vous pouvez faire rebondir une arme de jet sur un ennemi pour le distraire. Vous pouvez tenter une sports_martial_artsFeinte contre une créature dans le premier facteur de portée d'une arme de jet que vous maniez et pas seulement contre les créatures qui sont dans votre allonge au corps-à-corps."
+                "Lorsque vous adoptez la Posture du ricochet , vous pouvez faire rebondir une arme de jet sur un ennemi pour le distraire. Vous pouvez tenter une Feinte contre une créature dans le premier facteur de portée d'une arme de jet que vous maniez et pas seulement contre les créatures qui sont dans votre allonge au corps-à-corps."
             ]
         },
         {
@@ -5645,7 +5645,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez deux armes de corps-à-corps, chacune dans une main différente",
-                "Vous utilisez une attaque avec l'une de vos armes pour distraire votre adversaire d'une seconde attaque provenant d'un angle différent. Faites une Frappe avec chacune de vos deux armes de corps-à-corps, les deux contre la même cible. La cible est automatiquement sentiment_very_dissatisfiedPrise au dépourvu contre la seconde attaque. Appliquez normalement votre pénalité d'attaques multiples à ces Frappes."
+                "Vous utilisez une attaque avec l'une de vos armes pour distraire votre adversaire d'une seconde attaque provenant d'un angle différent. Faites une Frappe avec chacune de vos deux armes de corps-à-corps, les deux contre la même cible. La cible est automatiquement Prise au dépourvu contre la seconde attaque. Appliquez normalement votre pénalité d'attaques multiples à ces Frappes."
             ]
         },
         {
@@ -5658,7 +5658,7 @@ DON.CLASS = {
                 "qualifié en Duperie"
             ],
             "description": [
-                "Vous poussez votre adversaire à prendre trop de risques. Sur une sports_martial_artsFeinte réussie, vous pouvez utiliser l'effet de succès et de succès critique suivant au lieu de tout autre effet qui devrait se produire lorsque vous Feintez.",
+                "Vous poussez votre adversaire à prendre trop de risques. Sur une Feinte réussie, vous pouvez utiliser l'effet de succès et de succès critique suivant au lieu de tout autre effet qui devrait se produire lorsque vous Feintez.",
                 "Succès critique La cible subit une pénalité de circonstances de -2 à tous ses jets d'attaque contre vous jusqu'à la fin de son prochain tour.",
                 "Succès La cible subit une pénalité de circonstances de -2 à sa prochaine attaque contre vous avant la fin de son prochain tour."
             ]
@@ -5673,10 +5673,10 @@ DON.CLASS = {
                 "qualifié en Duperie"
             ],
             "description": [
-                "Vos ruse poussent vos adversaires à porter trop loin leurs attaques. Sur une sports_martial_artsFeinte , vous pouvez utiliser les effets de succès et de succès critique ci-dessous au lieu de tout autre effet que vous pourriez obtenir lorsque vous Feintez ; si vous le faites, les autres capacités qui ajustent les effets normaux de Feinte ne s'appliquent plus. Vous pouvez choisir soit d'utiliser les avantages de Feinte provocante ou les effets normaux à chaque fois que vous Feintez un ennemi donné.",
+                "Vos ruse poussent vos adversaires à porter trop loin leurs attaques. Sur une Feinte , vous pouvez utiliser les effets de succès et de succès critique ci-dessous au lieu de tout autre effet que vous pourriez obtenir lorsque vous Feintez ; si vous le faites, les autres capacités qui ajustent les effets normaux de Feinte ne s'appliquent plus. Vous pouvez choisir soit d'utiliser les avantages de Feinte provocante ou les effets normaux à chaque fois que vous Feintez un ennemi donné.",
                 "Succès critique La cible subit une pénalité de circonstances de -2 à tous les jets d'attaque contre vous avant la fin de son prochain tour.",
                 "Succès La cible subit une pénalité de circonstances de -2 à son prochain jet d'attaque contre vous avant la fin de son prochain tour.",
-                "flareEffet : Feinte provocante"
+                "Effet : Feinte provocante"
             ]
         },
         {
@@ -5714,7 +5714,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes aussi léger qu'une feuille qui virevolte dans la brise. Quand vous sports_martial_artsBondissez ou obtenez un succès pour sports_martial_artsSauter en hauteur ou sports_martial_artssauter longueur , augmentez la distance de votre saut de 1,50 mètre. Quand vous calculez les dégâts que vous subissez lors d'une chute, ne comptez pas la distance de chute parcourue en restant adjacent à un mur ou une paroi."
+                "Vous êtes aussi léger qu'une feuille qui virevolte dans la brise. Quand vous Bondissez ou obtenez un succès pour Sauter en hauteur ou sauter longueur , augmentez la distance de votre saut de 1,50 mètre. Quand vous calculez les dégâts que vous subissez lors d'une chute, ne comptez pas la distance de chute parcourue en restant adjacent à un mur ou une paroi."
             ]
         },
         {
@@ -5752,7 +5752,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une unique arme de corps-à-corps à une main et ne tenez rien d'autre dans vos mains.",
-                "En utilisant votre arme comme un levier, vous forcez votre adversaire à se déplacer exactement là où vous le désirez. Effectuez une Frappe avec une arme au corps-à-corps à une main. Si cette Frappe touche, vous pouvez sports_martial_artsRepositionner la cible de 3 mètres. Vous ne pouvez pas la faire traverser votre espace pendant ce déplacement. Votre Frappe obtient l'effet d'échec suivant.",
+                "En utilisant votre arme comme un levier, vous forcez votre adversaire à se déplacer exactement là où vous le désirez. Effectuez une Frappe avec une arme au corps-à-corps à une main. Si cette Frappe touche, vous pouvez Repositionner la cible de 3 mètres. Vous ne pouvez pas la faire traverser votre espace pendant ce déplacement. Votre Frappe obtient l'effet d'échec suivant.",
                 "Échec Vous pouvez forcer la créature à se déplacer comme en cas de succès, mais vous ne déplacez la cible que de 1,50 mètre."
             ]
         },
@@ -5765,7 +5765,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Quand vous avez désespérément besoin de mettre un terme à un combat, vous concentrez toute votre rage dans un dernier coup. Effectuez une Frappe. Si elle réussit, vous obtenez un bonus de circonstances aux dégâts égal au nombre de rounds de Rage que vous avez encore (avec un maximum de 10). Après cette Frappe, votre Rage prend immédiatement fin et vous êtes dans l'état sentiment_very_dissatisfiedFatigué jusqu'à ce que vous vous reposiez au moins 10 minutes."
+                "Quand vous avez désespérément besoin de mettre un terme à un combat, vous concentrez toute votre rage dans un dernier coup. Effectuez une Frappe. Si elle réussit, vous obtenez un bonus de circonstances aux dégâts égal au nombre de rounds de Rage que vous avez encore (avec un maximum de 10). Après cette Frappe, votre Rage prend immédiatement fin et vous êtes dans l'état Fatigué jusqu'à ce que vous vous reposiez au moins 10 minutes."
             ]
         },
         {
@@ -5781,7 +5781,7 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Vous ou un allié qui bénéficie de votre sort de composition devrait subir des dégâts de son.",
                 "Vous interrompez votre représentation sur un final brutal et dramatique noyant les autres sons. Votre sort de composition s'achève immédiatement et tous vos alliés qui ont bénéficié des effets du sort obtiennent une résistance au son contre les dégâts déclencheurs égale à deux fois le rang du sort de composition.",
-                "flareEffet : Final retentissant"
+                "Effet : Final retentissant"
             ]
         },
         {
@@ -5793,7 +5793,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Les produits chimiques curatifs contenus dans vos fioles polyvalentes aident également à calmer l'esprit du patient. Lorsqu'une créature vivante affectée par un effet mental regagne des Points de vie grâce à l'une de vos fioles polyvalentes, elle peut immédiatement tenter un nouveau jet de Volonté pour mettre fin à un effet mental de son choix. Elle bénéficie d'un bonus d'objet de +1 sur ce jet de sauvegarde.",
-                "flareEffet : Fioles apaisantes"
+                "Effet : Fioles apaisantes"
             ]
         },
         {
@@ -5808,8 +5808,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous embellissez vos sorts avec des fioritures envoûtantes et de grandes déclamations, ce qui les rend plus difficiles à identifier ou à contrer.",
-                "Si la prochaine action que vous utilisez consiste à sports_martial_artsLancer un sort , les créatures disposant de la capacité de lancer ce sort ne savent pas automatiquement quel est le sort.",
-                "De plus, les créatures qui sont témoins du lancement de votre sort subissent une pénalité de circonstances de -2 pour les tests pour sports_martial_artsSe souvenir et aux test pour contrer le sort lors de son incantation (comme avec military_techContresort )."
+                "Si la prochaine action que vous utilisez consiste à Lancer un sort , les créatures disposant de la capacité de lancer ce sort ne savent pas automatiquement quel est le sort.",
+                "De plus, les créatures qui sont témoins du lancement de votre sort subissent une pénalité de circonstances de -2 pour les tests pour Se souvenir et aux test pour contrer le sort lors de son incantation (comme avec Contresort )."
             ]
         },
         {
@@ -5824,7 +5824,7 @@ DON.CLASS = {
             "description": [
                 "Votre expérience vous permet de rester vigilant, d'adopter à la volée des stratégies complexes et de relever les défis les plus périlleux. Lorsque vous obtenez un don de guerrier en utilisant flexibilité martiale , vous obtenez trois dons de guerrier au lieu de deux. Bien que le premier doit toujours être de niveau 8 ou inférieur, le deuxième don doit être de niveau 14 au maximum et le troisième peut être de niveau 18.",
                 "Vous pouvez utiliser le premier don pour remplir les prérequis du deuxième ou du troisième don et le deuxième pour remplir les prérequis du troisième don. Vous devez remplir tous les prérequis des trois dons comme à l'ordinaire.",
-                "De plus, vous pouvez vous adapter aux défis du champ de bataille en passant 1 heure à vous entraîner. Si vous le faites, vous pouvez re-sélectionner les dons choisis avec flexibilité martiale comme si vous aviez effectué vos préparatifs quotidiens. Vous ne pouvez pas échanger de la sorte les capacités à usage limité que vous avez déjà utilisées, comme avec military_techDétermination ."
+                "De plus, vous pouvez vous adapter aux défis du champ de bataille en passant 1 heure à vous entraîner. Si vous le faites, vous pouvez re-sélectionner les dons choisis avec flexibilité martiale comme si vous aviez effectué vos préparatifs quotidiens. Vous ne pouvez pas échanger de la sorte les capacités à usage limité que vous avez déjà utilisées, comme avec Détermination ."
             ]
         },
         {
@@ -5847,7 +5847,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le sort de composition auto_awesomeFlûte de Hamelin , qui vous permet de contrôler les actions des individus faibles d'esprit."
+                "Vous apprenez le sort de composition Flûte de Hamelin , qui vous permet de contrôler les actions des individus faibles d'esprit."
             ]
         },
         {
@@ -5862,7 +5862,7 @@ DON.CLASS = {
                 "Source polyvalente"
             ],
             "description": [
-                "Vous pouvez tirer de l'énergie de la vitalité et du vide simultanément pour blesser vos ennemis et soigner vos alliés. Si votre prochaine action consiste à Lancer un sort de auto_awesomeGuérison ou de auto_awesomeMise à mal à 1 action ou 2 actions, choisissez une créature à portée qui devrait être blessée par le sort et choisissez une créature à portée qui devrait être soignée par le sort. Votre Guérison ou Mise à mal cible les deux créatures."
+                "Vous pouvez tirer de l'énergie de la vitalité et du vide simultanément pour blesser vos ennemis et soigner vos alliés. Si votre prochaine action consiste à Lancer un sort de Guérison ou de Mise à mal à 1 action ou 2 actions, choisissez une créature à portée qui devrait être blessée par le sort et choisissez une créature à portée qui devrait être soignée par le sort. Votre Guérison ou Mise à mal cible les deux créatures."
             ]
         },
         {
@@ -5949,7 +5949,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous savez comment optimiser vos attaques en combat rapproché. Vous avez accès aux effets critiques spécialisés des frappes à mains nues du groupe pugilat et des armes du groupe pugilat. Si vous avez military_techArmes monacales , vous avez également accès aux effets critiques spécialisés de toutes les armes de moines avec lesquelles vous êtes qualifié."
+                "Vous savez comment optimiser vos attaques en combat rapproché. Vous avez accès aux effets critiques spécialisés des frappes à mains nues du groupe pugilat et des armes du groupe pugilat. Si vous avez Armes monacales , vous avez également accès aux effets critiques spécialisés de toutes les armes de moines avec lesquelles vous êtes qualifié."
             ]
         },
         {
@@ -5962,7 +5962,7 @@ DON.CLASS = {
                 "Attaque en puissance"
             ],
             "description": [
-                "Vous avez appris à garder votre équilibre, même quand vous frappez avec acharnement. Quand vous faites une military_techCoup vicieux avec une arme de corps-à-corps que vous maniez à deux mains, elle compte comme une attaque au lieu de deux dans le calcul de votre pénalité d'attaques multiples."
+                "Vous avez appris à garder votre équilibre, même quand vous frappez avec acharnement. Quand vous faites une Coup vicieux avec une arme de corps-à-corps que vous maniez à deux mains, elle compte comme une attaque au lieu de deux dans le calcul de votre pénalité d'attaques multiples."
             ]
         },
         {
@@ -5986,7 +5986,7 @@ DON.CLASS = {
                 "Lien arcanique, Sorts de cursus"
             ],
             "description": [
-                "Vous avez associé votre objet lié au puits d'énergie qui alimente vos sorts d'école. Une fois par jour, lorsque vous sports_martial_artsDrainez votre objet lié pour lancer un sort de cursus de votre école, vous récupérez aussi 1 point de focalisation."
+                "Vous avez associé votre objet lié au puits d'énergie qui alimente vos sorts d'école. Une fois par jour, lorsque vous Drainez votre objet lié pour lancer un sort de cursus de votre école, vous récupérez aussi 1 point de focalisation."
             ]
         },
         {
@@ -6039,7 +6039,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre force est une part de votre rage. Tant que votre colère persiste, vous pouvez rassembler votre force et votre rage pour franchir toute sorte d'affaiblissement.",
-                "Vous réduisez la valeur de votre état sentiment_very_dissatisfiedAffaibli de 1."
+                "Vous réduisez la valeur de votre état Affaibli de 1."
             ]
         },
         {
@@ -6063,7 +6063,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "La prétendue place des humanoïdes séparée de celle des animaux est une absurdité : prendre leurs formes demande juste un peu plus d'entraînement. Ajoutez les formes du sort auto_awesomeForme humanoïde à la liste de celles de votre auto_awesomeForme indomptée ."
+                "La prétendue place des humanoïdes séparée de celle des animaux est une absurdité : prendre leurs formes demande juste un peu plus d'entraînement. Ajoutez les formes du sort Forme humanoïde à la liste de celles de votre Forme indomptée ."
             ]
         },
         {
@@ -6076,7 +6076,7 @@ DON.CLASS = {
                 "ordre indompté"
             ],
             "description": [
-                "Vous ne faites qu'un avec la nature sauvage, toujours changeante et s'adaptant sans arrêt pour relever n'importe quel défi. Vous obtenez le sort d'ordre auto_awesomeForme indomptée qui vous permet de vous transformer de diverses manières que vous pouvez encore améliorer avec des dons de druide."
+                "Vous ne faites qu'un avec la nature sauvage, toujours changeante et s'adaptant sans arrêt pour relever n'importe quel défi. Vous obtenez le sort d'ordre Forme indomptée qui vous permet de vous transformer de diverses manières que vous pouvez encore améliorer avec des dons de druide."
             ]
         },
         {
@@ -6143,7 +6143,7 @@ DON.CLASS = {
                 "maître en Discrétion"
             ],
             "description": [
-                "Vous aidez vos alliés à se déplacer discrètement en pleine nature. Quand vous sports_martial_artsÊtes furtif en mode exploration dans un environnement naturel, vous pouvez désigner n'importe quel nombre d'alliés pour qu'ils bénéficient des mêmes avantages, comme s'ils effectuaient eux aussi cette activité en mode exploration. Ceci ne nécessite aucune action de leur part."
+                "Vous aidez vos alliés à se déplacer discrètement en pleine nature. Quand vous Êtes furtif en mode exploration dans un environnement naturel, vous pouvez désigner n'importe quel nombre d'alliés pour qu'ils bénéficient des mêmes avantages, comme s'ils effectuaient eux aussi cette activité en mode exploration. Ceci ne nécessite aucune action de leur part."
             ]
         },
         {
@@ -6156,7 +6156,7 @@ DON.CLASS = {
                 "cause du libérateur"
             ],
             "description": [
-                "Au lieu de Faire un pas à la fin de votre sports_martial_artsPas libérateur , l'allié ayant déclenché ce pouvoir peut Marcher rapidement à la moitié de sa Vitesse.",
+                "Au lieu de Faire un pas à la fin de votre Pas libérateur , l'allié ayant déclenché ce pouvoir peut Marcher rapidement à la moitié de sa Vitesse.",
                 "Même si vous avez Exaltation , seul l'allié ayant déclenché ce pouvoir bénéficie de cet avantage."
             ]
         },
@@ -6181,7 +6181,7 @@ DON.CLASS = {
                 "Découper en l'air"
             ],
             "description": [
-                "Votre expertise vous permet de repousser les sorts. Vous pouvez utiliser military_techDécouper en l'air contre les attaques de sort à distance."
+                "Votre expertise vous permet de repousser les sorts. Vous pouvez utiliser Découper en l'air contre les attaques de sort à distance."
             ]
         },
         {
@@ -6192,7 +6192,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes assez rusé pour trouvez une ouverture dans l'attaque de votre adversaire. Lorsque vous utilisez votre réaction military_techEsquive agile , vous pouvez effectuer une Frappe au corps-à-corps contre la créature déclencheuse. Cette Frappe n'est pas prise en compte dans le calcul de votre pénalité d'attaques multiples et votre pénalité d'attaques multiples ne s'applique pas à cette Frappe. Si vous utilisez le don military_techRoulade agile , vous pouvez faire cette Frappe à n'importe quel moment lorsque vous effectuez votre roulade."
+                "Vous êtes assez rusé pour trouvez une ouverture dans l'attaque de votre adversaire. Lorsque vous utilisez votre réaction Esquive agile , vous pouvez effectuer une Frappe au corps-à-corps contre la créature déclencheuse. Cette Frappe n'est pas prise en compte dans le calcul de votre pénalité d'attaques multiples et votre pénalité d'attaques multiples ne s'applique pas à cette Frappe. Si vous utilisez le don Roulade agile , vous pouvez faire cette Frappe à n'importe quel moment lorsque vous effectuez votre roulade."
             ]
         },
         {
@@ -6230,7 +6230,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous disposez d'une main libre et votre cible est dans l'allonge de cette main.",
-                "Vous combinez une attaque avec de rapides prises avec la main pour déséquilibrer un ennemi tant qu'il reste dans votre allonge. Portez une Frappe en gardant une main libre. Si cette Frappe touche, la cible est sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour ou jusqu'à ce qu'elle ne soit plus dans l'allonge de votre main, selon ce qui advient en premier."
+                "Vous combinez une attaque avec de rapides prises avec la main pour déséquilibrer un ennemi tant qu'il reste dans votre allonge. Portez une Frappe en gardant une main libre. Si cette Frappe touche, la cible est Prise au dépourvu jusqu'au début de votre prochain tour ou jusqu'à ce qu'elle ne soit plus dans l'allonge de votre main, selon ce qui advient en premier."
             ]
         },
         {
@@ -6244,8 +6244,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Lorsque vous trouvez une faiblesse flagrante, vous pouvez organiser vos alliés afin qu'ils anéantissent votre ennemi.",
-                "Lorsque vous utilisez military_techStratagème partagé , vous pouvez désigner jusqu'à 10 alliés au lieu d'un seul. L'ennemi est sentiment_very_dissatisfiedPris au dépourvu contre la première des attaques de chaque allié désigné infligée avant votre prochain tour et la première attaque de chaque allié inflige 2d6 dégâts de précision supplémentaires à la cible si elle la touche.",
-                "flareEffet : Frappe didactique"
+                "Lorsque vous utilisez Stratagème partagé , vous pouvez désigner jusqu'à 10 alliés au lieu d'un seul. L'ennemi est Pris au dépourvu contre la première des attaques de chaque allié désigné infligée avant votre prochain tour et la première attaque de chaque allié inflige 2d6 dégâts de précision supplémentaires à la cible si elle la touche.",
+                "Effet : Frappe didactique"
             ]
         },
         {
@@ -6271,7 +6271,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous faites en sorte de viser avec votre arme de manière à accrocher l'armure, les vêtements ou la chair d'un ennemi avant de le rapprocher.",
-                "Faites une Frappe au corps-à-corps. Si vous touchez une cible de votre taille ou plus petite, cette créature est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre tour actuel et vous pouvez la rapprocher de vous de 1,50 mètre. Lorsque vous déplacez la créature, vous pouvez vous déplacer de la même distance dans la même direction qu'elle, même si vous êtes adjacent à la cible. Ce mouvement ne déclenche pas de réactions.",
+                "Faites une Frappe au corps-à-corps. Si vous touchez une cible de votre taille ou plus petite, cette créature est Prise au dépourvu jusqu'à la fin de votre tour actuel et vous pouvez la rapprocher de vous de 1,50 mètre. Lorsque vous déplacez la créature, vous pouvez vous déplacer de la même distance dans la même direction qu'elle, même si vous êtes adjacent à la cible. Ce mouvement ne déclenche pas de réactions.",
                 "Cette frappe a l'effet d'échec suivant.",
                 "Échec La cible devient prise au dépourvu jusqu'à la fin de votre tour actuel."
             ]
@@ -6311,7 +6311,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vos frappes infligent actuellement des dégâts supplémentaires du fait de votre réaction de champion.",
-                "Portez une Frappe contre la créature qui a déclenché votre réaction de champion. Si vous touchez, doublez des dégâts supplémentaire que la cible subit de votre réaction et la cible doit réussir un jet de casinoVigueur contre votre DD de classe ou être sentiment_very_dissatisfiedDrainée 1. Quel que soit le résultat, la créature est temporairement immunisée à votre Frappe horrible pendant 24 heures."
+                "Portez une Frappe contre la créature qui a déclenché votre réaction de champion. Si vous touchez, doublez des dégâts supplémentaire que la cible subit de votre réaction et la cible doit réussir un jet de Vigueur contre votre DD de classe ou être Drainée 1. Quel que soit le résultat, la créature est temporairement immunisée à votre Frappe horrible pendant 24 heures."
             ]
         },
         {
@@ -6324,7 +6324,7 @@ DON.CLASS = {
                 "Odorat aiguisé ou odorat"
             ],
             "description": [
-                "Vous faites confiance à vos instincts et votre sens de l'odorat, utilisant tous vos sens pour déterminer l'emplacement exact de votre adversaire. Quand vous effectuez une Frappe au corps-à-corps contre un adversaire que vous détectez à l'odorat, ignorez tout Test nu nécessaire qui serait lié au fait que la cible est sentiment_very_dissatisfiedMasquée ou sentiment_very_dissatisfiedCachée ."
+                "Vous faites confiance à vos instincts et votre sens de l'odorat, utilisant tous vos sens pour déterminer l'emplacement exact de votre adversaire. Quand vous effectuez une Frappe au corps-à-corps contre un adversaire que vous détectez à l'odorat, ignorez tout Test nu nécessaire qui serait lié au fait que la cible est Masquée ou Cachée ."
             ]
         },
         {
@@ -6339,7 +6339,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre coup ne fait pas que blesser les créatures mais elle ébranle également leur confiance. Faites une Frappe au corps-à-corps. Si vous touchez et infligez des dégâts, la cible est sentiment_very_dissatisfiedEffrayée 1 ou sentiment_very_dissatisfiedEffrayée 2 en cas de coup critique."
+                "Votre coup ne fait pas que blesser les créatures mais elle ébranle également leur confiance. Faites une Frappe au corps-à-corps. Si vous touchez et infligez des dégâts, la cible est Effrayée 1 ou Effrayée 2 en cas de coup critique."
             ]
         },
         {
@@ -6352,10 +6352,10 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Une frappe rapide au visage ou à la bouche réduit au silence votre adversaire. Faites une Frappe au corps-à-corps contre un ennemi. Si elle touche, l'ennemi doit réussir un jet de casinoVigueur contre votre DD de classe.",
+                "Une frappe rapide au visage ou à la bouche réduit au silence votre adversaire. Faites une Frappe au corps-à-corps contre un ennemi. Si elle touche, l'ennemi doit réussir un jet de Vigueur contre votre DD de classe.",
                 "Succès La cible n'est pas affectée.",
-                "Échec La cible est étourdie et peut à peine parler. Elle est sentiment_very_dissatisfiedÉtourdie 1 , sa voix est rauque et son discours difficile à comprendre. Elle doit réussir un casinoTest nu, DD 11 pour utiliser des actions linguistiques ou Lancer un sort, sauf si le sort possède le trait subtil.",
-                "Échec critique Comme en cas d'échec, mais la créature est sentiment_very_dissatisfiedÉtourdie 3 au lieu d'Étourdie 1."
+                "Échec La cible est étourdie et peut à peine parler. Elle est Étourdie 1 , sa voix est rauque et son discours difficile à comprendre. Elle doit réussir un Test nu, DD 11 pour utiliser des actions linguistiques ou Lancer un sort, sauf si le sort possède le trait subtil.",
+                "Échec critique Comme en cas d'échec, mais la créature est Étourdie 3 au lieu d'Étourdie 1."
             ]
         },
         {
@@ -6384,7 +6384,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre attaque peut provoquer la chute d'une créature en vol. Faites une Frappe. Si elle touche et inflige des dégâts à une créature volante, celle-ci fait une chute de 36 mètres. La chute est suffisamment lente pour que la cible ne subisse aucun dégât si elle percute le sol. Si l'attaque est un coup critique, la cible ne peut pas Voler, sports_martial_artsBondir , léviter ou décoller du sol d'une façon ou d'une autre jusqu'à la fin de votre prochain tour."
+                "Votre attaque peut provoquer la chute d'une créature en vol. Faites une Frappe. Si elle touche et inflige des dégâts à une créature volante, celle-ci fait une chute de 36 mètres. La chute est suffisamment lente pour que la cible ne subisse aucun dégât si elle percute le sol. Si l'attaque est un coup critique, la cible ne peut pas Voler, Bondir , léviter ou décoller du sol d'une façon ou d'une autre jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -6396,7 +6396,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous concentrez votre force pour porter un coup suffisamment puissant pour repousser un ennemi. Faites une Frappe à mains nues. Si vous touchez, effectuez un test d'Athlétisme pour sports_martial_artsPousser la cible. Cette attaque applique la même pénalité d'attaques multiples que votre Frappe et ne compte pas dans le calcul de votre pénalité d'attaques multiples."
+                "Vous concentrez votre force pour porter un coup suffisamment puissant pour repousser un ennemi. Faites une Frappe à mains nues. Si vous touchez, effectuez un test d'Athlétisme pour Pousser la cible. Cette attaque applique la même pénalité d'attaques multiples que votre Frappe et ne compte pas dans le calcul de votre pénalité d'attaques multiples."
             ]
         },
         {
@@ -6407,7 +6407,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous disposez d'un sort auto_awesomeMise à mal ou auto_awesomeGuérison que vous pouvez lancer.",
+                "Conditions Vous disposez d'un sort Mise à mal ou Guérison que vous pouvez lancer.",
                 "Vous contrebalancez deux aspects, vous guérir alors que vous Frappez un ennemi. Lancez le sort de Guérison ou de Mise à mal à 1 action pour vous soigner vous-même, dépensant le sort comme à l'ordinaire. Le sort perd le trait manipulation lorsqu'il est lancé de cette manière. Puis, faites une Frappe au corps-à-corps. Si vous faites cette frappe avec l'arme de prédilection de votre divinité, vous obtenez un bonus de statut de +1 au jet d'attaque.",
                 "Si la Frappe touche, vous pouvez cibler une seconde créature consentante pour la soigner du même montant de Points de vie que le sort lancé. Cette créature peut être hors de la portée du sort, pourvu qu'elle soit adjacente à l'ennemi que vous avez touché."
             ]
@@ -6425,7 +6425,7 @@ DON.CLASS = {
                 "Fréquence Une fois par round",
                 "Vous recueillez la magie de votre patron dans une des armes de votre Arsenal de sorcier, l'illuminant de runes, de lumière ou de tout autre symbole de votre patron.",
                 "Faites une Frappe à mains nues avec l'une des armes de votre Arsenal de sorcier. Si vous touchez, vous établissez un lien sympathique avec la cible, ce qui permet à votre patron de l'affecter plus facilement. Jusqu'au début de votre prochain tour, la cible subit une pénalité de circonstances de -1 à ses jets de sauvegarde contre vos maléfices ou une pénalité de -2 si la Frappe déclencheuse était un coup critique.",
-                "flareEffet : Frappe sympathique"
+                "Effet : Frappe sympathique"
             ]
         },
         {
@@ -6467,7 +6467,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Une créature dans votre allonge réussit à vous porter une attaque.",
-                "Conditions Vous êtes sous l'effet de military_techJe t'attends",
+                "Conditions Vous êtes sous l'effet de Je t'attends",
                 "Quand vous êtes frappé par un ennemi, vous lui répondez en retour. Vous faites une Frappe au corps-à-corps contre la créature déclencheuse. Si l'attaque déclencheuse était un succès critique, vous pouvez utiliser Frappe vindicative par une action gratuite à la place d'une réaction."
             ]
         },
@@ -6507,7 +6507,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous utilisez la terreur de vos ennemis pour passer outre leurs défenses. Toute créature qui se trouve dans l'état sentiment_very_dissatisfiedEffrayé est également sentiment_very_dissatisfiedPrise au dépourvu face à vos attaques."
+                "Vous utilisez la terreur de vos ennemis pour passer outre leurs défenses. Toute créature qui se trouve dans l'état Effrayé est également Prise au dépourvu face à vos attaques."
             ]
         },
         {
@@ -6520,7 +6520,7 @@ DON.CLASS = {
                 "Frappeur perfide"
             ],
             "description": [
-                "Rien ne peut vous empêcher de porter une attaque sournoise même si votre adversaire peut voir venir chacun de vos coups. Au lieu d'infliger les dégâts de military_techFrappeur perfide , vous pouvez infliger la totalité de vos dégâts d'attaque sournoise à une cible, même si celle-ci n'est pas sentiment_very_dissatisfiedPrise au dépourvu ."
+                "Rien ne peut vous empêcher de porter une attaque sournoise même si votre adversaire peut voir venir chacun de vos coups. Au lieu d'infliger les dégâts de Frappeur perfide , vous pouvez infliger la totalité de vos dégâts d'attaque sournoise à une cible, même si celle-ci n'est pas Prise au dépourvu ."
             ]
         },
         {
@@ -6533,7 +6533,7 @@ DON.CLASS = {
                 "Attaque sournoise"
             ],
             "description": [
-                "Vos attaques infligent plus de dégâts, même contre les créatures qui ne sont pas sentiment_very_dissatisfiedPrises au dépourvu . Quand vous obtenez un succès ou un succès critique en Frappant une créature qui n'est pas Prise au dépourvu, vous lui infligez également 1d6 dégâts de précision. Cela ne s'applique pas seulement si vous utilisez une arme ou une attaque à mains nues avec laquelle vous pourriez infliger des dégâts d' Attaque sournoise .",
+                "Vos attaques infligent plus de dégâts, même contre les créatures qui ne sont pas Prises au dépourvu . Quand vous obtenez un succès ou un succès critique en Frappant une créature qui n'est pas Prise au dépourvu, vous lui infligez également 1d6 dégâts de précision. Cela ne s'applique pas seulement si vous utilisez une arme ou une attaque à mains nues avec laquelle vous pourriez infliger des dégâts d' Attaque sournoise .",
                 "À partir du niveau 14, si vous infligez normalement 3d6 dégâts d'attaque sournoise ou plus aux créatures prises au dépourvu, vous infligez alors 2d6 dégâts de précision aux créatures qui ne sont pas prises au dépourvu."
             ]
         },
@@ -6562,7 +6562,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous avec combinée deux postures en une seule de votre propre chef. Lorsque vous prenez ce don, choisissez deux postures que vous connaissez et combinez les une une unique posture fusionnée. Donnez à votre nouvelle posture fusionnée un nom unique. Lorsque vous adoptez cotre posture fusionnée, vous obtenez tous les effets des deux postures, y compris les conditions et restrictions.",
-                "Si les postures accordent des attaques spéciales, vous obtenez toutes ces attaques. Si une posture vous restreint à une attaque particulière (comme military_techPosture de la grue ), vous devez vous conformer à cette restriction. Si les postures combinées présentent des restrictions incompatibles, le MJ décide laquelle appliquer ou détermine s'il vous est impossible de fusionner ces deux postures."
+                "Si les postures accordent des attaques spéciales, vous obtenez toutes ces attaques. Si une posture vous restreint à une attaque particulière (comme Posture de la grue ), vous devez vous conformer à cette restriction. Si les postures combinées présentent des restrictions incompatibles, le MJ décide laquelle appliquer ou détermine s'il vous est impossible de fusionner ces deux postures."
             ]
         },
         {
@@ -6575,8 +6575,8 @@ DON.CLASS = {
                 "Chasseur de monstres"
             ],
             "description": [
-                "Vous comprenez comment vous défendre contre votre proie. Quand vous accordez les bonus de military_techChasseur de monstres , chaque créature qui en bénéficie obtient un bonus de circonstances de +2 soit à sa CA la prochaine fois que la créature l'attaque, soit à son prochain jet de sauvegarde contre un effet provenant de cette créature en particulier, en fonction de ce qui se produit en premier.",
-                "flareEffet : Garde-monstres"
+                "Vous comprenez comment vous défendre contre votre proie. Quand vous accordez les bonus de Chasseur de monstres , chaque créature qui en bénéficie obtient un bonus de circonstances de +2 soit à sa CA la prochaine fois que la créature l'attaque, soit à son prochain jet de sauvegarde contre un effet provenant de cette créature en particulier, en fonction de ce qui se produit en premier.",
+                "Effet : Garde-monstres"
             ]
         },
         {
@@ -6591,7 +6591,7 @@ DON.CLASS = {
                 "Blocage au bouclier"
             ],
             "description": [
-                "Lorsque vous avez un bouclier Levé, vous pouvez utiliser votre réaction military_techBlocage au bouclier lorsqu'une attaque est portée sur un allié qui vous est adjacent. Dans ce cas, le bouclier bloque les dégâts que devrait subir cet allié au lieu de bloquer ceux que vous devriez subir, en appliquant les règles normales du Blocage au bouclier."
+                "Lorsque vous avez un bouclier Levé, vous pouvez utiliser votre réaction Blocage au bouclier lorsqu'une attaque est portée sur un allié qui vous est adjacent. Dans ce cas, le bouclier bloque les dégâts que devrait subir cet allié au lieu de bloquer ceux que vous devriez subir, en appliquant les règles normales du Blocage au bouclier."
             ]
         },
         {
@@ -6605,10 +6605,10 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous débloquez des sorts primordiaux plus puissants. Vous obtenez le choix d'un sort de gardien de la liste des gardiens avancés.",
-                "auto_awesomeTrait animal",
-                "auto_awesomeCompagnon agrandi",
-                "auto_awesomeChance du chasseur",
-                "auto_awesomeBrume apaisante",
+                "Trait animal",
+                "Compagnon agrandi",
+                "Chance du chasseur",
+                "Brume apaisante",
                 "Special"
             ]
         },
@@ -6621,9 +6621,9 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous vous êtes entraîné avec l'une des faction de rôdeurs connues sous le nom de Gardiens, qui pratiquent un type spécialisé de magie primordiale. Vous obtenez un sort de gardien au choix parmi ces sorts de gardien initiaux (ou un autre auquel vous avez accès).",
-                "auto_awesomeArme pesante",
-                "auto_awesomeGuérison de compagnon",
-                "auto_awesomePeau magique",
+                "Arme pesante",
+                "Guérison de compagnon",
+                "Peau magique",
                 "Spécial Vous pouvez prendre ce don plusieurs fois, choisissant un sort de gardien initié différent à chaque fois.",
                 "Votre relation avec le monde qui vous entoure s'étend du physique au magique. Certains donc vous accordent des sorts de gardien qui sont un type de sorts focalisés. Il faut dépenser 1 Point de focalisation pour Lancer un sort focalisé. Lorsque vous obtenez votre premier sort de gardien, vous obtenez aussi une réserve de focalisation contenant 1 point de focalisation. Vous remplissez votre réserve de focalisation au cours de vos préparatifs quotidiens et vous regagnez 1 Point de focalisation en passant 10 minutes à utiliser l'activité Refocaliser en communiant avec la nature.",
                 "Vos sorts de gardien sont des sorts primordiaux. Lorsque vous obtenez votre premier sort de gardien, vous devenez qualifié en attaques de sort et en DD des sorts primordiaux. Votre attribut d'incantation est la Sagesse.",
@@ -6641,8 +6641,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre maîtrise en magie primordiale vous a octroyé un accès aux plus grands secrets de magie protectrice. Vous obtenez le choix d'un sort de gardien de la liste du gardien sans égal.",
-                "auto_awesomeVision du chasseur",
-                "auto_awesomeTransposition de terrain",
+                "Vision du chasseur",
+                "Transposition de terrain",
                 "Spécial Vous pouvez prendre ce don plusieurs fois, choisissant à chaque fois un sort différent de la liste du gardien sans égal."
             ]
         },
@@ -6657,7 +6657,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous puisez dans le savoir collecté du divin, accédant à une multiplicité d'information potentiellement utile.",
-                "Faites un test de Religion pour comprendre l'information que vous obtenez. Le MJ fixe le DD (similaire au DD de sports_martial_artsSe souvenir ), en ajustant potentiellement le DD pour des sujets fort éloignés de votre mystère.",
+                "Faites un test de Religion pour comprendre l'information que vous obtenez. Le MJ fixe le DD (similaire au DD de Se souvenir ), en ajustant potentiellement le DD pour des sujets fort éloignés de votre mystère.",
                 "Succès critique Vous comprenez le savoir précisément ou obtenez un indice utile du divin au sujet de votre situation.",
                 "Succès Vous apprenez deux parties d'information sur le sujet, une véridique et l'autre erronée mais vous ne pouvez déterminer laquelle est la bonne.",
                 "Échec Vous obtenez une information incorrecte ou obtenez un indice erroné ou menant à une fausse piste.",
@@ -6672,7 +6672,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Le pouvoir de votre patron vous rend confiant, vous permettant de maintenir un effet magique alors même qu'un petit éclat de rire s'échappe de vos lèvres. Vous apprenez le maléfice auto_awesomeGloussement ."
+                "Le pouvoir de votre patron vous rend confiant, vous permettant de maintenir un effet magique alors même qu'un petit éclat de rire s'échappe de vos lèvres. Vous apprenez le maléfice Gloussement ."
             ]
         },
         {
@@ -6709,7 +6709,7 @@ DON.CLASS = {
                 "Coup tranchant"
             ],
             "description": [
-                "Votre furie propulse votre arme à travers plusieurs adversaires. Quand vous portez un military_techCoup tranchant , si votre Frappe réduit aussi à zéro les PV de la cible, vous pouvez continuez de porter des Frappes au corps-à-corps jusqu'à ce que l'une d'elles ne réduise pas à zéro les PV d'une créature ou jusqu'à ce qu'il n'y ait plus de créature adjacente à la dernière créature que vous avez attaqué durant le Coup tranchant."
+                "Votre furie propulse votre arme à travers plusieurs adversaires. Quand vous portez un Coup tranchant , si votre Frappe réduit aussi à zéro les PV de la cible, vous pouvez continuez de porter des Frappes au corps-à-corps jusqu'à ce que l'une d'elles ne réduise pas à zéro les PV d'une créature ou jusqu'à ce qu'il n'y ait plus de créature adjacente à la dernière créature que vous avez attaqué durant le Coup tranchant."
             ]
         },
         {
@@ -6735,7 +6735,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes un conduit de vitalité exceptionnel et, lorsque vous la canalisez à travers vous, vous pouvez en détourner une partie pour vous soigner ou soigner une autre créature. Quand vous lancez le sort auto_awesomeGuérison pour soigner une unique créature, choisissez une autre créature vivante consentante à portée de votre Guérison pour regagner des Points de vie égaux au rang du sort de Guérison."
+                "Vous êtes un conduit de vitalité exceptionnel et, lorsque vous la canalisez à travers vous, vous pouvez en détourner une partie pour vous soigner ou soigner une autre créature. Quand vous lancez le sort Guérison pour soigner une unique créature, choisissez une autre créature vivante consentante à portée de votre Guérison pour regagner des Points de vie égaux au rang du sort de Guérison."
             ]
         },
         {
@@ -6749,7 +6749,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre dévotion envers votre monture se manifeste par un déferlement d'énergie de vitalité.",
-                "Quand vous lancez auto_awesomeImposition des mains sur votre monture, au lieu du montant normal, le sort lui redonne 10 Points de vie, plus 10 pour chaque rang d'intensification."
+                "Quand vous lancez Imposition des mains sur votre monture, au lieu du montant normal, le sort lui redonne 10 Points de vie, plus 10 pour chaque rang d'intensification."
             ]
         },
         {
@@ -6763,7 +6763,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous avez un profond dévouement pour votre compagnon animal qui vous permet de guérir magiquement ses blessures.",
-                "Vous obtenez le sort de gardien auto_awesomeGuérison du compagnon et une réserve de focalisation de 1 point de focalisation."
+                "Vous obtenez le sort de gardien Guérison du compagnon et une réserve de focalisation de 1 point de focalisation."
             ]
         },
         {
@@ -6779,7 +6779,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Fréquence Une fois par jour",
-                "Vous demandez aux plantes de partager leur vitalité avec vous pour restaurer votre corps et votre magie. Vous regagnez 1 Point de focalisation et casino4d8 Points de vie .",
+                "Vous demandez aux plantes de partager leur vitalité avec vous pour restaurer votre corps et votre magie. Vous regagnez 1 Point de focalisation et 4d8 Points de vie .",
                 "Vous devez être dans un endroit disposant d'au moins 4,50 mètres sur 4,50 mètres de flore saine, qu'il s'agisse d'herbe, de lichen, d'algues marines ou de toute autre forme de flore naturelle propre à l'endroit. Utiliser Guérison florale sur une portion de la nature ne lui nuit nullement, mais cela a pour conséquence d'empêcher la même portion de nature de donner sa vitalité pour une autre utilisation de Guérison florale pendant 24 heures.",
                 "Au niveau 9 et tous les deux niveaux par la suite, augmentez la guérison de 1d8."
             ]
@@ -6812,9 +6812,9 @@ DON.CLASS = {
                 "Frappe incapacitante"
             ],
             "description": [
-                "Les handicaps que vous infligez sont particulièrement efficaces quand ils sont associés à vos attaques les plus puissantes. Quand vous obtenez un succès critique à un jet d'attaque contre un ennemi en utilisant sports_martial_artsFrappe incapacitante , vous ajoutez le handicap suivant à la liste parmi laquelle vous pouvez choisir.",
+                "Les handicaps que vous infligez sont particulièrement efficaces quand ils sont associés à vos attaques les plus puissantes. Quand vous obtenez un succès critique à un jet d'attaque contre un ennemi en utilisant Frappe incapacitante , vous ajoutez le handicap suivant à la liste parmi laquelle vous pouvez choisir.",
                 [
-                    "Handicap La cible tente un jet de casinoVigueur contre votre DD de classe avec les effets suivants.\n\nSuccès critique La cible n'est pas affectée.\n\nSuccès La cible est sentiment_very_dissatisfiedRalentie 1 jusqu'à la fin de votre prochain tour.\n\nÉchec La cible est sentiment_very_dissatisfiedRalentie 2 jusqu'à la fin de votre prochain tour.\n\nÉchec critique La cible est sentiment_very_dissatisfiedParalysée jusqu'à la fin de votre prochain tour"
+                    "Handicap La cible tente un jet de Vigueur contre votre DD de classe avec les effets suivants.\n\nSuccès critique La cible n'est pas affectée.\n\nSuccès La cible est Ralentie 1 jusqu'à la fin de votre prochain tour.\n\nÉchec La cible est Ralentie 2 jusqu'à la fin de votre prochain tour.\n\nÉchec critique La cible est Paralysée jusqu'à la fin de votre prochain tour"
                 ]
             ]
         },
@@ -6828,9 +6828,9 @@ DON.CLASS = {
                 "qualifié en Médecine, Frappe incapacitante"
             ],
             "description": [
-                "Vos attaques tranchent artères et veines. Ajoutez le handicap suivant à la liste dans laquelle vous pouvez choisir lorsque vous utilisez sports_martial_artsFrappe incapacitante .",
+                "Vos attaques tranchent artères et veines. Ajoutez le handicap suivant à la liste dans laquelle vous pouvez choisir lorsque vous utilisez Frappe incapacitante .",
                 [
-                    "Handicap La cible subit casino3d6 dégâts de saignement ."
+                    "Handicap La cible subit 3d6 dégâts de saignement ."
                 ]
             ]
         },
@@ -6844,10 +6844,10 @@ DON.CLASS = {
                 "Trafic de voyou, Frappe incapacitante"
             ],
             "description": [
-                "Les handicaps que vous administrez gênent véritablement vos adversaires. Ajoutez les handicaps suivants à la liste de handicaps que vous pouvez choisir lorsque vous utilisez sports_martial_artsFrappe incapacitante .",
+                "Les handicaps que vous administrez gênent véritablement vos adversaires. Ajoutez les handicaps suivants à la liste de handicaps que vous pouvez choisir lorsque vous utilisez Frappe incapacitante .",
                 [
-                    "Handicap La cible obtient une faiblesse 5 contre les dégâts de votre choix : contondants, perforants ou tranchants. flareEffet : Handicaps cruels",
-                    "Handicap La cible devient sentiment_very_dissatisfiedMaladroite 1 ."
+                    "Handicap La cible obtient une faiblesse 5 contre les dégâts de votre choix : contondants, perforants ou tranchants. Effet : Handicaps cruels",
+                    "Handicap La cible devient Maladroite 1 ."
                 ]
             ]
         },
@@ -6861,10 +6861,10 @@ DON.CLASS = {
                 "Trafic de cerveau, Frappe incapacitante"
             ],
             "description": [
-                "Vous construisez stratégiquement les handicaps pour amoindrir ou annuler les avantages tactiques d'un adversaire. Ajoutez les handicaps suivants à la liste dans laquelle vous pouvez choisir lorsque vous utilisez sports_martial_artsFrappe incapacitante .",
+                "Vous construisez stratégiquement les handicaps pour amoindrir ou annuler les avantages tactiques d'un adversaire. Ajoutez les handicaps suivants à la liste dans laquelle vous pouvez choisir lorsque vous utilisez Frappe incapacitante .",
                 [
-                    "Handicap La cible ne peut prendre en tenaille ni contribuer à prendre en tenaille. flareEffet : Handicaps méthodiques (tenaille)",
-                    "Handicap La cible ne peut obtenir de bonus de circonstances à la CA lorsqu'elle sports_martial_artsLève un bouclier , utilise un abri partiel ou un abri standard. Elle n'obtient qu'un bonus de circonstances de +2 à la CA d'un abri important ou en se sports_martial_artsMettant à l'abri . flareEffet : Handicaps méthodiques (abri)"
+                    "Handicap La cible ne peut prendre en tenaille ni contribuer à prendre en tenaille. Effet : Handicaps méthodiques (tenaille)",
+                    "Handicap La cible ne peut obtenir de bonus de circonstances à la CA lorsqu'elle Lève un bouclier , utilise un abri partiel ou un abri standard. Elle n'obtient qu'un bonus de circonstances de +2 à la CA d'un abri important ou en se Mettant à l'abri . Effet : Handicaps méthodiques (abri)"
                 ]
             ]
         },
@@ -6878,10 +6878,10 @@ DON.CLASS = {
                 "Trafic de roublard : Mystificateur, Frappe incapacitante"
             ],
             "description": [
-                "Vous savez comment infliger des handicaps particulièrement difficiles à surmonter pour les lanceurs de sorts. Ajoutez les handicaps suivants à la liste de ceux que vous pouvez choisir lorsque vous utilisez sports_martial_artsFrappe incapacitante .",
+                "Vous savez comment infliger des handicaps particulièrement difficiles à surmonter pour les lanceurs de sorts. Ajoutez les handicaps suivants à la liste de ceux que vous pouvez choisir lorsque vous utilisez Frappe incapacitante .",
                 [
-                    "Handicap La cible est sentiment_very_dissatisfiedStupéfiée 1 .",
-                    "Handicap La cible ne peut sports_martial_artsFaire un pas ."
+                    "Handicap La cible est Stupéfiée 1 .",
+                    "Handicap La cible ne peut Faire un pas ."
                 ]
             ]
         },
@@ -6895,10 +6895,10 @@ DON.CLASS = {
                 "Trafic de voleur, Frappe incapacitante"
             ],
             "description": [
-                "Vous visez avec soin avant de distribuer gracieusement vos handicaps. Ajoutez les handicaps suivants à la liste de handicaps que vous utilisez avec sports_martial_artsFrappe incapacitante .",
+                "Vous visez avec soin avant de distribuer gracieusement vos handicaps. Ajoutez les handicaps suivants à la liste de handicaps que vous utilisez avec Frappe incapacitante .",
                 [
-                    "Handicap Vos attaques infligent 2d6 dégâts de précision supplémentaires à la cible. flareEffet : Handicaps précis",
-                    "Handicap La cible est sentiment_very_dissatisfiedPrise au dépourvu ."
+                    "Handicap Vos attaques infligent 2d6 dégâts de précision supplémentaires à la cible. Effet : Handicaps précis",
+                    "Handicap La cible est Prise au dépourvu ."
                 ]
             ]
         },
@@ -6912,10 +6912,10 @@ DON.CLASS = {
                 "Trafic de scélérat, Frappe incapacitante"
             ],
             "description": [
-                "Vous apprenez de nouveaux handicaps qui vous confèrent des avantages tactiques contre vos ennemis. Ajoutez les handicaps suivants à la liste de handicaps que vous pouvez choisir avec sports_martial_artsFrappe incapacitante .",
+                "Vous apprenez de nouveaux handicaps qui vous confèrent des avantages tactiques contre vos ennemis. Ajoutez les handicaps suivants à la liste de handicaps que vous pouvez choisir avec Frappe incapacitante .",
                 [
                     "Handicap La cible ne peut pas utiliser de réaction.",
-                    "Handicap La cible ne peut pas prendre en tenaille ou contribuer à la prise en tenaille de ses alliés. flareEffet : Handicaps tactiques (Pas de tenaille)"
+                    "Handicap La cible ne peut pas prendre en tenaille ou contribuer à la prise en tenaille de ses alliés. Effet : Handicaps tactiques (Pas de tenaille)"
                 ]
             ]
         },
@@ -6929,7 +6929,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous pouvez récupérer votre santé en puisant dans votre Qi. Vous obtenez le sort Qi auto_awesomeHarmonisation interne ."
+                "Vous pouvez récupérer votre santé en puisant dans votre Qi. Vous obtenez le sort Qi Harmonisation interne ."
             ]
         },
         {
@@ -6958,7 +6958,7 @@ DON.CLASS = {
                 "Formidable compagnon"
             ],
             "description": [
-                "Votre compagnon peut pousser un hurlement teinté de votre magie primordiale. Il obtient la Manoeuvre avancée sports_martial_artsHurlement primordial en plus de toute autre manoeuvre avancée qu'il connaît déjà."
+                "Votre compagnon peut pousser un hurlement teinté de votre magie primordiale. Il obtient la Manoeuvre avancée Hurlement primordial en plus de toute autre manoeuvre avancée qu'il connaît déjà."
             ]
         },
         {
@@ -6971,7 +6971,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous poussez un hurlement terrifiant. Faites des tests d'Intimidation pour sports_martial_artsDémoraliser chaque ennemi qui se trouve dans un rayon de 9 mètres : vous ne subissez pas de pénalité si la créature ne parle pas votre langue. Quel que soit le résultat de vos tests, chaque cible est alors temporairement immunisée au Hurlement terrifiant pendant 1 minute."
+                "Vous poussez un hurlement terrifiant. Faites des tests d'Intimidation pour Démoraliser chaque ennemi qui se trouve dans un rayon de 9 mètres : vous ne subissez pas de pénalité si la créature ne parle pas votre langue. Quel que soit le résultat de vos tests, chaque cible est alors temporairement immunisée au Hurlement terrifiant pendant 1 minute."
             ]
         },
         {
@@ -6986,9 +6986,9 @@ DON.CLASS = {
                 "La hutte utilise votre CA, les modificateurs de vos jets de sauvegarde et votre modificateur de Perception. Elle possède 150 pv et une Solidité de 10. Elle a la capacité Armure construite, signifiant qu'une fois qu'elle est réduite à moins de la moitié de ses Points de vie ou immédiatement si elle est endommagée par un coup critique, sa CA est réduite de 4 jusqu'à ce qu'elle soit réparée.",
                 "La hutte ne peut attaquer ou faire de test de compétence. Vous pouvez donner à la hutte un ordre par une action unique, qui possède les traits audible et concentration. Après 1 round passé à sa propre reconfiguration, la hutte suit alors cet ordre jusqu'à ce que vous lui donniez un ordre différent.",
                 [
-                    "Bondit La cabane tourne sur elle-même ou saute en l'air, puis Lance auto_awesomeTéléportation au rang 10, se transportant ainsi que toutes les créatures à l'intérieur.",
+                    "Bondit La cabane tourne sur elle-même ou saute en l'air, puis Lance Téléportation au rang 10, se transportant ainsi que toutes les créatures à l'intérieur.",
                     "Garde La hutte surveille les maraudeurs dans les 36 mètres en utilisant votre modificateur de Perception et pousse un cri si elle en aperçoit.",
-                    "Fermeture Chaque entrée de la hutte est scellée avec un sort de auto_awesomeVerrouillage .",
+                    "Fermeture Chaque entrée de la hutte est scellée avec un sort de Verrouillage .",
                     "Déplacement La hutte obtient une Vitesse de 18 mètres, faisant grandir des pattes d'oiseau ou des os de jambes au besoin, et suit les ordres de déplacement basiques que vous lui donnez, comme “suis moi” ou “va dans cette direction.” Bien que parfaitement adaptée au voyage sur de longues distances, les mouvements brusques de la hutte et le temps de réponse de 1 round sont trop imprécis pour la diriger de manière prévisible dans une rencontre de combat ou une autre situation au cours de laquelle les secondes et les emplacements précis importent.",
                     "Cache-toi La hutte apparaît être un objet normal et courant de son type. C'est un effet d'illusion de rang 10."
                 ],
@@ -7003,7 +7003,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le sort de composition auto_awesomeHymne de guérison qui imprègne votre magie de riches mélodies qui aident vos alliés à récupérer de leurs blessures."
+                "Vous apprenez le sort de composition Hymne de guérison qui imprègne votre magie de riches mélodies qui aident vos alliés à récupérer de leurs blessures."
             ]
         },
         {
@@ -7014,7 +7014,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le tour de magie de composition auto_awesomeHymne de ralliement qui vous protège, ainsi que vos alliés."
+                "Vous apprenez le tour de magie de composition Hymne de ralliement qui vous protège, ainsi que vos alliés."
             ]
         },
         {
@@ -7028,8 +7028,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous instillez une vigueur magique à vos alliés lorsque vous les incitez à attaquer. Si votre prochaine action consiste à Lancer le tour de magie de composition auto_awesomeHymne de courage , vous et tous les alliés affectés obtenez des Points de vie temporaires égaux à 3 + votre modificateur de Charisme qui durent pendant 1 minute.",
-                "flareEffet : Hymne vigoureux"
+                "Vous instillez une vigueur magique à vos alliés lorsque vous les incitez à attaquer. Si votre prochaine action consiste à Lancer le tour de magie de composition Hymne de courage , vous et tous les alliés affectés obtenez des Points de vie temporaires égaux à 3 + votre modificateur de Charisme qui durent pendant 1 minute.",
+                "Effet : Hymne vigoureux"
             ]
         },
         {
@@ -7042,7 +7042,7 @@ DON.CLASS = {
                 "Énigmatique (muse de barde)"
             ],
             "description": [
-                "Votre esprit fonctionne à un rythme incroyable. Vous pouvez effectuer instantanément jusqu'à cinq actions Se souvenir. Si vous avez des capacités spéciales ou des actions gratuites qui sont habituellement déclenchées lorsque vous sports_martial_artsVous souvenez , vous ne pouvez pas les utiliser pour ces actions."
+                "Votre esprit fonctionne à un rythme incroyable. Vous pouvez effectuer instantanément jusqu'à cinq actions Se souvenir. Si vous avez des capacités spéciales ou des actions gratuites qui sont habituellement déclenchées lorsque vous Vous souvenez , vous ne pouvez pas les utiliser pour ces actions."
             ]
         },
         {
@@ -7057,7 +7057,7 @@ DON.CLASS = {
             "description": [
                 "Déclencheur Une créature réussit, mais pas de manière critique son test de Perception ou son jet de sauvegarde pour percer une illusion d'un sort que vous avez lancé.",
                 "Conditions Vous êtes à 9 mètres de l'observateur et de l'illusion.",
-                "Vous utilisez vos talents de tromperie pour rendre vos illusions plus réelles. Faites un test de casinoDuperie contre le DD de Perception de la cible. En cas de succès, la cible ne parvient pas à percer l'illusion."
+                "Vous utilisez vos talents de tromperie pour rendre vos illusions plus réelles. Faites un test de Duperie contre le DD de Perception de la cible. En cas de succès, la cible ne parvient pas à percer l'illusion."
             ]
         },
         {
@@ -7085,7 +7085,7 @@ DON.CLASS = {
                 "impie"
             ],
             "description": [
-                "Votre vie a fait de vous l'un des nœuds de l'abominable puissance de votre divinité. Vous êtes perpétuellement entouré d'un sort auto_awesomeImprécation dont le rang est égal à la moitié de votre niveau (arrondi au supérieur). Le rayon est de 4,50 mètres et vous ne pouvez pas l'augmenter. Vous pouvez Révoquer le sort. Si vous le faites, il réapparaît automatiquement au bout d'une minute."
+                "Votre vie a fait de vous l'un des nœuds de l'abominable puissance de votre divinité. Vous êtes perpétuellement entouré d'un sort Imprécation dont le rang est égal à la moitié de votre niveau (arrondi au supérieur). Le rayon est de 4,50 mètres et vous ne pouvez pas l'augmenter. Vous pouvez Révoquer le sort. Si vous le faites, il réapparaît automatiquement au bout d'une minute."
             ]
         },
         {
@@ -7098,7 +7098,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous remplissez d'énergie revigorante le sujet de vos soins pour donner de la puissance à ses attaques. Si la prochaine action que vous utilisez consiste à lancer auto_awesomeGuérison ou auto_awesomeMise à mal pour redonner des Points de vie à une unique créature, la cible inflige alors 1d6 dégâts supplémentaires avec ses armes au corps-à-corps et ses attaques à mains nues jusqu'à la fin de son prochain tour. Les dégâts sont de type vitalité si vous lancez Guérison et de vide si vous lancez Mise à mal.",
+                "Vous remplissez d'énergie revigorante le sujet de vos soins pour donner de la puissance à ses attaques. Si la prochaine action que vous utilisez consiste à lancer Guérison ou Mise à mal pour redonner des Points de vie à une unique créature, la cible inflige alors 1d6 dégâts supplémentaires avec ses armes au corps-à-corps et ses attaques à mains nues jusqu'à la fin de son prochain tour. Les dégâts sont de type vitalité si vous lancez Guérison et de vide si vous lancez Mise à mal.",
                 "Si le sort est au moins de rang 5, ces dégâts passent à 2d6 et à 3d6 si le sort est au moins de rang 8."
             ]
         },
@@ -7138,7 +7138,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Confiant en votre technique, vous ne perdez pas aisément vos sorts. Si une réaction devrait interrompre votre action d'incantation, faites un casinoTest nu . Sur un succès, votre action n'est pas interrompue."
+                "Confiant en votre technique, vous ne perdez pas aisément vos sorts. Si une réaction devrait interrompre votre action d'incantation, faites un Test nu . Sur un succès, votre action n'est pas interrompue."
             ]
         },
         {
@@ -7153,8 +7153,8 @@ DON.CLASS = {
                 "Source de mise à mal ou source de guérison"
             ],
             "description": [
-                "La force brute de votre foi peut forcer un adversaire à tomber. Si votre prochaine action consiste à lancer auto_awesomeMise à mal ou auto_awesomeGuérison pour blesser une créature, la cible est sentiment_very_dissatisfiedÀ terre si elle subit des dégâts du sort. Si la cible obtient un échec critique à son jet de sauvegarde contre le sort, elle subit également une pénalité de statut de -3 mètres à sa Vitesse pendant 1 minute.",
-                "flareEffet : Incantation renversante"
+                "La force brute de votre foi peut forcer un adversaire à tomber. Si votre prochaine action consiste à lancer Mise à mal ou Guérison pour blesser une créature, la cible est À terre si elle subit des dégâts du sort. Si la cible obtient un échec critique à son jet de sauvegarde contre le sort, elle subit également une pénalité de statut de -3 mètres à sa Vitesse pendant 1 minute.",
+                "Effet : Incantation renversante"
             ]
         },
         {
@@ -7165,7 +7165,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre écrasante vitalité embrase les morts-vivants. Quand vous utilisez le sort auto_awesomeGuérison pour blesser des morts-vivants, chaque mort-vivant qui subit des dégâts subit également un montant de dégâts de feu persistants égal au rang du sort."
+                "Votre écrasante vitalité embrase les morts-vivants. Quand vous utilisez le sort Guérison pour blesser des morts-vivants, chaque mort-vivant qui subit des dégâts subit également un montant de dégâts de feu persistants égal au rang du sort."
             ]
         },
         {
@@ -7194,7 +7194,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous vous ouvrez aux conseils des esprits ou des puissances qui daignent vous aider. Lancez 1d4 pour voir quel type d'esprit est attiré par vous. Votre prochaine action doit être le type d'action que l'esprit préfère, mais vous obtenez également l'avantage indiqué pour l'action pendant que l'esprit vous guide. Si vous tentez d'utiliser une action différente, vous devez réussir un casinoTest nu, DD 6 , sinon l'action est perdue."
+                "Vous vous ouvrez aux conseils des esprits ou des puissances qui daignent vous aider. Lancez 1d4 pour voir quel type d'esprit est attiré par vous. Votre prochaine action doit être le type d'action que l'esprit préfère, mais vous obtenez également l'avantage indiqué pour l'action pendant que l'esprit vous guide. Si vous tentez d'utiliser une action différente, vous devez réussir un Test nu, DD 6 , sinon l'action est perdue."
             ]
         },
         {
@@ -7206,7 +7206,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous allez déterminer l'initiative.",
-                "Votre arrogance vous rend prêt à tout combat — même pour une embuscade. Vous obtenez un bonus de circonstances de +2 au résultat de votre initiative et pouvez Interagir pour dégainer une arme. Si vous êtes le premier à agir en combat, vous obtenez du flarePanache ."
+                "Votre arrogance vous rend prêt à tout combat — même pour une embuscade. Vous obtenez un bonus de circonstances de +2 au résultat de votre initiative et pouvez Interagir pour dégainer une arme. Si vous êtes le premier à agir en combat, vous obtenez du Panache ."
             ]
         },
         {
@@ -7219,7 +7219,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous apprenez une posture mystique qui transforme votre Qi en fumée collante qui enveloppe vos membres. Vous obtenez le sort Qi auto_awesomePosture des ombres tenaces . Même si adopter cette posture utilise un sort Qi, les attaques d'ombre qu'il accorde ne le sont pas, de sorte que vous pouvez les utiliser aussi souvent que vous le souhaitez tant que vous restez dans cette posture."
+                "Vous apprenez une posture mystique qui transforme votre Qi en fumée collante qui enveloppe vos membres. Vous obtenez le sort Qi Posture des ombres tenaces . Même si adopter cette posture utilise un sort Qi, les attaques d'ombre qu'il accorde ne le sont pas, de sorte que vous pouvez les utiliser aussi souvent que vous le souhaitez tant que vous restez dans cette posture."
             ]
         },
         {
@@ -7232,7 +7232,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous apprenez une posture mystique qui vous permet d'attaquer à distance. Vous obtenez le sort Qi auto_awesomePosture des vents violents .",
+                "Vous apprenez une posture mystique qui vous permet d'attaquer à distance. Vous obtenez le sort Qi Posture des vents violents .",
                 "Cette posture est un sort ki, ce qui n'est pas le cas des Frappes de coup de vent qu'elle confère ; vous pouvez donc les utiliser aussi souvent que vous le souhaitez tant que vous gardez cette posture."
             ]
         },
@@ -7260,9 +7260,9 @@ DON.CLASS = {
             "description": [
                 "Les mutagènes de base qui affectent votre esprit et vos pensées peuvent vous permettre de communiquer par télépathie, de vous protéger contre la détection ou de communiquer avec n'importe qui. Lorsque vous êtes affecté par l'un des mutagènes indiqués, vous bénéficiez d'un avantage supplémentaire.",
                 [
-                    "workMutagène cognitif Vous bénéficiez également du bonus d'objet du mutagène aux tests de Duperie, de Diplomatie, d'Intimidation, de Médecine, de Nature, de Représentation, de Religion et de Survie. De plus, vous pouvez communiquer par télépathie avec les créatures situées dans les 18 mètres avec lesquelles vous partagez une langue. La communication se fait dans les deux sens une fois que vous l'avez établie, de sorte qu'une créature que vous contactez peut également communiquer avec vous.",
-                    "workMutagène de sérénité Les effets de détection, de révélation et de scrutation de rang 9 (ou de niveau 17) ou inférieurs ne détectent rien de vous, de vos possessions et de vos auras. Par exemple, auto_awesomeDétecter la magie pourra toujours détecter les autres magies dans la zone, mais aucune magie sur vous.",
-                    "workMutagène de langue dorée Ignorez les pénalités de circonstances que vous devriez subir sur les tests de Duperie, de Diplomatie, d'Intimidation et de Représentation. De plus, vos paroles transcendent les barrières linguistiques. Tous ceux qui vous écoutent entendent vos paroles comme si vous parliez dans leur propre langue (bien que vous ne parliez pas réellement cette langue et que cette capacité ne vous permette pas de comprendre d'autres langues)."
+                    "Mutagène cognitif Vous bénéficiez également du bonus d'objet du mutagène aux tests de Duperie, de Diplomatie, d'Intimidation, de Médecine, de Nature, de Représentation, de Religion et de Survie. De plus, vous pouvez communiquer par télépathie avec les créatures situées dans les 18 mètres avec lesquelles vous partagez une langue. La communication se fait dans les deux sens une fois que vous l'avez établie, de sorte qu'une créature que vous contactez peut également communiquer avec vous.",
+                    "Mutagène de sérénité Les effets de détection, de révélation et de scrutation de rang 9 (ou de niveau 17) ou inférieurs ne détectent rien de vous, de vos possessions et de vos auras. Par exemple, Détecter la magie pourra toujours détecter les autres magies dans la zone, mais aucune magie sur vous.",
+                    "Mutagène de langue dorée Ignorez les pénalités de circonstances que vous devriez subir sur les tests de Duperie, de Diplomatie, d'Intimidation et de Représentation. De plus, vos paroles transcendent les barrières linguistiques. Tous ceux qui vous écoutent entendent vos paroles comme si vous parliez dans leur propre langue (bien que vous ne parliez pas réellement cette langue et que cette capacité ne vous permette pas de comprendre d'autres langues)."
                 ],
                 "Spécial Si vous pouvez être soumis aux effets de plusieurs mutagènes (avec le Découverte de champ de recherche supérieure (mutagèniste) , par exemple), vous bénéficiez de tous les avantages pertinents."
             ]
@@ -7304,7 +7304,7 @@ DON.CLASS = {
                 "Don Contre-frappe bénie ou réaction Frappe punitive, une réaction de champion qui accorde une résistance à un allié contre les dégâts d'un ennemi (y compris les causes grandeur, justice, libération et rédemption)"
             ],
             "description": [
-                "L'énergie divine remplit votre arme. Lorsque vous obtenez un coup critique contre un adversaire avec Contre-frappe bénie ou Frappe punitive, votre attaque inflige un dé de dégât d'arme supplémentaire et la cible est sentiment_very_dissatisfiedRalentie 1 lors de son prochain tour."
+                "L'énergie divine remplit votre arme. Lorsque vous obtenez un coup critique contre un adversaire avec Contre-frappe bénie ou Frappe punitive, votre attaque inflige un dé de dégât d'arme supplémentaire et la cible est Ralentie 1 lors de son prochain tour."
             ]
         },
         {
@@ -7334,7 +7334,7 @@ DON.CLASS = {
                 "Instinct spirituel"
             ],
             "description": [
-                "Vous invoquez des esprits protecteurs pour vous garder des attaques à distance. Jusqu'à la fin de votre Rage, quiconque fait une attaque à distance contre vous doit réussir un casinoTest nu, DD 5 ou l'attaque échoue et n'a aucun effet."
+                "Vous invoquez des esprits protecteurs pour vous garder des attaques à distance. Jusqu'à la fin de votre Rage, quiconque fait une attaque à distance contre vous doit réussir un Test nu, DD 5 ou l'attaque échoue et n'a aucun effet."
             ]
         },
         {
@@ -7373,7 +7373,7 @@ DON.CLASS = {
                 "qualifié en Intimidation"
             ],
             "description": [
-                "En imitant le comportement menaçant d'un animal, vous donnez l'impression d'être plus large et plus imposant. Faites un test d'Intimidation pour sports_martial_artsDémoraliser chaque ennemi dans les 9 mètres. Cette tentative possède le trait visuel, perd le trait audible et vous ne subissez par de pénalité si une créature ne comprend pas votre langue. Comparez le résultat de votre test au DD de Volonté de chaque cible. Vous obtenez un bonus de circonstances de +2 au test contre les créatures animale, champignon et subissez une pénalité de circonstances de -2 contre les autres créatures. Chaque cible est ensuite immunisée temporairement pendant 1 minute."
+                "En imitant le comportement menaçant d'un animal, vous donnez l'impression d'être plus large et plus imposant. Faites un test d'Intimidation pour Démoraliser chaque ennemi dans les 9 mètres. Cette tentative possède le trait visuel, perd le trait audible et vous ne subissez par de pénalité si une créature ne comprend pas votre langue. Comparez le résultat de votre test au DD de Volonté de chaque cible. Vous obtenez un bonus de circonstances de +2 au test contre les créatures animale, champignon et subissez une pénalité de circonstances de -2 contre les autres créatures. Chaque cible est ensuite immunisée temporairement pendant 1 minute."
             ]
         },
         {
@@ -7384,8 +7384,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre fureur emplit vos ennemis de terreur. Tant que vous êtes enragé, vos actions sports_martial_artsDémoraliser et military_techMort de peur (provenant respectivement de la compétence Intimidation et d'un don de compétence d'Intimidation) obtiennent le trait rage et vous pouvez donc les utiliser même si vous êtes enragé.",
-                "Dès que vous obtenez les prérequis nécessaires, vous obtenez les dons de compétence military_techRegard Intimidant et military_techMort de peur ."
+                "Votre fureur emplit vos ennemis de terreur. Tant que vous êtes enragé, vos actions Démoraliser et Mort de peur (provenant respectivement de la compétence Intimidation et d'un don de compétence d'Intimidation) obtiennent le trait rage et vous pouvez donc les utiliser même si vous êtes enragé.",
+                "Dès que vous obtenez les prérequis nécessaires, vous obtenez les dons de compétence Regard Intimidant et Mort de peur ."
             ]
         },
         {
@@ -7396,7 +7396,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous enquêtez continuellement sur ce qui vous entoure, même lorsque vous vous livrez à d'autres activités. Vous pouvez vous déplacer à votre pleine vitesse lorsque vous utilisez l'activité d'exploration sports_martial_artsEnquêter et vous pouvez utiliser une autre activité d'exploration lorsque vous Enquêtez."
+                "Vous enquêtez continuellement sur ce qui vous entoure, même lorsque vous vous livrez à d'autres activités. Vous pouvez vous déplacer à votre pleine vitesse lorsque vous utilisez l'activité d'exploration Enquêter et vous pouvez utiliser une autre activité d'exploration lorsque vous Enquêtez."
             ]
         },
         {
@@ -7407,7 +7407,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre divinité punit les créatures qui vous blessent. Les créatures qui vous touchent avec une attaque subissent casino3d6 dégâts spirituels à chaque fois qu'elles y parviennent. Si vous possédez le trait saint ou impie, vous pouvez l'appliquer à ces dégâts."
+                "Votre divinité punit les créatures qui vous blessent. Les créatures qui vous touchent avec une attaque subissent 3d6 dégâts spirituels à chaque fois qu'elles y parviennent. Si vous possédez le trait saint ou impie, vous pouvez l'appliquer à ces dégâts."
             ]
         },
         {
@@ -7420,7 +7420,7 @@ DON.CLASS = {
                 "Celui qui appelle le vent"
             ],
             "description": [
-                "Vous pouvez invoquer la fureur de la nature sur vos ennemis. Vous obtenez le sort d'ordre auto_awesomeSeigneur des tempêtes"
+                "Vous pouvez invoquer la fureur de la nature sur vos ennemis. Vous obtenez le sort d'ordre Seigneur des tempêtes"
             ]
         },
         {
@@ -7433,7 +7433,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous laissez une ouverture contre les attaques, de manière à pouvoir y répondre à votre tour. Jusqu'à la fin de votre rage, vous êtes sentiment_very_dissatisfiedPris au dépourvu et les jets de dégâts contre vous bénéficient d'un bonus de circonstances de +2. Si une créature vous frappe, cette créature est Prise au dépourvu à votre égard jusqu'à la fin de votre prochain tour. Si vous la touchez avant la fin de votre prochain tour, vous obtenez un nombre de Points de vie temporaires égal à votre modificateur de Constitution ou le double sur un coup critique. Ces Points de vie temporaires durent jusqu'à la fin de votre rage."
+                "Vous laissez une ouverture contre les attaques, de manière à pouvoir y répondre à votre tour. Jusqu'à la fin de votre rage, vous êtes Pris au dépourvu et les jets de dégâts contre vous bénéficient d'un bonus de circonstances de +2. Si une créature vous frappe, cette créature est Prise au dépourvu à votre égard jusqu'à la fin de votre prochain tour. Si vous la touchez avant la fin de votre prochain tour, vous obtenez un nombre de Points de vie temporaires égal à votre modificateur de Constitution ou le double sur un coup critique. Ces Points de vie temporaires durent jusqu'à la fin de votre rage."
             ]
         },
         {
@@ -7460,7 +7460,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous êtes devenu une force de la nature brutale et inarrêtable, capable de surmonter des blessures mortelles facilement. Vous obtenez une résistance égale à 3 + votre modificateur de Constitution à tous les dégâts et votre résistance de résistance enragée passe à 8 + votre modificateur de Constitution.",
-                "De plus, si vous êtes réduit à 0 Point de vie, vous pouvez mettre un terme à la rage par une réaction pour rester à 1 Point de vie. Si vous le faites, vous devenez sentiment_very_dissatisfiedBlessé 2 (ou augmentez votre état blessé de 2 si vous étiez déjà blessé)."
+                "De plus, si vous êtes réduit à 0 Point de vie, vous pouvez mettre un terme à la rage par une réaction pour rester à 1 Point de vie. Si vous le faites, vous devenez Blessé 2 (ou augmentez votre état blessé de 2 si vous étiez déjà blessé)."
             ]
         },
         {
@@ -7473,7 +7473,7 @@ DON.CLASS = {
                 "légendaire en Survie"
             ],
             "description": [
-                "Votre capacité à pister votre proie a dépassé toute explication, vous permettant suivre les déplacements de sa proie et de prévoir avec facilité où elle se trouve. Quand vous utilisez sports_martial_artsChasser votre proie sur une créature dans les 30 mètres, vous pouvez suivre les déplacements de cette créature, ce qui vous permet de savoir précisément où elle se trouve, quelle que soit la distance qui vous sépare, tant qu'elle reste votre proie. Vous devez être légendaire en Nature pour connaître l'endroit où se trouve votre proie après s'être téléportée ou un voyage planaire. Ce don obtient les traits détection et primordial si vous êtes légendaire en Nature."
+                "Votre capacité à pister votre proie a dépassé toute explication, vous permettant suivre les déplacements de sa proie et de prévoir avec facilité où elle se trouve. Quand vous utilisez Chasser votre proie sur une créature dans les 30 mètres, vous pouvez suivre les déplacements de cette créature, ce qui vous permet de savoir précisément où elle se trouve, quelle que soit la distance qui vous sépare, tant qu'elle reste votre proie. Vous devez être légendaire en Nature pour connaître l'endroit où se trouve votre proie après s'être téléportée ou un voyage planaire. Ce don obtient les traits détection et primordial si vous êtes légendaire en Nature."
             ]
         },
         {
@@ -7486,10 +7486,10 @@ DON.CLASS = {
                 "Recherche minutieuse"
             ],
             "description": [
-                "Votre compréhension fondamentale de toute chose est telle que votre recherche ne peut plus vous donner de fausses informations. Vous êtes sentiment_very_dissatisfiedAccéléré de manière permanente et pouvez utiliser l'action supplémentaire pour sports_martial_artsVous souvenir . De plus, vous obtenez les avantages suivants :",
+                "Votre compréhension fondamentale de toute chose est telle que votre recherche ne peut plus vous donner de fausses informations. Vous êtes Accéléré de manière permanente et pouvez utiliser l'action supplémentaire pour Vous souvenir . De plus, vous obtenez les avantages suivants :",
                 [
                     "Lorsque vous Vous souvenez, vous utilisez le résultat d'un degré supérieur à celui qui résulte de votre test.",
-                    "Si un effet (tel que military_techSavoir douteux ) devrait vous donner des informations inexactes à votre test pour Vous souvenir, vous savez quelle information est inexacte.",
+                    "Si un effet (tel que Savoir douteux ) devrait vous donner des informations inexactes à votre test pour Vous souvenir, vous savez quelle information est inexacte.",
                     "Lorsque l'un de vos alliés Se souvient et obtient une fausse information, vous savez aussi que l'information est inexacte s'il la partage avec vous."
                 ]
             ]
@@ -7506,7 +7506,7 @@ DON.CLASS = {
                 "Mystère des ancêtres ou de la bataille"
             ],
             "description": [
-                "Vous suppliez les esprits guerriers de venir vous aider. Deux guerriers fantomatiques se manifestent dans une crop_freeémanation de 9 mètres de vous et tentent chacun une Frappe contre un ennemi adjacent, en utilisant votre modificateur d'attaque de sort. Les Frappes des guerriers infligent chacune casino4d6 dégâts spirituels et les guerriers peuvent prendre en tenaille, soit ensemble soit avec vous ou vos alliés. Si vous êtes sentiment_very_dissatisfiedLié à la malédiction 2 lorsque vous utilisez La mort marche, vous invoquez trois guerriers à la place et, si vous êtes Lié à la malédiction 3, vous invoquez quatre guerriers à la place. Les guerriers disparaissent au début de votre prochain tour."
+                "Vous suppliez les esprits guerriers de venir vous aider. Deux guerriers fantomatiques se manifestent dans une émanation de 9 mètres de vous et tentent chacun une Frappe contre un ennemi adjacent, en utilisant votre modificateur d'attaque de sort. Les Frappes des guerriers infligent chacune 4d6 dégâts spirituels et les guerriers peuvent prendre en tenaille, soit ensemble soit avec vous ou vos alliés. Si vous êtes Lié à la malédiction 2 lorsque vous utilisez La mort marche, vous invoquez trois guerriers à la place et, si vous êtes Lié à la malédiction 3, vous invoquez quatre guerriers à la place. Les guerriers disparaissent au début de votre prochain tour."
             ]
         },
         {
@@ -7517,7 +7517,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Quand vous assénez un coup assez puissant, vous créez une ouverture dans laquelle s'engouffre un allié. À chaque fois que vous portez un coup critique à un adversaire sentiment_very_dissatisfiedPris au dépourvu avec une attaque au corps-à-corps et lui infligez des dégâts, la cible déclenche en réaction une Frappe réactive dont bénéficie un allié de votre choix qui possède cette réaction, comme si l'ennemi avait utilisé une action de manipulation."
+                "Quand vous assénez un coup assez puissant, vous créez une ouverture dans laquelle s'engouffre un allié. À chaque fois que vous portez un coup critique à un adversaire Pris au dépourvu avec une attaque au corps-à-corps et lui infligez des dégâts, la cible déclenche en réaction une Frappe réactive dont bénéficie un allié de votre choix qui possède cette réaction, comme si l'ennemi avait utilisé une action de manipulation."
             ]
         },
         {
@@ -7544,7 +7544,7 @@ DON.CLASS = {
                 "Frappe précise"
             ],
             "description": [
-                "Vous appliquez vos techniques démonstratives aux armes de jet aussi facilement qu'avec vos attaques au corps-à-corps. Vous appliquez vos dégâts de Frappe précise sur les Frappes à distance que vous réalisez avec une arme de jet dans leur premier facteur de portée. L'arme de jet doit posséder les traits agile ou finesse. Cela vous permet aussi de faire une Frappe de jet à distance pour sports_martial_artsAboutissement assuré et tout autre aboutissement qui inclut une Frappe qui peut bénéficier de votre Frappe précise."
+                "Vous appliquez vos techniques démonstratives aux armes de jet aussi facilement qu'avec vos attaques au corps-à-corps. Vous appliquez vos dégâts de Frappe précise sur les Frappes à distance que vous réalisez avec une arme de jet dans leur premier facteur de portée. L'arme de jet doit posséder les traits agile ou finesse. Cela vous permet aussi de faire une Frappe de jet à distance pour Aboutissement assuré et tout autre aboutissement qui inclut une Frappe qui peut bénéficier de votre Frappe précise."
             ]
         },
         {
@@ -7649,7 +7649,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Quand vous êtes en furie, vos armes de jet deviennent particulièrement dangereuses. Vous appliquez les dégâts supplémentaires de sports_martial_artsRage à vos attaques d'armes de jet. Si vous possédez le don military_techCritique brutal ou la capacité de classe Dévastateur , ces pouvoirs affectent vos attaques d'armes de jet."
+                "Quand vous êtes en furie, vos armes de jet deviennent particulièrement dangereuses. Vous appliquez les dégâts supplémentaires de Rage à vos attaques d'armes de jet. Si vous possédez le don Critique brutal ou la capacité de classe Dévastateur , ces pouvoirs affectent vos attaques d'armes de jet."
             ]
         },
         {
@@ -7662,7 +7662,7 @@ DON.CLASS = {
                 "Un familier"
             ],
             "description": [
-                "Vous avez appris à parler avec votre familier et les créatures semblables. Vous pouvez poser des questions, recevoir des réponses et utiliser Diplomatie avec les créatures de la même famille d'animaux que votre familier. Par exemple, si votre familier était un chat, vous pourriez obtenir les effets de auto_awesomeCommunication avec les animaux pour tout félin (incluant les léopards, les lions et les tigres, parmi d'autres). Cette capacité ne les rend pas plus amicaux que la normale. Si votre familier change pour devenir une autre créature, vous ne pouvez plus utiliser cette capacité pendant une semaine le temps d'absorber la nouvelle langue de votre familier.",
+                "Vous avez appris à parler avec votre familier et les créatures semblables. Vous pouvez poser des questions, recevoir des réponses et utiliser Diplomatie avec les créatures de la même famille d'animaux que votre familier. Par exemple, si votre familier était un chat, vous pourriez obtenir les effets de Communication avec les animaux pour tout félin (incluant les léopards, les lions et les tigres, parmi d'autres). Cette capacité ne les rend pas plus amicaux que la normale. Si votre familier change pour devenir une autre créature, vous ne pouvez plus utiliser cette capacité pendant une semaine le temps d'absorber la nouvelle langue de votre familier.",
                 "Spécial Ce don possède le trait correspondant à la tradition de sorts que vous lancez (arcanique, divine, occulte ou primordiale)."
             ]
         },
@@ -7687,7 +7687,7 @@ DON.CLASS = {
                 "Empathie végétale"
             ],
             "description": [
-                "Vous avez une affinité spéciale avec toutes les choses végétales et vivantes. Vous (et votre familier léchi, si vous en avez un) êtes sous les effets constants de auto_awesomeCommunication avec les plantes . La plupart des plantes qui ne sont pas des créatures reconnaissent votre statut de druide de l'ordre de la feuille et vous sont amicales."
+                "Vous avez une affinité spéciale avec toutes les choses végétales et vivantes. Vous (et votre familier léchi, si vous en avez un) êtes sous les effets constants de Communication avec les plantes . La plupart des plantes qui ne sont pas des créatures reconnaissent votre statut de druide de l'ordre de la feuille et vous sont amicales."
             ]
         },
         {
@@ -7698,7 +7698,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre connaissance académique sur une créature vous permet d'altérer subtilement votre magie afin de la vaincre. Lorsque vous obtenez un succès critique sur un test pour sports_martial_artsSe souvenir à propos d'une créature, vous pouvez utiliser cette connaissance pour lui faire subir une pénalité de circonstances de -1 soit à sa CA et à ses jets de sauvegarde contre la prochaine attaque que vous lui portez ou contre le prochain sort que vous lui lancez et qui lui demandera de se défendre. La créature subit la même pénalité à ses attaques ou son DD la prochaine fois qu'elle vous attaquera ou vous obligera à lancer un jet de sauvegarde contre un de ses effets.",
+                "Votre connaissance académique sur une créature vous permet d'altérer subtilement votre magie afin de la vaincre. Lorsque vous obtenez un succès critique sur un test pour Se souvenir à propos d'une créature, vous pouvez utiliser cette connaissance pour lui faire subir une pénalité de circonstances de -1 soit à sa CA et à ses jets de sauvegarde contre la prochaine attaque que vous lui portez ou contre le prochain sort que vous lui lancez et qui lui demandera de se défendre. La créature subit la même pénalité à ses attaques ou son DD la prochaine fois qu'elle vous attaquera ou vous obligera à lancer un jet de sauvegarde contre un de ses effets.",
                 "Si vous partagez cette informations avec vos alliés, ils obtiennent également ces avantages. S'ils ne sont pas utilisés, ces bonus prennent fin après 1 minute."
             ]
         },
@@ -7745,7 +7745,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous utilisez les techniques de lecture à froid de l'artiste, la lecture des auras et autres astuces pour découvrir les faiblesses et les forces de vos ennemis. Le MJ lance un test secret d' casinoOccultisme pour vous contre le plus élevé entre le DD de Duperie ou de Discrétion d'un ennemi de votre choix qui n'est pas sentiment_very_dissatisfiedMasqué , sentiment_very_dissatisfiedCaché ou sentiment_very_dissatisfiedNon-détecté . Le MJ pourrait appliquer des pénalités en fonction de la distance entre vous et l'ennemi. L'ennemi est alors temporairement immunisé à votre Lecture du combat pendant 1 journée.",
+                "Vous utilisez les techniques de lecture à froid de l'artiste, la lecture des auras et autres astuces pour découvrir les faiblesses et les forces de vos ennemis. Le MJ lance un test secret d' Occultisme pour vous contre le plus élevé entre le DD de Duperie ou de Discrétion d'un ennemi de votre choix qui n'est pas Masqué , Caché ou Non-détecté . Le MJ pourrait appliquer des pénalités en fonction de la distance entre vous et l'ennemi. L'ennemi est alors temporairement immunisé à votre Lecture du combat pendant 1 journée.",
                 "Succès critique Le MJ choisit et vous donne deux des informations suivantes à propos de votre ennemi : quelle est sa plus grande faiblesse, quel est son modificateur de jet de sauvegarde le plus bas, une immunité que l'ennemi possède ou quelle résistance de votre ennemi est la plus élevée. En cas d'égalité, le MJ en choisit une de manière aléatoire.",
                 "Succès Le MJ donne une unique information tirée de la liste ci-dessus à propos de l'ennemi.",
                 "Échec critique Le MJ vous donne une fausse information (le MJ maquille l'information)."
@@ -7760,7 +7760,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez un symbole religieux.",
-                "Vous présentez votre symbole religieux avec conviction. Vous obtenez un bonus de circonstances de +2 aux jets de sauvegarde jusqu'à la fin de votre prochain tour. Tant que votre symbole est levé, si vous obtenez un succès sur un jet de sauvegarde contre un effet de vitalité ou de vide, il devient un succès critique. Si le symbole religieux que vous levez est un bouclier, tel que celui issu d' military_techArsenal blasonné , vous obtenez les effets de Lever un bouclier lorsque vous utilisez cette action et vous obtenez également les effets de cette action lorsque vous Levez un bouclier."
+                "Vous présentez votre symbole religieux avec conviction. Vous obtenez un bonus de circonstances de +2 aux jets de sauvegarde jusqu'à la fin de votre prochain tour. Tant que votre symbole est levé, si vous obtenez un succès sur un jet de sauvegarde contre un effet de vitalité ou de vide, il devient un succès critique. Si le symbole religieux que vous levez est un bouclier, tel que celui issu d' Arsenal blasonné , vous obtenez les effets de Lever un bouclier lorsque vous utilisez cette action et vous obtenez également les effets de cette action lorsque vous Levez un bouclier."
             ]
         },
         {
@@ -7771,7 +7771,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Votre tour se termine et vous subissez une pénalité de statut à votre Vitesse ou vous êtes sentiment_very_dissatisfiedImmobilisé ou sentiment_very_dissatisfiedRalenti .",
+                "Déclencheur Votre tour se termine et vous subissez une pénalité de statut à votre Vitesse ou vous êtes Immobilisé ou Ralenti .",
                 "Vous êtes libre comme l'eau et évitez toutes contraintes. Éliminez une pénalité de statut à votre Vitesse, l'état Immobilisé ou l'état Ralenti qui vous affecte."
             ]
         },
@@ -7785,7 +7785,7 @@ DON.CLASS = {
                 "lien arcanique"
             ],
             "description": [
-                "Lorsque vous Drainez votre objet lié, vous pouvez y laisser un peu d'énergie à utiliser plus tard. Vous pouvez utiliser sports_martial_artsDrain d'objet lié une fois de plus par jour, mais seulement pour lancer un sort d'au minimum deux rangs de moins que votre emplacement de sort de magicien de plus haut rang."
+                "Lorsque vous Drainez votre objet lié, vous pouvez y laisser un peu d'énergie à utiliser plus tard. Vous pouvez utiliser Drain d'objet lié une fois de plus par jour, mais seulement pour lancer un sort d'au minimum deux rangs de moins que votre emplacement de sort de magicien de plus haut rang."
             ]
         },
         {
@@ -7825,7 +7825,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Il vous faut 10 minutes pour vous ouvrir aux mystères divins du monde, en plongeant dans les plus sinistres présages du futur.",
-                "Vous obtenez les effets du sort auto_awesomeAugure , sauf que cela ne concerne que les dangers devant vous ; tout résultat \"bon\" est remplacé par \"rien\" et tout résultat \"mitigé\" est remplacé par \"mauvais\". Si vous êtes légendaire en Religion, il ne vous faut qu'une minute pour Lire le désastre."
+                "Vous obtenez les effets du sort Augure , sauf que cela ne concerne que les dangers devant vous ; tout résultat \"bon\" est remplacé par \"rien\" et tout résultat \"mitigé\" est remplacé par \"mauvais\". Si vous êtes légendaire en Religion, il ne vous faut qu'une minute pour Lire le désastre."
             ]
         },
         {
@@ -7866,7 +7866,7 @@ DON.CLASS = {
                 "Explorateur des ordres"
             ],
             "description": [
-                "Vous vous êtes plongé dans l'étude approfondie des enseignements d'un nouvel ordre obtenant un accès à un sort d'ordre convoité. Choisissez un ordre que vous avez sélectionné avec military_techExplorateur des ordres . Vous obtenez le sort initial de cet ordre.",
+                "Vous vous êtes plongé dans l'étude approfondie des enseignements d'un nouvel ordre obtenant un accès à un sort d'ordre convoité. Choisissez un ordre que vous avez sélectionné avec Explorateur des ordres . Vous obtenez le sort initial de cet ordre.",
                 "Spécial Vous pouvez sélectionner ce don plusieurs fois. À chaque fois, vous devez choisir un ordre différent parmi ceux que vous avez choisis avec Explorateur des ordres."
             ]
         },
@@ -7889,7 +7889,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes doté de capacités magiques mineures. Choisissez la magie arcanique, divine, occulte ou primordiale et obtenez deux tours de magie courants qui sont disponibles de cette tradition. Vous obtenez l'activité sports_martial_artsLancer un sort et votre attribut essentiel d'incantation est le Charisme et vous êtes qualifié avec les DD et les jets d'attaque de sorts."
+                "Vous êtes doté de capacités magiques mineures. Choisissez la magie arcanique, divine, occulte ou primordiale et obtenez deux tours de magie courants qui sont disponibles de cette tradition. Vous obtenez l'activité Lancer un sort et votre attribut essentiel d'incantation est le Charisme et vous êtes qualifié avec les DD et les jets d'attaque de sorts."
             ]
         },
         {
@@ -7902,7 +7902,7 @@ DON.CLASS = {
                 "Source de mise à mal"
             ],
             "description": [
-                "La puissante morsure de votre énergie du vide augmente. Quand vous lancez auto_awesomeMise à mal , vous lancez des d10 au lieu de d8."
+                "La puissante morsure de votre énergie du vide augmente. Quand vous lancez Mise à mal , vous lancez des d10 au lieu de d8."
             ]
         },
         {
@@ -7915,7 +7915,7 @@ DON.CLASS = {
                 "Source de guérison"
             ],
             "description": [
-                "Votre vitalité est encore plus éclatante et revigorante. Lorsque vous lancez auto_awesomeGuérison , vous lancez des d10 à la place des d8."
+                "Votre vitalité est encore plus éclatante et revigorante. Lorsque vous lancez Guérison , vous lancez des d10 à la place des d8."
             ]
         },
         {
@@ -7928,7 +7928,7 @@ DON.CLASS = {
                 "Mains guérisseuses"
             ],
             "description": [
-                "La bénédiction de votre divinité intensifie votre capacité à soigner, intégrant des soins magiques avec les soins ordinaires. Lorsque vous obtenez un succès sur un test de Médecine pour sports_martial_artsSoigner les blessures , vous pouvez lancer des d10 au lieu de d8 pour les soins et ajouter un bonus de statut aux soins égal à votre niveau."
+                "La bénédiction de votre divinité intensifie votre capacité à soigner, intégrant des soins magiques avec les soins ordinaires. Lorsque vous obtenez un succès sur un test de Médecine pour Soigner les blessures , vous pouvez lancer des d10 au lieu de d8 pour les soins et ajouter un bonus de statut aux soins égal à votre niveau."
             ]
         },
         {
@@ -7941,7 +7941,7 @@ DON.CLASS = {
                 "maître en Nature, Chasseur de monstres"
             ],
             "description": [
-                "Vous avez une connaissance presque parfaite de toutes les créatures existantes. Vous pouvez utiliser sports_martial_artsNature pour identifier n'importe quelle créature avec sports_martial_artsSe souvenir . De plus, vous bénéficiez des avantages de military_techChasseur de monstres (et de military_techGarde-monstres , si vous le possédez) en cas de succès ou de succès critique."
+                "Vous avez une connaissance presque parfaite de toutes les créatures existantes. Vous pouvez utiliser Nature pour identifier n'importe quelle créature avec Se souvenir . De plus, vous bénéficiez des avantages de Chasseur de monstres (et de Garde-monstres , si vous le possédez) en cas de succès ou de succès critique."
             ]
         },
         {
@@ -7954,7 +7954,7 @@ DON.CLASS = {
                 "maître en Survie, Environnement de prédilection"
             ],
             "description": [
-                "Vous êtes capable de vous adapter à l'environnement de tout terrain naturel. Vous pouvez passer une heure à vous entraîner dans l'environnement où vous vous trouvez pour qu'il devienne votre military_techEnvironnement de prédilection , ce qui remplace temporairement votre environnement de prédilection actuel. Si vous passez une journée entière hors de ce nouvel environnement de prédilection, vous récupérez l'environnement que vous avez initialement choisi quand vous avez pris le don Environnement de prédilection."
+                "Vous êtes capable de vous adapter à l'environnement de tout terrain naturel. Vous pouvez passer une heure à vous entraîner dans l'environnement où vous vous trouvez pour qu'il devienne votre Environnement de prédilection , ce qui remplace temporairement votre environnement de prédilection actuel. Si vous passez une journée entière hors de ce nouvel environnement de prédilection, vous récupérez l'environnement que vous avez initialement choisi quand vous avez pris le don Environnement de prédilection."
             ]
         },
         {
@@ -7980,7 +7980,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous incarnez le lien vers votre patron si complètement que vous pouvez lancer vos maléfices en rapide succession. Vous n'êtes plus désormais limité à lancer seulement un unique maléfice à chaque tour. De plus, lorsque vous lancez auto_awesomeGloussement pour prolonger un maléfice, vous obtenez les effets de Maintenir pour tous vos maléfices actifs qui ont une durée de maintenu."
+                "Vous incarnez le lien vers votre patron si complètement que vous pouvez lancer vos maléfices en rapide succession. Vous n'êtes plus désormais limité à lancer seulement un unique maléfice à chaque tour. De plus, lorsque vous lancez Gloussement pour prolonger un maléfice, vous obtenez les effets de Maintenir pour tous vos maléfices actifs qui ont une durée de maintenu."
             ]
         },
         {
@@ -7993,7 +7993,7 @@ DON.CLASS = {
                 "Gardien initié"
             ],
             "description": [
-                "Votre maîtrise de gardien s'accroît. Vous obtenez le choix d'un sort de gardien entre auto_awesomePistage éphémère et auto_awesomeRoncier du rôdeur .",
+                "Votre maîtrise de gardien s'accroît. Vous obtenez le choix d'un sort de gardien entre Pistage éphémère et Roncier du rôdeur .",
                 "Spécial Vous pouvez prendre ce don plusieurs fois, choisissant un sort de maître gardien à chaque fois."
             ]
         },
@@ -8043,7 +8043,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par jour",
-                "Vous avez appris à retenir votre malédiction. Si votre prochaine action consiste à utiliser un capacité liée à la malédiction, la valeur de votre sentiment_very_dissatisfiedMalédiction n'augmente pas."
+                "Vous avez appris à retenir votre malédiction. Si votre prochaine action consiste à utiliser un capacité liée à la malédiction, la valeur de votre Malédiction n'augmente pas."
             ]
         },
         {
@@ -8056,7 +8056,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous siphonnez une partie de la puissance d'un maléfice offensif que vous avez lancé pour le diriger également contre une autre cible. Si votre prochaine action consiste à sports_martial_artsLancer un sort pour lancer un maléfice nuisible sur une cible unique, vous pouvez réduire son rang de 2 (le rendant de 2 rangs inférieurs au rang maximum des sorts que vous pouvez lancer). Si vous le faites, vous pouvez sélectionner une seconde cible avec ce maléfice pour que ce maléfice l'affecte."
+                "Vous siphonnez une partie de la puissance d'un maléfice offensif que vous avez lancé pour le diriger également contre une autre cible. Si votre prochaine action consiste à Lancer un sort pour lancer un maléfice nuisible sur une cible unique, vous pouvez réduire son rang de 2 (le rendant de 2 rangs inférieurs au rang maximum des sorts que vous pouvez lancer). Si vous le faites, vous pouvez sélectionner une seconde cible avec ce maléfice pour que ce maléfice l'affecte."
             ]
         },
         {
@@ -8070,7 +8070,7 @@ DON.CLASS = {
                 "Maltraitance"
             ],
             "description": [
-                "Vous frappez l'ennemi que vous êtes en train de maltraiter contre quelqu'un d'autre. Quand vous Maltraitez un adversaire, choisissez un ennemi adjacent à celui qui est sentiment_very_dissatisfiedAgrippé . Cet ennemi subit lui aussi vos dégâts de Maltraitance avec un jet de casinoRéflexes contre votre DD de classe."
+                "Vous frappez l'ennemi que vous êtes en train de maltraiter contre quelqu'un d'autre. Quand vous Maltraitez un adversaire, choisissez un ennemi adjacent à celui qui est Agrippé . Cet ennemi subit lui aussi vos dégâts de Maltraitance avec un jet de Réflexes contre votre DD de classe."
             ]
         },
         {
@@ -8083,7 +8083,7 @@ DON.CLASS = {
                 "Trafic de cerveau"
             ],
             "description": [
-                "Déclencheur Votre Frappe touche de manière critique et inflige des dégâts à une créature que vous avez identifié avec sports_martial_artsSe souvenir .",
+                "Déclencheur Votre Frappe touche de manière critique et inflige des dégâts à une créature que vous avez identifié avec Se souvenir .",
                 "Vos tactiques de combat sont avantagées par l'évaluation des capacités de votre ennemi et sa portée. Vous Faites un pas ou Marchez rapidement. Ce déplacement ne déclenche pas de réaction de la créature déclencheuse."
             ]
         },
@@ -8097,7 +8097,7 @@ DON.CLASS = {
                 "maître en Athlétisme"
             ],
             "description": [
-                "Vous tirez partie de votre connaissance des arts martiaux pour combiner deux manœuvres différentes en une seule combinaison fluide. Choisissez deux actions parmi sports_martial_artsSaisir , sports_martial_artsRepositionner , sports_martial_artsPousser ou sports_martial_artsCroc-en-jambe . Faites les deux attaques choisies contre la même créature ou des créatures différentes, mais n'appliquez la pénalité d'attaques multiples qu'après les avoir résolues."
+                "Vous tirez partie de votre connaissance des arts martiaux pour combiner deux manœuvres différentes en une seule combinaison fluide. Choisissez deux actions parmi Saisir , Repositionner , Pousser ou Croc-en-jambe . Faites les deux attaques choisies contre la même créature ou des créatures différentes, mais n'appliquez la pénalité d'attaques multiples qu'après les avoir résolues."
             ]
         },
         {
@@ -8110,7 +8110,7 @@ DON.CLASS = {
                 "expert en Athlétisme"
             ],
             "description": [
-                "Vous manœuvrez aisément contre vos adversaires. Vos actions pour sports_martial_artsDésarmer , sports_martial_artsSaisir , sports_martial_artsRepositionner , sports_martial_artsPousser et faire un sports_martial_artsCroc-en-jambe possèdent une plus faible pénalité d'attaques multiples. Même si votre attaque d'arme ou à mains nues n'a pas le trait agile, la pénalité est de -4 si l'action est la deuxième attaque du round, ou -8 si c'est votre troisième attaque et suivantes. Si votre attaque d'arme ou à mains nues est agile et que vous avez du panache, la pénalité se reduit encore plus, à -3 pour la deuxième attaque dans le round, et -6 pour la troisième et les suivantes."
+                "Vous manœuvrez aisément contre vos adversaires. Vos actions pour Désarmer , Saisir , Repositionner , Pousser et faire un Croc-en-jambe possèdent une plus faible pénalité d'attaques multiples. Même si votre attaque d'arme ou à mains nues n'a pas le trait agile, la pénalité est de -4 si l'action est la deuxième attaque du round, ou -8 si c'est votre troisième attaque et suivantes. Si votre attaque d'arme ou à mains nues est agile et que vous avez du panache, la pénalité se reduit encore plus, à -3 pour la deuxième attaque dans le round, et -6 pour la troisième et les suivantes."
             ]
         },
         {
@@ -8132,7 +8132,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous êtes sous l'emprise de votre malédiction, vos pas acquièrent une flottabilité surnaturelle. Lorsque vous êtes sentiment_very_dissatisfiedLié à la malédiction 1 , vous pouvez Marcher rapidement sur des liquides qui ne supportent pas votre poids, mais vous devez terminer votre mouvement sur une surface qui peut vous supporter ou vous tombez dans le liquide comme à l'ordinaire. Lorsque vous êtes Lié à la malédiction 2 ou pire, vous obtenez les effets de auto_awesomeMarche sur l'eau ."
+                "Lorsque vous êtes sous l'emprise de votre malédiction, vos pas acquièrent une flottabilité surnaturelle. Lorsque vous êtes Lié à la malédiction 1 , vous pouvez Marcher rapidement sur des liquides qui ne supportent pas votre poids, mais vous devez terminer votre mouvement sur une surface qui peut vous supporter ou vous tombez dans le liquide comme à l'ordinaire. Lorsque vous êtes Lié à la malédiction 2 ou pire, vous obtenez les effets de Marche sur l'eau ."
             ]
         },
         {
@@ -8148,9 +8148,9 @@ DON.CLASS = {
                 "expert en Intimidation, Posture du gorille"
             ],
             "description": [
-                "Conditions Vous avez adopté la military_techPosture du gorille .",
+                "Conditions Vous avez adopté la Posture du gorille .",
                 "Vous martelez votre poitrine avec vos poings avant de porter des coups à vos ennemis.",
-                "Effectuez un test d'Intimidation pour sports_martial_artsDémoraliser , puis portez une Frappe de coup du gorille contre la même cible. Si votre Frappe touche, vous obtenez un bonus de circonstances aux jet de dégâts égal au triple de la valeur de l'état sentiment_very_dissatisfiedEffrayé de la cible.",
+                "Effectuez un test d'Intimidation pour Démoraliser , puis portez une Frappe de coup du gorille contre la même cible. Si votre Frappe touche, vous obtenez un bonus de circonstances aux jet de dégâts égal au triple de la valeur de l'état Effrayé de la cible.",
                 "Spécial Si vous possédez ce don, lorsque vous êtes dans la Posture du gorille, vous obtenez une Vitesse d'escalade de 4,50 mètres."
             ]
         },
@@ -8165,7 +8165,7 @@ DON.CLASS = {
                 "Source divine"
             ],
             "description": [
-                "Vous recourez à des moyens extrêmes pour soutenir vos alliés, même si cela signifie vous mettre à mal vous-même. Si votre prochaine action consiste à lancer auto_awesomeMise à mal ou auto_awesomeGuérison pour redonner des Points de vie à un unique allié, vous pouvez canaliser votre propre vitalité en même temps que le sort. Vous perdez 1d8 Points de vie par rang du sort, qui ne peuvent en aucun cas être réduits ou mitigés de la moindre façon et votre allié regagne un nombre équivalent de Points de vie."
+                "Vous recourez à des moyens extrêmes pour soutenir vos alliés, même si cela signifie vous mettre à mal vous-même. Si votre prochaine action consiste à lancer Mise à mal ou Guérison pour redonner des Points de vie à un unique allié, vous pouvez canaliser votre propre vitalité en même temps que le sort. Vous perdez 1d8 Points de vie par rang du sort, qui ne peuvent en aucun cas être réduits ou mitigés de la moindre façon et votre allié regagne un nombre équivalent de Points de vie."
             ]
         },
         {
@@ -8178,7 +8178,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous ajoutez une substance hautement puissante à votre bombe alchimique pour la transformer en mégabombe. Lancer cette bombe prend deux actions au lieu d'une Frappe. Ce n'est pas une Frappe, et vous ne faites pas de jet d'attaque. La mégabombe explose dans une crop_freeexplosion de 9 mètres dans les 18 mètres. Elle inflige des dégâts aux créatures comme si chacune était la cible principale, avec un jet casinoRéflexes . En cas d'échec, une créature subit également tous les effets supplémentaires qui toucheraient une cible principale (comme l'état sentiment_very_dissatisfiedPris au dépourvu résultant d'une foudre en bouteille). Cependant toutes les créatures qui se trouvent dans la zone subissent les dégâts d'éclaboussure comme si elles étaient la cible principale, il n'y a pas d'éclaboussures au-delà de cette zone."
+                "Vous ajoutez une substance hautement puissante à votre bombe alchimique pour la transformer en mégabombe. Lancer cette bombe prend deux actions au lieu d'une Frappe. Ce n'est pas une Frappe, et vous ne faites pas de jet d'attaque. La mégabombe explose dans une explosion de 9 mètres dans les 18 mètres. Elle inflige des dégâts aux créatures comme si chacune était la cible principale, avec un jet Réflexes . En cas d'échec, une créature subit également tous les effets supplémentaires qui toucheraient une cible principale (comme l'état Pris au dépourvu résultant d'une foudre en bouteille). Cependant toutes les créatures qui se trouvent dans la zone subissent les dégâts d'éclaboussure comme si elles étaient la cible principale, il n'y a pas d'éclaboussures au-delà de cette zone."
             ]
         },
         {
@@ -8194,11 +8194,11 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions vous êtes adjacent à un ennemi.",
-                "Vous entraînez votre ennemi dans votre danse. Faites un test de casinoReprésentation contre le DD de Volonté de votre ennemi adjacent.",
+                "Vous entraînez votre ennemi dans votre danse. Faites un test de Représentation contre le DD de Volonté de votre ennemi adjacent.",
                 "Succès critique Votre adversaire est entraîné par votre danse. Tous deux vous déplacez d'un maximum de 3 mètres dans la même direction, restant adjacents l'un à l'autre. Votre déplacement ne déclenche pas de réactions provenant de la cible (et le déplacement de la cible ne déclenche pas de réactions car il s'agit d'un déplacement forcé).",
                 "Succès Comme en cas de succès critique, mais vous ne vous déplacez tous deux que de 1,50 mètre.",
                 "Échec L'adversaire ne suit pas vos pas. Vous pouvez vous déplacer de 1,50 mètre, mais ce mouvement déclenche les réactions normalement.",
-                "Échec critique Vous trébuchez et tombez sentiment_very_dissatisfiedÀ terre dans votre case."
+                "Échec critique Vous trébuchez et tombez À terre dans votre case."
             ]
         },
         {
@@ -8212,7 +8212,7 @@ DON.CLASS = {
                 "Morphologie draconique, Forme indomptée"
             ],
             "description": [
-                "Vous transcendez les limites morphologiques. Une fois par jour, vous pouvez Lancer auto_awesomeIncarnation de la nature , même si vous ne l'avez pas préparé, pour vous transformez en un kaiju. Si vous possédez military_techMorphologie végétale , vous pouvez vous transformer à la place en Homme vert. Vous obtenez enfin l'activité sports_martial_artsMétamorphose ultime ."
+                "Vous transcendez les limites morphologiques. Une fois par jour, vous pouvez Lancer Incarnation de la nature , même si vous ne l'avez pas préparé, pour vous transformez en un kaiju. Si vous possédez Morphologie végétale , vous pouvez vous transformer à la place en Homme vert. Vous obtenez enfin l'activité Métamorphose ultime ."
             ]
         },
         {
@@ -8225,7 +8225,7 @@ DON.CLASS = {
                 "ordre de la feuille"
             ],
             "description": [
-                "Vous vous transformez en une version végétale de vous-même, en obtenant le trait plante et en perdant les traits inappropriés à votre nouvelle forme (typiquement humanoïde). Vous obtenez aussi l'action sports_martial_artsRepos verdoyant ."
+                "Vous vous transformez en une version végétale de vous-même, en obtenant le trait plante et en perdant les traits inappropriés à votre nouvelle forme (typiquement humanoïde). Vous obtenez aussi l'action Repos verdoyant ."
             ]
         },
         {
@@ -8238,7 +8238,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous ouvrez vos sens à de nombreuses visions du futur immédiat. Ces visions vous donnent des détails subtils sur votre environnement immédiat dans les 9 mètres. Dans ce rayon, vous n'avez pas besoin de réussir de test nu pour cibler une créature sentiment_very_dissatisfiedMasquée , n'êtes pas sentiment_very_dissatisfiedPris au dépourvu pour les créatures qui sont sentiment_very_dissatisfiedCachées de vous (à moins que vous ne soyez Pris au dépourvu pour des raisons autres que l'état caché) et il vous suffit de ne réussir qu'un casinoTest nu, DD 5 pour cibler une créature Cachée. Au-delà de 9 mètres, les visions sont submergées par un trop grand nombre de futurs possibles, ce qui rend tous vos sens imprécis au-delà de cette limite. Les visions persistent pendant 1 minute."
+                "Vous ouvrez vos sens à de nombreuses visions du futur immédiat. Ces visions vous donnent des détails subtils sur votre environnement immédiat dans les 9 mètres. Dans ce rayon, vous n'avez pas besoin de réussir de test nu pour cibler une créature Masquée , n'êtes pas Pris au dépourvu pour les créatures qui sont Cachées de vous (à moins que vous ne soyez Pris au dépourvu pour des raisons autres que l'état caché) et il vous suffit de ne réussir qu'un Test nu, DD 5 pour cibler une créature Cachée. Au-delà de 9 mètres, les visions sont submergées par un trop grand nombre de futurs possibles, ce qui rend tous vos sens imprécis au-delà de cette limite. Les visions persistent pendant 1 minute."
             ]
         },
         {
@@ -8275,7 +8275,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vos mouvements et ceux de vos alliés sont aussi rapides et décisifs que le jugement de votre divinité. Si un allié débute une action de déplacement dans votre aura de champion, son déplacement pendant cette action ne déclenche pas de réactions.",
-                "De plus, vous êtes en permanence sentiment_very_dissatisfiedAccéléré . Vous ne pouvez utiliser votre action supplémentaire que pour Faire un pas ou Marcher rapidement. Si vous disposez d'une Vitesse de vol, ajoutez Voler à cette liste. Si vous avez un compagnon animal et que vous êtes monté sur lui au début de votre tour, vous pouvez faire en sorte que ce soit votre monture qui soit Accélérée à votre place au cours de ce tour."
+                "De plus, vous êtes en permanence Accéléré . Vous ne pouvez utiliser votre action supplémentaire que pour Faire un pas ou Marcher rapidement. Si vous disposez d'une Vitesse de vol, ajoutez Voler à cette liste. Si vous avez un compagnon animal et que vous êtes monté sur lui au début de votre tour, vous pouvez faire en sorte que ce soit votre monture qui soit Accélérée à votre place au cours de ce tour."
             ]
         },
         {
@@ -8335,7 +8335,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Votre compréhension de la vie s'étend, vous permettant d'imiter un plus large éventail de créatures. Ajoutez les formes du sort auto_awesomeForme d'insecte à celles de la liste de auto_awesomeForme indomptée . Lorsque que vous utilisez Forme indomptée pour vous métamorphoser en un insecte non volant indiqué dans les formes d'insecte listées dans auto_awesomeForme de nuisible , la durée est de 24 heures au lieu de 10 minutes."
+                "Votre compréhension de la vie s'étend, vous permettant d'imiter un plus large éventail de créatures. Ajoutez les formes du sort Forme d'insecte à celles de la liste de Forme indomptée . Lorsque que vous utilisez Forme indomptée pour vous métamorphoser en un insecte non volant indiqué dans les formes d'insecte listées dans Forme de nuisible , la durée est de 24 heures au lieu de 10 minutes."
             ]
         },
         {
@@ -8348,7 +8348,7 @@ DON.CLASS = {
                 "Morphologie volante"
             ],
             "description": [
-                "Vous pouvez prendre la forme de certaines des créatures les plus redoutables au monde. Ajoutez les formes indiquées dans le sort auto_awesomeForme de dragon à la liste de Forme indomptée.",
+                "Vous pouvez prendre la forme de certaines des créatures les plus redoutables au monde. Ajoutez les formes indiquées dans le sort Forme de dragon à la liste de Forme indomptée.",
                 "Chaque fois que vous vous métamorphosez en une autre forme en utilisant Forme indomptée, vous obtenez une résistance 5 contre les dégâts de type contondant ou de poison, à votre choix."
             ]
         },
@@ -8362,7 +8362,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Vous comprenez les éléments fondamentaux de la nature au point de pouvoir en imprégner votre corps et devenir une incarnation vivante de ces éléments. Ajoutez les formes du sort auto_awesomeForme élémentaire à la liste de auto_awesomeForme indomptée . Lorsque vous êtes métamorphosé en une autre forme en utilisant Forme indomptée, vous bénéficiez d'une résistance 5 contre le feu"
+                "Vous comprenez les éléments fondamentaux de la nature au point de pouvoir en imprégner votre corps et devenir une incarnation vivante de ces éléments. Ajoutez les formes du sort Forme élémentaire à la liste de Forme indomptée . Lorsque vous êtes métamorphosé en une autre forme en utilisant Forme indomptée, vous bénéficiez d'une résistance 5 contre le feu"
             ]
         },
         {
@@ -8375,7 +8375,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Vous avez maîtrisé la forme des dinosaures. Ajoutez les formes du sort auto_awesomeForme de dinosaure à la liste de celles de votre Forme indomptée. Chaque fois que vous utilisez Forme indomptée pour prendre une forme qui vous confère un modificateur d'Athlétisme particulier, vous bénéficiez d'un bonus de statut de +1 à vos tests d'Athlétisme."
+                "Vous avez maîtrisé la forme des dinosaures. Ajoutez les formes du sort Forme de dinosaure à la liste de celles de votre Forme indomptée. Chaque fois que vous utilisez Forme indomptée pour prendre une forme qui vous confère un modificateur d'Athlétisme particulier, vous bénéficiez d'un bonus de statut de +1 à vos tests d'Athlétisme."
             ]
         },
         {
@@ -8388,7 +8388,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Vous pouvez vous transformer en une redoutable créature magique. Ajoutez les formes de ver des cavernes et de serpent de mer aux formes listées dans auto_awesomeForme monstrueuse à celles de votre Forme indomptée. Si vous avez military_techMorphologie volante , vous ajoutez aussi la forme de phénix à la liste de votre Forme indomptée."
+                "Vous pouvez vous transformer en une redoutable créature magique. Ajoutez les formes de ver des cavernes et de serpent de mer aux formes listées dans Forme monstrueuse à celles de votre Forme indomptée. Si vous avez Morphologie volante , vous ajoutez aussi la forme de phénix à la liste de votre Forme indomptée."
             ]
         },
         {
@@ -8402,8 +8402,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez adopter la forme d'une créature végétale.",
-                "Si vous ne possédez pas Forme indomptée, vous pouvez lancer le sort auto_awesomeForme de plante une fois par jour, intensifié au même rang que le plus élevé des rangs de vos emplacements de sorts de druide.",
-                "Si vous possédez le don military_techForme indomptée , ajoutez les formes indiquées dans auto_awesomeForme de plante à la liste de celles que vous pouvez prendre avec Forme indomptée et chaque fois que vous adoptez une forme en utilisant Forme indomptée, vous bénéficiez d'une résistance 5 contre le poison."
+                "Si vous ne possédez pas Forme indomptée, vous pouvez lancer le sort Forme de plante une fois par jour, intensifié au même rang que le plus élevé des rangs de vos emplacements de sorts de druide.",
+                "Si vous possédez le don Forme indomptée , ajoutez les formes indiquées dans Forme de plante à la liste de celles que vous pouvez prendre avec Forme indomptée et chaque fois que vous adoptez une forme en utilisant Forme indomptée, vous bénéficiez d'une résistance 5 contre le poison."
             ]
         },
         {
@@ -8416,7 +8416,7 @@ DON.CLASS = {
                 "Forme indomptée"
             ],
             "description": [
-                "Les ailes vous débarrassent des entraves qui vous clouent au sol. Ajoutez les formes oiseau et chauve-souris du sort auto_awesomeForme aérienne à celles de votre auto_awesomeForme indomptée . Si vous avez military_techMorphologie d'insecte , vous ajoutez aussi la forme de guêpe à celles de votre Forme indomptée. Si vous avez military_techMorphologie féroce , vous ajoutez également la forme de ptérosaure à celles de votre Forme indomptée. Chaque fois que vous utilisez Forme indomptée pour prendre une forme qui vous confère un modificateur d'Acrobaties particulier, vous bénéficiez d'un bonus de statut de +1 à vos tests d'Acrobaties."
+                "Les ailes vous débarrassent des entraves qui vous clouent au sol. Ajoutez les formes oiseau et chauve-souris du sort Forme aérienne à celles de votre Forme indomptée . Si vous avez Morphologie d'insecte , vous ajoutez aussi la forme de guêpe à celles de votre Forme indomptée. Si vous avez Morphologie féroce , vous ajoutez également la forme de ptérosaure à celles de votre Forme indomptée. Chaque fois que vous utilisez Forme indomptée pour prendre une forme qui vous confère un modificateur d'Acrobaties particulier, vous bénéficiez d'un bonus de statut de +1 à vos tests d'Acrobaties."
             ]
         },
         {
@@ -8477,7 +8477,7 @@ DON.CLASS = {
                 "Élixir étendu"
             ],
             "description": [
-                "Vous vous êtes entraîné à stabiliser votre forme physique. Une fois par jour, quand vous consommez un objet alchimique et qui possède les traits imprégné et mutagène, vous pouvez étendre sa durée jusqu'à vos préparatifs quotidiens suivants au lieu du terme de sa durée normale. Contrairement à l'extension normale accordée par l' military_techÉlixir étendu , ceci peut dépasser la durée limite d'un objet crée avec sports_martial_artsAlchimie rapide au delà de sa limite de 10 minutes normale."
+                "Vous vous êtes entraîné à stabiliser votre forme physique. Une fois par jour, quand vous consommez un objet alchimique et qui possède les traits imprégné et mutagène, vous pouvez étendre sa durée jusqu'à vos préparatifs quotidiens suivants au lieu du terme de sa durée normale. Contrairement à l'extension normale accordée par l' Élixir étendu , ceci peut dépasser la durée limite d'un objet crée avec Alchimie rapide au delà de sa limite de 10 minutes normale."
             ]
         },
         {
@@ -8524,7 +8524,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous avez élargi votre compréhension du divin et pouvez puiser dans les merveilles d'un mystère différent. Choisissez un sort de révélation d'un mystère différent du vôtre. Vous ne pouvez choisir qu'un sort de révélation initial ou un sort de révélation avancé.",
-                "Ce sort acquiert le trait malédiction pour vous, et quand vous le lancez, vous gagnez l'effet sentiment_very_dissatisfiedLié à la malédiction 1 de ce mystère en plus de vos effets normaux de malédiction. Toute capacité qui vous permettrait de d'utiliser une capacité de malédiction sans augmenter la sévérité de votre malédiction vous empêche également d'obtenir cet effet de malédiction supplémentaire.",
+                "Ce sort acquiert le trait malédiction pour vous, et quand vous le lancez, vous gagnez l'effet Lié à la malédiction 1 de ce mystère en plus de vos effets normaux de malédiction. Toute capacité qui vous permettrait de d'utiliser une capacité de malédiction sans augmenter la sévérité de votre malédiction vous empêche également d'obtenir cet effet de malédiction supplémentaire.",
                 "Vous ne pouvez pas lancer le sort de révélation choisi si une des conditions suivantes est remplie :",
                 [
                     "ses effets de malédiction de mystère rentrent en conflit direct avec ou annule les effets de votre propre malédiction de mystère,",
@@ -8578,7 +8578,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez perfectionné vos formules de bombes qui handicapent vos ennemis. Quand vous utilisez military_techBombe incapacitante , votre cible ne peut éviter l'état causé par la bombe que si elle obtient un succès critique à son jet de sauvegarde."
+                "Vous avez perfectionné vos formules de bombes qui handicapent vos ennemis. Quand vous utilisez Bombe incapacitante , votre cible ne peut éviter l'état causé par la bombe que si elle obtient un succès critique à son jet de sauvegarde."
             ]
         },
         {
@@ -8602,7 +8602,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le sort de composition auto_awesomeOde à Ouroboros , qui vous permet d'éviter à vos alliés de manière temporaire de mourir."
+                "Vous apprenez le sort de composition Ode à Ouroboros , qui vous permet d'éviter à vos alliés de manière temporaire de mourir."
             ]
         },
         {
@@ -8626,8 +8626,8 @@ DON.CLASS = {
                 "Méthodologie : empirisme"
             ],
             "description": [
-                "Acérés et perçants, vos yeux voient tout et en disent encore plus. Vos actions pour sports_martial_artsSignaler perdent le trait audible et vous n'avez pas besoin d'être entendu pour transmettre l'information à vos alliés. De plus, une créature que vous Signalez est sentiment_very_dissatisfiedPrise au dépourvu contre vos alliés jusqu'au début de votre prochain tour.",
-                "Spécial Si vous possédez le don military_techCombat aveugle , vos alliés obtiennent les avantages de ce don contre toute créature qui est Prise au dépourvu du fait d'Oeil de l'empiriste."
+                "Acérés et perçants, vos yeux voient tout et en disent encore plus. Vos actions pour Signaler perdent le trait audible et vous n'avez pas besoin d'être entendu pour transmettre l'information à vos alliés. De plus, une créature que vous Signalez est Prise au dépourvu contre vos alliés jusqu'au début de votre prochain tour.",
+                "Spécial Si vous possédez le don Combat aveugle , vos alliés obtiennent les avantages de ce don contre toute créature qui est Prise au dépourvu du fait d'Oeil de l'empiriste."
             ]
         },
         {
@@ -8643,7 +8643,7 @@ DON.CLASS = {
                 "Avancée courageuse, Assaut courageux"
             ],
             "description": [
-                "Vous utilisez votre représentation pour orchestrer une offensive contre vos ennemis. Si votre prochaine action consiste à lancer le tour de magie de composition auto_awesomeHymne de courage , un allié qui obtient un bonus de statut de ce sort peut immédiatement utiliser une réaction pour sports_martial_artsMarcher rapidement puis faire une Frappe au corps-à-corps."
+                "Vous utilisez votre représentation pour orchestrer une offensive contre vos ennemis. Si votre prochaine action consiste à lancer le tour de magie de composition Hymne de courage , un allié qui obtient un bonus de statut de ce sort peut immédiatement utiliser une réaction pour Marcher rapidement puis faire une Frappe au corps-à-corps."
             ]
         },
         {
@@ -8670,7 +8670,7 @@ DON.CLASS = {
                 "Frappe réactive"
             ],
             "description": [
-                "Vous utilisez les ouvertures laissées par votre ennemi pour mettre à jour des faiblesses encore plus importantes. Lorsque vous touchez une créature lors d'une Frappe réactive, cette créature devient sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour."
+                "Vous utilisez les ouvertures laissées par votre ennemi pour mettre à jour des faiblesses encore plus importantes. Lorsque vous touchez une créature lors d'une Frappe réactive, cette créature devient Prise au dépourvu jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -8682,7 +8682,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous distrayez votre adversaire à l'aide de quelques mots bien choisis ou à l'aide d'un geste vulgaire. Choisissez une cible qui se trouve dans un rayon de 9 mètres. Elle se trouve sentiment_very_dissatisfiedPrise au dépourvu contre vos attaques jusqu'à la fin de votre prochain tour. En fonction de la manière dont décrivez votre distraction, cette action obtient le trait audible ou visuel."
+                "Vous distrayez votre adversaire à l'aide de quelques mots bien choisis ou à l'aide d'un geste vulgaire. Choisissez une cible qui se trouve dans un rayon de 9 mètres. Elle se trouve Prise au dépourvu contre vos attaques jusqu'à la fin de votre prochain tour. En fonction de la manière dont décrivez votre distraction, cette action obtient le trait audible ou visuel."
             ]
         },
         {
@@ -8695,7 +8695,7 @@ DON.CLASS = {
                 "légendaire en Duperie"
             ],
             "description": [
-                "Vos tromperies parviennent à confondre même la plus puissante magie qui pourrait vous espionner. Les effets de détection, de révélation et de scrutation passent sur vous, vos possessions et vos auras, ne détectant rien, sauf si l'effet utilisé dans ce but possède un rang de contre supérieur ou égal à 10. Par exemple : auto_awesomeDétection de la magie permettra toujours de détecter la présence d'une autre magie dans la zone, mais d'aucune magie sur vous, auto_awesomeVision véritable ne vous percera pas à jour, auto_awesomeLocalisation ou auto_awesomeScrutation ne permettront pas de vous trouver et ainsi de suite."
+                "Vos tromperies parviennent à confondre même la plus puissante magie qui pourrait vous espionner. Les effets de détection, de révélation et de scrutation passent sur vous, vos possessions et vos auras, ne détectant rien, sauf si l'effet utilisé dans ce but possède un rang de contre supérieur ou égal à 10. Par exemple : Détection de la magie permettra toujours de détecter la présence d'une autre magie dans la zone, mais d'aucune magie sur vous, Vision véritable ne vous percera pas à jour, Localisation ou Scrutation ne permettront pas de vous trouver et ainsi de suite."
             ]
         },
         {
@@ -8733,7 +8733,7 @@ DON.CLASS = {
                 "Riposte opportune"
             ],
             "description": [
-                "Vos parades et vos aboutissements vous permettent de riposter à la moindre provocation. Vous pouvez utiliser sports_martial_artsRiposte opportune contre un ennemi qui obtient un échec lors d'une Frappe contre vous (pas juste en cas d'échec critique) dès lors que vous avez fait des dégâts à cette créature avec un aboutissement lors de votre tour précédent et que vous disposez d'un bonus de circonstances à la CA du fait du trait d'arme parade, military_techParade extravagante ."
+                "Vos parades et vos aboutissements vous permettent de riposter à la moindre provocation. Vous pouvez utiliser Riposte opportune contre un ennemi qui obtient un échec lors d'une Frappe contre vous (pas juste en cas d'échec critique) dès lors que vous avez fait des dégâts à cette créature avec un aboutissement lors de votre tour précédent et que vous disposez d'un bonus de circonstances à la CA du fait du trait d'arme parade, Parade extravagante ."
             ]
         },
         {
@@ -8786,8 +8786,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Fréquence Une fois par heure",
-                "Déclencheur Vous réussissez à utiliser Discrétion pour sports_martial_artsVous cacher et devenez sentiment_very_dissatisfiedCaché aux yeux de tous vos adversaires actuels ou à utiliser Discrétion pour sports_martial_artsÊtre furtif et devenez sentiment_very_dissatisfiedNon détecté aux yeux de tous vos adversaires actuels.",
-                "Quand vous décidez de rester hors de vue, vous disparaissez complètement. Vous devenez sentiment_very_dissatisfiedInvisible pendant 1 minute, même si vous accomplissez une action hostile. Pas même auto_awesomeDiscerner l'invisible , auto_awesomeLumière révélatrice ou des effets similaires ne peuvent révéler votre présence, bien que des créatures puissent toujours utiliser l'action sports_martial_artsChercher pour vous localiser comme à l'ordinaire."
+                "Déclencheur Vous réussissez à utiliser Discrétion pour Vous cacher et devenez Caché aux yeux de tous vos adversaires actuels ou à utiliser Discrétion pour Être furtif et devenez Non détecté aux yeux de tous vos adversaires actuels.",
+                "Quand vous décidez de rester hors de vue, vous disparaissez complètement. Vous devenez Invisible pendant 1 minute, même si vous accomplissez une action hostile. Pas même Discerner l'invisible , Lumière révélatrice ou des effets similaires ne peuvent révéler votre présence, bien que des créatures puissent toujours utiliser l'action Chercher pour vous localiser comme à l'ordinaire."
             ]
         },
         {
@@ -8798,7 +8798,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous trouvez des opportunités pour accomplir de hauts faits entre deux battements de coeur ou de cils des autres. Vous êtes sentiment_very_dissatisfiedAccéléré en permanence. Vous pouvez utiliser l'action supplémentaire uniquement pour effectuer une action de bravade."
+                "Vous trouvez des opportunités pour accomplir de hauts faits entre deux battements de coeur ou de cils des autres. Vous êtes Accéléré en permanence. Vous pouvez utiliser l'action supplémentaire uniquement pour effectuer une action de bravade."
             ]
         },
         {
@@ -8811,7 +8811,7 @@ DON.CLASS = {
                 "Méthodologie : Sciences alchimiques"
             ],
             "description": [
-                "Vous utilisez sports_martial_artsPréparation rapide et l'objet que vous créez reste efficace jusqu'au début de votre prochain tour. Puis, vous pouvez alors Interagir pour passer l'objet à une autre créature. Si vous le transmettez en le lançant, votre jet d'attaque à distance réussit automatiquement. Vous devez avoir une fiole polyvalente pour utiliser Préparation Rapide, comme à l'ordinaire."
+                "Vous utilisez Préparation rapide et l'objet que vous créez reste efficace jusqu'au début de votre prochain tour. Puis, vous pouvez alors Interagir pour passer l'objet à une autre créature. Si vous le transmettez en le lançant, votre jet d'attaque à distance réussit automatiquement. Vous devez avoir une fiole polyvalente pour utiliser Préparation Rapide, comme à l'ordinaire."
             ]
         },
         {
@@ -8873,7 +8873,7 @@ DON.CLASS = {
                 "cause : libération"
             ],
             "description": [
-                "Avec une explosion d'énergie divine libératrice, le déplacement de votre allié conféré par votre sports_martial_artsPas libérateur n'est pas affecté par les terrains difficiles ou très difficiles, les surfaces étroites et les terrains accidentés. Si vous disposez de la réaction exaltée, ceci s'applique a tous ceux qui Font un Pas."
+                "Avec une explosion d'énergie divine libératrice, le déplacement de votre allié conféré par votre Pas libérateur n'est pas affecté par les terrains difficiles ou très difficiles, les surfaces étroites et les terrains accidentés. Si vous disposez de la réaction exaltée, ceci s'applique a tous ceux qui Font un Pas."
             ]
         },
         {
@@ -8897,7 +8897,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre acrobatie met votre ennemi en porte à faux. Lorsque vous réussissez un sports_martial_artsDéplacement acrobatique , l'ennemi que vous avez franchi est sentiment_very_dissatisfiedPris au dépourvu contre la prochaine attaque que vous lui portez avant la fin de votre tour."
+                "Votre acrobatie met votre ennemi en porte à faux. Lorsque vous réussissez un Déplacement acrobatique , l'ennemi que vous avez franchi est Pris au dépourvu contre la prochaine attaque que vous lui portez avant la fin de votre tour."
             ]
         },
         {
@@ -8908,7 +8908,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous passez sous puis derrière votre ennemi, votre mouvement rapide vous permettant de le prendre au dépourvu. Lorsque vous réussissez un sports_martial_artsDéplacement acrobatique , l'ennemi dont vous avez franchi l'espace est sentiment_very_dissatisfiedPris au dépourvu contre la prochaine attaque que vous lui portez avant la fin de votre tour."
+                "Vous passez sous puis derrière votre ennemi, votre mouvement rapide vous permettant de le prendre au dépourvu. Lorsque vous réussissez un Déplacement acrobatique , l'ennemi dont vous avez franchi l'espace est Pris au dépourvu contre la prochaine attaque que vous lui portez avant la fin de votre tour."
             ]
         },
         {
@@ -8923,7 +8923,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous êtes dans la Posture du paon.",
-                "Vous vous déplacez lentement à travers le champ de bataille avec une grace dangereuse. sports_martial_artsFaites un pas deux fois et sports_martial_artsFrappez . La Frappe doit être faite avec l'épée requise par la Posture du paon."
+                "Vous vous déplacez lentement à travers le champ de bataille avec une grace dangereuse. Faites un pas deux fois et Frappez . La Frappe doit être faite avec l'épée requise par la Posture du paon."
             ]
         },
         {
@@ -8937,7 +8937,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez défendre votre compagnon au combat.",
-                "Vous obtenez le sort de gardien auto_awesomePeau magique . Augmentez le nombre Points de focalisation de votre réserve de focalisation de 1."
+                "Vous obtenez le sort de gardien Peau magique . Augmentez le nombre Points de focalisation de votre réserve de focalisation de 1."
             ]
         },
         {
@@ -8951,7 +8951,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous possédez littéralement un sixième sens pour la magie ambiante qui se trouve à proximité. Vous pouvez sentir la présence des auras magiques comme si vous utilisiez constamment un sort auto_awesomeDétection de la magie au rang 1. Cela détecte la magie présente uniquement dans votre champ de vision. Lorsque vous sports_martial_artsCherchez , vous obtenez les avantages de Détection de la magie au rang 3 sur les choses que vous voyez (en plus des avantages normaux de Chercher). Vous pouvez activer ou désactiver ce sens par une action gratuite au début ou à la fin de votre tour.",
+                "Vous possédez littéralement un sixième sens pour la magie ambiante qui se trouve à proximité. Vous pouvez sentir la présence des auras magiques comme si vous utilisiez constamment un sort Détection de la magie au rang 1. Cela détecte la magie présente uniquement dans votre champ de vision. Lorsque vous Cherchez , vous obtenez les avantages de Détection de la magie au rang 3 sur les choses que vous voyez (en plus des avantages normaux de Chercher). Vous pouvez activer ou désactiver ce sens par une action gratuite au début ou à la fin de votre tour.",
                 "Spécial Ce don correspond à la tradition d'incantation des sorts que vous lancez (arcanique, divine, occulte ou primordiale)."
             ]
         },
@@ -8965,8 +8965,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur vous obtenez un échec sur un test pour sports_martial_artsChercher",
-                "Quand vous cherchez des ennemis, vous pouvez capter le plus infime des signes, tels que leur moindre mouvement ou le changement des courants d'air sur votre peau. Même si vous avez échoué au test déclencheur, vous percevez automatiquement toute créature sentiment_very_dissatisfiedNon détectée dans la zone où vous Cherchez, ce qui la rend simplement sentiment_very_dissatisfiedCachée à vos yeux."
+                "Déclencheur vous obtenez un échec sur un test pour Chercher",
+                "Quand vous cherchez des ennemis, vous pouvez capter le plus infime des signes, tels que leur moindre mouvement ou le changement des courants d'air sur votre peau. Même si vous avez échoué au test déclencheur, vous percevez automatiquement toute créature Non détectée dans la zone où vous Cherchez, ce qui la rend simplement Cachée à vos yeux."
             ]
         },
         {
@@ -8991,7 +8991,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme de corps-à-corps qui peut infliger des dégâts perforants.",
-                "Vous enfoncez votre arme perforante dans un adversaire imperceptible, ce qui révèle sa position à vos alliés. Faites une Frappe avec l'arme de corps-à-corps perforante requise. Si la cible est Masquée, vous n'avez pas à faire un test nu pour toucher la créature et si elle est Cachée, vous devez simplement réussir un test nu DD 5. Si vous touchez et infligez des dégâts, vous pouvez enfoncer l'arme requise dans une cible tangible, révélant sa position actuelle. Vous sports_martial_artsRelâchez l'arme et elle reste logée dans la cible. Si la cible est masquée, aucun test nu n'est nécessaire pour la toucher et si la cible est Cachée, le DD du test nu est de 5 et la créature ne peut être non détectée. Ces avantages s'appliquent seulement aux observateurs qui peuvent voir votre arme logée dans la cible. Si la cible est sentiment_very_dissatisfiedInvisible , l'arme reste visible tant qu'elle est logée en elle.",
+                "Vous enfoncez votre arme perforante dans un adversaire imperceptible, ce qui révèle sa position à vos alliés. Faites une Frappe avec l'arme de corps-à-corps perforante requise. Si la cible est Masquée, vous n'avez pas à faire un test nu pour toucher la créature et si elle est Cachée, vous devez simplement réussir un test nu DD 5. Si vous touchez et infligez des dégâts, vous pouvez enfoncer l'arme requise dans une cible tangible, révélant sa position actuelle. Vous Relâchez l'arme et elle reste logée dans la cible. Si la cible est masquée, aucun test nu n'est nécessaire pour la toucher et si la cible est Cachée, le DD du test nu est de 5 et la créature ne peut être non détectée. Ces avantages s'appliquent seulement aux observateurs qui peuvent voir votre arme logée dans la cible. Si la cible est Invisible , l'arme reste visible tant qu'elle est logée en elle.",
                 "Cet avantage dure jusqu'à ce que l'arme soit retirée de la créature. Une créature adjacente ou la cible peut la retirer avec 2 actions Interagir"
             ]
         },
@@ -9004,7 +9004,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous ciblez soigneusement les points de pression d'une créature pour bloquer sa force vitale intérieure. Faites une Frappe à mains nues. Si elle inflige des dégâts à une créature vivante, cette créature subit casino2d6 dégâts de vide persistants et elle est sentiment_very_dissatisfiedAffaiblie 1 jusqu'à ce que les dégâts persistants se terminent. Si vous êtes de niveau 18 ou supérieur, les dégâts de vide persistants passent à 3d6."
+                "Vous ciblez soigneusement les points de pression d'une créature pour bloquer sa force vitale intérieure. Faites une Frappe à mains nues. Si elle inflige des dégâts à une créature vivante, cette créature subit 2d6 dégâts de vide persistants et elle est Affaiblie 1 jusqu'à ce que les dégâts persistants se terminent. Si vous êtes de niveau 18 ou supérieur, les dégâts de vide persistants passent à 3d6."
             ]
         },
         {
@@ -9017,9 +9017,9 @@ DON.CLASS = {
             "description": [
                 "Les mutagènes de base qui affectent votre forme physique peuvent faire ressortir la bête qui est en vous, vous rendre presque invincible ou rendre votre corps plus élastique. Lorsque vous êtes affecté par l'un des mutagènes ci-dessous, vous bénéficiez d'un avantage supplémentaire.",
                 [
-                    "workMutagène bestial Vous bénéficiez du bonus d'objet du mutagène à vos tests d'Intimidation. De plus, vous augmentez la taille des dés de dégâts de vos mâchoires et vos griffes d'un cran et ils obtiennent le trait mortel d10.",
-                    "workMutagène de juggernaut Vous obtenez une résistance à tous les dégâts physiques égale à la moitié de votre niveau.",
-                    "workMutagène de vif-argent Vous pouvez allonger vos os et Faire un pas de 3 mètres et vous pouvez écraser et comprimer votre corps, vous permettant de passer dans des passages étroits comme si vous étiez d'une taille inférieure, en plus de tout effet lié à Se faufiler."
+                    "Mutagène bestial Vous bénéficiez du bonus d'objet du mutagène à vos tests d'Intimidation. De plus, vous augmentez la taille des dés de dégâts de vos mâchoires et vos griffes d'un cran et ils obtiennent le trait mortel d10.",
+                    "Mutagène de juggernaut Vous obtenez une résistance à tous les dégâts physiques égale à la moitié de votre niveau.",
+                    "Mutagène de vif-argent Vous pouvez allonger vos os et Faire un pas de 3 mètres et vous pouvez écraser et comprimer votre corps, vous permettant de passer dans des passages étroits comme si vous étiez d'une taille inférieure, en plus de tout effet lié à Se faufiler."
                 ],
                 "Spécial Si vous pouvez être sous les effets de plusieurs mutagènes à la fois (avec Découverte de champ de recherche supérieure (mutagèniste) , par exemple), vous obtenez tous les bénéfices appropriés."
             ]
@@ -9035,7 +9035,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez magiquement déplacer vos pièges autour de vous.",
-                "Vous obtenez le sort de gardien auto_awesomePiège artisanal bondissant . Augmentez le nombre de Points de focalisation de votre réserve de focalisation de 1."
+                "Vous obtenez le sort de gardien Piège artisanal bondissant . Augmentez le nombre de Points de focalisation de votre réserve de focalisation de 1."
             ]
         },
         {
@@ -9049,7 +9049,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez créer sans fin des pièges artisanaux à courte durée de vie, protégeant votre antre ou les utilisant contre des adversaires.",
-                "Une fois par minute, vous pouvez sports_martial_artsFabriquer un des pièges artisanaux que vous avez préparé pour le déployer rapidement sans dépenser le piège artisanal préparé. Une fois déployé, un tel piège artisanal dure pendant 10 minutes avant de perdre son efficacité."
+                "Une fois par minute, vous pouvez Fabriquer un des pièges artisanaux que vous avez préparé pour le déployer rapidement sans dépenser le piège artisanal préparé. Une fois déployé, un tel piège artisanal dure pendant 10 minutes avant de perdre son efficacité."
             ]
         },
         {
@@ -9063,7 +9063,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois toutes les 10 minutes",
-                "Vous tapez du pied avec une telle force que vous créez un petit tremblement de terre avec les effets du sort auto_awesomeTremblement de terre ."
+                "Vous tapez du pied avec une telle force que vous créez un petit tremblement de terre avec les effets du sort Tremblement de terre ."
             ]
         },
         {
@@ -9074,7 +9074,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Portez une attaque de corps-à-corps à mains nues contre une cible sentiment_very_dissatisfiedÀ terre . Si elle touche, la cible est sentiment_very_dissatisfiedStupéfiée 1 (ou sentiment_very_dissatisfiedStupéfiée 2 sur un coup critique) et sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre prochain tour."
+                "Portez une attaque de corps-à-corps à mains nues contre une cible À terre . Si elle touche, la cible est Stupéfiée 1 (ou Stupéfiée 2 sur un coup critique) et Prise au dépourvu jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -9087,7 +9087,7 @@ DON.CLASS = {
                 "expert en Survie, Pisteur expérimenté"
             ],
             "description": [
-                "Votre vue perçante vous permet de repérer des traces de passage, même quand vous êtes en mouvement. Vous pouvez vous déplacer à votre Vitesse normale quand vous sports_martial_artsPistez . Si vous êtes un maître en Survie, vous n'avez pas besoin de faire un nouveau test de Survie toutes les heures pour continuer à Pister. Si vous êtes légendaire en Survie, vous pouvez effectuer une autre activité d'exploration pendant que vous Pistez.",
+                "Votre vue perçante vous permet de repérer des traces de passage, même quand vous êtes en mouvement. Vous pouvez vous déplacer à votre Vitesse normale quand vous Pistez . Si vous êtes un maître en Survie, vous n'avez pas besoin de faire un nouveau test de Survie toutes les heures pour continuer à Pister. Si vous êtes légendaire en Survie, vous pouvez effectuer une autre activité d'exploration pendant que vous Pistez.",
                 "Si vous faites un test de Survie pour déterminer votre initiative pendant que vous pistez votre proie, quand vous commencez votre premier tour de la rencontre, vous pouvez Marcher rapidement vers elle par une action gratuite."
             ]
         },
@@ -9099,7 +9099,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Quelques fois, vos dossiers se scindent en plus petits mystères mais vous ne perdez jamais de vue l'ensemble. Une fois par jour, lorsque vous abandonnez le sujet d'une piste pour utiliser sports_martial_artsSuivre une piste de nouveau, vous pouvez désigner la piste que vous avez arrêté de poursuivre comme piste solide pour la journée. Même si vous avez cessé de suivre la piste solide, vous pouvez revenir à la piste solide tant que vous le souhaitez en utilisant une action unique, qui possède le trait concentration. Le faire met un terme à l'une de vos pistes actuelles, comme à l'ordinaire.",
+                "Quelques fois, vos dossiers se scindent en plus petits mystères mais vous ne perdez jamais de vue l'ensemble. Une fois par jour, lorsque vous abandonnez le sujet d'une piste pour utiliser Suivre une piste de nouveau, vous pouvez désigner la piste que vous avez arrêté de poursuivre comme piste solide pour la journée. Même si vous avez cessé de suivre la piste solide, vous pouvez revenir à la piste solide tant que vous le souhaitez en utilisant une action unique, qui possède le trait concentration. Le faire met un terme à l'une de vos pistes actuelles, comme à l'ordinaire.",
                 "Au cours de vos prochains préparatifs quotidiens, vous pouvez conserver votre piste solide ou pouvez y mettre un terme. Y mettre un terme vous permet de choisir une nouvelle piste solide plus tard au cours de cette journée."
             ]
         },
@@ -9113,8 +9113,8 @@ DON.CLASS = {
                 "Vol à la tire"
             ],
             "description": [
-                "Vous pouvez placer un unique objet que vous tenez d'encombrement léger ou négligeable sur une personne sans qu'elle le remarque en réussissant un test de casinoVol contre son DD de Perception.",
-                "Si vous avez le trafic de roublard de voyou, vous pouvez le faire par une action gratuite quand vous réussissez à sports_martial_artsPousser une cible."
+                "Vous pouvez placer un unique objet que vous tenez d'encombrement léger ou négligeable sur une personne sans qu'elle le remarque en réussissant un test de Vol contre son DD de Perception.",
+                "Si vous avez le trafic de roublard de voyou, vous pouvez le faire par une action gratuite quand vous réussissez à Pousser une cible."
             ]
         },
         {
@@ -9144,7 +9144,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous portez une attaque pour déséquilibrer un ennemi, puis vous enchaînez immédiatement avec un balayage pour le faire basculer.",
-                "Effectuez une Frappe au corps-à-corps. Si elle touche et inflige des dégâts, vous pouvez tenter un test d'Athlétisme pour faire trébucher la créature que vous avez touchée avec un sports_martial_artsCroc-en-jambe . Si vous maniez une arme de corps-à-corps à deux mains, vous pouvez ignorer la condition selon laquelle vous devez disposer d'une main libre pour faire un croc-en-jambe.",
+                "Effectuez une Frappe au corps-à-corps. Si elle touche et inflige des dégâts, vous pouvez tenter un test d'Athlétisme pour faire trébucher la créature que vous avez touchée avec un Croc-en-jambe . Si vous maniez une arme de corps-à-corps à deux mains, vous pouvez ignorer la condition selon laquelle vous devez disposer d'une main libre pour faire un croc-en-jambe.",
                 "Les deux attaques comptent dans le calcul de votre pénalité d'attaques multiples mais la pénalité n'augmente qu'après avoir effectué ces deux attaques."
             ]
         },
@@ -9159,7 +9159,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous pouvez vous jeter contre votre adversaire et le renverser d'un seul coup.",
-                "Quand vous utilisez military_techPlaquer au sol , au lieu de faire une Frappe suivie d'un sports_martial_artsCroc-en-jambe , vous pouvez effectuer une seule et unique Frappe. Si vous le faites et que votre Frappe touche, vous appliquez également automatiquement l'effet de succès critique d'un Croc-en-jambe.",
+                "Quand vous utilisez Plaquer au sol , au lieu de faire une Frappe suivie d'un Croc-en-jambe , vous pouvez effectuer une seule et unique Frappe. Si vous le faites et que votre Frappe touche, vous appliquez également automatiquement l'effet de succès critique d'un Croc-en-jambe.",
                 "Si vous avez utilisé une arme de corps-à-corps à deux mains pour Frapper, vous pouvez utiliser la taille du dé de dégâts de l'arme au lieu de celle du dé normalement utilisé pour déterminer les dégâts d'un succès critique d'un Croc-en-jambe."
             ]
         },
@@ -9171,7 +9171,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous faites chuter douloureusement vos adversaires lorsque vous les mettez à terre. Lorsque vous réussissez un sports_martial_artsCroc-en-jambe contre un adversaire sentiment_very_dissatisfiedPris au dépourvu , votre cible subit 1d6 dégâts contondants. En cas de succès critique, la cible subit 1d6 dégâts contondants plus les dégâts de votre attaque sournoise."
+                "Vous faites chuter douloureusement vos adversaires lorsque vous les mettez à terre. Lorsque vous réussissez un Croc-en-jambe contre un adversaire Pris au dépourvu , votre cible subit 1d6 dégâts contondants. En cas de succès critique, la cible subit 1d6 dégâts contondants plus les dégâts de votre attaque sournoise."
             ]
         },
         {
@@ -9183,12 +9183,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Avec une vitesse irréfléchie, vous vous élancez, sautez et pivotez autour d'une créature pour trouver un endroit plus vulnérable. Tentez un sports_martial_artsDéplacement acrobatique sur une créature plus grande que vous d'au moins une taille, en utilisant les effets suivants.",
+                "Avec une vitesse irréfléchie, vous vous élancez, sautez et pivotez autour d'une créature pour trouver un endroit plus vulnérable. Tentez un Déplacement acrobatique sur une créature plus grande que vous d'au moins une taille, en utilisant les effets suivants.",
                 "Succès critique Vous vous déplacez dans l'espace de l'ennemi, en considérant les cases de son espace comme un terrain difficile (tous les 1,50 mètre comptent comme 3 mètres de déplacement). Si votre vitesse n'est pas suffisante pour traverser l'espace de l'ennemi, vous subissez le même effet qu'un échec. Si vous réussissez à traverser la case de la cible, celle-ci obtient une faiblesse contre les dégâts de précision égale à la moitié de votre niveau, qui dure jusqu'à la fin de votre tour.",
                 "Succès Comme en cas de succès, mais la faiblesse ne s'applique qu'à la prochaine attaque que vous portez sur la cible.",
                 "Échec Votre déplacement s'interrompt et vous déclenchez les mêmes réactions que si vous aviez quitté la case d'où vous êtes parti.",
-                "Échec critique Comme en cas d'échec et vous tombez sentiment_very_dissatisfiedÀ terre .",
-                "flareEffet : Plus ils sont grands"
+                "Échec critique Comme en cas d'échec et vous tombez À terre .",
+                "Effet : Plus ils sont grands"
             ]
         },
         {
@@ -9202,7 +9202,7 @@ DON.CLASS = {
                 "Marcheur sur l'eau"
             ],
             "description": [
-                "Vos pas mystérieux deviennent encore plus légers, transcendant complètement le monde des mortels. Lorsque vous subissez l'état sentiment_very_dissatisfiedLié à la malédiction , vous obtenez les effets de auto_awesomeVol . Si vous êtes au moins Lié à la malédiction 3, vous obtenez un bonus de statut de +3 mètres à votre Vitesse de vol."
+                "Vos pas mystérieux deviennent encore plus légers, transcendant complètement le monde des mortels. Lorsque vous subissez l'état Lié à la malédiction , vous obtenez les effets de Vol . Si vous êtes au moins Lié à la malédiction 3, vous obtenez un bonus de statut de +3 mètres à votre Vitesse de vol."
             ]
         },
         {
@@ -9215,7 +9215,7 @@ DON.CLASS = {
                 "cause : rédemption"
             ],
             "description": [
-                "La culpabilité trouble l'esprit de ceux qui ignorent votre sports_martial_artsLueur de rédemption . Au lieu de rendre la créature déclencheuse Affaiblie 2, vous pouvez faire en sorte qu'elle soit sentiment_very_dissatisfiedStupéfiée 2 pendant la même durée."
+                "La culpabilité trouble l'esprit de ceux qui ignorent votre Lueur de rédemption . Au lieu de rendre la créature déclencheuse Affaiblie 2, vous pouvez faire en sorte qu'elle soit Stupéfiée 2 pendant la même durée."
             ]
         },
         {
@@ -9226,7 +9226,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Tel un puissant boa constricteur, vous écrasez vos cibles dans votre poigne incroyable. Quand vous réussissez à sports_martial_artsSaisir une créature, vous pouvez lui infliger un montant de casinodégâts contondants égal à votre modificateur de Force. Vous pouvez rendre cette attaque non-létale sans pénalité."
+                "Tel un puissant boa constricteur, vous écrasez vos cibles dans votre poigne incroyable. Quand vous réussissez à Saisir une créature, vous pouvez lui infliger un montant de dégâts contondants égal à votre modificateur de Force. Vous pouvez rendre cette attaque non-létale sans pénalité."
             ]
         },
         {
@@ -9239,7 +9239,7 @@ DON.CLASS = {
                 "Bouleversement intérieur"
             ],
             "description": [
-                "Vous pouvez colorer votre qi de lumière élémentaire brillante. Lorsque vous lancez auto_awesomeBouleversement intérieur , en plus des divers types de dégâts normalement disponibles, vous pouvez infliger des dégâts supplémentaires avec de la magie élémentaire, en ajoutant le trait élémentaire et en changeant le type de dégâts en celui indiqué : air électricité (bourrasque crépitante), terre contondant (morceau de roche), feu feu (flamme vacillante), métal tranchant (échardes de métal volantes), eau froid (vague d'eau glacée), bois contondant (tabassage de pommes de pin)."
+                "Vous pouvez colorer votre qi de lumière élémentaire brillante. Lorsque vous lancez Bouleversement intérieur , en plus des divers types de dégâts normalement disponibles, vous pouvez infliger des dégâts supplémentaires avec de la magie élémentaire, en ajoutant le trait élémentaire et en changeant le type de dégâts en celui indiqué : air électricité (bourrasque crépitante), terre contondant (morceau de roche), feu feu (flamme vacillante), métal tranchant (échardes de métal volantes), eau froid (vague d'eau glacée), bois contondant (tabassage de pommes de pin)."
             ]
         },
         {
@@ -9264,7 +9264,7 @@ DON.CLASS = {
                 "Méthodologie : Médecine Forensique"
             ],
             "description": [
-                "Vos stratagèmes tirent parti de votre connaissance précise de l'anatomie. Lorsque vous obtenez un coup critique pour toucher avec une attaque pour laquelle vous avez substitué à votre jet d'attaque sports_martial_artsConcevoir un stratagème , si votre attaque inflige des dégâts perforants ou tranchants, vous infligez aussi casino1d6 dégâts de saignement à votre cible."
+                "Vos stratagèmes tirent parti de votre connaissance précise de l'anatomie. Lorsque vous obtenez un coup critique pour toucher avec une attaque pour laquelle vous avez substitué à votre jet d'attaque Concevoir un stratagème , si votre attaque inflige des dégâts perforants ou tranchants, vous infligez aussi 1d6 dégâts de saignement à votre cible."
             ]
         },
         {
@@ -9276,8 +9276,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "La combinaison d'une viscosité supplémentaire et d'une application soigneuse permet de garder vos armes empoisonnées même en cas d'usure naturelle.",
-                "Si votre Frappe avec une arme empoisonnée devrait dépenser son poison sans que votre cible ne tente un jet initial (à cause de la résistance ou si votre Frappe est un échec critique, par exemple), tentez un casinoTest nu, DD 5 . Sur un succès, votre arme reste empoisonnée.",
-                "Si votre Frappe avec une arme empoisonnée réussit, Faites un casinoTest nu, DD 17 . Sur un succès, votre arme reste empoisonnée jusqu'à la fin de votre prochain tour."
+                "Si votre Frappe avec une arme empoisonnée devrait dépenser son poison sans que votre cible ne tente un jet initial (à cause de la résistance ou si votre Frappe est un échec critique, par exemple), tentez un Test nu, DD 5 . Sur un succès, votre arme reste empoisonnée.",
+                "Si votre Frappe avec une arme empoisonnée réussit, Faites un Test nu, DD 17 . Sur un succès, votre arme reste empoisonnée jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -9313,7 +9313,7 @@ DON.CLASS = {
                 "Touche-à-tout (muse de barde)"
             ],
             "description": [
-                "Vous vous fiez à la grandeur de vos représentations au lieu des compétences sociales ordinaires. Vous pouvez utiliser Représentation au lieu de Diplomatie pour sports_martial_artsFaire bonne impression et au lieu d'Intimidation pour sports_martial_artsDémoraliser . Vous pouvez également utiliser une Représentation d'interprétation théâtrale au lieu de Duperie pour sports_martial_artsVous faire passer pour . Vous pouvez utiliser votre degré de maîtrise en Représentation pour remplir les conditions des dons de compétence nécessitant un degré de qualification particulier en Duperie, Diplomatie ou Intimidation."
+                "Vous vous fiez à la grandeur de vos représentations au lieu des compétences sociales ordinaires. Vous pouvez utiliser Représentation au lieu de Diplomatie pour Faire bonne impression et au lieu d'Intimidation pour Démoraliser . Vous pouvez également utiliser une Représentation d'interprétation théâtrale au lieu de Duperie pour Vous faire passer pour . Vous pouvez utiliser votre degré de maîtrise en Représentation pour remplir les conditions des dons de compétence nécessitant un degré de qualification particulier en Duperie, Diplomatie ou Intimidation."
             ]
         },
         {
@@ -9339,7 +9339,7 @@ DON.CLASS = {
                 "expert en Artisanat, Spécialiste des pièges artisanaux"
             ],
             "description": [
-                "Vous savez comment poser un piège artisanal en un minimum de temps. En effectuant 3 actions sports_martial_artsInteragir , vous pouvez sports_martial_artsFabriquer des pièges artisanaux que l'on Fabrique normalement en une minute, même si vous ne les avez pas préparés au préalable"
+                "Vous savez comment poser un piège artisanal en un minimum de temps. En effectuant 3 actions Interagir , vous pouvez Fabriquer des pièges artisanaux que l'on Fabrique normalement en une minute, même si vous ne les avez pas préparés au préalable"
             ]
         },
         {
@@ -9389,8 +9389,8 @@ DON.CLASS = {
                 "qualifié en Duperie"
             ],
             "description": [
-                "Vous adoptez une posture apparemment décontractée qui imite les mouvements de l'ivrogne, mouvante, laissant de fausses ouvertures et distrayant vos ennemis de vos mouvements véritables. Dans cette posture, vous obtenez un bonus de circonstances de +1 à vos tests de Duperie pour sports_martial_artsFeinter . Les seules Frappes que vous pouvez porter sont des attaques à mains nues de coups chancelants. Elles infligent 1d8 dégâts contondants, appartiennent au groupe pugilat et possèdent les traits à mains nues, agile, finesse, non-létal et traître.",
-                "Si un ennemi vous touche avec une Frappe au corps-à-corps alors que vous êtes dans cette posture, il devient sentiment_very_dissatisfiedPris au dépourvu contre le prochain coup chancelant que vous lui portez avant la fin de votre prochain tour."
+                "Vous adoptez une posture apparemment décontractée qui imite les mouvements de l'ivrogne, mouvante, laissant de fausses ouvertures et distrayant vos ennemis de vos mouvements véritables. Dans cette posture, vous obtenez un bonus de circonstances de +1 à vos tests de Duperie pour Feinter . Les seules Frappes que vous pouvez porter sont des attaques à mains nues de coups chancelants. Elles infligent 1d8 dégâts contondants, appartiennent au groupe pugilat et possèdent les traits à mains nues, agile, finesse, non-létal et traître.",
+                "Si un ennemi vous touche avec une Frappe au corps-à-corps alors que vous êtes dans cette posture, il devient Pris au dépourvu contre le prochain coup chancelant que vous lui portez avant la fin de votre prochain tour."
             ]
         },
         {
@@ -9405,7 +9405,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une arme de corps-à-corps",
-                "Le corps tendu pour frapper, vous pouvez vous attaquer à des ennemis éloignés. Lorsque vous êtes dans cette posture, vous pouvez utiliser sports_martial_artsFrappe réactive contre une créature hors de votre allonge mais à l'intérieur de celle dont vous bénéficieriez si vous faisiez une military_techFente . Si vous adoptez cette posture, vous augmentez la portée de la Frappe de 1,50 mètre."
+                "Le corps tendu pour frapper, vous pouvez vous attaquer à des ennemis éloignés. Lorsque vous êtes dans cette posture, vous pouvez utiliser Frappe réactive contre une créature hors de votre allonge mais à l'intérieur de celle dont vous bénéficieriez si vous faisiez une Fente . Si vous adoptez cette posture, vous augmentez la portée de la Frappe de 1,50 mètre."
             ]
         },
         {
@@ -9419,7 +9419,7 @@ DON.CLASS = {
             "description": [
                 "Vous vous baissez jusqu'à toucher le sol et prenez une posture imposante en marchant sur vos poignets.",
                 "Lorsque vous êtes dans cette posture, Les seules Frappes que vous pouvez porter sont des attaques à mains nues de coups du gorille. Elles infligent 1d8 dégâts contondants. Elles appartiennent au groupe pugilat et possèdent les traits à mains nues, prise d'élan, percutant, saisir et non-létal.",
-                "Lorsque vous êtes dans la Posture du gorille, vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour sports_martial_artsEscalader et si vous obtenez un succès sur un test d'Athlétisme pour Escalader, il devient un succès critique."
+                "Lorsque vous êtes dans la Posture du gorille, vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour Escalader et si vous obtenez un succès sur un test d'Athlétisme pour Escalader, il devient un succès critique."
             ]
         },
         {
@@ -9431,11 +9431,11 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous ne portez pas d'armure et maniez un workArc long , un workArc court ou un arc avec le trait moine.",
+                "Conditions Vous ne portez pas d'armure et maniez un Arc long , un Arc court ou un arc avec le trait moine.",
                 "Vous entrez dans une posture particulière à un art martial unique centré sur l'utilisation d'un arc.",
                 "Lorsque vous adoptez cette posture, les seules Frappes que vous pouvez faire sont celles qui utilisent les arcs longs, les arcs courts ou les arcs avec le trait moine.",
-                "Vous pouvez utiliser sports_martial_artsDéluge de coups avec ces arcs. Vous pouvez utiliser vos autres dons de moine ou capacités de moine qui nécessitent en principe des attaques à mains nues avec ces arcs lorsque vous attaquez à une portée correspondant à la moitié du premier facteur de portée (en principe 15 mètres pour un arc long et 9 mètres pour un arc court), tant que le don ou la capacité ne nécessite par une Frappe unique spécifique.",
-                "flarePosture : Posture de l'archer monastique",
+                "Vous pouvez utiliser Déluge de coups avec ces arcs. Vous pouvez utiliser vos autres dons de moine ou capacités de moine qui nécessitent en principe des attaques à mains nues avec ces arcs lorsque vous attaquez à une portée correspondant à la moitié du premier facteur de portée (en principe 15 mètres pour un arc long et 9 mètres pour un arc court), tant que le don ou la capacité ne nécessite par une Frappe unique spécifique.",
+                "Posture : Posture de l'archer monastique",
                 "Spécial Lorsque vous choisissez ce don, vous devenez qualifié avec l'arc long, l'arc court et tout arc simple ou de guerre avec le trait moine. Si vous obtenez la capacité de classe Frappes expertes, votre degré de maîtrise avec ces armes passe à expert et si vous obtenez la capacité de classe Frappes de maître, votre maîtrise avec ces armes passe à maître."
             ]
         },
@@ -9449,7 +9449,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous ne portez aucune armure.",
-                "Vous tendez vos bras, telles des branches noueuses, pour gêner les déplacements de vos adversaires. Vous pouvez faire des attaques à mains nues de branche cinglante. Ces attaques infligent 1d8 dégâts tranchants. Elles appartiennent au groupe pugilat et possèdent les traits agile, finesse, mains nues et non-létal. Tant que vous gardez cette posture et que vous pouvez agir, chaque ennemi dans votre allonge qui tente de s'éloigner doit réussir un jet de Réflexes, un test d'Acrobaties ou un test d'Athlétisme contre votre DD de classe ou être sentiment_very_dissatisfiedImmobilisé à cause de cette action. Vous pouvez également laisser l'ennemi se déplacer si vous préférez."
+                "Vous tendez vos bras, telles des branches noueuses, pour gêner les déplacements de vos adversaires. Vous pouvez faire des attaques à mains nues de branche cinglante. Ces attaques infligent 1d8 dégâts tranchants. Elles appartiennent au groupe pugilat et possèdent les traits agile, finesse, mains nues et non-létal. Tant que vous gardez cette posture et que vous pouvez agir, chaque ennemi dans votre allonge qui tente de s'éloigner doit réussir un jet de Réflexes, un test d'Acrobaties ou un test d'Athlétisme contre votre DD de classe ou être Immobilisé à cause de cette action. Vous pouvez également laisser l'ennemi se déplacer si vous préférez."
             ]
         },
         {
@@ -9493,8 +9493,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous ne portez aucune armure et vous êtes en contact avec le sol",
-                "Vous prenez la posture implacable d'une montagne, une technique créée par des moines nains, vous permettant de frapper aussi violemment qu'une avalanche et de bloquer des coups avec vos habits. Les seules Frappes que vous pouvez porter sont des attaques à mains nues de chute de pierre. Ces attaques infligent casino1d8 dégâts contondants . Elles font partie du groupe pugilat et possèdent les traits mains nues, non-létal et percutant.",
-                "Dans cette posture, vous bénéficiez d'un bonus d'objet de +4 à la CA et d'un bonus de circonstances de +2 à vos défenses si l'on tente de vous sports_martial_artsRepositionner , vous sports_martial_artsPousser , vous sports_martial_artsfaire un Croc-en-jambe ou autres effets de déplacement forcé. Vous avez toutefois un bonus de Dextérité maximal à votre CA de +0, ce qui signifie que vous n'ajoutez pas votre modificateur de Dextérité à votre CA et vos Vitesses sont toutes réduites de 1,50 mètre. Le bonus d'objet à la CA de Posture de la montagne se cumule avec les runes de puissance d'armure de vos Vêtements d'explorateur, l'Armure mystique et les bracelets d'armure."
+                "Vous prenez la posture implacable d'une montagne, une technique créée par des moines nains, vous permettant de frapper aussi violemment qu'une avalanche et de bloquer des coups avec vos habits. Les seules Frappes que vous pouvez porter sont des attaques à mains nues de chute de pierre. Ces attaques infligent 1d8 dégâts contondants . Elles font partie du groupe pugilat et possèdent les traits mains nues, non-létal et percutant.",
+                "Dans cette posture, vous bénéficiez d'un bonus d'objet de +4 à la CA et d'un bonus de circonstances de +2 à vos défenses si l'on tente de vous Repositionner , vous Pousser , vous faire un Croc-en-jambe ou autres effets de déplacement forcé. Vous avez toutefois un bonus de Dextérité maximal à votre CA de +0, ce qui signifie que vous n'ajoutez pas votre modificateur de Dextérité à votre CA et vos Vitesses sont toutes réduites de 1,50 mètre. Le bonus d'objet à la CA de Posture de la montagne se cumule avec les runes de puissance d'armure de vos Vêtements d'explorateur, l'Armure mystique et les bracelets d'armure."
             ]
         },
         {
@@ -9520,7 +9520,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vos tirs sont meurtriers lorsque vous vous déplacez. Tant que vous gardez cette posture, vos Frappes à distance ne déclenchent pas de Frappes réactives ou d'autres réactions normalement déclenchées par une attaque à distance.",
-                "Si vous avez sports_martial_artsFrappe réactive , vous pouvez l'utiliser avec une arme à distance chargée que vous maniez. Pour le faire, la créature à l'origine du déclenchement doit être à 1,50 mètre ou moins de vous."
+                "Si vous avez Frappe réactive , vous pouvez l'utiliser avec une arme à distance chargée que vous maniez. Pour le faire, la créature à l'origine du déclenchement doit être à 1,50 mètre ou moins de vous."
             ]
         },
         {
@@ -9535,7 +9535,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une arme à distance avec Rechargement 0.",
-                "Vous prenez une position stable pour pouvoir tirer rapidement et précisément. Tant que vous gardez cette posture, votre pénalité de military_techDouble tir est réduit à -1. Si vous quittez votre position, cette posture se termine.",
+                "Vous prenez une position stable pour pouvoir tirer rapidement et précisément. Tant que vous gardez cette posture, votre pénalité de Double tir est réduit à -1. Si vous quittez votre position, cette posture se termine.",
                 "Spécial Si vous possédez Triple tir, lorsque vous utilisez Double tir pour porter trois Frappes, la pénalité est de -2."
             ]
         },
@@ -9550,7 +9550,7 @@ DON.CLASS = {
                 "Armes monacales"
             ],
             "description": [
-                "Vous prenez une posture qui vous permet de lancer des workShuriken avec la rapidité de l'éclair.",
+                "Vous prenez une posture qui vous permet de lancer des Shuriken avec la rapidité de l'éclair.",
                 "Dans cette posture, vous pouvez utiliser vos dons de moine ou capacités de moine qui nécessitent normalement des attaques à mains nues avec les shuriken à la place."
             ]
         },
@@ -9566,7 +9566,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une seule arme de corps-à-corps à une main et ne tenez rien d'autre dans vos mains.",
-                "Vous adoptez une posture d'escrime qui améliore votre contrôle sur votre arme. Lorsque vous êtes dans cette posture, vous bénéficiez d'un bonus de circonstances de +1 aux tests d'Athlétisme pour sports_martial_artsDésarmer et d'un bonus de circonstances de +2 à vos jets de Réflexes quand vous vous défendez contre les tests pour vous Désarmer. De plus, vous pouvez tenter de Désarmer les créatures de deux catégories de taille supérieures à la vôtre."
+                "Vous adoptez une posture d'escrime qui améliore votre contrôle sur votre arme. Lorsque vous êtes dans cette posture, vous bénéficiez d'un bonus de circonstances de +1 aux tests d'Athlétisme pour Désarmer et d'un bonus de circonstances de +2 à vos jets de Réflexes quand vous vous défendez contre les tests pour vous Désarmer. De plus, vous pouvez tenter de Désarmer les créatures de deux catégories de taille supérieures à la vôtre."
             ]
         },
         {
@@ -9608,7 +9608,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous ne portez aucune armure",
-                "Vous prenez la posture d'un loup, le corps près du sol et les doigts courbés tels des crocs. Vous pouvez faire des attaques à mains nues de mâchoire de loup. Ces attaques infligent casino1d8 dégâts perforants , elles font partie du groupe pugilat et possèdent les traits agile, mains nues, non-létal et traître. Si vous prenez en tenaille une cible en étant dans cette posture, vos attaques à mains nues de mâchoire de loup obtiennent également le trait croc-en-jambe."
+                "Vous prenez la posture d'un loup, le corps près du sol et les doigts courbés tels des crocs. Vous pouvez faire des attaques à mains nues de mâchoire de loup. Ces attaques infligent 1d8 dégâts perforants , elles font partie du groupe pugilat et possèdent les traits agile, mains nues, non-létal et traître. Si vous prenez en tenaille une cible en étant dans cette posture, vos attaques à mains nues de mâchoire de loup obtiennent également le trait croc-en-jambe."
             ]
         },
         {
@@ -9624,7 +9624,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous maniez une épée qui possède le trait moine dans une main.",
                 "Vous adoptez une posture fière en vous dressant tout en restant mobile avec toute la grâce et le sang froid d'un paon.",
-                "Dans cette posture, les seules frappes que vous pouvez porter sont des frappes au corps-à-corps avec l'épée requise. Une fois par round, après avoir touché avec une Frappe d'épée ayant le trait moine, vous pouvez sports_martial_artsFaire un pas comme prochaine action en utilisant une action gratuite."
+                "Dans cette posture, les seules frappes que vous pouvez porter sont des frappes au corps-à-corps avec l'épée requise. Une fois par round, après avoir touché avec une Frappe d'épée ayant le trait moine, vous pouvez Faire un pas comme prochaine action en utilisant une action gratuite."
             ]
         },
         {
@@ -9662,7 +9662,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous ne portez aucune armure",
                 "Vous prenez la posture du fer impénétrable, en refusant de céder sous les coups. Vous pouvez faire des attaques à mains nues de balayage de fer. Ces attaques infligent 1d8 dégâts contondants, elles font partie du groupe pugilat et possèdent les traits balayage, mains nues, non-létal et parade. Tant que vous gardez la Posture du sang-de-fer, vous bénéficiez d'une résistance 2 contre tous les dégâts. La résistance passe à 3 au niveau 12, 4 au niveau 16 et 5 au niveau 20.",
-                "flarePosture : Posture du sang-de-fer"
+                "Posture : Posture du sang-de-fer"
             ]
         },
         {
@@ -9703,7 +9703,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "La moindre distraction vous met en rage et vous êtes toujours prêt à contrecarrer les actions de vos ennemis.",
-                "Tant que vous gardez cette posture, vous pouvez faire une sports_martial_artsFrappe réactive contre une créature à portée qui utilise une action de concentration, en plus des actions de manipulation ou de déplacement.",
+                "Tant que vous gardez cette posture, vous pouvez faire une Frappe réactive contre une créature à portée qui utilise une action de concentration, en plus des actions de manipulation ou de déplacement.",
                 "De plus, vous interrompez l'action de concentration ou de manipulation à l'origine du déclenchement si votre Frappe est un succès (et pas seulement en cas de coup critique)."
             ]
         },
@@ -9741,7 +9741,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme de corps-à-corps à deux mains",
-                "En utilisant l'élan de votre dernière attaque pour mettre votre poids dans une autre, vous faites tituber votre adversaire vers l'arrière. Faites une Frappe avec une arme de corps-à-corps à deux mains. Si vous touchez une cible d'une taille inférieure ou égale à la vôtre, celle-ci est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre tour actuel et vous pouvez automatiquement la sports_martial_artsPousser en produisant les mêmes effets que l'action Pousser (y compris celui du succès critique si votre Frappe était un coup critique). Si vous vous déplacez pour suivre la cible, votre déplacement ne déclenche aucune réaction.",
+                "En utilisant l'élan de votre dernière attaque pour mettre votre poids dans une autre, vous faites tituber votre adversaire vers l'arrière. Faites une Frappe avec une arme de corps-à-corps à deux mains. Si vous touchez une cible d'une taille inférieure ou égale à la vôtre, celle-ci est Prise au dépourvu jusqu'à la fin de votre tour actuel et vous pouvez automatiquement la Pousser en produisant les mêmes effets que l'action Pousser (y compris celui du succès critique si votre Frappe était un coup critique). Si vous vous déplacez pour suivre la cible, votre déplacement ne déclenche aucune réaction.",
                 "Cette Frappe a l'effet d'échec suivant.",
                 "Échec La cible est Prise au dépourvu jusqu'à la fin de votre tour actuel."
             ]
@@ -9756,7 +9756,7 @@ DON.CLASS = {
                 "Blocage agressif ou Poussée brutale"
             ],
             "description": [
-                "Qu'il s'agisse de pousser vos adversaire avec un bouclier ou une arme de grande taille, vous avez appris à les repousser encore plus loin. Vous faites passer la distance à laquelle vous sports_martial_artsPoussez votre adversaire avec military_techBlocage agressif ou military_techPoussée brutale à 3 mètres en cas de succès ou à 6 mètres en cas de succès critique. Quand vous utilisez Blocage agressif, vous pouvez choisir si la cible est sentiment_very_dissatisfiedPrise au dépourvu ou Poussée. Quand vous réalisez une Poussée brutale, vous Poussez également la cible de 1,50 mètre en cas d'échec."
+                "Qu'il s'agisse de pousser vos adversaire avec un bouclier ou une arme de grande taille, vous avez appris à les repousser encore plus loin. Vous faites passer la distance à laquelle vous Poussez votre adversaire avec Blocage agressif ou Poussée brutale à 3 mètres en cas de succès ou à 6 mètres en cas de succès critique. Quand vous utilisez Blocage agressif, vous pouvez choisir si la cible est Prise au dépourvu ou Poussée. Quand vous réalisez une Poussée brutale, vous Poussez également la cible de 1,50 mètre en cas d'échec."
             ]
         },
         {
@@ -9769,7 +9769,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Au cœur de la bataille, vous êtes capable d'incroyables démonstrations de force.",
-                "Lorsque vous êtes en sports_martial_artsRage , augmentez vos limites maximales d'encombrement de 2 ; Vous obtenez aussi un bonus de statut de +1 aux tests d'Athlétisme pour porter de lourds objets, pour sports_martial_artsVous échapper et sports_martial_artsOuvrir de force ."
+                "Lorsque vous êtes en Rage , augmentez vos limites maximales d'encombrement de 2 ; Vous obtenez aussi un bonus de statut de +1 aux tests d'Athlétisme pour porter de lourds objets, pour Vous échapper et Ouvrir de force ."
             ]
         },
         {
@@ -9782,7 +9782,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme de corps-à-corps qui inflige des dégâts perforants.",
-                "Vous empalez votre ennemi et le maintenez en place avec votre arme, et le faites saigner quand il se libère. Faites une Frappe avec une arme de corps-à-corps qui inflige des dégâts perforants. Si la Frappe touche et inflige des dégâts, votre cible est sentiment_very_dissatisfiedAgrippée jusqu'à ce qu'elle parvienne à S'échapper, que vous attaquiez avec l'arme à nouveau ou que vous Relâchiez l'arme requise, selon ce qui se produit en premier. Lorsque la cible n'est plus Agrippée, elle subit des dégâts de saignement égaux au nombre de dés de dégât de l'arme."
+                "Vous empalez votre ennemi et le maintenez en place avec votre arme, et le faites saigner quand il se libère. Faites une Frappe avec une arme de corps-à-corps qui inflige des dégâts perforants. Si la Frappe touche et inflige des dégâts, votre cible est Agrippée jusqu'à ce qu'elle parvienne à S'échapper, que vous attaquiez avec l'arme à nouveau ou que vous Relâchiez l'arme requise, selon ce qui se produit en premier. Lorsque la cible n'est plus Agrippée, elle subit des dégâts de saignement égaux au nombre de dés de dégât de l'arme."
             ]
         },
         {
@@ -9795,8 +9795,8 @@ DON.CLASS = {
                 "Blocage agressif ou Poussée brutale"
             ],
             "description": [
-                "Vous pouvez repousser des adversaires plus grands avec vos attaques. Vous pouvez utiliser military_techBlocage agressif ou military_techPoussée brutale contre une créature ayant jusqu'à deux catégories de taille de plus que vous.",
-                "Quand une créature que vous Poussez ou repoussez avec un bouclier, une arme d'hast ou l'effet de critique spécialisé du gourdin doit arrêter son déplacement parce qu'elle bute contre un objet, elle subit un montant de casinodégâts égal à votre modificateur de Force (1 au minimum)."
+                "Vous pouvez repousser des adversaires plus grands avec vos attaques. Vous pouvez utiliser Blocage agressif ou Poussée brutale contre une créature ayant jusqu'à deux catégories de taille de plus que vous.",
+                "Quand une créature que vous Poussez ou repoussez avec un bouclier, une arme d'hast ou l'effet de critique spécialisé du gourdin doit arrêter son déplacement parce qu'elle bute contre un objet, elle subit un montant de dégâts égal à votre modificateur de Force (1 au minimum)."
             ]
         },
         {
@@ -9838,7 +9838,7 @@ DON.CLASS = {
                 "Virtuose (muse de barde)"
             ],
             "description": [
-                "Vous apprenez le tour de magie de composition auto_awesomePrélude inspirant qui aident vos alliés dans l'utilisation de leurs compétences par la nature inspirante de votre représentation."
+                "Vous apprenez le tour de magie de composition Prélude inspirant qui aident vos alliés dans l'utilisation de leurs compétences par la nature inspirante de votre représentation."
             ]
         },
         {
@@ -9861,7 +9861,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre patron peut diriger son attention à travers votre familier et sa simple présence devient un poids menaçant sur les esprits des autres êtres pour les distraire et occulter leur magie. Votre familier obtient l'activité sports_martial_artsPrésence du patron ."
+                "Votre patron peut diriger son attention à travers votre familier et sa simple présence devient un poids menaçant sur les esprits des autres êtres pour les distraire et occulter leur magie. Votre familier obtient l'activité Présence du patron ."
             ]
         },
         {
@@ -9876,7 +9876,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous diffusez une aura de résolution. Vous et vos alliés à 4,50 mètres ou moins bénéficiez d'un bonus de statut de +2 aux jets de Volonté contre les effets mentaux.",
-                "flareEffet : Présence éclairée"
+                "Effet : Présence éclairée"
             ]
         },
         {
@@ -9887,12 +9887,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "En observant un adversaire, vous pouvez anticiper son prochain déplacement et vous préparer à le contrer ou à lui résister. Choisissez une cible et effectuez un test de Perception pour sports_martial_artsDeviner les intentions contre le DD de Duperie de votre adversaire ou un DD difficile pour le niveau de l'ennemi, s'il est plus élevé.",
+                "En observant un adversaire, vous pouvez anticiper son prochain déplacement et vous préparer à le contrer ou à lui résister. Choisissez une cible et effectuez un test de Perception pour Deviner les intentions contre le DD de Duperie de votre adversaire ou un DD difficile pour le niveau de l'ennemi, s'il est plus élevé.",
                 "Succès critique Vous discernez précisément la stratégie de la cible, obtenant un bonus de circonstances de +2 à la CA jusqu'au début de votre prochain tour et un bonus de circonstances de +2 à votre prochain jet de sauvegarde contre la cible avant la fin de votre prochain tour.",
                 "Succès Vous déduisez l'idée générale de la stratégie de la cible ; Comme en cas de succès critique mais le bonus de circonstances est seulement de +1.",
                 "Échec Vous ne parvenez pas à discerner la stratégie de la cible et n'obtenez aucun avantage.",
                 "Échec critique Vous vous méprenez sur la stratégie de la cible et subissez une pénalité de circonstances de -1 à la CA contre la créature jusqu'au début de votre prochain tour et une pénalité de circonstances de -1 à votre prochain jet de sauvegarde contre la créature avant le début de votre prochain tour.",
-                "flareEffet : Prévisible !"
+                "Effet : Prévisible !"
             ]
         },
         {
@@ -9917,10 +9917,10 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous sentiment_very_dissatisfiedAgrippez ou sentiment_very_dissatisfiedEntravez une créature.",
-                "Vous pincez les points cruciaux du système nerveux de votre cible pour bloquer ses capacités fonctionnelles. Faites un test d'Athlétisme pour sports_martial_artsSaisir la créature, avec les effets de succès et de succès critique suivants au lieu des effets habituels.",
-                "Succès critique La cible tombe sentiment_very_dissatisfiedInconsciente pendant une minute, mais elle reste debout et ne lâche pas ce qu'elle tient en mains.",
-                "Succès La cible est sentiment_very_dissatisfiedMaladroite 1 jusqu'à la fin de son prochain tour"
+                "Conditions Vous Agrippez ou Entravez une créature.",
+                "Vous pincez les points cruciaux du système nerveux de votre cible pour bloquer ses capacités fonctionnelles. Faites un test d'Athlétisme pour Saisir la créature, avec les effets de succès et de succès critique suivants au lieu des effets habituels.",
+                "Succès critique La cible tombe Inconsciente pendant une minute, mais elle reste debout et ne lâche pas ce qu'elle tient en mains.",
+                "Succès La cible est Maladroite 1 jusqu'à la fin de son prochain tour"
             ]
         },
         {
@@ -9933,7 +9933,7 @@ DON.CLASS = {
                 "qualifié en Arcanes"
             ],
             "description": [
-                "Vous êtes particulièrement adepte de l'apprentissage des sorts à ajouter à votre grimoire. Vous obtenez le don de compétence military_techSténographie magique sans avoir besoin de remplir ses prérequis. De plus, lorsque vous obtenez un échec critique sur votre test pour Apprendre un sort, il devient un échec."
+                "Vous êtes particulièrement adepte de l'apprentissage des sorts à ajouter à votre grimoire. Vous obtenez le don de compétence Sténographie magique sans avoir besoin de remplir ses prérequis. De plus, lorsque vous obtenez un échec critique sur votre test pour Apprendre un sort, il devient un échec."
             ]
         },
         {
@@ -9944,11 +9944,11 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous vous adressez à un allié ou à tout observateur de votre combat, montrant à vos ennemis le peu d'attention qu'ils requièrent. Lorsque vous casinoReprésentation , vous pouvez choisir une unique créature dans les 9 mètres et utiliser les effets de succès, de succès critique et d'échec critique suivants au lieu des résultats normaux. Si vous le faites, Se produire obtient le trait bravade, ainsi que les traits auditifs et linguistiques normaux des représentations oratoires.",
+                "Vous vous adressez à un allié ou à tout observateur de votre combat, montrant à vos ennemis le peu d'attention qu'ils requièrent. Lorsque vous Représentation , vous pouvez choisir une unique créature dans les 9 mètres et utiliser les effets de succès, de succès critique et d'échec critique suivants au lieu des résultats normaux. Si vous le faites, Se produire obtient le trait bravade, ainsi que les traits auditifs et linguistiques normaux des représentations oratoires.",
                 "Succès critique La cible subit une pénalité de circonstances de -2 aux jets d'attaque contre les créatures autres que vous jusqu'à la fin de son prochain tour.",
                 "Succès La cible subit une pénalité de circonstances de -1 aux jets d'attaque contre les créatures autres que vous jusqu'à la fin de son prochain tour.",
                 "Échec critique La cible bénéficie d'un bonus de circonstances de +1 aux jets d'attaque vous ciblant jusqu'à la fin de son prochain tour.",
-                "flareEffet : Profitez du spectacle"
+                "Effet : Profitez du spectacle"
             ]
         },
         {
@@ -9961,7 +9961,7 @@ DON.CLASS = {
                 "Spécialiste des pièges artisanaux"
             ],
             "description": [
-                "Vous pouvez préparer à l'avance un nombre apparemment illimité de pièges artisanaux et vous êtes toujours prêt à les déployer à l'approche d'ennemis peu méfiants. Doublez le nombre de pièges artisanaux que vous pouvez préparer grâce à military_techSpécialiste des pièges artisanaux ."
+                "Vous pouvez préparer à l'avance un nombre apparemment illimité de pièges artisanaux et vous êtes toujours prêt à les déployer à l'approche d'ennemis peu méfiants. Doublez le nombre de pièges artisanaux que vous pouvez préparer grâce à Spécialiste des pièges artisanaux ."
             ]
         },
         {
@@ -9974,7 +9974,7 @@ DON.CLASS = {
                 "Aide du gardien, Deux proies"
             ],
             "description": [
-                "Lorsque vous chassez en duo, vous et votre allié pouvez tous deux pourchasser la même proie. Quand vous utilisez sports_martial_artsChasser une proie et désignez une unique proie, vous pouvez conférer les avantages de Chasser une proie et de votre spécialité du chasseur à un allié, en plus d'en bénéficier vous-même. L'allié bénéficie de ces avantages jusqu'à ce que vous utilisiez Chasser une proie de nouveau."
+                "Lorsque vous chassez en duo, vous et votre allié pouvez tous deux pourchasser la même proie. Quand vous utilisez Chasser une proie et désignez une unique proie, vous pouvez conférer les avantages de Chasser une proie et de votre spécialité du chasseur à un allié, en plus d'en bénéficier vous-même. L'allié bénéficie de ces avantages jusqu'à ce que vous utilisiez Chasser une proie de nouveau."
             ]
         },
         {
@@ -9986,7 +9986,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous avez analysé un type particulier de créature sauvage et parvenez à présent à la chasser plus facilement.",
-                "Quand vous prenez ce don, choisissez la catégorie de proie favorite parmi la liste suivante : animaux, bêtes, dragons ou champignons et plantes. Quand vous faites votre jet d'initiative et que vous voyez un ennemi de la catégorie choisie, vous pouvez sports_martial_artsChasser une proie par une action gratuite, en désignant cet ennemi.",
+                "Quand vous prenez ce don, choisissez la catégorie de proie favorite parmi la liste suivante : animaux, bêtes, dragons ou champignons et plantes. Quand vous faites votre jet d'initiative et que vous voyez un ennemi de la catégorie choisie, vous pouvez Chasser une proie par une action gratuite, en désignant cet ennemi.",
                 "Vous pouvez effectuer cette action gratuite même si vous n'avez pas encore identifié la créature grâce à l'action Se souvenir. L'avantage ne s'applique pas contre des ennemis jurés déguisés en d'autres créatures et le MJ détermine s'il s'applique contre une créature déguisée en une proie favorite."
             ]
         },
@@ -10001,7 +10001,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme à distance ou de jet qui inflige des dégâts perforants.",
-                "Vos projectiles ne sont pas ralentis par la chair ni les os. Faites une Frappe à distance ou avec une arme de jet qui inflige des dégâts perforants contre chaque créature sur crop_freeune ligne de 9 mètres (ceci n'utilise qu'un seul projectile malgré le nombre de Frappes). Ces attaques ignorent tout abris accordés aux créatures. Lancez les dégâts une seule fois et appliquez-les à chaque créature que vous avez touché. Chaque attaque est décomptée de votre pénalité d'attaques multiples mais n'augmente pas la pénalité tant que vous n'avez pas effectué toutes vos attaques."
+                "Vos projectiles ne sont pas ralentis par la chair ni les os. Faites une Frappe à distance ou avec une arme de jet qui inflige des dégâts perforants contre chaque créature sur une ligne de 9 mètres (ceci n'utilise qu'un seul projectile malgré le nombre de Frappes). Ces attaques ignorent tout abris accordés aux créatures. Lancez les dégâts une seule fois et appliquez-les à chaque créature que vous avez touché. Chaque attaque est décomptée de votre pénalité d'attaques multiples mais n'augmente pas la pénalité tant que vous n'avez pas effectué toutes vos attaques."
             ]
         },
         {
@@ -10013,12 +10013,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous sentiment_very_dissatisfiedAgrippez ou sentiment_very_dissatisfiedEntravez une créature.",
+                "Conditions Vous Agrippez ou Entravez une créature.",
                 "Vous projetez votre adversaire au loin. Faites un test d' Athlétisme contre le DD de Vigueur de l'adversaire. Vous subissez une pénalité de circonstances de -2 si votre cible est d'une taille plus grande que vous, et une pénalité de circonstances de -4 si elle est plus grande que cela. Vous obtenez un bonus de circonstances de +2 si la cible est d'une taille plus petite que vous, et un bonus de circonstances de +4 si elle est plus petite que cela.",
-                "Succès critique Vous projetez la créature à une distance de votre choix jusqu'à 3 mètres plus 1,50 mètre multiplié par votre modificateur de Force ( casino3+(1*@actor.abilities.str.mod) mètres). Elle subit des dégâts contondants égaux à votre modificateur de Force plus 1d6 par tranche de 3 mètres à laquelle vous la lancez ( casino((floor((10+(5*@actor.abilities.str.mod))/10))d6 + @actor.abilities.str.mod) contondant dégâts). Si vous lancez la cible d'au moins 3 mètres sur un obstacle solide, utilisez la distance maximale à laquelle vous auriez pu la lancer pour calculer les dégâts. La créature tombe sentiment_very_dissatisfiedÀ terre .",
+                "Succès critique Vous projetez la créature à une distance de votre choix jusqu'à 3 mètres plus 1,50 mètre multiplié par votre modificateur de Force ( 3+(1*@actor.abilities.str.mod) mètres). Elle subit des dégâts contondants égaux à votre modificateur de Force plus 1d6 par tranche de 3 mètres à laquelle vous la lancez ( ((floor((10+(5*@actor.abilities.str.mod))/10))d6 + @actor.abilities.str.mod) contondant dégâts). Si vous lancez la cible d'au moins 3 mètres sur un obstacle solide, utilisez la distance maximale à laquelle vous auriez pu la lancer pour calculer les dégâts. La créature tombe À terre .",
                 "Succès Comme pour un succès critique, mais la créature ne tombe pas À terre.",
                 "Échec Vous ne projetez pas la créature.",
-                "Échec critique Vous ne projetez pas la créature et elle n'est plus ni sentiment_very_dissatisfiedSaisie ni sentiment_very_dissatisfiedEntravée par vous."
+                "Échec critique Vous ne projetez pas la créature et elle n'est plus ni Saisie ni Entravée par vous."
             ]
         },
         {
@@ -10032,7 +10032,7 @@ DON.CLASS = {
                 "Maltraitance collatérale"
             ],
             "description": [
-                "Vous faites tournoyer un ennemi pour le cogner sur toutes les créatures à proximité avant de le projeter au loin. Vous le military_techMaltraitez . Pendant cette Maltraitance, votre don military_techMaltraitance collatérale s'applique à tous les autres ennemis adjacents à vous. Vous pouvez alors lancer la créature sentiment_very_dissatisfiedAgrippée à 3 mètres où elle tombe sentiment_very_dissatisfiedÀ terre .",
+                "Vous faites tournoyer un ennemi pour le cogner sur toutes les créatures à proximité avant de le projeter au loin. Vous le Maltraitez . Pendant cette Maltraitance, votre don Maltraitance collatérale s'applique à tous les autres ennemis adjacents à vous. Vous pouvez alors lancer la créature Agrippée à 3 mètres où elle tombe À terre .",
                 "Si l'ennemi que vous choisissez pour Maltraitance collatérale vous est aussi adjacent, il ne tente qu'un seul jet de sauvegarde et ne subit les dégâts qu'une fois."
             ]
         },
@@ -10045,7 +10045,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Votre ennemi vous porte un coup critique.",
-                "Conditions Vous avez préparé le sort auto_awesomeAvatar .",
+                "Conditions Vous avez préparé le sort Avatar .",
                 "Dans les moments de danger, vous pouvez appeler la forme de votre divinité instantanément. Vous lancez le sort Avatar. Le coup critique déclencheur est réduit à une frappe ordinaire et ses dégâts sont appliqués après avoir obtenu les Points de vie temporaires accordés par le sort Avatar."
             ]
         },
@@ -10073,7 +10073,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez un bouclier.",
-                "Après avoir pris quelques instants pour adopter cette posture, votre bouclier est toujours en position sans même y penser. Tant que vous conservez cette posture, votre bouclier est constamment levé, comme si vous aviez utilisé l'action sports_martial_artsLever un bouclier , tant que vous remplissez les conditions de cette action."
+                "Après avoir pris quelques instants pour adopter cette posture, votre bouclier est toujours en position sans même y penser. Tant que vous conservez cette posture, votre bouclier est constamment levé, comme si vous aviez utilisé l'action Lever un bouclier , tant que vous remplissez les conditions de cette action."
             ]
         },
         {
@@ -10123,7 +10123,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez façonner la zone de vos sorts de composition. Lorsque vous Lancez un sort de composition dont la zone est une émanation, vous pouvez en modifier la forme pour être un cône de 3 mètres plus large avec un maximum de deux fois la zone originelle. Par exemple, vous pourriez modifier un sort de composition qui affecte une crop_freeémanation de 9 mètres pour affecter crop_freeun cône de 12 mètres , mais une crop_freeémanation de 1,50 mètre ne pourrait devenir qu'un crop_freecône de 3 mètres ."
+                "Vous pouvez façonner la zone de vos sorts de composition. Lorsque vous Lancez un sort de composition dont la zone est une émanation, vous pouvez en modifier la forme pour être un cône de 3 mètres plus large avec un maximum de deux fois la zone originelle. Par exemple, vous pourriez modifier un sort de composition qui affecte une émanation de 9 mètres pour affecter un cône de 12 mètres , mais une émanation de 1,50 mètre ne pourrait devenir qu'un cône de 3 mètres ."
             ]
         },
         {
@@ -10138,10 +10138,10 @@ DON.CLASS = {
                 "Conditions Vous bénéficiez d'un effet de magie du sang.",
                 "La puissance dans votre sang vous permet d'accomplir des exploits magiques mineurs. Vous pouvez accomplir l'une des actions suivantes, en fonction de la tradition de votre lignage.",
                 [
-                    "Arcanique Votre esprit s'ouvre temporairement aux secrets du monde. Tentez de sports_martial_artsVous souvenir . Vous pouvez utiliser Arcanes à la place de la compétence normalement requise pour ce sujet. Si vous obtenez un échec critique sur ce test, il devient un échec.",
-                    "Divine Quelle que soit la provenance divine de votre lignage, elle vous guide pour vous écarter instinctivement hors du danger, vous ou les autres. Vous Faites un pas ou vous sports_martial_artsRepositionnez une cible dans votre allonge en utilisant Religion pour ce test.",
+                    "Arcanique Votre esprit s'ouvre temporairement aux secrets du monde. Tentez de Vous souvenir . Vous pouvez utiliser Arcanes à la place de la compétence normalement requise pour ce sujet. Si vous obtenez un échec critique sur ce test, il devient un échec.",
+                    "Divine Quelle que soit la provenance divine de votre lignage, elle vous guide pour vous écarter instinctivement hors du danger, vous ou les autres. Vous Faites un pas ou vous Repositionnez une cible dans votre allonge en utilisant Religion pour ce test.",
                     "Occulte Des brumes étranges ou des couleurs tourbillonnantes cachent vos mouvements. Vous Faites un pas de 3 mètres.",
-                    "Primordiale L'immense pouvoir de la nature résonne dans votre voix. Vous pouvez tenter un test de Nature pour sports_martial_artsDémoraliser une cible."
+                    "Primordiale L'immense pouvoir de la nature résonne dans votre voix. Vous pouvez tenter un test de Nature pour Démoraliser une cible."
                 ]
             ]
         },
@@ -10191,7 +10191,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez appris à exploiter les ouvertures de vos ennemis. Vos dégâts d'attaque sournoise ignore toute immunité ou résistance aux dégâts de précision de la cible. De plus, quand vous sports_martial_artsÊtes furtif , vous pouvez désigner une créature à l'égard de laquelle vous êtes Non détecté à la fin de cette action. Sur la prochaine attaque que vous faites contre cette créature avant la fin de votre prochain tour, tout résultat sur un dé d'attaque sournoise que vous lancez contre cette créature qui est inférieur à 3 devient un 3 à la place. Cela n'a aucun effet si votre prochaine attaque contre la cible n'inflige pas de dégâts d'attaque sournoise. Si vous désignez une nouvelle créature, vous perdez cet avantage contre la précédente."
+                "Vous avez appris à exploiter les ouvertures de vos ennemis. Vos dégâts d'attaque sournoise ignore toute immunité ou résistance aux dégâts de précision de la cible. De plus, quand vous Êtes furtif , vous pouvez désigner une créature à l'égard de laquelle vous êtes Non détecté à la fin de cette action. Sur la prochaine attaque que vous faites contre cette créature avant la fin de votre prochain tour, tout résultat sur un dé d'attaque sournoise que vous lancez contre cette créature qui est inférieur à 3 devient un 3 à la place. Cela n'a aucun effet si votre prochaine attaque contre la cible n'inflige pas de dégâts d'attaque sournoise. Si vous désignez une nouvelle créature, vous perdez cet avantage contre la précédente."
             ]
         },
         {
@@ -10204,7 +10204,7 @@ DON.CLASS = {
                 "trait saint ou impie"
             ],
             "description": [
-                "La bénédiction de votre divinité ne s'étend pas à vos ennemis jurés. Lorsque vous lancez auto_awesomeGuérison ou auto_awesomeMise à mal vous pouvez y ajouter votre trait saint ou impie. Si vous le faites, le sort blesse les créatures qui possèdent le trait opposé, même si normalement cela ne devrait pas les blesser. Le sort inflige des dégâts spirituels lorsqu'il est utilisé de cette façon. Par exemple, si vous avez le trait saint, vous pourriez ajouter le trait à votre sort de Guérison qui infligerait des dégâts spirituels à un fiélon qui possède le trait impie."
+                "La bénédiction de votre divinité ne s'étend pas à vos ennemis jurés. Lorsque vous lancez Guérison ou Mise à mal vous pouvez y ajouter votre trait saint ou impie. Si vous le faites, le sort blesse les créatures qui possèdent le trait opposé, même si normalement cela ne devrait pas les blesser. Le sort inflige des dégâts spirituels lorsqu'il est utilisé de cette façon. Par exemple, si vous avez le trait saint, vous pourriez ajouter le trait à votre sort de Guérison qui infligerait des dégâts spirituels à un fiélon qui possède le trait impie."
             ]
         },
         {
@@ -10219,7 +10219,7 @@ DON.CLASS = {
             "description": [
                 "Fréquence Une fois par heure",
                 "Déclencheur Vous Lancez un sort qui possède le trait moine.",
-                "La puissance de votre Qi apaise vos blessures et vous donne de l'énergie pour la bataille. Vous casinoregagnez des Points de vie égaux à votre niveau plus votre modificateur de Sagesse."
+                "La puissance de votre Qi apaise vos blessures et vous donne de l'énergie pour la bataille. Vous regagnez des Points de vie égaux à votre niveau plus votre modificateur de Sagesse."
             ]
         },
         {
@@ -10244,7 +10244,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par jour",
-                "Vous considérez avec soin votre affaire et éliminez certains des détails. Lorsque vous sports_martial_artsSuivez une piste et apprenez qu'il y a un mystère plus grand, vous pouvez poser deux questions en rapport avec votre enquête quand vous l'ouvrez. Le MJ doit y répondre honnêtement par \"oui ou par \"non\", cependant si la réponse serait trompeuse ou si elle n'a pas d'application pratique pour votre enquête, le MJ peut répondre \"sans importance\". Vous ne pouvez pas utiliser Quiafaitça ? plus d'une fois pour la même piste, même au cours de plusieurs jours différents. Vos questions doivent provenir de la liste suivante, en l'appliquant au détail qui a motivé votre enquête :",
+                "Vous considérez avec soin votre affaire et éliminez certains des détails. Lorsque vous Suivez une piste et apprenez qu'il y a un mystère plus grand, vous pouvez poser deux questions en rapport avec votre enquête quand vous l'ouvrez. Le MJ doit y répondre honnêtement par \"oui ou par \"non\", cependant si la réponse serait trompeuse ou si elle n'a pas d'application pratique pour votre enquête, le MJ peut répondre \"sans importance\". Vous ne pouvez pas utiliser Quiafaitça ? plus d'une fois pour la même piste, même au cours de plusieurs jours différents. Vos questions doivent provenir de la liste suivante, en l'appliquant au détail qui a motivé votre enquête :",
                 [
                     "L'indice a-t-il été laissé par un [trait de créature] ? (Choisissez un trait de créature tel que humanoïde, mort-vivant ou nain ; ce trait doit être exact au moment où l'indice a été laissé.)",
                     "Cet indice a-t-il été laissé au cours de la dernière heure ?",
@@ -10264,7 +10264,7 @@ DON.CLASS = {
                 "Trafic de voyou"
             ],
             "description": [
-                "Vos coups critiques ébranlent la confiance de vos ennemis. Lorsque votre Frappe est un coup critique et inflige des dégâts, la cible est sentiment_very_dissatisfiedEffrayée 1"
+                "Vos coups critiques ébranlent la confiance de vos ennemis. Lorsque votre Frappe est un coup critique et inflige des dégâts, la cible est Effrayée 1"
             ]
         },
         {
@@ -10281,7 +10281,7 @@ DON.CLASS = {
                 "Instinct animal"
             ],
             "description": [
-                "Vous vous transformez en votre animal. Vous obtenez les effets du sort auto_awesomeForme animale au rang 3, mais vous utilisez vos propres statistiques, Points de vie temporaires et attaques à mains nues au lieu des statistiques conférées par Forme animale. Vous conservez également les pouvoirs constants de votre équipement. Si votre animal est une grenouille, l'allonge de votre langue atteint 4,50 mètres. Révoquer la transformation obtient le trait rage."
+                "Vous vous transformez en votre animal. Vous obtenez les effets du sort Forme animale au rang 3, mais vous utilisez vos propres statistiques, Points de vie temporaires et attaques à mains nues au lieu des statistiques conférées par Forme animale. Vous conservez également les pouvoirs constants de votre équipement. Si votre animal est une grenouille, l'allonge de votre langue atteint 4,50 mètres. Révoquer la transformation obtient le trait rage."
             ]
         },
         {
@@ -10309,7 +10309,7 @@ DON.CLASS = {
                 "Rage partagée"
             ],
             "description": [
-                "Vous pouvez déclencher un état de frénésie chez vos alliés et leur faire bénéficier d'incroyables avantages. Vous pouvez ignorer les conditions d'utilisation de Rage partagée et l'utiliser plusieurs fois au cours d'une même Rage. Les alliés affectés par la military_techRage partagée peuvent choisir de bénéficier de la capacité de votre instinct et le pouvoir de spécialisation associé lié à la spécialisation martiale, mais pas à la spécialisation martiale supérieure. Ils doivent se conformer à toute restriction de votre instinct s'ils le font (comme le respect de l'anathème de l'instinct de superstition)"
+                "Vous pouvez déclencher un état de frénésie chez vos alliés et leur faire bénéficier d'incroyables avantages. Vous pouvez ignorer les conditions d'utilisation de Rage partagée et l'utiliser plusieurs fois au cours d'une même Rage. Les alliés affectés par la Rage partagée peuvent choisir de bénéficier de la capacité de votre instinct et le pouvoir de spécialisation associé lié à la spécialisation martiale, mais pas à la spécialisation martiale supérieure. Ils doivent se conformer à toute restriction de votre instinct s'ils le font (comme le respect de l'anathème de l'instinct de superstition)"
             ]
         },
         {
@@ -10322,8 +10322,8 @@ DON.CLASS = {
                 "un instinct qui vous autorise à changer vos dégâts supplémentaires de la rage en un type de dégât différent"
             ],
             "description": [
-                "Déclencheur Vous entrez en sports_martial_artsRage .",
-                "Vous émettez une puissante décharge d'énergie instinctive lorsque vous libérez votre colère. Chaque créature dans les 6 mètres subit des casinodégâts égaux à votre niveau ( casinoVigueur contre votre DD de classe) du même type que celui de vos dégâts supplémentaires durant cette Rage."
+                "Déclencheur Vous entrez en Rage .",
+                "Vous émettez une puissante décharge d'énergie instinctive lorsque vous libérez votre colère. Chaque créature dans les 6 mètres subit des dégâts égaux à votre niveau ( Vigueur contre votre DD de classe) du même type que celui de vos dégâts supplémentaires durant cette Rage."
             ]
         },
         {
@@ -10334,7 +10334,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Même les armures les plus lourdes ne servent qu'à améliorer votre fureur débridée. Vous êtes qualifié en armures lourdes. Chaque fois que vous obtenez une capacité de classe de barbare qui vous confère une maîtrise experte ou supérieure avec les armures intermédiaires, vous obtenez également ce degré de maîtrise en armure lourde. Si vous avez l'action sports_martial_artsImpulsif , vous pouvez l'utiliser en portant une armure lourde."
+                "Même les armures les plus lourdes ne servent qu'à améliorer votre fureur débridée. Vous êtes qualifié en armures lourdes. Chaque fois que vous obtenez une capacité de classe de barbare qui vous confère une maîtrise experte ou supérieure avec les armures intermédiaires, vous obtenez également ce degré de maîtrise en armure lourde. Si vous avez l'action Impulsif , vous pouvez l'utiliser en portant une armure lourde."
             ]
         },
         {
@@ -10350,7 +10350,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous n'avez pas utilisé ce pouvoir depuis votre dernière Rage.",
                 "Vous attisez la furie d'un allié. Tant que vous êtes enragé, une créature consentante qui se trouve dans un rayon de 9 mètres gagne les effets de l'action Rage, à la différence qu'elle peut toujours utiliser les actions qui possèdent le trait concentration. Elle n'obtient pas d'avantage supplémentaire venant de votre instinct, de vos dons, ou ce genre de chose.",
-                "flareEffet : Rage partagée"
+                "Effet : Rage partagée"
             ]
         },
         {
@@ -10362,7 +10362,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous vous déplacez aussi vite et aussi haut que le vent. Vous êtes accéléré en permanence.",
-                "Vous pouvez effectuer votre action supplémentaire pour Marcher rapidement ou sports_martial_artsBondir ou pour fournir l'une des actions nécessaires pour sports_martial_artsSauter en hauteur ou sports_martial_artsen longueur ."
+                "Vous pouvez effectuer votre action supplémentaire pour Marcher rapidement ou Bondir ou pour fournir l'une des actions nécessaires pour Sauter en hauteur ou en longueur ."
             ]
         },
         {
@@ -10390,7 +10390,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous êtes dans la Posture de la forêt enchevêtrée",
-                "Vous repositionnez des ennemis avec des attaques de ratissage. Faites une Frappe de branche cinglante. Si vous touchez et infligez des dégâts, vous sports_martial_artsRepositionnez la cible de 3 mètres au maximum. Vous pouvez déplacer la cible à travers votre espace au cours de ce déplacement."
+                "Vous repositionnez des ennemis avec des attaques de ratissage. Faites une Frappe de branche cinglante. Si vous touchez et infligez des dégâts, vous Repositionnez la cible de 3 mètres au maximum. Vous pouvez déplacer la cible à travers votre espace au cours de ce déplacement."
             ]
         },
         {
@@ -10425,7 +10425,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre patron se manifeste partiellement au travers de votre familier pour réclamer le pouvoir d'un ennemi pour son propre compte. Votre familier obtient l'activité sports_martial_artsRéclamation du patron ."
+                "Votre patron se manifeste partiellement au travers de votre familier pour réclamer le pouvoir d'un ennemi pour son propre compte. Votre familier obtient l'activité Réclamation du patron ."
             ]
         },
         {
@@ -10453,8 +10453,8 @@ DON.CLASS = {
                 "Source de Mise à mal ou de Guérison"
             ],
             "description": [
-                "Votre foi vous offre une protection temporaire en plus des soins. Si la prochaine action que vous effectuez consiste à lancer auto_awesomeMise à mal ou auto_awesomeGuérison sur une unique cible et que celle-ci récupère des Points de vie grâce au sort, elle bénéficie également d'un bonus de statut de +2 à la CA et aux jets de sauvegarde pendant un round.",
-                "flareEffet : Récupération défensive"
+                "Votre foi vous offre une protection temporaire en plus des soins. Si la prochaine action que vous effectuez consiste à lancer Mise à mal ou Guérison sur une unique cible et que celle-ci récupère des Points de vie grâce au sort, elle bénéficie également d'un bonus de statut de +2 à la CA et aux jets de sauvegarde pendant un round.",
+                "Effet : Récupération défensive"
             ]
         },
         {
@@ -10469,8 +10469,8 @@ DON.CLASS = {
                 "Source de guérison"
             ],
             "description": [
-                "Le pouvoir vivifiant de votre guérison revigore le bénéficiaire. Si la prochaine action que vous effectuez consiste à lancer auto_awesomeGuérison en ciblant une unique créature vivante et que celle-ci récupère des Points de vie grâce au sort, la cible bénéficie également de trois bonus jusqu'à la fin de son prochain tour : un bonus de statut de +1,50 mètre à sa Vitesse, un bonus de statut de +1 aux jets d'attaque et un bonus de statut de +1 aux jets de dégâts. De plus, si la cible est sentiment_very_dissatisfiedÀ terre , elle peut immédiatement se Relever par une action gratuite qui ne déclenche pas de réaction.",
-                "flareEffet : Récupération héroïque"
+                "Le pouvoir vivifiant de votre guérison revigore le bénéficiaire. Si la prochaine action que vous effectuez consiste à lancer Guérison en ciblant une unique créature vivante et que celle-ci récupère des Points de vie grâce au sort, la cible bénéficie également de trois bonus jusqu'à la fin de son prochain tour : un bonus de statut de +1,50 mètre à sa Vitesse, un bonus de statut de +1 aux jets d'attaque et un bonus de statut de +1 aux jets de dégâts. De plus, si la cible est À terre , elle peut immédiatement se Relever par une action gratuite qui ne déclenche pas de réaction.",
+                "Effet : Récupération héroïque"
             ]
         },
         {
@@ -10484,7 +10484,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Frapper vos ennemis vous permet de bénéficier des louanges et de la protection de votre divinité. Quand vous infligez des dégâts à une créature en la Frappant avec l'arme de prédilection de votre divinité, vous obtenez un nombre de Points de vie temporaires égal à la moitié de votre niveau ou égal à votre niveau si la Frappe est un coup critique. Ces Points de vie temporaires persistent jusqu'à la fin de votre prochain tour.",
-                "flareEffet : Récupération martiale"
+                "Effet : Récupération martiale"
             ]
         },
         {
@@ -10497,7 +10497,7 @@ DON.CLASS = {
                 "Récupération martiale"
             ],
             "description": [
-                "Quand votre divinité bénit vos actes martiaux, vous pouvez étendre cette faveur à vos alliés. Vous pouvez conférer les Points de vie temporaires obtenus grâce à military_techRécupération martiale à un allié dans les 3 mètres au lieu de vous les appliquer à vous-même. Vous pouvez conférer ces Points de vie temporaires à un allié différent à chaque fois, ce qui signifie que vous pourriez les conférer à plusieurs créatures au cours d'un même round."
+                "Quand votre divinité bénit vos actes martiaux, vous pouvez étendre cette faveur à vos alliés. Vous pouvez conférer les Points de vie temporaires obtenus grâce à Récupération martiale à un allié dans les 3 mètres au lieu de vous les appliquer à vous-même. Vous pouvez conférer ces Points de vie temporaires à un allié différent à chaque fois, ce qui signifie que vous pourriez les conférer à plusieurs créatures au cours d'un même round."
             ]
         },
         {
@@ -10536,7 +10536,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois par heure",
-                "Si votre prochaine action consiste à utiliser votre source divine pour lancer auto_awesomeGuérison ou auto_awesomeMise à mal à 3 actions, vous pouvez récupérer l'énergie résiduelle pour contrebalancer les forces opposées. En plus de ses effets normaux, vous utilisez Guérison ou Mise à mal pour tenter de contrer un effet divin dans la zone du sort."
+                "Si votre prochaine action consiste à utiliser votre source divine pour lancer Guérison ou Mise à mal à 3 actions, vous pouvez récupérer l'énergie résiduelle pour contrebalancer les forces opposées. En plus de ses effets normaux, vous utilisez Guérison ou Mise à mal pour tenter de contrer un effet divin dans la zone du sort."
             ]
         },
         {
@@ -10570,7 +10570,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous êtes particulièrement prompt à punir les adversaires dès qu'ils baissent leurs gardes. Au début de chacun de vos tours quand vous récupérez vos actions, vous disposez d'une réaction supplémentaire que vous pouvez utiliser uniquement pour faire une sports_martial_artsFrappe réactive ."
+                "Vous êtes particulièrement prompt à punir les adversaires dès qu'ils baissent leurs gardes. Au début de chacun de vos tours quand vous récupérez vos actions, vous disposez d'une réaction supplémentaire que vous pouvez utiliser uniquement pour faire une Frappe réactive ."
             ]
         },
         {
@@ -10610,7 +10610,7 @@ DON.CLASS = {
                 "Déclencheur Votre allié s'apprête à lancer un jet de sauvegarde contre une capacité magique d'une créature qui vous est adjacente.",
                 "Conditions Vous maniez l'arme de prédilection de votre divinité.",
                 "Vous vous battez contre les menaces magiques physiquement et spirituellement. Vous pouvez Frapper la créature adjacente avec l'arme de prédilection de votre divinité. Si vous êtes saint ou impie, la Frappe obtient ce trait. Si votre Frappe touche, tous vos alliés obtiennent un bonus de circonstances de +2 au jet de sauvegarde déclencheur (ou un bonus de circonstances de +3 en cas de coup critique).",
-                "flareEffet : Réfutation divine"
+                "Effet : Réfutation divine"
             ]
         },
         {
@@ -10636,7 +10636,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous êtes sous les effets d'un mutagène.",
-                "Vous redirigez un mutagène dans votre corps pour cracher un jet d'acide gastrique sur un ennemi. Une créature à moins de 9 mètres subit 1d6 dégâts d'acide par tranche de 2 niveaux que vous possédez ( casino(floor(@actor.level/2))d6 acide ) avec un jet de casinoRéflexes contre votre DD de classe. En cas d'échec, la créature est également sentiment_very_dissatisfiedNauséeuse 1 (ou sentiment_very_dissatisfiedNauséeuse 2 en cas d'échec critique). La durée du mutagène prend fin immédiatement."
+                "Vous redirigez un mutagène dans votre corps pour cracher un jet d'acide gastrique sur un ennemi. Une créature à moins de 9 mètres subit 1d6 dégâts d'acide par tranche de 2 niveaux que vous possédez ( (floor(@actor.level/2))d6 acide ) avec un jet de Réflexes contre votre DD de classe. En cas d'échec, la créature est également Nauséeuse 1 (ou Nauséeuse 2 en cas d'échec critique). La durée du mutagène prend fin immédiatement."
             ]
         },
         {
@@ -10648,7 +10648,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Un allié sports_martial_artsLance un sort et vous êtes dans la portée de ce sort",
+                "Déclencheur Un allié Lance un sort et vous êtes dans la portée de ce sort",
                 "Vous ouvrez le pouvoir de votre sang aux sorts de vos alliés en utilisant votre magie pour augmenter leur portée. Votre allié peut vous utiliser comme point d'origine pour son sort, en calculant la portée et la zone en partant de votre case au lieu de la sienne."
             ]
         },
@@ -10663,12 +10663,12 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Les liens éphémères entre les gens, les lieux et les concepts sont invisibles pour la plupart des gens mais les déceler fait partie de votre fonds de commerce. Choisissez une créature alliée et une qui ne l'est pas. Vous devez être capable de les voir toutes les deux. Vous étudiez brièvement la façon qu'elles ont de bouger et tentez un test de casinoperception contre le plus élevé entre le DD de Duperie ou de Volonté de la créature non alliée. Les deux créatures sont ensuite temporairement immunisées à Relier les points pendant 10 minutes.",
-                "Succès critique Vous décelez un moyen pour que votre allié tire avantage d'une faiblesse de l'autre cible et le lui faites savoir. Votre allié obtient le bonus d'investigation de sports_martial_artsSuivre une piste comme bonus de circonstances à toutes ses Frappes ou tests de compétence contre la créature jusqu'au début de votre prochain tour.",
+                "Les liens éphémères entre les gens, les lieux et les concepts sont invisibles pour la plupart des gens mais les déceler fait partie de votre fonds de commerce. Choisissez une créature alliée et une qui ne l'est pas. Vous devez être capable de les voir toutes les deux. Vous étudiez brièvement la façon qu'elles ont de bouger et tentez un test de perception contre le plus élevé entre le DD de Duperie ou de Volonté de la créature non alliée. Les deux créatures sont ensuite temporairement immunisées à Relier les points pendant 10 minutes.",
+                "Succès critique Vous décelez un moyen pour que votre allié tire avantage d'une faiblesse de l'autre cible et le lui faites savoir. Votre allié obtient le bonus d'investigation de Suivre une piste comme bonus de circonstances à toutes ses Frappes ou tests de compétence contre la créature jusqu'au début de votre prochain tour.",
                 "Succès Comme en cas de succès critique, mais votre allié n'obtient le bonus que pour sa prochaine Frappe ou test de compétence contre la créature.",
-                "flareEffet : Relier les points",
+                "Effet : Relier les points",
                 "Échec Vous n'arrivez pas a trouver une connexion.",
-                "Échec critique Vous n'interprétez pas correctement l'information, ce qui vous déconcerte temporairement. Vous êtes sentiment_very_dissatisfiedStupéfait 1 jusqu'à la fin de votre prochain tour."
+                "Échec critique Vous n'interprétez pas correctement l'information, ce qui vous déconcerte temporairement. Vous êtes Stupéfait 1 jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -10679,8 +10679,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Votre dernière action était une Frappe au corps-à-corps qui a infligé des dégâts d'attaque sournoise à une cible sentiment_very_dissatisfiedPrise au dépourvu .",
-                "Après avoir planté votre lame dans un point faible, vous élargissez la blessure. Vous infligez une quantité de casinodégâts de saignement à la cible égale à votre nombre de dés de dégâts d'attaque sournoise."
+                "Conditions Votre dernière action était une Frappe au corps-à-corps qui a infligé des dégâts d'attaque sournoise à une cible Prise au dépourvu .",
+                "Après avoir planté votre lame dans un point faible, vous élargissez la blessure. Vous infligez une quantité de dégâts de saignement à la cible égale à votre nombre de dés de dégâts d'attaque sournoise."
             ]
         },
         {
@@ -10693,7 +10693,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "En répétant inlassablement un motif, vous implantez une rengaine qui se répète sans cesse dans la tête de vos alliés sans cesse, les préparant à y réagir par la suite. Choisissez un tour de magie de composition et passez 10 minutes à répéter une mélodie, un chant, un discours, des séries de mouvements ou une représentation du même ordre qui incarne ce tour de magie. Cette activité obtient les traits appropriés au type de représentation. Vous implantez la rengaine chez les alliés qui peuvent vous voir ou vous entendre (en fonction de la représentation que vous avez utilisée) pendant l'entière activité.",
-                "Une fois que vous avez créé la rengaine, vous pouvez effectuer un test de Représentation par une action gratuite pour l'activer. Ce test utilise le DD très difficile d'un niveau égal à celui du plus haut niveau des cibles présentes au moment de l'activation de la rengaine. En cas de succès, vous lancez le tour de magie sur tous les alliés qui ont appris la rengaine et qui peuvent percevoir votre Représentation ; en cas d'échec, la rengaine est perdue et gâchée. Comme c'est basé sur de précédentes répétitions, vous ne pouvez pas utiliser davantage d'actions gratuites comme auto_awesomeComposition prolongée ou auto_awesomeComposition fortissimo pour modifier la rengaine activée. Les alliés oublient la rengaine après son activation, si vous passez 10 minutes pour en implanter une autre ou au cours de vos prochains préparatifs quotidiens, selon l'évènement qui ce se produit en premier."
+                "Une fois que vous avez créé la rengaine, vous pouvez effectuer un test de Représentation par une action gratuite pour l'activer. Ce test utilise le DD très difficile d'un niveau égal à celui du plus haut niveau des cibles présentes au moment de l'activation de la rengaine. En cas de succès, vous lancez le tour de magie sur tous les alliés qui ont appris la rengaine et qui peuvent percevoir votre Représentation ; en cas d'échec, la rengaine est perdue et gâchée. Comme c'est basé sur de précédentes répétitions, vous ne pouvez pas utiliser davantage d'actions gratuites comme Composition prolongée ou Composition fortissimo pour modifier la rengaine activée. Les alliés oublient la rengaine après son activation, si vous passez 10 minutes pour en implanter une autre ou au cours de vos prochains préparatifs quotidiens, selon l'évènement qui ce se produit en premier."
             ]
         },
         {
@@ -10706,7 +10706,7 @@ DON.CLASS = {
                 "Cause : obéissance"
             ],
             "description": [
-                "Désobéir à votre sports_martial_artsOrdre de fer se traduit par des conséquences durables. Si un ennemi refuse de s'agenouiller devant vous, vous pouvez lui infliger casinodégâts mentaux persistants au lieu des dégâts mentaux normaux. vous devez décider si les dégâts mentaux seront persistants avant que votre ennemi choisisse de s'agenouiller ou non. Le montant des dégâts est inchangé."
+                "Désobéir à votre Ordre de fer se traduit par des conséquences durables. Si un ennemi refuse de s'agenouiller devant vous, vous pouvez lui infliger dégâts mentaux persistants au lieu des dégâts mentaux normaux. vous devez décider si les dégâts mentaux seront persistants avant que votre ennemi choisisse de s'agenouiller ou non. Le montant des dégâts est inchangé."
             ]
         },
         {
@@ -10730,7 +10730,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Un allié est réduit à 0 Point de vie.",
-                "Vous travaillez rapidement et efficacement en période de danger pour fournir l'assistance nécessaire. Vous sports_martial_artsMarchez rapidement vers l'allié déclencheur. Vous obtenez un bonus de circonstances de + 3 mètres à votre Vitesse durant ce déplacement."
+                "Vous travaillez rapidement et efficacement en période de danger pour fournir l'assistance nécessaire. Vous Marchez rapidement vers l'allié déclencheur. Vous obtenez un bonus de circonstances de + 3 mètres à votre Vitesse durant ce déplacement."
             ]
         },
         {
@@ -10743,9 +10743,9 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme qui possède le trait finesse ou une arme d'hast.",
-                "Alors que votre adversaire peine à se remettre de votre précédente attaque, vous accrochez son armure, ses vêtements ou sa chair pour le déplacer comme il vous plaît. Faites une Frappe au corps-à-corps avec une arme qui possède le trait finesse ou avec votre arme d'hast. Si vous touchez la cible et qu'elle est de taille inférieure ou égale à la vôtre, vous pouvez la sports_martial_artsRepositionner automatiquement avec les mêmes avantages que l'action Repositionner (y compris l'effet d'un coup critique si votre Frappe était un coup critique). Si vous maniez une arme d'hast, utilisez l'allonge de l'arme pour ce Repositionnement. Si vous maniez une arme d'hast, vous pouvez ignorer la condition de Repositionnement qui exige une main libre.",
+                "Alors que votre adversaire peine à se remettre de votre précédente attaque, vous accrochez son armure, ses vêtements ou sa chair pour le déplacer comme il vous plaît. Faites une Frappe au corps-à-corps avec une arme qui possède le trait finesse ou avec votre arme d'hast. Si vous touchez la cible et qu'elle est de taille inférieure ou égale à la vôtre, vous pouvez la Repositionner automatiquement avec les mêmes avantages que l'action Repositionner (y compris l'effet d'un coup critique si votre Frappe était un coup critique). Si vous maniez une arme d'hast, utilisez l'allonge de l'arme pour ce Repositionnement. Si vous maniez une arme d'hast, vous pouvez ignorer la condition de Repositionnement qui exige une main libre.",
                 "Cette Frappe possède l'effet d'échec suivant.",
-                "Échec La cible est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre tour actuel."
+                "Échec La cible est Prise au dépourvu jusqu'à la fin de votre tour actuel."
             ]
         },
         {
@@ -10758,7 +10758,7 @@ DON.CLASS = {
                 "Frappe repoussante"
             ],
             "description": [
-                "Quand vous réussissez à sports_martial_artsPousser une créature, augmentez la distance franchie par la créature et celle de votre déplacement pour la suivre de 1,50 mètre en cas de succès ou de 3 mètres en cas de succès critique. Si vous repoussez cible dans une autre créature un obstacle, les deux subissent casino1d6 dégâts contondants par tranche de 1,50 mètre de déplacement qui a été bloqué."
+                "Quand vous réussissez à Pousser une créature, augmentez la distance franchie par la créature et celle de votre déplacement pour la suivre de 1,50 mètre en cas de succès ou de 3 mètres en cas de succès critique. Si vous repoussez cible dans une autre créature un obstacle, les deux subissent 1d6 dégâts contondants par tranche de 1,50 mètre de déplacement qui a été bloqué."
             ]
         },
         {
@@ -10771,7 +10771,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Votre dernière action est une Frappe réussie",
-                "La puissance de votre coup fait reculer votre ennemi. Vous repoussez votre ennemi de 1,50 mètre, avec les mêmes effets que si vous l'aviez sports_martial_artsPoussé . Vous pouvez alors suivre l'ennemi, comme si vous aviez réussi à le Pousser."
+                "La puissance de votre coup fait reculer votre ennemi. Vous repoussez votre ennemi de 1,50 mètre, avec les mêmes effets que si vous l'aviez Poussé . Vous pouvez alors suivre l'ennemi, comme si vous aviez réussi à le Pousser."
             ]
         },
         {
@@ -10784,7 +10784,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous vous concentrez sur votre rage afin de surmonter vos peurs et les effets des maladies. Vous réduisez la valeur de l'état sentiment_very_dissatisfiedEffrayé de 1 et faites un jet de casinoVigueur pour tenter de vous remettre de l'état Nauséeux, comme si vous aviez utilisé une action pour vomir. Vous réduisez la valeur de votre état Nauséeux de 1 sur un échec (mais pas sur un échec critique), de 2 sur un succès et de 3 sur un succès critique."
+                "Vous vous concentrez sur votre rage afin de surmonter vos peurs et les effets des maladies. Vous réduisez la valeur de l'état Effrayé de 1 et faites un jet de Vigueur pour tenter de vous remettre de l'état Nauséeux, comme si vous aviez utilisé une action pour vomir. Vous réduisez la valeur de votre état Nauséeux de 1 sur un échec (mais pas sur un échec critique), de 2 sur un succès et de 3 sur un succès critique."
             ]
         },
         {
@@ -10797,7 +10797,7 @@ DON.CLASS = {
                 "cause : justice"
             ],
             "description": [
-                "Vous pouvez utiliser sports_martial_artsFrappe punitive à une distance supérieure. Vous pouvez utiliser une arme à distance pour faire une Frappe à distance au lieu d'une Frappe au corps-à-corps pour Frappe punitive. L'ennemi doit se trouver à portée, mais pas dans votre allonge et il doit se trouver dans votre aura de champion.",
+                "Vous pouvez utiliser Frappe punitive à une distance supérieure. Vous pouvez utiliser une arme à distance pour faire une Frappe à distance au lieu d'une Frappe au corps-à-corps pour Frappe punitive. L'ennemi doit se trouver à portée, mais pas dans votre allonge et il doit se trouver dans votre aura de champion.",
                 "Vous pouvez aussi effectuer une Frappe au corps-à-corps contre des ennemis qui se trouvent un peu plus loin. Si l'ennemi qui a déclenché votre réaction n'est pas dans votre allonge mais est à moins de 1,50 mètre de votre allonge, vous pouvez Faire un pas au cours de votre réaction pour placer l'ennemi dans votre allonge avant d'effectuer une Frappe punitive au corps-à-corps."
             ]
         },
@@ -10825,8 +10825,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre muse vous a appris à manier une plus grande variété d'armes que la plupart des bardes, ce qui vous permet d'intégrer sans effort vos représentations aux outils de combat.",
-                "Lorsque le tour de magie auto_awesomeHymne de courage est actif et que vous blessez un ennemi avec une Frappe, la durée du sort est étendue de 1 round. Vous pouvez étendre une incantation particulière qu'une seule fois de la sorte.",
-                "Si vous obtenez les tours de magie de composition auto_awesomeHymne de ralliement ou auto_awesomeChanson de force , vous pouvez appliquer cet avantage à ces tours de magie également."
+                "Lorsque le tour de magie Hymne de courage est actif et que vous blessez un ennemi avec une Frappe, la durée du sort est étendue de 1 round. Vous pouvez étendre une incantation particulière qu'une seule fois de la sorte.",
+                "Si vous obtenez les tours de magie de composition Hymne de ralliement ou Chanson de force , vous pouvez appliquer cet avantage à ces tours de magie également."
             ]
         },
         {
@@ -10878,8 +10878,8 @@ DON.CLASS = {
                 "maître en Athlétisme"
             ],
             "description": [
-                "Déclencheur Un adversaire sentiment_very_dissatisfiedÀ terre dans votre allonge sports_martial_artsSe relève .",
-                "Vous avez des techniques pour garder vos adversaires au sol. Faites un test d' casinoAthlétisme contre le DD de Vigueur de l'adversaire déclencheur. En cas de succès, l'action est interrompue, obligeant la créature à rester À terre. En cas de succès critique, il ne peut Se relever jusqu'à son prochain tour."
+                "Déclencheur Un adversaire À terre dans votre allonge Se relève .",
+                "Vous avez des techniques pour garder vos adversaires au sol. Faites un test d' Athlétisme contre le DD de Vigueur de l'adversaire déclencheur. En cas de succès, l'action est interrompue, obligeant la créature à rester À terre. En cas de succès critique, il ne peut Se relever jusqu'à son prochain tour."
             ]
         },
         {
@@ -10890,8 +10890,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez faire en sorte qu'une créature que vous avez ramenée du bord de la mort prospère et continue de guérir. Quand vous restaurez les Points de vie d'une créature mourante ou que vous ramenez une créature morte à la vie et que vous lui permettez de récupérer des Points de vie, vous accordez à cette dernière Guérison accélérée 5 pendant 1 minute. Cette guérison accélérée prend fin si la créature tombe sentiment_very_dissatisfiedinconsciente .",
-                "flareEffet : Résurrecteur"
+                "Vous pouvez faire en sorte qu'une créature que vous avez ramenée du bord de la mort prospère et continue de guérir. Quand vous restaurez les Points de vie d'une créature mourante ou que vous ramenez une créature morte à la vie et que vous lui permettez de récupérer des Points de vie, vous accordez à cette dernière Guérison accélérée 5 pendant 1 minute. Cette guérison accélérée prend fin si la créature tombe inconsciente .",
+                "Effet : Résurrecteur"
             ]
         },
         {
@@ -10903,11 +10903,11 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Un piège qui se trouve à votre portée est déclenché.",
-                "Vous essayez de gripper le fonctionnement d'un piège pour en retarder les effets. Tentez un test de Vol pour sports_martial_artsDésamorcer un dispositif en ciblant le piège avec les résultats suivants au lieu des résultats normaux de l'action.",
+                "Vous essayez de gripper le fonctionnement d'un piège pour en retarder les effets. Tentez un test de Vol pour Désamorcer un dispositif en ciblant le piège avec les résultats suivants au lieu des résultats normaux de l'action.",
                 "Succès critique Soit vous empêchez que le piège se déclenche, soit vous retardez son activation jusqu'au début ou à la fin de votre prochain tour.",
                 "Succès Comme ci-dessus mais le MJ choisit ce qui est le pire pour vous.",
                 "Échec Aucun effet.",
-                "Échec critique Vous êtes sentiment_very_dissatisfiedPris au dépourvu jusqu'au début de votre prochain tour."
+                "Échec critique Vous êtes Pris au dépourvu jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -10958,7 +10958,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Si vous mourez alors que vous êtes sous l'effet d'au moins un élixir, les composés alchimiques présents dans votre sang vous ramènent à la vie au début de votre prochain tour. Vous bénéficiez des effets d'un workÉlixir de rajeunissement , puis d'un workÉlixir de vie ultime , puis encore soit un workMutagène bestial majeur , un workMutagène de juggernaut majeur ou d'un workMutagène de vif-argent majeur comme si vous veniez de l'absorber. Ces réactions automatiques ne bénéficient pas des avantages spéciaux que vous ajoutez lorsque vous créez ou utilisez ces objets. Comme vous êtes mort, tous les autres composés alchimiques présents dans votre sang sont inertes. Après avoir été ranimé, vous devenez temporairement immunisé contre Revivification alchimique pendant casino1d4 heures ."
+                "Si vous mourez alors que vous êtes sous l'effet d'au moins un élixir, les composés alchimiques présents dans votre sang vous ramènent à la vie au début de votre prochain tour. Vous bénéficiez des effets d'un Élixir de rajeunissement , puis d'un Élixir de vie ultime , puis encore soit un Mutagène bestial majeur , un Mutagène de juggernaut majeur ou d'un Mutagène de vif-argent majeur comme si vous veniez de l'absorber. Ces réactions automatiques ne bénéficient pas des avantages spéciaux que vous ajoutez lorsque vous créez ou utilisez ces objets. Comme vous êtes mort, tous les autres composés alchimiques présents dans votre sang sont inertes. Après avoir été ranimé, vous devenez temporairement immunisé contre Revivification alchimique pendant 1d4 heures ."
             ]
         },
         {
@@ -10973,7 +10973,7 @@ DON.CLASS = {
                 "Visée extraordinaire"
             ],
             "description": [
-                "Après que votre premier tir vous ait permis de repérer la position de votre ennemi, vous effectuez un deuxième tir qui ricoche autour des obstacles pour finalement frapper précisément votre cible. Faites une Frappe d'arme à distance contre une créature que vous avez déjà attaquée lors de ce tour. Vous ignorez l'état sentiment_very_dissatisfiedMasqué et tous les abris dont elle bénéficie."
+                "Après que votre premier tir vous ait permis de repérer la position de votre ennemi, vous effectuez un deuxième tir qui ricoche autour des obstacles pour finalement frapper précisément votre cible. Faites une Frappe d'arme à distance contre une créature que vous avez déjà attaquée lors de ce tour. Vous ignorez l'état Masqué et tous les abris dont elle bénéficie."
             ]
         },
         {
@@ -10986,7 +10986,7 @@ DON.CLASS = {
                 "Riposte en duel"
             ],
             "description": [
-                "En déplaçant votre poids et en inclinant votre arme, vous guidez votre adversaire vers une position plus favorable. Quand vous utilisez military_techRiposte en duel pour Frapper et que vous touchez, vous pouvez la sports_martial_artsRepositionnez jusqu'à 3 mètres."
+                "En déplaçant votre poids et en inclinant votre arme, vous guidez votre adversaire vers une position plus favorable. Quand vous utilisez Riposte en duel pour Frapper et que vous touchez, vous pouvez la Repositionnez jusqu'à 3 mètres."
             ]
         },
         {
@@ -11000,8 +11000,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Une créature dans votre allonge obtient un échec critique lors d'une Frappe contre vous.",
-                "Conditions Vous bénéficiez des avantages de military_techParade en duel .",
-                "Vous ripostez élégamment contre votre ennemi qui gesticule. Faites une Frappe au corps-à-corps ou tentez de sports_martial_artsDésarmer la créature déclencheuse."
+                "Conditions Vous bénéficiez des avantages de Parade en duel .",
+                "Vous ripostez élégamment contre votre ennemi qui gesticule. Faites une Frappe au corps-à-corps ou tentez de Désarmer la créature déclencheuse."
             ]
         },
         {
@@ -11014,7 +11014,7 @@ DON.CLASS = {
                 "Riposte en duel"
             ],
             "description": [
-                "Vous faites virevolter et tournoyer votre arme en frappant vos adversaires dès que la moindre ouverture ou qu'un moment de faiblesse se présente. Vous pouvez utiliser military_techRiposte en duel même si vous ne bénéficiez pas des avantages de military_techParade en duel . Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour porter une Riposte en duel."
+                "Vous faites virevolter et tournoyer votre arme en frappant vos adversaires dès que la moindre ouverture ou qu'un moment de faiblesse se présente. Vous pouvez utiliser Riposte en duel même si vous ne bénéficiez pas des avantages de Parade en duel . Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour porter une Riposte en duel."
             ]
         },
         {
@@ -11042,7 +11042,7 @@ DON.CLASS = {
             "description": [
                 "Votre riposte peut dévier les attaques pour les ramener jusqu'à leur source. Vous pouvez utiliser Riposte opportune avec le déclencheur “Un ennemi en dehors de votre allonge obtient un échec critique à un jet d'attaque contre vous” en plus de son déclencheur habituel.",
                 "Lorsque vous utilisez Riposte opportune avec ce nouveau déclencheur contre une attaque à distance, votre Frappe dévie une partie de l'effet déclencheur en retour vers sa cible. Comparez le résultat de votre jet d'attaque à la CA de l'ennemi déclencheur. Si vous touchez, vous infligez le montant normal de dégâts pour votre Frappe, mais le type de dégât change pour prendre celui de l'attaque déclencheuse.",
-                "Par exemple, si vous avez utilisé Riposte opportune pour dévier un auto_awesomeTrait flamboyant , votre Frappe infligera des dégâts de feu au lieu de son type de dégât normal."
+                "Par exemple, si vous avez utilisé Riposte opportune pour dévier un Trait flamboyant , votre Frappe infligera des dégâts de feu au lieu de son type de dégât normal."
             ]
         },
         {
@@ -11055,8 +11055,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur La Frappe que vous porte une créature dans votre allonge est un échec critique.",
-                "Conditions Vous bénéficiez des avantages de military_techParade jumelée .",
-                "Une parade astucieuse avec une arme laisse une ouverture dans la défense de votre adversaire pour l'autre arme. Effectuez une Frappe au corps-à-corps ou une action pour sports_martial_artsDésarmer l'adversaire déclencheur."
+                "Conditions Vous bénéficiez des avantages de Parade jumelée .",
+                "Une parade astucieuse avec une arme laisse une ouverture dans la défense de votre adversaire pour l'autre arme. Effectuez une Frappe au corps-à-corps ou une action pour Désarmer l'adversaire déclencheur."
             ]
         },
         {
@@ -11069,7 +11069,7 @@ DON.CLASS = {
                 "Riposte jumelée"
             ],
             "description": [
-                "Vos armes forment une sorte de flou, bloquant et cinglant vos ennemis. Vous pouvez utiliser military_techRiposte jumelée , même si vous ne bénéficiez pas de military_techParade jumelée . Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour faire une Riposte jumelée."
+                "Vos armes forment une sorte de flou, bloquant et cinglant vos ennemis. Vous pouvez utiliser Riposte jumelée , même si vous ne bénéficiez pas de Parade jumelée . Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour faire une Riposte jumelée."
             ]
         },
         {
@@ -11082,7 +11082,7 @@ DON.CLASS = {
                 "Riposte jumelée"
             ],
             "description": [
-                "Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour porter une military_techRiposte jumelée . Vous pouvez utiliser cette réaction supplémentaire, même si vous ne bénéficiez pas des avantages de military_techParade jumelée ."
+                "Au début de chacun de vos tours, vous obtenez une réaction supplémentaire que vous ne pouvez utiliser que pour porter une Riposte jumelée . Vous pouvez utiliser cette réaction supplémentaire, même si vous ne bénéficiez pas des avantages de Parade jumelée ."
             ]
         },
         {
@@ -11095,7 +11095,7 @@ DON.CLASS = {
                 "Riposte opportune"
             ],
             "description": [
-                "Vous pouvez riposter presque sans y penser. Au début de chacun de vos tours, lorsque vous regagnez vos actions, vous obtenez une réaction supplémentaire qui ne peut être utilisée que pour accomplir une sports_martial_artsRiposte opportune ."
+                "Vous pouvez riposter presque sans y penser. Au début de chacun de vos tours, lorsque vous regagnez vos actions, vous obtenez une réaction supplémentaire qui ne peut être utilisée que pour accomplir une Riposte opportune ."
             ]
         },
         {
@@ -11108,7 +11108,7 @@ DON.CLASS = {
                 "réaction de champion"
             ],
             "description": [
-                "Les transgressions de vos ennemis vous poussent à riposter avec une rapidité divine. Lorsqu'un ennemi déclenche la réaction de votre champion, vous êtes sentiment_very_dissatisfiedAccéléré lors de votre prochain tour. Vous pouvez utiliser l'action supplémentaire pour vous rapprocher ou Frapper cet ennemi."
+                "Les transgressions de vos ennemis vous poussent à riposter avec une rapidité divine. Lorsqu'un ennemi déclenche la réaction de votre champion, vous êtes Accéléré lors de votre prochain tour. Vous pouvez utiliser l'action supplémentaire pour vous rapprocher ou Frapper cet ennemi."
             ]
         },
         {
@@ -11119,7 +11119,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre patron vous accorde le pouvoir de convoquer d'autres créatures pour vous aider. Choisissez un sort de Convocation (tel que auto_awesomeConvocation d'animal , auto_awesomeConvocation de créature artificielle ,...) qui apparaît sur la liste de sort de votre tradition de lanceur de sort. Vous pouvez passer 10 minutes en communion avec votre familier pour remplacer un sort que vous avez préparé dans un des emplacements de sort de sorcier par le sort choisi intensifié au même rang. Le sort que vous remplacez doit être au moins du rang minimum du sort de Convocation."
+                "Votre patron vous accorde le pouvoir de convoquer d'autres créatures pour vous aider. Choisissez un sort de Convocation (tel que Convocation d'animal , Convocation de créature artificielle ,...) qui apparaît sur la liste de sort de votre tradition de lanceur de sort. Vous pouvez passer 10 minutes en communion avec votre familier pour remplacer un sort que vous avez préparé dans un des emplacements de sort de sorcier par le sort choisi intensifié au même rang. Le sort que vous remplacez doit être au moins du rang minimum du sort de Convocation."
             ]
         },
         {
@@ -11130,7 +11130,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez adapter le pouvoir de votre patron de transformer d'autres créatures en des formes correspondant davantage à ses désirs. Votre familier apprend auto_awesomeMétamorphose maudite , même si Métamorphose maudite n'est pas sur la liste des sorts de votre tradition. En passant 10 minutes en communion avec votre familier, vous pouvez remplacer un sort de rang supérieur ou égal à 6 que vous avez préparé dans un de vos emplacements de sorts de sorcier par un sort de Métamorphose maudite du même rang."
+                "Vous pouvez adapter le pouvoir de votre patron de transformer d'autres créatures en des formes correspondant davantage à ses désirs. Votre familier apprend Métamorphose maudite , même si Métamorphose maudite n'est pas sur la liste des sorts de votre tradition. En passant 10 minutes en communion avec votre familier, vous pouvez remplacer un sort de rang supérieur ou égal à 6 que vous avez préparé dans un de vos emplacements de sorts de sorcier par un sort de Métamorphose maudite du même rang."
             ]
         },
         {
@@ -11143,7 +11143,7 @@ DON.CLASS = {
                 "ordre de la feuille"
             ],
             "description": [
-                "Vous pouvez remplir une zone de ronces dévastatrices. Vous obtenez le sort d'ordre military_techRonces empaleuses ."
+                "Vous pouvez remplir une zone de ronces dévastatrices. Vous obtenez le sort d'ordre Ronces empaleuses ."
             ]
         },
         {
@@ -11156,7 +11156,7 @@ DON.CLASS = {
                 "Sorts de gardien"
             ],
             "description": [
-                "Vous pouvez utiliser les plantes pour emprisonner vos adversaires dans leurs épines. Vous obtenez le sort de gardien auto_awesomeRoncier du rôdeur . Augmentez le nombre de Points de focalisation de votre réserve de focalisation de 1."
+                "Vous pouvez utiliser les plantes pour emprisonner vos adversaires dans leurs épines. Vous obtenez le sort de gardien Roncier du rôdeur . Augmentez le nombre de Points de focalisation de votre réserve de focalisation de 1."
             ]
         },
         {
@@ -11168,8 +11168,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous avez sentiment_very_dissatisfiedAgrippé ou sentiment_very_dissatisfiedEntravé un ennemi",
-                "Vous rossez votre ennemi. Un ennemi que vous avez Agrippé ou Entravé subit une quantité de dégâts contondants égale à votre modificateur de Force plus vos dégâts de Spécialisation martiale plus vos dégâts de sports_martial_artsRage , avec un jet de casinoVigueur contre votre DD de classe."
+                "Conditions Vous avez Agrippé ou Entravé un ennemi",
+                "Vous rossez votre ennemi. Un ennemi que vous avez Agrippé ou Entravé subit une quantité de dégâts contondants égale à votre modificateur de Force plus vos dégâts de Spécialisation martiale plus vos dégâts de Rage , avec un jet de Vigueur contre votre DD de classe."
             ]
         },
         {
@@ -11182,8 +11182,8 @@ DON.CLASS = {
                 "Esquive agile"
             ],
             "description": [
-                "Vous faites une roulade pour échapper à un danger imminent. Vous pouvez utiliser military_techEsquive agile avant de tenter un jet de Réflexes en plus de son déclencheur original. Si vous le faites, le bonus de circonstances s'applique à votre jet de Réflexes contre l'effet déclencheur.",
-                "Lorsque vous utilisez Esquive agile et que l'attaque déclencheuse est un échec ou un échec critique ou lorsque vous obtenez un succès ou un succès critique contre le jet de sauvegarde, vous pouvez aussi Marcher rapidement jusqu'à 3 mètres comme faisant partie de la réaction. Si vous le faites, la réaction obtient le trait déplacement. Vous pouvez utiliser Roulade agile lorsque vous sports_martial_artsVolez ou sports_martial_artsNagez au lieu de Marcher rapidement si vous disposez des types de déplacements correspondant."
+                "Vous faites une roulade pour échapper à un danger imminent. Vous pouvez utiliser Esquive agile avant de tenter un jet de Réflexes en plus de son déclencheur original. Si vous le faites, le bonus de circonstances s'applique à votre jet de Réflexes contre l'effet déclencheur.",
+                "Lorsque vous utilisez Esquive agile et que l'attaque déclencheuse est un échec ou un échec critique ou lorsque vous obtenez un succès ou un succès critique contre le jet de sauvegarde, vous pouvez aussi Marcher rapidement jusqu'à 3 mètres comme faisant partie de la réaction. Si vous le faites, la réaction obtient le trait déplacement. Vous pouvez utiliser Roulade agile lorsque vous Volez ou Nagez au lieu de Marcher rapidement si vous disposez des types de déplacements correspondant."
             ]
         },
         {
@@ -11209,7 +11209,7 @@ DON.CLASS = {
                 "qualifié en Acrobaties"
             ],
             "description": [
-                "Grâce à des mouvements agiles, un atterrissage gracieux et un peu de chance, vous pouvez vous arranger pour tomber de hauteurs spectaculaires sans une égratignure. Vous obtenez le don de compétence military_techChute féline et la réaction military_techRoulade en chute libre ."
+                "Grâce à des mouvements agiles, un atterrissage gracieux et un peu de chance, vous pouvez vous arranger pour tomber de hauteurs spectaculaires sans une égratignure. Vous obtenez le don de compétence Chute féline et la réaction Roulade en chute libre ."
             ]
         },
         {
@@ -11222,7 +11222,7 @@ DON.CLASS = {
                 "Esquive spectaculaire"
             ],
             "description": [
-                "Vous pouvez utiliser military_techEsquive spectaculaire avant de tenter un jet de Réflexes, en plus de son déclencheur originel. Si vous le faites, le bonus de circonstances s'applique à votre jet de Réflexes contre l'effet déclencheur.",
+                "Vous pouvez utiliser Esquive spectaculaire avant de tenter un jet de Réflexes, en plus de son déclencheur originel. Si vous le faites, le bonus de circonstances s'applique à votre jet de Réflexes contre l'effet déclencheur.",
                 "Lorsque vous utilisez Esquive spectaculaire et que l'attaque déclencheuse est un échec ou un échec critique ou lorsque vous obtenez un succès ou un succès critique sur le jet de sauvegarde, vous pouvez aussi Marcher rapidement jusqu'à 3 mètres au cours de la réaction. Si vous le faites, la réaction obtient le trait déplacement. Vous pouvez utiliser Roulade spectaculaire en Volant ou en Nageant au lieu de Marcher rapidement, si vous possédez le type de déplacement correspondant."
             ]
         },
@@ -11252,10 +11252,10 @@ DON.CLASS = {
                 "Posture du dragon"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture du dragon",
-                "Vous poussez un rugissement qui terrorise vos ennemis. Les ennemis dans une crop_freeémanation de 4,50 mètres doivent chacun réussir un jet de casinoVolonté contre votre DD d'Intimidation ou être sentiment_very_dissatisfiedEffrayés 1 (ou Effrayés 2 en cas d'échec critique). Quand une créature effrayée par le rugissement commence son tour adjacent à vous, elle ne peut réduire la valeur de son état effrayé en dessous de 1 lors de ce tour.",
+                "Conditions Vous êtes dans la Posture du dragon",
+                "Vous poussez un rugissement qui terrorise vos ennemis. Les ennemis dans une émanation de 4,50 mètres doivent chacun réussir un jet de Volonté contre votre DD d'Intimidation ou être Effrayés 1 (ou Effrayés 2 en cas d'échec critique). Quand une créature effrayée par le rugissement commence son tour adjacent à vous, elle ne peut réduire la valeur de son état effrayé en dessous de 1 lors de ce tour.",
                 "Votre première attaque qui touche une créature Effrayée après votre rugissement et avant la fin de votre prochain tour bénéficie d'un bonus de circonstances de +4 aux dégâts.",
-                "Après avoir utilisé Rugissement du dragon, vous ne pouvez plus le faire pendant casino1d4 rounds . Ses effets prennent immédiatement fin si vous quittez la Posture du dragon. Les créatures dans la zone sont ensuite temporairement immunisées aux effets de ce don pendant 1 minute."
+                "Après avoir utilisé Rugissement du dragon, vous ne pouvez plus le faire pendant 1d4 rounds . Ses effets prennent immédiatement fin si vous quittez la Posture du dragon. Les créatures dans la zone sont ensuite temporairement immunisées aux effets de ce don pendant 1 minute."
             ]
         },
         {
@@ -11270,7 +11270,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Votre tour commence et une cible dans les 9 mètres a obtenu un échec sur une attaque ou un test de compétence a votre encontre lors de son tour précédent.",
-                "Vous capitalisez sur l'échec de votre adversaire en adoptant une attitude hautaine et en lui rappelant l'écart de compétences qui vous sépare de lui. Vous tentez de sports_martial_artsDémoraliser l'adversaire. Quel que soit le résultat, la cible devient temporairement immunisée pendant 1 minute."
+                "Vous capitalisez sur l'échec de votre adversaire en adoptant une attitude hautaine et en lui rappelant l'écart de compétences qui vous sépare de lui. Vous tentez de Démoraliser l'adversaire. Quel que soit le résultat, la cible devient temporairement immunisée pendant 1 minute."
             ]
         },
         {
@@ -11283,7 +11283,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous disposez d'une main libre",
-                "Vous endommagez subtilement l'équipement des autres. Choisissez un objet qu'une créature dans votre allonge manie ou porte. L'objet doit posséder des éléments mobiles que vous pourriez saboter (un arc court pourrait être saboté, mais une épée longue ne le pourrait pas). Vous faites un test de casinoVol contre le DD de Réflexes de la créature. Les dégâts infligés par Sabotage ne peuvent pas amener l'objet sous son Seuil de rupture.",
+                "Vous endommagez subtilement l'équipement des autres. Choisissez un objet qu'une créature dans votre allonge manie ou porte. L'objet doit posséder des éléments mobiles que vous pourriez saboter (un arc court pourrait être saboté, mais une épée longue ne le pourrait pas). Vous faites un test de Vol contre le DD de Réflexes de la créature. Les dégâts infligés par Sabotage ne peuvent pas amener l'objet sous son Seuil de rupture.",
                 "Succès critique Vous infligez une quantité de dégâts égale à quatre fois votre bonus de maîtrise en Vol.",
                 "Succès Vous infligez une quantité de dégâts égale au double de votre bonus de maîtrise de Vol.",
                 "Échec critique La cible est temporairement immunisée contre votre Sabotage pendant 1 jour."
@@ -11299,7 +11299,7 @@ DON.CLASS = {
                 "Vous n'êtes pas impie"
             ],
             "description": [
-                "Vous endurez les souffrances d'autrui pour qu'ils puissent vivre. Vous pouvez lancer le sort de dévotion auto_awesomeSacrifice du champion ."
+                "Vous endurez les souffrances d'autrui pour qu'ils puissent vivre. Vous pouvez lancer le sort de dévotion Sacrifice du champion ."
             ]
         },
         {
@@ -11359,7 +11359,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous aspirez la force vitale de vos ennemis. Quand vous lancez un sort de auto_awesomeMise à mal et blessez au moins une créature vivante avec ce sort, vous récupérez un nombre de Points de vie égal au rang du sort Mise à mal. Si vous n'êtes pas une créature vivante, vous ne pouvez pas profiter des avantages de ce don."
+                "Vous aspirez la force vitale de vos ennemis. Quand vous lancez un sort de Mise à mal et blessez au moins une créature vivante avec ce sort, vous récupérez un nombre de Points de vie égal au rang du sort Mise à mal. Si vous n'êtes pas une créature vivante, vous ne pouvez pas profiter des avantages de ce don."
             ]
         },
         {
@@ -11372,7 +11372,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous invoquez le vent pour qu'il vous soulève et que vous puissiez prendre votre envol en sautant. Vous obtenez le sort Qi auto_awesomeSaut du vent ."
+                "Vous invoquez le vent pour qu'il vous soulève et que vous puissiez prendre votre envol en sautant. Vous obtenez le sort Qi Saut du vent ."
             ]
         },
         {
@@ -11410,7 +11410,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pouvez entrer en rage une deuxième fois, mais vous devrez ensuite prendre le temps de souffler. Quand vous entrez en sports_martial_artsRage , vous pouvez choisir de gagner des Points de vie temporaires de rage même si 1 minute ne s'est pas écoulée (ou 1 round entier si vous avez la capacité de classe Rage revitalisante). Si vous le faites, quand cette Rage prend fin, vous êtes dans l'état sentiment_very_dissatisfiedFatigué jusqu'à ce que vous vous reposiez pendant au moins 10 minutes."
+                "Vous pouvez entrer en rage une deuxième fois, mais vous devrez ensuite prendre le temps de souffler. Quand vous entrez en Rage , vous pouvez choisir de gagner des Points de vie temporaires de rage même si 1 minute ne s'est pas écoulée (ou 1 round entier si vous avez la capacité de classe Rage revitalisante). Si vous le faites, quand cette Rage prend fin, vous êtes dans l'état Fatigué jusqu'à ce que vous vous reposiez pendant au moins 10 minutes."
             ]
         },
         {
@@ -11426,7 +11426,7 @@ DON.CLASS = {
                 "Les secrets de l'Ordre de la feuille permettent à votre familier de tirer parti de sa forme de léchi. Vous pouvez choisir une capacité de familier supplémentaire chaque jour, qui doit être une des capacités de familier léchi suivantes. Vous ne pouvez choisir qu'un seul pouvoir de familier à la fois.",
                 [
                     "Explosion verdoyante Lorsque votre familier meurt, il libère son énergie primordiale pour lancer la version de Compendium[pf2e.spells-srd.rfZpqmj0AIIdkVIs]{Guérison} à trois actions, intensifié à un rang inférieur de 1 à votre rang de sort le plus élevé. Le sort Guérison obtient également un bonus de statut égal à deux fois le rang du sort au nombre de Points de vie qu'il redonne aux plantes. Vous devez être capable de lancer les sorts de rang 2 en utilisant des emplacements de sort pour choisir ce pouvoir de familier.",
-                    "Purificateur d'air Votre familier recycle l'air, fournissant assez d'oxygène à une créature de taille Moyenne dans les zones avec de l'air vicié, tel qu'une chambre scellée ou un espace extradimensionnel. Si le léchi est dans la zone d'un effet de poison inhalé ou d'un effet qui compte sur l'odorat, les créatures dans une crop_freeémanation de 4,50 mètres du léchi obtiennent un bonus de circonstances de +2 à leur jet de sauvegarde contre l'effet.",
+                    "Purificateur d'air Votre familier recycle l'air, fournissant assez d'oxygène à une créature de taille Moyenne dans les zones avec de l'air vicié, tel qu'une chambre scellée ou un espace extradimensionnel. Si le léchi est dans la zone d'un effet de poison inhalé ou d'un effet qui compte sur l'odorat, les créatures dans une émanation de 4,50 mètres du léchi obtiennent un bonus de circonstances de +2 à leur jet de sauvegarde contre l'effet.",
                     "Vrilles agrippantes Votre familier peut faire pousser des lianes ou des vrilles similaires, augmentant son allonge à 4,50 mètres."
                 ]
             ]
@@ -11441,7 +11441,7 @@ DON.CLASS = {
                 "Boucliers de l'esprit"
             ],
             "description": [
-                "Ceux que vous protégez peuvent bénéficier de votre protection durable. Vous pouvez lancer auto_awesomeBoucliers de l'esprit en utilisant 2 actions au lieu de 1. Si vous le faites, vous pouvez choisir un allié dans votre aura de champion pour qu'il obtienne un bouclier de l'esprit qui l'accompagne. Pendant 1 minute, cet allié bénéficie des avantages de Boucliers de l'esprit, même s'il n'est pas dans l'aura de votre champion et même si votre bouclier n'est pas levé. Si vous créez un autre bouclier compagnon, le précédent prend fin."
+                "Ceux que vous protégez peuvent bénéficier de votre protection durable. Vous pouvez lancer Boucliers de l'esprit en utilisant 2 actions au lieu de 1. Si vous le faites, vous pouvez choisir un allié dans votre aura de champion pour qu'il obtienne un bouclier de l'esprit qui l'accompagne. Pendant 1 minute, cet allié bénéficie des avantages de Boucliers de l'esprit, même s'il n'est pas dans l'aura de votre champion et même si votre bouclier n'est pas levé. Si vous créez un autre bouclier compagnon, le précédent prend fin."
             ]
         },
         {
@@ -11467,7 +11467,7 @@ DON.CLASS = {
                 "Sécurité"
             ],
             "description": [
-                "Bouclier en main, vous offrez à votre allié toute la protection dont vous bénéficiez vous-même. Tant que le bouclier compagnon est en vigueur, si votre bouclier est levé, l'allié avec le bouclier compagnon obtient le même bonus à la CA que votre bouclier et vous pouvez déclencher military_techBlocage au bouclier si cet allié remplit les conditions de déclenchement. Cela utilise les statistiques de votre bouclier et applique les dégâts à votre bouclier."
+                "Bouclier en main, vous offrez à votre allié toute la protection dont vous bénéficiez vous-même. Tant que le bouclier compagnon est en vigueur, si votre bouclier est levé, l'allié avec le bouclier compagnon obtient le même bonus à la CA que votre bouclier et vous pouvez déclencher Blocage au bouclier si cet allié remplit les conditions de déclenchement. Cela utilise les statistiques de votre bouclier et applique les dégâts à votre bouclier."
             ]
         },
         {
@@ -11494,7 +11494,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous possédez une vague relation avec le Plan éthéré qui vous permet de remarquer les esprits. Lorsque vous êtes en train d'explorer mais pas de Fouiller, le MJ lance secrètement à votre place pour trouver des hantises qui nécessitent habituellement d'être cherchées, ainsi que les esprits, les créatures sur le Plan éthéré et les êtres constitués entièrement d'essence spirituelle comme les célestes, les fiélons et les veilleurs.",
-                "Vous pouvez aussi potentiellement remarquer les créatures éthérées et les esprits dans les objets solides, pourvu qu'ils soient à moins de 9 mètres de vous. Cela s'applique lorsque vous Fouillez, lorsque vous Cherchez et lors du test automatique secret que vous obtenez en explorant même si vous n'êtes pas en train de Fouiller. Vous ne pouvez toujours remarquer les esprits que sur un test réussi et vous ne pouvez pas les voir s'ils sont à plus de 1,50 mètre à l'intérieur d'un objet. Lorsque vous remarquez une créature avec ce sens, vous apprenez aussi sa localisation, la rendant sentiment_very_dissatisfiedCachée à votre égard si elle était auparavant sentiment_very_dissatisfiedNon détectée ."
+                "Vous pouvez aussi potentiellement remarquer les créatures éthérées et les esprits dans les objets solides, pourvu qu'ils soient à moins de 9 mètres de vous. Cela s'applique lorsque vous Fouillez, lorsque vous Cherchez et lors du test automatique secret que vous obtenez en explorant même si vous n'êtes pas en train de Fouiller. Vous ne pouvez toujours remarquer les esprits que sur un test réussi et vous ne pouvez pas les voir s'ils sont à plus de 1,50 mètre à l'intérieur d'un objet. Lorsque vous remarquez une créature avec ce sens, vous apprenez aussi sa localisation, la rendant Cachée à votre égard si elle était auparavant Non détectée ."
             ]
         },
         {
@@ -11509,7 +11509,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Votre odorat est incroyablement aiguisé et vous pouvez toujours compter sur votre sens de l'odorat pour vous guider lorsque votre vision est compromise.",
-                "Lorsque vous ciblez un opposant sentiment_very_dissatisfiedMasqué ou sentiment_very_dissatisfiedCaché lorsque vous êtes enragé, vous réduisez le DD du test nu à 3 pour une cible Masquée et 9 si elle est Cachée."
+                "Lorsque vous ciblez un opposant Masqué ou Caché lorsque vous êtes enragé, vous réduisez le DD du test nu à 3 pour une cible Masquée et 9 si elle est Cachée."
             ]
         },
         {
@@ -11523,7 +11523,7 @@ DON.CLASS = {
                 "Cause du paladin"
             ],
             "description": [
-                "Vous avez fait le serment de pourchasser les scélérats cruels et de les exécuter en guise de jugement. Vous obtenez l'édit suivant : \"Vous devez pourchasser et exterminer les créatures d'alignement qui ont commis d'atroces méfaits\". Vous pouvez utiliser auto_awesomeImposition des mains pour infliger des dégâts à une créature que vous avez vue brutaliser un innocent ou un allié, comme s'il était un mort-vivant. Dans ce cas, imposition des mains inflige des dégâts spirituels au lieu de dégâts de vitalité et obtient le trait saint. Ceci ne vous empêche pas de soigner une telle créature avec Imposition des mains. Vous devez choisir entre soigner ou blesser."
+                "Vous avez fait le serment de pourchasser les scélérats cruels et de les exécuter en guise de jugement. Vous obtenez l'édit suivant : \"Vous devez pourchasser et exterminer les créatures d'alignement qui ont commis d'atroces méfaits\". Vous pouvez utiliser Imposition des mains pour infliger des dégâts à une créature que vous avez vue brutaliser un innocent ou un allié, comme s'il était un mort-vivant. Dans ce cas, imposition des mains inflige des dégâts spirituels au lieu de dégâts de vitalité et obtient le trait saint. Ceci ne vous empêche pas de soigner une telle créature avec Imposition des mains. Vous devez choisir entre soigner ou blesser."
             ]
         },
         {
@@ -11548,7 +11548,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "L'énergie brute du vide sape l'essence des vivants. Toute créature vivante qui obtient un échec critique à son jet de sauvegarde contre un sort de auto_awesomeMise à mal que vous lancez est sentiment_very_dissatisfiedDrainée 1 ."
+                "L'énergie brute du vide sape l'essence des vivants. Toute créature vivante qui obtient un échec critique à son jet de sauvegarde contre un sort de Mise à mal que vous lancez est Drainée 1 ."
             ]
         },
         {
@@ -11573,7 +11573,7 @@ DON.CLASS = {
             "description": [
                 "Vous avez une affinité particulière pour les plantes feuillues.",
                 "Votre patron vous accorde un familier léchi. Si vous avez déjà un familier, ce léchi remplace votre précédent familier, comme s'il avait été tué.",
-                "De plus, vous obtenez la capacité de voir à travers les feuilles, les lianes et les autres feuillages. Vous ne subissez pas les pénalités de circonstances aux attaques à distance de sort ou aux tests de Perception provoqués par le feuillage et votre attaque ciblée ne nécessite pas un test nu pour réussir contre une cible qui n'est sentiment_very_dissatisfiedMasquée que par une telle végétation."
+                "De plus, vous obtenez la capacité de voir à travers les feuilles, les lianes et les autres feuillages. Vous ne subissez pas les pénalités de circonstances aux attaques à distance de sort ou aux tests de Perception provoqués par le feuillage et votre attaque ciblée ne nécessite pas un test nu pour réussir contre une cible qui n'est Masquée que par une telle végétation."
             ]
         },
         {
@@ -11622,7 +11622,7 @@ DON.CLASS = {
                 "ordre de la tempête"
             ],
             "description": [
-                "Votre éclair déchire le ciel, générant une onde de choc assourdissante. Si votre prochaine action consiste à Lancer un sort qui possède le trait électricité ou inflige des dégâts d'électricité, n'a pas de durée et demande un jet de sauvegarde de la part des créatures visées, la force du de la foudre crée un coup de tonnerre, en plus de ses autres effets. Chaque créature qui a obtenu un échec sur son jet de Réflexes contre le sort est sentiment_very_dissatisfiedSourde pendant 1 round et celles qui obtiennent un échec critique sont aussi mises sentiment_very_dissatisfiedÀ terre ."
+                "Votre éclair déchire le ciel, générant une onde de choc assourdissante. Si votre prochaine action consiste à Lancer un sort qui possède le trait électricité ou inflige des dégâts d'électricité, n'a pas de durée et demande un jet de sauvegarde de la part des créatures visées, la force du de la foudre crée un coup de tonnerre, en plus de ses autres effets. Chaque créature qui a obtenu un échec sur son jet de Réflexes contre le sort est Sourde pendant 1 round et celles qui obtiennent un échec critique sont aussi mises À terre ."
             ]
         },
         {
@@ -11637,7 +11637,7 @@ DON.CLASS = {
                 "ordre de la feuille"
             ],
             "description": [
-                "Si votre prochaine action consiste à Lancer un sort avec le trait champignon ou plante, une couronne de plantes apparaît dans une crop_freeexplosion de 3 mètres . Les plantes forment un terrain difficile et dangereux, couvert selon votre choix de lianes épineuses ou empoisonnées. Toute créature qui se déplace ou termine son tour dans une de ces cases, subit 2d6 dégâts ( casino2d6 dégâts perforants pour les épines ou casino2d6 dégâts de poison pour les lianes empoisonnées). Une créature ne peut subir ces dégâts qu'une fois par tour. Vous et votre familier êtes immunisés à ces dégâts.",
+                "Si votre prochaine action consiste à Lancer un sort avec le trait champignon ou plante, une couronne de plantes apparaît dans une explosion de 3 mètres . Les plantes forment un terrain difficile et dangereux, couvert selon votre choix de lianes épineuses ou empoisonnées. Toute créature qui se déplace ou termine son tour dans une de ces cases, subit 2d6 dégâts ( 2d6 dégâts perforants pour les épines ou 2d6 dégâts de poison pour les lianes empoisonnées). Une créature ne peut subir ces dégâts qu'une fois par tour. Vous et votre familier êtes immunisés à ces dégâts.",
                 "Les plantes restent en place pendant 1 minute ou jusqu'à ce que vous lanciez un autre Sort couronne de fleurs, selon ce qui se produit en premier.",
                 "Les dégâts passent à 3d6 au niveau 16 et à 4d6 au niveau 20."
             ]
@@ -11666,7 +11666,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Au cours de vos préparatifs quotidiens, vous pouvez demander à un incantateur préparé allié de vous aider à préparer un sort pour la journée. Le sort peut être de rang 3 au maximum. Votre allié doit être capable de le préparer et de le lancer et le sort doit avoir une entrée cible ou une zone. Votre allié perd un emplacement de sort du rang correspondant et vous obtenez la capacité de lancer le sort préparé une fois au cours de cette journée.",
-                "Lorsque vous sports_martial_artsLancez le sort , utilisez votre DD de classe pour tout jet de sauvegarde nécessité par le sort et votre DD de classe – 10 comme modificateur d'attaque de sort."
+                "Lorsque vous Lancez le sort , utilisez votre DD de classe pour tout jet de sauvegarde nécessité par le sort et votre DD de classe – 10 comme modificateur d'attaque de sort."
             ]
         },
         {
@@ -11681,7 +11681,7 @@ DON.CLASS = {
                 "Déclencheur Un allié dans les 9 mètres Lance un sort.",
                 "Vous accompagnez les incantations de votre allié ou faites écho à ses mouvements, en associant votre magie pour renforcer son sort de l'une des deux façons suivantes :",
                 [
-                    "Si son sort inflige des dégâts et ne possède pas de durée, vous accordez au sort un bonus de statut aux dégâts égal à son rang.\n\nflareEffet : Sort de cercle",
+                    "Si son sort inflige des dégâts et ne possède pas de durée, vous accordez au sort un bonus de statut aux dégâts égal à son rang.\n\nEffet : Sort de cercle",
                     "Si son sort ne possède pas un effet de mutamagie, vous appliquez les effets de tout don mutamagique que vous connaissez au sort lancé. Le don de mutamagie doit pouvoir être appliqué au sort déclencheur et vous devez être en mesure de l'appliquer (par exemple si le don de mutamagie n'est utilisable qu'un nombre restreint de fois par jour)."
                 ]
             ]
@@ -11699,8 +11699,8 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Votre incantation est emplie de lumières étranges, de légères fumées et d'autres effets captivants qui déconcertent vos ennemis. Si votre prochaine action consiste à Lancer un sort, chaque créature qui tente d'utiliser une réaction déclenchée par votre activité Lancer un sort subit une pénalité de circonstances de -2 aux jets d'attaque et aux tests de compétence qui sont lancés en réaction.",
-                "De plus, si le sort inclut une attaque de sort ou nécessite un jet de sauvegarde, les créatures que vous touchez ou qui obtiennent un échec sont sentiment_very_dissatisfiedFascinées par vous jusqu'à la fin de votre prochain tour.",
-                "flareEffet : Sort de mauvais augure"
+                "De plus, si le sort inclut une attaque de sort ou nécessite un jet de sauvegarde, les créatures que vous touchez ou qui obtiennent un échec sont Fascinées par vous jusqu'à la fin de votre prochain tour.",
+                "Effet : Sort de mauvais augure"
             ]
         },
         {
@@ -11764,7 +11764,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vous mêlez subtilement vos incantations à vos représentations artistiques. Si votre prochaine action consiste à Lancer un sort, le sort obtient le trait subtil, cachant les runes brillantes, les étincelles de magie et les autres manifestations qui devraient dévoiler votre incantation. Le trait cache seulement les actions d'incantation et la manifestation du sort, pas ses effets, de sorte qu'un observateur pourrait toujours voir tout de même le rayon partant de vous ou vous voir disparaître.",
-                "Dans le cadre de l'utilisation de Sort mélodieux, vous pouvez choisir de sports_martial_artsFaire diversion , sports_martial_artsDémoraliser , sports_martial_artsSe produire ou sports_martial_artsSolliciter . Si vous le faites, le sort que vous lancez doit avoir le trait audible, émotion, son ou visuel pour obtenir le trait subtil."
+                "Dans le cadre de l'utilisation de Sort mélodieux, vous pouvez choisir de Faire diversion , Démoraliser , Se produire ou Solliciter . Si vous le faites, le sort que vous lancez doit avoir le trait audible, émotion, son ou visuel pour obtenir le trait subtil."
             ]
         },
         {
@@ -11792,7 +11792,7 @@ DON.CLASS = {
                 "Contresort"
             ],
             "description": [
-                "Lorsque vous réussissez à utiliser military_techContresort pour contrer un sort qui affecte des créatures ciblées ou une zone, vous pouvez renvoyer l'effet de ce sort sur son lanceur. Lorsqu'il est réfléchi, le sort n'affecte que le lanceur originel, même si c'est un sort de zone ou s'il devrait normalement affecter plus d'une créature. Le lanceur originel dispose d'un jet de sauvegarde et utilise d'autres défenses contre le sort réfléchi comme à l'ordinaire."
+                "Lorsque vous réussissez à utiliser Contresort pour contrer un sort qui affecte des créatures ciblées ou une zone, vous pouvez renvoyer l'effet de ce sort sur son lanceur. Lorsqu'il est réfléchi, le sort n'affecte que le lanceur originel, même si c'est un sort de zone ou s'il devrait normalement affecter plus d'une créature. Le lanceur originel dispose d'un jet de sauvegarde et utilise d'autres défenses contre le sort réfléchi comme à l'ordinaire."
             ]
         },
         {
@@ -11808,7 +11808,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Vos sorts se transforment en éclats de lumière et de couleur. Si votre prochaine action consiste à Lancer un sort qui n'a pas le trait ténèbres, n'a pas de durée et qui oblige les créatures à tenter un jet de Réflexes, le sort explose en un jet de lumières scintillantes, en plus de ses autres effets.",
-                "Chaque créature qui a obtenu un échec sur son jet de Réflexes contre le sort est sentiment_very_dissatisfiedÉblouie pendant un tour et celles qui ont échoué de manière critique sont sentiment_very_dissatisfiedAveuglées pendant un tour."
+                "Chaque créature qui a obtenu un échec sur son jet de Réflexes contre le sort est Éblouie pendant un tour et celles qui ont échoué de manière critique sont Aveuglées pendant un tour."
             ]
         },
         {
@@ -11821,7 +11821,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous pliez votre sort dans une graine. Si votre prochaine action consiste à Lancer un sort qui utilise 1 ou 2 actions, le sort se plante de lui-même dans une case adjacente. Vous devez prendre toutes les décisions concernant le sort au moment où vous le lancez. Au cours des 10 prochaines minutes, vous pouvez ordonner à votre Sort semé d'éclore et de produire ses effets par une réaction, laquelle se déclenche lorsqu'une créature pénètre dans la case du Sort semé ou une case qui lui est adjacente. Vous ne pouvez avoir qu'un unique Sort semé au même moment et si vous ne déclenchez pas le sort dans les 10 minutes suivantes, il se dissipe et le sort est perdu. Une créature peut remarquer le Sort semé avec un test de casinoperception réussi contre votre DD de sort."
+                "Vous pliez votre sort dans une graine. Si votre prochaine action consiste à Lancer un sort qui utilise 1 ou 2 actions, le sort se plante de lui-même dans une case adjacente. Vous devez prendre toutes les décisions concernant le sort au moment où vous le lancez. Au cours des 10 prochaines minutes, vous pouvez ordonner à votre Sort semé d'éclore et de produire ses effets par une réaction, laquelle se déclenche lorsqu'une créature pénètre dans la case du Sort semé ou une case qui lui est adjacente. Vous ne pouvez avoir qu'un unique Sort semé au même moment et si vous ne déclenchez pas le sort dans les 10 minutes suivantes, il se dissipe et le sort est perdu. Une créature peut remarquer le Sort semé avec un test de perception réussi contre votre DD de sort."
             ]
         },
         {
@@ -11849,7 +11849,7 @@ DON.CLASS = {
                 "Voleur légendaire, Sort d'emprunt"
             ],
             "description": [
-                "Lorsque vous utilisez military_techVoleur légendaire pour voler l'impossible, vous pouvez voler un sort préparé ou un sort spontané d'un adversaire. Le sort est aléatoirement choisi parmi les sorts du plus haut rang du sort que l'adversaire connaît qui a une cible ou une zone, jusqu'à un sort de rang 8 maximum ; la cible perd l'emplacement du sort approprié comme si elle l'avait lancé elle-même. Vous pouvez Lancer le sort dans les casino1d4 rounds suivants, après quoi la magie fugace s'évanouit. Autrement, cela fonctionne de la même manière que quand vous lancez un sort avec military_techSort d'emprunt ."
+                "Lorsque vous utilisez Voleur légendaire pour voler l'impossible, vous pouvez voler un sort préparé ou un sort spontané d'un adversaire. Le sort est aléatoirement choisi parmi les sorts du plus haut rang du sort que l'adversaire connaît qui a une cible ou une zone, jusqu'à un sort de rang 8 maximum ; la cible perd l'emplacement du sort approprié comme si elle l'avait lancé elle-même. Vous pouvez Lancer le sort dans les 1d4 rounds suivants, après quoi la magie fugace s'évanouit. Autrement, cela fonctionne de la même manière que quand vous lancez un sort avec Sort d'emprunt ."
             ]
         },
         {
@@ -11860,7 +11860,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez cultivé votre Qi pour produire des effets magiques. Vous obtenez auto_awesomeBouleversement Qi , auto_awesomeRuée Qi ou un autre sort Qi de moine de rang 1 auquel vous avez accès.",
+                "Vous avez cultivé votre Qi pour produire des effets magiques. Vous obtenez Bouleversement Qi , Ruée Qi ou un autre sort Qi de moine de rang 1 auquel vous avez accès.",
                 "En puisant dans une réserve personnelle d'énergie appelée Qi, vous pouvez lancer des sorts spéciaux appelés sorts de Qi qui forment un type de sorts focalisés. Vous devez dépenser 1 point de focalisation pour lancer un sort focalisé. Quand vous obtenez votre premier sort Qi, vous décidez si vos sorts Qi seront des sorts divins ou occultes et vous devenez qualifié en modificateur d'attaque de sort et en DD des sorts. Votre attribut essentiel d'incantation est la Sagesse.",
                 "Vous obtenez également une réserve de focalisation de 1 point de focalisation. Vous remplissez votre réserve de focalisation au cours de vos préparatifs quotidiens et vous récupérez 1 point de focalisation en passant 10 minutes en utilisant l'action Refocaliser en rééquilibrant votre esprit et votre souffle pour puiser davantage de Qi à partir du monde qui vous entoure."
             ]
@@ -11875,7 +11875,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Votre talent pour contrôler votre qi a atteint de nouveaux sommets. Vous obtenez auto_awesomeExplosion qi , auto_awesomeRétrécir l'intervalle ou un autre sort qi de rang 3 auquel vous avez accès."
+                "Votre talent pour contrôler votre qi a atteint de nouveaux sommets. Vous obtenez Explosion qi , Rétrécir l'intervalle ou un autre sort qi de rang 3 auquel vous avez accès."
             ]
         },
         {
@@ -11888,7 +11888,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous avez débloqué une technique Qi qui n'est accessible qu'à ceux qui atteignent à la fois la maîtrise de leur corps et de leur esprit. Vous obtenez auto_awesome , @UUID[Compendium.pf2e.spells-srd.Item.YDMOqndvYFu3OjA6]{Forme Qi , or another 9th-rank qi spell you have access to."
+                "Vous avez débloqué une technique Qi qui n'est accessible qu'à ceux qui atteignent à la fois la maîtrise de leur corps et de leur esprit. Vous obtenez  , @UUID[Compendium.pf2e.spells-srd.Item.YDMOqndvYFu3OjA6]{Forme Qi , or another 9th-rank qi spell you have access to."
             ]
         },
         {
@@ -11901,7 +11901,7 @@ DON.CLASS = {
                 "Sorts Qi"
             ],
             "description": [
-                "Vous avez pratiquement atteint la maîtrise totale de votre Qi. Vous obtenez le sort Qi auto_awesomeCourroux de la méduse , auto_awesomeToucher de mort ou un autre sort Qi de rang 8 auquel vous avez accès."
+                "Vous avez pratiquement atteint la maîtrise totale de votre Qi. Vous obtenez le sort Qi Courroux de la méduse , Toucher de mort ou un autre sort Qi de rang 8 auquel vous avez accès."
             ]
         },
         {
@@ -11917,7 +11917,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Une fois toutes les 10 minutes",
-                "Vous prenez une grande inspiration et soufflez une puissante vague d'énergie dans un crop_freecône de 9 mètres , qui inflige casino1d6 dégâts par niveau à chaque créature se trouvant dans la zone avec un jet de casinoRéflexes contre votre DD de classe. Le type de dégâts correspond à celui du souffle de dragon de votre instinct, et cette action acquiert le trait de la tradition de votre instinct draconique."
+                "Vous prenez une grande inspiration et soufflez une puissante vague d'énergie dans un cône de 9 mètres , qui inflige 1d6 dégâts par niveau à chaque créature se trouvant dans la zone avec un jet de Réflexes contre votre DD de classe. Le type de dégâts correspond à celui du souffle de dragon de votre instinct, et cette action acquiert le trait de la tradition de votre instinct draconique."
             ]
         },
         {
@@ -11947,9 +11947,9 @@ DON.CLASS = {
             "description": [
                 "Votre contact apaise le corps et l'esprit. Vous pouvez lancer une Imposition des mains sur une créature vivante en utilisant 2 actions au lieu de 1. Ce faisant, vous pouvez tenter de contrer un effet de votre choix, parmi ceux qui affectent votre cible. Quand vous choisissez ce don, choisissez une des options suivantes, ce qui déterminera les effets que vous pouvez contrer :",
                 [
-                    "Soulagement du corps sentiment_very_dissatisfiedAveuglé , sentiment_very_dissatisfiedÉbloui , sentiment_very_dissatisfiedSourd , sentiment_very_dissatisfiedAffaibli , sentiment_very_dissatisfiedNauséeux ;",
-                    "Soulagement de la grâce sentiment_very_dissatisfiedMaladroit , sentiment_very_dissatisfiedAgrippé , sentiment_very_dissatisfiedParalysé ;",
-                    "Soulagement de l'esprit sentiment_very_dissatisfiedEn fuite , sentiment_very_dissatisfiedEffrayé , sentiment_very_dissatisfiedStupéfait ;"
+                    "Soulagement du corps Aveuglé , Ébloui , Sourd , Affaibli , Nauséeux ;",
+                    "Soulagement de la grâce Maladroit , Agrippé , Paralysé ;",
+                    "Soulagement de l'esprit En fuite , Effrayé , Stupéfait ;"
                 ],
                 "Spécial Vous pouvez sélectionner ce don jusqu'à trois fois. Chaque fois, choisissez un type différent de soulagement et ajoutez ces options à celles que vous pouvez choisir quand vous lancer l'imposition des mains en 2 actions."
             ]
@@ -11976,7 +11976,7 @@ DON.CLASS = {
                 "Soulagement"
             ],
             "description": [
-                "La grâce divine qui vous traverse vous permet de soulager quelqu'un d'une affliction. Ajoutez le soulagement de récupération aux types de military_techSoulagements que vous pouvez prodiguer, vous permettant de contrer une affliction plutôt qu'un effet causant un état (généralement une affliction est une malédiction, une maladie ou un poison)."
+                "La grâce divine qui vous traverse vous permet de soulager quelqu'un d'une affliction. Ajoutez le soulagement de récupération aux types de Soulagements que vous pouvez prodiguer, vous permettant de contrer une affliction plutôt qu'un effet causant un état (généralement une affliction est une malédiction, une maladie ou un poison)."
             ]
         },
         {
@@ -11991,9 +11991,9 @@ DON.CLASS = {
             "description": [
                 "Votre foi améliore votre capacité à supprimer des états. Ajoutez les options suivantes à la liste des états que vous pouvez contrer pour tout type de soulagement que vous pouvez prodiguer.",
                 [
-                    "Soulagement du corps sentiment_very_dissatisfiedDrainé , sentiment_very_dissatisfiedRalenti ; Si vous êtes niveau 16, ajoutez sentiment_very_dissatisfiedÉtourdi",
-                    "Soulagement de la grâce sentiment_very_dissatisfiedImmobilisé , sentiment_very_dissatisfiedEntravé , sentiment_very_dissatisfiedRalenti ; si vous êtes niveau 12, ajoutez sentiment_very_dissatisfiedPétrifié ; si vous êtes niveau 16, ajoutez sentiment_very_dissatisfiedÉtourdi",
-                    "Soulagement de l'esprit sentiment_very_dissatisfiedConfus , sentiment_very_dissatisfiedContrôlé , sentiment_very_dissatisfiedRalenti ; Si vous êtes niveau 16, ajoutez sentiment_very_dissatisfiedCondamné et sentiment_very_dissatisfiedÉtourdi ."
+                    "Soulagement du corps Drainé , Ralenti ; Si vous êtes niveau 16, ajoutez Étourdi",
+                    "Soulagement de la grâce Immobilisé , Entravé , Ralenti ; si vous êtes niveau 12, ajoutez Pétrifié ; si vous êtes niveau 16, ajoutez Étourdi",
+                    "Soulagement de l'esprit Confus , Contrôlé , Ralenti ; Si vous êtes niveau 16, ajoutez Condamné et Étourdi ."
                 ]
             ]
         },
@@ -12007,7 +12007,7 @@ DON.CLASS = {
                 "Soulagement"
             ],
             "description": [
-                "Votre pouvoir de soulagement outrepasse les limites de la vie et de la mort. Ajoutez le soulagement suprême aux types de soulagement que vous pouvez prodiguer. Quand vous utilisez military_techSoulagement , vous pouvez cibler une créature qui est mort depuis votre dernier tour pour le ramener à la vie. La cible revient à la vie avec 1 Point de vie et devient sentiment_very_dissatisfiedBlessée 1. Vous ne pouvez pas ramener la cible à la vie si elle est morte suite à une auto_awesomeDésintégration ou un effet de mort. La créature acquiert les autres bénéfices de auto_awesomeImposition des mains après être revenu à la vie."
+                "Votre pouvoir de soulagement outrepasse les limites de la vie et de la mort. Ajoutez le soulagement suprême aux types de soulagement que vous pouvez prodiguer. Quand vous utilisez Soulagement , vous pouvez cibler une créature qui est mort depuis votre dernier tour pour le ramener à la vie. La cible revient à la vie avec 1 Point de vie et devient Blessée 1. Vous ne pouvez pas ramener la cible à la vie si elle est morte suite à une Désintégration ou un effet de mort. La créature acquiert les autres bénéfices de Imposition des mains après être revenu à la vie."
             ]
         },
         {
@@ -12020,7 +12020,7 @@ DON.CLASS = {
                 "Source de mise à mal ou de guérison, Divinité qui autorise ses prêtres à avoir les deux types de source"
             ],
             "description": [
-                "Lors de l'exploration des aspects de votre divinité, vous dépassez les limites de la guérison ou de la mise à mal. Vous pouvez préparer auto_awesomeMise à mal ou auto_awesomeGuérison dans les emplacements de sort obtenus grâce à la source de guérison ou de mise à mal."
+                "Lors de l'exploration des aspects de votre divinité, vous dépassez les limites de la guérison ou de la mise à mal. Vous pouvez préparer Mise à mal ou Guérison dans les emplacements de sort obtenus grâce à la source de guérison ou de mise à mal."
             ]
         },
         {
@@ -12045,7 +12045,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Vous obtenez un succès ou un succès critique à un test pour sports_martial_artsVous souvenir de votre proie.",
+                "Déclencheur Vous obtenez un succès ou un succès critique à un test pour Vous souvenir de votre proie.",
                 "Vous examinez le champ de bataille en un clin d'œil, vous souvenant de détails à propos de multiples adversaires auxquels vous avez fait face. Vous tentez immédiatement un test pour Vous souvenir à propos d'une créature différente que vous pouvez percevoir."
             ]
         },
@@ -12072,7 +12072,7 @@ DON.CLASS = {
             "description": [
                 "Vous vous êtes spécialisé dans la création rapide de pièges pour gêner vos ennemis sur le champ de bataille.",
                 "Si vous êtes expert en Artisanat, vous obtenez les formules de trois pièges artisanaux courants ou peu courants. Si vous êtes un maître, vous en obtenez six. Si vous êtes légendaire, vous en obtenez neuf.",
-                "Chaque jour lors de vos préparatifs quotidiens, vous pouvez préparer quatre pièges artisanaux de votre recueil que vous pourrez poser rapidement au cours de la journée ; s'il faut normalement une minute pour sports_martial_artsFabriquer chacun d'eux, vous parvenez à les Fabriquer en effectuant 3 actions Interagir. Le nombre de pièges artisanaux passe à six si vous êtes un maître en Artisanat et à huit si vous êtes légendaire. Les pièges artisanaux préparés de cette façon ne vous coûtent aucune ressource lorsque vous les Fabriquez."
+                "Chaque jour lors de vos préparatifs quotidiens, vous pouvez préparer quatre pièges artisanaux de votre recueil que vous pourrez poser rapidement au cours de la journée ; s'il faut normalement une minute pour Fabriquer chacun d'eux, vous parvenez à les Fabriquer en effectuant 3 actions Interagir. Le nombre de pièges artisanaux passe à six si vous êtes un maître en Artisanat et à huit si vous êtes légendaire. Les pièges artisanaux préparés de cette façon ne vous coûtent aucune ressource lorsque vous les Fabriquez."
             ]
         },
         {
@@ -12085,7 +12085,7 @@ DON.CLASS = {
                 "maître chasseur, spécialité du chasseur"
             ],
             "description": [
-                "Vous avez appris à tirer partie de chaque spécialité possible. Lorsque vous utilisez sports_martial_artsChasser une proie , vous pouvez obtenir une spécialité du chasseur différente à la place de celle que vous avez choisi au niveau 1. Si vous le faites vous n'obtenez pas l'avantage supplémentaire de Maître chasseur ."
+                "Vous avez appris à tirer partie de chaque spécialité possible. Lorsque vous utilisez Chasser une proie , vous pouvez obtenir une spécialité du chasseur différente à la place de celle que vous avez choisi au niveau 1. Si vous le faites vous n'obtenez pas l'avantage supplémentaire de Maître chasseur ."
             ]
         },
         {
@@ -12097,7 +12097,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous passez en trombe devant un adversaire, le déconcertant par des tactiques fourbes. Marchez rapidement jusqu'à la moitié de votre vitesse. Vous pouvez tenter un sports_martial_artsCroc-en-jambe ou un military_techSale coup (si vous disposez de cette action) contre un adversaire dans votre allonge à n'importe quel moment au cours de votre déplacement."
+                "Vous passez en trombe devant un adversaire, le déconcertant par des tactiques fourbes. Marchez rapidement jusqu'à la moitié de votre vitesse. Vous pouvez tenter un Croc-en-jambe ou un Sale coup (si vous disposez de cette action) contre un adversaire dans votre allonge à n'importe quel moment au cours de votre déplacement."
             ]
         },
         {
@@ -12114,7 +12114,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous êtes de taille Moyenne ou inférieure.",
-                "Vous grandissez de façon incroyable. Vous devenez Grand, augmentez votre allonge de 1,50 mètre et obtenez l'état sentiment_very_dissatisfiedMaladroit 1 jusqu'à ce que votre Rage prenne fin. Votre équipement grandit avec vous."
+                "Vous grandissez de façon incroyable. Vous devenez Grand, augmentez votre allonge de 1,50 mètre et obtenez l'état Maladroit 1 jusqu'à ce que votre Rage prenne fin. Votre équipement grandit avec vous."
             ]
         },
         {
@@ -12150,7 +12150,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Au cours de vos préparatifs quotidiens, vous passez en revue des stratagèmes pour la journée avec un maximum de 5 alliés. Plus tard, vous pouvez les conseiller sur vos stratégies en utilisant la réaction sports_martial_artsStratagème inspiré ."
+                "Au cours de vos préparatifs quotidiens, vous passez en revue des stratagèmes pour la journée avec un maximum de 5 alliés. Plus tard, vous pouvez les conseiller sur vos stratégies en utilisant la réaction Stratagème inspiré ."
             ]
         },
         {
@@ -12161,7 +12161,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Les plans que vous préparez incluent vos alliés en plus de vous-mêmes. Lorsque vous touchez une créature avec une attaque pour laquelle vous avez substitué à votre jet d'attaque le résultat de sports_martial_artsConcevoir un stratagème , désignez un allié. La créature que vous touchez est sentiment_very_dissatisfiedPrise au dépourvu contre cet allié lors de la prochaine attaque que cet allié lui portera avant le début de votre prochain tour."
+                "Les plans que vous préparez incluent vos alliés en plus de vous-mêmes. Lorsque vous touchez une créature avec une attaque pour laquelle vous avez substitué à votre jet d'attaque le résultat de Concevoir un stratagème , désignez un allié. La créature que vous touchez est Prise au dépourvu contre cet allié lors de la prochaine attaque que cet allié lui portera avant le début de votre prochain tour."
             ]
         },
         {
@@ -12172,7 +12172,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous savez exactement où frapper un ennemi pour cibler ses points faibles. Lorsque vous portez une Frappe à laquelle vous ajoutez votre modificateur d'Intelligence grâce à sports_martial_artsConcevoir un stratagème et que vous ratez, vous infligez la moitié des dégâts de votre Frappe stratégique à la cible. Ce type de dégâts est celui de l'arme ou de l'attaque à mains nues que vous avez utilisée pour la Frappe."
+                "Vous savez exactement où frapper un ennemi pour cibler ses points faibles. Lorsque vous portez une Frappe à laquelle vous ajoutez votre modificateur d'Intelligence grâce à Concevoir un stratagème et que vous ratez, vous infligez la moitié des dégâts de votre Frappe stratégique à la cible. Ce type de dégâts est celui de l'arme ou de l'attaque à mains nues que vous avez utilisée pour la Frappe."
             ]
         },
         {
@@ -12185,7 +12185,7 @@ DON.CLASS = {
                 "qualifié en Athlétisme"
             ],
             "description": [
-                "Vous savez comment manipuler de manière calculée les articulations et le poids du corps. En plus de substituter au jet de l'attaque celui du stratagème pour une Frappe, vous pouvez l'utiliser pour modifier une tentative pour sports_martial_artsDésarmer , sports_martial_artsPousser , sports_martial_artsRepositionner , sports_martial_artsSaisir ou faire un sports_martial_artsCroc-en-jambe en substituant le résultat obtenu en sports_martial_artsConcevant un stratagème aux tests d'Athlétisme. Vous devez appliquer cette substitution à la première attaque éligible que vous portez, qu'il s'agisse d'une Frappe ou d'une des actions d'Athlétisme.",
+                "Vous savez comment manipuler de manière calculée les articulations et le poids du corps. En plus de substituter au jet de l'attaque celui du stratagème pour une Frappe, vous pouvez l'utiliser pour modifier une tentative pour Désarmer , Pousser , Repositionner , Saisir ou faire un Croc-en-jambe en substituant le résultat obtenu en Concevant un stratagème aux tests d'Athlétisme. Vous devez appliquer cette substitution à la première attaque éligible que vous portez, qu'il s'agisse d'une Frappe ou d'une des actions d'Athlétisme.",
                 "Vous pouvez aussi utiliser votre modificateur d'Intelligence au lieu de celui de Force pour le test d'Athlétisme lorsque vous substituez le résultat de Concevoir un stratagème, à moins que vous n'utilisiez une arme pour effectuer la manœuvre et qu'elle ne remplisse pas les restrictions permettant d'utiliser l'Intelligence avec un stratagème."
             ]
         },
@@ -12200,7 +12200,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous étudiez constamment les aspects les plus faibles des mouvements de chacun, même si vous n'avez pas encore mis en place un stratagème.",
-                "Sur n'importe quelle sports_martial_artsFrappe pour laquelle vous n'avez pas sports_martial_artsConçu un Stratagème , vous infligez toujours des dégâts de précision égaux à votre nombre de dés de dégâts de Frappe stratégique tant que l'arme ou l'attaque à mains nues que vous utilisez est une de celle qui vous permet d'utiliser votre modificateur d'Intelligence pour Concevoir un Stratagème."
+                "Sur n'importe quelle Frappe pour laquelle vous n'avez pas Conçu un Stratagème , vous infligez toujours des dégâts de précision égaux à votre nombre de dés de dégâts de Frappe stratégique tant que l'arme ou l'attaque à mains nues que vous utilisez est une de celle qui vous permet d'utiliser votre modificateur d'Intelligence pour Concevoir un Stratagème."
             ]
         },
         {
@@ -12213,7 +12213,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre sort vous enveloppe d'un nuage mouvant. Si votre prochaine action consiste à Lancer un sort qui vous cible, vous vous entourez d'une épaisse brume magique dans une crop_freeémanation de 4,50 mètres qui dure jusqu'au début de votre prochain tour. Toutes les créatures à l'intérieur du nuage sont sentiment_very_dissatisfiedMasquées et toutes les créatures à l'extérieur du nuage sont Masquées des créatures qui se trouvent à l'intérieur."
+                "Votre sort vous enveloppe d'un nuage mouvant. Si votre prochaine action consiste à Lancer un sort qui vous cible, vous vous entourez d'une épaisse brume magique dans une émanation de 4,50 mètres qui dure jusqu'au début de votre prochain tour. Toutes les créatures à l'intérieur du nuage sont Masquées et toutes les créatures à l'extérieur du nuage sont Masquées des créatures qui se trouvent à l'intérieur."
             ]
         },
         {
@@ -12237,8 +12237,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Conditions Vous êtes sentiment_very_dissatisfiedAgrippé ou sentiment_very_dissatisfiedEntravé par une créature.",
-                "Lorsque vous essayez d'échapper à l'étreinte de votre ennemi, vous subtilisez quelque chose qui lui appartient. Vous tentez d'abord l'action sports_martial_artsS'Échapper pour cesser d'être Agrippé ou Entravé par la créature. Si vous réussissez, vous pouvez aussi tenter de sports_martial_artsVoler quelque chose de la créature, même si celle-ci est en combat."
+                "Conditions Vous êtes Agrippé ou Entravé par une créature.",
+                "Lorsque vous essayez d'échapper à l'étreinte de votre ennemi, vous subtilisez quelque chose qui lui appartient. Vous tentez d'abord l'action S'Échapper pour cesser d'être Agrippé ou Entravé par la créature. Si vous réussissez, vous pouvez aussi tenter de Voler quelque chose de la créature, même si celle-ci est en combat."
             ]
         },
         {
@@ -12249,7 +12249,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Achever un ennemi vous permet de conserver une posture arrogante. Vous obtenez du flarePanache quand votre aboutissement amène une cible à 0 PV."
+                "Achever un ennemi vous permet de conserver une posture arrogante. Vous obtenez du Panache quand votre aboutissement amène une cible à 0 PV."
             ]
         },
         {
@@ -12260,7 +12260,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre expertise avec les armes vous permet de plier les lois de la réalité, vous permettant d'attaquer continuellement à une vitesse qui requiert normalement une assistance magique. Vous êtes sentiment_very_dissatisfiedAccéléré en permanence. Vous pouvez utiliser votre action supplémentaire uniquement pour Frapper."
+                "Votre expertise avec les armes vous permet de plier les lois de la réalité, vous permettant d'attaquer continuellement à une vitesse qui requiert normalement une assistance magique. Vous êtes Accéléré en permanence. Vous pouvez utiliser votre action supplémentaire uniquement pour Frapper."
             ]
         },
         {
@@ -12271,7 +12271,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous dévoilez votre déguisement au bon moment et surprenez votre cible. Après avoir utilisé l'action sports_martial_artsVous faire passer pour quelqu'un d'autre en utilisant votre kit de déguisement, vous pouvez dévoiler votre déguisement dans un geste dramatique. Toute créature qui n'a pas percé votre déguisement est sentiment_very_dissatisfiedPrise au dépourvu contre la prochaine attaque que vous effectuez avant la fin de votre tour."
+                "Vous dévoilez votre déguisement au bon moment et surprenez votre cible. Après avoir utilisé l'action Vous faire passer pour quelqu'un d'autre en utilisant votre kit de déguisement, vous pouvez dévoiler votre déguisement dans un geste dramatique. Toute créature qui n'a pas percé votre déguisement est Prise au dépourvu contre la prochaine attaque que vous effectuez avant la fin de votre tour."
             ]
         },
         {
@@ -12285,7 +12285,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Une créature qui, à votre connaissance, n'est liée à aucune de vos enquêtes actives effectue une action hostile contre vous en combat.",
-                "Parfois quelque chose s'immisce dans votre affaire de manière inattendue, comme une embuscade envoyée pour pouvoir mettre un terme à votre enquête. Vous utilisez military_techSuspect potentiel contre la créature déclencheuse. Ceci ne vous permet pas d'utiliser Suspect potentiel plus fréquemment que la normale."
+                "Parfois quelque chose s'immisce dans votre affaire de manière inattendue, comme une embuscade envoyée pour pouvoir mettre un terme à votre enquête. Vous utilisez Suspect potentiel contre la créature déclencheuse. Ceci ne vous permet pas d'utiliser Suspect potentiel plus fréquemment que la normale."
             ]
         },
         {
@@ -12297,7 +12297,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Fréquence Une fois toutes les 10 minutes",
-                "Parfois, vous devez suivre les pistes au fur et à mesure qu'elles se présentent au cours d'une enquête. Choisissez une créature que vous pouvez voir et qui, à votre connaissance, n'est liée à aucune de vos enquêtes en cours. Pendant la minute qui suit, vous pouvez sports_martial_artsConcevoir un stratagème contre cette créature par une action gratuite."
+                "Parfois, vous devez suivre les pistes au fur et à mesure qu'elles se présentent au cours d'une enquête. Choisissez une créature que vous pouvez voir et qui, à votre connaissance, n'est liée à aucune de vos enquêtes en cours. Pendant la minute qui suit, vous pouvez Concevoir un stratagème contre cette créature par une action gratuite."
             ]
         },
         {
@@ -12312,9 +12312,9 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Alors que vous avez Levé votre symbole, vous êtes sur le point de subir des dégâts d'une attaque au corps-à-corps.",
-                "Votre symbole religieux s'illumine avec une énergie sacrée, transformant la force de l'attaque en faiblesse. Tentez un test de casinoReligion contre le DD Volonté de la créature déclencheuse. Indépendamment du résultat, la créature est temporairement immunisée pendant 1 minute.",
-                "Succès critique La créature est sentiment_very_dissatisfiedAffaiblie 2 jusqu'à ce qu'elle utilise au moins une action pour s'éloigner de vous.",
-                "Succès Comme en cas de succès critique, mais la créature est sentiment_very_dissatisfiedAffaiblie 1 ."
+                "Votre symbole religieux s'illumine avec une énergie sacrée, transformant la force de l'attaque en faiblesse. Tentez un test de Religion contre le DD Volonté de la créature déclencheuse. Indépendamment du résultat, la créature est temporairement immunisée pendant 1 minute.",
+                "Succès critique La créature est Affaiblie 2 jusqu'à ce qu'elle utilise au moins une action pour s'éloigner de vous.",
+                "Succès Comme en cas de succès critique, mais la créature est Affaiblie 1 ."
             ]
         },
         {
@@ -12338,7 +12338,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous apprenez le sort de composition auto_awesomeSymphonie du cœur affranchi qui vous permet de protéger un allié contre les états incapacitants."
+                "Vous apprenez le sort de composition Symphonie du cœur affranchi qui vous permet de protéger un allié contre les états incapacitants."
             ]
         },
         {
@@ -12351,8 +12351,8 @@ DON.CLASS = {
                 "Posture du tigre"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture du tigre",
-                "Vous lacérez violemment avec vos deux mains. Faites une Frappe de griffe de tigre. Elle inflige deux dés de dégâts d'arme supplémentaires (trois si vous êtes de niveau 14 ou supérieur) et vous pouvez repousser la cible de 1,50 mètre comme si vous aviez réussi à la sports_martial_artsPousser . Si l'attaque est un coup critique et inflige des dégâts, ajoutez votre modificateur de Force aux dégâts de saignement de votre griffe de tigre."
+                "Conditions Vous êtes dans la Posture du tigre",
+                "Vous lacérez violemment avec vos deux mains. Faites une Frappe de griffe de tigre. Elle inflige deux dés de dégâts d'arme supplémentaires (trois si vous êtes de niveau 14 ou supérieur) et vous pouvez repousser la cible de 1,50 mètre comme si vous aviez réussi à la Pousser . Si l'attaque est un coup critique et inflige des dégâts, ajoutez votre modificateur de Force aux dégâts de saignement de votre griffe de tigre."
             ]
         },
         {
@@ -12363,7 +12363,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vous avez appris à positionner votre worktarge de manière souple pour en tirer davantage de protection. Lorsque vous sports_martial_artsLevez un bouclier pour gagner un bonus de circonstances à la CA d'une targe, augmentez le bonus de +1 à +2.",
+                "Vous avez appris à positionner votre targe de manière souple pour en tirer davantage de protection. Lorsque vous Levez un bouclier pour gagner un bonus de circonstances à la CA d'une targe, augmentez le bonus de +1 à +2.",
                 "Tant que vous avez une targe levée, si une créature obtient un échec critique sur vous avec une Frappe, vous obtenez du panache jusqu'à la fin de votre prochain tour."
             ]
         },
@@ -12408,7 +12408,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Fréquence Une fois toute les 10 minutes",
-                "Vous priez continuellement pendant 1 minute pour appeler une ombre subtile provenant du royaume de votre divinité sur une crop_freeexplosion de 9 mètres centrée sur vous. Elle dure pendant 10 minutes et une créature qui reste dans la zone pendant la totalité de ces 10 minutes regagne un nombre de Points de vie égal à votre niveau. Si vous possédez une source de guérison, cette activité possède les traits guérison et vitalité et soigne les créatures vivantes. Si vous disposez d'une source de mise à mal, cette activité possède les traits guérison et vide et soigne les créatures mortes-vivantes (ou d'autres créatures avec Guérison du vide). Les prêtres dotés d'une source polyvalente peuvent choisir l'une ou l'autre ou les deux. Dans tous les cas, cette activité ne peut pas infliger de dégâts aux créatures."
+                "Vous priez continuellement pendant 1 minute pour appeler une ombre subtile provenant du royaume de votre divinité sur une explosion de 9 mètres centrée sur vous. Elle dure pendant 10 minutes et une créature qui reste dans la zone pendant la totalité de ces 10 minutes regagne un nombre de Points de vie égal à votre niveau. Si vous possédez une source de guérison, cette activité possède les traits guérison et vitalité et soigne les créatures vivantes. Si vous disposez d'une source de mise à mal, cette activité possède les traits guérison et vide et soigne les créatures mortes-vivantes (ou d'autres créatures avec Guérison du vide). Les prêtres dotés d'une source polyvalente peuvent choisir l'une ou l'autre ou les deux. Dans tous les cas, cette activité ne peut pas infliger de dégâts aux créatures."
             ]
         },
         {
@@ -12422,7 +12422,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "L'énergie de vitalité terrorise les morts-vivants. Lorsque vous utilisez un sort de auto_awesomeGuérison pour blesser les morts-vivants, tout mort-vivant qui rate son jet de sauvegarde est également sentiment_very_dissatisfiedEffrayé 1 . En cas d'échec critique à son jet de sauvegarde, il est également sentiment_very_dissatisfiedEn fuite jusqu'au début de votre prochain tour. Les morts-vivants dénués d'intelligence ne sont pas immunisés à cet effet en dépit du fait qu'ils sont dénués d'intelligence."
+                "L'énergie de vitalité terrorise les morts-vivants. Lorsque vous utilisez un sort de Guérison pour blesser les morts-vivants, tout mort-vivant qui rate son jet de sauvegarde est également Effrayé 1 . En cas d'échec critique à son jet de sauvegarde, il est également En fuite jusqu'au début de votre prochain tour. Les morts-vivants dénués d'intelligence ne sont pas immunisés à cet effet en dépit du fait qu'ils sont dénués d'intelligence."
             ]
         },
         {
@@ -12438,7 +12438,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous êtes dans la Posture de l'archer monastique.",
                 "Vous atteignez un état de calme parfait avant de déclencher votre attaque, ouvrant votre esprit aux mouvements infimes du monde qui vous entoure pour accroître votre précision.",
-                "Faites une Frappe à distance avec une arme contre une cible dans le premier facteur de portée de votre arme. Cette Frappe ignore l'état sentiment_very_dissatisfiedMasqué et tout abri de votre cible."
+                "Faites une Frappe à distance avec une arme contre une cible dans le premier facteur de portée de votre arme. Cette Frappe ignore l'état Masqué et tout abri de votre cible."
             ]
         },
         {
@@ -12453,7 +12453,7 @@ DON.CLASS = {
                 "Visée du chasseur"
             ],
             "description": [
-                "Vous observez attentivement la position et les défenses de votre proie, ce qui vous permet de tirer sur elle, quels que soient les obstacles entre vous et elle. Faites une Frappe avec une arme à distance contre votre proie. Vous ignorez l'état sentiment_very_dissatisfiedMasqué et tous les abris dont elle bénéficie."
+                "Vous observez attentivement la position et les défenses de votre proie, ce qui vous permet de tirer sur elle, quels que soient les obstacles entre vous et elle. Faites une Frappe avec une arme à distance contre votre proie. Vous ignorez l'état Masqué et tous les abris dont elle bénéficie."
             ]
         },
         {
@@ -12480,7 +12480,7 @@ DON.CLASS = {
             "description": [
                 "Conditions Vous maniez une arme à distance.",
                 "En utilisant votre dernière munition pour jauger de votre précision, vous pouvez faire un rapide tir pour interférer avec un ennemi en combat. Faites une Frappe avec une arme à distance. Si la Frappe touche, la prochaine créature autre que vous qui attaque la même cible avant le début de votre prochain tour, obtient un bonus de circonstances de +1 à son jet ou un bonus de circonstances de +2 si votre Frappe était un coup critique.",
-                "flareEffet : Tir de soutien"
+                "Effet : Tir de soutien"
             ]
         },
         {
@@ -12491,7 +12491,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "La puissance brute de vos attaques ou leur accablante profusion, déconcerte votre ennemi. Si vous obtenez un coup critique contre votre proie avec une arme à distance ou si vous la touchez deux fois lors du même tour avec une arme à distance, elle est sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour."
+                "La puissance brute de vos attaques ou leur accablante profusion, déconcerte votre ennemi. Si vous obtenez un coup critique contre votre proie avec une arme à distance ou si vous la touchez deux fois lors du même tour avec une arme à distance, elle est Prise au dépourvu jusqu'au début de votre prochain tour."
             ]
         },
         {
@@ -12504,7 +12504,7 @@ DON.CLASS = {
                 "Tir déroutant"
             ],
             "description": [
-                "Même un seul de vos projectiles peut déséquilibrer votre adversaire et de plus puissantes attaques le laissent dérouté plus longtemps. Si vous touchez votre proie avec une arme à distance, elle est sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour. Si vous obtenez un coup critique ou si vous touchez deux fois votre proie au cours du même tour avec une arme à distance, elle est Prise au dépourvu jusqu'à la fin de votre prochain tour à la place."
+                "Même un seul de vos projectiles peut déséquilibrer votre adversaire et de plus puissantes attaques le laissent dérouté plus longtemps. Si vous touchez votre proie avec une arme à distance, elle est Prise au dépourvu jusqu'au début de votre prochain tour. Si vous obtenez un coup critique ou si vous touchez deux fois votre proie au cours du même tour avec une arme à distance, elle est Prise au dépourvu jusqu'à la fin de votre prochain tour à la place."
             ]
         },
         {
@@ -12543,7 +12543,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme à distance chargée ou une arme à distance avec un rechargement 0",
-                "Vous faites un saut en arrière et effectuez un tir rapidement qui prend votre adversaire par surprise. Vous sports_martial_artsFaites un pas puis effectuez une sports_martial_artsFrappe à distance avec l'arme requise. Votre cible est sentiment_very_dissatisfiedPrise au dépourvu contre l'attaque."
+                "Vous faites un saut en arrière et effectuez un tir rapidement qui prend votre adversaire par surprise. Vous Faites un pas puis effectuez une Frappe à distance avec l'arme requise. Votre cible est Prise au dépourvu contre l'attaque."
             ]
         },
         {
@@ -12554,9 +12554,9 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Déclencheur Vous utilisez sports_martial_artsDéluge de coups pour effectuer deux sports_martial_artsFrappes à distance avec des armes perforantes contre la même cible.",
+                "Déclencheur Vous utilisez Déluge de coups pour effectuer deux Frappes à distance avec des armes perforantes contre la même cible.",
                 "Vous ciblez les vêtements de votre adversaire, son équipement ou de la chair accessible avec des projectiles perforants pour la clouer au sol ou à une surface à proximité.",
-                "Si vos deux attaques touchent, la cible doit réussir un jet de casinoRéflexes contre votre DD de classe ou devenir sentiment_very_dissatisfiedImmobilisée jusqu'à ce qu'elle ou une créature adjacente réussisse un test d'Athlétisme contre un DD 10 pour retirer les projectiles fichés.",
+                "Si vos deux attaques touchent, la cible doit réussir un jet de Réflexes contre votre DD de classe ou devenir Immobilisée jusqu'à ce qu'elle ou une créature adjacente réussisse un test d'Athlétisme contre un DD 10 pour retirer les projectiles fichés.",
                 "La créature ne devient pas immobilisée si elle est intangible, constituée de liquide (comme le serait un élémentaire d'eau ou certaines vases) ou si elle peut autrement s'échapper sans effort."
             ]
         },
@@ -12569,7 +12569,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "En visant un point faible, vous ralentissez votre adversaire avec un tir précis. Faites une Frappe avec une arme à distance. Si elle touche et inflige des dégâts, la cible est sentiment_very_dissatisfiedRalentie 1 jusqu'à la fin de son prochain tour."
+                "En visant un point faible, vous ralentissez votre adversaire avec un tir précis. Faites une Frappe avec une arme à distance. Si elle touche et inflige des dégâts, la cible est Ralentie 1 jusqu'à la fin de son prochain tour."
             ]
         },
         {
@@ -12618,7 +12618,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Vos attaques à distance peuvent faire chuter un adversaire s'il ne s'y attend pas. Faites une Frappe à distance contre une créature sentiment_very_dissatisfiedPrise au dépourvu . Si la Frappe est un succès et inflige des dégâts, la cible doit tenter un jet de casinoRéflexes contre votre DD de classe.",
+                "Vos attaques à distance peuvent faire chuter un adversaire s'il ne s'y attend pas. Faites une Frappe à distance contre une créature Prise au dépourvu . Si la Frappe est un succès et inflige des dégâts, la cible doit tenter un jet de Réflexes contre votre DD de classe.",
                 "Succès La cible n'est pas affectée.",
                 "Échec La cible tombe d'une distance maximale de 36 mètres. Si elle tombe au sol, elle ne subit pas de dégâts de chute.",
                 "Échec critique Comme en cas d'échec, mais la cible ne peut plus léviter, sauter, voler ni quitter le sol d'une autre façon jusqu'à la fin de votre prochain tour."
@@ -12634,8 +12634,8 @@ DON.CLASS = {
                 "Parade de projectile, Posture de l'archer Monastique"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture de l'archer monastique , en train de manier un arc et disposez d'une main libre.",
-                "Interceptant une flèche en l'air, vous la placez instantanément sur votre arc et retournez le tir. Lorsque vous réussissez votre military_techParade de projectile avec une flèche, faisant partie de cette réaction, vous pouvez faire immédiatement une Frappe à distance à l'arc en tirant la flèche que vous avez attrapée à partir de votre propre arc."
+                "Conditions Vous êtes dans la Posture de l'archer monastique , en train de manier un arc et disposez d'une main libre.",
+                "Interceptant une flèche en l'air, vous la placez instantanément sur votre arc et retournez le tir. Lorsque vous réussissez votre Parade de projectile avec une flèche, faisant partie de cette réaction, vous pouvez faire immédiatement une Frappe à distance à l'arc en tirant la flèche que vous avez attrapée à partir de votre propre arc."
             ]
         },
         {
@@ -12661,8 +12661,8 @@ DON.CLASS = {
                 "Posture de l'archer monastique, Coups étourdissants"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techposture de l'Archer monastique et maniez un arc utilisable avec cette posture.",
-                "Vous encochez trois flèches sur la corde de votre arc et les tirez toutes en même temps. Faites trois Frappes à distance contre une unique cible avec l'arme requise, chacune utilisant votre pénalité d'attaques multiples actuelle avec une pénalité supplémentaire de -2. Cela compte comme deux attaques lorsque vous calculez votre pénalité d'attaques multiples et vous combinez les dégâts des attaques pour les besoins de déterminer les résistances et les faiblesses. Le bénéfice de vos Coups étourdissants s'applique à votre Tir triangulé, même si ce n'est pas un Déluge de coups. Si les trois Frappes touchent, la cible subit casino3d6 dégâts de saignement ."
+                "Conditions Vous êtes dans la posture de l'Archer monastique et maniez un arc utilisable avec cette posture.",
+                "Vous encochez trois flèches sur la corde de votre arc et les tirez toutes en même temps. Faites trois Frappes à distance contre une unique cible avec l'arme requise, chacune utilisant votre pénalité d'attaques multiples actuelle avec une pénalité supplémentaire de -2. Cela compte comme deux attaques lorsque vous calculez votre pénalité d'attaques multiples et vous combinez les dégâts des attaques pour les besoins de déterminer les résistances et les faiblesses. Le bénéfice de vos Coups étourdissants s'applique à votre Tir triangulé, même si ce n'est pas un Déluge de coups. Si les trois Frappes touchent, la cible subit 3d6 dégâts de saignement ."
             ]
         },
         {
@@ -12675,7 +12675,7 @@ DON.CLASS = {
                 "Initié des ombres tenaces"
             ],
             "description": [
-                "Vous pouvez lancer une vague de Qi fait d'ombre à partir de votre corps, infligeant des dégâts à vos adversaires et les figeant potentiellement sur place. Vous obtenez le Sort Qi auto_awesomeToile d'ombre ."
+                "Vous pouvez lancer une vague de Qi fait d'ombre à partir de votre corps, infligeant des dégâts à vos adversaires et les figeant potentiellement sur place. Vous obtenez le Sort Qi Toile d'ombre ."
             ]
         },
         {
@@ -12690,9 +12690,9 @@ DON.CLASS = {
             ],
             "description": [
                 "Conditions Vous maniez une seule arme de corps-à-corps à une main et vous ne tenez rien d'autre dans vos mains.",
-                "Après que votre attaque initiale a redirigé les défenses de votre ennemi, celle qui suit lui arrache son arme. Effectuez une attaque au corps-à-corps avec une arme au corps-à-corps à une main. Effectuez une Frappe au corps-à-corps avec l'arme requise. En plus de ses autres effets, cette Frappe obtient les effets de succès et de succès critique de l'action sports_martial_artsDésarmer . La Frappe a également l'effet d'échec suivant.",
+                "Après que votre attaque initiale a redirigé les défenses de votre ennemi, celle qui suit lui arrache son arme. Effectuez une attaque au corps-à-corps avec une arme au corps-à-corps à une main. Effectuez une Frappe au corps-à-corps avec l'arme requise. En plus de ses autres effets, cette Frappe obtient les effets de succès et de succès critique de l'action Désarmer . La Frappe a également l'effet d'échec suivant.",
                 "Échec La cible est Prise au dépourvu jusqu'à la fin de votre tour actuel.",
-                "Spécial Si vous êtes en military_techPosture désarmante , vous obtenez un bonus de circonstances de +1 au jet d'attaque."
+                "Spécial Si vous êtes en Posture désarmante , vous obtenez un bonus de circonstances de +1 au jet d'attaque."
             ]
         },
         {
@@ -12705,7 +12705,7 @@ DON.CLASS = {
                 "Touche-à-tout ésotérique"
             ],
             "description": [
-                "Votre esprit flexible peut rapidement échanger un sort contre un autre. Si vous ajoutez un sort à votre répertoire pendant vos préparatifs quotidiens en utilisant military_techTouche-à-tout ésotérique , quand vous le préparez à nouveau, vous pouvez choisir de garder ce nouveau sort provenant de Touche-à-tout ésotérique dans votre répertoire et de perdre à la place l'accès à un autre sort de même rang de votre répertoire."
+                "Votre esprit flexible peut rapidement échanger un sort contre un autre. Si vous ajoutez un sort à votre répertoire pendant vos préparatifs quotidiens en utilisant Touche-à-tout ésotérique , quand vous le préparez à nouveau, vous pouvez choisir de garder ce nouveau sort provenant de Touche-à-tout ésotérique dans votre répertoire et de perdre à la place l'accès à un autre sort de même rang de votre répertoire."
             ]
         },
         {
@@ -12732,8 +12732,8 @@ DON.CLASS = {
                 "qualifié en Arcanes, Nature, Occultisme ou Religion, Touche-à-tout ésotérique"
             ],
             "description": [
-                "Vos formules ésotériques sont si inhabituelles qu'elles vous permettent de vous essayer à la magie d'autres traditions que les autres bardes ne comprennent pas. Tant que vous êtes qualifié en Arcanes, vous pouvez ajouter des sorts arcaniques dans votre livre issu de military_techTouche-à-tout ésotérique . Tant que vous êtes qualifié en Nature, vous pouvez y ajouter des sorts primordiaux. Tant que vous êtes qualifié en Religion, vous pouvez y ajouter des sorts divins.",
-                "Comme les autres sorts dans votre livre, vous pouvez ajouter un des sorts dd'une autre tradition à votre répertoire en tant que sort occulte chaque jour en utilisant Touche-à-tout ésotérique mais vous ne pouvez pas conserver les sorts d'une autre tradition lorsque pour faites de nouveau vos préparatifs, même si vous avez military_techTouche-à-tout éclectique ."
+                "Vos formules ésotériques sont si inhabituelles qu'elles vous permettent de vous essayer à la magie d'autres traditions que les autres bardes ne comprennent pas. Tant que vous êtes qualifié en Arcanes, vous pouvez ajouter des sorts arcaniques dans votre livre issu de Touche-à-tout ésotérique . Tant que vous êtes qualifié en Nature, vous pouvez y ajouter des sorts primordiaux. Tant que vous êtes qualifié en Religion, vous pouvez y ajouter des sorts divins.",
+                "Comme les autres sorts dans votre livre, vous pouvez ajouter un des sorts dd'une autre tradition à votre répertoire en tant que sort occulte chaque jour en utilisant Touche-à-tout ésotérique mais vous ne pouvez pas conserver les sorts d'une autre tradition lorsque pour faites de nouveau vos préparatifs, même si vous avez Touche-à-tout éclectique ."
             ]
         },
         {
@@ -12759,8 +12759,8 @@ DON.CLASS = {
                 "Sort de dévotion (imposition des mains)"
             ],
             "description": [
-                "Votre énergie de guérison renforce les attaques. Un allié qui récupère des Points de vie du fait de votre auto_awesomeImposition des mains obtient un bonus de statut de +1 à ses jets d'attaque et inflige 1 dégât spirituel supplémentaire sur toutes ses Frappes jusqu'à la fin de son prochain tour. De plus, toutes ses Frappes sont saintes jusqu'à la fin de son prochain tour.",
-                "flareEffet : Toucher amplificateur"
+                "Votre énergie de guérison renforce les attaques. Un allié qui récupère des Points de vie du fait de votre Imposition des mains obtient un bonus de statut de +1 à ses jets d'attaque et inflige 1 dégât spirituel supplémentaire sur toutes ses Frappes jusqu'à la fin de son prochain tour. De plus, toutes ses Frappes sont saintes jusqu'à la fin de son prochain tour.",
+                "Effet : Toucher amplificateur"
             ]
         },
         {
@@ -12774,7 +12774,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Vos énergies curatives créent une aura de protection qui protège vos alliés contre bien plus que des lames et des flèches.",
-                "Un allié qui récupère des Points de vie grâce à votre auto_awesomeImposition des mains obtient un bonus de statut de +1 à ses jets de sauvegarde jusqu'à la fin de son prochain tour."
+                "Un allié qui récupère des Points de vie grâce à votre Imposition des mains obtient un bonus de statut de +1 à ses jets de sauvegarde jusqu'à la fin de son prochain tour."
             ]
         },
         {
@@ -12787,8 +12787,8 @@ DON.CLASS = {
                 "Imposition des mains"
             ],
             "description": [
-                "Vos énergies curatrices persistent après vos incantations, procurant un bénéfice continue. Un allié qui récupère des Points de vie par votre Imposition des mains obtient 10 Points de vie temporaires immédiatement et au début de son tour durant chacun des 10 prochains rounds. Ces Points de vie temporaires durent jusqu'au début du tour de la créature. Cet effet s'interrompt si l'allié est rendu sentiment_very_dissatisfiedInconscient .",
-                "flareEffet : Toucher rajeunissant"
+                "Vos énergies curatrices persistent après vos incantations, procurant un bénéfice continue. Un allié qui récupère des Points de vie par votre Imposition des mains obtient 10 Points de vie temporaires immédiatement et au début de son tour durant chacun des 10 prochains rounds. Ces Points de vie temporaires durent jusqu'au début du tour de la créature. Cet effet s'interrompt si l'allié est rendu Inconscient .",
+                "Effet : Toucher rajeunissant"
             ]
         },
         {
@@ -12812,8 +12812,8 @@ DON.CLASS = {
                 "Posture du loup"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture du loup",
-                "Vous fauchez les jambes de votre ennemi. Faites une Frappe de mâchoire de loup. Votre Frappe de mâchoire de loup bénéficie du trait fatal d12 et si l'attaque est réussie, la cible se retrouve sentiment_very_dissatisfiedÀ terre ."
+                "Conditions Vous êtes dans la Posture du loup",
+                "Vous fauchez les jambes de votre ennemi. Faites une Frappe de mâchoire de loup. Votre Frappe de mâchoire de loup bénéficie du trait fatal d12 et si l'attaque est réussie, la cible se retrouve À terre ."
             ]
         },
         {
@@ -12842,7 +12842,7 @@ DON.CLASS = {
                 "Ailes de rage du dragon"
             ],
             "description": [
-                "Vous vous métamorphosez en un féroce dragon de taille Grande et bénéficiez des effets du sort auto_awesomeForme de dragon au rang 6, mais vous continuez d'utiliser votre CA et votre modificateur d'attaque. Vous appliquez également vos dégâts supplémentaires de sports_martial_artsRage et l'action de Souffle de dragon utilise votre DD de classe. Ajoutez les Points de vie temporaires de la forme de dragon à ceux que vous avez déjà en entrant en rage (ou toute autre action avec le trait rage). L'action permettant de Révoquer la transformation obtient le trait rage.",
+                "Vous vous métamorphosez en un féroce dragon de taille Grande et bénéficiez des effets du sort Forme de dragon au rang 6, mais vous continuez d'utiliser votre CA et votre modificateur d'attaque. Vous appliquez également vos dégâts supplémentaires de Rage et l'action de Souffle de dragon utilise votre DD de classe. Ajoutez les Points de vie temporaires de la forme de dragon à ceux que vous avez déjà en entrant en rage (ou toute autre action avec le trait rage). L'action permettant de Révoquer la transformation obtient le trait rage.",
                 "Au niveau 18, vous obtenez un bonus de statut de +6 mètres à votre Vitesse de vol, votre bonus aux dégâts avec vos Frappes de dragon passe à +12 et vous obtenez un bonus de statut de +14 aux dégâts de votre souffle de dragon."
             ]
         },
@@ -12857,15 +12857,15 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur variable",
-                "Vous vous transformez instinctivement face au danger. Vous lancez auto_awesomeForme indomptée pour vous transformer en une des formes accordées par un des dons prérequis que vous possédez, en fonction du déclencheur. Les résistances et les faiblesses de cette forme s'appliquent aux dégâts déclencheurs.",
+                "Vous vous transformez instinctivement face au danger. Vous lancez Forme indomptée pour vous transformer en une des formes accordées par un des dons prérequis que vous possédez, en fonction du déclencheur. Les résistances et les faiblesses de cette forme s'appliquent aux dégâts déclencheurs.",
                 "Déclencheur Vous chutez de 3 mètres ou plus",
-                "Effet Choisissez une des formes de auto_awesomeForme volante .",
+                "Effet Choisissez une des formes de Forme volante .",
                 "Déclencheur Vous subissez des dégâts contondants ou de poison",
-                "Effet Choisissez une des formes de auto_awesomeForme draconique qui résiste aux dégâts déclencheurs.",
+                "Effet Choisissez une des formes de Forme draconique qui résiste aux dégâts déclencheurs.",
                 "Déclencheur Vous subissez des dégâts de feu",
-                "Effet Choisissez une des formes d'élémentaire de feu de auto_awesomeForme élémentaire .",
+                "Effet Choisissez une des formes d'élémentaire de feu de Forme élémentaire .",
                 "Déclencheur Vous subissez des dégâts de poison",
-                "Effet Choisissez une des formes de auto_awesomeForme de plante ."
+                "Effet Choisissez une des formes de Forme de plante ."
             ]
         },
         {
@@ -12878,8 +12878,8 @@ DON.CLASS = {
                 "Bastion de la montagne"
             ],
             "description": [
-                "Conditions Vous êtes dans la military_techPosture de la montagne",
-                "Vous piétinez pour faire trembler la terre sous vos pieds. Les créatures sur le sol dans une crop_freeémanation de 6 mètres subissent un montant de dégâts égal à votre modificateur de Force (0 au minimum), avec un jet de casinoVigueur contre votre DD de classe. Elles tombent également sentiment_very_dissatisfiedÀ terre en cas d'échec. Après avoir effectué cette action, vous ne pouvez plus la réutiliser avant casino1d4 rounds .",
+                "Conditions Vous êtes dans la Posture de la montagne",
+                "Vous piétinez pour faire trembler la terre sous vos pieds. Les créatures sur le sol dans une émanation de 6 mètres subissent un montant de dégâts égal à votre modificateur de Force (0 au minimum), avec un jet de Vigueur contre votre DD de classe. Elles tombent également À terre en cas d'échec. Après avoir effectué cette action, vous ne pouvez plus la réutiliser avant 1d4 rounds .",
                 "Spécial Si vous avez ce don, le bonus de Dextérité maximal à votre CA lorsque vous prenez la Posture de la montagne passe de +1 à +2."
             ]
         },
@@ -12893,7 +12893,7 @@ DON.CLASS = {
                 "Proie commune"
             ],
             "description": [
-                "Vous pouvez partager votre attention entre trois créatures distinctes lorsque vous chassez. Quand vous utilisez sports_martial_artsChasser une proie , vous pouvez désigner trois créatures en guise de proies ou deux créatures et partager l'effet avec un allié (comme avec Proie commune) ou une créature et partager l'effet avec deux alliés."
+                "Vous pouvez partager votre attention entre trois créatures distinctes lorsque vous chassez. Quand vous utilisez Chasser une proie , vous pouvez désigner trois créatures en guise de proies ou deux créatures et partager l'effet avec un allié (comme avec Proie commune) ou une créature et partager l'effet avec deux alliés."
             ]
         },
         {
@@ -12906,7 +12906,7 @@ DON.CLASS = {
                 "Double tir"
             ],
             "description": [
-                "Vous pouvez tirer rapidement plusieurs tirs avec un grand contrôle. Quand vous utilisez military_techDouble tir , vous pouvez porter les attaques contre la même cible. Vous pouvez ajouter une action au Double tir afin de faire trois Frappes à distance au lieu de deux. Si vous le faites, la pénalité s'élève à -4. Toutes les attaques comptent dans le calcul de votre pénalité d'attaques multiples mais la pénalité n'augmente qu'après les avoir toutes effectuées."
+                "Vous pouvez tirer rapidement plusieurs tirs avec un grand contrôle. Quand vous utilisez Double tir , vous pouvez porter les attaques contre la même cible. Vous pouvez ajouter une action au Double tir afin de faire trois Frappes à distance au lieu de deux. Si vous le faites, la pénalité s'élève à -4. Toutes les attaques comptent dans le calcul de votre pénalité d'attaques multiples mais la pénalité n'augmente qu'après les avoir toutes effectuées."
             ]
         },
         {
@@ -12918,7 +12918,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Déclencheur Vous subissez des dégâts qui devraient vous faire passer à 0 Point de vie.",
-                "Vous vous êtes arrangé pour échapper à la faucheuse à un cheveu près. Vous évitez de sombrer dans l'inconscience ou d'être tué, restez à 1 Point de vie et gagnez du flarePanache , mais vous devenez sentiment_very_dissatisfiedCondamné 1 (ou augmentez la valeur de Condamné de 1 si vous étiez déjà Condamné).",
+                "Vous vous êtes arrangé pour échapper à la faucheuse à un cheveu près. Vous évitez de sombrer dans l'inconscience ou d'être tué, restez à 1 Point de vie et gagnez du Panache , mais vous devenez Condamné 1 (ou augmentez la valeur de Condamné de 1 si vous étiez déjà Condamné).",
                 "Vous ne pouvez réduire ou ignorer l'état Condamné de Trompe la mort. L'état Condamné de Trompe la mort dure pendant 10 minutes bien que cela n'affecte pas la durée de toute autre état Condamné que vous possédez."
             ]
         },
@@ -12948,8 +12948,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Vous réduisez un ennemi à 0 Point de vie",
-                "Roublard Après avoir abattu un adversaire, vous en menacez un autre. Tentez de sports_martial_artsDémoraliser une créature qui se trouve dans les 18 mètres. Si vous êtes légendaire en Intimidation, vous pouvez utiliser ceci comme une action gratuite ayant le même déclencheur.",
-                "Bretteur Après avoir abattu un adversaire, vous promettez à un autre de venir le chercher ensuite. Faites un test d'Intimidation avec un bonus de circonstances de +2 pour sports_martial_artsDémoraliser une unique créature que vous pouvez voir et qui peut vous voir. Si vous êtes légendaire en Intimidation, vous pouvez utiliser ce pouvoir par une action gratuite ayant le même déclencheur."
+                "Roublard Après avoir abattu un adversaire, vous en menacez un autre. Tentez de Démoraliser une créature qui se trouve dans les 18 mètres. Si vous êtes légendaire en Intimidation, vous pouvez utiliser ceci comme une action gratuite ayant le même déclencheur.",
+                "Bretteur Après avoir abattu un adversaire, vous promettez à un autre de venir le chercher ensuite. Faites un test d'Intimidation avec un bonus de circonstances de +2 pour Démoraliser une unique créature que vous pouvez voir et qui peut vous voir. Si vous êtes légendaire en Intimidation, vous pouvez utiliser ce pouvoir par une action gratuite ayant le même déclencheur."
             ]
         },
         {
@@ -12967,7 +12967,7 @@ DON.CLASS = {
                 "qualifié en Diplomatie"
             ],
             "description": [
-                "Avec précisément les bons mots d'encouragement, vous soutenez les efforts d'un allié. Désignez un allié dans les 9 mètres. Cette action compte comme une préparation suffisante pour sports_martial_artsAider cet allié. Lorsque vous utilisez la réaction Aider pour aider cet allié, vous pouvez lancer un test de casinoDiplomatie au lieu du test habituel et l'action acquiert le trait bravade."
+                "Avec précisément les bons mots d'encouragement, vous soutenez les efforts d'un allié. Désignez un allié dans les 9 mètres. Cette action compte comme une préparation suffisante pour Aider cet allié. Lorsque vous utilisez la réaction Aider pour aider cet allié, vous pouvez lancer un test de Diplomatie au lieu du test habituel et l'action acquiert le trait bravade."
             ]
         },
         {
@@ -12997,7 +12997,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Alors que votre vengeance est douloureuse à la fois pour vous et votre adversaire, personne ne peut douter que vos ennemis souffrent davantage.",
-                "Vous obtenez un bonus de circonstances aux dégâts que vous infligez avec sports_martial_artsVengeance destructrice égal au nombre de dés de dégâts de la réaction. Cela ne s'applique qu'aux dégâts subis par l'adversaire, pas à ceux que vous subissez ou aux dégâts supplémentaires que vous infligez après avoir utilisé la réaction."
+                "Vous obtenez un bonus de circonstances aux dégâts que vous infligez avec Vengeance destructrice égal au nombre de dés de dégâts de la réaction. Cela ne s'applique qu'aux dégâts subis par l'adversaire, pas à ceux que vous subissez ou aux dégâts supplémentaires que vous infligez après avoir utilisé la réaction."
             ]
         },
         {
@@ -13012,8 +13012,8 @@ DON.CLASS = {
             ],
             "description": [
                 "Fréquence Une fois par minute",
-                "Conditions Vous êtes dans la military_techPosture du cobra .",
-                "Vous vous disloquez légèrement les articulations pour vous élancer avec une intention sournoise et le pouvoir d'empoisonner votre ennemi. Faites une Frappe de crochets du cobra. Votre allonge avec cette frappe est de 1,50 mètre de plus que la normale. Si cette Frappe touche, les dégâts persistants de poison du trait venimeux augmentent à casino1d4 dégâts de poison persistants par dé de dégâts de l'arme.",
+                "Conditions Vous êtes dans la Posture du cobra .",
+                "Vous vous disloquez légèrement les articulations pour vous élancer avec une intention sournoise et le pouvoir d'empoisonner votre ennemi. Faites une Frappe de crochets du cobra. Votre allonge avec cette frappe est de 1,50 mètre de plus que la normale. Si cette Frappe touche, les dégâts persistants de poison du trait venimeux augmentent à 1d4 dégâts de poison persistants par dé de dégâts de l'arme.",
                 "Spécial Si vous avez ce don, le bonus de circonstances aux jets de Vigueur et le DD des jets de Vigueur de Posture du cobra passe de +1 à +2."
             ]
         },
@@ -13054,7 +13054,7 @@ DON.CLASS = {
             ],
             "description": [
                 "Déclencheur Vous tentez un jet de sauvegarde, mais n'avez pas encore lancé les dés.",
-                "Lorsque le danger vous guette, vous avez une étrange manière de toujours vous en sortir au mieux. Vous obtenez un bonus de circonstances de +2 sur le jet déclencheur. Si vous obtenez un succès au jet de sauvegarde déclencheur, vous obtenez du flarePanache jusqu'à la fin de votre prochain tour."
+                "Lorsque le danger vous guette, vous avez une étrange manière de toujours vous en sortir au mieux. Vous obtenez un bonus de circonstances de +2 sur le jet déclencheur. Si vous obtenez un succès au jet de sauvegarde déclencheur, vous obtenez du Panache jusqu'à la fin de votre prochain tour."
             ]
         },
         {
@@ -13066,7 +13066,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous vous concentrez pour viser, votre attaque devient particulièrement précise. Faites une Frappe d'arme à distance contre votre proie. Pour cette Frappe, vous bénéficiez d'un bonus de circonstances de +2 sur le jet d'attaque et ignorez l'état sentiment_very_dissatisfiedMasqué de votre proie et tout abri inférieur."
+                "Lorsque vous vous concentrez pour viser, votre attaque devient particulièrement précise. Faites une Frappe d'arme à distance contre votre proie. Pour cette Frappe, vous bénéficiez d'un bonus de circonstances de +2 sur le jet d'attaque et ignorez l'état Masqué de votre proie et tout abri inférieur."
             ]
         },
         {
@@ -13078,7 +13078,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "En passant un instant à vous concentrer, vous veillez à ce que votre attaque fasse mouche. Faites une Frappe avec une arme à distance. Pour cette Frappe, vous bénéficiez d'un bonus de circonstances de +2 au jet d'attaque et vous ignorez l'état sentiment_very_dissatisfiedMasqué de la cible."
+                "En passant un instant à vous concentrer, vous veillez à ce que votre attaque fasse mouche. Faites une Frappe avec une arme à distance. Pour cette Frappe, vous bénéficiez d'un bonus de circonstances de +2 au jet d'attaque et vous ignorez l'état Masqué de la cible."
             ]
         },
         {
@@ -13103,7 +13103,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre vision perce les brumes, le brouillard, la pluie et la neige non magiques. Vos attaques à distance et vos tests de Perception ne subissent pas de pénalité de circonstances à cause de précipitations non magiques et vos attaques contre une cible sentiment_very_dissatisfiedMasquée par un tel effet ne nécessitent pas de test nu non plus pour réussir."
+                "Votre vision perce les brumes, le brouillard, la pluie et la neige non magiques. Vos attaques à distance et vos tests de Perception ne subissent pas de pénalité de circonstances à cause de précipitations non magiques et vos attaques contre une cible Masquée par un tel effet ne nécessitent pas de test nu non plus pour réussir."
             ]
         },
         {
@@ -13114,8 +13114,8 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Votre muse a ouvert votre perception au monde de l'au-delà. Vous obtenez Sens spirituel comme un sens imprécis avec une portée de 18 mètres. Sens spirituel vous permet de sentir les esprits des créatures, incluant les créatures vivantes, la plupart des morts-vivants intelligents et les hantises dans la portée indiquée. Comme avec votre ouïe et les autres sens imprécis, vous avez toujours besoin de sports_martial_artsChercher pour localiser une créature Non détectée.",
-                "Comme Sens spirituel détecte l'essence spirituelle et non les corps physiques, elle peut détecter les esprits projetés par des sorts tels que auto_awesomeProjection d'image ou les objets sans âmes possédés. Il ne peut détecter les corps sans âme, les créatures artificielles ou les objets et comme la plupart des sens, il ne peut pénétrer à travers les objets solides."
+                "Votre muse a ouvert votre perception au monde de l'au-delà. Vous obtenez Sens spirituel comme un sens imprécis avec une portée de 18 mètres. Sens spirituel vous permet de sentir les esprits des créatures, incluant les créatures vivantes, la plupart des morts-vivants intelligents et les hantises dans la portée indiquée. Comme avec votre ouïe et les autres sens imprécis, vous avez toujours besoin de Chercher pour localiser une créature Non détectée.",
+                "Comme Sens spirituel détecte l'essence spirituelle et non les corps physiques, elle peut détecter les esprits projetés par des sorts tels que Projection d'image ou les objets sans âmes possédés. Il ne peut détecter les corps sans âme, les créatures artificielles ou les objets et comme la plupart des sens, il ne peut pénétrer à travers les objets solides."
             ]
         },
         {
@@ -13129,8 +13129,8 @@ DON.CLASS = {
             ],
             "description": [
                 "L'essence spirituelle dans votre sang a ouvert vos sens au monde de l'au-delà. Vous obtenez Sens spirituel comme un sens imprécis avec une portée de 18 mètres.",
-                "Sens spirituel vous permet de sentir les esprits des créatures, incluant les créatures vivantes, la plupart des morts-vivants intelligents et les hantises dans la portée indiquée. Comme avec votre ouïe et les autres sens imprécis, vous avez toujours besoin de sports_martial_artsChercher pour localiser une créature Non détectée.",
-                "Comme Sens spirituel détecte l'essence spirituelle et pas les corps physiques, il peut détecter les esprits projetés par des sorts tels que auto_awesomeProjection d'image ou les objets sans âmes possédés. Il ne peut détecter les corps sans âme, les créatures artificielles ou les objets et comme la plupart des sens, il ne peut passer à travers les objets solides."
+                "Sens spirituel vous permet de sentir les esprits des créatures, incluant les créatures vivantes, la plupart des morts-vivants intelligents et les hantises dans la portée indiquée. Comme avec votre ouïe et les autres sens imprécis, vous avez toujours besoin de Chercher pour localiser une créature Non détectée.",
+                "Comme Sens spirituel détecte l'essence spirituelle et pas les corps physiques, il peut détecter les esprits projetés par des sorts tels que Projection d'image ou les objets sans âmes possédés. Il ne peut détecter les corps sans âme, les créatures artificielles ou les objets et comme la plupart des sens, il ne peut passer à travers les objets solides."
             ]
         },
         {
@@ -13152,7 +13152,7 @@ DON.CLASS = {
             ],
             "required"   : [],
             "description": [
-                "Lorsque vous êtes sur une affaire, vous restez vigilant et déterminé à éviter les ficelles que votre suspect pourrait tirer. Vous obtenez votre bonus d'enquête issu de sports_martial_artsSuivre une piste sur vos jets de sauvegarde (et leurs DD, comme à l'ordinaire) contre les créatures ou les effets qui sont en rapport avec la question au cœur d'une enquête ouverte et vous pouvez utiliser sports_martial_artsPartager les indices pour aider un de vos alliés lors d'un jet de sauvegarde contre cette créature ou cet effet."
+                "Lorsque vous êtes sur une affaire, vous restez vigilant et déterminé à éviter les ficelles que votre suspect pourrait tirer. Vous obtenez votre bonus d'enquête issu de Suivre une piste sur vos jets de sauvegarde (et leurs DD, comme à l'ordinaire) contre les créatures ou les effets qui sont en rapport avec la question au cœur d'une enquête ouverte et vous pouvez utiliser Partager les indices pour aider un de vos alliés lors d'un jet de sauvegarde contre cette créature ou cet effet."
             ]
         },
         {
@@ -13166,7 +13166,7 @@ DON.CLASS = {
                 "Hymne de courage"
             ],
             "description": [
-                "Votre auto_awesomeHymne de courage relâche un son discordant qui imprègne les attaques de vos alliés avec de puissantes réverbérations sonores. Tant que vos alliés sont affectés par votre Hymne de courage, leurs Frappes avec des armes et leurs attaques à mains nues infligent 1d6 dégâts de son supplémentaires."
+                "Votre Hymne de courage relâche un son discordant qui imprègne les attaques de vos alliés avec de puissantes réverbérations sonores. Tant que vos alliés sont affectés par votre Hymne de courage, leurs Frappes avec des armes et leurs attaques à mains nues infligent 1d6 dégâts de son supplémentaires."
             ]
         },
         {
@@ -13180,7 +13180,7 @@ DON.CLASS = {
             "required"   : [],
             "description": [
                 "Conditions Vous maniez une arme à distance avec le trait volée et rechargement 0",
-                "Vous tirez une volée de projectiles sur tous les adversaires dans une zone. Faites une Frappe avec une pénalité de -2 contre chaque ennemi dans une crop_freeexplosion de 3 mètres centrée sur un point situé à une distance supérieure ou égale à la portée de volée de votre arme. Lancez les dégâts seulement une fois pour toutes les cibles.",
+                "Vous tirez une volée de projectiles sur tous les adversaires dans une zone. Faites une Frappe avec une pénalité de -2 contre chaque ennemi dans une explosion de 3 mètres centrée sur un point situé à une distance supérieure ou égale à la portée de volée de votre arme. Lancez les dégâts seulement une fois pour toutes les cibles.",
                 "Chaque attaque est prise en compte dans le calcul de votre pénalité d'attaques multiples, mais celle-ci n'augmente qu'après avoir effectué toutes vos attaques."
             ]
         },
@@ -13208,10 +13208,33 @@ DON.CLASS = {
             ],
             "description": [
                 "Vous utilisez les sens de votre familier aussi facilement que les vôtres.",
-                "Vous projetez vos sens dans votre familier. Lorsque vous le faites, vous perdez toutes les informations sensorielles de votre propre corps mais vous pouvez ressentir à travers le corps de votre familier jusqu'à ce que vous sports_martial_artsRévoquiez l'effet.",
+                "Vous projetez vos sens dans votre familier. Lorsque vous le faites, vous perdez toutes les informations sensorielles de votre propre corps mais vous pouvez ressentir à travers le corps de votre familier jusqu'à ce que vous Révoquiez l'effet.",
                 "En projetant vos sens de cette manière, vous pouvez converser télépathiquement avec votre familier s'il comprend une langue.",
                 "Spécial Ce don possède le trait correspondant à la tradition des sorts que vous lancez (arcanique, divin, occulte ou primordial)."
             ]
         }
     ]
+};
+
+/**
+ * Class feats of one class open to the character: the class carries its
+ * name in its traits, the level must be low enough.
+ *
+ * @param {string} class_name  Class name, ex: "Magicien"
+ * @param {number} max_level   Level of the line choosing the feat
+ * @returns {Array}            [ { name } ] of the available feats
+ */
+DON.getAvailableClassFeats = function ( class_name, max_level ) {
+    let to_return = [];
+    let feats     = DON.CLASS.ENUM;
+    for ( let i = 0, _size_i = feats.length; i < _size_i; i++ ) {
+        if ( feats[ i ].traits.indexOf( class_name ) === -1 ) {
+            continue;
+        }
+        if ( parseInt( feats[ i ].level, 10 ) > max_level ) {
+            continue;
+        }
+        to_return.push( { "name": feats[ i ].name } );
+    }
+    return to_return;
 };

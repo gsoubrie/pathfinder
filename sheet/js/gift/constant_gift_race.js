@@ -67,7 +67,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Alors que d'autres gravent leurs armures pour servir d'exutoire à leur imagination, votre esprit vif et votre personnalité audacieuse vous permettent de projeter votre personnalité sur une armure manquant de lustre. Vous changez la forme et l'apparence de votre armure pour qu'elle apparaisse comme étant des habits ordinaires ou comme de beaux atours issus de votre imagination. Les statistiques de l'armure ne changent pas. Cet effet dure tant que vous restez conscient et que vous portez l'armure. Une créature peut percer l'illusion en Cherchant ou en touchant votre armure. Le DD est égal à votre casinoVolonté ."
+                    "Alors que d'autres gravent leurs armures pour servir d'exutoire à leur imagination, votre esprit vif et votre personnalité audacieuse vous permettent de projeter votre personnalité sur une armure manquant de lustre. Vous changez la forme et l'apparence de votre armure pour qu'elle apparaisse comme étant des habits ordinaires ou comme de beaux atours issus de votre imagination. Les statistiques de l'armure ne changent pas. Cet effet dure tant que vous restez conscient et que vous portez l'armure. Une créature peut percer l'illusion en Cherchant ou en touchant votre armure. Le DD est égal à votre Volonté ."
                 ]
             },
             {
@@ -79,7 +79,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous êtes rompu à la capture de déserteurs ou \"sangsues\". Faites une Frappe au corps-à-corps avec une arme du groupe des fléaux. Si elle touche, la cible subit une pénalité de -3 mètres à sa Vitesse (ou de -4,50 mètres sur un coup critique). Cette pénalité dure pendant 1 round. Elle ne s'applique que si la cible a une Vitesse au sol et dépend de ses jambes ou autres appendices discernables lui permettant d'utiliser cette Vitesse au sol et cela ne peut pas réduire la vitesse de la créature en dessous de 1,50 mètre.",
-                    "flareEffet : Accroche-sangsue"
+                    "Effet : Accroche-sangsue"
                 ]
             },
             {
@@ -91,7 +91,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Au cours de vos aventures, vous avez affiné votre capacité à vous adapter à la culture de l'ascendance qui prédomine dans votre entourage.",
-                    "Vous obtenez le don général military_techAscendance adoptive , ainsi qu'un don ancestral de niveau 1 tiré de la liste de dons de l'ascendance que vous avez choisi avec Ascendance adoptive."
+                    "Vous obtenez le don général Ascendance adoptive , ainsi qu'un don ancestral de niveau 1 tiré de la liste de dons de l'ascendance que vous avez choisi avec Ascendance adoptive."
                 ]
             },
             {
@@ -118,7 +118,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "Votre magie féerique s'est renforcée avec le temps.",
-                    "Vous obtenez auto_awesomeInvisibilité et auto_awesomeLumière révélatrice comme sorts innés primordiaux de rang 2. Vous pouvez lancer chacun de ces sorts innés primordiaux une fois par jour."
+                    "Vous obtenez Invisibilité et Lumière révélatrice comme sorts innés primordiaux de rang 2. Vous pouvez lancer chacun de ces sorts innés primordiaux une fois par jour."
                 ]
             },
             {
@@ -129,7 +129,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez un sens de l'équilibre quasi-surnaturel qui vous permet de vous déplacer rapidement à travers les surfaces les plus instables. Vous obtenez le don de compétence military_techÉquilibre stable . Vous pouvez Faire un pas sur un terrain difficile provoqué par un sol instable, tel qu'un terrain rocailleux ou une déclivité accidentée."
+                    "Vous avez un sens de l'équilibre quasi-surnaturel qui vous permet de vous déplacer rapidement à travers les surfaces les plus instables. Vous obtenez le don de compétence Équilibre stable . Vous pouvez Faire un pas sur un terrain difficile provoqué par un sol instable, tel qu'un terrain rocailleux ou une déclivité accidentée."
                 ]
             },
             {
@@ -140,7 +140,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre éducation a mis l'accent sur le travail en équipe et aider vos alliés vous vient naturellement. Lorsque vous avez sports_martial_artsAidé un allié pour un test de compétence qui n'a pas le trait attaque, vous pouvez aussi aider tout autre allié qui essaie le même test de compétence dans le même but durant ce round. Vous le faites par une action gratuite plutôt que par une réaction.",
+                    "Votre éducation a mis l'accent sur le travail en équipe et aider vos alliés vous vient naturellement. Lorsque vous avez Aidé un allié pour un test de compétence qui n'a pas le trait attaque, vous pouvez aussi aider tout autre allié qui essaie le même test de compétence dans le même but durant ce round. Vous le faites par une action gratuite plutôt que par une réaction.",
                     "La préparation que vous avez réalisée doit toujours s'appliquer aux autres alliés et vous pouvez Aider chaque allié seulement une fois. Par exemple, si vous faites la courte échelle à un allié pour l'Aider sur un test d'Athlétisme pour escalader un mur, vous pourriez conserver la même posture pour donner un appui aux tentatives de vos autres alliés qui tentent d'escalader le mur lors du même round."
                 ]
             },
@@ -155,11 +155,11 @@ DON.RACE = {
                     "expert en Athlétisme"
                 ],
                 "description": [
-                    "Vous disposez d'une paire d'ailes draconiques suffisamment puissantes pour battre vos ennemis et les repousser. Choisissez jusqu'à deux créatures qui vous sont adjacentes. Faites un test d' casinoAthlétisme et comparez-le au DD de Vigueur de chaque cible. Ceci compte comme deux attaques dans le calcul de votre pénalité d'attaques multiples, mais l'augmentation de la pénalité ne s'applique qu'après les deux attaques.",
-                    "Succès critique La cible subit des dégâts contondants égaux au double de votre niveau ( casino2*@actor.level contondant ) et elle est repoussée jusqu'à 3 mètres de vous.",
+                    "Vous disposez d'une paire d'ailes draconiques suffisamment puissantes pour battre vos ennemis et les repousser. Choisissez jusqu'à deux créatures qui vous sont adjacentes. Faites un test d' Athlétisme et comparez-le au DD de Vigueur de chaque cible. Ceci compte comme deux attaques dans le calcul de votre pénalité d'attaques multiples, mais l'augmentation de la pénalité ne s'applique qu'après les deux attaques.",
+                    "Succès critique La cible subit des dégâts contondants égaux au double de votre niveau ( 2*@actor.level contondant ) et elle est repoussée jusqu'à 3 mètres de vous.",
                     "Succès La cible subit des dégâts contondants égaux à votre niveau ( casino@actor.level contondant ) et elle est repoussée jusqu'à 1,50 mètre de vous.",
-                    "Échec La cible subit des dégâts contondants égaux à la moitié de votre niveau ( casino(floor(@actor.level/2)) contondant ).",
-                    "Échec critique Vous tombez sentiment_very_dissatisfiedÀ terre à la fin de votre action."
+                    "Échec La cible subit des dégâts contondants égaux à la moitié de votre niveau ( (floor(@actor.level/2)) contondant ).",
+                    "Échec critique Vous tombez À terre à la fin de votre action."
                 ]
             },
             {
@@ -186,7 +186,7 @@ DON.RACE = {
                     "Ailes divines"
                 ],
                 "description": [
-                    "Vos ailes sont désormais une partie permanente de votre corps. Vous obtenez les effets d' military_techAiles divines à tout moment, plutôt que juste une fois par jour pendant 10 minutes."
+                    "Vos ailes sont désormais une partie permanente de votre corps. Vous obtenez les effets d' Ailes divines à tout moment, plutôt que juste une fois par jour pendant 10 minutes."
                 ]
             },
             {
@@ -197,7 +197,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Du fait de l'influence latente du protecteur de votre terrier, une paire de petites ailes a poussé dans votre dos. Quoique insuffisante pour voler réellement, ces ailettes peuvent vous aider à sauter plus loin grâce à leurs petits battements. Lorsque vous Sautez horizontalement, vous vous déplacez de 1,50 mètre supplémentaire. Cette distance supplémentaire n'est pas cumulable avec la distance de sports_martial_artsBond augmentée liée au don military_techBond puissant . De plus, lorsque vous tentez un sports_martial_artsSaut en longueur , vous pouvez sauter à une distance qui va jusqu'à 3 mètres de plus que la distance que vous pourriez normalement franchir au regard du résultat de votre test d'Athlétisme, bien que vous ne puissiez toujours pas sauter plus loin que votre Vitesse. Vous n'obtenez pas automatiquement un échec à vos tests de sports_martial_artsSaut en hauteur ou de Saut en longueur si vous ne Marchez pas rapidement d'au moins 3 mètres."
+                    "Du fait de l'influence latente du protecteur de votre terrier, une paire de petites ailes a poussé dans votre dos. Quoique insuffisante pour voler réellement, ces ailettes peuvent vous aider à sauter plus loin grâce à leurs petits battements. Lorsque vous Sautez horizontalement, vous vous déplacez de 1,50 mètre supplémentaire. Cette distance supplémentaire n'est pas cumulable avec la distance de Bond augmentée liée au don Bond puissant . De plus, lorsque vous tentez un Saut en longueur , vous pouvez sauter à une distance qui va jusqu'à 3 mètres de plus que la distance que vous pourriez normalement franchir au regard du résultat de votre test d'Athlétisme, bien que vous ne puissiez toujours pas sauter plus loin que votre Vitesse. Vous n'obtenez pas automatiquement un échec à vos tests de Saut en hauteur ou de Saut en longueur si vous ne Marchez pas rapidement d'au moins 3 mètres."
                 ]
             },
             {
@@ -230,7 +230,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez développé un lien profond avec vos camarades et pouvez ainsi encore mieux coopérer avec eux. Si vous êtes au moins expert dans la compétence à laquelle vous apportez votre sports_martial_artsAide , lorsque vous obtenez un échec ou un échec critique à vos tests pour Aider, il devient un succès."
+                    "Vous avez développé un lien profond avec vos camarades et pouvez ainsi encore mieux coopérer avec eux. Si vous êtes au moins expert dans la compétence à laquelle vous apportez votre Aide , lorsque vous obtenez un échec ou un échec critique à vos tests pour Aider, il devient un succès."
                 ]
             },
             {
@@ -241,7 +241,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Contrairement à la plupart des vôtres, qui considèrent les gobelins comme de l'embarras ou des inconvénients facilement remplaçables, vous avez étudié la méthodologie derrière leurs actions irresponsables et incompréhensibles. Vous obtenez le don général military_techAscendance adoptive et devez choisir l'ascendance gobelin. Vous obtenez aussi un don ancestral gobelin de niveau 1."
+                    "Contrairement à la plupart des vôtres, qui considèrent les gobelins comme de l'embarras ou des inconvénients facilement remplaçables, vous avez étudié la méthodologie derrière leurs actions irresponsables et incompréhensibles. Vous obtenez le don général Ascendance adoptive et devez choisir l'ascendance gobelin. Vous obtenez aussi un don ancestral gobelin de niveau 1."
                 ]
             },
             {
@@ -252,7 +252,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous invoquez les esprits de la nature proches de vous pour améliorer votre corps. Une fois par jour, vous pouvez lancer auto_awesomeForme de plante comme un sort inné primordial de rang 5. Lorsque vous atteignez le niveau 17, vous pouvez intensifier au rang 6 lorsque vous le lancez."
+                    "Vous invoquez les esprits de la nature proches de vous pour améliorer votre corps. Une fois par jour, vous pouvez lancer Forme de plante comme un sort inné primordial de rang 5. Lorsque vous atteignez le niveau 17, vous pouvez intensifier au rang 6 lorsque vous le lancez."
                 ]
             },
             {
@@ -266,7 +266,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Vous émettez un sifflement strident et pointez du doigt et une énorme nuée de rats jaillit du terrain environnant pour remplir une crop_freeexplosion de 9 mètres dans les 36 mètres. Les rats courent sur le sol et grimpent sur les murs et les surfaces, mordant et griffant tout en infligeant casino6d8 dégâts perforants à tous les ennemis dans la zone. Les rats continuent de grouiller dans la zone pendant la minute suivante, infligeant casino3d8 dégâts perforants à tout ennemi qui termine son tour dans la zone et transformant la zone en terrain difficile (bien que les rats vous permettent, à vous ainsi qu'à vos alliés, de passer normalement). Vous pouvez Révoquer l'effet."
+                    "Vous émettez un sifflement strident et pointez du doigt et une énorme nuée de rats jaillit du terrain environnant pour remplir une explosion de 9 mètres dans les 36 mètres. Les rats courent sur le sol et grimpent sur les murs et les surfaces, mordant et griffant tout en infligeant 6d8 dégâts perforants à tous les ennemis dans la zone. Les rats continuent de grouiller dans la zone pendant la minute suivante, infligeant 3d8 dégâts perforants à tout ennemi qui termine son tour dans la zone et transformant la zone en terrain difficile (bien que les rats vous permettent, à vous ainsi qu'à vos alliés, de passer normalement). Vous pouvez Révoquer l'effet."
                 ]
             },
             {
@@ -278,7 +278,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous disposez d'un lien puissant avec le Cimetière et ses cours, vous faisant bénéficier de la capacité de voyager jusqu'au Cimetière et d'en revenir. Vous pouvez lancer auto_awesomeTéléportation interplanaire comme sort divin inné deux fois par semaine.",
+                    "Vous disposez d'un lien puissant avec le Cimetière et ses cours, vous faisant bénéficier de la capacité de voyager jusqu'au Cimetière et d'en revenir. Vous pouvez lancer Téléportation interplanaire comme sort divin inné deux fois par semaine.",
                     "Ce sort peut seulement être utilisé pour voyager vers le Cimetière ou du Cimetière vers l'Univers. Compte tenu de votre lien unique avec le Cimetière, votre corps sert de locus pour le sort et vous n'avez pas besoin d'une clé planaire."
                 ]
             },
@@ -290,7 +290,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez entendu l'Appel et, en lui résistant, vous avez développé un rempart mental contre les effets qui cibleraient votre esprit. Vous obtenez un bonus de circonstances de +1 aux jets de Volonté contre les effets mentaux. Si vous obtenez un succès sur votre jet de sauvegarde contre un effet mental qui devrait vous rendre sentiment_very_dissatisfiedContrôlé , il devient un succès critique."
+                    "Vous avez entendu l'Appel et, en lui résistant, vous avez développé un rempart mental contre les effets qui cibleraient votre esprit. Vous obtenez un bonus de circonstances de +1 aux jets de Volonté contre les effets mentaux. Si vous obtenez un succès sur votre jet de sauvegarde contre un effet mental qui devrait vous rendre Contrôlé , il devient un succès critique."
                 ]
             },
             {
@@ -313,7 +313,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes habile à esquiver les racines, le feuillage et autres obstacles de la jungle. Vous ignorez le terrain difficile dans les forêts et les jungles. De plus, lorsque vous utilisez la compétence Acrobaties pour sports_martial_artsgarder l'Équilibre sur des surfaces étroites ou un sol inégal fait de végétaux, vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu et lorsque vous obtenez un succès à l'un de ces tests d'Acrobaties, il devient un succès critique."
+                    "Vous êtes habile à esquiver les racines, le feuillage et autres obstacles de la jungle. Vous ignorez le terrain difficile dans les forêts et les jungles. De plus, lorsque vous utilisez la compétence Acrobaties pour garder l'Équilibre sur des surfaces étroites ou un sol inégal fait de végétaux, vous n'êtes pas Pris au dépourvu et lorsque vous obtenez un succès à l'un de ces tests d'Acrobaties, il devient un succès critique."
                 ]
             },
             {
@@ -324,7 +324,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre connexion innée avec la pierre vous permet de vous déplacer plus facilement sur des surfaces accidentées. Vous pouvez ignorer le terrain difficile causé par la pierre (comme des débris ou des gravats). De plus, quand vous utilisez la compétence Acrobaties pour sports_martial_artsGarder l'équilibre sur des surfaces étroites ou sur un sol inégal de pierre ou de terre, vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu et, quand vous obtenez un succès sur un tel test d'Acrobaties, il devient un succès critique."
+                    "Votre connexion innée avec la pierre vous permet de vous déplacer plus facilement sur des surfaces accidentées. Vous pouvez ignorer le terrain difficile causé par la pierre (comme des débris ou des gravats). De plus, quand vous utilisez la compétence Acrobaties pour Garder l'équilibre sur des surfaces étroites ou sur un sol inégal de pierre ou de terre, vous n'êtes pas Pris au dépourvu et, quand vous obtenez un succès sur un tel test d'Acrobaties, il devient un succès critique."
                 ]
             },
             {
@@ -383,7 +383,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez démontrer comment vous écarter rapidement du passage de dangereux effets. Vous pouvez utiliser la réaction sports_martial_artsAider pour accorder à un allié un bonus au jet de Réflexes. Comme à l'ordinaire avec Aider, vous avez besoin de vous préparer en utilisant une action lors de votre tour pour encourager l'allié."
+                    "Vous pouvez démontrer comment vous écarter rapidement du passage de dangereux effets. Vous pouvez utiliser la réaction Aider pour accorder à un allié un bonus au jet de Réflexes. Comme à l'ordinaire avec Aider, vous avez besoin de vous préparer en utilisant une action lors de votre tour pour encourager l'allié."
                 ]
             },
             {
@@ -406,7 +406,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Les pouvoirs de domination employés par vos géniteurs se sont également manifestés en vous. Vous pouvez Lancer auto_awesomeCharme comme un sort inné divin une fois par jour. Son rang de sort est égal à la moitié de votre niveau arrondi au supérieur, mais il n'augmente pas sa durée ni le nombre de ses cibles aux rangs 4 et 8."
+                    "Les pouvoirs de domination employés par vos géniteurs se sont également manifestés en vous. Vous pouvez Lancer Charme comme un sort inné divin une fois par jour. Son rang de sort est égal à la moitié de votre niveau arrondi au supérieur, mais il n'augmente pas sa durée ni le nombre de ses cibles aux rangs 4 et 8."
                 ]
             },
             {
@@ -419,9 +419,9 @@ DON.RACE = {
                     "Arsenal iruxi (queue)"
                 ],
                 "description": [
-                    "Déclencheur Vous devenez sentiment_very_dissatisfiedAgrippé .",
+                    "Déclencheur Vous devenez Agrippé .",
                     "Conditions Vous avez une queue complètement repoussée.",
-                    "Vous pouvez abandonner une portion de votre queue pour vous échapper. Vous cessez d'être agrippé, puis vous Marchez rapidement sans déclencher la moindre réaction de la part de la créature qui vous a agrippé. Il faut 1 semaine pour que votre queue repousse complètement. Jusqu'à ce que ce soit le cas, vous ne pouvez plus faire d'attaques à mains nues avec votre queue et vous subissez une pénalité de circonstances de -2 sur les tests pour sports_martial_artsGarder l'équilibre ."
+                    "Vous pouvez abandonner une portion de votre queue pour vous échapper. Vous cessez d'être agrippé, puis vous Marchez rapidement sans déclencher la moindre réaction de la part de la créature qui vous a agrippé. Il faut 1 semaine pour que votre queue repousse complètement. Jusqu'à ce que ce soit le cas, vous ne pouvez plus faire d'attaques à mains nues avec votre queue et vous subissez une pénalité de circonstances de -2 sur les tests pour Garder l'équilibre ."
                 ]
             },
             {
@@ -447,7 +447,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Les créatures qui ne sont pas des hommes-lézard situées sur un terrain difficile sont sentiment_very_dissatisfiedPrises au dépourvu par rapport à vous.",
+                    "Les créatures qui ne sont pas des hommes-lézard situées sur un terrain difficile sont Prises au dépourvu par rapport à vous.",
                     "Si vous disposez d'une Vitesse de nage, les créatures qui ne sont pas des hommes-lézard, qui se trouvent dans l'eau et ne possèdent pas de Vitesse de nage sont aussi Prises au dépourvu à votre égard."
                 ]
             },
@@ -472,7 +472,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Votre peau humide est particulièrement résistante aux dégâts provoqués par les effets liés aux changements de température. Tentez un casinoTest nu, DD 10 . En cas de succès, vous mettez fin à tous les dégâts de feu persistants et de froid en cours. De plus, vous obtenez une résistance au feu et au froid égale à la moitié de votre niveau pendant 1 minute."
+                    "Votre peau humide est particulièrement résistante aux dégâts provoqués par les effets liés aux changements de température. Tentez un Test nu, DD 10 . En cas de succès, vous mettez fin à tous les dégâts de feu persistants et de froid en cours. De plus, vous obtenez une résistance au feu et au froid égale à la moitié de votre niveau pendant 1 minute."
                 ]
             },
             {
@@ -485,7 +485,7 @@ DON.RACE = {
                     "Dresseur de bêtes, animal de compagnie ou compagnon animal, Férocité orque"
                 ],
                 "description": [
-                    "Depuis des temps immémoriaux, les plus puissants dresseurs de bêtes orques tiraient de leurs compagnons bestiaux un véritable esprit guerrier en les nourrissant avec un mélange incorporant un peu de leur propre sang orque. Tous vos compagnons animaux, animaux de compagnie, familiers ou animaux liés qui vous sont liés possèdent le don military_techFérocité orque et obtiennent une réaction par round qu'ils ne peuvent utiliser que pour Férocité orque. Si vous possédez le don ancestral military_techFérocité immortelle , tous les compagnons animaux, familiers, animaux de compagnie ou animaux liés obtiennent aussi les avantages de ce don lorsqu'ils utilisent la réaction Férocité orque."
+                    "Depuis des temps immémoriaux, les plus puissants dresseurs de bêtes orques tiraient de leurs compagnons bestiaux un véritable esprit guerrier en les nourrissant avec un mélange incorporant un peu de leur propre sang orque. Tous vos compagnons animaux, animaux de compagnie, familiers ou animaux liés qui vous sont liés possèdent le don Férocité orque et obtiennent une réaction par round qu'ils ne peuvent utiliser que pour Férocité orque. Si vous possédez le don ancestral Férocité immortelle , tous les compagnons animaux, familiers, animaux de compagnie ou animaux liés obtiennent aussi les avantages de ce don lorsqu'ils utilisent la réaction Férocité orque."
                 ]
             },
             {
@@ -508,7 +508,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Le roc qui vous entoure est votre allié et vous avez appris à l'utiliser pour compenser vos faiblesses.",
-                    "Tant que vous restez sur le sol et êtes adjacent à un mur en pierre vertical dont la hauteur atteint au moins votre taille, vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu contre les attaques qui résultent d'une prise en tenaille. Cela fonctionne même si vous êtes au coin extérieur d'un mur."
+                    "Tant que vous restez sur le sol et êtes adjacent à un mur en pierre vertical dont la hauteur atteint au moins votre taille, vous n'êtes pas Pris au dépourvu contre les attaques qui résultent d'une prise en tenaille. Cela fonctionne même si vous êtes au coin extérieur d'un mur."
                 ]
             },
             {
@@ -519,7 +519,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vos prouesses en saut sont inégalées. Vous pouvez sports_martial_artsBondir jusqu'à 9 mètres dans n'importe quelle direction sans toucher le sol et sans avoir besoin d'effectuer de test d'Athlétisme. Lorsque vous le faites, vous devez atterrir sur un espace de terre ferme dans un rayon de 9 mètres, sinon vous tombez après avoir utilisé votre action suivante. Vous pouvez dépasser votre Vitesse normale lorsque vous Bondissez.",
+                    "Vos prouesses en saut sont inégalées. Vous pouvez Bondir jusqu'à 9 mètres dans n'importe quelle direction sans toucher le sol et sans avoir besoin d'effectuer de test d'Athlétisme. Lorsque vous le faites, vous devez atterrir sur un espace de terre ferme dans un rayon de 9 mètres, sinon vous tombez après avoir utilisé votre action suivante. Vous pouvez dépasser votre Vitesse normale lorsque vous Bondissez.",
                     "Spécial Si vous avez le don Bonds fantastiques, la distance totale que vous parcourez avec un Bond horizontal est de 12 mètres et de 10,50 mètres pour un Bond vertical."
                 ]
             },
@@ -531,7 +531,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "En adoptant une posture particulière, vous faites un petit bond sur chaque orteil. Vous effectuez un sports_martial_artsBond vertical sans déclencher les réactions qui peuvent être déclenchées par les actions de déplacement ou par le fait de quitter ou de pénétrer dans une case."
+                    "En adoptant une posture particulière, vous faites un petit bond sur chaque orteil. Vous effectuez un Bond vertical sans déclencher les réactions qui peuvent être déclenchées par les actions de déplacement ou par le fait de quitter ou de pénétrer dans une case."
                 ]
             },
             {
@@ -568,7 +568,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vos bonds semblent défier la gravité lorsque vous élancez dans les airs d'un unique bond. Lorsque vous Bondissez, augmentez la distance maximale que vous pouvez sports_martial_artsSauter horizontalement de 3 mètres et la distance maximale que vous pouvez Sauter verticalement de 1,50 mètre."
+                    "Vos bonds semblent défier la gravité lorsque vous élancez dans les airs d'un unique bond. Lorsque vous Bondissez, augmentez la distance maximale que vous pouvez Sauter horizontalement de 3 mètres et la distance maximale que vous pouvez Sauter verticalement de 1,50 mètre."
                 ]
             },
             {
@@ -580,7 +580,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez l'habitude de déguiser des messages codés sous la forme d'idiomes rustiques. Utilisant le slang, les blagues, les emprunts à la langue halfeline et autres procédés du même acabit et vous faites passer un message simple consistant en trois mots de base (tels que “Danger assassin fuyez” ou “rencontre moi lune”).",
-                    "L'auditeur que vous visez peut tenter un test de casinoperception, DD 20 pour comprendre le message. Ce DD est réduit de 5 si l'interlocuteur est un halfelin ou réduit de 10 si l'interlocuteur est un halfelin et qu'il possède le don Boniment campagnard ( casinoperception, DD 15 , casinoperception, DD 10 ). Ceux qui écoutent peuvent aussi tenter un test de casinoperception contre votre DD de Duperie pour en discerner la signification. Tous les bonus et les pénalités applicables à la Perception pour les tests pour sports_martial_artsDeviner les intentions s'appliquent aux tests pour comprendre Boniment campagnard."
+                    "L'auditeur que vous visez peut tenter un test de perception, DD 20 pour comprendre le message. Ce DD est réduit de 5 si l'interlocuteur est un halfelin ou réduit de 10 si l'interlocuteur est un halfelin et qu'il possède le don Boniment campagnard ( perception, DD 15 , perception, DD 10 ). Ceux qui écoutent peuvent aussi tenter un test de perception contre votre DD de Duperie pour en discerner la signification. Tous les bonus et les pénalités applicables à la Perception pour les tests pour Deviner les intentions s'appliquent aux tests pour comprendre Boniment campagnard."
                 ]
             },
             {
@@ -591,7 +591,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes naturellement calme et recueilli face au danger imminent. À la fin de votre tour, réduisez votre état sentiment_very_dissatisfiedEffrayé de 2 au lieu de 1."
+                    "Vous êtes naturellement calme et recueilli face au danger imminent. À la fin de votre tour, réduisez votre état Effrayé de 2 au lieu de 1."
                 ]
             },
             {
@@ -602,7 +602,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez confectionner des outils utilisables à partir de morceaux de métal tordus ou rouillés. Si vous utilisez la compétence Artisanat pour sports_martial_artsFabriquer quelque chose, vous pouvez créer des objets de niveau 0, y compris des armes et des armures, à partir de déchets. Cela réduit le prix à un quart du montant normal, mais l'objet obtenu est toujours de mauvaise qualité. Les objets de mauvaise qualité donnent normalement une pénalité, mais vous ne subissez pas cette pénalité lorsque vous utilisez les objets de mauvaise qualité que vous avez fabriqués (de même, vous ne subissez pas la pénalité appliquée aux armures de mauvaise qualité).",
+                    "Vous pouvez confectionner des outils utilisables à partir de morceaux de métal tordus ou rouillés. Si vous utilisez la compétence Artisanat pour Fabriquer quelque chose, vous pouvez créer des objets de niveau 0, y compris des armes et des armures, à partir de déchets. Cela réduit le prix à un quart du montant normal, mais l'objet obtenu est toujours de mauvaise qualité. Les objets de mauvaise qualité donnent normalement une pénalité, mais vous ne subissez pas cette pénalité lorsque vous utilisez les objets de mauvaise qualité que vous avez fabriqués (de même, vous ne subissez pas la pénalité appliquée aux armures de mauvaise qualité).",
                     "Vous pouvez aussi incorporer des rebuts pour ne pas dépenser d'argent lorsque vous Fabriquez n'importe quel objet. Cela vous permet d'obtenir un rabais sur l'objet, comme si vous aviez passé 1 jour supplémentaire à sa fabrication pour en réduire le coût mais l'objet est visiblement fait avec des rebuts. À la discrétion du MJ, cela pourrait avoir une influence sur le prix de revente de l'objet en fonction des goûts de l'acheteur."
                 ]
             },
@@ -626,7 +626,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Votre lien féerique améliorée (que ce soit à travers votre sang ou à cause d'un contact prolongé avec leur peuple) vous permet de bénéficier d'une réception plus chaleureuse de la part des créatures du Premier Monde ainsi que des outils pour déjouer leurs ruses ou faire face à leur magie. Vous obtenez un bonus de circonstances de +2 à la fois à vos tests de Perception et à vos jets de sauvegarde contre les fées.",
-                    "En outre, lorsque vous rencontrez une créature fée dans un cadre social, vous pouvez immédiatement faire un test de Diplomatie pour sports_martial_artsFaire bonne impression à cette créature, sans avoir besoin de converser avec elle pendant 1 minute. Vous faites ce test avec une pénalité de -5. Si vous échouez, vous pouvez passer 1 minute à converser avec la créature et tenter une nouvelle fois de réussir votre test plutôt que d'accepter le résultat d'un échec ou d'un échec critique."
+                    "En outre, lorsque vous rencontrez une créature fée dans un cadre social, vous pouvez immédiatement faire un test de Diplomatie pour Faire bonne impression à cette créature, sans avoir besoin de converser avec elle pendant 1 minute. Vous faites ce test avec une pénalité de -5. Si vous échouez, vous pouvez passer 1 minute à converser avec la créature et tenter une nouvelle fois de réussir votre test plutôt que d'accepter le résultat d'un échec ou d'un échec critique."
                 ]
             },
             {
@@ -639,7 +639,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Vous sécrétez une cape de poison concentrée qui blesse quiconque ose vous attaquer. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une attaque à mains nues ou une attaque d'arme au corps-à-corps sans le trait allonge subit casino3d6 dégâts de poison ."
+                    "Vous sécrétez une cape de poison concentrée qui blesse quiconque ose vous attaquer. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une attaque à mains nues ou une attaque d'arme au corps-à-corps sans le trait allonge subit 3d6 dégâts de poison ."
                 ]
             },
             {
@@ -650,7 +650,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes particulièrement bon cavalier sur les montures traditionnelles des gobelins. Vous obtenez le don military_techChevaucher même si vous n'en possédez pas les prérequis. Vous obtenez un bonus de circonstances de +1 à vos tests de Nature pour utiliser sports_martial_artsDiriger un animal sur une monture chien gobelin ou loup.",
+                    "Vous êtes particulièrement bon cavalier sur les montures traditionnelles des gobelins. Vous obtenez le don Chevaucher même si vous n'en possédez pas les prérequis. Vous obtenez un bonus de circonstances de +1 à vos tests de Nature pour utiliser Diriger un animal sur une monture chien gobelin ou loup.",
                     "Si vous obtenez un loup comme compagnon animal, il possède le pouvoir spécial monture (et si vous obtenez une capacité qui vous octroie un compagnon animal avec le pouvoir spécial monture, vous pouvez choisir un loup)."
                 ]
             },
@@ -664,7 +664,7 @@ DON.RACE = {
                     "Chance féline"
                 ],
                 "description": [
-                    "Lorsque vous utilisez military_techChance féline pour relancer un jet, toutes les créatures que vous choisissez dans les 3 mètres qui ont obtenu un échec à leur jet contre le même effet (comme un unique sort) peuvent aussi relancer leurs jets de sauvegarde et utiliser le meilleur résultat."
+                    "Lorsque vous utilisez Chance féline pour relancer un jet, toutes les créatures que vous choisissez dans les 3 mètres qui ont obtenu un échec à leur jet contre le même effet (comme un unique sort) peuvent aussi relancer leurs jets de sauvegarde et utiliser le meilleur résultat."
                 ]
             },
             {
@@ -691,7 +691,7 @@ DON.RACE = {
                     "Chance féline"
                 ],
                 "description": [
-                    "Vous êtes plus chanceux que la plupart des hommes-félins. Vous pouvez déclencher votre military_techChance féline lorsque vous obtenez un échec ou un échec critique sur un jet de Vigueur ou de Volonté en plus du jet de Réflexes. Vous ne pouvez cependant utiliser Chance féline qu'une seule fois par jour."
+                    "Vous êtes plus chanceux que la plupart des hommes-félins. Vous pouvez déclencher votre Chance féline lorsque vous obtenez un échec ou un échec critique sur un jet de Vigueur ou de Volonté en plus du jet de Réflexes. Vous ne pouvez cependant utiliser Chance féline qu'une seule fois par jour."
                 ]
             },
             {
@@ -718,7 +718,7 @@ DON.RACE = {
                     "Chance féline"
                 ],
                 "description": [
-                    "Vous survivez aux dangers avec une surprenante régularité. Vous pouvez utiliser military_techChance féline une fois par heure plutôt qu'une fois par jour."
+                    "Vous survivez aux dangers avec une surprenante régularité. Vous pouvez utiliser Chance féline une fois par heure plutôt qu'une fois par jour."
                 ]
             },
             {
@@ -743,11 +743,11 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous entonnez d'agaçants chants gobelins qui distraient vos adversaires avec des paroles stupides et répétitives. Faites un test de casinoReprésentation contre le DD de Volonté d'un unique ennemi dans un rayon de 9 mètres. Ce test possède tous les traits et restrictions normalement associés à un test de Représentation pour chanter. Vous pouvez affecter jusqu'à deux cibles à portée si vous êtes expert en Représentation, quatre si vous êtes maître et huit si vous êtes légendaire.",
+                    "Vous entonnez d'agaçants chants gobelins qui distraient vos adversaires avec des paroles stupides et répétitives. Faites un test de Représentation contre le DD de Volonté d'un unique ennemi dans un rayon de 9 mètres. Ce test possède tous les traits et restrictions normalement associés à un test de Représentation pour chanter. Vous pouvez affecter jusqu'à deux cibles à portée si vous êtes expert en Représentation, quatre si vous êtes maître et huit si vous êtes légendaire.",
                     "Succès critique La cible subit une pénalité de -1 à ses tests de Perception et à ses jets de Volonté pendant 1 minute.",
-                    "flareEffet : Chant Gobelin (Succès critique)",
+                    "Effet : Chant Gobelin (Succès critique)",
                     "Succès La cible subit une pénalité de -1 à ses tests de Perception et à ses jets de Volonté pendant 1 round.",
-                    "flareEffet : Chant Gobelin (Succès)",
+                    "Effet : Chant Gobelin (Succès)",
                     "Échec critique La cible est temporairement immunisée à vos tentatives d'utiliser Chant gobelin pendant 1 heure."
                 ]
             },
@@ -773,7 +773,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "La magie elfique qui coule dans vos veines se manifeste comme une force que vous pouvez utiliser pour devenir plus séduisant ou intéressant. Vous pouvez lancer le sort auto_awesomeCharme au rang 1 comme un sort inné arcanique une fois par jour."
+                    "La magie elfique qui coule dans vos veines se manifeste comme une force que vous pouvez utiliser pour devenir plus séduisant ou intéressant. Vous pouvez lancer le sort Charme au rang 1 comme un sort inné arcanique une fois par jour."
                 ]
             },
             {
@@ -784,8 +784,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous savez que les plus grands trésors ressemblent souvent à des déchets. Vous obtenez un bonus de circonstances de +1 à vos tests pour Subsister et vous pouvez utiliser les compétences Société ou Survie quand vous tentez de sports_martial_artsSubsister dans une agglomération.",
-                    "Quand vous tentez de Subsister dans une ville, vous récupérez également des déchets de valeur que ces idiots de grandes guibolles ont jetés. Vous pouvez sports_martial_artsGagner de l'argent grâce aux compétences Société ou Survie en même temps que vous Subsistez, sans avoir à y consacrer des jours d'intermède supplémentaires. Vous obtenez également un bonus de circonstances de +1 à ce test.",
+                    "Vous savez que les plus grands trésors ressemblent souvent à des déchets. Vous obtenez un bonus de circonstances de +1 à vos tests pour Subsister et vous pouvez utiliser les compétences Société ou Survie quand vous tentez de Subsister dans une agglomération.",
+                    "Quand vous tentez de Subsister dans une ville, vous récupérez également des déchets de valeur que ces idiots de grandes guibolles ont jetés. Vous pouvez Gagner de l'argent grâce aux compétences Société ou Survie en même temps que vous Subsistez, sans avoir à y consacrer des jours d'intermède supplémentaires. Vous obtenez également un bonus de circonstances de +1 à ce test.",
                     "Spécial Si vous possédez l'héritage gobelin Boyaud'fer, augmentez ce bonus à +2."
                 ]
             },
@@ -808,7 +808,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous évitez l'attention de créatures concentrées sur vos alliés. Vous pouvez utiliser l'abri fourni par vos alliés pour sports_martial_artsVous cacher ."
+                    "Vous évitez l'attention de créatures concentrées sur vos alliés. Vous pouvez utiliser l'abri fourni par vos alliés pour Vous cacher ."
                 ]
             },
             {
@@ -819,7 +819,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes toujours à la recherche de l'opportunité idéale pour tendre une embuscade à vos ennemis. Vous pouvez effectuer l'activité d'exploration sports_martial_artsReconnaître en même temps que l'activité d'exploration sports_martial_artsÉchapper aux regards ."
+                    "Vous êtes toujours à la recherche de l'opportunité idéale pour tendre une embuscade à vos ennemis. Vous pouvez effectuer l'activité d'exploration Reconnaître en même temps que l'activité d'exploration Échapper aux regards ."
                 ]
             },
             {
@@ -843,7 +843,7 @@ DON.RACE = {
                     "Compagnon animal"
                 ],
                 "description": [
-                    "Vous avez entraîné votre compagnon animal à devenir un juggernaut terrifiant sur le champ de bataille. Votre compagnon animal est qualifié en Intimidation. Si votre compagnon animal utilise Soutien lorsqu'il vous sert de monture, il vous accorde les effets de la réaction sports_martial_artsAider sur votre premier test d'Intimidation pour sports_martial_artsDémoraliser lors du même tour, même s'il ne peut entreprendre une réaction."
+                    "Vous avez entraîné votre compagnon animal à devenir un juggernaut terrifiant sur le champ de bataille. Votre compagnon animal est qualifié en Intimidation. Si votre compagnon animal utilise Soutien lorsqu'il vous sert de monture, il vous accorde les effets de la réaction Aider sur votre premier test d'Intimidation pour Démoraliser lors du même tour, même s'il ne peut entreprendre une réaction."
                 ]
             },
             {
@@ -856,7 +856,7 @@ DON.RACE = {
                     "Magie osseuse"
                 ],
                 "description": [
-                    "Utilisant les os de vos ancêtres, vous manifestez leurs esprits autour de vous sous une forme fossilisée. Vous pouvez lancer auto_awesomeMasque de terreur sur vous-même comme un sort inné primordial une fois par jour. Lorsque vous le faites, vous apparaissez comme un ancêtre squelettique homme-lézard, modifié d'une façon qui puisse inspirer la terreur la plus profonde de ceux qui vous regardent."
+                    "Utilisant les os de vos ancêtres, vous manifestez leurs esprits autour de vous sous une forme fossilisée. Vous pouvez lancer Masque de terreur sur vous-même comme un sort inné primordial une fois par jour. Lorsque vous le faites, vous apparaissez comme un ancêtre squelettique homme-lézard, modifié d'une façon qui puisse inspirer la terreur la plus profonde de ceux qui vous regardent."
                 ]
             },
             {
@@ -867,7 +867,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre peuple a utilisé une puissante magie pour voyager entre des mondes distants dans un lointain passé et les résidus de cette magie vous facilitent un tel moyen de transport. Lorsque vous êtes la cible d'un sort de téléportation qui transporte plus d'une personne, il peut affecter une personne supplémentaire au-delà de sa limite normale choisie par le lanceur. De plus, lorsque vous êtes la cible d'un sort de auto_awesomeTéléportation , vous et les autres cibles parvenez à une distance d'au plus 1,5 kilomètre de la destination, quelle que soit la distance parcourue."
+                    "Votre peuple a utilisé une puissante magie pour voyager entre des mondes distants dans un lointain passé et les résidus de cette magie vous facilitent un tel moyen de transport. Lorsque vous êtes la cible d'un sort de téléportation qui transporte plus d'une personne, il peut affecter une personne supplémentaire au-delà de sa limite normale choisie par le lanceur. De plus, lorsque vous êtes la cible d'un sort de Téléportation , vous et les autres cibles parvenez à une distance d'au plus 1,5 kilomètre de la destination, quelle que soit la distance parcourue."
                 ]
             },
             {
@@ -878,7 +878,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez grandi en montant les poneys hirsutes et les chiens de monte de votre clan. Vous êtes qualifié en Nature. Si vous deviez déjà être qualifié en Nature (par votre historique ou votre classe par exemple), vous êtes qualifié dans une autre compétence de votre choix. Vous obtenez également un bonus de circonstances de +1 pour sports_martial_artsDiriger un animal si la cible est une monture halfeline traditionnelle, comme un poney ou un chien de monte."
+                    "Vous avez grandi en montant les poneys hirsutes et les chiens de monte de votre clan. Vous êtes qualifié en Nature. Si vous deviez déjà être qualifié en Nature (par votre historique ou votre classe par exemple), vous êtes qualifié dans une autre compétence de votre choix. Vous obtenez également un bonus de circonstances de +1 pour Diriger un animal si la cible est une monture halfeline traditionnelle, comme un poney ou un chien de monte."
                 ]
             },
             {
@@ -891,7 +891,7 @@ DON.RACE = {
                     "qualifié en Intimidation"
                 ],
                 "description": [
-                    "Vous émettez un coassement obsédant qui rappelle à ceux qui vous entourent leurs peurs. Faites un test d'Intimidation pour sports_martial_artsDémoraliser une créature dans les 9 mètres. Vous ne subissez pas de pénalité pour ce test du fait de ne pas partager une langue. Si le test est un succès, la cible ne peut réduire son état Effrayé en dessous de 1 pendant 1 round."
+                    "Vous émettez un coassement obsédant qui rappelle à ceux qui vous entourent leurs peurs. Faites un test d'Intimidation pour Démoraliser une créature dans les 9 mètres. Vous ne subissez pas de pénalité pour ce test du fait de ne pas partager une langue. Si le test est un succès, la cible ne peut réduire son état Effrayé en dessous de 1 pendant 1 round."
                 ]
             },
             {
@@ -902,7 +902,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Lorsque vous êtes sur un terrain difficile du fait d'une caractéristique environnementale, vous pouvez vous sports_martial_artsMettre à l'abri , même si la caractéristique du terrain ne devrait pas normalement être suffisamment grande pour que vous puissiez vous Mettre à l'abri."
+                    "Lorsque vous êtes sur un terrain difficile du fait d'une caractéristique environnementale, vous pouvez vous Mettre à l'abri , même si la caractéristique du terrain ne devrait pas normalement être suffisamment grande pour que vous puissiez vous Mettre à l'abri."
                 ]
             },
             {
@@ -915,7 +915,7 @@ DON.RACE = {
                     "Type angélique, Porteur de loi, Touché par la muse ou tout lignage associé avec les célestes"
                 ],
                 "description": [
-                    "Vos pouvoirs célestes vous permettent de supprimer les afflictions mineures avec facilité. Vous pouvez lancer auto_awesomeAffliction purifiée deux fois par jour comme un sort inné divin de rang 4."
+                    "Vos pouvoirs célestes vous permettent de supprimer les afflictions mineures avec facilité. Vous pouvez lancer Affliction purifiée deux fois par jour comme un sort inné divin de rang 4."
                 ]
             },
             {
@@ -949,7 +949,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre lien avec le Premier Monde s'est renforcée et les énergies de vitalité qui en proviennent affluent en vous rapidement. Si vous vous reposez pendant 10 minutes, vous obtenez une quantité de Points de vie égale à casinovotre modificateur de Constitution multiplié par la moitié de votre niveau . C'est un effet de guérison de vitalité et il se cumule avec toute forme de soins reçus par sports_martial_artsSoigner les blessures ."
+                    "Votre lien avec le Premier Monde s'est renforcée et les énergies de vitalité qui en proviennent affluent en vous rapidement. Si vous vous reposez pendant 10 minutes, vous obtenez une quantité de Points de vie égale à votre modificateur de Constitution multiplié par la moitié de votre niveau . C'est un effet de guérison de vitalité et il se cumule avec toute forme de soins reçus par Soigner les blessures ."
                 ]
             },
             {
@@ -961,7 +961,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Bien trop conscient de votre vraie nature, vous avez étudié les guenaudes et leurs pouvoirs. Vous êtes qualifié en Duperie et en Occultisme. Si vous devriez automatiquement être qualifié dans l'une des ses compétences (de par votre historique ou votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix à la place.",
-                    "Vous obtenez également le don military_techConnaissance supplémentaire pour Connaissance des guenaudes."
+                    "Vous obtenez également le don Connaissance supplémentaire pour Connaissance des guenaudes."
                 ]
             },
             {
@@ -973,7 +973,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Soit vous avez trouvé un autre crépusculaire qui vous a appris les secrets de vos semblables, soit vous avez entrepris de faire des recherches sur votre héritage inhabituel. Vous êtes qualifié en Médecine et en Religion. Si vous deviez être automatiquement qualifié dans un des ces compétences (par votre historique ou votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour la Connaissance du Cimetière."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour la Connaissance du Cimetière."
                 ]
             },
             {
@@ -985,7 +985,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez décidé d'en apprendre davantage sur vos ancêtres et leur espèce et peut-être même avez-vous été élevé par un parent dragon. Vous en êtes venu à comprendre comment les dragons peuvent susciter la peur, mais aussi comment ils ont contribué à la société dans son ensemble. Vous êtes qualifié en Diplomatie et en Intimidation. Si vous devriez être déjà automatiquement qualifié dans l'une de ces compétences (par votre historique ou votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix.",
-                    "Vous obtenez aussi le don général military_techConnaissance supplémentaire en Connaissance du dragon."
+                    "Vous obtenez aussi le don général Connaissance supplémentaire en Connaissance du dragon."
                 ]
             },
             {
@@ -997,7 +997,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez étudié les arts elfiques traditionnels, apprenant des choses à propos de la magie arcanique et du monde qui vous entoure. Vous êtes qualifié en Arcanes et en Nature. Si vous devriez déjà être automatiquement qualifié dans l'une de ces compétences (grâce à votre historique ou à votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des elfes."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des elfes."
                 ]
             },
             {
@@ -1009,7 +1009,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris des compétences et entendu des contes dans votre communauté gobeline. Vous êtes qualifié en Nature et en Discrétion. Si vous devriez déjà être automatiquement qualifié dans l'une de ces compétences (grâce à votre historique ou à votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des gobelins."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des gobelins."
                 ]
             },
             {
@@ -1021,7 +1021,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez consciencieusement appris à conserver votre équilibre et à rester en sûreté dans les ombres, des compétences importantes transmises de génération en génération de halfelins. Vous êtes qualifié en Acrobaties et en Discrétion. Si vous devriez déjà automatiquement être qualifié dans l'une de ces compétences (grâce à votre historique ou à votre classe, par exemple), vous êtes alors qualifié dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des halfelins."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des halfelins."
                 ]
             },
             {
@@ -1033,7 +1033,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez étudié les exercices et techniques hobgobelins traditionnels qui revêtent tous un aspect militaire. Vous êtes qualifié en Athlétisme et en Artisanat. Si vous devriez déjà être automatiquement qualifié dans l'une de ces compétences (du fait de votre historique ou de votre classe, par exemple), vous devenez qualifié à la place dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des hobgobelins."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des hobgobelins."
                 ]
             },
             {
@@ -1045,7 +1045,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Être élevé parmi les hommes-félins vous a appris les valeurs traditionnelles de liberté, l'intendance et à réagir rapidement aux problèmes. Vous êtes qualifié en Acrobaties et en Survie. Si vous devriez déjà être qualifié dans l'une de ces compétences (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des hommes-félins."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des hommes-félins."
                 ]
             },
             {
@@ -1057,7 +1057,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez écouté soigneusement les légendes transmises au sein de votre communauté. Vous êtes qualifié en Survie, ainsi qu'en Nature ou en Occultisme. Si vous devriez être automatiquement qualifié dans une de ces compétences (du fait de votre historique ou de votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des hommes-lézards."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des hommes-lézards."
                 ]
             },
             {
@@ -1069,7 +1069,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Des années d'expérience parmi les communautés d'hommes-rats vous ont rendu agile et vous avez appris à courir et vous cacher lorsque les ennemis menacent. Vous êtes qualifié en Acrobaties et en Discrétion. Si vous devriez être automatiquement dans une de ces compétences (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour la Connaissance des Hommes-rats."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour la Connaissance des Hommes-rats."
                 ]
             },
             {
@@ -1081,7 +1081,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez prêté attention aux aînés chasseurs de votre clan pour apprendre leurs astuces. Vous êtes qualifié en Discrétion et en Survie. Si vous devriez être automatiquement qualifié dans l'une de ces compétences (du fait de votre historique ou de votre classe, par exemple), vous êtes qualifié à la place dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des kholos."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des kholos."
                 ]
             },
             {
@@ -1093,7 +1093,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris attentivement les principales stratégies kobold auprès de vos anciens. Vous êtes qualifié en Discrétion et Vol. Si vous deviez automatiquement être qualifié dans une de ces deux compétences (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour la Connaissance des kobolds."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour la Connaissance des kobolds."
                 ]
             },
             {
@@ -1105,7 +1105,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous comprenez profondément les traditions culturelle et les forces intrinsèques de votre peuple. Vous êtes qualifié en Discrétion et en Nature. Si vous devriez déjà être automatiquement qualifié en une de ces compétences (par votre historique ou votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des léchis"
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des léchis"
                 ]
             },
             {
@@ -1117,7 +1117,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez absorbé avec avidité les vieilles histoires et les traditions de vos ancêtres, de vos dieux et de votre peuple, étudiant les sujets et les techniques transmis de génération en génération. Vous êtes qualifié en Artisanat et en Religion. Si vous devriez être automatiquement qualifié dans l'une de ces compétences (grâce à votre historique ou à votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des nains."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des nains."
                 ]
             },
             {
@@ -1130,7 +1130,7 @@ DON.RACE = {
                 "description": [
                     "Vous connaissez les secrets du Multivers.",
                     "Vous êtes qualifié en Diplomatie ou en Intimidation et en Religion. Si vous devriez automatiquement devenir qualifié dans l'une de ces deux compétences (du fait de votre historique ou de votre classe, par exemple), vous devenez qualifié à la place dans une autre compétence de votre choix.",
-                    "Vous obtenez également le don military_techConnaissance supplémentaire dans un sous-catégorie d'un plan dont votre lignée est originaire."
+                    "Vous obtenez également le don Connaissance supplémentaire dans un sous-catégorie d'un plan dont votre lignée est originaire."
                 ]
             },
             {
@@ -1142,7 +1142,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris les compétences qui vous permettent de survivre dans les lieux où votre peuple fût dispersé. Vous êtes qualifié en Société et en Survie. Si vous devriez être qualifié en l'une de ces compétences (de par votre historique ou votre classe, par exemple), vous êtes qualifié en une autre compétence de votre choix à la place.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour la Connaissance des tengus."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour la Connaissance des tengus."
                 ]
             },
             {
@@ -1154,7 +1154,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous connaissez la culture et les tactiques des Tripkees. Vous êtes qualifié en Nature et en Discrétion. Si vous devriez être qualifié automatiquement dans l'une de ces compétences, vous êtes qualifié à la place dans une compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour connaissance des tripkees."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour connaissance des tripkees."
                 ]
             },
             {
@@ -1166,7 +1166,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez été élevé par votre parent vampirique ou vous avez investi un temps et une énergie considérable à chercher les secrets de votre géniteur mort-vivant. Vous êtes qualifié en Religion et Société. Si vous devriez automatiquement être qualifié dans une de ces compétences (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une compétence différente de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire pour la Connaissance des vampires."
+                    "Vous obtenez également le don général Connaissance supplémentaire pour la Connaissance des vampires."
                 ]
             },
             {
@@ -1178,7 +1178,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Les anciens de la forteresse vous ont enseigné les histoires de votre peuple, les vieilles histoires de grand exploits athlétiques et partagé avec vous les difficultés que vos ancêtres ont surmontées de manière à ce que vous puissiez transmettre cette sagesse aux générations futures. Vous devenez qualifié en Athlétisme et en Survie. Si vous devriez être automatiquement qualifié dans l'une de ces compétences (par votre historique ou votre classe, par exemple), vous devenez qualifié dans une autre compétence de votre choix.",
-                    "Vous obtenez également le don général military_techConnaissance supplémentaire en Connaissance des orques."
+                    "Vous obtenez également le don général Connaissance supplémentaire en Connaissance des orques."
                 ]
             },
             {
@@ -1214,7 +1214,7 @@ DON.RACE = {
                     "Tout don de lignage néphilim"
                 ],
                 "description": [
-                    "Vous avez une un lien profond avec les Plans extérieurs, vous permettant de convoquer un allié divin. Une fois par jour, vous pouvez Lancer auto_awesomeConvocation de céleste , auto_awesomeConvocation de fiélon ou un autre sort divin de rang 5 capable de convoquer un être extraplanaire approprié à votre lignage,. Une fois par jour, vous pouvez lancer le sort choisi comme un sort divin inné de rang 5 mais la créature doit appartenir à la même catégorie que votre propre lignée, comme par exemple une créature ayant le trait ange si vous êtes de type angélique."
+                    "Vous avez une un lien profond avec les Plans extérieurs, vous permettant de convoquer un allié divin. Une fois par jour, vous pouvez Lancer Convocation de céleste , Convocation de fiélon ou un autre sort divin de rang 5 capable de convoquer un être extraplanaire approprié à votre lignage,. Une fois par jour, vous pouvez lancer le sort choisi comme un sort divin inné de rang 5 mais la créature doit appartenir à la même catégorie que votre propre lignée, comme par exemple une créature ayant le trait ange si vous êtes de type angélique."
                 ]
             },
             {
@@ -1250,7 +1250,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Votre corps produit une profusion quasi illimitée de cosses dures. Vous obtenez une attaque à mains nues à distance de cosse avec un facteur de portée de 9 mètres qui inflige 1d4 dégâts contondants. En cas de coup critique, une cosse explose produisant des vrilles de végétation qui imposent une pénalité de circonstances de -3 mètres à la Vitesse de la cible durant 1 round. Les cosses n'ajoutent pas d'effets critiques spécialisés.",
-                    "flareEffet : Cosse"
+                    "Effet : Cosse"
                 ]
             },
             {
@@ -1274,7 +1274,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vos attaques à mains nues létales laissent des entailles sanglantes ou provoquent des hémorragies internes sévères. Lorsque vous infligez un coup critique avec une Frappe en utilisant une attaque à mains nues qui n'a pas le trait non-létal, la cible subit 1d4 dégâts de saignement. Cela peut être lié au fait que vous avez accepté de subir la pénalité pour pouvoir utiliser votre poing pour porter une attaque létale ou que vous possédez plutôt une attaque à mains nues qui ne possède pas le trait non-létal à cause de military_techPoings de fer , de military_techDéfenses ou d'une capacité similaire."
+                    "Vos attaques à mains nues létales laissent des entailles sanglantes ou provoquent des hémorragies internes sévères. Lorsque vous infligez un coup critique avec une Frappe en utilisant une attaque à mains nues qui n'a pas le trait non-létal, la cible subit 1d4 dégâts de saignement. Cela peut être lié au fait que vous avez accepté de subir la pénalité pour pouvoir utiliser votre poing pour porter une attaque létale ou que vous possédez plutôt une attaque à mains nues qui ne possède pas le trait non-létal à cause de Poings de fer , de Défenses ou d'une capacité similaire."
                 ]
             },
             {
@@ -1287,7 +1287,7 @@ DON.RACE = {
                     "Vous avez une Vitesse de nage"
                 ],
                 "description": [
-                    "Vous êtes adepte des déplacements à travers les terrains marécageux. Lorsque vous utilisez l'action Faire un pas, vous pouvez ignorer le terrain difficile causé par les inondations, les marais ou les sables mouvants. En outre, lorsque vous utilisez la compétence Acrobaties pour sports_martial_artsGarder l'équilibre sur des surfaces étroites ou sur un terrain marécageux instable, vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu et si vous obtenez un succès sur le test d'Acrobaties, il devient un succès critique."
+                    "Vous êtes adepte des déplacements à travers les terrains marécageux. Lorsque vous utilisez l'action Faire un pas, vous pouvez ignorer le terrain difficile causé par les inondations, les marais ou les sables mouvants. En outre, lorsque vous utilisez la compétence Acrobaties pour Garder l'équilibre sur des surfaces étroites ou sur un terrain marécageux instable, vous n'êtes pas Pris au dépourvu et si vous obtenez un succès sur le test d'Acrobaties, il devient un succès critique."
                 ]
             },
             {
@@ -1312,7 +1312,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Conditions Votre dernière action était une Frappe réussie et vous disposez d'une main libre.",
-                    "Vous vous accrochez à un ennemi pour le harceler et obtenir sa soumission. Si votre cible se déplace alors que vous vous cramponnez à elle, vous pouvez choisir de vous déplacer avec la cible. La cible est relâchée si vous choisissez de ne pas vous déplacer avec elle, au début de votre prochain tour ou si la cible sports_martial_artsS'Échappe . Les tentatives pour s'échapper de Cramponné suivent les règles de S'échapper mais utilisent votre DD d'Acrobaties et mettent un terme à Cramponné au lieu de mettre un terme aux états qui s'achèvent habituellement grâce à l'action S'échapper.",
+                    "Vous vous accrochez à un ennemi pour le harceler et obtenir sa soumission. Si votre cible se déplace alors que vous vous cramponnez à elle, vous pouvez choisir de vous déplacer avec la cible. La cible est relâchée si vous choisissez de ne pas vous déplacer avec elle, au début de votre prochain tour ou si la cible S'Échappe . Les tentatives pour s'échapper de Cramponné suivent les règles de S'échapper mais utilisent votre DD d'Acrobaties et mettent un terme à Cramponné au lieu de mettre un terme aux états qui s'achèvent habituellement grâce à l'action S'échapper.",
                     "Spécial Vous pouvez utiliser cette action sans avoir de main libre si votre Frappe précédente a été portée avec vos mâchoires ou une attaque à mains nues similaire que vous pourriez utiliser pour vous cramponner. Le MJ détermine laquelle des attaques à mains nues s'applique. Se cramponner de la sorte vous empêche d'utiliser cette attaque à mains nues."
                 ]
             },
@@ -1338,7 +1338,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par heure",
-                    "Vous poussez un cri perçant. Chaque créature dans une crop_freeémanation de 3 mètres subit casino5d6 dégâts de son , avec un jet de casinoVigueur contre le plus élevé entre votre DD de classe ou votre DD de sort. Puis, vous Marchez rapidement et ce déplacement ne déclenche pas de réactions de la part des créatures qui ont obtenu un échec ou un échec critique sur leur jet de sauvegarde.",
+                    "Vous poussez un cri perçant. Chaque créature dans une émanation de 3 mètres subit 5d6 dégâts de son , avec un jet de Vigueur contre le plus élevé entre votre DD de classe ou votre DD de sort. Puis, vous Marchez rapidement et ce déplacement ne déclenche pas de réactions de la part des créatures qui ont obtenu un échec ou un échec critique sur leur jet de sauvegarde.",
                     "Au niveau 11 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d6."
                 ]
             },
@@ -1353,7 +1353,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "Vous faites appel à vos alliés et les poussez à donner tout au combat.",
-                    "Tous les alliés dans les crop_free9 mètres qui peuvent vous entendre un nombre de Points de vie temporaires égal à votre niveau. De plus, ces alliés sont sentiment_very_dissatisfiedAccélérés pendant 1 minute mais peuvent utiliser l'action supplémentaire seulement pour Faire un pas, Marcher rapidement ou Frapper."
+                    "Tous les alliés dans les 9 mètres qui peuvent vous entendre un nombre de Points de vie temporaires égal à votre niveau. De plus, ces alliés sont Accélérés pendant 1 minute mais peuvent utiliser l'action supplémentaire seulement pour Faire un pas, Marcher rapidement ou Frapper."
                 ]
             },
             {
@@ -1430,7 +1430,7 @@ DON.RACE = {
                     "Au moins un sort inné arcanique ou occulte obtenu par un héritage gnome ou un don ancestral gnome"
                 ],
                 "description": [
-                    "Vous avez appris quelques techniques magiques pour à la fois vous attirer et vous sortir des ennuis sans vous faire remarquer. Vous obtenez auto_awesomeMagie déguisée et auto_awesomeSilence comme des sorts innés arcaniques ou occultes de niveau 2. La tradition de ces sorts doit correspondre à la tradition que vous utilisez pour vos options d'ascendance gnome. Vous pouvez Lancer chaque sort une fois par jour et vous seul pouvez en être la cible."
+                    "Vous avez appris quelques techniques magiques pour à la fois vous attirer et vous sortir des ennuis sans vous faire remarquer. Vous obtenez Magie déguisée et Silence comme des sorts innés arcaniques ou occultes de niveau 2. La tradition de ces sorts doit correspondre à la tradition que vous utilisez pour vos options d'ascendance gnome. Vous pouvez Lancer chaque sort une fois par jour et vous seul pouvez en être la cible."
                 ]
             },
             {
@@ -1444,7 +1444,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "En dépit d'une vie emplie de décisions douteuses, vous avez réussi à survivre, comme si une chance insolente vous permettait d'éviter les conséquences de vos propres actes. Pour le restant de votre tour, si vous obtenez un échec ou un échec critique sur un jet de sauvegarde contre un effet dommageable, il devient un succès. Plus encore, si vous devriez subir des dégâts d'un ennemi ou d'un danger durant ce tour, vous subissez le minimum de dégâts possible.",
-                    "Ces avantages ne s'appliquent qu'aux effets dommageables entièrement subis durant le tour au cours duquel vous activez Dangereux abandon, comme courir à travers un auto_awesomeMur de feu . Les dégâts persistants et les états qui s'appliquaient antérieurement à votre tour produisent leurs effets normalement et, dès que votre tour se termine, vous êtes de nouveau sujet aux entières conséquences de tous les dangers qui vous menacent encore."
+                    "Ces avantages ne s'appliquent qu'aux effets dommageables entièrement subis durant le tour au cours duquel vous activez Dangereux abandon, comme courir à travers un Mur de feu . Les dégâts persistants et les états qui s'appliquaient antérieurement à votre tour produisent leurs effets normalement et, dès que votre tour se termine, vous êtes de nouveau sujet aux entières conséquences de tous les dangers qui vous menacent encore."
                 ]
             },
             {
@@ -1455,9 +1455,9 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez l'habitude de toujours être dans le passage des autres créatures qui tentent de se déplacer. Faites un test d' casinoAcrobaties contre le DD de Réflexes d'une créature adjacente.",
-                    "flareEffet : Danse homme-félin",
-                    "Succès critique La créature cible obtient une pénalité de circonstances de -2 aux jets de Réflexes et est sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de votre prochain tour.",
+                    "Vous avez l'habitude de toujours être dans le passage des autres créatures qui tentent de se déplacer. Faites un test d' Acrobaties contre le DD de Réflexes d'une créature adjacente.",
+                    "Effet : Danse homme-félin",
+                    "Succès critique La créature cible obtient une pénalité de circonstances de -2 aux jets de Réflexes et est Prise au dépourvu jusqu'au début de votre prochain tour.",
                     "Succès La créature cible obtient une pénalité de circonstances de -2 aux jets de Réflexes jusqu'au début de votre prochain tour."
                 ]
             },
@@ -1471,7 +1471,7 @@ DON.RACE = {
                     "Danse sous les pieds"
                 ],
                 "description": [
-                    "Lorsque vous partagez l'espace d'une créature en utilisant Danse sous les pieds, vos armes et vos attaques à mains nues au corps-à-corps obtiennent le trait croc-en-jambe, mais seulement à l'encontre de la créature dont vous partagez la case. Vous pouvez être dans le même espace qu'une créature de taille Grande ou supérieure qui est sentiment_very_dissatisfiedÀ terre , même si elle n'est pas votre alliée."
+                    "Lorsque vous partagez l'espace d'une créature en utilisant Danse sous les pieds, vos armes et vos attaques à mains nues au corps-à-corps obtiennent le trait croc-en-jambe, mais seulement à l'encontre de la créature dont vous partagez la case. Vous pouvez être dans le même espace qu'une créature de taille Grande ou supérieure qui est À terre , même si elle n'est pas votre alliée."
                 ]
             },
             {
@@ -1484,7 +1484,7 @@ DON.RACE = {
                     "Pas vif"
                 ],
                 "description": [
-                    "Vous passez dans les pieds de vos ennemis en combat. Vous pouvez terminer une action réussie de sports_martial_artsDéplacement acrobatique dans l'espace d'un ennemi de taille Grande ou supérieure. De plus, lorsque vous faites usage de Pas vif, vous pouvez sports_martial_artsFaire un pas dans l'espace de l'ennemi déclencheur. L'ennemi doit avoir des membres ou vous permettre de disposer d'assez d'espace pour effectuer cette manœuvre, à la discrétion du MJ. Par exemple, vous pourriez partager une case avec un géant ou un dragon, mais pas avec une vase."
+                    "Vous passez dans les pieds de vos ennemis en combat. Vous pouvez terminer une action réussie de Déplacement acrobatique dans l'espace d'un ennemi de taille Grande ou supérieure. De plus, lorsque vous faites usage de Pas vif, vous pouvez Faire un pas dans l'espace de l'ennemi déclencheur. L'ennemi doit avoir des membres ou vous permettre de disposer d'assez d'espace pour effectuer cette manœuvre, à la discrétion du MJ. Par exemple, vous pourriez partager une case avec un géant ou un dragon, mais pas avec une vase."
                 ]
             },
             {
@@ -1495,7 +1495,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous invoquez une parole sainte ou impie des royaumes de l'au-delà pour punir vos ennemis. Une fois par jour, vous pouvez Lancer auto_awesomeDécret divin comme un sort divin inné au rang 7."
+                    "Vous invoquez une parole sainte ou impie des royaumes de l'au-delà pour punir vos ennemis. Une fois par jour, vous pouvez Lancer Décret divin comme un sort divin inné au rang 7."
                 ]
             },
             {
@@ -1510,7 +1510,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par heure",
                     "Déclencheur Une créature ayant le trait animal, bête, élémentaire, féerique, champignon ou plante vous attaque et vous pouvez voir l'attaquant.",
-                    "Votre compréhension avisée des créatures naturelles et primordiales vous aide à prévoir et à esquiver leurs attaques. Le jet d'attaque déclencheur cible votre DD de Nature au lieu de votre CA. Bien que cela vous permette d'éviter de subir des pénalités à votre CA, cela ne supprime pas les états ou autres effets provoquant de telles pénalités. Par exemple, un ennemi doté d'une attaque sournoise vous infligera tout de même des dégâts supplémentaires parce que vous êtes sentiment_very_dissatisfiedPris au dépourvu , même si vous ne subissez pas la pénalité de circonstances de -2 contre l'attaque."
+                    "Votre compréhension avisée des créatures naturelles et primordiales vous aide à prévoir et à esquiver leurs attaques. Le jet d'attaque déclencheur cible votre DD de Nature au lieu de votre CA. Bien que cela vous permette d'éviter de subir des pénalités à votre CA, cela ne supprime pas les états ou autres effets provoquant de telles pénalités. Par exemple, un ennemi doté d'une attaque sournoise vous infligera tout de même des dégâts supplémentaires parce que vous êtes Pris au dépourvu , même si vous ne subissez pas la pénalité de circonstances de -2 contre l'attaque."
                 ]
             },
             {
@@ -1535,7 +1535,7 @@ DON.RACE = {
                     "Vision dans le noir"
                 ],
                 "description": [
-                    "En utilisant d'antiques méthodes naines développées pour combattre des ennemis maniant l'obscurité magique, vous avez affiné votre vision dans le noir et avez juré de ne pas vous-même utiliser une telle magie. Vous obtenez vision dans le noir supérieure, vous permettant de voir au travers les ténèbres magiques même si elles empêchent normalement la vision dans le noir (comme les ténèbres créées par un sort de auto_awesomeTénèbres au rang 4). Vous ne pouvez pas lancer de sorts avec le trait ténèbres, utiliser des objets avec le trait ténèbres ou toute autre capacité possédant le trait ténèbres."
+                    "En utilisant d'antiques méthodes naines développées pour combattre des ennemis maniant l'obscurité magique, vous avez affiné votre vision dans le noir et avez juré de ne pas vous-même utiliser une telle magie. Vous obtenez vision dans le noir supérieure, vous permettant de voir au travers les ténèbres magiques même si elles empêchent normalement la vision dans le noir (comme les ténèbres créées par un sort de Ténèbres au rang 4). Vous ne pouvez pas lancer de sorts avec le trait ténèbres, utiliser des objets avec le trait ténèbres ou toute autre capacité possédant le trait ténèbres."
                 ]
             },
             {
@@ -1548,7 +1548,7 @@ DON.RACE = {
                     "Férocité orque"
                 ],
                 "description": [
-                    "Vous êtes exceptionnellement difficile à tuer. Le DD de vos tests de récupération est égal à 9 + votre valeur Mourante ou 8 + votre valeur Mourante si vous avez le don général military_techRobustesse . De plus, lorsque quelqu'un vous ramène à la vie en utilisant la magie qui devrait normalement vous laisser diminué pendant une semaine (comme avec auto_awesomeRappel à la vie ou le rituel de Résurrection), vous ne subissez pas cet état."
+                    "Vous êtes exceptionnellement difficile à tuer. Le DD de vos tests de récupération est égal à 9 + votre valeur Mourante ou 8 + votre valeur Mourante si vous avez le don général Robustesse . De plus, lorsque quelqu'un vous ramène à la vie en utilisant la magie qui devrait normalement vous laisser diminué pendant une semaine (comme avec Rappel à la vie ou le rituel de Résurrection), vous ne subissez pas cet état."
                 ]
             },
             {
@@ -1594,8 +1594,8 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Quel que soit le soin que vous puissiez prendre d'eux, vous êtes venu à accepter la nature éphémère des non elfes et cela rend leurs menaces moins problématiques.",
-                    "Si un non elfe obtient un échec pour vous sports_martial_artsContraindre en utilisant Intimidation, il devient un échec critique (et ainsi ne peut plus tenter de vous contraindre de nouveau pendant 1 semaine).",
-                    "Lorsqu'un non elfe tente de vous sports_martial_artsDémoraliser , vous êtes temporairement immunisé pendant 1 journée, au lieu de 10 minutes."
+                    "Si un non elfe obtient un échec pour vous Contraindre en utilisant Intimidation, il devient un échec critique (et ainsi ne peut plus tenter de vous contraindre de nouveau pendant 1 semaine).",
+                    "Lorsqu'un non elfe tente de vous Démoraliser , vous êtes temporairement immunisé pendant 1 journée, au lieu de 10 minutes."
                 ]
             },
             {
@@ -1631,8 +1631,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "La discrétion est un outil important dans votre arsenal. Vous pouvez vous déplacer de 1,50 mètre de plus lorsque vous utilisez l'action sports_martial_artsÊtre furtif , jusqu'à votre Vitesse maximale.",
-                    "De plus, tant que vous continuez à utiliser les actions Être furtif et obtenez un succès à votre test de Discrétion, vous n'êtes pas Observé si vous n'avez pas d'abri standard ou d'abri important et n'êtes pas sentiment_very_dissatisfiedMasqué à la fin de l'action Être furtif, tant que vous disposez d'un abri ou d'un abri important ou que vous êtes Masqué à la fin de votre tour."
+                    "La discrétion est un outil important dans votre arsenal. Vous pouvez vous déplacer de 1,50 mètre de plus lorsque vous utilisez l'action Être furtif , jusqu'à votre Vitesse maximale.",
+                    "De plus, tant que vous continuez à utiliser les actions Être furtif et obtenez un succès à votre test de Discrétion, vous n'êtes pas Observé si vous n'avez pas d'abri standard ou d'abri important et n'êtes pas Masqué à la fin de l'action Être furtif, tant que vous disposez d'un abri ou d'un abri important ou que vous êtes Masqué à la fin de votre tour."
                 ]
             },
             {
@@ -1645,7 +1645,7 @@ DON.RACE = {
                     "expert en Acrobaties et en Duperie"
                 ],
                 "description": [
-                    "Tentez un sports_martial_artsDéplacement acrobatique à travers l'espace d'un adversaire. Si vous obtenez un succès ou un succès critique et ne terminez pas votre mouvement adjacent à cet adversaire, vous pouvez tenter de sports_martial_artsCréer une diversion pour distraire cet adversaire. Vous obtenez un bonus de circonstances de +1 au test de Duperie (ou un bonus de circonstances de +2 si vous avez obtenu un succès critique au test d'Acrobaties sur votre Déplacement acrobatique) pour Créer une diversion. Si vous obtenez un succès ou un succès critique pour Créer une diversion, vous devenez sentiment_very_dissatisfiedCaché uniquement pour la créature dont vous avez traversé l'espace lors du Déplacement acrobatique."
+                    "Tentez un Déplacement acrobatique à travers l'espace d'un adversaire. Si vous obtenez un succès ou un succès critique et ne terminez pas votre mouvement adjacent à cet adversaire, vous pouvez tenter de Créer une diversion pour distraire cet adversaire. Vous obtenez un bonus de circonstances de +1 au test de Duperie (ou un bonus de circonstances de +2 si vous avez obtenu un succès critique au test d'Acrobaties sur votre Déplacement acrobatique) pour Créer une diversion. Si vous obtenez un succès ou un succès critique pour Créer une diversion, vous devenez Caché uniquement pour la créature dont vous avez traversé l'espace lors du Déplacement acrobatique."
                 ]
             },
             {
@@ -1658,7 +1658,7 @@ DON.RACE = {
                     "Échapper au destin"
                 ],
                 "description": [
-                    "Lorsque votre personnage devrait mourir, vous pouvez tenter un casinoTest nu, DD 17 . En cas de succès, vous êtes à la place réduit à 0 PV et avec une valeur mourante de 1 de moins de celle qui devrait normalement vous tuer (typiquement Mourant 3). Cela ne change pas le résultat pour toute autre créature affectée."
+                    "Lorsque votre personnage devrait mourir, vous pouvez tenter un Test nu, DD 17 . En cas de succès, vous êtes à la place réduit à 0 PV et avec une valeur mourante de 1 de moins de celle qui devrait normalement vous tuer (typiquement Mourant 3). Cela ne change pas le résultat pour toute autre créature affectée."
                 ]
             },
             {
@@ -1669,7 +1669,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes qualifié en Artisanat. Si vous êtes déjà qualifié en Artisanat du fait d'une autre source (par votre historique ou votre classe par exemple), vous êtes qualifié à la place en une compétence de votre choix. Vous pouvez sports_martial_artsRéparer un objet sans utiliser de trousse de réparation sans subir la pénalité de circonstances de -2, en improvisant des outils avec ce qui vous tombe sous la main. Vous obtenez un bonus de circonstances de +1 à vos tests d'Artisanat pour Réparer un objet quand vous disposez d'une trousse de réparation."
+                    "Vous êtes qualifié en Artisanat. Si vous êtes déjà qualifié en Artisanat du fait d'une autre source (par votre historique ou votre classe par exemple), vous êtes qualifié à la place en une compétence de votre choix. Vous pouvez Réparer un objet sans utiliser de trousse de réparation sans subir la pénalité de circonstances de -2, en improvisant des outils avec ce qui vous tombe sous la main. Vous obtenez un bonus de circonstances de +1 à vos tests d'Artisanat pour Réparer un objet quand vous disposez d'une trousse de réparation."
                 ]
             },
             {
@@ -1680,7 +1680,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre pouvoir arcanique inné se manifeste sous la forme des sorts les plus couramment utilisés par votre modèle draconique. Choisissez un sort de rang 1 et un sort de rang 2 tirés de la liste d'un dragon incantateur du type de votre modèle draconique présentés dans le Bestiaire (tels qu' auto_awesomeAlarme , auto_awesomeCoup assuré , auto_awesomeFlou ou auto_awesomeInvisibilité pour un modèle dragon noir).",
+                    "Votre pouvoir arcanique inné se manifeste sous la forme des sorts les plus couramment utilisés par votre modèle draconique. Choisissez un sort de rang 1 et un sort de rang 2 tirés de la liste d'un dragon incantateur du type de votre modèle draconique présentés dans le Bestiaire (tels qu' Alarme , Coup assuré , Flou ou Invisibilité pour un modèle dragon noir).",
                     "Vous pouvez Lancer chacun de ces sorts une fois par jour comme des sorts arcaniques innés. Vous devenez qualifié en jets d'attaque de sort et en DD des sorts et votre attribut essentiel d'incantation est le Charisme."
                 ]
             },
@@ -1694,7 +1694,7 @@ DON.RACE = {
                     "Dracomancien"
                 ],
                 "description": [
-                    "Votre magie rivalise avec celle des dragons inférieurs. Choisissez un sort de rang 3 et un sort de rang 4 parmi ceux listés pour un type de dragon incantateur du type de votre modèle draconique tels qu'ils figurent dans le bestiaire (comme auto_awesomeParalysie et auto_awesomeNuage puant pour un modèle dragon noir). Vous pouvez Lancer chacun de ces sorts une fois par jour comme un sort arcanique inné."
+                    "Votre magie rivalise avec celle des dragons inférieurs. Choisissez un sort de rang 3 et un sort de rang 4 parmi ceux listés pour un type de dragon incantateur du type de votre modèle draconique tels qu'ils figurent dans le bestiaire (comme Paralysie et Nuage puant pour un modèle dragon noir). Vous pouvez Lancer chacun de ces sorts une fois par jour comme un sort arcanique inné."
                 ]
             },
             {
@@ -1705,7 +1705,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez une capacité inné impressionnante pour apprivoiser et donner des ordres aux bêtes féroces. Vous êtes qualifié en Nature et obtenez le don général military_techAnimal de compagnie ou le don de compétence military_techDressage animalier ."
+                    "Vous avez une capacité inné impressionnante pour apprivoiser et donner des ordres aux bêtes féroces. Vous êtes qualifié en Nature et obtenez le don général Animal de compagnie ou le don de compétence Dressage animalier ."
                 ]
             },
             {
@@ -1719,7 +1719,7 @@ DON.RACE = {
                     "Fréquence Une fois par heure",
                     "Déclencheur Vous aveuglez ou éblouissez une créature.",
                     "Vous avez passé un temps considérable à pratiquer la manipulation de la lumière, en utilisant le reflet de la lumière sur la lame de votre arme ou augmentant la luminosité des représentations magiques à des hauteurs non conventionnelles.",
-                    "Étendez la durée de l'état sentiment_very_dissatisfiedAveuglé ou sentiment_very_dissatisfiedÉbloui que vous donnez à la cible de 1 round."
+                    "Étendez la durée de l'état Aveuglé ou Ébloui que vous donnez à la cible de 1 round."
                 ]
             },
             {
@@ -1732,7 +1732,7 @@ DON.RACE = {
                     "Rejeton sombre, Né de la fosse, Rejeton infernal ou un autre don de lignage associé avec les fiélons ou le Maelström"
                 ],
                 "description": [
-                    "Comme beaucoup de fiélons, vous avez la capacité surnaturelle de vous téléporter vous-même en sécurité. Une fois par jour, vous pouvez Lancer auto_awesomeTranslocation comme un sort inné divin de rang 5."
+                    "Comme beaucoup de fiélons, vous avez la capacité surnaturelle de vous téléporter vous-même en sécurité. Une fois par jour, vous pouvez Lancer Translocation comme un sort inné divin de rang 5."
                 ]
             },
             {
@@ -1743,7 +1743,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez éluder le désastre surnaturel. Lorsque vous obtenez l'état sentiment_very_dissatisfiedCondamné , vous pouvez faire casinoTest nu, DD 17 . En cas de succès, vous n'obtenez pas l'état Condamné."
+                    "Vous pouvez éluder le désastre surnaturel. Lorsque vous obtenez l'état Condamné , vous pouvez faire Test nu, DD 17 . En cas de succès, vous n'obtenez pas l'état Condamné."
                 ]
             },
             {
@@ -1767,7 +1767,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous maniez la magie primordiale. Vous pouvez lancer auto_awesomeFlore enchevêtrante et auto_awesomeRésilience du chêne comme des sorts innés primordiaux de rang 2 une fois par jour chacun."
+                    "Vous maniez la magie primordiale. Vous pouvez lancer Flore enchevêtrante et Résilience du chêne comme des sorts innés primordiaux de rang 2 une fois par jour chacun."
                 ]
             },
             {
@@ -1801,7 +1801,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous vous fondez dans le décor avec une subtilité surnaturelle. Lorsque vous êtes sentiment_very_dissatisfiedMasqué ou sentiment_very_dissatisfiedCaché , augmentez le DD du test nu pour vous cibler à 6 si vous êtes Masqué et à 12 si vous êtes Caché."
+                    "Vous vous fondez dans le décor avec une subtilité surnaturelle. Lorsque vous êtes Masqué ou Caché , augmentez le DD du test nu pour vous cibler à 6 si vous êtes Masqué et à 12 si vous êtes Caché."
                 ]
             },
             {
@@ -1835,7 +1835,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez appris à tirer parti des ouvertures dans les défenses de vos ennemis. Lorsque vous Frappez une créature sentiment_very_dissatisfiedPrise au dépourvu en utilisant une arme au corps-à-corps ou une attaque à mains nues qui possède les traits agile et finesse, elle obtient le trait traître."
+                    "Vous avez appris à tirer parti des ouvertures dans les défenses de vos ennemis. Lorsque vous Frappez une créature Prise au dépourvu en utilisant une arme au corps-à-corps ou une attaque à mains nues qui possède les traits agile et finesse, elle obtient le trait traître."
                 ]
             },
             {
@@ -1846,7 +1846,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous obtenez le don military_techArtisanat alchimique . Si vous devriez déjà avoir obtenu ce don automatiquement (par votre historique ou la classe d'alchimiste par exemple), vous obtenez à la place un don de compétence d'Artisanat de niveau 1 différent. Ajoutez une formule alchimique courante de niveau 1 à votre livre de formules quand vous prenez ce don. Chaque fois que vous gagnez un niveau au delà du niveau 1, ajoutez une formule alchimique courante de ce niveau à votre livre de formules."
+                    "Vous obtenez le don Artisanat alchimique . Si vous devriez déjà avoir obtenu ce don automatiquement (par votre historique ou la classe d'alchimiste par exemple), vous obtenez à la place un don de compétence d'Artisanat de niveau 1 différent. Ajoutez une formule alchimique courante de niveau 1 à votre livre de formules quand vous prenez ce don. Chaque fois que vous gagnez un niveau au delà du niveau 1, ajoutez une formule alchimique courante de ce niveau à votre livre de formules."
                 ]
             },
             {
@@ -1858,7 +1858,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris à lier certaines de vos plumes ensemble pour former un éventail pour concentrer votre magie ancestrale. Vous obtenez alors un Éventail à plumes tengu. Il s'agit d'un objet magique d'Encombrement léger avec un niveau égal au vôtre et le trait primordial. Vous (et seulement vous) pouvez lancer la magie tengue avec l'activation d'Agiter l'éventail. Si votre éventail est perdu ou détruit, vous pouvez créer un remplaçant au cours de vos préparatifs quotidiens. Si vous le faites, votre précédent éventail redevient fait de plumes banales.",
-                    "Votre Éventail à plumes tengu contient un sort de auto_awesomeGust of Wind de rang 1. D'autres dons peuvent vous accorder des sorts et des activations supplémentaires de votre Éventail à plumes tengu, mais vous n'avez droit qu'à trois activations maximum par jour, quel que soit le nombre de dons vous possédez.",
+                    "Votre Éventail à plumes tengu contient un sort de Gust of Wind de rang 1. D'autres dons peuvent vous accorder des sorts et des activations supplémentaires de votre Éventail à plumes tengu, mais vous n'avez droit qu'à trois activations maximum par jour, quel que soit le nombre de dons vous possédez.",
                     "Activation - Agiter l'éventail (manipulation)",
                     "Fréquence Une fois par jour",
                     "Effet Vous lancez un des sorts contenu dans votre Éventail à plumes tengu. Vous pouvez aussi Activer l'éventail pour lancer un tour de magie que vous avez obtenu par votre héritage ou un don ancestral, et ce type d'activation ne compte pas dans les activations quotidiennes de l'éventail. Activer l'éventail prend le nombre d'actions normal du sort. Le DD du sort est votre DD de classe ou votre DD de sort s'il est meilleur."
@@ -1874,7 +1874,7 @@ DON.RACE = {
                     "Éventail de plume tengu"
                 ],
                 "description": [
-                    "Votre éventail lâche la furie de la tempête. Vous pouvez utiliser l'activation Agiter l'éventail une fois supplémentaire par jour. Ajoutez le sort auto_awesomeÉclair au rang 5 aux sorts contenus dans votre éventail."
+                    "Votre éventail lâche la furie de la tempête. Vous pouvez utiliser l'activation Agiter l'éventail une fois supplémentaire par jour. Ajoutez le sort Éclair au rang 5 aux sorts contenus dans votre éventail."
                 ]
             },
             {
@@ -1887,7 +1887,7 @@ DON.RACE = {
                     "Éventail à plume tengu"
                 ],
                 "description": [
-                    "Votre éventail peut même susciter des vents plus puissants. Vous pouvez utiliser l'activation Agiter l'éventail une fois supplémentaire par jour. Ajoutez le sort auto_awesomeMur de vent de rang 3 à la liste des sorts contenus dans votre éventail."
+                    "Votre éventail peut même susciter des vents plus puissants. Vous pouvez utiliser l'activation Agiter l'éventail une fois supplémentaire par jour. Ajoutez le sort Mur de vent de rang 3 à la liste des sorts contenus dans votre éventail."
                 ]
             },
             {
@@ -1898,7 +1898,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vos actions inspirent vos alliés et les poussent à se dépasser. À chaque fois que vous obtenez un succès critique à un test de compétence, vous pouvez automatiquement utiliser la réaction sports_martial_artsAider pour apporter votre aide à un allié qui utilise la même compétence, sans avoir besoin d'utiliser une action pour vous s'apprêter à le faire."
+                    "Vos actions inspirent vos alliés et les poussent à se dépasser. À chaque fois que vous obtenez un succès critique à un test de compétence, vous pouvez automatiquement utiliser la réaction Aider pour apporter votre aide à un allié qui utilise la même compétence, sans avoir besoin d'utiliser une action pour vous s'apprêter à le faire."
                 ]
             },
             {
@@ -1934,7 +1934,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "Vous savez mieux manier votre arme non conventionnelle.",
-                    "À chaque fois que vous obtenez une capacité de classe qui vous confère une maîtrise experte ou supérieure avec certaines armes, vous obtenez également cette maîtrise avec l'arme que vous avez choisie avec le don military_techArmement non conventionnel ."
+                    "À chaque fois que vous obtenez une capacité de classe qui vous confère une maîtrise experte ou supérieure avec certaines armes, vous obtenez également cette maîtrise avec l'arme que vous avez choisie avec le don Armement non conventionnel ."
                 ]
             },
             {
@@ -1949,7 +1949,7 @@ DON.RACE = {
                 "description": [
                     "Votre physique rebondissant rend plus facile pour vous de vous enfoncer dans des espaces étroites et plus difficile pour vos ennemis de vous en déloger.",
                     "Vous devenez qualifié en Acrobaties. Si vous devriez automatiquement être qualifié en Acrobaties (du fait de votre historique ou de votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix à la place.",
-                    "Si vous obtenez un succès pour sports_martial_artsVous faufiler , il devient un succès critique. Lorsque vous Vous faufilez, vous obtenez un bonus de circonstances de +4 au DD de vos jets de Vigueur et de Réflexes contre les tentatives de vous sports_martial_artsPousser ou vous faire bouger de l'espace que vous occupez."
+                    "Si vous obtenez un succès pour Vous faufiler , il devient un succès critique. Lorsque vous Vous faufilez, vous obtenez un bonus de circonstances de +4 au DD de vos jets de Vigueur et de Réflexes contre les tentatives de vous Pousser ou vous faire bouger de l'espace que vous occupez."
                 ]
             },
             {
@@ -2020,7 +2020,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vos congénères vous ont donné le goût des armes qui frappent dur et vous les préférez à d'autres plus élégantes. Vous obtenez l'accès à toutes les armes peu courantes qui possèdent le trait nain. Vous êtes qualifié avec les armes possédant le trait nain et obtenez la maîtrise de la workHache d'armes , du workPic de guerre et du workMarteau de guerre . Lorsqu'il s'agit de déterminer votre maîtrise, les armes de guerre naines sont des armes simples et les armes naines évoluées sont des armes de guerre.",
+                    "Vos congénères vous ont donné le goût des armes qui frappent dur et vous les préférez à d'autres plus élégantes. Vous obtenez l'accès à toutes les armes peu courantes qui possèdent le trait nain. Vous êtes qualifié avec les armes possédant le trait nain et obtenez la maîtrise de la Hache d'armes , du Pic de guerre et du Marteau de guerre . Lorsqu'il s'agit de déterminer votre maîtrise, les armes de guerre naines sont des armes simples et les armes naines évoluées sont des armes de guerre.",
                     "Au niveau 5, chaque fois que vous obtenez un succès critique avec une de ces armes, vous appliquez les effets de critique spécialisé."
                 ]
             },
@@ -2032,7 +2032,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Au combat, vous préférez les armes brutales qui sont traditionnelles pour vos ancêtres orcs. Vous avez accès à toutes les armes peu courantes qui possèdent le trait orc. Vous êtes familiarisé avec les armes qui possèdent le trait orc ainsi qu'au workCimeterre à deux mains et à la workgrande hache . Pour ce qui concerne la maîtrise, vous considérez celles de ces armes qui sont des armes de guerre orques comme des armes simples et n'importe laquelle de ces armes qui est évoluée comme une arme de guerre.",
+                    "Au combat, vous préférez les armes brutales qui sont traditionnelles pour vos ancêtres orcs. Vous avez accès à toutes les armes peu courantes qui possèdent le trait orc. Vous êtes familiarisé avec les armes qui possèdent le trait orc ainsi qu'au Cimeterre à deux mains et à la grande hache . Pour ce qui concerne la maîtrise, vous considérez celles de ces armes qui sont des armes de guerre orques comme des armes simples et n'importe laquelle de ces armes qui est évoluée comme une arme de guerre.",
                     "Au niveau 5, lorsque vous obtenez un succès critique avec une de ces armes, vous appliquez son effet critique spécialisé."
                 ]
             },
@@ -2047,7 +2047,7 @@ DON.RACE = {
                     "Vous avez accès à toutes les armes peu courantes possédant le trait tengu plus le katana, le khakkara, l'épée du temple et le wakizashi. Vous avez une familiarité avec ces armes. Pour les besoins de déterminer votre maîtrise, vous considérez ces armes, si elles sont de guerre, comme des armes simples, et si elles sont évoluées, comme des armes de guerre.",
                     "Au cours de vos préparatifs quotidiens, vous pouvez pratiquer l'usage d'une arme du groupe des épées qui est en votre possession. Vous obtenez une familiarité avec cette arme également. Ceci durera jusqu'à ce que vous pratiquiez avec une épée différente de la même manière.",
                     "Au niveau 5, lorsque vous obtenez un coup critique avec l'une de ces armes, vous bénéficiez de son effet critique spécialisé.",
-                    "flareEffet : Pratique de l'épée"
+                    "Effet : Pratique de l'épée"
                 ]
             },
             {
@@ -2070,7 +2070,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez une prédilection pour les arcs et les autres armes élégantes. Vous avez accès à toutes les armes peu courantes qui possèdent le trait elfe plus les workArcs longs , les workArcs longs composites , les workÉpées longues , les workRapières , les workArcs courts et les workArcs courts composites . Lorsque vous déterminez votre maîtrise, vous considérez chacune de ces armes qui est une arme de guerre comme une arme simple et chacune de ces armes qui est une arme évoluée comme une arme de guerre.",
+                    "Vous avez une prédilection pour les arcs et les autres armes élégantes. Vous avez accès à toutes les armes peu courantes qui possèdent le trait elfe plus les Arcs longs , les Arcs longs composites , les Épées longues , les Rapières , les Arcs courts et les Arcs courts composites . Lorsque vous déterminez votre maîtrise, vous considérez chacune de ces armes qui est une arme de guerre comme une arme simple et chacune de ces armes qui est une arme évoluée comme une arme de guerre.",
                     "Au niveau 5, lorsque vous obtenez un succès critique avec une de ces armes, vous bénéficiez de son effet critique spécialisé."
                 ]
             },
@@ -2106,7 +2106,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez une prédilection pour les armes halfelines et avez ainsi appris à les utiliser plus efficacement. Vous obtenez l'accès à toutes les armes peu courantes possédant le trait halfelin. Vous avez une familiarité avec les armes ayant le trait halfelin ainsi que la workFronde et l' workÉpée courte . En ce qui vous concerne votre maîtrise, vous considérez chacune de ces armes qui est une arme de guerre comme une arme simple et n'importe quelle de ces armes qui est évoluée comme une arme de guerre.",
+                    "Vous avez une prédilection pour les armes halfelines et avez ainsi appris à les utiliser plus efficacement. Vous obtenez l'accès à toutes les armes peu courantes possédant le trait halfelin. Vous avez une familiarité avec les armes ayant le trait halfelin ainsi que la Fronde et l' Épée courte . En ce qui vous concerne votre maîtrise, vous considérez chacune de ces armes qui est une arme de guerre comme une arme simple et n'importe quelle de ces armes qui est évoluée comme une arme de guerre.",
                     "Au niveau 5, lorsque vous obtenez un coup critique avec une de ces armes, vous bénéficiez de son effet critique spécialisé."
                 ]
             },
@@ -2142,7 +2142,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris des techniques découvertes par vos ancêtres au cours de leurs anciennes guerres, qui vous permettent de porter plus facilement de lourdes armures. Vous ignorez la réduction de Vitesse de l'armure que vous portez.",
-                    "De plus, à chaque fois que vous subissez une pénalité de vitesse pour une autre raison (tel que celle découlant de l'état sentiment_very_dissatisfiedSurchargé ou provenant d'un sort), vous réduisez cette pénalité de 1,50 mètre. Par exemple, l'état surchargé vous inflige normalement une pénalité de Vitesse de -3 mètres, mais ce don la réduira à une pénalité de -1,50 mètre. Si votre Vitesse est affectée de plusieurs pénalités, seule celle que vous choisissez sera réduite."
+                    "De plus, à chaque fois que vous subissez une pénalité de vitesse pour une autre raison (tel que celle découlant de l'état Surchargé ou provenant d'un sort), vous réduisez cette pénalité de 1,50 mètre. Par exemple, l'état surchargé vous inflige normalement une pénalité de Vitesse de -3 mètres, mais ce don la réduira à une pénalité de -1,50 mètre. Si votre Vitesse est affectée de plusieurs pénalités, seule celle que vous choisissez sera réduite."
                 ]
             },
             {
@@ -2155,7 +2155,7 @@ DON.RACE = {
                     "Férocité orque"
                 ],
                 "description": [
-                    "Déclencheur Vous utilisez military_techFérocité orque",
+                    "Déclencheur Vous utilisez Férocité orque",
                     "Vous vous déchaînez vicieusement même lorsque vous repoussez la mort. Faites une unique Frappe au corps-à-corps. Si cette Frappe amène un ennemi à 0 Point de vie, cette activation de Férocité orque n'est pas décomptée de sa fréquence d'utilisation."
                 ]
             },
@@ -2182,8 +2182,8 @@ DON.RACE = {
                     "Férocité orque"
                 ],
                 "description": [
-                    "Vous résistez à l'étreinte de la mort avec une vigueur surnaturelle, défiant la mort d'oser vous réclamer et promettant qu'une telle tentative aboutira à un échec. Lorsque vous utilisez military_techFérocité orque , vous obtenez des Points de vie temporaires égaux à votre niveau.",
-                    "flareEffet : Férocité immortelle"
+                    "Vous résistez à l'étreinte de la mort avec une vigueur surnaturelle, défiant la mort d'oser vous réclamer et promettant qu'une telle tentative aboutira à un échec. Lorsque vous utilisez Férocité orque , vous obtenez des Points de vie temporaires égaux à votre niveau.",
+                    "Effet : Férocité immortelle"
                 ]
             },
             {
@@ -2196,7 +2196,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "Déclencheur Vous êtes réduit à 0 Point de vie, mais ne mourez pas sur-le-champ.",
-                    "La férocité au combat coule dans votre sang et vous refusez de succomber à vos blessures, aussi terribles soient-elles. Vous évitez d'être assommé et restez à 1 Point de vie et votre état sentiment_very_dissatisfiedBlessé augmente de 1."
+                    "La férocité au combat coule dans votre sang et vous refusez de succomber à vos blessures, aussi terribles soient-elles. Vous évitez d'être assommé et restez à 1 Point de vie et votre état Blessé augmente de 1."
                 ]
             },
             {
@@ -2207,7 +2207,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous conjurez des orbes étranges de flamme spirituelle qui flottent au-dessus ou eu-dessous de la surface de l'eau. Vous pouvez lancer le tour de magie auto_awesomeAllumage comme un sort inné primordial à volonté, intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. Votre sort Allumage prend la forme d'orbes de feu et vous pouvez le lancer sous l'eau."
+                    "Vous conjurez des orbes étranges de flamme spirituelle qui flottent au-dessus ou eu-dessous de la surface de l'eau. Vous pouvez lancer le tour de magie Allumage comme un sort inné primordial à volonté, intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. Votre sort Allumage prend la forme d'orbes de feu et vous pouvez le lancer sous l'eau."
                 ]
             },
             {
@@ -2224,7 +2224,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "Déclencheur Un allié dans les 9 mètres devrait être réduit à 0 PV mais pas immédiatement tué.",
-                    "Vous lancez un miaulement d'avertissement, rappelant votre compagnon du bord de l'inconscience. Votre allié ne tombe pas et reste à 1 Point de vie. L'état sentiment_very_dissatisfiedBlessé de votre allié augmente néanmoins de 1 comme s'il avait été sentiment_very_dissatisfiedMourant et avait récupéré."
+                    "Vous lancez un miaulement d'avertissement, rappelant votre compagnon du bord de l'inconscience. Votre allié ne tombe pas et reste à 1 Point de vie. L'état Blessé de votre allié augmente néanmoins de 1 comme s'il avait été Mourant et avait récupéré."
                 ]
             },
             {
@@ -2238,7 +2238,7 @@ DON.RACE = {
                 "description": [
                     "Déclencheur Un allié dans les 9 mètres amène un ennemi à 0 Point de vie.",
                     "En poussant un cri de triomphe, vous accordez l'inspiration à l'allié qui poursuit le combat. L'allié déclencheur obtient des Points de vie temporaires égaux à son modificateur de Constitution jusqu'à la fin de son prochain tour.",
-                    "flareEffet : Fierté militaire"
+                    "Effet : Fierté militaire"
                 ]
             },
             {
@@ -2249,7 +2249,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Échapper à vos filets n'est pas chose aisée. Le DD d'Athlétisme pour sports_martial_artsOuvrir de force ou sports_martial_artsS'Échapper de vos filets passe de 16 à 18. Lorsqu'une créature que vous avez sentiment_very_dissatisfiedAgrippée avec un filet s'est échappée ou a ouvert de force le filet, les mailles du filet s'accrochent à la créature, la laissant sentiment_very_dissatisfiedPrise au dépourvu jusqu'au début de son prochain tour."
+                    "Échapper à vos filets n'est pas chose aisée. Le DD d'Athlétisme pour Ouvrir de force ou S'Échapper de vos filets passe de 16 à 18. Lorsqu'une créature que vous avez Agrippée avec un filet s'est échappée ou a ouvert de force le filet, les mailles du filet s'accrochent à la créature, la laissant Prise au dépourvu jusqu'au début de son prochain tour."
                 ]
             },
             {
@@ -2260,7 +2260,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Chaque fois qu'un ennemi débute son tour en vous étant adjacent, il doit tenter un jet de casinoVolonté contre le plus élevé entre votre DD de classe ou DD de sort. En cas d'échec, l'ennemi subit une pénalité de statut de -1 aux jets d'attaque et aux tests de compétence tant qu'il vous reste adjacent. Quel que soit le résultat de son jet de sauvegarde, la créature est temporairement immunisée contre Fléau du gardien des os pendant 24 heures."
+                    "Chaque fois qu'un ennemi débute son tour en vous étant adjacent, il doit tenter un jet de Volonté contre le plus élevé entre votre DD de classe ou DD de sort. En cas d'échec, l'ennemi subit une pénalité de statut de -1 aux jets d'attaque et aux tests de compétence tant qu'il vous reste adjacent. Quel que soit le résultat de son jet de sauvegarde, la créature est temporairement immunisée contre Fléau du gardien des os pendant 24 heures."
                 ]
             },
             {
@@ -2271,7 +2271,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous obtenez auto_awesomeMouvement sans entrave et auto_awesomeRésilience du rocher en tant que sorts innés primordiaux de rang 4 que vous pouvez lancer une fois par jour. Avec une activité à 3 actions, vous pouvez Lancer un sort deux fois pour lancer à la fois les deux de ces sorts innés, tant qu'ils sont tous les deux toujours disponibles pour la journée."
+                    "Vous obtenez Mouvement sans entrave et Résilience du rocher en tant que sorts innés primordiaux de rang 4 que vous pouvez lancer une fois par jour. Avec une activité à 3 actions, vous pouvez Lancer un sort deux fois pour lancer à la fois les deux de ces sorts innés, tant qu'ils sont tous les deux toujours disponibles pour la journée."
                 ]
             },
             {
@@ -2313,7 +2313,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par heure",
-                    "Vous pouvez vous transformer en une chauve-souris inoffensive. Vous obtenez les effets du sort auto_awesomeForme de nuisible au rang 4, sauf que vous vous transformez toujours en une chauve-souris."
+                    "Vous pouvez vous transformer en une chauve-souris inoffensive. Vous obtenez les effets du sort Forme de nuisible au rang 4, sauf que vous vous transformez toujours en une chauve-souris."
                 ]
             },
             {
@@ -2324,7 +2324,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez brièvement vous transformer en un parangon de votre ascendance draconique. Vous pouvez lancer auto_awesomeForme de dragon en tant que sort inné de rang 8 une fois par jour. Ce sort possède la même tradition que votre modèle draconique. Lorsque vous lancez ce sort inné, vous devez vous transformer en votre modèle draconique. Cependant, si vous avez le don de lignée military_techSang-dragon arcanique , military_techSang-dragon divin , military_techSang-dragon occulte ou military_techSang-dragon primordial , vous pouvez choisir n'importe quel dragon de cette tradition à la place."
+                    "Vous pouvez brièvement vous transformer en un parangon de votre ascendance draconique. Vous pouvez lancer Forme de dragon en tant que sort inné de rang 8 une fois par jour. Ce sort possède la même tradition que votre modèle draconique. Lorsque vous lancez ce sort inné, vous devez vous transformer en votre modèle draconique. Cependant, si vous avez le don de lignée Sang-dragon arcanique , Sang-dragon divin , Sang-dragon occulte ou Sang-dragon primordial , vous pouvez choisir n'importe quel dragon de cette tradition à la place."
                 ]
             },
             {
@@ -2338,7 +2338,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez vous transformer en un rat apparemment inoffensif. Vous obtenez les effets du sort auto_awesomeForme de nuisible au rang 1 mais vous devez prendre la forme de combat d'un Très petit rat."
+                    "Vous pouvez vous transformer en un rat apparemment inoffensif. Vous obtenez les effets du sort Forme de nuisible au rang 1 mais vous devez prendre la forme de combat d'un Très petit rat."
                 ]
             },
             {
@@ -2351,8 +2351,8 @@ DON.RACE = {
                     "Forme au long nez"
                 ],
                 "description": [
-                    "Vous prenez la forme d'un imposant esprit ailé de taille Grande. Une fois par jour, dans le cadre de l'utilisation de military_techForme au long nez , vous obtenez aussi les avantages du sort auto_awesomeAgrandissement au rang 4 et de auto_awesomeVol . Cela dure pendant 5 minutes ou jusqu'à ce que vous sortiez de votre forme à long nez, selon ce qui se produit en premier.",
-                    "flareEffet : Forme du grand tengu"
+                    "Vous prenez la forme d'un imposant esprit ailé de taille Grande. Une fois par jour, dans le cadre de l'utilisation de Forme au long nez , vous obtenez aussi les avantages du sort Agrandissement au rang 4 et de Vol . Cela dure pendant 5 minutes ou jusqu'à ce que vous sortiez de votre forme à long nez, selon ce qui se produit en premier.",
+                    "Effet : Forme du grand tengu"
                 ]
             },
             {
@@ -2376,7 +2376,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Le vent et les éclairs ont toujours été vos amis. Vous pouvez lancer le tour de magie auto_awesomeArc électrique comme un sort inné primordial à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+                    "Le vent et les éclairs ont toujours été vos amis. Vous pouvez lancer le tour de magie Arc électrique comme un sort inné primordial à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
                 ]
             },
             {
@@ -2387,7 +2387,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes compétent lorsqu'il s'agit de battre un ennemi lorsque son moral flanche. Lorsque vous obtenez un succès lors d'une Frappe avec une arme de corps-à-corps contre un ennemi sentiment_very_dissatisfiedEffrayé , cet ennemi ne peut réduire sa condition Effrayé en dessous de 1 jusqu'au début de votre prochain tour."
+                    "Vous êtes compétent lorsqu'il s'agit de battre un ennemi lorsque son moral flanche. Lorsque vous obtenez un succès lors d'une Frappe avec une arme de corps-à-corps contre un ennemi Effrayé , cet ennemi ne peut réduire sa condition Effrayé en dessous de 1 jusqu'au début de votre prochain tour."
                 ]
             },
             {
@@ -2398,7 +2398,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes toujours à l'affût de fournitures ou de choses de valeur. Vous obtenez un bonus de circonstances de +2 pour localiser les objets (incluant portes secrètes et pièges) que vous cherchez dans les 9 mètres avec l'action sports_martial_artsChercher ."
+                    "Vous êtes toujours à l'affût de fournitures ou de choses de valeur. Vous obtenez un bonus de circonstances de +2 pour localiser les objets (incluant portes secrètes et pièges) que vous cherchez dans les 9 mètres avec l'action Chercher ."
                 ]
             },
             {
@@ -2464,7 +2464,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Si un adversaire d'une taille supérieure à la vôtre obtient un coup critique et vous fait subir des dégâts, cet adversaire est sentiment_very_dissatisfiedPris au dépourvu par rapport à vous pendant 1 round."
+                    "Si un adversaire d'une taille supérieure à la vôtre obtient un coup critique et vous fait subir des dégâts, cet adversaire est Pris au dépourvu par rapport à vous pendant 1 round."
                 ]
             },
             {
@@ -2478,7 +2478,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "S'il faut habituellement 1 minute pour Fabriquer un piège artisanal, vous pouvez le Fabriquer en 3 actions Interagir. Chaque jour durant vos préparatifs quotidiens, vous pouvez préparez trois pièges artisanaux de votre recueil pour un déploiement rapide (augmenté à 4 si vous êtes maître en Artisanat et à 5 si vous êtes légendaire). Les pièges artisanaux préparés de cette façon ne vous coûtent pas de ressources.",
-                    "Lorsqu'une créature obtient un échec critique à son jet de sauvegarde et subit des dégâts de l'effet initial du piège artisanal, elle est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de son prochain tour."
+                    "Lorsqu'une créature obtient un échec critique à son jet de sauvegarde et subit des dégâts de l'effet initial du piège artisanal, elle est Prise au dépourvu jusqu'à la fin de son prochain tour."
                 ]
             },
             {
@@ -2490,7 +2490,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous vous serrez, vous déplacez furtivement et glissez d'abri en abri rapidement avec une grande discrétion.",
-                    "Vous pouvez vous déplacer de votre Vitesse lorsque vous sports_martial_artsÊtes furtif ."
+                    "Vous pouvez vous déplacer de votre Vitesse lorsque vous Êtes furtif ."
                 ]
             },
             {
@@ -2502,7 +2502,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Les elfes ont souvent du mal à ne pas sous-estimer les aiuvarins et vous avez de l'expérience lorsqu'il s'agit de raconter ce que vous avez accompli pour obtenir leur respect. Vous êtes qualifié en Représentation. Si vous êtes qualifié en Représentation (du fait de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix à la place.",
-                    "Vous obtenez le don military_techReprésentation impressionnante . Lorsque vous faites un test de Représentation pour sports_martial_artsFaire bonne impression sur un elfe, lorsque vous obtenez un échec critique, il devient un échec."
+                    "Vous obtenez le don Représentation impressionnante . Lorsque vous faites un test de Représentation pour Faire bonne impression sur un elfe, lorsque vous obtenez un échec critique, il devient un échec."
                 ]
             },
             {
@@ -2515,7 +2515,7 @@ DON.RACE = {
                     "Avaler la chance"
                 ],
                 "description": [
-                    "Vous pouvez military_techAvaler la chance une fois par heure, plutôt qu'une fois par jour."
+                    "Vous pouvez Avaler la chance une fois par heure, plutôt qu'une fois par jour."
                 ]
             },
             {
@@ -2580,7 +2580,7 @@ DON.RACE = {
                     "Attaque à mains nues de Griffe"
                 ],
                 "description": [
-                    "Vos griffes portent la magie de votre mère guenaude. Lorsque vous obtenez un coup critique avec une Frappe de griffe, la cible subit casino1d4 dégâts mentaux persistants supplémentaires."
+                    "Vos griffes portent la magie de votre mère guenaude. Lorsque vous obtenez un coup critique avec une Frappe de griffe, la cible subit 1d4 dégâts mentaux persistants supplémentaires."
                 ]
             },
             {
@@ -2593,7 +2593,7 @@ DON.RACE = {
                     "Superstition léchie"
                 ],
                 "description": [
-                    "Vous avez un fétiche qui vous apporte la chance. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les sorts et effets magiques tout le temps, pas juste lorsque vous utilisez military_techSuperstition léchie . Si vous perdez votre porte bonheur, vous perdez le bonus jusqu'à ce que vous en désignez un nouveau, ce qui vous prend typiquement une semaine."
+                    "Vous avez un fétiche qui vous apporte la chance. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les sorts et effets magiques tout le temps, pas juste lorsque vous utilisez Superstition léchie . Si vous perdez votre porte bonheur, vous perdez le bonus jusqu'à ce que vous en désignez un nouveau, ce qui vous prend typiquement une semaine."
                 ]
             },
             {
@@ -2641,8 +2641,8 @@ DON.RACE = {
                     "expert en Intimidation"
                 ],
                 "description": [
-                    "Déclencheur Vous obtenez un succès en sports_martial_artsCherchant une créature sentiment_very_dissatisfiedcachée ou sentiment_very_dissatisfiednon détectée .",
-                    "Vous poussez un grognement sourd pour sports_martial_artsDémoraliser une créature que vous venez juste de débusquer. Vous ne subissez pas la pénalité de -4 liée au fait de ne pas partager de langue avec cette créature."
+                    "Déclencheur Vous obtenez un succès en Cherchant une créature cachée ou non détectée .",
+                    "Vous poussez un grognement sourd pour Démoraliser une créature que vous venez juste de débusquer. Vous ne subissez pas la pénalité de -4 liée au fait de ne pas partager de langue avec cette créature."
                 ]
             },
             {
@@ -2655,7 +2655,7 @@ DON.RACE = {
                     "Héritage kholo à haleine douce"
                 ],
                 "description": [
-                    "Vous sentez le miel et les choses savoureuses. Si votre cible peut sentir votre haleine, vous avez un bonus de circonstances de +2 aux tests pour sports_martial_artsFaire bonne impression . De plus, vous pouvez lancer auto_awesomeDiscours captivant comme un sort inné occulte au rang 3 une fois par jour, sauf que le sort a une portée de 9 mètres et le trait olfactif au lieu du trait audible. Les cibles n'obtiennent aucun bonus de circonstances du fait de ne pas être d'accord avec vous."
+                    "Vous sentez le miel et les choses savoureuses. Si votre cible peut sentir votre haleine, vous avez un bonus de circonstances de +2 aux tests pour Faire bonne impression . De plus, vous pouvez lancer Discours captivant comme un sort inné occulte au rang 3 une fois par jour, sauf que le sort a une portée de 9 mètres et le trait olfactif au lieu du trait audible. Les cibles n'obtiennent aucun bonus de circonstances du fait de ne pas être d'accord avec vous."
                 ]
             },
             {
@@ -2666,8 +2666,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez été contraint à la servitude ou enchaîné dans une prison, mais vous vous êtes évadé et vous vous êtes entraîné pour vous assurer de ne plus jamais être pris. Quand vous obtenez un succès sur un test pour sports_martial_artsVous échapper ou un jet de sauvegarde contre un effet qui vous mettrait dans l'état sentiment_very_dissatisfiedAgrippé , sentiment_very_dissatisfiedImmobilisé ou sentiment_very_dissatisfiedEntravé , il devient un succès critique.",
-                    "Quand une créature obtient un échec au test pour vous sports_martial_artsSaisir , elle obtient un échec critique."
+                    "Vous avez été contraint à la servitude ou enchaîné dans une prison, mais vous vous êtes évadé et vous vous êtes entraîné pour vous assurer de ne plus jamais être pris. Quand vous obtenez un succès sur un test pour Vous échapper ou un jet de sauvegarde contre un effet qui vous mettrait dans l'état Agrippé , Immobilisé ou Entravé , il devient un succès critique.",
+                    "Quand une créature obtient un échec au test pour vous Saisir , elle obtient un échec critique."
                 ]
             },
             {
@@ -2678,8 +2678,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous prêtez une grande attention aux gens qui vous entourent, vous permettant plus facilement de remarquer lorsqu'ils agissent de manière inhabituelle. Vous obtenez un bonus de circonstances de +2 à vos tests de Perception lorsque vous utilisez l'action basique sports_martial_artsDeviner les intentions afin de remarquer les personnages charmés ou possédés. Si vous n'êtes pas activement en train de tenter de Deviner les intentions d'un personnage charmé ou possédé, le MJ fait un test secret sans votre bonus habituel de circonstances, afin de déterminer si vous remarquez que cette créature est charmée ou possédée.",
-                    "En plus de l'utiliser pour les tests de compétence, vous pouvez utiliser l'action basique sports_martial_artsAider pour accorder un bonus à une autre créature qui fait un jet de sauvegarde ou un autre test afin de surmonter un enchantement ou une possession. Comme c'est le cas avec l'action Aider, vous devez être préparé à utiliser une action lors de votre tour pour encourager la créature à lutter contre l'effet."
+                    "Vous prêtez une grande attention aux gens qui vous entourent, vous permettant plus facilement de remarquer lorsqu'ils agissent de manière inhabituelle. Vous obtenez un bonus de circonstances de +2 à vos tests de Perception lorsque vous utilisez l'action basique Deviner les intentions afin de remarquer les personnages charmés ou possédés. Si vous n'êtes pas activement en train de tenter de Deviner les intentions d'un personnage charmé ou possédé, le MJ fait un test secret sans votre bonus habituel de circonstances, afin de déterminer si vous remarquez que cette créature est charmée ou possédée.",
+                    "En plus de l'utiliser pour les tests de compétence, vous pouvez utiliser l'action basique Aider pour accorder un bonus à une autre créature qui fait un jet de sauvegarde ou un autre test afin de surmonter un enchantement ou une possession. Comme c'est le cas avec l'action Aider, vous devez être préparé à utiliser une action lors de votre tour pour encourager la créature à lutter contre l'effet."
                 ]
             },
             {
@@ -2690,7 +2690,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes entouré d'un halo de lumière et de bonté qui émet de la lumière avec les effets d'un tour de magie divin de auto_awesomeLumière . Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au niveau supérieur. Vous pouvez Maintenir pour supprimer ou rétablir le halo."
+                    "Vous êtes entouré d'un halo de lumière et de bonté qui émet de la lumière avec les effets d'un tour de magie divin de Lumière . Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au niveau supérieur. Vous pouvez Maintenir pour supprimer ou rétablir le halo."
                 ]
             },
             {
@@ -2702,7 +2702,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous avez appris à gérer les situations qui vous dépassent.",
-                    "Vous obtenez le don général military_techImprovisation inexpérimentée .",
+                    "Vous obtenez le don général Improvisation inexpérimentée .",
                     "En outre, vous pouvez entreprendre des actions de compétences qui vous demandent normalement de posséder le degré de maîtrise qualifié, même si vous êtes inexpérimenté."
                 ]
             },
@@ -2740,7 +2740,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre taille et votre comportement font qu'il vous est aisé de convaincre les autres que vous ne leur voulez pas de mal. Vous obtenez le don de compétence military_techSollicitation éhontée . De plus, vous obtenez un bonus de circonstances de +1 aux tests d'initiative lorsque vous utilisez Duperie pour la déterminer."
+                    "Votre taille et votre comportement font qu'il vous est aisé de convaincre les autres que vous ne leur voulez pas de mal. Vous obtenez le don de compétence Sollicitation éhontée . De plus, vous obtenez un bonus de circonstances de +1 aux tests d'initiative lorsque vous utilisez Duperie pour la déterminer."
                 ]
             },
             {
@@ -2753,7 +2753,7 @@ DON.RACE = {
                     "Magie osseuse"
                 ],
                 "description": [
-                    "Vous vous recouvrez d'os spirituels de dinosaure pour devenir un dinosaure Très grand. Vous pouvez lancer auto_awesomeForme de dinosaure au rang 5 sur vous-même comme un sort inné une fois par jour."
+                    "Vous vous recouvrez d'os spirituels de dinosaure pour devenir un dinosaure Très grand. Vous pouvez lancer Forme de dinosaure au rang 5 sur vous-même comme un sort inné une fois par jour."
                 ]
             },
             {
@@ -2776,7 +2776,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous obtenez les dons military_techConsommable prescient et military_techPlanificateur prescient , sauf que vous retirez les objets de vos abajoues. Cela signifie que l'objet que vous récupérez doit tenir dans vos abajoues ; c'est généralement un objet d'Encombrement négligeable à moins que vous ne possédiez le don military_techAbajoues ."
+                    "Vous obtenez les dons Consommable prescient et Planificateur prescient , sauf que vous retirez les objets de vos abajoues. Cela signifie que l'objet que vous récupérez doit tenir dans vos abajoues ; c'est généralement un objet d'Encombrement négligeable à moins que vous ne possédiez le don Abajoues ."
                 ]
             },
             {
@@ -2789,7 +2789,7 @@ DON.RACE = {
                     "maître en Intimidation"
                 ],
                 "description": [
-                    "Votre ricanement sinistre est un son d'avertissement et de menace. Vous obtenez le don de compétence military_techCri de guerre . Vous ne subissez pas de pénalité lorsque vous tentez de sports_martial_artsDémoraliser une créature qui ne comprend pas votre langue."
+                    "Votre ricanement sinistre est un son d'avertissement et de menace. Vous obtenez le don de compétence Cri de guerre . Vous ne subissez pas de pénalité lorsque vous tentez de Démoraliser une créature qui ne comprend pas votre langue."
                 ]
             },
             {
@@ -2838,8 +2838,8 @@ DON.RACE = {
                     "tripkee à longue langue"
                 ],
                 "description": [
-                    "Votre langue peut s'accrocher momentanément aussi facilement que vos mains. Tant que vous pouvez ouvrir librement la bouche, vous n'avez pas besoin d'avoir les mains libres pour sports_martial_artsDésarmer , sports_martial_artsVous raccrocher in extremis , sports_martial_artsRepositionner ou faire un sports_martial_artsCroc-en-jambe .",
-                    "Si vous possédez le don military_techLongue langue , vous pouvez Désarmer, vous raccrocher in extremis, Repositionner ou faire un Croc-en-jambe avec votre langue à une distance supérieure de 1,50 mètre à votre allonge normale."
+                    "Votre langue peut s'accrocher momentanément aussi facilement que vos mains. Tant que vous pouvez ouvrir librement la bouche, vous n'avez pas besoin d'avoir les mains libres pour Désarmer , Vous raccrocher in extremis , Repositionner ou faire un Croc-en-jambe .",
+                    "Si vous possédez le don Longue langue , vous pouvez Désarmer, vous raccrocher in extremis, Repositionner ou faire un Croc-en-jambe avec votre langue à une distance supérieure de 1,50 mètre à votre allonge normale."
                 ]
             },
             {
@@ -2904,7 +2904,7 @@ DON.RACE = {
                     "Longévité ancestrale"
                 ],
                 "description": [
-                    "Vous avez continué d'affiner les connaissances et compétences acquises au cours de votre vie. Quand vous choisissez une compétence dans laquelle devenir qualifié grâce à votre military_techLongévité ancestrale , vous pouvez également choisir de devenir expert dans une compétence dans laquelle vous êtes déjà qualifié. Ceci dure jusqu'à ce que l'effet de Longévité ancestrale prenne fin.",
+                    "Vous avez continué d'affiner les connaissances et compétences acquises au cours de votre vie. Quand vous choisissez une compétence dans laquelle devenir qualifié grâce à votre Longévité ancestrale , vous pouvez également choisir de devenir expert dans une compétence dans laquelle vous êtes déjà qualifié. Ceci dure jusqu'à ce que l'effet de Longévité ancestrale prenne fin.",
                     "Quand les effets des dons Longévité ancestrale et Longévité experte prennent fin, vous pouvez réapprendre une de vos améliorations de compétence. L'amélioration de compétence dont vous bénéficiez grâce à ce réapprentissage doit soit vous permettre de devenir qualifié dans la compétence choisie avec le don Longévité ancestrale, soit vous permettre de devenir expert dans la compétence choisie avec le don Longévité experte."
                 ]
             },
@@ -2919,7 +2919,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Vous avez perfectionné votre capacité à entretenir toutes les compétences que vous avez apprises au cours de votre longue vie de sorte que vous n'êtes jamais véritablement inexpérimenté dans une compétence. Vous réfléchissez à vos expériences de vie, en modifiant la compétence que vous avez sélectionnée avec le cadre des dons military_techLongévité ancestrale (et la compétence que vous avez sélectionnée avec military_techLongévité experte si vous avez ce don)."
+                    "Vous avez perfectionné votre capacité à entretenir toutes les compétences que vous avez apprises au cours de votre longue vie de sorte que vous n'êtes jamais véritablement inexpérimenté dans une compétence. Vous réfléchissez à vos expériences de vie, en modifiant la compétence que vous avez sélectionnée avec le cadre des dons Longévité ancestrale (et la compétence que vous avez sélectionnée avec Longévité experte si vous avez ce don)."
                 ]
             },
             {
@@ -2934,12 +2934,12 @@ DON.RACE = {
                 "description": [
                     "Vous possédez la magie céleste. Choisissez deux des sorts suivants :",
                     [
-                        "auto_awesomeClarté d'esprit",
-                        "auto_awesomeFlamme continuelle",
-                        "auto_awesomeForme humanoïde",
-                        "auto_awesomeLumière révélatrice",
-                        "auto_awesomePartage de vie ou",
-                        "auto_awesomeRemise sur pied"
+                        "Clarté d'esprit",
+                        "Flamme continuelle",
+                        "Forme humanoïde",
+                        "Lumière révélatrice",
+                        "Partage de vie ou",
+                        "Remise sur pied"
                     ],
                     "Vous pouvez Lancer chaque sort une fois par jour chacun comme des Sorts innés divins de rang 2.",
                     "Habituellement, ceux qui ont le type angélique choisissent Clarté d'esprit et Forme humanoïde, les Porteurs de loi préfèrent Flamme éternelle et Partage de vie et ceux Touchés par la muse prendront Lumière révélatrice et Marche raffermie."
@@ -2953,7 +2953,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez puiser dans la magie qui court dans votre sang. Vous obtenez auto_awesomeForme animale (loup seulement, en utilisant les statistiques d'un canidé) et auto_awesomeBrume comme des Sorts innés divins au rang 2. Vous pouvez lancer chacun de ces sorts une fois par jour."
+                    "Vous pouvez puiser dans la magie qui court dans votre sang. Vous obtenez Forme animale (loup seulement, en utilisant les statistiques d'un canidé) et Brume comme des Sorts innés divins au rang 2. Vous pouvez lancer chacun de ces sorts une fois par jour."
                 ]
             },
             {
@@ -2964,7 +2964,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre relation avec les psychopompes vous donne le pouvoir de jeter un œil dans le futur proche et celui de protéger les corps des ravages de la mort-vivance. Vous pouvez Lancer auto_awesomeAugure et auto_awesomeReposer en paix une fois par jour chacun comme des Sorts innés divins de rang 2."
+                    "Votre relation avec les psychopompes vous donne le pouvoir de jeter un œil dans le futur proche et celui de protéger les corps des ravages de la mort-vivance. Vous pouvez Lancer Augure et Reposer en paix une fois par jour chacun comme des Sorts innés divins de rang 2."
                 ]
             },
             {
@@ -2979,12 +2979,12 @@ DON.RACE = {
                 "description": [
                     "La magie fiélonne coule dans vos veines. Choisissez deux des sorts suivants :",
                     [
-                        "auto_awesomeDiscerner l'invisible",
-                        "auto_awesomeFracassement",
-                        "auto_awesomeMagie déguisée",
-                        "auto_awesomeParanoïa",
-                        "auto_awesomeSimulacre de vitalité",
-                        "auto_awesomeInvisibilité"
+                        "Discerner l'invisible",
+                        "Fracassement",
+                        "Magie déguisée",
+                        "Paranoïa",
+                        "Simulacre de vitalité",
+                        "Invisibilité"
                     ],
                     "Vous pouvez lancer chacun des sorts choisis une fois par jour comme des Sorts innés divins de niveau 2.",
                     "Les rejetons sombre privilégient habituellement Simulacre de vitalité et Discerner l'invisible, ceux Nés de la fosse choisiront plutôt Paranoïa et Fracassement et les Rejetons de la fosse s'orienteront davantage vers Invisibilité et Magie déguisée."
@@ -2999,13 +2999,13 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Par votre héritage, vous pouvez dupliquer la magie des guenaudes. Choisissez un sort courant de rang inférieur ou égal à 4 parmi ceux accessibles à un cercle de guenaudes, en incluant les sorts que contribue à apporter à un cercle une guenaude du type de votre mère. Vous pouvez Lancer ce sort une fois par jour comme un sort occulte inné de rang 4.",
-                    "Les sorts accessibles à tous les cercles sont auto_awesomeAugure , auto_awesomeCharme , auto_awesomeClairaudience , auto_awesomeClairvoyance , auto_awesomeDéguisement illusoire et auto_awesomeMessage onirique .",
+                    "Les sorts accessibles à tous les cercles sont Augure , Charme , Clairaudience , Clairvoyance , Déguisement illusoire et Message onirique .",
                     "Les sorts éligibles accordés par les plus prééminents types de guenaude sont :",
                     [
-                        "Guenaude coucou auto_awesomeCauchemar , auto_awesomeRavages magiques",
-                        "Guenaude de fer auto_awesomeCloué à terre , auto_awesomeRavages magiques",
-                        "Guenaude doucereuse auto_awesomeCharme , auto_awesomeMalédiction du paria , auto_awesomeParoles mielleuses",
-                        "Guenaude marine auto_awesomeForme humanoïde , auto_awesomeMalédiction du marin , auto_awesomeMarche sur l'eau"
+                        "Guenaude coucou Cauchemar , Ravages magiques",
+                        "Guenaude de fer Cloué à terre , Ravages magiques",
+                        "Guenaude doucereuse Charme , Malédiction du paria , Paroles mielleuses",
+                        "Guenaude marine Forme humanoïde , Malédiction du marin , Marche sur l'eau"
                     ]
                 ]
             },
@@ -3029,7 +3029,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Il semble toujours y avoir un rat aux alentours pour transmettre vos messages.",
-                    "Vous pouvez lancer auto_awesomeMessager animal une fois par jour comme un sort primordial inné. Lorsque vous le faites, l'animal qui répond est toujours un rat. S'il n'y a pas de rats à portée, le sort est perdu."
+                    "Vous pouvez lancer Messager animal une fois par jour comme un sort primordial inné. Lorsque vous le faites, l'animal qui répond est toujours un rat. S'il n'y a pas de rats à portée, le sort est perdu."
                 ]
             },
             {
@@ -3066,7 +3066,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Vous puisez dans la grandeur du bienfaiteur de votre terrier. Vous obtenez un nombre de Points de vie temporaires égal à votre niveau, pendant une durée de 1 minute. De plus, vous pouvez immédiatement tenter un test nu pour retirer chaque type de dégâts persistants qui vous affecte. Enfin, jusqu'au début de votre prochain tour, toute créature vous ciblant avec une attaque, un sort ou une capacité dommageable doit d'abord réussir un casinoTest nu, DD 11 ou l'action est interrompue car la créature évite de poser les yeux sur votre majesté."
+                    "Vous puisez dans la grandeur du bienfaiteur de votre terrier. Vous obtenez un nombre de Points de vie temporaires égal à votre niveau, pendant une durée de 1 minute. De plus, vous pouvez immédiatement tenter un test nu pour retirer chaque type de dégâts persistants qui vous affecte. Enfin, jusqu'au début de votre prochain tour, toute créature vous ciblant avec une attaque, un sort ou une capacité dommageable doit d'abord réussir un Test nu, DD 11 ou l'action est interrompue car la créature évite de poser les yeux sur votre majesté."
                 ]
             },
             {
@@ -3121,8 +3121,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous faites preuve d'un profond respect pour la pierre, avec laquelle vous vous sentez étroitement lié. Vous gagnez auto_awesomeUni à la pierre comme sort inné divin au rang 3 et vous pouvez le lancer une fois par jour.",
-                    "Si vous possédez également le don ancestral military_techOeil du bâtisseur , vous pouvez tenter de repérer des irrégularités et des pièges dans les constructions de pierre qui demandent normalement un degré de maîtrise légendaire en Perception. Si vous possédez à la fois le don ancestral Oeil du bâtisseur et une maîtrise légendaire en Perception, lorsque vous n'êtes pas en train de Chercher et que le MJ fait un test secret afin de déterminer si vous remarquez des irrégularités dans les constructions en pierre, vous conservez le bonus acquis grâce à Oeil du bâtisseur et ne subissez pas la pénalité de circonstances de -2."
+                    "Vous faites preuve d'un profond respect pour la pierre, avec laquelle vous vous sentez étroitement lié. Vous gagnez Uni à la pierre comme sort inné divin au rang 3 et vous pouvez le lancer une fois par jour.",
+                    "Si vous possédez également le don ancestral Oeil du bâtisseur , vous pouvez tenter de repérer des irrégularités et des pièges dans les constructions de pierre qui demandent normalement un degré de maîtrise légendaire en Perception. Si vous possédez à la fois le don ancestral Oeil du bâtisseur et une maîtrise légendaire en Perception, lorsque vous n'êtes pas en train de Chercher et que le MJ fait un test secret afin de déterminer si vous remarquez des irrégularités dans les constructions en pierre, vous conservez le bonus acquis grâce à Oeil du bâtisseur et ne subissez pas la pénalité de circonstances de -2."
                 ]
             },
             {
@@ -3133,7 +3133,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre double nature humaine et orque vous donne une perspective unique qui vous permet de faire le lien entre les humains et de nombreuses créatures intelligentes que les humains considèrent comme des monstres. Vous obtenez un bonus de circonstances de +1 à vos tests de Diplomatie contre des créatures intelligentes non humanoïdes et contre les humanoïdes marginalisés par les sociétés humaines (à la discrétion du MJ, mais ceux-ci incluent généralement les géants, les gobelins, les kobolds et les orcs). Vous bénéficiez également de ce bonus à vos tests de Perception pour sports_martial_artsDeviner les intentions de ces créatures."
+                    "Votre double nature humaine et orque vous donne une perspective unique qui vous permet de faire le lien entre les humains et de nombreuses créatures intelligentes que les humains considèrent comme des monstres. Vous obtenez un bonus de circonstances de +1 à vos tests de Diplomatie contre des créatures intelligentes non humanoïdes et contre les humanoïdes marginalisés par les sociétés humaines (à la discrétion du MJ, mais ceux-ci incluent généralement les géants, les gobelins, les kobolds et les orcs). Vous bénéficiez également de ce bonus à vos tests de Perception pour Deviner les intentions de ces créatures."
                 ]
             },
             {
@@ -3187,7 +3187,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Déclencheur Un ennemi ou l'effet d'un danger vous touche ou vous obtenez un échec sur un jet de sauvegarde à leur encontre.",
-                    "La force de la pierre vous envahit si fortement qu'elle remplace votre robuste corps. Vous êtes sentiment_very_dissatisfiedPétrifié jusqu'à la fin du tour en cours. Vous ne subissez aucun dégât de l'effet déclencheur ni aucun autre effet néfaste qui ne pourrait pas affecter la pierre."
+                    "La force de la pierre vous envahit si fortement qu'elle remplace votre robuste corps. Vous êtes Pétrifié jusqu'à la fin du tour en cours. Vous ne subissez aucun dégât de l'effet déclencheur ni aucun autre effet néfaste qui ne pourrait pas affecter la pierre."
                 ]
             },
             {
@@ -3198,7 +3198,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez vous transformer vous-même ou transformer les corps des autres pour exprimer votre déplaisir. Une fois par jour, vous pouvez Lancer soit auto_awesomeForme aérienne , soit auto_awesomeMétamorphose maudite comme un sort inné primordial de rang 7. Vous devez prendre la forme d'un oiseau lorsque vous lancez cette Forme aérienne."
+                    "Vous pouvez vous transformer vous-même ou transformer les corps des autres pour exprimer votre déplaisir. Une fois par jour, vous pouvez Lancer soit Forme aérienne , soit Métamorphose maudite comme un sort inné primordial de rang 7. Vous devez prendre la forme d'un oiseau lorsque vous lancez cette Forme aérienne."
                 ]
             },
             {
@@ -3232,7 +3232,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes qualifié en Survie. Si vous devriez déjà être qualifié en Survie (du fait de votre historique ou de votre classe par exemple ), vous êtes qualifié dans une autre compétence de votre choix. Lorsque vous sports_martial_artsVous orientez ou tentez un jet de sauvegarde contre le sort auto_awesomeDilemme , vous considérez que le résultat est d'un degré supérieur à celui que vous avez obtenu. Vous ne subissez aucune pénalité lorsque vous Vous orientez sans utiliser de workBoussole ."
+                    "Vous êtes qualifié en Survie. Si vous devriez déjà être qualifié en Survie (du fait de votre historique ou de votre classe par exemple ), vous êtes qualifié dans une autre compétence de votre choix. Lorsque vous Vous orientez ou tentez un jet de sauvegarde contre le sort Dilemme , vous considérez que le résultat est d'un degré supérieur à celui que vous avez obtenu. Vous ne subissez aucune pénalité lorsque vous Vous orientez sans utiliser de Boussole ."
                 ]
             },
             {
@@ -3286,7 +3286,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "Déclencheur vous êtes attaqué par un adversaire, mais il n'a pas encore fait son attaque.",
-                    "La magie en vous se manifeste sous la forme d'une réaction naturelle aux menaces. Un double illusoire apparaît dans votre espace pendant un court moment. L'adversaire déclencheur doit faire un casinoTest nu, DD 10 . S'il obtient un succès, l'adversaire vous cible comme à l'ordinaire. S'il obtient un échec, l'adversaire cible votre double illusoire et le détruit. La tradition de cette action correspond à la tradition des options de votre ascendance gnome."
+                    "La magie en vous se manifeste sous la forme d'une réaction naturelle aux menaces. Un double illusoire apparaît dans votre espace pendant un court moment. L'adversaire déclencheur doit faire un Test nu, DD 10 . S'il obtient un succès, l'adversaire vous cible comme à l'ordinaire. S'il obtient un échec, l'adversaire cible votre double illusoire et le détruit. La tradition de cette action correspond à la tradition des options de votre ascendance gnome."
                 ]
             },
             {
@@ -3297,7 +3297,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pourriez avoir un caractère fantasque mais quand un sujet capte votre attention, vous vous y plongez la tête la première. Vous obtenez le don military_techConnaissance supplémentaire et le don military_techAssurance pour la Connaissance choisie. Comme l'obsession gnome peut s'éteindre aussi vite qu'elle est apparue, vous pouvez réapprendre Obsession gnome pour une sous-catégorie différente en y consacrant 1 journée d'intermède."
+                    "Vous pourriez avoir un caractère fantasque mais quand un sujet capte votre attention, vous vous y plongez la tête la première. Vous obtenez le don Connaissance supplémentaire et le don Assurance pour la Connaissance choisie. Comme l'obsession gnome peut s'éteindre aussi vite qu'elle est apparue, vous pouvez réapprendre Obsession gnome pour une sous-catégorie différente en y consacrant 1 journée d'intermède."
                 ]
             },
             {
@@ -3308,7 +3308,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre puissant ego rend plus difficile aux autres de vous donner des ordres. Si vous obtenez un succès sur un jet de sauvegarde contre un effet mental qui vise à contrôler directement vos actions, il devient un succès critique. Si une créature obtient un échec sur un test pour vous sports_martial_artsContraindre en utilisant Intimidation, il devient un échec critique (elle ne peut donc pas tenter de vous Contraindre de nouveau pendant 1 semaine)."
+                    "Votre puissant ego rend plus difficile aux autres de vous donner des ordres. Si vous obtenez un succès sur un jet de sauvegarde contre un effet mental qui vise à contrôler directement vos actions, il devient un succès critique. Si une créature obtient un échec sur un test pour vous Contraindre en utilisant Intimidation, il devient un échec critique (elle ne peut donc pas tenter de vous Contraindre de nouveau pendant 1 semaine)."
                 ]
             },
             {
@@ -3331,8 +3331,8 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous savez reconnaître le bon artisanat lorsque vous le voyez et pouvez partir dans des envolées poétiques à propos des techniques artisanales et des formes.",
-                    "Vous êtes qualifié en Artisanat et obtenez un bonus de circonstances de +1 à tous les tests d'Artisanat faits pour sports_martial_artsvous Souvenir . Si vous devriez automatiquement être qualifié en Artisanat (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix à la place.",
-                    "De plus, vous obtenez le don de compétence military_techÉvaluation artisanale , vous permettant d'identifier les objets magiques en utilisant la compétence Artisanat."
+                    "Vous êtes qualifié en Artisanat et obtenez un bonus de circonstances de +1 à tous les tests d'Artisanat faits pour vous Souvenir . Si vous devriez automatiquement être qualifié en Artisanat (par le biais de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix à la place.",
+                    "De plus, vous obtenez le don de compétence Évaluation artisanale , vous permettant d'identifier les objets magiques en utilisant la compétence Artisanat."
                 ]
             },
             {
@@ -3343,8 +3343,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez le don de remarquer les plus petites irrégularités et d'identifier les techniques artisanales dans les constructions de pierre. Vous devenez qualifié en Artisanat. Si vous êtes déjà qualifié en Artisanat, vous gagnez military_techArtisanat spécialisé en maçonnerie.",
-                    "Vous obtenez également un bonus de circonstances de +2 à vos tests de Perception pour remarquer les irrégularités dans les constructions en pierre. Ce bonus s'applique à vos tests pour découvrir des pièges mécaniques de pierre ou sentiment_very_dissatisfiedCachés par de la pierre.",
+                    "Vous avez le don de remarquer les plus petites irrégularités et d'identifier les techniques artisanales dans les constructions de pierre. Vous devenez qualifié en Artisanat. Si vous êtes déjà qualifié en Artisanat, vous gagnez Artisanat spécialisé en maçonnerie.",
+                    "Vous obtenez également un bonus de circonstances de +2 à vos tests de Perception pour remarquer les irrégularités dans les constructions en pierre. Ce bonus s'applique à vos tests pour découvrir des pièges mécaniques de pierre ou Cachés par de la pierre.",
                     "Même si vous n'utilisez pas l'action Chercher ou que vous n'êtes pas en train d'étudier les alentours, le MJ fait automatiquement un test secret pour déterminer si vous notez des irrégularités dans les constructions de pierre. Ce test ne bénéficie par contre pas de votre bonus de circonstances."
                 ]
             },
@@ -3359,8 +3359,8 @@ DON.RACE = {
                 ],
                 "description": [
                     "Fréquence Une fois par heure",
-                    "Déclencheur Vous réussissez à utiliser Discrétion pour sports_martial_artsVous cacher et devenir sentiment_very_dissatisfiedCaché de tous vos adversaires actuels ou vous utilisez Discrétion pour sports_martial_artsÊtre furtif et devenir sentiment_very_dissatisfiedNon détecté de tous vos adversaires actuels.",
-                    "Vous échappez à l'attention de vos adversaires et semblez être ailleurs. Vous devenez sentiment_very_dissatisfiedInvisible pendant 1 minute ou jusqu'à ce que vous entrepreniez une action hostile, en fonction de ce qui se produit en premier. Choisissez un lieu dans les 3 mètres de vous. Jusqu'à ce que votre invisibilité cesse, vous semblez vous être caché à cet endroit pour quiconque essaie de vous trouver. Si celui qui vous cherche obtient la démonstration irréfutable que vous n'êtes pas caché à cet endroit, il ne pense plus que vous y êtes caché mais il ne découvre pas votre position actuelle."
+                    "Déclencheur Vous réussissez à utiliser Discrétion pour Vous cacher et devenir Caché de tous vos adversaires actuels ou vous utilisez Discrétion pour Être furtif et devenir Non détecté de tous vos adversaires actuels.",
+                    "Vous échappez à l'attention de vos adversaires et semblez être ailleurs. Vous devenez Invisible pendant 1 minute ou jusqu'à ce que vous entrepreniez une action hostile, en fonction de ce qui se produit en premier. Choisissez un lieu dans les 3 mètres de vous. Jusqu'à ce que votre invisibilité cesse, vous semblez vous être caché à cet endroit pour quiconque essaie de vous trouver. Si celui qui vous cherche obtient la démonstration irréfutable que vous n'êtes pas caché à cet endroit, il ne pense plus que vous y êtes caché mais il ne découvre pas votre position actuelle."
                 ]
             },
             {
@@ -3371,7 +3371,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Il est difficile de remarquer votre passage à travers les zones sauvages. Tant que vous n'êtes pas dans un environnement urbain, vous êtes toujours considéré comme étant en train de sports_martial_artsDissimuler des traces , même si vous choisissez une activité différente en mode exploration."
+                    "Il est difficile de remarquer votre passage à travers les zones sauvages. Tant que vous n'êtes pas dans un environnement urbain, vous êtes toujours considéré comme étant en train de Dissimuler des traces , même si vous choisissez une activité différente en mode exploration."
                 ]
             },
             {
@@ -3382,7 +3382,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez appris à rester caché en utilisant les personnes plus grandes comme distraction pour éviter d'attirer l'attention. Vous pouvez utiliser les créatures qui sont au moins d'une catégorie de taille supérieure à la vôtre (généralement Moyenne ou supérieure) comme abri pour sports_martial_artsVous cacher et sports_martial_artsÊtre furtif , mais vous ne pouvez pas utiliser ces créatures comme abri pour d'autres raisons, comme pour vous sports_martial_artsMettre à l'abri ."
+                    "Vous avez appris à rester caché en utilisant les personnes plus grandes comme distraction pour éviter d'attirer l'attention. Vous pouvez utiliser les créatures qui sont au moins d'une catégorie de taille supérieure à la vôtre (généralement Moyenne ou supérieure) comme abri pour Vous cacher et Être furtif , mais vous ne pouvez pas utiliser ces créatures comme abri pour d'autres raisons, comme pour vous Mettre à l'abri ."
                 ]
             },
             {
@@ -3395,7 +3395,7 @@ DON.RACE = {
                     "Ombres distrayantes"
                 ],
                 "description": [
-                    "Vous excellez à ne pas vous faire remarquer, spécialement au milieu d'une foule. Vous n'avez plus besoin d'abri ou d'être sentiment_very_dissatisfiedMasqué pour sports_martial_artsVous cacher ou sports_martial_artsÊtre furtif . Si vous bénéficiez d'un abri partiel conféré par une créature, vous le considérez comme un abri standard à la place et vous pouvez vous sports_martial_artsMettre à l'abri . Si vous obtenez un abri standard grâce à une créature, vous bénéficiez d'un abri important à la place."
+                    "Vous excellez à ne pas vous faire remarquer, spécialement au milieu d'une foule. Vous n'avez plus besoin d'abri ou d'être Masqué pour Vous cacher ou Être furtif . Si vous bénéficiez d'un abri partiel conféré par une créature, vous le considérez comme un abri standard à la place et vous pouvez vous Mettre à l'abri . Si vous obtenez un abri standard grâce à une créature, vous bénéficiez d'un abri important à la place."
                 ]
             },
             {
@@ -3406,7 +3406,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous entendez les sons des animaux comme des conversations et non comme des bruits inintelligibles et vous pouvez y répondre en retour. Vous pouvez poser des questions aux animaux, recevoir des réponses de leur part et utiliser la compétence Diplomatie avec les animaux. Dans la plupart des cas, les animaux sauvages vous laisseront le temps d'exposer votre point de vue. Vous bénéficiez d'un bonus de circonstances de +1 pour leur sports_martial_artsFaire bonne impression ."
+                    "Vous entendez les sons des animaux comme des conversations et non comme des bruits inintelligibles et vous pouvez y répondre en retour. Vous pouvez poser des questions aux animaux, recevoir des réponses de leur part et utiliser la compétence Diplomatie avec les animaux. Dans la plupart des cas, les animaux sauvages vous laisseront le temps d'exposer votre point de vue. Vous bénéficiez d'un bonus de circonstances de +1 pour leur Faire bonne impression ."
                 ]
             },
             {
@@ -3430,7 +3430,7 @@ DON.RACE = {
                 "description": [
                     "Déclencheur Vous êtes atteint par un coup critique qui inflige des dégâts physiques.",
                     "Votre nature intraitable peut vous aider à surmonter même les plus graves des blessures.",
-                    "Faites un casinoTest nu, DD 17 . Si vous obtenez un succès, l'attaque devient un coup normal."
+                    "Faites un Test nu, DD 17 . Si vous obtenez un succès, l'attaque devient un coup normal."
                 ]
             },
             {
@@ -3441,7 +3441,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Une fois par jour, vous pouvez lancer auto_awesomePique empaleuse comme sort occulte inné de rang 7, sauf que la pique est constitué d'os plutôt que de fer froid. Cet os possède les effets de la rune de propriété spectrale et peut sentiment_very_dissatisfiedImmobiliser les créature intangibles comme si elles étaient tangibles."
+                    "Une fois par jour, vous pouvez lancer Pique empaleuse comme sort occulte inné de rang 7, sauf que la pique est constitué d'os plutôt que de fer froid. Cet os possède les effets de la rune de propriété spectrale et peut Immobiliser les créature intangibles comme si elles étaient tangibles."
                 ]
             },
             {
@@ -3452,7 +3452,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes en harmonie avec les moindres sons et sensations des esprits qui n'ont pas trouvé le repos. Même si vous n'êtes pas en train de sports_martial_artsFouiller , vous pouvez essayer de tenter de trouver les hantises qui nécessitent normalement que vous les Cherchiez activement. Vous avez toujours besoin de remplir les autres conditions pour trouver la hantise. Vous obtenez un bonus de circonstances de +1 à vos tests pour désactiver les hantises."
+                    "Vous êtes en harmonie avec les moindres sons et sensations des esprits qui n'ont pas trouvé le repos. Même si vous n'êtes pas en train de Fouiller , vous pouvez essayer de tenter de trouver les hantises qui nécessitent normalement que vous les Cherchiez activement. Vous avez toujours besoin de remplir les autres conditions pour trouver la hantise. Vous obtenez un bonus de circonstances de +1 à vos tests pour désactiver les hantises."
                 ]
             },
             {
@@ -3487,7 +3487,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous Faites un pas, puis vous sports_martial_artsVous cachez ou sports_martial_artsÊtes furtif . Vous avez toujours besoin de remplir les conditions pour Vous cacher ou Être furtif, comme à l'ordinaire."
+                    "Vous Faites un pas, puis vous Vous cachez ou Êtes furtif . Vous avez toujours besoin de remplir les conditions pour Vous cacher ou Être furtif, comme à l'ordinaire."
                 ]
             },
             {
@@ -3499,7 +3499,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Déclencheur Un ennemi de taille Grande ou supérieure termine une action de déplacement dans une case adjacente à la vôtre.",
-                    "Vous êtes un expert pour éviter les pas pesants des créatures plus grandes. Vous sports_martial_artsFaites un pas vers une autre case adjacente à l'ennemi."
+                    "Vous êtes un expert pour éviter les pas pesants des créatures plus grandes. Vous Faites un pas vers une autre case adjacente à l'ennemi."
                 ]
             },
             {
@@ -3510,7 +3510,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous n'autorisez pas les autres à vous entraver. Vous pouvez Lancer auto_awesomeMouvement sans entrave sur vous-même comme un sort primordial inné une fois par jour."
+                    "Vous n'autorisez pas les autres à vous entraver. Vous pouvez Lancer Mouvement sans entrave sur vous-même comme un sort primordial inné une fois par jour."
                 ]
             },
             {
@@ -3524,7 +3524,7 @@ DON.RACE = {
                     "Marchepierre"
                 ],
                 "description": [
-                    "Les obstacles en terre ne peuvent plus empêcher votre progression. Vous obtenez auto_awesomePassage magique comme un sort divin inné au rang 7 que vous pouvez lancer une fois par jour. Contrairement au sort, quoi qu'il en soit, cette capacité ne peut être utilisée que pour ouvrir des passages à travers des barrières de terre ou de pierre."
+                    "Les obstacles en terre ne peuvent plus empêcher votre progression. Vous obtenez Passage magique comme un sort divin inné au rang 7 que vous pouvez lancer une fois par jour. Contrairement au sort, quoi qu'il en soit, cette capacité ne peut être utilisée que pour ouvrir des passages à travers des barrières de terre ou de pierre."
                 ]
             },
             {
@@ -3535,7 +3535,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous travaillez à un rythme issu de votre longévité qui améliore votre minutie. Vous pouvez ainsi volontairement passer deux fois plus de temps que la normale à faire un test de Perception ou de compétence qui prend au moins 1 action. Si vous le faites, vous bénéficiez d'un bonus de circonstances de +2 à ce test et ne réduisez pas nécessairement d'un cran le résultat d'un 1 naturel (vous n'obtenez un échec critique que si votre résultat est inférieur de 10 points au DD). Par exemple, vous pouvez profiter de ces avantages en utilisant 2 actions pour sports_martial_artsChercher , ce qui nécessite normalement 1 action. Vous pouvez obtenir ces avantages en mode exploration en passant deux fois plus de temps que la normale à explorer ou lors d'un intermède en passant deux fois plus de temps d'intermède.",
+                    "Vous travaillez à un rythme issu de votre longévité qui améliore votre minutie. Vous pouvez ainsi volontairement passer deux fois plus de temps que la normale à faire un test de Perception ou de compétence qui prend au moins 1 action. Si vous le faites, vous bénéficiez d'un bonus de circonstances de +2 à ce test et ne réduisez pas nécessairement d'un cran le résultat d'un 1 naturel (vous n'obtenez un échec critique que si votre résultat est inférieur de 10 points au DD). Par exemple, vous pouvez profiter de ces avantages en utilisant 2 actions pour Chercher , ce qui nécessite normalement 1 action. Vous pouvez obtenir ces avantages en mode exploration en passant deux fois plus de temps que la normale à explorer ou lors d'un intermède en passant deux fois plus de temps d'intermède.",
                     "Le MJ peut déterminer qu'une situation ne vous permet pas de profiter d'un tel avantage si un délai serait directement contre productif au succès de votre entreprise, comme par exemple mener une négociation tendue avec une créature impatiente."
                 ]
             },
@@ -3560,7 +3560,7 @@ DON.RACE = {
                     "Chance féline"
                 ],
                 "description": [
-                    "Vous avez plus de chance que la plupart des hommes-félins. Vous pouvez déclencher military_techChance féline lorsque vous obtenez un échec ou un échec critique à jet de Vigueur ou de volonté, un test avec les compétences Athlétisme ou Acrobaties, en plus des jets de sauvegarde de Réflexe. Vous ne pouvez toujours utiliser la Chance féline qu'une fois par jour."
+                    "Vous avez plus de chance que la plupart des hommes-félins. Vous pouvez déclencher Chance féline lorsque vous obtenez un échec ou un échec critique à jet de Vigueur ou de volonté, un test avec les compétences Athlétisme ou Acrobaties, en plus des jets de sauvegarde de Réflexe. Vous ne pouvez toujours utiliser la Chance féline qu'une fois par jour."
                 ]
             },
             {
@@ -3571,7 +3571,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Les cicatrices glorieuses et chargées d'histoires couvrent et protègent une grande partie de votre corps, vous ceignant d'une armure de chair qui résiste à toute blessure plus faible que celles auxquelles vous avez déjà survécu. Votre DD pour les tests nus mettant un terme aux dégâts de saignement passe de 15 à 10 ou de 10 à casinoTest nu, DD 5 si vous avez reçu une assistance particulièrement appropriée."
+                    "Les cicatrices glorieuses et chargées d'histoires couvrent et protègent une grande partie de votre corps, vous ceignant d'une armure de chair qui résiste à toute blessure plus faible que celles auxquelles vous avez déjà survécu. Votre DD pour les tests nus mettant un terme aux dégâts de saignement passe de 15 à 10 ou de 10 à Test nu, DD 5 si vous avez reçu une assistance particulièrement appropriée."
                 ]
             },
             {
@@ -3582,7 +3582,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes né avec une couche d'écailles sur votre corps entier qui ressemble à celui de votre géniteur draconique. Lorsque vous ne portez pas d'armure, les écailles vous donnent un bonus d'objet de +1 à la CA avec un Maximum de dextérité de +3. Le bonus d'objet passe à +2 au niveau 5. Le bonus d'objet à la CA de ces écailles est cumulable avec les runes de puissance d'armure de vos vêtements d'explorateur, le sort auto_awesomeArmure mystique ou des workBandes de force .",
+                    "Vous êtes né avec une couche d'écailles sur votre corps entier qui ressemble à celui de votre géniteur draconique. Lorsque vous ne portez pas d'armure, les écailles vous donnent un bonus d'objet de +1 à la CA avec un Maximum de dextérité de +3. Le bonus d'objet passe à +2 au niveau 5. Le bonus d'objet à la CA de ces écailles est cumulable avec les runes de puissance d'armure de vos vêtements d'explorateur, le sort Armure mystique ou des Bandes de force .",
                     "Spécial Vous pouvez choisir ce don seulement au niveau 1 et vous ne pouvez pas utiliser le réapprentissage pour perdre ou gagner ce don."
                 ]
             },
@@ -3606,7 +3606,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Comme nombre d'humains élevés dans des communautés soudées, vous avez toujours été étroitement accoutumé à la présence des autres. Les alliés consentants dont vous êtes conscient dans les 18 m qui devraient autrement être sentiment_very_dissatisfiedNon détectés par vos soins, vous sont à la place simplement sentiment_very_dissatisfiedCachés . Le test nu pour que vous puissiez cibler les alliés le souhaitant dans les 18 m est qui vous sont cachés est de casinoTest nu, DD 5 au lieu de 11."
+                    "Comme nombre d'humains élevés dans des communautés soudées, vous avez toujours été étroitement accoutumé à la présence des autres. Les alliés consentants dont vous êtes conscient dans les 18 m qui devraient autrement être Non détectés par vos soins, vous sont à la place simplement Cachés . Le test nu pour que vous puissiez cibler les alliés le souhaitant dans les 18 m est qui vous sont cachés est de Test nu, DD 5 au lieu de 11."
                 ]
             },
             {
@@ -3629,7 +3629,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "L'être humain est réputé pour sa capacité à persévérer dans les épreuves les plus éprouvantes, que d'autres seraient prêts à abandonner. Lorsque vous devriez devenir sentiment_very_dissatisfiedFatigué , faites un casinoTest nu, DD 17 . En cas de succès, vous n'êtes pas fatigué.",
+                    "L'être humain est réputé pour sa capacité à persévérer dans les épreuves les plus éprouvantes, que d'autres seraient prêts à abandonner. Lorsque vous devriez devenir Fatigué , faites un Test nu, DD 17 . En cas de succès, vous n'êtes pas fatigué.",
                     "Si l'état Fatigué est liée à une cause sous-jacente à laquelle vous ne remédiez pas, tel qu'un manque de repos, vous devez refaire le test à un intervalle déterminé par le MJ jusqu'à ce que vous obteniez un échec au test nu ou que vous remédiez à la cause sous-jacente."
                 ]
             },
@@ -3677,7 +3677,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Qu'il s'agisse de conserver l'équilibre ou d'escalade, vos pieds montrent aisément leur utilité. Si vous obtenez un succès sur un test d'Acrobaties pour sports_martial_artsGarder l'équilibre ou sur un test d'Athlétisme pour sports_martial_artsEscalader , il devient un succès critique. Vous n'êtes pas sentiment_very_dissatisfiedPris au dépourvu quand vous tentez de Garder l'équilibre ou d'Escalader."
+                    "Qu'il s'agisse de conserver l'équilibre ou d'escalade, vos pieds montrent aisément leur utilité. Si vous obtenez un succès sur un test d'Acrobaties pour Garder l'équilibre ou sur un test d'Athlétisme pour Escalader , il devient un succès critique. Vous n'êtes pas Pris au dépourvu quand vous tentez de Garder l'équilibre ou d'Escalader."
                 ]
             },
             {
@@ -3751,7 +3751,7 @@ DON.RACE = {
                     "qualifié en Artisanat"
                 ],
                 "description": [
-                    "Vous êtes adepte de l'art ancestral kobold honoré depuis des lustres de fabrication des pièges. Vous êtes qualifié en Artisanat. Si vous devriez l'être par un autre biais, vous devenez qualifié en une autre compétence de votre choix à la place. Vous avez accès à tous les pièges peu courants des kobolds. Vous obtenez le don military_techFabrication de pièges artisanaux , mais pour les formules obtenues par ce don, vous pouvez aussi choisir parmi les pièges artisanaux peu courants des kobolds en plus des pièges artisanaux courants."
+                    "Vous êtes adepte de l'art ancestral kobold honoré depuis des lustres de fabrication des pièges. Vous êtes qualifié en Artisanat. Si vous devriez l'être par un autre biais, vous devenez qualifié en une autre compétence de votre choix à la place. Vous avez accès à tous les pièges peu courants des kobolds. Vous obtenez le don Fabrication de pièges artisanaux , mais pour les formules obtenues par ce don, vous pouvez aussi choisir parmi les pièges artisanaux peu courants des kobolds en plus des pièges artisanaux courants."
                 ]
             },
             {
@@ -3763,7 +3763,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Déclencheur Un allié termine une action de déplacement sur une case adjacente à la vôtre.",
-                    "Vous profitez du déplacement de votre allié pour ajuster votre position. Vous sports_martial_artsFaites un pas ."
+                    "Vous profitez du déplacement de votre allié pour ajuster votre position. Vous Faites un pas ."
                 ]
             },
             {
@@ -3788,7 +3788,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Chaque fois que vous réussissez à Frapper une créature qui n'a pas agi au premier round de combat, cette créature est sentiment_very_dissatisfiedPrise au dépourvu jusqu'à la fin de votre prochain tour. Si cette créature est réduite à 0 Point de vie avant la fin de votre prochain tour, vous et tous vos alliés dans un rayon de 9 mètres de la créature êtes sentiment_very_dissatisfiedAccéléré jusqu'à la fin de votre prochain tour. Vous ne pouvez utiliser l'action supplémentaire que pour Faire un pas, Marcher rapidement ou Frapper."
+                    "Chaque fois que vous réussissez à Frapper une créature qui n'a pas agi au premier round de combat, cette créature est Prise au dépourvu jusqu'à la fin de votre prochain tour. Si cette créature est réduite à 0 Point de vie avant la fin de votre prochain tour, vous et tous vos alliés dans un rayon de 9 mètres de la créature êtes Accéléré jusqu'à la fin de votre prochain tour. Vous ne pouvez utiliser l'action supplémentaire que pour Faire un pas, Marcher rapidement ou Frapper."
                 ]
             },
             {
@@ -3802,7 +3802,7 @@ DON.RACE = {
                 ],
                 "description": [
                     "En tant que membre de la gent draconique, vous faites montre d'une confiance imperturbable (qui s'effondre de manière catastrophique contre les ennemis les plus mortels). Lorsque vous obtenez un succès sur un jet de sauvegarde contre un effet de terreur, il devient un succès critique. Lorsque vous obtenez un échec contre un effet de terreur, il devient un échec critique.",
-                    "De plus, lorsque vous tentez de sports_martial_artsDémoraliser un ennemi de votre niveau ou inférieur, vous obtenez un bonus de circonstances de +1 au test d'Intimidation."
+                    "De plus, lorsque vous tentez de Démoraliser un ennemi de votre niveau ou inférieur, vous obtenez un bonus de circonstances de +1 au test d'Intimidation."
                 ]
             },
             {
@@ -3816,7 +3816,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Le sang des héros court dans vos veines et vous inspirez vos alliés à puiser en profondeur et y trouver un nouveau niveau de résolution. Vous accordez à 10 créatures consentantes au maximum situées dans les 9 mètres les effets d'un sort de auto_awesomeConviction zélée au rang 6, bien que l'effet se termine automatiquement sur une cible à laquelle vous donnez un ordre qu'elle trouverait normalement répugnant. Cette action possède les traits audible ou visuel, en fonction de la manière dont vous inspirez vos alliés."
+                    "Le sang des héros court dans vos veines et vous inspirez vos alliés à puiser en profondeur et y trouver un nouveau niveau de résolution. Vous accordez à 10 créatures consentantes au maximum situées dans les 9 mètres les effets d'un sort de Conviction zélée au rang 6, bien que l'effet se termine automatiquement sur une cible à laquelle vous donnez un ordre qu'elle trouverait normalement répugnant. Cette action possède les traits audible ou visuel, en fonction de la manière dont vous inspirez vos alliés."
                 ]
             },
             {
@@ -3831,11 +3831,11 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "En adoptant une posture impressionnante, toute la force de votre personnalité frappe les êtres inférieurs. Chaque créature dans une crop_freeémanation de 6 mètres doit tenter un jet de casinoVolonté contre le plus élevé entre votre DD de classe ou DD de sort. Quel que soit le résultat du jet de sauvegarde, la créature est temporairement immunisée contre votre Présence majestueuse pendant 24 heures.",
+                    "En adoptant une posture impressionnante, toute la force de votre personnalité frappe les êtres inférieurs. Chaque créature dans une émanation de 6 mètres doit tenter un jet de Volonté contre le plus élevé entre votre DD de classe ou DD de sort. Quel que soit le résultat du jet de sauvegarde, la créature est temporairement immunisée contre votre Présence majestueuse pendant 24 heures.",
                     "Succès critique La créature n'est pas affectée.",
-                    "Succès La créature est sentiment_very_dissatisfiedEffrayée 1 .",
-                    "Échec La créature est sentiment_very_dissatisfiedEffrayée 2 .",
-                    "Échec critique La créature est sentiment_very_dissatisfiedEffrayée 4 ."
+                    "Succès La créature est Effrayée 1 .",
+                    "Échec La créature est Effrayée 2 .",
+                    "Échec critique La créature est Effrayée 4 ."
                 ]
             },
             {
@@ -3848,7 +3848,7 @@ DON.RACE = {
                     "Homme-lézard écaille de falaise"
                 ],
                 "description": [
-                    "Vous vous agrippez aux murs avec une poigne surnaturelle. Vous obtenez le don military_techCombattant grimpeur comme don bonus, et si vous obtenez un succès sur un jet d'Athlétisme pour grimper, il devient un succès critique.",
+                    "Vous vous agrippez aux murs avec une poigne surnaturelle. Vous obtenez le don Combattant grimpeur comme don bonus, et si vous obtenez un succès sur un jet d'Athlétisme pour grimper, il devient un succès critique.",
                     "Spécial Si vous avez l'héritage des hommes-lézards écaille de falaise, vous obtenez une Vitesse d'escalade de 4,50 mètres."
                 ]
             },
@@ -3860,7 +3860,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous faites appel à l'essence vitale de votre esprit pour redonner de la vie à vos alliés et invoquez des lianes pour piéger et frapper vos ennemis. Vous pouvez lancer auto_awesomeChamp de vie et auto_awesomeEntraves végétales comme un sort primordial inné de rang 6 une fois par jour chacun."
+                    "Vous faites appel à l'essence vitale de votre esprit pour redonner de la vie à vos alliés et invoquez des lianes pour piéger et frapper vos ennemis. Vous pouvez lancer Champ de vie et Entraves végétales comme un sort primordial inné de rang 6 une fois par jour chacun."
                 ]
             },
             {
@@ -3883,7 +3883,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Survivre en terrain hostile vous a donné un grand talent pour vous déplacer. Lorsque vous obtenez un succès sur un test d'Athlétisme pour sports_martial_artsEscalader ou sports_martial_artsNager , il devient un succès critique."
+                    "Survivre en terrain hostile vous a donné un grand talent pour vous déplacer. Lorsque vous obtenez un succès sur un test d'Athlétisme pour Escalader ou Nager , il devient un succès critique."
                 ]
             },
             {
@@ -3929,7 +3929,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "De petites racines sortent de vos pieds, vous rendant plus stable lorsque vous vous déplacez. Vous obtenez le don de compétence military_techÉquilibre stable , même si vous n'êtes pas qualifié en Acrobaties et vous pouvez utiliser l'action sports_martial_artsS'ancrer ."
+                    "De petites racines sortent de vos pieds, vous rendant plus stable lorsque vous vous déplacez. Vous obtenez le don de compétence Équilibre stable , même si vous n'êtes pas qualifié en Acrobaties et vous pouvez utiliser l'action S'ancrer ."
                 ]
             },
             {
@@ -3940,7 +3940,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous vous transformez en une énorme hyène d'un autre monde. Vous pouvez lancer auto_awesomeForme Animale (forme canine uniquement) une fois par jour comme un sort inné occulte au rang 5."
+                    "Vous vous transformez en une énorme hyène d'un autre monde. Vous pouvez lancer Forme Animale (forme canine uniquement) une fois par jour comme un sort inné occulte au rang 5."
                 ]
             },
             {
@@ -3954,7 +3954,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "L'énergie revitalisante qui coule dans vos veines vous revitalise. Vous récupérez casinoternary(gte(@actor.level,15),6,4)d6 soins et obtenez 10 Points de vie temporaires qui durent 1 minute. Au niveau 15, vous récupérez à la place 6d6 Points de vie et obtenez 15 Points de vie temporaires."
+                    "L'énergie revitalisante qui coule dans vos veines vous revitalise. Vous récupérez ternary(gte(@actor.level,15),6,4)d6 soins et obtenez 10 Points de vie temporaires qui durent 1 minute. Au niveau 15, vous récupérez à la place 6d6 Points de vie et obtenez 15 Points de vie temporaires."
                 ]
             },
             {
@@ -3966,8 +3966,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Ghoran La chaleur et la lumière du soleil vous donnent la vie. Si vous vous reposez à l'extérieur pendant 10 minutes au cours de la journée, vous regagnez un nombre de Points de vie égal à votre casinomodificateur de Constitution multiplié par la moitié de votre niveau . Vous obtenez cet avantage en plus des soins apportés par sports_martial_artsSoigner les blessures .",
-                    "Léchi Si vous vous reposez en extérieur pendant 10 minutes durant la journée, vous regagnez des Points de vie égaux à votre casinomodificateur de Constitution multiplié par la moitié de votre niveau . Vous obtenez ce bénéfice en plus des soins apportés par sports_martial_artsSoigner les blessures . Les léchis issus de plantes dont l'alimentation ne dépend pas de la photosynthèse nécessitent un environnement adapté. Par exemple les léchis fongiques ont besoin d'obscurité, d'environnements humides et d'une pile de matière organique en décomposition."
+                    "Ghoran La chaleur et la lumière du soleil vous donnent la vie. Si vous vous reposez à l'extérieur pendant 10 minutes au cours de la journée, vous regagnez un nombre de Points de vie égal à votre modificateur de Constitution multiplié par la moitié de votre niveau . Vous obtenez cet avantage en plus des soins apportés par Soigner les blessures .",
+                    "Léchi Si vous vous reposez en extérieur pendant 10 minutes durant la journée, vous regagnez des Points de vie égaux à votre modificateur de Constitution multiplié par la moitié de votre niveau . Vous obtenez ce bénéfice en plus des soins apportés par Soigner les blessures . Les léchis issus de plantes dont l'alimentation ne dépend pas de la photosynthèse nécessitent un environnement adapté. Par exemple les léchis fongiques ont besoin d'obscurité, d'environnements humides et d'une pile de matière organique en décomposition."
                 ]
             },
             {
@@ -4015,8 +4015,8 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par jour",
-                    "Déclencheur Vous perdez l'état sentiment_very_dissatisfiedMourant .",
-                    "Vous récupérez des expériences de mort imminente grâce à une résilience époustouflante. N'augmentez pas la valeur de votre état sentiment_very_dissatisfiedBlessé liée à la perte de l'état Mourant."
+                    "Déclencheur Vous perdez l'état Mourant .",
+                    "Vous récupérez des expériences de mort imminente grâce à une résilience époustouflante. N'augmentez pas la valeur de votre état Blessé liée à la perte de l'état Mourant."
                 ]
             },
             {
@@ -4058,7 +4058,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par jour",
                     "Déclencheur Une créature vivante dans les 18 mètres devrait mourir.",
-                    "L'énergie qui coule dans votre sang peut préserver une vie dans les temps les plus difficiles. Vous empêchez la créature de mourir et lui restaurez casino6d8 + votre modificateur de Constitution Points de vie. Vous ne pouvez pas utiliser la Récupération cantorienne si l'effet déclencheur est un effet de mort ou un effet qui ne laisse aucun reste, tel que la auto_awesomeDésintégration ."
+                    "L'énergie qui coule dans votre sang peut préserver une vie dans les temps les plus difficiles. Vous empêchez la créature de mourir et lui restaurez 6d8 + votre modificateur de Constitution Points de vie. Vous ne pouvez pas utiliser la Récupération cantorienne si l'effet déclencheur est un effet de mort ou un effet qui ne laisse aucun reste, tel que la Désintégration ."
                 ]
             },
             {
@@ -4070,7 +4070,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre lignage descend des diables, des comploteurs des Enfers. Vous êtes aussi compétent pour remarquer des mensonges et trouver des tournures alambiquées que vous l'êtes pour les construire. Vous êtes qualifié en Duperie et en Connaissance des Lois. Si vous étiez déjà qualifié en Duperie (par votre historique ou votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix. Vous obtenez également le don de compétence military_techOse me mentir ."
+                    "Votre lignage descend des diables, des comploteurs des Enfers. Vous êtes aussi compétent pour remarquer des mensonges et trouver des tournures alambiquées que vous l'êtes pour les construire. Vous êtes qualifié en Duperie et en Connaissance des Lois. Si vous étiez déjà qualifié en Duperie (par votre historique ou votre classe, par exemple), vous devenez qualifié dans une compétence de votre choix. Vous obtenez également le don de compétence Ose me mentir ."
                 ]
             },
             {
@@ -4082,7 +4082,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre lignée remonte à un daemon, une des manifestations des horribles formes de la mort qui dévorent les âmes au sein du royaume dément d'Abaddon. Il en résulte que vous vous cramponnez avec ténacité aux derniers lambeaux de votre force vitale. Vous obtenez le don military_techDur à cuir ."
+                    "Votre lignée remonte à un daemon, une des manifestations des horribles formes de la mort qui dévorent les âmes au sein du royaume dément d'Abaddon. Il en résulte que vous vous cramponnez avec ténacité aux derniers lambeaux de votre force vitale. Vous obtenez le don Dur à cuir ."
                 ]
             },
             {
@@ -4119,7 +4119,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence deux fois par semaine",
-                    "La relation entre vous et le Premier monde résonne dans votre corps plus fort qu'il ne le fait pour la plupart des gnomes, vous permettant de franchir la frontière entre l'Univers et le Premier Monde. Vous obtenez auto_awesomeTéléportation interplanaire comme un sort inné primordial. Vous pouvez le lancer deux fois par semaine. Il ne peut être utilisé que pour aller dans le Premier Monde et pour revenir dans l'Univers. Compte tenu de la résonance naturelle de votre corps, vous pouvez agir comme un locus pour le sort et vous n'avez pas besoin d'un diapason."
+                    "La relation entre vous et le Premier monde résonne dans votre corps plus fort qu'il ne le fait pour la plupart des gnomes, vous permettant de franchir la frontière entre l'Univers et le Premier Monde. Vous obtenez Téléportation interplanaire comme un sort inné primordial. Vous pouvez le lancer deux fois par semaine. Il ne peut être utilisé que pour aller dans le Premier Monde et pour revenir dans l'Univers. Compte tenu de la résonance naturelle de votre corps, vous pouvez agir comme un locus pour le sort et vous n'avez pas besoin d'un diapason."
                 ]
             },
             {
@@ -4130,7 +4130,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre contrôle sur votre essence vitale vous permet ou permet à un allié de récupérer de graves blessures. Vous pouvez lancer auto_awesomeRégénération au rang 7 comme un sort inné primordial une fois par jour."
+                    "Votre contrôle sur votre essence vitale vous permet ou permet à un allié de récupérer de graves blessures. Vous pouvez lancer Régénération au rang 7 comme un sort inné primordial une fois par jour."
                 ]
             },
             {
@@ -4141,7 +4141,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Lorsque vous terrorisez vos ennemis, vous leur causez une détresse morale douloureuse. Lorsque vous réussissez à sports_martial_artsDémoraliser un ennemi, ce dernier subit casino1d4 dégâts mentaux au début de chacun de ses tours tant qu'il reste sentiment_very_dissatisfiedEffrayé et continue à engager le combat avec vous. Cet effet se termine si la créature perd l'état Effrayé, si elle se trouve à plus de 9 mètres de vous ou qu'une minute ne s'écoule, selon ce qui se produit en premier. Si vous êtes maître en Intimidation, les dégâts passent à 2d4 et si vous êtes légendaire, les dégâts passent à 3d4."
+                    "Lorsque vous terrorisez vos ennemis, vous leur causez une détresse morale douloureuse. Lorsque vous réussissez à Démoraliser un ennemi, ce dernier subit 1d4 dégâts mentaux au début de chacun de ses tours tant qu'il reste Effrayé et continue à engager le combat avec vous. Cet effet se termine si la créature perd l'état Effrayé, si elle se trouve à plus de 9 mètres de vous ou qu'une minute ne s'écoule, selon ce qui se produit en premier. Si vous êtes maître en Intimidation, les dégâts passent à 2d4 et si vous êtes légendaire, les dégâts passent à 3d4."
                 ]
             },
             {
@@ -4176,7 +4176,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous résistez aux énergies comme c'est le cas de vos prédécesseurs extraplanaires. Choisissez un des types de dégâts d'énergie suivants : acide, électricité, feu, froid ou son. Vous obtenez une résistance 5 contre ce type de dégâts.",
-                    "Le type de dégâts correspond typiquement à l'entité extraplanaire associée à votre lignée. Par exemple, un personnage de type military_techAngélique pourrait choisir une résistance contre le froid alors qu'un military_techRejeton infernal pourrait choisir une résistance contre le feu."
+                    "Le type de dégâts correspond typiquement à l'entité extraplanaire associée à votre lignée. Par exemple, un personnage de type Angélique pourrait choisir une résistance contre le froid alors qu'un Rejeton infernal pourrait choisir une résistance contre le feu."
                 ]
             },
             {
@@ -4214,7 +4214,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre héritage crépusculaire vous permet d'étendre la protection contre l'énergie du vide. Vous obtenez une résistance 5 contre le vide et, une fois par jour, vous pouvez Lancer auto_awesomeFalse Vitality au rang 5 comme un sort divin inné."
+                    "Votre héritage crépusculaire vous permet d'étendre la protection contre l'énergie du vide. Vous obtenez une résistance 5 contre le vide et, une fois par jour, vous pouvez Lancer False Vitality au rang 5 comme un sort divin inné."
                 ]
             },
             {
@@ -4227,7 +4227,7 @@ DON.RACE = {
                     "Héritage kholo sorcier"
                 ],
                 "description": [
-                    "Il faut être très courageux pour pénétrer dans la forêt hantée par le rire où vous habitez. Vous pouvez lancer auto_awesomeVentriloquie une fois par jour comme un sort inné occulte au rang 1."
+                    "Il faut être très courageux pour pénétrer dans la forêt hantée par le rire où vous habitez. Vous pouvez lancer Ventriloquie une fois par jour comme un sort inné occulte au rang 1."
                 ]
             },
             {
@@ -4238,7 +4238,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre rire fit écho dans les esprits de vos ennemis. Vous pouvez sports_martial_artsDémoraliser les créatures jusqu'à 18 mètres de distance. De plus, chaque fois que vous réussissez à Démoraliser une créature, elle subit casino3d8 dégâts mentaux (ou casino6d8 dégâts mentaux sur un succès critique)."
+                    "Votre rire fit écho dans les esprits de vos ennemis. Vous pouvez Démoraliser les créatures jusqu'à 18 mètres de distance. De plus, chaque fois que vous réussissez à Démoraliser une créature, elle subit 3d8 dégâts mentaux (ou 6d8 dégâts mentaux sur un succès critique)."
                 ]
             },
             {
@@ -4251,7 +4251,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez temporairement revenir à une forme moins voyante sans amoindrir vos sens. Vous prenez la forme d'un spécimen ordinaire du type de plante ou de champignon qui vous ressemble le plus, retrouvant l'apparence de votre corps juste avant que votre esprit ne se soit joint à lui. Les autres effets sont ceux du sort auto_awesomeUni avec les plantes , sauf que votre taille reste Petite."
+                    "Vous pouvez temporairement revenir à une forme moins voyante sans amoindrir vos sens. Vous prenez la forme d'un spécimen ordinaire du type de plante ou de champignon qui vous ressemble le plus, retrouvant l'apparence de votre corps juste avant que votre esprit ne se soit joint à lui. Les autres effets sont ceux du sort Uni avec les plantes , sauf que votre taille reste Petite."
                 ]
             },
             {
@@ -4262,8 +4262,8 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre robustesse vous permet d'endurer plus de dégâts avant de vous avouer vaincu. Ajoutez votre niveau à votre maximum de Points de vie. Lorsque vous avez l'état sentiment_very_dissatisfiedMourant 1 , le DD de vos tests de récupération est de 9 + l'intensité de votre état Mourant (au lieu de 10 + la valeur de l'état Mourant).",
-                    "Si vous possédez aussi le don military_techRobustesse , les Points de vie obtenus grâce à ces dons sont cumulatifs et le DD de vos tests de récupération est égal à 6 + l'intensité de votre état Mourant."
+                    "Votre robustesse vous permet d'endurer plus de dégâts avant de vous avouer vaincu. Ajoutez votre niveau à votre maximum de Points de vie. Lorsque vous avez l'état Mourant 1 , le DD de vos tests de récupération est de 9 + l'intensité de votre état Mourant (au lieu de 10 + la valeur de l'état Mourant).",
+                    "Si vous possédez aussi le don Robustesse , les Points de vie obtenus grâce à ces dons sont cumulatifs et le DD de vos tests de récupération est égal à 6 + l'intensité de votre état Mourant."
                 ]
             },
             {
@@ -4274,7 +4274,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez utiliser l'activité d'exploration sports_martial_artsReconnaissance en même temps que l'activité d'exploration sports_martial_artsÉchapper aux regards ."
+                    "Vous pouvez utiliser l'activité d'exploration Reconnaissance en même temps que l'activité d'exploration Échapper aux regards ."
                 ]
             },
             {
@@ -4286,7 +4286,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous délivrez un coup punitif dans le genou, le tibia ou une autre partie de l'anatomie vulnérable à votre portée d'un ennemi. Faites une Frappe avec une arme au corps-à-corps ou une attaque à mains nues au corps-à-corps. Cette attaque n'inflige pas de dégâts. Si elle touche, la cible subit une pénalité de statut de -3 mètres à sa Vitesse ou de -4,50 mètres en cas de coup critique pendant 1 round. Cette pénalité s'applique seulement si la cible possède une Vitesse au sol qui dépend de ses jambes ou d'autres appendices qui lui servent à se déplacer au sol et qui peuvent être ciblés. Comme avec toutes les autres pénalités à la Vitesse, cela ne peut réduire la Vitesse de la créature en dessous de 1,50 mètre.",
-                    "flareEffet : Rotule"
+                    "Effet : Rotule"
                 ]
             },
             {
@@ -4298,7 +4298,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre vous mettez en boule et vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite dans le sens d'une pente. Si vous atteignez le bas de la pente ou touchez un obstacle durant le premier tour du déplacement, vous arrêtez de rouler sans vous faire mal. Autrement, vous continuez automatiquement à rouler à cette Vitesse durant les tours suivants jusqu'à ce que vous atteignez le bas de la pente ou qu'un obstacle mette fin à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes sentiment_very_dissatisfiedRalenti 2 à chaque tour après le premier qui vous a vu rouler et si vous touchez un obstacle lors d'un tour consécutif au premier, vous et l'obstacle subissez casino4d6 dégâts contondants et vous arrêtez de rouler."
+                    "Votre vous mettez en boule et vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite dans le sens d'une pente. Si vous atteignez le bas de la pente ou touchez un obstacle durant le premier tour du déplacement, vous arrêtez de rouler sans vous faire mal. Autrement, vous continuez automatiquement à rouler à cette Vitesse durant les tours suivants jusqu'à ce que vous atteignez le bas de la pente ou qu'un obstacle mette fin à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes Ralenti 2 à chaque tour après le premier qui vous a vu rouler et si vous touchez un obstacle lors d'un tour consécutif au premier, vous et l'obstacle subissez 4d6 dégâts contondants et vous arrêtez de rouler."
                 ]
             },
             {
@@ -4311,7 +4311,7 @@ DON.RACE = {
                     "Arpenteur des roches"
                 ],
                 "description": [
-                    "Votre carrure de nain vous permet de repousser vos adversaires alentour à la manière d'un puissant rocher fonçant à travers une caverne souterraine. Faites un pas dans la case d'un adversaire dont la taille est inférieure ou égale à la vôtre et l'ennemi doit se déplacer dans l'espace vide se trouvant directement derrière lui. L'adversaire peut tenter un jet de casinoVigueur contre votre DD d'Athlétisme afin de vous empêcher de Faire un pas. S'il tente ce jet de sauvegarde, il subit une quantité de casinodégâts contondants égale à votre niveau plus votre modificateur de Force, à moins qu'il n'obtienne un succès critique.",
+                    "Votre carrure de nain vous permet de repousser vos adversaires alentour à la manière d'un puissant rocher fonçant à travers une caverne souterraine. Faites un pas dans la case d'un adversaire dont la taille est inférieure ou égale à la vôtre et l'ennemi doit se déplacer dans l'espace vide se trouvant directement derrière lui. L'adversaire peut tenter un jet de Vigueur contre votre DD d'Athlétisme afin de vous empêcher de Faire un pas. S'il tente ce jet de sauvegarde, il subit une quantité de dégâts contondants égale à votre niveau plus votre modificateur de Force, à moins qu'il n'obtienne un succès critique.",
                     "Si l'ennemi ne peut pas se déplacer dans un espace vide (s'il est entouré d'objets solides ou d'autres créatures, par exemple), votre Roulade du rocher n'a aucun effet."
                 ]
             },
@@ -4335,7 +4335,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous transportez avec vous les os de vos ancêtres et vous pouvez leur demander conseil. Vous pouvez lancer auto_awesomeAugure deux fois par jour comme des sorts occultes innés au rang 2."
+                    "Vous transportez avec vous les os de vos ancêtres et vous pouvez leur demander conseil. Vous pouvez lancer Augure deux fois par jour comme des sorts occultes innés au rang 2."
                 ]
             },
             {
@@ -4360,7 +4360,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre sang fraîchement répandu est sanctifié avec des effets similaires à ceux de l' workEau bénite . Lorsqu'un fiélon, un mort-vivant ou une créature ayant une faiblesse contre les boissons saintes boit votre sang ou vous inflige des dégâts perforants ou tranchants avec des mâchoires, des crocs ou une attaque similaire, cette créature subit casino1d6 dégâts spirituels saints . Vous obtenez un bonus de circonstances de +4 aux tests d'Artisanat pour sports_martial_artsFabriquer de l'eau bénite en utilisant votre propre sang comme ingrédient."
+                    "Votre sang fraîchement répandu est sanctifié avec des effets similaires à ceux de l' Eau bénite . Lorsqu'un fiélon, un mort-vivant ou une créature ayant une faiblesse contre les boissons saintes boit votre sang ou vous inflige des dégâts perforants ou tranchants avec des mâchoires, des crocs ou une attaque similaire, cette créature subit 1d6 dégâts spirituels saints . Vous obtenez un bonus de circonstances de +4 aux tests d'Artisanat pour Fabriquer de l'eau bénite en utilisant votre propre sang comme ingrédient."
                 ]
             },
             {
@@ -4371,7 +4371,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que celle du côté gauche est mortelle et toxique. Vous pouvez subir casino1 point de dégât tranchant pour nourrir quelqu'un du sang de votre côté droit et Prodiguer les premiers soins ou subir casino2d8 dégâts pour sports_martial_artsSoigner les maladies ou sports_martial_artsSoigner les blessures ; dans les deux cas, vous n'avez pas besoin de trousse du guérisseur et obtenez un bonus d'objet de +1 à votre test. Le sang provenant de votre côté gauche entraîne un échec critique automatique du test."
+                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que celle du côté gauche est mortelle et toxique. Vous pouvez subir 1 point de dégât tranchant pour nourrir quelqu'un du sang de votre côté droit et Prodiguer les premiers soins ou subir 2d8 dégâts pour Soigner les maladies ou Soigner les blessures ; dans les deux cas, vous n'avez pas besoin de trousse du guérisseur et obtenez un bonus d'objet de +1 à votre test. Le sang provenant de votre côté gauche entraîne un échec critique automatique du test."
                 ]
             },
             {
@@ -4383,8 +4383,8 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois par heure",
-                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que la chair du côté gauche est mortelle et empoisonnée. Vous vous infligez casino1 dégât tranchant pour empoisonner une arme que vous tenez. Si vous touchez avec l'arme et infligez des dégâts, la cible subit également casino1d4 dégâts de poison persistants . Le poison sur votre arme devient inerte après que vous ayez touché ou à la fin de votre prochain tour, selon ce qui se produit en premier.",
-                    "flareEffet : Sang de la main gauche"
+                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que la chair du côté gauche est mortelle et empoisonnée. Vous vous infligez 1 dégât tranchant pour empoisonner une arme que vous tenez. Si vous touchez avec l'arme et infligez des dégâts, la cible subit également 1d4 dégâts de poison persistants . Le poison sur votre arme devient inerte après que vous ayez touché ou à la fin de votre prochain tour, selon ce qui se produit en premier.",
+                    "Effet : Sang de la main gauche"
                 ]
             },
             {
@@ -4396,7 +4396,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous descendez d'un dragon qui maîtrisait réellement des capacités magiques, tel qu'un dragon fortuné ou un dragon mirage. Comme tel, vous pouvez instinctivement appréhender les complexités de la magie. Vous êtes qualifié en Arcanes. Si vous devriez déjà être qualifié en Arcanes (par votre historique ou votre classe, par exemple), vous êtes qualifié à la place dans une compétence de votre choix. Vous obtenez le don de compétence military_techSens arcanique . Si vous choisissez un modèle draconique, vous devez choisir un dragon arcanique."
+                    "Vous descendez d'un dragon qui maîtrisait réellement des capacités magiques, tel qu'un dragon fortuné ou un dragon mirage. Comme tel, vous pouvez instinctivement appréhender les complexités de la magie. Vous êtes qualifié en Arcanes. Si vous devriez déjà être qualifié en Arcanes (par votre historique ou votre classe, par exemple), vous êtes qualifié à la place dans une compétence de votre choix. Vous obtenez le don de compétence Sens arcanique . Si vous choisissez un modèle draconique, vous devez choisir un dragon arcanique."
                 ]
             },
             {
@@ -4420,7 +4420,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre sang contient un minuscule fragment d'une puissance inhabituelle ou inexplicable d'un mystérieux dragon, tel qu'un dragon conspirateur ou dragon des présages. Vous êtes attiré par les parties les plus étranges du monde et pouvez généralement les remarquer au premier regard. Vous êtes qualifié en Occultisme. Si vous étiez déjà automatiquement qualifié en Occultisme (par votre historique ou votre classe, par exemple), vous êtes à la place qualifié en une compétence de votre choix. Vous obtenez le don de compétence military_techIdentification de bizarreries . Si vous choisissez un modèle draconique, vous devez choisir un dragon occulte."
+                    "Votre sang contient un minuscule fragment d'une puissance inhabituelle ou inexplicable d'un mystérieux dragon, tel qu'un dragon conspirateur ou dragon des présages. Vous êtes attiré par les parties les plus étranges du monde et pouvez généralement les remarquer au premier regard. Vous êtes qualifié en Occultisme. Si vous étiez déjà automatiquement qualifié en Occultisme (par votre historique ou votre classe, par exemple), vous êtes à la place qualifié en une compétence de votre choix. Vous obtenez le don de compétence Identification de bizarreries . Si vous choisissez un modèle draconique, vous devez choisir un dragon occulte."
                 ]
             },
             {
@@ -4443,7 +4443,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous pouvez résister à une perte de sang étonnamment bien. Lorsque vous devriez obtenir l'état sentiment_very_dissatisfiedDrainé , vous pouvez tenter un casinoTest nu, DD 17 . Sur un succès, vous n'obtenez pas l'état Drainé."
+                    "Vous pouvez résister à une perte de sang étonnamment bien. Lorsque vous devriez obtenir l'état Drainé , vous pouvez tenter un Test nu, DD 17 . Sur un succès, vous n'obtenez pas l'état Drainé."
                 ]
             },
             {
@@ -4456,7 +4456,7 @@ DON.RACE = {
                     "Saut de mur"
                 ],
                 "description": [
-                    "Vous utilisez rapidement votre élan pour faire basculer et rebondir sur vos ennemis. Vous pouvez utiliser Saut de mur pour faire des sauts supplémentaires sur des créatures plus grandes que vous comme s'il s'agissait de murs. Une fois par tour, lorsque vous faites un saut supplémentaire pour rebondir sur une créature de cette manière, vous pouvez également tenter de la sports_martial_artsPousser ou de lui faire un sports_martial_artsCroc-en-jambe par une action gratuite."
+                    "Vous utilisez rapidement votre élan pour faire basculer et rebondir sur vos ennemis. Vous pouvez utiliser Saut de mur pour faire des sauts supplémentaires sur des créatures plus grandes que vous comme s'il s'agissait de murs. Une fois par tour, lorsque vous faites un saut supplémentaire pour rebondir sur une créature de cette manière, vous pouvez également tenter de la Pousser ou de lui faire un Croc-en-jambe par une action gratuite."
                 ]
             },
             {
@@ -4470,8 +4470,8 @@ DON.RACE = {
                 ],
                 "description": [
                     "Vos jambes puissantes vous permettent de faire des sauts aussi soudains que spectaculaires.",
-                    "Vous pouvez sports_martial_artsBondir en utilisant 2 actions pour doubler la distance que vous pouvez franchir verticalement ou Sauter en utilisant 3 actions pour tripler la distance que vous pouvez franchir verticalement.",
-                    "Vous n'échouez pas automatiquement lorsque vous effectuez un sports_martial_artsSaut en longueur dans une direction différente de celle de votre Marche rapide."
+                    "Vous pouvez Bondir en utilisant 2 actions pour doubler la distance que vous pouvez franchir verticalement ou Sauter en utilisant 3 actions pour tripler la distance que vous pouvez franchir verticalement.",
+                    "Vous n'échouez pas automatiquement lorsque vous effectuez un Saut en longueur dans une direction différente de celle de votre Marche rapide."
                 ]
             },
             {
@@ -4495,7 +4495,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Lorsque vous êtes en exploration, lorsque vous dirigez et que vos alliés sont en train de sports_martial_artsSuivre l'expert , plutôt que d'accorder un bonus de circonstances de +2 à la compétence concernée, vous accordez un bonus de circonstances de +3 si vous êtes expert et de +4 si vous êtes maître."
+                    "Lorsque vous êtes en exploration, lorsque vous dirigez et que vos alliés sont en train de Suivre l'expert , plutôt que d'accorder un bonus de circonstances de +2 à la compétence concernée, vous accordez un bonus de circonstances de +3 si vous êtes expert et de +4 si vous êtes maître."
                 ]
             },
             {
@@ -4512,7 +4512,7 @@ DON.RACE = {
                     "qualifié en Duperie"
                 ],
                 "description": [
-                    "Vous essayez de sports_martial_artsFeinter une créature. Contrairement à une Feinte normale, la créature doit être à 9 m au lieu d'être dans votre allonge et vous faites votre test contre son DD de Volonté au lieu de son DD de Perception."
+                    "Vous essayez de Feinter une créature. Contrairement à une Feinte normale, la créature doit être à 9 m au lieu d'être dans votre allonge et vous faites votre test contre son DD de Volonté au lieu de son DD de Perception."
                 ]
             },
             {
@@ -4527,7 +4527,7 @@ DON.RACE = {
                 "description": [
                     "Fréquence Une fois par heure",
                     "Vous pouvez regagner votre énergie rapidement avec une courte sieste. Vous dormez pendant 10 minutes, après quoi vous obtenez des Points de vie temporaires égaux à votre niveau qui durent pendant 1 heure.",
-                    "flareEffet : Sieste féline"
+                    "Effet : Sieste féline"
                 ]
             },
             {
@@ -4539,7 +4539,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "En puisant dans la physiologie de votre ancêtre draconique, vous pouvez exhaler un torrent d'énergie dans un crop_freecône de 4,50 mètres ou sur une crop_freeligne de 9 mètres , infligeant 1d4 dégâts. Chaque créature dans la zone doit tenter un jet de sauvegarde basique contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous ne pouvez pas utiliser de nouveau cette capacité pendant casino1d4 rounds .",
+                    "En puisant dans la physiologie de votre ancêtre draconique, vous pouvez exhaler un torrent d'énergie dans un cône de 4,50 mètres ou sur une ligne de 9 mètres , infligeant 1d4 dégâts. Chaque créature dans la zone doit tenter un jet de sauvegarde basique contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous ne pouvez pas utiliser de nouveau cette capacité pendant 1d4 rounds .",
                     "Au niveau 3, puis tous les 2 niveaux par la suite, les dégâts augmentent de 1d4. La forme du souffle, le type de dégâts et le jet de sauvegarde correspondent à ceux de votre modèle draconique. Cette capacité possède le trait associé avec le type dégâts qu'elle inflige."
                 ]
             },
@@ -4552,9 +4552,9 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous canalisez la puissance de votre modèle draconique en une projection d'énergie qui se manifeste sur une crop_freeligne de 9 mètres ou un crop_freecône de 4,50 mètres , infligeant casino1d4 dégâts . Chaque créature dans la zone doit faire un jet de sauvegarde basique contre le plus élevé entre votre DD de classe et votre DD de sort. Vous ne pouvez plus utiliser cette capacité de nouveau pendant casino1d4 rounds .",
+                    "Vous canalisez la puissance de votre modèle draconique en une projection d'énergie qui se manifeste sur une ligne de 9 mètres ou un cône de 4,50 mètres , infligeant 1d4 dégâts . Chaque créature dans la zone doit faire un jet de sauvegarde basique contre le plus élevé entre votre DD de classe et votre DD de sort. Vous ne pouvez plus utiliser cette capacité de nouveau pendant 1d4 rounds .",
                     "Au niveau 3 puis tous les 2 niveaux par la suite, les dégâts augmentent de 1d4. La forme du souffle, le type de dégâts et le jet de sauvegarde correspondent à ceux de votre Modèle draconique . Cette capacité possède le trait associé avec le type de dégâts qu'il inflige.",
-                    "casinoVigueur casinoRéflexes"
+                    "Vigueur Réflexes"
                 ]
             },
             {
@@ -4635,7 +4635,7 @@ DON.RACE = {
                 "description": [
                     "Les nains ont une longue histoire de lutte contre des ennemis communs et vous avez maîtrisé les anciennes tactiques pour mieux les affronter. Vous bénéficiez d'un bonus de circonstances de +1 aux dégâts infligés par les armes et les attaques à mains nues contre les créatures ayant le trait géant, gobelin, hryngar ou orc. Si votre attaque inflige plus d'un dé de dégât d'arme (comme c'est souvent le cas après le niveau 1), le bonus est égal au nombre de dés de l'arme ou de dés de l'attaque à mains nues.",
                     "De plus, si une créature obtient un coup critique à une attaque portée contre vous et vous inflige des dégâts, vous obtenez votre bonus aux dégâts contre cette créature pendant 1 minute, qu'elle ait ou non l'un des traits indiqués.",
-                    "flareEffet : Stratégie de la montagne (Touché par un coup critique)"
+                    "Effet : Stratégie de la montagne (Touché par un coup critique)"
                 ]
             },
             {
@@ -4648,7 +4648,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous descendez d'un des véritables vampires antiques, un nosferatu maudit pour l'éternité mais ne bénéficiant pas de la jeunesse éternelle. Les gens vous appellent straveika ou né âgé.",
-                    "Les vestiges des pouvoirs de domination de votre parent vous ont laissé avec une compréhension de la façon dont les intentions d'une créature changent son comportement. Vous obtenez un bonus de circonstances de +1 aux tests de Perception pour sports_martial_artsDeviner les intentions et les DD de Perception contre les tentatives pour vous sports_martial_artsMentir ."
+                    "Les vestiges des pouvoirs de domination de votre parent vous ont laissé avec une compréhension de la façon dont les intentions d'une créature changent son comportement. Vous obtenez un bonus de circonstances de +1 aux tests de Perception pour Deviner les intentions et les DD de Perception contre les tentatives pour vous Mentir ."
                 ]
             },
             {
@@ -4659,7 +4659,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous faites appel aux liens familiaux que vous partagez avec vos alliés et les autres hommes-rats pour devenir une force écrasante au combat. Vous pouvez lancer auto_awesomeAgrandissement comme un sort inné primordial au rang 6 une fois par jour."
+                    "Vous faites appel aux liens familiaux que vous partagez avec vos alliés et les autres hommes-rats pour devenir une force écrasante au combat. Vous pouvez lancer Agrandissement comme un sort inné primordial au rang 6 une fois par jour."
                 ]
             },
             {
@@ -4716,10 +4716,10 @@ DON.RACE = {
                 ],
                 "description": [
                     "Déclencheur Vous êtes attaqué par une créature contre laquelle vous ne vous êtes pas encore montré hostile. Vous devez utiliser cette réaction avant que la créature ne fasse son attaque.",
-                    "La manière dont vous vous êtes entraîné à vous tasser ou à faire les yeux de chien battu provoque une réponse empathique de la part de votre agresseur. Faites un test de casinoDiplomatie contre le DD de Volonté de l'agresseur.",
+                    "La manière dont vous vous êtes entraîné à vous tasser ou à faire les yeux de chien battu provoque une réponse empathique de la part de votre agresseur. Faites un test de Diplomatie contre le DD de Volonté de l'agresseur.",
                     "Succès critique La créature retient son attaque, gâchant cette action et ne peut utiliser d'action hostile à votre encontre jusqu'au début de son prochain tour.",
                     "Succès La créature subit une pénalité de circonstances de -2 aux dégâts de la Frappe déclencheuse et à toutes les Frappes contre vous jusqu'au début de son prochain tour. La pénalité est de –4 si vous êtes un expert en Diplomatie, de -6 si vous êtes un maître et de -8 si vous êtes légendaire.",
-                    "flareEffet : Supplique empathique",
+                    "Effet : Supplique empathique",
                     "Échec L'attaque de la créature n'est pas affectée et la créature est temporairement immunisée à votre Supplique empathique pendant 24 heures."
                 ]
             },
@@ -4731,7 +4731,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous invoquez la puissance divine pour accorder une bénédiction sur vos alliés ou une malédiction sur vos ennemis. Choisissez soit auto_awesomeBénédiction offensive , soit auto_awesomeImprécation . Vous pouvez choisir ce sort une fois par jour comme un sort divin inné de rang 1."
+                    "Vous invoquez la puissance divine pour accorder une bénédiction sur vos alliés ou une malédiction sur vos ennemis. Choisissez soit Bénédiction offensive , soit Imprécation . Vous pouvez choisir ce sort une fois par jour comme un sort divin inné de rang 1."
                 ]
             },
             {
@@ -4742,7 +4742,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Déclencheur Vous perdez l'état sentiment_very_dissatisfiedInconscient .",
+                    "Déclencheur Vous perdez l'état Inconscient .",
                     "Votre agilité de grenouille se réveille aussitôt. Vous vous Relevez. Ce mouvement ne déclenche pas de réactions."
                 ]
             },
@@ -4765,7 +4765,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "La longue vie des elfes leur a permis de voir des civilisations émerger et s\"écrouler, souvent entre les mains de forces extérieures. Il en résulte qu'ils ont développé une prudence à l'encontre de ceux qui pourraient chercher à les influencer ou à les contrôler. Vous avez été entraîné à résister à de telles manipulations, obtenant un bonus de circonstances de +2 aux jets de sauvegarde contre les effets qui permettraient de vous contrôler, comme auto_awesomeDomination et au tests de Perception pour sports_martial_artsDeviner les intentions lorsque vous essayez de déterminer si une créature est sous l'influence d'un tel effet. Lorsque vous obtenez un succès sur un jet de sauvegarde contre un tel effet, il devient un succès critique."
+                    "La longue vie des elfes leur a permis de voir des civilisations émerger et s\"écrouler, souvent entre les mains de forces extérieures. Il en résulte qu'ils ont développé une prudence à l'encontre de ceux qui pourraient chercher à les influencer ou à les contrôler. Vous avez été entraîné à résister à de telles manipulations, obtenant un bonus de circonstances de +2 aux jets de sauvegarde contre les effets qui permettraient de vous contrôler, comme Domination et au tests de Perception pour Deviner les intentions lorsque vous essayez de déterminer si une créature est sous l'influence d'un tel effet. Lorsque vous obtenez un succès sur un jet de sauvegarde contre un tel effet, il devient un succès critique."
                 ]
             },
             {
@@ -4777,7 +4777,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes issu d'un moroi, le plus commun des vampires et vous partagez leur vigueur surnaturelle et leur pouvoir de persuasion. Lorsque vous avez l'état sentiment_very_dissatisfiedDrainé , calculez la pénalité à vos jets de Vigueur et la réduction de vos Points de vie comme si la valeur de l'état était inférieure de 1. Vous êtes qualifié en Diplomatie. Si vous devriez déjà être automatiquement qualifié, vous êtes qualifié dans une compétence de votre choix."
+                    "Vous êtes issu d'un moroi, le plus commun des vampires et vous partagez leur vigueur surnaturelle et leur pouvoir de persuasion. Lorsque vous avez l'état Drainé , calculez la pénalité à vos jets de Vigueur et la réduction de vos Points de vie comme si la valeur de l'état était inférieure de 1. Vous êtes qualifié en Diplomatie. Si vous devriez déjà être automatiquement qualifié, vous êtes qualifié dans une compétence de votre choix."
                 ]
             },
             {
@@ -4788,7 +4788,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous puisez dans le sang de vos ennemis pour qu'il vous accorde de la vigueur. Une fois par jour, vous pouvez Lancer auto_awesomeSaignée du vampire comme un sort divin inné au rang 7."
+                    "Vous puisez dans le sang de vos ennemis pour qu'il vous accorde de la vigueur. Une fois par jour, vous pouvez Lancer Saignée du vampire comme un sort divin inné au rang 7."
                 ]
             },
             {
@@ -4799,7 +4799,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous êtes adepte du travail avec vos alliés pour entourer un ennemi. Si un ennemi est dans votre allonge et dans celle d'au moins deux de vos alliés, cet ennemi est sentiment_very_dissatisfiedPris au dépourvu pour vous."
+                    "Vous êtes adepte du travail avec vos alliés pour entourer un ennemi. Si un ennemi est dans votre allonge et dans celle d'au moins deux de vos alliés, cet ennemi est Pris au dépourvu pour vous."
                 ]
             },
             {
@@ -4822,7 +4822,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Votre vie a été consacrée à défier la mort elle-même et la proximité de cet implacable ennemi fait que votre cœur bat plus fort.",
-                    "Lorsque vous subissez des dégâts persistants ou que votre valeur sentiment_very_dissatisfiedBlessé est de 1 ou supérieure, vous obtenez un bonus de circonstances de +2 aux jets de Vigueur."
+                    "Lorsque vous subissez des dégâts persistants ou que votre valeur Blessé est de 1 ou supérieure, vous obtenez un bonus de circonstances de +2 aux jets de Vigueur."
                 ]
             },
             {
@@ -4845,7 +4845,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Un de vos parents possède l'espérance de vie d'un humain et l'autre celle d'un elfe, la vôtre se trouvant quelque part entre les deux. De ce fait, vous avez une perspective inhabituelle à propos du temps et vous avez appris à le manifester pour vous aider dans des moments de stress.",
-                    "Vous obtenez auto_awesomeRapidité comme un sort arcanique inné au rang 3 que vous ne pouvez lancer que sur vous-même. Vous pouvez Lancer ce sort une fois par jour."
+                    "Vous obtenez Rapidité comme un sort arcanique inné au rang 3 que vous ne pouvez lancer que sur vous-même. Vous pouvez Lancer ce sort une fois par jour."
                 ]
             },
             {
@@ -4857,7 +4857,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre sang résonne du pouvoir libérateur des azatas, incarnations vivantes de la liberté du royaume sauvage de l'Élysée. Vous obtenez un bonus de circonstances de +1 pour sports_martial_artsVous échapper . Lorsque vous obtenez un échec critique sur un test pour Vous échapper, il devient un échec et lorsque vous obtenez un succès, il devient un succès critique."
+                    "Votre sang résonne du pouvoir libérateur des azatas, incarnations vivantes de la liberté du royaume sauvage de l'Élysée. Vous obtenez un bonus de circonstances de +1 pour Vous échapper . Lorsque vous obtenez un échec critique sur un test pour Vous échapper, il devient un échec et lorsque vous obtenez un succès, il devient un succès critique."
                 ]
             },
             {
@@ -4883,7 +4883,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous entrez en hibernation pendant 24 heures et accomplissez un rituel dédié à vos ancêtres, entreprenant une métamorphose unique. Vous obtenez de manière permanente les effets du sort auto_awesomeAgrandissement et vos Points de vie maximum augmentent de votre niveau. Le rituel transforme la plupart de votre équipement à la taille appropriée à votre nouveau corps (bien que des objets puissants comme des artefacts ou des objets fortement liés à leur taille originelle puissent ne pas se transformer à la discrétion du MJ)."
+                    "Vous entrez en hibernation pendant 24 heures et accomplissez un rituel dédié à vos ancêtres, entreprenant une métamorphose unique. Vous obtenez de manière permanente les effets du sort Agrandissement et vos Points de vie maximum augmentent de votre niveau. Le rituel transforme la plupart de votre équipement à la taille appropriée à votre nouveau corps (bien que des objets puissants comme des artefacts ou des objets fortement liés à leur taille originelle puissent ne pas se transformer à la discrétion du MJ)."
                 ]
             },
             {
@@ -4896,7 +4896,7 @@ DON.RACE = {
                     "expert en Discrétion"
                 ],
                 "description": [
-                    "Les embuscades sont une tradition kholo honorée. Vous gagnez la prouesse military_techTraqueur de terrain et pouvez étendre ses effets à un seul allié tant qu'il reste dans un rayon de 6 mètres de vous. Si vous avez êtes maître en Discrétion, vous pouvez étendre l'effet à deux alliés. Si vous êtes légendaire en Discrétion, vous pouvez étendre l'effet à quatre alliés."
+                    "Les embuscades sont une tradition kholo honorée. Vous gagnez la prouesse Traqueur de terrain et pouvez étendre ses effets à un seul allié tant qu'il reste dans un rayon de 6 mètres de vous. Si vous avez êtes maître en Discrétion, vous pouvez étendre l'effet à deux alliés. Si vous êtes légendaire en Discrétion, vous pouvez étendre l'effet à quatre alliés."
                 ]
             },
             {
@@ -4908,7 +4908,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Les personnes de grande taille font rarement attention aux ombres à leurs pieds et vous tirez profit de cette négligence. Vous pouvez vous déplacer de 1,50 mètre supplémentaire quand vous Êtes furtif , jusqu'à votre Vitesse.",
-                    "En outre, tant que vous continuez d'enchaîner les actions Être furtif et que vous réussissez votre test de Discrétion, vous ne pouvez pas être Observé même si vous ne bénéficiez pas d'un abri ou d'un abri important et n'êtes pas sentiment_very_dissatisfiedMasqué à la fin de l'action Être furtif, du moment que vous bénéficiez d'un abri, d'un abri important ou êtes Masqué à la fin de votre tour."
+                    "En outre, tant que vous continuez d'enchaîner les actions Être furtif et que vous réussissez votre test de Discrétion, vous ne pouvez pas être Observé même si vous ne bénéficiez pas d'un abri ou d'un abri important et n'êtes pas Masqué à la fin de l'action Être furtif, du moment que vous bénéficiez d'un abri, d'un abri important ou êtes Masqué à la fin de votre tour."
                 ]
             },
             {
@@ -4921,7 +4921,7 @@ DON.RACE = {
                     "Très furtif"
                 ],
                 "description": [
-                    "Quand vous utilisez l'action sports_martial_artsÊtre furtif , vous pouvez vous déplacer de votre Vitesse et vous n'avez plus besoin de bénéficier d'un abri, d'un abri important ou d'être sentiment_very_dissatisfiedMasqué pour vous Cacher ou Être furtif."
+                    "Quand vous utilisez l'action Être furtif , vous pouvez vous déplacer de votre Vitesse et vous n'avez plus besoin de bénéficier d'un abri, d'un abri important ou d'être Masqué pour vous Cacher ou Être furtif."
                 ]
             },
             {
@@ -4949,8 +4949,8 @@ DON.RACE = {
                     "Fréquence Une fois par jour",
                     "Déclencheur Un allié adjacent et volontaire devrait être réduit à 0 PV mais pas tué.",
                     "Vous aidez physiquement un allié à rester debout et l'encouragez à surmonter sa douleur contre vents et marées.",
-                    "Votre allié ne devient pas sentiment_very_dissatisfiedInconscient et reste à 1 Point de vie. L'allié obtient aussi un nombre de Points de vie temporaires égal à votre niveau qui dure pendant 1 minute. Continuer à se battre avec une telle blessure n'est pas sans conséquence ; l'état sentiment_very_dissatisfiedBlessé de votre allié augmente de 1.",
-                    "flareEffet : Tu ne peux tomber ici"
+                    "Votre allié ne devient pas Inconscient et reste à 1 Point de vie. L'allié obtient aussi un nombre de Points de vie temporaires égal à votre niveau qui dure pendant 1 minute. Continuer à se battre avec une telle blessure n'est pas sans conséquence ; l'état Blessé de votre allié augmente de 1.",
+                    "Effet : Tu ne peux tomber ici"
                 ]
             },
             {
@@ -4973,7 +4973,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous descendez d'un ange, un messager ailé du Nirvana ou de l'un des autres royaumes célestes. Vous êtes qualifié en Société. Si vous devriez déjà être qualifié en Société (du fait de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix. Vous connaissez l'empyréen et vous obtenez le don de compétence military_techPolyglotte ."
+                    "Vous descendez d'un ange, un messager ailé du Nirvana ou de l'un des autres royaumes célestes. Vous êtes qualifié en Société. Si vous devriez déjà être qualifié en Société (du fait de votre historique ou de votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix. Vous connaissez l'empyréen et vous obtenez le don de compétence Polyglotte ."
                 ]
             },
             {
@@ -4998,7 +4998,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Fréquence Une fois toutes les 10 minutes",
-                    "Conditions Vous êtes dans les 9 mètres d'un allié avec l'état sentiment_very_dissatisfiedMourant .",
+                    "Conditions Vous êtes dans les 9 mètres d'un allié avec l'état Mourant .",
                     "Bien que vous sachiez que vous allez finalement survivre à vos compagnons, les voir aux portes de la mort apporte de la clarté à vos attaques. Faites une Frappe. Lancez deux fois le jet d'attaque et utilisez le meilleur résultat."
                 ]
             },
@@ -5024,7 +5024,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Votre mère est une guenaude marine, vous accordant un œil vert océan ou bleu. Vous êtes à l'aise dans la mer comme sur la grève. Lorsque vous obtenez un succès sur un test d'Athlétisme pour sports_martial_artsNager , il devient un succès critique. Si vous terminez votre tour dans l'eau sans avoir réussi un test de Natation lors de ce round, vous ne coulez pas (mais vous pouvez néanmoins subir les effets du courant pour votre déplacement)."
+                    "Votre mère est une guenaude marine, vous accordant un œil vert océan ou bleu. Vous êtes à l'aise dans la mer comme sur la grève. Lorsque vous obtenez un succès sur un test d'Athlétisme pour Nager , il devient un succès critique. Si vous terminez votre tour dans l'eau sans avoir réussi un test de Natation lors de ce round, vous ne coulez pas (mais vous pouvez néanmoins subir les effets du courant pour votre déplacement)."
                 ]
             },
             {
@@ -5049,7 +5049,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous faites partie des plus courants des changelins - ceux nés des guenaudes doucereuses - et un œil vert vif marque cette parenté. La nature manipulatrice de votre mère naturelle et sa voix changeante vous donne un avantage pour duper les autres.",
-                    "Vous obtenez le don de compétence military_techMenteur charismatique . Si vous lancez un test de Duperie pour déterminer l'initiative, les adversaires dans cette rencontre qui n'ont pas encore agi avant vous sont sentiment_very_dissatisfiedPris au dépourvu à votre égard."
+                    "Vous obtenez le don de compétence Menteur charismatique . Si vous lancez un test de Duperie pour déterminer l'initiative, les adversaires dans cette rencontre qui n'ont pas encore agi avant vous sont Pris au dépourvu à votre égard."
                 ]
             },
             {
@@ -5062,7 +5062,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous êtes l'enfant d'une guenaude coucou, de sorte qu'un de vos yeux est violet ou même noir. Les pouvoirs de votre mère sur le sommeil et les rêves vous ont accordé un niveau de résistance à ces effets, vous faisant bénéficier d'un bonus de circonstances de +2 à tous les jets de sauvegarde contre les effets de sommeil et les effets qui provoquent ou altèrent les rêves.",
-                    "De plus, le sommeil vous permet de mieux récupérer. Vous regagnez des PV égaux à votre modificateur de Constitution multiplié par le double de votre niveau, au lieu de simplement votre niveau et vous réduisez les états sentiment_very_dissatisfiedDrainé et sentiment_very_dissatisfiedCondamné de 2 au lieu de 1."
+                    "De plus, le sommeil vous permet de mieux récupérer. Vous regagnez des PV égaux à votre modificateur de Constitution multiplié par le double de votre niveau, au lieu de simplement votre niveau et vous réduisez les états Drainé et Condamné de 2 au lieu de 1."
                 ]
             },
             {
@@ -5085,7 +5085,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous avez maîtrisé l'art de garder votre composition, même face à la terreur. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les effets avec le trait terreur et un bonus de circonstances de +2 à votre DD de Volonté contre les actions de la compétence Intimidation, telle que celle de sports_martial_artsDémoraliser ."
+                    "Vous avez maîtrisé l'art de garder votre composition, même face à la terreur. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les effets avec le trait terreur et un bonus de circonstances de +2 à votre DD de Volonté contre les actions de la compétence Intimidation, telle que celle de Démoraliser ."
                 ]
             },
             {
@@ -5146,7 +5146,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Comme certains dragons, votre ancêtre avait la capacité surnaturelle de changer de forme pour se fondre parmi les humanoïdes. Vous avez appris à imiter cette capacité. Vous pouvez lancer auto_awesomeForme humanoïde comme un sort inné de rang 5 une fois par jour, sauf que la durée est augmentée à 1 heure. La tradition du sort correspond à celle de votre modèle draconique."
+                    "Comme certains dragons, votre ancêtre avait la capacité surnaturelle de changer de forme pour se fondre parmi les humanoïdes. Vous avez appris à imiter cette capacité. Vous pouvez lancer Forme humanoïde comme un sort inné de rang 5 une fois par jour, sauf que la durée est augmentée à 1 heure. La tradition du sort correspond à celle de votre modèle draconique."
                 ]
             },
             {
@@ -5157,7 +5157,7 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Vous entendez et comprenez les mots des créatures avec lesquelles vous partagez l'obscurité. Vous pouvez poser des questions, recevoir des réponses et utiliser la compétence Diplomatie avec les chauves-souris, les loups et les rats. Vous obtenez aussi un bonus de circonstances de +1 pour sports_martial_artsFaire bonne impression sur de tels animaux."
+                    "Vous entendez et comprenez les mots des créatures avec lesquelles vous partagez l'obscurité. Vous pouvez poser des questions, recevoir des réponses et utiliser la compétence Diplomatie avec les chauves-souris, les loups et les rats. Vous obtenez aussi un bonus de circonstances de +1 pour Faire bonne impression sur de tels animaux."
                 ]
             },
             {
@@ -5223,7 +5223,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Votre contrôle et vos méditations mystiques vous permettent de résister aux influences externes qui tentent d'affecter votre conscience. Lorsque vous êtes affecté par un effet mental qui dure au moins 2 rounds, vous pouvez en réduire la durée de 1 round.",
-                    "Vous avez toujours besoin de sommeil naturel, mais vous considérez vos jets de sauvegarde contre les effets qui devraient vous faire tomber dans le sommeil d'un degré de succès supérieur à ce qu'ils sont. Cela vous protège seulement contre les effets de sommeil, mais pas des autres effets qui vous rendent sentiment_very_dissatisfiedInconscient ."
+                    "Vous avez toujours besoin de sommeil naturel, mais vous considérez vos jets de sauvegarde contre les effets qui devraient vous faire tomber dans le sommeil d'un degré de succès supérieur à ce qu'ils sont. Cela vous protège seulement contre les effets de sommeil, mais pas des autres effets qui vous rendent Inconscient ."
                 ]
             },
             {
@@ -5234,9 +5234,9 @@ DON.RACE = {
                 ],
                 "required"   : [],
                 "description": [
-                    "Déclencheur Vous obtenez l'état sentiment_very_dissatisfiedNauséeux ou un échec sur un jet de sauvegarde contre un poison ingéré.",
+                    "Déclencheur Vous obtenez l'état Nauséeux ou un échec sur un jet de sauvegarde contre un poison ingéré.",
                     "Fréquence Une fois par jour",
-                    "Dans les circonstances les plus graves, vous pouvez vomir votre estomac pour expulser les toxines. Réduisez votre état Nauséeux de 2 et tentez immédiatement un jet de sauvegarde avec un bonus de circonstances de +2 contre tout poison ingéré auquel vous avez été exposé au cours de la dernière minute. Vous devenez sentiment_very_dissatisfiedPris au dépourvu pendant 1 round car votre estomac exposé vous rend particulièrement vulnérable aux attaques."
+                    "Dans les circonstances les plus graves, vous pouvez vomir votre estomac pour expulser les toxines. Réduisez votre état Nauséeux de 2 et tentez immédiatement un jet de sauvegarde avec un bonus de circonstances de +2 contre tout poison ingéré auquel vous avez été exposé au cours de la dernière minute. Vous devenez Pris au dépourvu pendant 1 round car votre estomac exposé vous rend particulièrement vulnérable aux attaques."
                 ]
             },
             {
@@ -5248,7 +5248,7 @@ DON.RACE = {
                 "required"   : [],
                 "description": [
                     "Vous adoptez naturellement une manière affable et plaisante lorsque vous faites des rencontres. Vous êtes qualifié en Diplomatie. Si vous devriez l'être automatiquement (par votre historique ou votre classe, par exemple), vous êtes qualifié dans une autre compétence de votre choix.",
-                    "De plus, vous obtenez le don de compétence military_techAnimal social ."
+                    "De plus, vous obtenez le don de compétence Animal social ."
                 ]
             },
             {
