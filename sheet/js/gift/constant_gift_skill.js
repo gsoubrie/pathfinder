@@ -2506,3 +2506,29 @@ DON.getFeatInformation = function ( feat_category, feat_name ) {
     }
     return null;
 };
+
+/**
+ * Every known feat of the scraped data: the skill, class and ancestry feat
+ * lists, deduplicated by name and sorted.
+ *
+ * @returns {Array}  [ { name } ] of the feat names
+ */
+DON.getKnownFeats = function () {
+    let to_return = [];
+    let seen      = {};
+    let feat_lists = [ DON.RACE.ENUM[ 0 ], DON.SKILL.ENUM[ 0 ], DON.CLASS.ENUM ];
+    for ( let i = 0, _size_i = feat_lists.length; i < _size_i; i++ ) {
+        for ( let f = 0, _size_f = feat_lists[ i ].length; f < _size_f; f++ ) {
+            let feat_name = feat_lists[ i ][ f ].name;
+            if ( seen[ feat_name ] ) {
+                continue;
+            }
+            seen[ feat_name ] = true;
+            to_return.push( { "name": feat_name } );
+        }
+    }
+    to_return.sort( function ( feat_a, feat_b ) {
+        return feat_a.name.localeCompare( feat_b.name, "fr" );
+    } );
+    return to_return;
+};

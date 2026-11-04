@@ -355,18 +355,28 @@ niveau 5, "expertise en réflexes" validée) :
 
 ### État au moment de la pause
 
-- **Non commis** (depuis le commit `53fb278 review code 4`, qui porte les
-  Rounds 12-23) : le working tree contient les Rounds 24-30 — le nettoyage
-  des textes scrapés (outil `sheet/tools/clean_scraped_text.js`), le "?"
-  par option de don, le composant `COMPONENT.SingleSelectFromData` en lib,
-  l'uniformisation de TOUS les sélecteurs sur ce composant, le "?" de
-  popup branché dans les DEUX listes de contrôleurs, les correctifs CSS
-  (hauteurs bornées de la fenêtre levelup, `overflow` du bloc retiré,
-  popup overlay centrée en flex, animation vivante), les scénarios
-  passés aux clics d'options du composant, et le Round 30 : onglet
-  renommé "Progression" sans entête récap, dons d'ascendance par palier
-  (`AncestryHistory` + `AncestryLevelHistory`,
-  `DON.getAvailableAncestryFeats`, scénario `scenario_dons_ascendance.js`).
+- **Non commis** (depuis le commit `bbac50c review code 4` — "adding tab
+  progress", état "plus d'erreur" de la journée, Rounds 30-39 : onglet
+  Progression, dons/langues d'ascendance, PV de départ, zone Général
+  ascendance, onglet Ajustements avec ses sélecteurs, gating de
+  Progression par l'ascendance) : le working tree contient les Rounds
+  40-42 :
+  - Round 40 : ligne de FILTRE en tête de chaque liste du composant
+    `SingleSelectFromData` (`filterOptions`, présentation pure, pattern
+    shinken-list STRING_INPUT sans le framework Shinken).
+  - Round 41 : ENTRÉE sur le filtre — `setFilterEnterEventName` (lib) ;
+    Ajustements : valeur canonique si le filtre matche, texte brut sinon.
+  - Round 42 : l'Entrée ne crée RIEN (elle pose la valeur en attente
+    comme un pick, `_pickValue` partagé, le bouton + seul crée),
+    l'explication devient MODIFIABLE sur chaque entrée
+    (`event__adjustment__edit_explanation`, input discret, liste
+    personnage du contrôleur, pas de re-render), `computeTitle` affiche
+    une valeur hors liste (fix "Quenya"), FOCUS sur le filtre à
+    l'ouverture du sélecteur (`toggleState`), pièges documentés (le
+    data-name réservé au champ d'explication de la ligne d'ajout, la
+    course du badge de compteur).
+  - Correctif de course : le badge du compteur se lit après
+    `TEST.wait( 300 )` (scenario_dons test 2, piège au Round 41).
 - Modèle : TOUTES les lignes à choix du passage de niveau rendent le
   composant `COMPONENT.SingleSelectFromData` (école, thèse, compétences
   supplémentaires, améliorations, dons — le "?" par option réservé aux
@@ -380,11 +390,12 @@ niveau 5, "expertise en réflexes" validée) :
   (à trancher — voir Round 23).
 - La chaîne de tests court EN DERNIER dans tests.html : le run se termine
   sur le Magicien niveau 10, l'utilisateur reprend la feuille à cet état.
-- Syntaxe validée par Node sur tous les fichiers touchés ; le dernier run
-  complet `tests.html` a passé avant les Rounds 24-29 — **le run des
-  Rounds 24-29 reste à lancer** : ouverture du sélecteur (header clic),
-  "?" de don dans la liste ouverte, uniformisation de toutes les lignes à
-  choix, popup feat centrée.
+- Syntaxe validée par Node sur tous les fichiers touchés. DERNIER RUN de
+  l'utilisateur : tout OK sauf [AJUSTEMENTS] (header "Quenya" tombé sur
+  `--` et SAVE cassé par l'arrêt du test avant nettoyage) — corrigé par
+  `computeTitle` + scénario réaligné. **Le run qui reste à lancer**
+  valide le fix Quenya, l'explication éditable, le focus sur le filtre
+  (test 1 ajustements) et le wait 300 du badge dons.
 - `constant_class.js`, `constant_gift_*.js` et
   `constant_skill_actions.js` sont des données scrapées : jamais
   d'édition manuelle — les corrections passent par
@@ -908,6 +919,132 @@ de `scenario_reset` n'est PAS une liste de libellés — ce sont les onglets
 attendus DÉSACTIVÉS sur page vide ; Ajustements n'y figure pas (l'onglet
 reste actif sans pré-condition, comme Dons — verrouillé par
 `[ONGLETS] Ajustements = actif sur page vide`).
+Round 38 = retour utilisateur sur l'onglet Ajustements : le choix passe en
+SÉLECTEUR quand une liste existe, champ libre sinon. `value_picker` par
+catégorie dans `ADJUSTMENT.KINDS` : `selector` (langues →
+`RACES.getKnownLanguages` = union des langues de base + supplémentaires des
+ascensions scrapées, dédupliquée à la casse près ; dons →
+`DON.getKnownFeats` = union des dons de compétence/classe/ascendance triée ;
+vitesse → `ADJUSTMENT.SPEED_MODES` écrit à la main + champ mètres), `input`
+(sens, maîtrises — leurs listes viendront avec la consommation phase 2 —,
+notes). Le geste reste « + » : le pick (`event__adjustment__pick`, param
+`param__choice_value` du composant) POSE le choix en attente dans
+`pending_values` de la fenêtre (header du sélecteur à jour), le
+`event__adjustment__commit` ASSEMBLE la valeur (pending pour les
+sélecteurs, lecture des inputs de la ligne pour le libre, mode + " : " +
+mètres + " mètres" pour la vitesse) et repasse le plat
+`event__adjustment__add` au personnage — la fenêtre assemble, aucune valeur
+ne voyage inline. Événements d'UI dans la liste FENÊTRES du contrôleur
+(`toggle_selector`, `pick`, `commit`). Le stylage du composant est copié
+scopé `.adjustments-window` (les styles levelup sont scopés à leur
+fenêtre). Le pending se vide au commit (le sélecteur reconstruit revient à
+son option vide).
+Round 39 = retour utilisateur : le choix de l'ascendance ALLUME l'onglet
+Progression. Le gating de `LevelUpWindow` passe de la classe à la RACE
+(character.js, case form__element_changed + remove_level ;
+`character_windows.js` état initial) : les sections d'ascendance vivent dès
+l'ascendance. Corollaire : le palier 1 d'ascendance existe dès l'ascendance
+posée, SANS classe (`AncestryHistory.sync` : `Math.max( 1, getLevel() )` —
+PF2 : le don d'ascendance et les langues se choisissent à la création,
+avant la classe ; les paliers 5+ suivent toujours les niveaux de classe).
+L'onglet Niveau reste gated classe, Caractéristiques gated race. La
+fenêtre Progression sans classe rend le warning global + les sections
+d'ascendance, pas de sections de classe ni de sélecteur de classe
+(`getHighestClassName` retourne null sur conteneur vide, sans garde).
+Scénarios : nouveau groupe `[ASCENDANCE] onglet Progression allumé +
+section Elfe 1 sans classe` (don en attente, langues au compte dynamique,
+zéro section de classe) ; `[NIVEAUX] suppression dernière classe` verrouille
+l'inverse (Niveau désactivé, Progression ALLUMÉ sans classe). PIÈGE trouvé
+au run : les sections d'ascendance étaient rendues DANS la boucle des
+niveaux de classe (fusion par niveau, Round 30) — sans section de classe,
+la boucle ne court jamais et les sections d'ascendance n'apparaissaient
+pas alors que leurs entrées existent ; la boucle de vidage (les sections
+restantes se rendent seules après la boucle de classe) couvre le cas.
+Second piège : un scénario ne doit jamais nommer une valeur absente des
+données — « Céleste » ne figure dans AUCUNE langue scraped ; le test pique
+dynamiquement la première langue de `RACES.getKnownLanguages()` hors base
+de l'ascendance.
+Round 40 = retour utilisateur : chaque sélecteur porte une LIGNE DE FILTRE
+(pattern shinken-list STRING_INPUT — la liste shinken-solutions n'est PAS
+portée : son Set/Lines/Line/Filter dépend des composants web du framework
+Shinken — COMPONENT.Input/Select, DOM.Service, validators, dictionnaires —
+absents de la lib GS ; porter la liste entière = porter la moitié du
+framework). Le filtre vit dans le composant lib
+(`SingleSelectFromData._computeOptionsHtml` : input `.single-select-filter`
+en tête de liste ouverte + fonction statique `filterOptions` —
+présentation pure : l'input lit SA valeur au fil de la frappe et masque
+les options non correspondantes (data-value en minuscules), l'option vide
+reste TOUJOURS visible, état dans le DOM, rien ne voyage, aucun événement
+bus). Stylage scopé par fenêtre (`.level-up-window` /
+`.adjustments-window`). Verrouillé par le scénario ajustements : filtre
+« dracon » ne laisse visibles que l'option vide + les langues matchant
+(compte attendu calculé du domaine), vider réaffiche tout.
+Round 41 = retour utilisateur : ENTRÉE sur le filtre. Composant lib :
+`setFilterEnterEventName` — quand un consommateur configure l'événement,
+TOUTE Entrée le dispatche avec `'param__filter_value':this.value` (le texte
+brut du filtre lu dans l'input, jamais inline) ; sans configuration
+(cas levelup), la Entrée générique `filterKeydown` clique l'option dont le
+data-value matche exactement le filtre (insensible à la casse), sinon la
+seule option visible restante, sinon rien — le flux standard suit
+(option.click → select_choice / pick). Dans l'onglet Ajustements
+(`event__adjustment__filter_enter`, déclaré dans la liste FENÊTRES du
+contrôleur) : la valeur = le nom CANONIQUE de l'option si une matche
+(insensible à la casse), SINON le texte brut du filtre comme si le nom
+existait (demande utilisateur : créer une valeur hors liste) — puis le
+commit suit directement (`pending_values` + `_commitAddRow`, explication
+incluse). Scénarios : [AJUSTEMENTS] Entrée sur nom exact (validation sans
+le +, explication portée) et Entrée sur nom inconnu (« Quenya » devient la
+valeur) ; [DONS ASCENDANCE] Entrée sur nom exact d'un don de palier 5 le
+valide, re-vidage par l'option vide pour le test SAVE.
+PIÈGE de course (trouvé après un ECHEC dons) : le `data-number` du badge
+de compteur s'écrit EN DERBAUCHEE (`_askUpdateHTML` 50 ms) au bout de la
+chaîne clic → phase (callback au tick suivant) → compteur ligne →
+compteur fenêtre → badge. Un test qui lit le badge juste après un clic
+attend `TEST.wait( 300 )` comme le test école de scenario_levelup_magicien —
+60 ms perdaient la course de quelques millisecondes (scenario_dons
+aligné : le décrément du don d'ascendance EST réel, seule la lecture
+était trop précoce).
+Round 42 = retour utilisateur sur l'Entrée de l'onglet Ajustements :
+l'ENTRÉE NE CRÉE RIEN — elle positionne la valeur en attente sur le
+sélecteur, exactement comme un PICK (`_pickValue` partagé par
+`event__adjustment__pick` et `event__adjustment__filter_enter` : valeur
+canonique si le filtre matche, texte brut sinon). Le bouton + seul crée
+l'entrée, l'utilisateur écrit l'explication entre les deux (au moment du
+Round 41, l'Entrée commitait directement — l'explication ne pouvait pas
+être saisie). L'EXPLICATION DEVIENT MODIFIABLE SUR CHAQUE ENTRÉE après
+création : chaque entrée rend un input discret
+(`input.adjustments-entry-explanation`, fond transparent et bord
+invisible en lecture, bord visible au focus) dont le `change` part par le
+plat `event__adjustment__edit_explanation`
+(`param__adjustment__kind` + `param__adjustment__value` lus sur le
+parent `data-kind`/`data-value`, texte lu dans l'input — jamais inline) :
+déclaré dans la liste PERSONNAGE du contrôleur (il va au caractère, pas
+à la fenêtre), le personnage le route au domaine `adjustments` SANS
+recharger les fenêtres (l'input garde sa valeur et son focus, rien
+d'affiché ne change). PIÈGE : l'input d'entrée ne porte PAS de
+`data-name` — le champ `data-name="adjustment-explanation"` identifie le
+champ d'EXPICATION DE LIGNE D'AJOUT, lu par `_commitAddRow` en
+`section.querySelector` (les entrées viennent avant la ligne d'ajout
+dans la section, un data-name sur les deux casserait le commit). Le
+save porte l'explication modifiée telle quelle. Scénario ajustements
+réaligné : Entrée = en-tête du sélecteur affiche la valeur, AUCUNE
+entrée créée ; + = entrée avec explication ; ÉDITION de l'explication
+sur l'entrée (change → domaine → save).
+PIÈGE lib (trouvé au run) : `computeTitle` du composant n'affichait que
+le libellé d'une OPTION existante — une valeur hors liste (le texte
+brut du filtre par Entrée) retombait sur `--`, la validation paraissait
+perdue. Le header affiche maintenant le nom sélectionné lui-même quand
+aucune option ne le porte
+(`let label = this.selected_name || this.default_label`) — les
+consommateurs à valeur dans la liste ne changent pas, l'option vide
+affiche toujours `--`.
+Suite Round 42 (demande utilisateur) : l'OUVERTURE du sélecteur pose le
+FOCUS sur la ligne de filtre (`toggleState` du composant, focus posé
+quand `stateSelector` passe à 1) — le clavier pilote la liste dès le
+clic sur le header. La fermeture au clic dehors passe par askHidePopup
+(chaîne de clics), un focus programmatique ne referme jamais la liste.
+Verrouillé par [AJUSTEMENTS] test 1 : clic header → liste ouverte
+(data-state-selector 1) + activeElement = input du filtre.
 
 ### Style, commentaires, nommage
 

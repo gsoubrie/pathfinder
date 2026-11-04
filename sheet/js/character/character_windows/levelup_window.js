@@ -89,8 +89,8 @@ CHARACTER.LevelUpWindow.prototype = {
         // la section desactivee porte l'interrupteur de re-activation. Les
         // sections d'ascendance s'intercalent AU niveau de leur palier,
         // avant la section de classe du meme niveau (l'ascendance se choisit
-        // avant la classe) — tout palier d'ascendance vit <= au niveau du
-        // personnage, donc la derniere section de classe les consomme toutes
+        // avant la classe). Sans section de classe (ascendance posee, aucune
+        // classe), les sections d'ascendance se rendent seules
         var ancestry_index = 0;
         for ( var h = 0, _size_h = history.getSize(); h < _size_h; h++ ) {
             var entry = history.getContent( h );
@@ -105,6 +105,9 @@ CHARACTER.LevelUpWindow.prototype = {
             entry.setLinesCountersParent( this );
             entry.computeHtml();
             SERVICE.DOM.addElementTo( entry.getDomElement(), this.content_dom_element_target );
+        }
+        for ( ; ancestry_index < ancestry_history.getSize(); ancestry_index++ ) {
+            this._buildAncestrySection( ancestry_history.getContent( ancestry_index ), race_name );
         }
     },
 

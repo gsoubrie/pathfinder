@@ -514,6 +514,7 @@ COMPONENT.SingleSelectFromData.prototype = {
         this.toggle_event_name = "click_on_selector";
         this.click_event_name  = "click_on_item_selector";
         this.info_event_name   = null;
+        this.filter_enter_event_name = null;
         this.info_params       = {};
         this.info_value_key    = "";
         this.dom_element       = null;
@@ -539,6 +540,13 @@ COMPONENT.SingleSelectFromData.prototype = {
     setClickEventName : function ( to_set ) {
         this.click_event_name = to_set;
     },
+    // Enter key of the filter line: when the consumer configures an event,
+    // EVERY Enter dispatches it with raw filter value (the consumer decides
+    // what becomes of it); without configuration, Enter validates the
+    // option matching the filter generically
+    setFilterEnterEventName: function ( to_set ) {
+        this.filter_enter_event_name = to_set;
+    },
     setInfoEvent      : function ( event_name, params, value_param_key ) {
         this.info_event_name = event_name;
         this.info_params     = params;
@@ -550,6 +558,14 @@ COMPONENT.SingleSelectFromData.prototype = {
     toggleState       : function () {
         let to_set = this.dom_element.dataset.stateSelector === "1" ? 0 : 1;
         SERVICE.DOM.setDataSet( this.dom_element, "stateSelector", to_set );
+        // The filter line takes the focus on opening: the keyboard drives
+        // the list right away
+        if ( to_set === 1 && this.dom_list ) {
+            let filter_dom = this.dom_list.querySelector( ".single-select-filter" );
+            if ( filter_dom ) {
+                filter_dom.focus();
+            }
+        }
         return to_set;
     },
     setSelectedName   : function ( to_set ) {
@@ -586,7 +602,10 @@ COMPONENT.SingleSelectFromData.prototype = {
             return;
         }
         SERVICE.DOM.empty( this.dom_header );
-        let label = this.default_label;
+        // A value picked OUTSIDE the options (the raw filter text by Enter)
+        // still displays: the header shows the selected name itself when no
+        // option carries it
+        let label = this.selected_name || this.default_label;
         for ( let i = 0, _size_i = this.options.length; i < _size_i; i++ ) {
             if ( this.options[ i ].name === this.selected_name ) {
                 label = this.options[ i ].label;
@@ -597,6 +616,18 @@ COMPONENT.SingleSelectFromData.prototype = {
     },
     _computeOptionsHtml: function () {
         SERVICE.DOM.empty( this.dom_list );
+        // The filter line first (shinken-list STRING_INPUT filter): typing
+        // hides the options not matching, the empty one always stays
+        let filter_keydown = "COMPONENT.SingleSelectFromData.filterKeydown(event)";
+        if ( this.filter_enter_event_name ) {
+            filter_keydown = "if(event.key==='Enter'){MANAGER.EventManagerV2.doActionAfter(event,'" + this.filter_enter_event_name + "'," + this._parseParamsHtml( "'param__filter_value':this.value" ) + ")}";
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class      : "single-select-filter",
+            placeholder: "Filtrer…",
+            onkeyup    : "COMPONENT.SingleSelectFromData.filterOptions(event)",
+            onkeydown  : filter_keydown
+        } ), this.dom_list );
         // The empty option first: choosing it clears the selection
         let option_names = [ "" ];
         for ( let i = 0, _size_i = this.options.length; i < _size_i; i++ ) {
@@ -661,3 +692,46 @@ COMPONENT.SingleSelectFromData.prototype = {
 };
 
 GS.TOOLS.CLASS.addPrototype( COMPONENT.SingleSelectFromData, GS.OBJECT.GsObjectHtml );
+
+// Presentation-only filter of the opened list: the input reads its own
+// value at event time and hides the non-matching options of its list —
+// nothing travels, the state lives in the DOM
+COMPONENT.SingleSelectFromData.filterOptions = function ( event ) {
+    let filter_value = event.target.value.toLowerCase();
+    let options      = event.target.parentNode.querySelectorAll( ".single-select-option" );
+    for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
+        let option_value = options[ i ].getAttribute( "data-value" ).toLowerCase();
+        options[ i ].style.display = ( !option_value || option_value.indexOf( filter_value ) !== -1 ) ? "" : "none";
+    }
+};
+
+// Enter on the filter line, generic behavior (no configured filter event):
+// an option matches the filter (exact, or the only one visible) then it is
+// clicked — the whole standard flow follows; otherwise nothing
+COMPONENT.SingleSelectFromData.filterKeydown = function ( event ) {
+    if ( event.key !== "Enter" ) {
+        return;
+    }
+    let filter_value = event.target.value;
+    if ( !filter_value ) {
+        return;
+    }
+    let options = event.target.parentNode.querySelectorAll( ".single-select-option" );
+    let visible  = [];
+    for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
+        let option_value = options[ i ].getAttribute( "data-value" );
+        if ( !option_value ) {
+            continue;
+        }
+        if ( option_value.toLowerCase() === filter_value.toLowerCase() ) {
+            options[ i ].click();
+            return;
+        }
+        if ( options[ i ].style.display !== "none" ) {
+            visible.push( options[ i ] );
+        }
+    }
+    if ( visible.length === 1 ) {
+        visible[ 0 ].click();
+    }
+};

@@ -23,6 +23,13 @@ CHARACTER.Adjustments.prototype = {
                 }
                 return;
             }
+            case "event__adjustment__edit_explanation": {
+                let adjustment = this.getContentByUUID( params[ "param__adjustment__kind" ] + "__" + params[ "param__adjustment__value" ] );
+                if ( adjustment ) {
+                    adjustment.setData( "explanation", params[ "param__adjustment__explanation" ] );
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

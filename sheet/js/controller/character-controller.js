@@ -29,6 +29,7 @@ CONTROLLER.Character = (function ( self ) {
             case "event__damage_modal__confirm":
             case "event__adjustment__add":
             case "event__adjustment__remove":
+            case "event__adjustment__edit_explanation":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__level_up__select_class":
@@ -37,6 +38,10 @@ CONTROLLER.Character = (function ( self ) {
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
             case "event__level_up__toggle_selector":
+            case "event__adjustment__toggle_selector":
+            case "event__adjustment__pick":
+            case "event__adjustment__commit":
+            case "event__adjustment__filter_enter":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__level__toggle":

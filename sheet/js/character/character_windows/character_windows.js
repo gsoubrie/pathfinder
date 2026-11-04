@@ -22,6 +22,8 @@ CHARACTER.WindowGroup.prototype = {
         }
         if ( character_object.getClasses().isEmpty() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelWindow.NAME );
+        }
+        if ( !character_object.getRace().isSet() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
         }
         this.setActiveWindow( CHARACTER.GeneralWindow.NAME );

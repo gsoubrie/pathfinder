@@ -304,3 +304,50 @@ TEST.RUNNER.register( "[ASCENDANCE] infos Général = traits, vitesse, sens, lan
     } );
 } );
 
+TEST.RUNNER.register( "[ASCENDANCE] onglet Progression allumé + section Elfe 1 sans classe", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.ok( _character.getRace().isSet() && _character.getClasses().isEmpty(), "Pre-condition : ascendance posee, aucune classe" );
+    if ( !_character.getRace().isSet() || !_character.getClasses().isEmpty() ) {
+        return;
+    }
+    let _tab                            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
+    if ( !_tab ) {
+        return;
+    }
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression devrait etre allumé des le choix de l'ascendance" );
+    let _style                          = getComputedStyle( _tab );
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Progression ne devrait pas etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Progression devrait intercepter les clics, obtenu : " + _style.pointerEvents );
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
+        if ( !_pane ) {
+            return;
+        }
+        let _block                      = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='1']" );
+        TEST.ASSERT.notNull( _block, "La section Elfe 1 devrait etre rendue sans classe (les dons d'ascendance se choisissent a la creation)" );
+        if ( !_block ) {
+            return;
+        }
+        TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Elfe 1", "Le titre de la section devrait afficher Elfe 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
+        let _feat_row                   = _block.querySelector( ".level-up-row[data-slot-key='ancestry_feat']" );
+        TEST.ASSERT.notNull( _feat_row, "La ligne Don d'ascendance devrait etre rendue sans classe" );
+        if ( _feat_row ) {
+            TEST.ASSERT.equal( _feat_row.dataset.currentPhase, "RUNNING", "Le don d'ascendance devrait etre en attente, obtenu : " + _feat_row.dataset.currentPhase );
+        }
+        let _int_modifier               = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.INT.key ).getModifierValue();
+        let _expected_languages          = RACES.getAdditionalLanguagesNumber( _character.getRace().getValue(), _int_modifier );
+        let _language_rows              = _block.querySelectorAll( ".level-up-row[data-slot-key^='additional_language_']" );
+        TEST.ASSERT.equal( _language_rows.length, _expected_languages, "La section devrait rendre " + _expected_languages + " langue(s) supplementaire(s) (mod INT " + _int_modifier + "), obtenu : " + _language_rows.length );
+        TEST.ASSERT.equal( _pane.querySelectorAll( ".level-up-block[data-level-name]" ).length, 0, "Aucune section de classe ne devrait etre rendue sans classe" );
+        TEST.ASSERT.isNull( _pane.querySelector( ".level-up-class-selector" ), "Le sélecteur de classe ne devrait pas etre rendu sans classe" );
+    } );
+} );
+

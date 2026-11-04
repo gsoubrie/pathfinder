@@ -221,3 +221,36 @@ RACES.ADDITIONAL_LANGUAGE_BONUS = {
 RACES.getAdditionalLanguagesNumber = function ( race_name, int_modifier ) {
     return Math.max( 0, ( RACES.ADDITIONAL_LANGUAGE_BONUS[ race_name ] || 0 ) + int_modifier );
 };
+
+/**
+ * Every known language of the scraped data: the base lists of all the
+ * ancestries plus their additional languages lists, deduplicated
+ * case-insensitively (the scrapes mix "Draconique" and "draconique").
+ *
+ * @returns {Array}  [ { name } ] of the language names
+ */
+RACES.getKnownLanguages = function () {
+    let to_return = [];
+    let seen      = {};
+    let pushKnown = function ( language ) {
+        let seen_key = language.toLowerCase();
+        if ( seen[ seen_key ] ) {
+            return;
+        }
+        seen[ seen_key ] = true;
+        to_return.push( { "name": language } );
+    };
+    let _keys = Object.keys( RACES.ENUM );
+    for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+        let race_data = RACES.ENUM[ _keys[ i ] ];
+        let base      = race_data.language || [];
+        for ( let l = 0, _size_l = base.length; l < _size_l; l++ ) {
+            pushKnown( base[ l ] );
+        }
+        let additional = RACES.getAdditionalLanguages( race_data.name );
+        for ( let l = 0, _size_l = additional.length; l < _size_l; l++ ) {
+            pushKnown( additional[ l ].name );
+        }
+    }
+    return to_return;
+};

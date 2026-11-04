@@ -120,7 +120,11 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
     let _counter                          = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
     let _counter_before                   = _counter ? parseInt( _counter.getAttribute( "data-number" ), 10 ) : 0;
     _option.click();
-    return TEST.wait().then( function () {
+    // Le badge du compteur se rafraîchit en debounced 50 ms au bout de la
+    // chaîne (clic -> phase au tick suivant -> compteur ligne -> compteur
+    // fenetre -> ecriture du data-number) : la meme attente que le test
+    // école du scenario_levelup_magicien, 60 ms perdaient la course
+    return TEST.wait( 300 ).then( function () {
         let _line                         = _character.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );
         TEST.ASSERT.notNull( _line, "La ligne Don d'ascendance du palier 1 devrait exister dans son entree" );
         if ( !_line ) {
@@ -180,6 +184,39 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
         }
         CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "feat__race__" + _info_feat_name } );
         TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup du don devrait etre masquee apres fermeture" );
+        // Entrée sur le filtre du palier 5 avec un nom EXACT : le don se
+        // valide sans cliquer l'option, puis la ligne se re-vide (le palier 5
+        // reste en attente pour le test SAVE)
+        let _enter_row                    = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='5'] .level-up-row[data-slot-key='ancestry_feat']" );
+        TEST.ASSERT.notNull( _enter_row, "Pre-condition : ligne Don d'ascendance de Elfe 5 rendue" );
+        if ( !_enter_row ) {
+            return;
+        }
+        let _enter_filter                 = _enter_row.querySelector( ".single-select-filter" );
+        TEST.ASSERT.notNull( _enter_filter, "Pre-condition : ligne de filtre rendue dans la liste" );
+        if ( !_enter_filter ) {
+            return;
+        }
+        let _enter_feat_name              = DON.getAvailableAncestryFeats( "Elfe", 5 )[ 0 ].name;
+        _enter_filter.value               = _enter_feat_name;
+        _enter_filter.dispatchEvent( new KeyboardEvent( "keydown", { "key": "Enter" } ) );
+        return TEST.wait().then( function () {
+            let _line_5                   = _character.getAncestryHistory().getContentByUUID( "5" ).getContentByUUID( "5__ancestry_feat" );
+            TEST.ASSERT.ok( _line_5.isActive(), "Entrée sur filtre avec nom exact : le don du palier 5 devrait etre validé sans clic d'option, obtenu : " + _line_5.isActive() );
+            TEST.ASSERT.equal( _line_5.getSelectedValue(), _enter_feat_name, "Le don validé par Entrée devrait etre le nom exact du filtre, obtenu : " + _line_5.getSelectedValue() );
+            let _row_5_after              = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='5'] .level-up-row[data-slot-key='ancestry_feat']" );
+            if ( !_row_5_after ) {
+                return;
+            }
+            let _empty_option             = _row_5_after.querySelector( ".single-select-option[data-value='']" );
+            if ( _empty_option ) {
+                _empty_option.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            let _line_5_empty             = _character.getAncestryHistory().getContentByUUID( "5" ).getContentByUUID( "5__ancestry_feat" );
+            TEST.ASSERT.notOk( _line_5_empty.isActive(), "Le palier 5 devrait etre revenu en attente apres re-vidage (pre-condition du test SAVE), obtenu : " + _line_5_empty.isActive() );
+        } );
     } );
 } );
 

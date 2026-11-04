@@ -7,8 +7,9 @@
  *    total 2, entree d'historique supprimee, PV diminues.
  * 2. Moins a nouveau : la classe Guerrier est supprimee completement du conteneur,
  *    il ne reste que Champion 1.
- * 3. Moins sur la derniere classe : conteneur vide, total 0, onglets Niveau et
- *    Progression re-desactives, zone classe vide avec le bouton d'ajout.
+ * 3. Moins sur la derniere classe : conteneur vide, total 0, onglet Niveau
+ *    re-desactive — Progression reste allume (l'ascendance reste posee,
+ *    ses sections vivent sans classe), zone classe vide avec le bouton d'ajout.
  * 4. Re-ajout de Champion (popup) puis prise d'un 2e niveau : desactivation du
  *    niveau 2 par l'interrupteur du bloc de niveau dans l'onglet Passage de
  *    niveau : niveau actif 1, PV recalculés. L'onglet Niveau affiche l'etat
@@ -127,7 +128,7 @@ TEST.RUNNER.register( "[NIVEAUX] suppression Guerrier → classes = Champion 1",
     } );
 } );
 
-TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglets désactivés", function () {
+TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglet Niveau désactivé, Progression allumé", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
@@ -154,18 +155,19 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglets désac
         TEST.ASSERT.equal( _character.getLevel(), 0, "Le niveau total devrait etre 0, obtenu : " + _character.getLevel() );
         TEST.ASSERT.equal( _character.getLevelHistory().getSize(), 0, "L'historique des niveaux devrait etre vide" );
         TEST.ASSERT.equal( document.body.dataset.isClassSet, "0", "data-is-class-set devrait repasser a 0" );
-        let _tabs                      = [
-            { name: CHARACTER.LevelWindow.NAME, label: "Niveau" },
-            { name: CHARACTER.LevelUpWindow.NAME, label: "Progression" }
-        ];
-        for ( let i = 0, _size_i = _tabs.length; i < _size_i; i++ ) {
-            let _tab                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + _tabs[ i ].name + "']" );
-            TEST.ASSERT.notNull( _tab, "L'onglet " + _tabs[ i ].label + " devrait exister" );
-            if ( !_tab ) {
-                continue;
-            }
-            TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet " + _tabs[ i ].label + " devrait porter l'etat disabled" );
-            TEST.ASSERT.equal( getComputedStyle( _tab ).opacity, "0.4", "L'onglet " + _tabs[ i ].label + " devrait etre grise, obtenu : " + getComputedStyle( _tab ).opacity );
+        let _niveau_tab                 = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _niveau_tab, "L'onglet Niveau devrait exister" );
+        if ( _niveau_tab ) {
+            TEST.ASSERT.equal( _niveau_tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet Niveau devrait porter l'etat disabled" );
+            TEST.ASSERT.equal( getComputedStyle( _niveau_tab ).opacity, "0.4", "L'onglet Niveau devrait etre grise, obtenu : " + getComputedStyle( _niveau_tab ).opacity );
+        }
+        // L'ascendance reste posee : Progression reste allume, ses sections
+        // d'ascendance vivent sans classe
+        let _progression_tab            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _progression_tab, "L'onglet Progression devrait exister" );
+        if ( _progression_tab ) {
+            TEST.ASSERT.notEqual( _progression_tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet Progression devrait rester allume sans classe (ascendance posee)" );
+            TEST.ASSERT.notEqual( getComputedStyle( _progression_tab ).opacity, "0.4", "L'onglet Progression ne devrait pas etre grise, obtenu : " + getComputedStyle( _progression_tab ).opacity );
         }
         let _entries                   = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
         TEST.ASSERT.equal( _entries.length, 0, "Aucune entree de classe ne devrait rester affichee, obtenu : " + _entries.length );

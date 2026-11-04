@@ -50,7 +50,10 @@ CHARACTER.AncestryHistory.prototype = {
     sync: function ( character_object ) {
         let race            = character_object.getRace();
         let race_name       = race.isSet() ? race.getValue() : null;
-        let character_level = race_name ? character_object.getLevel() : 0;
+        // The ancestry grants (feat, languages) belong to character level 1:
+        // they exist as soon as an ancestry is set, before any class — the
+        // higher levels follow the class levels
+        let character_level = race_name ? Math.max( 1, character_object.getLevel() ) : 0;
         let int_characteristic = character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.INT.key );
         let int_modifier    = int_characteristic ? int_characteristic.getModifierValue() : 0;
         let target_levels   = [];

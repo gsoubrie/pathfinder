@@ -55,7 +55,9 @@ CHARACTER.Current.prototype = {
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
-                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
+                // Les sections d'ascendance (don, langues) vivent des le choix
+                // de l'ascendance : l'onglet Progression s'allume avec elle
+                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__level_up__take_level":
                 params[ "param__level_name" ]                = this.getLevelHistory().getNextLevelName();
@@ -99,7 +101,7 @@ CHARACTER.Current.prototype = {
                 this.computeTotalLife();
                 this.class.updateHtmlData();
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
-                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
+                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
@@ -130,6 +132,11 @@ CHARACTER.Current.prototype = {
                 this.adjustments.doActionAfter( event_name, params );
                 // The displays consuming the adjustments refresh with the entry
                 this.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            // The explanation lives on its entry: nothing to redraw, the
+            // input of the entry follows in place and keeps its focus
+            case "event__adjustment__edit_explanation":
+                this.adjustments.doActionAfter( event_name, params );
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );

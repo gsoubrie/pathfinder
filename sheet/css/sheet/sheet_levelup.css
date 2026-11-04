@@ -238,6 +238,26 @@
    liste ancrée à gauche dépasserait alors du conteneur vers la droite,
    hors du bloc qui ne clippe plus ses enfants) — les libellés ellipsent
    comme ceux du header */
+
+/* Ligne de filtre en tête de liste ouverte (pattern shinken-list
+   STRING_INPUT) : saisie qui masque les options non correspondantes */
+.level-up-window .single-select-filter {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    box-sizing   : border-box;
+    color        : var(--c-text);
+    font-size    : 12px;
+    margin-bottom: 2px;
+    padding      : 2px 6px;
+    width        : 100%;
+}
+
+.level-up-window .single-select-filter:focus {
+    border-color: var(--c-gold-dark);
+    outline     : none;
+}
+
 .level-up-window .single-select-list {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-gold-dark);
