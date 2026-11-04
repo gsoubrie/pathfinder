@@ -82,7 +82,7 @@
     opacity : 0.4;
 }
 
-/* Libelle Actif/Désactivé (information seule : l'interrupteur vit dans l'onglet Passage de niveau) */
+/* Libelle Actif/Désactivé (information seule : l'interrupteur vit dans l'onglet Progression) */
 .property-tab-pane[data-name="level_sheet"] .life-table .level-toggle {
     display         : inline-flex;
     align-items     : center;

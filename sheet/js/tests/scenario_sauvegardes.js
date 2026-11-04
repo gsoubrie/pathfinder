@@ -12,10 +12,10 @@
  *    de caracteristique + bonus de rang" (Q +2, E +4). Les valeurs affichees
  *    croisees avec le domaine : getRollModifier de CHARACTER.Masteries et les
  *    modificateurs des caracteristiques.
- * 2. Passage de niveau : 4 prises de niveau (niveau 5) → retour au General,
+ * 2. Progression : 4 prises de niveau (niveau 5) → retour au General,
  *    jets recalculés au niveau 5 (badge Reflexes encore Q, valeur
  *    5 + mod DEX + 2). Validation de "expertise en reflexes" dans l'onglet
- *    Passage de niveau → retour au General : badge Reflexes E et jet
+ *    Progression → retour au General : badge Reflexes E et jet
  *    5 + mod DEX + 4, Vigueur et Volonte inchangés.
  */
 

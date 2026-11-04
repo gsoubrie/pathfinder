@@ -15,6 +15,7 @@ CHARACTER.WindowGroup.prototype = {
         this.addSpecific( new CHARACTER.CharacteristicWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.GiftsWindow( this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.AdjustmentsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelUpWindow( this.getName() ), character_object );
         if ( !character_object.getRace().isSet() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );

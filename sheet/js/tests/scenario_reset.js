@@ -35,7 +35,7 @@ TEST.RUNNER.register( "[RESET] feuille reinitialisee = page vide", function () {
     let _tabs                           = [
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caracteristiques" },
         { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
-        { name: CHARACTER.LevelUpWindow.NAME,        label: "Passage de niveau" }
+        { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
     ];
     for ( let i = 0, _size_i = _tabs.length; i < _size_i; i++ ) {
         let _tab                         = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + _tabs[ i ].name + "']" );

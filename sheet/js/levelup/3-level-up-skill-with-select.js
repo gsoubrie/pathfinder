@@ -76,13 +76,28 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         this.select_component.addParamsForEvents( { "param__level_up_skill__uuid": this.uuid } );
         this.select_component.setToggleEventName( "event__level_up__toggle_selector" );
         this.select_component.setClickEventName( "event__level_up__select_choice" );
-        if ( LEVELUP.FEAT_TYPES.indexOf( this.type ) !== -1 ) {
-            this.select_component.setInfoEvent( "event__show_information__feat", { "param__feat_category": this.type === "skill_feat" ? "skill" : "class" }, "param__feat_name" );
+        let is_feat_line = LEVELUP.FEAT_TYPES.indexOf( this.type ) !== -1;
+        if ( is_feat_line ) {
+            this.select_component.setInfoEvent( "event__show_information__feat", { "param__feat_category": LEVELUP.FEAT_CATEGORIES[ this.type ] }, "param__feat_name" );
         }
         this.select_component.setOptions( this._getAvailableOptions() );
         this.select_component.setSelectedName( this.selected_value );
         this.select_component.computeHtml();
         SERVICE.DOM.addElementTo( this.select_component.getDomElement(), this.dom_element );
+        if ( is_feat_line ) {
+            // Le ? de la valeur choisie, posé APRES le composant : le don
+            // sélectionné garde son lien de popup hors liste. Le nom ne
+            // s'embarque jamais en dur dans le handler (les noms de dons
+            // portent des apostrophes), il part par data attribute au clic
+            this.info_dom_element = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "span", {
+                    class       : "level-up-row-info gs-link-information",
+                    "data-value": this.selected_value || "",
+                    onclick     : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__feat',{'param__feat_category':'" + LEVELUP.FEAT_CATEGORIES[ this.type ] + "','param__feat_name':this.getAttribute('data-value')})"
+                }, "?" ),
+                this.dom_element
+            );
+        }
     },
     // A qualification cannot be taken twice: the entry passes the values
     // already chosen by the sibling lines, they leave the options
@@ -115,6 +130,9 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
         if ( this.select_component ) {
             this.select_component.setSelectedName( this.selected_value );
             this.select_component.hidePopup();
+        }
+        if ( this.info_dom_element ) {
+            this.info_dom_element.setAttribute( "data-value", this.selected_value || "" );
         }
     },
     //********************************************  SAVE   **************************************************//

@@ -138,3 +138,86 @@ RACES.getDataByName = function ( race_name ) {
     }
     return null;
 };
+/**
+ * The scraped language_sup list carries the grant sentence glued to the
+ * first language ("... Choisissez parmi Draconique"), trailing commas and,
+ * for Humain, no fixed list at all ("toutes les langues courantes") — the
+ * cleanup lives here, it survives the re-scrap.
+ *
+ * @param {string} race_name  Ancestry name, ex: "Elfe"
+ * @returns {Array}           [ { name } ] of the choosable languages
+ */
+RACES.getAdditionalLanguages = function ( race_name ) {
+    let race_data = RACES.getDataByName( race_name );
+    let to_return = [];
+    if ( !race_data || !race_data.language_sup ) {
+        return to_return;
+    }
+    let languages = [];
+    for ( let i = 0, _size_i = race_data.language_sup.length; i < _size_i; i++ ) {
+        let language  = race_data.language_sup[ i ];
+        let chosen_at = language.indexOf( "Choisissez parmi " );
+        if ( chosen_at !== -1 ) {
+            language = language.substring( chosen_at + "Choisissez parmi ".length );
+        }
+        language = language.replace( /,+$/, "" ).trim();
+        // The Humain sentence names no language, only "toutes les langues"
+        if ( language === "" || language.indexOf( "langues" ) !== -1 ) {
+            continue;
+        }
+        languages.push( language );
+    }
+    // Humain chooses among the common languages : the pool of every scraped
+    // ancestry base list is the honest available data
+    if ( languages.length === 0 ) {
+        languages = RACES.getCommonLanguages();
+    }
+    for ( let i = 0, _size_i = languages.length; i < _size_i; i++ ) {
+        if ( race_data.language && race_data.language.indexOf( languages[ i ] ) !== -1 ) {
+            continue;
+        }
+        to_return.push( { "name": languages[ i ] } );
+    }
+    return to_return;
+};
+
+/**
+ * Common languages pool: union of every ancestry base language.
+ *
+ * @returns {Array}  [ "Commun", ... ] of the language names
+ */
+RACES.getCommonLanguages = function () {
+    let to_return = [];
+    let seen      = {};
+    let _keys     = Object.keys( RACES.ENUM );
+    for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+        let base_languages = RACES.ENUM[ _keys[ i ] ].language;
+        if ( !base_languages ) {
+            continue;
+        }
+        for ( let l = 0, _size_l = base_languages.length; l < _size_l; l++ ) {
+            if ( seen[ base_languages[ l ] ] ) {
+                continue;
+            }
+            seen[ base_languages[ l ] ] = true;
+            to_return.push( base_languages[ l ] );
+        }
+    }
+    return to_return;
+};
+
+// Number of additional language picks: Intelligence modifier if positive,
+// the Humain ancestry grants one more (hand-written override, the scraped
+// sentence is not parsed)
+RACES.ADDITIONAL_LANGUAGE_BONUS = {
+    "Humain": 1
+};
+
+/**
+ * @param {string} race_name    Ancestry name, ex: "Humain"
+ * @param {number} int_modifier  Intelligence modifier of the character
+ * @returns {number}            Number of additional language picks
+ */
+RACES.getAdditionalLanguagesNumber = function ( race_name, int_modifier ) {
+    return Math.max( 0, ( RACES.ADDITIONAL_LANGUAGE_BONUS[ race_name ] || 0 ) + int_modifier );
+};

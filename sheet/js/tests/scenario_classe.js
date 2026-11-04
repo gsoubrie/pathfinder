@@ -4,7 +4,7 @@
  * Meme principe que le scenario ASCENDANCE : clic sur le champ Classe,
  * verification du popup (Guerrier actif par defaut), selection de Champion,
  * validation (champ Archetype affiche) et re-activation de l'onglet
- * Passage de niveau.
+ * Progression.
  */
 
 function TEST_openClassPopup() {
@@ -187,18 +187,18 @@ TEST.RUNNER.register( "[CLASSE] onglet Niveau re-active", function () {
     } );
 } );
 
-TEST.RUNNER.register( "[CLASSE] onglet Passage de niveau re-active", function () {
+TEST.RUNNER.register( "[CLASSE] onglet Progression re-active", function () {
     let _tab                            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Passage de niveau devrait exister" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
     if ( !_tab ) {
         return;
     }
-    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Passage de niveau ne devrait plus porter l'etat disabled apres le choix de la classe" );
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression ne devrait plus porter l'etat disabled apres le choix de la classe" );
     let _style                          = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Passage de niveau ne devrait plus etre grise, obtenu : " + _style.opacity );
-    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Passage de niveau devrait intercepter les clics, obtenu : " + _style.pointerEvents );
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Progression ne devrait plus etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Progression devrait intercepter les clics, obtenu : " + _style.pointerEvents );
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur Passage de niveau devrait l'activer apres le choix de la classe" );
+        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur Progression devrait l'activer apres le choix de la classe" );
     } );
 } );

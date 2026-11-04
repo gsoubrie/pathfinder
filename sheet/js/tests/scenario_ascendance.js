@@ -28,6 +28,10 @@ function TEST_editionPropertyValue( edition_dom, property_label ) {
     return null;
 }
 
+function TEST_ancestryInfoEntry( pane_dom, value ) {
+    return pane_dom.querySelector( ".area-ancestry-info .ancestry-list-entry[data-value='" + value + "']" );
+}
+
 TEST.RUNNER.register( "[ASCENDANCE] clic sur le champ → popup ouvert", function () {
     TEST_openRacePopup();
     let _popup                          = document.querySelector( "body > .popup" );
@@ -253,3 +257,50 @@ TEST.RUNNER.register( "[ASCENDANCE] onglet Caractéristiques re-active", functio
         }
     } );
 } );
+
+TEST.RUNNER.register( "[ASCENDANCE] infos Général = traits, vitesse, sens, langues ; taille = champ existant", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                          = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Général ouvert" );
+        if ( !_pane ) {
+            return;
+        }
+        let _area                          = _pane.querySelector( ".area-ancestry-info" );
+        TEST.ASSERT.notNull( _area, "La zone des données de l'ascendance devrait etre rendue (.area-ancestry-info)" );
+        if ( !_area ) {
+            return;
+        }
+        let _traits                        = _area.querySelectorAll( ".ancestry-info-trait" );
+        TEST.ASSERT.equal( _traits.length, 2, "La zone devrait afficher les 2 traits d'Elfe, obtenu : " + _traits.length );
+        if ( _traits.length === 2 ) {
+            TEST.ASSERT.equal( _traits[ 0 ].textContent, "Elfe", "Le premier trait devrait etre Elfe, obtenu : " + _traits[ 0 ].textContent );
+            TEST.ASSERT.equal( _traits[ 1 ].textContent, "Humanoïde", "Le second trait devrait etre Humanoïde, obtenu : " + _traits[ 1 ].textContent );
+        }
+        // La taille reste LE champ existant (body_size, enfant de la race)
+        let _size_input                    = _pane.querySelector( ".area-body_size input.value" );
+        TEST.ASSERT.notNull( _size_input, "Le champ Taille existant devrait etre rendu (.area-body_size)" );
+        if ( _size_input ) {
+            TEST.ASSERT.equal( _size_input.value, "M", "Le champ Taille devrait porter la valeur d'Elfe, obtenu : " + _size_input.value );
+        }
+        // Vitesse : une ligne par mode, la marche vient de la race
+        let _speed_value                   = _area.querySelector( ".property[data-name='speed'] .ancestry-info-value" );
+        TEST.ASSERT.notNull( _speed_value, "La propriété Vitesse devrait etre rendue" );
+        if ( _speed_value ) {
+            TEST.ASSERT.equal( _speed_value.textContent, "Marche : 9 mètres", "La vitesse de marche d'Elfe devrait etre affichée, obtenu : " + _speed_value.textContent );
+        }
+        // Sens et langues : listes — entrées gérées non retirables
+        let _sens_entry                    = TEST_ancestryInfoEntry( _pane, "Vision nocturne" );
+        TEST.ASSERT.notNull( _sens_entry, "Le sens d'Elfe devrait etre affiché dans la liste" );
+        if ( _sens_entry ) {
+            TEST.ASSERT.isNull( _sens_entry.querySelector( ".ancestry-list-remove" ), "Une entrée gérée (base de race) ne devrait pas etre retirable, obtenu : bouton rendu" );
+        }
+        TEST.ASSERT.notNull( TEST_ancestryInfoEntry( _pane, "Commun" ), "La langue Commun devrait etre affichée" );
+        TEST.ASSERT.notNull( TEST_ancestryInfoEntry( _pane, "Elfique" ), "La langue Elfique devrait etre affichée" );
+        // La zone reste lecture : l'édition vit dans l'onglet Ajustements
+        TEST.ASSERT.equal( _area.querySelectorAll( ".ancestry-list-input" ).length, 0, "La zone du Général ne devrait porter aucun champ d'ajout (lecture seule), obtenu : " + _area.querySelectorAll( ".ancestry-list-input" ).length );
+        TEST.ASSERT.equal( _area.querySelectorAll( ".ancestry-list-remove" ).length, 0, "La zone du Général ne devrait porter aucun bouton de retrait (lecture seule), obtenu : " + _area.querySelectorAll( ".ancestry-list-remove" ).length );
+    } );
+} );
+

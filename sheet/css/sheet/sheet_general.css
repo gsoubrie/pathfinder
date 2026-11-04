@@ -31,17 +31,17 @@
         var(--row-11-height, auto);
 
     grid-template-areas   :
-        "logo   name   name   ancestry   class       .          ."
-        ".      player player legacy     archetype   heroism    ."
-        "FOR    jets   jets   .          historic    level      ."
-        "DEX    jets   jets   .          .           .          ."
-        "CON    jets   jets   .          size        health     health"
-        "INT    jets   jets   .          alignment   health     health"
-        "SAG    jets   jets   .          divinity    health     health"
-        "CHA    jets   jets   .          temp-health health     health"
-        ".      jets   jets   .          wound       health     health"
-        ".      jets   jets   .          .           health     health"
-        ".      jets   jets   .          .           surprise   ca";
+        "logo   name   name   ancestry      class       .          ."
+        ".      player player legacy        archetype   heroism    ."
+        "FOR    jets   jets   ancestry-info historic    level      ."
+        "DEX    jets   jets   ancestry-info .           .          ."
+        "CON    jets   jets   ancestry-info size        health     health"
+        "INT    jets   jets   ancestry-info alignment   health     health"
+        "SAG    jets   jets   ancestry-info divinity    health     health"
+        "CHA    jets   jets   ancestry-info temp-health health     health"
+        ".      jets   jets   ancestry-info wound       health     health"
+        ".      jets   jets   ancestry-info .           health     health"
+        ".      jets   jets   ancestry-info .           surprise   ca";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -51,6 +51,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-temp-health { grid-area : temp-health; }
 .property-tab-pane[data-name="general_sheet"] .area-wound { grid-area : wound; }
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
+.property-tab-pane[data-name="general_sheet"] .area-ancestry-info { grid-area : ancestry-info; }
 .property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
 .property-tab-pane[data-name="general_sheet"] .area-historic { grid-area : historic; }
@@ -481,4 +482,47 @@
     font-size   : 14px;
     font-weight : var(--font-weight-bold);
     text-align  : center;
+}
+
+/* ── Zone des données de l'ascendance (colonne sous le champ ascendance) :
+      traits en badges + propriétés (vitesse, sens, langues) au style des
+      autres champs de la fenêtre — ni gras ni majuscules ── */
+.property-tab-pane[data-name="general_sheet"] .area-ancestry-info .property {
+    background : transparent;
+    border     : none;
+    padding    : 4px;
+    box-shadow : none;
+    margin     : 0;
+    min-height : 0;
+}
+
+.ancestry-info-traits {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 4px;
+    margin-top: 6px;
+}
+
+.ancestry-info-trait {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    font-size    : 12px;
+    padding      : 1px 8px;
+}
+
+.ancestry-info-value {
+    color    : var(--c-text);
+    font-size: 13px;
+}
+
+.ancestry-info-list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 2px;
+}
+
+.ancestry-list-entry {
+    color    : var(--c-text);
+    font-size: 13px;
 }

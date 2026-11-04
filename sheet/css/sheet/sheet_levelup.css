@@ -26,28 +26,6 @@
     flex-shrink: 0;
 }
 
-/* ── En-tête ── */
-.level-up-window .level-up-header {
-    display         : flex;
-    justify-content : space-between;
-    align-items     : center;
-    background      : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
-    border          : 2px solid #8b6914;
-    border-radius   : 8px;
-    padding         : 10px 16px;
-    margin-bottom   : 4px;
-}
-
-.level-up-window .level-up-header-level {
-    background    : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
-    border        : 1px solid #ffd700;
-    border-radius : 6px;
-    color         : #1a0f08;
-    font-size     : 14px;
-    font-weight   : bold;
-    padding       : 4px 14px;
-}
-
 /* ── Warning global ── */
 .level-up-window .level-up-global-warning {
     border-radius : 6px;
@@ -256,6 +234,10 @@
     text-overflow: ellipsis;
 }
 
+/* La liste épouse la largeur de son conteneur (jamais de min-width : la
+   liste ancrée à gauche dépasserait alors du conteneur vers la droite,
+   hors du bloc qui ne clippe plus ses enfants) — les libellés ellipsent
+   comme ceux du header */
 .level-up-window .single-select-list {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-gold-dark);
@@ -264,7 +246,6 @@
     display      : none;
     left         : 0;
     max-height   : 250px;
-    min-width    : 260px;
     overflow-x   : hidden;
     overflow-y   : auto;
     padding      : 2px;
@@ -312,6 +293,17 @@
 .level-up-window .single-select-option .level-up-row-info {
     flex        : 0 0 auto;
     padding-left: var(--s-sm);
+}
+
+/* Le ? de la valeur choisie d'une ligne de don : à côté du sélecteur, la
+   data-value porte l'état (masqué sans sélection), jamais une classe posée
+   par le JS */
+.level-up-window .level-up-row > .level-up-row-info {
+    flex-shrink: 0;
+}
+
+.level-up-window .level-up-row > .level-up-row-info[data-value=''] {
+    display: none;
 }
 
 /* ===== Sélecteur de classe (multiclasse) ===== */

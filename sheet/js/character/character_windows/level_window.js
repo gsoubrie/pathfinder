@@ -93,7 +93,7 @@ CHARACTER.LevelWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key ).modifier_value.value ), tr );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td", {}, lvl.bonus || "" ), tr );
             let _toggle_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "td" ), tr );
-            // libelle uniquement : l'interrupteur vit dans l'onglet Passage de niveau
+            // libelle uniquement : l'interrupteur vit dans l'onglet Progression
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "level-toggle" }, lvl.isEnabled() ? "Activé" : "Désactivé" ), _toggle_cell );
         } );
 

@@ -63,7 +63,7 @@ TEST.RUNNER.register( "[COMPETENCES SUPPLEMENTAIRES] choix Diplomatie = rang Q, 
         return;
     }
     let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='additional_skill_0']" );
-    TEST.ASSERT.notNull( _row, "La première compétence supplémentaire devrait etre rendue dans le Passage de niveau" );
+    TEST.ASSERT.notNull( _row, "La première compétence supplémentaire devrait etre rendue dans le Progression" );
     if ( !_row ) {
         return;
     }

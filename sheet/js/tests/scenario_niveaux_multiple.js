@@ -4,7 +4,7 @@
  * L'onglet Niveau affiche une ligne par niveau (icone + nom de la classe
  * d'origine + numero, PV de la ligne, etat Actif/Désactivé en libelle non
  * cliquable) ; les interrupteurs Actif/Désactivé vivent dans les blocs de
- * l'onglet Passage de niveau (un bloc par niveau, y compris desactive, pour
+ * l'onglet Progression (un bloc par niveau, y compris desactive, pour
  * permettre la re-activation).
  * Depart de chaque etape : feuille vide (TEST.RESET.sheet()) puis race Elfe.
  * 1. Classe unique poussee a 3 niveaux : 3 lignes conformes (nom, icone,
@@ -32,7 +32,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
     } ).then( function () {
         let _levelup_pane              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
         if ( !_levelup_pane ) {
             return;
         }
@@ -46,7 +46,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets
         }
         TEST.ASSERT.equal( _character.getLevel(), 3, "Le personnage devrait atteindre le niveau 3, obtenu : " + _character.getLevel() );
         TEST.ASSERT.equal( _character.getActiveLevel(), 3, "Les 3 niveaux devraient etre actifs, obtenu : " + _character.getActiveLevel() );
-        let _blocks                     = _levelup_pane.querySelectorAll( ".level-up-block" );
+        let _blocks                     = _levelup_pane.querySelectorAll( ".level-up-block[data-level-name]" );
         TEST.ASSERT.equal( _blocks.length, 3, "Chaque niveau devrait avoir son bloc, obtenu : " + _blocks.length );
         for ( let i = 0, _size_i = 3; i < _size_i; i++ ) {
             let _block                 = _levelup_pane.querySelector( ".level-up-block[data-level-name='" + ( i + 1 ) + "']" );
@@ -90,8 +90,8 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets
                 }
             }
             let _con                    = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
-            let _expected_hp            = 3 * CLASSES.getDataByName( "Champion" ).life_point_by_level + 3 * ( _con ? _con.getModifierValue() : 0 );
-            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient valoir 3 niveaux de Champion + CON par niveau, obtenu : " + _character.getHealth().getMaxHP() );
+            let _expected_hp            = RACES.getDataByName( "Elfe" ).start_life + 3 * CLASSES.getDataByName( "Champion" ).life_point_by_level + 3 * ( _con ? _con.getModifierValue() : 0 );
+            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient valoir les PV de depart d'Elfe + 3 niveaux de Champion + CON par niveau, obtenu : " + _character.getHealth().getMaxHP() );
             let _total                  = _level_pane.querySelector( ".life-total" );
             if ( _total ) {
                 TEST.ASSERT.ok( _total.textContent.indexOf( "" + _expected_hp ) !== -1, "Le libelle total devrait afficher " + _expected_hp + ", obtenu : " + _total.textContent );
@@ -110,7 +110,7 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux → désactivation 2 = actif 2, resta
     let _max_hp_before                 = _character.getHealth().getMaxHP();
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _levelup_pane              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
         if ( !_levelup_pane ) {
             return;
         }
@@ -183,7 +183,7 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
     } ).then( function () {
         let _levelup_pane              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
         if ( !_levelup_pane ) {
             return;
         }
@@ -219,8 +219,8 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
                 }
             }
             let _con                   = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
-            let _expected_hp           = CLASSES.getDataByName( "Champion" ).life_point_by_level + 2 * CLASSES.getDataByName( "Guerrier" ).life_point_by_level + 3 * ( _con ? _con.getModifierValue() : 0 );
-            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient melanger les PV des deux classes, obtenu : " + _character.getHealth().getMaxHP() );
+            let _expected_hp           = RACES.getDataByName( "Elfe" ).start_life + CLASSES.getDataByName( "Champion" ).life_point_by_level + 2 * CLASSES.getDataByName( "Guerrier" ).life_point_by_level + 3 * ( _con ? _con.getModifierValue() : 0 );
+            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient melanger les PV de depart d'Elfe et les PV des deux classes, obtenu : " + _character.getHealth().getMaxHP() );
             let _max_hp_before         = _character.getHealth().getMaxHP();
             return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
                 let _toggle            = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-name='3'] .level-up-level-toggle" );

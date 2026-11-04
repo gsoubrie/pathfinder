@@ -31,6 +31,7 @@
     "COMBAT": false,
     "HISTORICS": false,
     "LEVELUP": false,
+    "ADJUSTMENT": false,
     "MASTERY": false,
     "SKILLS": false,
     "COMPONENT": false,

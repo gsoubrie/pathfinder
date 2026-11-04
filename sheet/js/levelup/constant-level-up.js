@@ -14,12 +14,35 @@ LEVELUP.ADDITIONAL_SKILL_TYPE  = "additional_skill";
 LEVELUP.ADDITIONAL_SKILL_KEY   = "additional_skill_";
 LEVELUP.ADDITIONAL_SKILL_LABEL = "Compétence supplémentaire";
 
+// Additional languages of the ancestry (N = Intelligence modifier if
+// positive, one more for Humain): the lines live on the ancestry level-1
+// entry, positional slot key for the same stability reason
+LEVELUP.ADDITIONAL_LANGUAGE_TYPE  = "additional_language";
+LEVELUP.ADDITIONAL_LANGUAGE_KEY   = "additional_language_";
+LEVELUP.ADDITIONAL_LANGUAGE_LABEL = "Langue supplémentaire";
+
 // Feat lines: chosen through a selector, the options come by sync (they
 // depend on the character state: feat level and skill prerequisites)
 LEVELUP.FEAT_TYPES = [
     "skill_feat",
-    "class_feat"
+    "class_feat",
+    "ancestry_feat"
 ];
+
+// Gift category of each feat type, for the information popup (DON domain)
+LEVELUP.FEAT_CATEGORIES = {
+    "skill_feat"   : "skill",
+    "class_feat"   : "class",
+    "ancestry_feat": "race"
+};
+
+// Character levels granting an ancestry feat (PF2): one section per level
+// reached, on CHARACTER.AncestryHistory
+LEVELUP.ANCESTRY_FEAT_LEVELS = [ 1, 5, 9, 13, 17 ];
+
+// The ancestry feat line: type and slot key of the single line of an entry
+LEVELUP.ANCESTRY_FEAT_KEY   = "ancestry_feat";
+LEVELUP.ANCESTRY_FEAT_LABEL = "Don d'ascendance";
 
 // Phases of a level-up line. Domain values, NOT GS.OBJECT.CONST.PHASE ones:
 // a phase value carries global utility styles (SLEEPING = cursor not-allowed
@@ -48,6 +71,7 @@ LEVELUP.ICONS = {
     "ancestry_feat"  : "🌿",
     "skill_increase" : "📈",
     "additional_skill": "➕",
+    "additional_language": "💬",
     "attribute_boost": "💪",
     "spell"          : "✨",
     "class_feature"  : "🔧"

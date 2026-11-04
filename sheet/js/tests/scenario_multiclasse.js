@@ -7,7 +7,7 @@
  * 1. Popup de classe, selection Guerrier, validation : Guerrier ajoute a
  *    niveau 1 dans le conteneur classes, champ Classe = "Champion 1, Guerrier 1",
  *    niveau total = 2, entree d'historique portant Guerrier, PV totaux augmentes.
- * 2. Passage de niveau : selecteur de classe (2 options), prise de niveau sur
+ * 2. Progression : selecteur de classe (2 options), prise de niveau sur
  *    Guerrier : Guerrier = 2, total = 3, entree d'historique portant Guerrier,
  *    PV totaux augmentes.
  * 3. Save : getDataToSave contient les 2 classes avec leur niveau ; relecture
@@ -74,7 +74,7 @@ TEST.RUNNER.register( "[MULTICLASSE] passage niveau Guerrier → Guerrier 2, tot
     let _history_size_before           = _character.getLevelHistory().getSize();
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister (.gs-tab-pane)" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister (.gs-tab-pane)" );
         if ( !_pane ) {
             return;
         }
@@ -128,10 +128,6 @@ TEST.RUNNER.register( "[MULTICLASSE] passage niveau Guerrier → Guerrier 2, tot
         }
         let _expected_hp               = _max_hp_before + _con.modifier_value.value + CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
         TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient inclure le nouveau niveau pris en Guerrier" );
-        let _header_level              = _pane.querySelector( ".level-up-header-level" );
-        if ( _header_level ) {
-            TEST.ASSERT.equal( _header_level.textContent, "Niveau 3", "L'entete du panneau devrait afficher Niveau 3, obtenu : " + _header_level.textContent );
-        }
     } );
 } );
 

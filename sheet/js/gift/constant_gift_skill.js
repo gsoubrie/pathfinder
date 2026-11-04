@@ -2472,7 +2472,7 @@ DON.getAvailableSkillFeats = function ( rank_by_label, max_level ) {
  * Popup data of a feat, by name. The feat category matches the line type:
  * "skill" for the skill feats, "class" for the class feats.
  *
- * @param {string} feat_category  "skill" | "class"
+ * @param {string} feat_category  "skill" | "class" | "race"
  * @param {string} feat_name       Display name of the feat
  * @returns {Object|null}         Popup-shaped object, or null when unknown
  */
@@ -2483,6 +2483,9 @@ DON.getFeatInformation = function ( feat_category, feat_name ) {
     }
     else if ( feat_category === "class" ) {
         feats = DON.CLASS.ENUM;
+    }
+    else if ( feat_category === "race" ) {
+        feats = DON.RACE.ENUM[ 0 ];
     }
     if ( !feats ) {
         return null;

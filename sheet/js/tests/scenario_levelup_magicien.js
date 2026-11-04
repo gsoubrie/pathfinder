@@ -2,7 +2,7 @@
 /**
  * Scenario : LEVELUP MAGICIEN
  * Depart : feuille vide (TEST.RESET.sheet()). Race Elfe posee, classe
- * Magicien posee a niveau 1, onglet Passage de niveau ouvert.
+ * Magicien posee a niveau 1, onglet Progression ouvert.
  * 1. Bloc Niveau 1 : 5 lignes de capacites, quatre portant un interrupteur
  *    de validation en pilule sans texte (.level-up-row-toggle : piste
  *    allongee aux bouts ronds + bouton coulissant .level-up-row-toggle-knob,
@@ -40,7 +40,7 @@
  *    Reflexes toujours Expert).
  */
 
-TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteurs + 1 sélecteur) non validées + counters ligne et onglet = 5", function () {
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes classe + don et langues d'ascendance en attente", function () {
     TEST.RESET.sheet();
     TEST_openRacePopup();
     return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
@@ -68,17 +68,20 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
         }
         TEST.ASSERT.notOk( _skill.isActive(), "Aucune capacité ne devrait etre validée par défaut, école arcanique active : " + _skill.isActive() );
         let _pane                         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
         if ( !_pane ) {
             return;
         }
-        let _block                        = _pane.querySelector( ".level-up-block" );
+        let _block                        = _pane.querySelector( ".level-up-block[data-level-number='1']" );
         TEST.ASSERT.notNull( _block, "Le bloc du niveau 1 devrait etre rendu" );
         if ( !_block ) {
             return;
         }
-        TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Niveau 1", "Le premier bloc devrait etre celui du niveau 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
+        TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Niveau 1", "Le bloc de classe du niveau 1 devrait afficher Niveau 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
         let _additional_count            = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
+        // Le mod INT vit déja a +2 (bonus de race Elfe et de classe Magicien
+        // forcés, auto-posés au choix) : les langues supplémentaires comptent
+        let _ancestry_pending_count      = 1 + RACES.getAdditionalLanguagesNumber( CONTROLLER.Character.current_character.getRace().getValue(), CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
         let _rows                         = _block.querySelectorAll( ".level-up-row" );
         TEST.ASSERT.equal( _rows.length, 5 + _additional_count, "Le bloc du niveau 1 devrait rendre ses 5 capacités + les " + _additional_count + " compétences supplémentaires (2 + mod INT), obtenu : " + _rows.length );
         TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (pas les compétences supplémentaires), obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
@@ -120,11 +123,11 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes (4 interrupteu
             }
         }
         let _warning                      = _pane.querySelector( ".level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 5 + _additional_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées (5 capacités + compétences supplémentaires + don et langues d'ascendance en attente), obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
-        TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings (.gs-warnings-counter)" );
+        TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings (.gs-warnings-counter)" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count ), "Le counter de l'onglet devrait valoir " + ( 5 + _additional_count ) + " (" + ( 5 + _additional_count ) + " lignes en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 5 + _additional_count + _ancestry_pending_count ) + " (5 capacités + compétences supplémentaires + don et langues d'ascendance en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _counter ).display, "none", "Le counter devrait etre visible quand des capacités sont en attente, obtenu : " + getComputedStyle( _counter ).display );
         }
     } );
@@ -248,9 +251,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] liens ? → popups capacité, alias in
     TEST.ASSERT.equal( _masteries_overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup des maîtrises devrait etre masquee apres fermeture" );
 } );
 
-TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur → capacité validée + counters à 4", function () {
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur → capacité validée + counter décrémenté", function () {
     let _character                        = CONTROLLER.Character.current_character;
     let _additional_count                 = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
+    let _ancestry_pending_count           = 1 + RACES.getAdditionalLanguagesNumber( _character.getRace().getValue(), _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
         return;
@@ -300,11 +304,11 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
             TEST.ASSERT.equal( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne validée devrait etre masque, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
         let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
-        TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
+        TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count ) + " apres la première validation (" + _additional_count + " compétences supplémentaires encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count + _ancestry_pending_count ) + " apres la première validation (compétences supplémentaires + don et langues d'ascendance encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
         let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
         TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
@@ -361,23 +365,24 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
             TEST.ASSERT.notEqual( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne devrait etre de nouveau visible, obtenu : " + getComputedStyle( _row_counter_after ).display );
         }
         let _additional_count             = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
+        let _ancestry_pending_count       = 1 + RACES.getAdditionalLanguagesNumber( CONTROLLER.Character.current_character.getRace().getValue(), CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
         let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau " + ( 5 + _additional_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau " + ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
-        TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
+        TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
         if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count ), "Le counter de l'onglet devrait etre de retour a " + ( 5 + _additional_count ) + ", obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait etre de retour a " + ( 5 + _additional_count + _ancestry_pending_count ) + ", obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         }
     } );
 } );
 
-TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + counter onglet masqué", function () {
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance validés → warning vert + counter onglet masqué", function () {
     let _pane                             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Passage de niveau rendu" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Progression rendu" );
     if ( !_pane ) {
         return;
     }
-    let _block                           = _pane.querySelector( ".level-up-block" );
+    let _block                           = _pane.querySelector( ".level-up-block[data-level-number='1']" );
     TEST.ASSERT.notNull( _block, "Pre-condition : bloc du niveau 1 rendu" );
     if ( !_block ) {
         return;
@@ -399,6 +404,30 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
             }
         }
     }
+    // Le don d'ascendance du niveau 1 (bloc Elfe 1) se valide par son choix :
+    // le warning vert n'arrive qu'avec lui
+    let _ancestry_row                     = _pane.querySelector( ".ancestry-up-block .level-up-row[data-slot-key='ancestry_feat']" );
+    TEST.ASSERT.notNull( _ancestry_row, "Pre-condition : ligne don d'ascendance rendue dans son bloc Elfe 1" );
+    if ( !_ancestry_row ) {
+        return;
+    }
+    let _ancestry_option                  = _ancestry_row.querySelector( ".single-select-option:not([data-value=''])" );
+    TEST.ASSERT.notNull( _ancestry_option, "Pre-condition : le sélecteur du don d'ascendance propose au moins un don d'Elfe" );
+    if ( !_ancestry_option ) {
+        return;
+    }
+    _ancestry_option.click();
+    // Les langues supplémentaires du bloc d'ascendance se valident par leur
+    // choix : le warning vert n'arrive qu'avec elles
+    let _language_rows                   = _pane.querySelectorAll( ".ancestry-up-block .level-up-row[data-slot-key^='additional_language_']" );
+    for ( let _i = 0; _i < _language_rows.length; _i++ ) {
+        if ( _language_rows[ _i ].dataset.currentPhase !== "SELECTED" ) {
+            let _language_option         = _language_rows[ _i ].querySelector( ".single-select-option:not([data-value=''])" );
+            if ( _language_option ) {
+                _language_option.click();
+            }
+        }
+    }
     return TEST.wait( 300 ).then( function () {
         let _level                      = _character.getLevelHistory().getContentByUUID( "1" );
         for ( let _i = 0, _size_i = _level.getSize(); _i < _size_i; _i++ ) {
@@ -406,10 +435,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] 5 lignes validées → warning vert + 
             TEST.ASSERT.ok( _skill.isActive(), "Toute capacité du niveau 1 devrait etre validée, " + _skill.getUUID() + " obtenu : " + _skill.isActive() );
         }
         let _warning                      = _pane.querySelector( ".level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "Toutes les capacités sont validées" ) !== -1, "Le warning global devrait annoncer que toutes les capacités sont validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "Toutes les capacités sont validées" ) !== -1, "Le warning global devrait annoncer que toutes les capacités sont validées (don et langues d'ascendance compris), obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
         TEST.ASSERT.notOk( _warning.classList.contains( "visible" ), "Le warning global ne devrait plus porter la classe visible" );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
-        TEST.ASSERT.notNull( _counter, "L'onglet Passage de niveau devrait porter le counter warnings" );
+        TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
         if ( _counter ) {
             TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "", "Le counter de l'onglet devrait etre vide quand tout est validé, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _counter ).display, "none", "Le counter devrait etre masque quand tout est validé, obtenu : " + getComputedStyle( _counter ).display );

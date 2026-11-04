@@ -21,6 +21,10 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__form__element_changed":
                 this.computeHtmlWithData();
                 break;
+            case "event__adjustment__add":
+            case "event__adjustment__remove":
+                this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
+                break;
             case "click_on__window_navigation__done":
                 // Les prises de niveau et validations vivent dans l'onglet Passage de
                 // niveau, apres cette fenetre dans le groupe : recalcul des jets a
@@ -28,6 +32,7 @@ CHARACTER.GeneralWindow.prototype = {
                 if ( this.name === params[ "window_name" ] ) {
                     this.computeArea__saves( CONTROLLER.Character.current_character );
                     this.computeArea__skills( CONTROLLER.Character.current_character );
+                    this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                 }
                 break;
         }
@@ -49,6 +54,7 @@ CHARACTER.GeneralWindow.prototype = {
         }
         //this.computeComponent( character_object.getRace().getBodySize() );
         this.computeComponent( character_object.getRace().getLegacy() );
+        this.computeArea__ancestryInfo( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
         if ( character_object.getClasses().isEmpty() ) {
@@ -192,6 +198,69 @@ CHARACTER.GeneralWindow.prototype = {
             }
         }
         return characteristic_key;
+    },
+
+    // Zone des donnees de l'ascendance (sous le champ ascendance) : traits,
+    // vitesse par mode de deplacement, sens et langues en listes — le champ
+    // Taille vit deja dans sa zone (le body_size, enfant de la race, se rend
+    // par le broadcast des enfants). Les listes affichent les entrees
+    // gerees (base de race + choix de Progression) + les entrees manuelles
+    // du personnage : la zone se recalcule a l'activation de l'onglet
+    computeArea__ancestryInfo: function ( character_object ) {
+        if ( !this.content_dom_element_target || !character_object.getRace().isSet() ) {
+            return;
+        }
+        if ( !this.area_ancestry_info ) {
+            this.area_ancestry_info = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-ancestry-info" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_ancestry_info );
+        let race       = character_object.getRace();
+        let traits_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-traits" } ), this.area_ancestry_info );
+        for ( let t = 0, _size_t = race.traits.length; t < _size_t; t++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "ancestry-info-trait" }, race.traits[ t ] ), traits_row );
+        }
+        // Vitesse : une ligne par mode de deplacement, la marche vient de la
+        // race, les autres modes viennent des ajustements de l'onglet
+        let speed_property = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "property vertical ancestry-info-property", "data-name": "speed" } ),
+            this.area_ancestry_info
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Vitesse" ), speed_property );
+        let speed_modes = character_object.getAdjustments().getValuesByKind( "speed" );
+        speed_modes.unshift( "Marche : " + race.speed + " mètres" );
+        for ( let m = 0, _size_m = speed_modes.length; m < _size_m; m++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-value" }, speed_modes[ m ] ), speed_property );
+        }
+        if ( race.sens ) {
+            let senses = [ race.sens ].concat( character_object.getAdjustments().getValuesByKind( "sense" ) );
+            this._computeAncestryInfoList( "sense", "Sens", senses );
+        }
+        let languages = race.language.concat(
+            character_object.getAncestryHistory().getSelectedLanguages(),
+            character_object.getAdjustments().getValuesByKind( "language" )
+        );
+        this._computeAncestryInfoList( "language", "Langues", languages );
+    },
+
+    // Lecture seule : les entrees gerees (base de race, choix de Progression)
+    // et les ajustements de l'onglet Ajustements s'affichent ici, l'edition
+    // vit dans cet onglet — la feuille reste utilisable en lecture
+    _computeAncestryInfoList: function ( entries_key, label, entries ) {
+        let property = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "property vertical ancestry-info-property", "data-name": entries_key } ),
+            this.area_ancestry_info
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, label ), property );
+        let list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-list" } ), property );
+        for ( let i = 0, _size_i = entries.length; i < _size_i; i++ ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "ancestry-list-entry", "data-value": entries[ i ] }, entries[ i ] ),
+                list
+            );
+        }
     },
     
     

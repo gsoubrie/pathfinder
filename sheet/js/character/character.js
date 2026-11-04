@@ -4,26 +4,30 @@
  * @extends CHARACTER.ComponentInterface
  */
 CHARACTER.Current = function () {
-    this.uuid            = null;
-    this.name_object     = new CHARACTER.Name();
-    this.player          = new CHARACTER.Player();
-    this.alignment       = null;
-    this.level           = null;
-    this.point_heroism   = null;
-    this.race            = new RACES.Race();
-    this.health          = new CHARACTER.Health();
-    this.class           = new CLASSES.CharacterClasses();
-    this.characteristics = new CHARACTERISTICS.Characteristics();
-    this.levels_history  = new CHARACTER.LevelsHistory();
-    this.gifts           = new CHARACTER.Gifts();
-    this.masteries       = new CHARACTER.Masteries();
-    this.children        = new OBJECT.InterfaceContainer();
+    this.uuid              = null;
+    this.name_object       = new CHARACTER.Name();
+    this.player            = new CHARACTER.Player();
+    this.alignment         = null;
+    this.level             = null;
+    this.point_heroism     = null;
+    this.race              = new RACES.Race();
+    this.health            = new CHARACTER.Health();
+    this.class             = new CLASSES.CharacterClasses();
+    this.characteristics   = new CHARACTERISTICS.Characteristics();
+    this.levels_history    = new CHARACTER.LevelsHistory();
+    this.ancestry_history  = new CHARACTER.AncestryHistory();
+    this.adjustments       = new CHARACTER.Adjustments();
+    this.gifts             = new CHARACTER.Gifts();
+    this.masteries         = new CHARACTER.Masteries();
+    this.children          = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
     this.children.add( this.race );
     this.children.add( this.class );
     this.children.add( this.characteristics );
     this.children.add( this.levels_history );
+    this.children.add( this.ancestry_history );
+    this.children.add( this.adjustments );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -47,6 +51,7 @@ CHARACTER.Current.prototype = {
                 this.getObjectByKey( params[ "param__property" ] ).doActionAfter( event_name, params );
                 this.levels_history.buildSkills();
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
@@ -63,6 +68,7 @@ CHARACTER.Current.prototype = {
                 this.class.updateHtmlData();
                 this.levels_history.buildSkills();
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level_up__remove_level":
                 params[ "param__current_character__object" ] = this;
@@ -95,6 +101,7 @@ CHARACTER.Current.prototype = {
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelUpWindow.NAME );
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level__toggle":
                 params[ "param__current_character__object" ] = this;
@@ -108,12 +115,21 @@ CHARACTER.Current.prototype = {
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
                 this.levels_history.doActionAfter( event_name, params );
+                this.ancestry_history.doActionAfter( event_name, params );
                 // The validation may move the skill ranks: the feat options
                 // depend on them
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level_up__toggle_selector":
                 this.levels_history.doActionAfter( event_name, params );
+                this.ancestry_history.doActionAfter( event_name, params );
+                break;
+            case "event__adjustment__add":
+            case "event__adjustment__remove":
+                this.adjustments.doActionAfter( event_name, params );
+                // The displays consuming the adjustments refresh with the entry
+                this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -124,6 +140,9 @@ CHARACTER.Current.prototype = {
                 if ( params[ "param__characteristics__is" ] ) {
                     this.characteristics.doActionAfter( event_name, params );
                     this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                    // The Intelligence modifier moves the additional
+                    // languages count of the ancestry level-1 entry
+                    this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                     return;
                 }
                 break;
@@ -173,18 +192,26 @@ CHARACTER.Current.prototype = {
         this.class.addParamForEvents( key, value );
         this.characteristics.addParamForEvents( key, value );
         this.levels_history.addParamForEvents( key, value );
+        this.ancestry_history.addParamForEvents( key, value );
     },
     //********************************************  COMPUTE   **************************************************//
     computeTotalLife: function () {
         let total_life           = 0;
         let life_point_from_cons = this.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
+        let has_active_level     = false;
         for ( let i = 0, _size_i = this.getLevelHistory().getSize(); i < _size_i; i++ ) {
             let _level = this.getLevelHistory().getContent( i );
             if ( !_level.isEnabled() ) {
                 continue;
             }
+            has_active_level = true;
             total_life += life_point_from_cons.getModifierValue();
             total_life += _level.life_class;
+        }
+        // Les PV de depart de l'ascendance ne comptent qu'une fois, au
+        // premier niveau du personnage (PF2 : niveau 1 = ascendance + classe + CON)
+        if ( has_active_level && this.getRace().isSet() ) {
+            total_life += this.getRace().start_life || 0;
         }
         this.health.setMaxHP( total_life );
     },
@@ -211,6 +238,16 @@ CHARACTER.Current.prototype = {
                 // The characteristics are loaded before the history: the
                 // additional skills lines sync on the fresh Intelligence
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                // The race is loaded before the history: the ancestry entries
+                // materialize (an old save carries no ancestry key)
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            case "ancestry_history":
+                this.ancestry_history.updateData( value );
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            case "adjustments":
+                this.adjustments.updateData( value );
                 break;
             case this.player.getKey():
                 this.player.setValue( value );
@@ -294,6 +331,18 @@ CHARACTER.Current.prototype = {
     },
     getLevelHistory   : function () {
         return this.levels_history;
+    },
+    /**
+     * @returns {CHARACTER.AncestryHistory}
+     */
+    getAncestryHistory: function () {
+        return this.ancestry_history;
+    },
+    /**
+     * @returns {CHARACTER.Adjustments}
+     */
+    getAdjustments: function () {
+        return this.adjustments;
     },
     getHealth         : function () {
         return this.health;

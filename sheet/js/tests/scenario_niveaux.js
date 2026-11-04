@@ -3,12 +3,12 @@
  * Scenario : NIVEAUX
  * Pre-condition : fin du scenario MULTICLASSE (race Elfe, Champion 1, Guerrier 2,
  * total 3, 3 entrees d'historique, onglets actifs).
- * 1. Moins sur le tag Guerrier (onglet Passage de niveau) : Guerrier redescend a 1,
+ * 1. Moins sur le tag Guerrier (onglet Progression) : Guerrier redescend a 1,
  *    total 2, entree d'historique supprimee, PV diminues.
  * 2. Moins a nouveau : la classe Guerrier est supprimee completement du conteneur,
  *    il ne reste que Champion 1.
  * 3. Moins sur la derniere classe : conteneur vide, total 0, onglets Niveau et
- *    Passage de niveau re-desactives, zone classe vide avec le bouton d'ajout.
+ *    Progression re-desactives, zone classe vide avec le bouton d'ajout.
  * 4. Re-ajout de Champion (popup) puis prise d'un 2e niveau : desactivation du
  *    niveau 2 par l'interrupteur du bloc de niveau dans l'onglet Passage de
  *    niveau : niveau actif 1, PV recalculés. L'onglet Niveau affiche l'etat
@@ -50,7 +50,7 @@ TEST.RUNNER.register( "[NIVEAUX] moins Guerrier → Guerrier 1, total 2", functi
     let _history_size_before           = _character.getLevelHistory().getSize();
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
         if ( !_pane ) {
             return;
         }
@@ -94,7 +94,7 @@ TEST.RUNNER.register( "[NIVEAUX] suppression Guerrier → classes = Champion 1",
     let _history_size_before           = _character.getLevelHistory().getSize();
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
         if ( !_pane ) {
             return;
         }
@@ -135,7 +135,7 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglets désac
     }
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
         if ( !_pane ) {
             return;
         }
@@ -156,7 +156,7 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglets désac
         TEST.ASSERT.equal( document.body.dataset.isClassSet, "0", "data-is-class-set devrait repasser a 0" );
         let _tabs                      = [
             { name: CHARACTER.LevelWindow.NAME, label: "Niveau" },
-            { name: CHARACTER.LevelUpWindow.NAME, label: "Passage de niveau" }
+            { name: CHARACTER.LevelUpWindow.NAME, label: "Progression" }
         ];
         for ( let i = 0, _size_i = _tabs.length; i < _size_i; i++ ) {
             let _tab                   = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + _tabs[ i ].name + "']" );
@@ -185,7 +185,7 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
     } ).then( function () {
         let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
         if ( !_pane ) {
             return;
         }
@@ -236,21 +236,17 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
             if ( !_state_label ) {
                 return;
             }
-            TEST.ASSERT.isNull( _state_label.getAttribute( "onclick" ), "Le libelle Actif/Désactivé ne devrait pas etre cliquable dans l'onglet Niveau (l'interrupteur vit dans Passage de niveau), obtenu : [" + _state_label.getAttribute( "onclick" ) + "]" );
+            TEST.ASSERT.isNull( _state_label.getAttribute( "onclick" ), "Le libelle Actif/Désactivé ne devrait pas etre cliquable dans l'onglet Niveau (l'interrupteur vit dans Progression), obtenu : [" + _state_label.getAttribute( "onclick" ) + "]" );
             TEST.ASSERT.equal( _state_label.textContent, "Désactivé", "Le libelle devrait afficher Désactivé, obtenu : " + _state_label.textContent );
             TEST.ASSERT.notEqual( getComputedStyle( _state_label ).cursor, "pointer", "Le libelle ne devrait pas avoir le curseur d'un bouton, obtenu : " + getComputedStyle( _state_label ).cursor );
             TEST.ASSERT.equal( getComputedStyle( _rows[ 1 ] ).opacity, "0.4", "La ligne du niveau desactive devrait etre grisee, obtenu : " + getComputedStyle( _rows[ 1 ] ).opacity );
             return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
                 let _levelup_pane      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-                TEST.ASSERT.notNull( _levelup_pane, "Le panneau Passage de niveau devrait exister" );
+                TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
                 if ( !_levelup_pane ) {
                     return;
                 }
-                let _header_level      = _levelup_pane.querySelector( ".level-up-header-level" );
-                if ( _header_level ) {
-                    TEST.ASSERT.equal( _header_level.textContent, "Niveau 2 (1 actif)", "L'entete devrait afficher le total et les niveaux actifs, obtenu : " + _header_level.textContent );
-                }
-                let _blocks            = _levelup_pane.querySelectorAll( ".level-up-block" );
+                let _blocks            = _levelup_pane.querySelectorAll( ".level-up-block[data-level-name]" );
                 TEST.ASSERT.equal( _blocks.length, 2, "Chaque niveau devrait garder son bloc (meme desactive, pour son interrupteur), obtenu : " + _blocks.length );
                 let _disabled_block    = _levelup_pane.querySelector( ".level-up-block[data-level-name='2']" );
                 TEST.ASSERT.notNull( _disabled_block, "Le bloc du niveau 2 devrait exister" );
@@ -277,7 +273,7 @@ TEST.RUNNER.register( "[NIVEAUX] ré-activation → totaux restaurés", function
     let _max_hp_before                 = _character.getHealth().getMaxHP();
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _levelup_pane              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Passage de niveau devrait exister" );
+        TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
         if ( !_levelup_pane ) {
             return;
         }
@@ -306,16 +302,6 @@ TEST.RUNNER.register( "[NIVEAUX] ré-activation → totaux restaurés", function
                     TEST.ASSERT.equal( _state_label.textContent, "Activé", "Le libelle devrait reafficher Activé, obtenu : " + _state_label.textContent );
                 }
             }
-            return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-                let _levelup_pane      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-                if ( !_levelup_pane ) {
-                    return;
-                }
-                let _header_level      = _levelup_pane.querySelector( ".level-up-header-level" );
-                if ( _header_level ) {
-                    TEST.ASSERT.equal( _header_level.textContent, "Niveau 2", "L'entete devrait reafficher le total sans mention d'actifs, obtenu : " + _header_level.textContent );
-                }
-            } );
         } );
     } );
 } );
@@ -327,7 +313,7 @@ TEST.RUNNER.register( "[NIVEAUX][SAVE] save → load = enabled restauré", funct
         return;
     }
     let _levelup_pane                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _levelup_pane, "Pre-condition : panneau Passage de niveau ouvert" );
+    TEST.ASSERT.notNull( _levelup_pane, "Pre-condition : panneau Progression ouvert" );
     if ( !_levelup_pane ) {
         return;
     }

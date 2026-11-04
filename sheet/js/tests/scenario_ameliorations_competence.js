@@ -31,7 +31,7 @@ TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] sélecteur = option vide + 17 
     TEST.ASSERT.ok( !_increase.isActive(), "Pre-condition : la ligne Amélioration de compétence ne devrait pas etre validee" );
     TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, "skill__arcana" ), "Q", "Arcanes devrait etre qualifiee par les maîtrises initiales avant augmentation, obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__arcana" ) );
     let _row                              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-row[data-slot-key='amelioration_de_competence']" );
-    TEST.ASSERT.notNull( _row, "La ligne Amélioration de compétence devrait etre rendue dans la fenêtre Passage de niveau" );
+    TEST.ASSERT.notNull( _row, "La ligne Amélioration de compétence devrait etre rendue dans la fenêtre Progression" );
     if ( !_row ) {
         return;
     }

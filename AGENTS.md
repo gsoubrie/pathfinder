@@ -48,10 +48,14 @@ rapport**, on corrige d'après le rapport. Une décision par run.
 
 ### Domaine levelup (`sheet/js/levelup/`)
 
-Le domaine porte TOUT le passage de niveau (fusions Rounds 5-7) : la source
+Le domaine porte TOUTE la progression de l'onglet "Progression" (fusions
+Rounds 5-7, Round 30) : la source
 de vérité (`1-levels-history.js` + `2-level-history.js` : `LevelsHistory` + `LevelHistory`, l'entrée
 possède `enabled` ET ses lignes de capacités — la validation vit sur la
-phase de la ligne, Round 10), le vieux
+phase de la ligne, Round 10), les dons d'ascendance par palier
+(`6-ancestry-history.js` + `7-ancestry-level-history.js` :
+`CHARACTER.AncestryHistory` + `CHARACTER.AncestryLevelHistory`, Round 30),
+le vieux
 mécanisme de choix par origine (`4-level-history-skills.js`, à unifier avec les
 lignes un jour), et le warning global de la fenêtre.
 
@@ -329,7 +333,21 @@ niveau 5, "expertise en réflexes" validée) :
    Magicien) ; choisir "Diplomatie" la valide (rang Q, source citée), la
    vider la dévalide (rang perdu), la re-choisir la re-valide ; jets Général
    badge Q ; save → load restaure le choix et le compte de lignes.
-8. `scenario_levelup_niveau10.js` — parcours structurel (le test des choix
+8. `scenario_dons_ascendance.js` — sections d'ascendance intercalées :
+   séquence exacte Elfe 1, Magicien 1..4, Elfe 5, Magicien 5 (titre,
+   ligne "Don d'ascendance" en attente, options = dons d'Elfe du palier,
+   "?" par option) ; choisir un don sur Elfe 1 valide la ligne et
+   décrémente le compteur, le "?" d'une option ouvre la popup feat
+   catégorie race ; save → load restaure le don et le false du palier 5.
+9. `scenario_pv_ascendance.js` — le total PV vaut les PV de départ de
+   l'ascendance (une fois) + la somme des niveaux.
+10. `scenario_langues_supplementaires.js` — mod INT +2 (bonus forcés
+   auto-posés) → 2 lignes "Langue supplémentaire" sur Elfe 1 (options =
+   langues d'Elfe, sans "?") ; choix draconique validé, la 2e ligne ne le
+   propose plus ; ascendance Nain → mod +1, 1 ligne, options Nain, section
+   "Nain 1", choix conservé ; retour Elfe → la 2e ligne revient sans
+   doublon ; save → load restaure le choix et le compte.
+11. `scenario_levelup_niveau10.js` — parcours structurel (le test des choix
    jusqu'au niveau 10 appartient à l'utilisateur, règle de travail) : cinq
    prises → niveau 10, entrées 6-10 rendues, validations du niveau 3
    conservées aux rebuilds ; save → load restaure les dix entrées et le rang
@@ -338,14 +356,17 @@ niveau 5, "expertise en réflexes" validée) :
 ### État au moment de la pause
 
 - **Non commis** (depuis le commit `53fb278 review code 4`, qui porte les
-  Rounds 12-23) : le working tree contient les Rounds 24-29 — le nettoyage
+  Rounds 12-23) : le working tree contient les Rounds 24-30 — le nettoyage
   des textes scrapés (outil `sheet/tools/clean_scraped_text.js`), le "?"
   par option de don, le composant `COMPONENT.SingleSelectFromData` en lib,
   l'uniformisation de TOUS les sélecteurs sur ce composant, le "?" de
   popup branché dans les DEUX listes de contrôleurs, les correctifs CSS
   (hauteurs bornées de la fenêtre levelup, `overflow` du bloc retiré,
-  popup overlay centrée en flex, animation vivante), et les scénarios
-  passés aux clics d'options du composant.
+  popup overlay centrée en flex, animation vivante), les scénarios
+  passés aux clics d'options du composant, et le Round 30 : onglet
+  renommé "Progression" sans entête récap, dons d'ascendance par palier
+  (`AncestryHistory` + `AncestryLevelHistory`,
+  `DON.getAvailableAncestryFeats`, scénario `scenario_dons_ascendance.js`).
 - Modèle : TOUTES les lignes à choix du passage de niveau rendent le
   composant `COMPONENT.SingleSelectFromData` (école, thèse, compétences
   supplémentaires, améliorations, dons — le "?" par option réservé aux
@@ -706,6 +727,187 @@ scénarios cliquent les options du composant (`.single-select-option
 [data-value=...]`, `.click()` — le clic JS fonctionne même liste fermée)
 au lieu de `select.value` + dispatch change ; le CSS mort du select
 natif est retiré.
+Round 30 = onglet "Progression" (demande utilisateur) : l'onglet
+"Passage de niveau" devient "Progression", l'entête récap
+(`.level-up-header`, "Niveau X (Y actifs)") est SUPPRIMÉ, et le passage
+de niveau accueille les dons d'ascendance : un conteneur
+`CHARACTER.AncestryHistory` (`6-ancestry-history.js`, enfant du
+personnage, save clé `ancestry_history`, uuid "ancestry_history")
+maintient une entrée `CHARACTER.AncestryLevelHistory`
+(`7-ancestry-level-history.js`, uuid = level_name) par palier
+`LEVELUP.ANCESTRY_FEAT_LEVELS` (1, 5, 9, 13, 17) atteint ET ascendance
+posée — la sync (`event__level_up__sync_lines`, même plat que les
+lignes de classe) ajoute les manquantes, retire les surplus (compteur à
+0 AVANT retrait) et rafraîchit les options par
+`DON.getAvailableAncestryFeats( race_name, level )` (trait = nom de
+l'ascendance, prérequis non parsés — prose variée, tout est proposé).
+L'entrée rend SA section (`.level-up-block.ancestry-up-block` +
+`data-ancestry-level-name`, titre "<race> <palier>" donc "Elfe 1")
+INTERCALÉE au niveau de son palier, AVANT la section de classe du même
+niveau (retour utilisateur Round 30 : Elfe 1, Magicien 1..4, Elfe 5,
+Magicien 5 — le rendu de la fenêtre fusionne les deux conteneurs par
+numéro de niveau, tout palier d'ascendance vit <= au niveau du
+personnage donc la dernière section de classe consomme les restantes),
+avec SA ligne `LevelUpSkillWithSelect` unique
+(slot key `ancestry_feat`, label "Don d'ascendance", "?" par option via
+`LEVELUP.FEAT_CATEGORIES[ type ]` → catégorie "race" de
+`DON.getFeatInformation`). La valeur chargée s'applique EN PLACE si la
+ligne vit déjà (un sync peut précéder le load du save dans l'ordre des
+clés : staging perdu sinon). Piège de test : les compteurs warnings
+absorbent les lignes d'ascendance en attente (scénario magicien passe à
+6/5/6, le warning vert exige le choix du don) et les sélecteurs de
+blocs de classe se scindent par `[data-level-name]` (les blocs
+d'ascendance portent `data-ancestry-level-name`).
+Round 31 = retour UI : la liste du sélecteur (`single-select-list`) dépassait
+de son conteneur vers la droite. Cause : ancre `left/right: 0` + `min-width:
+260px` — la liste était forcée à 260px depuis le bord GAUCHE d'un conteneur
+plus étroit (190-260px selon le libellé du header), et le bloc ne clippe plus
+ses enfants depuis le Round 28. Correctif : le `min-width` de la liste est
+RETIRÉ — la liste épouse la largeur de son conteneur (bornée par le
+min-width/max-width du header), les libellés d'option ellipsent comme ceux
+du header. Le `min-width` d'une liste ancrée des deux côtés est une
+contradiction : elle ne peut pas être fluide ET garantie plus large que
+son ancre.
+Round 32 = retour utilisateur : le "?" des dons n'existait que sur les
+options de la liste ouverte — impossible de rouvrir la popup du don DÉJÀ
+choisi (l'option sélectionnée porte `pointer-events: none`, et le header
+n'a pas de lien d'info). Correctif : la ligne de don
+(`LevelUpSkillWithSelect`, types `LEVELUP.FEAT_TYPES`) rend un "?" À CÔTÉ
+du sélecteur, porté par `info_dom_element` — le nom du don part par
+`data-value` lu au clic (`this.getAttribute('data-value')`, jamais embarqué
+en dur : les apostrophes), rafraîchi dans `updateHtml`, et le CSS le masque
+sans sélection (`[data-value=''] { display: none }` : la data porte l'état,
+pas une classe). L'événement est le même `event__show_information__feat`
+avec la catégorie de `LEVELUP.FEAT_CATEGORIES[ type ]`. Scénario
+dons_ascendance : le "?" masqué sans choix (test 1), affiché + popup du
+don sélectionné après le choix (test 2). Frontière : les lignes à choix NON
+don (école, thèse, compétences supplémentaires, améliorations) ne portent
+pas ce "?" (aucune popup de données derrière). PIÈGE trouvé au run : le
+span posé AVANT le `addElementTo` du composant (dernière instruction de
+`_computeHtmlValidation`) se retrouvait AVANT le sélecteur dans le DOM —
+la pose vit APRÈS l'attache du composant, l'ordre d'appel EST l'ordre du
+DOM.
+
+Round 33 = retour utilisateur (inventaire de l'ascendance) : les PV de
+départ de l'ascendance (`start_life`) n'étaient affichés que dans le popup
+de race, JAMAIS intégrés au total — `computeTotalLife` ne sommait que mod
+CON + PV de classe par niveau. Correctif : `start_life` compte UNE fois
+quand au moins un niveau est actif (PF2 : niveau 1 = ascendance + classe +
+CON). `scenario_niveaux_multiple` recalculé (ses deux totaux absolus
+prennent le `start_life` d'Elfe), nouveau scénario chaîne
+`scenario_pv_ascendance.js` ([PV ASCENDANCE] : le total = start_life +
+somme des niveaux, ni sans start_life ni start_life par niveau).
+Round 34 = les langues supplémentaires de l'ascendance (inventaire : le
+dernier choix que l'ascendance demande). Compte = mod INT si positif
+(+1 pour Humain, `RACES.ADDITIONAL_LANGUAGE_BONUS` écrit à la main — la
+phrase scrapée n'est pas parsée), options =
+`RACES.getAdditionalLanguages( race_name )` : la liste `language_sup`
+scrapée porte la phrase de don collée à la première langue
+("... Choisissez parmi Draconique") et des virgules traînantes, le
+nettoyage vit dans l'accès (survit au re-scrap) ; Humain n'a PAS de liste
+fixe ("toutes les langues courantes") → pool commun =
+`RACES.getCommonLanguages` (union des langues de base des ascensions
+scrapées) moins les langues de base de l'ascendance. Les lignes vivent sur
+l'ENTRÉE D'ASCENDANCE DU NIVEAU 1 ("Elfe 1", mêmes sections que le don) :
+`syncLines( race_name, int_modifier )` orchestre (ligne de don + langues au
+niveau 1 + staging nullé), `syncAdditionalLanguages` ajoute/retire (compteur
+à 0 AVANT retrait) et applique le staging EN PLACE si les lignes vivent déjà
+(piège du Round 30), une langue ne se prend pas deux fois (`_getTakenValues` /
+`_updateAdditionalSelectOptions`, mêmes filtres que les compétences
+supplémentaires), slot key positionnel `additional_language_<i>`, save clé
+par slot dans `level_skill` de l'entrée. PIÈGE : le mod INT bouge aux
+boutons +/− des caractéristiques — le personnage dispatche
+`event__level_up__sync_lines` à `ancestry_history` dans le case
+`event__more_button`/`less_button` (il ne le faisait pas au Round 30 : les
+dons n'en dépendaient pas). La fenêtre ne se re-rend pas au +/− : le compte
+suit à l'activation de l'onglet (même comportement que les compétences
+supplémentaires). Nouveau scénario chaîne
+`scenario_langues_supplementaires.js` ([LANGUES SUPPLEMENTAIRES] : bonus de
+race INT → 1 ligne, choix draconique, bonus de classe INT → 2e ligne sans
+doublon, retrait du bonus → la 2e ligne repart et le choix survit,
+save → load). PIÈGES du premier run : (a) les bonus de caractéristiques
+FORCÉS s'auto-posent au choix de la race/classe (bonus quand `number` égale
+le compte de choix sans FREE, cf. `event__ask_set_forced_value`) — dans la
+chaîne, le mod INT vit DÉJÀ à +2 (Elfe INT + Magicien INT) dès le niveau 1 :
+le scénario magicien calcule donc le compte de lignes d'ascendance en
+attente dynamiquement (`_ancestry_pending_count` = 1 don + langues par
+`RACES.getAdditionalLanguagesNumber`), et son warning vert exige le choix
+des langues ; (b) les boutons +/− des bonus n'existent pas pour un bonus
+forcé — le levier utilisateur sur le mod INT dans la chaîne est le
+CHANGEMENT d'ascendance (Elfe → Nain : le bonus de race INT part, mod +1,
+une langue repart, les options suivent Nain, la section se re-titre
+"Nain 1" ; retour Elfe : la ligne revient sans proposer la langue prise) —
+le scénario langues suit ce parcours.
+Round 35 = affichage des données fixes de l'ascendance dans le GÉNÉRAL
+(demande utilisateur, dernier reliquat de l'inventaire) : nouvelle zone
+`computeArea__ancestryInfo` (`general_window.js`) sous le champ ascendance
+(nouvelle grid area `ancestry-info` de la colonne 4, lignes 3-11 de la
+grille) : traits en badges, Taille (label de `BODY_SIZE`), Vitesse ("N
+mètres"), Sens (3 ascensions n'en ont pas → ligne absente), Langues = base
+(`race.language`) + langues CHOISIES (`AncestryHistory.getSelectedLanguages()`,
+nouvel accès du conteneur — la fenêtre demande au domaine, elle ne fouille
+pas les lignes). La zone se vide et se reconstruit à chaque appel :
+`computeHtmlWithData` (changement d'ascendance) ET l'activation de l'onglet
+(les choix de langues se font dans Progression, comme les jets). Styles
+`.ancestry-info-*` dans `sheet_general.css` aux variables `--*`, ni gras ni
+majuscules (règles d'affichage). Scénarios : nouveau groupe
+`[ASCENDANCE] infos ascendance dans le Général` (traits d'Elfe, Moyen,
+9 mètres, Vision nocturne, Commun Elfique — helper `TEST_ancestryInfoValue`)
+et le test 2 des langues vérifie la langue choisie dans la ligne Langues du
+Général après activation.
+Round 36 = retours UI sur la zone (demande utilisateur) : (a) PAS de ligne
+Taille dans la zone — le champ Taille EXISTE déjà (le `body_size`, enfant de
+la race, se rend par le broadcast des enfants dans sa grid area `size`) ;
+(b) vitesse/sens/langues passent au STYLE PROPRIÉTÉ (`div.property.vertical`,
+label + valeur, transparent comme les autres zones du Général) ; (c) la
+Vitesse regroupe les modes de déplacement — "Marche : N mètres" aujourd'hui
+(les autres modes : vol, nage, escalade — viendront des sources futures) ;
+(d) Sens et Langues deviennent des LISTES ÉVOLUTIVES À ÉDITION MANUELLE
+(décision utilisateur) : nouveau composant `CHARACTER.ManualEntries`
+(`component/manual_entries.js`, enfant du personnage, clés `extra_senses` /
+`extra_languages`, save par tableau) — la liste affichée = entrées GÉRÉES
+(base de race + choix de Progression, non retirables ici) + entrées
+MANUELLES (retirables par leur "×"). Événements
+`event__extra_entries__add` (la valeur ajoutée ne s'embarque JAMAIS en dur :
+le composant la lit depuis la cible de l'événement, comme
+`event__has_change__input`) / `event__extra_entries__remove` (valeur lue du
+`data-value` de l'entrée, pattern des "?"). Routage : contrôleur Character
+(les deux événements → personnage) → le composant applique → le personnage
+re-broadcast aux fenêtres → la fenêtre Générale recalcule la zone (le
+formulaire d'ajout se vide au re-render). Scénario ascendance étendu :
+champ Taille existant, entrées gérées sans bouton de retrait, ajout manuel
+d'un sens + save + retrait + survie de la base, ajout manuel d'une langue.
+Round 37 = onglet « Ajustements » (conception utilisateur : le point NEUTRE
+d'édition du personnage — « la feuille doit être utilisable en lecture 90 %
+du temps », les cas particuliers ne se gèrent pas aux endroits d'affichage).
+Nouveau domaine `sheet/js/adjustment/` (namespace `ADJUSTMENT`, ajouté au
+`.jshintrc`) : `CHARACTER.Adjustment` (entrée générique : `kind`, `value`,
+`explanation` — uuid `kind__value`, dédupliqué par kind+value, hérite
+`OBJECT.InterfaceHtml`) et `CHARACTER.Adjustments` (conteneur, enfant du
+personnage, save clé `adjustments`, accès `getEntriesByKind` /
+`getValuesByKind`). Les catégories = `ADJUSTMENT.KINDS` écrit à la main :
+`language`, `sense`, `speed`, `feat`, `mastery`, `note` (la liste grandit
+sans toucher au modèle ; `characteristic_boost` attend la décision). Pas
+d'interrupteur (décision utilisateur) : sections par catégorie + retrait
+par « × ». Fenêtre `CHARACTER.AdjustmentsWindow`
+(`adjustments_window.js`, NAME `adjustments_sheet`, entre Dons et
+Progression) : une section par catégorie, entrées = valeur + explication
+libre, ligne d'ajout = deux inputs + bouton (les valeurs ne s'embarquent
+JAMAIS en dur : le bouton les lit de sa ligne au clic — les explications
+portent des apostrophes). Événements `event__adjustment__add`/`remove`
+(param__adjustment__kind/value/explanation, la valeur du retrait lue du
+`data-value`). Le `ManualEntries` du Round 36 est SUPPLANTÉ et supprimé
+(aucun save réel ne porte extra_*) : la zone du Général devient LECTURE
+SEULE et CONSOMME `getValuesByKind` (langues, sens, modes de vitesse — la
+marche de la race en tête). Scénarios : `scenario_ajustements.js` (RESET +
+Elfe : 6 sections, ajout langue avec explication + save + affichage
+Général en lecture + retrait, save → load), `scenario_onglets`/`reset`
+(6 fenêtres + libellé Ajustements), la zone d'ascendance asserte
+l'absence de contrôles d'édition. PIÈGE trouvé au run : la liste d'onglets
+de `scenario_reset` n'est PAS une liste de libellés — ce sont les onglets
+attendus DÉSACTIVÉS sur page vide ; Ajustements n'y figure pas (l'onglet
+reste actif sans pré-condition, comme Dons — verrouillé par
+`[ONGLETS] Ajustements = actif sur page vide`).
 
 ### Style, commentaires, nommage
 

@@ -98,14 +98,14 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN 10] cinq prises → niveau 10, état co
         // aussi — le contenu peut légitimement tenir, l'assertion porte la
         // visibilité, pas le débordement
         let _panes                           = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.equal( _panes.length, 1, "Il ne devrait exister qu'un panneau Passage de niveau (les resets vident la zone de contenu), obtenu : " + _panes.length );
+        TEST.ASSERT.equal( _panes.length, 1, "Il ne devrait exister qu'un panneau Progression (les resets vident la zone de contenu), obtenu : " + _panes.length );
         let _active_pane                     = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']:not(.gs-hidden)" );
-        TEST.ASSERT.notNull( _active_pane, "Le panneau Passage de niveau actif devrait etre rendu (sans la classe gs-hidden)" );
+        TEST.ASSERT.notNull( _active_pane, "Le panneau Progression actif devrait etre rendu (sans la classe gs-hidden)" );
         if ( !_active_pane ) {
             return;
         }
         let _levelup_window                  = _active_pane.querySelector( ".level-up-window" );
-        TEST.ASSERT.notNull( _levelup_window, "La fenêtre Passage de niveau devrait etre rendue dans son panneau actif" );
+        TEST.ASSERT.notNull( _levelup_window, "La fenêtre Progression devrait etre rendue dans son panneau actif" );
         if ( !_levelup_window ) {
             return;
         }

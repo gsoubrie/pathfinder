@@ -5291,3 +5291,28 @@ DON.RACE = {
         ]
     ]
 };
+
+/**
+ * Ancestry feats open to the character: the ancestry carries its name in
+ * its feats traits, the level must be low enough. The prerequisites stay
+ * unparsed (varied prose, not only skill ranks): every feat of the
+ * ancestry at an allowed level is offered.
+ *
+ * @param {string} race_name  Ancestry name, ex: "Elfe"
+ * @param {number} max_level  Level of the line choosing the feat
+ * @returns {Array}           [ { name } ] of the available feats
+ */
+DON.getAvailableAncestryFeats = function ( race_name, max_level ) {
+    let to_return = [];
+    let feats     = DON.RACE.ENUM[ 0 ];
+    for ( let i = 0, _size_i = feats.length; i < _size_i; i++ ) {
+        if ( feats[ i ].traits.indexOf( race_name ) === -1 ) {
+            continue;
+        }
+        if ( parseInt( feats[ i ].level, 10 ) > max_level ) {
+            continue;
+        }
+        to_return.push( { "name": feats[ i ].name } );
+    }
+    return to_return;
+};

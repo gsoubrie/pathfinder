@@ -3,7 +3,7 @@
  * Scenario : ONGLETS
  * Le groupe d'onglets de la fiche sur une page vide : nombre, onglet actif
  * (objet, DOM, style), libelles, etats desactives (Caracteristiques sans
- * ascendance, Niveau et Passage de niveau sans classe), clic sur Dons
+ * ascendance, Niveau et Progression sans classe), clic sur Dons
  * (toujours actif) et retour sur l'onglet general.
  * Les clics Caracteristiques et Niveau se trouvent respectivement dans les
  * scenarios ASCENDANCE et CLASSE : ces onglets sont inactifs sans pre-requis.
@@ -15,9 +15,9 @@ TEST.RUNNER.register( "[ONGLETS] nombre = 5", function () {
     if ( !_character || !_character.windows ) {
         return;
     }
-    TEST.ASSERT.equal( _character.windows.contents.length, 5, "Le groupe devrait contenir 5 fenetres, obtenu : " + _character.windows.contents.length );
+    TEST.ASSERT.equal( _character.windows.contents.length, 6, "Le groupe devrait contenir 6 fenetres, obtenu : " + _character.windows.contents.length );
     let _windows_dom                     = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
-    TEST.ASSERT.equal( _windows_dom.length, 5, "Les 5 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
+    TEST.ASSERT.equal( _windows_dom.length, 6, "Les 6 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
@@ -69,7 +69,8 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
         { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
         { name: CHARACTER.GiftsWindow.NAME,          label: "Dons" },
-        { name: CHARACTER.LevelUpWindow.NAME,        label: "Passage de niveau" }
+        { name: CHARACTER.AdjustmentsWindow.NAME,    label: "Ajustements" },
+        { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
     ];
     for ( let i = 0, _size_i = _expected_labels.length; i < _size_i; i++ ) {
         let _expected                     = _expected_labels[ i ];
@@ -119,13 +120,13 @@ TEST.RUNNER.register( "[ONGLETS] Niveau = disabled sur page vide", function () {
     } );
 } );
 
-TEST.RUNNER.register( "[ONGLETS] Passage de niveau = disabled sur page vide", function () {
+TEST.RUNNER.register( "[ONGLETS] Progression = disabled sur page vide", function () {
     let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Passage de niveau devrait exister" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
     if ( !_tab ) {
         return;
     }
-    TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Passage de niveau devrait porter l'etat disabled" );
+    TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression devrait porter l'etat disabled" );
     let _style                           = getComputedStyle( _tab );
     TEST.ASSERT.ok( parseFloat( _style.opacity ) < 1, "L'onglet desactive devrait apparaitre grise (opacity < 1), obtenu : " + _style.opacity );
     TEST.ASSERT.equal( _style.pointerEvents, "none", "Un onglet desactive ne devrait pas intercepter les clics (pointer-events none), obtenu : " + _style.pointerEvents );
@@ -133,6 +134,20 @@ TEST.RUNNER.register( "[ONGLETS] Passage de niveau = disabled sur page vide", fu
         let _character                   = CONTROLLER.Character.current_character;
         TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GeneralWindow.NAME, "Le clic sur un onglet desactive ne devrait rien changer (fenetre active)" );
     } );
+} );
+
+TEST.RUNNER.register( "[ONGLETS] Ajustements = actif sur page vide", function () {
+    // L'édition du personnage ne dépend d'aucune pré-condition : l'onglet
+    // reste actif même sans ascendance ni classe (comme Dons)
+    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Ajustements devrait exister" );
+    if ( !_tab ) {
+        return;
+    }
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Ajustements ne devrait pas porter l'etat disabled sur page vide" );
+    let _style                           = getComputedStyle( _tab );
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Ajustements ne devrait pas etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Ajustements devrait intercepter les clics, obtenu : " + _style.pointerEvents );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] clic Dons → actif = Dons", function () {
