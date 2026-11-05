@@ -17,6 +17,7 @@ CHARACTER.Current = function () {
     this.levels_history    = new CHARACTER.LevelsHistory();
     this.ancestry_history  = new CHARACTER.AncestryHistory();
     this.adjustments       = new CHARACTER.Adjustments();
+    this.stuffs            = new CHARACTER.Stuffs();
     this.gifts             = new CHARACTER.Gifts();
     this.masteries         = new CHARACTER.Masteries();
     this.children          = new OBJECT.InterfaceContainer();
@@ -28,6 +29,7 @@ CHARACTER.Current = function () {
     this.children.add( this.levels_history );
     this.children.add( this.ancestry_history );
     this.children.add( this.adjustments );
+    this.children.add( this.stuffs );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -137,6 +139,18 @@ CHARACTER.Current.prototype = {
             // input of the entry follows in place and keeps its focus
             case "event__adjustment__edit_explanation":
                 this.adjustments.doActionAfter( event_name, params );
+                break;
+            case "event__stuff__add":
+            case "event__stuff__remove":
+                this.stuffs.doActionAfter( event_name, params );
+                // The inventory refreshes with its entries
+                this.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            // The worn toggle and the quantity live on their entry : the
+            // window routes and follows its display in place
+            case "event__stuff__toggle_worn":
+            case "event__stuff__edit_quantity":
+                this.stuffs.doActionAfter( event_name, params );
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -256,6 +270,9 @@ CHARACTER.Current.prototype = {
             case "adjustments":
                 this.adjustments.updateData( value );
                 break;
+            case "stuffs":
+                this.stuffs.updateData( value );
+                break;
             case this.player.getKey():
                 this.player.setValue( value );
                 break;
@@ -350,6 +367,12 @@ CHARACTER.Current.prototype = {
      */
     getAdjustments: function () {
         return this.adjustments;
+    },
+    /**
+     * @returns {CHARACTER.Stuffs}
+     */
+    getStuffs: function () {
+        return this.stuffs;
     },
     getHealth         : function () {
         return this.health;

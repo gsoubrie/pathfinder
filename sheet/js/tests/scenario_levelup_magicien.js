@@ -299,19 +299,28 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
         }
         let _row_counter_after            = _row_after.querySelector( ".gs-warnings-counter" );
         TEST.ASSERT.notNull( _row_counter_after, "La ligne devrait toujours porter son counter de warning apres bascule" );
-        if ( _row_counter_after ) {
+        if ( !_row_counter_after ) {
+            return;
+        }
+        // Le badge data-number s'écrit en dérbauchée au bout de la chaîne
+        // phase → compteurs : convergence attendue, jamais de lecture à
+        // date fixe (un onglet en arrière-plan throttle les timers)
+        return TEST.waitCounterValue( _row_counter_after, "" ).then( function () {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "", "Le counter de la ligne validée devrait etre vide, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne validée devrait etre masque, obtenu : " + getComputedStyle( _row_counter_after ).display );
-        }
-        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
-        let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
-        TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
-        if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count + _ancestry_pending_count ) + " apres la première validation (compétences supplémentaires + don et langues d'ascendance encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
-        }
-        let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
-        TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
+            let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
+            TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+            let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+            TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
+            if ( !_counter ) {
+                return;
+            }
+            return TEST.waitCounterValue( _counter, "" + ( 4 + _additional_count + _ancestry_pending_count ) ).then( function () {
+                TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count + _ancestry_pending_count ) + " apres la première validation (compétences supplémentaires + don et langues d'ascendance encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+                let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
+                TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
+            } );
+        } );
     } );
 } );
 
@@ -439,12 +448,17 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance
         TEST.ASSERT.notOk( _warning.classList.contains( "visible" ), "Le warning global ne devrait plus porter la classe visible" );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
-        if ( _counter ) {
+        if ( !_counter ) {
+            return;
+        }
+        // Le badge data-number s'écrit en dérbauchée : convergence attendue,
+        // jamais de lecture à date fixe (onglet en arrière-plan)
+        return TEST.waitCounterValue( _counter, "" ).then( function () {
             TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "", "Le counter de l'onglet devrait etre vide quand tout est validé, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _counter ).display, "none", "Le counter devrait etre masque quand tout est validé, obtenu : " + getComputedStyle( _counter ).display );
-        }
-        let _title                        = _pane.querySelector( ".level-up-block-title" );
-        TEST.ASSERT.notNull( _title, "Le titre du bloc du niveau 1 devrait etre rendu" );
+            let _title                        = _pane.querySelector( ".level-up-block-title" );
+            TEST.ASSERT.notNull( _title, "Le titre du bloc du niveau 1 devrait etre rendu" );
+        } );
     } );
 } );
 

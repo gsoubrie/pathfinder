@@ -297,12 +297,23 @@ lignes un jour), et le warning global de la fenêtre.
 ### Scénarios de test (chaîne séquentielle, ordre = ordre des balises)
 
 La chaîne du levelup court EN DERNIER dans tests.html : le run se termine
-sur son état final (Magicien niveau 10), l'utilisateur reprend la feuille à
-cet état pour tester la frontière à la main. Les suites indépendantes
-(page_vide, onglets, ascendance, classe, multiclasse, niveaux,
-niveaux_multiple, reset, caracteristiques, caracteristiques_classe,
-classe_prime, classe_entree, archetype) courent avant : chacune se RESET
-elle-même, aucune ne dépend d'une autre.
+sur son état final (Magicien niveau 10 TOTALEMENT configuré, rechargé
+depuis le save JSON — `scenario_save_complet.js` court en tout dernier),
+l'utilisateur reprend la feuille à cet état pour vérifier l'affichage
+rechargé et tester la frontière à la main. Les suites indépendantes
+(page_vide, onglets, ascendance, ajustements, caracteristiques,
+caracteristiques_classe, classe_prime, classe_entree, archetype,
+save_fichier, stuffs) courent avant : chacune se RESET elle-même.
+PIÈGE découvert au Round 45 : classe → multiclasse → niveaux →
+niveaux_multiple forment une SOUS-CHAÎNE SANS RESET — scenario_classe
+hérite de l'Elfe laissé par la suite précédente (multiclasse porte
+littéralement « Pre-condition : fin du scenario CLASSE, race Elfe
+posée »), scenario_niveaux hérite du multiclasse : une suite qui RESET
+entre ajustements et classe casse TOUTES leurs pré-conditions (entrées
+de classe non rendues, onglet Progression resté désactivé — Round 39 :
+Progression est gated par l'ASCENDANCE, pas par la classe). Une suite
+qui se reset se place soit avant ajustements, soit après la
+sous-chaîne.
 
 Les scénarios s'enchaînent sur le même personnage, chacun repart de l'état
 laissé par le précédent (fin de `scenario_levelup_magicien` : Elfe + Magicien
@@ -352,50 +363,59 @@ niveau 5, "expertise en réflexes" validée) :
    prises → niveau 10, entrées 6-10 rendues, validations du niveau 3
    conservées aux rebuilds ; save → load restaure les dix entrées et le rang
    expert d'Arcanes.
+12. `scenario_save_complet.js` — fin de run EN DERNIER (demande utilisateur :
+   vérifier le load JSON sur un personnage complet) : toutes les lignes en
+   attente se valident par les gestes réels (interrupteur, première option
+   du sélecteur, re-requête à chaque itération car les options bougent via
+   `sync_lines`), puis le save part au format JSON (`getSaveFileContent`,
+   loggué en console pour l'utilisateur), la page est RESETee et RECHARGEE
+   depuis ce JSON (injection script + `init( uuid )`) : dix entrées, zéro
+   ligne en attente au DOM, école SELECTED, Réflexes experte, re-save
+   deepEqual au JSON d'origine. Le run se termine sur la feuille rechargée.
 
 ### État au moment de la pause
 
-- **Non commis** (depuis le commit `bbac50c review code 4` — "adding tab
-  progress", état "plus d'erreur" de la journée, Rounds 30-39 : onglet
-  Progression, dons/langues d'ascendance, PV de départ, zone Général
-  ascendance, onglet Ajustements avec ses sélecteurs, gating de
-  Progression par l'ascendance) : le working tree contient les Rounds
-  40-42 :
-  - Round 40 : ligne de FILTRE en tête de chaque liste du composant
-    `SingleSelectFromData` (`filterOptions`, présentation pure, pattern
-    shinken-list STRING_INPUT sans le framework Shinken).
-  - Round 41 : ENTRÉE sur le filtre — `setFilterEnterEventName` (lib) ;
-    Ajustements : valeur canonique si le filtre matche, texte brut sinon.
-  - Round 42 : l'Entrée ne crée RIEN (elle pose la valeur en attente
-    comme un pick, `_pickValue` partagé, le bouton + seul crée),
-    l'explication devient MODIFIABLE sur chaque entrée
-    (`event__adjustment__edit_explanation`, input discret, liste
-    personnage du contrôleur, pas de re-render), `computeTitle` affiche
-    une valeur hors liste (fix "Quenya"), FOCUS sur le filtre à
-    l'ouverture du sélecteur (`toggleState`), pièges documentés (le
-    data-name réservé au champ d'explication de la ligne d'ajout, la
-    course du badge de compteur).
-  - Correctif de course : le badge du compteur se lit après
-    `TEST.wait( 300 )` (scenario_dons test 2, piège au Round 41).
+- **ÉQUIPEMENT livré et validé** (run utilisateur OK, Rounds 45-49) :
+  onglet avec barre «+» en tête ouvrant la POPUP d'ajout
+  (CHARACTER.StuffAddPopup : type, modèle, commentaire, Valider ;
+  le filtre + Entrée des Rounds 40-41 conservés), sections par type avec
+  info inline (Dégâts / CA bonus), encombrement par entrée + total dans
+  la barre, popup objet enrichie des champs scrapés du type,
+  commentaire au domaine + infobulle. Les Rounds 46-49 documentent le
+  détail et les pièges (fallthrough partagé du contrôleur, close() du
+  slot edition_popup, constructeur à nouveau paramètre, apostrophes
+  dans les sélecteurs par valeur, popup.css charge après les feuilles
+  de fenêtre, badges de compteur débouncés vs throttling d'onglet en
+  arrière-plan).
+- **Le rapport complet passe chez l'utilisateur Y COMPRIS les badges
+  de compteur** (Round 49) : TEST.waitCounterValue remplace les
+  lectures à date fixe (règle : TOUTE lecture de badge perdue à date
+  fixe se convertit ; un wait fixe ne garantit rien, un onglet en
+  arrière-plan throttle les timers, le headless à budget virtuel ne
+  voit jamais la course).
 - Modèle : TOUTES les lignes à choix du passage de niveau rendent le
-  composant `COMPONENT.SingleSelectFromData` (école, thèse, compétences
-  supplémentaires, améliorations, dons — le "?" par option réservé aux
+  composant SingleSelectFromData (école, thèse, compétences
+  supplémentaires, améliorations, dons — le «?» par option réservé aux
   dons) ; les lignes simples restent des interrupteurs sans texte ;
   seules les capacités validées alimentent les calculs (collecte par
   événement, boîtes noires).
-- Les dons se choisissent : `DON.getAvailableSkillFeats` (niveau +
-  prérequis parsés) / `DON.getAvailableClassFeats` (trait de classe) ;
-  le "?" ouvre la popup "feat" par nom (`DON.getFeatInformation`) ; le
-  choix d'un don sur plusieurs lignes peut encore dupliquer le même don
-  (à trancher — voir Round 23).
-- La chaîne de tests court EN DERNIER dans tests.html : le run se termine
-  sur le Magicien niveau 10, l'utilisateur reprend la feuille à cet état.
-- Syntaxe validée par Node sur tous les fichiers touchés. DERNIER RUN de
-  l'utilisateur : tout OK sauf [AJUSTEMENTS] (header "Quenya" tombé sur
-  `--` et SAVE cassé par l'arrêt du test avant nettoyage) — corrigé par
-  `computeTitle` + scénario réaligné. **Le run qui reste à lancer**
-  valide le fix Quenya, l'explication éditable, le focus sur le filtre
-  (test 1 ajustements) et le wait 300 du badge dons.
+- Les dons se choisissent : DON.getAvailableSkillFeats (niveau +
+  prérequis parsés) / DON.getAvailableClassFeats (trait de classe) ;
+  le «?» ouvre la popup feat par nom (DON.getFeatInformation) ; le
+  choix d'un don sur plusieurs lignes peut encore dupliquer le même
+  don (à trancher — voir Round 23).
+- La chaîne de tests court EN DERNIER dans tests.html : le run se
+  termine sur le Magicien niveau 10 TOTALEMENT configuré rechargé
+  depuis le save JSON (scenario_save_complet.js en dernier),
+  l'utilisateur reprend la feuille à cet état pour vérifier
+  l'affichage rechargé.
+- Décisions équipement EN ATTENTE : le total d'encombrement compte
+  TOUT l'inventaire (porté/worn à trancher avec le chantier CA
+  phase 2), le commentaire ne s'édite qu'à la création (pas d'édition
+  en place), le «nom spécifique» d'un type sans dataset (autres
+  objets aujourd'hui dataset-only) reste à décider.
+- Syntaxe validée par Node sur tous les fichiers touchés ; dernier
+  run utilisateur : TOUT OK (Rounds 45-49 validés).
 - `constant_class.js`, `constant_gift_*.js` et
   `constant_skill_actions.js` sont des données scrapées : jamais
   d'édition manuelle — les corrections passent par
@@ -436,9 +456,12 @@ niveau 5, "expertise en réflexes" validée) :
    structuré. Le mécanisme est prêt : le personnage route
    `event__get__rank_contributions` à ses domaines, ajouter race/dons au
    case suffit.
-5. ~~Écriture des fichiers de save~~ — restaure (Round 18) :
-   `CONTROLLER.Character.save()` télécharge `let <uuid> = <getDataToSave>;`
-   en `.js` (via `SERVICE.DOM`, plus de `console.log`). Reste à re-générer un
+5. ~~Écriture des fichiers de save~~ — restaure (Rounds 18, 43) :
+   `CONTROLLER.Character.getSaveFileContent()` est le propriétaire UNIQUE du
+   format (`let <uuid> = <json>;`), `save()` logge à la console pour le
+   moment (téléchargement Blob commenté, à rebrancher sur
+   `getSaveFileContent`), et le round-trip complet est verrouillé par
+   `scenario_save_fichier.js`. Reste à re-générer un
    save réel : action du joueur dans son navigateur, fichier à poser dans
    `sheet/save/` + balise `<script>` dans index.html.
 6. ~~Renommage anglais des identifiants français (règle ci-dessus)~~ — fait
@@ -1045,6 +1068,278 @@ clic sur le header. La fermeture au clic dehors passe par askHidePopup
 (chaîne de clics), un focus programmatique ne referme jamais la liste.
 Verrouillé par [AJUSTEMENTS] test 1 : clic header → liste ouverte
 (data-state-selector 1) + activeElement = input du filtre.
+Round 43 = test du save PAR FICHIER (demande utilisateur, suite indépendante
+`scenario_save_fichier.js` avant la chaîne levelup) : les scénarios
+existants ne testaient que la relecture EN MÉMOIRE
+(`new CHARACTER.Current()` + `updateData( saved )`), jamais le vrai chemin
+de fichier. `CONTROLLER.Character.init( uuid )` accepte un uuid explicite
+(fallback sur `?id=` — c'est le boot réel de `index.html?id=<uuid>`), et
+`TEST.RESET.sheet( character_uuid )` le traverse : RESET + `init( uuid )` =
+boot sur un save sans recharger la page. `CONTROLLER.Character.getSaveFileContent()`
+est le propriétaire unique du texte de fichier `let <uuid> = <json>;`
+(`JSON.stringify` compact) — le futur téléchargement le consomme, `save()`
+reste sur `console.log` pour le moment. [SAVE FICHIER] test 1 : état riche
+(RESET, Elfe, Magicien 5, École du mentalisme, expertise en réflexes
+validée, ajustement langue "Épreuve du pont") → le contenu de fichier
+asserte son format (préfixe `let <uuid> = `, point-virgule final, JSON
+parse et deepEqual au `getDataToSave`). Test 2 : le contenu est INJECTÉ
+COMME BALISE SCRIPT dans la page — mécanique identique à un fichier de
+`sheet/save/` chargé par index.html (le `let` d'un script est visible du
+`eval` de `SERVICE.DATA.loadDataByUUID`) — puis rechargement par la voie
+réelle et assertions uuid/niveau/historique/école (phase SELECTED au
+DOM)/Réflexes experte/explication libre, plus la feuille VIVANTE (bascule
+expertise off puis on → Réflexes Q puis E). PIÈGE : un `let` ne se rejoue
+pas — le script n'est injecté QU'UNE FOIS par uuid (rejouer = SyntaxError,
+les scénarios n'invoquent jamais la globale directement, tout passe par
+`init( uuid )`). PIÈGE : `event__data_loaded__done` part de
+`CHARACTER.Current.init` (character.js) — la voie réelle l'émet seule,
+seuls les scénarios en mémoire qui contournaient `init` l'ajoutaient à
+la main.
+Round 44 = vérification UTILISATEUR du load JSON sur un personnage COMPLET
+(demande utilisateur : « fais moi un personnage totalement configuré,
+garde la sauvegarde au format JSON, reset la page et envoie le JSON pour
+voir l'affichage ») : nouveau scénario `scenario_save_complet.js`, EN
+DERNIER dans tests.html (fin de chaîne, il charge l'état laissé par
+scenario_levelup_niveau10). Test 1 : toutes les lignes en attente de
+l'onglet Progression se valident par les gestes réels — helper
+`TEST_saveCompletValidateOne` : première ligne en phase RUNNING trouvée,
+interrupteur `.level-up-row-toggle` pour la ligne simple, PREMIÈRE OPTION
+`data-value` non vide du composant pour la ligne à choix, une ligne par
+itération avec `TEST.wait()` (les options des lignes de don bougent à
+chaque choix via `event__level_up__sync_lines`, on RE-REQUÊTE tout à
+chaque itération, garde à 300) — PREMIER RUN : la boucle s'arrêtait sur
+la première ligne à choix sans option (19 restées en attente), elle court
+maintenant en POINT FIXE : une ligne sans option est SAUTÉE et rediscutée
+au tour suivant (ses options peuvent s'ouvrir quand les validations
+montent les rangs des dons), arrêt quand plus rien n'est actionnable, et
+les lignes restées bloquées sont LISTÉES par slot key + label dans le
+message d'échec et la console GSOU ; le scoped `.level-up-row` évite le toggle de bloc
+(`.level-up-level-toggle`, une autre classe). Le scénario délègue le
+CHOIX à la première option dispo (pas de valeur canonique) : le don dupliqué
+sur deux lignes reste possible (point ouvert Round 23, visible dans
+l'affichage final). Test 2 : le save part au format JSON
+(`getSaveFileContent`, loggué en console GSOU pour l'utilisateur), la page
+est RESETee puis RECHARGEE depuis ce JSON (injection balise script +
+`TEST.RESET.sheet( uuid )`) — assertions uuid/niveau 10/dix
+entrées/Réflexes experte/zéro ligne en attente au DOM/école SELECTED avec
+sa valeur/RE-SAVE deepEqual au JSON d'origine (round-trip stable) — le run
+se termine sur la feuille rechargée, l'utilisateur vérifie l'affichage à
+la main.
+SECOND RUN (le point fixe isole la cause) : il restait exactement deux
+lignes `[ancestry_feat_1 = don ancestral]` vides — ce sont des lignes DE
+BLOC DE CLASSE (slot positionnel `type + "_" + p`, Round 16), pas les
+sections d'ascendance (`ancestry_feat` sans index) : les tableaux de
+classe scrapés rappellent « don ancestral » aux niveaux 5 et 9,
+`detectType` en fait des lignes `ancestry_feat` de classe... jamais
+remplies — `_syncFeatLinesOptions` de l'entrée de classe ne connaît que
+`skill_feat` et `class_feat` : ligne jamais validable, warning permanent,
+et une éventuelle option poserait un DOUBLE choix du don (la section
+d'ascendance du même palier le porte déjà). CORRECTIF (PF2 : les dons
+ancestraux aux niveaux 5/9/13/17 sont des gains de NIVEAU DE PERSONNAGE,
+propriété des sections palier de l'AncestryHistory, Round 30) : le
+`buildSkills` de l'entrée de classe SAUTE les parts de type
+`ancestry_feat` — la ligne de rappel du tableau de classe ne se construit
+pas. Aucun scénario ne comptait ces lignes (les compteurs aux niveaux 5+
+s'assertent en deltas, le magicien n'asserte un total qu'au niveau 1).
+Règle qui en découle : ne JAMAIS remplir une ligne de classe
+`ancestry_feat` — le type existe pour `detectType` et les sections
+d'ascendance, le bloc de classe l'ignore.
+TROISIÈME RUN : le seul rouge restant était l'école attendue (« École du
+mentalisme ») alors que la chaîne valide l'école génériquement (test 5 du
+magicien : première option → « École de forme protéenne », son choix
+explicite est annulé par son test 4 de retour à l'option vide) ; le
+scénario lit maintenant la valeur sélectionnée AVANT le reset
+(`getSelectedValue()` de la ligne école) et la compare à l'affichage
+rechargé — règle : une assertion de scénario ne FIGE JAMAIS une valeur
+que la chaîne construit par « première option dispo », l'assert suit
+l'état, pas une supposition.
+Round 45 = onglet ÉQUIPEMENT (demande utilisateur, après validation du
+save complet). Décisions actées : place APRÈS Général dans la navigation
+(Général, Équipement, Caractéristiques, Niveau, Dons, Ajustements,
+Progression), PÉRIMÈTRE 1 = inventaire + sections posées manuellement
+avec coche « Porté » SANS calcul (la phase 2 — CA, jets d'attaque,
+croisement des maîtrises attack/defense — attend un chantier de calcul ;
+le scrap porte DÉJÀ les champs : les armes « Dégâts »/« Mains »/
+« Catégorie », les armures « CA bonus »/« Mod. de dex. max. »/« Force
+requise »), la QUANTITÉ ne vit QUE sur les consommables (décision
+utilisateur : potion de soins oui, épée longue non) — le trait
+« Consommable » décide (données, survit au re-scrap), le + EMPILE un
+consommable possédé et NE FAIT RIEN sur un objet déjà là. Domaine
+`sheet/js/stuffs/` : `constant_stuffs.js` est le dataset scrapé
+(3309 entrées) AMORCÉ du wrapper `var STUFFS = [ ... ];` (l'amorce est
+le câblage, le prochain re-scrap doit l'émettre), `constant-stuff.js`
+(namespace `STUFF`, KINDS weapon/armor/other + accessors
+`STUFFS.getKindOptions` — les sections se remplissent PAR LE DOMAINE :
+armes = entrées avec « Dégâts », armures = entrées avec « CA bonus »,
+autres = le reste —, `isConsumable` par trait, `getItemInformation`
+pour la popup item), `stuff.js` (entrée : kind, value, quantity, worn —
+uuid `kind__value`, la quantité des non-consommables reste 1), `stuffs.js`
+(conteneur enfant du personnage, save clé `stuffs`, `addStuff` empile les
+consommables). Fenêtre `StuffsWindow` (NAME `stuffs_sheet`, label
+« Équipement », actif sur page vide sans pré-condition) : une section
+par kind avec sélecteur + filtre + Entrée (pattern Ajustements), MAIS
+l'Entrée ne valide qu'un nom EXISTANT du dataset — PAS de création hors
+liste (l'équipement vient du scrap, jamais de la saisie). Chaque entrée :
+nom, « ? » → popup `event__show_information__item` (renderer item
+existant, cache par uuid `stuff__<nom>`), quantité modifiable en place
+si consommable (change → domaine, AUCUN re-render : rebuild des options
+des 3 sections trop coûteux par frappe), coche « Porté » mise à jour en
+place par data attribute (`data-worn` sur l'entrée, jamais une classe),
+retrait « × ». Routage : les événements de sélecteur + porté + quantité
+vivent dans la liste FENÊTRES du contrôleur (le + assemblé par la
+fenêtre pose `event__stuff__add` blanc au personnage par le plat), le
+popup item dans la liste POPUPS de Main. `sheet/css/sheet/sheet_stuffs.css`
+scopé `.stuffs-window` (stylage sélecteur copié des Ajustements).
+Scénarios : `scenario_stuffs.js` (suite indépendante : 3 sections + page
+vide, épée longue par Entrée sans quantité + popup + porté en style
+calculé, consommable empiré au + + quantité modifiée + save → load +
+retrait), scenario_onglets passe à 7 fenêtres + un test d'ORDRE de
+navigation. PREMIER RUN (rouge, deux leçons) : (1) la suite était placée
+entre ajustements et classe — elle RESET et laisse la race VIDE, cassant
+toutes les pré-conditions de la sous-chaîne classe/multiclasse/niveaux
+(iterée ci-dessus, la suite se place désormais APRÈS scenario_archetype)
+; (2) les dispatches directs `CONTROLLER.Main.doActionAfter` du scénario
+divergeaient du geste réel — le scénario passe maintenant par le clavier
+du filtre (frappe + Entrée sur l'input du sélecteur ouvert, même parcours
+que l'onglet Ajustements), et les messages d'échec embarquent le
+diagnostic des trois sections (libellés courants des sélecteurs).
+DEUXIÈME RUN : le filtre du test tapait « epée longue » SANS ACCENT — la
+comparaison du filtre est insensible à la casse mais PAS aux
+diacritiques, aucune option ne matchait (corrigé : la frappe de test
+porte les accents, comme un utilisateur qui recopie le nom). TROISIÈME
+RUN : une popup laissée RUNNING pollue TOUTES les suites suivantes —
+l'assertion d'ouverture d'une popup est `.popup-overlay[data-current-
+phase='RUNNING']` (la popup refermée RESTE au DOM, masquée — `body >
+.popup` est le popup D'ÉDITION, un autre animal), et un scénario qui
+meurt avant sa fermeture empoisonne chaque assert popup du run (les
+obtenus affichaient « Épée longue » dans les popups maîtrises, actions,
+dons). DOUBLE correctif : le scénario stuffs asserte la popup par
+l'overlay RUNNING (puis la referme par son uuid), et
+`TEST.RESET.sheet` REFERME toutes les popups d'information par l'API
+avant de vider (une suite qui meurt ouverte ne contamine plus les
+suivantes) — règle : toute popup ouverte par un test SE REFERME, on
+asserte par l'overlay RUNNING, jamais par `body > .popup`.
+Round 46 = QUATRIÈME RUN stuffs (l'ECHEC résiduel du test consommable,
+diagnostic mené en headless Edge depuis l'agent — le run complet se
+reproduit en `msedge --headless=new --virtual-time-budget=180000
+--dump-dom file:///...tests.html`, le rapport vit dans le `#test-report`
+du DOM dumpé) : crash `reading 'length'` au save → load en MÉMOIRE du test
+consommable. RACINE : c'est le PREMIER scénario qui relit le save d'un
+personnage SANS ascendance — le save porte `"race": { "value": "" }`,
+`RACES.Race.setValue` faisait `Object.assign( {}, RACES.getDataByName( "" )`
+= `{}` puis `available_legacies.init( data_from_race[ "legacies" ] )` avec
+`undefined` → `LEGACIES.Legacies.init` crashe sur `data.length`. Toutes
+les autres relectures de la chaîne (save fichier, save complet,
+compétences) chargent un Elfe, le cas "feuille vide relue" n'avait jamais
+couru. CORRECTIF : `RACES.Race.setValue` garde sur `getDataByName` (émetteur
+réel : un save légitime à valeur vide) — rien à distribuer sans race
+posée, la relecture d'une feuille vide reste vide, `document.body.dataset.
+isRaceSet` se pose sur les deux branches. AU PASSAGE : `cleanMessage` du
+runner splitait `"\\n"` (backslash littéral, jamais un saut de ligne) —
+la stack « après le @ » du rapport était TOUJOURS vide depuis le début,
+le rapport porte enfin fichier + ligne du crash (split sur `"\n"`), verrou
+de la prochaine session de diagnostic.
+Round 47 = ÉQUIPEMENT v2 (demande utilisateur : notion
+d'ENCOMBREMENT + un ENDROIT UNIQUE d'ajout, armes et armures d'abord
+pour valider le principe). Barre d'ajout en tête de fenêtre
+(`.stuffs-add-bar`) : sélecteur de TYPE (STUFF.KINDS, défaut = Armes,
+le type posé SURVIT aux ajouts en `pending_values`) → sélecteur de
+MODÈLE qui suit le type (`STUFFS.getKindOptions`, options du dataset)
+→ le + SEUL crée ; les trois sections (Armes, Armures, Autres objets)
+ne portent PLUS leur ligne d'ajout, elles affichent leurs entrées.
+Événements `event__stuff__toggle_type_selector` / `event__stuff__pick_type`
+(composant type, liste FENÊTRES du contrôleur), le pick de type
+réinitialise le modèle en attente (un modèle du type précédent ne
+peut pas atterrir dans le nouveau). Les entrées portent leur INFO
+INLINE DE TYPE (KINDS `info_field`, clé scrapée : « Dégâts » pour une
+arme, « CA bonus » pour une armure, `.stuffs-entry-stat`), leur bulk
+(`.stuffs-entry-bulk`, texte brut du scrap, « — » si absent), le
+« ? » (popup item ENRICHIE : les champs de type scrapés
+`KINDS.detail_fields` rendus en lignes de stats — Dégâts/Mains/
+Catégorie/Groupe pour une arme, CA bonus/Mod dex/Pénalités/Force
+requise pour une armure), la quantité des consommables, « Porté » et
+« × » comme avant. ENCOMBREMENT : `STUFFS.parseBulk` (PF2 : « L » =
+0,1, les 4 entrées scrapées sans bulk pèsent 0), `getEntryBulk`
+(consommables à l'unité), le TOTAL vit à côté de la barre
+(`.stuffs-bulk-total`, décimale française, arrondi au dixième) ;
+le re-render complet des options coûte trop cher par frappe : le
+total se met à jour EN PLACE aux changements de quantité
+(`event__stuff__edit_quantity`), le retrait passe par le refresh
+ordinaire. DÉCISIONS EN ATTENTE (flaguées à l'utilisateur) : le total
+compte TOUT l'inventaire aujourd'hui (porte/worn à trancher avec le
+chantier CA), et le « nom spécifique » d'un type sans dataset
+(l'utilisateur : « suivant le type je peux avoir le choix ou mettre
+un nom spécifique ») reste à décendre — les autres objets restent
+dataset-driven sans saisie libre (règle Round 45). PIÈGE (trouvé au
+run) : les noms d'objets portent des APOSTROPHES (« Armure
+d'écailles ») — un sélecteur par valeur en quotes simples est INVALIDE
+et crashe silencieusement le handler inline (« Script error » au
+window.onerror) : le sélecteur par valeur s'emballe TOUJOURS en
+guillemets doubles via `JSON.stringify( value )` — corrigé dans le
+handler « Porté » de la fenêtre ET dans les requêtes du scénario.
+Scénario stuffs réaligné : 4 tests (page = barre unique + 3 sections
+vides + encombrement 0 ; épée longue par Entrée = entrée armes +
+dégâts inline + popup + porté ; armure par CHANGEMENT DE TYPE =
+entrée armures + CA bonus inline + porté + options du modèle qui
+suivent le type ; consommable par type autres objets = empilement +
+quantité + encombrement croisé domaine + retrait + save → load, les
+totaux attendus se CALCULENT depuis `STUFFS.parseBulk`, jamais de
+constante figée). Validé par run headless complet : 110 OK / 0 ECHEC.
+Round 48 = ÉQUIPEMENT v3, retours utilisateur : le « + » passe EN TÊTE
+de la barre (premier enfant) et l'ajout vit dans une POPUP (le « + »
+l'ouvre) : choix du TYPE, choix du MODÈLE suivant le type (composants
+lib avec filtre + Entrée), champ COMMENTAIRE libre, Valider crée puis
+referme, Quitter referme sans créer. La POPUP `CHARACTER.StuffAddPopup`
+(`stuffs/stuff-add-popup.js`, déclaré dans index.html + tests.html)
+vit sur le slot `CONTROLLER.Character.edition_popup` comme les popups
+d'édition de la feuille (mêmes classes .popup/.edition-property-popup/
+title/popup-up-actions : le RESET du test-runner la ferme avec les
+autres) ; Valider émet `event__stuff__commit` → le contrôleur route à
+`this.edition_popup.doActionAfter` (les événements type/modèle/filtre
+quittent la liste FENÊTRES du contrôleur : leurs émetteurs vivent dans
+la popup), le commit lit SON état (le commentaire sur son input, valeur
+lue au clic — jamais embarqué inline) et repasse le plat
+`event__stuff__add` avec `param__stuff__comment`, puis
+`event__form__reset` se referme. Le TYPE en attente re-vierge à chaque
+réouverture (l'attente d'une popup fermée ne survit pas). Commentaire :
+champ du domaine (`CHARACTER.Stuff` : constructeur + init + save +
+updateData + infobulle `title` de l'entrée). PIÈGES du run : (a) un
+fallthrough PARTAGÉ ne se découpe qu'en recopiant la queue par groupe —
+le premier montage absorbait les cases levelup/ajustements qui
+partageaient la chute `windows.doActionAfterContentChildren` (84
+ECHECS d'un coup) ; (b) la popup DOIT définir `close()` (contrat du
+slot edition_popup, `event__form__reset` l'appelle) : sans lui elle ne
+se referme jamais et chaque suite suivante casse ; (c) l'édition
+d'un constructeur à nouveau paramètre se fait AUSSI dans le
+constructeur (init seul jetait le 5e argument — commentaire perdu
+avec le commit qui le lisait juste). CSS : les styles sélecteur
+(scopés `.stuffs-window` jusqu'ici) vivent désormais scopés à
+`.stuffs-add-popup` ; le conteneur de la popup double sa classe
+(`.edition-property-popup.stuffs-add-popup`) pour passer devant
+popup.css qui CHARGE APRÈS les feuilles de fenêtre. Barre : `.stuffs-
+add-bar` = + en tête + total encombrement à droite. Scénario stuffs
+réaligné (gestes popup : ouverture par +, Entrée sur filtre, pick,
+commentaire posé sur l'input, Valider, Quitter, popup réouverte =
+vierge). Validé par run headless complet : 110 OK / 0 ECHEC.
+Round 49 = retour utilisateur (3 ECHECS counter sur SA machine, tous
+verts en run headless virtuel) : `TEST.waitCounterValue` (runner) —
+attente de CONVERGENCE du badge de compteur par polling borné (50 ms,
+3 s), au lieu d'une lecture à date fixe. La chaîne d'écriture du
+`data-number` (clic → phase au tick suivant → compteur ligne → compteur
+fenêtre → badge `_askUpdateHTML` 50 ms) est debouncée à CHAQUE étage et
+un onglet laissé en arrière-plan fait throttyler ses timers par le
+navigateur (≥ 1 s) : `wait( 300 )` ne garantit RIEN sur la vraie
+machine (Round 41 croyait le contraire) — le run headless à budget
+temps virtuel exécute les timers aussitôt, donc il ne voit JAMAIS la
+course. Règle qui en découle : TOUTE lecture de badge data-number après
+un geste passe par `TEST.waitCounterValue( badge, attendu )` (l'assert
+d'après porte le diagnostic si la convergence n'arrive pas) — posé sur
+le badge de ligne + badge d'onglet du test école, le badge d'onglet du
+test « tout validé » et le badge d'onglet du delta dons
+(dons_ascendance réaligné, le commentaire de course du Round 41
+remplacé). Les autres lectures de badges qui passent encore à date
+fixe gardent wait : seules celles qui ONT PERDU la course se
+convertisent (une décision par run).
 
 ### Style, commentaires, nommage
 

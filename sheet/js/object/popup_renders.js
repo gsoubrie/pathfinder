@@ -117,9 +117,19 @@ OBJECT.ItemPopupRenderer.prototype = {
           <div class="popup-item-stats">
             ${this._metaRow( "⚖️", "Encombrement", object_data.bulk )}
             ${this._metaRow( "🪙", "Prix", object_data.price )}
+            ${( object_data.details || [] ).map( d => this._detailRow( d.label, d.value ) ).join( "" )}
           </div>
 
           ${this._description()}` );
+    },
+    // Detail row without icon (kind stats of stuffs : Dégâts, CA bonus,
+    // ...), lives in the same stats block as the meta rows
+    _detailRow: function ( label, value ) {
+        return `
+          <div class="popup-meta-row">
+            <span class="popup-meta-label">${label}</span>
+            <span class="popup-meta-value">${value}</span>
+          </div>`;
     }
 };
 SERVICE.CLASS.addPrototype( OBJECT.ItemPopupRenderer, OBJECT.BasePopupRenderer );

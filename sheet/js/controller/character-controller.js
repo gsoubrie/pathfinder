@@ -1,9 +1,8 @@
 "use strict";
 CONTROLLER.Character = (function ( self ) {
     //********************************************  INIT  **************************************************//
-    self.init               = function () {
-        let params             = new URLSearchParams( location.search );
-        self.current_uuid      = params.get( "id" );
+    self.init               = function ( uuid ) {
+        self.current_uuid      = uuid || new URLSearchParams( location.search ).get( "id" );
         self.current_character = new CHARACTER.Current();
         self.current_character.init( self.current_uuid );
         self.current_character.computeHTML();
@@ -30,6 +29,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__adjustment__add":
             case "event__adjustment__remove":
             case "event__adjustment__edit_explanation":
+            case "event__stuff__add":
+            case "event__stuff__remove":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__level_up__select_class":
@@ -42,6 +43,21 @@ CONTROLLER.Character = (function ( self ) {
             case "event__adjustment__pick":
             case "event__adjustment__commit":
             case "event__adjustment__filter_enter":
+                self.current_character.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            case "event__stuff__toggle_type_selector":
+            case "event__stuff__pick_type":
+            case "event__stuff__toggle_selector":
+            case "event__stuff__pick":
+            case "event__stuff__commit":
+            case "event__stuff__filter_enter":
+                this.edition_popup.doActionAfter( event_name, params );
+                break;
+            case "event__stuff__open_add_popup":
+                this.edition_popup = new CHARACTER.StuffAddPopup();
+                break;
+            case "event__stuff__toggle_worn":
+            case "event__stuff__edit_quantity":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__level__toggle":
@@ -64,14 +80,16 @@ CONTROLLER.Character = (function ( self ) {
         }
     };
     //********************************************  SAVE  **************************************************//
+    self.getSaveFileContent = function () {
+        return "let " + self.current_character.getUUID() + " = " + JSON.stringify( self.current_character.getDataToSave() ) + ";";
+    };
     self.save               = function () {
         let to_return = self.current_character.getDataToSave();
-        //let file_name = self.current_character.getUUID();
-        //let file_data = "let " + file_name + " = " + JSON.stringify( to_return ) + ";";
-        //let file      = new Blob( [ file_data ], { "type": "application/javascript" } );
+        console.log("GSOU", "[Character - save]", to_return);
+        //let file      = new Blob( [ self.getSaveFileContent() ], { "type": "application/javascript" } );
         //let link      = SERVICE.DOM.createElement( "a", {
         //    "href"    : URL.createObjectURL( file ),
-        //    "download": file_name + ".js"
+        //    "download": self.current_character.getUUID() + ".js"
         //} );
         //link.click();
         //URL.revokeObjectURL( link.href );

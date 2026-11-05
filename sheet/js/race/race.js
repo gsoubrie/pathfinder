@@ -33,7 +33,14 @@ RACES.Race.prototype = {
     //********************************************  GETTER SETTER  **************************************************//
     setValue   : function ( to_set ) {
         CHARACTER.ComponentInterface.prototype.setValue.call( this, to_set );
-        let data_from_race = Object.assign( {}, RACES.getDataByName( this.getValue() ) );
+        // A race-less save carries an empty value : nothing to distribute,
+        // the reload of a blank sheet stays blank
+        let race_data = RACES.getDataByName( this.getValue() );
+        if ( !race_data ) {
+            document.body.dataset.isRaceSet = this.isSet() ? 1 : 0;
+            return;
+        }
+        let data_from_race = Object.assign( {}, race_data );
         delete data_from_race[ "name" ];
         this.characteristics_malus = undefined;
         var _keys = Object.keys( data_from_race );

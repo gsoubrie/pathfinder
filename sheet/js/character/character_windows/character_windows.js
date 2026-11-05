@@ -12,6 +12,7 @@ CHARACTER.WindowGroup.prototype = {
     },
     computeHtmlWithData: function ( character_object ) {
         this.addSpecific( new CHARACTER.GeneralWindow( this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.StuffsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.CharacteristicWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.GiftsWindow( this.getName() ), character_object );

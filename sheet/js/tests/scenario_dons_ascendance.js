@@ -120,11 +120,12 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
     let _counter                          = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
     let _counter_before                   = _counter ? parseInt( _counter.getAttribute( "data-number" ), 10 ) : 0;
     _option.click();
-    // Le badge du compteur se rafraîchit en debounced 50 ms au bout de la
+    // Le badge du compteur se rafraîchit en dérbauchée au bout de la
     // chaîne (clic -> phase au tick suivant -> compteur ligne -> compteur
-    // fenetre -> ecriture du data-number) : la meme attente que le test
-    // école du scenario_levelup_magicien, 60 ms perdaient la course
-    return TEST.wait( 300 ).then( function () {
+    // fenetre -> ecriture du data-number) et un onglet en arrière-plan
+    // fait throttyler ses timers : convergence attendue, jamais de lecture
+    // à date fixe
+    return TEST.waitCounterValue( _counter, "" + ( _counter_before - 1 ) ).then( function () {
         let _line                         = _character.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );
         TEST.ASSERT.notNull( _line, "La ligne Don d'ascendance du palier 1 devrait exister dans son entree" );
         if ( !_line ) {

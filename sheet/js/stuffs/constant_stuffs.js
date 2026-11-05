@@ -1,4 +1,10 @@
-[
+"use strict";
+/**
+ * Inventory of the sheet: every equipment of the game, scraped from
+ * pathfinder-fr. Generated data : do not edit by hand, the extraction
+ * tool emits this wrapper with the next re-scrap.
+ */
+var STUFFS = [
   {
     "name": "Abri déployable",
     "name_en": "Deployable Cover",
@@ -46436,4 +46442,4 @@
     "bulk": "1",
     "description": "Cette lame incurvée possède une pointe bifide, créant ce qui ressemble à une seconde lame. Les utilisateurs de zulfikar ont l'habitude de faire figurer des inscriptions religieuses ou personnelles sur la lame."
   }
-]
+];

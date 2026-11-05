@@ -89,6 +89,14 @@ CHARACTER.LevelHistory.prototype = {
         for ( let p = 0, _size_p = parts.length; p < _size_p; p++ ) {
             let label = parts[ p ].trim();
             let type        = CHARACTER.Level.detectType( label );
+            if ( type === "ancestry_feat" ) {
+                // PF2 : the ancestral dons of levels 5/9/13/17 are
+                // CHARACTER-level gains — the AncestryHistory palier
+                // sections own them. The class table only recalls the
+                // gain : its line never builds (the sync fills no class
+                // options for that type, the line could never validate)
+                continue;
+            }
             let ability_key = CLASSES.getAbilityKey( label );
             let slot_key    = LEVELUP.CHOICE_TYPES.indexOf( type ) !== -1 ? (type + "_" + p) : ability_key;
             let skill_data  = {

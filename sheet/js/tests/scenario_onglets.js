@@ -9,15 +9,15 @@
  * scenarios ASCENDANCE et CLASSE : ces onglets sont inactifs sans pre-requis.
  */
 
-TEST.RUNNER.register( "[ONGLETS] nombre = 5", function () {
+TEST.RUNNER.register( "[ONGLETS] nombre = 7", function () {
     let _character                      = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character && _character.windows, "Pre-condition : personnage et fenetres charges" );
     if ( !_character || !_character.windows ) {
         return;
     }
-    TEST.ASSERT.equal( _character.windows.contents.length, 6, "Le groupe devrait contenir 6 fenetres, obtenu : " + _character.windows.contents.length );
+    TEST.ASSERT.equal( _character.windows.contents.length, 7, "Le groupe devrait contenir 7 fenetres, obtenu : " + _character.windows.contents.length );
     let _windows_dom                     = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
-    TEST.ASSERT.equal( _windows_dom.length, 6, "Les 6 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
+    TEST.ASSERT.equal( _windows_dom.length, 7, "Les 7 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
@@ -66,6 +66,7 @@ TEST.RUNNER.register( "[ONGLETS] style actif = doré", function () {
 TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     let _expected_labels                 = [
         { name: CHARACTER.GeneralWindow.NAME,        label: "Général" },
+        { name: CHARACTER.StuffsWindow.NAME,        label: "Équipement" },
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
         { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
         { name: CHARACTER.GiftsWindow.NAME,          label: "Dons" },
@@ -85,6 +86,23 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
             continue;
         }
         TEST.ASSERT.equal( _label.textContent, _expected.label, "Libelle de l'onglet " + _expected.name );
+    }
+} );
+
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Dons, Ajustements, Progression", function () {
+    let _expected_order = [
+        CHARACTER.GeneralWindow.NAME,
+        CHARACTER.StuffsWindow.NAME,
+        CHARACTER.CharacteristicWindow.NAME,
+        CHARACTER.LevelWindow.NAME,
+        CHARACTER.GiftsWindow.NAME,
+        CHARACTER.AdjustmentsWindow.NAME,
+        CHARACTER.LevelUpWindow.NAME
+    ];
+    let _tabs_dom      = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
+    TEST.ASSERT.equal( _tabs_dom.length, _expected_order.length, "Les " + _expected_order.length + " onglets devraient etre rendus, trouve : " + _tabs_dom.length );
+    for ( let i = 0, _size_i = _tabs_dom.length; i < _size_i; i++ ) {
+        TEST.ASSERT.equal( _tabs_dom[ i ].getAttribute( "data-name" ), _expected_order[ i ], "L'onglet en position " + ( i + 1 ) + " devrait etre " + _expected_order[ i ] + ", obtenu : " + _tabs_dom[ i ].getAttribute( "data-name" ) );
     }
 } );
 

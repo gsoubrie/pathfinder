@@ -60,7 +60,13 @@ TEST.RUNNER                             = (function ( self ) {
 
     self.cleanMessage                    = function ( error ) {
         if ( error && error.message ) {
-            return error.message;
+            // La stack d'une exception de test dit le fichier et la ligne du
+            // crash — le rapport la porte, plus besoin de la console
+            let _details                   = "";
+            if ( error.stack ) {
+                _details                   = " @ " + String( error.stack ).split( "\n" ).slice( 1, 4 ).join( " | " );
+            }
+            return error.message + _details;
         }
         return String( error );
     };
@@ -215,13 +221,43 @@ TEST.wait                                   = function ( delay ) {
 };
 
 /**
+ * Attends la CONVERGENCE d'un badge de compteur : la valeur data-number
+ * s'écrit en dérbauchée au bout de la chaîne clic → phase (callback au
+ * tick suivant) → compteurs → badge (_askUpdateHTML 50 ms), et un onglet
+ * laissé en arrière-plan voit ses timers throttlés par le navigateur —
+ * une lecture à date fixe perd la course (Round 41 : wait 300 ne suffit
+ * plus sur la vraie machine). Polling borné : l'assertion qui suit porte
+ * le diagnostic si la convergence n'arrive jamais.
+ */
+TEST.waitCounterValue                       = function ( dom_element, expected_value, timeout_ms ) {
+    let _deadline                           = Date.now() + ( timeout_ms || 3000 );
+    let _expected                           = String( expected_value );
+    return new Promise( function ( resolve ) {
+        let _poll                           = function () {
+            if ( dom_element && dom_element.getAttribute( "data-number" ) === _expected ) {
+                resolve();
+                return;
+            }
+            if ( Date.now() >= _deadline ) {
+                resolve();
+                return;
+            }
+            setTimeout( _poll, 50 );
+        };
+        _poll();
+    } );
+};
+
+/**
  * Reinitialisation de la feuille en cours de suite : nouveau personnage,
  * fenetres reconstruites, indicateurs data-* nettoyes, popup fermee.
+ * Le character_uuid optionnel fait booter la feuille SUR un save
+ * (meme mecanisme que index?id=<uuid>) au lieu d'une page vide.
  * A appeler en tete d'un scenario pour repartir d'un etat vierge sans
  * recharger la page (les scenarios precedents mutent le personnage).
  */
 TEST.RESET                                  = TEST.RESET || {};
-TEST.RESET.sheet                            = function () {
+TEST.RESET.sheet                            = function ( character_uuid ) {
     let _empty                             = function ( dom_element ) {
         while ( dom_element && dom_element.firstChild ) {
             dom_element.removeChild( dom_element.firstChild );
@@ -233,9 +269,18 @@ TEST.RESET.sheet                            = function () {
     if ( _popup ) {
         _popup.parentNode.removeChild( _popup );
     }
+    // Les popups d'INFORMATION refermées restent au DOM (masquées) et une
+    // popup restée RUNNING polluerait TOUTES les suites suivantes (les
+    // assertions d'ouverture lisent l'overlay RUNNING) : le reset les
+    // referme par l'API, phase et coherence des contenu restent justes
+    if ( CONTROLLER.Main && CONTROLLER.Main.popups_object ) {
+        for ( let _p = CONTROLLER.Main.popups_object.getSize() - 1; _p >= 0; _p-- ) {
+            CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": CONTROLLER.Main.popups_object.getContent( _p ).getUUID() } );
+        }
+    }
     CONTROLLER.Character.edition_popup     = null;
     delete document.body.dataset.isRaceSet;
     delete document.body.dataset.isClassSet;
     delete document.body.dataset.levelupMissing;
-    CONTROLLER.Character.init();
+    CONTROLLER.Character.init( character_uuid );
 };

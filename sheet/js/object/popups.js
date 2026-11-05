@@ -70,6 +70,15 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // The stuff data is static : the popup caches by its uuid
+            case "event__show_information__item": {
+                let stuff_data = params[ "param__stuff__value" ] ? STUFFS.getItemInformation( params[ "param__stuff__value" ] ) : null;
+                let stuff_popup = stuff_data ? this._openPopup( stuff_data ) : null;
+                if ( stuff_popup ) {
+                    stuff_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;
