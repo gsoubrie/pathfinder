@@ -372,6 +372,15 @@ niveau 5, "expertise en réflexes" validée) :
    depuis ce JSON (injection script + `init( uuid )`) : dix entrées, zéro
    ligne en attente au DOM, école SELECTED, Réflexes experte, re-save
    deepEqual au JSON d'origine. Le run se termine sur la feuille rechargée.
+13. `scenario_equipement_complet.js` — EN DERNIER après save_complet
+   (Round 52, demande utilisateur) : pas de RESET, la feuille Magicien 10
+   rechargée se couvre d'une dizaine d'objets par gestes réels (deux
+   armes dont une équipée, deux armures dont une entreposée avec lieu,
+   consommable x3 qui empile, objets autres dont un apostrophe, création
+   au nom libre par le filtre), compte attendu calculé par dédup,
+   encombrement porté croisé domaine, relecture mémoire, save loggué —
+   le run SE TERMINE sur la feuille vivante équipée pour l'utilisateur.
+   Les suites qui se resetent se placent donc AVANT cette fin de chaîne.
 
 ### État au moment de la pause
 
@@ -409,13 +418,15 @@ niveau 5, "expertise en réflexes" validée) :
   depuis le save JSON (scenario_save_complet.js en dernier),
   l'utilisateur reprend la feuille à cet état pour vérifier
   l'affichage rechargé.
-- Décisions équipement EN ATTENTE : le total d'encombrement compte
-  TOUT l'inventaire (porté/worn à trancher avec le chantier CA
-  phase 2), le commentaire ne s'édite qu'à la création (pas d'édition
-  en place), le «nom spécifique» d'un type sans dataset (autres
-  objets aujourd'hui dataset-only) reste à décider.
+- Décisions équipement EN ATTENTE : le total d'encombrement ne compte
+  que le PORTÉ (équipé + sac à dos) depuis le Round 50, l'entreposé porte
+  son total dans sa section ; le commentaire s'édite par la ROUE
+  CRANTÉE depuis le Round 52 ; le «nom spécifique» d'un type sans
+  dataset reste à trancher (aujourd'hui le nom libre du filtre crée
+  l'entrée hors dataset, sans info de type).
 - Syntaxe validée par Node sur tous les fichiers touchés ; dernier
-  run utilisateur : TOUT OK (Rounds 45-49 validés).
+  run headless : TOUT OK (Round 50, 110 OK / 0 ECHEC — run utilisateur
+  à confirmer).
 - `constant_class.js`, `constant_gift_*.js` et
   `constant_skill_actions.js` sont des données scrapées : jamais
   d'édition manuelle — les corrections passent par
@@ -1340,6 +1351,284 @@ test « tout validé » et le badge d'onglet du delta dons
 remplacé). Les autres lectures de badges qui passent encore à date
 fixe gardent wait : seules celles qui ONT PERDU la course se
 convertisent (une décision par run).
+Round 50 = ÉQUIPEMENT v4, trois catégories (demande utilisateur, arbitrages :
+lieu libre sur l'entreposage, défaut sac à dos, sélecteur = FILTRE) : la
+coche « Porté » devient un EMPLACEMENT (`CHARACTER.Stuff.location` +
+`place`, plus de champ `worn`) — `STUFF.LOCATIONS` (equipped/backpack/
+stored, l'ordre du tableau est l'ordre d'affichage, des puces et des
+sections), `STUFF.DEFAULT_LOCATION = "backpack"`,
+`STUFF.CARRIED_LOCATIONS = ["equipped","backpack"]` : l'encombrement
+de la barre ne compte que le PORTÉ (PF2 : l'entreposé ne pèse pas,
+décision Round 47 tranchée), la section Entreposé porte son propre
+total en titre. Le save écrit `location` + `place`, `updateData`
+relit les vieux fichiers `worn` (true → équipé, false → sac à dos).
+La barre porte des PUCES DE FILTRE (Tous + une par emplacement avec
+compte d'entrées, `event__stuff__filter_location`) : état de VUE sur
+la fenêtre (`current_filter`), rien ne voyage au personnage ; les
+sections deviennent des sections PAR EMPLACEMENT (`data-location`, la
+section par type disparaît de la fenêtre — l'info de type reste inline).
+Le contrôle d'emplacement PAR ENTRÉE n'est PAS le composant lib : les
+noms d'objets portent des apostrophes et `addParamsForEvents` embarque
+les valeurs INLINE — chaque entrée porte des PUCES (`stuffs-entry-
+location`, une par emplacement) qui lisent kind/value/location du DOM
+au clic (`event__stuff__set_location`), l'état vit dans
+`data-location` + CSS, jamais une classe. Le déplacement est un geste
+ponctuel : full re-render (la frappe de quantité/lieu reste en place,
+elle serait trop chère par frappe). Le LIEU : input libre sur l'entrée
+entreposée (`event__stuff__edit_place`, titre = « Lieu : … —
+commentaire ») + ligne dans la popup d'ajout (révélée par
+`data-stored` sur le body du popup via `SERVICE.DOM.setDataSet`),
+il SURVIT aux allers-retours d'emplacement (gardé dans le domaine,
+seul l'affichage est conditionnel). La popup d'ajout porte sa ligne
+EMPLACEMENT : le dernier choisi SURVIT à la fermeture (statique
+`CHARACTER.StuffAddPopup.last_location`, décision utilisateur — le
+TYPE, lui, re-vierge à chaque réouverture) ; empiler un consommable ne
+le DÉPLACE PAS. Pièges : `.single-select-filter` masqué en CSS sur le
+sélecteur à 3 options (`.stuffs-add-popup-location`) ;
+`SERVICE.DOM.setDataSet` écrit dans `dataset` (booléen → string).
+Scénario stuffs réaligné : filtre + compte des puces, déplacement par
+puces, lieu hors/entreposé, hors-encombrement de l'entreposé, survie
+du dernier emplacement, migration `worn`, save → load (`location`/`place`).
+Validé par run headless complet : 110 OK / 0 ECHEC.
+Round 51 = ÉQUIPEMENT v5, retours utilisateur (quatre) : (a) la popup
+d'ajout démarre VIERGE — TOUT sélecteur « -- » (le type ne se
+présélectionne plus, l'emplacement non plus : la statique
+`last_location` du Round 50 est SUPPRIMÉE, décision révélée trop
+astucieuse — l'emplacement vide retombe au Sac à dos au Valider, PF2 :
+ce qui n'est ni équipé ni entreposé se porte), le sélecteur de modèle
+ne porte QUE l'option vide tant qu'aucun type n'est posé ; (b) un nom
+INCONNU au filtre du modèle DEVIENT le modèle (demande utilisateur,
+RENVERSE la décision Round 45 « dataset-only » : une entrée vit hors
+du scrap — l'Entrée dans la popup matche d'abord le nom canonique
+d'une option, sinon le TEXTE BRUT, un nom libre exige un type posé ;
+l'entrée hors dataset n'a ni info inline, ni «?», encombrement «—»,
+non-consommable) ; (c) les colonnes des entrées sont TITRÉES : une
+ligne d'entête vit en tête de CHAQUE section (Objet/Détail/Encomb./
+Qté/Lieu/Emplacement, abréviations du même esprit que «Niv» de la zone
+jets), elle partage la GRILLE fractionnaire des lignes (colonnes
+conditionnelles Qté/Lieu réservées, vides sur les lignes qui ne les
+portent pas), et la cellule Objet héberge le «?» (l'entrée en grille
+remplace le flex) — les éléments d'entrée lisent leur identité par
+`this.closest('.stuffs-entry')` (les cellules ne sont plus des enfants
+directs de l'entrée, parentNode ne suffit plus) ; (d) les puces de
+FILTRE de la barre se voient comme des boutons : bord apparent,
+padding 3px 12px, la puce active peinte + grasse (l'actif porte le
+gras, règle des onglets) — la bascule ne se découvrait pas.
+Scénario stuffs réaligné : entête titré, popup vierge, nom libre
+(création, zéro info), Valider sans rien, emplacements posés au geste,
+stack sans déplacement. Validé par run headless complet :
+110 OK / 0 ECHEC (run utilisateur à confirmer).
+Round 52 = ÉQUIPEMENT v6, trois retours utilisateur : (a) BUG FERMETURE
+des popups d'information — l'uuid embarquait INLINE dans les handlers
+de fermeture (l'onclick de l'overlay MAIS AUSSI le bouton « x » via
+`SERVICE.DOM_HELPER.createButton` → `addParamsForEvents`) : le uuid
+des sujets à apostrophe (« Ampoule d'effroi inférieure ») cassait le
+JS inline, la popup restait OUVERTE (les scénarios fermaient par appel
+programmatique, le bug ne se voyait qu'en geste réel). Correctif :
+l'overlay porte `data-popup-uuid`, overlay et « x » le LISENT au clic
+(`this.getAttribute` / `this.closest('.popup-overlay')`) — le « x »
+quitte createButton (bouton posé main aux classes gs-button-V4, label
+en div.gs-label). REGLÉE PAR ÉCRIT dans les scénarios : l'armure
+apostrophe fermée par le « x » RÉEL puis par le clic de fond de
+l'overlay. Règle qui en découle : rien des popups ne s'embarque en dur,
+l'uuid vit en data-attribute de l'overlay. (b) LA CROIX DEVIENT LA
+ROUE CRANTÉE : chaque ligne ne garde que ses colonnes de LECTURE (nom +
+«?», info de type, encombrement, quantité des consommables — grille 5
+colonnes), la roue ⚙ ouvre `CHARACTER.StuffEditPopup`
+(`stuffs/stuff-edit-popup.js`, même slot edition_popup, stylage partagé
+`.stuffs-form-popup`) : nom en LECTURE (l'objet ne se renomme pas),
+EMPLACEMENT par sélecteur, LIEU révélé sur Entreposé, COMMENTAIRE (le
+repli « ne s'édite qu'à la création » est RÉSOLU), et les actions
+Valider / Retirer / Quitter — le RETRAIT vit dans la popup, plus de
+croix dans la liste. Le commit repasse par le PLAT au CONTRÔLEUR
+(`event__stuff__set_location` / `edit_place` / `edit_comment` par
+windows broadcast → la fenêtre route au domaine et RAFRAÎCHIT : le
+déplacement change de section), le lieu ne s'édite QUE sur entreposage
+(il SURVIT aux allers-retours, l'infobulle ne le montre qu'entreposé),
+le retrait part sur `event__stuff__remove` existant. Nouveaux
+événements popup dans la liste edition_popup du contrôleur :
+`open_edit_popup` (le contrôleur crée `new CHARACTER.StuffEditPopup(
+kind, value )` — les params du plat portent l'identité, JAMAIS inline),
+`toggle_edit_location_selector`, `pick_edit_location`,
+`commit_edit`, `commit_remove`. RENOMMAGE partagé add/édition
+d'une traite (classe par classe) : `stuffs-form-popup*` (body, row,
+label, location, place, comment + racine partagée `stuffs-form-popup`),
+la popup d'ajout garde sa marque `stuffs-add-popup`, l'édition porte
+`stuffs-edit-popup`. Piège : les cellules de la ligne ne sont plus des
+enfants directs de l'entrée (la cellule Objet héberge le «?») — les
+handlers inline lisent `this.closest('.stuffs-entry')`. (c) NOUVEAU
+SCÉNARIO DE FIN `scenario_equipement_complet.js` (EN DERNIER, APRES
+scenario_save_complet — demande utilisateur : « me laisser une dizaine
+d'objets configurés pour tester ») : ~10 ajouts par GESTES RÉELS
+(picker de modèle, emplacements posés, lieu, nom libre par le filtre)
+sur la feuille Magicien 10 rechargée SANS RESET, répartition sur les
+trois emplacements + consommable x3 qui empile + objet apostrophe + nom
+libre, compte attendu CALCULÉ (dédup), encombrement porté croisé
+domaine, relecture mémoire, save loggué GSOU — LE RUN SE TERMINE SUR
+LA FEUILLE VIVANTE ÉQUIPÉE, l'utilisateur teste à la main.
+Validé par run headless complet : 111 OK / 0 ECHEC (run utilisateur a
+confirmer).
+Round 53 = ÉQUIPEMENT v7, harmonisation des colonnes (retour
+utilisateur) : l'entête et les lignes passent à CINQ colonnes fixes —
+Objet + «?» en TAILLE FIXE (240px, ellipsis sur le nom), puis
+CARACTÉRISTIQUES LABORÉES du type (`STUFF.KINDS[*].inline_fields`
+remplace `info_field` : arme = Dégâts/Mains, armure = CA bonus/
+Mod. de dex. max., autres = rien — clés scrapées, elles survivent au
+re-scrap ; le libellé voyage AVEC la valeur car les kinds se mélangent
+dans un emplacement), puis Qté, puis Encomb. (l'ordre demandé place
+l'encombrement APRÈS la quantité), puis la roue crantée. Une entrée
+hors dataset ne pose PAS de cellule vide : la cellule caractéristiques
+n'existe que si un champ du type existe (piège du premier run — la
+cellule était construite puis remplie conditionnellement, le test du
+nom libre la voyait vide au lieu d'absente). Scénarios réalignés :
+entête (Objet + Caractéristiques), Dégâts/Mains libellés de l'épée,
+CA bonus de l'armure, absence de cellule sur le nom libre. Colonne
+«prix» du scrap NON posée (candidat si l'inventaire gère
+l'achat/vente). Validé par run headless complet : 111 OK / 0 ECHEC
+(run utilisateur à confirmer).
+Round 54 = retour utilisateur : UN POINT PAR LIGNE dans la cellule des
+caractéristiques — `.stuffs-col-chars` passe en `flex-direction:
+column` (Dégâts puis Mains se lisent empilés, la cellule grandit en
+hauteur, la grille centre les autres colonnes). AU PASSAGE, le SKILL
+`.vibe/skills/pathfinder-style/SKILL.md` porte maintenant le chantier
+CONCEPTION : toute proposition d'affichage part d'une MAQUETTE ASCII
+VALIDÉE PAR L'UTILISATEUR avant le code — maquette alignée caractère
+par caractère (les pipes tombent à la même colonne sur chaque ligne,
+les accents comptent pour un, les glyphes larges genre ⚙ se réservent
+à la dernière colonne), lignes réalistes (vrais noms du dataset, cas
+équipé/entreposé, quantité, hors dataset), un point par ligne quand
+une cellule porte plusieurs valeurs, décisions ouvertes numérotées à
+la suite. La maquette préfigure la GRILLE CSS (colonne alignée =
+`grid-template-columns` partagé, retour a la ligne = direction de la
+cellule). Validé par run headless complet : 111 OK / 0 ECHEC.
+
+Round 55 = décalage résiduel des lignes (HTML de l'utilisateur en
+main) : la roue crantée ne portait PAS sa classe de COLONNE
+(`stuffs-col-actions`) — sans grid-column explicite, la grille
+AUTO-PLACE la cellule dans la première case libre, la colonne
+Caractéristiques vide des entrées sans stats : la roue d'un
+consommable/autre atterrissait au milieu de la ligne. RÈGLE qui en
+découle : dans une grille à colonnes explicites, CHAQUE cellule d'une
+ligne porte sa classe de colonne — aucune ne vit au placement
+automatique, et le scénario verrouille le cas (l'entrée sans
+caractéristiques porte sa roue sur la colonne actions). Validé par run
+headless complet : 111 OK / 0 ECHEC.
+Round 56 = décalages résiduels (retour utilisateur) : (a) l'entête de
+colonnes portait `padding: 2px 0 3px` quand les lignes portent
+`3px 2px` — 2 px de décalage horizontal entre TITRES et CELLULES :
+l'entête et les lignes partagent la même grille, leurs paddings
+horizontaux doivent être IDENTIQUES (l'entête suit `padding: 2px 2px
+3px`) ; (b) `.popup-item-stats` (popup objet) passe en
+`flex-direction: column` — les stats de l'objet (encombrement, prix,
+champs du type) se lisent empilées, une par ligne, comme les
+caractéristiques de la fenêtre. Validé par run headless complet :
+111 OK / 0 ECHEC.
+Round 58 = ÉQUIPEMENT v8, tout est éditable (retour utilisateur) : la
+POPUP D'ÉDITION porte la QUANTITÉ et les CARACTÉRISTIQUES en plus de
+l'emplacement/lieu/commentaire — (a) la quantité devient une donnée de
+TOUTE entrée (`CHARACTER.Stuff.quantity` prend parseInt quel que soit
+le trait ; la LIGNE rend son input de quantité sur chaque entrée, le
+trait Consommable ne régît plus que l'EMPILAGE au + ; l'encombrement
+compte les unités de chaque entrée : `getEntryBulk` multiplie par
+quantity, plus de garde consommable) ; (b) les caractéristiques se
+SURCHARGENT par entrée : `CHARACTER.Stuff.characteristics` (carte
+champ→valeur), `getCharacteristicValue( field )` répond la surcharge
+puis la valeur SCRAPÉE — la ligne et la popup d'édition lisent par
+l'entrée ; l'édition rend une rangée par `inline_fields` du type
+(marké `data-field`), l'input vide RETOMBE sur le scrapé (la carte
+REPLACE les surcharges à chaque commit : les clés vides ne vivent
+pas), un objet hors dataset gagne ainsi SES stats. Le commit du
+`event__stuff__commit_edit` ORDONNE : quantité D'ABORD (domaine seul,
+pas de rebuild), puis caractéristiques et emplacement (les DEUX
+rafraîchissent la fenêtre depuis l'état frais), puis lieu sur
+entreposage et commentaire (titre en place). (c) le CHEVAUCHEMENT des
+boutons : `.popup-up-actions` est en absolue à droite du titre
+(stylage commun des popups d'édition), trois boutons ne tiennent pas
+— les actions de `.stuffs-edit-popup` passent SOUS le titre (`.title`
+en flex column). Save : `quantity` et `characteristics` sur chaque
+entrée, les vieux fichiers relus sans garde. Scénario stuffs étendu :
+quantité sur toute ligne, édition quantité + surcharge Dégâts +
+retour au scrapé + round-trip save. PIÈGE du run : l'insertion d'un
+bloc .then imbriqué dans la promesse du test 2 a fermé les couches en
+désordre → SyntaxError SILENCIEUX du fichier ENTIÈR (aucune fonction
+du script n'existe plus, "TEST_stuffsOpenAddPopup is not defined", et
+la page charge à moitié) — la réparation compte les couches ouvertes
+AVANT d'écrire le bloc. Validé par run headless complet :
+111 OK / 0 ECHEC.
+Round 59 = retour utilisateur : PLUS D'INPUT DANS LA LISTE — la
+quantité s'affiche en LECTURE sur la ligne (`span.stuffs-entry-
+quantity` centrée, même stylage que l'encombrement), son édition ne
+vit QUE dans la popup de la roue crantée (le champ Quantité du
+Round 58). Corollaire : la ligne ne porte AUCUN contrôle d'édition,
+seule la roue modifie — la liste reste une vue de lecture, la
+configuration vit dans la popup. Scénarios réalignés : la quantité de
+la ligne se lit par textContent (jamais un input), l'édition du test 4
+passe par la popup (gestes synchrones par le bus, pas de restructure
+de promesse — la structure .then compte les couches AVANT, piège du
+Round 58). Validé par run headless complet : 111 OK / 0 ECHEC.
+Round 60 = run UTILISATEUR (1 ECHEC langues sur sa machine, vert en
+headless) : le badge d'onglet du test « choix draconique » se lisait à
+DATE FIXE apres le clic de choix — la course data-number (clic →
+phase au tick → compteur ligne → compteur fenêtre → badge deboucoule
+50 ms par étage) perd sur une vraie machine, l'onglet en arrière-plan
+throttling ses timers. CONVERSION par `TEST.waitCounterValue` (règle
+Round 49, une décision par run) : le wait du bloc devient
+`waitCounterValue( badge, attendu )` — la convergence garantit AUSSI
+que les asserts de phase du bloc lisent un état arrivé, SANS
+restructurer la promesse (le piège des couches .then du Round 58 se
+paie aussi ici : on REMPLACE le wait, on n'imbrique pas). Le headless
+a budget temps virtuel ne voit JAMAIS cette course (timers instantanés)
+— seul le run utilisateur la révèle. Validé par run headless complet :
+111 OK / 0 ECHEC (run utilisateur à reconfirmer).
+Round 61 = run utilisateur : quantité et roue crantée RENDUES SUR LA
+RANGÉE 2 de leur ligne. RACINE : le placement automatique SPARSE de
+la grille marche AU CURSEUR suivant l'ordre du DOM — les cellules
+portent `grid-column` explicites mais PAS de `grid-row`, et
+l'encombrement (colonne 4) se construisait AVANT la quantité
+(colonne 3) : le curseur déjà en colonne 4 ne peut pas revenir en
+arrière dans la rangée, la quantité bascule rangée 2 et la roue avec.
+RÈGLE qui en découle : dans une grille à colonnes, le DOM suit l'ORDRE
+DES COLONNES (une cellule construite en désordre rejette les suivantes
+à la ligne suivante) — la quantité se construit AVANT l'encombrement,
+la roue reste la dernière cellule. Verrou scénario : l'ordre des
+enfants de la ligne asserté (quantité < encombrement < roue en
+dernier). Validé par run headless complet : 111 OK / 0 ECHEC.
+Round 62 = colonne COMMENTAIRE dans la liste (retour utilisateur) : la
+grille passe a SIX pistes (240px / caractéristiques / commentaire /
+Qté / Encomb. / roue), la cellule contrôle DOM suit l'ORDRE des
+colonnes (la règle Round 61 : commentaire avant quantité, roue en
+dernier). Le commentaire quitte le TITRE de l'entrée (plus de signal
+redondant — le lieu reste SEUL en infobulle, il n'a pas de colonne) ;
+l'événement `event__stuff__edit_comment` met a jour SA cellule en
+place (texte + infobulle du texte entier, ellipsé en largeur) — le
+refresh du commit de la popup d'édition court AVANT l'arrivée du
+commentaire dans le domaine, la cellule suit donc APRÈS l'événement.
+Verrous scénario : entête titré (Objet, Caractéristiques, Commentaire),
+commentaire lu en COLONNE dans le test armure. Validé par run
+headless complet : 111 OK / 0 ECHEC.
+Round 63 = le chevauchement boutons/titre de la popup d'édition
+SURVIVAIT au correctif du Round 58 (run utilisateur) : l'override
+`.stuffs-edit-popup .title .popup-up-actions` (3 classes) PERD contre
+la règle de base `.popup .edition-property-popup .title
+.popup-up-actions` (4 classes) — et popup.css CHARGE APRÈS les
+feuilles de fenêtre (double purge : spécificité ET ordre). Le
+`position: static` ne s'appliquait JAMAIS, les boutons restaient en
+absolue sur le titre. RÈGLE qui en découle : un override d'une règle de
+popup.css porte PLUS de classes que la base (`.popup
+.edition-property-popup.stuffs-edit-popup .title .popup-up-actions`
+= 5) — l'ordre de chargement ne sauve jamais un sélecteur plus faible.
+Validé par run headless complet : 111 OK / 0 ECHEC (contrôle visuel a
+l'utilisateur).
+Round 57 = alignement titres/cellules + fin du sous-total entreposé
+(retour utilisateur) : (a) les colonnes ÉTROITES (Qté, Encomb.)
+partagent le CENTRAGE entre l'entête et les cellules (`.stuffs-col-*`
+porte le `text-align: center`, l'input de quantité et la valeur
+d'encombrement suivent) — titre et valeur tombent au même axe dans la
+même piste, plus de décalage perçu ; (b) la section Entreposé
+n'affiche PLUS sa somme d'encombrement (demande utilisateur : le
+sous-total du Round 50 partait, seul le total PORTÉ de la barre reste,
+`.stuffs-section-title-bulk` supprimé avec son rendu et ses asserts).
+Validé par run headless complet : 111 OK / 0 ECHEC.
 
 ### Style, commentaires, nommage
 

@@ -246,6 +246,9 @@
    ══════════════════════════════════════════ */
 .popup-item-stats {
     display       : flex;
+    /* Une stat par ligne (retour utilisateur : les lignes se lisent
+       empilées, jamais côte à côte) */
+    flex-direction: column;
     gap           : 0;
     padding       : 8px 20px;
     border-bottom : 1px solid var(--pf-border-subtle);

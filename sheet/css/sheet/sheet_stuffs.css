@@ -48,19 +48,19 @@
    fond aliceblue des popups d'édition sert aux groupes de fenêtres) —
    la classe du conteneur double avec .edition-property-popup pour
    passer devant ses feuilles (popup.css charge après) */
-.popup .edition-property-popup.stuffs-add-popup {
+.popup .edition-property-popup.stuffs-form-popup {
     background: var(--g-panel-dark);
     width      : 700px;
 }
 
-.stuffs-add-popup .stuffs-add-popup-body {
+.stuffs-form-popup .stuffs-form-popup-body {
     display        : flex;
     flex-direction : column;
     gap            : var(--s-md);
     padding        : var(--s-md) var(--s-lg);
 }
 
-.stuffs-add-popup .stuffs-add-popup-row {
+.stuffs-form-popup .stuffs-form-popup-row {
     align-items : center;
     color       : var(--c-text);
     display     : flex;
@@ -68,14 +68,17 @@
     gap         : var(--s-md);
 }
 
-.stuffs-add-popup .stuffs-add-popup-label {
+.stuffs-form-popup .stuffs-form-popup-label {
     color    : var(--c-text-muted);
     flex     : 0 0 130px;
     font-size: 14px;
     padding  : 0 2px;
 }
 
-.stuffs-add-popup .stuffs-add-popup-comment-input {
+/* Le champ générique des popups d'ajout/édition (quantité,
+   caractéristiques du type) partage le stylage des saisies libres */
+.stuffs-form-popup .stuffs-form-popup-comment-input,
+.stuffs-form-popup .stuffs-form-popup-input {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-border-dark);
     border-radius: var(--r-sm);
@@ -87,104 +90,275 @@
     padding      : 2px 6px;
 }
 
-.stuffs-add-popup .stuffs-add-popup-comment-input:focus {
+.stuffs-form-popup .stuffs-form-popup-comment-input:focus,
+.stuffs-form-popup .stuffs-form-popup-input:focus {
     border-color: var(--c-gold-dark);
     outline     : none;
 }
 
-/* Le titre de section reste simple : ni gras ni majuscules (règles d'affichage) */
-.stuffs-section-title {
-    border-bottom: 1px solid var(--c-border-dark);
+/* Le lieu ne décrit qu'un objet entreposé : la ligne vit au DOM mais ne
+   s'affiche que sur l'emplacement Entreposé (la data porte l'état) */
+.stuffs-form-popup .stuffs-form-popup-place {
+    display: none;
+}
+
+.stuffs-form-popup .stuffs-form-popup-body[data-stored='true'] .stuffs-form-popup-place {
+    display: flex;
+}
+
+.stuffs-form-popup .stuffs-form-popup-place-input {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    box-sizing   : border-box;
     color        : var(--c-text);
-    font-size    : 14px;
-    padding      : 4px 2px 6px;
+    flex         : 1 1 auto;
+    font-size    : 13px;
+    max-width    : 400px;
+    padding      : 2px 6px;
+}
+
+.stuffs-form-popup .stuffs-form-popup-place-input:focus {
+    border-color: var(--c-gold-dark);
+    outline     : none;
+}
+
+/* Le sélecteur d'emplacement porte trois options : la ligne de filtre du
+   composant n'apporte rien ici, elle ne s'affiche pas */
+.stuffs-form-popup .stuffs-form-popup-location .single-select-filter {
+    display: none;
+}
+
+/* ── Popup d'édition (la roue crantée d'une ligne) : elle partage le
+      stylage de la popup d'ajout (.stuffs-form-popup), le nom reste en
+      lecture (valeur clé de la ligne, la valeur clé porte le gras), et
+      son bouton Retirer se voit destructeur ── */
+.stuffs-edit-popup .stuffs-edit-popup-name {
+    color      : var(--c-text);
+    font-size  : 14px;
+    font-weight: bold;
+    max-width  : 400px;
+    overflow   : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+
+/* Trois boutons (Valider/Retirer/Quitter) ne tiennent pas a droite du
+   titre : les actions passent SOUS le titre, centrées. La règle de base
+   vit dans popup.css avec 4 classes et CHARGE APRÈS les feuilles de
+   fenêtre : l'override doit porter PLUS de classes qu'elle, sinon
+   position:absolute gagne et le chevauchement revient (Round 63) */
+.popup .edition-property-popup.stuffs-edit-popup .title {
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+}
+
+.popup .edition-property-popup.stuffs-edit-popup .title .popup-up-actions {
+    position        : static;
+    transform       : none;
+    margin-top      : var(--s-sm);
+    justify-content : center;
+}
+
+.stuffs-edit-popup .stuffs-edit-popup-quantity-input {
+    flex    : 0 0 80px;
+    max-width: 80px;
+}
+
+.stuffs-edit-popup .stuffs-edit-popup-remove-button {
+    background  : transparent;
+    border-color: var(--c-border-dark);
+    color       : var(--c-text-muted);
+}
+
+.stuffs-edit-popup .stuffs-edit-popup-remove-button:hover {
+    border-color: var(--c-gold-dark);
+    color       : var(--c-gold);
+}
+
+/* Le titre de section reste simple : ni gras ni majuscules (règles
+   d'affichage) */
+.stuffs-section-title {
+    border-bottom : 1px solid var(--c-border-dark);
+    color         : var(--c-text);
+    font-size     : 14px;
+    padding       : 4px 2px 6px;
+}
+
+/* Les catégories filtrent les sections affichées : une puce par
+   emplacement, la data porte l'état actif (jamais une classe). Les
+   puces se voient comme des boutons (retour utilisateur : la bascule
+   ne se découvre pas assez) : bord apparent et zone cliquable
+   confortable, la puce active peinte et grasse (onglet actif) */
+.stuffs-location-filters {
+    display    : flex;
+    flex       : 1 1 auto;
+    flex-wrap  : wrap;
+    gap        : var(--s-sm);
+    align-items: center;
+}
+
+.stuffs-location-filter {
+    background     : transparent;
+    border         : var(--b-thin) solid var(--c-border-dark);
+    border-radius  : var(--r-md);
+    color          : var(--c-text-muted);
+    cursor         : pointer;
+    font-size      : 13px;
+    padding        : 3px 12px;
+    transition     : all 0.15s ease;
+    white-space    : nowrap;
+}
+
+.stuffs-location-filter:hover {
+    border-color: var(--c-gold-dark);
+}
+
+.stuffs-location-filter[data-selected='true'] {
+    background  : var(--c-bg-card-light);
+    border-color: var(--c-gold-dark);
+    color       : var(--c-gold);
+    font-weight : bold;
+}
+
+/* Les colonnes titrées : l'entête et les lignes partagent la MÊME grille
+   fractionnaire (règle de la zone jets — jamais auto, chaque cellule se
+   dimensionnerait sur son propre contenu), la colonne Qté reste
+   réservée, vide sur les lignes non consommables */
+.stuffs-entries-header,
+.stuffs-entry {
+    display               : grid;
+    grid-template-columns : 240px minmax(120px, 1fr) minmax(90px, 0.8fr) 48px 48px 16px;
+    gap                   : var(--s-sm);
+    align-items           : center;
+}
+
+.stuffs-entries-header {
+    border-bottom: 1px solid var(--c-border-dark);
+    /* Same horizontal padding as the rows : the columns align vertically
+       between header and cells */
+    padding      : 2px 2px 3px;
+}
+
+.stuffs-entries-header-title {
+    color       : var(--c-text-muted);
+    font-size   : 11px;
+    overflow    : hidden;
+    white-space : nowrap;
+}
+
+.stuffs-col-object {
+    display               : flex;
+    align-items           : center;
+    gap                   : var(--s-sm);
+    grid-column           : 1;
+    min-width             : 0;
+}
+
+/* Le commentaire se lit dans SA colonne : ellipsé, l'infobulle porte
+   le texte entier */
+.stuffs-entry-comment {
+    color        : var(--c-text-muted);
+    font-size    : 12px;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+
+/* Un point par ligne dans la cellule des caractéristiques (retour
+   utilisateur : chaque champ se lit en colonne, pas en flux) — la
+   cellule s'agrandit en hauteur, la grille centre les autres colonnes */
+.stuffs-col-chars {
+    display               : flex;
+    flex-direction       : column;
+    gap                   : 2px;
+    grid-column           : 2;
+    justify-content       : center;
+    min-width             : 0;
+}
+
+.stuffs-col-comment {
+    grid-column: 3;
+    min-width   : 0;
+}
+
+.stuffs-col-quantity {
+    grid-column: 4;
+    text-align : center;
+    width      : 100%;
+}
+
+.stuffs-col-bulk {
+    grid-column: 5;
+    text-align : center;
+}
+
+.stuffs-col-actions {
+    grid-column: 6;
+    text-align  : center;
 }
 
 .stuffs-entry {
-    align-items    : center;
-    color          : var(--c-text);
-    display        : flex;
-    font-size      : 13px;
-    gap            : var(--s-sm);
-    justify-content: space-between;
-    padding        : 3px 2px;
+    color     : var(--c-text);
+    font-size : 13px;
+    padding   : 3px 2px;
 }
 
 .stuffs-entry-value {
-    flex: 0 1 auto;
+    overflow      : hidden;
+    text-overflow : ellipsis;
+    white-space   : nowrap;
 }
 
 /* L'info inline du type de l'entrée (Dégâts pour une arme, CA bonus pour
    une armure) et son encombrement : valeurs discrètes de fin de ligne */
-.stuffs-entry-stat {
-    color       : var(--c-text-muted);
-    flex        : 0 0 auto;
-    font-size   : 12px;
+/* Une caractéristique = libellé discret + valeur : le libellé porte
+   la lecture (le type de la valeur dépend du type d'objet, les kinds
+   se mélangent dans un emplacement) */
+.stuffs-entry-char {
+    display: flex;
+    gap    : 3px;
+}
+
+.stuffs-entry-char-label {
+    color    : var(--c-text-muted);
+    font-size: 10px;
+}
+
+.stuffs-entry-char-value {
+    color    : var(--c-text);
+    font-size: 12px;
 }
 
 .stuffs-entry-bulk {
     color       : var(--c-text-muted);
-    flex        : 0 0 auto;
     font-size   : 12px;
     min-width   : 18px;
-    text-align  : right;
 }
 
 .stuffs-entry-info {
     flex: 0 0 auto;
 }
 
-/* La quantité se modifie sur place : l'input reste discret en lecture
-   (fond transparent, pas de bord) et se montre à l'édition (focus) */
+/* La quantité de la ligne reste en LECTURE : l'édition vit dans la
+   popup de la roue crantée, jamais d'input dans la liste */
 .stuffs-entry-quantity {
-    background   : transparent;
-    border        : var(--b-thin) solid transparent;
-    border-radius : var(--r-sm);
-    box-sizing    : border-box;
-    color         : var(--c-text-muted);
-    flex          : 0 0 44px;
-    font-size     : 13px;
-    min-width     : 0;
-    padding       : 2px 6px;
-    text-align    : right;
+    color     : var(--c-text-muted);
+    font-size : 12px;
 }
 
-.stuffs-entry-quantity:focus
-{
-    background: var(--c-bg-card);
-    border    : var(--b-thin) solid var(--c-border-dark);
-    color     : var(--c-text);
-    outline   : none;
-}
-
-/* La coche « Porté » : la data porte l'état (jamais une classe), le style
-   réagit à la data poussée sur l'entrée */
-.stuffs-entry-worn {
-    border       : var(--b-thin) solid transparent;
-    border-radius: var(--r-sm);
-    color        : var(--c-text-muted);
+/* La roue crantée d'une ligne ouvre la popup d'édition (emplacement,
+   lieu, commentaire, retrait) : la ligne ne garde que ses colonnes de
+   lecture */
+.stuffs-entry-edit {
+    color       : var(--c-text-muted);
     cursor       : pointer;
-    flex         : 0 0 auto;
-    font-size    : 12px;
-    padding      : 1px 8px;
+    font-size    : 15px;
+    line-height  : 1;
 }
 
-.stuffs-entry-worn:hover {
-    border-color: var(--c-gold-dark);
-}
-
-.stuffs-entry[data-worn='true'] .stuffs-entry-worn {
-    border-color: var(--c-gold-dark);
-    color       : var(--c-gold);
-}
-
-.stuffs-entry-remove {
-    color  : var(--c-text-muted);
-    cursor : pointer;
-    flex   : 0 0 auto;
-}
-
-.stuffs-entry-remove:hover {
+.stuffs-entry-edit:hover {
     color: var(--c-gold-light);
 }
 
@@ -209,12 +383,12 @@
 
 /* ── Sélecteur de valeur (composant lib, cf. l'onglet Ajustements pour le
       même stylage scopé) : header + liste fluide sous son conteneur ── */
-.stuffs-add-popup .single-select-container {
+.stuffs-form-popup .single-select-container {
     flex-shrink: 0;
     position   : relative;
 }
 
-.stuffs-add-popup .single-select-selector {
+.stuffs-form-popup .single-select-selector {
     align-items    : center;
     background     : var(--c-bg-card);
     border         : var(--b-thin) solid var(--c-border-dark);
@@ -232,11 +406,11 @@
     white-space    : nowrap;
 }
 
-.stuffs-add-popup .single-select-selector:hover {
+.stuffs-form-popup .single-select-selector:hover {
     border-color: var(--c-gold-dark);
 }
 
-.stuffs-add-popup .single-select-selector-chevron {
+.stuffs-form-popup .single-select-selector-chevron {
     border-left : 4px solid transparent;
     border-right: 4px solid transparent;
     border-top  : 4px solid var(--c-text-muted);
@@ -245,7 +419,7 @@
     width       : 0;
 }
 
-.stuffs-add-popup .single-select-selector-label {
+.stuffs-form-popup .single-select-selector-label {
     flex         : 1 1 auto;
     overflow     : hidden;
     text-overflow: ellipsis;
@@ -254,7 +428,7 @@
 
 /* Ligne de filtre en tête de liste ouverte (pattern shinken-list
    STRING_INPUT) : saisie qui masque les options non correspondantes */
-.stuffs-add-popup .single-select-filter {
+.stuffs-form-popup .single-select-filter {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-border-dark);
     border-radius: var(--r-sm);
@@ -266,12 +440,12 @@
     width        : 100%;
 }
 
-.stuffs-add-popup .single-select-filter:focus {
+.stuffs-form-popup .single-select-filter:focus {
     border-color: var(--c-gold-dark);
     outline     : none;
 }
 
-.stuffs-add-popup .single-select-list {
+.stuffs-form-popup .single-select-list {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-gold-dark);
     border-radius: var(--r-sm);
@@ -288,11 +462,11 @@
     z-index      : 100;
 }
 
-.stuffs-add-popup .single-select-container[data-state-selector='1'] .single-select-list {
+.stuffs-form-popup .single-select-container[data-state-selector='1'] .single-select-list {
     display: block;
 }
 
-.stuffs-add-popup .single-select-option {
+.stuffs-form-popup .single-select-option {
     align-items    : center;
     border-radius  : var(--r-sm);
     color          : var(--c-text);
@@ -304,17 +478,17 @@
     padding        : 3px 8px;
 }
 
-.stuffs-add-popup .single-select-option:hover {
+.stuffs-form-popup .single-select-option:hover {
     background: var(--c-bg-card-light);
 }
 
-.stuffs-add-popup .single-select-option.selected {
+.stuffs-form-popup .single-select-option.selected {
     background    : var(--c-bg-card-light);
     color         : var(--c-gold);
     pointer-events: none;
 }
 
-.stuffs-add-popup .single-select-option-label {
+.stuffs-form-popup .single-select-option-label {
     flex         : 1 1 auto;
     overflow     : hidden;
     text-overflow: ellipsis;

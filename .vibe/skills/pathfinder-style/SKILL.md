@@ -1,11 +1,55 @@
 ---
 name: pathfinder-style
-description: Load this skill before writing, modifying, or adding any code (JS, CSS, HTML) to the Pathfinder character sheet project. It defines the mandatory architecture (global namespaces, prototype classes, event bus, services), the DOM and data conventions, and the exact formatting rules of this codebase.
+description: Load this skill before writing, modifying, or adding any code (JS, CSS, HTML) to the Pathfinder character sheet project, and before proposing any UI design (zones, columns, windows). It defines the mandatory architecture (global namespaces, prototype classes, event bus, services), the DOM and data conventions, the ASCII-mockup-first design workflow, and the exact formatting rules of this codebase.
 ---
 
 # Pathfinder - Conventions de code du projet
 
 Ce projet est une feuille de personnage Pathfinder 2 en **JavaScript vanilla (ES2020/ES11)**, **sans build system, sans bundler, sans npm, sans modules ES**. Tous les fichiers sont chargés par des balises `<script>` ordonnées dans `index.html`. Ne jamais introduire d'import/export, de framework, de package.json ou de toolchain.
+
+## Conception : la maquette ASCII avant le code
+
+Toute proposition de conception d'affichage (nouvelle zone, nouvelles
+colonnes, réorganisation d'une fenêtre ou d'une popup) s'accompagne
+d'une MAQUETTE ASCII du rendu cible avant d'écrire la moindre ligne de
+code — l'utilisateur valide la maquette, on code ensuite. La maquette :
+
+- vit dans un bloc code délimité, colonnes et valeurs ALIGNÉES
+  verticalement : les séparateurs (pipes ou espaces) tombent à la MÊME
+  colonne sur chaque ligne, y compris pour l'en-tête — décaler d'un ou
+  deux caractères suffit à casser la lecture, on vérifie
+  caractère par caractère avant de livrer (attention : les caractères
+  accentués comptent pour UN, les glyphes larges — ⚙, émojis — se
+  réservent à la DERNIÈRE colonne) ;
+- montre des lignes RÉALISTES et variées — de vrais noms du dataset
+  scrapé, un cas équipé, un cas entreposé, une quantité, un cas limite
+  (valeur absente, entrée hors dataset) — jamais des exemples
+  génériques `aaa`/`bbb` ;
+- UN POINT PAR LIGNE quand une cellule porte plusieurs valeurs (les
+  caractéristiques d'un objet se lisent en colonne, pas en flux : le
+  retour à la ligne est une information de design, pas un hasard du
+  rendu) ;
+- se termine par la liste courte des décisions ouvertes, numérotées —
+  jamais noyées dans la prose.
+
+Modèle de maquette (livrée pour l'onglet Équipement, cinq colonnes
+harmonisées, une caractéristique par ligne) :
+
+```
+Objet               | Caractéristiques         | Qté | Encomb. | Actions
+Épée longue ?       | Dégâts 1d8+
+                    | Mains 1                  |     |       1 | ⚙
+Armure d'écailles ? | CA bonus +3
+                    | Mod. de dex. max. 2      |     |       2 | ⚙
+Potion de soins ?   |                          |   5 |       L | ⚙
+Fiole perdue ?      | (hors dataset : rien)    |     |       — | ⚙
+```
+
+L'alignement des colonnes de la maquette préfigure la grille CSS : ce
+qui s'aligne dans le dessin s'aligne par `grid-template-columns`
+partagé entête + lignes (règle de la zone jets — jamais `auto`), et
+le retour à la ligne de la maquette s'implémente par la direction de
+la cellule (`flex-direction: column` ou `display: grid` en lignes).
 
 ## Règles d'or
 

@@ -5,32 +5,32 @@
  */
 var STUFF = {};
 
-// Sections of the equipment tab : each one owns its section, the entries
-// carry their worn toggle (phase 2 will consume them for the AC and attack
-// rows — PF2 requires computation first, the scrap carries the fields :
-// the weapons own "Dégâts"/"Catégorie", the armors own "CA bonus"). The
-// inline info field of an entry line and the popup detail fields are the
-// SCRAPED keys (they survive a re-scrap, cf. KINDS picker).
+// Sections of the stuffs domain : each one owns its selector options
+// and the INLINE FIELDS of its kind — the column of characteristics of
+// the equipment tab, labeled (the values follow the SCRAPED keys, they
+// survive a re-scrap) : a weapon carries its Dégâts and its hands, an
+// armor its CA bonus and its dex cap, the other objects carry none. The
+// popup detail fields stay the full scraped stats of the kind.
 STUFF.KINDS = [
     {
         "key"          : "weapon",
         "label"        : "Armes",
         picker         : "Dégâts",
-        "info_field"   : "Dégâts",
+        "inline_fields": [ "Dégâts", "Mains" ],
         "detail_fields": [ "Dégâts", "Mains", "Catégorie", "Groupe" ]
     },
     {
         "key"          : "armor",
         "label"        : "Armures",
         picker         : "CA bonus",
-        "info_field"   : "CA bonus",
+        "inline_fields": [ "CA bonus", "Mod. de dex. max." ],
         "detail_fields": [ "CA bonus", "Mod. de dex. max.", "Pénalité d'armure au test", "Pénalité à la vitesse", "Force requise", "Catégorie", "Groupe" ]
     },
     {
         "key"          : "other",
         "label"        : "Autres objets",
         picker         : null,
-        "info_field"   : null,
+        "inline_fields": [],
         "detail_fields": []
     }
 ];
@@ -38,6 +38,49 @@ STUFF.KINDS = [
 // The consumables stack (a potion counts, a sword does not) : the trait
 // drives the quantity, data-based, it survives a re-scrap
 STUFF.CONSUMABLE_TRAIT = "Consommable";
+
+// The storage locations of the inventory (PF2 : the character wears
+// the equipped stuff, carries the backpack, leaves the rest somewhere
+// — a place free text describes where a stored stuff sits, it stays
+// with the entry when it travels back). The array order drives the
+// categories bar, the sections and the entry location chips
+STUFF.LOCATIONS = [
+    {
+        "key"  : "equipped",
+        "label": "Équipé"
+    },
+    {
+        "key"  : "backpack",
+        "label": "Sac à dos"
+    },
+    {
+        "key"  : "stored",
+        "label": "Entreposé"
+    }
+];
+
+// PF2 : the character carries the equipped stuff and the backpack, the
+// stored bulk does not weight on them (the carried bulk of the bar,
+// the stored section carries its own)
+STUFF.CARRIED_LOCATIONS = [ "equipped", "backpack" ];
+
+// PF2 : the equipped stuff is worn on the character, everything else
+// enters the backpack ; the categories bar shows them ALL at once
+STUFF.DEFAULT_LOCATION = "backpack";
+STUFF.FILTER_ALL       = "all";
+
+/**
+ * @param {string} location_key  Location key, ex: "backpack"
+ * @returns {Object|null}       The location data { key, label }
+ */
+STUFF.getLocationData = function ( location_key ) {
+    for ( let i = 0, _size_i = STUFF.LOCATIONS.length; i < _size_i; i++ ) {
+        if ( STUFF.LOCATIONS[ i ].key === location_key ) {
+            return STUFF.LOCATIONS[ i ];
+        }
+    }
+    return null;
+};
 
 /**
  * @param {string} kind_key  Section key, ex: "weapon"
@@ -77,9 +120,11 @@ STUFFS.parseBulk = function ( name ) {
     return isNaN( parsed ) ? 0 : parsed;
 };
 
-// The bulk of an OWNED entry : the consumables count by unit
+// The bulk of an OWNED entry : the quantity counts by unit for every
+// entry (the quantity owns the whole inventory, the consumable trait
+// only drives the stacking)
 STUFFS.getEntryBulk = function ( stuff ) {
-    return STUFFS.parseBulk( stuff.value ) * ( stuff.isConsumable() ? stuff.quantity : 1 );
+    return STUFFS.parseBulk( stuff.value ) * stuff.quantity;
 };
 
 STUFFS.getByName = function ( name ) {

@@ -2,25 +2,52 @@
 /**
  * Scenario : STUFFS (suite independante, RESET — placee APRES la chaine
  * classe/multiclasse/niveaux : ces suites ne resetent pas, elles heritent
- * de l'etat laisse par la precedente, une suite qui reset au milieu leur
- * casserait leurs pre-conditions) L'onglet Équipement : l'inventaire du
- * personnage, le « + » en tête de barre ouvre la POPUP D'AJOUT (type →
- * modèle → commentaire → Valider), une section par type (Armes, Armures,
- * Autres objets), les modèles viennent du dataset scrapé (STUFFS).
- * 1. Onglet actif sur page vide : barre + encombrement 0, 3 sections
- * vides, la popup d'ajout s'ouvre sur le + et se referme sur Quitter.
- * 2. Une épée longue par Entrée sur le filtre du modèle (popup, type
- * Armes par défaut) → l'entrée vit dans Armes avec ses Dégâts inline
- * SANS quantité (pas un consommable), son "?" ouvre la popup objet
- * (champs de type scrapés), sa coche « Porté » suit en place ; un nom
- * inconnu ne pick rien, Valider sans modèle ne crée rien. 3. Une armure
- * par changement de type + commentaire → l'entrée vit dans Armures avec
- * son CA bonus inline, le commentaire vit dans le domaine et en
- * infobulle, portée. 4. Un consommable (premier trait Consommable du
- * dataset autres objets) par type Autres objets : empile au Valider
- * (quantité 2), sa quantité se modifie, l'encombrement total suit en
- * place, retrait, save → load : kinds, quantités, porté et commentaires
- * restaurés.
+ * de l'etat laisse par la precedente) L'onglet Équipement : l'inventaire
+ * sur TROIS emplacements (Équipé / Sac à dos / Entreposé), le « + » en
+ * tête de barre ouvre la POPUP D'AJOUT (TROIS sélecteurs VIERGES
+ * « -- » : type → modèle [ses options suivent le type, un nom inconnu au
+ * filtre devient le modèle — une entrée vit hors dataset] → emplacement
+ * [vide = Sac à dos au Valider] → lieu si entreposé → commentaire →
+ * Valider), les CATÉGORIES filtrent les sections dans la barre, une
+ * section par emplacement avec sa LIGNE D'ENTÊTE titrée (colonnes
+ * partagées par grille), les lignes ne gardent que leurs colonnes de
+ * lecture et la ROUE CRANTÉE ouvre la POPUP D'ÉDITION (emplacement, lieu,
+ * commentaire, RETRAIT), l'encombrement de la barre ne compte que le
+ * porté (équipé + sac à dos, PF2), la section Entreposé porte son
+ * aucun total (demande utilisateur : pas de somme sur l'entreposé).
+ * 1. Onglet actif sur page vide : barre + filtre 4 puces (Tous +
+ * 3 emplacements, comptes à 0, puce active visible) + encombrement 0,
+ * 3 sections vides chacune titrée avec son entête de colonnes, le
+ * filtre n'affiche que sa section puis Tous les rend, la popup
+ * d'ajout vierge (tout « -- », aucune option de modèle sans type,
+ * ligne lieu absente sans entreposage), Quitter referme sans créer.
+ * 2. Une épée longue (type Armes posé, Entrée sur le filtre du
+ * modèle, emplacement vide → Sac à dos) → l'entrée vit dans Sac à dos
+ * avec ses Dégâts inline et SA quantité (toute entrée en porte une),
+ * la ROUE CRANTÉE ouvre l'édition (emplacement courant affiché, lieu
+ * absent hors entreposage), choisir Équipé valide et déplace
+ * l'entrée, l'édition des CARACTÉRISTIQUES surcharge le scrapé (vides
+ * = retour au scrapé) et la quantité suit l'encombrement, son "?"
+ * ouvre la popup objet (champs de type scrapés), un nom inconnu au
+ * filtre DEVIENT le modèle (entrée hors dataset : pas d'info inline,
+ * pas de "?", encombrement « — »), Valider sans type ne crée rien,
+ * Valider sur un possédé ne fait rien.
+ * 3. Une armure changée de type + emplacement Entreposé + lieu +
+ * commentaire → l'entrée vit dans la section Entreposé, l'édition
+ * modifie son lieu (le titre suit), l'encombrement de la barre ne la
+ * compte PAS (aucun total sur l'entreposé), l'édition la ramène
+ * au Sac à dos (bulk qui la compte, lieu GARDÉ mais révélé seulement
+ * au retour sur Entreposé). FERMETURE de la popup d'information d'un
+ * objet APOSTROPHE (regression : l'uuid embarqué inline cassait le
+ * handler) : le clic sur le « x » ET le clic sur le fond de l'overlay
+ * referment.
+ * 4. Un consommable (premier trait Consommable du dataset autres
+ * objets, emplacement posé explicitement) : empile au Valider
+ * (quantité 2, sans déplacement), sa quantité se modifie,
+ * l'encombrement suit en place, le filtre isole chaque catégorie,
+ * save → load : emplacements, lieux et commentaires restaurés, les
+ * vieux save "worn" se relisent équipé/sac à dos, RETRAIT par la
+ * popup d'édition, encombrement rendu.
  */
 function TEST_stuffsOpenAddPopup() {
     let _button = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-add-button" );
@@ -71,6 +98,14 @@ function TEST_stuffsPickType( type_key ) {
     _option.click();
 }
 
+function TEST_stuffsPickLocation( location_key ) {
+    let _option = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-form-popup-location .single-select-option[data-value='" + location_key + "']" );
+    if ( !_option ) {
+        return;
+    }
+    _option.click();
+}
+
 function TEST_stuffsPickModel( value ) {
     let _option = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-option[data-value=" + JSON.stringify( value ) + "]" );
     if ( !_option ) {
@@ -79,27 +114,73 @@ function TEST_stuffsPickModel( value ) {
     _option.click();
 }
 
+// La roue crantée d'une entrée : le geste reel d'ouverture de l'édition
+function TEST_stuffsOpenEditPopup( kind, value ) {
+    let _gear = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-kind='" + kind + "'][data-value=" + JSON.stringify( value ) + "] .stuffs-entry-edit" );
+    if ( !_gear ) {
+        return;
+    }
+    _gear.click();
+}
+
+function TEST_stuffsEditPickLocation( location_key ) {
+    let _option = document.querySelector( "body > .popup .stuffs-edit-popup .stuffs-form-popup-location .single-select-option[data-value='" + location_key + "']" );
+    if ( !_option ) {
+        return;
+    }
+    _option.click();
+}
+
+function TEST_stuffsValidateEditPopup() {
+    let _valid = document.querySelector( "body > .popup .stuffs-edit-popup .popup-up-valid" );
+    if ( !_valid ) {
+        return;
+    }
+    _valid.click();
+}
+
+function TEST_stuffsRemoveEditPopup() {
+    let _remove = document.querySelector( "body > .popup .stuffs-edit-popup .stuffs-edit-popup-remove-button" );
+    if ( !_remove ) {
+        return;
+    }
+    _remove.click();
+}
+
+function TEST_stuffsClickLocationFilter( location_key ) {
+    let _filter = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-location-filter[data-location='" + location_key + "']" );
+    if ( !_filter ) {
+        return;
+    }
+    _filter.click();
+}
+
 function TEST_stuffsDiagnosis() {
     let _description  = "";
-    let _popup        = document.querySelector( "body > .popup .stuffs-add-popup" );
-    if ( _popup ) {
-        let _type_label  = _popup.querySelector( ".stuffs-add-popup-type .single-select-selector-label" );
-        let _model_label = _popup.querySelector( ".stuffs-add-popup-model .single-select-selector-label" );
-        _description     += "[popup : type=" + ( _type_label ? _type_label.textContent : "?" ) + ", modèle=" + ( _model_label ? _model_label.textContent : "?" ) + "] ";
+    let _popup        = document.querySelector( "body > .popup" );
+    if ( _popup && _popup.querySelector( ".stuffs-add-popup" ) ) {
+        let _type_label     = _popup.querySelector( ".stuffs-add-popup-type .single-select-selector-label" );
+        let _model_label    = _popup.querySelector( ".stuffs-add-popup-model .single-select-selector-label" );
+        let _location_label = _popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
+        _description        += "[popup ajout : type=" + ( _type_label ? _type_label.textContent : "?" ) + ", modèle=" + ( _model_label ? _model_label.textContent : "?" ) + ", emplacement=" + ( _location_label ? _location_label.textContent : "?" ) + "] ";
+    }
+    else if ( _popup && _popup.querySelector( ".stuffs-edit-popup" ) ) {
+        let _location_label = _popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
+        _description        += "[popup édition : emplacement=" + ( _location_label ? _location_label.textContent : "?" ) + "] ";
     }
     else {
-        _description     += "[pas de popup] ";
+        _description        += "[pas de popup] ";
     }
     let _sections = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section" );
     for ( let _i = 0, _size_i = _sections.length; _i < _size_i; _i++ ) {
-        _description += "[" + _sections[ _i ].getAttribute( "data-kind" ) + " : " + _sections[ _i ].querySelectorAll( ".stuffs-entry" ).length + "] ";
+        _description += "[" + _sections[ _i ].getAttribute( "data-location" ) + " : " + _sections[ _i ].querySelectorAll( ".stuffs-entry" ).length + "] ";
     }
     let _bulk = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
     _description                    += _bulk ? _bulk.textContent : "?";
     return _description;
 }
 
-TEST.RUNNER.register( "[STUFFS] onglet = + en tête + popup d'ajout + 3 sections", function () {
+TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtre catégories + popup d'ajout", function () {
     TEST.RESET.sheet();
     let _tab = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
     TEST.ASSERT.notNull( _tab, "L'onglet Équipement devrait exister" );
@@ -115,8 +196,8 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + popup d'ajout + 3 sections
         if ( !_pane ) {
             return;
         }
-        // La barre : le + en tête (PREMIER enfant), l'encombrement total à
-        // sa droite, plus aucun sélecteur dans la fenêtre
+        // La barre : le + en tête (PREMIER enfant), les catégories qui
+        // filtrent, l'encombrement porté a sa droite
         let _add_bar = _pane.querySelector( ".stuffs-add-bar" );
         TEST.ASSERT.notNull( _add_bar, "La barre devrait etre rendue" );
         if ( !_add_bar ) {
@@ -124,44 +205,85 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + popup d'ajout + 3 sections
         }
         TEST.ASSERT.ok( _add_bar.firstElementChild.classList.contains( "stuffs-add-button" ), "Le + devrait ouvrir la barre (premier enfant), obtenu : [" + ( _add_bar.firstElementChild ? _add_bar.firstElementChild.className : "vide" ) + "]" );
         TEST.ASSERT.equal( _pane.querySelectorAll( ".stuffs-add-button" ).length, 1, "Un seul + devrait vivre dans la fenêtre, obtenu : " + _pane.querySelectorAll( ".stuffs-add-button" ).length );
-        TEST.ASSERT.isNull( _pane.querySelector( ".single-select-selector" ), "La fenêtre ne devrait plus porter de sélecteur : l'ajout vit dans la popup" );
         let _bulk_total = _pane.querySelector( ".stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total ? _bulk_total.textContent : null, "Encombrement : 0", "L'encombrement total devrait etre 0 sur page vide, obtenu : [" + ( _bulk_total ? _bulk_total.textContent : "null" ) + "]" );
-        let _sections = _pane.querySelectorAll( ".stuffs-section" );
-        TEST.ASSERT.equal( _sections.length, STUFF.KINDS.length, "L'onglet devrait rendre une section par type (" + STUFF.KINDS.length + "), obtenu : " + _sections.length );
-        // La popup d'ajout : le + l'ouvre (type par défaut, modèle du type,
-        // commentaire libre), Quitter la referme sans rien créer
-        TEST_stuffsOpenAddPopup();
-        let _popup = document.querySelector( "body > .popup .stuffs-add-popup" );
-        TEST.ASSERT.notNull( _popup, "La popup d'ajout devrait s'ouvrir sur le +" );
-        if ( !_popup ) {
-            return;
+        TEST.ASSERT.equal( _bulk_total ? _bulk_total.textContent : null, "Encombrement : 0", "L'encombrement porté devrait etre 0 sur page vide, obtenu : [" + ( _bulk_total ? _bulk_total.textContent : "null" ) + "]" );
+        // Les catégories : Tous + une puce par emplacement, comptes à 0,
+        // la puce Tous active par défaut (la data porte l'état)
+        let _filters = _pane.querySelectorAll( ".stuffs-add-bar .stuffs-location-filter" );
+        TEST.ASSERT.equal( _filters.length, STUFF.LOCATIONS.length + 1, "La barre devrait porter Tous + une puce par emplacement (" + ( STUFF.LOCATIONS.length + 1 ) + "), obtenu : " + _filters.length );
+        TEST.ASSERT.equal( _filters.length ? _filters[ 0 ].getAttribute( "data-location" ) : null, STUFF.FILTER_ALL, "La premiere puce devrait etre Tous, obtenu : [" + ( _filters.length ? _filters[ 0 ].getAttribute( "data-location" ) : "null" ) + "]" );
+        TEST.ASSERT.equal( _filters.length ? _filters[ 0 ].getAttribute( "data-selected" ) : null, "true", "La puce Tous devrait etre active par défaut, obtenu : [" + ( _filters.length ? _filters[ 0 ].getAttribute( "data-selected" ) : "null" ) + "]" );
+        for ( let _l = 0; _l < _filters.length; _l++ ) {
+            if ( _filters[ _l ].getAttribute( "data-location" ) !== STUFF.FILTER_ALL ) {
+                TEST.ASSERT.equal( _filters[ _l ].getAttribute( "data-selected" ), "false", "Seule Tous devrait etre active sur page vide" );
+                TEST.ASSERT.ok( _filters[ _l ].textContent.indexOf( "(0)" ) !== -1, "La puce " + _filters[ _l ].getAttribute( "data-location" ) + " devrait compter 0 entrée, obtenu : [" + _filters[ _l ].textContent + "]" );
+            }
         }
-        let _type_label = _popup.querySelector( ".stuffs-add-popup-type .single-select-selector-label" );
-        TEST.ASSERT.equal( _type_label.textContent, STUFF.KINDS[ 0 ].label, "Le type par défaut de la popup devrait etre la premiere section, obtenu : [" + _type_label.textContent + "]" );
-        TEST.ASSERT.equal( _popup.querySelectorAll( ".stuffs-add-popup-type .single-select-option" ).length, STUFF.KINDS.length + 1, "Le sélecteur de type devrait porter chaque type + l'option vide, obtenu : " + _popup.querySelectorAll( ".stuffs-add-popup-type .single-select-option" ).length );
-        let _model_options_count = _popup.querySelectorAll( ".stuffs-add-popup-model .single-select-option" ).length;
-        TEST.ASSERT.equal( _model_options_count, STUFFS.getKindOptions( STUFF.KINDS[ 0 ].key ).length + 1, "Le sélecteur de modèle devrait porter les entrées du type par défaut + l'option vide, obtenu : " + _model_options_count );
-        let _comment_input = _popup.querySelector( ".stuffs-add-popup-comment-input" );
-        TEST.ASSERT.notNull( _comment_input, "La popup devrait porter son champ commentaire" );
-        TEST.ASSERT.ok( !_comment_input.value, "Le champ commentaire devrait etre vide a l'ouverture, obtenu : [" + _comment_input.value + "]" );
-        TEST_stuffsQuitAddPopup();
-        TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "La popup devrait etre refermée sur Quitter" );
-        TEST.ASSERT.equal( CONTROLLER.Character.current_character.getStuffs().getSize(), 0, "Quitter ne devrait rien créer, obtenu : " + CONTROLLER.Character.current_character.getStuffs().getSize() );
+        // Une section par emplacement (STUFF.LOCATIONS = l'ordre affiché),
+        // chacune titrée avec sa ligne d'entête de colonnes (le premier
+        // titre nomme l'objet)
+        let _sections = _pane.querySelectorAll( ".stuffs-section" );
+        TEST.ASSERT.equal( _sections.length, STUFF.LOCATIONS.length, "L'onglet devrait rendre une section par emplacement (" + STUFF.LOCATIONS.length + "), obtenu : " + _sections.length );
+        for ( let _s = 0; _s < _sections.length && _s < STUFF.LOCATIONS.length; _s++ ) {
+            TEST.ASSERT.equal( _sections[ _s ].getAttribute( "data-location" ), STUFF.LOCATIONS[ _s ].key, "La section " + _s + " devrait porter l'emplacement " + STUFF.LOCATIONS[ _s ].key + ", obtenu : [" + _sections[ _s ].getAttribute( "data-location" ) + "]" );
+            let _header_titles = _sections[ _s ].querySelectorAll( ".stuffs-entries-header-title" );
+            TEST.ASSERT.ok( _header_titles.length >= 3 && _header_titles[ 0 ].textContent === "Objet" && _header_titles[ 1 ].textContent === "Caractéristiques" && _header_titles[ 2 ].textContent === "Commentaire", "Chaque section devrait porter son entête de colonnes (Objet, Caractéristiques, Commentaire), obtenu : " + ( _header_titles.length ? "[" + _header_titles[ 0 ].textContent + " | " + _header_titles[ 1 ].textContent + " | " + _header_titles[ 2 ].textContent + "]" : "aucun entête" ) );
+        }
+        // Le filtre n'affiche que sa section, Tous les rend toutes
+        TEST_stuffsClickLocationFilter( "equipped" );
+        return TEST.wait().then( function () {
+            let _filtered_sections = _pane.querySelectorAll( ".stuffs-section" );
+            TEST.ASSERT.equal( _filtered_sections.length, 1, "Le filtre Équipé devrait laisser une seule section, obtenu : " + _filtered_sections.length );
+            TEST.ASSERT.equal( _filtered_sections.length ? _filtered_sections[ 0 ].getAttribute( "data-location" ) : null, "equipped", "La section filtrée devrait etre Équipé" );
+            let _equipped_filter = _pane.querySelector( ".stuffs-add-bar .stuffs-location-filter[data-location='equipped']" );
+            TEST.ASSERT.equal( _equipped_filter ? _equipped_filter.getAttribute( "data-selected" ) : null, "true", "La puce Équipé devrait etre active, obtenu : [" + ( _equipped_filter ? _equipped_filter.getAttribute( "data-selected" ) : "null" ) + "]" );
+            TEST_stuffsClickLocationFilter( STUFF.FILTER_ALL );
+            return TEST.wait();
+        } ).then( function () {
+            TEST.ASSERT.equal( _pane.querySelectorAll( ".stuffs-section" ).length, STUFF.LOCATIONS.length, "Le filtre Tous devrait rendre toutes les sections, obtenu : " + _pane.querySelectorAll( ".stuffs-section" ).length );
+            // La popup d'ajout : le + l'ouvre VIERGE — retour
+            // utilisateur : TOUT sélecteur démarre « -- », aucune
+            // option de modèle sans type, lieu absent sans entreposage
+            TEST_stuffsOpenAddPopup();
+            let _popup = document.querySelector( "body > .popup .stuffs-add-popup" );
+            TEST.ASSERT.notNull( _popup, "La popup d'ajout devrait s'ouvrir sur le +" );
+            if ( !_popup ) {
+                return;
+            }
+            let _type_label = _popup.querySelector( ".stuffs-add-popup-type .single-select-selector-label" );
+            TEST.ASSERT.equal( _type_label.textContent, "--", "Le type devrait démarrer vierge (--), obtenu : [" + _type_label.textContent + "]" );
+            let _model_options_count = _popup.querySelectorAll( ".stuffs-add-popup-model .single-select-option" ).length;
+            TEST.ASSERT.equal( _model_options_count, 1, "Le sélecteur de modèle devrait porter L'option vide seule sans type, obtenu : " + _model_options_count );
+            let _location_label = _popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
+            TEST.ASSERT.equal( _location_label.textContent, "--", "L'emplacement devrait démarrer vierge (--), obtenu : [" + _location_label.textContent + "]" );
+            TEST.ASSERT.equal( _popup.querySelectorAll( ".stuffs-form-popup-location .single-select-option" ).length, STUFF.LOCATIONS.length + 1, "Le sélecteur d'emplacement devrait porter chaque emplacement + l'option vide, obtenu : " + _popup.querySelectorAll( ".stuffs-form-popup-location .single-select-option" ).length );
+            let _place_row = _popup.querySelector( ".stuffs-form-popup-place" );
+            TEST.ASSERT.notOk( _place_row && _place_row.offsetParent, "La ligne lieu ne devrait pas s'afficher sans entreposage, obtenu : [" + ( _place_row ? "affichée" : "absente" ) + "]" );
+            let _comment_input = _popup.querySelector( ".stuffs-form-popup-comment-input" );
+            TEST.ASSERT.notNull( _comment_input, "La popup devrait porter son champ commentaire" );
+            TEST.ASSERT.ok( !_comment_input.value, "Le champ commentaire devrait etre vide a l'ouverture, obtenu : [" + _comment_input.value + "]" );
+            TEST_stuffsQuitAddPopup();
+            TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "La popup devrait etre refermée sur Quitter" );
+            TEST.ASSERT.equal( CONTROLLER.Character.current_character.getStuffs().getSize(), 0, "Quitter ne devrait rien créer, obtenu : " + CONTROLLER.Character.current_character.getStuffs().getSize() );
+        } );
     } );
 } );
 
-TEST.RUNNER.register( "[STUFFS] épée longue par popup = entrée armes + dégâts + popup objet + porté", function () {
+TEST.RUNNER.register( "[STUFFS] épée longue = sac à dos + roue crantée équipé + popup objet", function () {
     let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
     TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Équipement ouvert" );
     if ( !_pane ) {
         return;
     }
     TEST_stuffsOpenAddPopup();
-    // Enter sur le filtre du modèle (type Armes par défaut) : le nom
-    // exact (insensible à la casse, ACCENTS COMPRIS — la comparaison ne
-    // normalise pas les diacritiques) devient la valeur en attente
+    // La popup démarre vierge : le type Armes se POSE, puis l'Entrée sur
+    // le filtre du modèle (insensible à la casse, ACCENTS COMPRIS — la
+    // comparaison ne normalise pas les diacritiques) devient la valeur
+    // en attente, l'emplacement reste vide → Sac à dos au Valider
     return TEST.wait().then( function () {
+        TEST_stuffsPickType( "weapon" );
+        return TEST.wait();
+    } ).then( function () {
         TEST_stuffsFilterEnter( "épée longue" );
         return TEST.wait();
     } ).then( function () {
@@ -177,52 +299,62 @@ TEST.RUNNER.register( "[STUFFS] épée longue par popup = entrée armes + dégâ
     } ).then( function () {
         let _character = CONTROLLER.Character.current_character;
         TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "La popup devrait etre refermée apres Valider" );
-        let _entry_dom = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='weapon'] .stuffs-entry[data-value='Épée longue']" );
-        TEST.ASSERT.notNull( _entry_dom, "L'épée longue devrait etre rendue dans la zone Armes après Valider, fenêtre : " + TEST_stuffsDiagnosis() );
+        let _entry_dom = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='backpack'] .stuffs-entry[data-value='Épée longue']" );
+        TEST.ASSERT.notNull( _entry_dom, "L'épée longue devrait etre rendue dans la section Sac à dos après Valider, fenêtre : " + TEST_stuffsDiagnosis() );
         let _stuff_object = _character.getStuffs().getContentByUUID( "weapon__Épée longue" );
         TEST.ASSERT.notNull( _stuff_object, "L'épée longue devrait vivre dans le conteneur (weapon__Épée longue)" );
         if ( !_entry_dom || !_stuff_object ) {
             return;
         }
-        TEST.ASSERT.equal( _entry_dom.querySelector( ".stuffs-entry-stat" ).textContent, STUFFS.getFieldValue( "Épée longue", STUFF.getKindData( "weapon" ).info_field ), "L'entrée d'arme devrait porter ses Dégâts inline, obtenu : [" + _entry_dom.querySelector( ".stuffs-entry-stat" ).textContent + "]" );
-        TEST.ASSERT.notOk( _stuff_object.worn, "L'épée ne devrait pas etre portée par défaut" );
-        TEST.ASSERT.isNull( _entry_dom.querySelector( ".stuffs-entry-quantity" ), "L'épée longue n'est pas consommable : aucune quantité ne devrait etre rendue" );
+        TEST.ASSERT.equal( _stuff_object.location, "backpack", "L'emplacement vide au Valider devrait retomber au Sac à dos (PF2 : ce qui n'est ni équipé ni entreposé se porte), obtenu : [" + _stuff_object.location + "]" );
+        let _sword_chars = _entry_dom.querySelector( ".stuffs-entry-chars" );
+TEST.ASSERT.notNull( _sword_chars, "L'entrée d'arme devrait porter sa colonne de caractéristiques" );
+TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Dégâts" ) !== -1 && _sword_chars.textContent.indexOf( STUFFS.getFieldValue( "Épée longue", "Dégâts" ) ) !== -1, "L'entrée d'arme devrait porter ses Dégâts libellés, obtenu : [" + ( _sword_chars ? _sword_chars.textContent : "null" ) + "]" );
+TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== -1, "L'entrée d'arme devrait porter ses Mains libellées, obtenu : [" + ( _sword_chars ? _sword_chars.textContent : "null" ) + "]" );
+        let _sword_quantity_input = _entry_dom.querySelector( ".stuffs-entry-quantity" );
+        TEST.ASSERT.notNull( _sword_quantity_input, "Toute entrée AFFICHE sa quantité (l'édition vit dans la popup de la roue crantée, jamais d'input dans la liste)" );
+        TEST.ASSERT.notEqual( _sword_quantity_input ? _sword_quantity_input.tagName : null, "INPUT", "La quantité de la ligne reste en lecture, obtenu : [" + ( _sword_quantity_input ? _sword_quantity_input.tagName : "null" ) + "]" );
+        TEST.ASSERT.equal( _sword_quantity_input ? _sword_quantity_input.textContent : null, "1", "La quantité de l'épée devrait etre 1, obtenu : [" + ( _sword_quantity_input ? _sword_quantity_input.textContent : "null" ) + "]" );
+        // Le DOM de la ligne suit l'ORDRE DES COLONNES (object, quantité,
+        // encombrement, roue) : le placement automatique de la grille
+        // marche au curseur, une cellule construite en désordre rejette
+        // les suivantes sur la RANGÉE 2 (regression du run utilisateur)
+        let _entry_cells = _entry_dom.children;
+        TEST.ASSERT.ok( _entry_cells.length >= 4 && _entry_cells[ _entry_cells.length - 1 ].classList.contains( "stuffs-entry-edit" ) && _entry_cells[ _entry_cells.length - 2 ].classList.contains( "stuffs-entry-bulk" ) && _entry_cells[ _entry_cells.length - 3 ].classList.contains( "stuffs-entry-quantity" ), "La ligne devrait construire ses cellules colonne par colonne (quantité avant encombrement, roue en dernier), obtenu : [" + _entry_dom.innerHTML.slice( 0, 120 ) + "…]" );
         TEST.ASSERT.equal( _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent, STUFFS.getFieldValue( "Épée longue", "bulk" ), "L'entrée devrait porter son encombrement inline, obtenu : [" + _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent + "]" );
-        // L'encombrement total suit l'ajout : croisé avec le domaine
+        TEST.ASSERT.notNull( _entry_dom.querySelector( ".stuffs-entry-edit" ), "L'entrée devrait porter sa roue crantée d'édition" );
+        // L'encombrement porté suit l'ajout : croisé avec le domaine
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement total devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
-        // Le Valider sur un objet déjà possédé ne fait rien (pas un
-        // consommable) : le choix repasse par la popup
-        TEST_stuffsOpenAddPopup();
+        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
+        // La ROUE CRANTÉE ouvre l'édition : l'emplacement courant
+        // s'affiche, choisir Équipé valide et déplace l'entrée
+        TEST_stuffsOpenEditPopup( "weapon", "Épée longue" );
         return TEST.wait().then( function () {
-            TEST_stuffsPickModel( "Épée longue" );
+            let _edit_popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+            TEST.ASSERT.notNull( _edit_popup, "La popup d'édition devrait s'ouvrir sur la roue crantée" );
+            if ( !_edit_popup ) {
+                return;
+            }
+            let _edit_location_label = _edit_popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
+            TEST.ASSERT.equal( _edit_location_label.textContent, STUFF.getLocationData( "backpack" ).label, "L'édition devrait afficher l'emplacement courant de l'entrée, obtenu : [" + _edit_location_label.textContent + "]" );
+            let _edit_place_row = _edit_popup.querySelector( ".stuffs-form-popup-place" );
+            TEST.ASSERT.notOk( _edit_place_row && _edit_place_row.offsetParent, "La ligne lieu ne devrait pas s'afficher sur l'édition d'un objet non entreposé, obtenu : [" + ( _edit_place_row ? "affichée" : "absente" ) + "]" );
+            TEST_stuffsEditPickLocation( "equipped" );
             return TEST.wait().then( function () {
-                TEST_stuffsValidateAddPopup();
+                TEST_stuffsValidateEditPopup();
                 return TEST.wait();
-            } );
-        } ).then( function () {
-            TEST.ASSERT.equal( _character.getStuffs().getStuffsByKind( "weapon" ).length, 1, "Le Valider sur une épée déjà possédée ne devrait rien ajouter, obtenu : " + _character.getStuffs().getStuffsByKind( "weapon" ).length );
-            // Un nom inconnu ne pick rien : Valider sans modèle ne crée
-            // RIEN et la popup reste ouverte
-            TEST_stuffsOpenAddPopup();
-            return TEST.wait().then( function () {
-                TEST_stuffsFilterEnter( "Zebulon le magnifique" );
-                return TEST.wait().then( function () {
-                    let _model_label_after = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-selector-label" );
-                    TEST.ASSERT.equal( _model_label_after.textContent, "--", "L'Entrée sur nom inconnu ne devrait rien poser en attente, obtenu : [" + _model_label_after.textContent + "]" );
-                    TEST_stuffsValidateAddPopup();
-                    TEST.ASSERT.notNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "Valider sans modèle ne devrait pas fermer la popup" );
-                    TEST.ASSERT.equal( _character.getStuffs().getStuffsByKind( "weapon" ).length, 1, "Valider sans modèle ne devrait rien créer, obtenu : " + _character.getStuffs().getStuffsByKind( "weapon" ).length );
-                    TEST_stuffsQuitAddPopup();
-                    TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "La popup devrait etre refermée sur Quitter" );
-                } );
             } );
         } );
     } ).then( function () {
+        let _character = CONTROLLER.Character.current_character;
+        TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-edit-popup" ), "La popup d'édition devrait etre refermée apres Valider" );
+        let _entry_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='equipped'] .stuffs-entry[data-value='Épée longue']" );
+        TEST.ASSERT.notNull( _entry_after, "L'épée devrait vivre dans la section Équipé apres l'édition, fenêtre : " + TEST_stuffsDiagnosis() );
+        TEST.ASSERT.equal( _character.getStuffs().getContentByUUID( "weapon__Épée longue" ).location, "equipped", "Le domaine devrait porter l'épée équipée, obtenu : [" + _character.getStuffs().getContentByUUID( "weapon__Épée longue" ).location + "]" );
         // Le "?" ouvre la popup objet (données scrapées) — le sélecteur
         // de la feuille pour une popup OUVERTE est l'overlay en phase
         // RUNNING, la popup refermée reste au DOM masquée
-        let _info = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='weapon'] .stuffs-entry[data-value='Épée longue'] .stuffs-entry-info" );
+        let _info = _entry_after ? _entry_after.querySelector( ".stuffs-entry-info" ) : null;
         TEST.ASSERT.notNull( _info, "L'entrée devrait porter son ?" );
         if ( !_info ) {
             return;
@@ -232,8 +364,8 @@ TEST.RUNNER.register( "[STUFFS] épée longue par popup = entrée armes + dégâ
         TEST.ASSERT.notNull( _overlay, "La popup objet devrait etre ouverte (overlay RUNNING)" );
         let _popup_title = _overlay ? _overlay.querySelector( ".popup-title" ) : null;
         TEST.ASSERT.equal( _popup_title ? _popup_title.textContent : null, "Épée longue", "La popup devrait afficher le nom de l'objet, obtenu : [" + ( _popup_title ? _popup_title.textContent : "null" ) + "]" );
-        // Les champs de type scrapés vivent dans la popup : croisés avec
-        // le domaine
+        // Les champs de type scrapés vivent dans la popup : croisés
+        // avec le domaine
         let _popup_text     = _overlay ? _overlay.textContent : "";
         let _detail_fields  = STUFF.getKindData( "weapon" ).detail_fields;
         for ( let _f = 0, _size_f = _detail_fields.length; _f < _size_f; _f++ ) {
@@ -243,31 +375,137 @@ TEST.RUNNER.register( "[STUFFS] épée longue par popup = entrée armes + dégâ
             }
         }
         CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "stuff__Épée longue" } );
-        TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup devrait passer en phase masquee apres fermeture" );
-        // La coche « Porté » suit en place (la data porte l'état)
-        let _worn_button = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='weapon'] .stuffs-entry[data-value='Épée longue'] .stuffs-entry-worn" );
-        TEST.ASSERT.notNull( _worn_button, "L'entrée devrait porter sa coche Porté" );
-        if ( !_worn_button ) {
-            return;
-        }
-        _worn_button.click();
+            TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup devrait passer en phase masquee apres fermeture" );
+        // L'ÉDITION porte TOUT (retour utilisateur) : la quantité et
+            // les caractéristiques du type s'y règlent — la valeur
+            // saisie SURCHARGE le scrapé, un input vidé retombe dessus
+        TEST_stuffsOpenEditPopup( "weapon", "Épée longue" );
         return TEST.wait().then( function () {
-            let _entry_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='weapon'] .stuffs-entry[data-value='Épée longue']" );
-            TEST.ASSERT.equal( _entry_after.getAttribute( "data-worn" ), "true", "La coche devrait poser data-worn=true en place, obtenu : " + _entry_after.getAttribute( "data-worn" ) );
-            TEST.ASSERT.ok( CONTROLLER.Character.current_character.getStuffs().getContentByUUID( "weapon__Épée longue" ).worn, "Le domaine devrait porter l'état porté" );
+                let _edit_popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+                TEST.ASSERT.notNull( _edit_popup, "La popup d'édition devrait s'ouvrir sur la roue crantée" );
+                if ( !_edit_popup ) {
+                    return;
+                }
+                let _quantity_input = _edit_popup.querySelector( ".stuffs-edit-popup-quantity-input" );
+                TEST.ASSERT.notNull( _quantity_input, "L'édition devrait porter son champ quantité" );
+                TEST.ASSERT.equal( _quantity_input ? _quantity_input.value : null, "1", "Le champ quantité part de l'état du domaine, obtenu : [" + ( _quantity_input ? _quantity_input.value : "null" ) + "]" );
+                let _damage_row = _edit_popup.querySelector( ".stuffs-edit-popup-char-row[data-field=" + JSON.stringify( "Dégâts" ) + "]" );
+                TEST.ASSERT.notNull( _damage_row, "L'édition devrait porter la rangée Dégâts de son type" );
+                let _damage_input = _damage_row ? _damage_row.querySelector( "input" ) : null;
+                TEST.ASSERT.equal( _damage_input ? _damage_input.value : null, STUFFS.getFieldValue( "Épée longue", "Dégâts" ), "Le champ Dégâts part de la valeur scrapée, obtenu : [" + ( _damage_input ? _damage_input.value : "null" ) + "]" );
+                if ( _quantity_input && _damage_input ) {
+                    _quantity_input.value = "2";
+                    _damage_input.value   = "2d6+";
+                }
+                TEST_stuffsValidateEditPopup();
+                return TEST.wait();
+            } ).then( function () {
+                let _sword_object = _character.getStuffs().getContentByUUID( "weapon__Épée longue" );
+                TEST.ASSERT.equal( _sword_object ? _sword_object.quantity : null, 2, "La quantité éditée devrait vivre dans le domaine, obtenu : " + ( _sword_object ? _sword_object.quantity : "null" ) );
+                TEST.ASSERT.equal( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : null, "2d6+", "La caractéristique saisie devrait surcharger le scrapé, obtenu : [" + ( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
+                let _entry_with_override = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='equipped'] .stuffs-entry[data-value='Épée longue']" );
+                TEST.ASSERT.ok( _entry_with_override && _entry_with_override.textContent.indexOf( "2d6+" ) !== -1, "La ligne devrait porter la caractéristique surchargée, obtenu : [" + ( _entry_with_override ? _entry_with_override.textContent : "null" ) + "]" );
+                TEST.ASSERT.equal( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : null, "2", "La quantité AFFICHÉE de la ligne devrait suivre l'édition, obtenu : [" + ( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : "null" ) + "]" );
+                // La quantité pèse : l'encombrement porté suit les unités
+                let _bulk_with_stack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+                TEST.ASSERT.equal( _bulk_with_stack.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 2 * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter les DEUX épées, obtenu : [" + _bulk_with_stack.textContent + "]" );
+                // Save → load : la surcharge et la quantité survivent
+                let _reloaded_sword_save = new CHARACTER.Current();
+                _reloaded_sword_save.updateData( _character.getDataToSave() );
+                let _reloaded_sword = _reloaded_sword_save.getStuffs().getContentByUUID( "weapon__Épée longue" );
+                TEST.ASSERT.equal( _reloaded_sword ? _reloaded_sword.quantity : null, 2, "La quantité devrait survivre a la relecture, obtenu : " + ( _reloaded_sword ? _reloaded_sword.quantity : "null" ) );
+                TEST.ASSERT.equal( _reloaded_sword ? _reloaded_sword.getCharacteristicValue( "Dégâts" ) : null, "2d6+", "La surcharge de caractéristique devrait survivre a la relecture, obtenu : [" + ( _reloaded_sword ? _reloaded_sword.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
+                // Un input VIDÉ retombe sur la valeur scrapée, la quantité
+                // revenue remet l'encombrement du test suivant
+                TEST_stuffsOpenEditPopup( "weapon", "Épée longue" );
+                return TEST.wait().then( function () {
+                    let _edit_popup_back = document.querySelector( "body > .popup .stuffs-edit-popup" );
+                    let _damage_back     = _edit_popup_back ? _edit_popup_back.querySelector( ".stuffs-edit-popup-char-row[data-field=" + JSON.stringify( "Dégâts" ) + "] input" ) : null;
+                    let _quantity_back   = _edit_popup_back ? _edit_popup_back.querySelector( ".stuffs-edit-popup-quantity-input" ) : null;
+                    if ( _damage_back ) {
+                        _damage_back.value = "";
+                    }
+                    if ( _quantity_back ) {
+                        _quantity_back.value = "1";
+                    }
+                    TEST_stuffsValidateEditPopup();
+                    return TEST.wait();
+                } ).then( function () {
+                    let _sword_back = _character.getStuffs().getContentByUUID( "weapon__Épée longue" );
+                    TEST.ASSERT.equal( _sword_back ? _sword_back.getCharacteristicValue( "Dégâts" ) : null, STUFFS.getFieldValue( "Épée longue", "Dégâts" ), "Une caractéristique vidée devrait retomber sur la valeur scrapée, obtenu : [" + ( _sword_back ? _sword_back.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
+                    TEST.ASSERT.equal( _sword_back ? _sword_back.quantity : null, 1, "La quantité revenue devrait vivre dans le domaine, obtenu : " + ( _sword_back ? _sword_back.quantity : "null" ) );
+                    // Le Valider sur un objet déjà possédé ne fait rien
+                    // (pas un consommable) : la popup se rouvre VIERGE, le
+                    // type se repose
+                    TEST_stuffsOpenAddPopup();
+        return TEST.wait().then( function () {
+            let _fresh_type_label = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-type .single-select-selector-label" );
+            TEST.ASSERT.equal( _fresh_type_label ? _fresh_type_label.textContent : null, "--", "La popup réouverte devrait démarrer vierge (--), obtenu : [" + ( _fresh_type_label ? _fresh_type_label.textContent : "null" ) + "]" );
+            TEST_stuffsPickType( "weapon" );
+            return TEST.wait().then( function () {
+                TEST_stuffsPickModel( "Épée longue" );
+                return TEST.wait().then( function () {
+                    TEST_stuffsValidateAddPopup();
+                    return TEST.wait().then( function () {
+                        TEST.ASSERT.equal( _character.getStuffs().getStuffsByLocation( "equipped" ).length, 1, "Le Valider sur une épée déjà possédée ne devrait rien ajouter" );
+                        // Un nom inconnu au filtre DEVIENT le modèle
+                        // (demande utilisateur : une entrée vit hors
+                        // du dataset scrapé) : l'entrée n'a ni info
+                        // inline, ni "?", ni encombrement
+                        TEST_stuffsOpenAddPopup();
+                        return TEST.wait().then( function () {
+                            TEST_stuffsPickType( "weapon" );
+                            return TEST.wait().then( function () {
+                                TEST_stuffsFilterEnter( "Zebulon le magnifique" );
+                                return TEST.wait().then( function () {
+                                    let _model_label_after = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-selector-label" );
+                                    TEST.ASSERT.equal( _model_label_after.textContent, "Zebulon le magnifique", "L'Entrée sur nom inconnu devrait poser le TEXTE BRUT en modèle, obtenu : [" + _model_label_after.textContent + "]" );
+                                    TEST_stuffsValidateAddPopup();
+                                    return TEST.wait();
+                                } );
+                            } );
+                        } ).then( function () {
+                            let _free_entry_dom = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='backpack'] .stuffs-entry[data-value='Zebulon le magnifique']" );
+                            TEST.ASSERT.notNull( _free_entry_dom, "L'entrée au nom libre devrait vivre dans la section Sac à dos, fenêtre : " + TEST_stuffsDiagnosis() );
+                            if ( _free_entry_dom ) {
+                                TEST.ASSERT.isNull( _free_entry_dom.querySelector( ".stuffs-entry-chars" ), "Une entrée hors dataset ne porte pas de caractéristiques" );
+                                TEST.ASSERT.isNull( _free_entry_dom.querySelector( ".stuffs-entry-info" ), "Une entrée hors dataset ne porte pas de ?" );
+                                TEST.ASSERT.equal( _free_entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent, "—", "Une entrée hors dataset porte l'encombrement —, obtenu : [" + _free_entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent + "]" );
+                            }
+                            TEST.ASSERT.equal( _character.getStuffs().getSize(), 2, "Le nom libre devrait créer SA deuxième entrée, obtenu : " + _character.getStuffs().getSize() );
+                            // Valider sans rien : la popup reste ouverte
+                            // et rien ne se crée
+                            TEST_stuffsOpenAddPopup();
+                            return TEST.wait().then( function () {
+                                TEST_stuffsValidateAddPopup();
+                                TEST.ASSERT.notNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "Valider sans type ni modèle ne devrait pas fermer la popup" );
+                                TEST.ASSERT.equal( _character.getStuffs().getSize(), 2, "Valider sans type ni modèle ne devrait rien créer, obtenu : " + _character.getStuffs().getSize() );
+                                TEST_stuffsQuitAddPopup();
+                                TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-add-popup" ), "La popup devrait etre refermée sur Quitter" );
+                            } );
+                        } );
+                    } );
+                } );
+            } );
+        } );
+        } );
         } );
     } );
 } );
 
-TEST.RUNNER.register( "[STUFFS] armure par popup = entrée armures + CA bonus + commentaire + porté", function () {
+TEST.RUNNER.register( "[STUFFS] armure entreposée = édition lieu/emplacement + fermeture popup apostrophe", function () {
     let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
     TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Équipement ouvert" );
     if ( !_pane ) {
         return;
     }
-    let _comment = "Armure de la garde, transmission familiale";
+    let _comment     = "Armure de la garde, transmission familiale";
+    let _place       = "Coffre du manoir de Katapesh";
+    let _place_edited = "Sous-sol de l'ordre du Chêne";
     TEST_stuffsOpenAddPopup();
-    // Le type change dans la popup : le sélecteur de modèle suit
+    // Le type change dans la popup : le sélecteur de modèle suit, puis
+    // l'emplacement Entreposé révèle la ligne lieu — l'épée équipée ne
+    // compte pas dans le test du total porté
     return TEST.wait().then( function () {
         let _popup = document.querySelector( "body > .popup .stuffs-add-popup" );
         TEST.ASSERT.notNull( _popup, "Pre-condition : popup d'ajout ouverte" );
@@ -276,58 +514,133 @@ TEST.RUNNER.register( "[STUFFS] armure par popup = entrée armures + CA bonus + 
         }
         TEST_stuffsPickType( "armor" );
         return TEST.wait().then( function () {
-            let _type_label = _popup.querySelector( ".stuffs-add-popup-type .single-select-selector-label" );
-            TEST.ASSERT.equal( _type_label.textContent, STUFF.getKindData( "armor" ).label, "Le type choisi devrait s'afficher dans la popup, obtenu : [" + _type_label.textContent + "]" );
-            let _model_options_count = _popup.querySelectorAll( ".stuffs-add-popup-model .single-select-option" ).length;
-            TEST.ASSERT.equal( _model_options_count, STUFFS.getKindOptions( "armor" ).length + 1, "Le sélecteur de modèle devrait porter les armures du dataset + l'option vide, obtenu : " + _model_options_count );
             TEST_stuffsFilterEnter( "armure d'écailles" );
             return TEST.wait();
         } ).then( function () {
-            let _model_label = _popup.querySelector( ".stuffs-add-popup-model .single-select-selector-label" );
-            TEST.ASSERT.equal( _model_label.textContent, "Armure d'écailles", "L'Entrée sur nom d'armure exact devrait poser la valeur en attente, obtenu : [" + _model_label.textContent + "] — fenêtre : " + TEST_stuffsDiagnosis() );
-            // Le commentaire se saisit librement : lu au Valider sur son
-            // input (jamais embarqué inline)
-            _popup.querySelector( ".stuffs-add-popup-comment-input" ).value = _comment;
-            TEST_stuffsValidateAddPopup();
-            return TEST.wait();
+            TEST_stuffsPickLocation( "stored" );
+            return TEST.wait().then( function () {
+                let _popup_body     = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-form-popup-body" );
+                let _location_label = _popup_body.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
+                TEST.ASSERT.equal( _location_label.textContent, STUFF.getLocationData( "stored" ).label, "L'emplacement choisi devrait s'afficher, obtenu : [" + _location_label.textContent + "]" );
+                TEST.ASSERT.equal( _popup_body.getAttribute( "data-stored" ), "true", "La ligne lieu devrait etre révélée sur entreposage, obtenu : [" + _popup_body.getAttribute( "data-stored" ) + "]" );
+                document.querySelector( "body > .popup .stuffs-add-popup .stuffs-form-popup-place-input" ).value = _place;
+                _popup_body.querySelector( ".stuffs-form-popup-comment-input" ).value = _comment;
+                TEST_stuffsValidateAddPopup();
+                return TEST.wait();
+            } );
         } );
     } ).then( function () {
         let _character = CONTROLLER.Character.current_character;
         // Les noms d'objets portent des apostrophes : le sélecteur par
         // valeur embarque des guillemets doubles (JSON.stringify)
-        let _entry_dom = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='armor'] .stuffs-entry[data-value=" + JSON.stringify( "Armure d'écailles" ) + "]" );
-        TEST.ASSERT.notNull( _entry_dom, "L'armure devrait etre rendue dans la zone Armures, fenêtre : " + TEST_stuffsDiagnosis() );
+        let _entry_dom = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='stored'] .stuffs-entry[data-value=" + JSON.stringify( "Armure d'écailles" ) + "]" );
+        TEST.ASSERT.notNull( _entry_dom, "L'armure devrait etre rendue dans la section Entreposé, fenêtre : " + TEST_stuffsDiagnosis() );
         if ( !_entry_dom ) {
             return;
         }
         let _armor_object = _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" );
         TEST.ASSERT.notNull( _armor_object, "L'armure devrait vivre dans le conteneur (armor__Armure d'écailles)" );
-        TEST.ASSERT.equal( _entry_dom.querySelector( ".stuffs-entry-stat" ).textContent, STUFFS.getFieldValue( "Armure d'écailles", STUFF.getKindData( "armor" ).info_field ), "L'entrée d'armure devrait porter son CA bonus inline, obtenu : [" + _entry_dom.querySelector( ".stuffs-entry-stat" ).textContent + "]" );
+        let _armor_chars = _entry_dom.querySelector( ".stuffs-entry-chars" );
+TEST.ASSERT.notNull( _armor_chars, "L'entrée d'armure devrait porter sa colonne de caractéristiques" );
+TEST.ASSERT.ok( _armor_chars && _armor_chars.textContent.indexOf( "CA bonus" ) !== -1 && _armor_chars.textContent.indexOf( STUFFS.getFieldValue( "Armure d'écailles", "CA bonus" ) ) !== -1, "L'entrée d'armure devrait porter son CA bonus libellé, obtenu : [" + ( _armor_chars ? _armor_chars.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _armor_object.location, "stored", "L'armure devrait etre entreposée dans le domaine, obtenu : [" + _armor_object.location + "]" );
+        TEST.ASSERT.equal( _armor_object.place, _place, "Le lieu choisi dans la popup devrait vivre dans le domaine, obtenu : [" + _armor_object.place + "]" );
         TEST.ASSERT.equal( _armor_object.comment, _comment, "Le commentaire devrait vivre dans le domaine, obtenu : [" + _armor_object.comment + "]" );
-        TEST.ASSERT.equal( _entry_dom.getAttribute( "title" ), _comment, "Le commentaire devrait vivre en infobulle de l'entrée, obtenu : [" + _entry_dom.getAttribute( "title" ) + "]" );
-        // L'encombrement total : l'épée + l'armure, croisé avec le domaine
+        // L'entreposé ne pèse pas sur le total PORTÉ de la barre : seule
+        // l'épée (équipée au test précédent) y compte ; la section
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        let _expected   = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10;
-        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement total devrait compter épée + armure, obtenu : [" + _bulk_total.textContent + "]" );
-        // La popup se rouvre VIERGE : le type revient au défaut (l'attente
-        // d'une popup fermée ne survit pas)
-        TEST_stuffsOpenAddPopup();
+        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter l'épée seule (l'armure entreposée ne pèse pas), obtenu : [" + _bulk_total.textContent + "]" );
+        // La FERMETURE de la popup d'information d'un objet APOSTROPHE :
+        // le « x » et le clic sur le fond referment (regression —
+        // l'uuid embarquait en inline, la quote du nom cassait le
+        // handler)
+        let _info = _entry_dom.querySelector( ".stuffs-entry-info" );
+        TEST.ASSERT.notNull( _info, "L'entrée d'armure devrait porter son ?" );
+        if ( !_info ) {
+            return;
+        }
+        _info.click();
+        let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _overlay, "La popup objet devrait etre ouverte (overlay RUNNING)" );
+        TEST.ASSERT.equal( _overlay.getAttribute( "data-popup-uuid" ), "stuff__Armure d'écailles", "L'overlay devrait porter son uuid en data-attribute, obtenu : [" + _overlay.getAttribute( "data-popup-uuid" ) + "]" );
+        let _close_button = document.querySelector( ".popup-overlay[data-current-phase='RUNNING'] .popup-container [data-name='event__popup__close']" );
+        TEST.ASSERT.notNull( _close_button, "La popup devrait porter son bouton x" );
+        if ( _close_button ) {
+            _close_button.click();
+        }
         return TEST.wait().then( function () {
-            let _fresh_type_label = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-type .single-select-selector-label" );
-            TEST.ASSERT.equal( _fresh_type_label ? _fresh_type_label.textContent : null, STUFF.KINDS[ 0 ].label, "La popup réouverte devrait revenir au type par défaut, obtenu : [" + ( _fresh_type_label ? _fresh_type_label.textContent : "null" ) + "]" );
-            TEST_stuffsQuitAddPopup();
-            // L'armure portée : la coche suit en place puis le domaine
-            let _worn_button = _entry_dom.querySelector( ".stuffs-entry-worn" );
-            _worn_button.click();
+            TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "Le clic sur le x devrait refermer la popup apostrophe, obtenu : [" + _overlay.getAttribute( "data-current-phase" ) + "]" );
+            // Réouverture puis fermeture par le clic sur le FOND de
+            // l'overlay (la cible du clic JS est l'overlay lui-meme)
+            _info.click();
+            let _overlay_again = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+            TEST.ASSERT.notNull( _overlay_again, "La popup objet réouverte devrait etre ouverte" );
+            if ( _overlay_again ) {
+                _overlay_again.click();
+                TEST.ASSERT.equal( _overlay_again.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "Le clic sur le fond de l'overlay devrait refermer la popup apostrophe, obtenu : [" + _overlay_again.getAttribute( "data-current-phase" ) + "]" );
+            }
+            // L'édition modifie le lieu sur place (le titre suit) : le
+            // lieu et le commentaire partent de l'état du domaine
+            TEST_stuffsOpenEditPopup( "armor", "Armure d'écailles" );
             return TEST.wait().then( function () {
-                TEST.ASSERT.equal( _entry_dom.getAttribute( "data-worn" ), "true", "La coche de l'armure devrait poser data-worn=true en place, obtenu : " + _entry_dom.getAttribute( "data-worn" ) );
-                TEST.ASSERT.ok( _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" ).worn, "Le domaine devrait porter l'armure portée" );
+                let _edit_popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+                TEST.ASSERT.notNull( _edit_popup, "La popup d'édition devrait s'ouvrir sur la roue crantée" );
+                if ( !_edit_popup ) {
+                    return;
+                }
+                TEST.ASSERT.equal( _edit_popup.querySelector( ".stuffs-edit-popup-name" ).textContent, "Armure d'écailles", "L'édition devrait afficher le nom de l'objet, obtenu : [" + _edit_popup.querySelector( ".stuffs-edit-popup-name" ).textContent + "]" );
+                let _place_input = _edit_popup.querySelector( ".stuffs-form-popup-place-input" );
+                TEST.ASSERT.ok( _place_input && _place_input.offsetParent, "La ligne lieu devrait s'afficher sur l'édition d'un objet entreposé" );
+                TEST.ASSERT.equal( _place_input ? _place_input.value : null, _place, "Le lieu de l'édition devrait partir de l'état du domaine, obtenu : [" + ( _place_input ? _place_input.value : "null" ) + "]" );
+                _place_input.value = _place_edited;
+                TEST_stuffsValidateEditPopup();
+                return TEST.wait();
+            } );
+        } );
+    } ).then( function () {
+        let _character = CONTROLLER.Character.current_character;
+        let _armor_object = _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" );
+        TEST.ASSERT.equal( _armor_object ? _armor_object.place : null, _place_edited, "Le lieu modifié devrait vivre dans le domaine, obtenu : [" + ( _armor_object ? _armor_object.place : "null" ) + "]" );
+        let _entry_stored = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='stored'] .stuffs-entry[data-value=" + JSON.stringify( "Armure d'écailles" ) + "]" );
+        TEST.ASSERT.notNull( _entry_stored, "L'armure devrait rester dans la section Entreposé apres l'édition du lieu" );
+        TEST.ASSERT.ok( _entry_stored && _entry_stored.getAttribute( "title" ).indexOf( _place_edited ) !== -1, "Le titre de l'entrée devrait porter le lieu édité, obtenu : [" + ( _entry_stored ? _entry_stored.getAttribute( "title" ) : "null" ) + "]" );
+        let _comment_cell = _entry_stored ? _entry_stored.querySelector( ".stuffs-entry-comment" ) : null;
+        TEST.ASSERT.equal( _comment_cell ? _comment_cell.textContent : null, _comment, "La colonne Commentaire devrait porter le commentaire de l'entrée, obtenu : [" + ( _comment_cell ? _comment_cell.textContent : "null" ) + "]" );
+        // L'édition la ramène au Sac à dos : le total porté la compte,
+        // le lieu vit toujours dans le domaine (il ne s'affiche que sur
+        // entreposage) et se révèle au retour
+        TEST_stuffsOpenEditPopup( "armor", "Armure d'écailles" );
+        return TEST.wait().then( function () {
+            TEST_stuffsEditPickLocation( "backpack" );
+            return TEST.wait().then( function () {
+                TEST_stuffsValidateEditPopup();
+                return TEST.wait();
+            } );
+        } ).then( function () {
+            let _entry_backpack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='backpack'] .stuffs-entry[data-value=" + JSON.stringify( "Armure d'écailles" ) + "]" );
+            TEST.ASSERT.notNull( _entry_backpack, "L'armure devrait vivre dans la section Sac à dos apres l'édition, fenêtre : " + TEST_stuffsDiagnosis() );
+            let _bulk_with_armor = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+            let _expected        = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10;
+            TEST.ASSERT.equal( _bulk_with_armor.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement porté devrait compter l'armure revenue au sac, obtenu : [" + _bulk_with_armor.textContent + "]" );
+            TEST.ASSERT.equal( _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" ).place, _place_edited, "Le lieu devrait survivre dans le domaine hors entreposage" );
+            TEST_stuffsOpenEditPopup( "armor", "Armure d'écailles" );
+            return TEST.wait().then( function () {
+                let _edit_popup_back = document.querySelector( "body > .popup .stuffs-edit-popup" );
+                let _place_input_back = _edit_popup_back ? _edit_popup_back.querySelector( ".stuffs-form-popup-place-input" ) : null;
+                TEST.ASSERT.notOk( _place_input_back && _place_input_back.offsetParent, "La ligne lieu ne devrait pas s'afficher sur l'édition d'un objet non entreposé" );
+                TEST_stuffsEditPickLocation( "stored" );
+                return TEST.wait().then( function () {
+                    TEST.ASSERT.ok( _place_input_back && _place_input_back.offsetParent, "La ligne lieu devrait se révéler au retour sur Entreposé" );
+                    TEST.ASSERT.equal( _place_input_back ? _place_input_back.value : null, _place_edited, "Le lieu devrait survivre a l'aller-retour dans l'édition, obtenu : [" + ( _place_input_back ? _place_input_back.value : "null" ) + "]" );
+                    TEST_stuffsValidateEditPopup();
+                    return TEST.wait();
+                } );
             } );
         } );
     } );
 } );
 
-TEST.RUNNER.register( "[STUFFS] consommable par popup = empilement + encombrement + retrait + save → load", function () {
+TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux worn + retrait édité", function () {
     // Le consommable se pique du dataset : le trait décide, jamais le nom,
     // et il vit dans la zone autres objets (ni Dégâts ni CA bonus)
     let _consumable_name = null;
@@ -347,17 +660,25 @@ TEST.RUNNER.register( "[STUFFS] consommable par popup = empilement + encombremen
     }
     TEST_stuffsOpenAddPopup();
     return TEST.wait().then( function () {
+        // La popup démarre vierge : le type et l'emplacement se posent
+        // au geste
+        let _popup           = document.querySelector( "body > .popup .stuffs-add-popup" );
+        let _location_label  = _popup ? _popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" ) : null;
+        TEST.ASSERT.equal( _location_label ? _location_label.textContent : null, "--", "La popup réouverte devrait démarrer vierge (--), obtenu : [" + ( _location_label ? _location_label.textContent : "null" ) + "]" );
         TEST_stuffsPickType( "other" );
         return TEST.wait().then( function () {
-            let _option = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-option[data-value=" + JSON.stringify( _consumable_name ) + "]" );
-            TEST.ASSERT.notNull( _option, "Le modèle d'autres objets devrait proposer " + _consumable_name );
-            if ( !_option ) {
-                return;
-            }
-            _option.click();
+            TEST_stuffsPickLocation( "backpack" );
             return TEST.wait().then( function () {
-                TEST_stuffsValidateAddPopup();
-                return TEST.wait();
+                let _option = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-option[data-value=" + JSON.stringify( _consumable_name ) + "]" );
+                TEST.ASSERT.notNull( _option, "Le modèle d'autres objets devrait proposer " + _consumable_name );
+                if ( !_option ) {
+                    return;
+                }
+                _option.click();
+                return TEST.wait().then( function () {
+                    TEST_stuffsValidateAddPopup();
+                    return TEST.wait();
+                } );
             } );
         } );
     } ).then( function () {
@@ -368,11 +689,11 @@ TEST.RUNNER.register( "[STUFFS] consommable par popup = empilement + encombremen
         if ( !_stuff_before ) {
             return;
         }
+        TEST.ASSERT.equal( _stuff_before.location, "backpack", "Le consommable devrait vivre au Sac à dos, obtenu : [" + _stuff_before.location + "]" );
         TEST.ASSERT.ok( _stuff_before.isConsumable(), "Le trait Consommable devrait porter la quantité" );
         TEST.ASSERT.equal( _stuff_before.quantity, 1, "Le premier Valider pose la quantité 1, obtenu : " + _stuff_before.quantity );
-        TEST.ASSERT.ok( !_stuff_before.comment, "Un ajout sans commentaire ne devrait pas porter de commentaire, obtenu : [" + _stuff_before.comment + "]" );
         // Le Valider empile les consommables déjà possédés : le choix
-        // repasse par la popup
+        // repasse par la popup (l'emplacement reste vide → Sac à dos)
         TEST_stuffsOpenAddPopup();
         return TEST.wait().then( function () {
             return TEST.wait();
@@ -380,7 +701,7 @@ TEST.RUNNER.register( "[STUFFS] consommable par popup = empilement + encombremen
             TEST_stuffsPickType( "other" );
             return TEST.wait().then( function () {
                 let _option_again = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-option[data-value=" + JSON.stringify( _consumable_name ) + "]" );
-                TEST.ASSERT.notNull( _option_again, "L'option du consommable devrait etre rendue au réouverture de la popup" );
+                TEST.ASSERT.notNull( _option_again, "L'option du consommable devrait etre rendue a la réouverture de la popup" );
                 if ( !_option_again ) {
                     return;
                 }
@@ -392,50 +713,100 @@ TEST.RUNNER.register( "[STUFFS] consommable par popup = empilement + encombremen
             } );
         } ).then( function () {
             TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity, 2, "Le Valider sur un consommable possédé devrait empiler (quantité 2), obtenu : " + _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity );
-            // La quantité se modifie sur place (change → domaine, pas de re-render)
-            let _quantity_input = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='other'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "] .stuffs-entry-quantity" );
-            TEST.ASSERT.notNull( _quantity_input, "Le consommable devrait porter son input de quantité" );
-            if ( _quantity_input ) {
-                _quantity_input.value = "5";
-                _quantity_input.dispatchEvent( new Event( "change" ) );
-                TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity, 5, "La quantité modifiée devrait vivre dans le domaine, obtenu : " + _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity );
-                TEST.ASSERT.equal( _quantity_input.value, "5", "L'input devrait garder sa valeur (pas de re-render), obtenu : " + _quantity_input.value );
-                // L'encombrement suit en place : les consommables comptent
-                // à l'unité, croisé avec le domaine
-                let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                let _expected   = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) + STUFFS.parseBulk( _consumable_name ) * 5 ) * 10 ) / 10;
-                TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement total devrait suivre la quantité en place, obtenu : [" + _bulk_total.textContent + "]" );
+            TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).location, "backpack", "L'empilement ne devrait pas déplacer l'entrée, obtenu : [" + _stuffs.getContentByUUID( "other__" + _consumable_name ).location + "]" );
+            // La quantité se règle par la POPUP D'ÉDITION (retour
+            // utilisateur : plus d'input dans la liste, l'édition vit
+            // dans la configuration de la roue crantée) — l'ouverture,
+            // le pick et le commit courent de façon synchrone par le bus
+            TEST_stuffsOpenEditPopup( "other", _consumable_name );
+            let _edit_quantity_input = document.querySelector( "body > .popup .stuffs-edit-popup .stuffs-edit-popup-quantity-input" );
+            TEST.ASSERT.notNull( _edit_quantity_input, "L'édition devrait porter son champ quantité" );
+            if ( !_edit_quantity_input ) {
+                return;
             }
-            // Save → load : kinds, quantités, porté et commentaires restaurés
-            let _saved          = _character.getDataToSave();
-            TEST.ASSERT.isArray( _saved.stuffs, "La sauvegarde devrait contenir stuffs" );
-            let _reloaded       = new CHARACTER.Current();
-            _reloaded.updateData( _saved );
-            TEST.ASSERT.equal( _reloaded.getStuffs().getSize(), 3, "La relecture devrait restaurer les trois objets, obtenu : " + _reloaded.getStuffs().getSize() );
-            let _sword_reloaded  = _reloaded.getStuffs().getContentByUUID( "weapon__Épée longue" );
-            TEST.ASSERT.notNull( _sword_reloaded, "L'épée longue devrait etre restaurée par son uuid" );
-            if ( _sword_reloaded ) {
-                TEST.ASSERT.ok( _sword_reloaded.worn, "La coche portée de l'épée devrait survivre a la relecture" );
-            }
-            let _armor_reloaded  = _reloaded.getStuffs().getContentByUUID( "armor__Armure d'écailles" );
-            TEST.ASSERT.notNull( _armor_reloaded, "L'armure d'écailles devrait etre restaurée par son uuid" );
-            if ( _armor_reloaded ) {
-                TEST.ASSERT.ok( _armor_reloaded.worn, "La coche portée de l'armure devrait survivre a la relecture" );
-                TEST.ASSERT.equal( _armor_reloaded.comment, "Armure de la garde, transmission familiale", "Le commentaire de l'armure devrait survivre a la relecture, obtenu : [" + _armor_reloaded.comment + "]" );
-            }
-            let _consumable_reloaded = _reloaded.getStuffs().getContentByUUID( "other__" + _consumable_name );
-            TEST.ASSERT.notNull( _consumable_reloaded, "Le consommable devrait etre restauré par son uuid" );
-            if ( _consumable_reloaded ) {
-                TEST.ASSERT.equal( _consumable_reloaded.quantity, 5, "La quantité devrait survivre a la relecture, obtenu : " + _consumable_reloaded.quantity );
-            }
-            // Retrait : l'entrée et le domaine suivent
-            document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='other'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "] .stuffs-entry-remove" ).click();
+            _edit_quantity_input.value = "5";
+            TEST_stuffsValidateEditPopup();
+            TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity, 5, "La quantité modifiée devrait vivre dans le domaine, obtenu : " + _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity );
+            let _consumable_line = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" );
+            TEST.ASSERT.equal( _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-quantity" ).textContent : null, "5", "La ligne devrait AFFICHER la quantité éditée en lecture, obtenu : [" + ( _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-quantity" ).textContent : "null" ) + "]" );
+            // Sans caractéristiques (autre type), la roue crantée doit
+            // rester sur SA colonne : chaque cellule porte son
+            // grid-column explicite — sans lui la grille auto-place la
+            // roue dans la colonne Caractéristiques vide (regression du
+            // matériel d'entrée)
+            let _consumable_gear = _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-edit" ) : null;
+            TEST.ASSERT.ok( _consumable_gear && _consumable_gear.classList.contains( "stuffs-col-actions" ), "La roue crantée d'une entrée sans caractéristiques devrait porter sa colonne explicite, obtenu : [" + ( _consumable_gear ? _consumable_gear.className : "pas de roue" ) + "]" );
+            // L'encombrement porté suit en place : les consommables
+            // comptent a l'unité, l'armure entreposée reste hors compte
+            let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+            let _expected   = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( _consumable_name ) * 5 ) * 10 ) / 10;
+            TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement porté devrait suivre la quantité en place (l'armure entreposée ne compte pas), obtenu : [" + _bulk_total.textContent + "]" );
+            // Les puces de la barre comptent les entrées par emplacement
+            let _filters = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-location-filter" );
+            TEST.ASSERT.equal( _filters.length ? _filters[ 0 ].textContent : null, "Tous (" + _stuffs.getSize() + ")", "La puce Tous devrait compter toutes les entrées, obtenu : [" + ( _filters.length ? _filters[ 0 ].textContent : "null" ) + "]" );
+            let _equipped_filter = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-location-filter[data-location='equipped']" );
+            TEST.ASSERT.equal( _equipped_filter.textContent, STUFF.getLocationData( "equipped" ).label + " (" + _stuffs.getStuffsByLocation( "equipped" ).length + ")", "La puce Équipé devrait compter les entrées équipées, obtenu : [" + _equipped_filter.textContent + "]" );
+            // Le filtre isole chaque catégorie : une section, les
+            // entrées qui vont avec
+            TEST_stuffsClickLocationFilter( "stored" );
             return TEST.wait().then( function () {
-                TEST.ASSERT.isNull( _stuffs.getContentByUUID( "other__" + _consumable_name ), "Le consommable devrait etre retiré du conteneur" );
-                TEST.ASSERT.isNull( document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-kind='other'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" ), "Le consommable ne devrait plus etre rendu apres le retrait" );
-                let _bulk_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                let _expected_after = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10;
-                TEST.ASSERT.equal( _bulk_after.textContent, "Encombrement : " + String( _expected_after ).replace( ".", "," ), "L'encombrement total devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
+                let _filtered_sections = _pane.querySelectorAll( ".stuffs-section" );
+                TEST.ASSERT.equal( _filtered_sections.length, 1, "Le filtre Entreposé devrait laisser une seule section, obtenu : " + _filtered_sections.length );
+                if ( _filtered_sections.length ) {
+                    TEST.ASSERT.equal( _filtered_sections[ 0 ].querySelectorAll( ".stuffs-entry" ).length, _stuffs.getStuffsByLocation( "stored" ).length, "La section filtrée devrait porter les entrées entreposées" );
+                }
+                TEST_stuffsClickLocationFilter( STUFF.FILTER_ALL );
+                return TEST.wait();
+            } ).then( function () {
+                // Save → load : emplacements, quantités, lieux et
+                // commentaires restaurés ; le format ne porte plus la
+                // clé worn
+                let _saved        = _character.getDataToSave();
+                TEST.ASSERT.isArray( _saved.stuffs, "La sauvegarde devrait contenir stuffs" );
+                for ( let _e = 0; _e < _saved.stuffs.length; _e++ ) {
+                    TEST.ASSERT.notOk( _saved.stuffs[ _e ][ "worn" ] !== undefined, "La sauvegarde ne devrait plus porter la clé worn (l'emplacement la remplace)" );
+                }
+                let _reloaded     = new CHARACTER.Current();
+                _reloaded.updateData( _saved );
+                TEST.ASSERT.equal( _reloaded.getStuffs().getSize(), _stuffs.getSize(), "La relecture devrait restaurer tous les objets, obtenu : " + _reloaded.getStuffs().getSize() );
+                let _sword_reloaded  = _reloaded.getStuffs().getContentByUUID( "weapon__Épée longue" );
+                TEST.ASSERT.equal( _sword_reloaded ? _sword_reloaded.location : null, "equipped", "L'épée équipée devrait survivre a la relecture" );
+                let _armor_reloaded  = _reloaded.getStuffs().getContentByUUID( "armor__Armure d'écailles" );
+                TEST.ASSERT.equal( _armor_reloaded ? _armor_reloaded.location : null, "stored", "L'armure entreposée devrait survivre a la relecture" );
+                TEST.ASSERT.equal( _armor_reloaded ? _armor_reloaded.place : null, "Sous-sol de l'ordre du Chêne", "Le lieu devrait survivre a la relecture, obtenu : [" + ( _armor_reloaded ? _armor_reloaded.place : "null" ) + "]" );
+                TEST.ASSERT.equal( _armor_reloaded ? _armor_reloaded.comment : null, "Armure de la garde, transmission familiale", "Le commentaire de l'armure devrait survivre a la relecture" );
+                let _consumable_reloaded = _reloaded.getStuffs().getContentByUUID( "other__" + _consumable_name );
+                TEST.ASSERT.equal( _consumable_reloaded ? _consumable_reloaded.quantity : null, 5, "La quantité devrait survivre a la relecture, obtenu : " + ( _consumable_reloaded ? _consumable_reloaded.quantity : "null" ) );
+                TEST.ASSERT.equal( _consumable_reloaded ? _consumable_reloaded.location : null, "backpack", "Le consommable devrait survivre au Sac à dos a la relecture" );
+                // Les vieux save worn se relisent : porté → équipé, le
+                // reste → sac à dos (l'emplacement d'avant l'ère des
+                // catégories)
+                let _legacy        = new CHARACTER.Current();
+                _legacy.updateData( { "stuffs": [ { "kind": "weapon", "value": "Épée longue", "quantity": null, "worn": true, "comment": null }, { "kind": "other", "value": _consumable_name, "quantity": 3, "worn": false, "comment": null } ] } );
+                let _legacy_sword  = _legacy.getStuffs().getContentByUUID( "weapon__Épée longue" );
+                TEST.ASSERT.equal( _legacy_sword ? _legacy_sword.location : null, "equipped", "Un vieux save worn:true devrait se relire équipé, obtenu : [" + ( _legacy_sword ? _legacy_sword.location : "null" ) + "]" );
+                let _legacy_consumable = _legacy.getStuffs().getContentByUUID( "other__" + _consumable_name );
+                TEST.ASSERT.equal( _legacy_consumable ? _legacy_consumable.location : null, "backpack", "Un vieux save worn:false devrait se relire au Sac à dos, obtenu : [" + ( _legacy_consumable ? _legacy_consumable.location : "null" ) + "]" );
+                TEST.ASSERT.equal( _legacy_consumable ? _legacy_consumable.quantity : null, 3, "La quantité du vieux save devrait survivre, obtenu : " + ( _legacy_consumable ? _legacy_consumable.quantity : "null" ) );
+                // L'encombrement porté du domaine : épée + consommable x5,
+                // l'armure entreposée hors compte
+                TEST.ASSERT.equal( _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ), _expected, "Le total porté du domaine devrait croiser l'affichage, obtenu : " + _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ) );
+                // Retrait PAR LA POPUP D'ÉDITION (la roue crantée remplace
+                // la croix de la liste) : l'entrée et le domaine suivent,
+                // le total rend la place du consommable
+                TEST_stuffsOpenEditPopup( "other", _consumable_name );
+                return TEST.wait().then( function () {
+                    let _edit_popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+                    TEST.ASSERT.notNull( _edit_popup, "La popup d'édition du consommable devrait s'ouvrir sur la roue crantée" );
+                    TEST_stuffsRemoveEditPopup();
+                    return TEST.wait();
+                } ).then( function () {
+                    TEST.ASSERT.isNull( _stuffs.getContentByUUID( "other__" + _consumable_name ), "Le consommable devrait etre retiré du conteneur" );
+                    TEST.ASSERT.isNull( document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" ), "Le consommable ne devrait plus etre rendu apres le retrait" );
+                    TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-edit-popup" ), "La popup d'édition devrait etre refermée apres le retrait" );
+                    let _bulk_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+                    TEST.ASSERT.equal( _bulk_after.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
+                } );
             } );
         } );
     } );

@@ -97,7 +97,12 @@ TEST.RUNNER.register( "[LANGUES SUPPLEMENTAIRES] choix draconique = validé, la 
     let _counter                         = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
     let _counter_before                  = _counter ? parseInt( _counter.getAttribute( "data-number" ), 10 ) : 0;
     _option.click();
-    return TEST.wait().then( function () {
+    // Badge décrémenté : attente de CONVERGENCE (règle Round 49 — la
+    // course data-number se deboucoule sur plusieurs étages de timers,
+    // une lecture a date fixe perdu sur la vraie machine où l'onglet en
+    // arrière-plan throttle) — la convergence garantit AUSSI que les
+    // asserts de phase/lignes du bloc qui suit lisent un état arrivé
+    return TEST.waitCounterValue( _counter, _counter_before - 1 ).then( function () {
         let _line                         = _entry.getContentByUUID( "1__additional_language_0" );
         TEST.ASSERT.notNull( _line, "La première ligne de langue devrait exister" );
         if ( !_line ) {

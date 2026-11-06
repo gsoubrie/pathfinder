@@ -146,9 +146,13 @@ CHARACTER.Current.prototype = {
                 // The inventory refreshes with its entries
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
-            // The worn toggle and the quantity live on their entry : the
-            // window routes and follows its display in place
-            case "event__stuff__toggle_worn":
+            // The location, the place, the comment and the quantity live
+            // on their entry : the window routes and follows its display
+            // in place
+            case "event__stuff__set_location":
+            case "event__stuff__edit_place":
+            case "event__stuff__edit_comment":
+            case "event__stuff__edit_characteristics":
             case "event__stuff__edit_quantity":
                 this.stuffs.doActionAfter( event_name, params );
                 break;

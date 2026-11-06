@@ -47,16 +47,31 @@ CONTROLLER.Character = (function ( self ) {
                 break;
             case "event__stuff__toggle_type_selector":
             case "event__stuff__pick_type":
+            case "event__stuff__toggle_location_selector":
+            case "event__stuff__pick_location":
             case "event__stuff__toggle_selector":
             case "event__stuff__pick":
             case "event__stuff__commit":
             case "event__stuff__filter_enter":
+            case "event__stuff__toggle_edit_location_selector":
+            case "event__stuff__pick_edit_location":
+            case "event__stuff__commit_edit":
+            case "event__stuff__commit_remove":
                 this.edition_popup.doActionAfter( event_name, params );
                 break;
             case "event__stuff__open_add_popup":
                 this.edition_popup = new CHARACTER.StuffAddPopup();
                 break;
-            case "event__stuff__toggle_worn":
+            // The gear of an entry opens its edit popup : the entry
+            // identity travels by the plat, never inline (apostrophes)
+            case "event__stuff__open_edit_popup":
+                this.edition_popup = new CHARACTER.StuffEditPopup( params[ "param__stuff__kind" ], params[ "param__stuff__value" ] );
+                break;
+            case "event__stuff__set_location":
+            case "event__stuff__edit_place":
+            case "event__stuff__edit_comment":
+            case "event__stuff__edit_characteristics":
+            case "event__stuff__filter_location":
             case "event__stuff__edit_quantity":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;

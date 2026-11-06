@@ -52,21 +52,32 @@ OBJECT.PopupRenderer.prototype = {
         this.content.computeHtml();
         // Le clic sur le fond de l'overlay referme la popup : le handler ne
         // se declenche que quand la cible est l'overlay lui-meme, jamais quand
-        // le clic remonte d'un enfant de la zone de contenu
+        // le clic remonte d'un enfant de la zone de contenu. L'uuid ne
+        // s'embarque JAMAIS en dur dans le handler inline : les sujets de
+        // popups portent des apostrophes ("Ampoule d'effroi inférieure") et
+        // une quote dans le nom casse le JS inline — il se lit du
+        // data-attribute de l'overlay au clic
         this.dom_element         = SERVICE.DOM.createElement( "div", {
-            class  : "popup-overlay",
-            onclick: "if ( event.target === this ) { MANAGER.EventManagerV2.doActionAfter(event,'event__popup__close',{'param__popup__uuid':'" + this.uuid + "'}) }"
+            class            : "popup-overlay",
+            "data-popup-uuid": this.uuid,
+            onclick          : "if ( event.target === this ) { MANAGER.EventManagerV2.doActionAfter(event,'event__popup__close',{'param__popup__uuid':this.getAttribute('data-popup-uuid')}) }"
         } );
         const popup              = SERVICE.DOM.createElement( "div", { class: "popup-container" } );
-        const close_button       = SERVICE.DOM_HELPER.createButton( "event__popup__close", "x", { param__popup__uuid: this.uuid } );
+        const close_button       = SERVICE.DOM.createElement( "div", {
+            class    : "gs-button gs-button-V4 flex-layout-center-h-v",
+            "data-name": "event__popup__close",
+            title    : "Fermer",
+            onclick  : "MANAGER.EventManagerV2.doActionAfter(event,'event__popup__close',{'param__popup__uuid':this.closest('.popup-overlay').getAttribute('data-popup-uuid')})"
+        } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "gs-label" }, "x" ), close_button );
         this.dom_element_content = SERVICE.DOM.createElement( "div", { class: "popup-content" } );
-        
-        
+
+
         popup.appendChild( close_button );
         popup.appendChild( this.dom_element_content );
         this.dom_element_content.appendChild( this.content.dom_element );
         this.dom_element.appendChild( popup );
-        
+
         document.body.appendChild( this.dom_element );
         this.setPhaseDomElement( this.dom_element );
     }
