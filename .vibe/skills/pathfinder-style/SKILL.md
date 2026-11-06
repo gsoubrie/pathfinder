@@ -20,7 +20,7 @@ code — l'utilisateur valide la maquette, on code ensuite. La maquette :
   deux caractères suffit à casser la lecture, on vérifie
   caractère par caractère avant de livrer (attention : les caractères
   accentués comptent pour UN, les glyphes larges — ⚙, émojis — se
-  réservent à la DERNIÈRE colonne) ;
+  réservent aux colonnes D'EXTRÉMITÉ) ;
 - montre des lignes RÉALISTES et variées — de vrais noms du dataset
   scrapé, un cas équipé, un cas entreposé, une quantité, un cas limite
   (valeur absente, entrée hors dataset) — jamais des exemples
@@ -32,17 +32,18 @@ code — l'utilisateur valide la maquette, on code ensuite. La maquette :
 - se termine par la liste courte des décisions ouvertes, numérotées —
   jamais noyées dans la prose.
 
-Modèle de maquette (livrée pour l'onglet Équipement, cinq colonnes
-harmonisées, une caractéristique par ligne) :
+Modèle de maquette (livrée pour l'onglet Équipement, huit colonnes —
+glyphe du type, objet, caractéristiques un point par ligne,
+commentaire, quantité, encombrement, roue crantée) :
 
 ```
-Objet               | Caractéristiques         | Qté | Encomb. | Actions
-Épée longue ?       | Dégâts 1d8+
-                    | Mains 1                  |     |       1 | ⚙
-Armure d'écailles ? | CA bonus +3
-                    | Mod. de dex. max. 2      |     |       2 | ⚙
-Potion de soins ?   |                          |   5 |       L | ⚙
-Fiole perdue ?      | (hors dataset : rien)    |     |       — | ⚙
+     | Objet               | Caractéristiques        | Commentaire      | Qté | Encomb. | Actions
+⚔    | Épée longue ?       | Dégâts 1d8+             | Héritage du père |     |       1 | ⚙
+     |                     | Mains 1                 |                  |     |         |
+🛡    | Armure d'écailles ? | CA bonus +3             |                  |     |       2 | ⚙
+     |                     | Mod. de dex. max. 2     |                  |     |         |
+🧪    | Potion de soins ?   | Niveau 1                |                  |   5 |       L | ⚙
+📜    | Fiole perdue (sort) | (hors dataset : rien)   |                  |     |       — | ⚙
 ```
 
 L'alignement des colonnes de la maquette préfigure la grille CSS : ce

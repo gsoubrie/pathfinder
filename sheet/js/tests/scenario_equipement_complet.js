@@ -67,7 +67,7 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
     // Le premier consommable du type Autres objets : le trait décide
     let _consumable_name = null;
     for ( let _i = 0, _size_i = STUFFS.length; !_consumable_name && _i < _size_i; _i++ ) {
-        if ( !STUFFS[ _i ][ "Dégâts" ] && !STUFFS[ _i ][ "CA bonus" ] && STUFFS[ _i ].traits.indexOf( STUFF.CONSUMABLE_TRAIT ) !== -1 ) {
+        if ( STUFFS.getKindKeyOfData( STUFFS[ _i ] ) === "other" && STUFFS[ _i ].traits.indexOf( STUFF.CONSUMABLE_TRAIT ) !== -1 ) {
             _consumable_name = STUFFS[ _i ].name;
         }
     }

@@ -194,6 +194,13 @@ CHARACTER.StuffsWindow.prototype = {
             } ),
             section
         );
+        // The kind glyph opens the line (retour utilisateur : le type
+        // se lit d'un coup d'oeil, l'infobulle porte son nom)
+        let kind_data_for_icon = STUFF.getKindData( stuff.kind );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class  : "stuffs-entry-kind stuffs-col-kind",
+            "title": kind_data_for_icon ? kind_data_for_icon.label : ""
+        }, STUFF.ICONS[ stuff.kind ] || STUFF.ICONS.other ), entry );
         // The object cell carries its name and its "?" — the popup of
         // information only exists for a scraped entry (a free-named
         // model owns no data)

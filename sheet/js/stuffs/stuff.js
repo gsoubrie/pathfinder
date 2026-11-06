@@ -8,7 +8,7 @@ CHARACTER.Stuff = function ( kind, value, quantity, location, comment, place, ch
 };
 CHARACTER.Stuff.prototype = {
     init: function ( kind, value, quantity, location, comment, place, characteristics ) {
-        this.kind            = kind;
+        this.kind            = STUFF.OBSOLETE_KINDS[ kind ] || kind;
         this.value           = value;
         let parsed_quantity  = parseInt( quantity, 10 );
         // The quantity belongs to EVERY entry (retour utilisateur : tout

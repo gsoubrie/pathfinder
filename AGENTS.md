@@ -1619,6 +1619,71 @@ popup.css porte PLUS de classes que la base (`.popup
 = 5) — l'ordre de chargement ne sauve jamais un sélecteur plus faible.
 Validé par run headless complet : 111 OK / 0 ECHEC (contrôle visuel a
 l'utilisateur).
+Round 64 = catégories d'équipement (demande utilisateur : potion,
+parchemin — et les autres vues ensemble). `STUFF.KINDS` passe a SEPT :
+Armes, Armures, Boucliers, Potions, Parchemins, Baguettes, Autres
+objets. La classification vit dans `STUFFS.getKindKeyOfData` — carte
+écrite a la main qui survit au re-scrap : le CHAMP SCRAPÉ gagne (les
+fioles portent Dégâts = armes ✓, les boucliers portent Solidité et
+QUITTENT les armures via `excluded_fields`), puis les PRÉFIXES de nom
+désignent les familles (Potions = Potion/Élixir/Poison/Huile,
+`excluded_names` sort l'huile de lampe « Huile (1/2 l) » — une
+commodité, pas une potion ; Parchemins ; Baguettes), le reste vit dans
+Autres. `getKindOptions` et `getItemInformation` passent par LE
+classifieur (plus de logique durcie dans l'un et l'autre). Champ
+inline «Niveau» pour les familles sans stats scrapées : la clé se lit
+`STUFF.DATA_KEYS[ "Niveau" ] = "level"` (résolue dans
+`STUFFS.getFieldValue` — le libellé d'affichage reste Niveau). Les
+parchemins COUVRENT TOUS LES SORTS (retour utilisateur : le dataset
+n'en scrape que 15) : le NOM LIBRE du filtre pose «Parchemin de boule
+de feu» dans la catégorie Parchemins, et la roue crantée lui règle sa
+caractéristique Niveau (le rang du sort). Les anneaux/amulettes/
+talismans restent dans Autres_objets (arbitrage utilisateur), les
+sauvegardes existantes gardent leur ancien kind (pas de migration).
+Comptages du dataset : 569 armes, 113 armures, 73 boucliers,
+188 potions, 15 parchemins, 72 baguettes, 2279 autres (714
+consommables y restent — les scénarios en piquent par le
+classifieur). PIÈGE évité : les scénarios cherchaient le consommable
+par champ Dégâts/CA — ils passent par `getKindKeyOfData` maintenant.
+Nouveau scénario : bouclier (Solidité libell), potion (Niveau
+libellé), parchemin au nom libre + rang édité. Validé par run headless
+complet : 112 OK / 0 ECHEC.
+Round 65 = retours utilisateur : (a) le sélecteur de TYPE de la popup
+d'ajout se lit ALPHABÉTIQUEMENT (Armes, Armures, Autres objets,
+Baguettes, Boucliers, Parchemins, Potions) — l'ordre vient du TABLEAU
+KINDS lui-même et le classifieur TOLÈRE tout ordre grâce a ses cartes
+d'exclusion (les armures excluent Solidité) ; (b) l'inventaire porte
+une colonne TYPE par GLYPHE : `STUFF.ICONS` (⚔ armes, 🦺 armures, 📦
+autres, 🪄 baguettes, 🛡 boucliers, 📜 parchemins, 🧪 potions — glyphes
+choisis a la main, même veine que LEVELUP.ICONS), piste 1 de la grille
+(huit pistes), l'infobulle du glyphe porte le NOM du type, l'entête ne
+porte AUCUNE cellule pour la piste (les classes de colonnes suffisent
+a l'alignement). Verrous scénario : options du sélecteur triées,
+glyphe en première cellule avec son infobulle. La MAQUETTE du skill
+pathfinder-style suit la référence livrée (huit colonnes, glyphe en
+première), la règle des glyphes larges s'étend aux colonnes
+d'extrémité. Validé par run headless complet : 112 OK / 0 ECHEC.
+Round 66 = retour utilisateur : LES BOUCLIERS VIVENT AVEC LES ARMURES.
+Le kind `shield` part du tableau KINDS (six catégories : Armes,
+Armures, Autres objets, Baguettes, Parchemins, Potions), les armures
+reprennent le CA bonus SANS exclusion et gagnent le champ
+`Solidité` en inline — il ne rend QUE sur les boucliers (présent-si-
+existant), les armures n'en portent pas ; les detail_fields des popup
+unissent les deux (Base, CA, Mod dex, Solidité, pénalités, Force,
+Catégorie, Groupe). MÉCANISME RETRAIT : `STUFF.OBSOLETE_KINDS = {
+"shield": "armor" }` remapped au CONSTRUCTEUR de CHARACTER.Stuff —
+les saves du Round 64 qui portent kind "shield" re-lisent en armures
+(une carte écrite a la main par kind retiré, elle survit aux
+re-scrap et aux futurs remaniements — le glyphe 🛡 part des ICONS).
+Scénario réaligné : le bouclier se pique des OPTIONS DES ARMURES (le
+premier porteur de Solidité), posé par le type Armures, sa ligne
+porte CA bonus et Solidité. Validé par run headless complet :
+112 OK / 0 ECHEC.
+Round 67 = retour utilisateur : la catégorie des armures se lit
+« Armures/Boucliers » et son glyphe est le BOUCLIER 🛡 (le gilet 🦺
+ne se reconnaissait pas — la catégorie fusionnée parle par son
+bouclier, son icône suit). Validé par run headless complet :
+112 OK / 0 ECHEC.
 Round 57 = alignement titres/cellules + fin du sous-total entreposé
 (retour utilisateur) : (a) les colonnes ÉTROITES (Qté, Encomb.)
 partagent le CENTRAGE entre l'entête et les cellules (`.stuffs-col-*`

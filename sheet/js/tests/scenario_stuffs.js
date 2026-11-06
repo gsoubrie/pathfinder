@@ -259,6 +259,18 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtre catégories + popup
             TEST.ASSERT.equal( _popup.querySelectorAll( ".stuffs-form-popup-location .single-select-option" ).length, STUFF.LOCATIONS.length + 1, "Le sélecteur d'emplacement devrait porter chaque emplacement + l'option vide, obtenu : " + _popup.querySelectorAll( ".stuffs-form-popup-location .single-select-option" ).length );
             let _place_row = _popup.querySelector( ".stuffs-form-popup-place" );
             TEST.ASSERT.notOk( _place_row && _place_row.offsetParent, "La ligne lieu ne devrait pas s'afficher sans entreposage, obtenu : [" + ( _place_row ? "affichée" : "absente" ) + "]" );
+            // Le sélecteur de type se lit ALPHABÉTIQUEMENT (retour
+            // utilisateur) : l'option vide se saute
+            let _type_option_labels = [];
+            let _type_options_all   = _popup.querySelectorAll( ".stuffs-add-popup-type .single-select-option" );
+            for ( let _t = 0, _size_t = _type_options_all.length; _t < _size_t; _t++ ) {
+                let _option_value = _type_options_all[ _t ].getAttribute( "data-value" );
+                if ( _option_value ) {
+                    _type_option_labels.push( _type_options_all[ _t ].querySelector( ".single-select-option-label" ).textContent );
+                }
+            }
+            let _labels_sorted = _type_option_labels.slice().sort();
+            TEST.ASSERT.ok( _type_option_labels.length === _labels_sorted.length && _type_option_labels.every( function ( label, index ) { return label === _labels_sorted[ index ]; } ), "Le sélecteur de type devrait etre alphabétique, obtenu : [" + _type_option_labels.join( " | " ) + "]" );
             let _comment_input = _popup.querySelector( ".stuffs-form-popup-comment-input" );
             TEST.ASSERT.notNull( _comment_input, "La popup devrait porter son champ commentaire" );
             TEST.ASSERT.ok( !_comment_input.value, "Le champ commentaire devrait etre vide a l'ouverture, obtenu : [" + _comment_input.value + "]" );
@@ -315,6 +327,12 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         TEST.ASSERT.notNull( _sword_quantity_input, "Toute entrée AFFICHE sa quantité (l'édition vit dans la popup de la roue crantée, jamais d'input dans la liste)" );
         TEST.ASSERT.notEqual( _sword_quantity_input ? _sword_quantity_input.tagName : null, "INPUT", "La quantité de la ligne reste en lecture, obtenu : [" + ( _sword_quantity_input ? _sword_quantity_input.tagName : "null" ) + "]" );
         TEST.ASSERT.equal( _sword_quantity_input ? _sword_quantity_input.textContent : null, "1", "La quantité de l'épée devrait etre 1, obtenu : [" + ( _sword_quantity_input ? _sword_quantity_input.textContent : "null" ) + "]" );
+        // Le GLYPHE du type ouvre la ligne (retour utilisateur : le type
+        // se lit d'un coup d'oeil), l'infobulle porte son nom
+        let _kind_cell = _entry_dom.querySelector( ".stuffs-entry-kind" );
+        TEST.ASSERT.ok( _entry_dom.firstElementChild === _kind_cell, "L'icône du type devrait ouvrir la ligne, obtenu : [" + ( _entry_dom.firstElementChild ? _entry_dom.firstElementChild.className : "vide" ) + "]" );
+        TEST.ASSERT.equal( _kind_cell ? _kind_cell.textContent : null, STUFF.ICONS.weapon, "L'icône de l'épée devrait etre le glyphe des armes, obtenu : [" + ( _kind_cell ? _kind_cell.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _kind_cell ? _kind_cell.getAttribute( "title" ) : null, "Armes", "L'infobulle de l'icône devrait porter le nom du type, obtenu : [" + ( _kind_cell ? _kind_cell.getAttribute( "title" ) : "null" ) + "]" );
         // Le DOM de la ligne suit l'ORDRE DES COLONNES (object, quantité,
         // encombrement, roue) : le placement automatique de la grille
         // marche au curseur, une cellule construite en désordre rejette
@@ -645,7 +663,7 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
     // et il vit dans la zone autres objets (ni Dégâts ni CA bonus)
     let _consumable_name = null;
     for ( let _i = 0, _size_i = STUFFS.length; !_consumable_name && _i < _size_i; _i++ ) {
-        if ( !STUFFS[ _i ][ "Dégâts" ] && !STUFFS[ _i ][ "CA bonus" ] && STUFFS[ _i ].traits.indexOf( STUFF.CONSUMABLE_TRAIT ) !== -1 ) {
+        if ( STUFFS.getKindKeyOfData( STUFFS[ _i ] ) === "other" && STUFFS[ _i ].traits.indexOf( STUFF.CONSUMABLE_TRAIT ) !== -1 ) {
             _consumable_name = STUFFS[ _i ].name;
         }
     }
@@ -809,5 +827,112 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
                 } );
             } );
         } );
+    } );
+} );
+
+TEST.RUNNER.register( "[STUFFS] catégories : boucliers avec les armures, potions, parchemin de tous les sorts", function () {
+    let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Équipement ouvert" );
+    if ( !_pane ) {
+        return;
+    }
+    let _stuffs   = CONTROLLER.Character.current_character.getStuffs();
+    let _start_nb = _stuffs.getSize();
+    // Les noms viennent des options classées du dataset (le classifieur
+    // décide : la Solidité fait les boucliers, les préfixes font la
+    // potion)
+    // Les boucliers vivent AVEC les armures (retour utilisateur) : le
+    // bouclier se pique des options des armures, celui qui porte
+    // Solidité — le champ bouclier rend sur la ligne des armures
+    let _armor_options = STUFFS.getKindOptions( "armor" );
+    let _shield_name   = null;
+    for ( let _i = 0, _size_i = _armor_options.length; _i < _size_i && !_shield_name; _i++ ) {
+        if ( STUFFS.getFieldValue( _armor_options[ _i ].name, "Solidité" ) ) {
+            _shield_name = _armor_options[ _i ].name;
+        }
+    }
+    TEST.ASSERT.notNull( _shield_name, "Les armures devraient contenir les boucliers (un porteur de Solidité dans leurs options)" );
+    if ( !_shield_name ) {
+        return;
+    }
+    let _potion_name = STUFFS.getKindOptions( "potion" )[ 0 ].name;
+    TEST_stuffsOpenAddPopup();
+    return TEST.wait().then( function () {
+        TEST_stuffsPickType( "armor" );
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsPickModel( _shield_name );
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsValidateAddPopup();
+        return TEST.wait();
+    } ).then( function () {
+        // Le bouclier vit dans la catégorie des ARMURES, la ligne porte
+        // sa Solidité (le champ bouclier rend sur les lignes d'armures,
+        // les armures n'en portent pas)
+        let _shield_object = _stuffs.getContentByUUID( "armor__" + _shield_name );
+        TEST.ASSERT.notNull( _shield_object, "Le bouclier devrait vivre dans le conteneur (armor__" + _shield_name + ")" );
+        TEST.ASSERT.equal( _shield_object ? _shield_object.kind : null, "armor", "Le bouclier devrait porter la catégorie des armures, obtenu : [" + ( _shield_object ? _shield_object.kind : "null" ) + "]" );
+        let _shield_entry = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _shield_name ) + "]" );
+        TEST.ASSERT.ok( _shield_entry && _shield_entry.textContent.indexOf( "Solidité" ) !== -1 && _shield_entry.textContent.indexOf( STUFFS.getFieldValue( _shield_name, "Solidité" ) ) !== -1, "La ligne du bouclier devrait porter sa Solidité libellée, obtenu : [" + ( _shield_entry ? _shield_entry.textContent : "null" ) + "]" );
+        // La potion vit dans SA catégorie, la ligne porte son Niveau (la
+        // clé scrapée "level" se lit "Niveau")
+        TEST_stuffsOpenAddPopup();
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsPickType( "potion" );
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsPickModel( _potion_name );
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsValidateAddPopup();
+        return TEST.wait();
+    } ).then( function () {
+        let _potion_object = _stuffs.getContentByUUID( "potion__" + _potion_name );
+        TEST.ASSERT.notNull( _potion_object, "La potion devrait vivre dans le conteneur (potion__" + _potion_name + ")" );
+        let _potion_entry = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _potion_name ) + "]" );
+        let _potion_level = _potion_object ? _potion_object.getCharacteristicValue( "Niveau" ) : null;
+        TEST.ASSERT.ok( _potion_entry && _potion_entry.textContent.indexOf( "Niveau" ) !== -1 && _potion_level && _potion_entry.textContent.indexOf( _potion_level ) !== -1, "La ligne de la potion devrait porter son Niveau libellé, obtenu : [" + ( _potion_entry ? _potion_entry.textContent : "null" ) + "]" );
+        // Le PARCHemin couvre TOUS les sorts (retour utilisateur) : le
+        // nom libre du filtre crée le parchemin du sort, la roue crantée
+        // lui pose son rang par la caractéristique Niveau
+        TEST_stuffsOpenAddPopup();
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsPickType( "scroll" );
+        return TEST.wait();
+    } ).then( function () {
+        TEST_stuffsFilterEnter( "Parchemin de boule de feu" );
+        return TEST.wait();
+    } ).then( function () {
+        let _model_label = document.querySelector( "body > .popup .stuffs-add-popup .stuffs-add-popup-model .single-select-selector-label" );
+        TEST.ASSERT.equal( _model_label ? _model_label.textContent : null, "Parchemin de boule de feu", "Un parchemin hors dataset devrait se poser par le TEXTE BRUT du filtre, obtenu : [" + ( _model_label ? _model_label.textContent : "null" ) + "]" );
+        TEST_stuffsValidateAddPopup();
+        return TEST.wait();
+    } ).then( function () {
+        let _scroll_object = _stuffs.getContentByUUID( "scroll__Parchemin de boule de feu" );
+        TEST.ASSERT.notNull( _scroll_object, "Le parchemin au nom libre devrait vivre dans le conteneur" );
+        TEST.ASSERT.equal( _scroll_object ? _scroll_object.kind : null, "scroll", "Le parchemin au nom libre devrait porter SA catégorie, obtenu : [" + ( _scroll_object ? _scroll_object.kind : "null" ) + "]" );
+        // La roue crantée lui pose sa caractéristique Niveau (le rang du
+        // sort) : l'édition rend la rangée du type Parchemins
+        TEST_stuffsOpenEditPopup( "scroll", "Parchemin de boule de feu" );
+        return TEST.wait();
+    } ).then( function () {
+        let _edit_popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+        TEST.ASSERT.notNull( _edit_popup, "La popup d'édition du parchemin devrait s'ouvrir" );
+        let _level_input = _edit_popup ? _edit_popup.querySelector( ".stuffs-edit-popup-char-row[data-field=" + JSON.stringify( "Niveau" ) + "] input" ) : null;
+        TEST.ASSERT.notNull( _level_input, "L'édition d'un parchemin devrait porter sa rangée Niveau" );
+        if ( _level_input ) {
+            _level_input.value = "3";
+        }
+        TEST_stuffsValidateEditPopup();
+        return TEST.wait();
+    } ).then( function () {
+        let _scroll_object = _stuffs.getContentByUUID( "scroll__Parchemin de boule de feu" );
+        TEST.ASSERT.equal( _scroll_object ? _scroll_object.getCharacteristicValue( "Niveau" ) : null, "3", "Le parchemin édité devrait porter SA caractéristique Niveau, obtenu : [" + ( _scroll_object ? _scroll_object.getCharacteristicValue( "Niveau" ) : "null" ) + "]" );
+        let _scroll_entry = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value='Parchemin de boule de feu']" );
+        TEST.ASSERT.ok( _scroll_entry && _scroll_entry.textContent.indexOf( "Niveau" ) !== -1 && _scroll_entry.textContent.indexOf( "3" ) !== -1, "La ligne du parchemin devrait porter son Niveau édité, obtenu : [" + ( _scroll_entry ? _scroll_entry.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _stuffs.getSize(), _start_nb + 3, "Le test devrait avoir posé ses trois entrées, obtenu : " + ( _stuffs.getSize() - _start_nb ) + " — fenêtre : " + TEST_stuffsDiagnosis() );
     } );
 } );

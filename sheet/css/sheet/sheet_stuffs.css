@@ -229,7 +229,7 @@
 .stuffs-entries-header,
 .stuffs-entry {
     display               : grid;
-    grid-template-columns : 240px minmax(120px, 1fr) minmax(90px, 0.8fr) 48px 48px 16px;
+    grid-template-columns : 22px 240px minmax(120px, 1fr) minmax(90px, 0.8fr) 48px 48px 16px;
     gap                   : var(--s-sm);
     align-items           : center;
 }
@@ -248,11 +248,16 @@
     white-space : nowrap;
 }
 
+.stuffs-col-kind {
+    grid-column: 1;
+    text-align : center;
+}
+
 .stuffs-col-object {
     display               : flex;
     align-items           : center;
     gap                   : var(--s-sm);
-    grid-column           : 1;
+    grid-column           : 2;
     min-width             : 0;
 }
 
@@ -273,30 +278,38 @@
     display               : flex;
     flex-direction       : column;
     gap                   : 2px;
-    grid-column           : 2;
+    grid-column           : 3;
     justify-content       : center;
     min-width             : 0;
 }
 
 .stuffs-col-comment {
-    grid-column: 3;
+    grid-column: 4;
     min-width   : 0;
 }
 
 .stuffs-col-quantity {
-    grid-column: 4;
+    grid-column: 5;
     text-align : center;
     width      : 100%;
 }
 
 .stuffs-col-bulk {
-    grid-column: 5;
+    grid-column: 6;
     text-align : center;
 }
 
 .stuffs-col-actions {
-    grid-column: 6;
+    grid-column: 7;
     text-align  : center;
+}
+
+/* Le glyphe du type ouvre la ligne : discret, l'infobulle porte le nom
+   du type */
+.stuffs-entry-kind {
+    color       : var(--c-text-muted);
+    font-size   : 13px;
+    line-height : 1;
 }
 
 .stuffs-entry {
