@@ -31,6 +31,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__adjustment__edit_explanation":
             case "event__stuff__add":
             case "event__stuff__remove":
+            case "event__spell__add":
+            case "event__spell__remove":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__level_up__select_class":
@@ -57,6 +59,12 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__pick_edit_location":
             case "event__stuff__commit_edit":
             case "event__stuff__commit_remove":
+            case "event__spell__toggle_selector":
+            case "event__spell__pick":
+            case "event__spell__filter_enter":
+            case "event__spell__commit":
+            case "event__spell__commit_edit":
+            case "event__spell__commit_remove":
                 this.edition_popup.doActionAfter( event_name, params );
                 break;
             case "event__stuff__open_add_popup":
@@ -67,12 +75,19 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__open_edit_popup":
                 this.edition_popup = new CHARACTER.StuffEditPopup( params[ "param__stuff__kind" ], params[ "param__stuff__value" ] );
                 break;
+            case "event__spell__open_add_popup":
+                this.edition_popup = new CHARACTER.SpellAddPopup();
+                break;
+            case "event__spell__open_edit_popup":
+                this.edition_popup = new CHARACTER.SpellEditPopup( params[ "param__spell__value" ] );
+                break;
             case "event__stuff__set_location":
             case "event__stuff__edit_place":
             case "event__stuff__edit_comment":
             case "event__stuff__edit_characteristics":
             case "event__stuff__filter_location":
             case "event__stuff__edit_quantity":
+            case "event__spell__edit_comment":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__level__toggle":
@@ -101,13 +116,13 @@ CONTROLLER.Character = (function ( self ) {
     self.save               = function () {
         let to_return = self.current_character.getDataToSave();
         console.log("GSOU", "[Character - save]", to_return);
-        //let file      = new Blob( [ self.getSaveFileContent() ], { "type": "application/javascript" } );
-        //let link      = SERVICE.DOM.createElement( "a", {
-        //    "href"    : URL.createObjectURL( file ),
-        //    "download": self.current_character.getUUID() + ".js"
-        //} );
-        //link.click();
-        //URL.revokeObjectURL( link.href );
+        let file      = new Blob( [ self.getSaveFileContent() ], { "type": "application/javascript" } );
+        let link      = SERVICE.DOM.createElement( "a", {
+            "href"    : URL.createObjectURL( file ),
+            "download": self.current_character.getUUID() + ".js"
+        } );
+        link.click();
+        URL.revokeObjectURL( link.href );
         return to_return;
     };
     //********************************************  HTML  **************************************************//

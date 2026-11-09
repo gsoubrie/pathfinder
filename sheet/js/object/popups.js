@@ -79,6 +79,15 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // The spell data is static : the popup caches by its scraped uuid
+            case "event__show_information__spell": {
+                let spell_data = params[ "param__spell__value" ] ? SPELLS.getSpellInformation( params[ "param__spell__value" ] ) : null;
+                let spell_popup = spell_data ? this._openPopup( spell_data ) : null;
+                if ( spell_popup ) {
+                    spell_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

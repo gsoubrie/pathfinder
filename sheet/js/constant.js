@@ -7,3 +7,4 @@ var POPUP      = {};
 var CHARACTER  = {};
 var COMBAT     = {};
 var SPELL      = {};
+var SPELLS     = {};

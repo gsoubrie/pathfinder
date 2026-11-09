@@ -18,6 +18,7 @@ CHARACTER.Current = function () {
     this.ancestry_history  = new CHARACTER.AncestryHistory();
     this.adjustments       = new CHARACTER.Adjustments();
     this.stuffs            = new CHARACTER.Stuffs();
+    this.spells            = new CHARACTER.Spells();
     this.gifts             = new CHARACTER.Gifts();
     this.masteries         = new CHARACTER.Masteries();
     this.children          = new OBJECT.InterfaceContainer();
@@ -30,6 +31,7 @@ CHARACTER.Current = function () {
     this.children.add( this.ancestry_history );
     this.children.add( this.adjustments );
     this.children.add( this.stuffs );
+    this.children.add( this.spells );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -146,6 +148,12 @@ CHARACTER.Current.prototype = {
                 // The inventory refreshes with its entries
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
+            case "event__spell__add":
+            case "event__spell__remove":
+                this.spells.doActionAfter( event_name, params );
+                // The spellbook refreshes with its entries
+                this.windows.doActionAfterContentChildren( event_name, params );
+                break;
             // The location, the place, the comment and the quantity live
             // on their entry : the window routes and follows its display
             // in place
@@ -155,6 +163,9 @@ CHARACTER.Current.prototype = {
             case "event__stuff__edit_characteristics":
             case "event__stuff__edit_quantity":
                 this.stuffs.doActionAfter( event_name, params );
+                break;
+            case "event__spell__edit_comment":
+                this.spells.doActionAfter( event_name, params );
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -277,6 +288,9 @@ CHARACTER.Current.prototype = {
             case "stuffs":
                 this.stuffs.updateData( value );
                 break;
+            case "spells":
+                this.spells.updateData( value );
+                break;
             case this.player.getKey():
                 this.player.setValue( value );
                 break;
@@ -377,6 +391,12 @@ CHARACTER.Current.prototype = {
      */
     getStuffs: function () {
         return this.stuffs;
+    },
+    /**
+     * @returns {CHARACTER.Spells}
+     */
+    getSpells: function () {
+        return this.spells;
     },
     getHealth         : function () {
         return this.health;

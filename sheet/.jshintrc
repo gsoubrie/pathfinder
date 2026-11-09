@@ -39,6 +39,7 @@
     "COMPONENT": false,
     "GS": false,
     "SPELL": false,
+    "SPELLS": false,
     "MANAGER": false,
     "WINDOW_V2": false,
     "CLASSES": false,

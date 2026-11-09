@@ -9,15 +9,15 @@
  * scenarios ASCENDANCE et CLASSE : ces onglets sont inactifs sans pre-requis.
  */
 
-TEST.RUNNER.register( "[ONGLETS] nombre = 7", function () {
+TEST.RUNNER.register( "[ONGLETS] nombre = 8", function () {
     let _character                      = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character && _character.windows, "Pre-condition : personnage et fenetres charges" );
     if ( !_character || !_character.windows ) {
         return;
     }
-    TEST.ASSERT.equal( _character.windows.contents.length, 7, "Le groupe devrait contenir 7 fenetres, obtenu : " + _character.windows.contents.length );
+    TEST.ASSERT.equal( _character.windows.contents.length, 8, "Le groupe devrait contenir 8 fenetres, obtenu : " + _character.windows.contents.length );
     let _windows_dom                     = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
-    TEST.ASSERT.equal( _windows_dom.length, 7, "Les 7 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
+    TEST.ASSERT.equal( _windows_dom.length, 8, "Les 8 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
@@ -70,6 +70,7 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
         { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
         { name: CHARACTER.GiftsWindow.NAME,          label: "Dons" },
+        { name: CHARACTER.SpellsWindow.NAME,          label: "Sorts" },
         { name: CHARACTER.AdjustmentsWindow.NAME,    label: "Ajustements" },
         { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
     ];
@@ -89,13 +90,14 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     }
 } );
 
-TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Dons, Ajustements, Progression", function () {
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Dons, Sorts, Ajustements, Progression", function () {
     let _expected_order = [
         CHARACTER.GeneralWindow.NAME,
         CHARACTER.StuffsWindow.NAME,
         CHARACTER.CharacteristicWindow.NAME,
         CHARACTER.LevelWindow.NAME,
         CHARACTER.GiftsWindow.NAME,
+        CHARACTER.SpellsWindow.NAME,
         CHARACTER.AdjustmentsWindow.NAME,
         CHARACTER.LevelUpWindow.NAME
     ];
@@ -166,6 +168,19 @@ TEST.RUNNER.register( "[ONGLETS] Ajustements = actif sur page vide", function ()
     let _style                           = getComputedStyle( _tab );
     TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Ajustements ne devrait pas etre grise, obtenu : " + _style.opacity );
     TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Ajustements devrait intercepter les clics, obtenu : " + _style.pointerEvents );
+} );
+
+TEST.RUNNER.register( "[ONGLETS] Sorts = actif sur page vide", function () {
+    // Le repertoire de sorts ne depend d AUCUNE pre-condition : l onglet reste actif meme sans ascendance ni classe (comme Dons et Ajustements)
+    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.SpellsWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _tab, "L onglet Sorts devrait exister" );
+    if ( !_tab ) {
+        return;
+    }
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L onglet Sorts ne devrait pas porter l etat disabled sur page vide" );
+    let _style                           = getComputedStyle( _tab );
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L onglet Sorts ne devrait pas etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L onglet Sorts devrait intercepter les clics, obtenu : " + _style.pointerEvents );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] clic Dons → actif = Dons", function () {

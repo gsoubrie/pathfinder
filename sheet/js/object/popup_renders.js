@@ -136,6 +136,42 @@ SERVICE.CLASS.addPrototype( OBJECT.ItemPopupRenderer, OBJECT.BasePopupRenderer )
 
 
 /**
+ * @class OBJECT.SpellPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.SpellPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.SpellPopupRenderer.prototype = {
+    _actionCostLabel: function ( cost ) {
+        const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "f": "⟳", "r": "⟲" };
+        return map[ cost ] !== undefined ? map[ cost ] : "—";
+    },
+
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--spell">
+            <div class="popup-header__left">
+              <div class="popup-category-label">SORT</div>
+              <h2 class="popup-title">${text}</h2>
+            </div>
+            ${object_data.element_type ? `<div class="popup-level-badge">${object_data.element_type}</div>` : ""}
+            ${object_data.action_cost !== null && object_data.action_cost !== undefined
+              ? `<div class="popup-action-cost">${this._actionCostLabel( object_data.action_cost )}</div>`
+              : ""}
+          </div>
+
+          ${this._traitsList()}
+
+          ${this._description()}` );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.SpellPopupRenderer, OBJECT.BasePopupRenderer );
+
+
+/**
  * @class OBJECT.ActionPopupRenderer
  * @extends OBJECT.BasePopupRenderer
  */
