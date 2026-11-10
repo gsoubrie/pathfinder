@@ -356,3 +356,39 @@
 .popup-overlay .popup-container {
     animation : pf-popup-in 0.2s ease-out both;
 }
+/* ══════════════════════════════════════════
+   EMPLACEMENTS DE SORTS (tuiles de l'onglet Sorts)
+   ══════════════════════════════════════════ */
+
+/* Le total est la valeur clé de la popup */
+.popup-slots-count {
+    color      : var(--pf-gold-bright);
+    font-size  : 16px;
+    margin     : 6px 0 12px;
+    text-align : center;
+}
+
+.popup-slots-source {
+    align-items    : center;
+    border-bottom  : 1px solid var(--pf-border-subtle);
+    display        : flex;
+    font-size      : 13px;
+    gap            : 10px;
+    justify-content: space-between;
+    padding        : 6px 2px;
+}
+
+.popup-slots-source:last-child {
+    border-bottom: none;
+}
+
+.popup-slots-source-value {
+    color      : var(--pf-gold);
+    flex-shrink: 0;
+    min-width  : 2em;
+    text-align : right;
+}
+
+.popup-slots-source-label {
+    color: var(--pf-text-muted);
+}

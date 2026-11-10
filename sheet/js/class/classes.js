@@ -266,10 +266,45 @@ CLASSES.ClassPopup.prototype = {
         SERVICE.DOM.addElementTo( this.computeHTMLRoles(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLPersonality(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLMastery(), this.getDomElement() );
+        // The daily spell slots grid only exists for a casting class (the
+        // hand-written CLASSES.SPELL_SLOTS map holds it)
+        let spell_slots_element = this.computeHTMLSpellSlots();
+        if ( spell_slots_element ) {
+            SERVICE.DOM.addElementTo( spell_slots_element, this.getDomElement() );
+        }
         SERVICE.DOM.addElementTo( this.computeHTMLCapacityByLevel(), this.getDomElement() );
         SERVICE.DOM.addElementTo( this.computeHTMLAbilities(), this.getDomElement() );
 
         return this.getDomElement();
+    },
+
+    // The complete "Sorts par jour" grid of a casting class: 20 levels, the
+    // tours de magie then every rank column, "—" on an unopened rank
+    computeHTMLSpellSlots: function () {
+        let slots_data = CLASSES.getSpellSlotsData( this.getName() );
+        if ( !slots_data ) {
+            return null;
+        }
+        let to_return = SERVICE.DOM.createElement( "div", { class: "class-section class-spell-slots" } );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-section-title" }, "Sorts par jour" ), to_return );
+        let grid = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-grid" } ), to_return );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-cell class-spell-slots-cell--head" }, "Niveau" ), grid );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-cell class-spell-slots-cell--head" }, "Tours" ), grid );
+        for ( let rank = 1; rank <= 10; rank++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-cell class-spell-slots-cell--head" }, String( rank ) ), grid );
+        }
+        let _levels = Object.keys( slots_data ).sort( function ( level_a, level_b ) {
+            return parseInt( level_a, 10 ) - parseInt( level_b, 10 );
+        } );
+        for ( let l = 0, _size_l = _levels.length; l < _size_l; l++ ) {
+            let slots_row = slots_data[ _levels[ l ] ];
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-cell class-spell-slots-level" }, _levels[ l ] ), grid );
+            for ( let i = 0, _size_i = slots_row.length; i < _size_i; i++ ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-cell" + ( slots_row[ i ] ? "" : " class-spell-slots-cell--locked" ) }, slots_row[ i ] ? String( slots_row[ i ] ) : "—" ), grid );
+            }
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-spell-slots-note" }, "Le rang 10 s'ouvre au niveau 19 (sort d'archimage), à raison d'un seul emplacement qui n'augmente jamais." ), to_return );
+        return to_return;
     }
 };
 

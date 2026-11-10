@@ -15,6 +15,7 @@ CONTROLLER.Main = (function ( self ) {
             case "event__show_information__feat":
             case "event__show_information__item":
             case "event__show_information__spell":
+            case "event__show_information__spell_slots":
             case "event__popup__close":
                 self.popups_object.doActionAfter( event_name, params );
                 return;

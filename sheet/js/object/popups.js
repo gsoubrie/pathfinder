@@ -88,6 +88,23 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // The slot totals are a character state : the popup is rebuilt at
+            // each opening, never served from the cache
+            case "event__show_information__spell_slots": {
+                let slots_character = CONTROLLER.Character.current_character;
+                let slots_data      = slots_character ? slots_character.getSpellSlots().getInformationData( slots_character, params[ "param__spell__rank" ] === null || params[ "param__spell__rank" ] === undefined ? 0 : parseInt( params[ "param__spell__rank" ], 10 ) ) : null;
+                if ( !slots_data ) {
+                    return;
+                }
+                if ( this.getContentByUUID( slots_data[ "id" ] ) ) {
+                    this.removeContent( slots_data[ "id" ], null, true );
+                }
+                let slots_popup = this._openPopup( slots_data );
+                if ( slots_popup ) {
+                    slots_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

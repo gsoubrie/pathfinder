@@ -53,6 +53,25 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
             source        : this.getSourceLabel()
         };
     },
+    // The curriculum of the chosen school grants slot bonuses of its class:
+    // the aggregation expands them on every rank the class base grid holds
+    getSlotContribution: function ( class_name ) {
+        if ( !this.selected_value ) {
+            return null;
+        }
+        let curriculum = CLASSES.getChoiceCurriculum( class_name, this.ability_key, this.selected_value );
+        if ( !curriculum ) {
+            return null;
+        }
+        return {
+            "type"          : "curriculum",
+            "class_name"    : class_name,
+            "count"         : curriculum.slots_per_rank,
+            "extra_cantrips": curriculum.extra_cantrips,
+            "except_rank"   : curriculum.except_rank,
+            "source"        : this.selected_value + " (cursus)"
+        };
+    },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
         switch ( key ) {

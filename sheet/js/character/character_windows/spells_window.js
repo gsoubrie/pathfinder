@@ -58,6 +58,14 @@ CHARACTER.SpellsWindow.prototype = {
                 }
                 return;
             }
+            // Les niveaux et validations vivent dans l'onglet Progression :
+            // recalcul des emplacements a l'activation de l'onglet, toujours
+            // sur l'etat frais du personnage
+            case "click_on__window_navigation__done":
+                if ( this.name === params[ "window_name" ] ) {
+                    this._refreshSlotsArea();
+                }
+                break;
         }
         WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
@@ -78,6 +86,7 @@ CHARACTER.SpellsWindow.prototype = {
     _buildContent: function () {
         let spells = CONTROLLER.Character.current_character.getSpells();
         this._buildAddBar( this.content_dom_element_target, spells );
+        this._buildSlotsArea();
         // Une section par nature, les rangs de la nature "sort" entre les
         // tours de magie et les focalisés : seules les sections HABITÉES
         // se rendent (une page vide n'affiche aucune coquille vide)
@@ -205,6 +214,77 @@ CHARACTER.SpellsWindow.prototype = {
 
     _computeCountText: function ( spells ) {
         return spells.getSize() + ( spells.getSize() > 1 ? " sorts" : " sort" );
+    },
+
+    //********************************************  SLOTS AREA   **************************************************//
+
+    // Les emplacements quotidiens du personnage : le calcul croise
+    // l'environnement (classe, école, ...). L'ordre des tuiles suit l'ordre
+    // des calendriers PF2 : tours de magie puis rangs croissants, seuls les
+    // rangs accessibles se rendent
+    _buildSlotsArea: function () {
+        let slots_data = this._computeSlotsData();
+        if ( !slots_data ) {
+            this.slots_dom_element = null;
+            return;
+        }
+        this.slots_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-area" } ), this.content_dom_element_target );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-title" }, "Emplacements" ), this.slots_dom_element );
+        this._fillSlotsArea( slots_data );
+    },
+
+    _refreshSlotsArea: function () {
+        // L'activation peut preceder le premier rendu du panneau (la phase
+        // construit au tick suivant) : sans contenu, rien a rafraichir
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        let slots_data = this._computeSlotsData();
+        if ( !slots_data ) {
+            if ( this.slots_dom_element ) {
+                SERVICE.DOM.removeElement( this.slots_dom_element );
+                this.slots_dom_element = null;
+            }
+            return;
+        }
+        if ( !this.slots_dom_element ) {
+            this._buildSlotsArea();
+            return;
+        }
+        SERVICE.DOM.empty( this.slots_dom_element );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-title" }, "Emplacements" ), this.slots_dom_element );
+        this._fillSlotsArea( slots_data );
+    },
+
+    // Le rang de la tuile se lit du DOM au clic : les popups se ferment par
+    // uuid, rien de l'état ne s'embarque en dur dans un handler inline
+    _fillSlotsArea: function ( slots_data ) {
+        let tiles = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-tiles" } ), this.slots_dom_element );
+        this._buildSlotTile( tiles, "Tours de magie", slots_data.cantrips.count, 0 );
+        let _ranks = Object.keys( slots_data.ranks );
+        for ( let r = 0, _size_r = _ranks.length; r < _size_r; r++ ) {
+            let rank = parseInt( _ranks[ r ], 10 );
+            this._buildSlotTile( tiles, "Rang " + rank, slots_data.ranks[ _ranks[ r ] ].count, rank );
+        }
+    },
+
+    _buildSlotTile: function ( parent, label, count, rank ) {
+        let tile = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", {
+                class      : "spells-slot-tile",
+                title      : "Détail des emplacements",
+                "data-rank": "" + rank,
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell_slots',{'param__spell__rank':this.getAttribute('data-rank')})"
+            } ),
+            parent
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slot-tile-label" }, label ), tile );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slot-tile-value" }, "" + count ), tile );
+    },
+
+    _computeSlotsData: function () {
+        let character_object = CONTROLLER.Character.current_character;
+        return character_object && character_object.getSpellSlots() ? character_object.getSpellSlots().getSlotsData( character_object ) : null;
     }
 };
 

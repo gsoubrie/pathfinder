@@ -45,6 +45,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.ItemPopupRenderer( object_data );
             case "spell":
                 return new OBJECT.SpellPopupRenderer( object_data );
+            case "spell-slots":
+                return new OBJECT.SpellSlotsPopupRenderer( object_data );
             default:
                 return new OBJECT.DefaultPopupRenderer( object_data );
         }

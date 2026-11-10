@@ -172,6 +172,45 @@ SERVICE.CLASS.addPrototype( OBJECT.SpellPopupRenderer, OBJECT.BasePopupRenderer 
 
 
 /**
+ * @class OBJECT.SpellSlotsPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * Renders the daily slots of one rank (or the tours de magie): the total and
+ * every source of the calculation (data built by CHARACTER.SpellSlots, one
+ * line per source with the count it carries).
+ */
+OBJECT.SpellSlotsPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.SpellSlotsPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--default">
+            <h2 class="popup-title">${text}</h2>
+          </div>
+
+          <div class="popup-slots-count">${object_data.slots_count}${object_data.slots_unit}</div>
+          ${this._sourcesList()}` );
+    },
+
+    _sourcesList: function () {
+        const sources = this.object_data.slots_sources || [];
+        let rows      = "";
+        for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
+            rows += `
+              <div class="popup-slots-source">
+                <span class="popup-slots-source-value">${sources[ i ].value}</span>
+                <span class="popup-slots-source-label">${sources[ i ].source}</span>
+              </div>`;
+        }
+        return `<div class="popup-slots-sources">${rows}</div>`;
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.SpellSlotsPopupRenderer, OBJECT.BasePopupRenderer );
+
+
+/**
  * @class OBJECT.ActionPopupRenderer
  * @extends OBJECT.BasePopupRenderer
  */

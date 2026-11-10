@@ -390,3 +390,59 @@
     text-overflow: ellipsis;
     white-space  : nowrap;
 }
+
+/* Zone des emplacements quotidiens du personnage : le total de chaque rang
+   se calcule avec l'environnement (classe, école, ...), la tuile ouvre le
+   détail du calcul en popup */
+.spells-slots-area {
+    background   : var(--g-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-lg);
+    display      : flex;
+    flex-direction: column;
+    gap          : var(--s-sm);
+    padding      : var(--s-sm) var(--s-md);
+}
+
+.spells-slots-title {
+    border-bottom: 1px solid var(--c-border-dark);
+    color        : var(--c-text);
+    font-size    : 14px;
+    padding      : 4px 2px 6px;
+}
+
+.spells-slots-tiles {
+    align-content: start;
+    display      : grid;
+    gap          : var(--s-sm);
+    /* Deux colonnes de tuiles : la zone reste basse jusqu'au rang 10 */
+    grid-template-columns: repeat(2, minmax(0, 240px));
+}
+
+.spells-slot-tile {
+    align-items    : center;
+    background     : var(--g-card);
+    border         : var(--b-thin) solid var(--c-border-dark);
+    border-radius  : var(--r-md);
+    cursor         : pointer;
+    display        : flex;
+    gap            : var(--s-md);
+    justify-content: space-between;
+    padding        : 4px 12px;
+}
+
+.spells-slot-tile:hover {
+    border-color: var(--c-gold-dark);
+}
+
+.spells-slot-tile-label {
+    color    : var(--c-text-muted);
+    font-size: 13px;
+}
+
+/* La valeur clé d'une tuile seule porte le gras (règle d'affichage) */
+.spells-slot-tile-value {
+    color      : var(--c-text-gold);
+    font-size  : 14px;
+    font-weight: bold;
+}

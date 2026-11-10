@@ -58,6 +58,13 @@ CHARACTER.LevelHistory.prototype = {
                 params[ "param__class_name" ] = this.getClassName();
                 this.doActionAfterContentChildren( event_name, params );
                 return;
+            case "event__get__slot_contributions":
+                if ( !this.isEnabled() ) {
+                    return;
+                }
+                params[ "param__class_name" ] = this.getClassName();
+                this.doActionAfterContentChildren( event_name, params );
+                return;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

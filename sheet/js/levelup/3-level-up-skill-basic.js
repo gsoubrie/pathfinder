@@ -43,6 +43,13 @@ CHARACTER.LevelUpSkillBasic.prototype = {
                 }
                 return;
             }
+            case "event__get__slot_contributions": {
+                let contribution = this.getSlotContribution( params[ "param__class_name" ] );
+                if ( contribution ) {
+                    params[ "param__slot_contributions" ].push( contribution );
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
@@ -59,6 +66,9 @@ CHARACTER.LevelUpSkillBasic.prototype = {
         return CLASSES.getMasteriesUpgrade( class_name, this.ability_key );
     },
     getRankIncreaseContribution: function () {
+        return null;
+    },
+    getSlotContribution: function ( class_name ) {
         return null;
     },
     getSourceLabel      : function () {

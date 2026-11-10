@@ -419,3 +419,44 @@
 .class-stat-mastery.mastery-expert   .stat-chip-value { color: #a8d0f0; }
 .class-stat-mastery.mastery-master   .stat-chip-value { color: #d4a8f0; }
 .class-stat-mastery.mastery-legendary .stat-chip-value { color: #1a0f08; }
+/* ── Sorts par jour ────────────────────────── */
+
+.class-spell-slots-grid {
+    display               : grid;
+    grid-template-columns : 4em 4.5em repeat(10, 3em);
+    gap                   : 0;
+}
+
+.class-spell-slots-cell {
+    font-size   : 12px;
+    color       : #e8d4a8;
+    line-height : 1.6;
+    padding     : 1px 6px;
+    text-align  : center;
+}
+
+.class-spell-slots-cell--head {
+    color         : #b09070;
+    font-size     : 11px;
+    letter-spacing: 0.5px;
+    border-bottom : 1px solid #8b6914;
+    margin-bottom : 2px;
+    padding-bottom : 3px;
+}
+
+.class-spell-slots-level {
+    color      : #b09070;
+    text-align : right;
+    white-space: nowrap;
+}
+
+.class-spell-slots-cell--locked {
+    color: #6b4e2a;
+}
+
+.class-spell-slots-note {
+    color      : #b09070;
+    font-size : 11px;
+    font-style: italic;
+    margin-top: 8px;
+}

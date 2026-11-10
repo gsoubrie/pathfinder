@@ -19,6 +19,7 @@ CHARACTER.Current = function () {
     this.adjustments       = new CHARACTER.Adjustments();
     this.stuffs            = new CHARACTER.Stuffs();
     this.spells            = new CHARACTER.Spells();
+    this.spell_slots       = new CHARACTER.SpellSlots();
     this.gifts             = new CHARACTER.Gifts();
     this.masteries         = new CHARACTER.Masteries();
     this.children          = new OBJECT.InterfaceContainer();
@@ -168,6 +169,10 @@ CHARACTER.Current.prototype = {
                 this.spells.doActionAfter( event_name, params );
                 break;
             case "event__get__rank_contributions":
+                this.class.doActionAfterContentChildren( event_name, params );
+                this.levels_history.doActionAfterContentChildren( event_name, params );
+                break;
+            case "event__get__slot_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
                 this.levels_history.doActionAfterContentChildren( event_name, params );
                 break;
@@ -397,6 +402,12 @@ CHARACTER.Current.prototype = {
      */
     getSpells: function () {
         return this.spells;
+    },
+    /**
+     * @returns {CHARACTER.SpellSlots}
+     */
+    getSpellSlots: function () {
+        return this.spell_slots;
     },
     getHealth         : function () {
         return this.health;

@@ -642,3 +642,94 @@ CLASSES.getAbilityInformation = function ( class_name, ability_key ) {
         "description": ability.description ? ability.description.join( "<br>" ) : ""
     };
 };
+
+// Hand-written spell slot grid, by class key: level -> [ tours de magie,
+// rank 1..10 ]. The scraped class data carries no slot table (the grid lives
+// in the class progression tables of the rulebook), the map survives a
+// re-scrap. The rank 10 exception (sort d'archimage at level 19, one slot
+// that never grows) is encoded in the raw values.
+CLASSES.SPELL_SLOTS = {
+    "magicien": {
+        1 : [ 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        2 : [ 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        3 : [ 5, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        4 : [ 5, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        5 : [ 5, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0 ],
+        6 : [ 5, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0 ],
+        7 : [ 5, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0 ],
+        8 : [ 5, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0 ],
+        9 : [ 5, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0 ],
+        10: [ 5, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0 ],
+        11: [ 5, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0 ],
+        12: [ 5, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0 ],
+        13: [ 5, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0 ],
+        14: [ 5, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0 ],
+        15: [ 5, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0 ],
+        16: [ 5, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0 ],
+        17: [ 5, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0 ],
+        18: [ 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0 ],
+        19: [ 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1 ],
+        20: [ 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1 ]
+    }
+};
+
+/**
+ * @param {string} class_name   Class name, ex: "Magicien"
+ * @param {number} class_level  Level of that class on the character
+ * @returns {Array|null}        [ tours de magie, rank 1..10 ], null for a
+ *                               class without spell slots
+ */
+CLASSES.getSpellSlotsForLevel = function ( class_name, class_level ) {
+    let class_data = CLASSES.getDataByName( class_name );
+    let class_grid = class_data ? CLASSES.SPELL_SLOTS[ class_data.key ] : null;
+    if ( !class_grid ) {
+        return null;
+    }
+    return class_grid[ class_level ] || null;
+};
+
+/**
+ * @param {string} class_name  Class name, ex: "Magicien"
+ * @returns {Object|null}     The whole grid level -> row, null for a class
+ *                             without spell slots (the class popup section)
+ */
+CLASSES.getSpellSlotsData = function ( class_name ) {
+    let class_data = CLASSES.getDataByName( class_name );
+    return class_data ? CLASSES.SPELL_SLOTS[ class_data.key ] || null : null;
+};
+
+// Spell slots granted every day by the value chosen on a choice line, per
+// class key and ability key: the arcane school curriculum grants one extra
+// slot of every rank the class can access (none at rank 10 : the sort
+// d'archimage slot never takes a bonus) and one extra cantrip — except for
+// the schools without a curriculum. Backed by the scraped school text.
+CLASSES.CHOICE_CURRICULUM = {
+    "magicien": {
+        "ecole_arcanique": {
+            "slots_per_rank": 1,
+            "extra_cantrips": 1,
+            "except_rank"    : 10,
+            "excluded_values": [ "École de la théorie magique unifiée" ]
+        }
+    }
+};
+
+/**
+ * @param {string} class_name    Class name, ex: "Magicien"
+ * @param {string} ability_key   Normalized key, ex: "ecole_arcanique"
+ * @param {string} choice_value  The value chosen on the line
+ * @returns {Object|null}        The curriculum config, null when the choice
+ *                                grants no spell slots
+ */
+CLASSES.getChoiceCurriculum = function ( class_name, ability_key, choice_value ) {
+    let class_data = CLASSES.getDataByName( class_name );
+    let class_map  = class_data && CLASSES.CHOICE_CURRICULUM[ class_data.key ];
+    if ( !class_map || !class_map[ ability_key ] ) {
+        return null;
+    }
+    let config = class_map[ ability_key ];
+    if ( config.excluded_values.indexOf( choice_value ) !== -1 ) {
+        return null;
+    }
+    return config;
+};

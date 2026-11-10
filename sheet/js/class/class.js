@@ -36,6 +36,27 @@ CLASSES.Class.prototype = {
                 }
                 return;
             }
+            // The base spell slot grid of a casting class, each day, at its
+            // current class level: rank 0 carries the tours de magie
+            case "event__get__slot_contributions": {
+                let slots_row = CLASSES.getSpellSlotsForLevel( this.getName(), this.getLevel() );
+                if ( !slots_row ) {
+                    return;
+                }
+                for ( let i = 0, _size_i = slots_row.length; i < _size_i; i++ ) {
+                    if ( !slots_row[ i ] ) {
+                        continue;
+                    }
+                    params[ "param__slot_contributions" ].push( {
+                        "type"     : "base",
+                        "class_name": this.getName(),
+                        "rank"     : i,
+                        "count"    : slots_row[ i ],
+                        "source"   : this.getName() + " (niveau " + this.getLevel() + ")"
+                    } );
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//
