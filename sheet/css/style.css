@@ -42,16 +42,6 @@ body {
     flex: 1;
 }
 
-.character-sheet-windows .area-logo .logo-pathfinder {
-    background-image: url("../img/logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 160px;
-    height: 49px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
 .character-sheet-windows .gs-window-element-V2 {
     cursor: pointer;
 }

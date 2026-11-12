@@ -32,7 +32,6 @@ CHARACTER.WindowGroup.prototype = {
         // this.setActiveWindow( "characteristic_sheet" );
         this.computeHtml();
         let _windows_container = document.querySelector( ".character-sheet-windows" );
-        SERVICE.DOM.addElementTo( this.computeHtmlLogo(), _windows_container );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "save-button", title: "Sauvegarder le personnage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__current_character__save')" }, "💾" ), _windows_container );
         SERVICE.DOM.addElementTo( this.getDomElement(), _windows_container );
         this.computeHtmlTargets( document.querySelector( ".characters-sheet-content" ) );
@@ -42,15 +41,6 @@ CHARACTER.WindowGroup.prototype = {
         to_add.setCountersParent( this );
         to_add.computeHtmlWithData( character_object );
         return to_add;
-    },
-    //********************************************  HTML   **************************************************//
-    computeHtmlLogo: function () {
-        if ( this.logo_dom_element ) {
-            return this.logo_dom_element;
-        }
-        this.logo_dom_element = SERVICE.DOM.createElement( "div", { class: "area-logo" } );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "logo-pathfinder" } ), this.logo_dom_element );
-        return this.logo_dom_element;
     }
 };
 

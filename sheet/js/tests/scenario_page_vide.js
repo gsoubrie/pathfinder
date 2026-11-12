@@ -40,20 +40,6 @@ TEST.RUNNER.register( "[PAGE VIDE][SAVE] bouton barre d'onglets + contenu vide",
     }
 } );
 
-TEST.RUNNER.register( "[PAGE VIDE] logo aligne sur les onglets", function () {
-    let _logo                            = document.querySelector( ".logo-pathfinder" );
-    TEST.ASSERT.notNull( _logo, "Le logo devrait etre rendu (div.logo-pathfinder)" );
-    let _tab_bar                         = document.querySelector( ".character-sheet-windows" );
-    TEST.ASSERT.notNull( _tab_bar, "La barre d'onglets devrait exister (.character-sheet-windows)" );
-    if ( !_logo || !_tab_bar ) {
-        return;
-    }
-    let _logo_rect                       = _logo.getBoundingClientRect();
-    let _bar_rect                        = _tab_bar.getBoundingClientRect();
-    TEST.ASSERT.ok( _logo_rect.top >= _bar_rect.top - 1 && _logo_rect.bottom <= _bar_rect.bottom + 1,
-        "Le logo devrait tenir dans la bande verticale de la barre d'onglets, obtenu : logo top=" + _logo_rect.top + " bottom=" + _logo_rect.bottom + ", barre top=" + _bar_rect.top + " bottom=" + _bar_rect.bottom );
-} );
-
 TEST.RUNNER.register( "[PAGE VIDE] champs visibles = Nom, Joueur, Ascendance", function () {
     let _fields                          = [
         { key: "name", editable: true },
