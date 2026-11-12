@@ -231,7 +231,13 @@ TEST.RUNNER.register( "[EMPLACEMENTS] niveau 5 = rangs ouverts + cursus, école 
         return;
     }
     TEST.ASSERT.equal( _character.getClasses().getLevel(), 1, "Pre-condition : Magicien niveau 1, obtenu : " + _character.getClasses().getLevel() );
-    let _takes_promise                 = Promise.resolve();
+    // Les prises de niveau se font depuis l'onglet Progression : le test
+    // precedent laisse l'onglet Sorts actif, et un clic sur l'onglet DEJA
+    // actif n'emet pas l'evenement de navigation — la zone Emplacements
+    // ne se recalculerait jamais a l'arrivee
+    let _takes_promise                 = TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        return TEST.wait();
+    } );
     for ( let _take = 0; _take < 4; _take++ ) {
         _takes_promise = _takes_promise.then( function () {
             let _take_button = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-class-option[data-name='Magicien'] .level-up-class-option-take" );
