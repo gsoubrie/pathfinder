@@ -4,8 +4,10 @@
  * elle re-set la feuille elle-meme). L'onglet "Sorts" : le repertoire de
  * sorts du personnage, disponible pour TOUT LE MONDE (actif sur page
  * vide, aucune pré-condition). Le « + » en tête de barre ouvre la POPUP
- * D'AJOUT (UN sélecteur sur tout le dataset scrapé + filtre + Entrée :
- * le nom CANONIQUE d'une option qui matche se pose, sinon le TEXTE BRUT
+ * D'AJOUT : la LISTE du dataset scrapé en colonnes (rang, type, nom,
+ * coût, description coupée aux deux lignes, « ? » par ligne ouvrant la popup
+ * spell), UN FILTRE PAR COLONNE sous l'entête (Entrée du filtre NOM : le
+ * nom CANONIQUE d'une ligne qui matche se pose, sinon le TEXTE BRUT
  * DEVIENT le sort — entrée hors dataset, demande utilisateur — champ
  * COMMENTAIRE, Valider, Quitter). Une section par NATURE habitée :
  * Tours de magie, Rang 1..10 (la nature sort se déplie par rang), Sorts
@@ -16,8 +18,9 @@
  * CRANTÉE d'édition (commentaire, Retirer).
  * 1. Onglet actif sur page vide : barre avec « + » + compte « 0 sort »,
  * AUCUNE section (seules les sections habitées se rendent, l'invitation
- * s'affiche), la popup d'ajout ouvre VIERGE (« -- », tout le dataset en
- * options, comptes croisés), Quitter referme sans créer.
+ * s'affiche), la popup d'ajout ouvre VIERGE (aucun sort en attente,
+ * tout le dataset en lignes, comptes croisés), Quitter referme sans
+ * créer.
  * 2. Bouclier par Entrée + commentaire → section Tours de magie, coût ◆,
  * rang 1, traits, « ? » ouvre la popup spell (overlay RUNNING, nom, coût,
  * description) puis se referme ; Boule de feu → section Rang 3 (coût ◆◆) ;
@@ -53,21 +56,29 @@ function TEST_spellsValidateAddPopup() {
     _valid.click();
 }
 
-// Le clavier du filtre : le geste reel (frappe + Entrée sur l'input du
-// selecteur SORT de la popup), meme parcours que l'onglet Équipement
+// Le clavier du filtre : le geste reel (frappe + Entrée sur l'input de
+// la liste de la popup), meme parcours que l'onglet Équipement
 function TEST_spellsFilterEnter( filter_value ) {
     let _popup = document.querySelector( "body > .popup .spells-add-popup" );
     if ( !_popup ) {
         return;
     }
-    let _selector = _popup.querySelector( ".spells-add-popup-spell .single-select-selector" );
-    let _filter   = _popup.querySelector( ".spells-add-popup-spell .single-select-filter" );
-    if ( !_selector || !_filter ) {
+    let _filter = _popup.querySelector( ".spells-add-spell-filter[data-col='name']" );
+    if ( !_filter ) {
         return;
     }
-    _selector.click();
     _filter.value = filter_value;
     _filter.dispatchEvent( new KeyboardEvent( "keydown", { "key": "Enter" } ) );
+}
+
+// Le clic d'une ligne : le geste reel d'ajout de la liste, le sort pose
+// en attente se lit sur sa ligne peinte
+function TEST_spellsClickRow( value ) {
+    let _row = document.querySelector( "body > .popup .spells-add-popup .spells-add-spell-row[data-value=" + JSON.stringify( value ) + "]" );
+    if ( !_row ) {
+        return;
+    }
+    _row.click();
 }
 
 function TEST_spellsSetComment( comment_value ) {
@@ -169,10 +180,22 @@ TEST.RUNNER.register( "[SORTS] onglet = + en tête + répertoire vide + popup d'
         if ( !_popup ) {
             return;
         }
-        let _spell_label = _popup.querySelector( ".spells-add-popup-spell .single-select-selector-label" );
-        TEST.ASSERT.equal( _spell_label ? _spell_label.textContent : null, "--", "Le sélecteur devrait démarrer vierge (--), obtenu : [" + ( _spell_label ? _spell_label.textContent : "null" ) + "]" );
-        let _options_count = _popup.querySelectorAll( ".spells-add-popup-spell .single-select-option" ).length;
-        TEST.ASSERT.equal( _options_count, Object.keys( SPELLS.CONST ).length + 1, "Le sélecteur devrait porter tout le dataset + l'option vide, obtenu : " + _options_count );
+        let _pending = _popup.querySelector( ".spells-add-popup-pending" );
+        TEST.ASSERT.ok( _pending ? !_pending.textContent : false, "Aucun sort ne devrait etre en attente a l'ouverture, obtenu : [" + ( _pending ? _pending.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _popup.querySelectorAll( ".spells-add-spell-row.selected" ).length, 0, "Aucune ligne ne devrait etre peinte a l'ouverture, obtenu : " + _popup.querySelectorAll( ".spells-add-spell-row.selected" ).length );
+        let _rows_count = _popup.querySelectorAll( ".spells-add-spell-row" ).length;
+        TEST.ASSERT.equal( _rows_count, Object.keys( SPELLS.CONST ).length, "La liste devrait porter tout le dataset en lignes, obtenu : " + _rows_count );
+        let _header_titles = _popup.querySelectorAll( ".spells-add-spell-header-title" );
+        TEST.ASSERT.equal( _header_titles.length, 6, "L'entete devrait porter ses colonnes (rang, type, nom, cout, description + actions), obtenu : " + _header_titles.length );
+        TEST.ASSERT.equal( _header_titles[ 0 ].textContent, "Rang", "La premiere colonne devrait se lire Rang, obtenu : [" + _header_titles[ 0 ].textContent + "]" );
+        TEST.ASSERT.equal( _header_titles[ 1 ].textContent, "Type", "La deuxieme colonne devrait se lire Type, obtenu : [" + _header_titles[ 1 ].textContent + "]" );
+        TEST.ASSERT.equal( _header_titles[ 2 ].textContent, "Nom", "La troisieme colonne devrait se lire Nom, obtenu : [" + _header_titles[ 2 ].textContent + "]" );
+        let _filters = _popup.querySelectorAll( ".spells-add-spell-filter" );
+        TEST.ASSERT.equal( _filters.length, 5, "Une ligne de filtres devrait vivre sous l'entete (rang, type, nom, cout, description), obtenu : " + _filters.length );
+        let _shield_row = _popup.querySelector( ".spells-add-spell-row[data-value=" + JSON.stringify( "Bouclier" ) + "]" );
+        TEST.ASSERT.equal( _shield_row ? _shield_row.querySelector( ".spells-add-col-type" ).textContent : null, "Tour de magie", "Le type de Bouclier devrait se lire en colonne, obtenu : [" + ( _shield_row ? _shield_row.querySelector( ".spells-add-col-type" ).textContent : "null" ) + "]" );
+        let _desc_style = getComputedStyle( _popup.querySelector( ".spells-add-spell-row .spells-add-col-description" ) );
+        TEST.ASSERT.equal( _desc_style.webkitLineClamp, "2", "La description devrait se couper aux deux lignes (line-clamp), obtenu : [" + _desc_style.webkitLineClamp + "]" );
         let _comment_input = _popup.querySelector( ".spells-form-popup-comment-input" );
         TEST.ASSERT.notNull( _comment_input, "La popup devrait porter son champ commentaire" );
         TEST.ASSERT.ok( !_comment_input.value, "Le champ commentaire devrait etre vide a l'ouverture, obtenu : [" + _comment_input.value + "]" );
@@ -200,8 +223,10 @@ TEST.RUNNER.register( "[SORTS] Bouclier = tours de magie + popup sort + sections
         if ( !_popup ) {
             return null;
         }
-        let _spell_label = _popup.querySelector( ".spells-add-popup-spell .single-select-selector-label" );
-        TEST.ASSERT.equal( _spell_label ? _spell_label.textContent : null, "Bouclier", "L'Entrée sur nom exact devrait poser la valeur canonique en attente, obtenu : [" + ( _spell_label ? _spell_label.textContent : "null" ) + "]" );
+        let _pending = _popup.querySelector( ".spells-add-popup-pending" );
+        TEST.ASSERT.equal( _pending ? _pending.textContent : null, "Bouclier", "L'Entrée sur nom exact devrait poser la valeur canonique en attente, obtenu : [" + ( _pending ? _pending.textContent : "null" ) + "]" );
+        let _selected_row = _popup.querySelector( ".spells-add-spell-row.selected" );
+        TEST.ASSERT.equal( _selected_row ? _selected_row.getAttribute( "data-value" ) : null, "Bouclier", "La ligne du sort en attente devrait etre peinte, obtenu : [" + ( _selected_row ? _selected_row.getAttribute( "data-value" ) : "null" ) + "]" );
         TEST_spellsSetComment( "Gardé pour le boss" );
         TEST_spellsValidateAddPopup();
         return TEST.wait();
@@ -225,6 +250,11 @@ TEST.RUNNER.register( "[SORTS] Bouclier = tours de magie + popup sort + sections
         let _traits_text = _entry.querySelector( ".spells-entry-traits" ).textContent;
         TEST.ASSERT.ok( _traits_text.indexOf( "Concentration" ) !== -1, "Les traits de Bouclier devraient se lire en badges, obtenu : [" + _traits_text + "]" );
         TEST.ASSERT.equal( _entry.querySelector( ".spells-entry-comment" ).textContent, "Gardé pour le boss", "Le commentaire devrait se lire dans sa colonne, obtenu : [" + _entry.querySelector( ".spells-entry-comment" ).textContent + "]" );
+        let _section_header_titles = _cantrip_section.querySelectorAll( ".spells-entries-header-title" );
+        TEST.ASSERT.equal( _section_header_titles.length, 7, "L'entete du repertoire devrait porter ses colonnes (cout, sort, rang, traits, description, commentaire, actions), obtenu : " + _section_header_titles.length );
+        let _section_description_cell = _entry.querySelector( ".spells-entry-description" );
+        TEST.ASSERT.ok( _section_description_cell ? _section_description_cell.textContent.length > 0 : false, "La description scrapee de Bouclier devrait se lire dans SA colonne, obtenu : [" + ( _section_description_cell ? _section_description_cell.textContent.substring( 0, 60 ) : "absente" ) + "]" );
+        TEST.ASSERT.equal( _section_description_cell ? getComputedStyle( _section_description_cell ).webkitLineClamp : null, "4", "La description du repertoire devrait se couper aux QUATRE lignes (line-clamp), obtenu : [" + ( _section_description_cell ? getComputedStyle( _section_description_cell ).webkitLineClamp : "null" ) + "]" );
         // Une entrée TOUTE seule : le compte passe au singulier
         let _count = _pane.querySelector( ".spells-count" );
         TEST.ASSERT.equal( _count ? _count.textContent : null, "1 sort", "Le compte devrait passer a 1 sort, obtenu : [" + ( _count ? _count.textContent : "null" ) + "]" );
@@ -272,7 +302,7 @@ TEST.RUNNER.register( "[SORTS] Bouclier = tours de magie + popup sort + sections
             } ).then( function () {
                 TEST_spellsOpenAddPopup();
                 return TEST.wait().then( function () {
-                    TEST_spellsFilterEnter( "Appel d'un esprit" );
+                    TEST_spellsClickRow( "Appel d'un esprit" );
                     return TEST.wait();
                 } ).then( function () {
                     TEST_spellsValidateAddPopup();
@@ -308,8 +338,8 @@ TEST.RUNNER.register( "[SORTS] Bouclier = tours de magie + popup sort + sections
                 TEST_spellsFilterEnter( "Fureur du dragon maudit" );
                 return TEST.wait();
             } ).then( function () {
-                let _free_label = document.querySelector( "body > .popup .spells-add-popup .spells-add-popup-spell .single-select-selector-label" );
-                TEST.ASSERT.equal( _free_label ? _free_label.textContent : null, "Fureur du dragon maudit", "L'Entrée sur nom inconnu devrait poser le TEXTE BRUT en sort, obtenu : [" + ( _free_label ? _free_label.textContent : "null" ) + "]" );
+                let _free_pending = document.querySelector( "body > .popup .spells-add-popup .spells-add-popup-pending" );
+                TEST.ASSERT.equal( _free_pending ? _free_pending.textContent : null, "Fureur du dragon maudit", "L'Entrée sur nom inconnu devrait poser le TEXTE BRUT en sort, obtenu : [" + ( _free_pending ? _free_pending.textContent : "null" ) + "]" );
                 TEST_spellsValidateAddPopup();
                 return TEST.wait();
             } );

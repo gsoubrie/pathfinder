@@ -59,7 +59,6 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__pick_edit_location":
             case "event__stuff__commit_edit":
             case "event__stuff__commit_remove":
-            case "event__spell__toggle_selector":
             case "event__spell__pick":
             case "event__spell__filter_enter":
             case "event__spell__commit":

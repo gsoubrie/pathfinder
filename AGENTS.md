@@ -1867,6 +1867,9 @@ Validé par run headless complet : 111 OK / 0 ECHEC.
 
 ### Méthode de travail
 
+- Jamais de commit ni de push par l'agent : la gestion des commits et des
+  pushes (`git commit`, `git push`, remotes) appartient à l'utilisateur —
+  l'agent livre du code modifié dans la copie de travail, rien d'autre.
 - Le test de la partie la plus avancée appartient à l'UTILISATEUR : les
   scénarios verrouillent le comportement déjà vérifié, l'utilisateur explore
   la frontière lui-même dans la vraie feuille (ses retours manuels — fond du

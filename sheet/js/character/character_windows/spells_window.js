@@ -147,6 +147,7 @@ CHARACTER.SpellsWindow.prototype = {
             { "column": "name",    "label": "Sort" },
             { "column": "rank",    "label": "Rang" },
             { "column": "traits",  "label": "Traits" },
+            { "column": "description", "label": "Description" },
             { "column": "comment", "label": "Commentaire" },
             { "column": "actions", "label": "" }
         ];
@@ -191,6 +192,16 @@ CHARACTER.SpellsWindow.prototype = {
                 SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "spells-entry-trait" }, spell_data[ "traits" ][ t ] ), traits_cell );
             }
         }
+        // The scraped description reads as PLAIN text cut at four lines
+        // (line-clamp) : the text travels by textContent, never by
+        // innerHTML — the " ?" renders the whole description with its
+        // clickable links
+        let description_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class  : "spells-entry-description spells-col-description"
+        } ), entry );
+        if ( spell_data && spell_data[ "description" ] ) {
+            description_dom.textContent = spell_data[ "description" ].replace( /<[^>]*>/g, " " ).replace( /\s+/g, " " ).trim();
+        }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : "spells-entry-comment spells-col-comment",
             "title": spell.comment || ""
@@ -218,23 +229,22 @@ CHARACTER.SpellsWindow.prototype = {
 
     //********************************************  SLOTS AREA   **************************************************//
 
-    // Les emplacements quotidiens du personnage : le calcul croise
-    // l'environnement (classe, école, ...). L'ordre des tuiles suit l'ordre
-    // des calendriers PF2 : tours de magie puis rangs croissants, seuls les
-    // rangs accessibles se rendent
+    // Les emplacements quotidiens du personnage : une grille de deux lignes,
+    // une colonne par rang ouvert (0 = tours de magie, les comptes a 0
+    // inclus), le calcul croise l'environnement (classe, ecole, ...). Le
+    // clic sur une colonne ouvre le detail du calcul en popup
     _buildSlotsArea: function () {
         let slots_data = this._computeSlotsData();
         if ( !slots_data ) {
             this.slots_dom_element = null;
             return;
         }
-        this.slots_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-area" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-title" }, "Emplacements" ), this.slots_dom_element );
+        this.slots_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-grid" } ), this.content_dom_element_target );
         this._fillSlotsArea( slots_data );
     },
 
     _refreshSlotsArea: function () {
-        // L'activation peut preceder le premier rendu du panneau (la phase
+        // L'activation peut precede le premier rendu du panneau (la phase
         // construit au tick suivant) : sans contenu, rien a rafraichir
         if ( !this.content_dom_element_target ) {
             return;
@@ -252,34 +262,41 @@ CHARACTER.SpellsWindow.prototype = {
             return;
         }
         SERVICE.DOM.empty( this.slots_dom_element );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-title" }, "Emplacements" ), this.slots_dom_element );
         this._fillSlotsArea( slots_data );
     },
 
-    // Le rang de la tuile se lit du DOM au clic : les popups se ferment par
-    // uuid, rien de l'état ne s'embarque en dur dans un handler inline
+    // Le rang de la colonne se lit du DOM au clic : les popups se ferment par
+    // uuid, rien de l'etat ne s'embarque en dur dans un handler inline
     _fillSlotsArea: function ( slots_data ) {
-        let tiles = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-tiles" } ), this.slots_dom_element );
-        this._buildSlotTile( tiles, "Tours de magie", slots_data.cantrips.count, 0 );
-        let _ranks = Object.keys( slots_data.ranks );
+        let grid = this.slots_dom_element;
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-row-label" }, "Emplacements" ), grid );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slots-row-label" }, "Nombre" ), grid );
+        this._buildSlotColumn( grid, 0, "Tours de magie", slots_data.cantrips.count );
+        let _ranks = Object.keys( slots_data.ranks ).sort( function ( rank_a, rank_b ) {
+            return parseInt( rank_a, 10 ) - parseInt( rank_b, 10 );
+        } );
         for ( let r = 0, _size_r = _ranks.length; r < _size_r; r++ ) {
-            let rank = parseInt( _ranks[ r ], 10 );
-            this._buildSlotTile( tiles, "Rang " + rank, slots_data.ranks[ _ranks[ r ] ].count, rank );
+            this._buildSlotColumn( grid, parseInt( _ranks[ r ], 10 ), "Rang " + _ranks[ r ], slots_data.ranks[ _ranks[ r ] ].count );
         }
     },
 
-    _buildSlotTile: function ( parent, label, count, rank ) {
-        let tile = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", {
-                class      : "spells-slot-tile",
-                title      : "Détail des emplacements",
-                "data-rank": "" + rank,
-                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell_slots',{'param__spell__rank':this.getAttribute('data-rank')})"
-            } ),
-            parent
-        );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slot-tile-label" }, label ), tile );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-slot-tile-value" }, "" + count ), tile );
+    // Une colonne = cellule d'entete rang puis cellule de compte : le DOM suit
+    // l'ordre des colonnes (regle Round 61), l'entete et le compte partagent
+    // la meme piste de la grille commune aux deux lignes
+    _buildSlotColumn: function ( parent, rank, rank_title, count ) {
+        let onclick = "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell_slots',{'param__spell__rank':this.getAttribute('data-rank')})";
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class      : "spells-slots-rank",
+            "data-rank": "" + rank,
+            "title"    : rank_title,
+            onclick    : onclick
+        }, "" + rank ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class      : "spells-slots-count",
+            "data-rank": "" + rank,
+            "title"    : "Détail des emplacements",
+            onclick    : onclick
+        }, "" + count ), parent );
     },
 
     _computeSlotsData: function () {

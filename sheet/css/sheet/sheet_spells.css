@@ -65,7 +65,7 @@
 .spells-entries-header,
 .spells-entry {
     display               : grid;
-    grid-template-columns : 40px minmax(150px, 220px) 42px minmax(120px, 1.1fr) minmax(90px, 0.6fr) 16px;
+    grid-template-columns : 40px minmax(150px, 220px) 42px minmax(100px, 1fr) minmax(200px, 1.6fr) minmax(80px, 0.6fr) 16px;
     gap                   : var(--s-sm);
     align-items           : center;
 }
@@ -113,13 +113,27 @@
     min-width      : 0;
 }
 
+/* La description scrapée se coupe aux QUATRE lignes (line-clamp) : la
+   cellule grandit en hauteur, les longues fiches se lisent seules, le « ? »
+   rend la description complete */
+.spells-col-description {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    display           : -webkit-box;
+    font-size         : 12px;
+    grid-column       : 5;
+    line-height       : 15px;
+    min-width         : 0;
+    overflow          : hidden;
+}
+
 .spells-col-comment {
-    grid-column: 5;
+    grid-column: 6;
     min-width   : 0;
 }
 
 .spells-col-actions {
-    grid-column: 6;
+    grid-column: 7;
     text-align  : center;
 }
 
@@ -279,170 +293,191 @@
     color       : var(--c-gold);
 }
 
-/* ── Sélecteur de valeur (composant lib, cf. l'onglet Ajustements pour le
-      même stylage scopé) : header + liste fluide sous son conteneur, la
-      ligne de filtre en tête de liste ouverte ── */
-.spells-form-popup .single-select-container {
-    flex-shrink: 0;
-    position   : relative;
+/* ── La liste d'ajout : les colonnes Rang / Nom / Coût / Description / « ? »
+      partagent leur grille entête + filtres + lignes (règle de la zone jets :
+      largeurs fixes partagées, jamais auto), la description vit sur DEUX
+      lignes avant son ellipse, le scroller vit sur les lignes seules (l'entête
+      et les filtres restent fixes), la ligne en attente se peint ── */
+.spells-form-popup .spells-add-spell-list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 2px;
+    width         : 100%;
 }
 
-.spells-form-popup .single-select-selector {
-    align-items    : center;
-    background     : var(--c-bg-card);
-    border         : var(--b-thin) solid var(--c-border-dark);
-    border-radius  : var(--r-sm);
-    color          : var(--c-text);
-    cursor         : pointer;
-    display        : flex;
-    font-size      : 13px;
-    gap            : var(--s-sm);
-    justify-content: space-between;
-    max-width      : 220px;
-    min-width      : 160px;
-    padding        : 2px 6px;
-    transition     : all 0.15s ease;
-    white-space    : nowrap;
+/* L'entête, la ligne de filtres et les lignes partagent le même template :
+   les titres, les filtres et les cellules tombent au même axe (règle
+   Round 56 : paddings horizontaux identiques) */
+.spells-form-popup .spells-add-spell-header,
+.spells-form-popup .spells-add-spell-filters,
+.spells-form-popup .spells-add-spell-row {
+    align-items          : center;
+    display              : grid;
+    gap                  : var(--s-sm);
+    grid-template-columns: 34px 92px 170px 36px 1fr 22px;
+    padding              : 2px 6px;
 }
 
-.spells-form-popup .single-select-selector:hover {
-    border-color: var(--c-gold-dark);
+.spells-form-popup .spells-add-spell-header-title {
+    color    : var(--c-text-muted);
+    font-size: 12px;
 }
 
-.spells-form-popup .single-select-selector-chevron {
-    border-left : 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top  : 4px solid var(--c-text-muted);
-    flex        : 0 0 auto;
-    height      : 0;
-    width       : 0;
-}
-
-.spells-form-popup .single-select-selector-label {
-    flex         : 1 1 auto;
-    overflow     : hidden;
-    text-overflow: ellipsis;
-}
-
-.spells-form-popup .single-select-filter {
+.spells-form-popup .spells-add-spell-filter {
     background   : var(--c-bg-card);
     border       : var(--b-thin) solid var(--c-border-dark);
     border-radius: var(--r-sm);
     box-sizing   : border-box;
     color        : var(--c-text);
     font-size    : 12px;
-    margin-bottom: 2px;
     padding      : 2px 6px;
     width        : 100%;
 }
 
-.spells-form-popup .single-select-filter:focus {
+.spells-form-popup .spells-add-spell-filter:focus {
     border-color: var(--c-gold-dark);
     outline     : none;
 }
 
-.spells-form-popup .single-select-list {
-    background   : var(--c-bg-card);
-    border       : var(--b-thin) solid var(--c-gold-dark);
+.spells-form-popup .spells-add-spell-rows {
+    max-height     : 300px;
+    overflow-y     : auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-gold-dark) var(--c-bg-dark);
+}
+
+.spells-form-popup .spells-add-spell-row {
+    border       : var(--b-thin) solid transparent;
     border-radius: var(--r-sm);
-    box-shadow   : var(--sh-lg);
-    display      : none;
-    left         : 0;
-    max-height   : 250px;
-    overflow-x   : hidden;
-    overflow-y   : auto;
-    padding      : 2px;
-    position     : absolute;
-    right        : 0;
-    top          : 100%;
-    z-index      : 100;
+    color        : var(--c-text);
+    cursor       : pointer;
+    font-size    : 13px;
+    transition   : var(--t-normal);
 }
 
-.spells-form-popup .single-select-container[data-state-selector='1'] .single-select-list {
-    display: block;
+.spells-form-popup .spells-add-spell-row:hover,
+.spells-form-popup .spells-add-spell-row.selected {
+    background  : var(--g-card-hover);
+    border-color: var(--c-gold-dark);
 }
 
-.spells-form-popup .single-select-option {
-    align-items    : center;
-    border-radius  : var(--r-sm);
-    color          : var(--c-text);
-    cursor         : pointer;
-    display        : flex;
-    font-size      : 13px;
-    gap            : var(--s-sm);
-    justify-content: space-between;
-    padding        : 3px 8px;
+/* Chaque cellule porte SA classe de colonne ET sa position (règle
+   Round 55 : jamais de placement automatique — les classes spells-col-* de
+   la fenêtre Sorts portent leur propre grid-column d'une AUTRE grille,
+   les mixer ici éclatait les lignes sur plusieurs rangées) */
+.spells-form-popup .spells-add-col-rank {
+    grid-column: 1;
+    text-align : center;
 }
 
-.spells-form-popup .single-select-option:hover {
-    background: var(--c-bg-card-light);
-}
-
-.spells-form-popup .single-select-option.selected {
-    background    : var(--c-bg-card-light);
-    color         : var(--c-gold);
-    pointer-events: none;
-}
-
-.spells-form-popup .single-select-option-label {
-    flex         : 1 1 auto;
+.spells-form-popup .spells-add-col-type {
+    color     : var(--c-text-muted);
+    font-size : 12px;
+    grid-column: 2;
     overflow     : hidden;
     text-overflow: ellipsis;
     white-space  : nowrap;
 }
 
-/* Zone des emplacements quotidiens du personnage : le total de chaque rang
-   se calcule avec l'environnement (classe, école, ...), la tuile ouvre le
-   détail du calcul en popup */
-.spells-slots-area {
-    background   : var(--g-card);
-    border       : var(--b-thin) solid var(--c-border-dark);
-    border-radius: var(--r-lg);
-    display      : flex;
-    flex-direction: column;
-    gap          : var(--s-sm);
-    padding      : var(--s-sm) var(--s-md);
+.spells-form-popup .spells-add-col-name {
+    grid-column : 3;
+    min-width   : 0;
+    overflow    : hidden;
+    text-overflow: ellipsis;
+    white-space : nowrap;
 }
 
-.spells-slots-title {
-    border-bottom: 1px solid var(--c-border-dark);
-    color        : var(--c-text);
-    font-size    : 14px;
-    padding      : 4px 2px 6px;
+.spells-form-popup .spells-add-col-cost {
+    grid-column: 4;
+    text-align : center;
 }
 
-.spells-slots-tiles {
-    align-content: start;
-    display      : grid;
-    gap          : var(--s-sm);
-    /* Deux colonnes de tuiles : la zone reste basse jusqu'au rang 10 */
-    grid-template-columns: repeat(2, minmax(0, 240px));
+/* La description se coupe aux DEUX lignes (line-clamp) : les lignes
+   hautes se lisent entières, l'ellipse marque la coupure */
+.spells-form-popup .spells-add-col-description {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display           : -webkit-box;
+    font-size         : 12px;
+    grid-column       : 5;
+    line-height       : 15px;
+    min-width         : 0;
+    overflow          : hidden;
 }
 
-.spells-slot-tile {
-    align-items    : center;
-    background     : var(--g-card);
-    border         : var(--b-thin) solid var(--c-border-dark);
-    border-radius  : var(--r-md);
-    cursor         : pointer;
-    display        : flex;
-    gap            : var(--s-md);
-    justify-content: space-between;
-    padding        : 4px 12px;
+.spells-form-popup .spells-add-col-actions {
+    grid-column: 6;
+    text-align : center;
 }
 
-.spells-slot-tile:hover {
-    border-color: var(--c-gold-dark);
-}
-
-.spells-slot-tile-label {
-    color    : var(--c-text-muted);
+/* La valeur en attente se lit sous la liste : une homebrew hors dataset
+   n'y vit dans aucune ligne, c'est sa seule présence */
+.spells-form-popup .spells-add-popup-pending {
+    color    : var(--c-text-gold);
     font-size: 13px;
+    min-height: 17px;
 }
 
-/* La valeur clé d'une tuile seule porte le gras (règle d'affichage) */
-.spells-slot-tile-value {
-    color      : var(--c-text-gold);
-    font-size  : 14px;
-    font-weight: bold;
+/* Emplacements quotidiens du personnage : grille de deux lignes, une
+   colonne par rang ouvert (0 = tours de magie). L'alignement vient du
+   conteneur unique — les deux lignes partagent les mêmes pistes, jamais
+   un dimensionnement par ligne. Le clic sur une colonne (badge de rang ou
+   compte) ouvre le détail du calcul en popup */
+.spells-slots-grid {
+    align-self        : start;
+    background        : var(--g-card);
+    border            : var(--b-thin) solid var(--c-border-dark);
+    border-radius     : var(--r-lg);
+    display           : grid;
+    grid-auto-flow    : column;
+    grid-auto-columns : minmax( 52px, max-content );
+    grid-template-rows: repeat( 2, auto );
+    column-gap        : var(--s-sm);
+    row-gap           : 3px;
+    padding           : var(--s-sm) var(--s-md);
+}
+
+.spells-slots-row-label {
+    align-self    : center;
+    color         : var(--c-text-muted);
+    font-size     : 13px;
+    padding-right : var(--s-xl);
+    white-space   : nowrap;
+}
+
+/* Le rang se lit en badge (la veine des badges de traits), le compte sous
+   lui porte le gras — la valeur clé de la colonne (règle d'affichage) */
+.spells-slots-rank {
+    background   : var(--c-bg-card-light);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text-muted);
+    cursor       : pointer;
+    font-size     : 12px;
+    padding      : 1px 2px;
+    text-align   : center;
+    transition   : var(--t-normal);
+}
+
+.spells-slots-count {
+    border-radius: var(--r-sm);
+    color        : var(--c-text-gold);
+    cursor       : pointer;
+    font-size    : 14px;
+    font-weight  : bold;
+    padding      : 2px 2px 4px;
+    text-align   : center;
+    transition   : var(--t-normal);
+}
+
+.spells-slots-rank:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-gold-dark);
+    color       : var(--c-text);
+}
+
+.spells-slots-count:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-gold-dark);
+    color       : var(--c-gold-dark);
 }

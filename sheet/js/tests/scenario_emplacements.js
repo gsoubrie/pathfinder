@@ -9,7 +9,7 @@
  *    AUCUNE autre classe (Guerrier, le popup se referme par Quitter).
  * 2. Magicien niveau 1, ecole non choisie : l'onglet Sorts porte sa zone
  *    "Emplacements" calculee — Tours de magie 5, Rang 1 = 2, pas de
- *    Rang 2 ; le clic sur la tuile Rang 1 ouvre le DETAIL en popup (total
+ *    Rang 2 ; le clic sur la colonne Rang 1 ouvre le DETAIL en popup (total
  *    "2 emplacements", une source "Magicien (niveau 1)"), refermee par son uuid.
  * 3. L'ecole du mentalisme validee par le geste reel (Progression) : le
  *    cursus ajoute +1 par rang accessible et +1 tour de magie — la
@@ -27,15 +27,15 @@ function TEST_emploCloseSlotsPopup( rank ) {
     CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__spell_slots__" + rank } );
 }
 
-function TEST_emploTile( rank ) {
-    return document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.SpellsWindow.NAME + "'] .spells-slot-tile[data-rank='" + rank + "']" );
+function TEST_emploColumn( rank ) {
+    return document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.SpellsWindow.NAME + "'] .spells-slots-count[data-rank='" + rank + "']" );
 }
 
 function TEST_emploSlotHelp( dom_element ) {
     if ( !dom_element ) {
         return "element absent";
     }
-    return "[label " + dom_element.querySelector( ".spells-slot-tile-label" ).textContent + " = " + dom_element.querySelector( ".spells-slot-tile-value" ).textContent + "]";
+    return "[col " + dom_element.getAttribute( "data-rank" ) + " = " + dom_element.textContent + "]";
 }
 
 function TEST_emploSchoolOption( school_name ) {
@@ -121,22 +121,32 @@ TEST.RUNNER.register( "[EMPLACEMENTS] Magicien 1 sans école = tours 5, rang 1 =
         if ( !_pane ) {
             return null;
         }
-        let _area = _pane.querySelector( ".spells-slots-area" );
-        TEST.ASSERT.notNull( _area, "La zone Emplacements devrait etre rendue pour un Magicien pose" );
-        if ( !_area ) {
+        let _grid = _pane.querySelector( ".spells-slots-grid" );
+        TEST.ASSERT.notNull( _grid, "La grille Emplacements devrait etre rendue pour un Magicien pose" );
+        if ( !_grid ) {
             return null;
         }
-        TEST.ASSERT.equal( _area.querySelector( ".spells-slots-title" ).textContent, "Emplacements", "La zone devrait porter son titre, obtenu : [" + _area.querySelector( ".spells-slots-title" ).textContent + "]" );
-        let _tours_tile = TEST_emploTile( 0 );
-        TEST.ASSERT.notNull( _tours_tile, "La tuile Tours de magie devrait etre rendue" );
-        TEST.ASSERT.equal( _tours_tile ? _tours_tile.querySelector( ".spells-slot-tile-value" ).textContent : null, "5", "Les tours de magie du Magicien niveau 1 devraient valoir 5, obtenu : " + TEST_emploSlotHelp( _tours_tile ) );
-        let _rank_1_tile = TEST_emploTile( 1 );
-        TEST.ASSERT.notNull( _rank_1_tile, "La tuile Rang 1 devrait etre rendue" );
-        TEST.ASSERT.equal( _rank_1_tile ? _rank_1_tile.querySelector( ".spells-slot-tile-value" ).textContent : null, "2", "Le rang 1 du Magicien niveau 1 devrait valoir 2, obtenu : " + TEST_emploSlotHelp( _rank_1_tile ) );
-        TEST.ASSERT.isNull( TEST_emploTile( 2 ), "Aucune tuile Rang 2 ne devrait vivre au niveau 1" );
-        TEST.ASSERT.equal( _area.querySelectorAll( ".spells-slot-tile" ).length, 2, "La zone devrait porter exactement 2 tuiles, obtenu : " + _area.querySelectorAll( ".spells-slot-tile" ).length );
-        // Le clic sur la tuile ouvre le detail : total + une source de classe
-        _rank_1_tile.click();
+        let _row_labels = _grid.querySelectorAll( ".spells-slots-row-label" );
+        TEST.ASSERT.equal( _row_labels.length, 2, "La grille devrait porter ses deux lignes libellees, obtenu : " + _row_labels.length );
+        TEST.ASSERT.equal( _row_labels[ 0 ].textContent, "Emplacements", "La premiere ligne devrait se libeller Emplacements, obtenu : [" + _row_labels[ 0 ].textContent + "]" );
+        TEST.ASSERT.equal( _row_labels[ 1 ].textContent, "Nombre", "La seconde ligne devrait se libeller Nombre, obtenu : [" + _row_labels[ 1 ].textContent + "]" );
+        TEST.ASSERT.equal( _grid.querySelector( ".spells-slots-rank" ).textContent, "0", "Les tours de magie vivent en colonne 0, obtenu : [" + _grid.querySelector( ".spells-slots-rank" ).textContent + "]" );
+        // Le stylage se verifie par style calcule : bande-carte degradee,
+        // rang en badge peint (la veine des badges de traits)
+        let _zone_style = getComputedStyle( _grid );
+        TEST.ASSERT.ok( _zone_style.backgroundImage.indexOf( "linear-gradient" ) !== -1, "La zone devrait etre une bande-carte (fond degrade --g-card), obtenu : " + _zone_style.backgroundImage );
+        let _badge_style = getComputedStyle( _grid.querySelector( ".spells-slots-rank" ) );
+        TEST.ASSERT.equal( _badge_style.backgroundColor, "rgb(74, 53, 32)", "Le rang devrait se lire en badge peint (--c-bg-card-light), obtenu : " + _badge_style.backgroundColor );
+        let _tours_column = TEST_emploColumn( 0 );
+        TEST.ASSERT.notNull( _tours_column, "La colonne Tours de magie devrait etre rendue" );
+        TEST.ASSERT.equal( _tours_column ? _tours_column.textContent : null, "5", "Les tours de magie du Magicien niveau 1 devraient valoir 5, obtenu : " + TEST_emploSlotHelp( _tours_column ) );
+        let _rank_1_column = TEST_emploColumn( 1 );
+        TEST.ASSERT.notNull( _rank_1_column, "La colonne Rang 1 devrait etre rendue" );
+        TEST.ASSERT.equal( _rank_1_column ? _rank_1_column.textContent : null, "2", "Le rang 1 du Magicien niveau 1 devrait valoir 2, obtenu : " + TEST_emploSlotHelp( _rank_1_column ) );
+        TEST.ASSERT.isNull( TEST_emploColumn( 2 ), "Aucune colonne Rang 2 ne devrait vivre au niveau 1" );
+        TEST.ASSERT.equal( _grid.querySelectorAll( ".spells-slots-count" ).length, 2, "La grille devrait porter exactement 2 colonnes de compte, obtenu : " + _grid.querySelectorAll( ".spells-slots-count" ).length );
+        // Le clic sur la colonne ouvre le detail : total + une source de classe
+        _rank_1_column.click();
         let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
         TEST.ASSERT.notNull( _overlay, "La popup d'emplacements devrait etre ouverte (overlay RUNNING)" );
         if ( _overlay ) {
@@ -185,14 +195,14 @@ TEST.RUNNER.register( "[EMPLACEMENTS] école mentalisme = cursus +1 partout, dé
     } ).then( function () {
         return TEST.wait();
     } ).then( function () {
-        let _tours_tile = TEST_emploTile( 0 );
-        TEST.ASSERT.equal( _tours_tile ? _tours_tile.querySelector( ".spells-slot-tile-value" ).textContent : null, "6", "Le cursus ajoute un tour de magie (6), obtenu : " + TEST_emploSlotHelp( _tours_tile ) );
-        let _rank_1_tile = TEST_emploTile( 1 );
-        TEST.ASSERT.equal( _rank_1_tile ? _rank_1_tile.querySelector( ".spells-slot-tile-value" ).textContent : null, "3", "Le cursus ajoute un emplacement de rang 1 (3), obtenu : " + TEST_emploSlotHelp( _rank_1_tile ) );
-        if ( !_rank_1_tile ) {
+        let _tours_column = TEST_emploColumn( 0 );
+        TEST.ASSERT.equal( _tours_column ? _tours_column.textContent : null, "6", "Le cursus ajoute un tour de magie (6), obtenu : " + TEST_emploSlotHelp( _tours_column ) );
+        let _rank_1_column = TEST_emploColumn( 1 );
+        TEST.ASSERT.equal( _rank_1_column ? _rank_1_column.textContent : null, "3", "Le cursus ajoute un emplacement de rang 1 (3), obtenu : " + TEST_emploSlotHelp( _rank_1_column ) );
+        if ( !_rank_1_column ) {
             return null;
         }
-        _rank_1_tile.click();
+        _rank_1_column.click();
         let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
         TEST.ASSERT.notNull( _overlay, "La popup d'emplacements du rang 1 devrait etre ouverte" );
         if ( !_overlay ) {
@@ -210,11 +220,11 @@ TEST.RUNNER.register( "[EMPLACEMENTS] école mentalisme = cursus +1 partout, dé
         TEST.ASSERT.equal( _curriculum_source_text, "+1", "La source du cursus devrait porter sa valeur en +1, obtenu : [" + _curriculum_source_text + "]" );
         TEST_emploCloseSlotsPopup( 1 );
         // Le detail des tours de magie suit le meme contrat, unite comprise
-        let _tours_tile_reopen = TEST_emploTile( 0 );
-        if ( !_tours_tile_reopen ) {
+        let _tours_column_reopen = TEST_emploColumn( 0 );
+        if ( !_tours_column_reopen ) {
             return null;
         }
-        _tours_tile_reopen.click();
+        _tours_column_reopen.click();
         let _tours_overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
         TEST.ASSERT.notNull( _tours_overlay, "La popup des tours de magie devrait etre ouverte" );
         if ( _tours_overlay ) {
@@ -255,12 +265,12 @@ TEST.RUNNER.register( "[EMPLACEMENTS] niveau 5 = rangs ouverts + cursus, école 
         return TEST.wait();
     } ).then( function () {
         let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.SpellsWindow.NAME + "']" );
-        TEST.ASSERT.equal( TEST_emploTile( 0 ) ? TEST_emploTile( 0 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "6", "Au niveau 5, les tours de magie devraient valoir 6 (5 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 0 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 1 ) ? TEST_emploTile( 1 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "4", "Au niveau 5, le rang 1 devrait valoir 4 (3 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 1 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 2 ) ? TEST_emploTile( 2 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "4", "Au niveau 5, le rang 2 devrait valoir 4 (3 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 2 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 3 ) ? TEST_emploTile( 3 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "3", "Au niveau 5, le rang 3 devrait valoir 3 (2 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 3 ) ) );
-        TEST.ASSERT.isNull( TEST_emploTile( 4 ), "Aucune tuile Rang 4 ne devrait vivre au niveau 5" );
-        TEST.ASSERT.equal( _pane ? _pane.querySelectorAll( ".spells-slot-tile" ).length : -1, 4, "La zone devrait porter tours + rangs 1 a 3, obtenu : " + ( _pane ? _pane.querySelectorAll( ".spells-slot-tile" ).length : -1 ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 0 ) ? TEST_emploColumn( 0 ).textContent : null, "6", "Au niveau 5, les tours de magie devraient valoir 6 (5 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 0 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 1 ) ? TEST_emploColumn( 1 ).textContent : null, "4", "Au niveau 5, le rang 1 devrait valoir 4 (3 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 1 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 2 ) ? TEST_emploColumn( 2 ).textContent : null, "4", "Au niveau 5, le rang 2 devrait valoir 4 (3 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 2 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 3 ) ? TEST_emploColumn( 3 ).textContent : null, "3", "Au niveau 5, le rang 3 devrait valoir 3 (2 + cursus), obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 3 ) ) );
+        TEST.ASSERT.isNull( TEST_emploColumn( 4 ), "Aucune colonne Rang 4 ne devrait vivre au niveau 5" );
+        TEST.ASSERT.equal( _pane ? _pane.querySelectorAll( ".spells-slots-count" ).length : -1, 4, "La grille devrait porter tours + rangs 1 a 3, obtenu : " + ( _pane ? _pane.querySelectorAll( ".spells-slots-count" ).length : -1 ) );
         // L'ecole de la theorie magique unifiee n'a pas de cursus : la grille
         // redevient NUE apres le vrai geste de choix
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
@@ -279,15 +289,15 @@ TEST.RUNNER.register( "[EMPLACEMENTS] niveau 5 = rangs ouverts + cursus, école 
     } ).then( function () {
         return TEST.wait();
     } ).then( function () {
-        TEST.ASSERT.equal( TEST_emploTile( 0 ) ? TEST_emploTile( 0 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "5", "Sans cursus, les tours de magie retombent a 5, obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 0 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 1 ) ? TEST_emploTile( 1 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "3", "Sans cursus, le rang 1 retombe a 3, obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 1 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 2 ) ? TEST_emploTile( 2 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "3", "Sans cursus, le rang 2 retombe a 3, obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 2 ) ) );
-        TEST.ASSERT.equal( TEST_emploTile( 3 ) ? TEST_emploTile( 3 ).querySelector( ".spells-slot-tile-value" ).textContent : null, "2", "Sans cursus, le rang 3 retombe a 2, obtenu : " + TEST_emploSlotHelp( TEST_emploTile( 3 ) ) );
-        let _rank_3_tile = TEST_emploTile( 3 );
-        if ( !_rank_3_tile ) {
+        TEST.ASSERT.equal( TEST_emploColumn( 0 ) ? TEST_emploColumn( 0 ).textContent : null, "5", "Sans cursus, les tours de magie retombent a 5, obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 0 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 1 ) ? TEST_emploColumn( 1 ).textContent : null, "3", "Sans cursus, le rang 1 retombe a 3, obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 1 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 2 ) ? TEST_emploColumn( 2 ).textContent : null, "3", "Sans cursus, le rang 2 retombe a 3, obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 2 ) ) );
+        TEST.ASSERT.equal( TEST_emploColumn( 3 ) ? TEST_emploColumn( 3 ).textContent : null, "2", "Sans cursus, le rang 3 retombe a 2, obtenu : " + TEST_emploSlotHelp( TEST_emploColumn( 3 ) ) );
+        let _rank_3_column = TEST_emploColumn( 3 );
+        if ( !_rank_3_column ) {
             return null;
         }
-        _rank_3_tile.click();
+        _rank_3_column.click();
         let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
         TEST.ASSERT.notNull( _overlay, "La popup d'emplacements du rang 3 devrait etre ouverte" );
         if ( _overlay ) {

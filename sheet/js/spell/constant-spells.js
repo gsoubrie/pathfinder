@@ -153,15 +153,54 @@ SPELLS.getFullTypeLabel = function ( name ) {
     return ( nature_data && nature_data.full_label ? nature_data.full_label : nature_key ) + ( rank ? " " + rank : "" );
 };
 
-// The options of the add popup : every scraped spell, alphabetical
-SPELLS.getSpellOptions = function () {
+// The type labels of the add popup list (user wording, shorter than the
+// section titles of the spellbook — the label feeds the FILTER, "Sorts
+// focalises" would never match a normal typing)
+SPELL.LIST_TYPE_LABELS = {
+    "cantrip": "Tour de magie",
+    "spell"  : "Sort",
+    "focus"  : "Focalisé",
+    "ritual" : "Rituel"
+};
+
+// The list of the add popup : every scraped spell in ONE pass (the by-name
+// accessors scan the whole map, never call them in a loop), the sort
+// follows the NATURES order (the list reads like the spellbook sections)
+// then rank then name, the type rides along with its label for the filter
+SPELLS.getSpellListData = function () {
     let to_return = [];
     let _keys     = Object.keys( SPELLS.CONST );
     for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
-        to_return.push( { "name": SPELLS.CONST[ _keys[ i ] ][ "text" ] } );
+        let entry  = SPELLS.CONST[ _keys[ i ] ];
+        let parsed = SPELLS.parseNatureAndRank( entry[ "element_type" ] );
+        let nature_key   = parsed ? parsed.nature_key : "unknown";
+        let nature_order = SPELL.NATURES.length;
+        for ( let n = 0, _size_n = SPELL.NATURES.length; n < _size_n; n++ ) {
+            if ( SPELL.NATURES[ n ].key === nature_key ) {
+                nature_order = n;
+            }
+        }
+        let cost_label = SPELL.NO_COST_LABEL;
+        if ( entry[ "action_cost" ] !== null && entry[ "action_cost" ] !== undefined ) {
+            cost_label = SPELL.ACTION_COST_LABELS[ entry[ "action_cost" ] ] || entry[ "action_cost" ];
+        }
+        to_return.push( {
+            "name"       : entry[ "text" ],
+            "type_order" : nature_order,
+            "type_label" : SPELL.LIST_TYPE_LABELS[ nature_key ] || "",
+            "rank"       : parsed ? parsed.rank : 0,
+            "cost_label" : cost_label,
+            "description": entry[ "description" ]
+        } );
     }
-    to_return.sort( function ( option_a, option_b ) {
-        return option_a.name.localeCompare( option_b.name );
+    to_return.sort( function ( spell_a, spell_b ) {
+        if ( spell_a.type_order !== spell_b.type_order ) {
+            return spell_a.type_order - spell_b.type_order;
+        }
+        if ( spell_a.rank !== spell_b.rank ) {
+            return spell_a.rank - spell_b.rank;
+        }
+        return spell_a.name.localeCompare( spell_b.name );
     } );
     return to_return;
 };
