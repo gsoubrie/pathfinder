@@ -1694,6 +1694,305 @@ n'affiche PLUS sa somme d'encombrement (demande utilisateur : le
 sous-total du Round 50 partait, seul le total PORTÉ de la barre reste,
 `.stuffs-section-title-bulk` supprimé avec son rendu et ses asserts).
 Validé par run headless complet : 111 OK / 0 ECHEC.
+Round 68 = onglet BIBLIOTHÈQUE (demande utilisateur : regrouper toutes les
+informations de consultation des ascendances/classes/dons/sorts/équipement
+dans l'ancien onglet Dons, en gardant l'affichage existant). Décisions
+actées après maquettes validées : (1) nom « Bibliothèque » ; (2) la CASE
+À COCHER des dons DISPARAÎT (consultation pure — la sélection des dons
+vit déjà dans Progression, `event__gift__toggle` et son case du
+personnage partent, le domaine `CHARACTER.Gifts` RESTE tel quel : la clé de
+save `gifts` ne bouge pas) ; (3) sujets v1 = Dons, Sorts, Équipement
+(l'onglet Sorts — répertoire du personnage + emplacements — reste un
+onglet séparé, ce n'est pas la même chose ; les archétypes = phase 2 ;
+ascendances/héritages/historiques à suivre) ; (4) sujet par défaut à
+l'ouverture = Dons. Design : une RANGÉE DE PUCE DE SUJET en tête (même
+langage visuel que les chips de type existantes, sujet actif peint +
+gras, un point par ligne dans les maquettes), les chips de type et la
+recherche suivent DESSOUS (par sujet), la même anatomie de carte pour
+tous les sujets (nom, « ? », tags, ligne clé si le dataset la porte,
+prérequis pour les dons, description clampée à 4 lignes — le scraped
+porte du HTML, la carte affiche du texte plein, la popup garde le
+balisage). Domaine : `sheet/js/library/constant-library.js` (namespace
+`LIBRARY`, ajouté au `.jshintrc`) — `SUBJECTS` (ordre des puces +
+placeholder de recherche), `FEAT_TYPES` (les chips de l'ancien Dons),
+`FEAT_POPUP_CATEGORIES` (catégorie de popup par type de don — les dons
+GÉNÉRAUX n'en ont pas : pas de « ? » sur leurs cartes, verrouillé par
+scénario). `CHARACTER.LibraryWindow` (`library_window.js`, git mv depuis
+`gifts_window.js`, NAME `library_sheet`, label « Bibliothèque ») : état
+de vue sur la fenêtre (`current_subject` / `filter_type` /
+`search_text`), `computeContent` vide et reconstruit sujets + filtres +
+liste au clic d'onglet ET au changement de sujet (le changement RESET
+chip et recherche — vue vierge par sujet, verrouillé par scénario) ;
+sujet Dons = les mêmes sources qu'avant (généraux, classe/ascendance
+gated par possession, compétences, archétype du personnage), sections
+Niveau ; sujet Sorts = `SPELLS.getSpellListData()` (770 sorts), sections
+par nature (Tours de magie, Rang N, Focalisés, Rituels), popup spell
+existante par « ? » ; sujet Équipement = `STUFFS` (3309 entrées) à
+plat, chips Tous + `STUFF.KINDS`, ligne clé Niveau/Encomb./Prix
+présent-si-existant, popup item existante (cache `stuff__<nom>`). Les
+paramètres de popup ne s'embarquent JAMAIS inline (apostrophes) : le
+« ? » de chaque carte lit `data-value`/`data-category` de lui-même. CSS
+renommé D'UNE TRAITE : `sheet_gifts.css` → `sheet_library.css`, classes
+`gifts-*`/`gift-*` → `library-*` (la palette brute du fichier Dons est
+conservée : c'est l'affichage que l'utilisateur aime, le futur pass
+variables viendra avec le renommage kebab-case du reste) ; ajout
+`.library-subjects`/`.library-subject-btn` (+active),
+`.library-card-key-line`, `.library-card-info`, tags `--spell`/`--stuff`,
+suppression `.gift-checkbox`/`.gift-row--selected`. Scénario
+`scenario_bibliotheque.js` (5 tests, suite indépendante de
+consultation, position : après `scenario_emplacements`, avant
+`scenario_save_fichier`) : sujets rendus + défaut Dons + AUCUNE case à
+cocher, dons chips + recherche + don général sans « ? », sorts sections
+par nature + popup par « ? » refermée PAR LE FOND de l'overlay
+(règle Round 45), équipement chips + recherche aux accents réels +
+ligne clé + popup item, changement de sujet = vue réinitialisée.
+`scenario_onglets` réaligné (libellé « Bibliothèque », ordre, classes
+`.library-*`). PIÈGE de l'agent : le process manager du run headless
+attache un PTY — Edge détecte un terminal sur stdout, entre en mode
+terminal et ne dump JAMAIS avec `--dump-dom` (le budget de temps
+virtuel s'écoule sans fin) ; le run passe par un `Start-Process`
+PowerShell SANS PTY avec redirections fichier, et les redirections
+s'écrivent en chemins Windows complets (`C:\...`), pas en chemin
+git-bash (`/c/...` devenait un nom de fichier cabossé). Validé par run
+headless complet : 124 OK / 0 ECHEC (run utilisateur à confirmer).
+Round 69 = bibliothèque, deux retours utilisateur : (a) FILTRE PAR
+TRAIT — la rangée de filtres de chaque sujet porte UN SECOND CHAMP DE
+RECHERCHE (`.library-search-trait`, même gabarit visuel que la
+recherche par nom, placeholder `LIBRARY.TRAIT_SEARCH_PLACEHOLDER`)
+qui matche les TRAITS portés par les cartes du sujet actif (n'importe
+lequel des traits contient le texte, insensible à la casse, COMBINÉ en
+ET avec le nom et la chip de type) ; l'état vit sur la fenêtre
+(`trait_search_text`, réinitialisé au changement de sujet comme le
+nom — vue vierge par sujet, verrouillé par scénario) ; PIÈGE perf : les
+traits d'un sort viennent de l'accesseur par nom (balayage complet de
+la carte du dataset) — le filtre sort ne les requiert QUE quand le
+champ trait est posé, jamais à vide. (b) SUPPRESSION DU « ? » — comme
+toute la carte vit INLINE (description clampée à 4 lignes), le « ? »
+de popup doublonnait l'information : il part de TOUTES les cartes
+(`_buildCard` ne rend plus d'info, `LIBRARY.FEAT_POPUP_CATEGORIES`
+supprimé faute de consommateur, `.library-card-info` part du CSS) — les
+popups d'information restent accessibles depuis leurs fenêtres
+d'origine (Progression pour les dons, répertoire Sorts, Équipement,
+zones de jets). Scénario réaligné : le « ? » s'asserte ABSENT, la
+recherche de trait se teste sur les trois sujets (dons chip Généraux +
+« général », sort par le premier trait du premier sort du dataset —
+comptes CALCULÉS du dataset, jamais figés, équipement par le trait
+`STUFF.CONSUMABLE_TRAIT`), le test 5 vérifie les DEUX champs vides
+après un changement de sujet. Validé par run headless complet :
+124 OK / 0 ECHEC (run utilisateur à confirmer).
+Round 70 = bibliothèque, FILTRES CUMULATIFS (demande utilisateur :
+« je filtre sur le trait homme-rat, j'appuie sur Entrée, le filtre
+s'affiche en haut en tag, j'en rajoute un autre qui sera un ET, pareil
+pour le nom du don »). Les deux zones (nom, trait) COMMITENT PAR
+ENTRÉE UNIQUEMENT (fin du filtrage à la frappe — un geste = un tag) :
+la valeur brute (trimmée, dédupliquée) devient UN TAG dans la RANGÉE
+DES FILTRES POSÉS (`.library-active-filters`, entre la barre de
+filtres et la liste, `.library-active-filters:empty { display: none }`
+— la rangée n'existe dans le flux que si elle porte des tags ; label
+« Filtres : » discret, tags nom `--name` / traits `--trait` en couleurs
+deux tons de la palette, chaque tag porte son « × » qui retire LUI
+SEUL le filtre). Les tags se combinent en ET CROISÉ AVEC LA CHIP de
+type : les filtres nom s'appliquent TOUS (le nom doit contenir chaque
+texte — un multi-mots), les filtres trait s'appliquent TOUS (chacun
+doit être porté par AU MOINS UN trait de la carte) ;
+`name_filters` / `trait_filters` vivent sur la fenêtre (tableaux,
+réinitialisés au changement de sujet, vue vierge par sujet — verrouillé
+par scénario). PIÈGE perf reconduit du Round 69 : les traits d'un sort
+ne se lisent du dataset QUE quand des filtres de trait sont posés
+(l'accesseur balaye toute la carte). Scénario réaligné : le commit se
+geste par `dispatchEvent( new KeyboardEvent( "keydown",
+{ "key": "Enter" } ) )` (même events que le clavier réel), les comptes
+attendus restent CALCULÉS du dataset, le × restaure le compte d'avant
+(dons : trait général + nom animal + nom zzzzz qui vide la liste +
+retrait), le changement de sujet asserte la rangée VIDE. Validé par
+run headless complet : 124 OK / 0 ECHEC (run utilisateur à confirmer).
+Round 71 = bibliothèque, deux retours utilisateur : (a) l'ENTRÉE ne
+marche pas sur MOBILE/TABLETTE (les claviers virtuels n'émettent pas
+toujours le keydown Enter) — un BOUTON « + » vit à côté de la zone de
+filtre (`.library-search-commit`, title « Poser le filtre », même
+stylage que les chips) et commite AUSSI la valeur de la zone ; les deux
+gestes (Entrée, +) partagent la méthode privée `_addSearchFilter` —
+toujours pas de filtrage à la frappe, un geste = un tag.
+(b) UNE SEULE ZONE DE FILTRE (retour utilisateur : le filtre ne
+cherchait pas le CONTENU du texte, et « ne faire qu'un filtre (titre,
+trait, contenu) serait cool ») : les deux zones (nom, trait) et
+`LIBRARY.TRAIT_SEARCH_PLACEHOLDER` DISPARAISSENT (supprimés faute de
+consommateur), un tag posé matche le NOM, un TRAIT OU le TEXTE de la
+carte (sémantique OU par filtre, ET entre tags, chips de type toujours
+croisées) ; le texte cherché des dons = la description COMPLÈTE aplatie
+(les tableaux scrapés mélangent chaînes et tableaux,
+`_formatFeatSearchText`), celle des sorts et objets = le scraped
+strippé par `_formatScrapedDescription` — la carte n'AFFICHE que le
+premier paragraphe clampé, mais un mot des paragraphes cachés fait
+toujours passer la carte (recherche de contenu, pas recherche de
+l'affiché). `search_filters` remplace les deux tableaux par sujet,
+tags en TON UNIQUE (`--name`/`--trait` partent du CSS). Piège perf
+reconduit : les traits d'un sort ne se lisent du dataset QUE si des
+tags sont posés. Scénario réaligné : une seule zone (compte
+d'inputs), le bouton « + » testé par le GESTE RÉEL du tactile, un tag
+posé par TRAIT (Entrée), par NOM (+) et par CONTENU (Entrée, « rongeur
+» cité par la seule description de Animal de compagnie — comptes
+CALCULÉS par le matcher reconstruit côté test). Validé par run headless
+complet : 124 OK / 0 ECHEC (run utilisateur à confirmer).
+Suite Round 71 (retour utilisateur : « dans le don Abajoues j'ai le
+trait “ Ascendance ” et je ne peux pas le filtrer ») : le « Ascendance
+» de la carte est le TAG DE TYPE (la source du don), PAS un trait
+scrapé — les traits d'Abajoues ne portent que « Homme-rat », et la zone
+de filtre ne cherchait que nom/traits/contenu. CORRECTIF : le TAG DE
+TYPE devient cherchable — le matcher gagne un 4e champ `type_text`
+(libellés de `LIBRARY.FEAT_TYPE_LABELS` écrite à la main — les chips
+parlent au pluriel « Généraux », la carte au singulier « Général » ;
+le nom d'archétype du don d'archétype voyage avec, le type d'un sort =
+`SPELLS.getFullTypeLabel`, le type d'un objet = le label du kind du
+classifieur via `_getStuffTypeText`). Le test verrouille le parcours
+réel de l'utilisateur : chip Ascendance + tag « ascendance » = TOUS
+les dons d'ascendance gated par la race posée (compte CALCULÉ du
+dataset + race courante, la suite court après scenario_emplacements qui
+laisse un Elfe), le tag `--race` visible sur la carte — RÈGLE : un tag
+AFFICHÉ sur une carte doit être cherchable par le filtre texte, un
+affichage qui ne se filtre pas est un bug. Validé par run headless
+complet : 125 OK / 0 ECHEC (run utilisateur à confirmer).
+Round 72 = même règle, la LIGNE CLÉ (retour utilisateur : « le filtre par
+le prix n'a pas l'air de marcher pour les équipements ») : le prix vit
+sur la ligne clé « Niveau X — Encomb. Y — Prix Z » qui n'était PAS dans
+les champs cherchés — la carte affichait une donnée infiltrable, encore
+le bug de la règle du Round 71. CORRECTIF : le matcher gagne un 5e champ
+`key_line_text` ; le FORMAT de la ligne clé des objets quitte la
+fenêtre pour le DOMAINE — `STUFFS.getKeyLineText( entry )`
+(`constant-stuff.js`, l'accesseur garde le format « Niveau/Encomb./Prix
+» joints par « — », chaîne vide sinon) — la carte, le matcher et les
+TESTS lisent le MÊME format (le formateur local
+`_formatStuffKeyLine` de la fenêtre part) ; la ligne clé des sorts (le
+« Coût ◆◆ » de la carte) passe au matcher dans le même mouvement, les
+dons n'en portent pas (chaîne vide). Le test verrouille le parcours
+utilisateur : tag « PRICE de Épée longue » (compte CALCULÉ du dataset
+par le matcher reconstruit à 5 champs, tag visible puis compte
+exact) ; par ricochet « encomb » et « niveau » filtrent aussi (même
+ligne clé). Validé par run headless complet : 125 OK / 0 ECHEC (run
+utilisateur à confirmer).
+
+Round 73 = bibliothèque, LE BOUTON « + » des cartes (demande utilisateur :
+« rajouter un bouton plus pour le rajouter aux sorts et aux équipements.
+Pour les dons je ne sais pas comment faire, une idée ?? »). Les cartes de
+sort et d'équipement portent un bouton `library-card-add` en fin de
+top-line qui AJOUTE la carte AU DOMAINE du personnage par LE PLAT DES
+POPUPS D'AJOUT existant — `event__spell__add` /
+`event__stuff__add` (déjà routés contrôleur → personnage → domaine →
+broadcast aux fenêtres, scénarios sorts/equipement compris) : ZÉRO
+nouveau événement, la fenêtre Bibliothèque n'écrit RIEN elle-même, les
+règles de possession restent au domaine (`addSpell` no-op sur un sort
+possédé — un répertoire est un ensemble ; `addStuff` empile les
+consommables, no-op sur le reste). Les params voyagent en DATA
+ATTRIBUTES du bouton, jamais inline (les noms portent des
+apostrophes) : `data-value` le nom, `data-kind` le type DU
+CLASSIFIEUR, `data-location` le `STUFF.DEFAULT_LOCATION` ; les deux
+fenêtres de destination (Sorts, Équipement) se rafraîchissent par le
+broadcast du personnage SEUL — la fenêtre Bibliothèque ne re-rend
+pas ses cartes au clic. Les dons restent en consultation pure : la
+proposition de possession (domaine `CHARACTER.Gifts` existant,
+marqueur doré, puce « Mes dons ») attend la décision utilisateur
+(règle maquette-avant-code), `card_data["add"]` absent = pas de
+bouton. PIÈGE de scénario : les suites sorts et emplacements courent
+AVANT la bibliothèque — le test pique la PREMIÈRE carte NON POSSÉÉE
+(`TEST_libraryFirstUnownedAddButton` : la carte possédée masquerait le
+geste d'ajout, son no-op est le comportement asserté par ailleurs) ;
+pour l'équipement le pick saute AUSSI les consommables (le second clic
+doit rester un no-op, pas un empilage). Verrous : bouton ABSENT des
+cartes de dons (test 1), ajout au répertoire + rendu de la fenêtre
+Sorts + non-duplication (test 4), ajout à l'inventaire + type du
+classifieur + emplacement par défaut + rendu de la fenêtre Équipement
++ non-duplication (test 5) ; le save_fichier suivant RESETe — les
+ajouts du test ne polluent pas la suite.
+
+Round 74 = bibliothèque, deux retours utilisateur sur le « + » des
+cartes : (a) LE STYLE — le bouton `library-card-add` ne portait pas la
+recette des « + » des fenêtres Sorts/Équipement (dégradé hex hors
+palette) : il prend LEUR recette exacte (`--g-gold`, bord
+`--c-gold-light`, `--r-sm`, texte `--c-text-dark`, hover
+`--c-gold-light`), mêmes proportions (`min-height: 22px`, `padding:
+0 10px`), plus `margin-left: auto` pour le pousser en fin de
+top-line ; (b) LA BASCULE — le « + » ne laisse PAS l'utilisateur sur
+la Bibliothèque : l'onglet de destination prend la main après
+l'ajout (`CHARACTER.LibraryWindow.goToSheet( window_name )`,
+statique : le MÊME tour qu'un clic d'onglet réel — recherche de
+l'onglet `.gs-window-element-V2[data-name=...]`, `window_name` +
+`window_group_name` en params, `MANAGER.EventManagerV2.
+clickOnWindowNavigation` — donc le plat
+`click_on__window_navigation__done` part AUSSI, la fenêtre activée
+recalcule son contenu par la voie ordinaire). Le `goToSheet` vit en
+chaîne dans le onclick inline APRÈS le plat d'ajout : l'ajout
+traverse le bus, la bascule est un geste UI pur (le nom de fenêtre
+embarqué est une CONSTANTE de code, pas une donnée — la règle
+« jamais de valeur inline » vise les valeurs à apostrophes). PIÈGE
+évité : `setActiveWindow` est synchrone dans le lib — les asserts du
+scénario lisent `windows.getActiveWindow().getName()` immédiatement
+après le clic, la visibilité des panneaux (phase au tick suivant)
+n'y change rien.
+
+Round 75 = LES BOUTONS DES POPUPS D'ÉDITION PASSENT EN BAS (retour
+utilisateur sur la popup « Modifier un sort » dont les trois boutons
+chevauchaient le titre — décision utilisateur : « pour TOUTES ces
+popups, les boutons en bas de la popup »). La structure DOM CHANGE :
+la rangée `.popup-up-actions` quitte le `.title` et devient le
+DERNIER ENFANT du conteneur `.edition-property-popup` (l'ordre
+d'appel des `SERVICE.DOM.addElementTo` EST l'ordre du DOM — les
+actions se construisent APRÈS le corps), dans les CINQ générateurs :
+`popup.js` (`POPUP.PropertyEdition` — les popups d'édition de
+champs : ascendance, classe, archétype, emplacements...), `spell-add-
+popup.js`, `spell-edit-popup.js`, `stuff-add-popup.js`,
+`stuff-edit-popup.js`. La règle de base VIT DANS popup.css (le
+conteneur `.edition-property-popup` est déjà une colonne flex) :
+`.popup .edition-property-popup .popup-up-actions { display: flex;
+justify-content: center; margin-top: var(--s-lg) }` — les sélecteurs
+des boutons (.button, .popup-up-valid, .popup-up-cancel, :hover)
+perdent `.title ` au passage. L'override du Round 63 (stuffs edit :
+`.title` en flex column + actions static SOUS le titre) est
+SUPPRIMÉ avec son commentaire — la base résout toutes les popups,
+plus de guerre de spécificité (popup.css charge après les feuilles de
+fenêtre, mais la base n'a plus de `position: absolute` à battre).
+Les boutons « Retirer » gardent leurs stylages scopés
+(`.spells-edit-popup-remove-button`, `.stuffs-edit-popup-remove-
+button` — ils héritent du socle .button par `.popup-up-actions
+.button`). Verrous scénario : la rangée DERNIER ENFANT du conteneur,
+plus rien dans `.title` (scenario_sorts + scenario_stuffs, tests
+roue crantée) ; les requêtes de boutons par classe des autres
+scénarios survivaient déjà (ascendance, classe, archétype,
+emplacements).
+
+Round 76 = INCIDENT RUN HEADLESS (retour utilisateur : « a chaque
+fois que tu modifie le code, le navigateur entier se ferme ») : le
+run de validation headless tuait TOUS les processus Edge de la
+machine par `taskkill /IM msedge.exe /F` après le dump — la session
+de navigation de l'utilisateur (localhost:63342) était une victime
+collatérale, fermeture complète du navigateur a chaque run. La
+procédure devient UN OUTIL DURABLE : `sheet/tools/
+run_headless_tests.ps1` — (a) Edge lance avec un PROFIL DÉDIÉ
+`--user-data-dir=.tests_edge_profile` (le run ne délègue JAMAIS à
+la session de l'utilisateur, ni ne la touche) ; (b) le kill vise
+UNIQUEMENT les processus dont la ligne de commande porte CE profil
+(le nom d'image est INTERDIT : le filtre matche les `msedge.exe`/
+`cmd.exe` porteurs du chemin du profil — une requête de diagnostic
+contenant le chemin se matche ELLE-MÊME, d'où le filtre de nom en
+plus) ; (c) trois pièges PS découverts au montage : `Start-Process
+-RedirectStandardOutput` BLOQUE jusqu'a la sortie du fils (et Edge
+headless ne sort JAMAIS seul après son `--dump-dom` — le lancement
+passe par `cmd /c start "" /b ... > dump 2> err` : cmd rend la main
+immédiatement, les poignées du dump appartiennent a l'arbre Edge) ;
+la lecture du dump PENDANT l'écriture exige un `FileStream` en
+partage ReadWrite (un `OpenRead` exclusif crashe sur le verrou du
+rédacteur) ; le `taskkill` des enfants déjà morts (le `/T` du
+parent les a pris) écrit sur stderr et `$ErrorActionPreference =
+"Stop"` avorte le script sur NativeCommandError — le kill passe
+par `cmd /c "taskkill ... > nul 2>&1"`. Le kill d'une arbre
+RÉSIDUELLE d'un run précédent court EN TÊTE du script (elle tient
+le dump ouvert, le `Remove-Item` cracherait). Usage :
+`powershell -NoProfile -ExecutionPolicy Bypass -File
+sheet/tools/run_headless_tests.ps1` → lance, attend la fin du dump
+(`</html>` en queue de fichier), tue SON arbre, imprime
+`REPORT: <titre>` (dernier run : 125 OK / 0 ECHECS). Artefacts
+ignorés par le nouveau `.gitignore` : `.tests_dom_dump.html`,
+`.tests_dom_err.txt`, `.tests_edge_profile/` (le profil survit
+entre les runs, démarrage plus rapide).
 
 ### Style, commentaires, nommage
 

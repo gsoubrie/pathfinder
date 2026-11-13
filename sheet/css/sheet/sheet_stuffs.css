@@ -143,24 +143,6 @@
     white-space  : nowrap;
 }
 
-/* Trois boutons (Valider/Retirer/Quitter) ne tiennent pas a droite du
-   titre : les actions passent SOUS le titre, centrées. La règle de base
-   vit dans popup.css avec 4 classes et CHARGE APRÈS les feuilles de
-   fenêtre : l'override doit porter PLUS de classes qu'elle, sinon
-   position:absolute gagne et le chevauchement revient (Round 63) */
-.popup .edition-property-popup.stuffs-edit-popup .title {
-    display        : flex;
-    flex-direction : column;
-    align-items    : center;
-}
-
-.popup .edition-property-popup.stuffs-edit-popup .title .popup-up-actions {
-    position        : static;
-    transform       : none;
-    margin-top      : var(--s-sm);
-    justify-content : center;
-}
-
 .stuffs-edit-popup .stuffs-edit-popup-quantity-input {
     flex    : 0 0 80px;
     max-width: 80px;

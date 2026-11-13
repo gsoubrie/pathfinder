@@ -52,11 +52,7 @@ CHARACTER.SpellEditPopup.prototype = {
     computeHtml: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup spells-form-popup spells-edit-popup" } ), this.getDomElement() );
-        let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Modifier un sort" ), container );
-        let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit_edit')" }, "Valider" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button spells-edit-popup-remove-button", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit_remove')" }, "Retirer" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Modifier un sort" ), container );
 
         let body  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-form-popup-body" } ), container );
         let entry = CONTROLLER.Character.current_character.getSpells().getContentByUUID( "spell__" + this.value );
@@ -76,6 +72,11 @@ CHARACTER.SpellEditPopup.prototype = {
         if ( this.comment_input && entry ) {
             this.comment_input.value = entry.comment || "";
         }
+        // Les actions vivent EN BAS de la popup, sous le corps
+        let actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit_edit')" }, "Valider" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button spells-edit-popup-remove-button", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit_remove')" }, "Retirer" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
     },
     //********************************************  DATA   **************************************************//

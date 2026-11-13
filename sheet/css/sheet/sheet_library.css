@@ -1,0 +1,342 @@
+/* =============================== LIBRARY WINDOW ========================== */
+
+.property-tab-pane[data-name="library_sheet"] .library-window {
+    display        : flex;
+    flex-direction : column;
+    gap            : 12px;
+    padding        : 12px;
+    height         : 100%;
+    box-sizing     : border-box;
+}
+
+/* --- SUJETS --- */
+
+.library-window .library-subjects {
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 8px;
+    align-items : center;
+    background  : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border      : 2px solid #8b6914;
+    border-radius : 8px;
+    padding     : 10px 14px;
+}
+
+.library-window .library-subject-btn {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #c8b090;
+    cursor        : pointer;
+    font-family   : inherit;
+    font-size     : 13px;
+    font-weight   : 600;
+    padding       : 5px 16px;
+    transition    : all 0.2s ease;
+}
+
+.library-window .library-subject-btn:hover {
+    border-color : #d4af37;
+    color        : #f0d890;
+}
+
+.library-window .library-subject-btn.active {
+    background   : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border-color : #ffd700;
+    color        : #1a0f08;
+}
+
+/* --- FILTRES --- */
+
+.library-window .library-filters {
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 8px;
+    align-items : center;
+    background  : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border      : 2px solid #8b6914;
+    border-radius : 8px;
+    padding     : 10px 14px;
+}
+
+.library-window .library-filter-types {
+    display     : flex;
+    gap         : 6px;
+    flex-wrap   : wrap;
+}
+
+.library-window .library-filter-btn {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #c8b090;
+    cursor        : pointer;
+    font-family   : inherit;
+    font-size     : 12px;
+    font-weight   : 600;
+    padding       : 3px 12px;
+    transition    : all 0.2s ease;
+}
+
+.library-window .library-filter-btn:hover {
+    border-color : #d4af37;
+    color        : #f0d890;
+}
+
+.library-window .library-filter-btn.active {
+    background   : linear-gradient(135deg, #8b6914 0%, #6b4e10 100%);
+    border-color : #ffd700;
+    color        : #1a0f08;
+    font-weight  : bold;
+}
+
+.library-window .library-search {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #e8d4a8;
+    flex          : 1;
+    font-family   : inherit;
+    font-size     : 13px;
+    min-width     : 180px;
+    padding       : 5px 12px;
+    outline       : none;
+    transition    : border-color 0.2s ease;
+}
+
+.library-window .library-search:focus {
+    border-color : #d4af37;
+}
+
+.library-window .library-search::placeholder {
+    color : #7a6040;
+}
+
+.library-window .library-search-commit {
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+    color         : #c8b090;
+    cursor        : pointer;
+    font-size     : 15px;
+    font-weight   : 600;
+    padding       : 3px 14px;
+    transition    : all 0.2s ease;
+}
+
+.library-window .library-search-commit:hover {
+    border-color : #d4af37;
+    color        : #f0d890;
+}
+
+/* --- FILTRES POSÉS (tags cumulatifs, ET) --- */
+
+.library-window .library-active-filters {
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 6px;
+    align-items : center;
+}
+
+.library-window .library-active-filters:empty {
+    display : none;
+}
+
+.library-window .library-active-filters-label {
+    color     : #9a7a50;
+    font-size : 12px;
+}
+
+.library-window .library-active-tag {
+    align-items   : center;
+    background    : #2a3a3a;
+    border        : 1px solid #4a6a6a;
+    border-radius : 12px;
+    color         : #90c8c8;
+    display       : inline-flex;
+    font-size     : 12px;
+    font-weight   : 600;
+    gap           : 5px;
+    padding       : 2px 8px;
+}
+
+.library-window .library-active-tag-remove {
+    cursor   : pointer;
+    font-size : 13px;
+    opacity  : 0.7;
+}
+
+.library-window .library-active-tag-remove:hover {
+    opacity : 1;
+}
+
+/* --- LISTE --- */
+
+.library-window .library-list {
+    flex            : 1;
+    overflow-y      : auto;
+    display         : flex;
+    flex-direction  : column;
+    gap             : 10px;
+    scrollbar-width : thin;
+    scrollbar-color : #8b6914 #2c1810;
+}
+
+.library-window .library-list::-webkit-scrollbar       { width: 6px; }
+.library-window .library-list::-webkit-scrollbar-track  { background: #2c1810; border-radius: 4px; }
+.library-window .library-list::-webkit-scrollbar-thumb  { background: #8b6914; border-radius: 4px; }
+
+/* --- SECTION --- */
+
+.library-window .library-level-section {
+    display        : flex;
+    flex-direction : column;
+    gap            : 4px;
+}
+
+.library-window .library-level-header {
+    color         : #d4af37;
+    font-size     : 13px;
+    font-weight   : bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom : 2px solid #6b4e2a;
+    padding-bottom: 4px;
+    margin-bottom : 2px;
+    text-shadow   : 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* --- CARTE --- */
+
+.library-window .library-card {
+    display       : flex;
+    align-items   : flex-start;
+    gap          : 10px;
+    background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
+    border        : 1px solid #6b4e2a;
+    border-left   : 4px solid #6b4e2a;
+    border-radius : 6px;
+    padding       : 8px 12px;
+    transition    : border-color 0.2s ease, background 0.2s ease;
+}
+
+.library-window .library-card:hover {
+    border-color      : #d4af37;
+    border-left-color : #d4af37;
+}
+
+.library-window .library-card-content {
+    display    : flex;
+    flex       : 1;
+    flex-direction : column;
+    gap        : 4px;
+}
+
+/* --- LIGNE DU HAUT : NOM + INFO + TAGS --- */
+
+.library-window .library-card-top-line {
+    align-items : center;
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 6px;
+}
+
+.library-window .library-card-name {
+    color       : #f0d890;
+    font-size   : 14px;
+    font-weight : bold;
+    text-shadow : 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.library-window .library-card-tags {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 4px;
+}
+
+/* --- BOUTON + (répertoire / inventaire) : la recette des « + » des
+      fenêtres Sorts/Équipement (l'or du thème, pas de dégradé hex hors
+      palette) --- */
+
+.library-window .library-card-add {
+    align-items    : center;
+    background     : var(--g-gold);
+    border         : var(--b-thin) solid var(--c-gold-light);
+    border-radius  : var(--r-sm);
+    color          : var(--c-text-dark);
+    cursor         : pointer;
+    display        : flex;
+    flex           : 0 0 auto;
+    font-size      : 13px;
+    justify-content: center;
+    margin-left    : auto;
+    min-height     : 22px;
+    padding        : 0 10px;
+}
+
+.library-window .library-card-add:hover {
+    background : var(--c-gold-light);
+}
+
+.library-window .library-tag {
+    border-radius  : 3px;
+    font-size      : 11px;
+    font-weight    : 600;
+    letter-spacing : 0.3px;
+    padding        : 1px 7px;
+}
+
+.library-window .library-tag--general   { background: #3a2a4a; border: 1px solid #6a4a8a; color: #c8a0e8; }
+.library-window .library-tag--class     { background: #2a3a4a; border: 1px solid #4a6a8a; color: #90c0e8; }
+.library-window .library-tag--race      { background: #3a4a2a; border: 1px solid #6a8a4a; color: #a8d080; }
+.library-window .library-tag--skill     { background: #4a3a2a; border: 1px solid #8a6a4a; color: #e0b880; }
+.library-window .library-tag--archetype { background: #4a2a2a; border: 1px solid #8a4a4a; color: #e89090; }
+.library-window .library-tag--archetype-name { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0a0d0; font-style: italic; }
+.library-window .library-tag--trait     { background: #2a3a3a; border: 1px solid #4a6a6a; color: #90c8c8; }
+.library-window .library-tag--spell     { background: #4a3a4a; border: 1px solid #8a6a8a; color: #d8a8d8; }
+.library-window .library-tag--stuff     { background: #3a3242; border: 1px solid #6a5a3a; color: #c8b890; }
+
+/* --- LIGNE CLÉ --- */
+
+.library-window .library-card-key-line {
+    color     : #b09070;
+    font-size : 12px;
+}
+
+/* --- PRÉREQUIS --- */
+
+.library-window .library-card-required {
+    color     : #9a7a50;
+    font-size : 12px;
+}
+
+.library-window .library-card-required-label {
+    font-weight : bold;
+    font-style  : italic;
+}
+
+.library-window .library-card-required-value {
+    color : #b09070;
+}
+
+/* --- DESCRIPTION --- */
+
+.library-window .library-card-description {
+    color       : #c8b090;
+    font-size   : 12px;
+    line-height : 1.5;
+    opacity     : 0.85;
+    display        : -webkit-box;
+    -webkit-line-clamp : 4;
+    -webkit-box-orient : vertical;
+    overflow         : hidden;
+}
+
+/* --- VIDE --- */
+
+.library-window .library-empty {
+    color      : #7a6040;
+    font-style : italic;
+    padding    : 20px;
+    text-align : center;
+}

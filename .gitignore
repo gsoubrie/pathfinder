@@ -1,0 +1,4 @@
+# Artefacts du run headless de tests (sheet/tools/run_headless_tests.ps1)
+.tests_dom_dump.html
+.tests_dom_err.txt
+.tests_edge_profile/

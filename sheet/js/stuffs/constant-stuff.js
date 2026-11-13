@@ -188,6 +188,24 @@ STUFFS.getByName = function ( name ) {
     return null;
 };
 
+// The key line of an entry card (Bibliothèque) : the level, the bulk and
+// the price joined — the DISPLAY text owns this format so the search
+// filter and the tests read the same line the card shows. Empty string
+// when the entry carries none of them
+STUFFS.getKeyLineText = function ( entry ) {
+    let parts = [];
+    if ( entry.level !== undefined && entry.level !== "" ) {
+        parts.push( "Niveau " + entry.level );
+    }
+    if ( entry.bulk !== undefined && entry.bulk !== "" ) {
+        parts.push( "Encomb. " + entry.bulk );
+    }
+    if ( entry.price !== undefined && entry.price !== "" ) {
+        parts.push( "Prix " + entry.price );
+    }
+    return parts.join( " — " );
+};
+
 //********************************************  KIND CLASSIFIER  **************************************************//
 
 /**

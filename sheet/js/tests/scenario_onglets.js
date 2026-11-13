@@ -3,7 +3,7 @@
  * Scenario : ONGLETS
  * Le groupe d'onglets de la fiche sur une page vide : nombre, onglet actif
  * (objet, DOM, style), libelles, etats desactives (Caracteristiques sans
- * ascendance, Niveau et Progression sans classe), clic sur Dons
+ * ascendance, Niveau et Progression sans classe), clic sur Bibliothèque
  * (toujours actif) et retour sur l'onglet general.
  * Les clics Caracteristiques et Niveau se trouvent respectivement dans les
  * scenarios ASCENDANCE et CLASSE : ces onglets sont inactifs sans pre-requis.
@@ -53,7 +53,7 @@ TEST.RUNNER.register( "[ONGLETS] style actif = doré", function () {
     }
     let _active_style                    = getComputedStyle( _active_div );
     TEST.ASSERT.ok( _active_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "Le fond de l'onglet actif devrait etre le degrade dore (var(--g-gold), #D4AF37), obtenu : " + _active_style.backgroundImage );
-    let _inactive_tab                    = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.GiftsWindow.NAME + "']" );
+    let _inactive_tab                    = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
     if ( _inactive_tab ) {
         let _inactive_div                = _inactive_tab.querySelector( ".gs-div-tab" );
         if ( _inactive_div ) {
@@ -69,7 +69,7 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
         { name: CHARACTER.StuffsWindow.NAME,        label: "Équipement" },
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
         { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
-        { name: CHARACTER.GiftsWindow.NAME,          label: "Dons" },
+        { name: CHARACTER.LibraryWindow.NAME,          label: "Bibliothèque" },
         { name: CHARACTER.SpellsWindow.NAME,          label: "Sorts" },
         { name: CHARACTER.AdjustmentsWindow.NAME,    label: "Ajustements" },
         { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
@@ -90,13 +90,13 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     }
 } );
 
-TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Dons, Sorts, Ajustements, Progression", function () {
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Bibliothèque, Sorts, Ajustements, Progression", function () {
     let _expected_order = [
         CHARACTER.GeneralWindow.NAME,
         CHARACTER.StuffsWindow.NAME,
         CHARACTER.CharacteristicWindow.NAME,
         CHARACTER.LevelWindow.NAME,
-        CHARACTER.GiftsWindow.NAME,
+        CHARACTER.LibraryWindow.NAME,
         CHARACTER.SpellsWindow.NAME,
         CHARACTER.AdjustmentsWindow.NAME,
         CHARACTER.LevelUpWindow.NAME
@@ -158,7 +158,7 @@ TEST.RUNNER.register( "[ONGLETS] Progression = disabled sur page vide", function
 
 TEST.RUNNER.register( "[ONGLETS] Ajustements = actif sur page vide", function () {
     // L'édition du personnage ne dépend d'aucune pré-condition : l'onglet
-    // reste actif même sans ascendance ni classe (comme Dons)
+    // reste actif même sans ascendance ni classe (comme Bibliothèque)
     let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
     TEST.ASSERT.notNull( _tab, "L'onglet Ajustements devrait exister" );
     if ( !_tab ) {
@@ -171,7 +171,7 @@ TEST.RUNNER.register( "[ONGLETS] Ajustements = actif sur page vide", function ()
 } );
 
 TEST.RUNNER.register( "[ONGLETS] Sorts = actif sur page vide", function () {
-    // Le repertoire de sorts ne depend d AUCUNE pre-condition : l onglet reste actif meme sans ascendance ni classe (comme Dons et Ajustements)
+    // Le repertoire de sorts ne depend d AUCUNE pre-condition : l onglet reste actif meme sans ascendance ni classe (comme Bibliothèque et Ajustements)
     let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.SpellsWindow.NAME + "']" );
     TEST.ASSERT.notNull( _tab, "L onglet Sorts devrait exister" );
     if ( !_tab ) {
@@ -183,23 +183,23 @@ TEST.RUNNER.register( "[ONGLETS] Sorts = actif sur page vide", function () {
     TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L onglet Sorts devrait intercepter les clics, obtenu : " + _style.pointerEvents );
 } );
 
-TEST.RUNNER.register( "[ONGLETS] clic Dons → actif = Dons", function () {
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GiftsWindow.NAME ).then( function () {
+TEST.RUNNER.register( "[ONGLETS] clic Bibliothèque → actif = Bibliothèque", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GiftsWindow.NAME, "Fenetre active apres le clic" );
+        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LibraryWindow.NAME, "Fenetre active apres le clic" );
         let _running_tabs                = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
         TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING" );
         if ( _running_tabs.length === 1 ) {
-            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.GiftsWindow.NAME, "Onglet RUNNING" );
+            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.LibraryWindow.NAME, "Onglet RUNNING" );
             let _style                   = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
-            TEST.ASSERT.ok( _style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet Dons actif devrait etre dore, obtenu : " + _style.backgroundImage );
+            TEST.ASSERT.ok( _style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet Bibliothèque actif devrait etre dore, obtenu : " + _style.backgroundImage );
         }
-        let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.GiftsWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Dons devrait exister" );
+        let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Bibliothèque devrait exister" );
         if ( _pane ) {
-            TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Dons devrait etre visible apres le clic" );
-            TEST.ASSERT.notNull( _pane.querySelector( ".gifts-window" ), "Le contenu Dons (.gifts-window) devrait etre rendu" );
-            TEST.ASSERT.notNull( _pane.querySelector( ".gifts-filters" ), "Les filtres de dons devraient etre rendus apres le clic" );
+            TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Bibliothèque devrait etre visible apres le clic" );
+            TEST.ASSERT.notNull( _pane.querySelector( ".library-window" ), "La fenêtre Bibliothèque (.library-window) devrait etre rendue" );
+            TEST.ASSERT.notNull( _pane.querySelector( ".library-filters" ), "Les sujets et filtres de la Bibliothèque devraient etre rendus apres le clic" );
         }
     } );
 } );
@@ -215,9 +215,9 @@ TEST.RUNNER.register( "[ONGLETS] retour sur Général → actif = Général", fu
         }
         let _general_style               = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
         TEST.ASSERT.ok( _general_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet General devrait etre dore a nouveau, obtenu : " + _general_style.backgroundImage );
-        let _gifts_pane                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.GiftsWindow.NAME + "']" );
-        if ( _gifts_pane ) {
-            TEST.ASSERT.ok( _gifts_pane.classList.contains( "gs-hidden" ), "Le panneau Dons devrait etre masque a nouveau" );
+        let _library_pane                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
+        if ( _library_pane ) {
+            TEST.ASSERT.ok( _library_pane.classList.contains( "gs-hidden" ), "Le panneau Bibliothèque devrait etre masque a nouveau" );
         }
     } );
 } );

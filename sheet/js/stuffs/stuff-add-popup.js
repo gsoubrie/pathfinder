@@ -100,10 +100,7 @@ CHARACTER.StuffAddPopup.prototype = {
     computeHtml: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup stuffs-form-popup stuffs-add-popup" } ), this.getDomElement() );
-        let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Ajouter un équipement" ), container );
-        let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__stuff__commit')" }, "Valider" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Ajouter un équipement" ), container );
 
         let body     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-form-popup-body" } ), container );
         this.body_dom_element = body;
@@ -158,6 +155,10 @@ CHARACTER.StuffAddPopup.prototype = {
             "class"      : "stuffs-form-popup-comment-input",
             "placeholder": "Précision libre sur cet objet"
         }, "" ), comment_row );
+        // Les actions vivent EN BAS de la popup, sous le corps
+        let actions   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__stuff__commit')" }, "Valider" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
     },
     //********************************************  DATA   **************************************************//

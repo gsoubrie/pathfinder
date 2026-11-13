@@ -70,10 +70,7 @@ CHARACTER.SpellAddPopup.prototype = {
     computeHtml: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup spells-form-popup spells-add-popup" } ), this.getDomElement() );
-        let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Ajouter un sort au répertoire" ), container );
-        let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit')" }, "Valider" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, "Ajouter un sort au répertoire" ), container );
 
         let body = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-form-popup-body" } ), container );
         // L'entete puis UN FILTRE PAR COLONNE : chaque filtre masque les
@@ -98,6 +95,10 @@ CHARACTER.SpellAddPopup.prototype = {
             "class"      : "spells-form-popup-comment-input",
             "placeholder": "Précision libre sur ce sort"
         }, "" ), comment_row );
+        // Les actions vivent EN BAS de la popup, sous le corps
+        let actions   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), container );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__spell__commit')" }, "Valider" ), actions );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
     },
     _buildListHeader: function ( parent ) {

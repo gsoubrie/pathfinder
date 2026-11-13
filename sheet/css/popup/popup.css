@@ -54,16 +54,17 @@
     margin-bottom: var(--s-lg);
 }
 
-.popup .edition-property-popup .title .popup-up-actions {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: var(--s-md);
+/* Les actions vivent EN BAS de la popup (demande utilisateur : trois
+   boutons chevauchaient le titre) : la rangée suit le corps en flux,
+   le conteneur est une colonne flex */
+.popup .edition-property-popup .popup-up-actions {
+    display         : flex;
+    gap             : var(--s-md);
+    justify-content : center;
+    margin-top      : var(--s-lg);
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button {
+.popup .edition-property-popup .popup-up-actions .button {
     border: var(--b-normal) solid;
     border-radius: var(--r-md);
     display: inline-block;
@@ -74,28 +75,28 @@
     text-shadow: var(--text-shadow-sm);
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button:hover {
+.popup .edition-property-popup .popup-up-actions .button:hover {
     transform: translateY(-2px);
     box-shadow: var(--sh-gold-md);
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button.popup-up-valid {
+.popup .edition-property-popup .popup-up-actions .button.popup-up-valid {
     background: linear-gradient(135deg, #4a7c59 0%, #2d5a3a 100%);
     border-color: #6fa87d;
     color: #e8f5e9;
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button.popup-up-valid:hover {
+.popup .edition-property-popup .popup-up-actions .button.popup-up-valid:hover {
     background: linear-gradient(135deg, #5a9669 0%, #3d6a4a 100%);
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button.popup-up-cancel {
+.popup .edition-property-popup .popup-up-actions .button.popup-up-cancel {
     background: linear-gradient(135deg, var(--c-bg-card-light) 0%, var(--c-bg-dark) 100%);
     border-color: var(--c-gold-dark);
     color: var(--c-text-gold);
 }
 
-.popup .edition-property-popup .title .popup-up-actions .button.popup-up-cancel:hover {
+.popup .edition-property-popup .popup-up-actions .button.popup-up-cancel:hover {
     background: linear-gradient(135deg, var(--g-card-hover) 0%, var(--c-bg-card) 100%);
 }
 

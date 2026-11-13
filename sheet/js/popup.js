@@ -50,18 +50,20 @@ POPUP.PropertyEdition.prototype = {
     computeHtml: function () {
         this.setDomElement( SERVICE.DOM.createElement( "div", { class: "popup" } ) );
         this.container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "edition-property-popup" } ), this.getDomElement() );
-        let title      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
-        let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), title );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
+        this.windows.computeHtml();
+        SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
+        // Les actions vivent EN BAS de la popup : le titre porte son
+        // libellé seul, trois boutons ne chevauchent plus rien
+        let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), this.container );
         if ( !this.is_consultation ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__form__element_changed')" }, "Valider" ), actions );
         }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
-        this.windows.computeHtml();
-        SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
-        
+
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
         this.windows.computeHtmlTargets( this.container );
-        
+
     }
 };
 

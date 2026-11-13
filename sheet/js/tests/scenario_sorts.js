@@ -397,6 +397,10 @@ TEST.RUNNER.register( "[SORTS] roue crantée = commentaire en place + retrait + 
         if ( !_edit_popup ) {
             return null;
         }
+        // Les boutons vivent EN BAS de la popup (retour utilisateur : ils
+        // chevauchaient le titre) : la rangée termine le corps, jamais le titre
+        TEST.ASSERT.ok( _edit_popup.lastElementChild.classList.contains( "popup-up-actions" ), "La rangée d'actions devrait etre le DERNIER enfant de la popup (boutons en bas)" );
+        TEST.ASSERT.isNull( _edit_popup.querySelector( ".title .popup-up-actions" ), "Aucune rangée d'actions ne devrait vivre dans le titre" );
         TEST.ASSERT.equal( _edit_popup.querySelector( ".spells-edit-popup-name" ).textContent, "Bouclier", "L'édition devrait afficher le nom en lecture" );
         let _comment_input = _edit_popup.querySelector( ".spells-form-popup-comment-input" );
         TEST.ASSERT.equal( _comment_input ? _comment_input.value : null, "Gardé pour le boss", "Le champ commentaire part de l'état du domaine, obtenu : [" + ( _comment_input ? _comment_input.value : "null" ) + "]" );

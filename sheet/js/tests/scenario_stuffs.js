@@ -353,6 +353,10 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
             if ( !_edit_popup ) {
                 return;
             }
+            // Les boutons vivent EN BAS de la popup (retour utilisateur :
+            // ils chevauchaient le titre), jamais dans le titre
+            TEST.ASSERT.ok( _edit_popup.lastElementChild.classList.contains( "popup-up-actions" ), "La rangée d'actions devrait etre le DERNIER enfant de la popup (boutons en bas)" );
+            TEST.ASSERT.isNull( _edit_popup.querySelector( ".title .popup-up-actions" ), "Aucune rangée d'actions ne devrait vivre dans le titre" );
             let _edit_location_label = _edit_popup.querySelector( ".stuffs-form-popup-location .single-select-selector-label" );
             TEST.ASSERT.equal( _edit_location_label.textContent, STUFF.getLocationData( "backpack" ).label, "L'édition devrait afficher l'emplacement courant de l'entrée, obtenu : [" + _edit_location_label.textContent + "]" );
             let _edit_place_row = _edit_popup.querySelector( ".stuffs-form-popup-place" );
