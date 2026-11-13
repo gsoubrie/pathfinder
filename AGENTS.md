@@ -1994,6 +1994,67 @@ ignorés par le nouveau `.gitignore` : `.tests_dom_dump.html`,
 `.tests_dom_err.txt`, `.tests_edge_profile/` (le profil survit
 entre les runs, démarrage plus rapide).
 
+Round 77 = FIN DE L'ONGLET NIVEAU, LE CALCUL PV DEMENAGE (demande
+utilisateur : « je pense que l'onglet niveau ne sert plus à rien. Par
+contre j'aimerai ne pas perdre le calcul des points de vie. À mettre
+dans l'onglet Progression », décision 1 de la maquette : « ne mettre
+QUE LA POPUP quand on clique sur le total de pv », décision 2 :
+niveaux désactivés ABSENTS du détail, décision 4 : la table
+« Compéténce » du vieux mécanisme d'origine part avec l'onglet — les
+DONNÉES restent dans le save du domaine). La FENÊTRE
+`CHARACTER.LevelWindow` (`level_window.js` + `sheet_level.css`,
+supprimés) et son GATING classe disparaissent (les appels
+`setVisibilityWindowState(..., LevelWindow.NAME)` de character.js et
+character_windows.js partent — Progression reste gated RACE, Round 39)
+; la navigation passe à 7 fenêtres (Général, Équipement,
+Caractéristiques, Bibliothèque, Sorts, Ajustements, Progression). Le
+CALCUL ne bouge pas : `computeTotalLife` vit sur le personnage
+(domaine), il alimente `CHARACTER.Health` (max PV du Général). La
+PIÈCE RÉCUPÉRÉE : le total PV s'affiche OÙ l'utilisateur le clique —
+(1) une ligne `Points de vie : N` en tête de la Progression
+(`level-up-life-total`, ne se rend que si l'historique de niveaux est
+non vide) qui SUIVRA les rebuilds, (2) la zone PV du Général
+(`hp-display`, cursor pointer) ; « cf 1) » de l'utilisateur : les DEUX
+clics ouvrent la MÊME POPUP `event__show_information__health` (liste
+POPUPS du contrôleur Main), catégorie `health` reconstruite à chaque
+ouverture (le patron des spell_slots : total + une ligne par source,
+données par `CHARACTER.Health.getInformationData( character_object )`
+— le mod CON par niveau actif côté classe « Niveau N — Classe », les
+PV de départ de l'ascendance UNE fois, niveaux désactivés absents ;
+uuid `character__health`). Colonnes mortes de l'ancienne table non
+migrées : « Total » (répétait Classe + Char), « Bonus suppl. »
+(`lvl.bonus` n'existe pas sur l'entrée — toujours vide), « Actif »
+(l'interrupteur vit sur les blocs Progression). Domaines INTACTS :
+`level/level.js` (Level + detectType + LEVELS.KEYWORDS) et
+`levelup/4-level-history-skills.js` restent (le save `skills` des
+vieux fichiers survit). SCÉNARIOS réalignés : onglets 7 + ordre sans
+Niveau + test « Niveau = disabled » supprimé ; classe : le test
+« onglet Niveau re-active » devient la ligne PV + popup ( RUNNING +
+fermeture par uuid) ; niveaux/niveaux_multiple : les relectures de
+la life-table remplacées par la POPUP (sources actives seulement,
+classe d'origine citée, total croisé au domaine, popup refermée par
+l'uuid à chaque test — règle Round 45) et la désactivation verrouille
+l'ABSENCE du niveau désactivé du détail ; reset : l'entrée Niveau de
+la liste part ; multiclasse : docstring. PIÈGE d'édition (Round 77) :
+un edit sur character.js a AVALÉ le label
+`case "event__level_up__remove_level":` en supprimant la ligne de
+visibilité — le body du case devenait du code mort après le `break`
+précédent : après un edit de suppression SANS relecture locale, on
+vérifie les `case` voisins. PIÈGE de scénario (trouvé au premier
+run : 22 ECHECS) : refermer une popup par `MANAGER.EventManagerV2
+.doActionAfter( { stopPropagation... }, 'event__popup__close', ... )`
+avec un événement FABRIQUÉ ne route PAS — le close ne s'applique
+jamais, la popup reste RUNNING et TOUTES les suites suivantes qui
+lisent le premier `.popup-overlay[data-current-phase='RUNNING']`
+tombent dessus (« obtenu : Points de vie » partout) ; le patron
+établi est `CONTROLLER.Main.doActionAfter( "event__popup__close",
+{ "param__popup__uuid": ... } )`. COROLLAIRE : les popups
+RECONSTRUITES (pattern spell_slots — removeContent + re-open)
+laissent leurs CLONES DOM cachés derrière elles, tous porteurs du
+même uuid — une requête par uuid attrape le PLUS ANCIEN, il faut la
+scoper `[data-current-phase='RUNNING']`. Validé par run headless via
+l'outil du Round 76 : 124 OK / 0 ECHEC (124).
+
 ### Style, commentaires, nommage
 
 - Pas de prose descriptive dans le bloc JSDoc d'une classe : seul

@@ -59,7 +59,6 @@ CHARACTER.Current.prototype = {
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
-                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 // Les sections d'ascendance (don, langues) vivent des le choix
                 // de l'ascendance : l'onglet Progression s'allume avec elle
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
@@ -105,7 +104,6 @@ CHARACTER.Current.prototype = {
                 }
                 this.computeTotalLife();
                 this.class.updateHtmlData();
-                this.windows.setVisibilityWindowState( this.class.isEmpty() ? GS.CONST.VISIBILITY_STATE.DISABLED : GS.CONST.VISIBILITY_STATE.NORMAL, CHARACTER.LevelWindow.NAME );
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );

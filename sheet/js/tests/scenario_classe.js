@@ -157,34 +157,29 @@ TEST.RUNNER.register( "[CLASSE][SAVE] contenu = Champion 1 + 1 niveau actif", fu
     }
 } );
 
-TEST.RUNNER.register( "[CLASSE] onglet Niveau re-active", function () {
-    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Niveau devrait exister" );
-    if ( !_tab ) {
+TEST.RUNNER.register( "[CLASSE] ligne Points de vie de la Progression (l'ancien onglet Niveau)", function () {
+    // La fenetre Niveau a disparu : sa donnée vivante (le total PV et son
+    // detail par niveau) vit dans la Progression — une ligne, le DETAIL
+    // s'ouvre en popup au clic (decision utilisateur)
+    let _levelup_pane                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _levelup_pane, "Pre-condition : panneau Progression rendu" );
+    if ( !_levelup_pane ) {
         return;
     }
-    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Niveau ne devrait plus porter l'etat disabled apres le choix de la classe" );
-    let _style                           = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Niveau ne devrait plus etre grise, obtenu : " + _style.opacity );
-    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Niveau devrait intercepter les clics, obtenu : " + _style.pointerEvents );
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelWindow.NAME ).then( function () {
-        let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelWindow.NAME, "Fenetre active apres le clic" );
-        let _running_tabs                = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
-        TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING" );
-        if ( _running_tabs.length === 1 ) {
-            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.LevelWindow.NAME, "Onglet RUNNING" );
-            let _active_style            = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
-            TEST.ASSERT.ok( _active_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet Niveau actif devrait etre dore, obtenu : " + _active_style.backgroundImage );
-        }
-        let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Niveau devrait exister" );
-        if ( _pane ) {
-            TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Niveau devrait etre visible apres le clic" );
-            TEST.ASSERT.notNull( _pane.querySelector( ".level-window" ), "Le contenu Niveau (.level-window) devrait etre rendu" );
-            TEST.ASSERT.notNull( _pane.querySelector( ".level-container-life" ), "La zone points de vie du panneau Niveau devrait etre rendue" );
-        }
-    } );
+    let _life_line                       = _levelup_pane.querySelector( ".level-up-life-total" );
+    TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue des la premiere classe validee" );
+    if ( !_life_line ) {
+        return;
+    }
+    let _expected                        = CONTROLLER.Character.current_character.getHealth().getMaxHP();
+    TEST.ASSERT.equal( _life_line.textContent, "Points de vie : " + _expected, "La ligne devrait porter le total PV du domaine, obtenu : " + _life_line.textContent );
+    _life_line.click();
+    let _health_overlay                  = document.querySelector( ".popup-overlay[data-popup-uuid='character__health'][data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _health_overlay, "Le clic devrait ouvrir la popup du detail des PV" );
+    if ( _health_overlay ) {
+        TEST.ASSERT.equal( _health_overlay.getAttribute( "data-current-phase" ), "RUNNING", "L'overlay de la popup PV devrait etre RUNNING" );
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
+    }
 } );
 
 TEST.RUNNER.register( "[CLASSE] onglet Progression re-active", function () {

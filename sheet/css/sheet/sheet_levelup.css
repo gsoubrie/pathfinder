@@ -44,6 +44,21 @@
     color      : #f0a060;
 }
 
+/* ── Total PV (l'ancienne fenetre Niveau) : une ligne, le detail du
+      calcul s'ouvre en popup au clic ── */
+.level-up-window .level-up-life-total {
+    color      : var(--c-text-muted);
+    cursor     : pointer;
+    font-size  : 14px;
+    padding    : 2px 2px 8px;
+    text-align : center;
+}
+
+.level-up-window .level-up-life-total:hover {
+    color: var(--c-gold);
+}
+
+
 /* ── Bloc niveau ── */
 .level-up-window .level-up-block {
     background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);

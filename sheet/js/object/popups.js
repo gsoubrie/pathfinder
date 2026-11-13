@@ -105,6 +105,23 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // Les sources du total PV sont un état du personnage : la popup
+            // est reconstruite a chaque ouverture, jamais servie du cache
+            case "event__show_information__health": {
+                let health_character = CONTROLLER.Character.current_character;
+                let health_data      = health_character ? health_character.getHealth().getInformationData( health_character ) : null;
+                if ( !health_data ) {
+                    return;
+                }
+                if ( this.getContentByUUID( health_data[ "id" ] ) ) {
+                    this.removeContent( health_data[ "id" ], null, true );
+                }
+                let health_popup = this._openPopup( health_data );
+                if ( health_popup ) {
+                    health_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

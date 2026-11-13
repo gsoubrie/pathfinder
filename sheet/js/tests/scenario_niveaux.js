@@ -7,17 +7,21 @@
  *    total 2, entree d'historique supprimee, PV diminues.
  * 2. Moins a nouveau : la classe Guerrier est supprimee completement du conteneur,
  *    il ne reste que Champion 1.
- * 3. Moins sur la derniere classe : conteneur vide, total 0, onglet Niveau
- *    re-desactive — Progression reste allume (l'ascendance reste posee,
- *    ses sections vivent sans classe), zone classe vide avec le bouton d'ajout.
+ * 3. Moins sur la derniere classe : conteneur vide, total 0 — Progression reste
+ *    allume (l'ascendance reste posee, ses sections vivent sans classe), zone
+ *    classe vide avec le bouton d'ajout. La ligne Points de vie de la
+ *    Progression ne se rend plus (historique vide — l'ancienne fenêtre
+ *    Niveau a disparu, sa donnée vit ici).
  * 4. Re-ajout de Champion (popup) puis prise d'un 2e niveau : desactivation du
- *    niveau 2 par l'interrupteur du bloc de niveau dans l'onglet Passage de
- *    niveau : niveau actif 1, PV recalculés. L'onglet Niveau affiche l'etat
- *    Actif/Désactivé en libelle non cliquable (ligne grisee) ; chaque ligne
- *    affiche l'icone de la classe d'origine accompagnee de son nom
- *    (.level-class-name). Le bloc du niveau desactive reste rendu (classe
- *    disabled, sans lignes de deblocage) pour porter son interrupteur.
- * 5. Re-activation depuis le bloc desactive : totaux et PV restaures.
+ *    niveau 2 par l'interrupteur du bloc de niveau dans la Progression :
+ *    niveau actif 1, PV recalculés. La ligne Points de vie suit le total, sa
+ *    POPUP de detail ne porte que les niveaux ACTIFS (decision utilisateur :
+ *    un niveau desactive ne compte pas, il ne figure pas dans le detail) et
+ *    cite la classe d'origine de chaque niveau. Le bloc du niveau desactive
+ *    reste rendu (classe disabled, sans lignes de deblocage) pour porter son
+ *    interrupteur.
+ * 5. Re-activation depuis le bloc desactive : totaux et PV restaures, la
+ *    popup re-ouverte recite les 2 niveaux (reconstruite a chaque ouverture).
  * 6. Save → load : l'historique et le drapeau enabled du niveau desactive
  *    survives a la relecture.
  */
@@ -128,7 +132,7 @@ TEST.RUNNER.register( "[NIVEAUX] suppression Guerrier → classes = Champion 1",
     } );
 } );
 
-TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglet Niveau désactivé, Progression allumé", function () {
+TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → Progression allumé sans classe", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
@@ -155,12 +159,9 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → onglet Niveau 
         TEST.ASSERT.equal( _character.getLevel(), 0, "Le niveau total devrait etre 0, obtenu : " + _character.getLevel() );
         TEST.ASSERT.equal( _character.getLevelHistory().getSize(), 0, "L'historique des niveaux devrait etre vide" );
         TEST.ASSERT.equal( document.body.dataset.isClassSet, "0", "data-is-class-set devrait repasser a 0" );
-        let _niveau_tab                 = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _niveau_tab, "L'onglet Niveau devrait exister" );
-        if ( _niveau_tab ) {
-            TEST.ASSERT.equal( _niveau_tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet Niveau devrait porter l'etat disabled" );
-            TEST.ASSERT.equal( getComputedStyle( _niveau_tab ).opacity, "0.4", "L'onglet Niveau devrait etre grise, obtenu : " + getComputedStyle( _niveau_tab ).opacity );
-        }
+        // L'ancienne fenêtre Niveau a disparu : sa ligne PV vit dans la
+        // Progression, elle ne se rend PAS quand l'historique est vide
+        TEST.ASSERT.isNull( _pane.querySelector( ".level-up-life-total" ), "La ligne Points de vie ne devrait plus se rendre sans historique de niveau" );
         // L'ascendance reste posee : Progression reste allume, ses sections
         // d'ascendance vivent sans classe
         let _progression_tab            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
@@ -212,56 +213,49 @@ TEST.RUNNER.register( "[NIVEAUX] désactivation niveau 2 → actif 1, PV recalcu
             let _expected_hp           = _max_hp_before - _con.modifier_value.value - CLASSES.getDataByName( "Champion" ).life_point_by_level;
             TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient exclure le niveau desactive" );
         }
-        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelWindow.NAME ).then( function () {
-            let _level_pane             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-            TEST.ASSERT.notNull( _level_pane, "Le panneau Niveau devrait exister" );
-            if ( !_level_pane ) {
-                return;
+        // L'ancienne fenêtre Niveau a disparu : la ligne PV vit dans la
+        // Progression et le DETAIL par niveau vit dans sa popup — les
+        // niveaux desactives ne figurent pas dans le detail (decision
+        // utilisateur : absents, ils ne comptent pas dans le total)
+        let _life_line                  = _pane.querySelector( ".level-up-life-total" );
+        TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue dans la Progression" );
+        if ( !_life_line ) {
+            return;
+        }
+        TEST.ASSERT.equal( _life_line.textContent, "Points de vie : " + _character.getHealth().getMaxHP(), "La ligne devrait suivre le total PV du domaine, obtenu : " + _life_line.textContent );
+        _life_line.click();
+        let _health_overlay             = document.querySelector( ".popup-overlay[data-popup-uuid='character__health'][data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _health_overlay, "Le clic sur la ligne devrait ouvrir la popup du detail des PV" );
+        if ( !_health_overlay ) {
+            return;
+        }
+        TEST.ASSERT.equal( _health_overlay.getAttribute( "data-current-phase" ), "RUNNING", "La popup PV devrait etre RUNNING" );
+        let _sources                    = _health_overlay.querySelectorAll( ".popup-health-source" );
+        TEST.ASSERT.equal( _sources.length, 2, "La popup devrait porter 2 sources (depart Elfe + le niveau 1 actif), obtenu : " + _sources.length );
+        if ( _sources.length >= 2 ) {
+            TEST.ASSERT.ok( _sources[ 0 ].textContent.indexOf( "Elfe" ) !== -1, "La premiere source devrait etre le depart de l'ascendance, obtenu : " + _sources[ 0 ].textContent );
+            TEST.ASSERT.ok( _sources[ 1 ].textContent.indexOf( "Niveau 1 — Champion" ) !== -1, "La source du niveau 1 devrait citer la classe d'origine du niveau, obtenu : " + _sources[ 1 ].textContent );
+        }
+        let _disabled_in_detail         = false;
+        for ( let _s = 0, _size_s = _sources.length; _s < _size_s; _s++ ) {
+            if ( _sources[ _s ].textContent.indexOf( "Niveau 2" ) !== -1 ) {
+                _disabled_in_detail = true;
             }
-            let _rows                  = _level_pane.querySelectorAll( ".life-table tr[data-level-name]" );
-            TEST.ASSERT.equal( _rows.length, 2, "Le tableau devrait afficher 2 niveaux, obtenu : " + _rows.length );
-            if ( _rows.length < 2 ) {
-                return;
+        }
+        TEST.ASSERT.notOk( _disabled_in_detail, "Le niveau desactive ne devrait pas figurer dans le detail du total" );
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
+        let _blocks                      = _pane.querySelectorAll( ".level-up-block[data-level-name]" );
+        TEST.ASSERT.equal( _blocks.length, 2, "Chaque niveau devrait garder son bloc (meme desactive, pour son interrupteur), obtenu : " + _blocks.length );
+        let _disabled_block              = _pane.querySelector( ".level-up-block[data-level-name='2']" );
+        TEST.ASSERT.notNull( _disabled_block, "Le bloc du niveau 2 devrait exister" );
+        if ( _disabled_block ) {
+            TEST.ASSERT.ok( _disabled_block.classList.contains( "disabled" ), "Le bloc du niveau desactive devrait porter la classe disabled" );
+            TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".level-up-row" ).length, 0, "Le bloc du niveau desactive ne devrait pas afficher de lignes de deblocage" );
+            let _block_state             = _disabled_block.querySelector( ".level-up-level-toggle" );
+            if ( _block_state ) {
+                TEST.ASSERT.equal( _block_state.textContent, "Désactivé", "L'interrupteur du bloc desactive devrait afficher Désactivé, obtenu : " + _block_state.textContent );
             }
-            let _row_icon              = _rows[ 1 ].querySelector( ".level-class-icon" );
-            TEST.ASSERT.notNull( _row_icon, "Chaque ligne devrait afficher l'icone de la classe d'origine du niveau (.level-class-icon)" );
-            if ( _row_icon ) {
-                TEST.ASSERT.equal( _row_icon.textContent, CLASSES.ICONS[ "Champion" ], "L'icone de la ligne devrait etre celle de Champion, obtenu : " + _row_icon.textContent );
-            }
-            let _row_class_name        = _rows[ 1 ].querySelector( ".level-class-name" );
-            TEST.ASSERT.notNull( _row_class_name, "Chaque ligne devrait afficher le nom de la classe d'origine du niveau a cote de l'icone (.level-class-name)" );
-            if ( _row_class_name ) {
-                TEST.ASSERT.equal( _row_class_name.textContent, "Champion", "Le nom affiche a cote de l'icone devrait etre la classe d'origine du niveau, obtenu : " + _row_class_name.textContent );
-            }
-            let _state_label           = _rows[ 1 ].querySelector( ".level-toggle" );
-            TEST.ASSERT.notNull( _state_label, "Chaque ligne devrait afficher l'etat Actif/Désactivé en libelle (.level-toggle)" );
-            if ( !_state_label ) {
-                return;
-            }
-            TEST.ASSERT.isNull( _state_label.getAttribute( "onclick" ), "Le libelle Actif/Désactivé ne devrait pas etre cliquable dans l'onglet Niveau (l'interrupteur vit dans Progression), obtenu : [" + _state_label.getAttribute( "onclick" ) + "]" );
-            TEST.ASSERT.equal( _state_label.textContent, "Désactivé", "Le libelle devrait afficher Désactivé, obtenu : " + _state_label.textContent );
-            TEST.ASSERT.notEqual( getComputedStyle( _state_label ).cursor, "pointer", "Le libelle ne devrait pas avoir le curseur d'un bouton, obtenu : " + getComputedStyle( _state_label ).cursor );
-            TEST.ASSERT.equal( getComputedStyle( _rows[ 1 ] ).opacity, "0.4", "La ligne du niveau desactive devrait etre grisee, obtenu : " + getComputedStyle( _rows[ 1 ] ).opacity );
-            return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-                let _levelup_pane      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-                TEST.ASSERT.notNull( _levelup_pane, "Le panneau Progression devrait exister" );
-                if ( !_levelup_pane ) {
-                    return;
-                }
-                let _blocks            = _levelup_pane.querySelectorAll( ".level-up-block[data-level-name]" );
-                TEST.ASSERT.equal( _blocks.length, 2, "Chaque niveau devrait garder son bloc (meme desactive, pour son interrupteur), obtenu : " + _blocks.length );
-                let _disabled_block    = _levelup_pane.querySelector( ".level-up-block[data-level-name='2']" );
-                TEST.ASSERT.notNull( _disabled_block, "Le bloc du niveau 2 devrait exister" );
-                if ( _disabled_block ) {
-                    TEST.ASSERT.ok( _disabled_block.classList.contains( "disabled" ), "Le bloc du niveau desactive devrait porter la classe disabled" );
-                    TEST.ASSERT.equal( _disabled_block.querySelectorAll( ".level-up-row" ).length, 0, "Le bloc du niveau desactive ne devrait pas afficher de lignes de deblocage" );
-                    let _block_state   = _disabled_block.querySelector( ".level-up-level-toggle" );
-                    if ( _block_state ) {
-                        TEST.ASSERT.equal( _block_state.textContent, "Désactivé", "L'interrupteur du bloc desactive devrait afficher Désactivé, obtenu : " + _block_state.textContent );
-                    }
-                }
-            } );
-        } );
+        }
     } );
 } );
 
@@ -290,21 +284,23 @@ TEST.RUNNER.register( "[NIVEAUX] ré-activation → totaux restaurés", function
             let _expected_hp           = _max_hp_before + _con.modifier_value.value + CLASSES.getDataByName( "Champion" ).life_point_by_level;
             TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient etre restaures" );
         }
-        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelWindow.NAME ).then( function () {
-            let _level_pane            = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-            TEST.ASSERT.notNull( _level_pane, "Le panneau Niveau devrait exister" );
-            if ( !_level_pane ) {
-                return;
-            }
-            let _row                   = _level_pane.querySelector( ".life-table tr[data-level-name='2']" );
-            if ( _row ) {
-                TEST.ASSERT.equal( getComputedStyle( _row ).opacity, "1", "La ligne re-activee ne devrait plus etre grisee, obtenu : " + getComputedStyle( _row ).opacity );
-                let _state_label       = _row.querySelector( ".level-toggle" );
-                if ( _state_label ) {
-                    TEST.ASSERT.equal( _state_label.textContent, "Activé", "Le libelle devrait reafficher Activé, obtenu : " + _state_label.textContent );
-                }
-            }
-        } );
+        // Le niveau re-active REVIENT dans le detail de la popup : la
+        // popup est reconstruite a chaque ouverture (etat dynamique)
+        let _life_line                   = _levelup_pane.querySelector( ".level-up-life-total" );
+        TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue dans la Progression" );
+        if ( !_life_line ) {
+            return;
+        }
+        TEST.ASSERT.equal( _life_line.textContent, "Points de vie : " + _character.getHealth().getMaxHP(), "La ligne devrait suivre le total restaure, obtenu : " + _life_line.textContent );
+        _life_line.click();
+        let _health_overlay              = document.querySelector( ".popup-overlay[data-popup-uuid='character__health'][data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _health_overlay, "La popup du detail PV devrait s'ouvrir" );
+        if ( !_health_overlay ) {
+            return;
+        }
+        let _sources                     = _health_overlay.querySelectorAll( ".popup-health-source" );
+        TEST.ASSERT.equal( _sources.length, 3, "La popup devrait porter 3 sources (depart Elfe + les 2 niveaux actifs), obtenu : " + _sources.length );
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
     } );
 } );
 

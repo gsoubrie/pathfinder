@@ -392,3 +392,40 @@
 .popup-slots-source-label {
     color: var(--pf-text-muted);
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   POINTS DE VIE (total du Général et de la Progression)
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Le total est la valeur clé de la popup */
+.popup-health-total {
+    color      : var(--pf-gold-bright);
+    font-size  : 16px;
+    margin     : 6px 0 12px;
+    text-align : center;
+}
+
+.popup-health-source {
+    align-items    : center;
+    border-bottom  : 1px solid var(--pf-border-subtle);
+    display        : flex;
+    font-size      : 13px;
+    gap            : 10px;
+    justify-content: space-between;
+    padding        : 6px 2px;
+}
+
+.popup-health-source:last-child {
+    border-bottom: none;
+}
+
+.popup-health-source-value {
+    color      : var(--pf-gold);
+    flex-shrink: 0;
+    min-width  : 2em;
+    text-align : right;
+}
+
+.popup-health-source-text {
+    color: var(--pf-text-muted);
+}

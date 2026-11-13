@@ -82,6 +82,21 @@ CHARACTER.LevelUpWindow.prototype = {
         this._global_warning.computeHtml();
         SERVICE.DOM.addElementTo( this._global_warning.getDomElement(), this.content_dom_element_target );
 
+        // Total PV de la fenêtre Niveau (supprimée) : la ligne vit ici, le
+        // DÉTAIL du calcul s'ouvre en popup au clic (décision utilisateur —
+        // rien d'autre ne se rend, une ligne par source reste dans la popup)
+        if ( history.getSize() > 0 ) {
+            let life_line = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class  : "level-up-life-total health-link",
+                    title  : "Détail du calcul",
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__health')"
+                } ),
+                this.content_dom_element_target
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-life-total-value" }, "Points de vie : " + character_object.getHealth().getMaxHP() ), life_line );
+        }
+
         // Sélecteur de classe + prise de niveau
         this._buildClassSelector( character_object );
 

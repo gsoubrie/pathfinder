@@ -2,22 +2,23 @@
 /**
  * Scenario : ONGLETS
  * Le groupe d'onglets de la fiche sur une page vide : nombre, onglet actif
- * (objet, DOM, style), libelles, etats desactives (Caracteristiques sans
- * ascendance, Niveau et Progression sans classe), clic sur Bibliothèque
- * (toujours actif) et retour sur l'onglet general.
- * Les clics Caracteristiques et Niveau se trouvent respectivement dans les
- * scenarios ASCENDANCE et CLASSE : ces onglets sont inactifs sans pre-requis.
+ * (objet, DOM, style), libelles, etats desactives (Caracteristiques et
+ * Progression sans ascendance — l'ancienne fenêtre Niveau a disparu, le
+ * total PV vit dans la Progression avec sa popup de détail), clic sur
+ * Bibliothèque (toujours actif) et retour sur l'onglet general.
+ * Le clic Caracteristiques se trouve dans le scenario ASCENDANCE : cet
+ * onglet est inactif sans pre-requis.
  */
 
-TEST.RUNNER.register( "[ONGLETS] nombre = 8", function () {
+TEST.RUNNER.register( "[ONGLETS] nombre = 7", function () {
     let _character                      = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character && _character.windows, "Pre-condition : personnage et fenetres charges" );
     if ( !_character || !_character.windows ) {
         return;
     }
-    TEST.ASSERT.equal( _character.windows.contents.length, 8, "Le groupe devrait contenir 8 fenetres, obtenu : " + _character.windows.contents.length );
+    TEST.ASSERT.equal( _character.windows.contents.length, 7, "Le groupe devrait contenir 7 fenetres, obtenu : " + _character.windows.contents.length );
     let _windows_dom                     = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
-    TEST.ASSERT.equal( _windows_dom.length, 8, "Les 8 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
+    TEST.ASSERT.equal( _windows_dom.length, 7, "Les 7 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
@@ -68,7 +69,6 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
         { name: CHARACTER.GeneralWindow.NAME,        label: "Général" },
         { name: CHARACTER.StuffsWindow.NAME,        label: "Équipement" },
         { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
-        { name: CHARACTER.LevelWindow.NAME,          label: "Niveau" },
         { name: CHARACTER.LibraryWindow.NAME,          label: "Bibliothèque" },
         { name: CHARACTER.SpellsWindow.NAME,          label: "Sorts" },
         { name: CHARACTER.AdjustmentsWindow.NAME,    label: "Ajustements" },
@@ -90,12 +90,11 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     }
 } );
 
-TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Niveau, Bibliothèque, Sorts, Ajustements, Progression", function () {
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Bibliothèque, Sorts, Ajustements, Progression", function () {
     let _expected_order = [
         CHARACTER.GeneralWindow.NAME,
         CHARACTER.StuffsWindow.NAME,
         CHARACTER.CharacteristicWindow.NAME,
-        CHARACTER.LevelWindow.NAME,
         CHARACTER.LibraryWindow.NAME,
         CHARACTER.SpellsWindow.NAME,
         CHARACTER.AdjustmentsWindow.NAME,
@@ -119,22 +118,6 @@ TEST.RUNNER.register( "[ONGLETS] Caractéristiques = disabled sur page vide", fu
     TEST.ASSERT.ok( parseFloat( _style.opacity ) < 1, "L'onglet desactive devrait apparaitre grise (opacity < 1), obtenu : " + _style.opacity );
     TEST.ASSERT.equal( _style.pointerEvents, "none", "Un onglet desactive ne devrait pas intercepter les clics (pointer-events none), obtenu : " + _style.pointerEvents );
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME ).then( function () {
-        let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GeneralWindow.NAME, "Le clic sur un onglet desactive ne devrait rien changer (fenetre active)" );
-    } );
-} );
-
-TEST.RUNNER.register( "[ONGLETS] Niveau = disabled sur page vide", function () {
-    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Niveau devrait exister" );
-    if ( !_tab ) {
-        return;
-    }
-    TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Niveau devrait porter l'etat disabled sans classe" );
-    let _style                           = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) < 1, "L'onglet desactive devrait apparaitre grise (opacity < 1), obtenu : " + _style.opacity );
-    TEST.ASSERT.equal( _style.pointerEvents, "none", "Un onglet desactive ne devrait pas intercepter les clics (pointer-events none), obtenu : " + _style.pointerEvents );
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelWindow.NAME ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
         TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GeneralWindow.NAME, "Le clic sur un onglet desactive ne devrait rien changer (fenetre active)" );
     } );

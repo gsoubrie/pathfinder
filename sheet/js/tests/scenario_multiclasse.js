@@ -2,8 +2,7 @@
 /**
  * Scenario : MULTICLASSE
  * Pre-condition : fin du scenario CLASSE (race Elfe posee, classe Champion poseee
- * a niveau 1, champ Classe affiche "Champion 1", onglets Niveau et Passage de
- * niveau actifs).
+ * a niveau 1, champ Classe affiche "Champion 1", onglet Progression actif).
  * 1. Popup de classe, selection Guerrier, validation : Guerrier ajoute a
  *    niveau 1 dans le conteneur classes, champ Classe = "Champion 1, Guerrier 1",
  *    niveau total = 2, entree d'historique portant Guerrier, PV totaux augmentes.

@@ -85,6 +85,44 @@ CHARACTER.Health.prototype = {
     getHealthPercentage: function () {
         return parseInt( (this.getEffectiveHP() / this.max_hp) * 100 );
     },
+    // Les sources du total : une ligne par niveau actif (PV de classe +
+    // mod CON), les PV de départ de l'ascendance comptés UNE fois quand au
+    // moins un niveau est actif (PF2 : niveau 1 = ascendance + classe + CON,
+    // cf. computeTotalLife du personnage — la popup lit l'état, elle ne
+    // recalcule rien)
+    getInformationData: function ( character_object ) {
+        let sources       = [];
+        let levels        = character_object.getLevelHistory();
+        let con_modifier  = character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key ).getModifierValue();
+        let has_active    = false;
+        for ( let i = 0, _size_i = levels.getSize(); i < _size_i; i++ ) {
+            let entry = levels.getContent( i );
+            if ( !entry.isEnabled() ) {
+                continue;
+            }
+            has_active = true;
+            sources.push( {
+                "value": entry.life_class + con_modifier,
+                "text" : "Niveau " + entry.getUUID() + " — " + entry.getClassName()
+            } );
+        }
+        if ( has_active && character_object.getRace().isSet() ) {
+            sources.unshift( {
+                "value": character_object.getRace().start_life || 0,
+                "text" : character_object.getRace().getValue() + " (départ)"
+            } );
+        }
+        if ( !sources.length ) {
+            return null;
+        }
+        return {
+            "id"            : "character__health",
+            "category"      : "health",
+            "text"          : "Points de vie",
+            "health_total"  : this.getMaxHP(),
+            "health_sources": sources
+        };
+    },
     //********************************************  SAVE / LOADING  **************************************************//
     getDataToSave: function () {
         return {

@@ -279,8 +279,17 @@ CHARACTER.GeneralWindow.prototype = {
         this.area_health = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
         
         var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-header" } ), this.area_health );
-        
-        var hpDisplay = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-display" } ), header );
+
+        // Le total PV ouvre sa popup de détail (les sources du calcul : PV
+        // de départ de l'ascendance + une ligne par niveau actif)
+        var hpDisplay = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", {
+                class  : "hp-display health-link",
+                title  : "Détail du calcul",
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__health')"
+            } ),
+            header
+        );
         
         SERVICE.DOM.addElementTo( character_object.getHealth().getDomCurrentHP(), hpDisplay );
         

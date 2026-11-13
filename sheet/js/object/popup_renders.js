@@ -211,6 +211,46 @@ SERVICE.CLASS.addPrototype( OBJECT.SpellSlotsPopupRenderer, OBJECT.BasePopupRend
 
 
 /**
+ * @class OBJECT.HealthPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * Renders the total hit points with every source of the calculation (data
+ * built by CHARACTER.Health, one line per source with the value it
+ * carries: the ancestry start life once, then each active level with its
+ * class life and CON modifier).
+ */
+OBJECT.HealthPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.HealthPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--default">
+            <h2 class="popup-title">${text}</h2>
+          </div>
+
+          <div class="popup-health-total">${object_data.health_total} PV</div>
+          ${this._sourcesList()}` );
+    },
+
+    _sourcesList: function () {
+        const sources = this.object_data.health_sources || [];
+        let rows      = "";
+        for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
+            rows += `
+              <div class="popup-health-source">
+                <span class="popup-health-source-value">${sources[ i ].value}</span>
+                <span class="popup-health-source-text">${sources[ i ].text}</span>
+              </div>`;
+        }
+        return `<div class="popup-health-sources">${rows}</div>`;
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.HealthPopupRenderer, OBJECT.BasePopupRenderer );
+
+
+/**
  * @class OBJECT.ActionPopupRenderer
  * @extends OBJECT.BasePopupRenderer
  */

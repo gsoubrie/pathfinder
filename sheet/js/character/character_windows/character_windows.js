@@ -14,16 +14,12 @@ CHARACTER.WindowGroup.prototype = {
         this.addSpecific( new CHARACTER.GeneralWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.StuffsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.CharacteristicWindow( this.getName() ), character_object );
-        this.addSpecific( new CHARACTER.LevelWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LibraryWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.SpellsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.AdjustmentsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelUpWindow( this.getName() ), character_object );
         if ( !character_object.getRace().isSet() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
-        }
-        if ( character_object.getClasses().isEmpty() ) {
-            this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelWindow.NAME );
         }
         if ( !character_object.getRace().isSet() ) {
             this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
