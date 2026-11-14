@@ -44,15 +44,16 @@ CHARACTER.AncestryLevelHistory.prototype = {
     // The ancestry feat line of the level plus, on the first level, the
     // additional language lines (N = Intelligence modifier if positive):
     // everything builds once (consuming the loaded staging), the options
-    // follow the current ancestry at every sync
-    syncLines: function ( race_name, int_modifier ) {
-        this.syncLine( race_name );
+    // follow the current ancestry at every sync, the feat pool widens with
+    // the versatile heritage pool and the language pool with its languages
+    syncLines: function ( race_name, int_modifier, legacy_name ) {
+        this.syncLine( race_name, legacy_name );
         if ( parseInt( this.level_name, 10 ) === 1 ) {
-            this.syncAdditionalLanguages( race_name, int_modifier );
+            this.syncAdditionalLanguages( race_name, int_modifier, legacy_name );
         }
         this.level_skill = null;
     },
-    syncLine: function ( race_name ) {
+    syncLine: function ( race_name, legacy_name ) {
         let line = this.getContentByUUID( this.level_name + "__" + LEVELUP.ANCESTRY_FEAT_KEY );
         if ( !line ) {
             line = this.add( new CHARACTER.LevelUpSkillWithSelect( {
@@ -68,10 +69,26 @@ CHARACTER.AncestryLevelHistory.prototype = {
         else if ( this.level_skill ) {
             line.setSelectedValue( this.level_skill[ LEVELUP.ANCESTRY_FEAT_KEY ] || null );
         }
-        line.setOptions( DON.getAvailableAncestryFeats( race_name, parseInt( this.level_name, 10 ) ) );
+        line.setOptions( DON.getAvailableAncestryFeats( race_name, parseInt( this.level_name, 10 ), legacy_name ) );
     },
-    syncAdditionalLanguages: function ( race_name, int_modifier ) {
+    syncAdditionalLanguages: function ( race_name, int_modifier, legacy_name ) {
         let language_options = RACES.getAdditionalLanguages( race_name );
+        // A versatile heritage adds its own languages to the pool
+        // (Sang-dragon : Draconique) : an ancestry may already carry one
+        // (le Nain propose le draconique), the union dedups
+        let legacy_languages = LEGACIES.getAdditionalLanguages( legacy_name );
+        for ( let i = 0, _size_i = legacy_languages.length; i < _size_i; i++ ) {
+            let already_there = false;
+            for ( let j = 0, _size_j = language_options.length; j < _size_j; j++ ) {
+                if ( SERVICE.STRING.containsIgnoreCase( language_options[ j ].name, legacy_languages[ i ] ) ) {
+                    already_there = true;
+                    break;
+                }
+            }
+            if ( !already_there ) {
+                language_options.push( { "name": legacy_languages[ i ] } );
+            }
+        }
         let target_count     = RACES.getAdditionalLanguagesNumber( race_name, int_modifier );
         let language_lines    = [];
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {

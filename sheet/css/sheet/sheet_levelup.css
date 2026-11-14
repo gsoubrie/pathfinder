@@ -26,26 +26,18 @@
     flex-shrink: 0;
 }
 
-/* ── Warning global ── */
-.level-up-window .level-up-global-warning {
-    border-radius : 6px;
-    font-size     : 13px;
-    font-weight   : bold;
-    padding       : 7px 14px;
-    text-align    : center;
-    background    : linear-gradient(135deg, #2a3a1a 0%, #1a2a0f 100%);
-    border        : 1px solid #4a8a4a;
-    color         : #90d080;
+/* ── Barre de progression : total PV + options de classe ── */
+.level-up-window .level-up-class-bar {
+    display         : flex;
+    align-items     : center;
+    flex-wrap       : wrap;
+    gap             : var(--s-lg);
+    justify-content : space-between;
+    padding         : 0 var(--s-sm);
 }
 
-.level-up-window .level-up-global-warning.visible {
-    background : linear-gradient(135deg, #3a2010 0%, #2a1408 100%);
-    border     : 1px solid #c06030;
-    color      : #f0a060;
-}
-
-/* ── Total PV (l'ancienne fenetre Niveau) : une ligne, le detail du
-      calcul s'ouvre en popup au clic ── */
+/* ── Total PV (l'ancienne fenetre Niveau) : le detail du calcul s'ouvre
+      en popup au clic — la valeur vit dans la barre de progression ── */
 .level-up-window .level-up-life-total {
     color      : var(--c-text-muted);
     cursor     : pointer;

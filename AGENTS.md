@@ -141,20 +141,26 @@ lignes un jour), et le warning global de la fenêtre.
   conteneur) sur chaque entrée AVANT son `updateData` : l'entrée en a
   besoin pour reconstruire ses lignes en chargeant son `level_skill`.
   Plus de `buildLevel` ni de `removeLevel`.
-- `CHARACTER.LevelUpWindow` — ne calcule plus rien : elle ajoute l'en-tête,
-  le warning global, le sélecteur de classe, puis une section par entrée
+- `CHARACTER.LevelUpWindow` (`character_windows/levelup_window.js`) — porte
+  le contenu de l'ancien onglet Caractéristiques EN TÊTE (le bloc vit sur
+  un conteneur `div.characteristic-container` construit UNE fois dans
+  `computeHtmlWithData`, il survit aux vidages de la cible : la fenêtre
+  vide et re-appende le bloc vivant), puis une BARRE de progression
+  `.level-up-class-bar` (`.level-up-class-bar` porte la ligne PV
+  `.level-up-life-total` — popup santé au clic — ET le sélecteur de
+  classe `.level-up-class-selector`), puis une section par entrée
   de l'historique (`entry.setLinesCountersParent( this )` puis
-  `entry.computeHtml()`). Sur `event__level_up__toggle_skill` la fenêtre
-  re-dispatch au personnage, le warning global se met à jour tout seul par
-  la chaîne de compteurs.
-- `CHARACTER.LevelUpGlobalWarning` (`level-up-global-warning.js`) — label
-  "N capacités non validées" de la fenêtre : objet compteur dédié,
-  consommateur du compteur warnings de la fenêtre (`setParent` + contrat
-  `update( name, nb )`), rend et re-rend son div tout seul ; plus aucun
-  `_buildGlobalWarning` / `_updateGlobalWarning` ni `getMissingCount()`.
+  `entry.computeHtml()`). L'entête récap et le label warning global ont
+  disparu (supprimés, Round 78) : les badges portent seuls la somme. Sur
+  les gestes de validation la fenêtre re-dispatch au personnage, le badge
+  de l'onglet se met à jour par la chaîne de compteurs.
 - Chaîne de compteurs : ligne → fenêtre (badge d'onglet), branchée par
   `setLinesCountersParent( window )` sur chaque entrée au rendu de la
-  fenêtre. Le branchement ne PEUT pas se faire au `add` des lignes :
+  fenêtre — PLUS les warnings des caractéristiques (`characteristics.
+  setCountersParent( window )` dans `computeHtmlWithData`) : le badge
+  de l'onglet vaut la SOMME des compteurs du contenu (décision
+  utilisateur, Round 78), les choix de bonus non posés s'y voient. Le
+  branchement ne PEUT pas se faire au `add` des lignes :
   elles se posent toujours avant que leur entrée ne connaisse la fenêtre
   (load, prise de niveau, ajout de classe — l'entrée est vierge à chaque
   fois), un `add` redéfini ne se déclencherait jamais. Plus aucun
@@ -2054,6 +2060,61 @@ laissent leurs CLONES DOM cachés derrière elles, tous porteurs du
 même uuid — une requête par uuid attrape le PLUS ANCIEN, il faut la
 scoper `[data-current-phase='RUNNING']`. Validé par run headless via
 l'outil du Round 76 : 124 OK / 0 ECHEC (124).
+Round 78 = FIN DE L'ONGLET CARACTÉRISTIQUES, LE CONTENU FUSIONNE EN TÊTE
+DE LA PROGRESSION (demande utilisateur) : le bloc
+characteristics vit en tête de la fenêtre Progression, l'ancien onglet
+disparaît (6 fenêtres : Général, Équipement, Bibliothèque, Sorts,
+Ajustements, Progression). Décisions utilisateur actées : (1) le badge
+de l'onglet vaut la SOMME des compteurs du contenu (« la règle doit
+rester simple ») — les warnings des caractéristiques s'AJOUTENT à ceux
+des lignes levelup (le choix libre d'Elfe se voit sur l'onglet
+Progression), les scénarios attendent dynamiquement `getCounterValue(
+WARNINGS )` des caractéristiques en plus de leurs comptes de lignes ;
+(2) le titre « Caractéristiques » du bloc reste ; (3)
+`CHARACTER.LevelUpGlobalWarning` (`level-up-global-warning.js`) est
+SUPPRIMÉ (les badges suffisent), la ligne PV
+`level-up-life-total-value` vit dans la BARRE de progression
+`.level-up-class-bar` (conteneur dédié : la barre porte la ligne PV +
+le sélecteur `.level-up-class-selector`, code propre demandé).
+Code supprimé : `characteristics_window.js` + `level-up-global-warning.js`
+(balises des DEUX index.html/tests.html), le gating
+`setVisibilityWindowState(..., CharacteristicWindow.NAME)` de
+character.js et character_windows.js (`CHARACTERISTICS.WINDOW_KEY =
+"characteristic_sheet"` dans constant_divers : l'ANCIEN nom de fenêtre
+reste la clé de rendu du dispatch `event__compute__html` — les
+sous-composants FinalValue/ModifierValue/ConfigurableValue et
+ComponentInterface routent dessus, ce n'est PLUS un nom de fenêtre).
+Le CSS `sheet_characteristic.css` se re-scope
+`.property-tab-pane[data-name="levelup_sheet"]` (le bloc vit dans le
+panneau Progression) ; les styles `.level-up-global-warning` partent de
+`sheet_levelup.css` ; la barre `.level-up-class-bar` vit dedans.
+Le bloc characteristics se construit UNE fois dans
+`computeHtmlWithData` (le conteneur recharge ses compteurs vers la
+NOUVELLE fenêtre : `characteristics.setCountersParent( window )`) et
+SURVIT aux vidages de la cible — la fenêtre vide sa cible à chaque
+activation et re-appende le bloc vivant.
+PIÈGE de lib (crash au boot) : les classes fenêtre posent
+`initSpecific: WINDOW_V2.ElementFromData.initSpecific` — la propriété
+du CONSTRUCTEUR vaut undefined à l'évaluation, c'est
+`SERVICE.CLASS.addPrototype( Fenêtre, WINDOW_V2.ElementFromData )` en
+fin de fichier qui COPIE la vraie méthode (l'enfant undefined est
+remplacé) ; un `initSpecific` CUSTOM (StuffsWindow et son compteur
+bulk) n'est PAS remplacé et doit appeler
+`WINDOW_V2.ElementFromData.prototype.initSpecific.call(...)` — JAMAIS
+la propriété du constructeur (undefined → « Cannot read properties of
+undefined (reading 'call') » au premier `new`).
+Scénarios réalignés : onglets (6 fenêtres + ordre sans Caractéristiques,
+l'assert DOM descend à 6), reset (l'onglet Caractéristiques part de la
+liste), ascendance (le test gating devient « caractéristiques en tête
+de la Progression »), caracteristiques + caracteristiques_classe
+(retarget `characteristics_window.js` → levelup_window.js, les assertions
+de badge lisent le badge de l'onglet Progression), levelup_magicien (les
+4 compteurs d'onglet prennent `+ getCounterValue( WARNINGS )` des
+caractéristiques — le test « tout validé → badge vide » devient « badge
+= warnings des caractéristiques seuls », on ne POSE PAS le choix libre
+dans cette chaîne : le mod INT bougerait les comptes en cascade).
+Validé par run headless (outil du Round 76) : 131 OK / 0 ECHEC,
+stabilisé sur DEUX runs consécutifs.
 
 ### Style, commentaires, nommage
 
@@ -2209,10 +2270,11 @@ l'outil du Round 76 : 124 OK / 0 ECHEC (124).
   attribute sur n'importe quel DOM (`updateTargetsDomElement`), et le CSS
   réagit à cette data. Un même compteur peut alimenter plusieurs DOM
   (badge d'onglet + div de zone).
-- Un label peut être un objet compteur dédié : `CHARACTER.LevelUpGlobalWarning`
-  (`level-up-global-warning.js`) consomme le compteur warnings de la fenêtre
-  et rend/re-rend son div tout seul ; `_buildGlobalWarning`,
-  `_updateGlobalWarning` et `getMissingCount()` sont supprimés. À la
+- Un label peut être un objet compteur dédié (l'exemple historique
+  `CHARACTER.LevelUpGlobalWarning` a été supprimé au Round 78 — les
+  badges suffisent) ; le même contrat `update( name, nb )` vit aujourd'hui
+  sur `CHARACTER.StuffsWindow.update` : le compteur bulk du domaine
+  pousse, la fenêtre réécrit sa barre d'encombrement. À la
   souscription, synchroniser la valeur courante (le compteur ne repousse
   qu'au changement) : `label.update( counter.uuid, counter.getValue() )`.
 - Généralisation : si la valeur d'un compteur doit influencer une zone

@@ -9,6 +9,12 @@ LEGACIES.Legacies.prototype = {
     init: function ( data ) {
         this.initContents();
         for ( let i = 0, _size_i = data.length; i < _size_i; i++ ) {
+            // les polyvalents vivent dans leur propre section pour toute
+            // ascendance, la liste scrapée ne les porte jamais (le scrap
+            // d'Humain embarque pourtant Aiuvarin et Dromaar)
+            if ( LEGACIES.isVersatile( data[ i ] ) ) {
+                continue;
+            }
             let to_add = new LEGACIES.LegacyPopup( LEGACIES.getDataByName( data[ i ] ) );
             this.add( to_add );
         }
@@ -79,11 +85,38 @@ LEGACIES.WindowGroup.prototype = {
             let added   = this.addSpecific( this.getChildConstructor( current.getKey(), this.getName() ) );
             added.setContentDomElementTarget( current.computeHTMLEdition() );
         }
-        
-    }
-    //********************************************  EVENT LISTENER  **************************************************//
-    
+        this.versatile_start_index = this.contents.length;
+        for ( let i = 0, _size_i = LEGACIES.VERSATILE.length; i < _size_i; i++ ) {
+            // un polyvalent absent du scrap ne rend pas d'onglet vide
+            let data = LEGACIES.getDataByName( LEGACIES.VERSATILE[ i ] );
+            if ( !data ) {
+                continue;
+            }
+            let current = new LEGACIES.LegacyPopup( data );
+            let added   = this.addSpecific( this.getChildConstructor( current.getKey(), this.getName() ) );
+            added.setContentDomElementTarget( current.computeHTMLEdition() );
+        }
+    },
     //********************************************  HTML   **************************************************//
+    // le separateur de section s'intercale dans le rendu du groupe : la boucle
+    // de la lib ne connait que les onglets, l'ordre du DOM reste celui des
+    // colonnes
+    computeHtml: function () {
+        this.setDomElement( SERVICE.DOM.createElement( "div", this.getMainAttribute() ) );
+        for ( let i = 0, _size_i = this.contents.length; i < _size_i; i++ ) {
+            if ( i === this.versatile_start_index ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "legacy-versatile-separator" }, LEGACIES.VERSATILE_LABEL ), this.getDomElement() );
+            }
+            this.contents[ i ].computeHtml();
+            this.addDomElement( this.contents[ i ].getDomElement() );
+        }
+        this.doActionAfter( "compute_html_done" );
+    },
+    // la classe identifie le groupe d'onglets de la popup d'heritage : ses
+    // onglets se replient et le separateur vit sur sa propre ligne
+    getMainClass: function () {
+        return WINDOW_V2.ElementGroupFromData.prototype.getMainClass.call( this ) + " legacy-window-group";
+    }
 };
 
 SERVICE.CLASS.addPrototype( LEGACIES.WindowGroup, WINDOW_V2.ElementGroupFromData );

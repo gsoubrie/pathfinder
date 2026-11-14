@@ -42,6 +42,10 @@ TEST.RUNNER.register( "[ASCENDANCE] clic sur le champ → popup ouvert", functio
     }
     let _container                      = _popup.querySelector( ".edition-property-popup" );
     TEST.ASSERT.notNull( _container, "Le popup devrait contenir son conteneur d'edition" );
+    if ( _container ) {
+        // Hauteur fixe = hauteur de l'écran, elle ne fluctue pas avec le contenu
+        TEST.ASSERT.equal( window.getComputedStyle( _container ).height, window.innerHeight + "px", "La popup d'edition devrait faire la hauteur de l'ecran, obtenu : " + window.getComputedStyle( _container ).height );
+    }
     let _title                          = _popup.querySelector( ".title" );
     TEST.ASSERT.notNull( _title, "Le popup devrait avoir un titre" );
     if ( _title ) {
@@ -102,7 +106,14 @@ TEST.RUNNER.register( "[ASCENDANCE] selection Elfe → actif = Elfe", function (
             TEST.ASSERT.notNull( _edition, "Les infos d'Elfe devraient etre rendues (.race-edition)" );
             if ( _edition ) {
                 TEST.ASSERT.equal( TEST_editionPropertyValue( _edition, "Point de vie" ), "6", "Les pv de depart d'Elfe (6) devraient etre affiches" );
-                TEST.ASSERT.notNull( _edition.querySelector( ".traits .trait" ), "Les traits d'Elfe devraient etre affiches" );
+                let _trait                  = _edition.querySelector( ".traits .trait" );
+                TEST.ASSERT.notNull( _trait, "Les traits d'Elfe devraient etre affiches" );
+                if ( _trait ) {
+                    // Les badges de traits portent la palette trait (lisible), pas le noir hérité
+                    let _trait_style        = window.getComputedStyle( _trait );
+                    TEST.ASSERT.equal( _trait_style.color, "rgb(240, 208, 208)", "La couleur du badge de trait devrait etre --c-trait-text, obtenu : " + _trait_style.color );
+                    TEST.ASSERT.equal( _trait_style.backgroundColor, "rgb(92, 26, 26)", "Le fond du badge de trait devrait etre --c-trait-bg, obtenu : " + _trait_style.backgroundColor );
+                }
             }
         }
         let _humain_pane                = document.querySelector( "body > .popup .gs-tab-pane[data-name='Humain']" );
@@ -212,49 +223,40 @@ TEST.RUNNER.register( "[ASCENDANCE] zones toujours cachees : archétype, niveau,
     }
 } );
 
-TEST.RUNNER.register( "[ASCENDANCE] onglet Caractéristiques re-active", function () {
-    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Caracteristiques devrait exister" );
+TEST.RUNNER.register( "[ASCENDANCE] onglet Progression re-activé, caractéristiques en tête", function () {
+    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
     if ( !_tab ) {
         return;
     }
-    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Caracteristiques ne devrait plus porter l'etat disabled apres le choix de l'ascendance" );
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression ne devrait plus porter l'etat disabled apres le choix de l'ascendance" );
     let _style                           = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Caracteristiques ne devrait plus etre grise, obtenu : " + _style.opacity );
-    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Caracteristiques devrait intercepter les clics, obtenu : " + _style.pointerEvents );
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME ).then( function () {
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Progression ne devrait plus etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Progression devrait intercepter les clics, obtenu : " + _style.pointerEvents );
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.CharacteristicWindow.NAME, "Fenetre active apres le clic" );
+        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Fenetre active apres le clic" );
         let _running_tabs                = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
         TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING" );
         if ( _running_tabs.length === 1 ) {
-            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.CharacteristicWindow.NAME, "Onglet RUNNING" );
-            let _active_style            = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
-            TEST.ASSERT.ok( _active_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet Caracteristiques actif devrait etre dore, obtenu : " + _active_style.backgroundImage );
+            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.LevelUpWindow.NAME, "Onglet RUNNING" );
         }
-        let _general_div                 = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .gs-div-tab" );
-        if ( _general_div ) {
-            let _general_style           = getComputedStyle( _general_div );
-            TEST.ASSERT.ok( _general_style.backgroundImage.indexOf( "212, 175, 55" ) === -1, "L'onglet General inactif ne devrait plus etre dore, obtenu : " + _general_style.backgroundImage );
-        }
-        let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Caracteristiques devrait exister (.gs-tab-pane)" );
+        let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister (.gs-tab-pane)" );
         if ( !_pane ) {
             return;
         }
-        TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Caracteristiques devrait etre visible apres le clic (classe gs-hidden encore presente)" );
+        TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Progression devrait etre visible apres le clic (classe gs-hidden encore presente)" );
         let _container                    = _pane.querySelector( ".characteristic-container" );
-        TEST.ASSERT.notNull( _container, "Le panneau devrait contenir la grille des caracteristiques (.characteristic-container)" );
+        TEST.ASSERT.notNull( _container, "Le panneau devrait contenir la grille des caracteristiques en tete (.characteristic-container)" );
         if ( _container ) {
             let _expected_keys            = ["FOR", "DEX", "CON", "INT", "SAG", "CHA"];
             for ( let i = 0, _size_i = _expected_keys.length; i < _size_i; i++ ) {
                 TEST.ASSERT.notNull( _container.querySelector( ".characteristic-line[data-name='" + _expected_keys[ i ] + "']" ), "La ligne de la caracteristique " + _expected_keys[ i ] + " devrait etre rendue" );
             }
         }
-        let _general_pane                = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
-        if ( _general_pane ) {
-            TEST.ASSERT.ok( _general_pane.classList.contains( "gs-hidden" ), "Le panneau General devrait etre masque apres le clic sur Caracteristiques" );
-        }
+        let _first_child                  = _pane.querySelector( ".level-up-window" ).firstElementChild;
+        TEST.ASSERT.ok( _first_child && _first_child.classList.contains( "characteristic-container" ), "La grille des caracteristiques devrait etre LE PREMIER enfant de la Progression, obtenu : " + ( _first_child ? _first_child.getAttribute( "class" ) : "aucun" ) );
     } );
 } );
 
@@ -277,6 +279,10 @@ TEST.RUNNER.register( "[ASCENDANCE] infos Général = traits, vitesse, sens, lan
         if ( _traits.length === 2 ) {
             TEST.ASSERT.equal( _traits[ 0 ].textContent, "Elfe", "Le premier trait devrait etre Elfe, obtenu : " + _traits[ 0 ].textContent );
             TEST.ASSERT.equal( _traits[ 1 ].textContent, "Humanoïde", "Le second trait devrait etre Humanoïde, obtenu : " + _traits[ 1 ].textContent );
+            // Les badges de traits portent la palette trait (lisible sur fond sombre), pas le noir hérité
+            let _trait_style = window.getComputedStyle( _traits[ 0 ] );
+            TEST.ASSERT.equal( _trait_style.color, "rgb(240, 208, 208)", "La couleur du badge de trait devrait etre --c-trait-text, obtenu : " + _trait_style.color );
+            TEST.ASSERT.equal( _trait_style.backgroundColor, "rgb(92, 26, 26)", "Le fond du badge de trait devrait etre --c-trait-bg, obtenu : " + _trait_style.backgroundColor );
         }
         // La taille reste LE champ existant (body_size, enfant de la race)
         let _size_input                    = _pane.querySelector( ".area-body_size input.value" );

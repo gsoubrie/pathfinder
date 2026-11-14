@@ -20,7 +20,7 @@ OBJECT.ConfigurableValue.prototype = {
         switch ( event_name ) {
             case "event__compute__html":
                 switch ( params[ "param__window" ] ) {
-                    case CHARACTER.CharacteristicWindow.NAME:
+                    case CHARACTERISTICS.WINDOW_KEY:
                         this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                         return;
                 }
@@ -129,7 +129,7 @@ OBJECT.CalculatedValue.prototype = {
                     case CHARACTER.GeneralWindow.NAME:
                         this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
                         return;
-                    case CHARACTER.CharacteristicWindow.NAME:
+                    case CHARACTERISTICS.WINDOW_KEY:
                         this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                         return;
                 }

@@ -9,6 +9,10 @@ CHARACTER.Stuffs = function () {
 CHARACTER.Stuffs.prototype = {
     init: function () {
         this.initContents();
+        this.counters = {};
+        this.initCounter( "bulk" );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        this.initCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -97,6 +101,21 @@ CHARACTER.Stuffs.prototype = {
         }
         return Math.round( bulk_total * 10 ) / 10;
     },
+    // PF2 : the maximum bulk is 10 + the Strength modifier
+    getBulkMax: function ( character_object ) {
+        let for_modifier = character_object.getCharacteristics().getContentByUUID( CHARACTERISTICS.FOR.key ).getModifierValue();
+        return 10 + for_modifier;
+    },
+    // Pushes the carried bulk and its state on the counters : the window
+    // follows by itself (counter → window), nothing recalculates by hand.
+    // over the max = warning, over twice the max = error (PF2 : no more move)
+    pushBulkCounters: function ( character_object ) {
+        let bulk_total = this.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+        let bulk_max   = this.getBulkMax( character_object );
+        this.setCounterValue( "bulk", "carried_bulk", bulk_total );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "bulk_over", bulk_total > bulk_max ? 1 : 0 );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, "bulk_critical", bulk_total > 2 * bulk_max ? 1 : 0 );
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return          = {};
@@ -131,3 +150,4 @@ CHARACTER.Stuffs.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.Stuffs, OBJECT.InterfaceContainerHtml );
+SERVICE.CLASS.addPrototype( CHARACTER.Stuffs, GS.OBJECT.CounterInterfaceV2 );

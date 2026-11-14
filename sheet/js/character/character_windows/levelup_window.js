@@ -2,8 +2,10 @@
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CHARACTER.LevelUpWindow
-// Onglet "Progression" : récapitulatif par niveau de l'historique, les
-// entrées CHARACTER.LevelHistory rendent chacune leur section (computeHtml)
+// Onglet "Progression" : les caractéristiques (contenu de l'ancien onglet
+// supprimé) en tête, puis la barre total PV + options de classe, puis le
+// récapitulatif par niveau de l'historique — les entrées
+// CHARACTER.LevelHistory rendent chacune leur section (computeHtml)
 // et leurs lignes alimentent le compteur warnings de la fenêtre directement
 // (chaîne ligne → fenêtre, branchée à chaque rendu). Les entrées
 // d'ascendance (CHARACTER.AncestryLevelHistory) rendent leurs sections de
@@ -61,15 +63,16 @@ CHARACTER.LevelUpWindow.prototype = {
 
     //********************************************  HTML   **************************************************//
     computeHtmlWithData: function ( character_object ) {
-        // Global warning label: consumer of the window warnings counter
-        if ( !this._global_warning ) {
-            let window_counter = this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
-            this._global_warning = new CHARACTER.LevelUpGlobalWarning();
-            window_counter.setParent( this._global_warning );
-            this._global_warning.update( window_counter.uuid, window_counter.getValue() );
-        }
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "level-up-window" } );
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+        // Le contenu de l'onglet Caractéristiques (supprimé) vit en tête de la
+        // Progression : ses compteurs rejoignent ceux de la fenêtre (le badge
+        // vaut la somme des compteurs du contenu, règle des compteurs), le
+        // bloc se construit UNE fois et survit aux re-renders — la fenêtre
+        // vide sa cible à chaque activation, l'append déplace le bloc vivant
+        character_object.getCharacteristics().setCountersParent( this );
+        this._characteristics_dom = SERVICE.DOM.createElement( "div", { class: "characteristic-container" } );
+        character_object.getCharacteristics().computeCharacteristicWindow( this._characteristics_dom );
     },
 
     _buildContent: function ( character_object ) {
@@ -78,27 +81,12 @@ CHARACTER.LevelUpWindow.prototype = {
         var race_name        = character_object.getRace().getValue();
         this._selected_class = this._selected_class || character_object.getClasses().getHighestClassName();
 
-        // Nombre de choix manquants : label piloté par le compteur warnings de la fenêtre
-        this._global_warning.computeHtml();
-        SERVICE.DOM.addElementTo( this._global_warning.getDomElement(), this.content_dom_element_target );
+        // En tête : les caractéristiques
+        SERVICE.DOM.addElementTo( this._characteristics_dom, this.content_dom_element_target );
 
-        // Total PV de la fenêtre Niveau (supprimée) : la ligne vit ici, le
-        // DÉTAIL du calcul s'ouvre en popup au clic (décision utilisateur —
-        // rien d'autre ne se rend, une ligne par source reste dans la popup)
-        if ( history.getSize() > 0 ) {
-            let life_line = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class  : "level-up-life-total health-link",
-                    title  : "Détail du calcul",
-                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__health')"
-                } ),
-                this.content_dom_element_target
-            );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-life-total-value" }, "Points de vie : " + character_object.getHealth().getMaxHP() ), life_line );
-        }
-
-        // Sélecteur de classe + prise de niveau
-        this._buildClassSelector( character_object );
+        // Barre de progression : total PV (détail en popup au clic) + options
+        // de classe, un conteneur unique porte la barre
+        this._buildClassBar( character_object, history.getSize() > 0 );
 
         // Une section par niveau de l'historique, y compris desactive :
         // la section desactivee porte l'interrupteur de re-activation. Les
@@ -132,14 +120,33 @@ CHARACTER.LevelUpWindow.prototype = {
         SERVICE.DOM.addElementTo( ancestry_entry.getDomElement(), this.content_dom_element_target );
     },
 
-    _buildClassSelector: function ( character_object ) {
+    _buildClassBar: function ( character_object, with_life ) {
+        var bar = SERVICE.DOM.createElement( "div", { class: "level-up-class-bar" } );
+        if ( with_life ) {
+            var life_line = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class  : "level-up-life-total health-link",
+                    title  : "Détail du calcul",
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__health')"
+                } ),
+                bar
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "level-up-life-total-value" }, "Points de vie : " + character_object.getHealth().getMaxHP() ), life_line );
+        }
+        this._buildClassSelector( character_object, bar );
+        if ( bar.children.length > 0 ) {
+            SERVICE.DOM.addElementTo( bar, this.content_dom_element_target );
+        }
+    },
+
+    _buildClassSelector: function ( character_object, bar ) {
         var classes = character_object.getClasses();
         if ( classes.isEmpty() ) {
             return;
         }
         var selector = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "level-up-class-selector" } ),
-            this.content_dom_element_target
+            bar
         );
         for ( var c = 0; c < classes.getSize(); c++ ) {
             var current = classes.getContent( c );

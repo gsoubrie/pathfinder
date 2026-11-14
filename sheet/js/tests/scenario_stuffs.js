@@ -180,6 +180,13 @@ function TEST_stuffsDiagnosis() {
     return _description;
 }
 
+function TEST_stuffsBulkText( bulk_total ) {
+    // The bar reads "porté / max", the max comes from the domain (10 + FOR)
+    let _character = CONTROLLER.Character.current_character;
+    let _max       = _character.getStuffs().getBulkMax( _character );
+    return "Encombrement : " + String( bulk_total ).replace( ".", "," ) + " / " + _max;
+}
+
 TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtre catégories + popup d'ajout", function () {
     TEST.RESET.sheet();
     let _tab = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
@@ -206,7 +213,7 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtre catégories + popup
         TEST.ASSERT.ok( _add_bar.firstElementChild.classList.contains( "stuffs-add-button" ), "Le + devrait ouvrir la barre (premier enfant), obtenu : [" + ( _add_bar.firstElementChild ? _add_bar.firstElementChild.className : "vide" ) + "]" );
         TEST.ASSERT.equal( _pane.querySelectorAll( ".stuffs-add-button" ).length, 1, "Un seul + devrait vivre dans la fenêtre, obtenu : " + _pane.querySelectorAll( ".stuffs-add-button" ).length );
         let _bulk_total = _pane.querySelector( ".stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total ? _bulk_total.textContent : null, "Encombrement : 0", "L'encombrement porté devrait etre 0 sur page vide, obtenu : [" + ( _bulk_total ? _bulk_total.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _bulk_total ? _bulk_total.textContent : null, TEST_stuffsBulkText( 0 ), "L'encombrement porté devrait etre 0 sur page vide, obtenu : [" + ( _bulk_total ? _bulk_total.textContent : "null" ) + "]" );
         // Les catégories : Tous + une puce par emplacement, comptes à 0,
         // la puce Tous active par défaut (la data porte l'état)
         let _filters = _pane.querySelectorAll( ".stuffs-add-bar .stuffs-location-filter" );
@@ -343,7 +350,7 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         TEST.ASSERT.notNull( _entry_dom.querySelector( ".stuffs-entry-edit" ), "L'entrée devrait porter sa roue crantée d'édition" );
         // L'encombrement porté suit l'ajout : croisé avec le domaine
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
+        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
         // La ROUE CRANTÉE ouvre l'édition : l'emplacement courant
         // s'affiche, choisir Équipé valide et déplace l'entrée
         TEST_stuffsOpenEditPopup( "weapon", "Épée longue" );
@@ -430,7 +437,7 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
                 TEST.ASSERT.equal( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : null, "2", "La quantité AFFICHÉE de la ligne devrait suivre l'édition, obtenu : [" + ( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : "null" ) + "]" );
                 // La quantité pèse : l'encombrement porté suit les unités
                 let _bulk_with_stack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                TEST.ASSERT.equal( _bulk_with_stack.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 2 * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter les DEUX épées, obtenu : [" + _bulk_with_stack.textContent + "]" );
+                TEST.ASSERT.equal( _bulk_with_stack.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 2 * 10 ) / 10 ), "L'encombrement porté devrait compter les DEUX épées, obtenu : [" + _bulk_with_stack.textContent + "]" );
                 // Save → load : la surcharge et la quantité survivent
                 let _reloaded_sword_save = new CHARACTER.Current();
                 _reloaded_sword_save.updateData( _character.getDataToSave() );
@@ -571,7 +578,7 @@ TEST.ASSERT.ok( _armor_chars && _armor_chars.textContent.indexOf( "CA bonus" ) !
         // L'entreposé ne pèse pas sur le total PORTÉ de la barre : seule
         // l'épée (équipée au test précédent) y compte ; la section
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait compter l'épée seule (l'armure entreposée ne pèse pas), obtenu : [" + _bulk_total.textContent + "]" );
+        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait compter l'épée seule (l'armure entreposée ne pèse pas), obtenu : [" + _bulk_total.textContent + "]" );
         // La FERMETURE de la popup d'information d'un objet APOSTROPHE :
         // le « x » et le clic sur le fond referment (regression —
         // l'uuid embarquait en inline, la quote du nom cassait le
@@ -643,7 +650,7 @@ TEST.ASSERT.ok( _armor_chars && _armor_chars.textContent.indexOf( "CA bonus" ) !
             TEST.ASSERT.notNull( _entry_backpack, "L'armure devrait vivre dans la section Sac à dos apres l'édition, fenêtre : " + TEST_stuffsDiagnosis() );
             let _bulk_with_armor = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
             let _expected        = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10;
-            TEST.ASSERT.equal( _bulk_with_armor.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement porté devrait compter l'armure revenue au sac, obtenu : [" + _bulk_with_armor.textContent + "]" );
+            TEST.ASSERT.equal( _bulk_with_armor.textContent, TEST_stuffsBulkText( _expected ), "L'encombrement porté devrait compter l'armure revenue au sac, obtenu : [" + _bulk_with_armor.textContent + "]" );
             TEST.ASSERT.equal( _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" ).place, _place_edited, "Le lieu devrait survivre dans le domaine hors entreposage" );
             TEST_stuffsOpenEditPopup( "armor", "Armure d'écailles" );
             return TEST.wait().then( function () {
@@ -762,7 +769,7 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
             // comptent a l'unité, l'armure entreposée reste hors compte
             let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
             let _expected   = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( _consumable_name ) * 5 ) * 10 ) / 10;
-            TEST.ASSERT.equal( _bulk_total.textContent, "Encombrement : " + String( _expected ).replace( ".", "," ), "L'encombrement porté devrait suivre la quantité en place (l'armure entreposée ne compte pas), obtenu : [" + _bulk_total.textContent + "]" );
+            TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( _expected ), "L'encombrement porté devrait suivre la quantité en place (l'armure entreposée ne compte pas), obtenu : [" + _bulk_total.textContent + "]" );
             // Les puces de la barre comptent les entrées par emplacement
             let _filters = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-location-filter" );
             TEST.ASSERT.equal( _filters.length ? _filters[ 0 ].textContent : null, "Tous (" + _stuffs.getSize() + ")", "La puce Tous devrait compter toutes les entrées, obtenu : [" + ( _filters.length ? _filters[ 0 ].textContent : "null" ) + "]" );
@@ -827,7 +834,7 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
                     TEST.ASSERT.isNull( document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" ), "Le consommable ne devrait plus etre rendu apres le retrait" );
                     TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-edit-popup" ), "La popup d'édition devrait etre refermée apres le retrait" );
                     let _bulk_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                    TEST.ASSERT.equal( _bulk_after.textContent, "Encombrement : " + String( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ).replace( ".", "," ), "L'encombrement porté devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
+                    TEST.ASSERT.equal( _bulk_after.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
                 } );
             } );
         } );
@@ -939,4 +946,76 @@ TEST.RUNNER.register( "[STUFFS] catégories : boucliers avec les armures, potion
         TEST.ASSERT.ok( _scroll_entry && _scroll_entry.textContent.indexOf( "Niveau" ) !== -1 && _scroll_entry.textContent.indexOf( "3" ) !== -1, "La ligne du parchemin devrait porter son Niveau édité, obtenu : [" + ( _scroll_entry ? _scroll_entry.textContent : "null" ) + "]" );
         TEST.ASSERT.equal( _stuffs.getSize(), _start_nb + 3, "Le test devrait avoir posé ses trois entrées, obtenu : " + ( _stuffs.getSize() - _start_nb ) + " — fenêtre : " + TEST_stuffsDiagnosis() );
     } );
+} );
+
+TEST.RUNNER.register( "[STUFFS] encombrement max + warning + erreur via compteur", function () {
+    let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Équipement ouvert" );
+    if ( !_pane ) {
+        return;
+    }
+    let _character = CONTROLLER.Character.current_character;
+    let _stuffs    = _character.getStuffs();
+    let _window    = _character.windows.getActiveWindow();
+    TEST.ASSERT.notNull( _window, "Pre-condition : une fenêtre active" );
+    if ( !_window ) {
+        return;
+    }
+    TEST.ASSERT.equal( _window.getName(), CHARACTER.StuffsWindow.NAME, "La fenêtre active devrait etre Équipement, obtenu : " + _window.getName() );
+    // L'objet le plus LÉGER du dataset (bulk > 0) sert à pousser le poids
+    // par la quantité : on traverse le warning (over) avant l'erreur
+    let _heavy      = null;
+    let _heavy_bulk = Infinity;
+    for ( let _i = 0, _size_i = STUFFS.length; _i < _size_i; _i++ ) {
+        let _bulk = STUFFS.parseBulk( STUFFS[ _i ].name );
+        if ( _bulk > 0 && _bulk < _heavy_bulk ) {
+            _heavy_bulk = _bulk;
+            _heavy      = STUFFS[ _i ];
+        }
+    }
+    TEST.ASSERT.notNull( _heavy, "Le dataset devrait proposer un objet avec un petit bulk" );
+    if ( !_heavy ) {
+        return;
+    }
+    let _heavy_kind = STUFFS.getKindKeyOfData( _heavy );
+    let _bulk_max   = _stuffs.getBulkMax( _character );
+    // État courant : le texte du div porte « porté / max », la data porte l'état
+    let _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    let _bulk_div   = _pane.querySelector( ".stuffs-bulk-total" );
+    TEST.ASSERT.equal( _bulk_div ? _bulk_div.textContent : null, TEST_stuffsBulkText( _bulk_total ), "La barre devrait lire « porté / max », obtenu : [" + ( _bulk_div ? _bulk_div.textContent : "null" ) + "]" );
+    // Le compteur du domaine se répercute sur la fenêtre (contrat compteur)
+    TEST.ASSERT.equal( _window.getCounter( "bulk" ) ? _window.getCounter( "bulk" ).getValue() : null, _bulk_total, "Le compteur bulk de la fenêtre devrait suivre le total porté, obtenu : " + ( _window.getCounter( "bulk" ) ? _window.getCounter( "bulk" ).getValue() : "null" ) );
+    TEST.ASSERT.equal( _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue(), _bulk_total > _bulk_max ? 1 : 0, "Le compteur warnings de la fenêtre devrait refléter l'état courant, obtenu : " + _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue() );
+    // On pousse le poids au-delà du max par la quantité (geste bus réel)
+    CONTROLLER.Character.doActionAfter( "event__stuff__add", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name, "param__stuff__location": "backpack" } );
+    let _quantity = 1;
+    while ( _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ) <= _bulk_max && _quantity < 1000 ) {
+        _quantity++;
+        CONTROLLER.Character.doActionAfter( "event__stuff__edit_quantity", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name, "param__stuff__quantity": _quantity } );
+    }
+    _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    TEST.ASSERT.ok( _bulk_total > _bulk_max, "Le poids porté devrait dépasser le max (" + _bulk_max + "), obtenu : " + _bulk_total );
+    _bulk_div   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+    TEST.ASSERT.equal( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : null, "over", "L'état devrait passer en warning (over), obtenu : [" + ( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : "null" ) + "]" );
+    TEST.ASSERT.equal( _bulk_div ? _bulk_div.textContent : null, TEST_stuffsBulkText( _bulk_total ), "La barre devrait suivre le dépassement, obtenu : [" + ( _bulk_div ? _bulk_div.textContent : "null" ) + "]" );
+    TEST.ASSERT.equal( _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue(), 1, "Le compteur warnings de la fenêtre devrait valoir 1, obtenu : " + _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue() );
+    TEST.ASSERT.equal( window.getComputedStyle( _bulk_div ).color, "rgb(255, 186, 11)", "La barre devrait virer au warning (--c-bulk-warning), obtenu : " + window.getComputedStyle( _bulk_div ).color );
+    // Au-delà du double du max : erreur
+    while ( _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ) <= 2 * _bulk_max && _quantity < 1000 ) {
+        _quantity++;
+        CONTROLLER.Character.doActionAfter( "event__stuff__edit_quantity", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name, "param__stuff__quantity": _quantity } );
+    }
+    _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    TEST.ASSERT.ok( _bulk_total > 2 * _bulk_max, "Le poids porté devrait dépasser le double du max (" + ( 2 * _bulk_max ) + "), obtenu : " + _bulk_total );
+    _bulk_div   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+    TEST.ASSERT.equal( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : null, "critical", "L'état devrait passer en erreur (critical), obtenu : [" + ( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : "null" ) + "]" );
+    TEST.ASSERT.equal( _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ).getValue(), 1, "Le compteur errors de la fenêtre devrait valoir 1, obtenu : " + _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ).getValue() );
+    TEST.ASSERT.equal( window.getComputedStyle( _bulk_div ).color, "rgb(236, 87, 87)", "La barre devrait virer à l'erreur (--c-bulk-error), obtenu : " + window.getComputedStyle( _bulk_div ).color );
+    // Retour sous le max : les compteurs retombent à 0
+    CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name } );
+    _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    _bulk_div   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
+    TEST.ASSERT.equal( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : null, _bulk_total > _bulk_max ? ( _bulk_total > 2 * _bulk_max ? "critical" : "over" ) : "ok", "L'état devrait suivre le retrait, obtenu : [" + ( _bulk_div ? _bulk_div.getAttribute( "data-bulk-state" ) : "null" ) + "]" );
+    TEST.ASSERT.equal( _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue(), 0, "Le compteur warnings devrait retomber à 0, obtenu : " + _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getValue() );
+    TEST.ASSERT.equal( _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ).getValue(), 0, "Le compteur errors devrait retomber à 0, obtenu : " + _window.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS ).getValue() );
 } );

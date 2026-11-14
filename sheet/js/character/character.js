@@ -39,6 +39,7 @@ CHARACTER.Current.prototype = {
         this.uuid = uuid || SERVICE.STRING.buildUUID();
         this.addParamForEvents( "param__current_character__uuid", this.uuid );
         this.updateData( SERVICE.DATA.loadDataByUUID( uuid ) );
+        this.stuffs.pushBulkCounters( this );
         this.doActionAfter( "event__data_loaded__done", { "param__current_character__object": this } );
     },
     //********************************************  EVENT LISTENER  **************************************************//
@@ -58,9 +59,9 @@ CHARACTER.Current.prototype = {
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.windows.doActionAfterContentChildren( event_name, params );
-                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.CharacteristicWindow.NAME );
-                // Les sections d'ascendance (don, langues) vivent des le choix
-                // de l'ascendance : l'onglet Progression s'allume avec elle
+                // Les sections d'ascendance (don, langues) et les
+                // caractéristiques vivent des le choix de l'ascendance :
+                // l'onglet Progression s'allume avec elle
                 this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__level_up__take_level":
@@ -144,6 +145,7 @@ CHARACTER.Current.prototype = {
             case "event__stuff__add":
             case "event__stuff__remove":
                 this.stuffs.doActionAfter( event_name, params );
+                this.stuffs.pushBulkCounters( this );
                 // The inventory refreshes with its entries
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
@@ -162,6 +164,7 @@ CHARACTER.Current.prototype = {
             case "event__stuff__edit_characteristics":
             case "event__stuff__edit_quantity":
                 this.stuffs.doActionAfter( event_name, params );
+                this.stuffs.pushBulkCounters( this );
                 break;
             case "event__spell__edit_comment":
                 this.spells.doActionAfter( event_name, params );
@@ -182,6 +185,8 @@ CHARACTER.Current.prototype = {
                     // The Intelligence modifier moves the additional
                     // languages count of the ancestry level-1 entry
                     this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                    // The Strength modifier moves the maximum bulk
+                    this.stuffs.pushBulkCounters( this );
                     return;
                 }
                 break;
@@ -287,6 +292,7 @@ CHARACTER.Current.prototype = {
                 break;
             case "stuffs":
                 this.stuffs.updateData( value );
+                this.stuffs.pushBulkCounters( this );
                 break;
             case "spells":
                 this.spells.updateData( value );

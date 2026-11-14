@@ -103,7 +103,7 @@ CHARACTERISTICS.Characteristics.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            this.getContent( i ).doActionAfter( "event__compute__html", { "param__window": CHARACTER.CharacteristicWindow.NAME, "param__dom_element_parent": this.characteristic_table } );
+            this.getContent( i ).doActionAfter( "event__compute__html", { "param__window": CHARACTERISTICS.WINDOW_KEY, "param__dom_element_parent": this.characteristic_table } );
         }
     }
 };

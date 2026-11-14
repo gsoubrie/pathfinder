@@ -31,13 +31,25 @@
     padding      : var(--s-sm) var(--s-md);
 }
 
-/* L'encombrement total vit à côté du +, discrètement */
+/* L'encombrement total vit à côté du +, discrètement : « porté / max »,
+   la couleur suit l'état poussé en data-bulk-state (warning au-delà du
+   max, erreur au-delà du double) */
 .stuffs-bulk-total {
     color       : var(--c-text-muted);
     flex        : 1 1 auto;
     font-size   : 12px;
     padding     : 0 2px;
     text-align  : right;
+}
+
+.stuffs-bulk-total[data-bulk-state="over"] {
+    color       : var(--c-bulk-warning);
+    font-weight : var(--font-weight-bold);
+}
+
+.stuffs-bulk-total[data-bulk-state="critical"] {
+    color       : var(--c-bulk-error);
+    font-weight : var(--font-weight-bold);
 }
 
 /* ── Popup d'ajout (le slot CONTROLLER.Character.edition_popup, mêmes

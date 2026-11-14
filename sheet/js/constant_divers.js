@@ -77,6 +77,10 @@ var CHARACTERISTICS = {
     label        : "Caractéritiques",
     key_element  : "characteristic",
     label_element: "Caractéritique",
+    // cle de rendu du bloc caracteristiques (l'ancien onglet a fusionne dans
+    // la Progression) : le dispatch event__compute__html route ses
+    // sous-composants sur cette cle, ce n'est plus un nom de fenetre
+    WINDOW_KEY   : "characteristic_sheet",
     INITIAL_VALUE: 10,
     ENUM         : [
         {

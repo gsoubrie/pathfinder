@@ -33,7 +33,6 @@ TEST.RUNNER.register( "[RESET] feuille reinitialisee = page vide", function () {
         TEST.ASSERT.equal( _race_input.value, "", "Le champ Ascendance devrait etre vide, obtenu : " + _race_input.value );
     }
     let _tabs                           = [
-        { name: CHARACTER.CharacteristicWindow.NAME, label: "Caracteristiques" },
         { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
     ];
     for ( let i = 0, _size_i = _tabs.length; i < _size_i; i++ ) {

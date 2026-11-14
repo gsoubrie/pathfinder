@@ -505,8 +505,9 @@
 }
 
 .ancestry-info-trait {
-    background   : var(--c-bg-card);
-    border       : var(--b-thin) solid var(--c-border-dark);
+    background   : var(--c-trait-bg);
+    border       : var(--b-thin) solid var(--c-trait-border);
+    color        : var(--c-trait-text);
     border-radius: var(--r-sm);
     font-size    : 12px;
     padding      : 1px 8px;

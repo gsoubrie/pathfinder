@@ -50,6 +50,14 @@ CHARACTER.AncestryHistory.prototype = {
     sync: function ( character_object ) {
         let race            = character_object.getRace();
         let race_name       = race.isSet() ? race.getValue() : null;
+        // A versatile heritage opens its own ancestry-feat pool (PF2 :
+        // « parmi ceux des sang-dragons et ceux de votre ascendance ») :
+        // only the versatile ones add their pool, an ancestry heritage
+        // or the empty value changes nothing
+        let legacy_name     = race.getLegacy().getValue();
+        if ( !LEGACIES.isVersatile( legacy_name ) ) {
+            legacy_name    = null;
+        }
         // The ancestry grants (feat, languages) belong to character level 1:
         // they exist as soon as an ancestry is set, before any class — the
         // higher levels follow the class levels
@@ -67,7 +75,7 @@ CHARACTER.AncestryHistory.prototype = {
             if ( !entry ) {
                 entry = this.add( new CHARACTER.AncestryLevelHistory( target_levels[ i ] ) );
             }
-            entry.syncLines( race_name, int_modifier );
+            entry.syncLines( race_name, int_modifier, legacy_name );
         }
         for ( let i = this.getSize() - 1; i >= 0; i-- ) {
             let entry = this.getContent( i );

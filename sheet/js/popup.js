@@ -53,8 +53,11 @@ POPUP.PropertyEdition.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "title" }, this.current_property.label ), this.container );
         this.windows.computeHtml();
         SERVICE.DOM.addElementTo( this.windows.getDomElement(), this.container );
-        // Les actions vivent EN BAS de la popup : le titre porte son
-        // libellé seul, trois boutons ne chevauchent plus rien
+        // les panneaux de contenu AVANT la rangee d'actions : l'ordre
+        // d'appel des addElementTo EST l'ordre du DOM
+        this.windows.computeHtmlTargets( this.container );
+        // Les actions vivent EN BAS de la popup : la rangee suit le
+        // conteneur de panneaux, dernier enfant du conteneur
         let actions    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "popup-up-actions" } ), this.container );
         if ( !this.is_consultation ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-valid", onclick: "CONTROLLER.Character.doActionAfter('event__form__element_changed')" }, "Valider" ), actions );
@@ -62,7 +65,6 @@ POPUP.PropertyEdition.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "button popup-up-cancel", onclick: "CONTROLLER.Character.doActionAfter('event__form__reset')" }, "Quitter" ), actions );
 
         SERVICE.DOM.addElementTo( this.getDomElement(), document.querySelector( "body" ) );
-        this.windows.computeHtmlTargets( this.container );
 
     }
 };

@@ -17,7 +17,7 @@ CHARACTER.ComponentInterface.prototype = {
                     case CHARACTER.GeneralWindow.NAME:
                         this.computeHtmlGeneralWindow( params[ "param__dom_element_parent" ] );
                         return;
-                    case CHARACTER.CharacteristicWindow.NAME:
+                    case CHARACTERISTICS.WINDOW_KEY:
                         this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                         return;
                     case "param__popup__select":
@@ -207,9 +207,6 @@ CHARACTER.ContainerComponentInterface.prototype = {
         switch ( params[ "param__window" ] ) {
             case CHARACTER.GeneralWindow.NAME:
                 this.doActionAfterContentChildren( "event__compute__html", params );
-                return;
-            case CHARACTER.CharacteristicWindow.NAME:
-                this.computeCharacteristicWindow( params[ "param__dom_element_parent" ] );
                 return;
             case "param__popup__select":
                 this.computePopupDomElement( params );

@@ -30,14 +30,22 @@
 }
 
 .popup .edition-property-popup {
-    margin-top: 0;
-    width: 1200px;
-    max-width: 95vw;
-    max-height: 90vh;
-    background-color: aliceblue;
-    padding: var(--s-sm);
-    margin-bottom: 0;
-    display: flex;
+    margin-top    : 0;
+    width         : 1200px;
+    max-width     : 95vw;
+    /* Hauteur fixe = hauteur de l'écran (demande utilisateur : la hauteur ne
+       fluctue plus avec le contenu) — border-box pour que bordure + padding
+       tiennent DANS les 100vh, le corps scrolle seul (.gs-window-targets-V2) */
+    box-sizing    : border-box;
+    height        : 100vh;
+    max-height    : 100vh;
+    background    : var(--g-panel-dark);
+    border        : var(--b-thick) solid var(--c-gold-dark);
+    border-radius : var(--r-2xl);
+    box-shadow    : var(--sh-lg);
+    padding       : var(--s-sm);
+    margin-bottom : 0;
+    display       : flex;
     flex-direction: column;
 }
 
@@ -52,6 +60,7 @@
     border-radius: var(--r-lg);
     padding: var(--s-lg) var(--s-2xl);
     margin-bottom: var(--s-lg);
+    flex-shrink: 0;
 }
 
 /* Les actions vivent EN BAS de la popup (demande utilisateur : trois
@@ -62,6 +71,7 @@
     gap             : var(--s-md);
     justify-content : center;
     margin-top      : var(--s-lg);
+    flex-shrink     : 0;
 }
 
 .popup .edition-property-popup .popup-up-actions .button {
@@ -100,8 +110,38 @@
     background: linear-gradient(135deg, var(--g-card-hover) 0%, var(--c-bg-card) 100%);
 }
 
+.popup .edition-property-popup .gs-window-group-V2 {
+    flex-shrink: 0;
+}
+
+/* Les boutons restent TOUJOURS visibles en bas : le conteneur de
+   panneaux prend la hauteur restante (min-height 0 : sans lui, la taille
+   minimale automatique d'un enfant flex est son contenu et la colonne
+   deborde) et deroule seul */
 .popup .edition-property-popup .gs-window-targets-V2 {
-    padding: var(--s-sm);
+    padding    : var(--s-sm);
+    flex       : 1;
+    min-height : 0;
+    overflow-y : auto;
+}
+
+/* Badges de traits des popups de selection (race) : même palette que les
+   autres badges de traits de l'application (--c-trait-*), jamais le noir
+   hérité sur le panneau sombre */
+.popup .traits {
+    display   : flex;
+    flex-wrap : wrap;
+    gap       : 6px;
+    padding   : var(--s-sm) 0;
+}
+
+.popup .trait {
+    background   : var(--c-trait-bg);
+    border       : var(--b-thin) solid var(--c-trait-border);
+    color        : var(--c-trait-text);
+    border-radius: var(--r-sm);
+    font-size    : var(--font-size-sm);
+    padding      : 2px 8px;
 }
 
 .popup .skills-popup {
@@ -391,6 +431,41 @@
 .popup .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
     color: var(--c-text-dark);
     text-shadow: none;
+}
+
+/* La popup d'heritage replie ses onglets sur plusieurs lignes pour
+   laisser le separateur de section occuper la sienne entiere */
+.popup .legacy-window-group {
+    flex-wrap     : wrap;
+    align-content : flex-start;
+    row-gap       : var(--s-sm);
+    overflow-y    : auto;
+    overflow-x    : hidden;
+    max-height    : 45vh;
+}
+
+.popup .gs-window-group-V2 .legacy-versatile-separator {
+    align-items    : center;
+    color          : var(--c-text-gold);
+    cursor         : default;
+    display        : flex;
+    flex           : 0 0 100%;
+    font-size      : 12px;
+    gap            : var(--s-sm);
+    justify-content: center;
+    letter-spacing : 0.5px;
+    padding        : var(--s-sm) 0;
+    white-space    : nowrap;
+}
+
+/* le fond de la bande est deja sombre (g-panel-dark) : les filets prennent
+   l'or du cadre, le --c-border-dark des separateurs du parchemin s'y noierait */
+.popup .gs-window-group-V2 .legacy-versatile-separator::before,
+.popup .gs-window-group-V2 .legacy-versatile-separator::after {
+    background : var(--c-gold-dark);
+    content    : "";
+    flex       : 1;
+    height     : 1px;
 }
 
 .popup .gs-hidden {

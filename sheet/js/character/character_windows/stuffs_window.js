@@ -33,7 +33,11 @@ CHARACTER.StuffsWindow = function ( parent_name ) {
     this.initSpecific( CHARACTER.StuffsWindow.NAME, parent_name, "Équipement" );
 };
 CHARACTER.StuffsWindow.prototype = {
-    initSpecific: WINDOW_V2.ElementFromData.initSpecific,
+    initSpecific: function ( name, parent_name, label ) {
+        WINDOW_V2.ElementFromData.prototype.initSpecific.call( this, name, parent_name, label );
+        // The domain bulk counter lands on the window's own bulk counter
+        this.initCounter( "bulk" );
+    },
 
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -149,9 +153,22 @@ CHARACTER.StuffsWindow.prototype = {
             this._buildLocationFilter( location_filters, location_data.key, location_data.label, stuffs.getStuffsByLocation( location_data.key ).length );
         }
         this.bulk_dom_element = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-total" }, this._computeBulkText( STUFF.CARRIED_LOCATIONS ) ),
+            SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-total" } ),
             add_bar
         );
+        // The bulk counter of the domain feeds the window : every counter
+        // lands on the window's own counters (warnings/errors ride to the
+        // tab badge), the bulk value itself calls back update() which
+        // rewrites this div — addElement dedups, re-branching at each
+        // render is safe
+        stuffs.setCountersParent( this );
+        stuffs.getCounter( "bulk" ).setParent( this );
+        this._updateBulkTotal();
+    },
+
+    // Counter contract : the domain bulk counter pushes its value here
+    update: function ( name, nb_counter ) {
+        this._updateBulkTotal();
     },
 
     _buildLocationFilter: function ( parent, location_key, location_label, stuffs_count ) {
@@ -277,17 +294,36 @@ CHARACTER.StuffsWindow.prototype = {
         return "";
     },
 
-    _computeBulkText: function ( location_keys ) {
-        let bulk_total = CONTROLLER.Character.current_character.getStuffs().getBulkTotal( location_keys );
-        // One decimal at most, French style (0,1 light bulk steps)
-        return "Encombrement : " + String( bulk_total ).replace( ".", "," );
-    },
-
+    // The bar total reads "porté / max" and carries its state in a data
+    // attribute (the CSS colors on it) : over the max = warning, over
+    // twice the max = error (PF2 : no more move)
     _updateBulkTotal: function () {
         if ( !this.bulk_dom_element ) {
             return;
         }
-        this.bulk_dom_element.textContent = this._computeBulkText( STUFF.CARRIED_LOCATIONS );
+        let character  = CONTROLLER.Character.current_character;
+        let stuffs     = character.getStuffs();
+        let bulk_total = stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+        let bulk_max   = stuffs.getBulkMax( character );
+        let bulk_state = "ok";
+        if ( bulk_total > 2 * bulk_max ) {
+            bulk_state = "critical";
+        }
+        else if ( bulk_total > bulk_max ) {
+            bulk_state = "over";
+        }
+        // One decimal at most, French style (0,1 light bulk steps)
+        this.bulk_dom_element.textContent = "Encombrement : " + String( bulk_total ).replace( ".", "," ) + " / " + bulk_max;
+        SERVICE.DOM.setDataSet( this.bulk_dom_element, "bulkState", bulk_state );
+        let for_modifier = character.getCharacteristics().getContentByUUID( CHARACTERISTICS.FOR.key ).getModifierValue();
+        let title        = "Encombrement max : " + bulk_max + " (10 + modificateur de Force " + ( for_modifier >= 0 ? "+" : "" ) + for_modifier + ")";
+        if ( bulk_state === "over" ) {
+            title = "Surchargé : " + String( bulk_total ).replace( ".", "," ) + " portés pour " + bulk_max + " autorisés";
+        }
+        else if ( bulk_state === "critical" ) {
+            title = "Au-delà du double de l'encombrement max (" + bulk_max + ") : plus de déplacement";
+        }
+        this.bulk_dom_element.setAttribute( "title", title );
     }
 };
 

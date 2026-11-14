@@ -10,15 +10,15 @@
  * onglet est inactif sans pre-requis.
  */
 
-TEST.RUNNER.register( "[ONGLETS] nombre = 7", function () {
+TEST.RUNNER.register( "[ONGLETS] nombre = 6", function () {
     let _character                      = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character && _character.windows, "Pre-condition : personnage et fenetres charges" );
     if ( !_character || !_character.windows ) {
         return;
     }
-    TEST.ASSERT.equal( _character.windows.contents.length, 7, "Le groupe devrait contenir 7 fenetres, obtenu : " + _character.windows.contents.length );
+    TEST.ASSERT.equal( _character.windows.contents.length, 6, "Le groupe devrait contenir 6 fenetres, obtenu : " + _character.windows.contents.length );
     let _windows_dom                     = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2" );
-    TEST.ASSERT.equal( _windows_dom.length, 7, "Les 7 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
+    TEST.ASSERT.equal( _windows_dom.length, 6, "Les 6 onglets devraient etre rendus dans le DOM, trouve : " + _windows_dom.length );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] actif = Général", function () {
@@ -68,7 +68,6 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     let _expected_labels                 = [
         { name: CHARACTER.GeneralWindow.NAME,        label: "Général" },
         { name: CHARACTER.StuffsWindow.NAME,        label: "Équipement" },
-        { name: CHARACTER.CharacteristicWindow.NAME, label: "Caractéristiques" },
         { name: CHARACTER.LibraryWindow.NAME,          label: "Bibliothèque" },
         { name: CHARACTER.SpellsWindow.NAME,          label: "Sorts" },
         { name: CHARACTER.AdjustmentsWindow.NAME,    label: "Ajustements" },
@@ -90,11 +89,10 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     }
 } );
 
-TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiques, Bibliothèque, Sorts, Ajustements, Progression", function () {
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Bibliothèque, Sorts, Ajustements, Progression", function () {
     let _expected_order = [
         CHARACTER.GeneralWindow.NAME,
         CHARACTER.StuffsWindow.NAME,
-        CHARACTER.CharacteristicWindow.NAME,
         CHARACTER.LibraryWindow.NAME,
         CHARACTER.SpellsWindow.NAME,
         CHARACTER.AdjustmentsWindow.NAME,
@@ -105,22 +103,6 @@ TEST.RUNNER.register( "[ONGLETS] ordre = Général, Équipement, Caractéristiqu
     for ( let i = 0, _size_i = _tabs_dom.length; i < _size_i; i++ ) {
         TEST.ASSERT.equal( _tabs_dom[ i ].getAttribute( "data-name" ), _expected_order[ i ], "L'onglet en position " + ( i + 1 ) + " devrait etre " + _expected_order[ i ] + ", obtenu : " + _tabs_dom[ i ].getAttribute( "data-name" ) );
     }
-} );
-
-TEST.RUNNER.register( "[ONGLETS] Caractéristiques = disabled sur page vide", function () {
-    let _tab                             = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.CharacteristicWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Caracteristiques devrait exister" );
-    if ( !_tab ) {
-        return;
-    }
-    TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Caracteristiques devrait porter l'etat disabled sans ascendance" );
-    let _style                           = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) < 1, "L'onglet desactive devrait apparaitre grise (opacity < 1), obtenu : " + _style.opacity );
-    TEST.ASSERT.equal( _style.pointerEvents, "none", "Un onglet desactive ne devrait pas intercepter les clics (pointer-events none), obtenu : " + _style.pointerEvents );
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.CharacteristicWindow.NAME ).then( function () {
-        let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GeneralWindow.NAME, "Le clic sur un onglet desactive ne devrait rien changer (fenetre active)" );
-    } );
 } );
 
 TEST.RUNNER.register( "[ONGLETS] Progression = disabled sur page vide", function () {

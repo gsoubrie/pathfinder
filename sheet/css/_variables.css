@@ -21,6 +21,10 @@
     --c-text-muted: #C8B89A;
     --c-text-dark: #1A0F08;
     --c-text-gold: #F0D890;
+
+    /* Bulk states of the gear bar (values of the lib palette) */
+    --c-bulk-warning: #FFBA0B;
+    --c-bulk-error: #EC5757;
     
     --c-border-dark: #6B4E2A;
     --c-border-gold: #D4AF37;

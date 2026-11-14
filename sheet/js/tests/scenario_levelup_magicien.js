@@ -9,8 +9,9 @@
  *    pas de libelle), la ligne ecole arcanique porte un selecteur de choix
  *    (composant sélecteur, option vide + 11 ecoles : choisir une valeur
  *    valide la ligne), tout eteint par defaut : ligne en attente, counter de ligne a 1 visible,
- *    warning global et counter de l'onglet a 5 + les K competences
- *    supplementaires (2 + mod INT), chacune un selecteur des 17 competences.
+ *    counter de l'onglet a 5 + les K competences supplementaires (2 + mod
+ *    INT) + les warnings des caracteristiques (le badge de l'onglet vaut la
+ *    SOMME des compteurs du contenu), chacune un selecteur des 17 competences.
  *    Toute capacite decrite porte son "?" : le bloc niveau 1 du Magicien en
  *    compte 5 (ecole arcanique, incantation arcanique via l'alias de
  *    renommage, lien arcanique, maitrises initiales, these arcanique).
@@ -20,16 +21,15 @@
  *    (rangs courants du personnage).
  * 3. Choix d'une ecole dans le selecteur de ecole arcanique : capacite
  *    validee (isActive true, le choix porte la phase de la ligne), ligne
- *    repassee au vert
- *    (phase ACTIVE sur la ligne), selecteur dore, counter de la
- *    ligne vide et masque, warning global et counter de l'onglet a
- *    4 + K competences supplementaires.
+ *    repassee au vert (phase SELECTED), selecteur dore, counter de la
+ *    ligne vide et masque, counter de l'onglet a 4 + K + caracteristiques.
  * 4. Retour a l'option vide du selecteur : capacite de nouveau non validee,
  *    ligne en attente,
- *    counters de retour (ligne 1, onglet 5 + K, warning 5 + K).
+ *    counters de retour (ligne 1, onglet 5 + K + caracteristiques).
  * 5. Validation des 5 + K lignes du niveau 1 (les competences
- *    supplementaires choisissent Survie) : warning global vert "Toutes les
- *    capacites sont validees", counter de l'onglet vide et masque.
+ *    supplementaires choisissent Survie) : le badge de l'onglet ne compte
+ *    plus que les warnings des caracteristiques (le choix libre d'Elfe
+ *    reste, le badge est la somme des compteurs du contenu).
  * 6. Niveau 5 : tant que "expertise en reflexes" n'est pas validee, la
  *    maitrise Reflexes du personnage reste Qualifiee (seules les capacites
  *    validees alimentent CHARACTER.Masteries). Validation de la ligne →
@@ -82,6 +82,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes classe + don e
         // Le mod INT vit déja a +2 (bonus de race Elfe et de classe Magicien
         // forcés, auto-posés au choix) : les langues supplémentaires comptent
         let _ancestry_pending_count      = 1 + RACES.getAdditionalLanguagesNumber( CONTROLLER.Character.current_character.getRace().getValue(), CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
+        // Le badge de l'onglet vaut la somme des compteurs du contenu : les
+        // warnings des caractéristiques s'y ajoutent (le choix libre d'Elfe)
+        let _characteristics_pending     = _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         let _rows                         = _block.querySelectorAll( ".level-up-row" );
         TEST.ASSERT.equal( _rows.length, 5 + _additional_count, "Le bloc du niveau 1 devrait rendre ses 5 capacités + les " + _additional_count + " compétences supplémentaires (2 + mod INT), obtenu : " + _rows.length );
         TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (pas les compétences supplémentaires), obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
@@ -122,14 +125,14 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes classe + don e
                 TEST.ASSERT.notEqual( getComputedStyle( _row_counter ).display, "none", "Le counter d'une ligne non validée devrait etre visible, ligne " + _i );
             }
         }
-        let _warning                      = _pane.querySelector( ".level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées (5 capacités + compétences supplémentaires + don et langues d'ascendance en attente), obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        // Le label global a disparu avec sa classe : le badge de l'onglet
+        // porte LA SEULE lecture de la somme des compteurs
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings (.gs-warnings-counter)" );
-        if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 5 + _additional_count + _ancestry_pending_count ) + " (5 capacités + compétences supplémentaires + don et langues d'ascendance en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        return TEST.waitCounterValue( _counter, "" + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ) ).then( function () {
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ), "Le counter de l'onglet devrait valoir " + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ) + " (5 capacités + compétences supplémentaires + don et langues d'ascendance + caractéristiques en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.notEqual( getComputedStyle( _counter ).display, "none", "Le counter devrait etre visible quand des capacités sont en attente, obtenu : " + getComputedStyle( _counter ).display );
-        }
+        } );
     } );
 } );
 
@@ -255,6 +258,9 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
     let _character                        = CONTROLLER.Character.current_character;
     let _additional_count                 = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
     let _ancestry_pending_count           = 1 + RACES.getAdditionalLanguagesNumber( _character.getRace().getValue(), _character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
+    // Le badge de l'onglet vaut la somme des compteurs du contenu : les
+    // warnings des caractéristiques s'y ajoutent (le choix libre d'Elfe)
+    let _characteristics_pending         = _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
         return;
@@ -308,15 +314,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] choix d'une école dans le sélecteur 
         return TEST.waitCounterValue( _row_counter_after, "" ).then( function () {
             TEST.ASSERT.equal( _row_counter_after.getAttribute( "data-number" ), "", "Le counter de la ligne validée devrait etre vide, obtenu : [" + _row_counter_after.getAttribute( "data-number" ) + "]" );
             TEST.ASSERT.equal( getComputedStyle( _row_counter_after ).display, "none", "Le counter de la ligne validée devrait etre masque, obtenu : " + getComputedStyle( _row_counter_after ).display );
-            let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-            TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer " + ( 4 + _additional_count + _ancestry_pending_count ) + " capacités non validées apres la première validation, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
             let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
             TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
             if ( !_counter ) {
                 return;
             }
-            return TEST.waitCounterValue( _counter, "" + ( 4 + _additional_count + _ancestry_pending_count ) ).then( function () {
-                TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count + _ancestry_pending_count ) + " apres la première validation (compétences supplémentaires + don et langues d'ascendance encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+            return TEST.waitCounterValue( _counter, "" + ( 4 + _additional_count + _ancestry_pending_count + _characteristics_pending ) ).then( function () {
+                TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 4 + _additional_count + _ancestry_pending_count + _characteristics_pending ), "Le counter de l'onglet devrait valoir " + ( 4 + _additional_count + _ancestry_pending_count + _characteristics_pending ) + " apres la première validation (compétences supplémentaires + don et langues d'ascendance + caractéristiques encore en attente), obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
                 let _block_title                   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-block[data-level-number='1'] .level-up-block-title" );
                 TEST.ASSERT.notNull( _block_title, "Le titre du bloc du niveau 1 devrait etre rendu (data-level-number=1)" );
             } );
@@ -375,17 +379,18 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] retour à l'option vide du sélecteur 
         }
         let _additional_count             = CLASSES.getAdditionalSkillsNumber( "Magicien" ) + CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue();
         let _ancestry_pending_count       = 1 + RACES.getAdditionalLanguagesNumber( CONTROLLER.Character.current_character.getRace().getValue(), CONTROLLER.Character.current_character.getCharacteristics().getContentByUUID( "INT" ).getModifierValue() );
-        let _warning                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées" ) !== -1, "Le warning global devrait annoncer de nouveau " + ( 5 + _additional_count + _ancestry_pending_count ) + " capacités non validées, obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
+        // Le badge de l'onglet vaut la somme des compteurs du contenu : les
+        // warnings des caractéristiques s'y ajoutent (le choix libre d'Elfe)
+        let _characteristics_pending     = CONTROLLER.Character.current_character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
-        if ( _counter ) {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count ), "Le counter de l'onglet devrait etre de retour a " + ( 5 + _additional_count + _ancestry_pending_count ) + ", obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
-        }
+        return TEST.waitCounterValue( _counter, "" + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ) ).then( function () {
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ), "Le counter de l'onglet devrait etre de retour a " + ( 5 + _additional_count + _ancestry_pending_count + _characteristics_pending ) + ", obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
+        } );
     } );
 } );
 
-TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance validés → warning vert + counter onglet masqué", function () {
+TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance validés → badge = warnings des caractéristiques seuls", function () {
     let _pane                             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
     TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Progression rendu" );
     if ( !_pane ) {
@@ -443,21 +448,20 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance
             let _skill                   = _level.getContent( _i );
             TEST.ASSERT.ok( _skill.isActive(), "Toute capacité du niveau 1 devrait etre validée, " + _skill.getUUID() + " obtenu : " + _skill.isActive() );
         }
-        let _warning                      = _pane.querySelector( ".level-up-global-warning" );
-        TEST.ASSERT.ok( _warning && _warning.textContent.indexOf( "Toutes les capacités sont validées" ) !== -1, "Le warning global devrait annoncer que toutes les capacités sont validées (don et langues d'ascendance compris), obtenu : " + ( _warning ? _warning.textContent : "aucun" ) );
-        TEST.ASSERT.notOk( _warning.classList.contains( "visible" ), "Le warning global ne devrait plus porter la classe visible" );
         let _counter                      = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.notNull( _counter, "L'onglet Progression devrait porter le counter warnings" );
         if ( !_counter ) {
             return;
         }
+        // Le badge = somme des compteurs du contenu : les lignes du passage de
+        // niveau sont toutes validées, il ne reste que les warnings des
+        // caractéristiques (le choix libre d'Elfe — le scénario
+        // caracteristiques verouille le badge vide une fois le choix posé)
+        let _characteristics_pending     = _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         // Le badge data-number s'écrit en dérbauchée : convergence attendue,
         // jamais de lecture à date fixe (onglet en arrière-plan)
-        return TEST.waitCounterValue( _counter, "" ).then( function () {
-            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "", "Le counter de l'onglet devrait etre vide quand tout est validé, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
-            TEST.ASSERT.equal( getComputedStyle( _counter ).display, "none", "Le counter devrait etre masque quand tout est validé, obtenu : " + getComputedStyle( _counter ).display );
-            let _title                        = _pane.querySelector( ".level-up-block-title" );
-            TEST.ASSERT.notNull( _title, "Le titre du bloc du niveau 1 devrait etre rendu" );
+        return TEST.waitCounterValue( _counter, "" + _characteristics_pending ).then( function () {
+            TEST.ASSERT.equal( _counter.getAttribute( "data-number" ), "" + _characteristics_pending, "Le counter de l'onglet devrait valoir les " + _characteristics_pending + " warnings des caractéristiques seuls une fois le passage de niveau validé, obtenu : [" + _counter.getAttribute( "data-number" ) + "]" );
         } );
     } );
 } );

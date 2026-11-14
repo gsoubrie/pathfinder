@@ -5297,16 +5297,30 @@ DON.RACE = {
  * its feats traits, the level must be low enough. The prerequisites stay
  * unparsed (varied prose, not only skill ranks): every feat of the
  * ancestry at an allowed level is offered.
+ * A versatile heritage opens its own feat pool: its feats join the
+ * ancestry ones (PF2 : « parmi ceux des sang-dragons et ceux de votre
+ * ascendance »), its name carries in the feats traits the same way.
+ * The lineage feats (trait « Lignée ») carry character level 1 : the
+ * higher lines don't offer them (the scrape doesn't carry the
+ * restriction, it lives here).
  *
- * @param {string} race_name  Ancestry name, ex: "Elfe"
- * @param {number} max_level  Level of the line choosing the feat
- * @returns {Array}           [ { name } ] of the available feats
+ * @param {string} race_name   Ancestry name, ex: "Elfe"
+ * @param {number} max_level   Level of the line choosing the feat
+ * @param {string} legacy_name Versatile heritage name, ex: "Sang-dragon" (null: none)
+ * @returns {Array}            [ { name } ] of the available feats
  */
-DON.getAvailableAncestryFeats = function ( race_name, max_level ) {
+DON.LINEAGE_TRAIT          = "Lignée";
+
+DON.getAvailableAncestryFeats = function ( race_name, max_level, legacy_name ) {
     let to_return = [];
     let feats     = DON.RACE.ENUM[ 0 ];
     for ( let i = 0, _size_i = feats.length; i < _size_i; i++ ) {
-        if ( feats[ i ].traits.indexOf( race_name ) === -1 ) {
+        let race_trait_carries     = feats[ i ].traits.indexOf( race_name ) !== -1;
+        let legacy_trait_carries   = !!legacy_name && feats[ i ].traits.indexOf( legacy_name ) !== -1;
+        if ( !race_trait_carries && !legacy_trait_carries ) {
+            continue;
+        }
+        if ( max_level > 1 && feats[ i ].traits.indexOf( DON.LINEAGE_TRAIT ) !== -1 ) {
             continue;
         }
         if ( parseInt( feats[ i ].level, 10 ) > max_level ) {
