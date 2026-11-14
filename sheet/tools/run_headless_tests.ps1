@@ -49,7 +49,10 @@ if ( Test-Path $errFile )  { Remove-Item $errFile -Force -ErrorAction SilentlyCo
 # Launch DETACHED : cmd owns the redirections and returns at once (start /b),
 # the dump handles belong to the headless Edge tree - Start-Process with
 # redirect blocks until the child exits and must not carry this launch
-$edgeArguments = "--headless=new --disable-gpu --user-data-dir=`"$profileDir`" --virtual-time-budget=180000 --timeout=240000 --dump-dom $testsUrl"
+# --window-size pins a desktop viewport : the responsive breakpoints of style.css
+# must NOT apply during the scenario run (the default headless viewport is narrower
+# than the sheet, 1240px)
+$edgeArguments = "--headless=new --disable-gpu --window-size=1400,2400 --user-data-dir=`"$profileDir`" --virtual-time-budget=180000 --timeout=240000 --dump-dom $testsUrl"
 $cmdArguments  = "/c start `"`" /b `"$edgeExe`" $edgeArguments > `"$dumpFile`" 2> `"$errFile`""
 Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArguments -WindowStyle Hidden
 

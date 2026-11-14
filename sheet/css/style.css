@@ -235,3 +235,51 @@ body {
 .character-sheet-windows .save-button:hover {
     transform : scale(1.1);
 }
+
+/* RESPONSIVE - tablet and phone, the A4 paper keeps its fixed size on desktop
+   only : under 1100px the sheet takes the available width and grows downward,
+   the PAGE scrolls instead of the inner pane of each window */
+
+@media ( max-width: 1100px ) {
+
+    body {
+        padding: var(--s-lg);
+    }
+
+    .character-content {
+        width: 100%;
+        height: auto;
+    }
+
+    .characters-sheet-content {
+        overflow: visible;
+    }
+
+    .characters-sheet-content .gs-window-targets-V2 {
+        height: auto;
+    }
+}
+
+@media ( max-width: 640px ) {
+
+    body {
+        padding: var(--s-sm);
+    }
+
+    .character-sheet-windows {
+        flex-wrap: wrap;
+    }
+
+    .character-sheet-windows .gs-window-group-V2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .character-sheet-windows .gs-window-element-V2 .gs-div-tab {
+        padding: var(--s-sm) var(--s-lg);
+    }
+
+    .characters-sheet-content {
+        padding: var(--s-md);
+    }
+}
