@@ -5,31 +5,39 @@
  */
 CHARACTER.Current = function () {
     this.uuid              = null;
+    this._fossil_class_name = null;
     this.name_object       = new CHARACTER.Name();
     this.player            = new CHARACTER.Player();
     this.alignment         = null;
     this.level             = null;
     this.point_heroism     = null;
     this.race              = new RACES.Race();
+    this.archetype         = new ARCHETYPES.Archetype();
+    this.historic          = new HISTORICS.Historic();
     this.health            = new CHARACTER.Health();
     this.class             = new CLASSES.CharacterClasses();
     this.characteristics   = new CHARACTERISTICS.Characteristics();
     this.levels_history    = new CHARACTER.LevelsHistory();
     this.ancestry_history  = new CHARACTER.AncestryHistory();
+    this.archetype_history = new CHARACTER.ArchetypeHistory();
     this.adjustments       = new CHARACTER.Adjustments();
     this.stuffs            = new CHARACTER.Stuffs();
     this.spells            = new CHARACTER.Spells();
     this.spell_slots       = new CHARACTER.SpellSlots();
     this.gifts             = new CHARACTER.Gifts();
     this.masteries         = new CHARACTER.Masteries();
+    this.combat            = new CHARACTER.Combat();
     this.children          = new OBJECT.InterfaceContainer();
     this.children.add( this.player );
     this.children.add( this.name_object );
     this.children.add( this.race );
+    this.children.add( this.archetype );
+    this.children.add( this.historic );
     this.children.add( this.class );
     this.children.add( this.characteristics );
     this.children.add( this.levels_history );
     this.children.add( this.ancestry_history );
+    this.children.add( this.archetype_history );
     this.children.add( this.adjustments );
     this.children.add( this.stuffs );
     this.children.add( this.spells );
@@ -58,11 +66,8 @@ CHARACTER.Current.prototype = {
                 this.levels_history.buildSkills();
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.windows.doActionAfterContentChildren( event_name, params );
-                // Les sections d'ascendance (don, langues) et les
-                // caractéristiques vivent des le choix de l'ascendance :
-                // l'onglet Progression s'allume avec elle
-                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 break;
             case "event__level_up__take_level":
                 params[ "param__level_name" ]                = this.getLevelHistory().getNextLevelName();
@@ -76,6 +81,7 @@ CHARACTER.Current.prototype = {
                 this.levels_history.buildSkills();
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level_up__remove_level":
                 params[ "param__current_character__object" ] = this;
@@ -105,9 +111,9 @@ CHARACTER.Current.prototype = {
                 }
                 this.computeTotalLife();
                 this.class.updateHtmlData();
-                this.windows.setVisibilityWindowState( this.getRace().isSet() ? GS.CONST.VISIBILITY_STATE.NORMAL : GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "event__level__toggle":
                 params[ "param__current_character__object" ] = this;
@@ -122,6 +128,7 @@ CHARACTER.Current.prototype = {
             case "event__level_up__select_choice":
                 this.levels_history.doActionAfter( event_name, params );
                 this.ancestry_history.doActionAfter( event_name, params );
+                this.archetype_history.doActionAfter( event_name, params );
                 // The validation may move the skill ranks: the feat options
                 // depend on them
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
@@ -130,6 +137,30 @@ CHARACTER.Current.prototype = {
             case "event__level_up__toggle_selector":
                 this.levels_history.doActionAfter( event_name, params );
                 this.ancestry_history.doActionAfter( event_name, params );
+                this.archetype_history.doActionAfter( event_name, params );
+                break;
+            // The « + » of a library card poses the archetype of the
+            // CHARACTER (user decision: one field, visible from the start),
+            // its second click empties it (the Aucun of the old popup): the
+            // value follows in place on the field of the Général, the
+            // sections of the Progression resynchronize
+            case "event__archetype__select": {
+                let _current_value      = this.archetype.getValue();
+                let _selected_archetype = params[ "param__archetype__name" ] === _current_value ? "" : params[ "param__archetype__name" ];
+                this.archetype.setValue( _selected_archetype );
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            }
+            // The « + » of a library card poses the historic of the
+            // CHARACTER, its second click empties it : the value follows in
+            // place on the field of the Général (display only, the bonuses
+            // ride the Ajustements tab by hand)
+            case "event__historic__select":
+                if ( params[ "param__historic__name" ] === this.historic.getValue() ) {
+                    this.historic.setValue( "" );
+                } else {
+                    this.historic.setValue( params[ "param__historic__name" ] );
+                }
                 break;
             case "event__adjustment__add":
             case "event__adjustment__remove":
@@ -185,6 +216,7 @@ CHARACTER.Current.prototype = {
                     // The Intelligence modifier moves the additional
                     // languages count of the ancestry level-1 entry
                     this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                    this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                     // The Strength modifier moves the maximum bulk
                     this.stuffs.pushBulkCounters( this );
                     return;
@@ -196,9 +228,6 @@ CHARACTER.Current.prototype = {
             case "event__data_loaded__done":
                 this.computeTotalLife();
                 break;
-            case "event__compute_html__done":
-                this.health.doActionAfter( event_name, params );
-                break;
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
@@ -208,9 +237,6 @@ CHARACTER.Current.prototype = {
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
                 this.health.doActionAfter( event_name, params );
-                this.windows.doActionAfterContentChildren( event_name, params );
-                break;
-            case "event__health_history__load":
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "click_on__window_navigation__done":
@@ -234,6 +260,7 @@ CHARACTER.Current.prototype = {
         this.characteristics.addParamForEvents( key, value );
         this.levels_history.addParamForEvents( key, value );
         this.ancestry_history.addParamForEvents( key, value );
+        this.archetype_history.addParamForEvents( key, value );
     },
     //********************************************  COMPUTE   **************************************************//
     computeTotalLife: function () {
@@ -255,6 +282,14 @@ CHARACTER.Current.prototype = {
             total_life += this.getRace().start_life || 0;
         }
         this.health.setMaxHP( total_life );
+        this.health.applyPendingState();
+    },
+    //********************************************  SAVE  **************************************************//
+    // Le domaine PV ne vit pas dans les children (aucun rendu au General,
+    // aucune diffusion d'evenement) : sa cle rejoint le save explicitement
+    getDataToSave: function () {
+        let to_return = CHARACTER.ComponentInterface.prototype.getDataToSave.call( this );
+        return Object.assign( to_return, this.health.getDataToSave() );
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
@@ -262,10 +297,38 @@ CHARACTER.Current.prototype = {
             case this.race.getKey():
                 this.race.updateData( value );
                 this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.getRace(), "param__is_for": RACES.key_element } );
+                // The race arrives in ANY order in the old files : the
+                // ancestry sections materialize at load, not only at the
+                // next event
+                this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            // FOSSILS : the oldest files carry ONE root class object —
+            // today's model lives by the classes container. The name is
+            // stashed here, the levels_history case builds the class with it
+            case "class":
+                if ( value && value.name ) {
+                    this._fossil_class_name = value.name;
+                }
+                break;
+            case this.archetype.getKey():
+                this.archetype.setValue( value && value.value !== undefined ? value.value : value );
+                break;
+            case this.historic.getKey():
+                this.historic.setValue( value && value.value !== undefined ? value.value : value );
                 break;
             case CLASSES.key:
                 this.class.updateData( value );
                 this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.class.getBonusesData(), "param__is_for": CLASSES.key_element } );
+                // The old files carry the archetype INSIDE each class: the
+                // field lives on the character today, the relecture moves it
+                if ( Array.isArray( value ) ) {
+                    for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
+                        if ( value[ i ] && value[ i ][ ARCHETYPES.key_element ] ) {
+                            this.archetype.setValue( value[ i ][ ARCHETYPES.key_element ] );
+                            break;
+                        }
+                    }
+                }
                 break;
             case CHARACTERISTICS.key:
                 this.characteristics.updateData( value );
@@ -273,6 +336,48 @@ CHARACTER.Current.prototype = {
             case "uuid":
                 break;
             case "levels_history":
+                // FOSSILS : the old entries carry no class_name and numeric
+                // level names — the class of the root object (case "class")
+                // lands on every entry, the skill lines rebuild by today's
+                // model (the old class_capacity/skills arrays stay as they
+                // ride, ignored by the entry)
+                if ( this._fossil_class_name ) {
+                    let _normalized_entries = [];
+                    for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
+                        let _entry_data                = Object.assign( {}, value[ i ] );
+                        _entry_data[ "level_name" ]     = "" + value[ i ][ "level_name" ];
+                        if ( !_entry_data[ "class_name" ] ) {
+                            _entry_data[ "class_name" ] = this._fossil_class_name;
+                        }
+                        // The lines build in the level_skill case of the
+                        // entry : the old entries never carried the key
+                        _entry_data[ "level_skill" ]    = value[ i ][ "level_skill" ] || {};
+                        _normalized_entries.push( _entry_data );
+                    }
+                    this.class.updateData( [ { "name": this._fossil_class_name, "level": _normalized_entries.length } ] );
+                    this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.class.getBonusesData(), "param__is_for": CLASSES.key_element } );
+                    this._fossil_class_name = null;
+                    value = _normalized_entries;
+                }
+                // FOSSILS : the old entries carry the historic INSIDE their
+                // skills array — the field lives on the character today,
+                // the relecture moves the first found
+                let _old_historic = null;
+                for ( let i = 0, _size_i = value.length; i < _size_i && !_old_historic; i++ ) {
+                    let _old_skills = value[ i ][ "skills" ];
+                    if ( !_old_skills ) {
+                        continue;
+                    }
+                    for ( let j = 0, _size_j = _old_skills.length; j < _size_j; j++ ) {
+                        if ( _old_skills[ j ] && _old_skills[ j ][ HISTORICS.key_element ] ) {
+                            _old_historic = _old_skills[ j ][ HISTORICS.key_element ];
+                            break;
+                        }
+                    }
+                }
+                if ( _old_historic && !this.historic.getValue() ) {
+                    this.historic.setValue( _old_historic );
+                }
                 // The entries rebuild their lines while loading: the case
                 // level_skill of each entry constructs them from the save
                 this.levels_history.updateData( value );
@@ -282,10 +387,17 @@ CHARACTER.Current.prototype = {
                 // The race is loaded before the history: the ancestry entries
                 // materialize (an old save carries no ancestry key)
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                // The classes are loaded before the history: the archetype
+                // sections materialize (an old save carries no archetype key)
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "ancestry_history":
                 this.ancestry_history.updateData( value );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
+                break;
+            case "archetype_history":
+                this.archetype_history.updateData( value );
+                this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
             case "adjustments":
                 this.adjustments.updateData( value );
@@ -354,6 +466,12 @@ CHARACTER.Current.prototype = {
         return this.getRace().getLegacy();
     },
     /**
+     * @returns {ARCHETYPES.Archetype}
+     */
+    getArchetype: function () {
+        return this.archetype;
+    },
+    /**
      * @returns {CLASSES.CharacterClasses}
      */
     getClasses: function () {
@@ -372,7 +490,7 @@ CHARACTER.Current.prototype = {
         return this.levels_history.getActiveSize();
     },
     getHistoric       : function () {
-        return this.getLevelHistory().getSpecialContent( HISTORICS.key_element );
+        return this.historic;
     },
     getCharacteristics: function () {
         return this.characteristics;
@@ -385,6 +503,12 @@ CHARACTER.Current.prototype = {
      */
     getAncestryHistory: function () {
         return this.ancestry_history;
+    },
+    /**
+     * @returns {CHARACTER.ArchetypeHistory}
+     */
+    getArchetypeHistory: function () {
+        return this.archetype_history;
     },
     /**
      * @returns {CHARACTER.Adjustments}
@@ -419,6 +543,12 @@ CHARACTER.Current.prototype = {
     getMasteries     : function () {
         return this.masteries;
     },
+    /**
+     * @returns {CHARACTER.Combat}
+     */
+    getCombat        : function () {
+        return this.combat;
+    },
     //********************************************  HTML   **************************************************//
     updateHtmlData: function ( key, value ) {
         if ( !this[ key + "_html" ] ) {
@@ -431,7 +561,6 @@ CHARACTER.Current.prototype = {
     computeHTML   : function () {
         this.windows = new CHARACTER.WindowGroup();
         this.windows.computeHtmlWithData( this );
-        this.doActionAfter( "event__compute_html__done", {} );
     }
 };
 

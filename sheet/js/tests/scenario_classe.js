@@ -126,7 +126,9 @@ TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affich�
         TEST.ASSERT.notNull( _archetype_input, "Le champ Archetype devrait avoir un input" );
         if ( _archetype_input ) {
             TEST.ASSERT.equal( _archetype_input.value, "", "Le champ Archetype devrait etre vide (aucun archetype choisi)" );
-            TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__property_popup__open" ) !== -1, "Le champ Archetype devrait ouvrir le popup au clic" );
+            // Le popup des 246 archétypes est supprimé : le clic bascule sur
+            // la Bibliothèque, sujet Archétypes (verrouillé par scenario_archetype)
+            TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__archetype__goto_library" ) !== -1, "Le champ Archetype devrait etre câblé sur la Bibliothèque" );
         }
     }
 } );

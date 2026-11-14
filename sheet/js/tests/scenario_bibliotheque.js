@@ -187,7 +187,7 @@ function TEST_libraryFirstUnownedAddButton ( owned_check ) {
     return null;
 }
 
-TEST.RUNNER.register( "[BIBLIOTHÈQUE] onglet = Bibliothèque, sujets = Dons, Sorts, Équipement", function () {
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] onglet = Bibliothèque, sujets = Dons, Sorts, Équipement, Archétypes, Historiques", function () {
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
         let _character                      = CONTROLLER.Character.current_character;
         TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LibraryWindow.NAME, "Fenetre active apres le clic" );
@@ -496,6 +496,57 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom 
         _add_button.click();
         TEST.ASSERT.equal( _stuffs_domain.getSize(), _size_before, "Un objet non consommable possede ne devrait pas se dupliquer, obtenu : " + _stuffs_domain.getSize() + " contre " + _size_before );
     }
+} );
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Archétypes = liste alphabétique, dons cherchables", function () {
+    let _archetypes_subject = TEST_librarySubjectChip( "Archétypes" );
+    TEST.ASSERT.notNull( _archetypes_subject, "Pre-condition : puce sujet Archétypes rendue" );
+    if ( !_archetypes_subject ) {
+        return;
+    }
+    _archetypes_subject.click();
+    let _window_dom     = TEST_libraryWindowDom();
+    TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre Bibliothèque rendue" );
+    if ( !_window_dom ) {
+        return;
+    }
+    // Aucune chip de type sur le sujet : la liste alphabétique parle d'elle-meme
+    TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-filter-btn" ).length, 0, "Le sujet Archétypes ne devrait porter aucune chip de type, obtenu : " + _window_dom.querySelectorAll( ".library-filter-btn" ).length );
+    let _expected       = 0;
+    for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
+        if ( ARCHETYPES.ENUM[ i ].name ) {
+            _expected++;
+        }
+    }
+    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    TEST.ASSERT.equal( _cards.length, _expected, "Le sujet devrait rendre une carte par archétype scrape (" + _expected + "), obtenu : " + _cards.length );
+    // Ordre alphabétique brut : la premiere carte ne suit pas la dernière
+    if ( _cards.length > 1 ) {
+        let _first_name = _cards[ 0 ].querySelector( ".library-card-name" ).textContent;
+        let _last_name  = _cards[ _cards.length - 1 ].querySelector( ".library-card-name" ).textContent;
+        TEST.ASSERT.ok( _first_name.localeCompare( _last_name ) <= 0, "La liste devrait etre triee alphabetiquement, obtenu : [" + _first_name + "] avant [" + _last_name + "]" );
+    }
+    // Le texte cherchable du domaine reconduit par le test (la description
+    // ET les lignes de dons affichées) : le matcher partagé couvre aussi le
+    // nom et les traits, comme la fenêtre
+    let _expected_feats = 0;
+    for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
+        let _entry             = ARCHETYPES.ENUM[ i ];
+        if ( !_entry.name ) {
+            continue;
+        }
+        let _description_first = _entry.description ? ( Array.isArray( _entry.description ) ? _entry.description[ 0 ] : _entry.description ) : "";
+        let _search_text       = String( _description_first ).replace( /<[^>]*>/g, " " ).replace( /\s+/g, " " ).trim() + " " + ARCHETYPES.getFeatsSearchText( _entry.name );
+        if ( TEST_libraryEntryMatchesFilter( _entry.name, _entry.traits, _search_text, "", "", "dévouement" ) ) {
+            _expected_feats++;
+        }
+    }
+    TEST_libraryCommitFilterByEnter( "dévouement" );
+    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    TEST.ASSERT.equal( _cards.length, _expected_feats, "Le tag « dévouement » devrait laisser les " + _expected_feats + " archétype(s) dont un don le porte, obtenu : " + _cards.length );
+    TEST_libraryRemoveTag( "dévouement" );
+    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    TEST.ASSERT.equal( _cards.length, _expected, "Le × du tag devrait restaurer la liste complete (" + _expected + "), obtenu : " + _cards.length );
 } );
 
 TEST.RUNNER.register( "[BIBLIOTHÈQUE] changement de sujet = vue et filtres reinitialisees", function () {

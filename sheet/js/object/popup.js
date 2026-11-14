@@ -49,6 +49,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.SpellSlotsPopupRenderer( object_data );
             case "health":
                 return new OBJECT.HealthPopupRenderer( object_data );
+            case "armor_class":
+                return new OBJECT.ArmorClassPopupRenderer( object_data );
             default:
                 return new OBJECT.DefaultPopupRenderer( object_data );
         }

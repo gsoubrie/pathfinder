@@ -22,7 +22,6 @@ CONTROLLER.Character = (function ( self ) {
             case "event__open_modal__hp_heal":
             case "event__open_modal__hp_temp":
             case "event__open_modal__hp_damage":
-            case "event__health_history__load":
             case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
@@ -33,6 +32,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__remove":
             case "event__spell__add":
             case "event__spell__remove":
+            case "event__archetype__select":
+            case "event__historic__select":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__level_up__select_class":
@@ -105,6 +106,16 @@ CONTROLLER.Character = (function ( self ) {
                 break;
             case "event__current_character__save":
                 this.save();
+                break;
+            // The Général Archétype field lands the sheet on the
+            // Bibliothèque, subject Archétypes : the domain reads the value
+            // itself, nothing rides inline (the names carry apostrophes)
+            case "event__archetype__goto_library":
+                CHARACTER.LibraryWindow.goToArchetypesSubject( self.current_character );
+                break;
+            // Same contract for the Historique field of the Général
+            case "event__historic__goto_library":
+                CHARACTER.LibraryWindow.goToHistoricsSubject( self.current_character );
                 break;
         }
     };

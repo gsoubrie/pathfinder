@@ -292,6 +292,7 @@
 .library-window .library-tag--skill     { background: #4a3a2a; border: 1px solid #8a6a4a; color: #e0b880; }
 .library-window .library-tag--archetype { background: #4a2a2a; border: 1px solid #8a4a4a; color: #e89090; }
 .library-window .library-tag--archetype-name { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0a0d0; font-style: italic; }
+.library-window .library-tag--owned { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0a0d0; font-style: italic; }
 .library-window .library-tag--trait     { background: #2a3a3a; border: 1px solid #4a6a6a; color: #90c8c8; }
 .library-window .library-tag--spell     { background: #4a3a4a; border: 1px solid #8a6a8a; color: #d8a8d8; }
 .library-window .library-tag--stuff     { background: #3a3242; border: 1px solid #6a5a3a; color: #c8b890; }

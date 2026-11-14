@@ -12,14 +12,14 @@ CHARACTER.WindowGroup.prototype = {
     },
     computeHtmlWithData: function ( character_object ) {
         this.addSpecific( new CHARACTER.GeneralWindow( this.getName() ), character_object );
+        this.addSpecific( new CHARACTER.CombatWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.StuffsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LibraryWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.SpellsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.AdjustmentsWindow( this.getName() ), character_object );
         this.addSpecific( new CHARACTER.LevelUpWindow( this.getName() ), character_object );
-        if ( !character_object.getRace().isSet() ) {
-            this.setVisibilityWindowState( GS.CONST.VISIBILITY_STATE.DISABLED, CHARACTER.LevelUpWindow.NAME );
-        }
+        // Aucune fenêtre n'est conditionnelle (décision utilisateur : tout
+        // s'affiche, tout le temps)
         this.setActiveWindow( CHARACTER.GeneralWindow.NAME );
         this.computeHtml();
         let _windows_container = document.querySelector( ".character-sheet-windows" );

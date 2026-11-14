@@ -11,7 +11,7 @@
  * 4) Changement d'ascendance vers Humain : Aiuvarin et Dromaar (embarques
  *    par le scrap d'Humain) n'apparaissent qu'une fois chacun.
  * 5) Choix de Sang-dragon sur Humain, activation de l'onglet Progression :
- *    le pool du Don d'ascendance s'elargit aux dons Sang-dragon du palier,
+ *    le pool du Don ancestral s'elargit aux dons Sang-dragon du palier,
  *    dons de lignée compris (trait Lignée, palier 1 seul).
  * 6) Le geste reel du choix d'un don sang-dragon : ligne SELECTED, compteur
  *    converge, save (race.legacy + level_skill.ancestry_feat).
@@ -211,7 +211,7 @@ TEST.RUNNER.register( "[HÉRITAGES POLYVALENTS] Sang-dragon = dons sang-dragon d
             return;
         }
         let _row                        = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='1'] .level-up-row[data-slot-key='ancestry_feat']" );
-        TEST.ASSERT.notNull( _row, "La ligne Don d'ascendance du palier 1 devrait etre rendue" );
+        TEST.ASSERT.notNull( _row, "La ligne Don ancestral du palier 1 devrait etre rendue" );
         if ( !_row ) {
             return;
         }
@@ -263,7 +263,7 @@ TEST.RUNNER.register( "[HÉRITAGES POLYVALENTS] choix du don sang-dragon = ligne
         return;
     }
     let _row                            = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='1'] .level-up-row[data-slot-key='ancestry_feat']" );
-    TEST.ASSERT.notNull( _row, "Pre-condition : ligne Don d'ascendance du palier 1 rendue" );
+    TEST.ASSERT.notNull( _row, "Pre-condition : ligne Don ancestral du palier 1 rendue" );
     if ( !_row ) {
         return;
     }
@@ -297,7 +297,7 @@ TEST.RUNNER.register( "[HÉRITAGES POLYVALENTS] choix du don sang-dragon = ligne
 } );
 
 function TEST_HeritagePolyvalentAssertFeatChosen( character_object, row_dom, feat_name ) {
-    TEST.ASSERT.equal( row_dom.dataset.currentPhase, LEVELUP.PHASE.SELECTED, "La ligne Don d'ascendance devrait etre en phase SELECTED apres le choix, obtenu : " + row_dom.dataset.currentPhase );
+    TEST.ASSERT.equal( row_dom.dataset.currentPhase, LEVELUP.PHASE.SELECTED, "La ligne Don ancestral devrait etre en phase SELECTED apres le choix, obtenu : " + row_dom.dataset.currentPhase );
     let _selected_option                = row_dom.querySelector( ".single-select-option.selected" );
     TEST.ASSERT.ok( _selected_option && _selected_option.getAttribute( "data-value" ) === feat_name, "L'option choisie (" + feat_name + ") devrait porter la classe selected" );
     let _line                           = character_object.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );

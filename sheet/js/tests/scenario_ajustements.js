@@ -4,8 +4,9 @@
  * est le point neutre d'édition du personnage — une section par catégorie,
  * chaque entrée porte sa valeur et son explication libre, le reste de la
  * feuille reste lecture.
- *  1. L'onglet rend ses 6 sections (langues, sens, vitesse, dons, maîtrises,
- *     notes), chacune avec sa ligne d'ajout (valeur + explication).
+ *  1. L'onglet rend ses 7 sections (langues, sens, vitesse, dons, maîtrises,
+ *     bonus de caractéristique, notes), chacune avec sa ligne d'ajout
+ *     (valeur + explication).
  *  2. Ajouter la langue "Céleste" (source "Épreuve du pont") : l'entrée
  *     apparaît avec son explication (modifiable sur place), le save la
  *     porte, la zone du Général l'affiche en lecture seule. Le retrait la
@@ -15,7 +16,7 @@
  *     l'explication s'écrit entre les deux.
  *  4. Save → load : les ajustements sont restaurés (valeur, explication).
  */
-TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 6 sections avec leurs lignes d'ajout", function () {
+TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 7 sections avec leurs lignes d'ajout", function () {
     TEST.RESET.sheet();
     TEST_openRacePopup();
     return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
@@ -95,6 +96,56 @@ TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 6 sections avec leurs lignes d'ajo
             let _selector_container   = _pane.querySelector( ".adjustments-section[data-kind='language'] .single-select-container" );
             TEST.ASSERT.equal( _selector_container.getAttribute( "data-state-selector" ), "1", "Le clic sur le header devrait ouvrir la liste du sélecteur, obtenu : " + _selector_container.getAttribute( "data-state-selector" ) );
             TEST.ASSERT.ok( document.activeElement && document.activeElement.classList.contains( "single-select-filter" ), "La ligne de filtre devrait prendre le focus à l'ouverture du sélecteur, obtenu : " + ( document.activeElement ? document.activeElement.className : "aucun" ) );
+        }
+    } );
+} );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] bonus de caractéristique par le sélecteur", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _pane                           = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Ajustements ouvert" );
+    if ( !_pane ) {
+        return;
+    }
+    let _section                        = _pane.querySelector( ".adjustments-section[data-kind='characteristic_boost']" );
+    TEST.ASSERT.notNull( _section, "La section Bonus de caractéristique devrait etre rendue" );
+    if ( !_section ) {
+        return;
+    }
+    // Le sélecteur propose les six caractéristiques par leur libellé
+    let _options                        = _section.querySelectorAll( ".single-select-option" );
+    TEST.ASSERT.equal( _options.length - 1, CHARACTERISTICS.ENUM.length, "Le sélecteur devrait proposer les " + CHARACTERISTICS.ENUM.length + " caractéristiques en plus de l'option vide, obtenu : " + ( _options.length - 1 ) );
+    let _force_option                   = _section.querySelector( ".single-select-option[data-value='Force']" );
+    TEST.ASSERT.notNull( _force_option, "Le sélecteur devrait proposer Force" );
+    if ( !_force_option ) {
+        return;
+    }
+    _force_option.click();
+    return TEST.wait().then( function () {
+        let _selector_label             = _section.querySelector( ".single-select-selector-label" );
+        TEST.ASSERT.equal( _selector_label.textContent, "Force", "Le sélecteur devrait afficher Force en attente, obtenu : [" + _selector_label.textContent + "]" );
+        let _explanation_input          = _section.querySelector( '[data-name="adjustment-explanation"]' );
+        if ( !_explanation_input ) {
+            return;
+        }
+        _explanation_input.value        = "Historique — Acolyte";
+        _section.querySelector( ".adjustments-add-button" ).click();
+        // L'ajout re-rend l'onglet : la lecture de l'entrée repart du panneau
+        // frais, la reference de section est morte
+        let _fresh_pane                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _entry                      = _fresh_pane.querySelector( ".adjustments-section[data-kind='characteristic_boost'] .adjustments-entry[data-value='Force']" );
+        TEST.ASSERT.notNull( _entry, "Le + devrait poser l'entrée Force, le boost du choix libre de l'historique" );
+        let _saved                      = _character.getDataToSave();
+        TEST.ASSERT.ok( _saved.adjustments && JSON.stringify( _saved.adjustments ).indexOf( "Force" ) !== -1, "La sauvegarde devrait porter le boost Force, obtenu : [" + JSON.stringify( _saved.adjustments ) + "]" );
+        // Le retrait rend a la suite son etat : la langues qui suivent
+        // attendent un onglet sans reste
+        if ( _entry ) {
+            _entry.querySelector( ".adjustments-entry-remove" ).click();
+            TEST.ASSERT.equal( JSON.stringify( _character.getDataToSave().adjustments ).indexOf( "Force" ), -1, "Le retrait devrait retirer le boost de la sauvegarde" );
         }
     } );
 } );

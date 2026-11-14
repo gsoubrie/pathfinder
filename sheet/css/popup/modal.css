@@ -1,0 +1,88 @@
+/* =============================== MODALE (SERVICE.MODAL) ====================== */
+/* Les modales de service (Soigner / Dégâts / PV temporaires de l'onglet
+   Combat) : overlay plein écran, carte centrée sur le thème parchemin,
+   champs empilés, boutons en bas. */
+
+.modal {
+    position         : fixed;
+    inset            : 0;
+    z-index          : 300;
+    display          : flex;
+    align-items      : center;
+    justify-content  : center;
+    background       : rgba( 13, 6, 4, 0.7 );
+}
+
+.modal-content {
+    display          : flex;
+    flex-direction   : column;
+    gap              : var( --s-md, 8px );
+    width            : min( 420px, 90vw );
+    max-height       : 80vh;
+    overflow-y       : auto;
+    padding          : var( --s-lg, 12px );
+    background        : var( --g-bg-paper, linear-gradient(135deg, #D6C6B8 0%, #C4B4A6 100%) );
+    border            : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius     : var( --r-lg, 8px );
+    box-shadow        : 0 6px 24px rgba( 0, 0, 0, 0.5 );
+}
+
+.modal-title {
+    color        : var( --c-text-dark, #1A0F08 );
+    margin-bottom: var( --s-xs, 2px );
+}
+
+.modal-field {
+    display       : flex;
+    flex-direction: column;
+    gap           : var( --s-xs, 2px );
+}
+
+.modal-field label.modal-label {
+    color      : var( --c-text-dark, #1A0F08 );
+    font-size  : 13px;
+}
+
+.modal-input,
+.modal-textarea,
+.modal-select {
+    padding       : 6px 8px;
+    border        : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius : var( --r-sm, 4px );
+    background    : var( --c-bg-paper-light, #D6C6B8 );
+    color         : var( --c-text-dark, #1A0F08 );
+    font-family   : inherit;
+    font-size     : 14px;
+}
+
+.modal-textarea {
+    resize : vertical;
+    min-height : 60px;
+}
+
+.modal-buttons {
+    display         : flex;
+    justify-content  : center;
+    gap              : var( --s-sm, 4px );
+    margin-top       : var( --s-sm, 4px );
+}
+
+.modal-button {
+    padding       : 6px 16px;
+    border        : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius : var( --r-sm, 4px );
+    background    : var( --g-button, linear-gradient(135deg, #8B6914 0%, #6B4E10 100%) );
+    color         : var( --c-text, #E8D4A8 );
+    cursor         : pointer;
+    font-size      : 14px;
+    transition     : all 0.2s ease;
+}
+
+.modal-button:hover {
+    background : var( --g-button-hover, linear-gradient(135deg, #A87D1A 0%, #8B6914 100%) );
+}
+
+.modal-button.cancel {
+    background : var( --g-panel, linear-gradient(135deg, #2C1810 0%, #1A0F08 100%) );
+    color      : var( --c-text-muted, #C8B89A );
+}

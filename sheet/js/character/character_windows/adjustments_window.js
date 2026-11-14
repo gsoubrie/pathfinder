@@ -195,6 +195,15 @@ CHARACTER.AdjustmentsWindow.prototype = {
             }
             return to_return;
         }
+        // The boost carries its DISPLAY name : the entry reads as prose in
+        // the tab, the label to key map will live with the consumption
+        if ( kind_key === "characteristic_boost" ) {
+            let to_return = [];
+            for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
+                to_return.push( { "name": CHARACTERISTICS.ENUM[ i ].label } );
+            }
+            return to_return;
+        }
         return [];
     },
 

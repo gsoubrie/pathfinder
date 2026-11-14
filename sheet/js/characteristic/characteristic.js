@@ -13,6 +13,11 @@ CHARACTERISTICS.Characteristic.prototype = {
         this.race_bonus     = new OBJECT.ConfigurableValue( "race_bonus", 0, "FREE" );
         this.class_bonus    = new OBJECT.ConfigurableValue( "class_bonus", 0, "FREE" );
         this.initial_value  = new OBJECT.ConfigurableValue( "initial_value", CHARACTERISTICS.INITIAL_VALUE, CHARACTERISTICS.INITIAL_VALUE );
+        // Les boosts de creation de niveau 1 vivent sur la Valeur Initial :
+        // la cellule reste TOUJOURS editable — SLEEPING (phase par defaut
+        // du ConfigurableValue) pose pointer-events: none sur les boutons,
+        // la valeur deviendrait impossible a modifier
+        this.initial_value.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
         this.setKey( data[ "key" ] );
         this.setLabelProperty( data[ "label" ] );
         
@@ -33,6 +38,10 @@ CHARACTERISTICS.Characteristic.prototype = {
         switch ( event_name ) {
             case "event__ask_set_data":
                 this.initial_value.updateData( params[ "param__set_data_value" ][ "initial_value" ] );
+                // Les vieux saves portent une phase numerique (fossile des
+                // constantes de la lib) : la valeur reste editable quoi
+                // qu'il lise
+                this.initial_value.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
                 this.race_bonus.updateData( params[ "param__set_data_value" ][ "race_bonus" ] );
                 if ( this.race_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
                     params[ "param__is_for" ] = RACES.key_element;

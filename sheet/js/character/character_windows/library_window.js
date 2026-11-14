@@ -34,6 +34,16 @@ CHARACTER.LibraryWindow.prototype = {
 
     computeContent: function ( character_object ) {
         let self = this;
+        // An incoming arrival from the Général field: the pending subject
+        // and filters apply ONCE, the visits afterwards keep the state the
+        // user left
+        if ( CHARACTER.LibraryWindow.pending_subject_key ) {
+            this.current_subject = CHARACTER.LibraryWindow.pending_subject_key;
+            this.filter_type      = LIBRARY.FILTER_ALL_KEY;
+            this.search_filters   = [].concat( CHARACTER.LibraryWindow.pending_filters || [] );
+            CHARACTER.LibraryWindow.pending_subject_key = null;
+            CHARACTER.LibraryWindow.pending_filters      = null;
+        }
         SERVICE.DOM.empty( this.content_dom_element_target );
         this._buildSubjectChips( this.content_dom_element_target );
         let filters_container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-filters" } ), this.content_dom_element_target );
@@ -265,6 +275,14 @@ CHARACTER.LibraryWindow.prototype = {
             this._renderSpellList( list_dom, character_object );
             return;
         }
+        if ( this.current_subject === "archetypes" ) {
+            this._renderArchetypeList( list_dom, character_object );
+            return;
+        }
+        if ( this.current_subject === "historics" ) {
+            this._renderHistoricList( list_dom, character_object );
+            return;
+        }
         this._renderStuffList( list_dom, character_object );
     },
 
@@ -388,16 +406,10 @@ CHARACTER.LibraryWindow.prototype = {
     },
 
     _hasClassArchetype: function ( character_object, archetype_name ) {
-        if ( !character_object || !character_object.getClasses ) {
+        if ( !character_object || !character_object.getArchetype ) {
             return false;
         }
-        let classes = character_object.getClasses();
-        for ( let c = 0, _size_c = classes.getSize(); c < _size_c; c++ ) {
-            if ( classes.getContent( c ).getArchetype().getValue() === archetype_name ) {
-                return true;
-            }
-        }
-        return false;
+        return character_object.getArchetype().getValue() === archetype_name;
     },
 
     _formatRequired: function ( required ) {
@@ -484,6 +496,164 @@ CHARACTER.LibraryWindow.prototype = {
     },
 
     //********************************************  CARDS  **************************************************//
+
+    // One sectionless list, alphabetical : the sections by level of the
+    // feats subject carry nothing (the scraped level of an archetype is
+    // almost always 0, user decision). Every displayed line is searchable :
+    // the description, the traits AND the feat lines the card displays
+    _renderArchetypeList: function ( list_dom, character_object ) {
+        let archetypes = [];
+        for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i; i++ ) {
+            let entry = ARCHETYPES.ENUM[ i ];
+            if ( !entry || !entry.name ) {
+                continue;
+            }
+            let search_text = this._formatScrapedDescription( entry.description ) + " " + ARCHETYPES.getFeatsSearchText( entry.name );
+            if ( !this._matchesSearchFilters( entry.name, entry.traits, search_text, "", "" ) ) {
+                continue;
+            }
+            archetypes.push( entry );
+        }
+        archetypes.sort( function ( entry_a, entry_b ) {
+            return ( entry_a.name || "" ).localeCompare( entry_b.name || "" );
+        } );
+        if ( !archetypes.length ) {
+            this._renderEmpty( list_dom );
+            return;
+        }
+        for ( let a = 0, _size_a = archetypes.length; a < _size_a; a++ ) {
+            this._buildArchetypeCard( list_dom, archetypes[ a ], character_object );
+        }
+    },
+
+    // The archetype card : traits, description clampée, its feats one per
+    // line. The « + » poses the archetype on the first class (its second
+    // click empties it, the Aucun of the old popup), the sheet lands on
+    // the Progression of its sections (user decision)
+    _buildArchetypeCard: function ( parent, entry, character_object ) {
+        let owned       = character_object && character_object.getArchetypeHistory().getArchetypeName( character_object ) === entry.name;
+        let card_data   = {
+            "name"       : entry.name,
+            "tags"       : [],
+            "description": this._formatScrapedDescription( entry.description ),
+            "add"        : {
+                class       : "library-card-add",
+                title       : owned ? "Retirer l'archétype" : "Choisir l'archétype",
+                "data-value": entry.name,
+                onclick     : "MANAGER.EventManagerV2.doActionAfter(event,'event__archetype__select',{'param__archetype__name':this.getAttribute('data-value')});CHARACTER.LibraryWindow.goToSheet('" + CHARACTER.LevelUpWindow.NAME + "')"
+            }
+        };
+        if ( entry.traits && entry.traits.length ) {
+            for ( let t = 0, _size_t = entry.traits.length; t < _size_t; t++ ) {
+                card_data[ "tags" ].push( { "label": entry.traits[ t ], "css": "library-tag--trait" } );
+            }
+        }
+        if ( owned ) {
+            card_data[ "tags" ].push( { "label": "Mon archétype", "css": "library-tag--archetype-name" } );
+        }
+        let card = this._buildCard( parent, card_data );
+        this._buildArchetypeFeatsLines( card, entry );
+    },
+
+    // The feats of the archetype, one point per line under the description
+    _buildArchetypeFeatsLines: function ( card, entry ) {
+        if ( !entry.skills || !entry.skills.length ) {
+            return;
+        }
+        let content = card.querySelector( ".library-card-content" );
+        if ( !content ) {
+            return;
+        }
+        for ( let i = 0, _size_i = entry.skills.length; i < _size_i; i++ ) {
+            let feat = entry.skills[ i ];
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "library-card-key-line" }, feat.name + " (Don " + ( feat.level || 0 ) + ")" ),
+                content
+            );
+        }
+    },
+
+    // One sectionless list, alphabetical, the choice rides the « + » of the
+    // card. Every displayed line is searchable (the skills, the skill feat
+    // AND the characteristic bonuses line)
+    _renderHistoricList: function ( list_dom, character_object ) {
+        let historics = [];
+        for ( let i = 0, _size_i = HISTORICS.ENUM.length; i < _size_i; i++ ) {
+            let entry = HISTORICS.ENUM[ i ];
+            if ( !entry || !entry.name ) {
+                continue;
+            }
+            let search_text = this._formatScrapedDescription( entry.description ) + " " + this._getHistoricLines( entry ).join( " " );
+            if ( !this._matchesSearchFilters( entry.name, [], search_text, "", "" ) ) {
+                continue;
+            }
+            historics.push( entry );
+        }
+        historics.sort( function ( entry_a, entry_b ) {
+            return ( entry_a.name || "" ).localeCompare( entry_b.name || "" );
+        } );
+        if ( !historics.length ) {
+            this._renderEmpty( list_dom );
+            return;
+        }
+        for ( let h = 0, _size_h = historics.length; h < _size_h; h++ ) {
+            this._buildHistoricCard( list_dom, historics[ h ], character_object );
+        }
+    },
+
+    // The historic card : its lines render ONE point per line under the
+    // description. The « + » poses the historic of the character (its
+    // second click empties it), the sheet lands on the Général of its field
+    // (user decision — display only, the bonuses ride the Ajustements tab
+    // by hand)
+    _buildHistoricCard: function ( parent, entry, character_object ) {
+        let owned     = character_object && character_object.getHistoric().getValue() === entry.name;
+        let card_data = {
+            "name"       : entry.name,
+            "tags"       : [],
+            "description": this._formatScrapedDescription( entry.description ),
+            "add"        : {
+                class       : "library-card-add",
+                title       : owned ? "Retirer l'historique" : "Choisir l'historique",
+                "data-value": entry.name,
+                onclick     : "MANAGER.EventManagerV2.doActionAfter(event,'event__historic__select',{'param__historic__name':this.getAttribute('data-value')});CHARACTER.LibraryWindow.goToSheet('" + CHARACTER.GeneralWindow.NAME + "')"
+            }
+        };
+        if ( owned ) {
+            card_data[ "tags" ].push( { "label": "Mon historique", "css": "library-tag--owned" } );
+        }
+        let card    = this._buildCard( parent, card_data );
+        let content = card.querySelector( ".library-card-content" );
+        let lines   = this._getHistoricLines( entry );
+        for ( let l = 0, _size_l = lines.length; l < _size_l; l++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-key-line" }, lines[ l ] ), content );
+        }
+    },
+
+    // The displayed lines of a historic : its qualified skills, its skill
+    // feat and its characteristic bonuses (FRE reads as the free boost)
+    _getHistoricLines: function ( entry ) {
+        let to_return = [];
+        if ( entry.skills ) {
+            for ( let i = 0, _size_i = entry.skills.length; i < _size_i; i++ ) {
+                let skill = entry.skills[ i ];
+                to_return.push( skill.label + ( skill.qualifier ? " " + skill.qualifier : "" ) + " — " + skill.characteristic );
+            }
+        }
+        if ( entry.gift_skill && entry.gift_skill.length ) {
+            to_return.push( "Don : " + entry.gift_skill.join( ", " ) );
+        }
+        let bonus_choices = [];
+        if ( entry.characteristics_bonus && entry.characteristics_bonus.choice ) {
+            for ( let c = 0, _size_c = entry.characteristics_bonus.choice.length; c < _size_c; c++ ) {
+                bonus_choices.push( entry.characteristics_bonus.choice[ c ] === "FRE" ? "libre" : entry.characteristics_bonus.choice[ c ] );
+            }
+        }
+        if ( bonus_choices.length ) {
+            to_return.push( "Bonus : " + bonus_choices.join( " ou " ) );
+        }
+        return to_return;
+    },
 
     _addSection: function ( parent, label ) {
         let section = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-level-section" } ), parent );
@@ -626,4 +796,35 @@ CHARACTER.LibraryWindow.goToSheet = function ( window_name ) {
     params[ WINDOW_V2.CONST.PARAM.WINDOW_NAME ] = window_name;
     params[ WINDOW_V2.CONST.PARAM.WINDOW_GROUP_NAME ] = tab_dom.dataset.groupName;
     MANAGER.EventManagerV2.clickOnWindowNavigation( { target: tab_dom, button: 0, stopPropagation: function () {} }, params );
+};
+
+CHARACTER.LibraryWindow.pending_subject_key = null;
+CHARACTER.LibraryWindow.pending_filters     = null;
+
+// The Général Archétype field lands the sheet HERE : subject Archétypes,
+// the posed filter rides the current value — empty when unset, the name of
+// the archeype otherwise (user decision). The pending applies ONCE (the
+// computeContent of the navigation consumes it), the visits afterwards
+// keep the state the user left
+CHARACTER.LibraryWindow.goToArchetypesSubject = function ( character_object ) {
+    if ( !character_object ) {
+        return;
+    }
+    let archetype_name = character_object.getArchetypeHistory().getArchetypeName( character_object );
+    CHARACTER.LibraryWindow.pending_subject_key = "archetypes";
+    CHARACTER.LibraryWindow.pending_filters     = archetype_name ? [ archetype_name ] : [];
+    CHARACTER.LibraryWindow.goToSheet( CHARACTER.LibraryWindow.NAME );
+};
+
+// The Général Historique field lands the sheet HERE : subject Historiques,
+// the posed filter rides the current value — empty when unset, the name of
+// the historic otherwise (same contract as the archetypes)
+CHARACTER.LibraryWindow.goToHistoricsSubject = function ( character_object ) {
+    if ( !character_object ) {
+        return;
+    }
+    let historic_name = character_object.getHistoric().getValue();
+    CHARACTER.LibraryWindow.pending_subject_key = "historics";
+    CHARACTER.LibraryWindow.pending_filters     = historic_name ? [ historic_name ] : [];
+    CHARACTER.LibraryWindow.goToSheet( CHARACTER.LibraryWindow.NAME );
 };

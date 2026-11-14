@@ -39,12 +39,6 @@ CHARACTER.LevelsHistory.prototype = {
         }
         return "" + to_return;
     },
-    getSpecialContent: function ( key_name ) {
-        switch ( key_name ) {
-            case HISTORICS.key_element :
-                return this.getContent( 0 ).skills.getContentByUUID( "1 - " + key_name );
-        }
-    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                 = {};

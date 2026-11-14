@@ -2,7 +2,10 @@
 /**
  * Scenario : PAGE VIDE
  * Chargement de la fiche sans personnage. La page se charge, le premier onglet
- * affiche les champs disponibles et cache les zones conditionnelles.
+ * affiche TOUT (decision utilisateur : plus de zone conditionnelle) — les
+ * champs bases, l'heritage, les caracteristiques, la zone Classe et les jets
+ * avec leurs valeurs par defaut ; seules les zones jamais implementees et le
+ * champ porte par une classe restent absents.
  */
 
 TEST.RUNNER.register( "[PAGE VIDE] La page se charge.", function () {
@@ -40,11 +43,13 @@ TEST.RUNNER.register( "[PAGE VIDE][SAVE] bouton barre d'onglets + contenu vide",
     }
 } );
 
-TEST.RUNNER.register( "[PAGE VIDE] champs visibles = Nom, Joueur, Ascendance", function () {
+TEST.RUNNER.register( "[PAGE VIDE] champs visibles = Nom, Joueur, Ascendance, Héritage, Taille", function () {
     let _fields                          = [
         { key: "name", editable: true },
         { key: "player", editable: true },
-        { key: "race", editable: false }
+        { key: "race", editable: false },
+        { key: "legacy", editable: false },
+        { key: "body_size", editable: true }
     ];
     for ( let i = 0, _size_i = _fields.length; i < _size_i; i++ ) {
         let _field                       = _fields[ i ];
@@ -75,22 +80,75 @@ TEST.RUNNER.register( "[PAGE VIDE] champs visibles = Nom, Joueur, Ascendance", f
     }
 } );
 
-TEST.RUNNER.register( "[PAGE VIDE] zones cachees : classe, niveau, etc", function () {
+TEST.RUNNER.register( "[PAGE VIDE] zones cachees : jamais implementees", function () {
     let _hidden_areas                    = [
-        "area-legacy",
         "area-heritage",
-        "area-class",
-        "area-archetype",
         "area-level",
         "area-alignment",
         "area-divinity",
         "area-heroism",
         "area-ca",
-        "area-surprise",
-        "area-health"
+        "area-surprise"
     ];
     for ( let i = 0, _size_i = _hidden_areas.length; i < _size_i; i++ ) {
         let _area                        = document.querySelector( ".characters-sheet-content ." + _hidden_areas[ i ] );
         TEST.ASSERT.isNull( _area, "La zone " + _hidden_areas[ i ] + " devrait etre cachee sur une page vide" );
+    }
+} );
+
+TEST.RUNNER.register( "[PAGE VIDE] tout s'affiche : classe, caracteristiques, jets, infos ascendance", function () {
+    // La zone Classe vit DES LE DEBUT : liste vide + bouton d'ajout
+    let _class_area                      = document.querySelector( ".characters-sheet-content .grid-area.area-class" );
+    TEST.ASSERT.notNull( _class_area, "La zone Classe devrait etre rendue sur une page vide" );
+    if ( _class_area ) {
+        TEST.ASSERT.notNull( _class_area.querySelector( ".class-add-button" ), "Le bouton d'ajout de classe devrait etre rendu sans ascendance" );
+        TEST.ASSERT.equal( _class_area.querySelectorAll( ".class-entry" ).length, 0, "Aucune classe ne devrait etre listee sur une page vide, obtenu : " + _class_area.querySelectorAll( ".class-entry" ).length );
+    }
+    // Les caracteristiques vivent des le debut : une zone par caractenstique
+    let _characteristic_keys             = [];
+    for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
+        _characteristic_keys.push( CHARACTERISTICS.ENUM[ i ].key );
+    }
+    for ( let i = 0, _size_i = _characteristic_keys.length; i < _size_i; i++ ) {
+        let _area                        = document.querySelector( ".characters-sheet-content .grid-area.area-" + _characteristic_keys[ i ] );
+        TEST.ASSERT.notNull( _area, "La zone de la caracteristique " + _characteristic_keys[ i ] + " devrait etre rendue sur une page vide" );
+    }
+    // Le champ Archétype vit sur le personnage : il s'affiche des le debut,
+    // vide et câblé vers la Bibliothèque
+    let _archetype_area                  = document.querySelector( ".characters-sheet-content .grid-area.area-archetype" );
+    TEST.ASSERT.notNull( _archetype_area, "Le champ Archétype devrait etre rendu sur une page vide (champ du personnage)" );
+    if ( _archetype_area ) {
+        let _archetype_input             = _archetype_area.querySelector( "input.value" );
+        TEST.ASSERT.notNull( _archetype_input, "Le champ Archétype devrait avoir son input" );
+        if ( _archetype_input ) {
+            TEST.ASSERT.equal( _archetype_input.value, "", "Le champ Archétype devrait etre vide sur une page vierge, obtenu : [" + _archetype_input.value + "]" );
+        }
+    }
+    // Le champ PV vit aussi sur le General (demande utilisateur : UN CHAMP,
+    // le suivi vit dans l'onglet Combat) : vide sur page vierge, son clic
+    // bascule sur l'onglet Combat
+    let _pv_area                          = document.querySelector( ".characters-sheet-content .grid-area.area-pv" );
+    TEST.ASSERT.notNull( _pv_area, "Le champ Points de vie devrait etre rendu sur une page vide (area-pv)" );
+    if ( _pv_area ) {
+        let _pv_input                     = _pv_area.querySelector( "input.health-points-link" );
+        TEST.ASSERT.notNull( _pv_input, "Le champ PV devrait avoir son input cliquable" );
+        if ( _pv_input ) {
+            TEST.ASSERT.equal( _pv_input.value, "0 / 0", "Le champ PV devrait afficher 0 / 0 sur page vierge, obtenu : [" + _pv_input.value + "]" );
+            TEST.ASSERT.ok( _pv_input.getAttribute( "onclick" ).indexOf( "goToSheet('" + CHARACTER.CombatWindow.NAME + "')" ) !== -1, "Le clic du champ PV devrait basculer sur l'onglet Combat" );
+        }
+    }
+    // La zone jets vit des le debut : l'entete + une ligne par sauvegarde et
+    // par competence, valeurs par defaut (rang I, jet 0)
+    let _jets_area                       = document.querySelector( ".characters-sheet-content .jets-grid" );
+    TEST.ASSERT.notNull( _jets_area, "La zone jets devrait etre rendue sur une page vide" );
+    if ( _jets_area ) {
+        TEST.ASSERT.equal( _jets_area.querySelectorAll( ".saves-row" ).length, 1 + MASTERY.SAVES.length + Object.keys( SKILLS.LIST ).length, "L'entete + les " + MASTERY.SAVES.length + " sauvegardes + les " + Object.keys( SKILLS.LIST ).length + " competences devraient etre rendues, obtenu : " + _jets_area.querySelectorAll( ".saves-row" ).length );
+    }
+    // La zone infos d'ascendance vit des le debut : ses listes restent vides
+    let _ancestry_area                   = document.querySelector( ".characters-sheet-content .area-ancestry-info" );
+    TEST.ASSERT.notNull( _ancestry_area, "La zone infos ascendance devrait etre rendue sur une page vide" );
+    if ( _ancestry_area ) {
+        TEST.ASSERT.equal( _ancestry_area.querySelectorAll( ".ancestry-info-trait" ).length, 0, "Aucun trait ne devrait etre affiche sans ascendance, obtenu : " + _ancestry_area.querySelectorAll( ".ancestry-info-trait" ).length );
+        TEST.ASSERT.equal( _ancestry_area.querySelectorAll( ".ancestry-list-entry" ).length, 0, "Aucune langue ne devrait etre affichee sans ascendance, obtenu : " + _ancestry_area.querySelectorAll( ".ancestry-list-entry" ).length );
     }
 } );

@@ -130,6 +130,48 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] affichage = 6 lignes", function () {
     } );
 } );
 
+// Les boosts de creation de niveau 1 vivent sur la Valeur Initial : la
+// cellule doit rester EDITABLE des le debut — SLEEPING (le defaut du
+// ConfigurableValue) pose pointer-events: none, les 4 boosts devenaient
+// impossibles a poser sur un personnage neuf
+TEST.RUNNER.register( "[CARACTERISTIQUES] valeur initial éditable : le + pose les boosts de création", function () {
+    let _pane                          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Caracteristiques ouvert" );
+    if ( !_pane ) {
+        return;
+    }
+    let _for_line                      = _pane.querySelector( ".characteristic-line[data-name='FOR']" );
+    TEST.ASSERT.notNull( _for_line, "La ligne FOR devrait exister" );
+    if ( !_for_line ) {
+        return;
+    }
+    let _initial_cell                  = _for_line.querySelector( ".characteristic-initial-value .flex-layout-center-h-v" );
+    TEST.ASSERT.notNull( _initial_cell, "La cellule Valeur Initial de FOR devrait exister" );
+    if ( !_initial_cell ) {
+        return;
+    }
+    TEST.ASSERT.notEqual( _initial_cell.getAttribute( "data-current-phase" ), GS.OBJECT.CONST.PHASE.SLEEPING, "La Valeur Initial ne devrait jamais vivre en SLEEPING (pointer-events: none sur les boutons — les boosts de creation deviennent impossibles a poser)" );
+    let _more_button                   = _for_line.querySelector( ".characteristic-initial-value [data-name='event__more_button']" );
+    let _less_button                   = _for_line.querySelector( ".characteristic-initial-value [data-name='event__less_button']" );
+    TEST.ASSERT.notNull( _more_button, "Le + de la Valeur Initial devrait etre rendu" );
+    TEST.ASSERT.notNull( _less_button, "Le - de la Valeur Initial devrait etre rendu" );
+    if ( !_more_button || !_less_button ) {
+        return;
+    }
+    let _final                         = _for_line.querySelector( ".characteristic-final-value" );
+    TEST.ASSERT.ok( getComputedStyle( _more_button ).pointerEvents !== "none", "Le + de la Valeur Initial devrait intercepter les clics, obtenu : " + getComputedStyle( _more_button ).pointerEvents );
+    // Le contenu de la cellule vit au milieu des boutons ([-, valeur, +])
+    let _initial_display               = _initial_cell.children[ 1 ];
+    _more_button.click();
+    TEST.ASSERT.equal( _initial_display.textContent.trim(), "11", "Un clic sur le + devrait poser la Valeur Initial a 11, obtenu : [" + _initial_display.textContent.trim() + "]" );
+    TEST.ASSERT.ok( _final.textContent.indexOf( "11" ) !== -1, "La valeur finale de FOR devrait suivre a 11, obtenu : " + _final.textContent );
+    _more_button.click();
+    TEST.ASSERT.ok( _final.textContent.indexOf( "12" ) !== -1, "Un second + devrait porter la valeur finale a 12 (1 boost de creation), obtenu : " + _final.textContent );
+    _less_button.click();
+    _less_button.click();
+    TEST.ASSERT.ok( _final.textContent.indexOf( "10" ) !== -1, "Deux - devraient rendre la Valeur Initial a 10, obtenu : " + _final.textContent );
+} );
+
 TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR → bonus posé, compteur masqué", function () {
     let _character                     = CONTROLLER.Character.current_character;
     let _pane                          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );

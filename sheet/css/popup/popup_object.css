@@ -405,6 +405,13 @@
     text-align : center;
 }
 
+.popup-armor-class-total-hint {
+    color      : var(--pf-text-muted);
+    font-size  : 12px;
+    margin     : -8px 0 8px;
+    text-align : center;
+}
+
 .popup-health-source {
     align-items    : center;
     border-bottom  : 1px solid var(--pf-border-subtle);

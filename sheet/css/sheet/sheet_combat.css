@@ -1,0 +1,393 @@
+/* =============================== COMBAT (fenêtre) =========================== */
+/* L'onglet Combat porte le suivi PV : la bande (courant / max, PV
+   temporaires) et les trois modales de jeu, le journal des soins et pertes
+   se lit dessous, du plus récent au plus ancien. Tout s'affiche dès le
+   début (page vide : 0 / 0, journal vide). */
+
+.combat-window {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-md, 8px );
+    padding        : var( --s-md, 8px );
+}
+
+/* ===== Bande PV ===== */
+.combat-health-band {
+    display              : grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    gap                  : var( --s-md, 8px );
+    padding              : var( --s-md, 8px );
+    background           : var( --g-panel, linear-gradient(135deg, #3D2817 0%, #2A1B10 100%) );
+    border               : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius        : var( --r-lg, 8px );
+}
+
+.combat-health-points,
+.combat-health-temp {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+}
+
+.combat-health-label {
+    color      : var( --c-text-muted, #C8B89A );
+    font-size   : 12px;
+    letter-spacing : 0.3px;
+}
+
+.combat-health-points-value {
+    color       : var( --c-gold, #D4AF37 );
+    font-size   : 22px;
+    font-weight : bold;
+}
+
+.combat-health-percentage {
+    color     : var( --c-text-muted, #C8B89A );
+    font-size : 12px;
+}
+
+.combat-health-temp-value {
+    color     : var( --c-health-temp, #5B9BD5 );
+    font-size : 16px;
+}
+
+.combat-health-actions {
+    grid-column  : 1 / -1;
+    display      : flex;
+    gap          : var( --s-sm, 4px );
+    padding-top  : var( --s-xs, 2px );
+    border-top   : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+}
+
+.combat-health-button {
+    padding            : 6px 12px;
+    border             : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius      : var( --r-sm, 4px );
+    background         : var( --g-panel, linear-gradient(135deg, #3D2817 0%, #2A1B10 100%) );
+    color              : var( --c-gold, #D4AF37 );
+    cursor             : pointer;
+    font-size          : 14px;
+    transition         : all 0.3s ease;
+}
+
+.combat-health-button:hover {
+    border-color : var( --c-gold, #D4AF37 );
+    background   : var( --g-card-hover, linear-gradient(135deg, #4A3520 0%, #33231A 100%) );
+}
+
+.combat-health-button--damage {
+    color : var( --c-health-damage, #EC5757 );
+}
+
+.combat-health-button--heal {
+    color : var( --c-health-heal, #51CF66 );
+}
+
+/* ===== Journal ===== */
+.combat-health-history-title {
+    color : var( --c-text, #E8D4A8 );
+}
+
+.combat-health-history {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+    max-height     : 280px;
+    overflow-y     : auto;
+    scrollbar-color : var( --c-gold-dark, #8B6914 ) var( --c-bg-deep, #0D0604 );
+}
+
+.combat-health-history:empty::after {
+    content             : "Aucun événement";
+    color               : var( --c-text-muted, #C8B89A );
+    font-style          : italic;
+}
+
+.health-history-entry {
+    display            : flex;
+    flex-direction     : column;
+    gap                : var( --s-xs, 2px );
+    padding            : var( --s-sm, 4px );
+    background         : var( --g-panel, linear-gradient(135deg, #2C1810 0%, #1A0F08 100%) );
+    border             : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-left        : 3px solid var( --c-border-dark, #6B4E2A );
+    border-radius      : var( --r-sm, 4px );
+}
+
+.health-history-entry[data-type="damage"] {
+    border-left-color : var( --c-health-damage, #EC5757 );
+}
+
+.health-history-entry[data-type="heal"] {
+    border-left-color : var( --c-health-heal, #51CF66 );
+}
+
+.health-history-entry[data-type="temp_hp"] {
+    border-left-color : var( --c-health-temp, #5B9BD5 );
+}
+
+.health-history-entry__header {
+    display     : flex;
+    align-items : center;
+    gap         : var( --s-sm, 4px );
+}
+
+.health-history-entry__icon {
+    font-size   : 14px;
+    flex-shrink : 0;
+}
+
+.health-history-entry__title {
+    display     : flex;
+    align-items : baseline;
+    gap         : var( --s-sm, 4px );
+}
+
+.health-history-entry__label {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+.health-history-entry__value {
+    font-weight : bold;
+    color       : var( --c-text, #E8D4A8 );
+}
+
+.health-history-entry[data-type="damage"] .health-history-entry__value {
+    color : var( --c-health-damage, #EC5757 );
+}
+
+.health-history-entry[data-type="heal"] .health-history-entry__value {
+    color : var( --c-health-heal, #51CF66 );
+}
+
+.health-history-entry[data-type="temp_hp"] .health-history-entry__value {
+    color : var( --c-health-temp, #5B9BD5 );
+}
+
+.health-history-entry__damage-type {
+    color         : var( --c-text-muted, #C8B89A );
+    font-size      : 12px;
+    border         : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius  : var( --r-sm, 4px );
+    padding        : 0 4px;
+}
+
+.health-history-entry__details {
+    display   : flex;
+    flex-direction : column;
+    gap    : 2px;
+    border-top : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    font-size  : 12px;
+    padding-top : var( --s-xs, 2px );
+}
+
+.health-history-entry__comment {
+    font-style : italic;
+    color      : var( --c-text-muted, #C8B89A );
+}
+
+/* ===== Zone de référence : vitesse, initiative, classe d'armure ===== */
+.combat-reference-zone {
+    display              : grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    gap                  : var( --s-md, 8px );
+    padding              : var( --s-md, 8px );
+    background           : var( --g-panel, linear-gradient(135deg, #3D2817 0%, #2A1B10 100%) );
+    border               : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius        : var( --r-lg, 8px );
+}
+
+.combat-reference-cell {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+    align-items    : center;
+    text-align     : center;
+}
+
+.combat-reference-clickable {
+    cursor : pointer;
+}
+
+.combat-reference-clickable:hover .combat-reference-value {
+    color : var( --c-gold, #D4AF37 );
+}
+
+.combat-reference-label {
+    color      : var( --c-text-muted, #C8B89A );
+    font-size   : 12px;
+    letter-spacing : 0.3px;
+}
+
+.combat-reference-value {
+    color     : var( --c-text, #E8D4A8 );
+    font-size : 20px;
+}
+
+/* ===== Jets de sauvegarde ===== */
+.combat-saves-zone {
+    display              : grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    gap                  : var( --s-md, 8px );
+}
+
+.combat-save-cell {
+    display          : flex;
+    align-items      : center;
+    justify-content  : space-between;
+    gap              : var( --s-sm, 4px );
+    padding          : var( --s-sm, 4px ) var( --s-md, 8px );
+    background       : var( --g-panel, linear-gradient(135deg, #2C1810 0%, #1A0F08 100%) );
+    border           : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius    : var( --r-sm, 4px );
+}
+
+.combat-save-label {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+.combat-save-value {
+    color : var( --c-text, #E8D4A8 );
+}
+
+/* ===== Attaques ===== */
+.combat-attacks-zone,
+.combat-spellcasting-zone {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+    padding        : var( --s-md, 8px );
+    background     : var( --g-panel, linear-gradient(135deg, #2C1810 0%, #1A0F08 100%) );
+    border         : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius  : var( --r-sm, 4px );
+}
+
+.combat-attacks-title {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+/* Un en-tête et des lignes qui partagent la MEME grille fractionnaire
+   (regle des colonnes zone jets : jamais d'auto, chaque cellule porte sa
+   classe de colonne) */
+.combat-attack-row {
+    display               : grid;
+    grid-template-columns : 1.8fr 0.5fr 0.5fr 0.4fr 1.3fr;
+    grid-auto-rows         : auto;
+    align-items           : center;
+    padding               : var( --s-xs, 2px ) var( --s-sm, 4px );
+}
+
+.combat-attack-row--header {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+.combat-attack-row:not( .combat-attack-row--header ) {
+    border-top : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+}
+
+.combat-attack-col {
+    padding    : 2px var( --s-sm, 4px );
+    min-width  : 0;
+    overflow   : hidden;
+    text-overflow : ellipsis;
+    white-space   : nowrap;
+}
+
+.combat-attack-col-rank,
+.combat-attack-col-modifier,
+.combat-attack-col-roll {
+    text-align : center;
+}
+
+.combat-attack-name {
+    color : var( --c-text, #E8D4A8 );
+}
+
+.combat-attack-info {
+    display      : inline-block;
+    margin-left  : var( --s-sm, 4px );
+    padding      : 0 5px;
+    border       : var( --b-thin, 1px ) solid var( --c-gold-dark, #8B6914 );
+    border-radius : var( --r-sm, 4px );
+    color        : var( --c-gold, #D4AF37 );
+    cursor       : pointer;
+    font-size    : 12px;
+}
+
+.combat-attack-rank {
+    display      : inline-block;
+    padding      : 2px 7px;
+    border-radius : 4px;
+    font-size    : 12px;
+}
+
+/* ===== Équipement : l'armure et le bouclier portés ===== */
+.combat-equipment-zone {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+}
+
+.combat-equipment-list {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+}
+
+.combat-equipment-row {
+    display              : grid;
+    grid-template-columns : 90px 1.2fr 1.6fr;
+    gap                  : var( --s-sm, 4px );
+    align-items          : center;
+    padding              : var( --s-xs, 2px ) var( --s-sm, 4px );
+}
+
+.combat-equipment-label {
+    color        : var( --c-text-muted, #C8B89A );
+    font-size     : 12px;
+    letter-spacing : 0.3px;
+}
+
+.combat-equipment-value {
+    color : var( --c-text, #E8D4A8 );
+}
+
+.combat-equipment-stats {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+/* ===== Incantation ===== */
+.combat-spellcasting-line {
+    display         : flex;
+    align-items     : center;
+    gap             : var( --s-md, 8px );
+    justify-content : flex-start;
+}
+
+.combat-spellcasting-label {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+.combat-spellcasting-value {
+    color : var( --c-text, #E8D4A8 );
+}
+
+/* ===== Responsive ===== */
+@media ( max-width: 640px ) {
+    .combat-reference-zone,
+    .combat-saves-zone {
+        grid-template-columns : 1fr;
+    }
+
+    .combat-attack-row {
+        grid-template-columns : 1.6fr 0.5fr 0.5fr 0.4fr 1.1fr;
+    }
+
+    .combat-equipment-row {
+        grid-template-columns : 70px 1fr;
+    }
+
+    .combat-equipment-stats {
+        grid-column : 2;
+    }
+}

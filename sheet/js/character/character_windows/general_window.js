@@ -15,8 +15,7 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__heal_modal__confirm":
             case "event__temp_hp_modal__confirm":
             case "event__damage_modal__confirm":
-            case "event__health_history__load":
-                this.updateHealthDisplay();
+                this._updateHealthPointsField( CONTROLLER.Character.current_character );
                 break;
             case "event__form__element_changed":
                 this.computeHtmlWithData();
@@ -33,6 +32,7 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__saves( CONTROLLER.Character.current_character );
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
+                    this.computeArea__healthPoints( CONTROLLER.Character.current_character );
                 }
                 break;
         }
@@ -45,39 +45,26 @@ CHARACTER.GeneralWindow.prototype = {
             this.content_dom_element_target = new SERVICE.DOM.createElement( "div", { class: "character-sheet-grid" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
         }
-        
+
+        // Trois arrêts conditionnels ont ete supprimes (decision utilisateur :
+        // tout s'affiche des le debut, meme vide) : l'heritage, les
+        // caracteristiques et la zone Classe ne dependent plus de l'ascendance
+        // posee, les jets et competences ne dependent plus de la classe
         this.computeComponent(character_object.getNameObject());
         this.computeComponent(character_object.getPlayer());
         this.computeComponent(character_object.getRace());
-        if ( !character_object.getRace().isSet() ) {
-            return;
-        }
-        //this.computeComponent( character_object.getRace().getBodySize() );
         this.computeComponent( character_object.getRace().getLegacy() );
+        this.computeComponent( character_object.getRace().getBodySize() );
         this.computeArea__ancestryInfo( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
-        if ( character_object.getClasses().isEmpty() ) {
-            return;
-        }
-        for ( let i = 0, _size_i = character_object.getClasses().getSize(); i < _size_i; i++ ) {
-            this.computeComponent( character_object.getClasses().getContent( i ).getArchetype() );
-        }
+        // Le champ Archétype vit sur le PERSONNAGE (decision utilisateur :
+        // un seul archétype, affiche des le debut)
+        this.computeComponent( character_object.getArchetype() );
+        this.computeComponent( character_object.getHistoric() );
+        this.computeArea__healthPoints( character_object );
         this.computeArea__saves( character_object );
         this.computeArea__skills( character_object );
-        //this.computeArea__class( character_object );
-        //this.computeArea__health( character_object );
-        //this.computeArea__heritage( character_object );
-        //this.computeArea__historic( character_object );
-        //this.computeArea__size( character_object );
-        //this.computeArea__alignment( character_object );
-        //this.computeArea__divinity( character_object );
-        //this.computeArea__level( character_object );
-        //this.computeArea__heroism( character_object );
-        //this.computeArea__ca( character_object );
-        //this.computeArea__surprise( character_object );
-        
-        
     },
     
     computeComponent: function (object) {
@@ -87,7 +74,7 @@ CHARACTER.GeneralWindow.prototype = {
     // Zone dédiée des jets et compétences (une seule colonne de grille
     // élargie) : le bloc des jets puis le bloc des compétences, à la suite.
     computeArea__saves: function ( character_object ) {
-        if ( !this.content_dom_element_target || !character_object || character_object.getClasses().isEmpty() ) {
+        if ( !this.content_dom_element_target || !character_object ) {
             return;
         }
         if ( !this.block_saves ) {
@@ -134,7 +121,7 @@ CHARACTER.GeneralWindow.prototype = {
     // même format que les jets, rang I (bonus 0) quand le personnage ne l'a
     // pas maîtrisée
     computeArea__skills: function ( character_object ) {
-        if ( !this.content_dom_element_target || !character_object || character_object.getClasses().isEmpty() ) {
+        if ( !this.content_dom_element_target || !character_object ) {
             return;
         }
         if ( !this.block_skills ) {
@@ -203,11 +190,14 @@ CHARACTER.GeneralWindow.prototype = {
     // Zone des donnees de l'ascendance (sous le champ ascendance) : traits,
     // vitesse par mode de deplacement, sens et langues en listes — le champ
     // Taille vit deja dans sa zone (le body_size, enfant de la race, se rend
-    // par le broadcast des enfants). Les listes affichent les entrees
-    // gerees (base de race + choix de Progression) + les entrees manuelles
-    // du personnage : la zone se recalcule a l'activation de l'onglet
+    // par le broadcast des enfants). La zone s'affiche DES LE DEBUT (decision
+    // utilisateur) : sans ascendance posee ses listes restent vides, la
+    // marche ne s'affiche qu'avec les donnees de la race. Les listes
+    // affichent les entrees gerees (base de race + choix de Progression) +
+    // les entrees manuelles du personnage : la zone se recalcule a
+    // l'activation de l'onglet
     computeArea__ancestryInfo: function ( character_object ) {
-        if ( !this.content_dom_element_target || !character_object.getRace().isSet() ) {
+        if ( !this.content_dom_element_target ) {
             return;
         }
         if ( !this.area_ancestry_info ) {
@@ -219,8 +209,9 @@ CHARACTER.GeneralWindow.prototype = {
         SERVICE.DOM.empty( this.area_ancestry_info );
         let race       = character_object.getRace();
         let traits_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-traits" } ), this.area_ancestry_info );
-        for ( let t = 0, _size_t = race.traits.length; t < _size_t; t++ ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "ancestry-info-trait" }, race.traits[ t ] ), traits_row );
+        let race_traits = race.traits || [];
+        for ( let t = 0, _size_t = race_traits.length; t < _size_t; t++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "ancestry-info-trait" }, race_traits[ t ] ), traits_row );
         }
         // Vitesse : une ligne par mode de deplacement, la marche vient de la
         // race, les autres modes viennent des ajustements de l'onglet
@@ -230,7 +221,9 @@ CHARACTER.GeneralWindow.prototype = {
         );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Vitesse" ), speed_property );
         let speed_modes = character_object.getAdjustments().getValuesByKind( "speed" );
-        speed_modes.unshift( "Marche : " + race.speed + " mètres" );
+        if ( race.isSet() && race.speed !== undefined ) {
+            speed_modes.unshift( "Marche : " + race.speed + " mètres" );
+        }
         for ( let m = 0, _size_m = speed_modes.length; m < _size_m; m++ ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-value" }, speed_modes[ m ] ), speed_property );
         }
@@ -238,7 +231,7 @@ CHARACTER.GeneralWindow.prototype = {
             let senses = [ race.sens ].concat( character_object.getAdjustments().getValuesByKind( "sense" ) );
             this._computeAncestryInfoList( "sense", "Sens", senses );
         }
-        let languages = race.language.concat(
+        let languages = ( race.language || [] ).concat(
             character_object.getAncestryHistory().getSelectedLanguages(),
             character_object.getAdjustments().getValuesByKind( "language" )
         );
@@ -264,148 +257,36 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     
-    computeArea__heritage: function ( character_object ) {
-        if ( this.area_heritage || !character_object.getRace().getName() ) {
-            return;
+    // Champ PV du General (demande utilisateur : UN CHAMP — le suivi vit
+    // dans l'onglet Combat). Le clic bascule sur l'onglet Combat, la ou
+    // vivent les gestes de jeu (Soigner, Degats, PV temporaires, journal)
+    computeArea__healthPoints: function ( character_object ) {
+        if ( !this.area_health_points ) {
+            this.area_health_points = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-pv" } ),
+                this.content_dom_element_target
+            );
+            let property = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "property vertical", "data-name": "health_points" } ), this.area_health_points );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Points de vie" ), property );
+            this.dom_element_health_points = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "input", {
+                    class   : "value health-points-link",
+                    readOnly: "",
+                    title   : "Ouvrir l'onglet Combat",
+                    onclick : "CHARACTER.LibraryWindow.goToSheet('" + CHARACTER.CombatWindow.NAME + "')"
+                } ),
+                property
+            );
         }
-        this.area_heritage = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-heritage" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( LEGACIES.key_element, character_object.getRace().getLegacy().getName(), character_object.getRace().getLegacy()
-                                                                                                                                                                     .getLabel(), LEGACIES.label_element, false ), this.area_heritage );
+        this._updateHealthPointsField( character_object );
     },
-    computeArea__health  : function ( character_object ) {
-        if ( this.area_health || character_object.getClasses().isEmpty() ) {
-            return;
-        }
-        this.area_health = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-health" } ), this.content_dom_element_target );
-        
-        var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-header" } ), this.area_health );
 
-        // Le total PV ouvre sa popup de détail (les sources du calcul : PV
-        // de départ de l'ascendance + une ligne par niveau actif)
-        var hpDisplay = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", {
-                class  : "hp-display health-link",
-                title  : "Détail du calcul",
-                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__health')"
-            } ),
-            header
-        );
-        
-        SERVICE.DOM.addElementTo( character_object.getHealth().getDomCurrentHP(), hpDisplay );
-        
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, " / " ), hpDisplay );
-        
-        this.hpMaxElement = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-max" }, character_object.getHealth().getMaxHP() ), hpDisplay );
-        
-        this.hpPercent = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "hp-percent between-parentheses" }, character_object.getHealth().getHealthPercentage() + "%" ), hpDisplay );
-        
-        var actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "hp-actions" } ), header );
-        
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button heal", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_heal')" }, "Soigner" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_temp')" }, "+ PV Temp" ), actions );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", { class: "hp-button damage", onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__open_modal__hp_damage')" }, "Dégâts" ), actions );
-        
-        this.hpEffectsContainer = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { id: "health-history-container" } ), this.area_health );
-    },
-    updateHealthDisplay  : function () {
-        var character = CONTROLLER.Character.current_character;
-        
-        this.hpMaxElement.textContent = character.getHealth().getMaxHP();
-        this.hpPercent.textContent    = character.getHealth().getHealthPercentage() + "%";
-        
-    },
-    
-    
-    computeArea__class: function ( character_object ) {
-        if ( this.area_class || !character_object.getRace().getName() ) {
+    _updateHealthPointsField: function ( character_object ) {
+        if ( !this.dom_element_health_points || !character_object ) {
             return;
         }
-        this.area_class = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-class" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyVertical(
-                CLASSES.key_element,
-                character_object.getClasses().getDisplayValue(),
-                CLASSES.label_element,
-                CLASSES.label_element,
-                false
-            ),
-            this.area_class
-        );
-    },
-    
-    computeArea__historic: function ( character_object ) {
-        if ( this.area_historic ) {
-            return;
-        }
-        this.area_historic = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-historic" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo( character_object.getHistoric().getLabel(), this.area_historic );
-    },
-    
-    
-    computeArea__alignment: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-alignment" } ), this.content_dom_element_target );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createPropertyVertical( ALIGNEMENT.key_element, character_object.getAlignment(), character_object.alignment_html, "Alignement", false ), area );
-    },
-    
-    computeArea__divinity: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-divinity" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyVertical( "divinite", "", "", "Divinité", false ),
-            area
-        );
-    },
-    
-    computeArea__level: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-level" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "level", CONTROLLER.Character.current_character.getLevel(), "Niveau", true ),
-            area
-        );
-    },
-    
-    computeArea__heroism: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-heroism" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "point_heroism", CONTROLLER.Character.current_character.point_heroism, "Point d'héroisme", true ),
-            area
-        );
-    },
-    
-    computeArea__ca: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-ca" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "ca", "", "CA", true ),
-            area
-        );
-    },
-    
-    computeArea__surprise: function ( character_object ) {
-        var area = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "grid-area area-surprise" } ),
-            this.content_dom_element_target
-        );
-        SERVICE.DOM.addElementTo(
-            SERVICE.DOM_HELPER.createPropertyHorizontal( "surprise", "", "Surpris", true ),
-            area
-        );
+        let health = character_object.getHealth();
+        this.dom_element_health_points.value = health.getCurrentHP() + " / " + health.getMaxHP();
     }
 };
 

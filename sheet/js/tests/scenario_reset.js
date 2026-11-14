@@ -3,9 +3,10 @@
  * Scenario : RESET
  * Reinitialisation de la feuille en cours de suite via TEST.RESET.sheet() :
  * nouveau personnage (uuid different), race vide, aucune classe, historique
- * vide, un seul groupe de fenetres dans le DOM, onglets conditionnels
- * revenus a l'etat desactive, popup fermee. C'est le point de depart des
- * scenarios qui veulent rejouer un parcours depuis un etat vierge.
+ * vide, un seul groupe de fenetres dans le DOM, popup fermee. Plus AUCUN
+ * onglet n'est conditionnel (decision utilisateur : tout s'affiche, tout
+ * le temps). C'est le point de depart des scenarios qui veulent rejouer un
+ * parcours depuis un etat vierge.
  */
 
 TEST.RUNNER.register( "[RESET] feuille reinitialisee = page vide", function () {
@@ -33,6 +34,7 @@ TEST.RUNNER.register( "[RESET] feuille reinitialisee = page vide", function () {
         TEST.ASSERT.equal( _race_input.value, "", "Le champ Ascendance devrait etre vide, obtenu : " + _race_input.value );
     }
     let _tabs                           = [
+        { name: CHARACTER.CombatWindow.NAME,          label: "Combat" },
         { name: CHARACTER.LevelUpWindow.NAME,        label: "Progression" }
     ];
     for ( let i = 0, _size_i = _tabs.length; i < _size_i; i++ ) {
@@ -41,7 +43,7 @@ TEST.RUNNER.register( "[RESET] feuille reinitialisee = page vide", function () {
         if ( !_tab ) {
             continue;
         }
-        TEST.ASSERT.equal( _tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet " + _tabs[ i ].label + " devrait etre desactive apres le reset" );
-        TEST.ASSERT.equal( getComputedStyle( _tab ).opacity, "0.4", "L'onglet " + _tabs[ i ].label + " devrait etre grise apres le reset, obtenu : " + getComputedStyle( _tab ).opacity );
+        TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet " + _tabs[ i ].label + " ne devrait pas etre desactive apres le reset (aucune fenetre n'est conditionnelle)" );
+        TEST.ASSERT.ok( parseFloat( getComputedStyle( _tab ).opacity ) >= 1, "L'onglet " + _tabs[ i ].label + " ne devrait pas etre grise apres le reset, obtenu : " + getComputedStyle( _tab ).opacity );
     }
 } );

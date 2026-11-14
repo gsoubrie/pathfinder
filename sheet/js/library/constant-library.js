@@ -24,6 +24,16 @@ LIBRARY.SUBJECTS = [
         "key"        : "stuffs",
         "label"      : "Équipement",
         "placeholder": "Rechercher un objet..."
+    },
+    {
+        "key"        : "archetypes",
+        "label"      : "Archétypes",
+        "placeholder": "Rechercher un archétype..."
+    },
+    {
+        "key"        : "historics",
+        "label"      : "Historiques",
+        "placeholder": "Rechercher un historique..."
     }
 ];
 

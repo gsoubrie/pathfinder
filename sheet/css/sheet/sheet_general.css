@@ -13,56 +13,33 @@
         var(--col-2-width, 2fr)
         var(--col-3-width, 1.25fr)
         var(--col-4-width, 2fr)
-        var(--col-5-width, 1.25fr)
-        var(--col-6-width, 2fr)
-        var(--col-7-width, 2fr);
-
-    grid-template-rows    :
-        var(--row-1-height, auto)
-        var(--row-2-height, auto)
-        var(--row-3-height, auto)
-        var(--row-4-height, auto)
-        var(--row-5-height, auto)
-        var(--row-6-height, auto)
-        var(--row-7-height, auto)
-        var(--row-8-height, auto)
-        var(--row-9-height, auto)
-        var(--row-10-height, auto)
-        var(--row-11-height, auto);
+        var(--col-5-width, 1.25fr);
 
     grid-template-areas   :
-        "logo   name   name   ancestry      class       .          ."
-        ".      player player legacy        archetype   heroism    ."
-        "FOR    jets   jets   ancestry-info historic    level      ."
-        "DEX    jets   jets   ancestry-info .           .          ."
-        "CON    jets   jets   ancestry-info size        health     health"
-        "INT    jets   jets   ancestry-info alignment   health     health"
-        "SAG    jets   jets   ancestry-info divinity    health     health"
-        "CHA    jets   jets   ancestry-info temp-health health     health"
-        ".      jets   jets   ancestry-info wound       health     health"
-        ".      jets   jets   ancestry-info .           health     health"
-        ".      jets   jets   ancestry-info .           surprise   ca";
+        ".        name    name    ancestry     class"
+        ".        player  player  legacy       archetype"
+        "FOR      jets    jets    ancestry-info size"
+        "DEX      jets    jets    ancestry-info pv"
+        "CON      jets    jets    ancestry-info historic"
+        "INT      jets    jets    ancestry-info ."
+        "SAG      jets    jets    ancestry-info ."
+        "CHA      jets    jets    ancestry-info ."
+        ".        jets    jets    ancestry-info ."
+        ".        jets    jets    ancestry-info ."
+        ".        jets    jets    ancestry-info .";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
 .property-tab-pane[data-name="general_sheet"] .area-name { grid-area : name; }
 .property-tab-pane[data-name="general_sheet"] .area-player { grid-area : player; }
-.property-tab-pane[data-name="general_sheet"] .area-health { grid-area : health; }
-.property-tab-pane[data-name="general_sheet"] .area-temp-health { grid-area : temp-health; }
-.property-tab-pane[data-name="general_sheet"] .area-wound { grid-area : wound; }
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
 .property-tab-pane[data-name="general_sheet"] .area-ancestry-info { grid-area : ancestry-info; }
 .property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
-.property-tab-pane[data-name="general_sheet"] .area-historic { grid-area : historic; }
 .property-tab-pane[data-name="general_sheet"] .area-body_size { grid-area : size; }
-.property-tab-pane[data-name="general_sheet"] .area-alignment { grid-area : alignment; }
-.property-tab-pane[data-name="general_sheet"] .area-divinity { grid-area : divinity; }
-.property-tab-pane[data-name="general_sheet"] .area-level { grid-area : level; }
-.property-tab-pane[data-name="general_sheet"] .area-heroism { grid-area : heroism; }
+.property-tab-pane[data-name="general_sheet"] .area-pv { grid-area : pv; }
+.property-tab-pane[data-name="general_sheet"] .area-historic { grid-area : historic; }
 .property-tab-pane[data-name="general_sheet"] .area-archetype { grid-area : archetype; }
-.property-tab-pane[data-name="general_sheet"] .area-ca { grid-area : ca; }
-.property-tab-pane[data-name="general_sheet"] .area-surprise { grid-area : surprise; }
 .property-tab-pane[data-name="general_sheet"] .area-FOR { grid-area : FOR; }
 .property-tab-pane[data-name="general_sheet"] .area-DEX { grid-area : DEX; }
 .property-tab-pane[data-name="general_sheet"] .area-CON { grid-area : CON; }
@@ -70,6 +47,12 @@
 .property-tab-pane[data-name="general_sheet"] .area-SAG { grid-area : SAG; }
 .property-tab-pane[data-name="general_sheet"] .area-CHA { grid-area : CHA; }
 .property-tab-pane[data-name="general_sheet"] .area-jets { grid-area : jets; align-self : start; }
+
+/* Le champ PV est une ligne de lecture : le clic bascule sur l'onglet
+   Combat, la ou vivent les gestes de jeu et le journal */
+.property-tab-pane[data-name="general_sheet"] .area-pv .health-points-link {
+    cursor : pointer;
+}
 
 .property-tab-pane[data-name="general_sheet"] .jets-grid .jets-saves-block {
     margin-bottom : var(--s-sm);
@@ -112,99 +95,12 @@
     height     : 100%;
     min-height : 0;
 }
-/* =============================== Zone HEALTH  =========================== */
-.property-tab-pane[data-name="general_sheet"] .area-health {
-    background     : linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
-    display        : flex;
-    flex-direction : column;
-    gap            : 8px;
-    padding        : 8px;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-header {
-    display         : flex;
-    justify-content : space-between;
-    align-items     : center;
-    gap             : 8px;
-    padding         : 8px;
-    background      : rgba(0, 0, 0, 0.3);
-    border-radius   : 4px;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-display {
-    display     : flex;
-    align-items : center;
-    gap         : 4px;
-    font-size   : 20px;
-    font-weight : bold;
-    color       : #D4AF37;
-    cursor      : pointer;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-current {
-    color     : #FF6B6B;
-    font-size : 24px;
-    position  : relative;
-}
-.property-tab-pane[data-name="general_sheet"] .hp-current .hp-temp {
-    top       : 27px;
-    left      : 4px;
-    font-size : 15px;
-    position  : absolute;
-    color     : greenyellow;
-    width     : max-content;
-}
-.property-tab-pane[data-name="general_sheet"] .hp-max {
-    color : #8B6914;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-actions {
-    display : flex;
-    gap     : 4px;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-button {
-    padding       : 6px 12px;
-    border        : 2px solid #8B6914;
-    border-radius : 4px;
-    background    : linear-gradient(135deg, #5A3F2A 0%, #3D2817 100%);
-    color         : #D4AF37;
-    cursor        : pointer;
-    font-weight   : bold;
-    font-size     : 14px;
-    transition    : all 0.3s ease;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-button:hover {
-    border-color : #D4AF37;
-    background   : linear-gradient(135deg, #6B4E2A 0%, #4D3817 100%);
-    transform    : translateY(-2px);
-    box-shadow   : 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-button.damage {
-    color : #FF6B6B;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-button.heal {
-    color : #51CF66;
-}
-
-.property-tab-pane[data-name="general_sheet"] .hp-effects-list {
-    display        : flex;
-    flex-direction : column;
-    gap            : 4px;
-    max-height     : 150px;
-    overflow-y     : auto;
-}
-
 .property-tab-pane[data-name="general_sheet"] .area-player .property,
 .property-tab-pane[data-name="general_sheet"] .area-name .property,
 .property-tab-pane[data-name="general_sheet"] .area-race .property,
 .property-tab-pane[data-name="general_sheet"] .area-legacy .property,
 .property-tab-pane[data-name="general_sheet"] .area-class .property,
-.property-tab-pane[data-name="general_sheet"] .area-historic .property,
-.property-tab-pane[data-name="general_sheet"] .area-divinity .property {
+.property-tab-pane[data-name="general_sheet"] .area-pv .property {
     background : transparent;
     border     : none;
     padding    : 4px;
@@ -212,97 +108,6 @@
     height     : 100%;
     min-height : 0;
 }
-
-/* ===== Zones SIZE et ALIGNMENT ===== */
-.property-tab-pane[data-name="general_sheet"] .area-size .property,
-.property-tab-pane[data-name="general_sheet"] .area-alignment .property {
-    background : transparent;
-    border     : none;
-    padding    : 4px;
-    box-shadow : none;
-    margin     : 0;
-    height     : 100%;
-    min-height : 0;
-}
-
-/* ===== HEALTH LOGGER ===== */
-#health-history-container {
-    max-height : 200px;
-    overflow   : auto;
-}
-#health-history-container .health-history-entry {
-    background    : #F9FAFB;
-    border        : 1px solid #E5E7EB;
-    border-radius : 8px;
-    padding       : 2px;
-    margin        : 1px;
-    transition    : all 0.2s;
-}
-
-#health-history-container .health-history-entry:hover {
-    background : #F3F4F6;
-    box-shadow : 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-#health-history-container .health-history-entry__header {
-    display     : flex;
-    align-items : center;
-    gap         : 2px;
-}
-
-#health-history-container .health-history-entry__icon {
-    font-size   : 24px;
-    flex-shrink : 0;
-}
-
-#health-history-container .health-history-entry__info {
-    flex : 1;
-}
-
-#health-history-container .health-history-entry__title {
-    display     : flex;
-    align-items : center;
-    gap         : 8px;
-}
-
-#health-history-container .health-history-entry__label {
-    color : #374151;
-}
-
-#health-history-container .health-history-entry__value {
-    font-weight : 700;
-}
-#health-history-container .health-history-entry__details {
-    border-top : 1px solid #E5E7EB;
-    font-size  : 14px;
-    color      : #4B5563;
-}
-
-#health-history-container .health-history-entry__details > div {
-    margin-bottom : 4px;
-}
-
-#health-history-container .health-history-entry__details > div:last-child {
-    margin-bottom : 0;
-}
-
-#health-history-container .health-history-entry__comment {
-    font-style : italic;
-    color      : #6B7280;
-}
-
-#health-history-container .health-history-entry--damage {
-    border-left : 3px solid #EF4444;
-}
-
-#health-history-container .health-history-entry--heal {
-    border-left : 3px solid #22C55E;
-}
-
-#health-history-container .health-history-entry--temp_hp {
-    border-left : 3px solid #3B82F6;
-}
-
 
 /* ===== caracteristic ===== */
 .property-tab-pane[data-name="general_sheet"] .characteristic {
@@ -527,4 +332,53 @@
 .ancestry-list-entry {
     color    : var(--c-text);
     font-size: 13px;
+}
+
+/* =============================== RESPONSIVE ================================ */
+/* The desktop paper works on 5 tracks ; the tablet stacks on 2 columns of
+   equal width (3 characteristics per row), the phone on ONE column (2
+   characteristics per row). Only the template moves : the areas keep their
+   names, the cells keep their styles, the jets zone keeps its inner grid
+   (Jet | Rang | Mod | Niv fits a 300px wide row) */
+@media ( max-width: 1100px ) {
+
+    .property-tab-pane[data-name="general_sheet"] .character-sheet-grid {
+        grid-template-columns :
+            1fr 1fr 1fr 1fr 1fr 1fr;
+
+        grid-template-areas :
+            "name name name player player player"
+            "ancestry ancestry ancestry legacy legacy size"
+            "class class class archetype archetype archetype"
+            "pv pv pv pv pv pv"
+            "historic historic historic historic historic historic"
+            "FOR FOR DEX DEX CON CON"
+            "INT INT SAG SAG CHA CHA"
+            "jets jets jets jets jets jets"
+            "ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info";
+    }
+}
+
+@media ( max-width: 640px ) {
+
+    .property-tab-pane[data-name="general_sheet"] .character-sheet-grid {
+        grid-template-columns :
+            1fr 1fr;
+
+        grid-template-areas :
+            "name name"
+            "player player"
+            "ancestry ancestry"
+            "legacy legacy"
+            "size size"
+            "class class"
+            "archetype archetype"
+            "pv pv"
+            "historic historic"
+            "FOR DEX"
+            "CON INT"
+            "SAG CHA"
+            "jets jets"
+            "ancestry-info ancestry-info";
+    }
 }

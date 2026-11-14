@@ -42,7 +42,18 @@ LEVELUP.ANCESTRY_FEAT_LEVELS = [ 1, 5, 9, 13, 17 ];
 
 // The ancestry feat line: type and slot key of the single line of an entry
 LEVELUP.ANCESTRY_FEAT_KEY   = "ancestry_feat";
-LEVELUP.ANCESTRY_FEAT_LABEL = "Don d'ascendance";
+LEVELUP.ANCESTRY_FEAT_LABEL = "Don ancestral";
+
+// Character levels granting an archetype feat (PF2) : one section per even
+// level reached, on CHARACTER.ArchetypeHistory, while the archetype of the
+// first class is set
+LEVELUP.ARCHETYPE_FEAT_LEVELS = [ 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 ];
+
+// The archetype feat line : type and slot key of the single line of a
+// section. NOT a FEAT_TYPES member : the archetype feats hold no
+// information popup of the DON domain, their data lives in ARCHETYPES
+LEVELUP.ARCHETYPE_FEAT_KEY   = "archetype_feat";
+LEVELUP.ARCHETYPE_FEAT_LABEL = "Don d'archétype";
 
 // Phases of a level-up line. Domain values, NOT GS.OBJECT.CONST.PHASE ones:
 // a phase value carries global utility styles (SLEEPING = cursor not-allowed
@@ -69,6 +80,7 @@ LEVELUP.ICONS = {
     "class_feat"     : "⚔",
     "skill_feat"     : "📚",
     "ancestry_feat"  : "🌿",
+    "archetype_feat" : "🎭",
     "skill_increase" : "📈",
     "additional_skill": "➕",
     "additional_language": "💬",

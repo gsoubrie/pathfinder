@@ -25,6 +25,10 @@
     /* Bulk states of the gear bar (values of the lib palette) */
     --c-bulk-warning: #FFBA0B;
     --c-bulk-error: #EC5757;
+    /* Health stats of the Combat window (journal entries colors) */
+    --c-health-heal: #51CF66;
+    --c-health-temp: #5B9BD5;
+    --c-health-damage: #EC5757;
     
     --c-border-dark: #6B4E2A;
     --c-border-gold: #D4AF37;

@@ -76,9 +76,11 @@ CHARACTER.LevelUpWindow.prototype = {
     },
 
     _buildContent: function ( character_object ) {
-        var history          = character_object.getLevelHistory();
-        var ancestry_history = character_object.getAncestryHistory();
-        var race_name        = character_object.getRace().getValue();
+        var history           = character_object.getLevelHistory();
+        var ancestry_history  = character_object.getAncestryHistory();
+        var archetype_history = character_object.getArchetypeHistory();
+        var race_name         = character_object.getRace().getValue();
+        var archetype_name    = archetype_history.getArchetypeName( character_object );
         this._selected_class = this._selected_class || character_object.getClasses().getHighestClassName();
 
         // En tête : les caractéristiques
@@ -91,10 +93,13 @@ CHARACTER.LevelUpWindow.prototype = {
         // Une section par niveau de l'historique, y compris desactive :
         // la section desactivee porte l'interrupteur de re-activation. Les
         // sections d'ascendance s'intercalent AU niveau de leur palier,
-        // avant la section de classe du meme niveau (l'ascendance se choisit
-        // avant la classe). Sans section de classe (ascendance posee, aucune
-        // classe), les sections d'ascendance se rendent seules
-        var ancestry_index = 0;
+        // AVANT la section de classe du meme niveau (l'ascendance se
+        // choisit avant la classe), les sections d'archétype APRÈS (ses
+        // dons se prennent sur la progression de classe). Sans section de
+        // classe (ascendance posee, aucune classe), les sections d'ascendance
+        // se rendent seules
+        var ancestry_index  = 0;
+        var archetype_index = 0;
         for ( var h = 0, _size_h = history.getSize(); h < _size_h; h++ ) {
             var entry = history.getContent( h );
             while ( ancestry_index < ancestry_history.getSize()
@@ -108,9 +113,17 @@ CHARACTER.LevelUpWindow.prototype = {
             entry.setLinesCountersParent( this );
             entry.computeHtml();
             SERVICE.DOM.addElementTo( entry.getDomElement(), this.content_dom_element_target );
+            while ( archetype_index < archetype_history.getSize()
+                    && parseInt( archetype_history.getContent( archetype_index ).getUUID(), 10 ) <= parseInt( entry.getUUID(), 10 ) ) {
+                this._buildArchetypeSection( character_object, archetype_history.getContent( archetype_index ), archetype_name );
+                archetype_index++;
+            }
         }
         for ( ; ancestry_index < ancestry_history.getSize(); ancestry_index++ ) {
             this._buildAncestrySection( ancestry_history.getContent( ancestry_index ), race_name );
+        }
+        for ( ; archetype_index < archetype_history.getSize(); archetype_index++ ) {
+            this._buildArchetypeSection( character_object, archetype_history.getContent( archetype_index ), archetype_name );
         }
     },
 
@@ -118,6 +131,12 @@ CHARACTER.LevelUpWindow.prototype = {
         ancestry_entry.setLinesCountersParent( this );
         ancestry_entry.computeHtml( race_name );
         SERVICE.DOM.addElementTo( ancestry_entry.getDomElement(), this.content_dom_element_target );
+    },
+
+    _buildArchetypeSection: function ( character_object, archetype_entry, archetype_name ) {
+        archetype_entry.setLinesCountersParent( this );
+        archetype_entry.computeHtml( archetype_name, character_object.getArchetypeHistory().getTakenValuesForEntry( archetype_entry.getUUID() ) );
+        SERVICE.DOM.addElementTo( archetype_entry.getDomElement(), this.content_dom_element_target );
     },
 
     _buildClassBar: function ( character_object, with_life ) {

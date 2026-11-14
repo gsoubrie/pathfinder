@@ -24,14 +24,6 @@ POPUP.PropertyEdition.prototype = {
                 this.current_property = CLASSES;
                 this.windows          = new CLASSES.WindowGroup();
                 break;
-            case ARCHETYPES.key_element:
-                this.current_property = ARCHETYPES;
-                this.windows          = new ARCHETYPES.WindowGroup();
-                break;
-            case HISTORICS.key_element:
-                this.current_property = HISTORICS;
-                this.windows          = new HISTORICS.WindowGroup();
-                break;
             case RACES.PARAM.BODY_SIZE.key:
                 return;
             default:

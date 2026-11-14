@@ -1600,5 +1600,2787 @@ LEGACIES.ENUM = {
         "name"        : "Tripkee des rivières",
         "text"        : "Tripkee des rivières",
         "traits"      : []
+    },
+    "7gGcpQMqnZhBDZLI": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez d'une lignée d'anadis qui ont travaillé à perfectionner leur magie de transformation, leur permettant de s'intégrer à une plus grande variété de cultures. Choisissez une ascendance humanoïde courante de taille moyenne. Votre forme humaine est remplacée par une forme qui correspond à ce choix. Vous obtenez également le don Ascendance adoptive pour l'ascendance humanoïde choisie."
+        ],
+        "href"                  : "/heritages/7gGcpQMqnZhBDZLI",
+        "id"                    : "7gGcpQMqnZhBDZLI",
+        "name"                  : "Anadi adaptée",
+        "text"                  : "Anadi adaptée",
+        "traits"                : []
+    },
+    "daaXga11ov9YQVNq": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps est couvert de poils exceptionnellement colorés qui créent des motifs vibrants et accrocheurs, dont certains pourraient même apparaître sous votre forme humaine. Vous devenez qualifié en Représentation (ou dans une autre compétence si vous étiez déjà qualifié en Représentation) et vous obtenez le don Représentation impressionnante."
+        ],
+        "href"                  : "/heritages/daaXga11ov9YQVNq",
+        "id"                    : "daaXga11ov9YQVNq",
+        "name"                  : "Anadi polychromatique",
+        "text"                  : "Anadi polychromatique",
+        "traits"                : []
+    },
+    "cwOUw7kofcAiY01I": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez éclos avec des crocs crochus qui vous donnent un avantage lorsque vous chassez sous votre vraie forme. Votre attaque de crocs obtient les traits saisir et croc-en-jambe."
+        ],
+        "href"                  : "/heritages/cwOUw7kofcAiY01I",
+        "id"                    : "cwOUw7kofcAiY01I",
+        "name"                  : "Anadi piégeur",
+        "text"                  : "Anadi piégeur",
+        "traits"                : []
+    },
+    "WxcbLvufI6JBpLt0": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos membres sont exceptionnellement longs sous vos deux formes, ce qui vous permet de sautiller avec une agilité surprenante. Votre vitesse passe de 7,50 mètres à 9 mètres."
+        ],
+        "href"                  : "/heritages/WxcbLvufI6JBpLt0",
+        "id"                    : "WxcbLvufI6JBpLt0",
+        "name"                  : "Anadi sautillant",
+        "text"                  : "Anadi sautillant",
+        "traits"                : []
+    },
+    "kTlJqhC7ZSE8P8lu": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les crocs de votre forme naturelle sont capables d'injecter du venin à vos ennemis. Vous gagnez la capacité Venin anadi."
+        ],
+        "href"                  : "/heritages/kTlJqhC7ZSE8P8lu",
+        "id"                    : "kTlJqhC7ZSE8P8lu",
+        "name"                  : "Anadi venimeux",
+        "text"                  : "Anadi venimeux",
+        "traits"                : []
+    },
+    "VgL18yU7pysdoZZG": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps a été conçu pour pouvoir créer des œuvres d'art, des outils complexes ou pour assurer l'entretien des machineries avancées. Vous devenez qualifié en Artisanat (ou une autre compétence si vous êtes déjà qualifié en Artisanat) et vous obtenez le don de compétence Artisanat spécialisé dans une spécialité de votre choix."
+        ],
+        "href"                  : "/heritages/VgL18yU7pysdoZZG",
+        "id"                    : "VgL18yU7pysdoZZG",
+        "name"                  : "Artisan androïde",
+        "text"                  : "Artisan androïde",
+        "traits"                : []
+    },
+    "Mmezbef0c1fbJaVV": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "L'apparence et les processus de votre corps ont été améliorés dans le but de vous fondre avec les humains plus facilement.",
+            "Vous devenez qualifié en Duperie (ou une autre compétence si vous étiez déjà qualifié en Duperie). Vous n'avez pas besoin d'un kit de déguisement lorsque vous faites un test de Duperie pour Vous faire passer pour un humain.",
+            "De plus, vous obtenez un bonus de circonstances de +4 pour les tests pour Vous faire passer pour une version humaine de vous-même, plutôt que pour un androïde. Ce bonus ne s'applique pas aux autres tests pour Vous Faire passer pour d'autres humains."
+        ],
+        "href"                  : "/heritages/Mmezbef0c1fbJaVV",
+        "id"                    : "Mmezbef0c1fbJaVV",
+        "name"                  : "Androïde imposteur",
+        "text"                  : "Androïde imposteur",
+        "traits"                : []
+    },
+    "MQx7miBXUmOHycqJ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps est adapté pour endurer des épreuves physiques ou accomplir des travaux difficiles sur des longues périodes de temps. Vous êtes qualifié en Athlétisme (ou en une autre compétence si vous étiez déjà qualifié en Athlétisme) et vous obtenez le don de compétence Portefaix."
+        ],
+        "href"                  : "/heritages/MQx7miBXUmOHycqJ",
+        "id"                    : "MQx7miBXUmOHycqJ",
+        "name"                  : "Androïde manoeuvre",
+        "text"                  : "Androïde manoeuvre",
+        "traits"                : []
+    },
+    "BjuZKA7lzFSjKbif": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été préprogrammé avec une multitude de compétences linguistiques, probablement pour agir comme un traducteur. Vous apprenez deux nouvelles langues, choisies parmi les langages courants et dans toutes les langues peu courantes auxquels vous avez accès. Ces langues prennent la même forme (signée ou parlée) que vos autres langues. Si vous choisissez le don Polyglotte, vous apprenez trois nouvelles langues au lieu de deux."
+        ],
+        "href"                  : "/heritages/BjuZKA7lzFSjKbif",
+        "id"                    : "BjuZKA7lzFSjKbif",
+        "name"                  : "Androïde polyglotte",
+        "text"                  : "Androïde polyglotte",
+        "traits"                : []
+    },
+    "RuQSx0QsirIKxwKY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps a été à l'origine créé en vue d'être un officier de sécurité ou un soldat. Vous êtes naturellement un combattant doué pré-programmé pour combattre. Vous êtes qualifié avec toutes les armes simples et de guerre."
+        ],
+        "href"                  : "/heritages/RuQSx0QsirIKxwKY",
+        "id"                    : "RuQSx0QsirIKxwKY",
+        "name"                  : "Androïde combattant",
+        "text"                  : "Androïde combattant",
+        "traits"                : []
+    },
+    "4BczMv4EnLcgrEJE": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Le corail couvre des parties de votre corps, ce qui vous procure une couche de défense naturelle. Les athamarus coraliens choisissent souvent Symbiotes coraliens et autres dons d'ascendance en rapport. Les plaques de corail sont une armure intermédiaire dans le groupe des plates qui accordent un bonus d'objet de +4 à la CA, un maximum de Dextérité de +1, une pénalité au test de -2, une pénalité à la Vitesse de -1,50 mètre, une valeur de Force de +3 et possèdent les traits hydrodynamique et confort. Vous ne pouvez jamais porter d'autre armure ou retirer le corail. Vous pouvez graver des runes d'armure sur le corail."
+        ],
+        "href"                  : "/heritages/4BczMv4EnLcgrEJE",
+        "id"                    : "4BczMv4EnLcgrEJE",
+        "name"                  : "Athamaru coralien",
+        "text"                  : "Athamaru coralien",
+        "traits"                : []
+    },
+    "yEQSw61sNRvgPy4T": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez commencé à vous préparer à devenir une matriarche athamaru et êtes enclin à sortir de votre communauté pour mieux vous préparer à diriger. Dans le cadre de ce changement physique, vous êtes beaucoup plus grande que vous ne l'étiez auparavant. Au lieu d'être de taille Moyenne, votre taille est Grande. De plus, vous emplissez vos alliés d'un sentiment d'espoir. Vous possédez une aura de 3 mètres qui accorde à tout allié qui s'y trouve d'une bonus de circonstances de +1 aux jets de sauvegarde contre la terreur. Il s'agit d'un effet d'émotion et mental."
+        ],
+        "href"                  : "/heritages/yEQSw61sNRvgPy4T",
+        "id"                    : "yEQSw61sNRvgPy4T",
+        "name"                  : "Athamaru pleine d'espoir",
+        "text"                  : "Athamaru pleine d'espoir",
+        "traits"                : []
+    },
+    "1w4npGmPzgdZw3Na": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "0LwQufKtXfRda0BR",
+                    "name"    : "Chercheur d'éblouissement",
+                    "type"    : "ACTION_TYPE.REACTION"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos écailles présentent un spectre de couleur qui brille sous la lumière. Dans les zones de lumière vive ou de lumière faible, vous obtenez un bonus de circonstances de +1 aux tests de Représentation. Vous obtenez aussi la réaction Chercheur d'éblouissement."
+        ],
+        "href"                  : "/heritages/1w4npGmPzgdZw3Na",
+        "id"                    : "1w4npGmPzgdZw3Na",
+        "name"                  : "Athamaru kaléïdoscopique",
+        "text"                  : "Athamaru kaléïdoscopique",
+        "traits"                : []
+    },
+    "CkrTRdLfDDDUOCqP": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Des piquants effilés sur votre tête peuvent perforer profondément vos ennemis. La plupart ds athamarus utilisent de tels piquants pour leur défense mais un bon coup de tête bien placé peut être d'une efficacité dévastatrice. Vous obtenez une attaque à mains nues de piquants qui infligent 1d6 dégâts perforants. Vos piquants sont dans le groupe pugilat et possèdent les traits à mains nues, agile et finesse."
+        ],
+        "href"                  : "/heritages/CkrTRdLfDDDUOCqP",
+        "id"                    : "CkrTRdLfDDDUOCqP",
+        "name"                  : "Athamaru à piquants",
+        "text"                  : "Athamaru à piquants",
+        "traits"                : []
+    },
+    "2kMltxs2rmxRSxfV": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été conçu comme un éclaireur ou un assassin et avez un corps ressemblant à celui d'un membre d'une meute comme un grand félin ou un loup. Bien que vous vous déplaciez à l'ordinaire comme un quadrupède, vous pouvez toujours vous tenir et combattre comme un bipède, vous permettant d'utiliser tout votre équipement normalement. Votre conception quadrupède vous permet de vous déplacer rapidement ; si vos deux mains sont libres, vous pouvez accroître votre Vitesse à 9 mètres lorsque vous courrez sur vos quatre membres."
+        ],
+        "href"                  : "/heritages/2kMltxs2rmxRSxfV",
+        "id"                    : "2kMltxs2rmxRSxfV",
+        "name"                  : "Automate chasseur",
+        "text"                  : "Automate chasseur",
+        "traits"                : []
+    },
+    "J0eAmntxXywr9sGt": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "tradition" : "TRADITION.ARCANE",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "La chambre abritant votre noyau a une connexion plus directe avec le reste de votre forme humanoïde, ce qui vous permet d'exploiter l'énergie magique de votre noyau. Vous obtenez un tour de magie de la liste des sorts arcaniques. Vous pouvez lancer ce sort comme un sort inné arcanique à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/J0eAmntxXywr9sGt",
+        "id"                    : "J0eAmntxXywr9sGt",
+        "name"                  : "Mage automate",
+        "text"                  : "Mage automate",
+        "traits"                : []
+    },
+    "j1nzBc9Pui7vsJ9o": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "9sXQf1SyppS5B6O1",
+                    "name"    : "Visée de l'automate",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre forme humanoïde et légère est conçue pour la vitesse et la précision en combat à distance. Vous obtenez l'action Visée de l'automate"
+        ],
+        "href"                  : "/heritages/j1nzBc9Pui7vsJ9o",
+        "id"                    : "j1nzBc9Pui7vsJ9o",
+        "name"                  : "Automate tireur de précision",
+        "text"                  : "Automate tireur de précision",
+        "traits"                : []
+    },
+    "y24ykEUfpIu5Gp6D": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Plus volumineux et puissant, votre corps a été conçu pour le combat. Vous avez une forme humanoïde et volumineuse. Le dé de dégâts de votre poing passe à 1d6 au lieu de 1d4. Vous ne subissez pas de pénalité lorsque vous portez une attaque létale avec votre poing ou n'importe quelle autre attaque à mains nues."
+        ],
+        "href"                  : "/heritages/y24ykEUfpIu5Gp6D",
+        "id"                    : "y24ykEUfpIu5Gp6D",
+        "name"                  : "Automate combattant",
+        "text"                  : "Automate combattant",
+        "traits"                : []
+    },
+    "13vilUcBjqMV2gxP": {
+        "bonus"                 : {
+            "attacks" : [
+                {
+                    "count"   : 1,
+                    "type"    : "FREE"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un animal dont les membres sont adaptés à saisir, escalader et utiliser ses bras. Vous pourriez être adroit et prêt à utiliser des outils comme un chimpanzé ou une loutre ou vous pourriez simplement être un grimpeur rapide comme un ours, un raton-laveur ou un paresseux.",
+            "Vous possédez une vitesse de 6 mètres, une vitesse d'escalade de 6 mètres et une attaque animale de votre choix (typiquement une griffe, un poing ou des mâchoires)."
+        ],
+        "href"                  : "/heritages/13vilUcBjqMV2gxP",
+        "id"                    : "13vilUcBjqMV2gxP",
+        "name"                  : "Animal grimpeur",
+        "text"                  : "Animal grimpeur",
+        "traits"                : []
+    },
+    "QZv2taQQAdeR8Vmg": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un animal qui peut prendre son envol pendant longtemps ou par bonds répétés, tel qu'un aigle, une chauve-souris, une abeille ou un écureuil volant.",
+            "Le processus d'éveil a perturbé votre capacité à voler aussi librement que vous le faisiez auparavant. Ce qui était auparavant un processus automatique est désormais sur lequel vous devez désormais consacrer vos pensées jusqu'à ce qu'il redevienne automatique. Vous pouvez toujours ralentir votre descente, de sorte que vous ne subissez aucun dégâts de votre chute, quelle que soit la distance dont vous chutez. La plupart des animaux éveillés choisissent le don d'ascendance Prendre son envol au niveau 1 pour regagner la capacité de voler. Vous possédez une vitesse de 6 mètres et une attaque d'animal de votre choix (typiquement d'aile, de bec, de griffe, de mâchoire, de serre)."
+        ],
+        "href"                  : "/heritages/QZv2taQQAdeR8Vmg",
+        "id"                    : "QZv2taQQAdeR8Vmg",
+        "name"                  : "Animal volant",
+        "text"                  : "Animal volant",
+        "traits"                : []
+    },
+    "bsXA1l5mxNnmBh5M": {
+        "bonus"                 : {
+            "attacks" : [
+                {
+                    "count"    : 1,
+                    "examples" : [
+                        "ATTACK.CLAW",
+                        "ATTACK.TAIL",
+                        "ATTACK.JAW"
+                    ],
+                    "type"     : "FREE"
+                }
+            ],
+            "speed"   : {
+                "ground"  : 9
+            }
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un animal conçu pour courir à de grandes vitesses sur le sol. Typiquement, vous courrez sur vos quatre pattes comme un canidé, un léopard ou un iguane, mais vous pourriez aussi utiliser deux pattes comme un kangourou, un émeu ou un pingouin.",
+            "Vous possédez une vitesse au sol de 9 mètres et une attaque animale de votre choix (typiquement griffe, queue ou mâchoire)."
+        ],
+        "href"                  : "/heritages/bsXA1l5mxNnmBh5M",
+        "id"                    : "bsXA1l5mxNnmBh5M",
+        "name"                  : "Animal coureur",
+        "text"                  : "Animal coureur",
+        "traits"                : []
+    },
+    "nlhVoQDfLKYM3j1l": {
+        "bonus"                 : {
+            "attacks" : [
+                {
+                    "count"   : 1,
+                    "type"    : "FREE"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un animal aquatique qui est plus à l'aise dans l'eau. Vous pouvez passer la plupart de votre temps dans l'eau comme un alligator, une otarie, une baleine ou un dauphin ou vous pouvez avoir besoin d'eau pour respirer comme un poisson ou certains crustacés.",
+            "Vous possédez une attaque animale de votre choix (typiquement une griffe, des mâchoires ou une queue). Choisissez si vous êtes aquatique ou vivant dans l'eau."
+        ],
+        "href"                  : "/heritages/nlhVoQDfLKYM3j1l",
+        "id"                    : "nlhVoQDfLKYM3j1l",
+        "name"                  : "Animal nageur",
+        "text"                  : "Animal nageur",
+        "traits"                : []
+    },
+    "zPhArF36ZVgLeVUU": {
+        "bonus"                 : {
+            "sens"    : [
+                "vision dans le noir"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre lignée remonte aux azarketis qui sont restés accrochés à leurs racines de l'océan profond. Divorcé de la société terrienne, vous êtes étranger à tous les mondes qui se trouvent au-dessus d'un millier de brasses de profondeur. Vous obtenez vision dans le noir.",
+            "Votre corps est parsemé de points phosphorescents qui émettent une lumière qui vous guide et vous aide à communiquer. Les points lumineux — localisés principalement sur votre visage, vos bras et vos mains — émettent de la lumière faible dans un rayon de 3 mètres autour de vous. Vous pouvez activer, désactiver ou modifier l'arrangement des lumières par une action qui possède le trait concentration."
+        ],
+        "href"                  : "/heritages/zPhArF36ZVgLeVUU",
+        "id"                    : "zPhArF36ZVgLeVUU",
+        "name"                  : "Azarketi écaille antique",
+        "text"                  : "Azarketi écaille antique",
+        "traits"                : []
+    },
+    "HFHSh2RWuxa4GhhQ": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre héritage remonte aux azarketis vivant dans les profondeurs de l'océan et vous pouvez supporter les profondeurs glaciales plus aisément que la plupart. Vous obtenez une résistance au froid égale à la moitié de votre niveau et vous ne traitez pas les environnements froids comme d'un degré plus sévère lorsque vous êtes mouillé. Vous vous adaptez aux changements de pression en étant sous l'eau de manière automatique sans subir aucun effet néfaste."
+        ],
+        "href"                  : "/heritages/HFHSh2RWuxa4GhhQ",
+        "id"                    : "HFHSh2RWuxa4GhhQ",
+        "name"                  : "Azarketi des profondeurs",
+        "text"                  : "Azarketi des profondeurs",
+        "traits"                : []
+    },
+    "7ZDCShtRg5QZggrU": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "poison",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont dû survivre dans de l'eau polluée qui a rendu chaque inspiration toxique. Vous obtenez une résistance au poison égale à la moitié de votre niveau (minimum 1). De plus, vous pouvez survivre en dehors de l'eau pendant 72 heures avant de commencer à suffoquer."
+        ],
+        "href"                  : "/heritages/7ZDCShtRg5QZggrU",
+        "id"                    : "7ZDCShtRg5QZggrU",
+        "name"                  : "Azarketi endurci",
+        "text"                  : "Azarketi endurci",
+        "traits"                : []
+    },
+    "7wdeVadvchdM0aPK": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez des Azarketis qui ont migré vers les environnements terrestres qui peuvent supporter leurs besoins d'eau. Au fil du temps, votre peuple s'est adapté à la vie sur la terre ferme culturellement et physiquement, ce qui a donné même des azarketis nés avec des cheveux humains comme leurs ancêtres azlants. Vous n'avez plus besoin de vous immerger dans l'eau toutes les 24 heures pour entretenir votre peau et vous pouvez à la place brumiser ou humidifier votre peau avec de l'eau pour vivre de manière confortable. Votre Vitesse est de 7,50 mètres, mais votre Vitesse de nage est de seulement 4,50 m."
+        ],
+        "href"                  : "/heritages/7wdeVadvchdM0aPK",
+        "id"                    : "7wdeVadvchdM0aPK",
+        "name"                  : "Azarketi Soufflebrume",
+        "text"                  : "Azarketi Soufflebrume",
+        "traits"                : []
+    },
+    "MtH5bq0MhaMQbJEL": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vivez dans les eaux sombres et vous êtes accoutumé à la vie dans un environnement à faible visibilité. Vous avez besoin seulement de réussir un @Check[flat|dc:3] lorsque vous ciblez une créature Masquée et un @Check[flat|dc:9] lorsque vous ciblez une créature Cachée."
+        ],
+        "href"                  : "/heritages/MtH5bq0MhaMQbJEL",
+        "id"                    : "MtH5bq0MhaMQbJEL",
+        "name"                  : "Azarketi Yeuxobscurs",
+        "text"                  : "Azarketi Yeuxobscurs",
+        "traits"                : []
+    },
+    "GlejQr3rBh3sn8sL": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez des azarketis qui ont abandonné les océans pour l'eau douce et la vie à l'intérieur des terres. La géographie variée des rivières rend nécessaire que vous développiez des compétences physiques avancées pour nager contre les rapides, bondir dans les eaux des cascades et naviguer avec expertise dans les canaux peu profonds et étroits.",
+            "Lorsque vous obtenez un succès sur un test d'Athlétisme pour Nager, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/GlejQr3rBh3sn8sL",
+        "id"                    : "GlejQr3rBh3sn8sL",
+        "name"                  : "Azarketi fluvial",
+        "text"                  : "Azarketi fluvial",
+        "traits"                : []
+    },
+    "9Iu1gFEuvVz9zaYU": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos nageoires masquent des épines toxiques que vous pouvez jeter. Vous avez une attaque à mains nues à distance d'épine avec le trait à mains nues qui inflige @Damage[1d4[poison]]{1d4 dégâts de poison}, possède un facteur de portée de 3 mètres et est dans le groupe d'armes des fléchettes."
+        ],
+        "href"                  : "/heritages/9Iu1gFEuvVz9zaYU",
+        "id"                    : "9Iu1gFEuvVz9zaYU",
+        "name"                  : "Azarketi épineux",
+        "text"                  : "Azarketi épineux",
+        "traits"                : []
+    },
+    "S1062No0sYH35AhN": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre peau peut détecter les moindres changements dans les courants océaniques. Vous obtenez un sens imprécis d'une portée de 9 mètres vous permettant de percevoir les déplacements dans l'eau qui vous entoure. Vous obtenez aussi un bonus de circonstances de +1 aux tests de Survie pour Vous orienter dans les environnements aquatiques."
+        ],
+        "href"                  : "/heritages/S1062No0sYH35AhN",
+        "id"                    : "S1062No0sYH35AhN",
+        "name"                  : "Azarketi tactile",
+        "text"                  : "Azarketi tactile",
+        "traits"                : []
+    },
+    "qbWaybAX1LK7kUyY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous retracez votre lignage des azarketis qui ont vécu leurs vies parmi les grands océans et les mers du monde. Vous savez comment utiliser les courants et la magie primordiale de l'eau pour guider vos attaques. Vous obtenez le don de compétence Maraudeur aquatique et les facteurs de portée de vos attaques à distance perforantes ne sont pas divisés par deux lorsque vous combattez des cibles sous l'eau."
+        ],
+        "href"                  : "/heritages/qbWaybAX1LK7kUyY",
+        "id"                    : "qbWaybAX1LK7kUyY",
+        "name"                  : "Azarketi thalassique",
+        "text"                  : "Azarketi thalassique",
+        "traits"                : []
+    },
+    "TDc9MXLXkgEFoKdD": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez hérité d'une souplesse au-delà de celle de la plupart des humanoïdes. Vous ne considérez pas les espaces étroits qui ne nécessitent pas que vous Vous faufiliez comme un terrain difficile. De plus, vous obtenez un bonus de circonstances de +1 aux tests lorsque vous tentez de Vous échapper."
+        ],
+        "href"                  : "/heritages/TDc9MXLXkgEFoKdD",
+        "id"                    : "TDc9MXLXkgEFoKdD",
+        "name"                  : "Homme-félin flexible",
+        "text"                  : "Homme-félin flexible",
+        "traits"                : []
+    },
+    "1FmcZqnmDm8H0DRB": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes né avec une parcelle de magie qui a pu vous placer sur la voie pour devenir un Orateur de la nature ou un Orateur de la foi. Choisissez divin ou primordial. Si vous avez choisi divin, vous êtes un Orateur de la foi. Si vous avez choisi primordial, vous êtes un Orateur de la nature. Ce choix ne peut plus être modifié. Vous obtenez un tour de magie de la liste de sorts choisie. Vous pouvez lancer ce sort comme un sort inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/1FmcZqnmDm8H0DRB",
+        "id"                    : "1FmcZqnmDm8H0DRB",
+        "name"                  : "Centaure aspirant orateur",
+        "text"                  : "Centaure aspirant orateur",
+        "traits"                : []
+    },
+    "z16zRyLCeTXan0Ae": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes élancé et capable d'atteindre des vitesses incroyables grâce à vos seuls sabots. Votre vitesse augmente de 1,50 mètre."
+        ],
+        "href"                  : "/heritages/z16zRyLCeTXan0Ae",
+        "id"                    : "z16zRyLCeTXan0Ae",
+        "name"                  : "Centaure file au vent",
+        "text"                  : "Centaure file au vent",
+        "traits"                : []
+    },
+    "XQp3uReCgoXS8hCJ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos sabots sont incroyablement puissants et vous servent d'armes formidables. Vous obtenez une attaque à mains nues de sabot qui infligent 1d6 dégâts contondants. Vos sabots sont dans le groupe pugilat et possèdent les traits finesse et à mains nues."
+        ],
+        "href"                  : "/heritages/XQp3uReCgoXS8hCJ",
+        "id"                    : "XQp3uReCgoXS8hCJ",
+        "name"                  : "Centaure fersabot",
+        "text"                  : "Centaure fersabot",
+        "traits"                : []
+    },
+    "3aKeX3q9hRdxgP1J": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre pelage est tacheté ou rayé, ce qui vous permet de vous camoufler naturellement dans votre environnement. Choisissez un terrain parmi les suivants : arctique, désert, forêt, marais, montagne ou plaines. Sur le terrain choisi, vous obtenez un bonus de circonstances de +1 aux tests de Discrétion pour Vous cacher ou Être furtif et aux tests de Duperie pour Feinter."
+        ],
+        "href"                  : "/heritages/3aKeX3q9hRdxgP1J",
+        "id"                    : "3aKeX3q9hRdxgP1J",
+        "name"                  : "Centaure moucheté",
+        "text"                  : "Centaure moucheté",
+        "traits"                : []
+    },
+    "2GmWdSNbH4yx9pzY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes plus petit que la plupart des autres centaures, bien que pas moins rapide. Au lieu d'être de taille Grande, votre taille est Moyenne. Vous obtenez un bonus de circonstances de +1 aux jets de Réflexes."
+        ],
+        "href"                  : "/heritages/2GmWdSNbH4yx9pzY",
+        "id"                    : "2GmWdSNbH4yx9pzY",
+        "name"                  : "Centaure allure de poney",
+        "text"                  : "Centaure allure de poney",
+        "traits"                : []
+    },
+    "raDHBXYpc2MvWWgh": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un centaure robuste, à l'allure ferme et au cœur solide. Vous obtenez 10 Points de vie de votre ascendance au lieu de 8 et obtenez un bonus de circonstances de +1 aux tests d'Acrobaties pour Garder l'équilibre et à votre jet de Réflexes pour éviter les crocs-en-jambe."
+        ],
+        "href"                  : "/heritages/raDHBXYpc2MvWWgh",
+        "id"                    : "raDHBXYpc2MvWWgh",
+        "name"                  : "Centaure au coeur robuste",
+        "text"                  : "Centaure au coeur robuste",
+        "traits"                : []
+    },
+    "GpnHIonrLN8TFZci": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez augmenté votre exosquelette avec de la magie. Vous obtenez un tour de magie de la liste des sorts arcaniques ou occultes. Vous pouvez lancer ce sort comme un sort inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/GpnHIonrLN8TFZci",
+        "id"                    : "GpnHIonrLN8TFZci",
+        "name"                  : "Rite d'invocation",
+        "text"                  : "Rite d'invocation",
+        "traits"                : []
+    },
+    "faLb2rczsrxAuOTt": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "k5TASjIxghvGCy7g",
+                    "name"    : "Appel à Axis",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez amélioré votre exosquelette avec une connexion à Axis, ce qui vous permet de puiser dans les connaissances infinies de ce plan. Vous gagnez l'action Appel à Axis."
+        ],
+        "href"                  : "/heritages/faLb2rczsrxAuOTt",
+        "id"                    : "faLb2rczsrxAuOTt",
+        "name"                  : "Rite du savoir",
+        "text"                  : "Rite du savoir",
+        "traits"                : []
+    },
+    "EoWwvDdoMqN5x0c9": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre exosquelette porte de petites pousses qui peuvent partager la vie. Lorsque vous utilisez Guérison par le soleil, vous pouvez restaurer les Points de vie d'un allié adjacent au lieu de vous-même. Cet allié devient temporairement immunisé contre toutes les utilisations de Guérison du soleil pendant 1 jour."
+        ],
+        "href"                  : "/heritages/EoWwvDdoMqN5x0c9",
+        "id"                    : "EoWwvDdoMqN5x0c9",
+        "name"                  : "Rite de lumière",
+        "text"                  : "Rite de lumière",
+        "traits"                : []
+    },
+    "yVtcyAbLmWCIHHZi": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre exosquelette reste connecté aux plantes qui l'ont créé. Vous pouvez ignorer les terrains difficiles et le sol instable provoqués par les sous-bois. De plus, lorsque vous utilisez la compétence Acrobaties pour Garder l'équilibrer sur des surfaces étroites ou un sol instable au sein des forêts, vous n'êtes pas Pris au dépourvu. Lorsque vous obtenez un succès en tentant l'un de ces tests d'Acrobaties, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/yVtcyAbLmWCIHHZi",
+        "id"                    : "yVtcyAbLmWCIHHZi",
+        "name"                  : "Rite de passage",
+        "text"                  : "Rite de passage",
+        "traits"                : []
+    },
+    "q2omqJ9t0skGTYki": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre exosquelette tissé rivalise avec les armures les plus dures que l'on puisse trouver. Votre exosquelette est une armure intermédiaire du groupe des armures de plaques qui confère un bonus d'objet de +4 à la CA, un maximum de Dextérité de +1, une pénalité d'échec aux tests de -2, une pénalité de Vitesse de -1,50 mètre, une valeur de Force de +3 et elle possède le trait confortable. Vous ne pouvez jamais porter une autre armure ou retirer votre exosquelette. Vous pouvez graver des runes d'armure sur votre exosquelette comme à l'ordinaire.",
+            "Rite de renforcement de l'exosquelette"
+        ],
+        "href"                  : "/heritages/q2omqJ9t0skGTYki",
+        "id"                    : "q2omqJ9t0skGTYki",
+        "name"                  : "Rite de renforcement",
+        "text"                  : "Rite de renforcement",
+        "traits"                : []
+    },
+    "Y1cG8cw4qoHR145y": {
+        "bonus"                 : {
+            "traits"  : [
+                "fée et ajoutez le fée à votre liste de langues connues"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez un corps aux couleurs vives, avec des écailles étincelantes qui deviennent plus chatoyantes en vieillissant et des ailes de papillon irisées. Vous pouvez changer la coloration et le motif de vos ailes par une unique action afin de vous fondre dans votre environnement.",
+            "Lorsque vos ailes correspondent à votre environnement, vous bénéficiez d'un bonus de circonstances de +2 aux tests de Discrétion jusqu'à ce que vos environs changent de couleur ou de motif. Vous obtenez le trait fée et ajoutez le fée à votre liste de langues connues."
+        ],
+        "href"                  : "/heritages/Y1cG8cw4qoHR145y",
+        "id"                    : "Y1cG8cw4qoHR145y",
+        "name"                  : "Dragonnet fée",
+        "text"                  : "Dragonnet fée",
+        "traits"                : [
+            "Fée"
+        ]
+    },
+    "EG0zqAipDIMGBAKz": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez un nez court et retroussé et de minuscules épines qui ressemblent à des poils. Vous pourriez avoir des écailles vivement colorées ou être d'un brun foncé. Vous pouvez lancer le tour de magie Connaître le chemin comme un sort arcanique inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur.",
+            "De plus, vous connaissez toujours la distance et la direction qui vous sépare de votre foyer. Vous pouvez désigner un nouvel emplacement comme votre foyer après avoir dépensé 1 semaine ici, mais vous ne pouvez avoir qu'un seul foyer au même instant."
+        ],
+        "href"                  : "/heritages/EG0zqAipDIMGBAKz",
+        "id"                    : "EG0zqAipDIMGBAKz",
+        "name"                  : "Drake guide",
+        "text"                  : "Drake guide",
+        "traits"                : []
+    },
+    "8oqAuez98yqAgteo": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez des écailles bleu vif et violettes, avec des dents et des griffes argentées. Vos mâchoires sont considérées comme en argent et vous obtenez un bonus de circonstances de +1 aux jets de dégâts contre les fiélons. Vous ajoutez le diabolique à votre liste de langues connues."
+        ],
+        "href"                  : "/heritages/8oqAuez98yqAgteo",
+        "id"                    : "8oqAuez98yqAgteo",
+        "name"                  : "Drake domestique",
+        "text"                  : "Drake domestique",
+        "traits"                : []
+    },
+    "Rz0hZM6CFvX5LnXg": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez des écailles nacrées et un corps rond, avec de courtes pattes, de petites ailes et une longue queue. La forme de votre corps vous permet d'encaisser un coup et de rouler au loin.",
+            "Rebondir au loin r",
+            "@Embed[Compendium.pf2e.actionspf2e.Item.OpiIzr7h1EKY8wKh inline]"
+        ],
+        "href"                  : "/heritages/Rz0hZM6CFvX5LnXg",
+        "id"                    : "Rz0hZM6CFvX5LnXg",
+        "name"                  : "Dragonnet de perle",
+        "text"                  : "Dragonnet de perle",
+        "traits"                : []
+    },
+    "Qr1foFh24dkTqe1s": {
+        "bonus"                 : {
+            "traits"  : [
+                "amphibie"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez un corps mince, semblable à celui d'une anguille, recouvert d'écailles azur. Vos ailes s'étendent le long de ton corps telles d'immenses nageoires, vous rendant parfaitement adapté aux environnements aquatiques.",
+            "Vous obtenez le trait amphibie, et une vitesse de nage de 4,50 mètres. Vous ajoutez le thalassique à votre liste de langues connues."
+        ],
+        "href"                  : "/heritages/Qr1foFh24dkTqe1s",
+        "id"                    : "Qr1foFh24dkTqe1s",
+        "name"                  : "Dragonnet de la marée",
+        "text"                  : "Dragonnet de la marée",
+        "traits"                : [
+            "Amphibie"
+        ]
+    },
+    "kRDsVbhdBVeSlpBa": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes le descendant d'un artisan réputé et possédez votre propre incroyable talent. Les autres nains pourraient considérer que c'est la bénédiction de vos ancêtres ou du Père de la forge lui-même, en fonction de l'endroit où vous avez été élevé. Vous êtes qualifié en Artisanat (ou une autre compétence si vous étiez déjà qualifié en Artisanat) et vous obtenez le don de compétence Artisanat spécialisé, sauf que vous pouvez choisir deux spécialités à la place d'une seule."
+        ],
+        "href"                  : "/heritages/kRDsVbhdBVeSlpBa",
+        "id"                    : "kRDsVbhdBVeSlpBa",
+        "name"                  : "Nain de l'enclume",
+        "text"                  : "Nain de l'enclume",
+        "traits"                : []
+    },
+    "MeMAAtUlZmFgKSMF": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Que ce soit au travers d'un lien avec la forge de Torag, des azers du plan du Feu ou d'une autre source, vous pouvez exsuder une émanation d'énergie. Les nains Mbe'ke et Taralu du Mwangi pensent que cette ascendance est un don des dragons ou des esprits élémentaires.",
+            "Choisissez un des types de dégâts suivants : acide, électricité, feu ou froid. Une fois choisi, il ne peut être modifié. Vous obtenez l'activité Émanation énergétique correspondante."
+        ],
+        "href"                  : "/heritages/MeMAAtUlZmFgKSMF",
+        "id"                    : "MeMAAtUlZmFgKSMF",
+        "name"                  : "Nain coeurélémentaire",
+        "text"                  : "Nain coeurélémentaire",
+        "traits"                : []
+    },
+    "erZPj5701KiVAqoi": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes issu d'une famille de Heaume qui vénère plus spécifiquement une divinité naine au-dessus de toutes les autres. Votre naissance a été bénie par le patron de votre famille, vous accordant une fraction de son pouvoir. Choisissez une divinité du Sang de la pierre. Vous pouvez lancer le sort de rang 1 qu'elle accorde à ses prêtres (tel que Apaiser si la divinité tutélaire de votre famille est Bolka) comme un sort divin inné une fois par semaine."
+        ],
+        "href"                  : "/heritages/erZPj5701KiVAqoi",
+        "id"                    : "erZPj5701KiVAqoi",
+        "name"                  : "Nain béni-de-la-forge",
+        "text"                  : "Nain béni-de-la-forge",
+        "traits"                : []
+    },
+    "85tRKGZUTFa6pKpG": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "En grandissant, vous n'avez jamais cherché à mentir pour obtenir ce que vous désiriez et même lorsque cela a été nécessaire, mentir vous a mis mal à l'aise. Les membres particulièrement croyants ont même pu penser que vous avez été béni par le dieu nain du devoir, Kols.",
+            "Vous obtenez un bonus de circonstances de +1 aux tests de Perception pour Deviner les intentions et au DD de Perception contre les tentatives de vous Mentir. De plus, vous obtenez un bonus de circonstances de +2 aux tests de Diplomatie pour convaincre les autres que vous dites la vérité lorsque vous la dites et vous subissez une pénalité de circonstances de -4 pour Mentir et a votre test de Duperie contre une tentative pour Deviner les intentions."
+        ],
+        "href"                  : "/heritages/85tRKGZUTFa6pKpG",
+        "id"                    : "85tRKGZUTFa6pKpG",
+        "name"                  : "Nain gardeserment",
+        "text"                  : "Nain gardeserment",
+        "traits"                : []
+    },
+    "kiKxnKd7Dfegk9dM": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "feu",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vivez sous la chaleur brûlante du désert, ce qui vous confère une résistance incroyable aux environnements chauds.",
+            "Vous obtenez une résistance au feu égale à la moitié de votre niveau (minimum 1), et les effets liés à la chaleur de l'environnement sont d'un rang moins extrême pour ce qui vous concerne (une chaleur extraordinaire devient extrême, une chaleur extrême devient importante, etc)."
+        ],
+        "href"                  : "/heritages/kiKxnKd7Dfegk9dM",
+        "id"                    : "kiKxnKd7Dfegk9dM",
+        "name"                  : "Elfe du désert",
+        "text"                  : "Elfe du désert",
+        "traits"                : []
+    },
+    "wHO5luJMODbDLXNi": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps est la preuve que l'ombre ne peut exister sans lumière. Peut-être que vos yeux brillent plus fort ou que vos veines émettent parfois de la lumière. Vous émettez une lumière faible à 1,50 mètre autour de vous. Vous pouvez activer ou supprimer cette capacité par une action qui possède le trait concentration. De plus, vous pouvez forcer des fragments de votre ombre à briller et à lancer Lumière comme un tour de magie occulte inné. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/wHO5luJMODbDLXNi",
+        "id"                    : "wHO5luJMODbDLXNi",
+        "name"                  : "Fetchelin lumineux",
+        "text"                  : "Fetchelin lumineux",
+        "traits"                : []
+    },
+    "k4AU5tjtngDOIqrB": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos prédécesseurs se sont enfoncés au plus profond du Nébulmonde, dans les régions les plus dangereuses. Vous pouvez projeter une ombre plus dense, avoir un pouls plus lent ou vous trouver à l'aise dans l'étreinte de l'obscurité. Vous obtenez une résistance contre les dégâts de froid ou aux dégâts de vide égale à la moitié de votre niveau (minimum 1), en fonction du type choisi lorsque vous choisissez cet héritage."
+        ],
+        "href"                  : "/heritages/k4AU5tjtngDOIqrB",
+        "id"                    : "k4AU5tjtngDOIqrB",
+        "name"                  : "Fetchelin des profondeurs",
+        "text"                  : "Fetchelin des profondeurs",
+        "traits"                : []
+    },
+    "PwxbD5VSJ0Yroqvp": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous provenez d'une lignée de fetchelins disposant d'un lien plus proche avec les plans Éthéré et le Nébulmonde et vous partagez l'affinité de ces royaumes avec l'entre-deux et l'invisible. Vous obtenez un bonus de circonstances de +1 pour localiser les créatures Non détectées dans les 18 mètres lorsque vous utilisez l'action Chercher. Votre test nu pour cibler les créatures Masquées se fait contre un @Check[flat|dc:3]{DD 3} au lieu d'un DD 5 et le DD de votre test nu pour cibler de créatures Non détectées est de @Check[flat|dc:9]{9} au lieu de 11."
+        ],
+        "href"                  : "/heritages/PwxbD5VSJ0Yroqvp",
+        "id"                    : "PwxbD5VSJ0Yroqvp",
+        "name"                  : "Fetchelin liminal",
+        "text"                  : "Fetchelin liminal",
+        "traits"                : []
+    },
+    "VAo6NnrCEAAOUSkc": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont longtemps fait affaire avec l'horreur — Sur le Nébulmonde ou ailleurs — et vous portez leur résistance mentale. Lorsque vous obtenez un succès sur un jet de sauvegarde contre un effet d'émotion, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/VAo6NnrCEAAOUSkc",
+        "id"                    : "VAo6NnrCEAAOUSkc",
+        "name"                  : "Fetchelin déterminé",
+        "text"                  : "Fetchelin déterminé",
+        "traits"                : []
+    },
+    "kHHcvJBJNiPJTuna": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "L'exposition au Nébulmonde de vos ancêtres a entraîné d'importants changements. Vos cheveux ou votre peau apparaaissent parfois dépourvu de substance et vous êtes plus maigre et plus agile que les autres fetchelins. Vous êtes de taille Petite au lieu de Moyenne. Vous êtes qualifié en Acrobaties, obtenez le don de compétence Se faufiler rapidement et un bonus de circonstances de +1 aux tests d'Acrobaties pour réaliser un [[/act tumble-through]]{Déplacement acrobatique}. Si vous êtes automatiquement qualifié en Acrobaties (du fait de votre historique ou de votre classe par exemple), vous devenez à la place qualifié dans une compétence de votre choix."
+        ],
+        "href"                  : "/heritages/kHHcvJBJNiPJTuna",
+        "id"                    : "kHHcvJBJNiPJTuna",
+        "name"                  : "Fetchelin menu",
+        "text"                  : "Fetchelin menu",
+        "traits"                : []
+    },
+    "PQuJEYI0UFl8W7fH": {
+        "bonus"                 : {
+            "dons"    : {
+                "general" : [
+                    {
+                        "id"      : "BStw1cANwx5baL6d",
+                        "name"    : "Maîtrise d'armure"
+                    }
+                ]
+            }
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre squelette endurci par le combat est doté de cartilages et de muscles supplémentaires pour vous aider à porter l'armure sur de vastes zones d'opération et votre peau est parée de minuscules éperons de kératine souple et résistante pour optimiser l'adhérence et la répartition du poids de votre armure. Vous obtenez le don général Maîtrise d'armure.",
+            "Si votre classe vous permet d'être qualifié avec tous les types d'armure, vous devenez à la place qualifié en Athlétisme (ou dans une compétence de votre choix si vous êtes déjà qualifié en l'Athlétisme) et obtenez le don de compétence Aide armure."
+        ],
+        "href"                  : "/heritages/PQuJEYI0UFl8W7fH",
+        "id"                    : "PQuJEYI0UFl8W7fH",
+        "name"                  : "Distordu cataphracte",
+        "text"                  : "Distordu cataphracte",
+        "traits"                : []
+    },
+    "iY2CCqoMc2bRdoas": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été créé par le biais de processus chimiques ou occultes, tel qu'une cuve d'élevage ou cousu à partir de parties de corps d'autres créatures par un scientifique en Ustalav. Votre corps fabriqué est solide. Vous n'avez pas besoin de manger et ne mourrez pas de faim. Vous obtenez un bonus de circonstances de +2 aux jets de sauvegarde contre les maladies."
+        ],
+        "href"                  : "/heritages/iY2CCqoMc2bRdoas",
+        "id"                    : "iY2CCqoMc2bRdoas",
+        "name"                  : "Distordu créé",
+        "text"                  : "Distordu créé",
+        "traits"                : []
+    },
+    "OtqOC3ElpF444qMe": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les biomanciens et les mutagénistes qui ont distordu votre forme vous ont étiqueté comme un \"rebut non conforme\" - un euphémisme signifiant la destruction à vue. Anomalie parmi les anomalies, votre corps rejette obstinément les efforts des distordeurs de chair qui cherchent à vous modeler pour correspondre à leurs visions grandioses et vos réponses immunitaires atténuent les pires effets des tentatives des distorsions de la chair non souhaitées. Si vous obtenez un succès sur un jet de sauvegarde contre un effet de transmutation, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/OtqOC3ElpF444qMe",
+        "id"                    : "OtqOC3ElpF444qMe",
+        "name"                  : "Distordu rebuté",
+        "text"                  : "Distordu rebuté",
+        "traits"                : []
+    },
+    "CCwTBSNTw0caN1jd": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Transformé par une magie incontrôlée, vous provenez de la Désolation de Mana ou d'une autre région dévastée de la même manière par la magie incontrôlée.",
+            "Du fait de vos organes renforcés ou redondants, les tests pour récupérer des dégâts de saignement se fait contre un DD 10 au lieu de 15 et il est réduit à @Check[flat|dc:5]{5} au lieu de 10 si vous bénéficiez d'une assistance particulièrement efficace pour récupérer des dégâts persistants."
+        ],
+        "href"                  : "/heritages/CCwTBSNTw0caN1jd",
+        "id"                    : "CCwTBSNTw0caN1jd",
+        "name"                  : "Distordu mutant",
+        "text"                  : "Distordu mutant",
+        "traits"                : []
+    },
+    "uxtcKTkD62SmrUoh": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "En tant que victime de distorsion de la chair, vous êtes plus à même d'avoir de la chair flasque, des éperons osseux ou des traits de créatures non humaines qui sortent de votre peau. Vous avez quoi qu'il en soit réussi à surmonter le processus psychique de votre transformation pour en faire une force. Vous obtenez une résistance contre les dégâts mentaux égale à la moitié de votre niveau (minimum 1)."
+        ],
+        "href"                  : "/heritages/uxtcKTkD62SmrUoh",
+        "id"                    : "uxtcKTkD62SmrUoh",
+        "name"                  : "Distordu forméforgé",
+        "text"                  : "Distordu forméforgé",
+        "traits"                : []
+    },
+    "hzW7VoRDYsKJB8ku": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les ondulations des cils de votre corps sont hyper-accordées aux sources de la magie. Ils frémissent et vibrent au contact des énergies occultes et leurs vibrations vous alertent sur la présence de secrets. Vous êtes qualifié en Occultisme. Si vous êtes déjà qualifié en Occultisme, vous êtes qualifié dans une autre compétence de votre choix. Vous obtenez également le don de compétence Identification de bizarreries."
+        ],
+        "href"                  : "/heritages/hzW7VoRDYsKJB8ku",
+        "id"                    : "hzW7VoRDYsKJB8ku",
+        "name"                  : "Distordu hypersensible",
+        "text"                  : "Distordu hypersensible",
+        "traits"                : []
+    },
+    "n2DKA0OQQcfvZRly": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre transformation est due à une manipulation par une technologie avancée, comme celles trouvées en Numérie. Vos émotions sont ternes et difficiles à influencer. Lorsque vous obtenez un succès sur un jet de sauvegarde contre un effet d'émotion, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/n2DKA0OQQcfvZRly",
+        "id"                    : "n2DKA0OQQcfvZRly",
+        "name"                  : "Distordu technologique",
+        "text"                  : "Distordu technologique",
+        "traits"                : []
+    },
+    "CMf0qluB0LXWReew": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre mémoire est vive et précise et vous vous souvenez de tant de choses. Vous vous rappelez le calme avant la tempête, de la terre après la pluie, du goût âcre de la magie et du murmure d'une chanson. Vous vous souvenez de tout. Vous êtes qualifié dans une compétence de votre choix. Au niveau 5, vous devenez expert dans cette compétence."
+        ],
+        "href"                  : "/heritages/CMf0qluB0LXWReew",
+        "id"                    : "CMf0qluB0LXWReew",
+        "name"                  : "Frêne ancien",
+        "text"                  : "Frêne ancien",
+        "traits"                : []
+    },
+    "VqgrYMaAwnNjT9Mn": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous sentez si bon - un parfum délicat et floral comme le parfum enivrant des lys et la douce odeur des lilas. Vous êtes qualifié en Diplomatie (ou une autre compétence si vous êtes déjà qualifié en Diplomatie). Vous obtenez également un bonus de circonstances de +1 aux tests pour Faire bonne impression lorsque la cible peut sentir votre parfum."
+        ],
+        "href"                  : "/heritages/VqgrYMaAwnNjT9Mn",
+        "id"                    : "VqgrYMaAwnNjT9Mn",
+        "name"                  : "Lys enchanté",
+        "text"                  : "Lys enchanté",
+        "traits"                : []
+    },
+    "bKr34Uvxc2XClr9q": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "La plupart des ghorans ont des corps faits de lianes souples et de tiges coriaces mais vous êtes couvert d'une solide écorce rugueuse et vos jambes sont stables comme les racines. Vous obtenez un bonus de circonstances de +2 à vos DD de Vigueur ou de Réflexes contre les tentatives faites pour vous Saisir ou vous faire un Croc-en-jambe. Ce bonus s'applique aussi aux jets de sauvegarde contre les effets qui devraient vous Agripper, vous Entraver ou vous mettre À terre. Vous obtenez aussi un bonus de circonstances de +2 sur les tests d'Acrobaties pour Garder l'équilibre."
+        ],
+        "href"                  : "/heritages/bKr34Uvxc2XClr9q",
+        "id"                    : "bKr34Uvxc2XClr9q",
+        "name"                  : "Chêne dur",
+        "text"                  : "Chêne dur",
+        "traits"                : []
+    },
+    "6KhxY5ArGFhLF7r1": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "ncdryKskPwHMgHFh",
+                    "name"    : "Terribles épines",
+                    "type"    : "ACTION_TYPE.REACTION"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos magnifiques pétales et votre peau apparemment lisse cachent des épines invisibles qui transpercent les imprudents. Votre corps est couvert d'épines terriblement pointues pour décourager ceux qui pourraient s'en prendre à vous. Vous obtenez la réaction Terribles épines."
+        ],
+        "href"                  : "/heritages/6KhxY5ArGFhLF7r1",
+        "id"                    : "6KhxY5ArGFhLF7r1",
+        "name"                  : "Rose piquante",
+        "text"                  : "Rose piquante",
+        "traits"                : []
+    },
+    "8Uw1E3L2Mgo6PxwB": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont vécu dans les arbres et pêché dans toutes les eaux du Tian Xia. Vous obtenez au choix un des avantages suivants. Une fois qu'il est fait, ce choix ne peut plus être modifié."
+        ],
+        "href"                  : "/heritages/8Uw1E3L2Mgo6PxwB",
+        "id"                    : "8Uw1E3L2Mgo6PxwB",
+        "name"                  : "Gnome kijimuna",
+        "text"                  : "Gnome kijimuna",
+        "traits"                : [
+            "Peu courant",
+            "Gnome"
+        ]
+    },
+    "ViKRoVgog172r163": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez un lien incroyablement fort avec l'énergie de vitalité qui coule à travers le Premier Monde, ce qui rend plus difficile de s'en prendre à votre force vitale avec de l'énergie de vide. Vous obtenez une résistance à l'énergie de vide égale à la moitié de votre niveau (minimum 1). Lorsque vous avez l'état Condamné, cet état vous affecte comme si sa valeur était inférieure de 1 à ce qu'elle est actuellement (Condamné 1 n'a pas d'effet, Condamné 2 provoque votre mort lorsque vous êtes Mourant 3, etc)."
+        ],
+        "href"                  : "/heritages/ViKRoVgog172r163",
+        "id"                    : "ViKRoVgog172r163",
+        "name"                  : "Gnome vivace",
+        "text"                  : "Gnome vivace",
+        "traits"                : []
+    },
+    "gf2CfXocpIQgRsCY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont maîtrisé la magie basé sur l'illusion, vous en léguant une compréhension innée. Vous pouvez lancer Chimère en tant que tour de magie occulte inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. Vous obtenez aussi un bonus de circonstances de +1 à vos jets de Volonté contre les illusions."
+        ],
+        "href"                  : "/heritages/gf2CfXocpIQgRsCY",
+        "id"                    : "gf2CfXocpIQgRsCY",
+        "name"                  : "Gobelin dokkaebi",
+        "text"                  : "Gobelin dokkaebi",
+        "traits"                : [
+            "Peu courant",
+            "Gobelin"
+        ]
+    },
+    "8wGUh9RsMUamOKjh": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous disposez d'une queue puissante, sans doute parce que vous descendez d'une communauté de singes gobelins. Vous bénéficiez d'un bonus de circonstances de +2 aux tests d'Athlétisme pour Escalader, vous obtenez Combattant-grimpeur comme don supplémentaire et vous réduisez de une le nombre de mains libres qui sont nécessaires pour Escalader ou faire un Croc-en-jambe."
+        ],
+        "href"                  : "/heritages/8wGUh9RsMUamOKjh",
+        "id"                    : "8wGUh9RsMUamOKjh",
+        "name"                  : "Gobelin à queue",
+        "text"                  : "Gobelin à queue",
+        "traits"                : []
+    },
+    "EEvA4uj8h3zDiAfP": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vous êtes adapté particulièrement bien en vivant dans les environnements forestiers. Tant que vous vous trouvez dans une forêt ou une jungle, vous obtenez un bonus de circonstances de +2 aux tests de Discrétion pour Vous cacher et Être furtif, aux tests de Survie pour Subsister et à votre DD de Survie pour Dissimuler des traces."
+        ],
+        "href"                  : "/heritages/EEvA4uj8h3zDiAfP",
+        "id"                    : "EEvA4uj8h3zDiAfP",
+        "name"                  : "Gobelin arboricole",
+        "text"                  : "Gobelin arboricole",
+        "traits"                : []
+    },
+    "6JKdAZGa8odFzleS": {
+        "bonus"                 : {
+            "sens"    : [
+                "vision nocturne"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos yeux se sont adaptés pour mieux voir dans des conditions moins favorables. Vous obtenez vision nocturne."
+        ],
+        "href"                  : "/heritages/6JKdAZGa8odFzleS",
+        "id"                    : "6JKdAZGa8odFzleS",
+        "name"                  : "Goloma à vision de loin",
+        "text"                  : "Goloma à vision de loin",
+        "traits"                : []
+    },
+    "KJ2dSDXP9d5hJHzd": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre visage possède une apparence particulièrement rebutante. Vous êtes qualifié en Intimidation (ou dans une compétence de votre choix si vous êtes déjà qualifié en Intimidation) et vous obtenez le don de compétence Regard intimidant comme don supplémentaire."
+        ],
+        "href"                  : "/heritages/KJ2dSDXP9d5hJHzd",
+        "id"                    : "KJ2dSDXP9d5hJHzd",
+        "name"                  : "Goloma effrayant",
+        "text"                  : "Goloma effrayant",
+        "traits"                : []
+    },
+    "cnbwtbDmlD0KoLqY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez appris à repérer les signes révélateurs de sentiments dangereux pour vous aider à éviter les ennuis. Vous obtenez un bonus de circonstances de +1 à votre DD de Perception contre les tentatives de vous Mentir et à vos tests de Perception pour Deviner les intentions."
+        ],
+        "href"                  : "/heritages/cnbwtbDmlD0KoLqY",
+        "id"                    : "cnbwtbDmlD0KoLqY",
+        "name"                  : "Goloma perspicace",
+        "text"                  : "Goloma perspicace",
+        "traits"                : []
+    },
+    "x5S4MNQ0aqUmgHcC": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "La chitine sur vos mains forme des griffes puissantes qui vous permettent de vous défendre. Vous obtenez une attaque à mains nues de griffe qui inflige 1d6 dégâts tranchants. Vos griffes font partie du groupe pugilat et possèdent les traits agile, finesse et à mains nues."
+        ],
+        "href"                  : "/heritages/x5S4MNQ0aqUmgHcC",
+        "id"                    : "x5S4MNQ0aqUmgHcC",
+        "name"                  : "Goloma vicieux",
+        "text"                  : "Goloma vicieux",
+        "traits"                : []
+    },
+    "sGzhnQpgWErX1bmx": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "tradition" : "TRADITION.ARCANE",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez appris à être conscient non seulement des dangers physiques évidents, mais aussi des menaces magiques perceptibles. Vous pouvez lancer le tour de magie Détection de la magie comme un sort inné arcanique à volonté. Un tour de magie est intensifié à un rang égal à la moitié de votre niveau arrondi au supérieur. De plus, votre conscience vous permet de remarquer les pièges magiques plus facilement que les autres. Votre maîtrise en Perception est considéré comme d'un cran supérieur lorsque vous tentez de détecter des pièges magiques. (qualifié est considéré comme expert, expert comme maître et maître comme légendaire)."
+        ],
+        "href"                  : "/heritages/sGzhnQpgWErX1bmx",
+        "id"                    : "sGzhnQpgWErX1bmx",
+        "name"                  : "Goloma vigilant",
+        "text"                  : "Goloma vigilant",
+        "traits"                : []
+    },
+    "Lp7ywxabmm88Gei6": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos sens particulièrement aiguisés vous donnent des indices en cas de danger ou de tromperie. Vous obtenez un bonus de circonstances de +1 à votre DD de Perception, mais pas à vos tests de Perception."
+        ],
+        "href"                  : "/heritages/Lp7ywxabmm88Gei6",
+        "id"                    : "Lp7ywxabmm88Gei6",
+        "name"                  : "Halfelin observateur",
+        "text"                  : "Halfelin observateur",
+        "traits"                : []
+    },
+    "BFOsMnWfXL1oaWkY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Lorsque vous êtes coupé ou brûlé, votre corps répond en formant des cals robustes et souples à l'endroit de la blessure. Au fil du temps, cela rend les sections les plus vulnérables de votre corps plus dures et plus résistantes aux dégâts. Nombre d'hobgobelins Peaud'acier utilisent volontairement des lames et des flammes pour se scarifier eux-mêmes selon des schémas alambiqués, bien que ce ne soit pas le cas de tous. Votre test nu pour récupérer des dégâts physiques persistants (incluant le saignement), d'énergie persistants ou des dégâts de poison persistants se fait contre un DD 13 (au lieu d'un DD 15) ou contre un @Check[flat|dc:8] quand l'assistance fournie est particulièrement efficace."
+        ],
+        "href"                  : "/heritages/BFOsMnWfXL1oaWkY",
+        "id"                    : "BFOsMnWfXL1oaWkY",
+        "name"                  : "Hobgobelin peaud'acier",
+        "text"                  : "Hobgobelin peaud'acier",
+        "traits"                : []
+    },
+    "d7NC4C19AgkspQQg": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre famille s'entraîne au combat depuis des générations, ce qui vous confère des avantages face à vos ennemis. Vous obtenez un bonus de +1 aux jets d'initiative.",
+            "En plus, vous obtenez le don Dure à cuir.",
+            "Note : cet héritage provient de la Boîte d'Initiation et comporte des capacités d'héritage qui ne sont pas dans la norme."
+        ],
+        "href"                  : "/heritages/d7NC4C19AgkspQQg",
+        "id"                    : "d7NC4C19AgkspQQg",
+        "name"                  : "Humain entrainé à la bataille (BI)",
+        "text"                  : "Humain entrainé à la bataille (BI)",
+        "traits"                : []
+    },
+    "0Iv6LfT3UEt8taj5": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous et votre famille êtes des survivants et vous avez appris comment prendre soin de vous-même. Choisissez un des avantages suivants.",
+            "Note : cet héritage est issu de la Boîte d'Initiation et comporte des capacités d'héritage qui ne sont pas dans la norme."
+        ],
+        "href"                  : "/heritages/0Iv6LfT3UEt8taj5",
+        "id"                    : "0Iv6LfT3UEt8taj5",
+        "name"                  : "Humain gardien (BI)",
+        "text"                  : "Humain gardien (BI)",
+        "traits"                : []
+    },
+    "KO33MNyY9VqNQmbZ": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Le pouvoir de l'hiver coule à travers vous. Cette ascendance est plus commune parmi les Jadwiga d'Irrisen, car ils descendent de Baba Yaga et de certains Erutaki touchés par les esprits.",
+            "Vous obtenez une résistance au froid égale à la moitié de votre niveau (minimum 1) et vous traitez les effets liés à un environnement froid comme si celui-ci était d'un niveau moins extrême (le froid extraordinaire devient extrême, le froid extrême devient important, etc)."
+        ],
+        "href"                  : "/heritages/KO33MNyY9VqNQmbZ",
+        "id"                    : "KO33MNyY9VqNQmbZ",
+        "name"                  : "Humain touché par l'hiver",
+        "text"                  : "Humain touché par l'hiver",
+        "traits"                : []
+    },
+    "m4kFMTu2sOSWgnAU": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre travail en tant que berger des iivlars vous a accordé une compréhension supérieure de ces créatures sacrées et la capacité de les pister, aussi insaisissable qu'elles puissent être. Vous êtes qualifié en Survie et vous obtenez le don de compétence Observation de la nature. Vous obtenez un bonus de circonstances de +1 pour Pister les animaux."
+        ],
+        "href"                  : "/heritages/m4kFMTu2sOSWgnAU",
+        "id"                    : "m4kFMTu2sOSWgnAU",
+        "name"                  : "Jotunborn berger",
+        "text"                  : "Jotunborn berger",
+        "traits"                : []
+    },
+    "KDs97OkCmEYTLUp9": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été choisi pour votre petite taille qui vous permet de passer facilement d'un plan à l'autre. Vous servez généralement de messager ou d'éclaireur et l'exposition planaire vous a accordé une étincelle de pouvoir magique. Au lieu de Grande, votre taille est Moyenne. Vous obtenez un tour de magie issu de la liste occulte. Vous pouvez lancer ce sort en tant que sort occulte inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/KDs97OkCmEYTLUp9",
+        "id"                    : "KDs97OkCmEYTLUp9",
+        "name"                  : "Jotunborn bondisseur planaire",
+        "text"                  : "Jotunborn bondisseur planaire",
+        "traits"                : []
+    },
+    "NUUWs7jFwsIPmx3p": {
+        "bonus"                 : {
+            "dons"    : {
+                "general" : [
+                    {
+                        "id"      : "BocFD2KV0qgUC76x",
+                        "name"    : "Connaissance supplémentaire"
+                    }
+                ]
+            }
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été chargé de conserver les histoires orales et cousues pour votre famille, votre clan ou même pour une communauté entière. Vous êtes qualifié en Société. Vous obtenez aussi le don général Connaissance supplémentaire pour une compétence de Connaissance de votre choix."
+        ],
+        "href"                  : "/heritages/NUUWs7jFwsIPmx3p",
+        "id"                    : "NUUWs7jFwsIPmx3p",
+        "name"                  : "Jotunborn sage",
+        "text"                  : "Jotunborn sage",
+        "traits"                : []
+    },
+    "t9HOJelfwDo3RBii": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps plus dur a fait de vous une recrue parfaite pour le combat. Le dé de dégâts pour votre poing passe à 1d6. Vous ne subissez pas de pénalité lorsque vous portez une attaque létale avec votre poing."
+        ],
+        "href"                  : "/heritages/t9HOJelfwDo3RBii",
+        "id"                    : "t9HOJelfwDo3RBii",
+        "name"                  : "Jotunborn combattant",
+        "text"                  : "Jotunborn combattant",
+        "traits"                : []
+    },
+    "K0NerdkFnce9KeHw": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez maîtrisé l'art du tissage de la soie d'iivlar, une technique qui nécessite une attention particulière aux détails. Vous êtes qualifié en Artisanat. Vous obtenez un bonus de circonstances de +1 aux tests de Perception pour Chercher lorsqu'il s'agit de détails cachés comme les portes secrètes ou les pièges."
+        ],
+        "href"                  : "/heritages/K0NerdkFnce9KeHw",
+        "id"                    : "K0NerdkFnce9KeHw",
+        "name"                  : "Jotunborn tisseur",
+        "text"                  : "Jotunborn tisseur",
+        "traits"                : []
+    },
+    "CnCFZfuKzAYqy61e": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous disposez d'un ensemble de petits bras secondaires adaptés pour grimper et pour se suspendre aux arbres. Vous ne pouvez pas tenir ou récupérer des objets avec ces membres, mais vous pouvez Escalader ou Vous raccrocher in extremis même si une ou vos deux mains primaires sont prises. Vous n'êtes pas Pris au dépourvu lorsque vous Escaladez."
+        ],
+        "href"                  : "/heritages/CnCFZfuKzAYqy61e",
+        "id"                    : "CnCFZfuKzAYqy61e",
+        "name"                  : "Athamasi",
+        "text"                  : "Athamasi",
+        "traits"                : []
+    },
+    "Csezts78L4FMaskB": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes issu d'une famille de kashrishi qui s'est adaptée aux rivages côtiers ou aux étangs et lacs intérieurs. Vous obtenez un bonus de circonstances de +2 aux tests d'athlétisme pour nager. Si vous obtenez un échec critique à un test d'Athlétisme pour nager, il devient un échec."
+        ],
+        "href"                  : "/heritages/Csezts78L4FMaskB",
+        "id"                    : "Csezts78L4FMaskB",
+        "name"                  : "Lethoci",
+        "text"                  : "Lethoci",
+        "traits"                : []
+    },
+    "pJ395g22dKNoufIK": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Si la plupart des kashrishis sont parfaitement adaptés à leur environnement lorsqu'ils atteignent l'âge adulte, certains conservent un potentiel inexploité jusqu'à l'âge adulte avant de le libérer. Vous obtenez un don d'ascendance kashrishie de niveau 1 pour lequel vous remplissez les prérequis, s'il en existe."
+        ],
+        "href"                  : "/heritages/pJ395g22dKNoufIK",
+        "id"                    : "pJ395g22dKNoufIK",
+        "name"                  : "Naissant",
+        "text"                  : "Naissant",
+        "traits"                : []
+    },
+    "AVZJI5wP2X5o0LL3": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes adapté aux régions dépourvues d'ensoleillement des zones de jungles profondes et des grottes sombres avec une chair souple dépourvue de pigments et des cornes cristallines d'une clarté inhabituelle. Vous obtenez le don d'ascendance Luminescence du cristal."
+        ],
+        "href"                  : "/heritages/AVZJI5wP2X5o0LL3",
+        "id"                    : "AVZJI5wP2X5o0LL3",
+        "name"                  : "Trogloshi",
+        "text"                  : "Trogloshi",
+        "traits"                : []
+    },
+    "FLWUYM2XxYwnIDQf": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les muscles de votre cou sont proéminents et vous permettent d'utiliser votre corne faciale comme un outil ou une arme. Vous obtenez une attaque à mains nues de corne qui inflige 1d6 dégâts perforants. Votre corne fait partie du groupe pugilat et possède les traits finesse et à main nues."
+        ],
+        "href"                  : "/heritages/FLWUYM2XxYwnIDQf",
+        "id"                    : "FLWUYM2XxYwnIDQf",
+        "name"                  : "Xyloshi",
+        "text"                  : "Xyloshi",
+        "traits"                : []
+    },
+    "IFg2tqmAFFnU8UNU": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "Aq2mXT2hLlstFL5C",
+                    "name"    : "Invoquer le privilège céleste",
+                    "type"    : "ACTION_TYPE.REACTION"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Que ce soit par la grâce de Daikitsu ou d'ancêtres croyants, vous avez un lien fort avec le divin, vous accordant certaines protections. Vous obtenez la réaction Invoquer le privilège céleste. Votre forme alternative est celle d'un humanoïde de taille moyenne d'une ascendance courante prévalente là où vous avez grandi (typiquement un humain), appelée une forme sans queue."
+        ],
+        "href"                  : "/heritages/IFg2tqmAFFnU8UNU",
+        "id"                    : "IFg2tqmAFFnU8UNU",
+        "name"                  : "Kitsune émissaire céleste",
+        "text"                  : "Kitsune émissaire céleste",
+        "traits"                : []
+    },
+    "NWbdAN5gDse0ad7C": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous pouvez employer votre présence perturbante pour Démoraliser subtilement autrui. Lorsque vous le faites, Démoraliser perd le trait audible et obtient le trait visuel et vous ne subissez pas de pénalité lorsque vous tentez de Démoraliser une créature qui ne comprend pas votre langue. Vous obtenez aussi la réaction Peur revigorante . Votre forme alternative est un renard qui possède les statistiques de Forme de nuisible au rang 1."
+        ],
+        "href"                  : "/heritages/NWbdAN5gDse0ad7C",
+        "id"                    : "NWbdAN5gDse0ad7C",
+        "name"                  : "Kitsune des champs sombres",
+        "text"                  : "Kitsune des champs sombres",
+        "traits"                : []
+    },
+    "Wk4HyaZtC1j221i1": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes une créature du monde matériel, avec une affinité plus grande pour les étendues sauvages que pour la société urbaine. Vous obtenez une attaque de mâchoires à mains nues qui inflige 1d6 dégâts perforants. Vos mâchoires sont dans le groupe pugilat et possèdent le trait finesse et à mains nues. Votre forme alternative est celle d'un renard qui possède les statistiques d'un sort de Forme de nuisible au rang 1."
+        ],
+        "href"                  : "/heritages/Wk4HyaZtC1j221i1",
+        "id"                    : "Wk4HyaZtC1j221i1",
+        "name"                  : "Kitsune des terres sauvages",
+        "text"                  : "Kitsune des terres sauvages",
+        "traits"                : []
+    },
+    "mBH1L01kYmB8EL56": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre esprit s'est ouvert aux secrets de l'au-delà, vous accordant un plus grand accès à la magie kitsune. Vous obtenez le don ancestral Familiarité avec les sorts des kitsunes. Votre forme alternative est celle d'un humanoïde de taille moyenne d'une ascendance courante prévalente là où vous avez grandi (typiquement un humain), appelée une forme sans queue."
+        ],
+        "href"                  : "/heritages/mBH1L01kYmB8EL56",
+        "id"                    : "mBH1L01kYmB8EL56",
+        "name"                  : "Kitsune du ciel vide",
+        "text"                  : "Kitsune du ciel vide",
+        "traits"                : []
+    },
+    "kHT9dFJt5yTjeYoB": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont traversé la Couronne du monde ou ont résidé dans les cols enneigés. Vous obtenez une résistance au froid égale à la moitié de votre niveau (minimum 1). Vous traitez les effets environnementaux de froid comme s'ils étaient d'un cran moins extrême (un froid extraordinaire devient extrême, un froid extrême devient important, etc). Votre forme alternative est celle d'un humanoïde de taille moyenne d'une ascendance courante prévalente là où vous avez grandi (typiquement un humain), appelée une forme sans queue."
+        ],
+        "href"                  : "/heritages/kHT9dFJt5yTjeYoB",
+        "id"                    : "kHT9dFJt5yTjeYoB",
+        "name"                  : "Kitsune du vent gelé",
+        "text"                  : "Kitsune du vent gelé",
+        "traits"                : []
+    },
+    "SienSObWb4deLQig": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "rlGVQku78DGoOl9V",
+                    "name"    : "Encouragement murmuré",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez de kitsunes qui possédaient un tel pouvoir de persuasion qu'ils pouvaient entrer dans un palais au lever du soleil et se retrouver derrière le trône à la tombée de la nuit. Vous obtenez l'action Encouragement murmuré.",
+            "Votre forme alternative est celle d'une ascendance humanoïde courante de taille Moyenne qui prévalent où vous avez grandi (typiquement humain) appelé une forme sans queue."
+        ],
+        "href"                  : "/heritages/SienSObWb4deLQig",
+        "id"                    : "SienSObWb4deLQig",
+        "name"                  : "Kitsune échos du palais",
+        "text"                  : "Kitsune échos du palais",
+        "traits"                : [
+            "Kitsune"
+        ]
+    },
+    "5A1wMPdzN1OWE4cY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vivez dans une maison orientée verticalement et vous êtes un grimpeur consommé. Vous obtenez le don de compétence Combattant-grimpeur, même si vous n'en remplissez pas les prérequis. Vous pouvez utiliser vos pieds griffus et votre queue pour Escalader, laissant vos mains libres. De plus, si vous obtenez un succès à un test d'Athlétisme pour Escalader, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/5A1wMPdzN1OWE4cY",
+        "id"                    : "5A1wMPdzN1OWE4cY",
+        "name"                  : "Kobold grimpegrotte",
+        "text"                  : "Kobold grimpegrotte",
+        "traits"                : []
+    },
+    "G61eBHmsQaPM4Xge": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre lien avec les dragons impériaux célestes et sages a conduit les autres dragons à solliciter vos conseils. Vous pouvez parler draconique. Lorsque vous obtenez un échec critique à un test de Diplomatie pour Faire bonne impression ou Solliciter, il devient un échec."
+        ],
+        "href"                  : "/heritages/G61eBHmsQaPM4Xge",
+        "id"                    : "G61eBHmsQaPM4Xge",
+        "name"                  : "Kobold scribeparadis",
+        "text"                  : "Kobold scribeparadis",
+        "traits"                : [
+            "Peu courant",
+            "Kobold"
+        ]
+    },
+    "SPcTcZgUMy5J4kzs": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre proximité avec un puissant kaiju vous a rendu fort et résistant. Vous obtenez 10 Points de vie de votre ascendance au lieu de 6. À la place des primes et faiblesse d'attributs normaux, vous pouvez choisir d'obtenir une prime de Force, une prime au Charisme et une faiblesse à l'Intelligence."
+        ],
+        "href"                  : "/heritages/SPcTcZgUMy5J4kzs",
+        "id"                    : "SPcTcZgUMy5J4kzs",
+        "name"                  : "Kobold chutevertigineuse",
+        "text"                  : "Kobold chutevertigineuse",
+        "traits"                : [
+            "Peu courant",
+            "Kobold"
+        ]
+    },
+    "CpjsxaXYjlkCI5nc": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous ressemblez à un enfant humain, bien qu'une grande couronne de chrysanthème pousse sur votre tête, ornée comme le serait celle d'un empereur. Ces pétales possèdent des propriétés médicinales, vous accordant un bonus de circonstances de +1 aux jets de sauvegarde contre le poison.",
+            "De plus, au cours de vos préparatifs quotidiens, vous pouvez cueillir de manière inoffensive quelques pétales sur votre tête et les tremper dans de l'eau fraîche pour créer un unique Antidote inférieur, qui prend la forme d'un thé. Au niveau 6, vous créez à la place un Antidote modéré, au niveau 10, un Antidote supérieur et au niveau 14, un Antidote majeur. Le thé perd ses propriétés s'il n'est pas consommé avant vos prochains préparatifs quotidiens."
+        ],
+        "href"                  : "/heritages/CpjsxaXYjlkCI5nc",
+        "id"                    : "CpjsxaXYjlkCI5nc",
+        "name"                  : "Léchi chrysanthème",
+        "text"                  : "Léchi chrysanthème",
+        "traits"                : [
+            "Peu courant",
+            "Léchi"
+        ]
+    },
+    "G5U7zxwxDmERm3EY": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre esprit léchi s'est installé dans une énorme pêche avant que votre corps ne s'en détache, peut-être à l'image d'un ancien héros né de la même manière. Vous ressemblez à un enfant humain, mais votre teint est perpétuellement rosé et quelques feuilles de pêcher poussent sur votre corps. L'esprit de la nature qui vous habite inspire confiance à certains animaux.",
+            "Vous pouvez poser des questions et recevoir des réponses de la part des animaux domestiques et du bétail, tels que les chiens ou les perdrix, ainsi qu'utiliser Diplomatie pour Faire bonne impression sur eux et les Solliciter. La plupart des animaux domestiques ont une attitude initiale indifférente ou amicale à votre égard et vous laissent le temps d'exposer votre point de vue, mais les autres animaux réagissent comme devant n'importe quel autre aventurier."
+        ],
+        "href"                  : "/heritages/G5U7zxwxDmERm3EY",
+        "id"                    : "G5U7zxwxDmERm3EY",
+        "name"                  : "Léchi enfant de pêche",
+        "text"                  : "Léchi enfant de pêche",
+        "traits"                : [
+            "Peu courant",
+            "Léchi"
+        ]
+    },
+    "KaokXdiE3ewXprdL": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous excrétez de votre chair semblable à l'écorce, une sève épaisse et collante, vous facilitant l'escalade et raffermissant la poigne sur votre équipement. Vous obtenez le don Combattant-grimpeur en don supplémentaire et vous obtenez un bonus de circonstances de +2 à votre DD de Réflexes contre les tentatives pour vous Désarmer."
+        ],
+        "href"                  : "/heritages/KaokXdiE3ewXprdL",
+        "id"                    : "KaokXdiE3ewXprdL",
+        "name"                  : "Léchi pin",
+        "text"                  : "Léchi pin",
+        "traits"                : []
+    },
+    "OIW3UYrdaWLwUZCh": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps est couvert de plaques osseuses. Vos plaques sont une armure intermédiaire du groupes des plaques qui accordent un bonus d'objet de +4 à la CA, un modificateur de Dextérité de +1, une pénalité au test de -2, une pénalité à la Vitesse de -1,50 mètre, une valeur de Force de +3 et possède les traits hydrodynamique et confort. Vous ne pouvez jamais porter d'autres armures ni retirer vos plaques. Vous pouvez graver des runes d'armure sur vos plaques."
+        ],
+        "href"                  : "/heritages/OIW3UYrdaWLwUZCh",
+        "id"                    : "OIW3UYrdaWLwUZCh",
+        "name"                  : "Homme-lézard bakuwa",
+        "text"                  : "Homme-lézard bakuwa",
+        "traits"                : [
+            "Peu courant",
+            "Homme-lézard"
+        ]
+    },
+    "e6ykfotynKPzR2PT": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez un long museau en forme de trompe et un lien avec le divin. La tradition des sorts ou des capacités magiques que vous obtenez grâce à un héritage d'homme-lézard ou un don ancestral est divine au lieu de sa tradition normale (généralement primordiale).",
+            "À votre choix, vous obtenez soit le tour de magie Lance divine soit Sceau d'interdiction, que vous pouvez lancer comme un tour de magie divin à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. Lorsque vous lancez ce tour de magie, il perd le trait manipulation, car vous le lancez simplement en rugissant et en ouvrant grand votre museau."
+        ],
+        "href"                  : "/heritages/e6ykfotynKPzR2PT",
+        "id"                    : "e6ykfotynKPzR2PT",
+        "name"                  : "Homme-lézard makari",
+        "text"                  : "Homme-lézard makari",
+        "traits"                : [
+            "Peu courant",
+            "Homme-lézard"
+        ]
+    },
+    "6egx1zhQx2s6BEa1": {
+        "bonus"                 : {
+            "sens"    : [
+                "vision dans le noir"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vivez loin, loin sous la surface de l'océan. Votre queue de poisson pourrait ressembler à celle d'un poisson vipère ou d'une baudroie et vous pourriez avoir des yeux lumineux ou une peau translucide. L'homme-poisson abyssal possèdent une réputation troublante, mais ils peuvent exister même dans les royaumes les moins illuminés. Vous obtenez vision dans le noir et êtes immunisée à la pression écrasante des profondeurs océaniques."
+        ],
+        "href"                  : "/heritages/6egx1zhQx2s6BEa1",
+        "id"                    : "6egx1zhQx2s6BEa1",
+        "name"                  : "Homme poisson des abysses",
+        "text"                  : "Homme poisson des abysses",
+        "traits"                : []
+    },
+    "DNynADD4xhwTAiE5": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "En tant que redoutable homme-poisson requin, le bas de votre corps est semblable à celui de l'un des plus grands prédateurs de l'océan. Comme un requin, vous pouvez sentir le sang à une certaine distance. Vous obtenez odorat en tant que sens imprécis avec une portée de 9 mètres. Quoi qu'il en soit, vous pouvez sentir le sang répandu à une portée de 36 mètres dans l'air et à 150 mètres dans l'eau."
+        ],
+        "href"                  : "/heritages/DNynADD4xhwTAiE5",
+        "id"                    : "DNynADD4xhwTAiE5",
+        "name"                  : "Homme-poisson carcharodon",
+        "text"                  : "Homme-poisson carcharodon",
+        "traits"                : []
+    },
+    "OOkgTzDU4mBvV98Z": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "yOk8s1pftOe5I9Sg",
+                    "name"    : "Vague protectrice",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un homme-poisson de la haute-mer. Votre queue a le même dessin que le thon argenté et le hareng qui se regroupent par millions dans vos zones de chasse. L'eau obéit à votre volonté et d'un mot rapide, vous pouvez dégainer autour de vous un fourreau liquide. Vous obtenez l'action Vague protectrice."
+        ],
+        "href"                  : "/heritages/OOkgTzDU4mBvV98Z",
+        "id"                    : "OOkgTzDU4mBvV98Z",
+        "name"                  : "Homme-poisson pélagique",
+        "text"                  : "Homme-poisson pélagique",
+        "traits"                : []
+    },
+    "Q5NrFWKDMCoVn9qR": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été élevé parmi les coraux colorés et dans les écoles de poissons tropicaux. Comparé à la plupart des hommes-poissons, votre corps est est très coloré, avec des rayures, des taches et des motifs comme le poisson-clown ou le poisson-ange. Vous êtes habitué aux habitants occasionnellement toxiques de votre foyer et n'êtes pas très ennuyé par les piqûres ou les poisons mesquins. Vous obtenez une résistance contre les poisons égal à la moitié de votre niveau (minimum 1) et chacun de vos jets de sauvegarde contre une affliction de poison réduit son stade de 2 ou de 1 pour un poison virulent. Chaque succès critique contre un poison qui vous affecte réduit son stade de 3 ou de 2 pour un poison virulent."
+        ],
+        "href"                  : "/heritages/Q5NrFWKDMCoVn9qR",
+        "id"                    : "Q5NrFWKDMCoVn9qR",
+        "name"                  : "Homme-poisson des récifs",
+        "text"                  : "Homme-poisson des récifs",
+        "traits"                : []
+    },
+    "4BiGekRGfBRC7DoI": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "La partie basse de votre corps ressemble à une puissante queue de poisson, qui se termine par une grande nageoire dorsale. En utilisant cette nageoire, vous pouvez vous déplacer à travers l'eau plus vite et bondir plus loin. Votre vitesse de nage passe à 9 mètres. Lorsque vous tentez un Saut en hauteur ou un SAut en longueur, vous obtenez un bonus de circonstances de +1 au test d'Athlétisme et vous pouvez Nager au lieu de Marcher rapidement avant de tenter le saut."
+        ],
+        "href"                  : "/heritages/4BiGekRGfBRC7DoI",
+        "id"                    : "4BiGekRGfBRC7DoI",
+        "name"                  : "Homme-poisson à queue de poisson",
+        "text"                  : "Homme-poisson à queue de poisson",
+        "traits"                : []
+    },
+    "bHgGh3vtXL7fkhIy": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "tradition" : "TRADITION.OCCULT",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre fourrure est aussi pâle que la mort, possiblement qui vous lie ou votre famille à l'après-vie, ce qui vous laisse trouver votre chemin de manière surnaturelle. Vous pouvez lancer Connaître le chemin comme un sort inné occulte à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. De plus, vous obtenez un bonus de circonstances de +1 contre les sorts ou les effets qui provoquent l'état Confus."
+        ],
+        "href"                  : "/heritages/bHgGh3vtXL7fkhIy",
+        "id"                    : "bHgGh3vtXL7fkhIy",
+        "name"                  : "Minotaure taureau fantôme",
+        "text"                  : "Minotaure taureau fantôme",
+        "traits"                : []
+    },
+    "jP9ORt0jgY5VHyD3": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre fourrure devient épaisse et chaude, bien adaptée aux montagnes gelées dans lesquelles vous résidez. Vous obtenez une résistance au froid égale à la moitié de votre niveau (avec un minimum de 1). Vous considérez les effets du froid de l'environnement comme étant d'un cran moins extrême."
+        ],
+        "href"                  : "/heritages/jP9ORt0jgY5VHyD3",
+        "id"                    : "jP9ORt0jgY5VHyD3",
+        "name"                  : "Minotaure des cavernes de glace",
+        "text"                  : "Minotaure des cavernes de glace",
+        "traits"                : []
+    },
+    "23MEmXuyw75jiGKq": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Tout aussi puissante, votre charpente (et vos cornes) sont plus petites que celles de la plupart des autres minotaures. Au lieu d'être de taille Grande, votre taille est Moyenne. Votre attaque à mains nues de cornes inflige 1d6 dégâts perforants au lieu de 1d8, mais elles possèdent le trait agile."
+        ],
+        "href"                  : "/heritages/23MEmXuyw75jiGKq",
+        "id"                    : "23MEmXuyw75jiGKq",
+        "name"                  : "Minotaure petitecorne",
+        "text"                  : "Minotaure petitecorne",
+        "traits"                : []
+    },
+    "HAo0S8ysFipf6S2B": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos sabots sont larges et puissants, parfaits pour déblayer des gravats au fur et à mesure de votre avancée. Vous êtes qualifié en Survie (ou dans une autre compétence si vous étiez déjà qualifié en Survie) et obtenez le don de compétence Expertise du terrain. Vous ignorez le terrain difficile provoqué par un sol inégal d'origine naturel lorsque vous êtes sur le terrain que vous avez choisi avec le don Expertise du terrain."
+        ],
+        "href"                  : "/heritages/HAo0S8ysFipf6S2B",
+        "id"                    : "HAo0S8ysFipf6S2B",
+        "name"                  : "Minotaure itinérant",
+        "text"                  : "Minotaure itinérant",
+        "traits"                : []
+    },
+    "mPVEc7hFZQhv0gqJ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre lien profond avec la pierre et les murs vous permettent d'invoquer des blocs massifs qui s'effondrent sur vos ennemis. Vous obtenez l'activité Élever des blocs."
+        ],
+        "href"                  : "/heritages/mPVEc7hFZQhv0gqJ",
+        "id"                    : "mPVEc7hFZQhv0gqJ",
+        "name"                  : "Minotaure blocâme",
+        "text"                  : "Minotaure blocâme",
+        "traits"                : []
+    },
+    "tYrb9KOv1etjE5wK": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "En dépit de votre lourde corpulence, vous marchez sur des sabots recouverts de poils qui étouffent vos pas, ce qui vous permet de surprendre vos proies. Vous êtes qualifié en Discrétion (ou dans une autre compétence si vous êtes déjà qualifié en Discrétion) et obtenez le don de compétence Traqueur de terrain, sauf que vous devez choisir décombres et vous pouvez Être furtif pas plus de 3 mètres au lieu de 1,50 mètre sans devoir faire un test de Discrétion."
+        ],
+        "href"                  : "/heritages/tYrb9KOv1etjE5wK",
+        "id"                    : "tYrb9KOv1etjE5wK",
+        "name"                  : "Minotaure traqueur",
+        "text"                  : "Minotaure traqueur",
+        "traits"                : []
+    },
+    "tf3edMCyS15GhFPx": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous arborez la tête à coiffe d'un cobra cracheur et, comme ces cobras, vous pouvez cracher des jets de venin par la bouche. Vous obtenez une attaque à distance à mains nues de crachat venimeux avec un facteur de portée de 3 mètres qui inflige 1d4 dégâts de poison. En cas de coup critique, la cible subit des dégâts de poison persistants égaux au nombre de dés de dégâts de l'arme. Votre crachat n'appartient à aucun groupe d'armes et n'a pas d'effet critique spécialisé."
+        ],
+        "href"                  : "/heritages/tf3edMCyS15GhFPx",
+        "id"                    : "tf3edMCyS15GhFPx",
+        "name"                  : "Nagaji coiffé",
+        "text"                  : "Nagaji coiffé",
+        "traits"                : []
+    },
+    "iOREr80Q0SsvPP8B": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vous distinguez de la plupart des nagaji, en présentant le haut du corps d'un bel humain et le bas du corps d'un serpent vert ou blanc. Les légendes prétendent que vos ancêtres étaient des serpents fidèles élevés par Nalinivati plutôt que des nagaji créés par la déesse. Au lieu d'une attaque à mains nues de crocs, vous disposez d'une attaque de queue qui inflige 1d6 dégâts contondants et qui fait partie du groupe pugilat et possède les traits finesse et désarmement. Vous obtenez un bonus de circonstances de +2 à votre DD de Vigueur ou de Réflexes contre les tentatives pour vous Saisir ou vous faire un Croc-en-jambe. Ce bonus s'applique également aux jets de sauvegarde contre les effets qui devraient vous Agripper, vous Entraver ou vous mettre À terre."
+        ],
+        "href"                  : "/heritages/iOREr80Q0SsvPP8B",
+        "id"                    : "iOREr80Q0SsvPP8B",
+        "name"                  : "Nagaji sacré",
+        "text"                  : "Nagaji sacré",
+        "traits"                : []
+    },
+    "Cmj0pI0GPHl7kBUB": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes né avec un sens de la magie acerbe, capable de goûter ses effets uniques dans l'air. Vous obtenez Perception de la magie en tant que sens vague qui possède une portée de 9 mètres. Comme tous les sens vagues, ce n'est seulement aussi précis que le sens de l'odorat d'un humain moyen, ce qui signifie généralement que vous ne pouvez prédire que de la magie est présente ou pas. Quoi qu'il en soit, chaque tradition de magie possède un goût unique à l'égard de vos sens, vous permettant d'identifier la tradition de la magie présente."
+        ],
+        "href"                  : "/heritages/Cmj0pI0GPHl7kBUB",
+        "id"                    : "Cmj0pI0GPHl7kBUB",
+        "name"                  : "Nagaji languechatoyante",
+        "text"                  : "Nagaji languechatoyante",
+        "traits"                : [
+            "Nagaji"
+        ]
+    },
+    "LlUEmCDOLSZaGOyI": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été élevé pour être un guerrier ou un garde du corps et votre régime alimentaire particulier et vos muscles saillants ont rendu vos écailles aussi solides que des plaques d'armure. Vos écailles forment une armure intermédiaire qui fait partie du groupe des armures de plaques et vous confère un bonus d'objet de +4 à la CA, un maximum de Dextérité de +1, une pénalité aux tests de -2, une pénalité à la Vitesse de -1,50 mètre, un modificateur de Force de +3 et elle possède le trait confort. Vous ne pouvez jamais porter une autre armure ou retirer vos écailles. Vous pouvez graver des runes d'armure sur vos écailles."
+        ],
+        "href"                  : "/heritages/LlUEmCDOLSZaGOyI",
+        "id"                    : "LlUEmCDOLSZaGOyI",
+        "name"                  : "Nagaji titan",
+        "text"                  : "Nagaji titan",
+        "traits"                : []
+    },
+    "2jsWmnKtidCTpaQV": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "type"    : "poison",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre lien intrinsèque avec les nagas et les serpents ordinaires vous confère une résistance innée aux toxines de toutes sortes. Vous obtenez une résistance au poison égale à la moitié de votre niveau (1 au minimum) et vous bénéficiez d'un bonus de circonstances de +1 aux jets de sauvegarde contre le poison."
+        ],
+        "href"                  : "/heritages/2jsWmnKtidCTpaQV",
+        "id"                    : "2jsWmnKtidCTpaQV",
+        "name"                  : "Nagaji boucliervenin",
+        "text"                  : "Nagaji boucliervenin",
+        "traits"                : []
+    },
+    "cDElVLonQvUK3vVk": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "MLOkyKi1Y3N6y56Q",
+                    "name"    : "Dresser le cou",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez un cou long et flexible qui peut s'enrouler dans une pose saisissante comme celle d'un serpent. Vos muscles puissants vous permettent de mordre à une distance et une vitesse surprenantes. Vous obtenez l'action Dresser le cou."
+        ],
+        "href"                  : "/heritages/cDElVLonQvUK3vVk",
+        "id"                    : "cDElVLonQvUK3vVk",
+        "name"                  : "Nagaji fouetcrochets",
+        "text"                  : "Nagaji fouetcrochets",
+        "traits"                : []
+    },
+    "Je15UGsLWYaaGJSW": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous vous êtes éveillé avec un peu de la force vitale d'une autre personne et un fragment de son âme - possiblement mais pas toujours, au moment de sa mort - ont trouvé leur chemin dans votre corps artificiel. Vous ne vous souvenez de rien de plus que de vagues réminiscences de votre \"avant vie\" mais cette essence vitale vous protège toujours. Vous obtenez une résistance contre les dégâts de vide égaux à la moitié de votre niveau (minimum 1)."
+        ],
+        "href"                  : "/heritages/Je15UGsLWYaaGJSW",
+        "id"                    : "Je15UGsLWYaaGJSW",
+        "name"                  : "Poupée fantôme",
+        "text"                  : "Poupée fantôme",
+        "traits"                : []
+    },
+    "7kHg780SAsu2FNfP": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez très peu de choses à l'intérieur, à l'exception du coton, de la sciure ou des feuilles sèches. Vous ne subissez pas de dégâts de chute, quel que soit la distance de votre chute."
+        ],
+        "href"                  : "/heritages/7kHg780SAsu2FNfP",
+        "id"                    : "7kHg780SAsu2FNfP",
+        "name"                  : "Poupée rembourrée",
+        "text"                  : "Poupée rembourrée",
+        "traits"                : []
+    },
+    "EHDYVhJcZ9uPUjfZ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez la forme d'un jouet ou d'une poupée d'enfant très petite, mais vous ne laissez pas votre petite taille gâcher votre joie de vivre. Au lieu de petite, votre taille est Très petite. Comme les autres créatures de Très petite taille, vous ne recevez pas automatiquement un abri partiel lorsque vous êtes dans la case d'une créature plus large, mais les circonstances pourraient vous permettre de vous Mettre à l'abri. Vous pouvez acheter des armes, des armures et d'autres objets de votre taille avec les mêmes statistiques que l'équipement normal, à l'exception des armes de corps-à-corps qui ont une allonge de 0 pour ce qui vous concerne (ou une allonge de 1,50 mètre plus courte que la normale si elles possèdent le trait allonge). Vous pouvez entrer dans la case d'une autre créature, ce qui est important puisque vous devez habituellement entrer dans la case de la créature pour l'attaquer avec des Frappes au corps-à-corps ! Souvenez vous d'ajuster l'Encombrement des objets et votre limite d'Encombrement pour les Très petites tailles."
+        ],
+        "href"                  : "/heritages/EHDYVhJcZ9uPUjfZ",
+        "id"                    : "EHDYVhJcZ9uPUjfZ",
+        "name"                  : "Poupée jouet",
+        "text"                  : "Poupée jouet",
+        "traits"                : []
+    },
+    "cKgxEWnRVazFPi3M": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez la forme et les souvenirs d'un outil ordinaire. Choisissez une compétence de Connaissance en lien avec le type d'outil que vous étiez comme par exemple, Connaissance de la cuisine pour un couteau de cuisine ou une cuillère. Vous êtes qualifié dans cette compétence et vous obtenez un bonus de circonstances de +2 aux tests pour Aider avec cette compétence. Si vous prenez le don ancestral Poupée serviable, le bonus passe à +3.",
+            "Alors que la plupart des poupées sont constituées de bourre, de tissu ou de métaux légers, certains tsukumogamis sont constitués d'autres matériaux, ce qui modifie la faiblesse de la poupée au feu. Si votre corps est principalement composé de bois ou de tissu, vous avez la faiblesse normale des poupées face au feu. Si votre corps est principalement constitué de métal, vous avez une faiblesse contre l'électricité et, s'il est principalement constitué de céramique, contre le froid."
+        ],
+        "href"                  : "/heritages/cKgxEWnRVazFPi3M",
+        "id"                    : "cKgxEWnRVazFPi3M",
+        "name"                  : "Poupée tsukumogami",
+        "text"                  : "Poupée tsukumogami",
+        "traits"                : [
+            "Peu courant",
+            "Poupée"
+        ]
+    },
+    "Cv7BOjuziOQ0PO9r": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes principalement composé de métaux mous, comme l'étain ou l'argent et votre force vitale repose au sein d'un réseau de mécanismes exceptionnels au plus profond de votre corps. Pourvu que vous remontiez les mécanismes de votre corps quelques fois par jour, vous n'avez pas besoin d'eau ou de nourriture pour survivre. Vous devez toujours respirer pour ventiler vos mécanismes internes et dormir pour permettre à vos mécanismes de se reposer de la même manière que les autres poupées."
+        ],
+        "href"                  : "/heritages/Cv7BOjuziOQ0PO9r",
+        "id"                    : "Cv7BOjuziOQ0PO9r",
+        "name"                  : "Poupée remontée",
+        "text"                  : "Poupée remontée",
+        "traits"                : []
+    },
+    "w5801ArZQCU8IXnU": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été éveillée par un souhait, soit du fait d'un puissant lanceur de sort soit par le désir sincère d'une personne innocente qui vous a beaucoup aimé. Vous êtes une preuve vivante qu'un esprit plein d'espoir peut franchir tout obstacle. Si vous obtenez un succès sur un jet de sauvegarde contre un effet d'émotion ou de terreur, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/w5801ArZQCU8IXnU",
+        "id"                    : "w5801ArZQCU8IXnU",
+        "name"                  : "Poupée souhaitée",
+        "text"                  : "Poupée souhaitée",
+        "traits"                : []
+    },
+    "NK88lPzi3SDAT8w5": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "En recherchant l'illumination, vos incarnations passées ont vagabondé loin du foyer ancestral du Zi Ha, explorant les différentes nations du Tian Xia et d'ailleurs sur Golarion. Vos incarnations passées ont fait de dangereuses rencontres au cours de leurs voyages et vous avez fréquemment des flashbacks d'avoir dû soigner les blessures. Vous êtes qualifié en Médecine. Si vous devriez automatiquement être qualifié en Médecine (par votre historique ou votre classe par exemple), vous êtes qualifié dans une autre compétence de votre Choix.",
+            "Lorsque vous utilisez Médecine pour Soigner les blessures sur vous même, vous pouvez utiliser vos techniques spéciales pour ajouter votre niveau aux Points de vie que vous récupérez par le traitement."
+        ],
+        "href"                  : "/heritages/NK88lPzi3SDAT8w5",
+        "id"                    : "NK88lPzi3SDAT8w5",
+        "name"                  : "Samsaran guérisseur",
+        "text"                  : "Samsaran guérisseur",
+        "traits"                : [
+            "Samsaran"
+        ]
+    },
+    "IZqIVO1IOK3fAp30": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos incarnations passées se sont installées dans les grottes des montagnes couvertes de neige du Tian Xia, de sorte que votre corps est devenu adepte en survivant des tempêtes glacées. Vous obtenez une résistance au froid égale à la moitié de votre niveau (minimum 1). Vous considérez les effets environnementaux comme s'ils étaient d'un cran moins extrême (le froid extraordinaire devient extrême, le froid extrême devient important, etc)."
+        ],
+        "href"                  : "/heritages/IZqIVO1IOK3fAp30",
+        "id"                    : "IZqIVO1IOK3fAp30",
+        "name"                  : "Samsaran montagnard",
+        "text"                  : "Samsaran montagnard",
+        "traits"                : [
+            "Samsaran"
+        ]
+    },
+    "DR6okTFLHi3MYbzK": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos précédentes vies ont permis de mieux comprendre le monde spirituel et les événements actuels et futurs, car l'histoire tend à se répéter. Choisissez arcanique, divin ou occulte. Vous obtenez un tour de magie de la liste de sorts de cette tradition magique. Vous pouvez Lancer ce sort comme un sort inné à volonté, comme un sort de la tradition choisie. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/DR6okTFLHi3MYbzK",
+        "id"                    : "DR6okTFLHi3MYbzK",
+        "name"                  : "Samasaran oraculaire",
+        "text"                  : "Samasaran oraculaire",
+        "traits"                : [
+            "Samsaran"
+        ]
+    },
+    "MoeWxhJEtteD3v9z": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "jsEBrm8SPcsokJLw",
+                    "name"    : "Exploiter le passé",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos incarnations passées sont renées dans des sanctuaires du Zi Ha septentrional et vous avez des souvenirs d'avoir été entraîné à vous concentrer et à vous focaliser sur de longues périodes de temps. Vos flashbacks brumeux révèlent aussi des passages des écritures utiles dans les livres que vos vies passées ont consommés avec passion. Vous obtenez l'action Exploiter le passé."
+        ],
+        "href"                  : "/heritages/MoeWxhJEtteD3v9z",
+        "id"                    : "MoeWxhJEtteD3v9z",
+        "name"                  : "Samsaran reclus",
+        "text"                  : "Samsaran reclus",
+        "traits"                : [
+            "Samsaran"
+        ]
+    },
+    "e4FaENGKRD3fxZeJ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos vies antérieures vous ont amené à renaître dans des environnements reculés, loin des grandes villes du Tian Xia et au-delà. Vos manifestations passées ont dû apprendre à survivre par elles-mêmes et vous vous souvenez de cette volonté de survivre alors que vous ne possédiez que très peu de ressources. Vous êtes qualifié en Survie. Si vous êtes déjà qualifié en Survie (du fait de votre background ou de votre classe, par exemple), vous êtes qualifié dans une compétence de votre choix. Vous pouvez ignorer le terrain difficile provoqué par les arbres, le feuillage et les sous-bois."
+        ],
+        "href"                  : "/heritages/e4FaENGKRD3fxZeJ",
+        "id"                    : "e4FaENGKRD3fxZeJ",
+        "name"                  : "Samsaran sauvage",
+        "text"                  : "Samsaran sauvage",
+        "traits"                : [
+            "Samsaran"
+        ]
+    },
+    "6gK4A6dtN4LCpCXS": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été élevé dans une tradition chamanique transcendant une unique communauté ou héritage sarangay. Vous avez passé votre jeunesse sous la direction d'un ancien chaman, qui vous a enseigné à communier avec les esprits dans l'espoir que vous aurez un jour à utiliser cette connaissance pour conseiller et guider votre peuple. Ceux de votre tradition sont des prêtres ou des chamans qui canalisent les esprits et voient des choses que d'autres ne peuvent. Vous obtenez une prime d'attribut ancestral à la Sagesse au lieu de la Force et vous obtenez une faiblesse d'attribut à la Constitution au lieu de la Sagesse. Vous obtenez le don ancestral Guérisseur populaire."
+        ],
+        "href"                  : "/heritages/6gK4A6dtN4LCpCXS",
+        "id"                    : "6gK4A6dtN4LCpCXS",
+        "name"                  : "Sarangay de la pleine lune",
+        "text"                  : "Sarangay de la pleine lune",
+        "traits"                : [
+            "Sarangay"
+        ]
+    },
+    "ImdAt4Ma9GfaNuZW": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous venez de l'une des communautés voyageuses qui migrent de manière saisonnière le long de vastes fleuves et des montagnes du Tian Xia, amenant les nouvelles et des nouvelles aux villages le long de leur chemin. Votre peuple relie les communautés des sarangays l'une à l'autre à travers de vastes distances et sont symbolisées par la demi-lune, qui réunit la lumière et l'obscurité. De la même manière, vous réunissez l'obscurité et la clarté, le rouge et le bleu, le vent et la mer. Vos ancêtres étaient grands et corpulent avec une fourrure noire brillante, des tâches ou des marques claires et des cornes courtes et étroitement incurvées. Vous êtes qualifié dans les deux compétences de Connaissance de votre choix et vous obtenez un bonus de circonstances de +1 aux tests pour Vous souvenir utilisant ces compétences."
+        ],
+        "href"                  : "/heritages/ImdAt4Ma9GfaNuZW",
+        "id"                    : "ImdAt4Ma9GfaNuZW",
+        "name"                  : "Sarangay de la demi-lune",
+        "text"                  : "Sarangay de la demi-lune",
+        "traits"                : [
+            "Sarangay"
+        ]
+    },
+    "H2mbY3aypl6ikaSR": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Certains vous appellent les nains sarangays et votre espèce \"les cachés\". D'autres murmurent que vous sortez avec la lune lorsque celle-ci \"part à la chasse\" - un dicton populaire qui désigne le moment où la nouvelle lune disparaît du ciel. Vos ancêtres insaisissables construisaient leurs habitations à l'ombre des fourrés de bambous et vos communautés ancestrales valorisaient la prudence et l'indépendance, transmettant leur connaissance permettant de marcher avec légèreté et de vous déplacer comme de la fumée à travers les bambous. Vos ancêtres avaient une fourrure brun foncé ou grise avec des marques blanches et une paire de cornes plates et triangulaires en forme de V. Votre taille est Petite à la place de moyenne. Vous obtenez 10 Points de vie de votre ascendance à la place de 8 et obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour Pousser."
+        ],
+        "href"                  : "/heritages/H2mbY3aypl6ikaSR",
+        "id"                    : "H2mbY3aypl6ikaSR",
+        "name"                  : "Sarangay de la nouvelle lune",
+        "text"                  : "Sarangay de la nouvelle lune",
+        "traits"                : [
+            "Sarangay"
+        ]
+    },
+    "MNeg7vI854rB6fmz": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont été nommés d'après la lune en transition, toujours changeante et éphémère. Ils sont les gardiens des arts secrets, tout comme la lune décroissante cache sa face, et leurs communautés ont été hautement considérées par leurs conteurs, leurs acteurs et leurs artistes. Vous avez vécu parmi votre communauté dans la périphérie des forêts ou des rivières où nombre de réponses viennent sous forment d'énigmes et vous avez appris à voir le monde selon des perspectives différentes. Votre peuple est souvent de couleur rouge ou fauve, avec des yeux proéminents et des cornes plates et compactes. Vous êtes qualifié à votre choix en Acrobaties, Artisanat ou en Représentation.",
+            "Une fois par jour, Lorsque vous obtenez un échec critique dans la compétence choisie, vous pouvez relancer le test, en appliquant le nouveau résultat, même s'il est pire. Relancer de cette manière est un effet de fortune."
+        ],
+        "href"                  : "/heritages/MNeg7vI854rB6fmz",
+        "id"                    : "MNeg7vI854rB6fmz",
+        "name"                  : "Sarangay de la lune décroissante",
+        "text"                  : "Sarangay de la lune décroissante",
+        "traits"                : [
+            "Sarangay"
+        ]
+    },
+    "BHiOV3ETYSv6k7kF": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres vivaient dans les marécages, les marais et les forêts inondées, où ils affrontaient de féroces prédateurs et formaient des groupes de pillards pour s'approprier les rares ressources. Béni par la lune croissante, vous êtes l'un des éviscérateurs et vous pouvez vaincre les menaces qui se cachent dans les eaux troubles ainsi que celles qui chassent sur la terre ferme. Vous êtes un puissant nageur à la fourrure brune ou grise et aux cornes recourbées vers l'arrière ou vers le bas. Vous obtenez un bonus de circonstances de +2 aux tests d'Athlétisme pour Sauter en longueur ou Nager."
+        ],
+        "href"                  : "/heritages/BHiOV3ETYSv6k7kF",
+        "id"                    : "BHiOV3ETYSv6k7kF",
+        "name"                  : "Sarangay de la lune croissante",
+        "text"                  : "Sarangay de la lune croissante",
+        "traits"                : [
+            "Sarangay"
+        ]
+    },
+    "Fgysc0A1pFQE8PMA": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez grandi entouré de connaissances et de secrets. Vous devenez qualifié dans une compétence de Connaissances et dans une autre compétence de votre choix basée sur l'Intelligence ou la Sagesse. Au niveau 5, vous devenez expert dans les compétences choisies."
+        ],
+        "href"                  : "/heritages/Fgysc0A1pFQE8PMA",
+        "id"                    : "Fgysc0A1pFQE8PMA",
+        "name"                  : "Shisk conservateur de savoir",
+        "text"                  : "Shisk conservateur de savoir",
+        "traits"                : []
+    },
+    "vDEfNzjLpGJU54cz": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "oAWNluJaMlaGysXA",
+                    "name"    : "Piquants barbelés",
+                    "type"    : "ACTION_TYPE.REACTION"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps a adapté un mécanisme défensif pour briser vos piquants en cas d'attaque, ce qui vous permet de vous défendre contre les prédateurs agressifs, bien qu'il faille un certain temps pour que les piquants repoussent. Vous gagnez la réaction Piquants barbelés."
+        ],
+        "href"                  : "/heritages/vDEfNzjLpGJU54cz",
+        "id"                    : "vDEfNzjLpGJU54cz",
+        "name"                  : "Shisk à piquants",
+        "text"                  : "Shisk à piquants",
+        "traits"                : []
+    },
+    "0TFf82gcfxXG9A54": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos connaissances magiques vous permettent de lancer des sorts simples. Choisissez occulte ou primordiale. Vous obtenez un tour de magie issu de la liste des sorts de cette tradition magique. Vous pouvez lancer ce sort comme un sort inné à volonté, comme un sort de la tradition choisie. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/0TFf82gcfxXG9A54",
+        "id"                    : "0TFf82gcfxXG9A54",
+        "name"                  : "Shisk garde sort",
+        "text"                  : "Shisk garde sort",
+        "traits"                : []
+    },
+    "lDT5h3f5GXRj42Ir": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Arpenter les terrains rocheux et montagneux est, pour vous, une seconde nature. Vous pouvez ignorer le terrain difficile non magique causé par les débris et le sol inégal fait de pierre et de terre."
+        ],
+        "href"                  : "/heritages/lDT5h3f5GXRj42Ir",
+        "id"                    : "lDT5h3f5GXRj42Ir",
+        "name"                  : "Shisk démarchepierre",
+        "text"                  : "Shisk démarchepierre",
+        "traits"                : []
+    },
+    "KcozzlkFAqShDEzo": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre métabolisme est lent, ce qui vous permet de passer des jours sans nourriture et de freiner le rythme des afflictions. Vous pouvez rester 1 semaine sans nourriture avant de commencer à mourir de faim. De plus, les délais d'incubation et la durée des stades de toutes les maladies et de tous les poisons qui vous affectent sont augmentés de 50%. Si le délai d'incubation ou le stade sont instantanés ou ne durent qu'un round, cette capacité n'a aucun effet."
+        ],
+        "href"                  : "/heritages/KcozzlkFAqShDEzo",
+        "id"                    : "KcozzlkFAqShDEzo",
+        "name"                  : "Shisk aux intestins solides",
+        "text"                  : "Shisk aux intestins solides",
+        "traits"                : []
+    },
+    "z4cvqtpkkAYoFpHa": {
+        "bonus"                 : {
+            "sens"    : [
+                "odorat imprécis"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres étaient de fameux pisteurs et vous portez dans votre sang ce même don pour la chasse. Vous obtenez un sens spécial : odorat imprécis avec une portée de 9 mètres. Cela signifie que vous pouvez utiliser votre sens de l'odorat pour déterminer l'emplacement d'une créature, mais elle reste Cachée.",
+            "De plus, vous obtenez un bonus de circonstances de +2 aux tests de Survie pour Pister les créatures que vous avez préalablement senti avec votre sens de l'odorat."
+        ],
+        "href"                  : "/heritages/z4cvqtpkkAYoFpHa",
+        "id"                    : "z4cvqtpkkAYoFpHa",
+        "name"                  : "Shouni limier",
+        "text"                  : "Shouni limier",
+        "traits"                : []
+    },
+    "isJhIPhT4MsjJvoq": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes issu d'une longue lignée de pêcheurs et avez hérité des réflexes rapides nécessaires pour ferrer et ramener les grosses prises. Si vous obtenez un succès sur une tentative pour Vous raccrocher in extremis, il devient un succès critique ; si vous obtenez un échec critique, il devient un échec. Une créature qui obtient un échec sur un test pour vous Désarmer, il devient un échec critique."
+        ],
+        "href"                  : "/heritages/isJhIPhT4MsjJvoq",
+        "id"                    : "isJhIPhT4MsjJvoq",
+        "name"                  : "Shouni traquepoisson",
+        "text"                  : "Shouni traquepoisson",
+        "traits"                : []
+    },
+    "mnhpCk9dIwMuFegM": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous venez d'une lignée de shouni qui ont vécu depuis longtemps parmi les herbes et les roseaux des marais et marécages et qui se sont adaptées aux défis de vivre près de zones détrempées. Vous ignorez les terrains difficiles et très difficiles liés aux tourbières. Si vous obtenez un succès pour Nager, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/mnhpCk9dIwMuFegM",
+        "id"                    : "mnhpCk9dIwMuFegM",
+        "name"                  : "Shouni pagayeur",
+        "text"                  : "Shouni pagayeur",
+        "traits"                : []
+    },
+    "MhXHEh7utEfxBwmc": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "froid",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes une espèce rare de shouni qui vient des climats les plus froids.",
+            "Vous obtenez une résistance au froid égale à la moitié de votre niveau (minimum 1) et vous traitez les effets d'un environnement froid comme s'ils étaient d'un degré moins extrême (un froid extraordinaire devient extrême, un froid extrême devient important, etc).",
+            "Vous n'avez pas besoin d'obtenir un succès à un test nu pour cibler une créature si elle n'est Masquée que par la neige. À moins que vous ne portiez un équipement protecteur ou que vous ne vous mettiez à l'abri, les effets environnementaux liés à la chaleur sont d'un degré plus extrême pour ce qui vous concerne."
+        ],
+        "href"                  : "/heritages/MhXHEh7utEfxBwmc",
+        "id"                    : "MhXHEh7utEfxBwmc",
+        "name"                  : "Shouni à fourrure",
+        "text"                  : "Shouni à fourrure",
+        "traits"                : []
+    },
+    "mZqaKQkvadBbNubM": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Pour les tâches qui nécessitent une touche plus légère, les restes de gnomes, de gobelins et de halfelins sont plus appropriés que ceux d'une créature plus grande. Ces squelettes plus petits et plus agiles s'insèrent bien dans un coffre de voyage, peuvent être forcés à passer par des espaces étroits et évitent plus facilement la détection. Votre taille est Petite au lieu de Moyenne. Vous obtenez le don Se faufiler rapidement même si vous n'êtes pas qualifié en Acrobaties. Les espaces étroits qui ne sont pas assez étroits pour qu'il soit nécessaire de Se faufiler ne sont pas des terrains difficiles pour vous."
+        ],
+        "href"                  : "/heritages/mZqaKQkvadBbNubM",
+        "id"                    : "mZqaKQkvadBbNubM",
+        "name"                  : "Squelette compact",
+        "text"                  : "Squelette compact",
+        "traits"                : []
+    },
+    "RZHr0olieS6YdYE9": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les humains, et ceux qui leur sont physiquement proches, constituent la matière première préférée des nécromanciens. Ils sont facilement disponibles et leur physiologie a été la plus largement étudiée, de sorte que ces morts-vivants peuvent être facilement créés en masse. Malgré leur nom, les squelettes génériques font des soldats d'infanterie plutôt mobiles du fait de l'efficacité avec laquelle ils transfèrent les énergies nécromantiques au travers de leur corps. Votre Vitesse de base est de 9 mètres au lieu de 7,50 mètres."
+        ],
+        "href"                  : "/heritages/RZHr0olieS6YdYE9",
+        "id"                    : "RZHr0olieS6YdYE9",
+        "name"                  : "Squelette générique",
+        "text"                  : "Squelette générique",
+        "traits"                : []
+    },
+    "wB8xiQB4RDbzOOvR": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les squelettes inhumains sont souvent créés à la fois pour leurs attaques physiques mortelles et pour leur apparence terrifiante. Les bêtes et les humanoïdes monstrueux avec les plus étranges squelettes se retrouvent souvent comme œuvres centrales de la collection d'un nécromancien suffisamment doué pour relever une telle créature. Vous obtenez une attaque à mains nues d'aile, de corne, de griffe, ou de queue infligeant 1d6 dégâts. Une griffe inflige des dégâts tranchants, une corne des dégâts perforants et une queue ou une aile des dégâts contondants. Cette attaque à mains nues appartient au groupe pugilat et possède les traits finesse et à mains nues."
+        ],
+        "href"                  : "/heritages/wB8xiQB4RDbzOOvR",
+        "id"                    : "wB8xiQB4RDbzOOvR",
+        "name"                  : "Squelette monstrueux",
+        "text"                  : "Squelette monstrueux",
+        "traits"                : []
+    },
+    "idJ2lSKEmmwqG5eT": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "OqKYkzbc7NEWmJWB",
+                    "name"    : "Réarranger les os",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Conçu à partir des os de différentes créatures changeant de forme, les squelettes fluctuants conserve une part de leur capacité à se reconfigurer, leur permettant de changer de forme. Vous obtenez l'action Réarranger les os."
+        ],
+        "href"                  : "/heritages/idJ2lSKEmmwqG5eT",
+        "id"                    : "idJ2lSKEmmwqG5eT",
+        "name"                  : "Squelette fluctuant",
+        "text"                  : "Squelette fluctuant",
+        "traits"                : [
+            "Rare"
+        ]
+    },
+    "P8Rl3dUsq8AzXLHC": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Certaines conditions dangereuses ne conviennent pas au squelette ordinaire, de sorte qu'un nécromancien pourra choisir de réanimer les os d'un nain, d'un orc ou d'une autre créature réputée pour sa robustesse. Vous avez 10 Points de vie au lieu de 6 et gagnez le don Dur à cuir."
+        ],
+        "href"                  : "/heritages/P8Rl3dUsq8AzXLHC",
+        "id"                    : "P8Rl3dUsq8AzXLHC",
+        "name"                  : "Squelette robuste",
+        "text"                  : "Squelette robuste",
+        "traits"                : []
+    },
+    "TXBsQbzDg1AjJnop": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez la forme d'une boule de cuir recouverte d'une courte fourrure, dépourvue de visage, dotée de six pattes et un lien avec le chaos primordial. Bien que vous n'ayez ni visage, ni tête, ni bouche, ni yeux, ni oreilles, vous pouvez entendre, parler, voir, manger et respirer sans problème (bien que l'on ne sache pas exactement comment). Votre nature erratique signifie que vous réagissez souvent aux stimuli de manière imprévisible.",
+            "Lorsque vous obtenez un échec (mais pas une échec critique) sur un jet de sauvegarde contre un effet d'émotion, il devient un succès."
+        ],
+        "href"                  : "/heritages/TXBsQbzDg1AjJnop",
+        "id"                    : "TXBsQbzDg1AjJnop",
+        "name"                  : "Dijiang",
+        "text"                  : "Dijiang",
+        "traits"                : [
+            "Peu courant",
+            "Sprite"
+        ]
+    },
+    "zcO93E8gAW1tDYKk": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes affilié aux dragonnets fée et pouvez faire remonter votre héritage à la mort du plus puissant dragonnet fée du Premier Monde. Vous obtenez une télépathie de contact, vous permettant de communiquer silencieusement et seulement mentalement avec toute créature que vous touchez, tant que vous partagez une langue commune."
+        ],
+        "href"                  : "/heritages/zcO93E8gAW1tDYKk",
+        "id"                    : "zcO93E8gAW1tDYKk",
+        "name"                  : "Draxie",
+        "text"                  : "Draxie",
+        "traits"                : []
+    },
+    "lBSO9RuEUv2P4rnp": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez des musiciens, des poètes et des danseurs auto-proclamés des dieux, avec un corps qui est en partie humanoïde et en partie cheval ou oiseau. Si vous obtenez des ailes, ils viennent sous formes de couleurs brillantes différentes. Du fait de votre lien céleste, la tradition de tous les sorts ou des capacités magiques que vous obtenez d'un héritage de sprite ou d'un don ancestral est divine au lieu de sa tradition normale.",
+            "Vous êtes qualifié en Représentation (ou une autre compétence de votre choix si vous êtes qualifié en Représentation) et vous pouvez lancer Convocation d'instrument comme un tour de magie inné divin."
+        ],
+        "href"                  : "/heritages/lBSO9RuEUv2P4rnp",
+        "id"                    : "lBSO9RuEUv2P4rnp",
+        "name"                  : "Gandharva",
+        "text"                  : "Gandharva",
+        "traits"                : [
+            "Peu courant",
+            "Sprite"
+        ]
+    },
+    "gfXSF1TafBAmZo2u": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez l'arrière train d'un criquet et adorez l'art et la musique. Vos pattes de criquet vous accordent un bonus de circonstances de +2 aux tests d'Athlétisme pour Sauter en hauteur ou Sauter en longueur et vous obtenez le tour de magie primordial inné Son imaginaire."
+        ],
+        "href"                  : "/heritages/gfXSF1TafBAmZo2u",
+        "id"                    : "gfXSF1TafBAmZo2u",
+        "name"                  : "Grig",
+        "text"                  : "Grig",
+        "traits"                : []
+    },
+    "5WkhF3JYISElgMLL": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez la tête d'un chevrotain et des sabots à la place des pieds, avec une réputation d'être intelligent et persuasif — capable de vous sortir des délicates avec des jeux de mots et un peu de chance. Vous êtes qualifié en Duperie (ou une autre compétence si vous étiez déjà qualifié en Duperie). Vous obtenez un bonus de circonstances de +1 aux tests de Duperie pour Mentir lorsque vous tentez spécifiquement d'éviter le danger ou une punition (comme essayer de convaincre un dragon de ne pas vous manger), aux DD de Duperie contre les tests pour Deviner les intentions pour découvrir de tels mensonges et aux jets d'initiative lorsque vous la déterminez en utilisant la Duperie."
+        ],
+        "href"                  : "/heritages/5WkhF3JYISElgMLL",
+        "id"                    : "5WkhF3JYISElgMLL",
+        "name"                  : "Kanchil",
+        "text"                  : "Kanchil",
+        "traits"                : [
+            "Peu courant",
+            "Sprite"
+        ]
+    },
+    "wxQwFQGsg6yDiMmN": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez la tête d'un poisson rouge ou d'une carpe et des écailles d'une combinaison de blanc éclatant, de noir, d'orange, de rouge et d'or de bon augure. Si vous obtenez des ailes, elles ressemblent aux poils ondulants d'un dragon. Vous obtenez une vitesse de nage de 3 mètres et du trait amphibie. Comme toutes les créatures dotées du trait amphibie, vous pouvez respirer à la fois dans l'eau et dans l'air."
+        ],
+        "href"                  : "/heritages/wxQwFQGsg6yDiMmN",
+        "id"                    : "wxQwFQGsg6yDiMmN",
+        "name"                  : "Leungli",
+        "text"                  : "Leungli",
+        "traits"                : [
+            "Peu courant",
+            "Sprite"
+        ]
+    },
+    "LU4i3qXtyzeTGWZQ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous brillez avec une luminosité magique. Vous diffusez naturellement de la lumière comme une Torche ; cette lumière possède les traits évocation, lumière et primordial. Vous pouvez éteindre, rallumer ou changer la couleur de cette lumière en utilisant une unique action qui possède le trait concentration."
+        ],
+        "href"                  : "/heritages/LU4i3qXtyzeTGWZQ",
+        "id"                    : "LU4i3qXtyzeTGWZQ",
+        "name"                  : "Sprite lumineux",
+        "text"                  : "Sprite lumineux",
+        "traits"                : []
+    },
+    "TYvzNoL5ldmB5F76": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez les traits d'une abeille, d'un papillon ou d'un autre insecte qui adore le sucré. Vous pouvez poser des questions et recevoir des réponses des arthropodes (insectes, araignées, scorpions, crabes et autres animaux invertébrés similaires) et pouvez utiliser Diplomatie pour leur Faire bonne impression et les Solliciter. La plupart des abeilles, des papillons, des phalènes et des coléoptères ont une attitude de départ Indifférente ou Amicale envers vous et vous donnent le temps de faire valoir votre demande, alors que d'autres arthropodes réagissent à votre endroit de la même manière qu'envers tout autre aventurier."
+        ],
+        "href"                  : "/heritages/TYvzNoL5ldmB5F76",
+        "id"                    : "TYvzNoL5ldmB5F76",
+        "name"                  : "Mélixie",
+        "text"                  : "Mélixie",
+        "traits"                : []
+    },
+    "h2VKMYAlUIFAAXVG": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez des traits de chauve-souris, une affinité avec l'espèce des chauves-souris et une ouïe inégalée. Tant que vous pouvez entendre normalement, vous pouvez utiliser l'action Chercher pour percevoir les créatures Non détectées dans un cône de 18 mètres au lieu d'un cône de 9 mètres. Vous obtenez aussi un bonus de circonstances de +2 pour localiser les personnes non détectées que vous pourriez entendre dans les 9 mètres avec une action Chercher."
+        ],
+        "href"                  : "/heritages/h2VKMYAlUIFAAXVG",
+        "id"                    : "h2VKMYAlUIFAAXVG",
+        "name"                  : "Nyctère",
+        "text"                  : "Nyctère",
+        "traits"                : []
+    },
+    "KbG2BZ3Sbr3xU1sW": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes plus grand que les autres sprites. Au lieu de Très petite, votre taille est Petite."
+        ],
+        "href"                  : "/heritages/KbG2BZ3Sbr3xU1sW",
+        "id"                    : "KbG2BZ3Sbr3xU1sW",
+        "name"                  : "Pixie",
+        "text"                  : "Pixie",
+        "traits"                : []
+    },
+    "9mS8EGLlGUOzSAzP": {
+        "bonus"                 : {
+            "sens"    : [
+                "vision dans le noir"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes un oiseau nocturne, conservant la veille et chassant dans les environnements les plus dépourvus de lumière. Vous obtenez vision dans le noir."
+        ],
+        "href"                  : "/heritages/9mS8EGLlGUOzSAzP",
+        "id"                    : "9mS8EGLlGUOzSAzP",
+        "name"                  : "Strix planeur nocturne",
+        "text"                  : "Strix planeur nocturne",
+        "traits"                : []
+    },
+    "MUujYQYWg6PNVaaN": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous provenez d'une lignée de strix avec des ailes exceptionnellement grandes et de longs ergots. Vous obtenez une attaque à mains nues d'ergots qui inflige @Damage[1d4[slashing]]{1d4 dégâts tranchants}. Vos attaques de serres font partie du groupe pugilat et possèdent les traits agile, finesse et à mains nues."
+        ],
+        "href"                  : "/heritages/MUujYQYWg6PNVaaN",
+        "id"                    : "MUujYQYWg6PNVaaN",
+        "name"                  : "Strix prédateur",
+        "text"                  : "Strix prédateur",
+        "traits"                : []
+    },
+    "j0R1SyJP8k4G2Hkn": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres sont originaires d'une terre où la nourriture était rare et les menaces trop nombreuses. Vous êtes qualifié en Survie. Vous obtenez le don de compétence Glaneur comme un don supplémentaire. Votre méticulosité lorsque vous ramasser de la nourriture vous donne un bonus de circonstances de +1 aux tests de Survie pour Subsister."
+        ],
+        "href"                  : "/heritages/j0R1SyJP8k4G2Hkn",
+        "id"                    : "j0R1SyJP8k4G2Hkn",
+        "name"                  : "Strix grapilleur",
+        "text"                  : "Strix grapilleur",
+        "traits"                : []
+    },
+    "RxNBBMFZwPA3Vlg3": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous êtes le descendant de strix qui ont voyagé vers les côtes. Vos plumes sont spécialement imperméables et élégamment inclinées pour plonger, vous permettant d'attraper du poisson et d'autres proies dans les eaux peu profondes. Vous êtes qualifié en Athlétisme et vous obtenez le don de compétence Maraudeur aquatique comme don supplémentaire."
+        ],
+        "href"                  : "/heritages/RxNBBMFZwPA3Vlg3",
+        "id"                    : "RxNBBMFZwPA3Vlg3",
+        "name"                  : "Strix des littoraux",
+        "text"                  : "Strix des littoraux",
+        "traits"                : []
+    },
+    "fWT7Mo2vFC10H4Wq": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous descendez d'une lignée de conteurs strix talentueux. Des plus hautes montagnes et des étendues sauvages les plus vierges où vos poumons ont pu se remplir de l'air pur et glorieux, vous émettez des trilles, sifflez et fredonnez des chansons mélodieuses. Alors que des sons naturels vous prédisposent à chanter, les voix vous ont prédisposé à l'imitation. Vous recevez un bonus de circonstances de +1 sur les tests de Duperie pour Vous faire passer pour une voix imitée, lorsque le son de la voix est l'unique facteur pris en compte. Si vous êtes maître en Duperie, vous obtenez un bonus de circonstances de +2 à la place. Vous obtenez aussi un bonus de circonstances de +1 aux tests de Représentation pour chanter. Si vous êtes maître en Représentation, vous obtenez un bonus de circonstances de +2 à la place."
+        ],
+        "href"                  : "/heritages/fWT7Mo2vFC10H4Wq",
+        "id"                    : "fWT7Mo2vFC10H4Wq",
+        "name"                  : "Strix oiseau chanteur",
+        "text"                  : "Strix oiseau chanteur",
+        "traits"                : []
+    },
+    "BDBzVaZx3GfZXs5b": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos griffes sont particulièrement dures et peuvent se frayer un passage à travers la terre et les prédateurs de la même manière. Vous obtenez une attaque à mains nues de griffe qui inflige 1d4 dégâts tranchants. Vos griffes sont dans le groupe pugilat et possède les traits à mains nues, agile, finesse et polyvalent C."
+        ],
+        "href"                  : "/heritages/BDBzVaZx3GfZXs5b",
+        "id"                    : "BDBzVaZx3GfZXs5b",
+        "name"                  : "Surki briseur",
+        "text"                  : "Surki briseur",
+        "traits"                : []
+    },
+    "0Anj61DzUimJ1uMS": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "La couche supérieure de votre carapace est particulièrement mobile et vous pouvez la déployer pour prendre l'air avec grâce lorsque vous chutez. Vous ne subissez pas de dégâts, quelle que soit la distance de votre chute."
+        ],
+        "href"                  : "/heritages/0Anj61DzUimJ1uMS",
+        "id"                    : "0Anj61DzUimJ1uMS",
+        "name"                  : "Surki à élytre",
+        "text"                  : "Surki à élytre",
+        "traits"                : []
+    },
+    "qKn9k3TQt0gsOLn7": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre carapace est bien plus dense que celle des autres surkis, vous offrant votre propre armure. Votre carapace est une armure intermédiaire dans le groupe des plates qui vous accorde un bonus d'objet de +4, un maximum de Dextérité de +1, une pénalité au test de -2, une pénalité à la vitesse de -1,50 mètre, une valeur de Force de +3 et possède le trait confort. Vous ne pouvez jamais porter une autre armure ou retirer votre carapace. Vous pouvez graver des runes d'armure sur votre carapace."
+        ],
+        "href"                  : "/heritages/qKn9k3TQt0gsOLn7",
+        "id"                    : "qKn9k3TQt0gsOLn7",
+        "name"                  : "Surki à capapace dure",
+        "text"                  : "Surki à capapace dure",
+        "traits"                : []
+    },
+    "Wyw1tkO0e199Wm8o": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Les nodules de votre abdomen sont particulièrement lumineux. Vous pouvez utiliser une action Interagir pour émettre de la lumière vive à partir de votre abdomen dans un rayon de 6 mètres (et de la lumière faible dans les 6 mètres suivants). C'est un effet de lumière magique avec un rang de contre égal à la moitié de votre niveau arrondi au supérieur. Vous pouvez changer la couleur de la lumière ou l'éteindre avec une autre action Interagir."
+        ],
+        "href"                  : "/heritages/Wyw1tkO0e199Wm8o",
+        "id"                    : "Wyw1tkO0e199Wm8o",
+        "name"                  : "Surki lanterne",
+        "text"                  : "Surki lanterne",
+        "traits"                : []
+    },
+    "L6FwEsrOK3Xno7qM": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Il est dit que votre forme arrondie est le résultat du calme et de la retenue et pas de la complaisance. Vous obtenez odorat en tant que sens imprécis avec une portée de 9 mètres. Le MJ va habituellement doubler la portée si vous êtes sous le vent de quelque chose que vous tentez de sentir ou divisez par deux si vous êtes contre le vent. De plus, vous obtenez un bonus de circonstances de +2 pour les tests de Perception lorsque vous tentez de localiser de la nourriture, de la boisson ou un objet consommable qui est ingéré (tels qu'une potion ou un élixir) en utilisant votre odorat."
+        ],
+        "href"                  : "/heritages/L6FwEsrOK3Xno7qM",
+        "id"                    : "L6FwEsrOK3Xno7qM",
+        "name"                  : "Tanuki ascétique",
+        "text"                  : "Tanuki ascétique",
+        "traits"                : [
+            "Tanuki"
+        ]
+    },
+    "hqh4zKHYBtDE26g8": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre cœur bat avec le courage de ceux qui vous ont précédé, vous donnant le genre de bravoure dont seul un tanuki peut faire preuve. Chaque fois que vous obtenez l'état En fuite, vous obtenez également un bonus de circonstances de +3 mètres à vos Vitesses tant que vous êtes en fuite. Lorsque vous subissez l'état En fuite, au lieu de devoir passer toutes vos actions à essayer de fuir, vous pouvez agir normalement pendant une action mais devez quand même dépenser le reste de vos actions pour fuir. Vous obtenez aussi la capacité Retraite tactique."
+        ],
+        "href"                  : "/heritages/hqh4zKHYBtDE26g8",
+        "id"                    : "hqh4zKHYBtDE26g8",
+        "name"                  : "Tanuki courageux",
+        "text"                  : "Tanuki courageux",
+        "traits"                : [
+            "Tanuki"
+        ]
+    },
+    "uAo0wK1JL9kePcZb": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous possédez une sérénité peu commune chez les autres tanukis, qui semblent toujours s'emballer. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les effets d'émotion. Si vous obtenez un succès sur un jet de sauvegarde contre un effet d'émotion, il devient un succès critique mais lorsque vous obtenez un échec contre un jet de sauvegarde contre un effet d'émotion, il devient un échec critique."
+        ],
+        "href"                  : "/heritages/uAo0wK1JL9kePcZb",
+        "id"                    : "uAo0wK1JL9kePcZb",
+        "name"                  : "Tanuki placide",
+        "text"                  : "Tanuki placide",
+        "traits"                : [
+            "Tanuki"
+        ]
+    },
+    "5gqcEsJ4gkE6W5jj": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre fierté sous votre forme tanuki véritable ne connaît aucune limite. Vous obtenez à votre choix entre Forme du quotidien ou Forme de bouilloire comme un don ancestral supplémentaire."
+        ],
+        "href"                  : "/heritages/5gqcEsJ4gkE6W5jj",
+        "id"                    : "5gqcEsJ4gkE6W5jj",
+        "name"                  : "Tanuki placide",
+        "text"                  : "Tanuki placide",
+        "traits"                : [
+            "Tanuki"
+        ]
+    },
+    "JtrZ2TcPXP1uIcmd": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Nombre de tanukis transportent une gourde d'alcool pour se souvenir d'agir avec vertu et, au regard de ces standards, vous êtes plutôt vertueux. Vous obtenez une résistance contre le poison égal à la moitié de votre niveau (minimum 1). Vous pouvez manger et boire lorsque vous êtes Nauséeux. Vous ne pouvez être mis hors de combat par de l'alcool conventionnel si vous ne souhaitez pas l'être."
+        ],
+        "href"                  : "/heritages/JtrZ2TcPXP1uIcmd",
+        "id"                    : "JtrZ2TcPXP1uIcmd",
+        "name"                  : "Tanuki vertueux",
+        "text"                  : "Tanuki vertueux",
+        "traits"                : [
+            "Tanuki"
+        ]
+    },
+    "ClshvrjvBTMm3INX": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre famille est l'une des nombreuses familles qui prétendent descendre de la famille royale vanara vouée au maintien de la paix, appelée les bandaagee. Les bandaagee sont les vanaras les plus courants. Vous êtes très familier avec les pièges de la civilisation et vous vous déplacez facilement dans les communautés les plus bondées. Vous ignorez le terrain difficile lié à la foule."
+        ],
+        "href"                  : "/heritages/ClshvrjvBTMm3INX",
+        "id"                    : "ClshvrjvBTMm3INX",
+        "name"                  : "Vanara Bandaagee",
+        "text"                  : "Vanara Bandaagee",
+        "traits"                : []
+    },
+    "Kq3k1Z6IWGVsLrmg": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres vanaras sont peut-être nés à l'image de Ragdya mais ne doivent leur survie qu'en servant son ennemi : Lahkgya au visage rouge. Vous avez des dents acérées, faites pour grincer et déchirer la chair. Vous pouvez subsister en mangeant uniquement de la viande crue. Vous disposez d'une attaque à mains nues de mâchoires qui inflige 1d6 dégâts perforants. Vos mâchoires font partie du groupe pugilat et possèdent les traits finesse et à mains nues."
+        ],
+        "href"                  : "/heritages/Kq3k1Z6IWGVsLrmg",
+        "id"                    : "Kq3k1Z6IWGVsLrmg",
+        "name"                  : "Vanara Lahkgyan",
+        "text"                  : "Vanara Lahkgyan",
+        "traits"                : []
+    },
+    "By1y7HCfVPgX2GmI": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Gardiens des traditions et conteurs d'histoires anciennes, votre famille trace sa lignée jusqu'à ceux qui sont nés directement des caprices de Ragdya. Lorsque vous parlez, les autres sont enclins à vous écouter, peut-être en raison de l'étincelle divine de votre lien avec Ragdya. Vous obtenez un tour de magie issu de la liste des sorts divins. Ce tour de magie ne peut pas infliger de dégâts ou causer d'autres dommages directs. Vous pouvez lancer ce sort comme un sort divin inné à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/By1y7HCfVPgX2GmI",
+        "id"                    : "By1y7HCfVPgX2GmI",
+        "name"                  : "Vanara Radgyen",
+        "text"                  : "Vanara Radgyen",
+        "traits"                : []
+    },
+    "nUCRd8tmz3C6LM0T": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos ancêtres ont été contraints au travail forcé par l'immortel rakshasa Ravana, le Premier et le Dernier. Bien que leur intelligence pendant leur captivité ait permis de sauver d'innombrables vies et qu'ils ne soient désormais plus asservis, cette époque a marqué votre famille, laissant des séquelles sur l'esprit qui ne guériront jamais vraiment, même à travers les générations. Vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les effets d'émotion et, chaque fois, que vous obtenez un succès sur un jet de sauvegarde contre un effet d'émotion, il devient un succès critique."
+        ],
+        "href"                  : "/heritages/nUCRd8tmz3C6LM0T",
+        "id"                    : "nUCRd8tmz3C6LM0T",
+        "name"                  : "Vanara Wajaghand",
+        "text"                  : "Vanara Wajaghand",
+        "traits"                : []
+    },
+    "ywNXVLZtwrAStyh1": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps flexible semble anormalement fluide pour certains, bien qu'ils puissent rarement mettre le doigt sur ce qui semble étrange chez vous. Vous pouvez échapper à vos ennemis avec facilité. Vous obtenez un bonus de circonstances de +1 aux tests pour Vous échapper. De plus, vous vous déplacez deux fois plus vite lorsque vous Vous faufilez."
+        ],
+        "href"                  : "/heritages/ywNXVLZtwrAStyh1",
+        "id"                    : "ywNXVLZtwrAStyh1",
+        "name"                  : "Vishkanya insaisissable",
+        "text"                  : "Vishkanya insaisissable",
+        "traits"                : []
+    },
+    "BhbwjTFw2V67XF35": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "B7wDxyjX66JkiCOV",
+                    "name"    : "Tirer du venin",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez l'habitude d'utiliser votre venin en combat, vous permettant d'employer votre venin au pied levé. Votre action Envenimer ne déclenche pas les réactions qui devraient normalement être déclenchées lors d'une action de manipulation. De plus vous obtenez l'action Tirer du venin."
+        ],
+        "href"                  : "/heritages/BhbwjTFw2V67XF35",
+        "id"                    : "BhbwjTFw2V67XF35",
+        "name"                  : "Vihskanya au venin vif",
+        "text"                  : "Vihskanya au venin vif",
+        "traits"                : []
+    },
+    "PbXqlzRdQbKLQx1R": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez une lignée matrilinéaire directe avec le groupe original de vishkanyas présents sur les navires vudranais venus réclamer Jalmeray. Depuis lors, votre famille s'est bien adaptée à sa nouvelle vie dans la Mer Intérieure. Vous êtes qualifié en Société (ou une autre compétence de votre choix si vous êtes déjà qualifié en Société) et vous obtenez le dons de compétence Manières courtoises ou Savoir urbain à votre choix."
+        ],
+        "href"                  : "/heritages/PbXqlzRdQbKLQx1R",
+        "id"                    : "PbXqlzRdQbKLQx1R",
+        "name"                  : "Vishkanya sang-ancien",
+        "text"                  : "Vishkanya sang-ancien",
+        "traits"                : []
+    },
+    "vrU3lmDO7FYzmuQc": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vos écailles scintillent et accrochent la lumière dans un étalage de couleurs enivrantes. Vous êtes qualifié en Représentation (ou dans une autre compétence de votre choix si vous êtes déjà qualifié en Représentation) et obtenez le don de compétence Représentation fascinante."
+        ],
+        "href"                  : "/heritages/vrU3lmDO7FYzmuQc",
+        "id"                    : "vrU3lmDO7FYzmuQc",
+        "name"                  : "Vishkanya prismatique",
+        "text"                  : "Vishkanya prismatique",
+        "traits"                : []
+    },
+    "ohOJHeFenX97sBHf": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous faites partie de la famille des vishkanyas de votre communauté qui a été chargée de conserver les archives de l'histoire et des expériences de votre peuple. Votre compétence d'érudit vous confère un esprit vif. Une fois par jour, vous pouvez tenter de Vous souvenir par une action gratuite."
+        ],
+        "href"                  : "/heritages/ohOJHeFenX97sBHf",
+        "id"                    : "ohOJHeFenX97sBHf",
+        "name"                  : "Vishkanya Conservécaille",
+        "text"                  : "Vishkanya Conservécaille",
+        "traits"                : []
+    },
+    "OBxrlZKg0IC5n238": {
+        "bonus"                 : {
+            "resistances" : [
+                {
+                    "min"     : 1,
+                    "type"    : "poison",
+                    "value"   : "level/2"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre corps contient non seulement du venin mais aussi de nombreux antivenins. Vous obtenez une résistance au poison égale à la moitié de votre niveau (minimum 1) et chacun de vos jets de sauvegarde réussis contre une affliction de poison réduit son stade de 2 ou de 1 pour un poison virulent. Chaque succès critique contre un poison en cours réduit son stade de 3 ou de 2 pour un poison virulent."
+        ],
+        "href"                  : "/heritages/OBxrlZKg0IC5n238",
+        "id"                    : "OBxrlZKg0IC5n238",
+        "name"                  : "Viskanya antivenin",
+        "text"                  : "Viskanya antivenin",
+        "traits"                : []
+    },
+    "GvtOzLp4kIuYfx1R": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre ombre danse à vos côtés. Vous obtenez le don de compétence Représentation impressionnante, vous permettant d'utiliser Représentation pour Faire bonne impression au lieu de Diplomatie.",
+            "Une fois par jour, si vous obtenez un échec, mais pas un échec critique, lors d'un test pour Faire bonne impression, vous pouvez le jouer comme si c'était une partie de la représentation, vous permettant de relancer le test. C'est un effet de fortune."
+        ],
+        "href"                  : "/heritages/GvtOzLp4kIuYfx1R",
+        "id"                    : "GvtOzLp4kIuYfx1R",
+        "name"                  : "Ombre du courtisan",
+        "text"                  : "Ombre du courtisan",
+        "traits"                : [
+            "Wayang"
+        ]
+    },
+    "yxZtNE87im9yZFXk": {
+        "bonus"                 : {
+            "spells"  : [
+                {
+                    "free"      : true,
+                    "frequency" : "FREQUENCY.AT_WILL",
+                    "tradition" : "TRADITION.OCCULT",
+                    "type"      : "innate"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre ombre semble en quelque sorte pleine de secrets et de mystères - des secrets qu'elle partage avec vous. Choisissez un tour de magie de la liste des sorts occultes. Vous pouvez lancer ce sort comme un sort inné occulte à volonté. Un tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur."
+        ],
+        "href"                  : "/heritages/yxZtNE87im9yZFXk",
+        "id"                    : "yxZtNE87im9yZFXk",
+        "name"                  : "Ombre de l'ermite",
+        "text"                  : "Ombre de l'ermite",
+        "traits"                : [
+            "Wayang"
+        ]
+    },
+    "5apoJtHGL0lIz1cz": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre ombre vole à la surface de l'eau, tout comme vous. Vous pouvez marcher sur la surface de l'eau calme et les autres liquides non dangereux, en vous déplaçant à la moitié de votre vitesse normale. Vous pouvez également tenter de marcher sur la surface de l'eau en vous déplaçant toujours à la moitié de votre vitesse mais, pour cela, vous devez réussir un test d'Acrobaties pour Garder l'équilibre en utilisant le DD d'un test de Natation pour vous déplacer au-dessus de l'eau. En cas d'échec, vous tombez dans l'eau. Ce test d'Acrobaties n'utilise pas d'action."
+        ],
+        "href"                  : "/heritages/5apoJtHGL0lIz1cz",
+        "id"                    : "5apoJtHGL0lIz1cz",
+        "name"                  : "Ombre du marin",
+        "text"                  : "Ombre du marin",
+        "traits"                : [
+            "Wayang"
+        ]
+    },
+    "VHln8G1GNaSzNNHq": {
+        "bonus"                 : {
+            "actions" : [
+                {
+                    "id"      : "lgpJoFrkzfkjAzeV",
+                    "name"    : "Incruster l'ombre",
+                    "type"    : "ACTION_TYPE.ACTION_1"
+                }
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre ombre est épaisse et liquide, comme si elle pouvait tremper le minerai le plus noble. Vous obtenez l'action Incruster l'ombre."
+        ],
+        "href"                  : "/heritages/VHln8G1GNaSzNNHq",
+        "id"                    : "VHln8G1GNaSzNNHq",
+        "name"                  : "Ombre de l'artisan",
+        "text"                  : "Ombre de l'artisan",
+        "traits"                : [
+            "Wayang"
+        ]
+    },
+    "fcsYmaIfMR9iXv06": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Votre ombre se projette devant vous, dégageant votre chemin. Votre vitesse augmente de 1,50 mètre."
+        ],
+        "href"                  : "/heritages/fcsYmaIfMR9iXv06",
+        "id"                    : "fcsYmaIfMR9iXv06",
+        "name"                  : "Ombre du vagabond",
+        "text"                  : "Ombre du vagabond",
+        "traits"                : [
+            "Wayang"
+        ]
+    },
+    "qeFCDRSgFRR2ElWK": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le vœu de libérer les autres des calamités naturelles. Votre vœu vous donne la force de porter 1 encombrement de plus que la normale avant d'être surchargé et un maximum d'Encombrement de 2 de plus ainsi qu'un bonus de circonstances de +1 aux tests d'Athlétisme pour Ouvrir de force et Vous échapper.",
+            "Édit supplémentaire faire tout votre possible pour aider ou secourir les personnes piégées ou touchées par des catastrophes naturelles"
+        ],
+        "href"                  : "/heritages/qeFCDRSgFRR2ElWK",
+        "id"                    : "qeFCDRSgFRR2ElWK",
+        "name"                  : "Refus de la charité de Dame Nanbyo",
+        "text"                  : "Refus de la charité de Dame Nanbyo",
+        "traits"                : [
+            "Yaksha"
+        ]
+    },
+    "AWLcCe69nzxZzWQc": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le vœu de protéger les autres des cruautés du Premier Monde. Serein face aux capacités affectant l'esprit provenant des fées, votre vœu accorde une résistance aux dégâts mentaux égale à la moitié de votre niveau (minimum 1) et un bonus de circonstances de +2 aux tests de Nature pour Vous souvenir au sujet des fées.",
+            "Édit supplémentaire affronter les fées cruelles que vous rencontrez (tant que vous avez une chance raisonnable de succès)"
+        ],
+        "href"                  : "/heritages/AWLcCe69nzxZzWQc",
+        "id"                    : "AWLcCe69nzxZzWQc",
+        "name"                  : "Refus de la quête du Premier-né",
+        "text"                  : "Refus de la quête du Premier-né",
+        "traits"                : [
+            "Yaksha"
+        ]
+    },
+    "YoDvQ5fvpbgcoG3V": {
+        "bonus"                 : {
+            "sens"    : [
+                "vision dans le noir"
+            ]
+        },
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le vœu de délivrer les autres des rakshasas et des asuras, que les légendes des yakshas ont condamné comme une engeance corrompue. Pour contrer leurs plans obscurs, votre vœu vous accorde la vision dans le noir et un bonus de circonstances de +1 aux tests de Perception pour Chercher ou @UID[Compendium.pf2e.actionspf2e.Item.1xRFPTFtWtGJ9ELw]{Deviner les intentions} des rakshasas et des asuras.",
+            "Édit supplémentaire affronter les rakshasas et les asuras que vous rencontrez (tant que vous avez une chance raisonnable de succès). Dans le cas improbable où vous trouvez un rakshasa ou un asura bienveillant, vous n'avez pas à l'affronter"
+        ],
+        "href"                  : "/heritages/YoDvQ5fvpbgcoG3V",
+        "id"                    : "YoDvQ5fvpbgcoG3V",
+        "name"                  : "Refus de la renaissance du traître",
+        "text"                  : "Refus de la renaissance du traître",
+        "traits"                : [
+            "Yaksha"
+        ]
+    },
+    "q7b4yu3Nty0jZLOi": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le vœu d'abriter et de nourrir les pauvres. Votre vœu vous confère de l'habileté en menuiserie, en cuisine et avec le tissu. Vous êtes qualifié en Artisanat et en Connaissance de la cuisine et vous gagnez le don de compétence Outil improvisé.",
+            "Édit supplémentaire aider les personnes démunies dans la mesure de vos possibilités en réparant leur logement et leurs vêtements ou en les nourrissant."
+        ],
+        "href"                  : "/heritages/q7b4yu3Nty0jZLOi",
+        "id"                    : "q7b4yu3Nty0jZLOi",
+        "name"                  : "Répit des mille toits",
+        "text"                  : "Répit des mille toits",
+        "traits"                : [
+            "Yaksha"
+        ]
+    },
+    "aPqNdvtKHv4amLcO": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le serment de protéger les égarés et les perdus. Les effets de chaleur et de froid ambiants sont moins extrêmes pour vous (la chaleur incroyable devient extrême, le froid extrême devient important, etc), et vous bénéficiez d'un bonus de circonstances de + 1 aux jets de sauvegarde contre les éléments ou dangers liés à l'environnement, tels que les inondations, les éboulements de rochers et les tempêtes de sable.",
+            "Édit supplémentaire aider les voyageurs égarés ou incapacités"
+        ],
+        "href"                  : "/heritages/aPqNdvtKHv4amLcO",
+        "id"                    : "aPqNdvtKHv4amLcO",
+        "name"                  : "Répit des sentiers sans nuage",
+        "text"                  : "Répit des sentiers sans nuage",
+        "traits"                : [
+            "Yaksha"
+        ]
+    },
+    "WczVM4KQq7xybsPZ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez fait le vœu de préserver le fondement même du sanctuaire : la vaste terre et tout ce qui pousse dessus. Votre vœu vous accorde le pouvoir spirituel de la terre. Vous obtenez un tour de magie de la liste des sorts primordiaux. Vous pouvez lancer ce sort comme un sort primordial inné à volonté. Ce tour de magie est intensifié à un rang de sort égal à la moitié de votre niveau arrondi au supérieur. Vos racines dans le monde vous confèrent le trait plante.",
+            "Édit supplémentaire guérir ou éliminer les fléaux et la pollution des plantes et du sol que vous rencontrez"
+        ],
+        "href"                  : "/heritages/WczVM4KQq7xybsPZ",
+        "id"                    : "WczVM4KQq7xybsPZ",
+        "name"                  : "Répit du terreau et de la feuille",
+        "text"                  : "Répit du terreau et de la feuille",
+        "traits"                : [
+            "Plante",
+            "Yaksha"
+        ]
+    },
+    "buGlGWcCrdNxfCr4": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous étiez un animal simple jusqu'à ce que le soleil vous apporte l'illumination."
+        ],
+        "href"                  : "/heritages/buGlGWcCrdNxfCr4",
+        "id"                    : "buGlGWcCrdNxfCr4",
+        "name"                  : "Né d'un animal",
+        "text"                  : "Né d'un animal",
+        "traits"                : [
+            "Yaoguai"
+        ]
+    },
+    "Iaq8C3bbC9EzZhBJ": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été un puissant céleste avant une évasion ou une punition qui vous a laissé piégé dans une coquille mortelle, avec seulement de vagues souvenirs et un pouvoir limité. Du fait de votre puissance divine résiduelle, la tradition de tous les sorts ou des capacités magiques que vous obtenez grâce à un héritage yaoguai ou son don ancestral est divine au lieu de sa tradition normale (habituellement occulte)."
+        ],
+        "href"                  : "/heritages/Iaq8C3bbC9EzZhBJ",
+        "id"                    : "Iaq8C3bbC9EzZhBJ",
+        "name"                  : "Né d'un céleste",
+        "text"                  : "Né d'un céleste",
+        "traits"                : [
+            "Yaoguai"
+        ]
+    },
+    "RXn2y7QVHVB0XHr8": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous avez été un des aspects de la nature - la pluie, le vent, un rayon de lumière - jusqu'à ce que les essences naturelles vous ait donné une âme. À cause de votre lien naturel, la tradition de tous les sorts ou capacités magiques que vous obtenez d'un héritage yaoguai un d'un don ancestral est primordiale au lieu de sa tradition ordinaire (habituellement occulte)."
+        ],
+        "href"                  : "/heritages/RXn2y7QVHVB0XHr8",
+        "id"                    : "RXn2y7QVHVB0XHr8",
+        "name"                  : "Né des éléments",
+        "text"                  : "Né des éléments",
+        "traits"                : [
+            "Yaoguai"
+        ]
+    },
+    "kHvlHDq5hs2JDG0Y": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous étiez un objet jusqu'à ce que la lune vous ait instillé la vie. Choisissez une compétence de Connaissance en lien avec ce type d'outil que vous étiez. Par exemple, Connaissance de la cuisine pour un tranchoir ou Connaissance de l'agriculture pour un râteau. Vous êtes qualifié dans cette compétence."
+        ],
+        "href"                  : "/heritages/kHvlHDq5hs2JDG0Y",
+        "id"                    : "kHvlHDq5hs2JDG0Y",
+        "name"                  : "Né d'un objet",
+        "text"                  : "Né d'un objet",
+        "traits"                : [
+            "Yaoguai"
+        ]
+    },
+    "y87jU1yU8Plz4Yhq": {
+        "category"              : "heritages",
+        "general_desc"          : [
+            "Vous étiez une plante ou un champignon jusqu'à ce que la pluie vous donne un esprit. À votre choix, vous obtenez le trait plante ou champignon."
+        ],
+        "href"                  : "/heritages/y87jU1yU8Plz4Yhq",
+        "id"                    : "y87jU1yU8Plz4Yhq",
+        "name"                  : "Né de la végétation",
+        "text"                  : "Né de la végétation",
+        "traits"                : [
+            "Yaoguai"
+        ]
     }
 };

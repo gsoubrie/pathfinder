@@ -269,6 +269,12 @@ TEST.RESET.sheet                            = function ( character_uuid ) {
     if ( _popup ) {
         _popup.parentNode.removeChild( _popup );
     }
+    // Une modale de service restee ouverte par une suite morte pollue les
+    // suivantes (querySelector "body > .modal") : le reset la retire
+    let _modal                             = document.querySelector( "body > .modal" );
+    if ( _modal ) {
+        _modal.parentNode.removeChild( _modal );
+    }
     // Les popups d'INFORMATION refermées restent au DOM (masquées) et une
     // popup restée RUNNING polluerait TOUTES les suites suivantes (les
     // assertions d'ouverture lisent l'overlay RUNNING) : le reset les

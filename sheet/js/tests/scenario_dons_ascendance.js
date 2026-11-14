@@ -7,7 +7,7 @@
  *  1. L'onglet Progression rend une section d'ascendance par palier atteint,
  *     intercalée au niveau de son palier et AVANT la section de classe du
  *     même niveau : Elfe 1, Magicien 1..4, Elfe 5, Magicien 5. Chaque
- *     section porte sa ligne "Don d'ascendance" en attente, son sélecteur
+ *     section porte sa ligne "Don ancestral" en attente, son sélecteur
  *     propose l'option vide + les dons d'Elfe du niveau du palier, chaque
  *     option porte son "?" de popup.
  *  2. Choisir un don sur "Elfe 1" : la ligne passe SELECTED, le sélecteur
@@ -73,12 +73,12 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] sections = Elfe 1, Elfe 5, lignes en at
             }
             TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Elfe " + _level, "Le titre de la section d'ascendance devrait afficher Elfe " + _level + ", obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
             let _row                       = _block.querySelector( ".level-up-row[data-slot-key='ancestry_feat']" );
-            TEST.ASSERT.notNull( _row, "La section Elfe " + _level + " devrait porter sa ligne Don d'ascendance" );
+            TEST.ASSERT.notNull( _row, "La section Elfe " + _level + " devrait porter sa ligne Don ancestral" );
             if ( !_row ) {
                 continue;
             }
-            TEST.ASSERT.equal( _row.querySelector( ".level-up-row-label" ).textContent, "Don d'ascendance", "La ligne devrait porter le libelle Don d'ascendance, obtenu : " + _row.querySelector( ".level-up-row-label" ).textContent );
-            TEST.ASSERT.equal( _row.dataset.currentPhase, "RUNNING", "La ligne Don d'ascendance non validée devrait etre en phase RUNNING, obtenu : " + _row.dataset.currentPhase );
+            TEST.ASSERT.equal( _row.querySelector( ".level-up-row-label" ).textContent, "Don ancestral", "La ligne devrait porter le libelle Don ancestral, obtenu : " + _row.querySelector( ".level-up-row-label" ).textContent );
+            TEST.ASSERT.equal( _row.dataset.currentPhase, "RUNNING", "La ligne Don ancestral non validée devrait etre en phase RUNNING, obtenu : " + _row.dataset.currentPhase );
             let _expected_options          = DON.getAvailableAncestryFeats( "Elfe", parseInt( _level, 10 ) ).length;
             TEST.ASSERT.equal( _row.querySelectorAll( ".single-select-option" ).length, 1 + _expected_options, "Le sélecteur de Elfe " + _level + " devrait proposer l'option vide + les dons d'Elfe du palier, obtenu : " + _row.querySelectorAll( ".single-select-option" ).length );
             TEST.ASSERT.equal( _row.querySelectorAll( ".single-select-option .level-up-row-info" ).length, _expected_options, "Chaque option de don de Elfe " + _level + " devrait porter son ? de popup (l'option vide n'en porte pas), obtenu : " + _row.querySelectorAll( ".single-select-option .level-up-row-info" ).length );
@@ -86,7 +86,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] sections = Elfe 1, Elfe 5, lignes en at
             TEST.ASSERT.ok( _onclick.indexOf( "event__level_up__select_choice" ) !== -1 && _onclick.indexOf( _level + "__ancestry_feat" ) !== -1, "Les options devraient emettre event__level_up__select_choice avec l'uuid de la ligne (" + _level + "__ancestry_feat), obtenu : " + _onclick );
             // Le ? de la valeur choisie vit a cote du selecteur : masque sans selection
             let _selected_info            = _row.querySelector( ".single-select-container + .level-up-row-info" );
-            TEST.ASSERT.notNull( _selected_info, "La ligne Don d'ascendance devrait porter le ? de la valeur choisie" );
+            TEST.ASSERT.notNull( _selected_info, "La ligne Don ancestral devrait porter le ? de la valeur choisie" );
             if ( _selected_info ) {
                 TEST.ASSERT.equal( _selected_info.getAttribute( "data-value" ), "", "Le ? de la valeur choisie devrait etre vide sans selection, obtenu : [" + _selected_info.getAttribute( "data-value" ) + "]" );
                 TEST.ASSERT.equal( getComputedStyle( _selected_info ).display, "none", "Le ? de la valeur choisie devrait etre masque sans selection, obtenu : " + getComputedStyle( _selected_info ).display );
@@ -107,7 +107,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
         return;
     }
     let _row                              = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='1'] .level-up-row[data-slot-key='ancestry_feat']" );
-    TEST.ASSERT.notNull( _row, "Pre-condition : ligne Don d'ascendance de Elfe 1 rendue" );
+    TEST.ASSERT.notNull( _row, "Pre-condition : ligne Don ancestral de Elfe 1 rendue" );
     if ( !_row ) {
         return;
     }
@@ -127,14 +127,14 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
     // à date fixe
     return TEST.waitCounterValue( _counter, "" + ( _counter_before - 1 ) ).then( function () {
         let _line                         = _character.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );
-        TEST.ASSERT.notNull( _line, "La ligne Don d'ascendance du palier 1 devrait exister dans son entree" );
+        TEST.ASSERT.notNull( _line, "La ligne Don ancestral du palier 1 devrait exister dans son entree" );
         if ( !_line ) {
             return;
         }
         TEST.ASSERT.ok( _line.isActive(), "Choisir un don devrait valider la ligne, obtenu : " + _line.isActive() );
         TEST.ASSERT.equal( _line.getSelectedValue(), _feat_name, "La ligne validée devrait porter le don choisi, obtenu : " + _line.getSelectedValue() );
         let _row_after                    = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='1'] .level-up-row[data-slot-key='ancestry_feat']" );
-        TEST.ASSERT.notNull( _row_after, "La ligne Don d'ascendance devrait rester rendue apres le choix" );
+        TEST.ASSERT.notNull( _row_after, "La ligne Don ancestral devrait rester rendue apres le choix" );
         if ( !_row_after ) {
             return;
         }
@@ -162,7 +162,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
         }
         // Le ? d'une option de Elfe 5 ouvre la popup du don (catégorie race)
         let _row_5                        = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='5'] .level-up-row[data-slot-key='ancestry_feat']" );
-        TEST.ASSERT.notNull( _row_5, "Pre-condition : ligne Don d'ascendance de Elfe 5 rendue" );
+        TEST.ASSERT.notNull( _row_5, "Pre-condition : ligne Don ancestral de Elfe 5 rendue" );
         if ( !_row_5 ) {
             return;
         }
@@ -189,7 +189,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
         // valide sans cliquer l'option, puis la ligne se re-vide (le palier 5
         // reste en attente pour le test SAVE)
         let _enter_row                    = _pane.querySelector( ".ancestry-up-block[data-ancestry-level-name='5'] .level-up-row[data-slot-key='ancestry_feat']" );
-        TEST.ASSERT.notNull( _enter_row, "Pre-condition : ligne Don d'ascendance de Elfe 5 rendue" );
+        TEST.ASSERT.notNull( _enter_row, "Pre-condition : ligne Don ancestral de Elfe 5 rendue" );
         if ( !_enter_row ) {
             return;
         }
@@ -256,13 +256,13 @@ TEST.RUNNER.register( "[DONS ASCENDANCE][SAVE] save → load = don du palier 1 r
     _reloaded.doActionAfter( "event__data_loaded__done", { "param__current_character__object": _reloaded } );
     TEST.ASSERT.equal( _reloaded.getAncestryHistory().getSize(), 2, "La relecture devrait restaurer les deux paliers d'ascendance, obtenu : " + _reloaded.getAncestryHistory().getSize() );
     let _reloaded_line                    = _reloaded.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );
-    TEST.ASSERT.notNull( _reloaded_line, "La ligne Don d'ascendance du palier 1 devrait exister apres relecture" );
+    TEST.ASSERT.notNull( _reloaded_line, "La ligne Don ancestral du palier 1 devrait exister apres relecture" );
     if ( _reloaded_line ) {
         TEST.ASSERT.ok( _reloaded_line.isActive(), "La validation du don d'ascendance devrait etre restauree apres relecture, obtenu : " + _reloaded_line.isActive() );
         TEST.ASSERT.equal( _reloaded_line.getSelectedValue(), _feat_name, "Le don choisi devrait etre restaure apres relecture, obtenu : " + _reloaded_line.getSelectedValue() );
     }
     let _reloaded_line_5                  = _reloaded.getAncestryHistory().getContentByUUID( "5" ).getContentByUUID( "5__ancestry_feat" );
-    TEST.ASSERT.notNull( _reloaded_line_5, "La ligne Don d'ascendance du palier 5 devrait exister apres relecture" );
+    TEST.ASSERT.notNull( _reloaded_line_5, "La ligne Don ancestral du palier 5 devrait exister apres relecture" );
     if ( _reloaded_line_5 ) {
         TEST.ASSERT.notOk( _reloaded_line_5.isActive(), "Le palier 5 devrait rester en attente apres relecture, obtenu : " + _reloaded_line_5.isActive() );
     }

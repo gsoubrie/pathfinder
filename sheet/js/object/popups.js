@@ -122,6 +122,23 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // La classe d'armure est un etat du personnage : la popup est
+            // reconstruite a chaque ouverture, jamais servie du cache
+            case "event__show_information__armor_class": {
+                let armor_character = CONTROLLER.Character.current_character;
+                let armor_data      = armor_character ? armor_character.getCombat().getArmorClassInformationData( armor_character ) : null;
+                if ( !armor_data ) {
+                    return;
+                }
+                if ( this.getContentByUUID( armor_data[ "id" ] ) ) {
+                    this.removeContent( armor_data[ "id" ], null, true );
+                }
+                let armor_popup = this._openPopup( armor_data );
+                if ( armor_popup ) {
+                    armor_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

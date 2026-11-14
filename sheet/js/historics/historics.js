@@ -1,125 +1,44 @@
 "use strict";
 /**
  * @class HISTORICS.Historic
- * @extends OBJECT.InterfaceHtml
+ * @extends CHARACTER.ComponentInterfacePopup
  */
 HISTORICS.Historic           = function () {
     this.init();
 };
 HISTORICS.Historic.prototype = {
-    init: function ( data ) {
-        this.label = SERVICE.DOM.createElement( "div", {} );
+    init        : function () {
+        this.setKey( HISTORICS.key_element );
+        this.setLabelProperty( HISTORICS.label_element );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
-        switch ( event_name ) {
-            case "event__form__element_changed":
-                this.setName( params[ "param__edition_value" ] );
-                //params[ "param__characteristics__object" ].doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": CLASSES.key_element } );
-                //params[ "param__characteristics__object" ].doActionAfter( "event__set_object_bonuses", { "param__class_object": this, "param__is_for": CLASSES.key_element } );
-                break;
-        }
-    },
-    //********************************************  GETTER SETTER  **************************************************//
-    setName: function ( to_set ) {
-        this.name            = to_set;
-        this.label.innerHTML = to_set;
-        //let data_from_class  = CLASSES.getDataByName( this.name );
-        //this.setData( "characteristics_bonus", data_from_class[ "characteristics_bonus" ] );
-    },
-    getUUID: function () {
-        return this.name;
-    },
-    //********************************************  HTML   **************************************************//
-    setData: function ( key, value ) {
-        switch ( key ) {
-            case "name":
-                this.setName( value );
-                break;
-            case "characteristics_bonus":
-                this[ key ] = value;
-                break;
-            default:
-                console.warn( "[IGNORED DATA]", key );
-        }
+        CHARACTER.ComponentInterfacePopup.prototype.doActionAfter.call( this, event_name, params );
     },
     //********************************************  SAVE   **************************************************//
-    getDataToSave: function () {
+    getSpecificDataToSave: function () {
         let to_return       = {};
-        to_return[ "name" ] = this.name;
+        to_return[ this.key ] = this.getValue();
         return to_return;
-    }
-};
-
-SERVICE.CLASS.addPrototype( HISTORICS.Historic, OBJECT.InterfaceHtml );
-
-/**
- * @class HISTORICS.Historics
- * @extends OBJECT.InterfaceContainerHtml
- */
-HISTORICS.Historics           = function () {
-    this.init();
-};
-HISTORICS.Historics.prototype = {
-    init: function () {
-        this.initContents();
-        for ( let i = 0, _size_i = 3; i < _size_i; i++ ) {
-        //for ( let i = 0, _size_i = HISTORICS.ENUM.length; i < _size_i; i++ ) {
-            this.add( new HISTORICS.HistoricsPopup( HISTORICS.ENUM[ i ] ) );
-        }
-    }
-};
-
-SERVICE.CLASS.addPrototype( HISTORICS.Historics, OBJECT.InterfaceContainerHtml );
-
-/**
- * @class HISTORICS.HistoricsPopup
- * @extends HISTORICS.Historic
- */
-HISTORICS.HistoricsPopup           = function ( data ) {
-    this.init( data );
-};
-HISTORICS.HistoricsPopup.prototype = {
-    init: function ( data ) {
-        this.updateData( data );
     },
     //********************************************  HTML   **************************************************//
-    setData  : function ( key, value ) {
-        switch ( key ) {
-            case "name":
-            case "description":
-            case "gift_skill":
-            case "characteristics_bonus":
-                this[ key ] = value;
-                break;
-            case "skills":
-                this.setSkills( value );
-                break;
-            default:
-                console.warn( "[IGNORED DATA]", key );
+    // The choice lands the sheet on the Bibliothèque, subject Historiques
+    // (the filter rides the current value, empty when unset) : the old
+    // edition popup of 68 entries read as a downgrade of the subject
+    computeHtmlGeneralWindow: function ( dom_element_parent ) {
+        if ( this.dom_element_general ) {
+            return;
         }
-    },
-    setSkills: function ( value ) {
-        this.skills      = value;
-        this.skills_html = new SERVICE.DOM.createElement( "div", { class: "skills-popup" } );
-        for ( let i = 0, _size_i = value.length; i < _size_i; i++ ) {
-            let container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-gift" } ), this.skills_html );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-label" }, this.skills[ i ].label ), container );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-characteristic" }, this.skills[ i ].characteristic ), container );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { "class": "container-skill-rank" }, MASTERY.parseToLetter(this.skills[ i ].rank) ), container );
-        }
-    },
-    //********************************************  HTML   **************************************************//
-    computeHTMLEdition: function () {
-        this.setDomElement( SERVICE.DOM.createElement( "div", { class: "historic-edition" } ) );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.description, "Descriptions" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.gift_skill, "Dons" ), this.getDomElement() );
-        SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyDescription( this.characteristics_bonus, "Bonus" ), this.getDomElement() );
-        if ( this.skills ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM_HELPER.createEditionPropertyHorizontal( this.skills_html.outerHTML, "Compétences" ), this.getDomElement() );
-        }
-        return this.getDomElement();
+        this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + this.key } ), dom_element_parent );
+        let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": this.key } ), this.dom_element_general );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, this.label_property ), div );
+        this.dom_element__input       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: "",
+            onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__historic__goto_library')"
+        } ), div );
+        this.dom_element__input.value = this.getValue();
     }
 };
 
-SERVICE.CLASS.addPrototype( HISTORICS.HistoricsPopup, HISTORICS.Historic );
+SERVICE.CLASS.addPrototype( HISTORICS.Historic, CHARACTER.ComponentInterfacePopup );

@@ -249,6 +249,42 @@ OBJECT.HealthPopupRenderer.prototype = {
 };
 SERVICE.CLASS.addPrototype( OBJECT.HealthPopupRenderer, OBJECT.BasePopupRenderer );
 
+/**
+ * @class OBJECT.ArmorClassPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ */
+OBJECT.ArmorClassPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.ArmorClassPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--default">
+            <h2 class="popup-title">${text}</h2>
+          </div>
+
+          <div class="popup-health-total">${object_data.armor_class}</div>
+          <div class="popup-armor-class-total-hint">Classe d'armure</div>
+          ${this._sourcesList()}` );
+    },
+
+    _sourcesList: function () {
+        const sources = this.object_data.armor_class_sources || [];
+        let rows      = "";
+        for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
+            rows += `
+              <div class="popup-health-source">
+                <span class="popup-health-source-value">${sources[ i ].value}</span>
+                <span class="popup-health-source-text">${sources[ i ].text}</span>
+              </div>`;
+        }
+        return `<div class="popup-health-sources">${rows}</div>`;
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.ArmorClassPopupRenderer, OBJECT.BasePopupRenderer );
+
 
 /**
  * @class OBJECT.ActionPopupRenderer

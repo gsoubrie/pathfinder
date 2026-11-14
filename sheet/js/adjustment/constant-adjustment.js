@@ -11,7 +11,8 @@ var ADJUSTMENT = {};
 // exists (the pick waits for the + commit), "speed" adds the meters input
 // next to the mode selector, "input" for the free text cases. The mastery
 // picks its lists with its phase 2 consumption; the characteristic boost
-// stays out until its consumption is decided.
+// landed with the Historique (user decision: the historic bonuses display
+// only, the boost of the free choice rides here by hand).
 ADJUSTMENT.KINDS = [
     {
         key         : "language",
@@ -39,6 +40,11 @@ ADJUSTMENT.KINDS = [
         label             : "Maîtrises",
         value_picker      : "input",
         value_placeholder : "Maîtrise, ex : Arcanes experte"
+    },
+    {
+        key         : "characteristic_boost",
+        label       : "Bonus de caractéristique",
+        value_picker: "selector"
     },
     {
         key               : "note",

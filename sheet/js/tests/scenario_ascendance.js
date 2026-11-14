@@ -54,7 +54,7 @@ TEST.RUNNER.register( "[ASCENDANCE] clic sur le champ → popup ouvert", functio
     TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-valid" ), "Le bouton Valider devrait etre rendu" );
     TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-cancel" ), "Le bouton Quitter devrait etre rendu" );
     let _tabs                           = _popup.querySelectorAll( ".gs-window-element-V2" );
-    TEST.ASSERT.equal( _tabs.length, 16, "Le popup devrait afficher les 16 races en onglets, obtenu : " + _tabs.length );
+    TEST.ASSERT.equal( _tabs.length, Object.keys( RACES.ENUM ).length, "Le popup devrait afficher les " + Object.keys( RACES.ENUM ).length + " races en onglets, obtenu : " + _tabs.length );
 } );
 
 TEST.RUNNER.register( "[ASCENDANCE] popup : Humain actif par defaut", function () {
@@ -206,20 +206,21 @@ TEST.RUNNER.register( "[ASCENDANCE] champs visibles apres validation = Ascendanc
     }
 } );
 
-TEST.RUNNER.register( "[ASCENDANCE] zones toujours cachees : archétype, niveau, etc", function () {
+TEST.RUNNER.register( "[ASCENDANCE] zones jamais implementees : niveau, etc", function () {
+    // Le champ Archetype vit sur le personnage et s'affiche des le debut
+    // (decision utilisateur : tout s'affiche) : il ne vit plus dans cette
+    // liste, seules les zones jamais implementees restent absentes
     let _hidden_areas                   = [
-        "area-archetype",
         "area-level",
         "area-alignment",
         "area-divinity",
         "area-heroism",
         "area-ca",
-        "area-surprise",
-        "area-health"
+        "area-surprise"
     ];
     for ( let i = 0, _size_i = _hidden_areas.length; i < _size_i; i++ ) {
         let _area                        = document.querySelector( ".characters-sheet-content ." + _hidden_areas[ i ] );
-        TEST.ASSERT.isNull( _area, "La zone " + _hidden_areas[ i ] + " devrait rester cachee tant que la classe n'est pas choisie" );
+        TEST.ASSERT.isNull( _area, "La zone " + _hidden_areas[ i ] + " devrait rester absente (zone jamais implementee)" );
     }
 } );
 
@@ -344,7 +345,7 @@ TEST.RUNNER.register( "[ASCENDANCE] onglet Progression allumé + section Elfe 1 
         }
         TEST.ASSERT.equal( _block.querySelector( ".level-up-block-level-num" ).textContent, "Elfe 1", "Le titre de la section devrait afficher Elfe 1, obtenu : " + _block.querySelector( ".level-up-block-level-num" ).textContent );
         let _feat_row                   = _block.querySelector( ".level-up-row[data-slot-key='ancestry_feat']" );
-        TEST.ASSERT.notNull( _feat_row, "La ligne Don d'ascendance devrait etre rendue sans classe" );
+        TEST.ASSERT.notNull( _feat_row, "La ligne Don ancestral devrait etre rendue sans classe" );
         if ( _feat_row ) {
             TEST.ASSERT.equal( _feat_row.dataset.currentPhase, "RUNNING", "Le don d'ascendance devrait etre en attente, obtenu : " + _feat_row.dataset.currentPhase );
         }

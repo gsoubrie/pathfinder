@@ -11,9 +11,6 @@ CLASSES.Class.prototype = {
         this.name      = class_name;
         this.level     = 1;
         this.skills    = new CLASSES.Skills();
-        this.archetype = new ARCHETYPES.Archetype();
-        this.children  = new OBJECT.InterfaceContainer();
-        this.children.add( this.archetype );
     },
     //********************************************  EVENT LISTENER  **************************************************//
     doActionAfter: function ( event_name, params ) {
@@ -82,9 +79,6 @@ CLASSES.Class.prototype = {
     setLevel      : function ( to_set ) {
         this.level = to_set;
     },
-    getArchetype  : function () {
-        return this.archetype;
-    },
     getSkills     : function () {
         return this.skills;
     },
@@ -97,9 +91,6 @@ CLASSES.Class.prototype = {
             case "level":
                 this.setLevel( parseInt( value ) );
                 break;
-            case ARCHETYPES.key_element:
-                this.archetype.setValue( value && value.value !== undefined ? value.value : value );
-                break;
             default:
                 console.warn( "[IGNORED DATA]", key, value );
         }
@@ -109,7 +100,7 @@ CLASSES.Class.prototype = {
         let to_return            = {};
         to_return[ "name" ]      = this.name;
         to_return[ "level" ]     = this.level;
-        return Object.assign( to_return, this.archetype.getDataToSave() );
+        return to_return;
     }
 };
 

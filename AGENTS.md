@@ -352,7 +352,7 @@ niveau 5, "expertise en réflexes" validée) :
    badge Q ; save → load restaure le choix et le compte de lignes.
 8. `scenario_dons_ascendance.js` — sections d'ascendance intercalées :
    séquence exacte Elfe 1, Magicien 1..4, Elfe 5, Magicien 5 (titre,
-   ligne "Don d'ascendance" en attente, options = dons d'Elfe du palier,
+   ligne "Don ancestral" en attente, options = dons d'Elfe du palier,
    "?" par option) ; choisir un don sur Elfe 1 valide la ligne et
    décrémente le compteur, le "?" d'une option ouvre la popup feat
    catégorie race ; save → load restaure le don et le false du palier 5.
@@ -2115,6 +2115,126 @@ caractéristiques — le test « tout validé → badge vide » devient « badge
 dans cette chaîne : le mod INT bougerait les comptes en cascade).
 Validé par run headless (outil du Round 76) : 131 OK / 0 ECHEC,
 stabilisé sur DEUX runs consécutifs.
+
+Round 79 = HISTORIQUES (demande utilisateur : « on [n'a] pas les
+historiques dans la page, il me faut pouvoir les choisir » — l'ancien onglet
+Niveau qui les affichait est parti au Round 77, les 68 données de
+HISTORICS.ENUM restaient orphelines). Décisions actées par l'utilisateur
+après maquettes : (1) le choix passe par la BIBLIOTHÈQUE (patron Archétype,
+pas une popup d'édition) ; (2) le champ vit dans le Général SOUS PV ;
+(3) AFFICHAGE SEUL en v1 — les compétences qualifiées et les bonus de
+caractéristiques ne s'appliquent à RIEN (aucune contribution maîtrises,
+aucun bonus forcé) ; (4) le don de compétence de l'historique s'affiche SUR
+LA CARTE (ligne « Don : … »), rien dans la Progression ; (5) le boost du
+choix libre (FRE) se pose À LA MAIN dans Ajustements : `characteristic_boost`
+rejoint ADJUSTMENT.KINDS (sélecteur des SIX caractéristiques PAR LIBELLÉ —
+« Force », pas « FOR » : l'entrée se lit en prose, la carte label→clé vivra
+avec la consommation), la décision pendante du Round 37 est tranchée.
+Le champ `CHARACTER.Historic` (historics.js réécrit d'une traite) suit le
+modèle Archetype EXACTEMENT : enfant du personnage, save clé `historic`
+(string), input readOnly du Général câblé `event__historic__goto_library`
+→ `LibraryWindow.goToHistoricsSubject` (pending subject + filtre du nom
+courant, vide sinon), le « + » de la carte émet `event__historic__select`
+(le second clic VIDE le champ, l'Aucun de la popup disparue) et bascule sur
+le GÉNÉRAL (le champ du choix y vit ; l'Archétype bascule sur la Progression
+parce que ses sections y vivent). Carte : ses lignes un point par ligne
+(compétences « Religion — SAG », le don, « Bonus : INT ou SAG ou libre »
+— FRE lit « libre »), TOUT cherchable (règle Round 71), tag de possession
+« Mon historique » (`.library-tag--owned`). FOSSILS : les vieux fichiers
+portent l'historique DANS le tableau `skills` de l'entrée de niveau (forme
+du a9b2… réel : `{ origin: "class", "historic": "Acolyte" }`) — la
+relecture le migre vers le champ (case `levels_history`, même patron que
+l'archétype embarqué des vieilles classes). PURGE de la vieillerie partie
+avec la popup d'édition remplacée : `HISTORICS.WindowGroup` (windows_group),
+le case HISTORICS de `POPUP.PropertyEdition`,
+`LevelsHistory.getSpecialContent` — le vieux mécanisme `skills` des entrées
+SURVIT tel quel (Round 77). Scénario `scenario_historiques.js` (6 tests,
+suite indépendante après scenario_bibliotheque) : champ câblé sur page
+vide, sujet Bibliothèque + filtre vide, filtre + choix + bascule + lignes
+de la carte, recherche par contenu (compétence, DON, ligne BONUS — les
+comptes se CALCULENT par le matcher reconstruit au format exact des lignes,
+jamais figés), save → relecture + migration fossile (fixture minimale
+class + levels_history au format du vieux fichier), second + vide le champ.
+scenario_ajustements passe à 7 sections + un test ajout boost (re-requête
+du panneau APRÈS le + : le re-rendu tue la référence de section, et retrait
+en fin de test pour laisser la suite propre). PIÈGE du run : un filtre de
+test « int ou sag » doit matcher la LIGNE-telle-qu'affichée — un matcher
+test qui pousse les colonnes en éléments séparés ne voit jamais « INT ou
+SAG » joints de « ou ». Validé par run headless (outil Round 76) :
+144 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs.
+
+Round 80 = ONGLÉT COMBAT COMPLET (demande utilisateur : « finir l'onglet
+combat avec tout ce qui est nécessaire… ne me demande rien, mets tout ce
+qui est nécessaire pour le combat » — carte blanche AGENT, maquette
+interne seule, design acté par l'agent au fil du chantier) :
+`CHARACTER.Combat` (`sheet/js/combat/combat.js`, classe de CALCUL PUR —
+personnage en 1er paramètre, aucun rendu, patron `Masteries`, vit hors
+des `children`, état dérivé non sauvegardé) + cartes
+`COMBAT.*` (`constant-combat.js`). Contenu de la fenêtre
+(`combat_window.js`, après Général/Équipement dans la navigation) :
+bande PV (inchangée, journal + modales), zone RÉFÉRENCE (Vitesse =
+`race.speed`, Initiative = jet Perception, Classe d'armure cliquable →
+popup `event__show_information__armor_class`, catégorie `armor_class`
+reconstruite à chaque ouverture, patron Health), les 3 sauvegardes,
+tableau ATTAQUES (mains nues TOUJOURS + chaque arme ÉQUIPÉE, colonnes
+grille partagée Arme/Rang/Mod/Jet/Dégâts, « ? » par arme → popup item
+par data-value), zone INCANTATION conditionnelle (Attaque de sort + DD
+des sorts, rendue seulement si rang `spell_attack`/`spell_dc` existe),
+Journal. CALCULS : CA = 10 + DEX plafonné par « Mod. de dex. max. » de
+l'armure portée + bonus « CA bonus » + bonus de rang du slot
+`defense__unarmored` sans armure / de l'armure sinon (plusieurs armures
+portées → MEILLEUR bonus) ; les boucliers (Groupe « Bouclier », pas de
+CA bonus) ne comptent JAMAIS dans la CA — leur ligne vit dans la zone
+ÉQUIPEMENT. Attaque = niveau + caractéristique (Groupe « Bombe » ou
+champ « Portée » → DEX ; trait « Finesse » → DEX ; sinon FOR) + bonus
+de rang du slot par « Catégorie » scrapée (simple/de guerre/évoluée →
+`attack__simple/martial/advanced_weapons`, Bombe →
+`attack__alchemical_bombs`, mains nues → `attack__unarmed`, dégâts
+« 1d4 contondant » écrit à la main). Incantation : clé = premier choix
+non-FREE du characteristics_bonus de la classe de plus haut niveau ;
+Attaque = niveau + mod + bonus, DD = 10 + les mêmes. Rafraîchissement :
+à l'ACTIVATION de l'onglet + sur les events stuff que la fenêtre
+possède (add/remove/set_location) + modales PV — JAMAIS sur les events
+levelup (la fenêtre Combat vit AVANT le LevelUpWindow dans le groupe,
+personnage périmé). Au passage : `STUFFS.hasTrait( name, trait_label )`
+(constant-stuff.js) et `popup_renders.js` gagne
+`OBJECT.ArmorClassPopupRenderer` (réutilise les classes
+`.popup-health-*`). PIÈGE DOMINANT du chantier : `var COMBAT = {}`
+INTERDIT en tête de `constant-combat.js` — les namespaces racines vivent
+dans `constant.js` et `COMBAT` y existait DÉJÀ (il porte
+`COMBAT.DAMAGE_TYPES` dans constant_divers.js, consommé par la modale
+Dégâts de Round 79) : la re-déclaration écrasait tout et cassait la
+modale (« Script error ») ; un fichier `constant_*` qui ÉTEND un
+namespace existant ne le re-déclare pas (même piège que MASTERY).
+PIÈGE d'assert : `TEST.ASSERT.equal` est STRICT — textContent (string)
+vs domaine (number) exige `"" + domaine`. PIÈGE de chaîne :
+scenario_combat posait ses armes par plat et les LAISSAIT posées —
+scenario_equipement_complet (fin de chaîne) repose les PREMIÈRES
+options du dataset, un doublon non-consommable no-ope et le compte
+attendu manque une entrée : le test combat RETIRE ses objets en fin de
+test (règle « laisser la suite propre », patron boost du Round 79).
+SUITE (retour utilisateur : « il manque l'armure + équipements » — la
+feuille finale du dump porte bien la CA et l'attaque de l'arme
+ÉQUIPÉE, ce qui manquait était l'AFFICHAGE des pièces) : nouvelle zone
+ÉQUIPEMENT après la référence, une ligne de propriété par pièce portée
+(`getEquipmentLines` du domaine : Armure = `getWornArmor`, Bouclier =
+`getWornShield`, une pièce absente affiche « — », JAMAIS une ligne
+manquante — règle « tout s'affiche, tout le temps »), stats formatées
+par le domaine (`_formatArmorStats` : CA bonus + Mod. de dex. max. ;
+`_formatShieldStats` : Solidité + « CA +2 brandi » — la fenêtre lit,
+elle ne calcule pas), « ? » par ligne → popup item par data-value
+(patron des lignes d'attaque). `COMBAT.STURDINESS_FIELD` rejoint les
+champs scrapés ; la ligne bouclier des attaques part avec son CSS mort
+`combat-shield-row` (une protection n'est pas une attaque). PIÈGE de
+diagnostic : le rapport compte UNE LIGNE PAR GROUPE enregistré — les
+asserts ajoutés dans un groupe existant ne bougent pas le total (147),
+leur exécution se vérifie dans le DOM du dump, pas au compte du
+rapport. Frontières laissées à l'utilisateur : le bouclier brandi
+n'est pas automatique (la ligne cite « CA +2 brandi », la feuille ne
+le brandit pas), la finesse = DEX reste le défaut à la main dans
+Ajustements, les DÉGÂTS s'affichent sans bonus FOR appliqué, rien ne
+se sauvegarde (tout est état dérivé). Validé par run headless (outil
+Round 76) : 147 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs.
 
 ### Style, commentaires, nommage
 

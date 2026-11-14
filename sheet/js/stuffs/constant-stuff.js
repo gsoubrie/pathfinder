@@ -275,6 +275,19 @@ STUFFS.isConsumable = function ( name ) {
     return entry.traits.indexOf( STUFF.CONSUMABLE_TRAIT ) !== -1;
 };
 
+/**
+ * @param {string} name        Scraped entry name, ex: "Rapière"
+ * @param {string} trait_label Display trait label, ex: "Finesse"
+ * @returns {boolean}          Carries the entry the trait ?
+ */
+STUFFS.hasTrait = function ( name, trait_label ) {
+    let entry = STUFFS.getByName( name );
+    if ( !entry ) {
+        return false;
+    }
+    return entry.traits.indexOf( trait_label ) !== -1;
+};
+
 // The item popup data (renderer "item" : name, level badge, traits,
 // bulk, price, kind detail fields scraped, description) — static data,
 // the popup caches by uuid
