@@ -111,13 +111,13 @@ TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affich�
     let _champion_entry                = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-entry[data-name='Champion']" );
     TEST.ASSERT.notNull( _champion_entry, "L'entree de la classe Champion devrait exister (.class-entry[data-name])" );
     if ( _champion_entry ) {
-        TEST.ASSERT.notNull( _champion_entry.querySelector( ".class-entry-icon" ), "L'entree Champion devrait afficher son icone (.class-entry-icon)" );
-        TEST.ASSERT.equal( _champion_entry.querySelector( ".class-entry-icon" ).textContent, CLASSES.ICONS[ "Champion" ], "L'icone de l'entree Champion devrait venir de CLASSES.ICONS, obtenu : " + _champion_entry.querySelector( ".class-entry-icon" ).textContent );
-        TEST.ASSERT.equal( _champion_entry.querySelector( ".class-entry-level" ).textContent, "1", "L'entree Champion devrait afficher son niveau (chiffre seul), obtenu : " + _champion_entry.querySelector( ".class-entry-level" ).textContent );
+        TEST.ASSERT.equal( _champion_entry.textContent, "Champion", "L'entree Champion devrait afficher son nom seul, obtenu : " + _champion_entry.textContent );
+        TEST.ASSERT.isNull( _champion_entry.querySelector( ".class-entry-icon" ), "L'entree ne devrait plus afficher d'icone" );
+        TEST.ASSERT.isNull( _champion_entry.querySelector( ".class-entry-level" ), "L'entree ne devrait plus afficher de badge de niveau (le niveau vit dans la zone level)" );
         TEST.ASSERT.ok( ( _champion_entry.getAttribute( "title" ) || "" ).indexOf( "Champion" ) !== -1, "L'entree Champion devrait porter une info-bulle avec son nom, obtenu : " + _champion_entry.getAttribute( "title" ) );
     }
     let _add_button                   = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-add-button" );
-    TEST.ASSERT.notNull( _add_button, "Le bouton d'ajout de classe devrait rester rendu" );
+    TEST.ASSERT.isNull( _add_button, "Le bouton d'ajout ne devrait plus etre rendu quand une classe est posee (le nom seul est cliquable)" );
     let _archetype_area                 = document.querySelector( ".characters-sheet-content .grid-area.area-archetype" );
     TEST.ASSERT.notNull( _archetype_area, "Le champ Archetype devrait etre affiche apres le choix de la classe (div.grid-area.area-archetype)" );
     if ( _archetype_area ) {
@@ -131,6 +131,28 @@ TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affich�
             TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__archetype__goto_library" ) !== -1, "Le champ Archetype devrait etre câblé sur la Bibliothèque" );
         }
     }
+} );
+
+TEST.RUNNER.register( "[CLASSE] zone level : niveau affiche + clic bascule sur Progression", function () {
+    let _character                     = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _level_area                    = document.querySelector( ".characters-sheet-content .grid-area.area-level" );
+    TEST.ASSERT.notNull( _level_area, "La zone Niveau devrait etre rendue (area-level)" );
+    if ( !_level_area ) {
+        return;
+    }
+    let _level_input                   = _level_area.querySelector( "input.level-link" );
+    TEST.ASSERT.notNull( _level_input, "Le champ Niveau devrait avoir son input cliquable (input.level-link)" );
+    if ( !_level_input ) {
+        return;
+    }
+    TEST.ASSERT.equal( _level_input.value, "" + _character.getLevel(), "Le champ Niveau devrait afficher le niveau total (" + _character.getLevel() + "), obtenu : [" + _level_input.value + "]" );
+    TEST.ASSERT.ok( ( _level_input.getAttribute( "onclick" ) || "" ).indexOf( "goToSheet('" + CHARACTER.LevelUpWindow.NAME + "')" ) !== -1, "Le clic du champ Niveau devrait basculer sur l'onglet Progression" );
+    _level_input.click();
+    TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur le champ Niveau devrait activer l'onglet Progression, obtenu : " + _character.windows.getActiveWindow().getName() );
 } );
 
 TEST.RUNNER.register( "[CLASSE][SAVE] contenu = Champion 1 + 1 niveau actif", function () {

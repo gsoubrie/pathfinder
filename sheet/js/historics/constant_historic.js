@@ -17240,3 +17240,39 @@ var HISTORICS = {
         }
     ]
 };
+
+/**
+ * Every lore known in the scraped data: the qualified "Connaissance" skills
+ * of the backgrounds ("de la Pègre", "des guildes"...), displayed as
+ * "Connaissance <qualifier>". Qualifiers not starting with a preposition
+ * are scraping artefacts and stay out.
+ *
+ * @returns {Array}  [ { name } ] of the lore names
+ */
+HISTORICS.getKnownLores = function () {
+    let to_return = [];
+    let seen      = {};
+    for ( let i = 0, _size_i = HISTORICS.ENUM.length; i < _size_i; i++ ) {
+        let skills = HISTORICS.ENUM[ i ].skills || [];
+        for ( let s = 0, _size_s = skills.length; s < _size_s; s++ ) {
+            if ( !skills[ s ].need_qualifier || !skills[ s ].qualifier ) {
+                continue;
+            }
+            let qualifier = skills[ s ].qualifier;
+            if ( !/^(de|des|du|d')\s/i.test( qualifier ) ) {
+                continue;
+            }
+            let lore_name = skills[ s ].label + " " + qualifier;
+            let seen_key  = lore_name.toLowerCase();
+            if ( seen[ seen_key ] ) {
+                continue;
+            }
+            seen[ seen_key ] = true;
+            to_return.push( { "name": lore_name } );
+        }
+    }
+    to_return.sort( function ( lore_a, lore_b ) {
+        return lore_a.name.localeCompare( lore_b.name, "fr" );
+    } );
+    return to_return;
+};

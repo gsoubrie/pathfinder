@@ -211,7 +211,6 @@ TEST.RUNNER.register( "[ASCENDANCE] zones jamais implementees : niveau, etc", fu
     // (decision utilisateur : tout s'affiche) : il ne vit plus dans cette
     // liste, seules les zones jamais implementees restent absentes
     let _hidden_areas                   = [
-        "area-level",
         "area-alignment",
         "area-divinity",
         "area-heroism",

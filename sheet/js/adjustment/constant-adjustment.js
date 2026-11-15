@@ -20,6 +20,11 @@ ADJUSTMENT.KINDS = [
         value_picker: "selector"
     },
     {
+        key         : "lore",
+        label       : "Connaissances",
+        value_picker: "selector"
+    },
+    {
         key               : "sense",
         label             : "Sens",
         value_picker      : "input",
@@ -36,10 +41,9 @@ ADJUSTMENT.KINDS = [
         value_picker: "selector"
     },
     {
-        key               : "mastery",
-        label             : "Maîtrises",
-        value_picker      : "input",
-        value_placeholder : "Maîtrise, ex : Arcanes experte"
+        key         : "mastery",
+        label       : "Maîtrises",
+        value_picker: "mastery"
     },
     {
         key         : "characteristic_boost",
@@ -56,6 +60,13 @@ ADJUSTMENT.KINDS = [
 
 // Speed modes beyond the race walk, hand-written PF2 list
 ADJUSTMENT.SPEED_MODES = [ "Vol", "Nage", "Escalade", "Creusage" ];
+
+// Ranks proposed for a manual mastery: qualification and above, displayed
+// "Label (short)", ex: "Expert (E)"
+ADJUSTMENT.MASTERY_RANKS = [ "Q", "E", "M", "L" ].map( function ( short ) {
+    let rank = MASTERY.getByShort( short );
+    return { "name": rank.label + " (" + rank.short + ")" };
+ } );
 
 ADJUSTMENT.EXPLANATION_PLACEHOLDER = "Source ou explication";
 

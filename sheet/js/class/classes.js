@@ -455,12 +455,15 @@ CLASSES.CharacterClasses.prototype = {
                 "data-name": _class.getName(),
                 title      : _class.getName() + " — Niveau " + _class.getLevel(),
                 onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "','param__class_name':'" + _class.getName() + "'})"
-            } );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-icon" }, CLASSES.ICONS[ _class.getName() ] || "⚔" ), _entry );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "class-entry-level" }, "" + _class.getLevel() ), _entry );
+            }, _class.getName() );
             SERVICE.DOM.addElementTo( _entry, this.dom_element__class_list );
         }
-        SERVICE.DOM.addElementTo( this.dom_element__add_button, this.dom_element__class_list );
+        // Le + ne se rend que sans classe posee (geste de selection) : une
+        // classe posee se consulte au clic sur son nom, le niveau vit dans
+        // la zone level
+        if ( this.isEmpty() ) {
+            SERVICE.DOM.addElementTo( this.dom_element__add_button, this.dom_element__class_list );
+        }
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

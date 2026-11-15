@@ -33,6 +33,7 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                     this.computeArea__healthPoints( CONTROLLER.Character.current_character );
+                    this.computeArea__level( CONTROLLER.Character.current_character );
                 }
                 break;
         }
@@ -58,6 +59,7 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeArea__ancestryInfo( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
+        this.computeArea__level( character_object );
         // Le champ Archétype vit sur le PERSONNAGE (decision utilisateur :
         // un seul archétype, affiche des le debut)
         this.computeComponent( character_object.getArchetype() );
@@ -236,6 +238,12 @@ CHARACTER.GeneralWindow.prototype = {
             character_object.getAdjustments().getValuesByKind( "language" )
         );
         this._computeAncestryInfoList( "language", "Langues", languages );
+        // Les connaissances (lores) viennent des ajustements ; la liste
+        // n'apparait que quand elle est non vide
+        let lores = character_object.getAdjustments().getValuesByKind( "lore" );
+        if ( lores.length ) {
+            this._computeAncestryInfoList( "lore", "Connaissances", lores );
+        }
     },
 
     // Lecture seule : les entrees gerees (base de race, choix de Progression)
@@ -257,6 +265,29 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     
+    // Champ Niveau du General : le niveau total du personnage. Le clic
+    // bascule sur l'onglet Progression, la ou vivent les prises de niveau
+    computeArea__level: function ( character_object ) {
+        if ( !this.area_level ) {
+            this.area_level = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-level" } ),
+                this.content_dom_element_target
+            );
+            let property = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "property vertical", "data-name": "level" } ), this.area_level );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Niveau" ), property );
+            this.dom_element_level = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "input", {
+                    class   : "value level-link",
+                    readOnly: "",
+                    title   : "Ouvrir l'onglet Progression",
+                    onclick : "CHARACTER.LibraryWindow.goToSheet('" + CHARACTER.LevelUpWindow.NAME + "')"
+                } ),
+                property
+            );
+        }
+        this.dom_element_level.value = "" + ( character_object ? character_object.getLevel() : 0 );
+    },
+
     // Champ PV du General (demande utilisateur : UN CHAMP — le suivi vit
     // dans l'onglet Combat). Le clic bascule sur l'onglet Combat, la ou
     // vivent les gestes de jeu (Soigner, Degats, PV temporaires, journal)

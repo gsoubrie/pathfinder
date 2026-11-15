@@ -1171,7 +1171,7 @@ SERVICE.MODAL = (function ( self ) {
     self.prompt = function ( title, label, defaultValue, onConfirm, onCancel ) {
         var modal = self.create( title, null, null );
         
-        var input = self.addField( modal, "text", label, "prompt_value", defaultValue );
+        var input = self.addField( modal, "textarea", label, "prompt_value", defaultValue );
         
         self.addButtons( modal, [
             {
@@ -1206,9 +1206,11 @@ SERVICE.MODAL = (function ( self ) {
             }, 100 );
         }
         
-        // Soumettre avec Enter
-        input.addEventListener( "keypress", function ( e ) {
-            if ( e.key === "Enter" ) {
+        // Soumettre avec Enter seul ; Ctrl+Entrée (ou Shift+Entrée) laisse
+        // le textarea insérer son saut de ligne
+        input.addEventListener( "keydown", function ( e ) {
+            if ( e.key === "Enter" && !e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey ) {
+                e.preventDefault();
                 var value = input.value;
                 self.close( modal );
                 if ( onConfirm ) {

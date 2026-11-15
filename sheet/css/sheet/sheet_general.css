@@ -16,11 +16,11 @@
         var(--col-5-width, 1.25fr);
 
     grid-template-areas   :
-        ".        name    name    ancestry     class"
-        ".        player  player  legacy       archetype"
-        "FOR      jets    jets    ancestry-info size"
-        "DEX      jets    jets    ancestry-info pv"
-        "CON      jets    jets    ancestry-info historic"
+        "name     ancestry class  level historic"
+        "player   legacy  archetype pv size"
+        "FOR      jets    jets    ancestry-info ."
+        "DEX      jets    jets    ancestry-info ."
+        "CON      jets    jets    ancestry-info ."
         "INT      jets    jets    ancestry-info ."
         "SAG      jets    jets    ancestry-info ."
         "CHA      jets    jets    ancestry-info ."
@@ -38,6 +38,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
 .property-tab-pane[data-name="general_sheet"] .area-body_size { grid-area : size; }
 .property-tab-pane[data-name="general_sheet"] .area-pv { grid-area : pv; }
+.property-tab-pane[data-name="general_sheet"] .area-level { grid-area : level; }
 .property-tab-pane[data-name="general_sheet"] .area-historic { grid-area : historic; }
 .property-tab-pane[data-name="general_sheet"] .area-archetype { grid-area : archetype; }
 .property-tab-pane[data-name="general_sheet"] .area-FOR { grid-area : FOR; }
@@ -51,6 +52,10 @@
 /* Le champ PV est une ligne de lecture : le clic bascule sur l'onglet
    Combat, la ou vivent les gestes de jeu et le journal */
 .property-tab-pane[data-name="general_sheet"] .area-pv .health-points-link {
+    cursor : pointer;
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-level .level-link {
     cursor : pointer;
 }
 
@@ -100,13 +105,26 @@
 .property-tab-pane[data-name="general_sheet"] .area-race .property,
 .property-tab-pane[data-name="general_sheet"] .area-legacy .property,
 .property-tab-pane[data-name="general_sheet"] .area-class .property,
-.property-tab-pane[data-name="general_sheet"] .area-pv .property {
+.property-tab-pane[data-name="general_sheet"] .area-pv .property,
+.property-tab-pane[data-name="general_sheet"] .area-level .property {
     background : transparent;
     border     : none;
     padding    : 4px;
     box-shadow : none;
     height     : 100%;
     min-height : 0;
+}
+
+/* Les champs du Général n'ont aucun fond : la valeur se lit directement
+   sur le marron de la grille, en crème (--c-text, lisible sur fond sombre) */
+.property-tab-pane[data-name="general_sheet"] .property .value {
+    background : transparent;
+    box-shadow : none;
+    color      : var(--c-text);
+}
+
+.property-tab-pane[data-name="general_sheet"] .property .value:focus {
+    background : transparent;
 }
 
 /* ===== caracteristic ===== */
@@ -163,7 +181,7 @@
     background      : linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
     box-shadow      : 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-/* ===== Zone classe (multiclasse) ===== */
+/* ===== Zone classe : le nom seul, le niveau vit dans la zone level ===== */
 .property-tab-pane[data-name="general_sheet"] .area-class .class-list {
     display     : flex;
     flex-wrap   : wrap;
@@ -173,37 +191,8 @@
 }
 
 .property-tab-pane[data-name="general_sheet"] .area-class .class-entry {
-    position         : relative;
-    width            : 30px;
-    height           : 30px;
-    display          : flex;
-    align-items      : center;
-    justify-content  : center;
-    background       : var(--g-card);
-    border           : var(--b-thin) solid var(--c-border-gold);
-    border-radius    : var(--r-sm);
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-class .class-entry .class-entry-icon {
-    font-size   : 16px;
-    line-height : 1;
-}
-
-.property-tab-pane[data-name="general_sheet"] .area-class .class-entry .class-entry-level {
-    position         : absolute;
-    right            : -6px;
-    bottom           : -6px;
-    min-width        : 14px;
-    height           : 14px;
-    padding          : 0 2px;
-    display          : flex;
-    align-items      : center;
-    justify-content  : center;
-    background       : var(--c-gold);
-    border-radius    : var(--r-full);
-    color            : var(--c-text-dark);
-    font-size        : 10px;
-    font-weight      : var(--font-weight-bold);
+    cursor : pointer;
+    color  : var(--c-text);
 }
 
 .property-tab-pane[data-name="general_sheet"] .area-class .class-add-button {

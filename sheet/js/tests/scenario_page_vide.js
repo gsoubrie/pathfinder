@@ -83,7 +83,6 @@ TEST.RUNNER.register( "[PAGE VIDE] champs visibles = Nom, Joueur, Ascendance, HÃ
 TEST.RUNNER.register( "[PAGE VIDE] zones cachees : jamais implementees", function () {
     let _hidden_areas                    = [
         "area-heritage",
-        "area-level",
         "area-alignment",
         "area-divinity",
         "area-heroism",
@@ -135,6 +134,18 @@ TEST.RUNNER.register( "[PAGE VIDE] tout s'affiche : classe, caracteristiques, je
         if ( _pv_input ) {
             TEST.ASSERT.equal( _pv_input.value, "0 / 0", "Le champ PV devrait afficher 0 / 0 sur page vierge, obtenu : [" + _pv_input.value + "]" );
             TEST.ASSERT.ok( _pv_input.getAttribute( "onclick" ).indexOf( "goToSheet('" + CHARACTER.CombatWindow.NAME + "')" ) !== -1, "Le clic du champ PV devrait basculer sur l'onglet Combat" );
+        }
+    }
+    // Le champ Niveau vit aussi sur le General : 0 sur page vierge, son
+    // clic bascule sur l'onglet Progression
+    let _level_area                      = document.querySelector( ".characters-sheet-content .grid-area.area-level" );
+    TEST.ASSERT.notNull( _level_area, "Le champ Niveau devrait etre rendu sur une page vide (area-level)" );
+    if ( _level_area ) {
+        let _level_input                 = _level_area.querySelector( "input.level-link" );
+        TEST.ASSERT.notNull( _level_input, "Le champ Niveau devrait avoir son input cliquable" );
+        if ( _level_input ) {
+            TEST.ASSERT.equal( _level_input.value, "0", "Le champ Niveau devrait afficher 0 sur page vierge, obtenu : [" + _level_input.value + "]" );
+            TEST.ASSERT.ok( _level_input.getAttribute( "onclick" ).indexOf( "goToSheet('" + CHARACTER.LevelUpWindow.NAME + "')" ) !== -1, "Le clic du champ Niveau devrait basculer sur l'onglet Progression" );
         }
     }
     // La zone jets vit des le debut : l'entete + une ligne par sauvegarde et

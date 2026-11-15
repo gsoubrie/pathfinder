@@ -4,9 +4,9 @@
  * est le point neutre d'édition du personnage — une section par catégorie,
  * chaque entrée porte sa valeur et son explication libre, le reste de la
  * feuille reste lecture.
- *  1. L'onglet rend ses 7 sections (langues, sens, vitesse, dons, maîtrises,
- *     bonus de caractéristique, notes), chacune avec sa ligne d'ajout
- *     (valeur + explication).
+ *  1. L'onglet rend ses sections (langues, connaissances, sens, vitesse,
+ *     dons, maîtrises, bonus de caractéristique, notes), chacune avec sa
+ *     ligne d'ajout (valeur + explication).
  *  2. Ajouter la langue "Céleste" (source "Épreuve du pont") : l'entrée
  *     apparaît avec son explication (modifiable sur place), le save la
  *     porte, la zone du Général l'affiche en lecture seule. Le retrait la
@@ -16,7 +16,7 @@
  *     l'explication s'écrit entre les deux.
  *  4. Save → load : les ajustements sont restaurés (valeur, explication).
  */
-TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 7 sections avec leurs lignes d'ajout", function () {
+TEST.RUNNER.register( "[AJUSTEMENTS] onglet = une section par catégorie avec sa ligne d'ajout", function () {
     TEST.RESET.sheet();
     TEST_openRacePopup();
     return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
@@ -42,7 +42,7 @@ TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 7 sections avec leurs lignes d'ajo
             TEST.ASSERT.equal( _section.querySelector( ".adjustments-section-title" ).textContent, _kind_data.label, "Le titre de la section " + _kind_data.key + " devrait afficher " + _kind_data.label + ", obtenu : " + _section.querySelector( ".adjustments-section-title" ).textContent );
             // La valeur se choisit dans un sélecteur quand une liste existe,
             // en champ libre sinon ; l'explication reste toujours libre
-            let _expected_selectors     = ( _kind_data.value_picker === "input" ) ? 0 : 1;
+            let _expected_selectors     = ( _kind_data.value_picker === "input" ) ? 0 : ( _kind_data.value_picker === "mastery" ? 2 : 1 );
             TEST.ASSERT.equal( _section.querySelectorAll( ".single-select-container" ).length, _expected_selectors, "La section " + _kind_data.key + " devrait porter " + _expected_selectors + " sélecteur de valeur, obtenu : " + _section.querySelectorAll( ".single-select-container" ).length );
             let _expected_inputs        = ( _kind_data.value_picker === "input" ) ? 2 : ( _kind_data.value_picker === "speed" ? 2 : 1 );
             TEST.ASSERT.equal( _section.querySelectorAll( ".adjustments-add-input" ).length, _expected_inputs, "La section " + _kind_data.key + " devrait porter " + _expected_inputs + " champ(s) libre(s), obtenu : " + _section.querySelectorAll( ".adjustments-add-input" ).length );
@@ -56,6 +56,8 @@ TEST.RUNNER.register( "[AJUSTEMENTS] onglet = 7 sections avec leurs lignes d'ajo
         TEST.ASSERT.equal( _feat_options.length, 1 + DON.getKnownFeats().length, "Le sélecteur de dons devrait proposer l'option vide + les dons connus, obtenu : " + _feat_options.length );
         let _speed_options               = _pane.querySelectorAll( ".adjustments-section[data-kind='speed'] .single-select-option" );
         TEST.ASSERT.equal( _speed_options.length, 1 + ADJUSTMENT.SPEED_MODES.length, "Le sélecteur de vitesse devrait proposer l'option vide + les modes, obtenu : " + _speed_options.length );
+        let _lore_options                = _pane.querySelectorAll( ".adjustments-section[data-kind='lore'] .single-select-option" );
+        TEST.ASSERT.equal( _lore_options.length, 1 + HISTORICS.getKnownLores().length, "Le sélecteur de connaissances devrait proposer l'option vide + les lores connus des historiques, obtenu : " + _lore_options.length );
         // Tout sélecteur porte sa ligne de filtre (pattern shinken-list)
         let _filter_input                = _pane.querySelector( ".adjustments-section[data-kind='language'] .single-select-filter" );
         TEST.ASSERT.notNull( _filter_input, "La liste ouverte du sélecteur de langues devrait porter sa ligne de filtre" );
@@ -310,6 +312,130 @@ TEST.RUNNER.register( "[AJUSTEMENTS] ajout langue = entrée + save + affichage G
                 } );
             } );
             } );
+        } );
+    } );
+} );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] ajout connaissance (lore) = entrée + affichage Général, retrait = disparition", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    // Le lore cible est calculé des données (historique Criminel -> Pègre)
+    let _target_lore                    = null;
+    let _known_lores                    = HISTORICS.getKnownLores();
+    for ( let _i = 0, _size_i = _known_lores.length; _i < _size_i; _i++ ) {
+        if ( _known_lores[ _i ].name.toLowerCase().indexOf( "pègre" ) !== -1 ) {
+            _target_lore                = _known_lores[ _i ].name;
+            break;
+        }
+    }
+    TEST.ASSERT.notNull( _target_lore, "Les données devraient proposer un lore de la Pègre, obtenu : " + JSON.stringify( _known_lores.slice( 0, 5 ) ) );
+    if ( !_target_lore ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _section                    = _pane.querySelector( ".adjustments-section[data-kind='lore']" );
+        TEST.ASSERT.notNull( _section, "La section Connaissances devrait etre rendue" );
+        if ( !_section ) {
+            return;
+        }
+        let _option                     = _section.querySelector( ".single-select-option[data-value='" + _target_lore + "']" );
+        TEST.ASSERT.notNull( _option, "Le sélecteur de connaissances devrait proposer " + _target_lore );
+        if ( !_option ) {
+            return;
+        }
+        _option.click();
+        return TEST.wait().then( function () {
+            _section.querySelector( '[data-name="adjustment-explanation"]' ).value = "Historique Criminel";
+            _section.querySelector( ".adjustments-add-button" ).click();
+            return TEST.wait();
+        } ).then( function () {
+            let _fresh_pane             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+            let _entry                  = _fresh_pane.querySelector( ".adjustments-section[data-kind='lore'] .adjustments-entry[data-value='" + _target_lore + "']" );
+            TEST.ASSERT.notNull( _entry, "Le lore ajouté devrait etre rendu dans sa section" );
+            TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "lore" ).indexOf( _target_lore ) !== -1, "Le lore devrait etre dans les ajustements du domaine, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "lore" ) ) );
+            // La zone ancestry-info du Général affiche la liste Connaissances
+            return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+                return TEST.wait();
+            } ).then( function () {
+                let _general_pane       = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+                TEST.ASSERT.notNull( _general_pane, "Pre-condition : panneau Général ouvert" );
+                if ( !_general_pane ) {
+                    return;
+                }
+                TEST.ASSERT.notNull( _general_pane.querySelector( ".area-ancestry-info .ancestry-info-property[data-name='lore']" ), "La zone ancestry-info devrait porter la liste Connaissances" );
+                TEST.ASSERT.notNull( TEST_ancestryInfoEntry( _general_pane, _target_lore ), "Le lore devrait etre affiché dans la liste Connaissances du Général" );
+                return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME );
+            } ).then( function () {
+                return TEST.wait();
+            } ).then( function () {
+                let _fresh_pane_2       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+                let _remove             = _fresh_pane_2.querySelector( ".adjustments-section[data-kind='lore'] .adjustments-entry[data-value='" + _target_lore + "'] .adjustments-entry-remove" );
+                TEST.ASSERT.notNull( _remove, "Pre-condition : bouton de retrait du lore rendu" );
+                if ( _remove ) {
+                    _remove.click();
+                }
+                return TEST.wait();
+            } ).then( function () {
+                TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "lore" ).length, 0, "Le retrait devrait vider les connaissances (nettoyage pour le test suivant), obtenu : " + _character.getAdjustments().getValuesByKind( "lore" ).length );
+            } );
+        } );
+    } );
+} );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang choisis, valeur assemblée, retrait", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _section                    = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
+        TEST.ASSERT.notNull( _section, "La section Maîtrises devrait etre rendue" );
+        if ( !_section ) {
+            return;
+        }
+        let _containers                 = _section.querySelectorAll( ".single-select-container" );
+        TEST.ASSERT.equal( _containers.length, 2, "La section Maîtrises devrait porter deux sélecteurs (compétence + rang), obtenu : " + _containers.length );
+        TEST.ASSERT.equal( _section.querySelectorAll( ".single-select-option" ).length, 1 + 17 + 1 + ADJUSTMENT.MASTERY_RANKS.length, "Les deux sélecteurs devraient proposer option vide + 17 compétences + option vide + les rangs, obtenu : " + _section.querySelectorAll( ".single-select-option" ).length );
+        let _skill_option               = _containers[ 0 ].querySelector( ".single-select-option[data-value='Arcanes']" );
+        let _rank_option                = _containers[ 1 ].querySelector( ".single-select-option[data-value='Expert (E)']" );
+        TEST.ASSERT.notNull( _skill_option, "Le sélecteur de compétence devrait proposer Arcanes" );
+        TEST.ASSERT.notNull( _rank_option, "Le sélecteur de rang devrait proposer Expert (E), options : " + ( _containers[ 1 ] ? _containers[ 1 ].textContent.slice( 0, 120 ) : "aucun" ) );
+        if ( !_skill_option || !_rank_option ) {
+            return;
+        }
+        _skill_option.click();
+        return TEST.wait().then( function () {
+            _rank_option.click();
+            return TEST.wait();
+        } ).then( function () {
+            let _fresh_section          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
+            _fresh_section.querySelector( '[data-name="adjustment-explanation"]' ).value = "Don de classe";
+            _fresh_section.querySelector( ".adjustments-add-button" ).click();
+            return TEST.wait();
+        } ).then( function () {
+            let _fresh2                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+            let _entry                  = _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value='Arcanes — Expert (E)']" );
+            TEST.ASSERT.notNull( _entry, "L'entrée devrait porter la valeur assemblée 'Arcanes — Expert (E)', obtained : " + ( _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry" ) ? _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry" ).getAttribute( "data-value" ) : "aucune entrée" ) );
+            TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "mastery" ).indexOf( "Arcanes — Expert (E)" ) !== -1, "La valeur assemblée devrait etre dans les ajustements du domaine, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "mastery" ) ) );
+            let _saved                  = _character.getDataToSave();
+            TEST.ASSERT.ok( _saved.adjustments && _saved.adjustments.some( function ( a ) { return a.kind === "mastery" && a.value === "Arcanes — Expert (E)"; } ), "Le save devrait porter la maîtrise assemblée, obtenu : " + JSON.stringify( _saved.adjustments ) );
+            let _remove                 = _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value='Arcanes — Expert (E)'] .adjustments-entry-remove" );
+            if ( _remove ) {
+                _remove.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "mastery" ).length, 0, "Nettoyage : aucune maîtrise ne devrait rester pour le test suivant, obtenu : " + _character.getAdjustments().getValuesByKind( "mastery" ).length );
         } );
     } );
 } );

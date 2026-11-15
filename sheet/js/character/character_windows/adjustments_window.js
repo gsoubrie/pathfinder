@@ -48,13 +48,16 @@ CHARACTER.AdjustmentsWindow.prototype = {
             // value as if it existed) — the entry waits for the +, the
             // user writes its explanation in between
             case "event__adjustment__filter_enter": {
-                let kind    = params[ "param__adjustment__kind" ];
-                let section = this.content_dom_element_target.querySelector( ".adjustments-section[data-kind='" + kind + "']" );
-                if ( !section ) {
+                let kind      = params[ "param__adjustment__kind" ];
+                // Le sous-sélecteur du rang (mastery__rank) vit dans la
+                // section mastery : on passe par le composant quand il existe
+                let component = this.selector_components[ kind ];
+                let container = component ? component.getDomElement() : this.content_dom_element_target.querySelector( ".adjustments-section[data-kind='" + kind + "']" );
+                if ( !container ) {
                     return;
                 }
                 let value   = params[ "param__filter_value" ];
-                let options = section.querySelectorAll( ".single-select-option" );
+                let options = container.querySelectorAll( ".single-select-option" );
                 for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
                     if ( options[ i ].getAttribute( "data-value" ).toLowerCase() === value.toLowerCase() ) {
                         value = options[ i ].getAttribute( "data-value" );
@@ -133,16 +136,12 @@ CHARACTER.AdjustmentsWindow.prototype = {
             section
         );
         if ( kind_data.value_picker === "selector" || kind_data.value_picker === "speed" ) {
-            let component = new COMPONENT.SingleSelectFromData();
-            component.addParamsForEvents( { "param__adjustment__kind": kind_data.key } );
-            component.setToggleEventName( "event__adjustment__toggle_selector" );
-            component.setClickEventName( "event__adjustment__pick" );
-            component.setFilterEnterEventName( "event__adjustment__filter_enter" );
-            component.setOptions( this._getKindOptions( kind_data.key ) );
-            component.setSelectedName( this.pending_values[ kind_data.key ] );
-            component.computeHtml();
-            SERVICE.DOM.addElementTo( component.getDomElement(), add_row );
-            this.selector_components[ kind_data.key ] = component;
+            this._buildSelector( add_row, kind_data.key );
+        }
+        if ( kind_data.value_picker === "mastery" ) {
+            // Deux sélecteurs : la compétence, puis le rang de qualification
+            this._buildSelector( add_row, kind_data.key );
+            this._buildSelector( add_row, kind_data.key + "__rank" );
         }
         if ( kind_data.value_picker === "speed" ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
@@ -170,6 +169,19 @@ CHARACTER.AdjustmentsWindow.prototype = {
         }, "+" ), add_row );
     },
 
+    _buildSelector: function ( add_row, kind_key ) {
+        let component = new COMPONENT.SingleSelectFromData();
+        component.addParamsForEvents( { "param__adjustment__kind": kind_key } );
+        component.setToggleEventName( "event__adjustment__toggle_selector" );
+        component.setClickEventName( "event__adjustment__pick" );
+        component.setFilterEnterEventName( "event__adjustment__filter_enter" );
+        component.setOptions( this._getKindOptions( kind_key ) );
+        component.setSelectedName( this.pending_values[ kind_key ] );
+        component.computeHtml();
+        SERVICE.DOM.addElementTo( component.getDomElement(), add_row );
+        this.selector_components[ kind_key ] = component;
+    },
+
     // The picked value waits in pending_values until the +, the header of
     // the selector follows in place
     _pickValue: function ( kind, value ) {
@@ -184,6 +196,9 @@ CHARACTER.AdjustmentsWindow.prototype = {
     _getKindOptions: function ( kind_key ) {
         if ( kind_key === "language" ) {
             return RACES.getKnownLanguages();
+        }
+        if ( kind_key === "lore" ) {
+            return HISTORICS.getKnownLores();
         }
         if ( kind_key === "feat" ) {
             return DON.getKnownFeats();
@@ -203,6 +218,13 @@ CHARACTER.AdjustmentsWindow.prototype = {
                 to_return.push( { "name": CHARACTERISTICS.ENUM[ i ].label } );
             }
             return to_return;
+        }
+        // Manual mastery: the 17 skills, then the qualification rank
+        if ( kind_key === "mastery" ) {
+            return CLASSES.getChoices( null, "amelioration_de_competence" ).entries;
+        }
+        if ( kind_key === "mastery__rank" ) {
+            return ADJUSTMENT.MASTERY_RANKS;
         }
         return [];
     },
@@ -226,6 +248,14 @@ CHARACTER.AdjustmentsWindow.prototype = {
                 value = this.pending_values[ kind_key ] + " : " + meters_input.value + " mètres";
             }
         }
+        else if ( kind_data.value_picker === "mastery" ) {
+            // "Arcanes — Expert (E)" : la compétence choisie + le rang choisi
+            let skill = this.pending_values[ kind_key ];
+            let rank  = this.pending_values[ kind_key + "__rank" ];
+            if ( skill ) {
+                value = rank ? skill + " — " + rank : skill;
+            }
+        }
         else {
             let value_input = section.querySelector( '[data-name="adjustment-value"]' );
             if ( value_input ) {
@@ -241,7 +271,8 @@ CHARACTER.AdjustmentsWindow.prototype = {
             } );
             // The picked value is consumed, the rebuilt selector returns to
             // its empty option
-            this.pending_values[ kind_key ] = null;
+            this.pending_values[ kind_key ]            = null;
+            this.pending_values[ kind_key + "__rank" ] = null;
         }
     }
 };
