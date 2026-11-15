@@ -34,7 +34,7 @@ TEST.RUNNER.register( "[CLASSE] clic sur le champ → popup ouvert", function ()
     TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-valid" ), "Le bouton Valider devrait etre rendu" );
     TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-cancel" ), "Le bouton Quitter devrait etre rendu" );
     let _tabs                           = _popup.querySelectorAll( ".gs-window-element-V2" );
-    TEST.ASSERT.equal( _tabs.length, 16, "Le popup devrait afficher les 16 classes en onglets, obtenu : " + _tabs.length );
+    TEST.ASSERT.equal( _tabs.length, CLASSES.ENUM.length, "Le popup devrait afficher toutes les classes en onglets, obtenu : " + _tabs.length );
 } );
 
 TEST.RUNNER.register( "[CLASSE] popup : Guerrier actif par defaut", function () {

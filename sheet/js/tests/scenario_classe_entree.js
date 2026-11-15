@@ -44,7 +44,7 @@ TEST.RUNNER.register( "[CLASSE] clic entrée Magicien → popup consultation san
             TEST.ASSERT.isNull( _popup.querySelector( ".popup-up-valid" ), "Le bouton Valider ne devrait pas etre rendu en consultation (aucune classe ajoutable depuis une entree), obtenu un bouton Valider" );
             TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-cancel" ), "Le bouton Quitter devrait etre rendu" );
             let _tabs                   = _popup.querySelectorAll( ".gs-window-element-V2" );
-            TEST.ASSERT.equal( _tabs.length, 16, "Le popup devrait afficher les 16 classes en onglets, obtenu : " + _tabs.length );
+            TEST.ASSERT.equal( _tabs.length, CLASSES.ENUM.length, "Le popup devrait afficher toutes les classes en onglets, obtenu : " + _tabs.length );
             let _running_tabs           = _popup.querySelectorAll( ".gs-window-element-V2[data-current-phase='RUNNING']" );
             TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING attendu, obtenu : " + _running_tabs.length );
             if ( _running_tabs.length === 1 ) {

@@ -31,7 +31,13 @@ var FILES = [
     "sheet/js/gift/constant_gift_general.js",
     "sheet/js/gift/constant_gift_race.js",
     "sheet/js/class/constant_class.js",
-    "sheet/js/object/constant_skill_actions.js"
+    "sheet/js/object/constant_skill_actions.js",
+    "sheet/js/spell/spells_constant.js",
+    "sheet/js/stuffs/constant_stuffs.js",
+    "sheet/js/object/constant_objects.js",
+    "sheet/js/historics/constant_historic.js",
+    "sheet/js/legacy/legacy_enum.js",
+    "sheet/js/archetype/constant_archetype.js"
 ];
 
 var dry_run = process.argv.indexOf( "--dry" ) !== -1;

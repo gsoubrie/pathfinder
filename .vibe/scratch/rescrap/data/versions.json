@@ -1,0 +1,76 @@
+{
+  "systemModule": {
+    "id": "pf2e",
+    "version": "7.12.2",
+    "url": "https://github.com/foundryvtt/pf2e",
+    "authors": [
+      "The PF2e System Developers"
+    ]
+  },
+  "companionsModule": {
+    "id": "pf2e-animal-companions",
+    "version": "7.7.2",
+    "url": "https://github.com/TikaelSol/PF2e-Animal-Companions",
+    "authors": [
+      "Tikael"
+    ]
+  },
+  "starfinder2PlaytestModule": {
+    "id": "",
+    "version": "",
+    "url": "",
+    "authors": []
+  },
+  "translationModules": {
+    "fr": [
+      {
+        "id": "pf2-fr",
+        "version": "8.4.1",
+        "url": "https://gitlab.com/pathfinder-fr/foundryvtt-pathfinder2-fr",
+        "authors": [
+          "Sven Werlen (codeur du module originel)",
+          "Dwim (codeur principal)",
+          "Rectulo (traduction & coordination)",
+          "Njini (traduction)",
+          "mose (traduction depuis le PC2 et TXCG)",
+          "BlackBiji (traduction sur RoE)"
+        ]
+      }
+    ],
+    "zh": [
+      {
+        "id": "pf2_cn",
+        "version": "2.5.0",
+        "url": "https://github.com/losyky/pf2e_cn",
+        "authors": [
+          "Losy"
+        ]
+      },
+      {
+        "id": "pf2e_compendium_chn",
+        "version": "3.1.0",
+        "url": "https://github.com/AlphaStarguide/pf2e_compendium_chn",
+        "authors": [
+          "Alphastarguide"
+        ]
+      }
+    ],
+    "pl": [
+      {
+        "id": "lang-pl-pf2e",
+        "version": "0.8.2.0",
+        "url": "https://gitlab.com/bartlomiejbielecki/pf2e-polskie-tlumaczenie",
+        "authors": [
+          "Bartek",
+          "Oskar",
+          "popy",
+          "Lioheart",
+          "Aleksander",
+          "mielczar",
+          "Fatalmac",
+          "Revii"
+        ]
+      }
+    ]
+  }
+}

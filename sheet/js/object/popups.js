@@ -16,6 +16,18 @@ OBJECT.PopupRenderers.prototype = {
         switch ( event_name ) {
             case "event__show_information":
                 let object_data = OBJECT.COMPENDIUM[ params[ "param__object__uuid" ] ];
+                // A link to an entry the sheet does not index (bestiary page,
+                // journal...) still opens a popup carrying the link label
+                if ( !object_data && params[ "param__object__label" ] ) {
+                    object_data = {
+                        "id"          : params[ "param__object__uuid" ],
+                        "category"    : null,
+                        "text"        : params[ "param__object__label" ],
+                        "element_type": null,
+                        "traits"      : [],
+                        "description" : "<p>Référence du compendium source non indexée dans la feuille (id " + params[ "param__object__uuid" ] + ").</p>"
+                    };
+                }
                 let existing_popup = object_data ? this._openPopup( object_data ) : null;
                 if ( existing_popup ) {
                     existing_popup.doActionAfter( event_name, params );
