@@ -202,23 +202,6 @@ CHARACTER.LevelHistory.prototype = {
             this.getContent( i ).setCountersParent( parent );
         }
     },
-    // The qualified skills chosen on the skill lines : "Artisanat
-    // (alchimie)", "Connaissance (du copiste)" — a qualified skill owns its
-    // own mastery slot, the General info zone lists them
-    getQualifiedSkills: function () {
-        let to_return = [];
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            let line = this.getContent( i );
-            if ( !line.getQualifiedValue ) {
-                continue;
-            }
-            let qualified_value = line.getQualifiedValue();
-            if ( qualified_value && qualified_value.indexOf( " (" ) !== -1 ) {
-                to_return.push( qualified_value );
-            }
-        }
-        return to_return;
-    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return               = {};

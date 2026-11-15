@@ -219,6 +219,7 @@ CHARACTER.Current.prototype = {
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
                 this.levels_history.doActionAfterContentChildren( event_name, params );
+                this.adjustments.doActionAfter( event_name, params );
                 break;
             case "event__get__slot_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -527,11 +528,6 @@ CHARACTER.Current.prototype = {
     },
     getLevelHistory   : function () {
         return this.levels_history;
-    },
-    // Les compétences qualifiées choisies dans la Progression ("Artisanat
-    // (alchimie)") : la zone infos du Général les liste
-    getQualifiedSkills: function () {
-        return this.levels_history.getQualifiedSkills();
     },
     /**
      * @returns {CHARACTER.AncestryHistory}

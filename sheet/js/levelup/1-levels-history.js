@@ -39,14 +39,6 @@ CHARACTER.LevelsHistory.prototype = {
         }
         return "" + to_return;
     },
-    // Les compétences qualifiées des lignes de toutes les Entrées
-    getQualifiedSkills: function () {
-        let to_return = [];
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            to_return = to_return.concat( this.getContent( i ).getQualifiedSkills() );
-        }
-        return to_return;
-    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return                 = {};

@@ -19,6 +19,26 @@ CHARACTER.Adjustment.prototype = {
     getKind: function () {
         return this.kind;
     },
+    //********************************************  DATA   **************************************************//
+    // A mastery entry assembles "<compétence> — <Rang> (lettre)" ; without
+    // its rank the entry stays a display note and contributes nothing
+    getRankContribution: function () {
+        if ( this.kind !== "mastery" || this.value.indexOf( " — " ) === -1 ) {
+            return null;
+        }
+        let value_parts = this.value.split( " — " );
+        let rank_match  = value_parts[ 1 ].match( /\(([QEML])\)/ );
+        if ( !rank_match ) {
+            return null;
+        }
+        let slot = MASTERY.getSkillSlot( value_parts[ 0 ] );
+        return {
+            slot  : slot,
+            rank  : rank_match[ 1 ],
+            label : MASTERY.getSlotLabel( slot ),
+            source: this.explanation || "Ajustement"
+        };
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         return {

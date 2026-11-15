@@ -20,8 +20,9 @@
  *  3. La seconde ligne propose TOUJOURS "Connaissance" (un autre type
  *     reste prenable) : y choisir "Artisanat" puis le type "Alchimie" —
  *     SELECTED, slot distinct, valeur composite.
- *  4. Onglet Général : la zone infos liste la compétence qualifiée
- *     (Connaissances pour la Connaissance, Artisanats pour l'Artisanat).
+ *  4. Onglet Général : le bloc Compétences rend une LIGNE par compétence
+ *     qualifiée possédée (libellé entre parenthèses, badge du rang sur
+ *     SON slot).
  *  5. Save → relecture en mémoire : le choix composite est restauré
  *     (compétence + type + phase).
  */
@@ -138,15 +139,21 @@ TEST.RUNNER.register( "[COMPETENCE QUALIFIEE] type = second sélecteur, validati
             if ( !_general_pane ) {
                 return;
             }
-            let _lore_list                  = _general_pane.querySelector( ".ancestry-info-property[data-name='lore']" );
-            TEST.ASSERT.notNull( _lore_list, "La zone infos devrait rendre la ligne Connaissances" );
-            if ( _lore_list ) {
-                TEST.ASSERT.notNull( _lore_list.querySelector( ".ancestry-list-entry[data-value='" + _qualified_value + "']" ), "La ligne Connaissances devrait spécifier la compétence qualifiée choisie dans la Progression" );
+            // 4. Le bloc Compétences du Général rend une LIGNE par
+            // compétence qualifiée possédée : libellé entre parenthèses,
+            // badge du rang sur SON slot
+            let _lore_row                   = _general_pane.querySelector( ".jets-skills-block .saves-row[data-slot='" + _qualified_slot + "']" );
+            TEST.ASSERT.notNull( _lore_row, "Le bloc Compétences devrait rendre la ligne de la Connaissance qualifiée, slot : " + _qualified_slot );
+            if ( _lore_row ) {
+                TEST.ASSERT.equal( _lore_row.querySelector( ".saves-label" ).textContent, _qualified_value, "La ligne qualifiée devrait porter son type entre parenthèses, obtenu : " + _lore_row.querySelector( ".saves-label" ).textContent );
+                TEST.ASSERT.equal( _lore_row.querySelector( ".saves-rank" ).textContent, "Q", "La ligne qualifiée devrait porter le badge Q, obtenu : " + _lore_row.querySelector( ".saves-rank" ).textContent );
             }
-            let _crafting_list              = _general_pane.querySelector( ".ancestry-info-property[data-name='crafting']" );
-            TEST.ASSERT.notNull( _crafting_list, "La zone infos devrait rendre la ligne Artisanats" );
-            if ( _crafting_list ) {
-                TEST.ASSERT.notNull( _crafting_list.querySelector( ".ancestry-list-entry[data-value='" + _crafting_qualified + "']" ), "La ligne Artisanats devrait spécifier l'Artisanat qualifié choisi dans la Progression" );
+            let _crafting_slot             = MASTERY.getSkillSlot( _crafting_qualified );
+            let _crafting_row               = _general_pane.querySelector( ".jets-skills-block .saves-row[data-slot='" + _crafting_slot + "']" );
+            TEST.ASSERT.notNull( _crafting_row, "Le bloc Compétences devrait rendre la ligne de l'Artisanat qualifié, slot : " + _crafting_slot );
+            if ( _crafting_row ) {
+                TEST.ASSERT.equal( _crafting_row.querySelector( ".saves-label" ).textContent, _crafting_qualified, "La ligne de l'Artisanat qualifié devrait porter son type entre parenthèses, obtenu : " + _crafting_row.querySelector( ".saves-label" ).textContent );
+                TEST.ASSERT.equal( _crafting_row.querySelector( ".saves-rank" ).textContent, "Q", "La ligne de l'Artisanat qualifié devrait porter le badge Q, obtenu : " + _crafting_row.querySelector( ".saves-rank" ).textContent );
             }
             // 5. Save → relecture en mémoire : le composite se restaure
             let _saved                     = _character.getDataToSave();
@@ -167,7 +174,7 @@ TEST.RUNNER.register( "[COMPETENCE QUALIFIEE] type = second sélecteur, validati
                 TEST.ASSERT.equal( _reloaded_line.getSelectedValue(), "Connaissance", "La compétence de base devrait etre restauree, obtenu : " + _reloaded_line.getSelectedValue() );
                 TEST.ASSERT.equal( _reloaded_line.getQualifiedValue(), _qualified_value, "La valeur composite devrait etre restauree, obtenu : " + _reloaded_line.getQualifiedValue() );
             }
-            TEST.ASSERT.equal( _reloaded.getQualifiedSkills().indexOf( _qualified_value ) !== -1, true, "La relecture devrait exposer la compétence qualifiée au Général" );
+            TEST.ASSERT.equal( _reloaded.getMasteries().getFinalRank( _reloaded, _qualified_slot ), "Q", "La relecture devrait restaurer le rang de la compétence qualifiée sur son slot, obtenu : " + _reloaded.getMasteries().getFinalRank( _reloaded, _qualified_slot ) );
         } );
     } );
 } );

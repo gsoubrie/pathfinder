@@ -141,6 +141,10 @@ MASTERY.getSkillSlot = function ( skill_label ) {
     if ( qualified_match ) {
         let qualified_skill = SKILLS.isASkill( qualified_match[ 1 ] );
         if ( qualified_skill && qualified_skill.need_qualifier ) {
+            // The display name of the qualifier is captured when the slot
+            // is derived : the key alone is lossy (lowercased, unaccented),
+            // the display survives here for the label of the slot
+            MASTERY.QUALIFIER_DISPLAY_NAMES[ CLASSES.getAbilityKey( qualified_match[ 2 ] ) ] = qualified_match[ 2 ];
             return "skill__" + MASTERY.getSkillKey( qualified_match[ 1 ] ) + "__" + CLASSES.getAbilityKey( qualified_match[ 2 ] );
         }
     }
@@ -179,12 +183,37 @@ MASTERY.getSlotLabel = function ( slot ) {
         let list_data  = SKILLS.LIST[ slot_parts[ 0 ].toUpperCase() ];
         if ( list_data ) {
             if ( slot_parts.length > 1 ) {
-                return list_data.label + " (" + slot_parts[ 1 ].replace( /_/g, " " ) + ")";
+                return list_data.label + " (" + MASTERY.getQualifierDisplayLabel( list_data.label, slot_parts[ 1 ] ) + ")";
             }
             return list_data.label;
         }
     }
     return slot;
+};
+
+/**
+ * The qualifier of a slot carries its normalized key ("de_la_pegre") : the
+ * display name comes back from the names captured at slot derivation (they
+ * keep case and accents), then from the qualifier lists, falling back to the
+ * spaced key when the type was never seen with its display form.
+ *
+ * @param {string} base_label      Display label of the base skill, ex: "Connaissance"
+ * @param {string} qualifier_key   Normalized key of the qualifier
+ * @returns {string}              The display name of the qualifier
+ */
+MASTERY.QUALIFIER_DISPLAY_NAMES = {};
+
+MASTERY.getQualifierDisplayLabel = function ( base_label, qualifier_key ) {
+    if ( MASTERY.QUALIFIER_DISPLAY_NAMES[ qualifier_key ] ) {
+        return MASTERY.QUALIFIER_DISPLAY_NAMES[ qualifier_key ];
+    }
+    let options = SKILLS.getQualifierList( base_label );
+    for ( let i = 0, _size_i = options.length; i < _size_i; i++ ) {
+        if ( CLASSES.getAbilityKey( options[ i ].name ) === qualifier_key ) {
+            return options[ i ].name;
+        }
+    }
+    return qualifier_key.replace( /_/g, " " );
 };
 
 /**

@@ -399,12 +399,12 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang cho
     } ).then( function () {
         let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
         let _section                    = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
-        TEST.ASSERT.notNull( _section, "La section Maîtrises devrait etre rendue" );
+        TEST.ASSERT.notNull( _section, "La section Compétences devrait etre rendue" );
         if ( !_section ) {
             return;
         }
         let _containers                 = _section.querySelectorAll( ".single-select-container" );
-        TEST.ASSERT.equal( _containers.length, 2, "La section Maîtrises devrait porter deux sélecteurs (compétence + rang), obtenu : " + _containers.length );
+        TEST.ASSERT.equal( _containers.length, 2, "La section Compétences devrait porter deux sélecteurs (compétence + rang), obtenu : " + _containers.length );
         TEST.ASSERT.equal( _section.querySelectorAll( ".single-select-option" ).length, 1 + 17 + 1 + ADJUSTMENT.MASTERY_RANKS.length, "Les deux sélecteurs devraient proposer option vide + 17 compétences + option vide + les rangs, obtenu : " + _section.querySelectorAll( ".single-select-option" ).length );
         let _skill_option               = _containers[ 0 ].querySelector( ".single-select-option[data-value='Arcanes']" );
         let _rank_option                = _containers[ 1 ].querySelector( ".single-select-option[data-value='Expert (E)']" );
@@ -427,6 +427,12 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang cho
             let _entry                  = _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value='Arcanes — Expert (E)']" );
             TEST.ASSERT.notNull( _entry, "L'entrée devrait porter la valeur assemblée 'Arcanes — Expert (E)', obtained : " + ( _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry" ) ? _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry" ).getAttribute( "data-value" ) : "aucune entrée" ) );
             TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "mastery" ).indexOf( "Arcanes — Expert (E)" ) !== -1, "La valeur assemblée devrait etre dans les ajustements du domaine, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "mastery" ) ) );
+            // L'ajustement de compétence alimente la collecte des rangs :
+            // la maitrise posée a la main vit au même titre qu'une maitrise de classe
+            let _arcana_slot            = MASTERY.getSkillSlot( "Arcanes" );
+            TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, _arcana_slot ), "E", "La compétence posée en Ajustements devrait porter son rang dans l'agrégation, obtenu : " + _character.getMasteries().getFinalRank( _character, _arcana_slot ) );
+            let _arcana_sources         = _character.getMasteries().getDataBySlot( _character )[ _arcana_slot ];
+            TEST.ASSERT.ok( _arcana_sources && _arcana_sources.sources.indexOf( "Don de classe" ) !== -1, "La source de la maitrise manuelle devrait porter l'explication de l'ajustement, obtenu : " + JSON.stringify( _arcana_sources ) );
             let _saved                  = _character.getDataToSave();
             TEST.ASSERT.ok( _saved.adjustments && _saved.adjustments.some( function ( a ) { return a.kind === "mastery" && a.value === "Arcanes — Expert (E)"; } ), "Le save devrait porter la maîtrise assemblée, obtenu : " + JSON.stringify( _saved.adjustments ) );
             let _remove                 = _fresh2.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value='Arcanes — Expert (E)'] .adjustments-entry-remove" );
@@ -476,7 +482,7 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise qualifiée = type révélé par l
     } ).then( function () {
         let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
         let _section                    = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
-        TEST.ASSERT.notNull( _section, "La section Maîtrises devrait etre rendue" );
+        TEST.ASSERT.notNull( _section, "La section Compétences devrait etre rendue" );
         if ( !_section ) {
             return;
         }
@@ -515,7 +521,17 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise qualifiée = type révélé par l
                     let _commit_section  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
                     _commit_section.querySelector( ".adjustments-add-button" ).click();
                     return TEST.wait().then( function () {
+                        let _mastery_slot  = MASTERY.getSkillSlot( "Connaissance (sous le Quart-Monde)" );
                         TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "mastery" ).indexOf( _mastery_value ) !== -1, "La maîtrise qualifiée assemblée devrait vivre dans les ajustements, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "mastery" ) ) );
+                        // La compétence QUALIFIEE posée en Ajustements traverse
+                        // la collecte sur SON slot, le label restitue le type
+                        // accentue
+                        TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, _mastery_slot ), "Q", "La compétence qualifiée d'Ajustements devrait porter son rang sur son slot, obtenu : " + _character.getMasteries().getFinalRank( _character, _mastery_slot ) );
+                        let _slot_data    = _character.getMasteries().getDataBySlot( _character )[ _mastery_slot ];
+                        TEST.ASSERT.ok( _slot_data, "La collecte devrait porter le slot de la compétence qualifiée, obtenu : " + JSON.stringify( _character.getMasteries().getDataBySlot( _character ) ) );
+                        if ( _slot_data ) {
+                            TEST.ASSERT.equal( _slot_data.label, "Connaissance (sous le Quart-Monde)", "Le label du slot qualifie devrait restituer le type accentue, obtenu : " + _slot_data.label );
+                        }
                         let _fresh        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
                         let _entry        = _fresh.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value=\"" + _mastery_value + "\"]" );
                         TEST.ASSERT.notNull( _entry, "L'entrée devrait porter la valeur composite assemblée, obtenu : aucune entrée" );

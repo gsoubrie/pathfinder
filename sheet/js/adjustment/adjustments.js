@@ -30,6 +30,16 @@ CHARACTER.Adjustments.prototype = {
                 }
                 return;
             }
+            case "event__get__rank_contributions": {
+                let mastery_entries = this.getEntriesByKind( "mastery" );
+                for ( let i = 0, _size_i = mastery_entries.length; i < _size_i; i++ ) {
+                    let contribution = mastery_entries[ i ].getRankContribution();
+                    if ( contribution ) {
+                        params[ "param__rank_contributions" ].push( contribution );
+                    }
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

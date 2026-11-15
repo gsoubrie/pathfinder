@@ -47,7 +47,7 @@ ADJUSTMENT.KINDS = [
     },
     {
         key         : "mastery",
-        label       : "Maîtrises",
+        label       : "Compétences",
         value_picker: "mastery"
     },
     {

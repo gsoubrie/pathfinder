@@ -165,6 +165,57 @@ CHARACTER.GeneralWindow.prototype = {
             }, modifier ), row );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
         }
+        // Les compétences qualifiées (Artisanat/Connaissance + type) vivent
+        // sur leurs propres slots : une ligne par slot qualifié possédé,
+        // le clic ouvre la popup maîtrises (un type ne possède pas
+        // d'actions dans nos données)
+        var qualified_slots = this._getQualifiedSkillSlots( character_object, masteries );
+        for ( var q = 0; q < qualified_slots.length; q++ ) {
+            var qualified_slot = qualified_slots[ q ];
+            var qualified_data = SKILLS.LIST[ qualified_slot.slice( "skill__".length ).split( "__" )[ 0 ].toUpperCase() ];
+            var qualified_rank         = masteries.getFinalRank( character_object, qualified_slot ) || "I";
+            var qualified_rank_data    = MASTERY.getByShort( qualified_rank );
+            var qualified_value        = masteries.getRollModifier( character_object, { "slot": qualified_slot, "characteristic": qualified_data.characteristic } );
+            var qualified_characteristic = character_object.getCharacteristics().getContentByUUID( qualified_data.characteristic );
+            var qualified_modifier     = qualified_characteristic ? qualified_characteristic.getModifierValue() : 0;
+            var qualified_row          = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class  : "saves-row",
+                    "data-slot": qualified_slot,
+                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})"
+                } ),
+                this.block_skills
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, MASTERY.getSlotLabel( qualified_slot ) ), qualified_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, qualified_value ), qualified_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class: "saves-rank class-mastery-badge " + qualified_rank_data.css,
+                title: qualified_rank_data.label
+            }, qualified_rank_data.short ), qualified_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class      : "saves-cell",
+                "data-name": "modifier",
+                title      : "Modificateur de " + this._getCharacteristicLabel( qualified_data.characteristic )
+            }, qualified_modifier ), qualified_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), qualified_row );
+        }
+    },
+
+    // Slots des compétences qualifiées possédées (Progression ou
+    // Ajustements), tries par libellé : leur rang vit dans la collecte
+    _getQualifiedSkillSlots: function ( character_object, masteries ) {
+        let to_return = [];
+        let slot_data = masteries.getDataBySlot( character_object );
+        let _slots    = Object.keys( slot_data );
+        for ( let s = 0, _size_s = _slots.length; s < _size_s; s++ ) {
+            if ( _slots[ s ].indexOf( "skill__" ) === 0 && _slots[ s ].split( "__" ).length > 2 ) {
+                to_return.push( _slots[ s ] );
+            }
+        }
+        to_return.sort( function ( slot_a, slot_b ) {
+            return MASTERY.getSlotLabel( slot_a ).localeCompare( MASTERY.getSlotLabel( slot_b ) );
+        } );
+        return to_return;
     },
 
     _computeJetsArea: function () {
@@ -244,28 +295,8 @@ CHARACTER.GeneralWindow.prototype = {
         // Les connaissances (lores) viennent des ajustements ; la liste
         // n'apparait que quand elle est non vide
         let lores = character_object.getAdjustments().getValuesByKind( "lore" );
-        // Les compétences qualifiées choisies dans la Progression se
-        // spécifient ici : le type se choisit là-bas, la lecture vit dans
-        // cette zone (comme les langues choisies de l'ascendance)
-        let qualified_skills = character_object.getQualifiedSkills();
-        let qualified_lores  = [];
-        let qualified_craftings = [];
-        let lore_prefix         = SKILLS.LIST.LORE.label + " (";
-        let crafting_prefix     = SKILLS.LIST.CRAFTING.label + " (";
-        for ( let q = 0, _size_q = qualified_skills.length; q < _size_q; q++ ) {
-            if ( qualified_skills[ q ].indexOf( lore_prefix ) === 0 ) {
-                qualified_lores.push( qualified_skills[ q ] );
-            }
-            else if ( qualified_skills[ q ].indexOf( crafting_prefix ) === 0 ) {
-                qualified_craftings.push( qualified_skills[ q ] );
-            }
-        }
-        lores = lores.concat( qualified_lores );
         if ( lores.length ) {
             this._computeAncestryInfoList( "lore", "Connaissances", lores );
-        }
-        if ( qualified_craftings.length ) {
-            this._computeAncestryInfoList( "crafting", "Artisanats", qualified_craftings );
         }
     },
 
