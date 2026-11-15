@@ -129,10 +129,21 @@ MASTERY.getSkillKey = function ( skill_label ) {
 };
 
 /**
- * @param {string} skill_label  Display label of the skill, ex: "Acrobaties"
+ * @param {string} skill_label  Display label of the skill, ex: "Acrobaties",
+ *                              qualified form "Artisanat (alchimie)" — a
+ *                              qualified skill owns its OWN slot (ex:
+ *                              "skill__crafting__alchimie"), its rank never
+ *                              lands on the base skill
  * @returns {string}            The normalized mastery slot of the skill
  */
 MASTERY.getSkillSlot = function ( skill_label ) {
+    let qualified_match = skill_label.match( /^(.+?) \((.+)\)$/ );
+    if ( qualified_match ) {
+        let qualified_skill = SKILLS.isASkill( qualified_match[ 1 ] );
+        if ( qualified_skill && qualified_skill.need_qualifier ) {
+            return "skill__" + MASTERY.getSkillKey( qualified_match[ 1 ] ) + "__" + CLASSES.getAbilityKey( qualified_match[ 2 ] );
+        }
+    }
     return "skill__" + MASTERY.getSkillKey( skill_label );
 };
 
@@ -162,8 +173,14 @@ MASTERY.getSlotLabel = function ( slot ) {
         }
     }
     if ( slot.indexOf( "skill__" ) === 0 ) {
-        let list_data = SKILLS.LIST[ slot.slice( "skill__".length ).toUpperCase() ];
+        // A qualified skill slot lives "skill__<key>__<qualifier>" : its
+        // label keeps the base skill and its type, "Artisanat (alchimie)"
+        let slot_parts = slot.slice( "skill__".length ).split( "__" );
+        let list_data  = SKILLS.LIST[ slot_parts[ 0 ].toUpperCase() ];
         if ( list_data ) {
+            if ( slot_parts.length > 1 ) {
+                return list_data.label + " (" + slot_parts[ 1 ].replace( /_/g, " " ) + ")";
+            }
             return list_data.label;
         }
     }

@@ -31,6 +31,17 @@ CHARACTER.LevelHistory.prototype = {
                 }
                 return;
             }
+            // The type selector of a qualified skill routes like the main
+            // one : the qualifier value assembles ON the line
+            case "event__level_up__toggle_qualifier_selector":
+            case "event__level_up__qualifier_filter_enter":
+            case "event__level_up__select_qualifier": {
+                let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
+                if ( level_up_skill ) {
+                    level_up_skill.doActionAfter( event_name, params );
+                }
+                return;
+            }
             case "event__level_up__select_choice": {
                 let level_up_skill = this.getContentByUUID( params[ "param__level_up_skill__uuid" ] );
                 if ( level_up_skill ) {
@@ -102,6 +113,14 @@ CHARACTER.LevelHistory.prototype = {
                 // sections own them. The class table only recalls the
                 // gain : its line never builds (the sync fills no class
                 // options for that type, the line could never validate)
+                continue;
+            }
+            if ( type === "attribute_boost" && class_level_number === 1 ) {
+                // PF2 : the creation prime vit on the Niv1 column of the
+                // characteristics grid (the one place the user posés it) —
+                // the class table only recalls the gain at level 1, its
+                // line never builds. The primes of levels 5+ remain class
+                // validations, no grid column owns them yet
                 continue;
             }
             let ability_key = CLASSES.getAbilityKey( label );
@@ -183,6 +202,23 @@ CHARACTER.LevelHistory.prototype = {
             this.getContent( i ).setCountersParent( parent );
         }
     },
+    // The qualified skills chosen on the skill lines : "Artisanat
+    // (alchimie)", "Connaissance (du copiste)" — a qualified skill owns its
+    // own mastery slot, the General info zone lists them
+    getQualifiedSkills: function () {
+        let to_return = [];
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let line = this.getContent( i );
+            if ( !line.getQualifiedValue ) {
+                continue;
+            }
+            let qualified_value = line.getQualifiedValue();
+            if ( qualified_value && qualified_value.indexOf( " (" ) !== -1 ) {
+                to_return.push( qualified_value );
+            }
+        }
+        return to_return;
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         let to_return               = {};
@@ -259,7 +295,8 @@ CHARACTER.LevelHistory.prototype = {
         }
     },
     // A qualification cannot be taken twice: the values chosen on the other
-    // additional skill lines leave their selectors
+    // additional skill lines leave their selectors — the comparison carries
+    // the QUALIFIED values : Connaissance with another type remains pickable
     _getTakenValues: function ( except_line ) {
         let to_return = [];
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
@@ -267,8 +304,8 @@ CHARACTER.LevelHistory.prototype = {
             if ( line === except_line || line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) !== 0 ) {
                 continue;
             }
-            if ( line.getSelectedValue() ) {
-                to_return.push( line.getSelectedValue() );
+            if ( line.getQualifiedValue && line.getQualifiedValue() ) {
+                to_return.push( line.getQualifiedValue() );
             }
         }
         return to_return;

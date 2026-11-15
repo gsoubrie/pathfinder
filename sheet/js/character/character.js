@@ -134,6 +134,13 @@ CHARACTER.Current.prototype = {
                 this.levels_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 this.ancestry_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                 break;
+            // The type of a qualified skill validates its line alone : the
+            // feat options do not move with it (the base rank never moves)
+            case "event__level_up__toggle_qualifier_selector":
+            case "event__level_up__qualifier_filter_enter":
+            case "event__level_up__select_qualifier":
+                this.levels_history.doActionAfter( event_name, params );
+                break;
             case "event__level_up__toggle_selector":
                 this.levels_history.doActionAfter( event_name, params );
                 this.ancestry_history.doActionAfter( event_name, params );
@@ -228,6 +235,12 @@ CHARACTER.Current.prototype = {
                     this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                     // The Strength modifier moves the maximum bulk
                     this.stuffs.pushBulkCounters( this );
+                    // The characteristics grid lives IN the Progression
+                    // window : its additional lines (skills N + INT,
+                    // languages INT) follow the domain here, but no tab
+                    // activation will ever refresh them — the window
+                    // rebuilds its sections with the event
+                    this.windows.doActionAfterContentChildren( event_name, params );
                     return;
                 }
                 break;
@@ -514,6 +527,11 @@ CHARACTER.Current.prototype = {
     },
     getLevelHistory   : function () {
         return this.levels_history;
+    },
+    // Les compétences qualifiées choisies dans la Progression ("Artisanat
+    // (alchimie)") : la zone infos du Général les liste
+    getQualifiedSkills: function () {
+        return this.levels_history.getQualifiedSkills();
     },
     /**
      * @returns {CHARACTER.AncestryHistory}

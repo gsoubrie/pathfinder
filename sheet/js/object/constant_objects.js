@@ -448520,3 +448520,53 @@ OBJECT.COMPENDIUM = {
         ]
     }
 };
+
+/**
+ * Actions connues du compendium (catégorie "action"), triées par nom et
+ * dédupliquées : les options du sélecteur d'action de l'onglet Ajustements.
+ *
+ * @returns {Array} [{ name }] sorted by name
+ */
+OBJECT.getKnownActions = function () {
+    let to_return = [];
+    let seen      = {};
+    let _keys     = Object.keys( OBJECT.COMPENDIUM );
+    for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+        let object_data = OBJECT.COMPENDIUM[ _keys[ i ] ];
+        if ( !object_data || object_data.category !== "action" || !object_data.text ) {
+            continue;
+        }
+        let seen_key = object_data.text.toLowerCase();
+        if ( seen[ seen_key ] ) {
+            continue;
+        }
+        seen[ seen_key ] = true;
+        to_return.push( object_data.text );
+    }
+    to_return.sort( function ( name_a, name_b ) {
+        return name_a.localeCompare( name_b, "fr" );
+    } );
+    let entries = [];
+    for ( let i = 0, _size_i = to_return.length; i < _size_i; i++ ) {
+        entries.push( { "name": to_return[ i ] } );
+    }
+    return entries;
+};
+
+/**
+ * L'entrée compendium d'une action par son NOM (catégorie "action") : la
+ * popup ACTION de l'entrée de la zone Actions du Général. Null quand le nom
+ * ne vit pas dans les données (valeur hors liste).
+ *
+ * @param {string} action_name  Display name, ex. "Préparation rapide"
+ * @returns {Object|null}       The compendium entry of the action, or null when unknown
+ */
+OBJECT.getActionInformation = function ( action_name ) {
+    for ( let key in OBJECT.COMPENDIUM ) {
+        let object_data = OBJECT.COMPENDIUM[ key ];
+        if ( object_data && object_data.category === "action" && object_data.text === action_name ) {
+            return object_data;
+        }
+    }
+    return null;
+};

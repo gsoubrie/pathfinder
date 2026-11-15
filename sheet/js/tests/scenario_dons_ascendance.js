@@ -85,7 +85,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] sections = Elfe 1, Elfe 5, lignes en at
             let _onclick                  = _row.querySelector( ".single-select-option" ).getAttribute( "onclick" ) || "";
             TEST.ASSERT.ok( _onclick.indexOf( "event__level_up__select_choice" ) !== -1 && _onclick.indexOf( _level + "__ancestry_feat" ) !== -1, "Les options devraient emettre event__level_up__select_choice avec l'uuid de la ligne (" + _level + "__ancestry_feat), obtenu : " + _onclick );
             // Le ? de la valeur choisie vit a cote du selecteur : masque sans selection
-            let _selected_info            = _row.querySelector( ".single-select-container + .level-up-row-info" );
+            let _selected_info            = _row.querySelector( ".single-select-container ~ .level-up-row-info" );
             TEST.ASSERT.notNull( _selected_info, "La ligne Don ancestral devrait porter le ? de la valeur choisie" );
             if ( _selected_info ) {
                 TEST.ASSERT.equal( _selected_info.getAttribute( "data-value" ), "", "Le ? de la valeur choisie devrait etre vide sans selection, obtenu : [" + _selected_info.getAttribute( "data-value" ) + "]" );
@@ -143,7 +143,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] choix Elfe 1 = validé, ? option = popu
         let _counter_after                = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
         TEST.ASSERT.equal( _counter_after.getAttribute( "data-number" ), "" + ( _counter_before - 1 ), "Le compteur de l'onglet devrait décrémenter d'une ligne apres la validation du don, obtenu : [" + _counter_after.getAttribute( "data-number" ) + "]" );
         // Le ? de la valeur choisie ouvre la popup du don sélectionné
-        let _selected_info               = _row_after.querySelector( ".single-select-container + .level-up-row-info" );
+        let _selected_info               = _row_after.querySelector( ".single-select-container ~ .level-up-row-info" );
         TEST.ASSERT.notNull( _selected_info, "La ligne validée devrait porter le ? de sa valeur choisie" );
         if ( _selected_info ) {
             TEST.ASSERT.equal( _selected_info.getAttribute( "data-value" ), _feat_name, "Le ? de la valeur choisie devrait porter le don sélectionné, obtenu : [" + _selected_info.getAttribute( "data-value" ) + "]" );

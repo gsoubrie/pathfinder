@@ -3287,7 +3287,6 @@ var CLASSES = {
                     "name" : "Concevoir un stratagème",
                     "description" : [
                         "Vous pouvez simuler un combat dans votre esprit et utiliser votre cerveau plutôt que vos muscles pour porter une attaque.",
-                        "Vous obtenez l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm0f2B7G9eaaTmhFL'})\">Concevoir un stratagème</div>",
                         "Vous obtenez l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'm0f2B7G9eaaTmhFL'})\">Concevoir un stratagème</div>"
                     ]
                 },

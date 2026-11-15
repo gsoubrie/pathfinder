@@ -280,3 +280,54 @@ TEST.RUNNER.register( "[HISTORIQUES] second clic « + » → historique vidé", 
         TEST.ASSERT.equal( _field.value, "", "Le champ du Général devrait suivre le vidage en place, obtenu : [" + _field.value + "]" );
     }
 } );
+
+TEST.RUNNER.register( "[HISTORIQUES] don de la carte = lien de popup feat", function () {
+    let _input                          = TEST_historicFieldInput();
+    TEST.ASSERT.notNull( _input, "Pre-condition : champ Historique rendu" );
+    if ( !_input ) {
+        return;
+    }
+    _input.click();
+    let _window_dom                     = TEST_libraryWindowDom();
+    TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre Bibliothèque rendue (sujet Historiques)" );
+    if ( !_window_dom ) {
+        return;
+    }
+    TEST_libraryCommitFilterByEnter( "Criminel" );
+    return TEST.wait().then( function () {
+        let _cards                      = _window_dom.querySelectorAll( ".library-card" );
+        TEST.ASSERT.ok( _cards.length >= 1, "Le filtre Criminel devrait laisser au moins la carte de l'historique, obtenu : " + _cards.length );
+        let _criminel_card              = null;
+        for ( let _i = 0, _size_i = _cards.length; _size_i && _i < _size_i; _i++ ) {
+            let _name                   = _cards[ _i ].querySelector( ".library-card-name" );
+            if ( _name && _name.textContent === "Criminel" ) {
+                _criminel_card          = _cards[ _i ];
+            }
+        }
+        TEST.ASSERT.notNull( _criminel_card, "La carte de l'historique Criminel devrait etre rendue" );
+        if ( !_criminel_card ) {
+            return;
+        }
+        // La ligne Don porte le LIEN du don (popup feat par data attributes,
+        // jamais inline : les dons portent des apostrophes)
+        let _gift_link                  = _criminel_card.querySelector( ".library-card-gift-link[data-value='Contrebandier expérimenté']" );
+        TEST.ASSERT.notNull( _gift_link, "La ligne Don de la carte Criminel devrait lier Contrebandier expérimenté, obtenu : absence" );
+        if ( !_gift_link ) {
+            return;
+        }
+        TEST.ASSERT.equal( _gift_link.getAttribute( "data-category" ), "skill", "Le don de l'historique devrait porter sa catégorie skill, obtenu : " + _gift_link.getAttribute( "data-category" ) );
+        TEST.ASSERT.ok( _gift_link.textContent === "Contrebandier expérimenté", "Le lien du don devrait porter le nom du don, obtenu : [" + _gift_link.textContent + "]" );
+        _gift_link.click();
+        let _overlay                    = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _overlay, "La popup du don de l'historique devrait s'ouvrir au clic sur son lien" );
+        if ( !_overlay ) {
+            return;
+        }
+        let _title                      = _overlay.querySelector( ".popup-title" );
+        TEST.ASSERT.notNull( _title, "La popup du don devrait afficher un titre" );
+        if ( _title ) {
+            TEST.ASSERT.equal( _title.textContent, "Contrebandier expérimenté", "Le titre de la popup devrait etre le nom du don, obtenu : " + _title.textContent );
+        }
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "feat__skill__Contrebandier expérimenté" } );
+    } );
+} );

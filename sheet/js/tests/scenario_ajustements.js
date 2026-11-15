@@ -464,3 +464,156 @@ TEST.RUNNER.register( "[AJUSTEMENTS][SAVE] save → load = ajustements restauré
         TEST.ASSERT.equal( _reloaded_sense.explanation, "Manuel des sens", "L'explication libre devrait survivre a la relecture, obtenu : " + _reloaded_sense.explanation );
     }
 } );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise qualifiée = type révélé par la compétence, valeur composite au +", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _section                    = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
+        TEST.ASSERT.notNull( _section, "La section Maîtrises devrait etre rendue" );
+        if ( !_section ) {
+            return;
+        }
+        let _skill_option               = _section.querySelector( ".adjustments-add-row .single-select-option[data-value='Connaissance']" );
+        TEST.ASSERT.notNull( _skill_option, "Le sélecteur de compétence devrait proposer Connaissance" );
+        if ( !_skill_option ) {
+            return;
+        }
+        TEST.ASSERT.isNull( _section.querySelector( ".adjustments-mastery-qualifier .single-select-container" ), "Aucun sélecteur de type ne devrait exister avant le choix de la compétence" );
+        _skill_option.click();
+        return TEST.wait().then( function () {
+            // Le choix de Connaissance révéle le sélecteur de type, entre la
+            // compétence et le rang
+            let _fresh_section          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
+            let _qualifier              = _fresh_section.querySelector( ".adjustments-mastery-qualifier .single-select-container" );
+            TEST.ASSERT.notNull( _qualifier, "Choisir Connaissance devrait révéler le sélecteur de type" );
+            TEST.ASSERT.ok( _qualifier.querySelectorAll( ".single-select-option" ).length >= 2, "Le sélecteur de type devrait proposer l'option vide + les types connus, obtenu : " + _qualifier.querySelectorAll( ".single-select-option" ).length );
+            let _rank_option           = _fresh_section.querySelector( ".adjustments-add-row .single-select-option[data-value='Qualifié (Q)']" );
+            if ( _rank_option ) {
+                _rank_option.click();
+            }
+            return TEST.wait().then( function () {
+                // Le + ne crée RIEN tant que le type manque (la compétence à
+                // qualifier ne s'assemble pas sans lui)
+                let _no_type_section    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
+                _no_type_section.querySelector( ".adjustments-add-button" ).click();
+                let _entries            = _character.getAdjustments().getValuesByKind( "mastery" );
+                TEST.ASSERT.equal( _entries.length, 0, "Le + sans type ne devrait créer aucune entrée, obtenu : " + JSON.stringify( _entries ) );
+                // Entrée sur un type LIBRE : liste + libre (pattern du filtre)
+                let _filter_input       = _qualifier.querySelector( ".single-select-filter" );
+                TEST.ASSERT.notNull( _filter_input, "Le sélecteur de type devrait porter sa ligne de filtre" );
+                _filter_input.value     = "sous le Quart-Monde";
+                _filter_input.dispatchEvent( new KeyboardEvent( "keydown", { "key": "Enter" } ) );
+                return TEST.wait().then( function () {
+                    let _mastery_value  = "Connaissance (sous le Quart-Monde) — Qualifié (Q)";
+                    let _commit_section  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
+                    _commit_section.querySelector( ".adjustments-add-button" ).click();
+                    return TEST.wait().then( function () {
+                        TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "mastery" ).indexOf( _mastery_value ) !== -1, "La maîtrise qualifiée assemblée devrait vivre dans les ajustements, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "mastery" ) ) );
+                        let _fresh        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+                        let _entry        = _fresh.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-entry[data-value=\"" + _mastery_value + "\"]" );
+                        TEST.ASSERT.notNull( _entry, "L'entrée devrait porter la valeur composite assemblée, obtenu : aucune entrée" );
+                        let _saved        = _character.getDataToSave();
+                        TEST.ASSERT.ok( _saved.adjustments && _saved.adjustments.some( function ( a ) { return a.kind === "mastery" && a.value === _mastery_value; } ), "Le save devrait porter la maîtrise qualifiée, obtenu : " + JSON.stringify( _saved.adjustments ) );
+                        // Nettoyage : la suite repart sans maîtrise
+                        let _remove      = _entry ? _entry.querySelector( ".adjustments-entry-remove" ) : null;
+                        if ( _remove ) {
+                            _remove.click();
+                        }
+                        return TEST.wait().then( function () {
+                            TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "mastery" ).length, 0, "Nettoyage : aucune maîtrise ne devrait rester, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "mastery" ) ) );
+                        } );
+                    } );
+                } );
+            } );
+        } );
+    } );
+} );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] action = sélecteur compendium + zone Actions du Général avec popup", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _section                    = _pane.querySelector( ".adjustments-section[data-kind='action']" );
+        TEST.ASSERT.notNull( _section, "La section Actions devrait etre rendue" );
+        if ( !_section ) {
+            return;
+        }
+        let _action_option               = _section.querySelector( ".single-select-option[data-value='Préparation rapide']" );
+        TEST.ASSERT.notNull( _action_option, "Le sélecteur d'actions devrait proposer Préparation rapide (compendium), obtenu : absence" );
+        if ( !_action_option ) {
+            return;
+        }
+        _action_option.click();
+        return TEST.wait().then( function () {
+            let _fresh_section           = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='action']" );
+            _fresh_section.querySelector( ".adjustments-add-button" ).click();
+            return TEST.wait().then( function () {
+                TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "action" ).indexOf( "Préparation rapide" ) !== -1, "L'action posée devrait vivre dans les ajustements, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "action" ) ) );
+                let _saved              = _character.getDataToSave();
+                TEST.ASSERT.ok( _saved.adjustments && _saved.adjustments.some( function ( a ) { return a.kind === "action" && a.value === "Préparation rapide"; } ), "Le save devrait porter l'action, obtenu : " + JSON.stringify( _saved.adjustments ) );
+                // La zone Actions du Général (colonne 5, a droite des infos
+                // d'ascendance) liste l'action, son clic ouvre la popup ACTION
+                return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+                    return TEST.wait();
+                } ).then( function () {
+                    let _general_pane    = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+                    TEST.ASSERT.notNull( _general_pane, "Pre-condition : panneau Général ouvert" );
+                    if ( !_general_pane ) {
+                        return;
+                    }
+                    let _area_actions    = _general_pane.querySelector( ".grid-area.area-actions" );
+                    TEST.ASSERT.notNull( _area_actions, "La zone Actions devrait etre rendue dans le Général (a droite des infos d'ascendance)" );
+                    let _entry           = _area_actions ? _area_actions.querySelector( ".actions-list-entry[data-value='Préparation rapide']" ) : null;
+                    TEST.ASSERT.notNull( _entry, "La zone Actions devrait lister Préparation rapide, obtenu : absence" );
+                    if ( !_entry ) {
+                        return;
+                    }
+                    _entry.click();
+                    let _overlay         = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+                    TEST.ASSERT.notNull( _overlay, "La popup de l'action devrait s'ouvrir au clic sur son entree" );
+                    if ( _overlay ) {
+                        let _title       = _overlay.querySelector( ".popup-title" );
+                        TEST.ASSERT.notNull( _title, "La popup de l'action devrait afficher un titre" );
+                        if ( _title ) {
+                            TEST.ASSERT.equal( _title.textContent, "Préparation rapide", "Le titre de la popup devrait etre le nom de l'action, obtenu : " + _title.textContent );
+                        }
+                        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "QHFMeJGzFWj2QczA" } );
+                    }
+                    // Nettoyage : le retrait reproduit la zone vide (le — de lecture)
+                    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+                        return TEST.wait();
+                    } ).then( function () {
+                        let _adj_pane    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+                        let _remove     = _adj_pane.querySelector( ".adjustments-section[data-kind='action'] .adjustments-entry[data-value='Préparation rapide'] .adjustments-entry-remove" );
+                        if ( _remove ) {
+                            _remove.click();
+                        }
+                        return TEST.wait().then( function () {
+                            TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "action" ).length, 0, "Nettoyage : aucune action ne devrait rester, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "action" ) ) );
+                            return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+                                return TEST.wait();
+                            } ).then( function () {
+                                let _general_pane_clean = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+                                let _empty_entry        = _general_pane_clean ? _general_pane_clean.querySelector( ".grid-area.area-actions .actions-list-entry-empty" ) : null;
+                                TEST.ASSERT.notNull( _empty_entry, "La zone vidée devrait afficher son placeholder de lecture" );
+                            } );
+                        } );
+                    } );
+                } );
+            } );
+        } );
+    } );
+} );

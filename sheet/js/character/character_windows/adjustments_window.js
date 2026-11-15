@@ -139,9 +139,13 @@ CHARACTER.AdjustmentsWindow.prototype = {
             this._buildSelector( add_row, kind_data.key );
         }
         if ( kind_data.value_picker === "mastery" ) {
-            // Deux sélecteurs : la compétence, puis le rang de qualification
+            // Trois contrôles : la compétence, le type de Artisanat/
+            // Connaissance (révélé par le choix de la compétence), puis le
+            // rang de qualification
             this._buildSelector( add_row, kind_data.key );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "adjustments-mastery-qualifier" } ), add_row );
             this._buildSelector( add_row, kind_data.key + "__rank" );
+            this._renderMasteryQualifier();
         }
         if ( kind_data.value_picker === "speed" ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
@@ -191,6 +195,42 @@ CHARACTER.AdjustmentsWindow.prototype = {
             component.setSelectedName( value );
             component.hidePopup();
         }
+        // Le type de Artisanat/Connaissance suit la compétence : une autre
+        // compétence réinitialise le type en attente, le sélecteur se rebâtit
+        if ( kind === "mastery" ) {
+            this.pending_values[ "mastery__qualifier" ] = null;
+            this._renderMasteryQualifier();
+        }
+    },
+
+    // Le sélecteur de type ne vit que sur une compétence à qualifier
+    // (Artisanat, Connaissance) : il apparait entre la compétence et le
+    // rang, liste + libre comme les autres sélecteurs de la section
+    _renderMasteryQualifier: function () {
+        let container = this.content_dom_element_target.querySelector( ".adjustments-section[data-kind='mastery'] .adjustments-mastery-qualifier" );
+        if ( !container ) {
+            return;
+        }
+        SERVICE.DOM.empty( container );
+        delete this.selector_components[ "mastery__qualifier" ];
+        let skill = this.pending_values[ "mastery" ];
+        if ( !skill ) {
+            return;
+        }
+        let skill_data = SKILLS.isASkill( skill );
+        if ( !skill_data || !skill_data.need_qualifier ) {
+            return;
+        }
+        let component = new COMPONENT.SingleSelectFromData();
+        component.addParamsForEvents( { "param__adjustment__kind": "mastery__qualifier" } );
+        component.setToggleEventName( "event__adjustment__toggle_selector" );
+        component.setClickEventName( "event__adjustment__pick" );
+        component.setFilterEnterEventName( "event__adjustment__filter_enter" );
+        component.setOptions( SKILLS.getQualifierList( skill ) );
+        component.setSelectedName( this.pending_values[ "mastery__qualifier" ] );
+        component.computeHtml();
+        SERVICE.DOM.addElementTo( component.getDomElement(), container );
+        this.selector_components[ "mastery__qualifier" ] = component;
     },
 
     _getKindOptions: function ( kind_key ) {
@@ -199,6 +239,9 @@ CHARACTER.AdjustmentsWindow.prototype = {
         }
         if ( kind_key === "lore" ) {
             return HISTORICS.getKnownLores();
+        }
+        if ( kind_key === "action" ) {
+            return OBJECT.getKnownActions();
         }
         if ( kind_key === "feat" ) {
             return DON.getKnownFeats();
@@ -249,11 +292,17 @@ CHARACTER.AdjustmentsWindow.prototype = {
             }
         }
         else if ( kind_data.value_picker === "mastery" ) {
-            // "Arcanes — Expert (E)" : la compétence choisie + le rang choisi
-            let skill = this.pending_values[ kind_key ];
-            let rank  = this.pending_values[ kind_key + "__rank" ];
-            if ( skill ) {
-                value = rank ? skill + " — " + rank : skill;
+            // "Artisanat (alchimie) — Expert (E)" : la compétence — avec son
+            // type quand elle en demande un (le + ne crée rien sans lui),
+            // puis le rang choisi
+            let skill      = this.pending_values[ kind_key ];
+            let qualifier = this.pending_values[ kind_key + "__qualifier" ];
+            let rank      = this.pending_values[ kind_key + "__rank" ];
+            let skill_data = skill ? SKILLS.isASkill( skill ) : false;
+            let needs_type = !!( skill_data && skill_data.need_qualifier );
+            if ( skill && ( !needs_type || qualifier ) ) {
+                let skill_value = needs_type ? skill + " (" + qualifier + ")" : skill;
+                value = rank ? skill_value + " — " + rank : skill_value;
             }
         }
         else {
@@ -271,8 +320,9 @@ CHARACTER.AdjustmentsWindow.prototype = {
             } );
             // The picked value is consumed, the rebuilt selector returns to
             // its empty option
-            this.pending_values[ kind_key ]            = null;
-            this.pending_values[ kind_key + "__rank" ] = null;
+            this.pending_values[ kind_key ]                  = null;
+            this.pending_values[ kind_key + "__qualifier" ] = null;
+            this.pending_values[ kind_key + "__rank" ]       = null;
         }
     }
 };

@@ -87,7 +87,10 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] Magicien 1 → 5 lignes classe + don e
         let _characteristics_pending     = _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         let _rows                         = _block.querySelectorAll( ".level-up-row" );
         TEST.ASSERT.equal( _rows.length, 5 + _additional_count, "Le bloc du niveau 1 devrait rendre ses 5 capacités + les " + _additional_count + " compétences supplémentaires (2 + mod INT), obtenu : " + _rows.length );
-        TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (pas les compétences supplémentaires), obtenu : " + _block.querySelectorAll( ".level-up-row-info" ).length );
+        // Les ? des capacités vivent dans le groupe de label : les options
+        // d'un sélecteur informé (l'école arcanique porte ses uuids
+        // compendium) rendent LEURS ? dans .single-select-option
+        TEST.ASSERT.equal( _block.querySelectorAll( ".level-up-row-label-group .level-up-row-info" ).length, 5, "Toute capacité décrite du niveau 1 devrait porter le ? (pas les compétences supplémentaires), obtenu : " + _block.querySelectorAll( ".level-up-row-label-group .level-up-row-info" ).length );
         for ( let _i = 0; _i < _rows.length; _i++ ) {
             let _row                      = _rows[ _i ];
             let _choice_options           = _row.dataset.slotKey === "ecole_arcanique" ? 12 : ( _row.dataset.slotKey === "these_arcanique" ? 6 : ( _row.dataset.slotKey.indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ? 18 : 0 ) );
@@ -412,6 +415,13 @@ TEST.RUNNER.register( "[LEVELUP MAGICIEN] niveau 1 + don et langues d'ascendance
             let _option                   = _rows[ _i ].querySelector( ".single-select-option:not([data-value=''])" );
             if ( _option ) {
                 _option.click();
+                // Une compétence qualifiée (Artisanat, Connaissance) attend
+                // son type : le sélecteur de type vit après le choix, son
+                // option complète la validation
+                let _qualifier_option      = _rows[ _i ].querySelector( ".level-up-row-qualifier .single-select-option:not([data-value=''])" );
+                if ( _qualifier_option && _rows[ _i ].dataset.currentPhase !== "SELECTED" ) {
+                    _qualifier_option.click();
+                }
             }
             else {
                 _rows[ _i ].querySelector( ".level-up-row-toggle" ).click();

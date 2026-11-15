@@ -42,6 +42,9 @@ CONTROLLER.Character = (function ( self ) {
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
             case "event__level_up__toggle_selector":
+            case "event__level_up__toggle_qualifier_selector":
+            case "event__level_up__qualifier_filter_enter":
+            case "event__level_up__select_qualifier":
             case "event__adjustment__toggle_selector":
             case "event__adjustment__pick":
             case "event__adjustment__commit":

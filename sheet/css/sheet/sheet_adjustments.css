@@ -123,6 +123,21 @@
     position   : relative;
 }
 
+/* Le sélecteur de type de Artisanat/Connaissance : caché hors besoin, le
+   header étroit (le type se lit court : "alchimie", "du copiste") */
+.adjustments-mastery-qualifier {
+    flex-shrink: 0;
+}
+
+.adjustments-mastery-qualifier:empty {
+    display: none;
+}
+
+.adjustments-mastery-qualifier .single-select-selector {
+    max-width: 180px;
+    min-width: 110px;
+}
+
 .adjustments-window .single-select-selector {
     align-items    : center;
     background     : var(--c-bg-card);

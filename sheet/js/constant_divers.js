@@ -250,8 +250,50 @@ var SKILLS     = {
             }
         }
         return false;
+    },
+    // Types proposes pour une competence qualifiee (need_qualifier), listes
+    // ecrites a la main — le qualificatif d'une Connaissance vit dans les
+    // donnees des historiques, une valeur inconnue se cree par l'Entree du
+    // filtre (pattern liste + libre)
+    getQualifierList: function ( skill_label ) {
+        let is_as_skill = SKILLS.isASkill( skill_label );
+        if ( !is_as_skill || !is_as_skill.need_qualifier ) {
+            return [];
+        }
+        if ( is_as_skill.label === SKILLS.LIST.LORE.label ) {
+            let to_return = [];
+            let known_lores = HISTORICS.getKnownLores();
+            for ( let i = 0, _size_i = known_lores.length; i < _size_i; i++ ) {
+                // l'option porte le type SEUL : la valeur gardee reste
+                // "<competence> (<type>)"
+                let type = known_lores[ i ].name.slice( is_as_skill.label.length ).trim();
+                if ( type ) {
+                    to_return.push( { "name": type } );
+                }
+            }
+            return to_return;
+        }
+        for ( let i = 0, _size_i = SKILLS.QUALIFIER_LISTS.length; i < _size_i; i++ ) {
+            if ( SKILLS.QUALIFIER_LISTS[ i ].label === is_as_skill.label ) {
+                let to_return = [];
+                let list = SKILLS.QUALIFIER_LISTS[ i ].entries;
+                for ( let j = 0, _size_j = list.length; j < _size_j; j++ ) {
+                    to_return.push( { "name": list[ j ] } );
+                }
+                return to_return;
+            }
+        }
+        return [];
     }
 };
+// Types d'Artisanat, main list (survit au re-scrap) ; Connaissance vit dans
+// HISTORICS.getKnownLores
+SKILLS.QUALIFIER_LISTS = [
+    {
+        label  : "Artisanat",
+        entries: [ "Alchimie", "Armures", "Bâtiment", "Boissons", "Fonte du verre", "Forgeron", "Horlogerie", "Maroquinerie", "Poisons", "Reliure", "Textile" ]
+    }
+];
 var MASTERY    = {
     LIST         : {
         UNTRAINED: {

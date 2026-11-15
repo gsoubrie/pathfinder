@@ -37,6 +37,14 @@ function TEST_saveCompletValidateOne( window_name ) {
             _toggle.click();
             return true;
         }
+        // Une compétence qualifiée (Artisanat, Connaissance) attend son
+        // type : le sélecteur de type ne vit qu'après le choix de la
+        // compétence — son option valide la ligne seule
+        let _qualifier_option           = _row.querySelector( ".level-up-row-qualifier .single-select-option:not([data-value=''])" );
+        if ( _qualifier_option ) {
+            _qualifier_option.click();
+            return true;
+        }
         let _options                    = _row.querySelectorAll( ".single-select-option" );
         for ( let _j = 0, _size_j = _options.length; _j < _size_j; _j++ ) {
             let _value                  = _options[ _j ].getAttribute( "data-value" );

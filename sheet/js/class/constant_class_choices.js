@@ -90,10 +90,10 @@ CLASSES.CHOICES = {
     "Enquêteur": {
         "methodologie": {
             "entries": [
-                { "name": "Empirisme" },
-                { "name": "Interrogatoire" },
-                { "name": "Médecine forensique" },
-                { "name": "Sciences alchimiques" }
+                { "name": "Empirisme",           "uuid": "g3mNzNphtVxyR9Xr" },
+                { "name": "Interrogatoire",      "uuid": "UIHUNNYZyQ3p4Vmo" },
+                { "name": "Médecine forensique", "uuid": "O3IX7rTxXWWvDVM3" },
+                { "name": "Sciences alchimiques", "uuid": "ln2Y1a4SxlU9sizX" }
             ]
         }
     },
@@ -563,11 +563,36 @@ CLASSES.getChoices = function ( class_name, ability_key ) {
 };
 
 /**
+ * Compendium data of a choice value, for the « ? » of a choice line: the
+ * entries carrying a uuid own a matching OBJECT.COMPENDIUM entry (the
+ * option opens its information popup), the others open nothing.
+ *
+ * @param {string} class_name    Class name, ex: "Enquêteur"
+ * @param {string} ability_key   Normalized ability key, ex: "methodologie"
+ * @param {string} choice_value  Value chosen on the line, ex: "Empirisme"
+ * @returns {Object|null}        The compendium data of the value, or null when the choice carries none
+ */
+CLASSES.getChoiceInformation = function ( class_name, ability_key, choice_value ) {
+    let choice = CLASSES.getChoices( class_name, ability_key );
+    if ( !choice ) {
+        return null;
+    }
+    for ( let i = 0, _size_i = choice.entries.length; i < _size_i; i++ ) {
+        if ( choice.entries[ i ].name === choice_value && choice.entries[ i ].uuid ) {
+            return OBJECT.COMPENDIUM[ choice.entries[ i ].uuid ] || null;
+        }
+    }
+    return null;
+};
+
+/**
  * Resolves the class abilities key matching an unlock label key.
  * Exact match first, then plural-insensitive match (each word stripped of its
  * trailing french plural "s"/"x": "don de compétence" matches "dons de
  * compétence"), then the shortest key extending the label ("expertise avec les
- * armes" -> "expertise avec les armes du magicien").
+ * armes" -> "expertise avec les armes du magicien"), and last the longest key
+ * the label EXTENDS — the class tables append the dice to the label
+ * ("frappe stratégique 1d6" -> "frappe_strategique").
  *
  * @param {Object} class_data   Class data object carrying "abilities"
  * @param {string} ability_key  Normalized unlock label key, ex: "ecole_arcanique"
@@ -597,7 +622,22 @@ CLASSES.resolveAbilityKey = function ( class_data, ability_key ) {
             best_key = _keys[ i ];
         }
     }
-    return best_key;
+    if ( best_key ) {
+        return best_key;
+    }
+    // The class tables append the dice of the level to the label : the
+    // LONGEST key the label extends wins (a shorter key stays under a
+    // more specific one)
+    let extending_key = null;
+    for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+        if ( _keys[ i ].length >= ability_key.length ) {
+            continue;
+        }
+        if ( ability_key.indexOf( _keys[ i ] + "_" ) === 0 && ( extending_key === null || _keys[ i ].length > extending_key.length ) ) {
+            extending_key = _keys[ i ];
+        }
+    }
+    return extending_key;
 };
 
 /**

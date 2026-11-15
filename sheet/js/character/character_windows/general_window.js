@@ -23,6 +23,7 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__adjustment__add":
             case "event__adjustment__remove":
                 this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
+                this.computeArea__actions( CONTROLLER.Character.current_character );
                 break;
             case "click_on__window_navigation__done":
                 // Les prises de niveau et validations vivent dans l'onglet Passage de
@@ -32,6 +33,7 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__saves( CONTROLLER.Character.current_character );
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
+                    this.computeArea__actions( CONTROLLER.Character.current_character );
                     this.computeArea__healthPoints( CONTROLLER.Character.current_character );
                     this.computeArea__level( CONTROLLER.Character.current_character );
                 }
@@ -57,6 +59,7 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent( character_object.getRace().getLegacy() );
         this.computeComponent( character_object.getRace().getBodySize() );
         this.computeArea__ancestryInfo( character_object );
+        this.computeArea__actions( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
         this.computeArea__level( character_object );
@@ -241,8 +244,28 @@ CHARACTER.GeneralWindow.prototype = {
         // Les connaissances (lores) viennent des ajustements ; la liste
         // n'apparait que quand elle est non vide
         let lores = character_object.getAdjustments().getValuesByKind( "lore" );
+        // Les compétences qualifiées choisies dans la Progression se
+        // spécifient ici : le type se choisit là-bas, la lecture vit dans
+        // cette zone (comme les langues choisies de l'ascendance)
+        let qualified_skills = character_object.getQualifiedSkills();
+        let qualified_lores  = [];
+        let qualified_craftings = [];
+        let lore_prefix         = SKILLS.LIST.LORE.label + " (";
+        let crafting_prefix     = SKILLS.LIST.CRAFTING.label + " (";
+        for ( let q = 0, _size_q = qualified_skills.length; q < _size_q; q++ ) {
+            if ( qualified_skills[ q ].indexOf( lore_prefix ) === 0 ) {
+                qualified_lores.push( qualified_skills[ q ] );
+            }
+            else if ( qualified_skills[ q ].indexOf( crafting_prefix ) === 0 ) {
+                qualified_craftings.push( qualified_skills[ q ] );
+            }
+        }
+        lores = lores.concat( qualified_lores );
         if ( lores.length ) {
             this._computeAncestryInfoList( "lore", "Connaissances", lores );
+        }
+        if ( qualified_craftings.length ) {
+            this._computeAncestryInfoList( "crafting", "Artisanats", qualified_craftings );
         }
     },
 
@@ -259,6 +282,45 @@ CHARACTER.GeneralWindow.prototype = {
         for ( let i = 0, _size_i = entries.length; i < _size_i; i++ ) {
             SERVICE.DOM.addElementTo(
                 SERVICE.DOM.createElement( "div", { class: "ancestry-list-entry", "data-value": entries[ i ] }, entries[ i ] ),
+                list
+            );
+        }
+    },
+
+    // Zone des actions de la colonne 5, a droite des infos d'ascendance : la
+    // liste vit sur les ajustements de l'onglet Ajustements, chaque entree
+    // ouvre la popup ACTION du compendium par son nom (jamais inline : les
+    // noms portent des apostrophes)
+    computeArea__actions: function ( character_object ) {
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        if ( !this.area_actions ) {
+            this.area_actions = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-actions" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_actions );
+        let property = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "property vertical actions-info-property" } ),
+            this.area_actions
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Actions" ), property );
+        let list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-info-list" } ), property );
+        let action_values = character_object.getAdjustments().getValuesByKind( "action" );
+        if ( !action_values.length ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-list-entry actions-list-entry-empty" }, "—" ), list );
+            return;
+        }
+        for ( let i = 0, _size_i = action_values.length; i < _size_i; i++ ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class      : "actions-list-entry",
+                    "data-value": action_values[ i ],
+                    title      : "Informations de l'action",
+                    onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__action',{'param__action__name':this.getAttribute('data-value')})"
+                }, action_values[ i ] ),
                 list
             );
         }

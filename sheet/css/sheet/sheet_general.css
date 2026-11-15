@@ -18,15 +18,15 @@
     grid-template-areas   :
         "name     ancestry class  level historic"
         "player   legacy  archetype pv size"
-        "FOR      jets    jets    ancestry-info ."
-        "DEX      jets    jets    ancestry-info ."
-        "CON      jets    jets    ancestry-info ."
-        "INT      jets    jets    ancestry-info ."
-        "SAG      jets    jets    ancestry-info ."
-        "CHA      jets    jets    ancestry-info ."
-        ".        jets    jets    ancestry-info ."
-        ".        jets    jets    ancestry-info ."
-        ".        jets    jets    ancestry-info .";
+        "FOR      jets    jets    ancestry-info actions"
+        "DEX      jets    jets    ancestry-info actions"
+        "CON      jets    jets    ancestry-info actions"
+        "INT      jets    jets    ancestry-info actions"
+        "SAG      jets    jets    ancestry-info actions"
+        "CHA      jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -34,6 +34,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-player { grid-area : player; }
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
 .property-tab-pane[data-name="general_sheet"] .area-ancestry-info { grid-area : ancestry-info; }
+.property-tab-pane[data-name="general_sheet"] .area-actions { grid-area : actions; }
 .property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
 .property-tab-pane[data-name="general_sheet"] .area-body_size { grid-area : size; }
@@ -323,6 +324,42 @@
     font-size: 13px;
 }
 
+/* Zone des actions (colonne 5) : le même langage que les infos d'ascendance,
+   chaque entree ouvre sa popup au clic */
+.property-tab-pane[data-name="general_sheet"] .area-actions .property {
+    background : transparent;
+    border     : none;
+    padding    : 4px;
+    box-shadow : none;
+    margin     : 0;
+    min-height : 0;
+}
+
+.actions-info-list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 2px;
+}
+
+.actions-list-entry {
+    color    : var(--c-text);
+    cursor   : pointer;
+    font-size: 13px;
+}
+
+.actions-list-entry:hover {
+    color: var(--c-gold-light);
+}
+
+.actions-list-entry-empty {
+    color : var(--c-text-muted);
+    cursor: default;
+}
+
+.actions-list-entry-empty:hover {
+    color: var(--c-text-muted);
+}
+
 /* =============================== RESPONSIVE ================================ */
 /* The desktop paper works on 5 tracks ; the tablet stacks on 2 columns of
    equal width (3 characteristics per row), the phone on ONE column (2
@@ -344,7 +381,8 @@
             "FOR FOR DEX DEX CON CON"
             "INT INT SAG SAG CHA CHA"
             "jets jets jets jets jets jets"
-            "ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info";
+            "ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info ancestry-info"
+            "actions actions actions actions actions actions";
     }
 }
 
@@ -368,6 +406,7 @@
             "CON INT"
             "SAG CHA"
             "jets jets"
-            "ancestry-info ancestry-info";
+            "ancestry-info ancestry-info"
+            "actions actions";
     }
 }

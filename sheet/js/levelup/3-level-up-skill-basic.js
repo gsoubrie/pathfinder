@@ -91,7 +91,7 @@ CHARACTER.LevelUpSkillBasic.prototype = {
         this._computeHtmlLabel( class_name );
         this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).computeHtml();
         SERVICE.DOM.addElementTo( this.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).getDomElement(), this.dom_element );
-        this._computeHtmlValidation();
+        this._computeHtmlValidation( class_name );
     },
     _computeHtmlLabel     : function ( class_name ) {
         let is_masteries_line = this.ability_key === LEVELUP.INITIAL_MASTERIES_KEY;

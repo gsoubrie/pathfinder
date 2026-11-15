@@ -82,12 +82,33 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // The class-feature data of a choice option is static : the
+            // popup caches by its compendium uuid (patron of the feats)
+            case "event__show_information__choice": {
+                let choice_data = params[ "param__choice_value" ] ? CLASSES.getChoiceInformation( params[ "param__class_name" ], params[ "param__ability_key" ], params[ "param__choice_value" ] ) : null;
+                let choice_popup = choice_data ? this._openPopup( choice_data ) : null;
+                if ( choice_popup ) {
+                    choice_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             // The stuff data is static : the popup caches by its uuid
             case "event__show_information__item": {
                 let stuff_data = params[ "param__stuff__value" ] ? STUFFS.getItemInformation( params[ "param__stuff__value" ] ) : null;
                 let stuff_popup = stuff_data ? this._openPopup( stuff_data ) : null;
                 if ( stuff_popup ) {
                     stuff_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
+            // The action data is static : the popup caches by its compendium
+            // uuid, resolved by the NAME of the entry (the values carry
+            // apostrophes, they never travel inline)
+            case "event__show_information__action": {
+                let action_data = params[ "param__action__name" ] ? OBJECT.getActionInformation( params[ "param__action__name" ] ) : null;
+                let action_popup = action_data ? this._openPopup( action_data ) : null;
+                if ( action_popup ) {
+                    action_popup.doActionAfter( "event__show_information", params );
                 }
                 return;
             }

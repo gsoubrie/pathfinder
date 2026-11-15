@@ -626,7 +626,44 @@ CHARACTER.LibraryWindow.prototype = {
         let content = card.querySelector( ".library-card-content" );
         let lines   = this._getHistoricLines( entry );
         for ( let l = 0, _size_l = lines.length; l < _size_l; l++ ) {
+            if ( lines[ l ].indexOf( "Don : " ) === 0 ) {
+                this._buildHistoricGiftLine( content, entry.gift_skill );
+                continue;
+            }
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-key-line" }, lines[ l ] ), content );
+        }
+    },
+
+    // La ligne des dons de l'historique : chaque nom porte son lien de popup
+    // feat quand les donnees l'indexent (skill, sa race sinon — un nom hors
+    // dataset reste texte brut). Le nom ne s'embarque JAMAIS inline (les dons
+    // portent des apostrophes), il part par data attribute au clic
+    _buildHistoricGiftLine: function ( content, gift_names ) {
+        if ( !gift_names || !gift_names.length ) {
+            return;
+        }
+        let line = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-key-line" } ), content );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, "Don : " ), line );
+        for ( let g = 0, _size_g = gift_names.length; g < _size_g; g++ ) {
+            if ( g > 0 ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, ", " ), line );
+            }
+            let feat_name     = gift_names[ g ];
+            let feat_category = DON.getFeatInformation( "skill", feat_name ) ? "skill" : ( DON.getFeatInformation( "race", feat_name ) ? "race" : null );
+            if ( !feat_category ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, feat_name ), line );
+                continue;
+            }
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "span", {
+                    class       : "library-card-gift-link gs-link-information",
+                    "data-value": feat_name,
+                    "data-category": feat_category,
+                    title       : "Informations du don",
+                    onclick     : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__feat',{'param__feat_category':this.getAttribute('data-category'),'param__feat_name':this.getAttribute('data-value')})"
+                }, feat_name ),
+                line
+            );
         }
     },
 

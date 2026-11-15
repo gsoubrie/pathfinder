@@ -197,6 +197,21 @@
     position   : relative;
 }
 
+/* Le sélecteur de TYPE d'une compétence qualifiée : caché hors besoin, le
+   header étroit (le type se lit court : "alchimie", "du copiste") */
+.level-up-row-qualifier {
+    flex-shrink: 0;
+}
+
+.level-up-row-qualifier:empty {
+    display: none;
+}
+
+.level-up-row-qualifier .single-select-selector {
+    max-width: 200px;
+    min-width: 130px;
+}
+
 .level-up-window .single-select-selector {
     align-items  : center;
     background   : var(--c-bg-card);

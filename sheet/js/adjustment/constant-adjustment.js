@@ -25,6 +25,11 @@ ADJUSTMENT.KINDS = [
         value_picker: "selector"
     },
     {
+        key         : "action",
+        label       : "Actions",
+        value_picker: "selector"
+    },
+    {
         key               : "sense",
         label             : "Sens",
         value_picker      : "input",

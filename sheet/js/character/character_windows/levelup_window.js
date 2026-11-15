@@ -33,6 +33,9 @@ CHARACTER.LevelUpWindow.prototype = {
             case "event__level_up__toggle_skill":
             case "event__level_up__select_choice":
             case "event__level_up__toggle_selector":
+            case "event__level_up__toggle_qualifier_selector":
+            case "event__level_up__qualifier_filter_enter":
+            case "event__level_up__select_qualifier":
                 // The line phase updates in place, the counter chain refreshes
                 // the tab badge and the global warning: nothing to re-render
                 CONTROLLER.Character.current_character.doActionAfter( event_name, params );
@@ -54,6 +57,16 @@ CHARACTER.LevelUpWindow.prototype = {
                 this._buildContent( CONTROLLER.Character.current_character );
                 break;
             case "event__level__toggle":
+                SERVICE.DOM.empty( this.content_dom_element_target );
+                this._buildContent( CONTROLLER.Character.current_character );
+                break;
+            // The characteristics block lives in this window : a +/− on
+            // a characteristic moves the additional lines (skills N + INT,
+            // languages INT) in the domain, no tab activation follows —
+            // the sections rebuild from the fresh state, same gesture as
+            // the activation
+            case "event__more_button":
+            case "event__less_button":
                 SERVICE.DOM.empty( this.content_dom_element_target );
                 this._buildContent( CONTROLLER.Character.current_character );
                 break;
