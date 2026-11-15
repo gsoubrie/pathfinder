@@ -153,18 +153,27 @@ CHARACTER.Current.prototype = {
             }
             // The « + » of a library card poses the historic of the
             // CHARACTER, its second click empties it : the value follows in
-            // place on the field of the Général (display only, the bonuses
-            // ride the Ajustements tab by hand)
-            case "event__historic__select":
-                if ( params[ "param__historic__name" ] === this.historic.getValue() ) {
-                    this.historic.setValue( "" );
-                } else {
-                    this.historic.setValue( params[ "param__historic__name" ] );
+            // place on the field of the Général, and the characteristic
+            // grid distributes its bonus (displayed and placed on its own
+            // column, the Ajustements detour of the v1 does not come back)
+            case "event__historic__select": {
+                let _selected_historic = params[ "param__historic__name" ] === this.historic.getValue() ? "" : params[ "param__historic__name" ];
+                this.historic.setValue( _selected_historic );
+                this.characteristics.doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": HISTORICS.key_element } );
+                if ( this.historic.characteristics_bonus ) {
+                    this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.historic, "param__is_for": HISTORICS.key_element } );
+                }
+                else {
+                    this.characteristics.doActionAfter( "event__reset_object_bonuses", { "param__is_for": HISTORICS.key_element } );
                 }
                 break;
+            }
             case "event__adjustment__add":
             case "event__adjustment__remove":
                 this.adjustments.doActionAfter( event_name, params );
+                // La grille des caractéristiques consomme les boosts de
+                // l'onglet : sa colonne Autre et la valeur finale suivent
+                this.characteristics.doActionAfter( "event__adjustments__changed", { "param__current_character__object": this } );
                 // The displays consuming the adjustments refresh with the entry
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
@@ -315,6 +324,13 @@ CHARACTER.Current.prototype = {
                 break;
             case this.historic.getKey():
                 this.historic.setValue( value && value.value !== undefined ? value.value : value );
+                // Un historique vide ne distribute rien : les cellules
+                // restent a leur phase de depart (jamais FORBIDDEN, le
+                // round-trip du save le verrouille)
+                this.characteristics.doActionAfter( "event__reset_characteristics_bonuses", { "param__is_for": HISTORICS.key_element } );
+                if ( this.historic.characteristics_bonus ) {
+                    this.characteristics.doActionAfter( "event__set_object_bonuses", { "param__current__object": this.historic, "param__is_for": HISTORICS.key_element } );
+                }
                 break;
             case CLASSES.key:
                 this.class.updateData( value );
@@ -401,6 +417,7 @@ CHARACTER.Current.prototype = {
                 break;
             case "adjustments":
                 this.adjustments.updateData( value );
+                this.characteristics.doActionAfter( "event__adjustments__changed", { "param__current_character__object": this } );
                 break;
             case "stuffs":
                 this.stuffs.updateData( value );

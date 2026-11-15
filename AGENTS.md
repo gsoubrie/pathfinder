@@ -312,13 +312,14 @@ caracteristiques_classe, classe_prime, classe_entree, archetype,
 save_fichier, stuffs) courent avant : chacune se RESET elle-même.
 PIÈGE découvert au Round 45 : classe → multiclasse → niveaux →
 niveaux_multiple forment une SOUS-CHAÎNE SANS RESET — scenario_classe
-hérite de l'Elfe laissé par la suite précédente (multiclasse porte
-littéralement « Pre-condition : fin du scenario CLASSE, race Elfe
-posée »), scenario_niveaux hérite du multiclasse : une suite qui RESET
-entre ajustements et classe casse TOUTES leurs pré-conditions (entrées
-de classe non rendues, onglet Progression resté désactivé — Round 39 :
-Progression est gated par l'ASCENDANCE, pas par la classe). Une suite
-qui se reset se place soit avant ajustements, soit après la
+hérite de l'Elfe laissé par la suite précédente (multiclasse, devenu le
+verrou « classe unique » au Round 81, porte littéralement
+« Pre-condition : fin du scenario CLASSE, race Elfe posée »),
+scenario_niveaux hérite de la même feuille à UNE classe : une suite qui
+RESET entre ajustements et classe casse TOUTES leurs pré-conditions
+(entrées de classe non rendues, onglet Progression resté désactivé —
+Round 39 : Progression est gated par l'ASCENDANCE, pas par la classe).
+Une suite qui se reset se place soit avant ajustements, soit après la
 sous-chaîne.
 
 Les scénarios s'enchaînent sur le même personnage, chacun repart de l'état
@@ -2235,6 +2236,216 @@ le brandit pas), la finesse = DEX reste le défaut à la main dans
 Ajustements, les DÉGÂTS s'affichent sans bonus FOR appliqué, rien ne
 se sauvegarde (tout est état dérivé). Validé par run headless (outil
 Round 76) : 147 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs.
+
+Round 81 = FIN DU MULTICLASSE, UNE SEULE CLASSE PAR PERSONNAGE (demande
+utilisateur : « enleve le fait de pouvoir avoir deux classes ») : le
+seul geste qui posait une 2e classe était le « + » du champ Classe
+(popup de sélection + Valider → `addClassFromEdition` ajoute sans
+garde) ; le clic sur une ENTRÉE de classe ouvrait déjà la consultation
+(`param__class_name` → `is_consultation`) — le correctif unifie : dans
+`classes.js` case `event__property_popup__open`, une classe posée
+SANS `param__class_name` (le « + ») ouvre AUSSI la consultation
+(`!!param__class_name || !this.isEmpty()`) : plus de bouton Valider,
+navigation libre en lecture, Quitter ne change rien — le popup de
+SÉLECTION ne vit que conteneur vide. Le CHANGEMENT de classe reste
+possible par la voie existante : le « − » de la barre de progression
+retire le dernier niveau (la classe part à 0 niveaux, `remove_level`
+de character.js supprime l'entrée du conteneur et repose les bonus),
+puis le « + » rouvre la sélection. Le sélecteur de la barre de
+Progression (un tag par classe possédée avec +/−) reste tel quel — une
+classe = un tag. Le save reste un TABLEAU de classes (`getDataToSave`
+itère le conteneur) et la RELECTURE tolère les vieux fichiers à deux
+classes (updateData ajoute tout ce qu'il lit — pas de garde sur les
+données de save, la convention des fichiers générés tient toujours ;
+la feuille relue porte ses deux classes mais ne peut plus en poser de
+troisième). SCÉNARIOS réalignés : `scenario_multiclasse.js` RÉÉCRIT en
+verrou « CLASSE UNIQUE » (+ avec classe posée → popup sans Valider,
+onglet Guerrier consultable, Quitter → 1 classe, total 1, entrée
+Guerrier absente — la suite laisse l'état de scenario_classe intact) ;
+`scenario_niveaux.js` perd ses 2 tests Guerrier (le test « suppression
+dernière classe » couvre déjà le retrait complet, pré-conditions posées
+: Champion 1) ; `scenario_niveaux_multiple.js` test 3 RÉÉCRIT : le
+parcours devient Champion 2 niveaux (détail PV citant la classe
+d'origine), retrait complet (conteneur vide), nouveau choix Guerrier
+(une seule classe à la fois) — le compte du rapport descend à
+143 (147 − 4 groupes remaniés). Validé par run headless (outil Round
+76) : 143 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs.
+
+Round 82 = PRIMES DE RACES D'EXTENSION : DEUX LIBRES DANS LE CHOIX + PÉNALITÉ
+LIBRE POSABLE (retour utilisateur : race Fetcheline prise, `[DEX, FREE,
+FREE]` en characteristics_bonus — « tout à vide avec un plus partout »
+au lieu de DEX forcé à 2 et deux libres). RACINE (sondée par un
+scénario jetable puis effacé) : le conteneur des choix de
+`CHARACTERISTICS.Bonus` déduplone PAR UUID — `add()` de object-interface
+remplace l'entrée de même clé, le SECOND FREE écrasait le premier,
+`getSize()` valait 2 pour 3 choix, la branche forcée
+(`number === getSize()`) ne courait jamais et tout retombait en mode
+forbidden avec `setFreeNumber(number)` — DEX jamais forcé, les
+vieilles races (au plus UN FREE : Elfe [DEX, INT, FREE]) n'ont jamais
+vu le bug. CORRECTIF : `setChoices` donne à chaque FREE répété sa
+propre clé positionnelle (le PREMIER garde la clé canonique FREE — le
+fallback `getContentByUUID( FREE )` de `event__set_forbidden_bonus`
+l'attend, les répétés portent FREE_1, FREE_2...) ; le garde-pied de
+la boucle forcée devient `isFreeChoice( key )` (FREE ou préfixe
+FREE_) — les placeholders libres ne se forcent jamais. LA PÉNALITÉ
+LIBRE (malus `choice [FREE]` du Fetchelin, jamais posable avant) :
+le geste vit sur le MOINS de la cellule — `event__ask_place_free_malus`
+(caractéristique → conteneur → Bonuses → malus Bonus : le pool vide
+n'accepte rien, sinon décrémente et rend `event__place_free_malus_1`
+à la caractéristique qui se pose son −2 en phase EDITED, retirable) ;
+le retrait par le moins lit le SIGNE de la valeur (une pénalité posée
+rend sa place au pool du MALUS, une prime posée au pool du bonus —
+`param__is_malus` route le crédit du set/unset dans les Bonuses) ; la
+RELECTURE d'un save avec pénalité posée crédite aussi le bon pool
+(signe de la valeur dans `event__ask_set_data`). Le MARQUEUR
+`data-maluspending` sur la cellule (posé par `_broadcastMalusPending`
+des Bonuses à chaque set_object_bonuses / placement / retrait) : la
+règle CSS attenue le moins en TO_EDIT (contrat des choix de classe
+Champion FOR/DEX, le scénario caracteristiques_classe verrouille le
+moins mort) SAUF si le marqueur porte true — le moins n'est actif QUE
+quand une pénalité libre attend. PIÈGE de restructuration (3 ÉCHECS
+au premier run) : le computeFinalValue partagé en FIN de moreBonus/
+lessBonus doit rester partagé — une branche initial_value qui `return`
+avant lui fige la valeur finale, et le ECHEC du test amont court-circuite
+la suite (l'état de la 2e dépend du 1er). Scénario
+`[CARACTERISTIQUES] Fetchelin → DEX forcé, 2 libres, pénalité libre
+posable` (fin de suite, RESET + race Fetchelin : DEX SETTINGS_FORCED
+mod +1, pools 2/1, + place FOR, − place CON −2 EDITED puis retrait
+qui rend le pool, seconde prime sur CHA, relecture). Validé par run
+headless (outil Round 76) : 144 OK / 0 ECHEC, stabilisé sur DEUX runs
+consécutifs.
+
+Round 83 = REFONTE DE LA GRILLE DES CARACTÉRISTIQUES, DEUX RETOURS
+UTILISATEUR (l'ancien tableau portait Valeur Final/Modifier/Valeur Initial/
+Race/Classe/Bonus Niv5/10/15/20 — remplacé par Valeur/Initial/Race/
+Historique/Classe/Niv1/Niv5/Niv10/Niv15/Niv20/Autre, puis le save réel
+Tyrane/Fetchelin a corrigé quatre écarts). (a) VALEUR = le TOTAL SEUL : la
+première passe fusionnait modificateur (discret) + total dans la cellule —
+l'utilisateur lisait TROIS chiffres par ligne (mod, total, Initial), le
+modificateur part de la cellule (il se lit dans le Général), la règle CSS
+:first-child part avec. INITIAL = la base `CHARACTERISTICS.INITIAL_VALUE`
+(10), affichage constant `.characteristic-initial-base`. (b) NIV1 = LES
+BOOSTS DE CRÉATION PF2 (retour utilisateur : « ne peut avoir que des +2,
+4 caractéristiques différentes ») : la vieille cellule `initial_value`
+(±1 libres sur la base) DISPARAÎT — paire
+`CHARACTERISTICS.Bonuses( "level1_bonus", ... )` branchée sur la donnée
+constante `CHARACTERISTICS.CREATION_BONUS_DATA` (number 4, FREE×4),
+distribuée à la CONSTRUCTION du conteneur (PF2 : tout personnage les
+possède, aucune condition) avec `param__is_for = "level1"`
+(`creation_key`), cellule `level1_bonus` par ligne : le + pose PLEIN (2,
+computeBonusDelta) et consomme le pool (compteur warnings sur l'entête
+Niv1 + badge Progression : une feuille vierge porte déjà 4 en attente,
+comportement voulu), le − rend la prime, une cellule posée ne se
+re-pose pas (SETTINGS_EDITED, le + s'atténue). FOSSILE : un save sans
+`level1_bonus` mais `initial_value.value > 10` migre son delta sur la
+cellule Niv1 (une seule prime consommée du pool par cellule). (c) NIV5-20 = LES PLACEHOLDERS VIDES D'ORIGINE (annulation utilisateur :
+« oublie le point 4 » — les cellules -0+ libres livrées puis retirées,
+cellules `level5_bonus`..`level20_bonus`, `LEVEL_KEYS`, `POOLED_KEYS`
+et leur lecture de save partent avec, moreBonus/lessBonus retournent au
+dispatch inconditionnel : TOUTES les colonnes restantes vivent sur un
+pool). (d) HISTORIQUE POSABLE — fin du détour Ajustements du
+Round 79 : paire sur le conteneur + cellule `historic_bonus` par ligne,
+routage `param__is_for = "historic"` (HISTORICS.key_element), les
+données scrapées nomment le libre « FRE » → normalisation FRE→FREE dans
+`HISTORICS.Historic._normalizeFreeKeys` (le fichier de données ne
+s'édite jamais). Une DONNÉE à choice incluant FREE rend TOUTES les
+cellules TO_EDIT, FORBIDDEN ne s'observe que pour les choix sans aucun
+FREE. (e) AUTRE = les boosts `characteristic_boost` de l'onglet
+Ajustements : l'événement `event__adjustments__changed` (dispatché sur
+add/remove/load par character.js) → le conteneur compte par clé via
+`CHARACTERISTICS.getKeyByLabel` (labels français) →
+`event__set_adjustment_boost` par ligne. (f) LA VALEUR FORCED DÉRIVE DE
+LA DONNÉE, PAS DU SAVE (retour utilisateur : save Fetchelin relu avec
+DEX forcée à 0 — le fichier portait race_bonus.value 0 et ask_set_data
+l'écrasait sur la prime recalculée) : `event__ask_set_data` GARDE les
+cellules SETTINGS_FORCED (race et classe), updateData sauté, la
+distribution de la donnée reste l'unique source. (g) L'HISTORIQUE VIDE
+NE DISTRIBUE RIEN : set_object_bonuses GUARDÉ sur
+`characteristics_bonus` (sinon SETTINGS_FORBIDDEN déployé sur toutes les
+cellules au rechargement), son pool se réinitialise par
+`event__reset_object_bonuses` (conteneur → Bonuses.initWithData() sans
+arg → number/number_free à zéro, SANS toucher aux cellules —
+reset_characteristics_bonuses ne remet à zéro QUE les cellules). PIÈGE
+DE PARAMS (le « + » de la colonne Historique ne posait rien) : les
+boutons des cellules héritent leurs params (param__key posé par setKey,
+param__characteristics__is posé par le conteneur) par CASCADE —
+l'override `addParamForEvents` de `CHARACTERISTICS.Characteristic`
+propage la clé/valeur à CHAQUE cellule qu'il liste : `historic_bonus` y
+manquait (puis `level1_bonus` et les quatre étapes de niveau y sont
+entrées avec lui). RÈGLE : toute NOUVELLE cellule ConfigurableValue
+d'une ligne de caractéristique s'ajoute à l'override
+addParamsForEvents, sinon ses boutons sont muets. PIÈGE d'entête :
+l'entête Niv1 existait déjà (le compteur du pool s'est posé sur une
+SECONDE cellule Niv1 — le scénario d'entêtes a saisi le doublon).
+Scénarios : les compteurs figés des suites caracteristiques/
+caracteristiques_classe passent par le helper
+`TEST_caracteristiquesCreationPending()` (pool level1 vivant) ; « valeur
+initial éditable » devient « Niv1 : les 4 boosts de création se posent
+en +2 » (pose pleine, pool 4→3, + posé atténué, retrait) ; le test
+Fetchelin empoisonne le save avant relecture (race_bonus DEX à 0 dans
+le JSON → la prime relue reste 2, contrat (f)). Round-trip
+du save : les cellules dérivent des triplets ConfigurableValue
+(valeur + phase sur chaque colonne). Validé par run headless (outil
+Round 76) : 145 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs.
+
+Round 84 = RE-SCRAP COMPLET DEPUIS LA SOURCE (demande utilisateur :
+« il me manque plein de sorts, fais le tour et récupère tout »). La
+source vivante est le site statique `https://pf2e.pathfinder-fr.org/`
+dont les JSON sont servis sous `/assets/data/*.json` (Angular, mais
+les données sont des fichiers statiques — scrapables en curl, UA
+navigateur ; plus besoin de grimoire-vf pour ces jeux). Outil
+durable `sheet/tools/rescrap_pf2e.js` (targets `spells | stuffs |
+feats | compendium | merge | classes | all`, `--dry`), cache local
+`sheet/tools/.scrap_cache/pf2e/` (déjà ignoré par git) +
+`.scrap_cache/grimoire/` pour les pages HTML de grimoire-vf.fr
+(actions de compétences, outil séparé `rescrap_skill_actions.js`).
+Transformation des descriptions : `@UUID[...]{label}` → div
+`gs-link-information` (popup `event__show_information` sur
+`OBJECT.COMPENDIUM`), autres tags Foundry (`@Damage`, `@Check`,
+`[[/act ...]`) → leur label ou supprimés s'ils n'en ont pas (formes
+mal formées de la source tolérées), `<strong>` → guillemets (sorts)
+ou texte (aplati), `<span class="action-glyph">` → texte, tableaux →
+lignes tabulées. Compteurs avant → après : sorts 770 → 1796
+(`SPELLS.CONST`, nature depuis trait cantrip/focus ou champ `ritual`,
+coût depuis `time`), équipement 3309 → 5419 (`STUFFS`, champs
+calculés Dégâts/Mains/Catégorie/Groupe/Portée/CA bonus/Solidité...
+depuis `equipment.json` + weapon/armor groups/categories), dons
+général 34 → 40 / classe 974 → 2094 / ascendance 1076 → 1555 /
+compétence 159 → 330 (`DON.*` depuis `feats.json`, traits de
+classe/ascendance/héritage résolus en noms fr, préréquis skill
+traduits « qualifié en X » — le calcul — le reste traduit par index
+de noms), `OBJECT.COMPENDIUM` 323 → 21233 (tous les packs, pour les
+liens @UUID), actions de compétences re-scrapées depuis grimoire-vf
+(17 compétences, clés `vol`/`connaissance` via carte, actions
+générales = tableau de `/competences/actions-generales/` en
+`{name, rank}`). Merge sans réécriture de l'existant pour les
+fichiers à format riche : historiques 63 → 489, archétypes 246 →
+259, héritages 311 → 321, classes 16 → 27 (les 11 nouvelles construites
+depuis `classes.json` + `class-features.json` : capacité de base =
+feature sans `subfeatures`). Ascendances déjà complètes (50/50).
+`clean_scraped_text.js` couvre maintenant tous les fichiers générés.
+Scénarios : deux assertions « 16 classes » rendues dynamiques
+(`CLASSES.ENUM.length`). Validé par run headless (outil Round 76) :
+145 OK / 0 ECHEC, stabilisé sur DEUX runs consécutifs. NOTE : le
+compendium pèse ~30 Mo, le chargement de la page est plus lourd.
+
+Round 84 (suite, demande utilisateur « les races ne sont pas par
+ordre alphabétique, des liens mènent sur rien ») :
+- Tris fr (localeCompare "fr") appliqués DANS le générateur, avant
+  émission : ascendances (cible `sort-races`, réécrit `race_enum.js`),
+  classes, historiques, archétypes, héritages (clés triées par nom),
+  équipement, sorts (`SPELLS.CONST` réordonné par `text`), dons
+  général/classe/ascendance/compétence (chaque groupe trié pour
+  ascendance/compétence). Vérifié : toutes les listes `trié? true`.
+- Compendium : ajout du pack `creatures.json` (6119 entrées,
+  catégorie "creature", `element_type` = "Niveau N") → 27352 entrées ;
+  les @UUID de bestiaire s'ouvrent maintenant en popup.
+- Liens morts : si l'uuid d'un @UUID n'est pas dans
+  `OBJECT.COMPENDIUM`, la popup s'ouvre quand même en fallback avec
+  le label du lien (param `param__object__label` émis par
+  `linkifyUuids` dans le onclick) et un texte « référence non
+  indexée ». Concerne surtout les entrées de journaux (pas de data
+  file côté site) et les id hors packs (~450 refs SRD).
 
 ### Style, commentaires, nommage
 

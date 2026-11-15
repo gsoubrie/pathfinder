@@ -1,18 +1,17 @@
 "use strict";
 /**
- * Scenario : NIVEAUX
- * Pre-condition : fin du scenario MULTICLASSE (race Elfe, Champion 1, Guerrier 2,
- * total 3, 3 entrees d'historique, onglets actifs).
- * 1. Moins sur le tag Guerrier (onglet Progression) : Guerrier redescend a 1,
- *    total 2, entree d'historique supprimee, PV diminues.
- * 2. Moins a nouveau : la classe Guerrier est supprimee completement du conteneur,
- *    il ne reste que Champion 1.
- * 3. Moins sur la derniere classe : conteneur vide, total 0 — Progression reste
+ * Scenario : NIVEAUX (une seule classe par personnage — demande utilisateur,
+ * le multiclasse est retire)
+ * Pre-condition : fin du scenario CLASSE UNIQUE (race Elfe, Champion 1,
+ * total 1, une entree d'historique, onglets actifs).
+ * 1. Moins sur l'unique classe (onglet Progression) : le retrait du dernier
+ *    niveau SUPPRIME la classe du conteneur, total 0 — Progression reste
  *    allume (l'ascendance reste posee, ses sections vivent sans classe), zone
  *    classe vide avec le bouton d'ajout. La ligne Points de vie de la
  *    Progression ne se rend plus (historique vide — l'ancienne fenêtre
- *    Niveau a disparu, sa donnée vit ici).
- * 4. Re-ajout de Champion (popup) puis prise d'un 2e niveau : desactivation du
+ *    Niveau a disparu, sa donnée vit ici). Le changement de classe passe par
+ *    ce retrait complet puis un nouvel ajout.
+ * 2. Re-ajout de Champion (popup) puis prise d'un 2e niveau : desactivation du
  *    niveau 2 par l'interrupteur du bloc de niveau dans la Progression :
  *    niveau actif 1, PV recalculés. La ligne Points de vie suit le total, sa
  *    POPUP de detail ne porte que les niveaux ACTIFS (decision utilisateur :
@@ -20,9 +19,9 @@
  *    cite la classe d'origine de chaque niveau. Le bloc du niveau desactive
  *    reste rendu (classe disabled, sans lignes de deblocage) pour porter son
  *    interrupteur.
- * 5. Re-activation depuis le bloc desactive : totaux et PV restaures, la
+ * 3. Re-activation depuis le bloc desactive : totaux et PV restaures, la
  *    popup re-ouverte recite les 2 niveaux (reconstruite a chaque ouverture).
- * 6. Save → load : l'historique et le drapeau enabled du niveau desactive
+ * 4. Save → load : l'historique et le drapeau enabled du niveau desactive
  *    survives a la relecture.
  */
 
@@ -38,104 +37,16 @@ function TEST_AjouterClasse( class_name ) {
     } );
 }
 
-TEST.RUNNER.register( "[NIVEAUX] moins Guerrier → Guerrier 1, total 2", function () {
-    let _character                     = CONTROLLER.Character.current_character;
-    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
-    if ( !_character ) {
-        return;
-    }
-    TEST.ASSERT.notNull( _character.getClasses().getContentByUUID( "Guerrier" ), "Pre-condition : Guerrier possedee" );
-    if ( !_character.getClasses().getContentByUUID( "Guerrier" ) ) {
-        return;
-    }
-    TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Guerrier" ).getLevel(), 2, "Pre-condition : Guerrier a niveau 2, obtenu : " + _character.getClasses().getContentByUUID( "Guerrier" ).getLevel() );
-    TEST.ASSERT.equal( _character.getLevel(), 3, "Pre-condition : niveau total 3" );
-    let _con                           = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
-    let _max_hp_before                 = _character.getHealth().getMaxHP();
-    let _history_size_before           = _character.getLevelHistory().getSize();
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-        let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
-        if ( !_pane ) {
-            return;
-        }
-        let _guerrier_option           = _pane.querySelector( ".level-up-class-option[data-name='Guerrier']" );
-        TEST.ASSERT.notNull( _guerrier_option, "Le tag Guerrier devrait etre rendu" );
-        if ( !_guerrier_option ) {
-            return;
-        }
-        let _remove_button             = _guerrier_option.querySelector( ".level-up-class-option-remove" );
-        TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Guerrier (.level-up-class-option-remove)" );
-        if ( !_remove_button ) {
-            return;
-        }
-        _remove_button.click();
-        let _guerrier                   = _character.getClasses().getContentByUUID( "Guerrier" );
-        TEST.ASSERT.notNull( _guerrier, "Guerrier devrait exister apres la baisse a niveau 1" );
-        if ( _guerrier ) {
-            TEST.ASSERT.equal( _guerrier.getLevel(), 1, "Guerrier devrait redescendre a niveau 1, obtenu : " + _guerrier.getLevel() );
-        }
-        TEST.ASSERT.equal( _character.getLevel(), 2, "Le niveau total devrait redescendre a 2, obtenu : " + _character.getLevel() );
-        TEST.ASSERT.equal( _character.getLevelHistory().getSize(), _history_size_before - 1, "L'entree d'historique du dernier niveau Guerrier devrait etre supprimee" );
-        if ( _con ) {
-            let _expected_hp           = _max_hp_before - _con.modifier_value.value - CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
-            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient etre diminues d'un niveau de Guerrier" );
-        }
-        let _guerrier_name             = _pane.querySelector( ".level-up-class-option[data-name='Guerrier'] .level-up-class-option-name" );
-        if ( _guerrier_name ) {
-            TEST.ASSERT.ok( _guerrier_name.textContent.indexOf( "Guerrier 1" ) !== -1, "Le tag Guerrier devrait reafficher Guerrier 1 apres reconstruction, obtenu : " + _guerrier_name.textContent );
-        }
-    } );
-} );
-
-TEST.RUNNER.register( "[NIVEAUX] suppression Guerrier → classes = Champion 1", function () {
-    let _character                     = CONTROLLER.Character.current_character;
-    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
-    if ( !_character ) {
-        return;
-    }
-    let _con                           = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
-    let _max_hp_before                 = _character.getHealth().getMaxHP();
-    let _history_size_before           = _character.getLevelHistory().getSize();
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-        let _pane                      = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Progression devrait exister" );
-        if ( !_pane ) {
-            return;
-        }
-        let _guerrier_option           = _pane.querySelector( ".level-up-class-option[data-name='Guerrier']" );
-        TEST.ASSERT.notNull( _guerrier_option, "Le tag Guerrier devrait etre rendu" );
-        if ( !_guerrier_option ) {
-            return;
-        }
-        let _remove_button             = _guerrier_option.querySelector( ".level-up-class-option-remove" );
-        TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Guerrier" );
-        if ( !_remove_button ) {
-            return;
-        }
-        _remove_button.click();
-        TEST.ASSERT.equal( _character.getClasses().getSize(), 1, "Le conteneur devrait contenir 1 classe apres la suppression de Guerrier, obtenu : " + _character.getClasses().getSize() );
-        TEST.ASSERT.isNull( _character.getClasses().getContentByUUID( "Guerrier" ), "Guerrier devrait etre supprimee completement du conteneur" );
-        TEST.ASSERT.equal( _character.getLevel(), 1, "Le niveau total devrait redescendre a 1, obtenu : " + _character.getLevel() );
-        TEST.ASSERT.equal( _character.getLevelHistory().getSize(), _history_size_before - 1, "L'entree d'historique du dernier niveau Guerrier devrait etre supprimee" );
-        let _last_level                = _character.getLevelHistory().getContent( _character.getLevelHistory().getSize() - 1 );
-        if ( _last_level ) {
-            TEST.ASSERT.equal( _last_level.getClassName(), "Champion", "La derniere entree d'historique devrait porter Champion" );
-        }
-        TEST.ASSERT.equal( document.body.dataset.isClassSet, "1", "data-is-class-set devrait rester a 1 (Champion possedee)" );
-        if ( _con ) {
-            let _expected_hp           = _max_hp_before - _con.modifier_value.value - CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
-            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient etre diminues d'un niveau de Guerrier" );
-        }
-        let _entries                   = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
-        TEST.ASSERT.equal( _entries.length, 1, "Une seule entree de classe devrait rester affichee, obtenu : " + _entries.length );
-    } );
-} );
 
 TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → Progression allumé sans classe", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.equal( _character.getClasses().getSize(), 1, "Pre-condition : une seule classe posee (Champion), obtenu : " + _character.getClasses().getSize() );
+    TEST.ASSERT.equal( _character.getLevel(), 1, "Pre-condition : niveau total 1, obtenu : " + _character.getLevel() );
+    if ( _character.getClasses().getSize() !== 1 || _character.getLevel() !== 1 ) {
         return;
     }
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {

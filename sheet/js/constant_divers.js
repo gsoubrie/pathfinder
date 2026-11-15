@@ -82,6 +82,16 @@ var CHARACTERISTICS = {
     // sous-composants sur cette cle, ce n'est plus un nom de fenetre
     WINDOW_KEY   : "characteristic_sheet",
     INITIAL_VALUE: 10,
+    // PF2 : la creation accorde 4 boosts de +2, a repartir sur 4
+    // caracteristiques differentes — le pool vit sur le conteneur de la
+    // grille (meme paire Bonuses que la race ou l'historique)
+    creation_key : "level1",
+    CREATION_BONUS_DATA : {
+        "characteristics_bonus": {
+            "number": 4,
+            "choice" : ["FREE", "FREE", "FREE", "FREE"]
+        }
+    },
     ENUM         : [
         {
             "key"  : "FOR",
@@ -119,6 +129,23 @@ CHARACTERISTICS.CON = CHARACTERISTICS.ENUM[ 2 ];
 CHARACTERISTICS.INT = CHARACTERISTICS.ENUM[ 3 ];
 CHARACTERISTICS.SAG = CHARACTERISTICS.ENUM[ 4 ];
 CHARACTERISTICS.CHA = CHARACTERISTICS.ENUM[ 5 ];
+
+/**
+ * The adjustments carry their characteristics by label ("Force", the prose
+ * of the sheet) : the grid resolves them through the ENUM, no hand map to
+ * maintain against a re-scrap.
+ *
+ * @param {string} label  Label of the characteristic, ex: "Force"
+ * @returns {string|null} The key (FOR), or null when unknown
+ */
+CHARACTERISTICS.getKeyByLabel = function ( label ) {
+    for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
+        if ( CHARACTERISTICS.ENUM[ i ].label === label ) {
+            return CHARACTERISTICS.ENUM[ i ].key;
+        }
+    }
+    return null;
+};
 
 var SKILLS     = {
     LIST            : {

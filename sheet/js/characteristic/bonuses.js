@@ -33,6 +33,15 @@ CHARACTERISTICS.Bonuses.prototype = {
                 this.initWithData( params[ "param__current__object" ] );
                 this.doActionAfter( "event__ask_set_forced_value", params );
                 this.doActionAfter( "event__ask_compute_settable_value", params );
+                this._broadcastMalusPending( params );
+                break;
+            // L'historique vide ne distribue RIEN (garder set_object_bonuses
+            // deployerait SETTINGS_FORBIDDEN sur toutes les cellules) : son
+            // pool se reinitialise seul, sans toucher aux cellules
+            case "event__reset_object_bonuses":
+                this.bonus.initWithData();
+                this.malus.initWithData();
+                this._broadcastMalusPending( params );
                 break;
             case "event__compute__html":
                 switch ( params[ "param__window" ] ) {
@@ -45,13 +54,34 @@ CHARACTERISTICS.Bonuses.prototype = {
                 this.bonus.doActionAfter( event_name, params );
                 this.malus.doActionAfter( event_name, params );
                 break;
+            case "event__ask_place_free_malus":
+                this.malus.doActionAfter( event_name, params );
+                this._broadcastMalusPending( params );
+                break;
             case "event__ask_compute_settable_value":
+                this.bonus.doActionAfter( event_name, params );
+                break;
+            // Le geste rend la penalite libre placee : son retour au pool
+            // credite le MALUS, le geste du bonus reste sur le pool du bonus
             case "event__set_free_bonus_done":
             case "event__unset_free_bonus_done":
-                this.bonus.doActionAfter( event_name, params );
+                if ( params[ "param__is_malus" ] ) {
+                    this.malus.doActionAfter( event_name, params );
+                }
+                else {
+                    this.bonus.doActionAfter( event_name, params );
+                }
+                this._broadcastMalusPending( params );
                 break;
         }
         this.computeCounters();
+    },
+    //********************************************  GETTER SETTER  *****************************************************//
+    // Les cellules affichent l'attente de penalite par marqueur : le -
+    // pose une penalite LIBRE seulement quand le pool en porte une
+    _broadcastMalusPending : function ( params ) {
+        params[ "param__malus_pending" ] = this.malus.getFreeNumber() > 0;
+        params[ "param__characteristics__object" ].doActionAfter( "event__set_malus_pending", params );
     },
     //********************************************  GETTER SETTER  *****************************************************//
     computeCounters: function () {
@@ -99,7 +129,7 @@ CHARACTERISTICS.Bonus.prototype = {
                 params[ "param__is_malus" ] = !this.is_bonus;
                 if ( this.number === this.getSize() ) {
                     for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-                        if ( this.getContent( i ).getUUID() !== CHARACTERISTICS.FREE.key ) {
+                        if ( !this.isFreeChoice( this.getContent( i ).getUUID() ) ) {
                             params[ "param__characteristics__object" ].getContentByUUID( this.getContent( i ).getUUID() ).doActionAfter( "event__ask_set_forced_value_1", params );
                         }
                     }
@@ -119,6 +149,15 @@ CHARACTERISTICS.Bonus.prototype = {
             case "event__unset_free_bonus_done":
                 this.setFreeNumber( this.number_free + 1 );
                 return;
+            // La penalite libre se pose depuis son pool : le pool vide
+            // n'accepte rien, la caracteristique appelante se pose elle-meme
+            case "event__ask_place_free_malus":
+                if ( !this.number_free ) {
+                    return;
+                }
+                this.setFreeNumber( this.number_free - 1 );
+                params[ "param__characteristics__object" ].getContentByUUID( params[ "param__key" ] ).doActionAfter( "event__place_free_malus_1", params );
+                return;
         }
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },
@@ -136,14 +175,31 @@ CHARACTERISTICS.Bonus.prototype = {
         this.number = to_set;
     },
     setChoices   : function ( to_set ) {
-        let number_free = 0;
+        // Un choix LIBRE peut se REPTER dans les donnees (les races
+        // d'extension accordent DEUX primes libres) : le conteneur dedupe
+        // par uuid, chaque placeholder libre porte donc sa propre identite
+        // — le PREMIER garde la cle canonique FREE (le fallback des choix
+        // interdits le cherche), les repetes prennent une cle positionnelle
+        let number_free  = 0;
+        let free_repeats = 0;
         for ( let i = 0, _size_i = to_set.length; i < _size_i; i++ ) {
-            this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
-            if ( to_set[ i ] === CHARACTERISTICS.FREE.key ) {
-                number_free++;
+            if ( to_set[ i ] !== CHARACTERISTICS.FREE.key ) {
+                this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS[ to_set[ i ] ] ) );
+                continue;
             }
+            number_free++;
+            this.add( new CHARACTERISTICS.Characteristic( free_repeats === 0 ? CHARACTERISTICS.FREE : {
+                "key"  : CHARACTERISTICS.FREE.key + "_" + free_repeats,
+                "label": CHARACTERISTICS.FREE.label
+            } ) );
+            free_repeats++;
         }
-        this.setFreeNumber(number_free);
+        this.setFreeNumber( number_free );
+    },
+    // Un placeholder libre se reconnait a sa cle (FREE, FREE_1, ...) : les
+    // repetes ne se forcent JAMAIS
+    isFreeChoice : function ( choice_key ) {
+        return choice_key === CHARACTERISTICS.FREE.key || choice_key.indexOf( CHARACTERISTICS.FREE.key + "_" ) === 0;
     },
     //********************************************  HTML  *****************************************************//
     computePopupDomElement: function ( params ) {

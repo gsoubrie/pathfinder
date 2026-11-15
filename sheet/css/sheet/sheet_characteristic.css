@@ -68,23 +68,29 @@
 }
 
 .property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-label {
+    flex       : 1.4;
     font-size   : 16px;
     font-weight : bold;
     color       : #D4AF37;
     text-shadow : 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-final-value,
-.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-modifier-value {
+/* La colonne Valeur porte le TOTAL seul : le modificateur se lit dans le
+   Général, la grille ne l'affiche plus deux fois */
+.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-final-value {
     font-size   : 18px;
     font-weight : bold;
     color       : #FFD700;
 }
 
-.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-initial-value {
-    display        : flex;
-    flex-direction : row;
-    gap            : 8px;
+/* La base de depart : constante sous la colonne Initial */
+.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-initial-base {
+    color : #C8B89A;
+}
+
+/* Les boosts de l'onglet Ajustements se lisent sous la colonne Autre */
+.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .cell.characteristic-adjustment-value {
+    color : #C8B89A;
 }
 
 .property-tab-pane[data-name="levelup_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SLEEPING"] .gs-button-V4[data-name="event__more_button"],
@@ -100,4 +106,12 @@
 .property-tab-pane[data-name="levelup_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_EDITION_FULL"] .gs-button-V4 {
     opacity        : 0.3;
     pointer-events : none;
+}
+
+/* Le - attendu en TO_EDIT pose la PENALITE LIBRE si le domaine en porte
+   une en attente (races d'extension : Fetchelin et consort) — le
+   marqueur vit sur la cellule, la phase ne connait pas le pool */
+.property-tab-pane[data-name="levelup_sheet"] .characteristic-table .characteristic-bonus [data-current-phase="SETTINGS_TO_EDIT"][data-maluspending="true"] .gs-button-V4[data-name="event__less_button"] {
+    opacity        : 1;
+    pointer-events : auto;
 }

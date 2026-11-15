@@ -14,11 +14,11 @@
  * 2. Desactivation du niveau 2 : actif 2, PV recalculés, bloc 2 desactive
  *    sans lignes de deblocage, source Niveau 2 ABSENTE de la popup ;
  *    re-activation restaure tout.
- * 3. Multiclasse (Champion 1 puis Guerrier 2, total 3) : chaque source du
- *    detail porte la classe d'origine de son niveau (Champion, Guerrier,
- *    Guerrier) ; PV melant les deux classes ; desactivation puis
- *    re-activation du dernier niveau Guerrier sans toucher aux niveaux de
- *    classe.
+ * 3. Changement de classe d'une feuille a UNE classe (le multiclasse est
+ *    retire, demande utilisateur) : Champion pousse a 2 niveaux, le detail
+ *    cite la classe d'origine de chaque niveau, retrait COMPLET des niveaux
+ *    (le conteneur se vide, la classe part a 0), nouveau choix Guerrier —
+ *    une seule classe a la fois, jamais deux ensemble.
  */
 
 TEST.RUNNER.register( "[NIVEAUX] 3 niveaux Champion → lignes et blocs complets", function () {
@@ -162,21 +162,23 @@ TEST.RUNNER.register( "[NIVEAUX] 3 niveaux → désactivation 2 = actif 2, resta
     } );
 } );
 
-TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2", function () {
+// Le changement de classe d'une feuille A UNE classe : retrait complet des
+// niveaux de la classe possedee (le - supprime la classe a 0) puis choix de
+// la nouvelle — jamais deux classes ensemble (demande utilisateur)
+TEST.RUNNER.register( "[NIVEAUX] changement de classe → retrait complet puis nouveau choix", function () {
     TEST.RESET.sheet();
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Un nouveau personnage devrait etre instancie apres le reset" );
     if ( !_character ) {
         return;
     }
+    let _con                           = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
     TEST_openRacePopup();
     return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
         CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
         return TEST_AjouterClasse( "Champion" );
     } ).then( function () {
-        return TEST_AjouterClasse( "Guerrier" );
-    } ).then( function () {
-        TEST.ASSERT.equal( _character.getLevel(), 2, "Pre-condition : Champion 1 + Guerrier 1, obtenu : " + _character.getLevel() );
+        TEST.ASSERT.equal( _character.getLevel(), 1, "Champion devrait etre posee a niveau 1, obtenu : " + _character.getLevel() );
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
     } ).then( function () {
         let _levelup_pane              = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
@@ -184,16 +186,14 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
         if ( !_levelup_pane ) {
             return;
         }
-        let _take_button               = _levelup_pane.querySelector( ".level-up-class-option[data-name='Guerrier'] .level-up-class-option-take" );
-        TEST.ASSERT.notNull( _take_button, "Le plus devrait etre rendu sur le tag Guerrier" );
+        let _take_button               = _levelup_pane.querySelector( ".level-up-class-option[data-name='Champion'] .level-up-class-option-take" );
+        TEST.ASSERT.notNull( _take_button, "Le plus devrait etre rendu sur le tag Champion" );
         if ( !_take_button ) {
             return;
         }
         _take_button.click();
-        TEST.ASSERT.equal( _character.getLevel(), 3, "Le personnage devrait atteindre le niveau 3, obtenu : " + _character.getLevel() );
-        let _expected_rows             = [ "Champion", "Guerrier", "Guerrier" ];
+        TEST.ASSERT.equal( _character.getLevel(), 2, "Le personnage devrait atteindre le niveau 2, obtenu : " + _character.getLevel() );
         // Le detail du total recite la classe d'ORIGINE de chaque niveau
-        // (multiclasse : la source du niveau porte SA classe)
         let _life_line                  = _levelup_pane.querySelector( ".level-up-life-total" );
         TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue dans la Progression" );
         if ( !_life_line ) {
@@ -206,35 +206,34 @@ TEST.RUNNER.register( "[NIVEAUX] multiclasse → lignes Champion, Guerrier ×2",
             return;
         }
         let _sources                    = _health_overlay.querySelectorAll( ".popup-health-source" );
-        TEST.ASSERT.equal( _sources.length, 4, "La popup devrait porter 4 sources (depart Elfe + 3 niveaux), obtenu : " + _sources.length );
-        if ( _sources.length === 4 ) {
-            for ( let i = 0, _size_i = _expected_rows.length; i < _size_i; i++ ) {
-                TEST.ASSERT.ok( _sources[ i + 1 ].textContent.indexOf( "Niveau " + ( i + 1 ) + " — " + _expected_rows[ i ] ) !== -1, "La source du niveau " + ( i + 1 ) + " devrait citer " + _expected_rows[ i ] + ", obtenu : " + _sources[ i + 1 ].textContent );
-            }
+        TEST.ASSERT.equal( _sources.length, 3, "La popup devrait porter 3 sources (depart Elfe + 2 niveaux), obtenu : " + _sources.length );
+        if ( _sources.length === 3 ) {
+            TEST.ASSERT.ok( _sources[ 1 ].textContent.indexOf( "Niveau 1 — Champion" ) !== -1, "La source du niveau 1 devrait citer Champion, obtenu : " + _sources[ 1 ].textContent );
+            TEST.ASSERT.ok( _sources[ 2 ].textContent.indexOf( "Niveau 2 — Champion" ) !== -1, "La source du niveau 2 devrait citer Champion, obtenu : " + _sources[ 2 ].textContent );
         }
-        let _con                        = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.CON.key );
-        let _expected_hp                = RACES.getDataByName( "Elfe" ).start_life + CLASSES.getDataByName( "Champion" ).life_point_by_level + 2 * CLASSES.getDataByName( "Guerrier" ).life_point_by_level + 3 * ( _con ? _con.getModifierValue() : 0 );
-        TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient melanger les PV de depart d'Elfe et les PV des deux classes, obtenu : " + _character.getHealth().getMaxHP() );
-        TEST.ASSERT.equal( _health_overlay.querySelector( ".popup-health-total" ).textContent, _expected_hp + " PV", "Le total de la popup devrait afficher " + _expected_hp + ", obtenu : " + _health_overlay.querySelector( ".popup-health-total" ).textContent );
-        let _max_hp_before              = _character.getHealth().getMaxHP();
         CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
-        let _toggle                     = _levelup_pane.querySelector( ".level-up-block[data-level-name='3'] .level-up-level-toggle" );
-        TEST.ASSERT.notNull( _toggle, "L'interrupteur du niveau 3 devrait etre rendu dans son bloc" );
-        if ( !_toggle ) {
+        // Retrait complet : deux - sur la seule classe, puis le conteneur se
+        // vide (la classe part a 0 niveaux, le changement devient possible)
+        let _remove_button              = _levelup_pane.querySelector( ".level-up-class-option[data-name='Champion'] .level-up-class-option-remove" );
+        TEST.ASSERT.notNull( _remove_button, "Le moins devrait etre rendu sur le tag Champion" );
+        if ( !_remove_button ) {
             return;
         }
-        _toggle.click();
-        TEST.ASSERT.equal( _character.getActiveLevel(), 2, "Le niveau actif devrait descendre a 2, obtenu : " + _character.getActiveLevel() );
-        if ( _con ) {
-            let _expected               = _max_hp_before - _con.getModifierValue() - CLASSES.getDataByName( "Guerrier" ).life_point_by_level;
-            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected, "Les PV devraient exclure le niveau Guerrier desactive, obtenu : " + _character.getHealth().getMaxHP() );
+        _remove_button.click();
+        TEST.ASSERT.equal( _character.getLevel(), 1, "Le retrait du dernier niveau devrait redescendre a 1, obtenu : " + _character.getLevel() );
+        let _remove_button_after        = _levelup_pane.querySelector( ".level-up-class-option[data-name='Champion'] .level-up-class-option-remove" );
+        if ( _remove_button_after ) {
+            _remove_button_after.click();
         }
-        TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Guerrier" ).getLevel(), 2, "Le niveau de la classe Guerrier ne devrait pas bouger, obtenu : " + _character.getClasses().getContentByUUID( "Guerrier" ).getLevel() );
-        TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Champion" ).getLevel(), 1, "Le niveau de la classe Champion ne devrait pas bouger, obtenu : " + _character.getClasses().getContentByUUID( "Champion" ).getLevel() );
-        let _re_toggle                  = _levelup_pane.querySelector( ".level-up-block[data-level-name='3'] .level-up-level-toggle" );
-        if ( _re_toggle ) {
-            _re_toggle.click();
-            TEST.ASSERT.equal( _character.getActiveLevel(), 3, "Le niveau re-active devrait compter a nouveau, obtenu : " + _character.getActiveLevel() );
-        }
+        TEST.ASSERT.ok( _character.getClasses().isEmpty(), "Le conteneur de classes devrait etre vide apres le retrait complet, obtenu : " + _character.getClasses().getSize() );
+        TEST.ASSERT.equal( _character.getLevel(), 0, "Le niveau total devrait repasser a 0, obtenu : " + _character.getLevel() );
+        // Nouveau choix : le popup de selection revient (sans classe posee)
+        return TEST_AjouterClasse( "Guerrier" ).then( function () {
+            TEST.ASSERT.equal( _character.getClasses().getSize(), 1, "Une seule classe devrait vivre apres le nouveau choix, obtenu : " + _character.getClasses().getSize() );
+            TEST.ASSERT.notNull( _character.getClasses().getContentByUUID( "Guerrier" ), "Guerrier devrait etre la nouvelle classe possedee" );
+            TEST.ASSERT.equal( _character.getLevel(), 1, "Le nouveau choix part a niveau 1, obtenu : " + _character.getLevel() );
+            let _expected_hp            = RACES.getDataByName( "Elfe" ).start_life + CLASSES.getDataByName( "Guerrier" ).life_point_by_level + ( _con ? _con.getModifierValue() : 0 );
+            TEST.ASSERT.equal( _character.getHealth().getMaxHP(), _expected_hp, "Les PV totaux devraient melanger le depart d'Elfe et le niveau de Guerrier, obtenu : " + _character.getHealth().getMaxHP() );
+        } );
     } );
 } );

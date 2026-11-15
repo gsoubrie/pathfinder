@@ -12,12 +12,20 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.key = CHARACTERISTICS.key;
         CHARACTER.ContainerComponentInterface.prototype.init.call( this );
         this.initCounterCommon();
-        this.race_bonus  = new CHARACTERISTICS.Bonuses( "race_bonus", this );
-        this.class_bonus = new CHARACTERISTICS.Bonuses( "class_bonus", this );
+        this.race_bonus     = new CHARACTERISTICS.Bonuses( "race_bonus", this );
+        this.historic_bonus = new CHARACTERISTICS.Bonuses( "historic_bonus", this );
+        this.class_bonus    = new CHARACTERISTICS.Bonuses( "class_bonus", this );
+        this.level1_bonus   = new CHARACTERISTICS.Bonuses( "level1_bonus", this );
         for ( let i = 0, _size_i = CHARACTERISTICS.ENUM.length; i < _size_i; i++ ) {
             this.add( new CHARACTERISTICS.Characteristic( CHARACTERISTICS.ENUM[ i ] ) );
         }
         this.addParamForEvents( "param__characteristics__is", true );
+        // PF2 : les boosts de creation appartiennent a TOUT personnage,
+        // aucune condition — le pool se distribue des la construction
+        this.doActionAfter( "event__set_object_bonuses", {
+            "param__current__object": CHARACTERISTICS.CREATION_BONUS_DATA,
+            "param__is_for"         : CHARACTERISTICS.creation_key
+        } );
     },
     initCounterCommon: function () {
         this.counters = {};
@@ -36,6 +44,33 @@ CHARACTERISTICS.Characteristics.prototype = {
                 params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
                 return;
+            case "event__reset_object_bonuses":
+                params[ "param__characteristics__object" ] = this;
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
+                return;
+            case "event__ask_place_free_malus":
+                params[ "param__characteristics__object" ] = this;
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
+                return;
+            // Les ajustements de bonus de caractéristique se consomment ici :
+            // le compte par clé redescend a chaque ligne, sa cellule Autre
+            // affiche le delta et la valeur finale suit
+            case "event__adjustments__changed": {
+                let _boost_by_key = {};
+                let _entries      = params[ "param__current_character__object" ].getAdjustments().getEntriesByKind( "characteristic_boost" );
+                for ( let e = 0, _size_e = _entries.length; e < _size_e; e++ ) {
+                    let _key = CHARACTERISTICS.getKeyByLabel( _entries[ e ].value );
+                    if ( _key ) {
+                        _boost_by_key[ _key ] = ( _boost_by_key[ _key ] || 0 ) + 1;
+                    }
+                }
+                for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+                    this.getContent( i ).doActionAfter( "event__set_adjustment_boost", {
+                        "param__adjustment_boost": _boost_by_key[ this.getContent( i ).getKey() ] || 0
+                    } );
+                }
+                return;
+            }
             case "event__unset_object_bonuses":
                 params[ "param__characteristics__object" ] = this;
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__unset_free_bonus_done", params );
@@ -51,8 +86,12 @@ CHARACTERISTICS.Characteristics.prototype = {
         switch ( params[ "param__is_for" ] ) {
             case RACES.key_element:
                 return this.getRaceBonus();
+            case HISTORICS.key_element:
+                return this.getHistoricBonus();
             case CLASSES.key_element:
                 return this.getClassBonus();
+            case CHARACTERISTICS.creation_key:
+                return this.getLevel1Bonus();
         }
     },
     setData                  : function ( key, value ) {
@@ -69,8 +108,14 @@ CHARACTERISTICS.Characteristics.prototype = {
     getRaceBonus : function () {
         return this.race_bonus;
     },
+    getHistoricBonus : function () {
+        return this.historic_bonus;
+    },
     getClassBonus: function () {
         return this.class_bonus;
+    },
+    getLevel1Bonus: function () {
+        return this.level1_bonus;
     },
     getUUID      : function () {
         return "CHARACTERISTICS.Characteristics";
@@ -82,26 +127,39 @@ CHARACTERISTICS.Characteristics.prototype = {
         this.characteristic_table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "characteristic-table" } ), this.dom_element_characteristic_window );
         let headers               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "row headers" } ), this.characteristic_table );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell" } ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Final" ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Modifier" ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur Initial" ), headers );
-        
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Valeur" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Initial" ), headers );
+
         let header_bonus_race = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Race" ), headers );
         let counter_warning   = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         counter_warning.computeHtml();
         this.race_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning );
         SERVICE.DOM.addElementTo( counter_warning.dom_element, header_bonus_race );
-        
+
+        let header_bonus_historic = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Historique" ), headers );
+        let counter_warning_h     = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning_h.computeHtml();
+        this.historic_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_h );
+        SERVICE.DOM.addElementTo( counter_warning_h.dom_element, header_bonus_historic );
+
         let header_bonus_class = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Classe" ), headers );
         let counter_warning_2  = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
         counter_warning_2.computeHtml();
         this.class_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_2 );
         SERVICE.DOM.addElementTo( counter_warning_2.dom_element, header_bonus_class );
-        
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv5" ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv10" ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv15" ), headers );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Bonus Niv20" ), headers );
+
+        let header_level1      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Niv1" ), headers );
+        let counter_warning_l1 = new GS.OBJECT.CounterV2( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+        counter_warning_l1.computeHtml();
+        this.level1_bonus.getCounter( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ).setParent( counter_warning_l1 );
+        SERVICE.DOM.addElementTo( counter_warning_l1.dom_element, header_level1 );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Niv5" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Niv10" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Niv15" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Niv20" ), headers );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "cell header" }, "Autre" ), headers );
+
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
             this.getContent( i ).doActionAfter( "event__compute__html", { "param__window": CHARACTERISTICS.WINDOW_KEY, "param__dom_element_parent": this.characteristic_table } );
         }

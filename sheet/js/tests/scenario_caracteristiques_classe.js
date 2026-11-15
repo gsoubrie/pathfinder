@@ -44,7 +44,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] Magicien niv1 → bonus INT forcé", f
         TEST.ASSERT.equal( _int.getModifierValue(), 2, "Le modificateur de INT devrait valoir +2 (10 + 2 race + 2 classe), obtenu : " + _int.getModifierValue() );
         let _for                         = _character.getCharacteristics().getContentByUUID( "FOR" );
         TEST.ASSERT.ok( _for.class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN ), "Le bonus de classe de FOR devrait etre interdit (hors choix Magicien)" );
-        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 1, "Le compteur warning devrait valoir 1 : le bonus libre de la race seulement" );
+        TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), TEST_caracteristiquesCreationPending() + 1, "Le compteur warning devrait valoir les boosts de creation + 1 : le bonus libre de la race seulement" );
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
             return TEST.waitCounterValue( document.querySelector( TEST_caracteristiquesBadge() ), TEST_caracteristiquesBadgeNumber( _character ) );
         } );
@@ -111,7 +111,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] Champion niv1 → choix FOR/DEX", func
         TEST.ASSERT.ok( _characteristics.getContentByUUID( "FOR" ).class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT ), "Le bonus de classe de FOR devrait etre editable (candidat Champion)" );
         TEST.ASSERT.ok( _characteristics.getContentByUUID( "DEX" ).class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT ), "Le bonus de classe de DEX devrait etre editable (candidat Champion)" );
         TEST.ASSERT.ok( _characteristics.getContentByUUID( "CON" ).class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN ), "Le bonus de classe de CON devrait etre interdit (hors choix Champion)" );
-        TEST.ASSERT.equal( _characteristics.getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 2, "Le compteur warning devrait valoir 2 : 1 libre de race + 1 libre de classe" );
+        TEST.ASSERT.equal( _characteristics.getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), TEST_caracteristiquesCreationPending() + 2, "Le compteur warning devrait valoir les boosts de creation + 2 : 1 libre de race + 1 libre de classe" );
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
             return TEST.waitCounterValue( document.querySelector( TEST_caracteristiquesBadge() ), TEST_caracteristiquesBadgeNumber( _character ) );
         } );
@@ -181,7 +181,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] + FOR classe → bonus posé, compteur
     TEST.ASSERT.equal( _for.class_bonus.getValue(), 2, "Le bonus de classe de FOR devrait valoir 2, obtenu : " + _for.class_bonus.getValue() );
     TEST.ASSERT.ok( _for.class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ), "Le bonus de classe de FOR devrait etre en phase SETTINGS_EDITED" );
     TEST.ASSERT.equal( _for.getModifierValue(), 1, "Le modificateur de FOR devrait valoir +1, obtenu : " + _for.getModifierValue() );
-    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 1, "Le compteur warning devrait redescendre a 1 : le libre de race" );
+    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), TEST_caracteristiquesCreationPending() + 1, "Le compteur warning devrait redescendre aux boosts de creation + 1 : le libre de race" );
     return TEST.waitCounterValue( document.querySelector( TEST_caracteristiquesBadge() ), TEST_caracteristiquesBadgeNumber( _character ) ).then( function () {
         let _for_final                 = _pane.querySelector( ".characteristic-line[data-name='FOR'] .characteristic-final-value" );
         if ( _for_final ) {
@@ -230,7 +230,7 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] − FOR classe → compteur 2", functi
     let _for                           = _character.getCharacteristics().getContentByUUID( "FOR" );
     TEST.ASSERT.equal( _for.class_bonus.getValue(), 0, "Le bonus de classe de FOR devrait etre retire, obtenu : " + _for.class_bonus.getValue() );
     TEST.ASSERT.ok( _for.class_bonus.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT ), "Le bonus de classe de FOR devrait revenir en phase SETTINGS_TO_EDIT" );
-    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), 2, "Le compteur warning devrait remonter a 2 apres le retrait" );
+    TEST.ASSERT.equal( _character.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS ), TEST_caracteristiquesCreationPending() + 2, "Le compteur warning devrait remonter aux boosts de creation + 2 apres le retrait" );
     return TEST.waitCounterValue( document.querySelector( TEST_caracteristiquesBadge() ), TEST_caracteristiquesBadgeNumber( _character ) ).then( function () {
         let _counter                   = document.querySelector( TEST_caracteristiquesBadge() );
         if ( !_counter ) {

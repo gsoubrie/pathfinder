@@ -324,7 +324,11 @@ CLASSES.CharacterClasses.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__property_popup__open":
-                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( CLASSES.key_element, params[ "param__class_name" ] || ( this.isEmpty() ? CLASSES.default_value : this.getContent( 0 ).getName() ), !!params[ "param__class_name" ] );
+                // Une classe par personnage : le popup de SELECTION ne vit
+                // que sans classe posee — sinon le + ouvre la CONSULTATION
+                // de la classe possedee (le changement de classe passe par
+                // le retrait complet de ses niveaux dans la Progression)
+                CONTROLLER.Character.edition_popup = new POPUP.PropertyEdition( CLASSES.key_element, params[ "param__class_name" ] || ( this.isEmpty() ? CLASSES.default_value : this.getContent( 0 ).getName() ), !!params[ "param__class_name" ] || !this.isEmpty() );
                 return;
             case "event__form__element_changed":
                 this.addClassFromEdition( params );
