@@ -432,8 +432,11 @@ niveau 5, "expertise en réflexes" validée) :
   dataset reste à trancher (aujourd'hui le nom libre du filtre crée
   l'entrée hors dataset, sans info de type).
 - Syntaxe validée par Node sur tous les fichiers touchés ; dernier
-  run headless : TOUT OK (Round 50, 110 OK / 0 ECHEC — run utilisateur
-  à confirmer).
+  run headless : TOUT OK (Round 87, 163 OK / 0 ECHEC — run utilisateur
+  à confirmer). Derniers chantiers livrés : liens d'actions dans les
+  popups de dons (Round 85), zone « Dons » du Général (Round 86),
+  choix de divinité Progression/Ajustements/case Général (Round 87),
+  « ? » de la doctrine du Prêtre (Round 87).
 - `constant_class.js`, `constant_gift_*.js` et
   `constant_skill_actions.js` sont des données scrapées : jamais
   d'édition manuelle — les corrections passent par
@@ -443,6 +446,21 @@ niveau 5, "expertise en réflexes" validée) :
 
 ## À faire (dans l'ordre logique)
 
+0. EN ATTENTE DE DÉCISION UTILISATEUR (maquettes proposées, non validées) :
+   - **Bonus optionnel sur les actions** : champ bonus (+ type, ex.
+     « +1 » « Circonstance ») sur les entrées `action` des Ajustements,
+     affiché dans la zone Actions du Général (« Détecter la magie +1
+     (circonstance) »). Décisions ouvertes : type en sélecteur ou champ
+     libre ; bonus éditable après création comme l'explication ; affichage
+     seul, aucun calcul de jet derrière.
+   - **Autres `CLASSES.CHOICES` sans uuid** (Oracle `mystere`, Rôdeur
+     `specialite_du_chasseur`, Roublard `trafic_de_roublard`, Sorcier
+     `patron`...) : pas de « ? » rendu (`_hasChoiceInformation` exige un
+     uuid) — à rattacher aux uuid compendium comme la doctrine du Prêtre
+     (Round 87) si voulu.
+   - **Dons d'archétype** (type `archetype_feat`) absents de la zone Dons
+     du Général (Round 86) : pas de popup DON derrière, visibles dans
+     Progression seulement.
 1. ~~Valider le rapport `tests.html` complet (chaîne de 5 scénarios
    ci-dessus)~~ — fait, run complet validé par l'utilisateur (Rounds 10-11).
 2. ~~Aligner `LEVELUP.CHOICE_TYPES` (et donc les slot keys des lignes `*_feat`)
@@ -2446,6 +2464,70 @@ ordre alphabétique, des liens mènent sur rien ») :
   `linkifyUuids` dans le onclick) et un texte « référence non
   indexée ». Concerne surtout les entrées de journaux (pas de data
   file côté site) et les id hors packs (~450 refs SRD).
+
+Round 85 = LIENS D'ACTIONS DANS LES POPUPS DE DONS (retour utilisateur :
+« Étudiant du droit canon » affiche « Vous souvenir » sans lien).
+RACINE : `flattenHtml` du générateur appliquait `linkifyUuids` puis un
+strip final `/<[^>]+>/g` qui DÉTRUISAIT les divs `gs-link-information`
+produits (le commentaire disait l'inverse) ; et les formes conjuguées
+de la source FR (« Vous souvenir » pour l'action « Se souvenir ») ne
+sont pas des @UUID. CORRECTIF dans `rescrap_pf2e.js` : les divs de lien
+sont protégés par placeholders (`\u0000N\u0000`) pendant le flatten et
+restaurés après, et les labels FR des actions vus dans les descriptions
+FR des packs du cache (formes conjuguées comprises, ~776 labels) sont
+linkifiés vers l'uuid de l'action (regex à frontières de mot, tri
+longueur décroissante). Re-scrap `feats` depuis le cache offline → les
+4 `constant_gift_*.js` portent les liens (~4000 divs) ; `clean_scraped_text.js`
+relancé (propre). La Bibliothèque strippe les tags pour la carte et la
+recherche (`_buildFeatCard` passe par `_formatScrapedDescription`,
+`_formatFeatSearchText` strippe chaque paragraphe — le matcher de test
+strippe déjà pareil). Scénario `scenario_don_liens_actions.js` (2 tests :
+lien « Vous souvenir » rendu dans la popup du don, clic → popup action
+« Se souvenir »). Run headless : 156 OK / 0 ECHEC.
+
+Round 86 = ZONE « DONS » DU GÉNÉRAL (demande utilisateur). Nouvelle grid
+area `area-feats` en colonne 5 sous `area-actions` (grille 11 lignes :
+actions 3-6, feats 7-11). Source : collecte par événement
+`event__get__active_feats` (personnage → `levels_history` +
+`ancestry_history` → entrées enabled → lignes `LevelUpSkillWithSelect`
+actives de `LEVELUP.FEAT_TYPES` → `{ name, category, source }`).
+Agrégation `CHARACTER.Gifts.getActiveFeats( character )` : dédup par nom
+(un don pris deux fois = un niveau, affiché une fois) + niveau lu via le
+nouvel accesseur `DON.getFeatEntry( category, name )` (`getFeatInformation`
+refactorisé dessus), tri niveau puis nom. Affichage `Nom (niv N)`, clic →
+popup feat par catégorie (`data-value`/`data-category`, jamais inline).
+Rafraîchi au chargement et à l'activation de l'onglet. La vieille clé de
+save `gifts` reste telle quelle (relecture des vieux saves, non affichée).
+Scénarios : `scenario_dons_ascendance.js` (zone = don actif + niveau +
+popup au clic) et `scenario_save_complet.js` (après rechargement :
+zone = dons actifs dédupliqués avec niveaux). Run headless : 158 OK / 0.
+
+Round 87 = DIVINITÉS (demande utilisateur, 4 points). (a) Case
+`area-deity` du Général en LIGNE 3 colonne 5 — insert de ligne façon
+Excel, la grille passe à 12 lignes (actions 4-7, feats 8-12) ; champ
+readOnly cliquable → popup compendium de la divinité (`data-uuid`, lu au
+clic). (b) Progression : la ligne « divinité » des classes qui la portent
+(Prêtre, Champion) devient un sélecteur via
+`CLASSES.COMMON_CHOICES["divinite"]` calculé depuis `OBJECT.COMPENDIUM`
+(478 entrées `deity`, filtre + Entrée, « ? » par option avec uuid) — le
+choix valide la ligne, save `level_skill`. (c) Ajustements : nouveau
+kind `deity` (sélecteur `OBJECT.getKnownDeities()` + explication) —
+L'AJUSTEMENT GAGNE TOUJOURS : dans la collecte `event__get__deity_choice`
+le personnage route `levels_history` d'abord puis `adjustments` (écrase) ;
+`character.getDeityChoice()` retourne `{ name, uuid }`. (d) Infos :
+accesseurs `OBJECT.getKnownDeities` / `OBJECT.getDeityInformation` dans
+le tail de `constant_objects.js` — le générateur préserve désormais ce
+tail au re-scrap du compendium (`compendium_tail`, même patron que
+`extractTail`). « ? » de la doctrine du Prêtre : uuid ajoutés à la main
+dans `CLASSES.CHOICES["Prêtre"]["doctrine"]` (`ZZzLMOUAtBVgV1DF` cloîtré,
+`0Aocw3igLwna9cjp` combattant — sans uuid, `_hasChoiceInformation` est
+faux et aucun « ? » n'est rendu). Scénario `scenario_choix_doctrine.js`
+(5 tests : setup Elfe+Prêtre, ligne doctrine avec « ? » par option +
+popup, ligne divinite sélecteur + choix → case Général + popup,
+ajustement gagne puis retrait → Progression reprend). PIÈGE : une
+`computeArea__*` appelée au chargement ET à l'activation de l'onglet doit
+VIDER sa zone (`SERVICE.DOM.empty`) sinon les rendus s'empilent et le
+querySelector lit le premier (vide). Run headless : 163 OK / 0 ECHEC.
 
 ### Style, commentaires, nommage
 
