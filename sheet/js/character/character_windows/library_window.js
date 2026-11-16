@@ -236,14 +236,16 @@ CHARACTER.LibraryWindow.prototype = {
 
     // The description arrays of the feats mix strings and arrays of
     // strings : the searchable text flattens everything (the FULL
-    // description, not the first paragraph shown by the card)
+    // description, not the first paragraph shown by the card), the
+    // information links of the scraped text strip to their plain label
     _formatFeatSearchText: function ( description ) {
         if ( !description || !description.length ) {
             return "";
         }
         let parts = [];
         for ( let i = 0, _size_i = description.length; i < _size_i; i++ ) {
-            parts.push( Array.isArray( description[ i ] ) ? description[ i ].join( " " ) : String( description[ i ] ) );
+            let paragraph = Array.isArray( description[ i ] ) ? description[ i ].join( " " ) : String( description[ i ] );
+            parts.push( paragraph.replace( /<[^>]*>/g, " " ).replace( /\s+/g, " " ).trim() );
         }
         return parts.join( " " );
     },
@@ -754,7 +756,7 @@ CHARACTER.LibraryWindow.prototype = {
             "name"       : feat.name,
             "tags"       : tags,
             "required"   : Array.isArray( feat.required ) ? feat.required : ( feat.required ? this._formatRequired( feat.required ) : [] ),
-            "description": feat.description && feat.description.length ? ( Array.isArray( feat.description[ 0 ] ) ? feat.description[ 0 ].join( " / " ) : feat.description[ 0 ] ) : ""
+            "description": this._formatScrapedDescription( feat.description )
         } );
     },
 

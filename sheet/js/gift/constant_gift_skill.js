@@ -13,7 +13,7 @@ DON.SKILL = {
                     "expert en Athlétisme"
                 ],
                 "description" : [
-                    "Vous parvenez facilement à vous hisser sur les corniches. Lorsque vous Vous raccrochez in extremis, vous pouvez utiliser Athlétisme au lieu d'un jet de Réflexes pour vous raccrocher in extremis. Si vous Escaladez ou Bondissez à moins de 1,50 mètre du bas d'un bord, vous pouvez vous hisser sur la surface et vous Relever au cours de la même action."
+                    "Vous parvenez facilement à vous hisser sur les corniches. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3yoajuKjwHZ9ApUY', 'param__object__label': this.textContent})\">Vous raccrochez in extremis</div>, vous pouvez utiliser Athlétisme au lieu d'un jet de Réflexes pour vous raccrocher in extremis. Si vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondissez</div> à moins de 1,50 mètre du bas d'un bord, vous pouvez vous hisser sur la surface et vous Relever au cours de la même action."
                 ]
             },
             {
@@ -27,7 +27,7 @@ DON.SKILL = {
                     "Dévouement : Danseur de l'éventail"
                 ],
                 "description" : [
-                    "Vous balayez le champ de bataille dans un flottement de mouvements affiné par des années de coordination de mouvements parfaitement espacés aux côtés de vos collègues danseurs. Lorsque vous tentez un Déplacement acrobatique dans l'espace d'un ennemi, vous pouvez utiliser votre Représentation à la place de l'Acrobatie."
+                    "Vous balayez le champ de bataille dans un flottement de mouvements affiné par des années de coordination de mouvements parfaitement espacés aux côtés de vos collègues danseurs. Lorsque vous tentez un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '21WIfSu7Xd7uKqV8', 'param__object__label': this.textContent})\">Déplacement acrobatique</div> dans l'espace d'un ennemi, vous pouvez utiliser votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> à la place de l'Acrobatie."
                 ]
             },
             {
@@ -41,7 +41,7 @@ DON.SKILL = {
                     "expert en Acrobaties"
                 ],
                 "description" : [
-                    "Vos cascades distraient suffisamment un ennemi pour donner un avantage à l'un de vos alliés. Lorsque vous parvenez à réaliser un Déplacement acrobatique dans l'espace d'un ennemi, un allié qui est adjacent à cet ennemi peut Faire un pas en utilisant une réaction, mais il doit rester adjacent à cet ennemi."
+                    "Vos cascades distraient suffisamment un ennemi pour donner un avantage à l'un de vos alliés. Lorsque vous parvenez à réaliser un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '21WIfSu7Xd7uKqV8', 'param__object__label': this.textContent})\">Déplacement acrobatique</div> dans l'espace d'un ennemi, un allié qui est adjacent à cet ennemi peut <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> en utilisant une réaction, mais il doit rester adjacent à cet ennemi."
                 ]
             },
             {
@@ -56,11 +56,11 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Originaire du Tian Xia",
-                    "Vous avez étudié les routes par lesquelles le Qi s'écoule à travers le corps. Les aiguilles emmagasinés dans votre Matériel de guérisseur peuvent en manipuler le cours et améliorer la santé lorsqu'elles sont appliqués sur des points méridiens spécifiques. Vous passez une journée à étudier un allié pour tenter un test de pour améliorer leur Qi contre un DD standard du niveau de votre allié. L'allié est alors immunisé à toutes les utilisations d'Acupuncteur pendant 1 semaine.",
+                    "Vous avez étudié les routes par lesquelles le Qi s'écoule à travers le corps. Les aiguilles emmagasinés dans votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's1vB3HdXjMigYAnY', 'param__object__label': this.textContent})\">Matériel de guérisseur</div> peuvent en manipuler le cours et améliorer la santé lorsqu'elles sont appliqués sur des points méridiens spécifiques. Vous passez une journée à étudier un allié pour tenter un test de pour améliorer leur Qi contre un DD standard du niveau de votre allié. L'allié est alors immunisé à toutes les utilisations d'Acupuncteur pendant 1 semaine.",
                     "Succès critique Vous accordez à votre allié à votre choix un bonus de circonstances de +2 à une activité d'intermède au cours de la semaine qui suit ou la capacité à relancer leur prochain jet de sauvegarde au cours de la semaine suivante contre une affliction et garder le résultat le plus élevé. C'est un effet de fortune.",
                     "Succès Vous accordez à votre allié un bonus de circonstances de +1 à un test d'activité d'intermède au cours de la semaine suivante.",
                     "Échec critique Votre allié subit une pénalité de circonstances de -1 à toutes les tests des activités d'intermède au cours de la semaine suivante.",
-                    "Effet : Acupuncteur"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fHM9xvCBWrBqcDQY', 'param__object__label': this.textContent})\">Effet : Acupuncteur</div>"
                 ]
             },
             {
@@ -91,7 +91,7 @@ DON.SKILL = {
                     "expert en Religion ou Undead Lore"
                 ],
                 "description" : [
-                    "Vous êtes régulièrement confronté à des morts-vivants et pouvez en identifier beaucoup d'un simple coup d'œil. Vous bénéficiez d'un bonus de circonstances de +1 aux tests de compétence pour Se souvenir à propos des morts-vivants. Lorsque vous obtenez un échec critique à un test de Se souvenir à propos des morts-vivants, il devient un échec."
+                    "Vous êtes régulièrement confronté à des morts-vivants et pouvez en identifier beaucoup d'un simple coup d'œil. Vous bénéficiez d'un bonus de circonstances de +1 aux tests de compétence pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> à propos des morts-vivants. Lorsque vous obtenez un échec critique à un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> à propos des morts-vivants, il devient un échec."
                 ]
             },
             {
@@ -105,7 +105,7 @@ DON.SKILL = {
                     "expert en Duperie"
                 ],
                 "description" : [
-                    "Même quand vous êtes pris à mentir, vous empilez mensonge sur mensonge. Réduisez le bonus de circonstances qu'une cible obtient suite à votre tentative précédente de Faire diversion ou de lui Mentir de +4 à +2. Si vous êtes maître en Duperie, réduisez le bonus à +1 et, si vous êtes légendaire, vos cibles ne reçoivent pas de bonus du tout."
+                    "Même quand vous êtes pris à mentir, vous empilez mensonge sur mensonge. Réduisez le bonus de circonstances qu'une cible obtient suite à votre tentative précédente de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Faire diversion</div> ou de lui <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> de +4 à +2. Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, réduisez le bonus à +1 et, si vous êtes légendaire, vos cibles ne reçoivent pas de bonus du tout."
                 ]
             },
             {
@@ -140,7 +140,7 @@ DON.SKILL = {
                     "Conditions Un allié adjacent souffre de dégâts persistants.",
                     "Vous avez appris une variété de méthodes pour aider les alliés qui saignent, brûlent ou souffrent de dégâts persistants, allant de l'élimination de l'acide aux traitements des brûlures.",
                     "Votre allié tente immédiatement un test nu pour supprimer tous les types de dégâts persistants et votre utilisation de ce don compte automatiquement comme une aide particulièrement efficace, réduisant le DD pour tous les tests nus futurs pour supprimer les dégâts persistants de 15 à 10.",
-                    "Effet : Aide médicale d'urgence"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bxXZYHCp6ftPSMCC', 'param__object__label': this.textContent})\">Effet : Aide médicale d'urgence</div>"
                 ]
             },
             {
@@ -154,7 +154,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Originaire de Hwanggot",
-                    "Vous apprenez les classifications des températures Hwan pour les éléments. Le bois et l'eau sont des éléments froids, alors que le feu, le métal et la terre sont des éléments chauds. Lorsque vous Préparez un remède élémentaire, vous pouvez altérer les effets environnementaux sur le corps du destinataire. Si vous avez créé un remède élémentaire chaud, le destinataire ignore les effets du froid important tant que le remède dure. Si vous avez créé un remède élémentaire froid, le destinataire ignore les effets du froid importants tant que le remède dure."
+                    "Vous apprenez les classifications des températures Hwan pour les éléments. Le bois et l'eau sont des éléments froids, alors que le feu, le métal et la terre sont des éléments chauds. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NMbOfl885pn0Yzu9', 'param__object__label': this.textContent})\">Préparez un remède élémentaire</div>, vous pouvez altérer les effets environnementaux sur le corps du destinataire. Si vous avez créé un remède élémentaire chaud, le destinataire ignore les effets du froid important tant que le remède dure. Si vous avez créé un remède élémentaire froid, le destinataire ignore les effets du froid importants tant que le remède dure."
                 ]
             },
             {
@@ -168,7 +168,7 @@ DON.SKILL = {
                     "expert en Discrétion"
                 ],
                 "description" : [
-                    "Vous êtes habile à vous déplacer avec un groupe. Quand vous Échappez aux regards et que vos alliés Suivent l'expert, vous et ces alliés pouvez effectuer un test de Discrétion unique, en utilisant le modificateur le plus bas, au lieu d'effectuer vos tests séparément. Cela ne s'applique pas aux jets d'initiative."
+                    "Vous êtes habile à vous déplacer avec un groupe. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échappez aux regards</div> et que vos alliés <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tfa4Sh7wcxCEqL29', 'param__object__label': this.textContent})\">Suivent l'expert</div>, vous et ces alliés pouvez effectuer un test de Discrétion unique, en utilisant le modificateur le plus bas, au lieu d'effectuer vos tests séparément. Cela ne s'applique pas aux jets d'initiative."
                 ]
             },
             {
@@ -184,7 +184,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous transportez une petite amulette de protection provenant d'un site sacré pour votre foi. Vous obtenez un symbole religieux en bois de votre divinité gratuitement. Tant que symbole religieux reste en votre possession, lorsque vous êtes à égalité sur un test d'initiative avec un adversaire, vous agissez le premier.",
-                    "Si vous perdez ce symbole religieux, vous devez en acheter ou en Fabriquer un autre et l'harmoniser. Une telle amulette coûte généralement au moins 1 pa, et l'harmonisation prend 10 minutes de prière. Vous pouvez également harmoniser un autre symbole religieux dans le même laps de temps, mais vous perdez le bénéfice du symbole religieux précédent."
+                    "Si vous perdez ce symbole religieux, vous devez en acheter ou en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un autre et l'harmoniser. Une telle amulette coûte généralement au moins 1 pa, et l'harmonisation prend 10 minutes de prière. Vous pouvez également harmoniser un autre symbole religieux dans le même laps de temps, mais vous perdez le bénéfice du symbole religieux précédent."
                 ]
             },
             {
@@ -201,7 +201,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous décomposez l'idiolecte spécifique d'un individu, en mémorisant son maniérisme lorsqu'il parle et ses habitudes.",
-                    "Si vous interagissez avec quelqu'un pendant au moins 10 minutes, lorsque vous essayez par la suite de Vous faire passer pour cet individu, vous obtenez un bonus de circonstances de +4 a vos tests de Duperie et à vos DD. Compte tenu de l'intense étude du personnage nécessaire, vous ne pouvez vous remémorer qu'un unique idiolecte au même moment."
+                    "Si vous interagissez avec quelqu'un pendant au moins 10 minutes, lorsque vous essayez par la suite de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> cet individu, vous obtenez un bonus de circonstances de +4 a vos tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> et à vos DD. Compte tenu de l'intense étude du personnage nécessaire, vous ne pouvez vous remémorer qu'un unique idiolecte au même moment."
                 ]
             },
             {
@@ -216,7 +216,7 @@ DON.SKILL = {
                     "expert en Nature"
                 ],
                 "description" : [
-                    "Vous forgez des liens étroits avec les animaux. Vous pouvez passer 7 jours d'intermède à Interagir régulièrement avec un animal normal (pas un compagnon ou autre animal spécial) qui est amical ou serviable. À l'expiration de cette durée, faites un test de . Si c'est un succès, vous êtes lié avec l'animal. L'animal est en permanence serviable envers vous, à moins que vous ne fassiez quelque chose de grave pour briser votre lien.",
+                    "Vous forgez des liens étroits avec les animaux. Vous pouvez passer 7 jours d'intermède à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pvQ5rY2zrtPI614F', 'param__object__label': this.textContent})\">Interagir</div> régulièrement avec un animal normal (pas un compagnon ou autre animal spécial) qui est amical ou serviable. À l'expiration de cette durée, faites un test de . Si c'est un succès, vous êtes lié avec l'animal. L'animal est en permanence serviable envers vous, à moins que vous ne fassiez quelque chose de grave pour briser votre lien.",
                     "Un animal serviable est plus facile à diriger. Si votre animal lié est au niveau -1, il obtient le trait sbire, vous permettant de le diriger plus efficacement. Le niveau maximal de créature qui peut être votre sbire passe à 3 si vous êtes maître en Nature et à 11 si vous êtes légendaire."
                 ]
             },
@@ -231,7 +231,7 @@ DON.SKILL = {
                     "qualifié en Diplomatie"
                 ],
                 "description" : [
-                    "Vous êtes doué pour apprendre des informations par la conversation. L'activité d'exploration Recueillir des informations vous prend deux fois moins de temps que la normale (réduisant généralement le temps d'une heure). Si vous êtes maître en Diplomatie et que vous obtenez un échec critique en Recueillant des informations, il devient un échec. Il n'y a toujours aucune garantie qu'une rumeur que vous apprenez avec Recueillir des informations soit exacte."
+                    "Vous êtes doué pour apprendre des informations par la conversation. L'activité d'exploration <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> vous prend deux fois moins de temps que la normale (réduisant généralement le temps d'une heure). Si vous êtes maître en Diplomatie et que vous obtenez un échec critique en Recueillant des informations, il devient un échec. Il n'y a toujours aucune garantie qu'une rumeur que vous apprenez avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> soit exacte."
                 ]
             },
             {
@@ -280,7 +280,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous pouvez obtenir l'aide des autres PJ pour Fabriquer un objet, sous votre supervision. Un PJ qui vous aide tente un test avec une compétence dans laquelle il est qualifié. La compétence doit être Artisanat ou toute autre compétence qui est adapté à la fabrication de l'objet, choisie par le MJ. Par exemple, un PJ pourrait utiliser la compétence Religion pour vous aider à Fabriquer un objet qui possède le trait divin ou Connaissance de la guerre pour vous aider à Fabriquer une arme. Votre test sera toujours déterminant pour déterminer si la création de l'objet est un succès. Tout test d'une personne qui vous aide contribue à réduire le coût des matières premières en utilisant la table Gagner de l'argent. Vous utilisez le degré de maîtrise dans la compétence du PJ allié et son niveau -1 comme niveau. Les PJ qui vous aident doivent vous accompagner jusqu'à la fin de l'activité Fabriquer un objet (ce qui les empêche d'accomplir leur propre activité d'intermède) ou l'avantage est perdu. Le MJ pourrait déterminer qu'un nombre restreint de PJ peuvent aider en fonction des circonstances. Artisanat communautaire vous permet également de prendre le rôle d'aidant lorsque quelqu'un d'autre Fabrique un objet, pourvu qu'il accepte votre aide."
+                    "Vous pouvez obtenir l'aide des autres PJ pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet, sous votre supervision. Un PJ qui vous aide tente un test avec une compétence dans laquelle il est qualifié. La compétence doit être Artisanat ou toute autre compétence qui est adapté à la fabrication de l'objet, choisie par le MJ. Par exemple, un PJ pourrait utiliser la compétence Religion pour vous aider à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet qui possède le trait divin ou Connaissance de la guerre pour vous aider à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> une arme. Votre test sera toujours déterminant pour déterminer si la création de l'objet est un succès. Tout test d'une personne qui vous aide contribue à réduire le coût des matières premières en utilisant la table <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div>. Vous utilisez le degré de maîtrise dans la compétence du PJ allié et son niveau -1 comme niveau. Les PJ qui vous aident doivent vous accompagner jusqu'à la fin de l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet (ce qui les empêche d'accomplir leur propre activité d'intermède) ou l'avantage est perdu. Le MJ pourrait déterminer qu'un nombre restreint de PJ peuvent aider en fonction des circonstances. Artisanat communautaire vous permet également de prendre le rôle d'aidant lorsque quelqu'un d'autre Fabrique un objet, pourvu qu'il accepte votre aide."
                 ]
             },
             {
@@ -325,7 +325,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous avez appris à tirer le meilleur parti de la collaboration avec d'autres personnes pour vos projets de fabrication, ce qui est indispensable lorsque vous travaillez avec les différentes guildes de Heaume. Si un allié tente de vous Aider dans vos travaux d'artisanat, vous ignorez la pénalité de circonstances de -1 en cas d'échec critique. Si un allié possède également le don Artisanat en coopération, vous pouvez choisir de mettre en commun vos ressources et de travailler ensemble sur le même objet. Vous ne pouvez travailler qu'avec un seul allié de cette manière. Vous tentez tous les deux un test d'Artisanat sur le même objet. Si vous obtenez un succès tous les deux, vous réduisez le temps minimum pour fabriquer l'objet de 1 jour. Pour déterminer le niveau de l'objet que vous et votre allié pouvez fabriquer, vous utilisez le plus élevé de votre niveau ou du niveau de votre allié plus 1. Si vous tentez de Fabriquer un objet d'un niveau supérieur au vôtre et que l'un de vous obtient un échec, les deux tests deviennent des échecs critiques."
+                    "Vous avez appris à tirer le meilleur parti de la collaboration avec d'autres personnes pour vos projets de fabrication, ce qui est indispensable lorsque vous travaillez avec les différentes guildes de Heaume. Si un allié tente de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HCl3pzVefiv9ZKQW', 'param__object__label': this.textContent})\">Aider</div> dans vos travaux d'artisanat, vous ignorez la pénalité de circonstances de -1 en cas d'échec critique. Si un allié possède également le don Artisanat en coopération, vous pouvez choisir de mettre en commun vos ressources et de travailler ensemble sur le même objet. Vous ne pouvez travailler qu'avec un seul allié de cette manière. Vous tentez tous les deux un test d'Artisanat sur le même objet. Si vous obtenez un succès tous les deux, vous réduisez le temps minimum pour fabriquer l'objet de 1 jour. Pour déterminer le niveau de l'objet que vous et votre allié pouvez fabriquer, vous utilisez le plus élevé de votre niveau ou du niveau de votre allié plus 1. Si vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet d'un niveau supérieur au vôtre et que l'un de vous obtient un échec, les deux tests deviennent des échecs critiques."
                 ]
             },
             {
@@ -340,7 +340,7 @@ DON.SKILL = {
                     "Artisanat spécialisé"
                 ],
                 "description" : [
-                    "Vous fabriquez des créations sans défaut avec une grande efficacité. Lorsque vous obtenez un succès sur un test d'Artisanat pour Fabriquer un objet du type que vous avez choisi avec Artisanat spécialisé, il devient un succès critique."
+                    "Vous fabriquez des créations sans défaut avec une grande efficacité. Lorsque vous obtenez un succès sur un test d'Artisanat pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet du type que vous avez choisi avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QLeMH5mQgh28sa5o', 'param__object__label': this.textContent})\">Artisanat spécialisé</div>, il devient un succès critique."
                 ]
             },
             {
@@ -357,7 +357,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous avez appris à réparer votre équipement même dans des circonstances difficiles, en utilisant ce qui est disponible. Vous pouvez tenter de Réparer un objet sans trousse de réparation en improvisant plutôt des outils à partir de votre équipement ou d'objets trouvés. Cela ajoute 5 minutes au temps nécessaire pour Réparer l'objet. Vous pouvez également Réparer un objet en déplacement sans avoir besoin de surface stable. Cela ajoute 10 minutes au temps nécessaire pour Réparer l'objet."
+                    "Vous avez appris à réparer votre équipement même dans des circonstances difficiles, en utilisant ce qui est disponible. Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer un objet</div> sans trousse de réparation en improvisant plutôt des outils à partir de votre équipement ou d'objets trouvés. Cela ajoute 5 minutes au temps nécessaire pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer</div> l'objet. Vous pouvez également <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer un objet</div> en déplacement sans avoir besoin de surface stable. Cela ajoute 10 minutes au temps nécessaire pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer</div> l'objet."
                 ]
             },
             {
@@ -371,7 +371,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous pouvez Fabriquer des objets magiques, bien que certains aient d'autres conditions. Quand vous sélectionnez ce don, vous obtenez les formules de quatre objets magiques courants de niveau 2 ou inférieur."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> des objets magiques, bien que certains aient d'autres conditions. Quand vous sélectionnez ce don, vous obtenez les formules de quatre objets magiques courants de niveau 2 ou inférieur."
                 ]
             },
             {
@@ -384,7 +384,7 @@ DON.SKILL = {
                     "maître en Survie"
                 ],
                 "description" : [
-                    "Vous pouvez utilisez les morceaux des monstres pour vous aider en artisanat. Vous pouvez utiliser le corps d'un monstre pour vous aider à Fabriquer un objet, en utilisant Survie à la place d'Artisanat pour le Fabriquer. Si les morceaux du corps du monstres ont une valeur, vous pouvez également les intégrer dans le coût des matières premières brutes (Le MJ détermine à partir des entrées du monstre si son corps contient des matériaux de valeur).",
+                    "Vous pouvez utilisez les morceaux des monstres pour vous aider en artisanat. Vous pouvez utiliser le corps d'un monstre pour vous aider à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> un objet, en utilisant Survie à la place d'Artisanat pour le <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div>. Si les morceaux du corps du monstres ont une valeur, vous pouvez également les intégrer dans le coût des matières premières brutes (Le MJ détermine à partir des entrées du monstre si son corps contient des matériaux de valeur).",
                     "Si vous dépensez des jours supplémentaires pour travailler sur l'objet, vous réduisez le Prix en utilisant le niveau du monstre au lieu du vôtre. Certains objets pourrait demander d'utiliser une créature spécifique parmi ses Conditions de fabrication."
                 ]
             },
@@ -399,7 +399,7 @@ DON.SKILL = {
                     "qualifié en Artisanat"
                 ],
                 "description" : [
-                    "Votre formation s'est concentrée sur l'Artisanat d'un type d'objet en particulier. Sélectionnez une des spécialités listées ci-dessous. Vous obtenez un bonus de circonstances de +1 aux tests d'Artisanat pour Fabriquer des objets de ce type. Si vous êtes un maître en Artisanat, Ce bonus passe à +2. S'il n'est pas évident de déterminer si la spécialité s'applique, c'est le MJ qui décide. Certaines spécialités peuvent ne s'appliquer que partiellement. Par exemple, si vous réalisiez un morgenstern en possédant la spécialité ébénisterie, le MJ pourrait ne vous accorder que la moitié de votre bonus parce que l'objet nécessite à la fois forge et ébénisterie.",
+                    "Votre formation s'est concentrée sur l'Artisanat d'un type d'objet en particulier. Sélectionnez une des spécialités listées ci-dessous. Vous obtenez un bonus de circonstances de +1 aux tests d'Artisanat pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> des objets de ce type. Si vous êtes un maître en Artisanat, Ce bonus passe à +2. S'il n'est pas évident de déterminer si la spécialité s'applique, c'est le MJ qui décide. Certaines spécialités peuvent ne s'appliquer que partiellement. Par exemple, si vous réalisiez un morgenstern en possédant la spécialité ébénisterie, le MJ pourrait ne vous accorder que la moitié de votre bonus parce que l'objet nécessite à la fois forge et ébénisterie.",
                     "Spécialité Objets concernés",
                     "Alchimie* Objets alchimiques tels que des élixirs",
                     "Sens artistique Objets d'art, y compris les bijoux",
@@ -413,7 +413,7 @@ DON.SKILL = {
                     "Couture Vêtements",
                     "Tissage Textiles, paniers et tapis",
                     "Ébénisterie Articles en bois et structures",
-                    "* Vous devez avoir le don de compétence Artisanat alchimique pour Fabriquer des objets alchimiques."
+                    "* Vous devez avoir le don de compétence Artisanat alchimique pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> des objets alchimiques."
                 ]
             },
             {
@@ -428,7 +428,7 @@ DON.SKILL = {
                     "Artiste virtuose"
                 ],
                 "description" : [
-                    "Votre renommée s'est répandue à travers les territoires. Les PNJ qui ont n'importe quelle compétence indiquée en Société ont généralement une attitude envers vous d'un échelon meilleure que la normale, en fonction de votre réputation et de la disposition de la créature. Par exemple, si vous êtes réputé pour votre comportement cruel et exigeant, les créatures pourraient être intimidées par vous plutôt qu'amicales envers vous. Quand vous Gagnez de l'argent avec Représentation, vous attirez des spectateurs de niveau supérieur à ce que votre situation géographique pourrait permettre, tandis que les spectateurs se pressent pour vous voir. Par exemple, les dirigeants et les anges pourraient voyager jusqu'à votre petite tour dans les bois pour vous entendre vous produire. Généralement, cela augmente les spectateurs disponibles à votre niveau ou de 2 niveaux, si c'est plus élevé."
+                    "Votre renommée s'est répandue à travers les territoires. Les PNJ qui ont n'importe quelle compétence indiquée en Société ont généralement une attitude envers vous d'un échelon meilleure que la normale, en fonction de votre réputation et de la disposition de la créature. Par exemple, si vous êtes réputé pour votre comportement cruel et exigeant, les créatures pourraient être intimidées par vous plutôt qu'amicales envers vous. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagnez de l'argent</div> avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, vous attirez des spectateurs de niveau supérieur à ce que votre situation géographique pourrait permettre, tandis que les spectateurs se pressent pour vous voir. Par exemple, les dirigeants et les anges pourraient voyager jusqu'à votre petite tour dans les bois pour vous entendre vous produire. Généralement, cela augmente les spectateurs disponibles à votre niveau ou de 2 niveaux, si c'est plus élevé."
                 ]
             },
             {
@@ -472,7 +472,7 @@ DON.SKILL = {
                     "qualifié en Représentation"
                 ],
                 "description" : [
-                    "Vous possédez un talent exceptionnel dans un type de Représentation. Vous obtenez un bonus de circonstances de +1 quand vous effectuez un certain type de représentation. Si vous êtes maître en Représentation, Ce bonus passe à +2. Sélectionnez l'une des spécialités suivantes et appliquez le bonus quand vous tentez des tests de Représentation de ce type. S'il n'est pas évident de déterminer si la spécialité s'applique, c'est le MJ qui décide.",
+                    "Vous possédez un talent exceptionnel dans un type de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>. Vous obtenez un bonus de circonstances de +1 quand vous effectuez un certain type de représentation. Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, Ce bonus passe à +2. Sélectionnez l'une des spécialités suivantes et appliquez le bonus quand vous tentez des tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> de ce type. S'il n'est pas évident de déterminer si la spécialité s'applique, c'est le MJ qui décide.",
                     "Spécialité Exemples",
                     "Art dramatique Drame, marionnette, pantomime",
                     "Art oratoire Conte, ode, poésie, saga épique",
@@ -515,7 +515,7 @@ DON.SKILL = {
                     "légende en Religion"
                 ],
                 "description" : [
-                    "Vous êtes tellement immergé dans les écritures divines que vous trouvez signification et conseil dans vos textes pour chaque situation. Passez 10 minutes à Déchiffrer un texte d'écritures religieuses de votre divinité ou philosophie pendant que vous pensez à un problème particulier ou à une énigme que vous rencontrez, puis tentez un test de (dont le DD est déterminé par le MJ). Si vous réussissez, vous déterrez un passage pertinent, une parabole ou un aphorisme qui peut vous aider à aller de l'avant ou à changer votre façon de penser pour vous aider à résoudre votre énigme."
+                    "Vous êtes tellement immergé dans les écritures divines que vous trouvez signification et conseil dans vos textes pour chaque situation. Passez 10 minutes à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> d'écritures religieuses de votre divinité ou philosophie pendant que vous pensez à un problème particulier ou à une énigme que vous rencontrez, puis tentez un test de (dont le DD est déterminé par le MJ). Si vous réussissez, vous déterrez un passage pertinent, une parabole ou un aphorisme qui peut vous aider à aller de l'avant ou à changer votre façon de penser pour vous aider à résoudre votre énigme."
                 ]
             },
             {
@@ -545,7 +545,7 @@ DON.SKILL = {
                     "Chute féline"
                 ],
                 "description" : [
-                    "Vous vous réceptionnez en faisant des roulades rapides qui vous aident à conserver votre élan. Si vous tombez de plus de 1,50 mètre et ne subissez pas de dégâts (habituellement parce que vous considérez la chute comme étant plus courte), vous pouvez utiliser votre réaction pour faire immédiatement une courte roulade lorsque vous vous réceptionnez pour Faire un pas. Si vous êtes expert en Acrobaties, vous pouvez utiliser votre réaction pour Faire un pas ou Marcher rapidement jusqu'à la moitié de votre Vitesse. Si vous êtes un maître en Acrobaties, vous pouvez utiliser votre réaction pour Faire un pas ou Marcher rapidement jusqu'à votre Vitesse. Si vous êtes légendaire en Acrobaties, vous ne déclenchez pas de réactions à cause du déplacement lorsque vous Marchez rapidement de la sorte."
+                    "Vous vous réceptionnez en faisant des roulades rapides qui vous aident à conserver votre élan. Si vous tombez de plus de 1,50 mètre et ne subissez pas de dégâts (habituellement parce que vous considérez la chute comme étant plus courte), vous pouvez utiliser votre réaction pour faire immédiatement une courte roulade lorsque vous vous réceptionnez pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div>. Si vous êtes expert en Acrobaties, vous pouvez utiliser votre réaction pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> jusqu'à la moitié de votre Vitesse. Si vous êtes un maître en Acrobaties, vous pouvez utiliser votre réaction pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> jusqu'à votre Vitesse. Si vous êtes légendaire en Acrobaties, vous ne déclenchez pas de réactions à cause du déplacement lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marchez rapidement</div> de la sorte."
                 ]
             },
             {
@@ -561,8 +561,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Déclencheur Vous tombez d'une hauteur de plus de 4,50 mètres.",
-                    "Conditions Votre monture peut atteindre votre point de chute avec une seule Marche rapide.",
-                    "Alors que vous tombez, votre monture se précipite à votre secours. Votre monture Marche rapidement jusqu'à sa Vitesse, se positionnant en dessous de vous. Plutôt que de tomber sur votre monture, vous Chevauchez votre monture. Considérez la chute déclencheuse comme si elle était plus courte de 4,50 mètres et vous ne vous retrouvez pas À terre (bien que vous et votre monture subissez des dégâts de la chute en fonction de ce que vous auriez subi du fait de la distance de la chute restante)."
+                    "Conditions Votre monture peut atteindre votre point de chute avec une seule <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div>.",
+                    "Alors que vous tombez, votre monture se précipite à votre secours. Votre monture Marche rapidement jusqu'à sa Vitesse, se positionnant en dessous de vous. Plutôt que de tomber sur votre monture, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PM5jvValFkbFH3TV', 'param__object__label': this.textContent})\">Chevauchez</div> votre monture. Considérez la chute déclencheuse comme si elle était plus courte de 4,50 mètres et vous ne vous retrouvez pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div> (bien que vous et votre monture subissez des dégâts de la chute en fonction de ce que vous auriez subi du fait de la distance de la chute restante)."
                 ]
             },
             {
@@ -577,7 +577,7 @@ DON.SKILL = {
                     "Acrobat, Celebrity, Dandy, or Dévouement : Gladiateur"
                 ],
                 "description" : [
-                    "Votre formation s'est concentrée sur l'opéra, et cela se voit. Vous devenez maître en Représentation et, au niveau 15, votre compétence en Représentation passe à légendaire. Vous devenez également expert en Connaissance théâtrale ou êtes maître en Connaissance théâtrale si vous étiez déjà expert.Lorsque vous êtes sur une scène, dans une arène ou autrement au centre d'une foule présente pour vous voir vous produire, votre empressement à commencer vous accorde un bonus de circonstances de +3 aux jets d'initiative si vous utilisez Acrobaties, Intimidation ou Représentation pour déterminer l'initiative."
+                    "Votre formation s'est concentrée sur l'opéra, et cela se voit. Vous devenez maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> et, au niveau 15, votre compétence en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> passe à légendaire. Vous devenez également expert en Connaissance théâtrale ou êtes maître en Connaissance théâtrale si vous étiez déjà expert.Lorsque vous êtes sur une scène, dans une arène ou autrement au centre d'une foule présente pour vous voir vous produire, votre empressement à commencer vous accorde un bonus de circonstances de +3 aux jets d'initiative si vous utilisez Acrobaties, Intimidation ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> pour déterminer l'initiative."
                 ]
             },
             {
@@ -594,7 +594,7 @@ DON.SKILL = {
                     "maître en Médecine"
                 ],
                 "description" : [
-                    "Vous accomplissez des ajustements chirurgicaux pour déguiser un allié consentant ou votre compagnon créature artificielle. Ceci est considéré comme un déguisement pour Vous faire passer pour qui prend 10 minutes et nécessite un Matériel de guérisseur au lieu d'un kit de déguisement. Le DD pour percer cette tromperie en Cherchant est votre DD de Médecine () à moins que le DD de Duperie de la personne déguisée ne soit supérieur. Si la cible interagit directement avec quelqu'un alors qu'elle est ainsi déguisée, elle obtient un bonus de circonstances de +2 à son test de Duperie.",
+                    "Vous accomplissez des ajustements chirurgicaux pour déguiser un allié consentant ou votre compagnon créature artificielle. Ceci est considéré comme un déguisement pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> qui prend 10 minutes et nécessite un Matériel de guérisseur au lieu d'un kit de déguisement. Le DD pour percer cette tromperie en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Cherchant</div> est votre DD de Médecine () à moins que le DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> de la personne déguisée ne soit supérieur. Si la cible interagit directement avec quelqu'un alors qu'elle est ainsi déguisée, elle obtient un bonus de circonstances de +2 à son test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>.",
                     "Vous pouvez inverser cet effet en y consacrant 10 minutes de chirurgie. Le personnage déguisé peut aussi y mettre fin par une action gratuite lorsqu'il bénéficie d'un quelconque effet de guérison."
                 ]
             },
@@ -618,7 +618,7 @@ DON.SKILL = {
                     "Succès critique La cible est distraite et subit une pénalité de statut de -3 aux tests de Perception et aux jets de Volonté pendant 1 minute.",
                     "Succès Comme en cas de succès critique, mais la pénalité est de -2.",
                     "Échec critique Votre trait d'esprit est atroce. Vous subissez la même pénalité que celle que l'ennemi aurait subi si vous aviez obtenu un succès. Cette pénalité prend fin après 1 minute ou dès que vous réussissez à placer un autre Bon mot.",
-                    "Effet : Bon Mot"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GoSls6SKCFmSoDxT', 'param__object__label': this.textContent})\">Effet : Bon Mot</div>"
                 ]
             },
             {
@@ -632,7 +632,7 @@ DON.SKILL = {
                     "expert en Athlétisme"
                 ],
                 "description" : [
-                    "Vous pouvez sauter de 1,50 mètre avec un Bond vertical sans Faire un Saut en hauteur. Vous augmentez aussi la distance horizontale lorsque vous Bondissez, incluant ce qui fait partie d'un Saut en hauteur ou de Saut en longueur de 1,50 mètre."
+                    "Vous pouvez sauter de 1,50 mètre avec un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bond</div> vertical sans Faire un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Saut en hauteur</div>. Vous augmentez aussi la distance horizontale lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondissez</div>, incluant ce qui fait partie d'un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Saut en hauteur</div> ou de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Saut en longueur</div> de 1,50 mètre."
                 ]
             },
             {
@@ -648,7 +648,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Conditions Vous êtes dans les 3 mètres d'une créature qui est d'au moins une taille supérieure à la vôtre et est consentantepour être votre monture.",
-                    "Vous sautez sur votre monture de loin, atterrissant confortablement au-dessus d'elle. Bondissez vers la créature et Montez là."
+                    "Vous sautez sur votre monture de loin, atterrissant confortablement au-dessus d'elle. <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondissez</div> vers la créature et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PM5jvValFkbFH3TV', 'param__object__label': this.textContent})\">Montez</div> là."
                 ]
             },
             {
@@ -662,7 +662,7 @@ DON.SKILL = {
                     "qualifié en Diplomatie"
                 ],
                 "description" : [
-                    "Quand vous Faites bonne impression, vous pouvez comparer votre test de Diplomatie aux DD de Volonté de dix cibles avec lesquelles vous avez conversé, sans pénalité. Le nombre de cibles passe à 20 si vous êtes expert, 50 si vous êtes maître et 100 si vous êtes légendaire."
+                    "Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faites bonne impression</div>, vous pouvez comparer votre test de Diplomatie aux DD de Volonté de dix cibles avec lesquelles vous avez conversé, sans pénalité. Le nombre de cibles passe à 20 si vous êtes expert, 50 si vous êtes maître et 100 si vous êtes légendaire."
                 ]
             },
             {
@@ -694,8 +694,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois par round",
-                    "Conditions Soit vous utilisez Tir accidentel et touchez votre adversaire avec la Frappe ce tour soit vous avez utilisé Évitement chanceux depuis votre dernier tour et l'attaque déclencheuse vous a manqué.",
-                    "Vous riez innocemment de la chance inexplicable de votre dernier tir qui a touché sa cible ou à l'attaque qui a manqué de justesse de vous couper la tête, amenant vos adversaires à se demander si c'est une bonne idée de s'opposer à vous durant la bataille. Tentez de Démoraliser soit l'adversaire que vous avez touché avec Tir accidentel soit l'adversaire qui vous a manqué à cause d'Évitement chanceux. Vous utilisez Duperie au lieu d'Intimidation pour Démoraliser."
+                    "Conditions Soit vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FzZAYGib08aEq5P2', 'param__object__label': this.textContent})\">Tir accidentel</div> et touchez votre adversaire avec la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> ce tour soit vous avez utilisé Évitement chanceux depuis votre dernier tour et l'attaque déclencheuse vous a manqué.",
+                    "Vous riez innocemment de la chance inexplicable de votre dernier tir qui a touché sa cible ou à l'attaque qui a manqué de justesse de vous couper la tête, amenant vos adversaires à se demander si c'est une bonne idée de s'opposer à vous durant la bataille. Tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> soit l'adversaire que vous avez touché avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'FzZAYGib08aEq5P2', 'param__object__label': this.textContent})\">Tir accidentel</div> soit l'adversaire qui vous a manqué à cause d'Évitement chanceux. Vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> au lieu d'Intimidation pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div>."
                 ]
             },
             {
@@ -709,7 +709,7 @@ DON.SKILL = {
                     "qualifié en Diplomatie ou Intimidation"
                 ],
                 "description" : [
-                    "Vos paroles et votre langage corporel peuvent inconsciemment mettre mal à l'aise les orcs, vous donnant un avantage lorsque vous cherchez à les convaincre de voir les choses à votre manière. Nombre de ceux qui possèdent ce don s'en servent pour voyager librement entre les forteresses, avertissant tous les orcs, à l'exception des plus forts qu'il vaut mieux s'en prendre à une proie plus faible. Vous obtenez un bonus de circonstances de +1 aux tests de compétence pour Faire bonne impression ou Contraindre les créatures avec le trait orc. Les orcs ennemis qui peuvent vous voir au début du combat subissent une pénalité de -1 aux jets d'initiative."
+                    "Vos paroles et votre langage corporel peuvent inconsciemment mettre mal à l'aise les orcs, vous donnant un avantage lorsque vous cherchez à les convaincre de voir les choses à votre manière. Nombre de ceux qui possèdent ce don s'en servent pour voyager librement entre les forteresses, avertissant tous les orcs, à l'exception des plus forts qu'il vaut mieux s'en prendre à une proie plus faible. Vous obtenez un bonus de circonstances de +1 aux tests de compétence pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> les créatures avec le trait orc. Les orcs ennemis qui peuvent vous voir au début du combat subissent une pénalité de -1 aux jets d'initiative."
                 ]
             },
             {
@@ -740,7 +740,7 @@ DON.SKILL = {
                     "maître en Occultisme"
                 ],
                 "description" : [
-                    "Votre lien occulte au monde vous aide lorsque vous êtes Effrayé ou Stupéfié. Lorsque vos valeurs des états Effrayée ou Stupéfié devraient décroître, diminuez la valeur de 2."
+                    "Votre lien occulte au monde vous aide lorsque vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié</div>. Lorsque vos valeurs des états Effrayée ou Stupéfié devraient décroître, diminuez la valeur de 2."
                 ]
             },
             {
@@ -756,7 +756,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Votre maîtrise de la survie dans la nature vous a donné une sorte de sixième sens quand il s'agit de remarquer les créatures qui ne font pas partie de l'ordre naturel. Vous obtenez un bonus de circonstances de +1 à tous les tests d'initiative effectués au début d'une bataille dans laquelle au moins un de vos ennemis est une aberration, une fée, un mutant ou un mort-vivant ou si l'un de vos ennemis vient d'un plan autre que de l'Univers, tant que la bataille a lieu dans une région sauvage. Dans les régions sauvages, vous augmentez également votre DD de Perception de 1 contre ces types de créatures lorsqu'il s'agit de résoudre leurs tests de Discrétion. Si vous êtes maître en Survie, ce bonus de circonstances passe à +2.",
-                    "Si vous connaissez le rituel Communion, vous pouvez utiliser Survie comme test primaire ou secondaire pour résoudre ce rituel. Si vous le faites, vous obtenez un bonus de circonstances de +2."
+                    "Si vous connaissez le rituel <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7DN13ILADW2N9Z1t', 'param__object__label': this.textContent})\">Communion</div>, vous pouvez utiliser Survie comme test primaire ou secondaire pour résoudre ce rituel. Si vous le faites, vous obtenez un bonus de circonstances de +2."
                 ]
             },
             {
@@ -771,7 +771,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Déclencheur Votre tour commence et vous pouvez observer un diable.",
-                    "Votre formation de Chevalier infernal a profondément implanté dans votre esprit d'innombrables détails à propos des habitants des Enfers. Faites un test pour Vous souvenir à propos d'un diable que vous observez. Si vous obtenez un échec critique, il devient un échec. Si vous obtenez un succès sur ce test, il devient un succès critique à la place."
+                    "Votre formation de Chevalier infernal a profondément implanté dans votre esprit d'innombrables détails à propos des habitants des Enfers. Faites un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> à propos d'un diable que vous observez. Si vous obtenez un échec critique, il devient un échec. Si vous obtenez un succès sur ce test, il devient un succès critique à la place."
                 ]
             },
             {
@@ -785,7 +785,7 @@ DON.SKILL = {
                     "Dévouement : Imposteur"
                 ],
                 "description" : [
-                    "Vous savez que pour que le meilleur déguisement fonctionne, il faut non seulement avoir les bonnes compétences mais aussi l'aspect qui correspond. Heureusement, vous pouvez avoir les deux en utilisant des techniques magiques spéciales. Lorsque vous Vous faites passer pour, vous n'avez pas besoin d'un kit de déguisement. Au lieu de cela, de simples illusions ou des transformations temporaires se répandent sur votre corps comme des éclats de miroir, vous procurant les fournitures que le kit aurait normalement fournies. Lorsque vous Vous faites passer pour de cette manière, votre activité Se faire passer pour obtient le trait occulte."
+                    "Vous savez que pour que le meilleur déguisement fonctionne, il faut non seulement avoir les bonnes compétences mais aussi l'aspect qui correspond. Heureusement, vous pouvez avoir les deux en utilisant des techniques magiques spéciales. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faites passer pour</div>, vous n'avez pas besoin d'un kit de déguisement. Au lieu de cela, de simples illusions ou des transformations temporaires se répandent sur votre corps comme des éclats de miroir, vous procurant les fournitures que le kit aurait normalement fournies. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faites passer pour</div> de cette manière, votre activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Se faire passer pour</div> obtient le trait occulte."
                 ]
             },
             {
@@ -799,7 +799,7 @@ DON.SKILL = {
                     "qualifié en Duperie"
                 ],
                 "description" : [
-                    "Vous avez appris à imiter les capacités des lanceurs de sort en étudiant leur gestuelle et leurs mots. Lorsque vous activez un objet magique pour générer un effet de sort, faites un test de Duperie. Si vous réussissez à battre le DD de Perception du spectateur, à ses yeux, vous apparaissez Lancer ce sort. Les spectateurs qui réussissent à Reconnaître le sort réalisent que vous avez employé un objet magique, alors que ceux qui réussissent après coup à Identifier la magie ne peuvent toujours déterminer que la source de l'effet était un objet magique."
+                    "Vous avez appris à imiter les capacités des lanceurs de sort en étudiant leur gestuelle et leurs mots. Lorsque vous activez un objet magique pour générer un effet de sort, faites un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>. Si vous réussissez à battre le DD de Perception du spectateur, à ses yeux, vous apparaissez Lancer ce sort. Les spectateurs qui réussissent à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kV3XM0YJeS2KCSOb', 'param__object__label': this.textContent})\">Reconnaître</div> le sort réalisent que vous avez employé un objet magique, alors que ceux qui réussissent après coup à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> ne peuvent toujours déterminer que la source de l'effet était un objet magique."
                 ]
             },
             {
@@ -813,7 +813,7 @@ DON.SKILL = {
                     "qualifié en Diplomatie"
                 ],
                 "description" : [
-                    "Vous pouvez Gagner de l'argent en utilisant Diplomatie, en passant vos journées à rechercher des bonnes affaires et à revendre à profit. Vous pouvez aussi passer du temps à dénicher une bonne affaire sur un objet. Cela fonctionne comme si vous utilisiez Gagner de l'argent avec Diplomatie, sauf qu'au lieu de gagner de l'argent, vous achetez l'objet avec un rabais égal à l'argent que vous auriez gagné et vous l'obtenez gratuitement si l'argent gagné excède ou atteint son coût. Enfin, si vous sélectionnez Chasseur de bonnes affaires au cours de la création de personnage au niveau 1, vous commencez la partie avec 2 po supplémentaires."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> en utilisant Diplomatie, en passant vos journées à rechercher des bonnes affaires et à revendre à profit. Vous pouvez aussi passer du temps à dénicher une bonne affaire sur un objet. Cela fonctionne comme si vous utilisiez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> avec Diplomatie, sauf qu'au lieu de gagner de l'argent, vous achetez l'objet avec un rabais égal à l'argent que vous auriez gagné et vous l'obtenez gratuitement si l'argent gagné excède ou atteint son coût. Enfin, si vous sélectionnez Chasseur de bonnes affaires au cours de la création de personnage au niveau 1, vous commencez la partie avec 2 po supplémentaires."
                 ]
             },
             {
@@ -826,10 +826,10 @@ DON.SKILL = {
                     "qualifié en Hero-God Lore ou Legendary Beast Lore"
                 ],
                 "description" : [
-                    "Déclencheur Vous réussissez à Vous souvenir pour identifier une créature qui possède le trait mythique.",
+                    "Déclencheur Vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> pour identifier une créature qui possède le trait mythique.",
                     "Fréquence Une fois toutes les 10 minutes",
-                    "Vos ancêtres ont affronté et battu des bêtes mythiques de l'antiquité Iblydienne. Par le biais d'une combinaison d'écoute de ces contes et de la canalisation d'une parcelle de la puissance mythique de ces combattants, vous avez développé un don pour franchir les défenses fabuleuses d'une créature mythique. La prochaine fois que vous réussissez une Frappe contre la créature déclencheuse, Votre Frappe considère que sa résistance mythique comme inférieure de 2. Vous considérez sa résistance comme si elle était inférieure de 4 si vous êtes expert en Connaissance des héros-dieux ou en Connaissance des bêtes légendaires, de 6 si vous êtes maître et de 8 si vous êtes légendaire.",
-                    "Si votre Frappe devrait déjà ignorer la résistance mythique (parce que vous êtes un personnage mythique ou que vous maniez une arme mythique), votre prochaine Frappe réussie contre la créature inflige à 1d6 dégâts de précision supplémentaire. Ces dégâts supplémentaires passent à 1d8 si vous êtes expert en Connaissance des héros-dieux ou en Connaissance des bêtes légendaires, 1d10 si vous êtes maître ou à 1d12 si vous êtes légendaire."
+                    "Vos ancêtres ont affronté et battu des bêtes mythiques de l'antiquité Iblydienne. Par le biais d'une combinaison d'écoute de ces contes et de la canalisation d'une parcelle de la puissance mythique de ces combattants, vous avez développé un don pour franchir les défenses fabuleuses d'une créature mythique. La prochaine fois que vous réussissez une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> contre la créature déclencheuse, Votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> considère que sa résistance mythique comme inférieure de 2. Vous considérez sa résistance comme si elle était inférieure de 4 si vous êtes expert en Connaissance des héros-dieux ou en Connaissance des bêtes légendaires, de 6 si vous êtes maître et de 8 si vous êtes légendaire.",
+                    "Si votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> devrait déjà ignorer la résistance mythique (parce que vous êtes un personnage mythique ou que vous maniez une arme mythique), votre prochaine <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> réussie contre la créature inflige à 1d6 dégâts de précision supplémentaire. Ces dégâts supplémentaires passent à 1d8 si vous êtes expert en Connaissance des héros-dieux ou en Connaissance des bêtes légendaires, 1d10 si vous êtes maître ou à 1d12 si vous êtes légendaire."
                 ]
             },
             {
@@ -843,7 +843,7 @@ DON.SKILL = {
                     "qualifié en Alcohol Lore, Cooking Lore ou or Crafting"
                 ],
                 "description" : [
-                    "Vous avez maîtrisé la préparation de plusieurs types de nourriture et de boisson. Vous obtenez un bonus de circonstances de +1 aux tests d'Artisanat pour préparer de la nourriture et des boissons, y compris les élixirs si vous avez Artisanat alchimique ou les potions si vous avez Artisanat magique. Si vous êtes maître dans l'une des compétences prérequises, ce bonus passe à +2."
+                    "Vous avez maîtrisé la préparation de plusieurs types de nourriture et de boisson. Vous obtenez un bonus de circonstances de +1 aux tests d'Artisanat pour préparer de la nourriture et des boissons, y compris les élixirs si vous avez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'is3Oz9wt11lNq62K', 'param__object__label': this.textContent})\">Artisanat alchimique</div> ou les potions si vous avez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xWY5omyIcILNR7y1', 'param__object__label': this.textContent})\">Artisanat magique</div>. Si vous êtes maître dans l'une des compétences prérequises, ce bonus passe à +2."
                 ]
             },
             {
@@ -858,7 +858,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "Kassi vous a enseigné non seulement comment appliquer des remèdes avec vos compétences médicales mais aussi comment les fabriquer vous-mêmes. Lorsque vous Fabriquez des kits de guérison, des vaccins, des suppresseurs de dépendance, des antidotes, des antimaladies, des élixirs de vie ou autres objets non magiques médicaux ou de soins, vous pouvez utiliser Médecine au lieu d'Artisanat."
+                    "Kassi vous a enseigné non seulement comment appliquer des remèdes avec vos compétences médicales mais aussi comment les fabriquer vous-mêmes. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquez</div> des kits de guérison, des vaccins, des suppresseurs de dépendance, des antidotes, des antimaladies, des élixirs de vie ou autres objets non magiques médicaux ou de soins, vous pouvez utiliser Médecine au lieu d'Artisanat."
                 ]
             },
             {
@@ -873,7 +873,7 @@ DON.SKILL = {
                     "qualifié en Nature"
                 ],
                 "description" : [
-                    "Vous pouvez encourager votre monture à parcourir des distances rapidement. Lorsque vous calculez votre Vitesse de voyage pendant la journée alors que vous êtes sur une monture, vous pouvez tenter un test de Nature pour Diriger un animal pour augmenter la Vitesse de déplacement de votre monture. Le DD est déterminé par le MJ mais il correspond typiquement égale à la plus élevée des difficultés entre le niveau de la monture ou celui de l'environnement. En cas de succès, augmentez la Vitesse de déplacement de votre monture de moitié. Cela n'a pas d'effet sur la Vitesse de votre monture lors des rencontres. Cet avantage s'étend à un maximum de six autres alliés voyageant avec vous, à condition que tous ces alliés soient également montés ou soient des quadrupèdes ayant une vitesse d'au moins 9 mètres."
+                    "Vous pouvez encourager votre monture à parcourir des distances rapidement. Lorsque vous calculez votre Vitesse de voyage pendant la journée alors que vous êtes sur une monture, vous pouvez tenter un test de Nature pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div> pour augmenter la Vitesse de déplacement de votre monture. Le DD est déterminé par le MJ mais il correspond typiquement égale à la plus élevée des difficultés entre le niveau de la monture ou celui de l'environnement. En cas de succès, augmentez la Vitesse de déplacement de votre monture de moitié. Cela n'a pas d'effet sur la Vitesse de votre monture lors des rencontres. Cet avantage s'étend à un maximum de six autres alliés voyageant avec vous, à condition que tous ces alliés soient également montés ou soient des quadrupèdes ayant une vitesse d'au moins 9 mètres."
                 ]
             },
             {
@@ -888,8 +888,8 @@ DON.SKILL = {
                     "expert en Société"
                 ],
                 "description" : [
-                    "Vous utilisez plusieurs langues pour créer et casser des codes. Vous obtenez un bonus de circonstances de +1 pour Déchiffrer un texte.",
-                    "Si une autre créature tente de Déchiffrer un texte que vous avez encodé, ils subissent une pénalité de circonstances de -2 à moins qu'ils ne parlent toutes les langues que vous avez utilisé lorsque vous avez créer le texte."
+                    "Vous utilisez plusieurs langues pour créer et casser des codes. Vous obtenez un bonus de circonstances de +1 pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div>.",
+                    "Si une autre créature tente de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> que vous avez encodé, ils subissent une pénalité de circonstances de -2 à moins qu'ils ne parlent toutes les langues que vous avez utilisé lorsque vous avez créer le texte."
                 ]
             },
             {
@@ -903,7 +903,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "Votre chirurgie peut ramener un patient des portes de la mort mais peut aussi le pousser au travers. Lorsque vous Soignez les blessures, vous pouvez infliger ]{1d8 dégâts tranchants} à votre patient juste avant d'appliquer les effets de soigner les blessures. Si vous procédez de la sorte, vous obtenez un bonus de circonstances de +2 à votre test de Médecine pour Soigner les blessures et, si vous obtenez un succès, il devient un succès critique."
+                    "Votre chirurgie peut ramener un patient des portes de la mort mais peut aussi le pousser au travers. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soignez les blessures</div>, vous pouvez infliger ]{1d8 dégâts tranchants} à votre patient juste avant d'appliquer les effets de soigner les blessures. Si vous procédez de la sorte, vous obtenez un bonus de circonstances de +2 à votre test de Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> et, si vous obtenez un succès, il devient un succès critique."
                 ]
             },
             {
@@ -944,7 +944,7 @@ DON.SKILL = {
                     "maître en Perception"
                 ],
                 "description" : [
-                    "Les flux et reflux du temps sont évidents pour vous, tout comme les enchevêtrements qui se forment lorsqu'il est déformé. Vous savez automatiquement si une créature que vous observez est sous l'effet des états Ralenti ou Accéléré. Vous avez une idée générale lorsque vous vous trouvez à proximité d'un phénomène de manipulation du temps, mais cela ne vous donne aucun avantage particulier pour déterminer les effets spécifiques de l'anomalie. Des anomalies temporelles particulièrement subtiles peuvent encore vous échapper, nécessitant un test de Perception, à la discrétion du MJ. Si vous êtes légendaire en Arcanes, Nature, Occultisme ou Religion, chaque fois qu'une créature que vous pouvez observer bénéficie des avantages du sort Figer le temps ou d'effets similaires, vous pouvez observer ce qui se passe lorsque le temps est arrêté, bien que vous ne puissiez toujours pas agir vous-même pendant cette période."
+                    "Les flux et reflux du temps sont évidents pour vous, tout comme les enchevêtrements qui se forment lorsqu'il est déformé. Vous savez automatiquement si une créature que vous observez est sous l'effet des états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralenti</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'nlCjDvLMf2EkV2dl', 'param__object__label': this.textContent})\">Accéléré</div>. Vous avez une idée générale lorsque vous vous trouvez à proximité d'un phénomène de manipulation du temps, mais cela ne vous donne aucun avantage particulier pour déterminer les effets spécifiques de l'anomalie. Des anomalies temporelles particulièrement subtiles peuvent encore vous échapper, nécessitant un test de Perception, à la discrétion du MJ. Si vous êtes légendaire en Arcanes, Nature, Occultisme ou Religion, chaque fois qu'une créature que vous pouvez observer bénéficie des avantages du sort <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1dsahW4g1ggXtypx', 'param__object__label': this.textContent})\">Figer le temps</div> ou d'effets similaires, vous pouvez observer ce qui se passe lorsque le temps est arrêté, bien que vous ne puissiez toujours pas agir vous-même pendant cette période."
                 ]
             },
             {
@@ -972,7 +972,7 @@ DON.SKILL = {
                     "qualifié en Athlétisme"
                 ],
                 "description" : [
-                    "Vos techniques vous permettent de combattre quand vous escaladez. Vous n'êtes pas Pris au dépourvu pendant que vous Escaladez et vous pouvez Escalader avec une main occupée. Vous devez toujours utiliser l'autre main et vos deux jambes pour Escalader."
+                    "Vos techniques vous permettent de combattre quand vous escaladez. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> pendant que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div> et vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div> avec une main occupée. Vous devez toujours utiliser l'autre main et vos deux jambes pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div>."
                 ]
             },
             {
@@ -1000,7 +1000,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous avez l'habitude de travailler dans de vastes hangars de véhicules et pouvez travailler sur plusieurs machines à la fois. Vous obtenez le don de compétence Réparation rapide. Si vous possédez déjà ce don, vous obtenez un don de compétence de niveau 1 pour lequel vous vous qualifiez à la place. De plus, lorsque vous réussissez à Réparer un véhicule, vous lui redonnez 10 Points de vie supplémentaires ou 20 Points de vie en cas de succès critique."
+                    "Vous avez l'habitude de travailler dans de vastes hangars de véhicules et pouvez travailler sur plusieurs machines à la fois. Vous obtenez le don de compétence <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ASy9AKEIRxPYUi5o', 'param__object__label': this.textContent})\">Réparation rapide</div>. Si vous possédez déjà ce don, vous obtenez un don de compétence de niveau 1 pour lequel vous vous qualifiez à la place. De plus, lorsque vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer</div> un véhicule, vous lui redonnez 10 Points de vie supplémentaires ou 20 Points de vie en cas de succès critique."
                 ]
             },
             {
@@ -1034,7 +1034,7 @@ DON.SKILL = {
                     "Accès Membre des Agitateurs au rang de seconde marque ou supérieur",
                     "Déclencheur Un ennemi dans les 9 mètres vous blesse ou obtient un succès lors d'un test de compétence.",
                     "Chaque Agitateur peut reconnaître les compétences d'autrui, mais vous en avez fait un art que vous pouvez manier au combat. Vous complimentez la forme ou la technique d'un adversaire et vos louanges inattendues le distraient de ce qui l'environne. Faites un test de contre le DD de Volonté de cet ennemi. Quel qu'en soit le résultat, il est temporairement immunisé à vos Compliments à contrecœur pendant 10 minutes.",
-                    "Succès critique La cible est Prise au dépourvu pendant 1 round.",
+                    "Succès critique La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Prise au dépourvu</div> pendant 1 round.",
                     "Succès La cible est Prise au dépourvu contre vos attaques pendant 1 round."
                 ]
             },
@@ -1076,7 +1076,7 @@ DON.SKILL = {
                     "expert en Connaissance"
                 ],
                 "description" : [
-                    "Vous ne recevez jamais d'informations erronées au sujet de votre domaine d'expertise. Lorsque vous Vous souvenez en utilisant n'importe quelle sous-catégorie de Connaissance dans laquelle vous êtes qualifié, si vous obtenez un échec critique, il devient un échec. Si vous êtes un maître dans une sous-catégorie de Connaissance, en cas de succès critique, vous obtenez même plus d'informations ou de contexte que d'habitude."
+                    "Vous ne recevez jamais d'informations erronées au sujet de votre domaine d'expertise. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenez</div> en utilisant n'importe quelle sous-catégorie de Connaissance dans laquelle vous êtes qualifié, si vous obtenez un échec critique, il devient un échec. Si vous êtes un maître dans une sous-catégorie de Connaissance, en cas de succès critique, vous obtenez même plus d'informations ou de contexte que d'habitude."
                 ]
             },
             {
@@ -1095,10 +1095,10 @@ DON.SKILL = {
                 "description" : [
                     "Vous murmurez une litanie de noms épouvantables, de prophéties et des descriptions de royaumes au-delà de la compréhension mortelle, tirés de l'étude de livres et de parchemins interdits. Même ceux qui ne comprennent pas votre langue sont désarçonnés par ces terribles secrets.",
                     "Faites un test d' et comparez le résultat au DD de Volonté d'un ennemi à 9 mètres ou au DD de Volonté de n'importe quel nombre d'ennemis dans les 9 mètres si vous êtes légendaire en Occultisme. Ces créatures sont ensuite temporairement immunisées pendant 24 heures.",
-                    "Succès critique La cible devient Confuse pendant 1 round et Effrayée 1.",
+                    "Succès critique La cible devient <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yblD8fOR1J8rDwEQ', 'param__object__label': this.textContent})\">Confuse</div> pendant 1 round et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 1</div>.",
                     "Succès La cible devient Effrayée 1.",
                     "Échec La cible n'est pas affectée.",
-                    "Échec critique Vous prenez trop à cœur vos propres mots et devenez Effrayé 1."
+                    "Échec critique Vous prenez trop à cœur vos propres mots et devenez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé 1</div>."
                 ]
             },
             {
@@ -1112,7 +1112,7 @@ DON.SKILL = {
                     "Dévouement : Garde zéphyr"
                 ],
                 "description" : [
-                    "Vous êtes qualifié en Connaissance des guildes, en Connaissance juridique, en Connaissance commerciale ou en Connaissance de la pègre à votre choix. Vous obtenez un bonus de circonstances de +1 à vos tests de Diplomatie pour Recueillir des informations et aux tests effectués pour enquêter sur des crimes."
+                    "Vous êtes qualifié en Connaissance des guildes, en Connaissance juridique, en Connaissance commerciale ou en Connaissance de la pègre à votre choix. Vous obtenez un bonus de circonstances de +1 à vos tests de Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> et aux tests effectués pour enquêter sur des crimes."
                 ]
             },
             {
@@ -1128,7 +1128,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous avez appris des rites ou des méditations qui vous permettent de percevoir des esprits mineurs invisibles au sein d'un lieu. Choisissez entre Nature, Occultisme ou Religion lorsque vous choisissez ce don. Nature vous permet de contacter les esprits de la nature qui forment les léchis, qui sont nés de l'essence vitale pure plutôt que d'énergie spirituelle et peuvent répondre à des questions à propos des caractéristiques naturelles comme l'endroit où se trouve de l'eau ou une plante. Religion révèle la présence d'esprits angéliques, démoniaques ou d'autres esprits au service d'êtres divins qui fournissent des informations à propos de sources d'énergie de vie ou d'énergie du vide, les influences sacrées ou profanes ou la présence de morts-vivants. Occultisme vous permet de contacter les esprits résiduels, les échos psychiques des morts et les esprits de l'au-delà qui vous entretiennent de choses comme des auras étranges, des effets ou de la présence d'êtres occultes et non naturels. Passez 10 minutes et faites un test pour Vous souvenir avec la compétence choisie. Le DD est déterminé par le MJ (habituellement un DD très difficile pour le niveau de la créature de plus haut niveau que vous pourriez rencontrer dans la zone). Si vous êtes légendaire dans la compétence choisie, vous pouvez utiliser ce don une fois par heure, au lieu d'une fois par jour mais vous ne pouvez plus l'utiliser dans une zone qui chevauche une zone précédente.",
+                    "Vous avez appris des rites ou des méditations qui vous permettent de percevoir des esprits mineurs invisibles au sein d'un lieu. Choisissez entre Nature, Occultisme ou Religion lorsque vous choisissez ce don. Nature vous permet de contacter les esprits de la nature qui forment les léchis, qui sont nés de l'essence vitale pure plutôt que d'énergie spirituelle et peuvent répondre à des questions à propos des caractéristiques naturelles comme l'endroit où se trouve de l'eau ou une plante. Religion révèle la présence d'esprits angéliques, démoniaques ou d'autres esprits au service d'êtres divins qui fournissent des informations à propos de sources d'énergie de vie ou d'énergie du vide, les influences sacrées ou profanes ou la présence de morts-vivants. Occultisme vous permet de contacter les esprits résiduels, les échos psychiques des morts et les esprits de l'au-delà qui vous entretiennent de choses comme des auras étranges, des effets ou de la présence d'êtres occultes et non naturels. Passez 10 minutes et faites un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> avec la compétence choisie. Le DD est déterminé par le MJ (habituellement un DD très difficile pour le niveau de la créature de plus haut niveau que vous pourriez rencontrer dans la zone). Si vous êtes légendaire dans la compétence choisie, vous pouvez utiliser ce don une fois par heure, au lieu d'une fois par jour mais vous ne pouvez plus l'utiliser dans une zone qui chevauche une zone précédente.",
                     "Succès critique Les esprits se révèlent à vous d'eux-mêmes et leur attitude est amicale à votre endroit. Seul vous pouvez percevoir ces esprits. Ils répondent à trois questions simples à propos de l'environnement dans les 30 mètres, en fonction de la compétence que vous avez choisie et le type d'esprit que vous avez contacté. Leurs réponses sont presque toujours un unique mot et leurs connaissances sont limitées à leur sphère d'intérêt.",
                     "Succès Comme en cas de succès critique, sauf que les esprits vous sont indifférents et ne répondent qu'à une question.",
                     "Échec Vous êtes incapable de contacter les esprits du lieu.",
@@ -1148,7 +1148,7 @@ DON.SKILL = {
                     "Connections or Réseau criminel"
                 ],
                 "description" : [
-                    "Vous savez où aller, à qui parler et comment vous faire de nouveaux contacts, rapidement. En entrant dans une nouvelle communauté, en dépensant 1 jour d'intermède, il vous est permis de construire assez de relations pour pouvoir faire usage des dons Relations ou Réseau souterrain. Si vous êtes légendaire en Société, vous pouvez trouver les relations nécessaires en 1 heure après être entré dans une nouvelle communauté."
+                    "Vous savez où aller, à qui parler et comment vous faire de nouveaux contacts, rapidement. En entrant dans une nouvelle communauté, en dépensant 1 jour d'intermède, il vous est permis de construire assez de relations pour pouvoir faire usage des dons <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iCv8KTZ5PcF4GqeV', 'param__object__label': this.textContent})\">Relations</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gydOsP9VsdRw3Wg1', 'param__object__label': this.textContent})\">Réseau souterrain</div>. Si vous êtes légendaire en Société, vous pouvez trouver les relations nécessaires en 1 heure après être entré dans une nouvelle communauté."
                 ]
             },
             {
@@ -1162,8 +1162,8 @@ DON.SKILL = {
                     "qualifié en Intimidation"
                 ],
                 "description" : [
-                    "Vous pouvez forcer la main des gens de manière efficace, même lorsque vous ne les isolez pas. Quand vous Contraignez, vous pouvez comparer votre test d'Intimidation aux DD de Volonté de cinq cibles au lieu d'une.",
-                    "Il est possible d'obtenir un degré de succès différent pour chaque cible. Le nombre de cibles que vous pouvez Contraindre en une unique action passe à 10 si vous êtes expert, 25 si vous êtes maître et 50 si vous êtes légendaire."
+                    "Vous pouvez forcer la main des gens de manière efficace, même lorsque vous ne les isolez pas. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraignez</div>, vous pouvez comparer votre test d'Intimidation aux DD de Volonté de cinq cibles au lieu d'une.",
+                    "Il est possible d'obtenir un degré de succès différent pour chaque cible. Le nombre de cibles que vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> en une unique action passe à 10 si vous êtes expert, 25 si vous êtes maître et 50 si vous êtes légendaire."
                 ]
             },
             {
@@ -1177,7 +1177,7 @@ DON.SKILL = {
                     "expert en Intimidation"
                 ],
                 "description" : [
-                    "Quand vous réussissez à Contraindre quelqu'un, le temps maximum pendant lequel il se soumet passe à une semaine, toujours déterminé par le MJ. Si vous êtes légendaire, la durée maximale passe à un mois."
+                    "Quand vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> quelqu'un, le temps maximum pendant lequel il se soumet passe à une semaine, toujours déterminé par le MJ. Si vous êtes légendaire, la durée maximale passe à un mois."
                 ]
             },
             {
@@ -1191,7 +1191,7 @@ DON.SKILL = {
                     "qualifié en Intimidation"
                 ],
                 "description" : [
-                    "Vous pouvez intimider les autres simplement par le choix de quelques effets. Vous pouvez Contraindre une créature après 1 round de conversation au lieu de 1 minute. Vous ne pouvez toujours pas Contraindre une créature au milieu d'un combat, ni sans engager la conversation."
+                    "Vous pouvez intimider les autres simplement par le choix de quelques effets. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> une créature après 1 round de conversation au lieu de 1 minute. Vous ne pouvez toujours pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> une créature au milieu d'un combat, ni sans engager la conversation."
                 ]
             },
             {
@@ -1206,7 +1206,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous faites souvent passer des choses en contrebande sous le nez des autorités. Quand le MJ effectue votre test de Discrétion pour voir si un observateur passif remarque un petit objet que vous avez dissimulé, le MJ utilise le plus élevé entre le résultat obtenu ou 10, en y ajoutant votre modificateur de Discrétion pour déterminer le résultat de votre test de Discrétion. Si vous êtes maître en Discrétion, le MJ utilise le nombre obtenu ou 15 et, si vous êtes légendaire, vous réussissez automatiquement à masquer un petit objet aux yeux des observateurs passifs. Cela ne procure aucun avantage face à une créature qui tente un test de Perception en recherchant activement des objets cachés.",
-                    "Note PFS : Ce don vous permet de Gagner de l'argent avec Connaissance de la pègre pour des tâches de votre niveau -1 (au lieu de niveau -2 habituellement)."
+                    "Note PFS : Ce don vous permet de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> avec Connaissance de la pègre pour des tâches de votre niveau -1 (au lieu de niveau -2 habituellement)."
                 ]
             },
             {
@@ -1220,7 +1220,7 @@ DON.SKILL = {
                     "expert en Diplomatie"
                 ],
                 "description" : [
-                    "Les premières impressions sont votre point fort. Quand vous rencontrez quelqu'un dans une situation occasionnelle ou sociale, vous pouvez immédiatement tenter un test de Diplomatie pour Faire bonne impression sur cette créature plutôt que d'avoir à converser pendant 1 minute. Vous faites ce test avec une pénalité de -5. Si vous obtenez un échec ou un échec critique, vous pouvez passer 1 minute à converser avec la créature et tenter un nouveau test à la fin de ce délai plutôt que d'accepter votre échec normal ou critique."
+                    "Les premières impressions sont votre point fort. Quand vous rencontrez quelqu'un dans une situation occasionnelle ou sociale, vous pouvez immédiatement tenter un test de Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> sur cette créature plutôt que d'avoir à converser pendant 1 minute. Vous faites ce test avec une pénalité de -5. Si vous obtenez un échec ou un échec critique, vous pouvez passer 1 minute à converser avec la créature et tenter un nouveau test à la fin de ce délai plutôt que d'accepter votre échec normal ou critique."
                 ]
             },
             {
@@ -1235,8 +1235,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "L'expérience et l'entraînement vous ont enseigné que l'eau possède une tension de surface juste suffisante pour qu'un maître puisse courir sans en traverser la surface.",
-                    "Lorsque vous Marchez rapidement en ligne droite, si vous vous déplacez à au moins la moitié de votre Vitesse sur le sol, vous pouvez vous déplacer sur la distance restante au-dessus du niveau de l'eau. Si vous ne terminez pas votre Marche rapide sur un sol solide, vous tombez dans l'eau.",
-                    "Si vous êtes légendaire en Athlétisme, tant que vous démarrez sur un sol solide, toute partie de votre Marche rapide peut marcher à la surface de l'eau, même si ce n'est pas en ligne droite, bien que vous tombiez toujours dans l'eau si vous ne terminez pas votre déplacement sur un sol solide."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marchez rapidement</div> en ligne droite, si vous vous déplacez à au moins la moitié de votre Vitesse sur le sol, vous pouvez vous déplacer sur la distance restante au-dessus du niveau de l'eau. Si vous ne terminez pas votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div> sur un sol solide, vous tombez dans l'eau.",
+                    "Si vous êtes légendaire en Athlétisme, tant que vous démarrez sur un sol solide, toute partie de votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div> peut marcher à la surface de l'eau, même si ce n'est pas en ligne droite, bien que vous tombiez toujours dans l'eau si vous ne terminez pas votre déplacement sur un sol solide."
                 ]
             },
             {
@@ -1250,7 +1250,7 @@ DON.SKILL = {
                     "maître en Intimidation"
                 ],
                 "description" : [
-                    "Quand vous effectuez un jet d'initiative, vous pouvez pousser un puissant cri de guerre et Démoraliser un ennemi observé par une action gratuite. Si vous êtes légendaire en Intimidation, vous pouvez utiliser une réaction pour Démoraliser votre ennemi quand vous obtenez un succès critique sur un jet d'attaque."
+                    "Quand vous effectuez un jet d'initiative, vous pouvez pousser un puissant cri de guerre et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un ennemi observé par une action gratuite. Si vous êtes légendaire en Intimidation, vous pouvez utiliser une réaction pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> votre ennemi quand vous obtenez un succès critique sur un jet d'attaque."
                 ]
             },
             {
@@ -1267,7 +1267,7 @@ DON.SKILL = {
                     "qualifié en Occultisme"
                 ],
                 "description" : [
-                    "Vous savez comment stimuler les capacités de guérison naturelles du corps à travers l'application de cristaux harmonisés. Le faire nécessite que vous utilisiez au moins deux pierres semi-précieuses dont la valeur est d'au moins 5 po au total à la place de matériel de guérisseur, ce qui vous permet de tenter de Soigner une maladie ou Soigner un empoisonnement en utilisant Occultisme plutôt que Médecine.",
+                    "Vous savez comment stimuler les capacités de guérison naturelles du corps à travers l'application de cristaux harmonisés. Le faire nécessite que vous utilisiez au moins deux pierres semi-précieuses dont la valeur est d'au moins 5 po au total à la place de matériel de guérisseur, ce qui vous permet de tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KjoCEEmPGTeFE4hh', 'param__object__label': this.textContent})\">Soigner un empoisonnement</div> en utilisant Occultisme plutôt que Médecine.",
                     "Si vous êtes expert en Occultisme et que vous utilisez des gemmes dont la valeur totale est supérieure ou égale à 50 po, vous obtenez un bonus d'objet de +1 à votre test d'Occultisme. Si vous êtes maître et que les gemmes atteignent une valeur au moins égale à 700 po, le bonus d'objet passe à +2 et si vous êtes légendaire en Occultisme et que les gemmes ont une valeur au moins égale à 15.000 po, le bonus d'objet passe à +3."
                 ]
             },
@@ -1283,11 +1283,11 @@ DON.SKILL = {
                     "qualifié en Crafting and Intimidation"
                 ],
                 "description" : [
-                    "Déclencheur Vous êtes sur le point de Contraindre un marchand ou un artisan",
+                    "Déclencheur Vous êtes sur le point de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> un marchand ou un artisan",
                     "Vous avez un œil pour les détails et une bouche pour pointer les défauts, ce qui rend d'autant plus facile de convaincre les marchands et les artisans du Cœur du Roi de vous aider. Vous analysez rapidement les marchandises de la créature déclencheuse dans l'espoir de trouver quelque chose d'utile pour la contraindre et tentez un test d'Artisanat.",
                     "Succès critique Vous avez largement de quoi faire et vous pouvez laisser votre cible choquée par votre analyse. Si vous obtenez un succès sur votre test d'Intimidation, il devient un succès critique. Si vous obtenez un échec critique, il devient un échec.",
                     "Succès comme en cas de succès critique mais vous n'obtenez les avantages que lorsque vous obtenez un succès sur votre test d'Intimidation.",
-                    "Échec Vous vous trompez sur la marchandise, ce qui vous fait passer pour un ignorant et vous rend moins intimidant. Vous subissez une pénalité de circonstances de -1 sur votre test d'Intimidation pour Contraindre.",
+                    "Échec Vous vous trompez sur la marchandise, ce qui vous fait passer pour un ignorant et vous rend moins intimidant. Vous subissez une pénalité de circonstances de -1 sur votre test d'Intimidation pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div>.",
                     "Échec critique Comme en cas d'échec mais la pénalité est de -2."
                 ]
             },
@@ -1302,7 +1302,7 @@ DON.SKILL = {
                     "légende en Société"
                 ],
                 "description" : [
-                    "Votre capacité avec les langues et les codes est telle que vous pouvez déchiffrer une information en ne faisant que survoler un texte. Vous pouvez Déchiffrer un texte en utilisant Société pendant que vous lisez à vitesse normale. Si vous ralentissez votre lecture et que vous y consacrez le temps normalement nécessaire et obtenez un succès, il devient un succès critique. Si vous obtenez un succès critique tout en y passant le temps normal nécessaire, vous bénéficiez presque d'une compréhension mot à mot du document."
+                    "Votre capacité avec les langues et les codes est telle que vous pouvez déchiffrer une information en ne faisant que survoler un texte. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> en utilisant Société pendant que vous lisez à vitesse normale. Si vous ralentissez votre lecture et que vous y consacrez le temps normalement nécessaire et obtenez un succès, il devient un succès critique. Si vous obtenez un succès critique tout en y passant le temps normal nécessaire, vous bénéficiez presque d'une compréhension mot à mot du document."
                 ]
             },
             {
@@ -1316,7 +1316,7 @@ DON.SKILL = {
                     "qualifié en Occultisme"
                 ],
                 "description" : [
-                    "Les membres de votre culte se font fréquemment passer pour des adorateurs d'une autre religion. Vous pouvez utiliser Occultisme au lieu de Duperie pour Vous faire passer pour un adorateur typique d'un autre culte ou pour Mentir de manière spécifique lorsque vous prétendez que vous êtes un membre du culte pour lequel vous Vous faites passer. Vous avez toujours besoin de la compétence de Duperie pour Vous faire passer pour un adorateur particulier ou pour accomplir des actions trompeuses, tel que Mentir à propos de toute autre matière."
+                    "Les membres de votre culte se font fréquemment passer pour des adorateurs d'une autre religion. Vous pouvez utiliser Occultisme au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> un adorateur typique d'un autre culte ou pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> de manière spécifique lorsque vous prétendez que vous êtes un membre du culte pour lequel vous Vous faites passer. Vous avez toujours besoin de la compétence de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> un adorateur particulier ou pour accomplir des actions trompeuses, tel que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> à propos de toute autre matière."
                 ]
             },
             {
@@ -1331,7 +1331,7 @@ DON.SKILL = {
                     "expert en Représentation"
                 ],
                 "description" : [
-                    "Vous dansez souvent seul avec une grâce qui dépasse celle de la plupart des autres artistes, vous vous portez avec une prestance et une assurance qui attirent l'attention de ceux qui vous entourent. Vous pouvez toujours utiliser Représentation pour l'initiative et, au cours du premier round de combat, les créatures qui agissent après vous sont Prises au dépourvu à votre égard."
+                    "Vous dansez souvent seul avec une grâce qui dépasse celle de la plupart des autres artistes, vous vous portez avec une prestance et une assurance qui attirent l'attention de ceux qui vous entourent. Vous pouvez toujours utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> pour l'initiative et, au cours du premier round de combat, les créatures qui agissent après vous sont <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Prises au dépourvu</div> à votre égard."
                 ]
             },
             {
@@ -1345,7 +1345,7 @@ DON.SKILL = {
                     "Dévouement : Détective palatin"
                 ],
                 "description" : [
-                    "Grâce à votre constante implication avec des textes cryptiques, vous avez atteint une capacité quasi surnaturelle à déchiffrer les codes complexes et à comprendre les anciennes écritures. Vous pouvez toujours utiliser Occultisme ou Religion lorsque vous Déchiffrer un texte, quelle que soit le sujet. De plus, vous pouvez ignorer les contraintes de langues lorsque vous Déchiffrez un texte, et lorsque vous obtenez un échec critique pour Déchiffrer un texte, il devient un échec."
+                    "Grâce à votre constante implication avec des textes cryptiques, vous avez atteint une capacité quasi surnaturelle à déchiffrer les codes complexes et à comprendre les anciennes écritures. Vous pouvez toujours utiliser Occultisme ou Religion lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div>, quelle que soit le sujet. De plus, vous pouvez ignorer les contraintes de langues lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrez un texte</div>, et lorsque vous obtenez un échec critique pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div>, il devient un échec."
                 ]
             },
             {
@@ -1379,7 +1379,7 @@ DON.SKILL = {
                     "Fréquence Une fois par jour",
                     "Déclencheur Vous êtes ciblé par un sort ou un effet mental ou vous vous trouvez dans sa zone.",
                     "Vous ne croyez pas aux balivernes mentales et vous n'en avez certainement pas peur. Vous vous moquez et réfutez verbalement l'effet déclencheur et tentez un test de contre en utilisant votre modificateur d'Intimidation avec un rang de contre égal à la moitié de votre niveau arrondi au supérieur. Si vous obtenez un succès, vous ignorez l'effet déclencheur, bien que toute autre créature également ciblée ou se trouvant dans la zone soit toujours affectée.",
-                    "Si la source de l'effet que vous avez réussi à contrer possède un modificateur d'Intelligence supérieur ou égal à -3, cette créature devient Stupéfiée pendant 1 round. C'est un effet audible linguistique."
+                    "Si la source de l'effet que vous avez réussi à contrer possède un modificateur d'Intelligence supérieur ou égal à -3, cette créature devient <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée</div> pendant 1 round. C'est un effet audible linguistique."
                 ]
             },
             {
@@ -1413,7 +1413,7 @@ DON.SKILL = {
                     "expert en Duperie"
                 ],
                 "description" : [
-                    "Vous disposez d'un déguisement spécifique que vous conservez prêt à être employé, sous vos vêtement extérieurs. Vous pouvez revêtir ce déguisement pour Vous faire passer pour en dépensant une activité à 3 actions. Si vous êtes maître en Duperie, seules 2 actions sont nécessaires et si vous êtes légendaire c'est une seule action. Vous pouvez créer un nouveau déguisement de secours en dépensant le temps habituel que cela vous prend pour Vous faire passer pour, mais vous ne pouvez porter qu'un seul déguisement de secours à la fois. Disposer d'un déguisement de secours ne vous permet pas de retirer votre armure ou tout autre partie de vêtement compliqué plus rapidement, mais une fois ôtés, le déguisement est aussitôt disponible. Comme vous portez le déguisement de secours prêt, il est possible qu'une fouille puisse révéler certains éléments du déguisement (voir Dissimuler un objet dans la compétence Discrétion)."
+                    "Vous disposez d'un déguisement spécifique que vous conservez prêt à être employé, sous vos vêtement extérieurs. Vous pouvez revêtir ce déguisement pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> en dépensant une activité à 3 actions. Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, seules 2 actions sont nécessaires et si vous êtes légendaire c'est une seule action. Vous pouvez créer un nouveau déguisement de secours en dépensant le temps habituel que cela vous prend pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div>, mais vous ne pouvez porter qu'un seul déguisement de secours à la fois. Disposer d'un déguisement de secours ne vous permet pas de retirer votre armure ou tout autre partie de vêtement compliqué plus rapidement, mais une fois ôtés, le déguisement est aussitôt disponible. Comme vous portez le déguisement de secours prêt, il est possible qu'une fouille puisse révéler certains éléments du déguisement (voir <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV', 'param__object__label': this.textContent})\">Dissimuler un objet</div> dans la compétence Discrétion)."
                 ]
             },
             {
@@ -1427,7 +1427,7 @@ DON.SKILL = {
                     "expert en Duperie"
                 ],
                 "description" : [
-                    "Vous pouvez revêtir un déguisement en un dixième du temps normal (généralement 1 minute). Si vous êtes maître en Duperie, vous pouvez créer un déguisement complet et Vous faire passer pour quelqu'un d'autre en une activité à 3 actions. Si vous êtes légendaire, cela ne vous prend qu'une seule action."
+                    "Vous pouvez revêtir un déguisement en un dixième du temps normal (généralement 1 minute). Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, vous pouvez créer un déguisement complet et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> quelqu'un d'autre en une activité à 3 actions. Si vous êtes légendaire, cela ne vous prend qu'une seule action."
                 ]
             },
             {
@@ -1441,7 +1441,7 @@ DON.SKILL = {
                     "maître en Discrétion"
                 ],
                 "description" : [
-                    "Vous êtes capable de déjouer les sens spéciaux des créatures et êtes assez prudent pour vous protéger d'elles à tout moment. À chaque fois que vous utilisez les actions Échapper aux regards, Se cacher ou Être furtif, vous êtes toujours considéré comme prenant des précautions contre les sens spéciaux."
+                    "Vous êtes capable de déjouer les sens spéciaux des créatures et êtes assez prudent pour vous protéger d'elles à tout moment. À chaque fois que vous utilisez les actions <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échapper aux regards</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Se cacher</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div>, vous êtes toujours considéré comme prenant des précautions contre les sens spéciaux."
                 ]
             },
             {
@@ -1455,7 +1455,7 @@ DON.SKILL = {
                     "expert en Deception and Diplomacy"
                 ],
                 "description" : [
-                    "Vous êtes capable de louvoyer de telle sorte que vous n'utilisez jamais de véritables mensonges, mais vous induisez tout de même les gens en erreur et les amenez à certaines conclusions. Vous pouvez tenter de Solliciter une créature en utilisant la Duperie au lieu de la Diplomatie. Vous pouvez tenter de Mentir à une créature en utilisant Diplomatie au lieu de Duperie. Si vous obtenez un échec pour Mentir, la créature réalise que vous avez déformé les mots pour la tromper sans vraiment mentir."
+                    "Vous êtes capable de louvoyer de telle sorte que vous n'utilisez jamais de véritables mensonges, mais vous induisez tout de même les gens en erreur et les amenez à certaines conclusions. Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> une créature en utilisant la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> au lieu de la Diplomatie. Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> à une créature en utilisant Diplomatie au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>. Si vous obtenez un échec pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div>, la créature réalise que vous avez déformé les mots pour la tromper sans vraiment mentir."
                 ]
             },
             {
@@ -1470,7 +1470,7 @@ DON.SKILL = {
                     "Dévouement : Bricoleur"
                 ],
                 "description" : [
-                    "Vous pouvez appliquer les mêmes techniques que vous utilisez pour Déduire les formules des objets pour désamorcer les pièges dangereux et ouvrir les serrures. Vous pouvez utiliser Artisanat au lieu de Vol pour Désamorcer un dispositif ou Crocheter une serrure."
+                    "Vous pouvez appliquer les mêmes techniques que vous utilisez pour Déduire les formules des objets pour désamorcer les pièges dangereux et ouvrir les serrures. Vous pouvez utiliser Artisanat au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cYdz2grcOcRt4jk6', 'param__object__label': this.textContent})\">Désamorcer un dispositif</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2EE4aF4SZpYf0R6H', 'param__object__label': this.textContent})\">Crocheter une serrure</div>."
                 ]
             },
             {
@@ -1484,7 +1484,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Les pièges artisanaux que vous créez ont un fonctionnement interne compliqué qui est assez difficile à désactiver. Les créatures qui tentent de Désamorcer vos pièges artisanaux doivent réussir un test de Vol supplémentaire en vue de Désamorcer le piège artisanal. En cas d'échec sur le test, bien que le piège artisanal ne se déclenche pas totalement, les dents du mécanisme infligent des dégâts contondants à la créature égaux à la moitié de votre niveau. Le piège artisanal se déclenche toujours sur un échec critique, comme à l'ordinaire."
+                    "Les pièges artisanaux que vous créez ont un fonctionnement interne compliqué qui est assez difficile à désactiver. Les créatures qui tentent de Désamorcer vos pièges artisanaux doivent réussir un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> supplémentaire en vue de Désamorcer le piège artisanal. En cas d'échec sur le test, bien que le piège artisanal ne se déclenche pas totalement, les dents du mécanisme infligent des dégâts contondants à la créature égaux à la moitié de votre niveau. Le piège artisanal se déclenche toujours sur un échec critique, comme à l'ordinaire."
                 ]
             },
             {
@@ -1514,7 +1514,7 @@ DON.SKILL = {
                     "expert en Acrobatics and Thievery"
                 ],
                 "description" : [
-                    "Vous parvenez à atteindre un objet de l'adversaire lorsque vous le dépassez. Si vous obtenez un succès critique sur un test de Déplacement acrobatique dans l'espace d'un ennemi, vous pouvez tenter de Voler quelque chose appartenant à l'ennemi en réaction. Vous obtenez un bonus de circonstances de +1 à votre test de Vol pour voler dans la mesure où votre acrobatie lui rend plus difficile de garder trace de votre déplacement. Vous pouvez Voler tout objet immédiatement accessible d'Encombrement léger ou négligeable, tel qu'une potion ou une bourse pendant d'une ceinture, mais rien qui soit à l'intérieur d'un contenant ou que l'ennemi tient. Le MJ a le dernier mot sur ce que vous pouvez Voler."
+                    "Vous parvenez à atteindre un objet de l'adversaire lorsque vous le dépassez. Si vous obtenez un succès critique sur un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '21WIfSu7Xd7uKqV8', 'param__object__label': this.textContent})\">Déplacement acrobatique</div> dans l'espace d'un ennemi, vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> quelque chose appartenant à l'ennemi en réaction. Vous obtenez un bonus de circonstances de +1 à votre test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> pour voler dans la mesure où votre acrobatie lui rend plus difficile de garder trace de votre déplacement. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> tout objet immédiatement accessible d'Encombrement léger ou négligeable, tel qu'une potion ou une bourse pendant d'une ceinture, mais rien qui soit à l'intérieur d'un contenant ou que l'ennemi tient. Le MJ a le dernier mot sur ce que vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div>."
                 ]
             },
             {
@@ -1542,7 +1542,7 @@ DON.SKILL = {
                     "Dévouement : Danseur de l'éventail"
                 ],
                 "description" : [
-                    "Vous vous êtes entraîné à attirer les yeux de votre public vers des aspects particuliers de votre représentation à l'aide d'une manipulation soigneuse de vos éventails et de votre corps. Lorsque vous maniez un éventail, vous pouvez ouvrir l'éventail, le faire voltiger ou le manipuler d'une autre manière pour distraire brièvement les observateurs autour de vous, vous donnant ainsi qu'à vos alliés adjacents un constant bonus de circonstances de +1 à la Discrétion pour Dissimuler un objet secrètement et aux tests de Vol pour Voler ou Escamoter un objet."
+                    "Vous vous êtes entraîné à attirer les yeux de votre public vers des aspects particuliers de votre représentation à l'aide d'une manipulation soigneuse de vos éventails et de votre corps. Lorsque vous maniez un éventail, vous pouvez ouvrir l'éventail, le faire voltiger ou le manipuler d'une autre manière pour distraire brièvement les observateurs autour de vous, vous donnant ainsi qu'à vos alliés adjacents un constant bonus de circonstances de +1 à la Discrétion pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV', 'param__object__label': this.textContent})\">Dissimuler un objet</div> secrètement et aux tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ijZ0DDFpMkWqaShd', 'param__object__label': this.textContent})\">Escamoter un objet</div>."
                 ]
             },
             {
@@ -1556,7 +1556,7 @@ DON.SKILL = {
                     "maître en Vol"
                 ],
                 "description" : [
-                    "Vous pouvez Crocheter une serrure en utilisant 1 action au lieu de 2."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2EE4aF4SZpYf0R6H', 'param__object__label': this.textContent})\">Crocheter une serrure</div> en utilisant 1 action au lieu de 2."
                 ]
             },
             {
@@ -1571,8 +1571,8 @@ DON.SKILL = {
                     "légende en Diplomatie ou Intimidation"
                 ],
                 "description" : [
-                    "Votre renommée s'est répandue à travers tout le pays. La première fois que vous tentez de Contraindre ou de Faire bonne impression sur une créature intelligente, le MJ lance un secret pour voir si elle a entendu parler de vous. En cas de succès, vous obtenez un bonus de circonstances de +2 au test de compétence pour cette action. Le MJ pourrait ajuster ce test nu lorsque c'est approprié aux circonstances dans lesquelles vous pourriez être plus ou moins connu.",
-                    "Vous pouvez également tirer parti de votre notoriété et de votre réseau d'assistants et d'amirateurs pour gagner de l'argent. Vous pouvez Gagner de l'argent en utilisant la compétence que vous avez utilisé pour remplir les prérequis de ce don. Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au test. Ce bonus passe à +3 si vous disposez du don Équipe dans la mesure où ceux qui la composent font l'éloge de vos prouesses et démarchent ceux qui pourraient payer pour vous rencontrer."
+                    "Votre renommée s'est répandue à travers tout le pays. La première fois que vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> ou de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> sur une créature intelligente, le MJ lance un secret pour voir si elle a entendu parler de vous. En cas de succès, vous obtenez un bonus de circonstances de +2 au test de compétence pour cette action. Le MJ pourrait ajuster ce test nu lorsque c'est approprié aux circonstances dans lesquelles vous pourriez être plus ou moins connu.",
+                    "Vous pouvez également tirer parti de votre notoriété et de votre réseau d'assistants et d'amirateurs pour gagner de l'argent. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> en utilisant la compétence que vous avez utilisé pour remplir les prérequis de ce don. Lorsque vous le faites, vous obtenez un bonus de circonstances de +2 au test. Ce bonus passe à +3 si vous disposez du don Équipe dans la mesure où ceux qui la composent font l'éloge de vos prouesses et démarchent ceux qui pourraient payer pour vous rencontrer."
                 ]
             },
             {
@@ -1587,7 +1587,7 @@ DON.SKILL = {
                     "maître en Diplomatie ou Intimidation"
                 ],
                 "description" : [
-                    "Vous avez appris la langue ancienne parlée par les créatures du grand nord. Vous pouvez poser des questions, recevoir des réponses, utiliser la compétence Diplomatie et Contraindre la mégafaune. Dans la plupart des cas, la mégafaune des royaumes des seigneurs des mammouths vous écoutera."
+                    "Vous avez appris la langue ancienne parlée par les créatures du grand nord. Vous pouvez poser des questions, recevoir des réponses, utiliser la compétence Diplomatie et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> la mégafaune. Dans la plupart des cas, la mégafaune des royaumes des seigneurs des mammouths vous écoutera."
                 ]
             },
             {
@@ -1602,7 +1602,7 @@ DON.SKILL = {
                     "expert en Discrétion"
                 ],
                 "description" : [
-                    "Vous êtes un expert pour utiliser l'obscurité de l'océan pour vous dissimuler. Tant que vous êtes séparé d'une créature par au moins 6 mètres d'eau, les turbulences de l'eau vous offrent suffisamment d'abri pour tenter de vous Cacher de cette créature."
+                    "Vous êtes un expert pour utiliser l'obscurité de l'océan pour vous dissimuler. Tant que vous êtes séparé d'une créature par au moins 6 mètres d'eau, les turbulences de l'eau vous offrent suffisamment d'abri pour tenter de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Cacher</div> de cette créature."
                 ]
             },
             {
@@ -1634,7 +1634,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Conditions vous avez un paquet de cartes à jouer en votre possession.",
-                    "Une bonne évasion nécessite une bonne distraction. Vous Interagissez pour tirer un paquet de cartes et vous le lancez en l'air en une explosion papillonnante, vous rendant brièvement Caché de toutes les autres créatures utilisant leur vision comme sens précis, puis vous êtes Furtif. Vous êtes suffisamment Masqué pour être Furtif jusqu'à la fin de votre tour. Cela laisse toutes les cartes du paquet éparpillées dans la pièce ; les rassembler de nouveau prend plusieurs minutes."
+                    "Une bonne évasion nécessite une bonne distraction. Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pvQ5rY2zrtPI614F', 'param__object__label': this.textContent})\">Interagissez</div> pour tirer un paquet de cartes et vous le lancez en l'air en une explosion papillonnante, vous rendant brièvement <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC', 'param__object__label': this.textContent})\">Caché</div> de toutes les autres créatures utilisant leur vision comme sens précis, puis vous êtes Furtif. Vous êtes suffisamment Masqué pour être Furtif jusqu'à la fin de votre tour. Cela laisse toutes les cartes du paquet éparpillées dans la pièce ; les rassembler de nouveau prend plusieurs minutes."
                 ]
             },
             {
@@ -1648,7 +1648,7 @@ DON.SKILL = {
                     "expert en Duperie"
                 ],
                 "description" : [
-                    "Vous êtes prompt à profiter de vos distractions. Si vous obtenez un succès critique à votre test pour Faire diversion à l'encontre de la majorité des créatures (au moins la moitié des créatures) dont vous cherchez à dérouter, vous pouvez utiliser votre réaction pour Vous cacher, Être furtif ou Faire un pas immédiatement. Comme à l'ordinaire, vous n'êtes Caché que des créatures contre lesquelles vous avez obtenu un succès sur votre test pour Faire diversion, même si vous parvenez à Vous cacher ou à Être furtif."
+                    "Vous êtes prompt à profiter de vos distractions. Si vous obtenez un succès critique à votre test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Faire diversion</div> à l'encontre de la majorité des créatures (au moins la moitié des créatures) dont vous cherchez à dérouter, vous pouvez utiliser votre réaction pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Vous cacher</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> immédiatement. Comme à l'ordinaire, vous n'êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC', 'param__object__label': this.textContent})\">Caché</div> que des créatures contre lesquelles vous avez obtenu un succès sur votre test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Faire diversion</div>, même si vous parvenez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Vous cacher</div> ou à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div>."
                 ]
             },
             {
@@ -1662,7 +1662,7 @@ DON.SKILL = {
                     "qualifié en Duperie"
                 ],
                 "description" : [
-                    "Quand vous obtenez un succès critique pour Faire diversion, vous continuez à rester Caché après la fin de votre tour. Cet effet persiste pendant une durée qui dépend de la diversion et de la situation, déterminée par le MJ (minimum 1 round supplémentaire)."
+                    "Quand vous obtenez un succès critique pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Faire diversion</div>, vous continuez à rester <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC', 'param__object__label': this.textContent})\">Caché</div> après la fin de votre tour. Cet effet persiste pendant une durée qui dépend de la diversion et de la situation, déterminée par le MJ (minimum 1 round supplémentaire)."
                 ]
             },
             {
@@ -1677,7 +1677,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous êtes habitué à dire une chose qui en signifie une autre très différente. Vous déguisez votre véritable intention derrière d'autres mots et phrases, comptant sur une emphase subtile et une expérience partagée pour faire passer des messages que seuls vos alliés comprennent.",
-                    "Tous les alliés qui ont voyagé avec vous pendant au moins une semaine complète discernent automatiquement la signification. Les autres observateurs doivent réussir un test de Perception contre votre DD de Duperie pour réaliser que vous êtes en train de passer un message secret et ils doivent obtenir un succès critique pour comprendre le message lui-même."
+                    "Tous les alliés qui ont voyagé avec vous pendant au moins une semaine complète discernent automatiquement la signification. Les autres observateurs doivent réussir un test de Perception contre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour réaliser que vous êtes en train de passer un message secret et ils doivent obtenir un succès critique pour comprendre le message lui-même."
                 ]
             },
             {
@@ -1693,8 +1693,8 @@ DON.SKILL = {
                     "qualifié en Nature"
                 ],
                 "description" : [
-                    "Vous passez du temps à apprendre à un animal à accomplir une certaine action. Vous pouvez soit sélectionner une action basique que l'animal connaît déjà (généralement celles listées dans l'action Diriger un animal) ou tenter d'apprendre à l'animal une nouvelle action basique. Le MJ détermine le DD de tout test requis et le temps nécessaire à l'entraînement (généralement au moins une semaine). Il est normalement impossible d'apprendre à un animal un tour qui utilise la pensée critique. Si vous êtes expert, maître ou légendaire en Nature, vous pourriez être capable d'entraîner des créatures beaucoup plus inhabituelles, à la discrétion du MJ.",
-                    "Succès L'animal apprend l'action. Si c'était une action que l'animal connaissait déjà, vous pouvez Diriger l'animal pour effectuer une action sans faire de test de Nature. S'il s'agissait d'une nouvelle action basique, ajoutez cette action aux actions que l'animal peut effectuer avec Diriger un animal, mais vous devez toujours effectuer le jet.",
+                    "Vous passez du temps à apprendre à un animal à accomplir une certaine action. Vous pouvez soit sélectionner une action basique que l'animal connaît déjà (généralement celles listées dans l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div>) ou tenter d'apprendre à l'animal une nouvelle action basique. Le MJ détermine le DD de tout test requis et le temps nécessaire à l'entraînement (généralement au moins une semaine). Il est normalement impossible d'apprendre à un animal un tour qui utilise la pensée critique. Si vous êtes expert, maître ou légendaire en Nature, vous pourriez être capable d'entraîner des créatures beaucoup plus inhabituelles, à la discrétion du MJ.",
+                    "Succès L'animal apprend l'action. Si c'était une action que l'animal connaissait déjà, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uS3qDAgOkZ7b8ERL', 'param__object__label': this.textContent})\">Diriger</div> l'animal pour effectuer une action sans faire de test de Nature. S'il s'agissait d'une nouvelle action basique, ajoutez cette action aux actions que l'animal peut effectuer avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div>, mais vous devez toujours effectuer le jet.",
                     "Échec L'animal n'apprend pas le tour."
                 ]
             },
@@ -1714,7 +1714,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Lorsque vous êtes confronté à l'inconnu, vous pouvez recevoir des connaissances au-delà de votre propre expérience par le biais de messages écrits délivrés par votre main. Vous passez 10 minutes assis en tenant un instrument d'écriture, en l'utilisant pour faire de petits mouvements circulaires tout en ouvrant votre esprit aux forces qui vous entourent. Vous recevez des informations tandis que votre main écrit d'elle-même, guidée par les esprits. À la fin de ces 10 minutes, vous Vous souvenez avec n'importe quelle compétence de connaissance dans laquelle vous n'êtes pas qualifié, en utilisant votre modificateur d'Occultisme au lieu de votre modificateur pour cette compétence. L'effort nécessaire à cette canalisation spirituelle vous laisse Stupéfié 1 pendant les 10 minutes qui suivent."
+                    "Lorsque vous êtes confronté à l'inconnu, vous pouvez recevoir des connaissances au-delà de votre propre expérience par le biais de messages écrits délivrés par votre main. Vous passez 10 minutes assis en tenant un instrument d'écriture, en l'utilisant pour faire de petits mouvements circulaires tout en ouvrant votre esprit aux forces qui vous entourent. Vous recevez des informations tandis que votre main écrit d'elle-même, guidée par les esprits. À la fin de ces 10 minutes, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenez</div> avec n'importe quelle compétence de connaissance dans laquelle vous n'êtes pas qualifié, en utilisant votre modificateur d'Occultisme au lieu de votre modificateur pour cette compétence. L'effort nécessaire à cette canalisation spirituelle vous laisse <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié 1</div> pendant les 10 minutes qui suivent."
                 ]
             },
             {
@@ -1728,7 +1728,7 @@ DON.SKILL = {
                     "qualifié en Occultisme"
                 ],
                 "description" : [
-                    "Vous remarquez les signes et les symboles que les membres de cultes mystérieux et d'autres sociétés secrètes utilisent pour déclarer leur affiliation à des camarades membres. Vous pouvez utiliser Occultisme au lieu de Diplomatie pour Recueillir des informations sur de tels groupes et à la place de Duperie pour Vous faire passer pour un membre de ces groupes.",
+                    "Vous remarquez les signes et les symboles que les membres de cultes mystérieux et d'autres sociétés secrètes utilisent pour déclarer leur affiliation à des camarades membres. Vous pouvez utiliser Occultisme au lieu de Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> sur de tels groupes et à la place de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> un membre de ces groupes.",
                     "Si vous appartenez à un culte secret, à une loge, une secte ou à une organisation similaire, vous reconnaissez automatiquement les membres de votre groupe à moins qu'ils n'essaient spécifiquement de vous dissimuler leur présence. Ils reconnaissent également votre appartenant à moins que vous ne la leur dissimuliez."
                 ]
             },
@@ -1743,7 +1743,7 @@ DON.SKILL = {
                     "Dévouement : Imposteur"
                 ],
                 "description" : [
-                    "Les gens ne voient souvent que ce qu'ils veulent voir, une faiblesse dont vous savez tirer pleinement parti. Tant que vous avez endossé un rôle, vous pouvez utiliser la Duperie à la place de la Discrétion lorsque vous utilisez l'activité d'exploration Échapper aux regards dans une zone où quelqu'un avec votre rôle ne serait pas anormal comme lorsque vous Vous faites passer pour un marin ou un pêcheur pour infiltrer les docks."
+                    "Les gens ne voient souvent que ce qu'ils veulent voir, une faiblesse dont vous savez tirer pleinement parti. Tant que vous avez endossé un rôle, vous pouvez utiliser la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> à la place de la Discrétion lorsque vous utilisez l'activité d'exploration <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échapper aux regards</div> dans une zone où quelqu'un avec votre rôle ne serait pas anormal comme lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faites passer pour</div> un marin ou un pêcheur pour infiltrer les docks."
                 ]
             },
             {
@@ -1774,7 +1774,7 @@ DON.SKILL = {
                     "Représentation impressionnante"
                 ],
                 "description" : [
-                    "Vos représentations sont un appel de passer à l'action pour les foules qui vous entendent. Pendant 1 heure après que vous ayez réussi à Faire bonne impression en utilisant Représentation, vous pouvez Solliciter un membre du public affecté en utilisant Représentation à la place de Diplomatie."
+                    "Vos représentations sont un appel de passer à l'action pour les foules qui vous entendent. Pendant 1 heure après que vous ayez réussi à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> un membre du public affecté en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> à la place de Diplomatie."
                 ]
             },
             {
@@ -1795,7 +1795,7 @@ DON.SKILL = {
                     "Succès critique L'allié obtient un bonus de circonstances de +2 à la CA contre la prochaine attaque de la créature ou du danger ciblé.",
                     "Succès Comme en cas de succès critique, mais le bonus est de +1.",
                     "Échec critique L'allié subit une pénalité de circonstances de -1 à la CA contre la prochaine attaque de la créature ou du danger ciblé.",
-                    "Effet : Engagement de protection"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eu7DEgjicyYyosCl', 'param__object__label': this.textContent})\">Effet : Engagement de protection</div>"
                 ]
             },
             {
@@ -1812,7 +1812,7 @@ DON.SKILL = {
                     "expert en Diplomatie"
                 ],
                 "description" : [
-                    "Vous aidez un allié à se défaire de n'importe quel handicap qui accorderait à un allié un avantage inégal. Vous ralliez une créature dans les 9 mètres dans une tentative pour réduire son état Effrayé ou Stupéfié. Si une créature a plusieurs états de cette liste, vous en choisissez une. Lorsque vous êtes maître en Diplomatie, ajoutez les états Maladroit et Affaibli à la liste des états. Lorsque vous êtes légendaire en Diplomatie, ajoutez Étourdi à la liste des états. Si la condition étourdi possède une durée au lieu d'une valeur, vous ne pouvez utiliser Engagement pour l'égalité pour la réduire.",
+                    "Vous aidez un allié à se défaire de n'importe quel handicap qui accorderait à un allié un avantage inégal. Vous ralliez une créature dans les 9 mètres dans une tentative pour réduire son état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié</div>. Si une créature a plusieurs états de cette liste, vous en choisissez une. Lorsque vous êtes maître en Diplomatie, ajoutez les états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm', 'param__object__label': this.textContent})\">Maladroit</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7', 'param__object__label': this.textContent})\">Affaibli</div> à la liste des états. Lorsque vous êtes légendaire en Diplomatie, ajoutez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdi</div> à la liste des états. Si la condition étourdi possède une durée au lieu d'une valeur, vous ne pouvez utiliser Engagement pour l'égalité pour la réduire.",
                     "Faites un test de contre le DD du jet de sauvegarde de l'effet qui a provoqué l'état. S'il n'y avait pas de DD de jet de sauvegarde, utilisez le DD difficile pour le niveau de la créature, du danger ou de l'objet qui a provoqué l'effet. Vous ne pouvez soigner un état qui provient d'un artefact ou d'un effet au dessus du niveau 20 à moins d'être légendaire en Diplomatie. Même si vous le pouvez, le DD de contre augmente de 10. Vous ne pouvez soigner un état qui est le produit d'une malédiction ou d'une maladie ou qui provient de l'état naturel de la cible. Une fois que vous tentez de soigner un état de la cible, elle est immunisée contre d'autres tentatives pendant 1 heure, quel qu'ait été le résultat.",
                     "Succès critique Réduisez la valeur de l'état de 2.",
                     "Succès Réduisez la valeur de l'état de 1.",
@@ -1831,8 +1831,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vos efforts pour apprendre les choses que vous avez besoin de savoir sont subtils.",
-                    "Lorsque vous Recueillez des informations, vous pouvez dissimuler le véritable sujet de votre enquête parmi d'autres sujets de moindre intérêt à vos yeux sans augmenter la difficulté du test ou prendre plus de temps pour Recueillir des informations.",
-                    "Quiconque essaie de Recueillir des informations sur quelqu'un d'autre pour déterminer si quelqu'un a posé des questions sur le sujet en question doit dépasser le plus élevé entre votre DD de Duperie ou le DD normal pour Recueillir les informations à propos de votre enquête. En cas d'échec, ils n'apprennent rien de vos efforts."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillez des informations</div>, vous pouvez dissimuler le véritable sujet de votre enquête parmi d'autres sujets de moindre intérêt à vos yeux sans augmenter la difficulté du test ou prendre plus de temps pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>.",
+                    "Quiconque essaie de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> sur quelqu'un d'autre pour déterminer si quelqu'un a posé des questions sur le sujet en question doit dépasser le plus élevé entre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> ou le DD normal pour Recueillir les informations à propos de votre enquête. En cas d'échec, ils n'apprennent rien de vos efforts."
                 ]
             },
             {
@@ -1848,8 +1848,8 @@ DON.SKILL = {
                     "Animal social"
                 ],
                 "description" : [
-                    "Vous disposez d'un petit groupe d'admirateurs qui tendent à vous tourner autour lorsque vous êtes dans des communautés civilisées. Vos admirateurs vous sont serviables, vous permettant de formuler de simple Sollicitations comme vous acheter un équipement de base avec vos fonds ou vous réserver une chambre dans une auberge. Ces admirateurs ne voyagent pas avec vous dans des lieux qui sont manifestement dangereux, ce qui inclut la plupart des lieux d'aventure mais il vous attendront dans la localité la plus proche. Vos admirateurs n'utilisent jamais d'action dans le mode rencontre autre que de faire retraite et ils vous abandonnent si vous les mettez intentionnellement en danger ou à la discrétion du MJ.",
-                    "Lorsque vous Recueillez des informations, vous pouvez demander l'aide de vos admirateurs, vous faisant bénéficier d'un bonus de circonstances de +1 à votre test de Diplomatie et réduisez encore davantage le temps nécessaire (typiquement à 30 minutes, au lieu d'une heure avec le seul don Animal social). Si vous avez le don Semer une rumeur, vos admirateurs vous y aident, avec les mêmes avantages que pour Recueillir des informations."
+                    "Vous disposez d'un petit groupe d'admirateurs qui tendent à vous tourner autour lorsque vous êtes dans des communautés civilisées. Vos admirateurs vous sont serviables, vous permettant de formuler de simple <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Sollicitations</div> comme vous acheter un équipement de base avec vos fonds ou vous réserver une chambre dans une auberge. Ces admirateurs ne voyagent pas avec vous dans des lieux qui sont manifestement dangereux, ce qui inclut la plupart des lieux d'aventure mais il vous attendront dans la localité la plus proche. Vos admirateurs n'utilisent jamais d'action dans le mode rencontre autre que de faire retraite et ils vous abandonnent si vous les mettez intentionnellement en danger ou à la discrétion du MJ.",
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillez des informations</div>, vous pouvez demander l'aide de vos admirateurs, vous faisant bénéficier d'un bonus de circonstances de +1 à votre test de Diplomatie et réduisez encore davantage le temps nécessaire (typiquement à 30 minutes, au lieu d'une heure avec le seul don Animal social). Si vous avez le don <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sLEawQueTV1wGn0B', 'param__object__label': this.textContent})\">Semer une rumeur</div>, vos admirateurs vous y aident, avec les mêmes avantages que pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>."
                 ]
             },
             {
@@ -1879,7 +1879,7 @@ DON.SKILL = {
                     "Dévouement : Agent des Éclaireurs"
                 ],
                 "description" : [
-                    "Vous êtes habitué à préserver la valeur archéologique du lieu lorsque vous y pénétrez. Vous ne subissez pas de pénalité lorsque vous Ouvrez de force les portes, les fenêtres ou les contenants sans disposer d'un pied-de-biche. Si vous obtenez un succès sur un test pour Ouvrir de force, il devient un succès critique."
+                    "Vous êtes habitué à préserver la valeur archéologique du lieu lorsque vous y pénétrez. Vous ne subissez pas de pénalité lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SjmKHgI7a5Z9JzBx', 'param__object__label': this.textContent})\">Ouvrez de force</div> les portes, les fenêtres ou les contenants sans disposer d'un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '44F1mfJei4GY8f2X', 'param__object__label': this.textContent})\">pied-de-biche</div>. Si vous obtenez un succès sur un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SjmKHgI7a5Z9JzBx', 'param__object__label': this.textContent})\">Ouvrir de force</div>, il devient un succès critique."
                 ]
             },
             {
@@ -1895,7 +1895,7 @@ DON.SKILL = {
                     "Artiste virtuose"
                 ],
                 "description" : [
-                    "Vous rayonnez d'une lumière éblouissante à chaque représentation, suscitant des sentiments d'envie et de dévalorisation chez ceux qui comparent leur talent au vôtre. Une fois par minute, lorsque vous réussissez un test en utilisant le type de Représentation que vous avez choisi avec Artiste virtuose, vous pouvez tenter de Démoraliser un spectateur de votre choix dans un rayon de 18 mètres par une action gratuite. Si vous obtenez un succès critique à votre test de Représentation, augmentez le degré de succès de votre test de Démoralisation d'un cran."
+                    "Vous rayonnez d'une lumière éblouissante à chaque représentation, suscitant des sentiments d'envie et de dévalorisation chez ceux qui comparent leur talent au vôtre. Une fois par minute, lorsque vous réussissez un test en utilisant le type de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> que vous avez choisi avec Artiste virtuose, vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un spectateur de votre choix dans un rayon de 18 mètres par une action gratuite. Si vous obtenez un succès critique à votre test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, augmentez le degré de succès de votre test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoralisation</div> d'un cran."
                 ]
             },
             {
@@ -1909,7 +1909,7 @@ DON.SKILL = {
                     "qualifié en Acrobaties"
                 ],
                 "description" : [
-                    "Vous pouvez conserver votre équilibre facilement, même dans des situations défavorables. Quand vous obtenez un succès en utilisant l'action Garder l'équilibre, il devient un succès critique. Vous n'êtes pas Pris au dépourvu pendant que vous tentez de Garder l'équilibre sur des surfaces étroites et des terrains accidentés."
+                    "Vous pouvez conserver votre équilibre facilement, même dans des situations défavorables. Quand vous obtenez un succès en utilisant l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Garder l'équilibre</div>, il devient un succès critique. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> pendant que vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Garder l'équilibre</div> sur des surfaces étroites et des terrains accidentés."
                 ]
             },
             {
@@ -1925,7 +1925,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Entre vos aventures audacieuses, les gens vous recherchent. Une équipe fidèle de serviteurs se joint à vous. Ces individus ne fonctionnent pas comme des suivants et ne vous accompagneront pas dans des zones ou des situations dangereuses. Quoi qu'il en soit, ils peuvent s'entraîner à vos côtés, vous assistant dans la création d'objets ou vous aider à répandre vos histoires héroïques.",
-                    "Lorsque vous êtes dans un lieu où votre équipe pourrait raisonnablement vous assister, vous obtenez un bonus de circonstances de +1 à tous les tests de compétence pour Fabriquer, Créer une contrefaçon, Gagner de l'argent et Subsister ainsi que pour d'autres activités d'intermède à la discrétion du MJ. Votre équipe vous aide également à vous entrainer, vous permettant un réapprentissage plus rapide que la normale. Pour chaque période de 5 jours passés en réapprentissage, vous accomplissez l'équivalent d'une semaine de progrès."
+                    "Lorsque vous êtes dans un lieu où votre équipe pourrait raisonnablement vous assister, vous obtenez un bonus de circonstances de +1 à tous les tests de compétence pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ftG89SjTSa9DYDOD', 'param__object__label': this.textContent})\">Créer une contrefaçon</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> ainsi que pour d'autres activités d'intermède à la discrétion du MJ. Votre équipe vous aide également à vous entrainer, vous permettant un réapprentissage plus rapide que la normale. Pour chaque période de 5 jours passés en réapprentissage, vous accomplissez l'équivalent d'une semaine de progrès."
                 ]
             },
             {
@@ -1939,7 +1939,7 @@ DON.SKILL = {
                     "maître en Athlétisme"
                 ],
                 "description" : [
-                    "Lorsque vous Escaladez, vous vous déplacez de 1,50 mètre supplémentaire sur un succès et de 3 mètres supplémentaires en cas de succès critique, jusqu'à atteindre votre Vitesse maximale. Si vous êtes légendaire en Athlétisme, vous obtenez une Vitesse d'escalade égale à votre Vitesse."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div>, vous vous déplacez de 1,50 mètre supplémentaire sur un succès et de 3 mètres supplémentaires en cas de succès critique, jusqu'à atteindre votre Vitesse maximale. Si vous êtes légendaire en Athlétisme, vous obtenez une Vitesse d'escalade égale à votre Vitesse."
                 ]
             },
             {
@@ -1969,7 +1969,7 @@ DON.SKILL = {
                     "qualifié en Occultisme ou Curse Lore"
                 ],
                 "description" : [
-                    "Peut-être en raison de la malédiction qui vous hante, les malédictions vous perçoivent occasionnellement comme une extension d'elles-mêmes et se révèlent volontiers auprès de vous. Vous bénéficiez d'un bonus de circonstances de +2 aux tests pour Identifier la magie sur un objet maudit ou un sort ayant le trait malédiction."
+                    "Peut-être en raison de la malédiction qui vous hante, les malédictions vous perçoivent occasionnellement comme une extension d'elles-mêmes et se révèlent volontiers auprès de vous. Vous bénéficiez d'un bonus de circonstances de +2 aux tests pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> sur un objet maudit ou un sort ayant le trait malédiction."
                 ]
             },
             {
@@ -1983,7 +1983,7 @@ DON.SKILL = {
                     "Dévouement : Archéologue"
                 ],
                 "description" : [
-                    "Vos études vous ont ouvert de nouveaux horizons. Choisissez une implantation spécifique. Vous obtenez le don de compétence Connaissance supplémentaire dans la compétence de Connaissance de cette implantation et apprenez une langue courante ou peu courante de votre choix qui est prévalente dans cette implantation.",
+                    "Vos études vous ont ouvert de nouveaux horizons. Choisissez une implantation spécifique. Vous obtenez le don de compétence <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BocFD2KV0qgUC76x', 'param__object__label': this.textContent})\">Connaissance supplémentaire</div> dans la compétence de Connaissance de cette implantation et apprenez une langue courante ou peu courante de votre choix qui est prévalente dans cette implantation.",
                     "Spécial Vous pouvez prendre ce don à plusieurs reprises. Lorsque vous le faites, choisissez à chaque fois une implantation différente."
                 ]
             },
@@ -1999,8 +1999,8 @@ DON.SKILL = {
                     "maître en Société"
                 ],
                 "description" : [
-                    "Vous disposez des connaissances requises pour comprendre les écrits antiques et les artefacts culturels. Vous pouvez utiliser Société lorsque vous Déchiffrez un texte, quel que soit le type d'écrit que vous examinez.",
-                    "Vous pouvez également utiliser Société pour Identifier la magie Lorsque vous examinez un objet ou un lieu magique porteur d'une signification culturelle."
+                    "Vous disposez des connaissances requises pour comprendre les écrits antiques et les artefacts culturels. Vous pouvez utiliser Société lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrez un texte</div>, quel que soit le type d'écrit que vous examinez.",
+                    "Vous pouvez également utiliser Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> Lorsque vous examinez un objet ou un lieu magique porteur d'une signification culturelle."
                 ]
             },
             {
@@ -2014,7 +2014,7 @@ DON.SKILL = {
                     "qualifié en Religion"
                 ],
                 "description" : [
-                    "Vous avez étudié suffisamment de religions pour reconnaître des notions improbables à leur sujet. Si vous obtenez un échec critique à un test de Religion pour Déchiffrer un texte de nature religieuse ou pour Vous souvenir des préceptes d'une foi, il devient un échec. Quand vous tentez de Vous souvenir des préceptes de votre propre foi, si vous obtenez un échec, il devient un succès et si vous obtenez un succès, il devient un succès critique."
+                    "Vous avez étudié suffisamment de religions pour reconnaître des notions improbables à leur sujet. Si vous obtenez un échec critique à un test de Religion pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> de nature religieuse ou pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> des préceptes d'une foi, il devient un échec. Quand vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> des préceptes de votre propre foi, si vous obtenez un échec, il devient un succès et si vous obtenez un succès, il devient un succès critique."
                 ]
             },
             {
@@ -2028,7 +2028,7 @@ DON.SKILL = {
                     "qualifié en Artisanat"
                 ],
                 "description" : [
-                    "Votre connaissance de la conception des objets vous permet de discerner également leurs effets magiques. Vous pouvez utiliser Artisanat au lieu d'une compétence associée à une tradition magique pour Identifier la magie sur les objets magiques, mais pas l'utiliser sur toute autre sorte de magie."
+                    "Votre connaissance de la conception des objets vous permet de discerner également leurs effets magiques. Vous pouvez utiliser Artisanat au lieu d'une compétence associée à une tradition magique pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> sur les objets magiques, mais pas l'utiliser sur toute autre sorte de magie."
                 ]
             },
             {
@@ -2047,7 +2047,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous mettez le doigt sur un détail qui donne incontestablement raison à votre culte, faisant tourner la tête de votre auditoire. Faites un test de et comparez le résultat au DD de Volonté d'une unique cible qui peut vous entendre et comprendre votre langue. Cette cible est alors temporairement immunisée à Évangélisation et montre du respect à l'égard de votre divinité ou de votre philosophie pendant 1 journée. Une créature qui est déjà d'accord avec vous n'est pas affectée et, à la discrétion du MJ, une cible qui change sincèrement son point de vue pour adhérer à votre culte comme fruit de votre discussion n'est pas autrement affectée.",
-                    "Succès critique La cible est Stupéfiée 2 pendant 1 round.",
+                    "Succès critique La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée 2</div> pendant 1 round.",
                     "Succès La cible est Stupéfiée 1 pendant 1 round.",
                     "Échec La cible n'est pas affectée."
                 ]
@@ -2065,7 +2065,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Votre connaissance des canons de votre foi vous donne l'intuition pour déterminer la meilleure manière d'obtenir de ceux qui partagent votre religion qu'ils vous aident ou suivent vos directives.",
-                    "Lorsque vous Sollicitez quelque chose ou Contraignez des membres de votre propre croyance, vous pouvez tenter un test de Religion au lieu de Diplomatie ou d'Intimidation et vous obtenez un bonus de circonstances de +2 au test. En cas d'Échec critique en tenant de Solliciter, l'attitude de la cible à votre endroit n'empire pas."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Sollicitez</div> quelque chose ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraignez</div> des membres de votre propre croyance, vous pouvez tenter un test de Religion au lieu de Diplomatie ou d'Intimidation et vous obtenez un bonus de circonstances de +2 au test. En cas d'Échec critique en tenant de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div>, l'attitude de la cible à votre endroit n'empire pas."
                 ]
             },
             {
@@ -2123,7 +2123,7 @@ DON.SKILL = {
                     "légende en Artisanat"
                 ],
                 "description" : [
-                    "Vous pouvez trouver des manières de fabriquer à peu près tout, en dépit des restrictions. Tant que vous possédez le don de compétence d'Artisanat approprié (comme Artisanat magique pour les objets magiques) et remplissez les conditions de prérequis et de niveau de l'objet, vous ignorez à peu près toutes les autres conditions, comme celle d'appartenir à une ascendance spécifique ou fournir des sorts. Si une condition consiste à ajouter un coût à l'objet, vous devez toujours le payer (y compris les incantations de sorts qui ont eux-mêmes un coût). Vous ne pouvez ignorer les conditions des objets spéciaux qui ont dés moyens exclusifs d'accès et de Fabrication, comme les artefacts. Le MJ décide si vous pouvez ignorer une condition."
+                    "Vous pouvez trouver des manières de fabriquer à peu près tout, en dépit des restrictions. Tant que vous possédez le don de compétence d'Artisanat approprié (comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xWY5omyIcILNR7y1', 'param__object__label': this.textContent})\">Artisanat magique</div> pour les objets magiques) et remplissez les conditions de prérequis et de niveau de l'objet, vous ignorez à peu près toutes les autres conditions, comme celle d'appartenir à une ascendance spécifique ou fournir des sorts. Si une condition consiste à ajouter un coût à l'objet, vous devez toujours le payer (y compris les incantations de sorts qui ont eux-mêmes un coût). Vous ne pouvez ignorer les conditions des objets spéciaux qui ont dés moyens exclusifs d'accès et de Fabrication, comme les artefacts. Le MJ décide si vous pouvez ignorer une condition."
                 ]
             },
             {
@@ -2154,7 +2154,7 @@ DON.SKILL = {
                     "maître en Stealth and Survival"
                 ],
                 "description" : [
-                    "Vous vous déplacez sur votre territoire comme une ombre vivante. Au sein de votre lieu de prédilection, Vous bénéficiez en permanence de Traces évanescentes et vous êtes toujours Masqué à tous les ennemis à moins que vous choisissiez de ne pas l'être."
+                    "Vous vous déplacez sur votre territoire comme une ombre vivante. Au sein de votre lieu de prédilection, Vous bénéficiez en permanence de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'zlnXpME1T2uvn8Lr', 'param__object__label': this.textContent})\">Traces évanescentes</div> et vous êtes toujours <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> à tous les ennemis à moins que vous choisissiez de ne pas l'être."
                 ]
             },
             {
@@ -2168,7 +2168,7 @@ DON.SKILL = {
                     "maître en Artisanat"
                 ],
                 "description" : [
-                    "Vous ne prenez qu'une minute pour Fixez un talisman. Si vous êtes légendaire en Artisanat, vous pouvez fixer un talisman en une activité à 3 actions."
+                    "Vous ne prenez qu'une minute pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UAaQk93a30nx0nYY', 'param__object__label': this.textContent})\">Fixez un talisman</div>. Si vous êtes légendaire en Artisanat, vous pouvez fixer un talisman en une activité à 3 actions."
                 ]
             },
             {
@@ -2198,7 +2198,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Membre des Agitateurs au rang de seconde marque ou supérieur",
-                    "Les participations répétées aux concours de vantardises et de bons mots des Agitateurs vous ont appris comment faire de mots doux des insultes cachées. Lorsque vous obtenez un succès sur votre test pour Contraindre une créature, l'attitude de la cible envers vous s'améliore d'un cran, jusqu'à un maximum d'amical et elle ne devient pas inamicale après 1 journée."
+                    "Les participations répétées aux concours de vantardises et de bons mots des Agitateurs vous ont appris comment faire de mots doux des insultes cachées. Lorsque vous obtenez un succès sur votre test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraindre</div> une créature, l'attitude de la cible envers vous s'améliore d'un cran, jusqu'à un maximum d'amical et elle ne devient pas inamicale après 1 journée."
                 ]
             },
             {
@@ -2233,7 +2233,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Originaire du Minkaï ou de la Forêt des esprits",
-                    "Vous apprenez les traditions du Minkaï à propos du vide et savez comment manipuler les cinq éléments pour fortifier les énergies de vitalité et de vide dans le corps. Lorsque vous Préparez un remède élémentaire, vous pouvez choisir d'utiliser à la place des compétences habituelles. Si vous le faites, le remède accorde aussi au destinataire une résistance 2 et une faiblesse 2 qui dépend de l'élément que vous avez choisi.",
+                    "Vous apprenez les traditions du Minkaï à propos du vide et savez comment manipuler les cinq éléments pour fortifier les énergies de vitalité et de vide dans le corps. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'NMbOfl885pn0Yzu9', 'param__object__label': this.textContent})\">Préparez un remède élémentaire</div>, vous pouvez choisir d'utiliser à la place des compétences habituelles. Si vous le faites, le remède accorde aussi au destinataire une résistance 2 et une faiblesse 2 qui dépend de l'élément que vous avez choisi.",
                     "Un remède élémentaire de bois, d'eau ou de terre accorde une résistance contre les dégâts de vide et une faiblesse contre les dégâts de vitalité et un destinataire vivant perd son immunité à l'égard des dégâts de vitalité pendant la durée. Un remède élémentaire de feu ou de métal accorde une résistance contre les dégâts de vitalité et une faiblesse contre les dégâts de vide et un destinataire mort-vivant perd son immunité à l'égard des dégâts de vide pendant sa durée.",
                     "Si vous êtes un maître en Occultisme, augmentez la résistance et la faiblesse à 4. Si vous êtes légendaire, augmentez les à la place à 8."
                 ]
@@ -2250,7 +2250,7 @@ DON.SKILL = {
                     "Furtivité rapide"
                 ],
                 "description" : [
-                    "Vous Êtes furtif en toute circonstance à moins que vous ne décidiez d'être vu, même quand vous n'avez nulle part où vous cacher. Vous pouvez Vous cacher ou Être furtif même en l'absence d'abri ou sans être Masqué. Quand vous employez une tactique d'exploration autre qu'Échapper aux regards, vous obtenez aussi les avantages d'Échapper aux regards, à moins que vous ne le souhaitiez pas."
+                    "Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Êtes furtif</div> en toute circonstance à moins que vous ne décidiez d'être vu, même quand vous n'avez nulle part où vous cacher. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Vous cacher</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> même en l'absence d'abri ou sans être <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div>. Quand vous employez une tactique d'exploration autre qu'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échapper aux regards</div>, vous obtenez aussi les avantages d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échapper aux regards</div>, à moins que vous ne le souhaitiez pas."
                 ]
             },
             {
@@ -2264,7 +2264,7 @@ DON.SKILL = {
                     "maître en Discrétion"
                 ],
                 "description" : [
-                    "Vous pouvez vous déplacer à votre pleine Vitesse quand vous Êtes furtif. Vous pouvez utiliser Furtivité rapide pendant que vous Creusez, Escaladez, Volez ou Nagez au lieu de Marcher rapidement si vous avez le type de déplacement correspondant."
+                    "Vous pouvez vous déplacer à votre pleine Vitesse quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Êtes furtif</div>. Vous pouvez utiliser Furtivité rapide pendant que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'H6v1VgowHaKHnVlG', 'param__object__label': this.textContent})\">Creusez</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Volez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx', 'param__object__label': this.textContent})\">Nagez</div> au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> si vous avez le type de déplacement correspondant."
                 ]
             },
             {
@@ -2280,7 +2280,7 @@ DON.SKILL = {
                     "Dévouement : Pirate"
                 ],
                 "description" : [
-                    "Vous courez et grimpez en empruntant des cordes et en montant aux gréements aussi facilement que sur la terre ferme. Vous obtenez une Vitesse d'escalade de 4,50 mètres, mais seulement pour grimper à des cordages ou quelque chose de similaire. Lorsque vous obtenez un succès lors d'un test d'Athlétisme pour Escalader ou un test d'Acrobaties pour Garder l'équilibre, vous bénéficiez d'un succès critique. Vous n'êtes pas Pris au dépourvu lorsque vous Escaladez ou Gardez l'équilibre sur une corde ou quelque chose de similaire."
+                    "Vous courez et grimpez en empruntant des cordes et en montant aux gréements aussi facilement que sur la terre ferme. Vous obtenez une Vitesse d'escalade de 4,50 mètres, mais seulement pour grimper à des cordages ou quelque chose de similaire. Lorsque vous obtenez un succès lors d'un test d'Athlétisme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div> ou un test d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Garder l'équilibre</div>, vous bénéficiez d'un succès critique. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Gardez l'équilibre</div> sur une corde ou quelque chose de similaire."
                 ]
             },
             {
@@ -2294,7 +2294,7 @@ DON.SKILL = {
                     "qualifié en Société"
                 ],
                 "description" : [
-                    "Vous êtes adepte à lire rapidement les papiers laissés sans surveillance et à discerner soigneusement le contenu des plis scellés sans endommager le sceau. Vous pouvez tenter des tests de Société pour Déchiffrer un texte sur un message qui est seulement partiellement entrevu, à l'envers ou inversé de votre perspective, et vous bénéficiez d'un bonus de circonstances de +1 quand vous le faites. Vous pouvez aussi utiliser ce don pour déchiffrer une lettre scellée, ajoutant le trait Manipulation à votre tentative de Déchiffrer un texte. Cela n'empêche pas des témoins de remarquer vos efforts, et vous pouvez avoir besoin de tenter un test de Duperie ou de Discrétion pour éviter de vous faire remarquer. Dans tous les cas d'usage de ce don, le propriétaire est informé de votre effort en cas d'échec critique (par exemple, vous êtes surpris dans votre indiscrétion ou vous perturbez les papiers consultés d'une quelconque manière)."
+                    "Vous êtes adepte à lire rapidement les papiers laissés sans surveillance et à discerner soigneusement le contenu des plis scellés sans endommager le sceau. Vous pouvez tenter des tests de Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> sur un message qui est seulement partiellement entrevu, à l'envers ou inversé de votre perspective, et vous bénéficiez d'un bonus de circonstances de +1 quand vous le faites. Vous pouvez aussi utiliser ce don pour déchiffrer une lettre scellée, ajoutant le trait Manipulation à votre tentative de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div>. Cela n'empêche pas des témoins de remarquer vos efforts, et vous pouvez avoir besoin de tenter un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> ou de Discrétion pour éviter de vous faire remarquer. Dans tous les cas d'usage de ce don, le propriétaire est informé de votre effort en cas d'échec critique (par exemple, vous êtes surpris dans votre indiscrétion ou vous perturbez les papiers consultés d'une quelconque manière)."
                 ]
             },
             {
@@ -2308,7 +2308,7 @@ DON.SKILL = {
                     "qualifié en Survie"
                 ],
                 "description" : [
-                    "Lorsque vous utilisez Survie pour Subsister, si vous obtenez n'importe quel résultat pire qu'un succès, vous bénéficiez d'un succès. En cas de succès, vous pouvez fournir des moyens de subsistance pour vous et quatre créatures supplémentaires et pour deux fois plus sur un succès critique. Vous pouvez choisir de prendre soin de la moitié du nombre de créatures et fournir un moyen d'existence confortable.",
+                    "Lorsque vous utilisez Survie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div>, si vous obtenez n'importe quel résultat pire qu'un succès, vous bénéficiez d'un succès. En cas de succès, vous pouvez fournir des moyens de subsistance pour vous et quatre créatures supplémentaires et pour deux fois plus sur un succès critique. Vous pouvez choisir de prendre soin de la moitié du nombre de créatures et fournir un moyen d'existence confortable.",
                     "Augmentez le nombre de créatures supplémentaires vous parvenez nourrir sur un succès à 8 si vous êtes expert, 16 si vous êtes maître et 32 si vous êtes légendaire."
                 ]
             },
@@ -2324,7 +2324,7 @@ DON.SKILL = {
                     "qualifié en Acrobaties"
                 ],
                 "description" : [
-                    "Vous imitez les mouvements ondulants d'une anguille. Lorsque vous êtes sous l'eau, vous obtenez un bonus de circonstances de +2 aux tests d'Acrobaties pour vous Échapper, vous Faufiler et pour effectuer un Déplacement acrobatique."
+                    "Vous imitez les mouvements ondulants d'une anguille. Lorsque vous êtes sous l'eau, vous obtenez un bonus de circonstances de +2 aux tests d'Acrobaties pour vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">Échapper</div>, vous Faufiler et pour effectuer un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '21WIfSu7Xd7uKqV8', 'param__object__label': this.textContent})\">Déplacement acrobatique</div>."
                 ]
             },
             {
@@ -2338,7 +2338,7 @@ DON.SKILL = {
                     "Dévouement : Corsaire sous-marin"
                 ],
                 "description" : [
-                    "Vous vous êtes entraîné à escalader des navires et même un extérieur humide et glissant ne saurait vous empêcher d'y parvenir. Vous pouvez Escalader un véhicule marin même si vous avez une main occupée. Si vos deux mains sont libres, vous obtenez un bonus de circonstances de +2 à votre test d'Athlétisme. Vous n'êtes pas Pris au dépourvu lorsque vous Gardez l'équilibre ou en Escaladant sur n'importe quelle partie d'un véhicule marin."
+                    "Vous vous êtes entraîné à escalader des navires et même un extérieur humide et glissant ne saurait vous empêcher d'y parvenir. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div> un véhicule marin même si vous avez une main occupée. Si vos deux mains sont libres, vous obtenez un bonus de circonstances de +2 à votre test d'Athlétisme. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Balance', 'param__object__label': this.textContent})\">Gardez l'équilibre</div> ou en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladant</div> sur n'importe quelle partie d'un véhicule marin."
                 ]
             },
             {
@@ -2350,7 +2350,7 @@ DON.SKILL = {
                     "can't have a patron deity"
                 ],
                 "description" : [
-                    "Vous récupérez 5 Points de vie de plus lors d'un succès pour Soigner les blessures ou utiliser Médecine militaire sur vous. Une fois qu'un allié ou vous-même avez utilisé Médecine militaire sur vous, vous êtes immunisé contre ce don pendant 1 heure seulement au lieu d'un jour."
+                    "Vous récupérez 5 Points de vie de plus lors d'un succès pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> ou utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wYerMk6F1RZb0Fwt', 'param__object__label': this.textContent})\">Médecine militaire</div> sur vous. Une fois qu'un allié ou vous-même avez utilisé Médecine militaire sur vous, vous êtes immunisé contre ce don pendant 1 heure seulement au lieu d'un jour."
                 ]
             },
             {
@@ -2364,7 +2364,7 @@ DON.SKILL = {
                     "maître en Survie"
                 ],
                 "description" : [
-                    "Vous pouvez vous adapter rapidement aux climats et aider les autres à faire de même. Après une heure passée dans un environnement, vous et jusqu'à cinq alliés pouvez traiter les effets naturels de la température d'un environnement comme un degré de gravité en moins (traiter le froid extrême comme un froid important ou la chaleur extrême comme une chaleur importante, par exemple). Cette réduction de la gravité est cumulable avec tout équipement (comme l'équipement de froid) ou sort (comme Endurance environnementale). Si vous êtes légendaire en Survie, vous pouvez vous protéger et protéger jusqu'à cinq alliés et vous considérez que les effets de la température sont de deux crans moins importants."
+                    "Vous pouvez vous adapter rapidement aux climats et aider les autres à faire de même. Après une heure passée dans un environnement, vous et jusqu'à cinq alliés pouvez traiter les effets naturels de la température d'un environnement comme un degré de gravité en moins (traiter le froid extrême comme un froid important ou la chaleur extrême comme une chaleur importante, par exemple). Cette réduction de la gravité est cumulable avec tout équipement (comme l'équipement de froid) ou sort (comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5esP2GVzvxWsMgaX', 'param__object__label': this.textContent})\">Endurance environnementale</div>). Si vous êtes légendaire en Survie, vous pouvez vous protéger et protéger jusqu'à cinq alliés et vous considérez que les effets de la température sont de deux crans moins importants."
                 ]
             },
             {
@@ -2397,8 +2397,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous vous sentez socialement à l'aise et capable dans la plupart des contextes culturels.",
-                    "Lorsque vous effectuez un test de compétence de Société pour Subsister, si vous obtenez un échec critique, il devient un échec ; si vous obtenez un succès, il devient un succès critique ; et si vous obtenez un succès critique, vous pouvez fournir à une créature supplémentaire de quoi subsister.",
-                    "De plus, lorsque vous tentez un test de Société pour Vous souvenir de pratiques culturelles et obtenez un échec critique, il devient un échec."
+                    "Lorsque vous effectuez un test de compétence de Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div>, si vous obtenez un échec critique, il devient un échec ; si vous obtenez un succès, il devient un succès critique ; et si vous obtenez un succès critique, vous pouvez fournir à une créature supplémentaire de quoi subsister.",
+                    "De plus, lorsque vous tentez un test de Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> de pratiques culturelles et obtenez un échec critique, il devient un échec."
                 ]
             },
             {
@@ -2412,7 +2412,7 @@ DON.SKILL = {
                     "expert en Arcanes, Nature, Occultisme ou or Religion"
                 ],
                 "description" : [
-                    "Vous vous trompez rarement lorsque vous identifiez un objet. Lorsque vous faites un test d'Arcanes, de Nature, d'Occultisme ou de Religion pour Identifier la magie, si vous obtenez un échec critique, il devient un échec. Si vous devriez ne pas pouvoir déterminer qu'un objet est maudit en obtenant un succès, vous ne pouvez tout simplement pas l'identifier."
+                    "Vous vous trompez rarement lorsque vous identifiez un objet. Lorsque vous faites un test d'Arcanes, de Nature, d'Occultisme ou de Religion pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div>, si vous obtenez un échec critique, il devient un échec. Si vous devriez ne pas pouvoir déterminer qu'un objet est maudit en obtenant un succès, vous ne pouvez tout simplement pas l'identifier."
                 ]
             },
             {
@@ -2426,7 +2426,7 @@ DON.SKILL = {
                     "qualifié en Occultisme"
                 ],
                 "description" : [
-                    "Lorsque vous prenez conscience d'un effet magique ou que vous assistez à l'incantation d'un sort, vous pouvez immédiatement déterminer s'il fait tourner les esprits (avec le trait mental), s'il combat la chance (avec le trait fortune ou infortune) ou s'il révèle des secrets (avec les traits détection, prédiction, révélation ou scrutation). À la discrétion du MJ, des effets similaires peuvent également entrer dans ces catégories. Lorsque vous Identifiez la magie ou que vous Vous souvenez pour en apprendre plus sur ces effets, vous pouvez toujours utiliser Occultisme sans pénalité et obtenir un bonus de circonstances de +2."
+                    "Lorsque vous prenez conscience d'un effet magique ou que vous assistez à l'incantation d'un sort, vous pouvez immédiatement déterminer s'il fait tourner les esprits (avec le trait mental), s'il combat la chance (avec le trait fortune ou infortune) ou s'il révèle des secrets (avec les traits détection, prédiction, révélation ou scrutation). À la discrétion du MJ, des effets similaires peuvent également entrer dans ces catégories. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifiez la magie</div> ou que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenez</div> pour en apprendre plus sur ces effets, vous pouvez toujours utiliser Occultisme sans pénalité et obtenir un bonus de circonstances de +2."
                 ]
             },
             {
@@ -2440,7 +2440,7 @@ DON.SKILL = {
                     "qualifié en Arcanes, Nature, Occultisme ou or Religion"
                 ],
                 "description" : [
-                    "Vous pouvez Identifier la magie rapidement. Quand vous utilisez Identifier la magie, vous ne mettez que 1 minute pour déterminer les propriétés d'un objet, d'un effet en cours ou d'un lieu, au lieu de 10 minutes. Si vous êtes un maître, cela prend une activité de 3 actions, et si vous êtes légendaire, cela prend 1 action."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> rapidement. Quand vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div>, vous ne mettez que 1 minute pour déterminer les propriétés d'un objet, d'un effet en cours ou d'un lieu, au lieu de 10 minutes. Si vous êtes un maître, cela prend une activité de 3 actions, et si vous êtes légendaire, cela prend 1 action."
                 ]
             },
             {
@@ -2455,7 +2455,7 @@ DON.SKILL = {
                     "maître en Duperie"
                 ],
                 "description" : [
-                    "Vous êtes tellement familier avec la paperasse nécessaire pour maintenir votre couverture que vous pouvez facilement créer des documents qui soutiennent vos fabrications. Vous pouvez Créer une contrefaçon en utilisant Duperie, plutôt que Société, et le faire ne vous prend que 10 minutes ou 1 minute si vous êtes légendaire en Duperie. Du fait de votre nature paranoïaque, vous êtes toujours à l'affût des contrefaçons. Le MJ lance un test de Perception ou de Société secret pour vous chaque fois que vous rencontrez une contrefaçon, même si vous ne l'examinez pas de près."
+                    "Vous êtes tellement familier avec la paperasse nécessaire pour maintenir votre couverture que vous pouvez facilement créer des documents qui soutiennent vos fabrications. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ftG89SjTSa9DYDOD', 'param__object__label': this.textContent})\">Créer une contrefaçon</div> en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, plutôt que Société, et le faire ne vous prend que 10 minutes ou 1 minute si vous êtes légendaire en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>. Du fait de votre nature paranoïaque, vous êtes toujours à l'affût des contrefaçons. Le MJ lance un test de Perception ou de Société secret pour vous chaque fois que vous rencontrez une contrefaçon, même si vous ne l'examinez pas de près."
                 ]
             },
             {
@@ -2472,7 +2472,7 @@ DON.SKILL = {
                     "maître en Duperie"
                 ],
                 "description" : [
-                    "Déclencheur Un ennemi obtient un succès à un test pour Désarmer, S'Échapper, Saisir, Pousser ou faire un Croc-en-jambe.",
+                    "Déclencheur Un ennemi obtient un succès à un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmer</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">S'Échapper</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PMbdMWc2QroouFGD', 'param__object__label': this.textContent})\">Saisir</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731', 'param__object__label': this.textContent})\">Pousser</div> ou faire un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP', 'param__object__label': this.textContent})\">Croc-en-jambe</div>.",
                     "Votre étude d'autrui vous permet de reproduire subtilement ses mouvements, même en plein combat. Vous étudiez la manœuvre réussie d'un ennemi et apprenez instinctivement à la reproduire. La prochaine fois que vous effectuez la même action que lui, vous obtenez un bonus de circonstances de +1 à votre test d'Athlétisme ou un bonus de circonstances de +2 si l'ennemi a obtenu un succès critique à l'action déclencheuse. Vous perdez cet avantage si vous ne l'utilisez pas avant la fin de votre prochain tour."
                 ]
             },
@@ -2493,9 +2493,9 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Votre histoire de coquéteries, de flirts, d'aventures sans lendemain et de liaisons est si longue que, même dans une ville aussi vaste qu'Absalom, vous risquez de faire face à votre passé à des moments inopportuns. Heureusement, la personne impliquée pourrait être aussi surprise que vous par cette rencontre inattendue. Choisissez une cible dans un rayon de 9 mètres et racontez une histoire lascive sur la façon dont vous vous êtes rencontrés tous deux. Faites un test de contre le DD de Volonté de la cible. Quel que soit le résultat, la cible est temporairement immunisée contre votre Infamie de la Rue des Fleurs pendant 24 heures.",
-                    "Succès critique La cible est Stupéfiée 3 pendant 1 minute.",
-                    "Succès La cible est Stupéfiée 2 pendant 1 minute.",
-                    "Échec La cible est Stupéfiée 1 jusqu'au début de votre prochain tour.",
+                    "Succès critique La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée 3</div> pendant 1 minute.",
+                    "Succès La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée 2</div> pendant 1 minute.",
+                    "Échec La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée 1</div> jusqu'au début de votre prochain tour.",
                     "Échec critique La cible n'est pas affectée."
                 ]
             },
@@ -2510,7 +2510,7 @@ DON.SKILL = {
                     "expert en Médecine"
                 ],
                 "description" : [
-                    "Vous avez étudié dans de grands services médicaux, traitant plusieurs patients à la fois et répondant à tous leurs besoins. Quand vous utilisez Soigner une maladie ou Soigner les blessures, vous pouvez traiter jusqu'à deux cibles. Si vous êtes maître en Médecine, vous pouvez traiter jusqu'à quatre cibles et jusqu'à huit si vous êtes légendaire."
+                    "Vous avez étudié dans de grands services médicaux, traitant plusieurs patients à la fois et répondant à tous leurs besoins. Quand vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, vous pouvez traiter jusqu'à deux cibles. Si vous êtes maître en Médecine, vous pouvez traiter jusqu'à quatre cibles et jusqu'à huit si vous êtes légendaire."
                 ]
             },
             {
@@ -2524,7 +2524,7 @@ DON.SKILL = {
                     "légende en Médecine"
                 ],
                 "description" : [
-                    "Vous avez découvert des avancées ou techniques médicales qui produisent des résultats miraculeux. Une fois par jour pour chaque cible, vous pouvez passer 1 heure à soigner cette cible et tenter un test de Médecine pour délivrer d'une maladie ou de l'état Aveuglé, Sourd, Condamné ou Drainé. Utilisez le DD de la maladie, du sort ou de l'effet à l'origine de l'état. Si la source de l'effet est un artefact, est au-delà du niveau 20 ou d'une puissance similaire, augmentez le DD de 10."
+                    "Vous avez découvert des avancées ou techniques médicales qui produisent des résultats miraculeux. Une fois par jour pour chaque cible, vous pouvez passer 1 heure à soigner cette cible et tenter un test de Médecine pour délivrer d'une maladie ou de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XgEqL1kFApUbl5Z2', 'param__object__label': this.textContent})\">Aveuglé</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9PR9y0bi4JPKnHPR', 'param__object__label': this.textContent})\">Sourd</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv', 'param__object__label': this.textContent})\">Condamné</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé</div>. Utilisez le DD de la maladie, du sort ou de l'effet à l'origine de l'état. Si la source de l'effet est un artefact, est au-delà du niveau 20 ou d'une puissance similaire, augmentez le DD de 10."
                 ]
             },
             {
@@ -2556,7 +2556,7 @@ DON.SKILL = {
                     "Dévouement : Dandy"
                 ],
                 "description" : [
-                    "À force de fréquenter les lanceurs de mode du District du Lierre, vous comprenez comment les rumeurs se propagent à travers les plus grandes communautés. Lorsque vous utilisez l'activité d'Intermède Influencer une rumeur dans une ville ou une métropole, diminuez le DD du test de 5. Lorsque vous vous trouvez dans la métropole d'Absalom, vous le réduisez de 5 supplémentaires. À la discrétion du MJ, cette seconde réduction pourrait s'appliquer au DD du test pour Influencer une rumeur lorsque vous influencez une rumeur en dehors d'Absalom mais parmi un groupe d'Absalomiens."
+                    "À force de fréquenter les lanceurs de mode du District du Lierre, vous comprenez comment les rumeurs se propagent à travers les plus grandes communautés. Lorsque vous utilisez l'activité d'Intermède <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HFv62jIK98S2xw4x', 'param__object__label': this.textContent})\">Influencer une rumeur</div> dans une ville ou une métropole, diminuez le DD du test de 5. Lorsque vous vous trouvez dans la métropole d'Absalom, vous le réduisez de 5 supplémentaires. À la discrétion du MJ, cette seconde réduction pourrait s'appliquer au DD du test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HFv62jIK98S2xw4x', 'param__object__label': this.textContent})\">Influencer une rumeur</div> lorsque vous influencez une rumeur en dehors d'Absalom mais parmi un groupe d'Absalomiens."
                 ]
             },
             {
@@ -2570,7 +2570,7 @@ DON.SKILL = {
                     "Dévouement : Herboriste"
                 ],
                 "description" : [
-                    "C'est incroyable de voir la différence que peut avoir le fait de disposer d'herbes fraiches. Lorsque vous utilisez Médecine naturelle pour Soigner les blessures, vous obtenez un bonus de circonstances de +2 lorsque vous disposez d'ingrédients frais, même si vous n'êtes pas dans la nature. Si vous les utilisez dans la nature, vous obtenez un bonus de circonstances de +4 à la place."
+                    "C'est incroyable de voir la différence que peut avoir le fait de disposer d'herbes fraiches. Lorsque vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WC4xLBGmBsdOdHWu', 'param__object__label': this.textContent})\">Médecine naturelle</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, vous obtenez un bonus de circonstances de +2 lorsque vous disposez d'ingrédients frais, même si vous n'êtes pas dans la nature. Si vous les utilisez dans la nature, vous obtenez un bonus de circonstances de +4 à la place."
                 ]
             },
             {
@@ -2623,7 +2623,7 @@ DON.SKILL = {
                     "maître en Duperie"
                 ],
                 "description" : [
-                    "Vous avez le don de savoir manipuler les groupes en disant exactement ce qu'il faut dire. Lorsque vous Mentez dans une zone publique en face d'une foule, vous pouvez jauger des réactions de la foule lorsque vous parlez pour déterminer comment passe votre mensonge et Mentir perd son trait secret. Vous obtenez la réaction Fausseté réactive."
+                    "Vous avez le don de savoir manipuler les groupes en disant exactement ce qu'il faut dire. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentez</div> dans une zone publique en face d'une foule, vous pouvez jauger des réactions de la foule lorsque vous parlez pour déterminer comment passe votre mensonge et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> perd son trait secret. Vous obtenez la réaction <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'CLX9WEYXdntl2wrt', 'param__object__label': this.textContent})\">Fausseté réactive</div>."
                 ]
             },
             {
@@ -2638,7 +2638,7 @@ DON.SKILL = {
                     "qualifié en Duperie"
                 ],
                 "description" : [
-                    "Choisissez une société secrète (telle que Lacunafex ou le réseau Campanule). Vous avez appris le jargon de cette société secrète, vous permettant de partager des messages cachés lorsque vous parlez ou signez avec d'autres qui l'ont également appris. Si un observateur réussit un test de Perception contre votre DD de Duperie lorsque vous le faites, ils s'aperçoivent que vous transmettez un message mais échouent à comprendre son contenu, sauf s'ils parviennent à réussir un test subséquent de Société contre votre DD de Duperie. Sur une succès critique, ils comprennent non seulement le message, mais aussi à qui vous le faites passer.",
+                    "Choisissez une société secrète (telle que Lacunafex ou le réseau Campanule). Vous avez appris le jargon de cette société secrète, vous permettant de partager des messages cachés lorsque vous parlez ou signez avec d'autres qui l'ont également appris. Si un observateur réussit un test de Perception contre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> lorsque vous le faites, ils s'aperçoivent que vous transmettez un message mais échouent à comprendre son contenu, sauf s'ils parviennent à réussir un test subséquent de Société contre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>. Sur une succès critique, ils comprennent non seulement le message, mais aussi à qui vous le faites passer.",
                     "Spécial Vous pouvez prendre ce don à plusieurs reprises. Vous apprenez le langage secret d'une société secrète à chaque fois."
                 ]
             },
@@ -2674,7 +2674,7 @@ DON.SKILL = {
                     "qualifié en Occultisme"
                 ],
                 "description" : [
-                    "Par un simple contact, vous pouvez lire les impressions psychiques laissées sur les objets par leurs précédents propriétaires. Cette activité d'exploration fonctionne de manière similaire au sort Détection de la magie en ce sens que vous vous déplacez à la moitié de votre Vitesse de déplacement ou plus lentement tout en recherchant une résonance psychométrique. Vous devez passer vos mains nues sur tous les objets que vous croisez pendant que vous faites cela. Cela permet de détecter les objets auxquels est attachée une résonance émotionnelle significative, comme la joie sur l'ours en peluche adoré d'un enfant, la tristesse sur l'alliance d'un veuf ou la peur de l'arme du crime d'une victime. Si vous cherchez un type particulier de résonance émotionnelle, vous pouvez choisir d'ignorer les autres émotions. Si vous trouvez un objet ayant cette résonance, vous pouvez l'explorer avec l'action Évaluation psychométrique."
+                    "Par un simple contact, vous pouvez lire les impressions psychiques laissées sur les objets par leurs précédents propriétaires. Cette activité d'exploration fonctionne de manière similaire au sort <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl', 'param__object__label': this.textContent})\">Détection de la magie</div> en ce sens que vous vous déplacez à la moitié de votre Vitesse de déplacement ou plus lentement tout en recherchant une résonance psychométrique. Vous devez passer vos mains nues sur tous les objets que vous croisez pendant que vous faites cela. Cela permet de détecter les objets auxquels est attachée une résonance émotionnelle significative, comme la joie sur l'ours en peluche adoré d'un enfant, la tristesse sur l'alliance d'un veuf ou la peur de l'arme du crime d'une victime. Si vous cherchez un type particulier de résonance émotionnelle, vous pouvez choisir d'ignorer les autres émotions. Si vous trouvez un objet ayant cette résonance, vous pouvez l'explorer avec l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jZQoAHmGJvi53NRR', 'param__object__label': this.textContent})\">Évaluation psychométrique</div>."
                 ]
             },
             {
@@ -2705,9 +2705,9 @@ DON.SKILL = {
                     "maître en Société"
                 ],
                 "description" : [
-                    "Toute communication est emplie de légers accents et signaux. Si vous interagissez avec quelqu'un pendant au moins 10 minutes, son patois régional, des changements de prononciation et d'autres indices non verbaux qui vous fournissent un fait mineur à propos de son environnement social, comme sa ville d'origine ou certains groupes auxquels il pourrait appartenir. Si une cible de cette capacité tente de cacher son véritable environnement social, comme un homme du peuple qui prétendrait être un noble, elle doit faire un test de Duperie, de Société ou un test de Connaissance approprié contre votre DD de Société, vous fournissant un fait mineur faux concordant avec son identité en cas de Succès.",
-                    "Une fois que vous avez glané un ou plus faits mineurs à propos d'une personne, vous pouvez alors incorporer ses maniérismes dans votre discours pour vous présenter vous-même d'une manière qu'elle pourrait trouver familière. Cela vous accorde un bonus de circonstances de +1 à vos tests de Diplomatie et de Duperie avec cette dernière.",
-                    "Effet : Lire les signes distinctifs"
+                    "Toute communication est emplie de légers accents et signaux. Si vous interagissez avec quelqu'un pendant au moins 10 minutes, son patois régional, des changements de prononciation et d'autres indices non verbaux qui vous fournissent un fait mineur à propos de son environnement social, comme sa ville d'origine ou certains groupes auxquels il pourrait appartenir. Si une cible de cette capacité tente de cacher son véritable environnement social, comme un homme du peuple qui prétendrait être un noble, elle doit faire un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, de Société ou un test de Connaissance approprié contre votre DD de Société, vous fournissant un fait mineur faux concordant avec son identité en cas de Succès.",
+                    "Une fois que vous avez glané un ou plus faits mineurs à propos d'une personne, vous pouvez alors incorporer ses maniérismes dans votre discours pour vous présenter vous-même d'une manière qu'elle pourrait trouver familière. Cela vous accorde un bonus de circonstances de +1 à vos tests de Diplomatie et de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> avec cette dernière.",
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ivGiUp0EC5nWT9Hb', 'param__object__label': this.textContent})\">Effet : Lire les signes distinctifs</div>"
                 ]
             },
             {
@@ -2721,7 +2721,7 @@ DON.SKILL = {
                     "qualifié en Société"
                 ],
                 "description" : [
-                    "Vous pouvez lire sur les lèvres des gens proches de vous que vous pouvez clairement voir. Quand vous êtes à votre aise, vous pouvez le faire automatiquement. En mode rencontre ou quand vous tentez de lire sur les lèvres dans des conditions plus difficiles, vous êtes Fasciné et Pris au dépourvu à chaque round durant lequel vous vous concentrez sur les mouvements des lèvres et vous devez réussir un test de Société (DD déterminé par le MJ) pour réussir à lire sur les lèvres de quelqu'un."
+                    "Vous pouvez lire sur les lèvres des gens proches de vous que vous pouvez clairement voir. Quand vous êtes à votre aise, vous pouvez le faire automatiquement. En mode rencontre ou quand vous tentez de lire sur les lèvres dans des conditions plus difficiles, vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AdPVz7rbaVSRxHFg', 'param__object__label': this.textContent})\">Fasciné</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> à chaque round durant lequel vous vous concentrez sur les mouvements des lèvres et vous devez réussir un test de Société (DD déterminé par le MJ) pour réussir à lire sur les lèvres de quelqu'un."
                 ]
             },
             {
@@ -2735,7 +2735,7 @@ DON.SKILL = {
                     "qualifié en Athlétisme"
                 ],
                 "description" : [
-                    "Vous pouvez tenter de Désarmer, Repositionner, Saisir, Pousser ou faire un Croc-en-jambe aux créatures de deux tailles plus grandes que la vôtre ou de trois tailles plus grandes que la vôtre si vous êtes légendaire en Athlétisme."
+                    "Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmer</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'lOE4yjUnETTdaf2T', 'param__object__label': this.textContent})\">Repositionner</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PMbdMWc2QroouFGD', 'param__object__label': this.textContent})\">Saisir</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731', 'param__object__label': this.textContent})\">Pousser</div> ou faire un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP', 'param__object__label': this.textContent})\">Croc-en-jambe</div> aux créatures de deux tailles plus grandes que la vôtre ou de trois tailles plus grandes que la vôtre si vous êtes légendaire en Athlétisme."
                 ]
             },
             {
@@ -2749,7 +2749,7 @@ DON.SKILL = {
                     "maître en Occultisme"
                 ],
                 "description" : [
-                    "Vous pouvez faire appel à des variations étranges dans vos incantations, que vous lanciez ou non des sorts occultes. Les DD pour Reconnaître des sorts que vous incantez et Identifier la magie que vous utilisez sont augmentés de 5."
+                    "Vous pouvez faire appel à des variations étranges dans vos incantations, que vous lanciez ou non des sorts occultes. Les DD pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kV3XM0YJeS2KCSOb', 'param__object__label': this.textContent})\">Reconnaître</div> des sorts que vous incantez et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div> que vous utilisez sont augmentés de 5."
                 ]
             },
             {
@@ -2765,7 +2765,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous avez appris à cacher les auras magiques de votre équipement. Au cours de vos préparatifs quotidiens, vous camouflez soigneusement n'importe lequel ou tous vos objets magiques pour qu'ils semblent ordinaire. Les objets maquillés de cette manière le restent jusqu'à vos prochains préparatifs.",
-                    "Un lanceur de sort utilisant Détection de la Magie ou Lecture d'aura doit réussir un test de Perception contre votre DD de Duperie pour percer votre obfuscation."
+                    "Un lanceur de sort utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl', 'param__object__label': this.textContent})\">Détection de la Magie</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OhD2Z6rIGGD5ocZA', 'param__object__label': this.textContent})\">Lecture d'aura</div> doit réussir un test de Perception contre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour percer votre obfuscation."
                 ]
             },
             {
@@ -2780,7 +2780,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vos talismans protègent contre la magie immonde. Au cours de vos préparatifs quotidiens, vous pouvez assembler une petite bourse avec des morceaux d'herbes, de cheveux, d'huiles sacrées et d'autres ingrédients rituels, que vous pouvez donner à un allié (qui ne peut être vous-même). La première fois dans la journée que l'allié tente un jet de sauvegarde contre un sort ou une hantise, il obtient un bonus de circonstances de +1 au test. Ce bonus passe à +2 si vous êtes expert en Occultisme ou à +3 si vous êtes légendaire.",
-                    "Effet : Magie des racines"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'jO7wMhnjT7yoAtQg', 'param__object__label': this.textContent})\">Effet : Magie des racines</div>"
                 ]
             },
             {
@@ -2795,7 +2795,7 @@ DON.SKILL = {
                     "maître en Artisanat, Représentation ou or a Lore skill"
                 ],
                 "description" : [
-                    "L'enseignement est un art difficile, mais vous savez très bien vous y prendre. Lorsque vous Fabriquez ou Gagnez de l'argent au cours des périodes d'intermède, vous pouvez également tenter d'Aider une autre créature à faire de même avec la même compétence si son bonus de maîtrise est inférieur au vôtre. Si vous obtenez un succès, elle peut utiliser le meilleur résultat entre votre test et son propre test."
+                    "L'enseignement est un art difficile, mais vous savez très bien vous y prendre. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagnez de l'argent</div> au cours des périodes d'intermède, vous pouvez également tenter d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HCl3pzVefiv9ZKQW', 'param__object__label': this.textContent})\">Aider</div> une autre créature à faire de même avec la même compétence si son bonus de maîtrise est inférieur au vôtre. Si vous obtenez un succès, elle peut utiliser le meilleur résultat entre votre test et son propre test."
                 ]
             },
             {
@@ -2809,7 +2809,7 @@ DON.SKILL = {
                     "Dévouement : Prophète de Kalistrade"
                 ],
                 "description" : [
-                    "Kalistrade enseigne que les revers ne sont que temporaires et que la persévérance est une vertu précieuse. Lorsque vous obtenez un échec mais pas un échec critique sur un test de Société ou de Connaissance commerciale pour Gagner de l'argent sur une tâche spécifique et que vous êtes autorisé à continuer à travailler sur cette tâche lors des jours suivants, vous pouvez choisir de retenter le test de compétence de nouveau le jour suivant. Si vous obtenez un succès, il devient un succès critique et vous continuez à gagenr ce montant les jours suivants en continuant à travailler sur cette tâche, si la tâche dure aussi longtemps."
+                    "Kalistrade enseigne que les revers ne sont que temporaires et que la persévérance est une vertu précieuse. Lorsque vous obtenez un échec mais pas un échec critique sur un test de Société ou de Connaissance commerciale pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> sur une tâche spécifique et que vous êtes autorisé à continuer à travailler sur cette tâche lors des jours suivants, vous pouvez choisir de retenter le test de compétence de nouveau le jour suivant. Si vous obtenez un succès, il devient un succès critique et vous continuez à gagenr ce montant les jours suivants en continuant à travailler sur cette tâche, si la tâche dure aussi longtemps."
                 ]
             },
             {
@@ -2823,8 +2823,8 @@ DON.SKILL = {
                     "maître en Acrobaties"
                 ],
                 "description" : [
-                    "Vous vous mouvez avec grâce en vol et pouvez accomplir des cascades aériennes incroyables. Vous obtenez un bonus de circonstances de +2 aux tests d'Acrobaties pour Manœuvrer en vol et pouvez combiner deux manœuvres en une unique action, telles que changer de direction tout en faisant une ascension ou une descente rapide ou planer dans les vents violents. Le DD du test d'Acrobaties est égal au DD de la plus difficile manœuvre +5.",
-                    "Si vous êtes légendaire en Acrobaties, vous pouvez combiner jusqu'à trois de ces manœuvres en une unique action ; le DD du test d'Acrobaties est égal au DD de la plus difficile des manœuvres +10. Quelle que soit la combinaison, ces manœuvres vous permettent rarement de vous déplacer plus loin que votre Vitesse de Vol."
+                    "Vous vous mouvez avec grâce en vol et pouvez accomplir des cascades aériennes incroyables. Vous obtenez un bonus de circonstances de +2 aux tests d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Qf1ylAbdVi1rkc8M', 'param__object__label': this.textContent})\">Manœuvrer en vol</div> et pouvez combiner deux manœuvres en une unique action, telles que changer de direction tout en faisant une ascension ou une descente rapide ou planer dans les vents violents. Le DD du test d'Acrobaties est égal au DD de la plus difficile manœuvre +5.",
+                    "Si vous êtes légendaire en Acrobaties, vous pouvez combiner jusqu'à trois de ces manœuvres en une unique action ; le DD du test d'Acrobaties est égal au DD de la plus difficile des manœuvres +10. Quelle que soit la combinaison, ces manœuvres vous permettent rarement de vous déplacer plus loin que votre Vitesse de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div>."
                 ]
             },
             {
@@ -2839,7 +2839,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous comprenez les principes qui sous tendent tous les langages écrits, vous permettant de lire quasiment chaque texte.",
-                    "Vous pouvez tenter de Déchiffrer un texte en utilisant Connaissance du Maître savant au lieu de la compétence requise."
+                    "Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> en utilisant Connaissance du Maître savant au lieu de la compétence requise."
                 ]
             },
             {
@@ -2853,7 +2853,7 @@ DON.SKILL = {
                     "qualifié en Société"
                 ],
                 "description" : [
-                    "Vous avez été élevé parmi la noblesse ou avez appris l'étiquette et l'attitude adaptés, vous permettant de vous présenter comme un noble et de jouer à des jeux d'influence et de politique. À moins que vous ne vous présentiez intentionnellement vous-même différemment, quiconque vous parle part du principe que vous êtes un noble ou associé de près à la noblesse, comme le serait un serviteur important. Vous pouvez utiliser Société pour Faire bonne impression sur un noble, ainsi que Vous faire passer pour un noble ou un individu noble spécifique. Si vous utilisez les compétences ordinaires dans ces situations, vous obtenez un bonus de circonstances de +1 au test à la place."
+                    "Vous avez été élevé parmi la noblesse ou avez appris l'étiquette et l'attitude adaptés, vous permettant de vous présenter comme un noble et de jouer à des jeux d'influence et de politique. À moins que vous ne vous présentiez intentionnellement vous-même différemment, quiconque vous parle part du principe que vous êtes un noble ou associé de près à la noblesse, comme le serait un serviteur important. Vous pouvez utiliser Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> sur un noble, ainsi que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> un noble ou un individu noble spécifique. Si vous utilisez les compétences ordinaires dans ces situations, vous obtenez un bonus de circonstances de +1 au test à la place."
                 ]
             },
             {
@@ -2871,7 +2871,7 @@ DON.SKILL = {
                     "maître en Nature"
                 ],
                 "description" : [
-                    "Vous avez harmonisé votre aura naturelle à celle de la vie végétale, l'incitant à pousser plus vite que la normale. Vous vous asseyez pendant 10 minutes avec une petite plante naturelle qui n'est pas une créature, comme une fleur isolée, un petit buisson ou une plante grasse en pot, tout en harmonisant votre aura par la méditation. Vous incitez la plante à franchir une étape de son cycle de vie : de la graine à la pousse, de la pousse à la plante, de la plante à la fleur ou de la fleur au fruit. Si la plante ne dispose pas des nutriments appropriés (si vous faites germer une graine sans terre ni eau, par exemple), elle se fane 5 minutes après la fin de l'activité. Accomplir cette activité plus d'une fois par jour vous rend Fatigué et incapable d'utiliser Manipulation morphique jusqu'à votre prochaine nuit complète de repos."
+                    "Vous avez harmonisé votre aura naturelle à celle de la vie végétale, l'incitant à pousser plus vite que la normale. Vous vous asseyez pendant 10 minutes avec une petite plante naturelle qui n'est pas une créature, comme une fleur isolée, un petit buisson ou une plante grasse en pot, tout en harmonisant votre aura par la méditation. Vous incitez la plante à franchir une étape de son cycle de vie : de la graine à la pousse, de la pousse à la plante, de la plante à la fleur ou de la fleur au fruit. Si la plante ne dispose pas des nutriments appropriés (si vous faites germer une graine sans terre ni eau, par exemple), elle se fane 5 minutes après la fin de l'activité. Accomplir cette activité plus d'une fois par jour vous rend <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw', 'param__object__label': this.textContent})\">Fatigué</div> et incapable d'utiliser Manipulation morphique jusqu'à votre prochaine nuit complète de repos."
                 ]
             },
             {
@@ -2885,7 +2885,7 @@ DON.SKILL = {
                     "qualifié en Athlétisme"
                 ],
                 "description" : [
-                    "Vous avez appris à combattre sous l'eau. Vous n'êtes pas Pris au dépourvu lorsque vous êtes dans l'eau et vous ne subissez pas les pénalités habituelles lorsque vous utilisez une arme de corps-à-corps contondante ou tranchante dans l'eau."
+                    "Vous avez appris à combattre sous l'eau. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> lorsque vous êtes dans l'eau et vous ne subissez pas les pénalités habituelles lorsque vous utilisez une arme de corps-à-corps contondante ou tranchante dans l'eau."
                 ]
             },
             {
@@ -2900,8 +2900,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous avez appris des astuces spéciales qui vous aident à filer des individus sans vous faire remarquer.",
-                    "Lorsque vous faites un test de Discrétion pour Échapper aux regards en filant une cible spécifique, la cible subit une pénalité de circonstances de -2 à son DD de Perception. Si vous êtes maître en Discrétion, la pénalité est de -3 et de -4 si vous êtes légendaire.",
-                    "Si vous débutez la rencontre avec la cible en étant resté dans son ombre, la cible subit cette même pénalité à son jet d'initiative et à son DD de Perception pour déterminer si elle vous a remarqué, comme cela est habituel lorsque vous Êtes furtif."
+                    "Lorsque vous faites un test de Discrétion pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échapper aux regards</div> en filant une cible spécifique, la cible subit une pénalité de circonstances de -2 à son DD de Perception. Si vous êtes maître en Discrétion, la pénalité est de -3 et de -4 si vous êtes légendaire.",
+                    "Si vous débutez la rencontre avec la cible en étant resté dans son ombre, la cible subit cette même pénalité à son jet d'initiative et à son DD de Perception pour déterminer si elle vous a remarqué, comme cela est habituel lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Êtes furtif</div>."
                 ]
             },
             {
@@ -2916,7 +2916,7 @@ DON.SKILL = {
                     "Dévouement : Tueur de mort-vivant"
                 ],
                 "description" : [
-                    "Déclencheur Vous obtenez un échec à un test pour Soigner une maladie qui a été infligée par un mort-vivant (telle que la fièvre des goules ou la pourriture de momie).",
+                    "Déclencheur Vous obtenez un échec à un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div> qui a été infligée par un mort-vivant (telle que la fièvre des goules ou la pourriture de momie).",
                     "Votre expérience de la lutte contre les morts-vivants vous a préparé de manière unique à combattre les maladies qu'ils infligent aux survivants et vous savez que si vous laissez ces maladies non traitées pendant longtemps, il y aura davantage de morts-vivants. Relancez le test raté et utilisez le nouveau résultat."
                 ]
             },
@@ -2934,7 +2934,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Conditions Vous portez ou transportez du Matériel de guérisseur.",
-                    "Vous pouvez vous rafistoler ou rafistoler un allié adjacent, même en combat. Faites un test de Médecine avec le même DD que pour Soigner les blessures et restaurez un montant de Points de vie correspondant. Cela ne retire pas l'état Blessé. Comme avec Soigner les blessures, vous pouvez tenter des tests contre des DD plus élevés si vous avez le degré de maîtrise minimum. La cible est alors temporairement immunisée à votre Médecine militaire pendant 1 journée. Cela ne la rend pas immunisée, ni ne compte, comme Soigner les blessures."
+                    "Vous pouvez vous rafistoler ou rafistoler un allié adjacent, même en combat. Faites un test de Médecine avec le même DD que pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> et restaurez un montant de Points de vie correspondant. Cela ne retire pas l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Yl48xTdMh3aeQYL2', 'param__object__label': this.textContent})\">Blessé</div>. Comme avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, vous pouvez tenter des tests contre des DD plus élevés si vous avez le degré de maîtrise minimum. La cible est alors temporairement <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2XEYQNZTCGpdkyR6', 'param__object__label': this.textContent})\">immunisée</div> à votre Médecine militaire pendant 1 journée. Cela ne la rend pas immunisée, ni ne compte, comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>."
                 ]
             },
             {
@@ -2951,9 +2951,9 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Vous êtes originaire du Rahadoum.",
-                    "Kassi Aziril vous a enseigné ses techniques qui tirent leur origine de l'utilisation moderne de Médecine militaire. Lorsque vous réussissez à utiliser Médecine militaire, vous pouvez aussi réduire la valeur des états Affaibli, Maladroit ou Nauséeux de la cible de 1 (cela n'a aucun effet si vous êtes sujet à un effet qui applique continuellement l'état Maladroit, comme Agrandissement).",
-                    "Si vous êtes légendaire en Médecine, vous pouvez choisir de réduire les états Effrayé ou Étourdi de la cible de 1 à la place et si vous avez le don Guérison athée, vous pouvez choisir de réduire les états Stupéfié ou Drainé de la cible de 1 à la place.",
-                    "Si vous possédez le don Soins mortels, vous pouvez réduire tous les états disponibles de 1 pour une cible qui n'a pas bénéficié d'une magie de vitalité ou de soins magiques au cours des dernières 24 heures et, si vous obtenez un succès critique avant d'appliquer les effets du don, vous réduisez tous les états disponibles de cette cible de 2 à la place."
+                    "Kassi Aziril vous a enseigné ses techniques qui tirent leur origine de l'utilisation moderne de Médecine militaire. Lorsque vous réussissez à utiliser Médecine militaire, vous pouvez aussi réduire la valeur des états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7', 'param__object__label': this.textContent})\">Affaibli</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm', 'param__object__label': this.textContent})\">Maladroit</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18', 'param__object__label': this.textContent})\">Nauséeux</div> de la cible de 1 (cela n'a aucun effet si vous êtes sujet à un effet qui applique continuellement l'état Maladroit, comme Agrandissement).",
+                    "Si vous êtes légendaire en Médecine, vous pouvez choisir de réduire les états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdi</div> de la cible de 1 à la place et si vous avez le don <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tnzZvaJ97t0N9g6y', 'param__object__label': this.textContent})\">Guérison athée</div>, vous pouvez choisir de réduire les états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé</div> de la cible de 1 à la place.",
+                    "Si vous possédez le don <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'mEk2POFNU1Q0TQg2', 'param__object__label': this.textContent})\">Soins mortels</div>, vous pouvez réduire tous les états disponibles de 1 pour une cible qui n'a pas bénéficié d'une magie de vitalité ou de soins magiques au cours des dernières 24 heures et, si vous obtenez un succès critique avant d'appliquer les effets du don, vous réduisez tous les états disponibles de cette cible de 2 à la place."
                 ]
             },
             {
@@ -2967,8 +2967,8 @@ DON.SKILL = {
                     "qualifié en Nature"
                 ],
                 "description" : [
-                    "Vous pouvez appliquer des remèdes naturels pour soigner vos alliés. Vous pouvez utiliser Nature au lieu de Médecine pour Soigner les blessures, y compris lorsqu'un degré de maîtrise plus élevé vous permet de tenter des tests plus difficiles. Cela ne remplace pas Médecine pour les utilisations de cette compétence autres que Soigner les blessures ou pour des prérequis de dons.",
-                    "Si vous êtes en pleine nature, vous pourriez avoir plus facilement accès à des ingrédients frais, vous permettant d'obtenir un bonus de circonstances de +2 à votre test pour Soigner les blessures en utilisant Nature, à la discrétion du MJ."
+                    "Vous pouvez appliquer des remèdes naturels pour soigner vos alliés. Vous pouvez utiliser Nature au lieu de Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, y compris lorsqu'un degré de maîtrise plus élevé vous permet de tenter des tests plus difficiles. Cela ne remplace pas Médecine pour les utilisations de cette compétence autres que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> ou pour des prérequis de dons.",
+                    "Si vous êtes en pleine nature, vous pourriez avoir plus facilement accès à des ingrédients frais, vous permettant d'obtenir un bonus de circonstances de +2 à votre test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> en utilisant Nature, à la discrétion du MJ."
                 ]
             },
             {
@@ -2981,7 +2981,7 @@ DON.SKILL = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Déclencheur Vous n'avez pas obtenu d'information sur un test pour Vous souvenir (habituellement parce que vous avez obtenu un échec sur un test secret) en utilisant une des deux compétences que vous avez choisies pour ce don.",
+                    "Déclencheur Vous n'avez pas obtenu d'information sur un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> (habituellement parce que vous avez obtenu un échec sur un test secret) en utilisant une des deux compétences que vous avez choisies pour ce don.",
                     "Kreighton enseigne à ses étudiants qu'un esprit agile peut glaner des indices qui mènent à la vérité, même de la plus saugrenue des sources. Vous retentez immédiatement le test déclencheur en utilisant l'autre compétence choisie.",
                     "Spécial Lorsque vous obtenez ce don, choisissez deux des compétences suivantes : Arcanes, Artisanat, Connaissance (n'importe laquelle), Médecine, Nature, Occultisme, Religion ou Société."
                 ]
@@ -2998,7 +2998,7 @@ DON.SKILL = {
                     "maître en a Recall Knowledge skill"
                 ],
                 "description" : [
-                    "Vous racontez une histoire de manière spontanée à partir de faits pratiquement oubliés, plongeant dans votre mémoire et distrayant votre public au cours du processus. Vous commencez à Vous souvenir avec une compétence dans laquelle vous êtes maître puis vous utilisez Narration Uzunjati avec la même compétence. Vous obtenez un bonus de circonstances de +1 à votre test de compétence de Narration Uzunjati du fait des détails ainsi ajoutés."
+                    "Vous racontez une histoire de manière spontanée à partir de faits pratiquement oubliés, plongeant dans votre mémoire et distrayant votre public au cours du processus. Vous commencez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> avec une compétence dans laquelle vous êtes maître puis vous utilisez Narration Uzunjati avec la même compétence. Vous obtenez un bonus de circonstances de +1 à votre test de compétence de Narration Uzunjati du fait des détails ainsi ajoutés."
                 ]
             },
             {
@@ -3012,7 +3012,7 @@ DON.SKILL = {
                     "qualifié en Duperie"
                 ],
                 "description" : [
-                    "Votre charme vous permet de convaincre ceux à qui vous mentez. Quand vous obtenez un succès critique en utilisant l'action Mentir, l'attitude de la cible envers vous augmente d'un échelon, comme si vous aviez obtenu un succès en utilisant Diplomatie pour Faire bonne impression. Cela ne fonctionne qu'une fois par conversation et, si vous obtenez un succès critique contre plusieurs cibles en utilisant le même résultat, vous choisissez l'attitude à améliorer d'une créature. Vous devez mentir en transmettant des informations apparemment importantes, en rehaussant votre statut ou vous faire valoir, ce que des mensonges triviaux ou insignifiants ne vous permettraient pas de faire."
+                    "Votre charme vous permet de convaincre ceux à qui vous mentez. Quand vous obtenez un succès critique en utilisant l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div>, l'attitude de la cible envers vous augmente d'un échelon, comme si vous aviez obtenu un succès en utilisant Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div>. Cela ne fonctionne qu'une fois par conversation et, si vous obtenez un succès critique contre plusieurs cibles en utilisant le même résultat, vous choisissez l'attitude à améliorer d'une créature. Vous devez mentir en transmettant des informations apparemment importantes, en rehaussant votre statut ou vous faire valoir, ce que des mensonges triviaux ou insignifiants ne vous permettraient pas de faire."
                 ]
             },
             {
@@ -3028,8 +3028,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Votre connaissance de vos ennemis vous donne un avantage sur eux, vous permettant de réagir rapidement à leur diablerie. Si, au début d'une rencontre, vous savez que vous affrontez des diables ou des chevaliers infernaux, vous pouvez déterminer l'initiative en utilisant la compétence de Connaissance correspondante.",
-                    "De plus, chaque fois que vous réussissez un test pour Vous souvenir d'une créature à l'aide de Connaissance des diables ou de Connaissance des Chevaliers infernaux, vous obtenez un bonus de circonstances de +1 à votre prochain test de compétence contre cette créature avant la fin de votre prochain tour. Si vous êtes maître en Connaissance des diables ou en Connaissance des chevaliers infernaux, le bonus passe à +2.",
-                    "Effet : Mieux vaut un diable connu"
+                    "De plus, chaque fois que vous réussissez un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> d'une créature à l'aide de Connaissance des diables ou de Connaissance des Chevaliers infernaux, vous obtenez un bonus de circonstances de +1 à votre prochain test de compétence contre cette créature avant la fin de votre prochain tour. Si vous êtes maître en Connaissance des diables ou en Connaissance des chevaliers infernaux, le bonus passe à +2.",
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3Qej6bMkgJ5ntllg', 'param__object__label': this.textContent})\">Effet : Mieux vaut un diable connu</div>"
                 ]
             },
             {
@@ -3044,7 +3044,7 @@ DON.SKILL = {
                     "expert en Artisanat"
                 ],
                 "description" : [
-                    "Vous passez 1 minute à faire de rapides ajustements aux vêtements et à l'apparence de quelqu'un, permettant à ses mots de peser davantage face à un public de votre choix. En parlant avec ce public, la cible obtient un bonus d'objet de +1 à ses tests de Représentation et de Diplomatie. Si vous êtes Maître en Artisanat, le bonus passe à +2 ; si vous êtes légendaire en Artisanat, le bonus passe à +3. Ce bonus dure jusqu'à ce que la capacité soit utilisée à nouveau sur la cible, que la situation pour laquelle vos préparatifs ont été effectués s'achèvent ou jusqu'à son prochain changement de tenue."
+                    "Vous passez 1 minute à faire de rapides ajustements aux vêtements et à l'apparence de quelqu'un, permettant à ses mots de peser davantage face à un public de votre choix. En parlant avec ce public, la cible obtient un bonus d'objet de +1 à ses tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> et de Diplomatie. Si vous êtes Maître en Artisanat, le bonus passe à +2 ; si vous êtes légendaire en Artisanat, le bonus passe à +3. Ce bonus dure jusqu'à ce que la capacité soit utilisée à nouveau sur la cible, que la situation pour laquelle vos préparatifs ont été effectués s'achèvent ou jusqu'à son prochain changement de tenue."
                 ]
             },
             {
@@ -3059,7 +3059,7 @@ DON.SKILL = {
                     "Dévouement : Dandy"
                 ],
                 "description" : [
-                    "Grâce à votre expérience des nombreuses fêtes organisées chaque nuit dans les clubs et les domaines du District des Pétales, vous comprenez comment les rumeurs et les commérages circulent au cours des événements sociaux. Vous pouvez utiliser l'activité Influencer une rumeur lors d'un événement social auquel assiste un grand groupe de gens, comme un gala ou une fête foraine, réduisant le temps nécessaire à 1d4 heures. Cette capacité ne s'applique pas aux événements secrets ou autres petites réunions privées."
+                    "Grâce à votre expérience des nombreuses fêtes organisées chaque nuit dans les clubs et les domaines du District des Pétales, vous comprenez comment les rumeurs et les commérages circulent au cours des événements sociaux. Vous pouvez utiliser l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HFv62jIK98S2xw4x', 'param__object__label': this.textContent})\">Influencer une rumeur</div> lors d'un événement social auquel assiste un grand groupe de gens, comme un gala ou une fête foraine, réduisant le temps nécessaire à 1d4 heures. Cette capacité ne s'applique pas aux événements secrets ou autres petites réunions privées."
                 ]
             },
             {
@@ -3077,9 +3077,9 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous pouvez tellement effrayer des ennemis qu'ils pourraient en mourir. Faites un test d' contre le DD de Volonté d'une créature vivante située à 9 mètres de vous que vous pouvez percevoir ou observer et qui peut vous percevoir ou vous observer. Si la cible ne peut pas vous entendre ou ne peut pas comprendre la langue que vous parlez, vous subissez une pénalité de circonstances de -4. Ensuite, la créature est temporairement immunisée pendant 1 minute.",
-                    "Succès critique La cible doit réussir un jet de contre votre DD d'Intimidation. En cas d'échec critique, elle meurt. En cas d'échec ou de succès, elle devient Effrayée 2 et est En fuite pendant 1 round. L'effet d'échec critique possède le trait mort.",
-                    "Succès La cible devient Effrayée 2.",
-                    "Échec La cible devient Effrayée 1.",
+                    "Succès critique La cible doit réussir un jet de contre votre DD d'Intimidation. En cas d'échec critique, elle meurt. En cas d'échec ou de succès, elle devient <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 2</div> et est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sDPxOjQ9kx2RZE8D', 'param__object__label': this.textContent})\">En fuite</div> pendant 1 round. L'effet d'échec critique possède le trait mort.",
+                    "Succès La cible devient <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 2</div>.",
+                    "Échec La cible devient <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 1</div>.",
                     "Échec critique La cible n'est pas affectée."
                 ]
             },
@@ -3096,7 +3096,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Déclencheur Vous bondissez.",
-                    "Vous modifiez la forme de votre arme pour vous aider à Bondir plus loin et plus vite. Vous transformez votre arme en une longue perche flexible, un crochet d'escalade ou n'importe quelle aide similaire, en ajoutant 1,50 mètre à la distance à laquelle vous pouvez Bondir. Comme à l'ordinaire, cela ne peut pas augmenter la distance de votre Bond au-delà de votre Vitesse."
+                    "Vous modifiez la forme de votre arme pour vous aider à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondir</div> plus loin et plus vite. Vous transformez votre arme en une longue perche flexible, un crochet d'escalade ou n'importe quelle aide similaire, en ajoutant 1,50 mètre à la distance à laquelle vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondir</div>. Comme à l'ordinaire, cela ne peut pas augmenter la distance de votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bond</div> au-delà de votre Vitesse."
                 ]
             },
             {
@@ -3111,7 +3111,7 @@ DON.SKILL = {
                     "expert en Représentation"
                 ],
                 "description" : [
-                    "Vous faites une démonstration de votre style de combat pour décourager vos ennemis. Vous pouvez utiliser Représentation pour Démoraliser."
+                    "Vous faites une démonstration de votre style de combat pour décourager vos ennemis. Vous pouvez utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div>."
                 ]
             },
             {
@@ -3125,7 +3125,7 @@ DON.SKILL = {
                     "maître en Athlétisme"
                 ],
                 "description" : [
-                    "Vous Nagez 1,50 mètre plus loin sur un succès et 3 mètres plus loin en cas de succès critique, jusqu'à votre Vitesse maximale. Si vous êtes légendaire en Athlétisme, vous obtenez une Vitesse de nage égale à votre Vitesse."
+                    "Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx', 'param__object__label': this.textContent})\">Nagez</div> 1,50 mètre plus loin sur un succès et 3 mètres plus loin en cas de succès critique, jusqu'à votre Vitesse maximale. Si vous êtes légendaire en Athlétisme, vous obtenez une Vitesse de nage égale à votre Vitesse."
                 ]
             },
             {
@@ -3142,7 +3142,7 @@ DON.SKILL = {
                     "maître en a Recall Knowledge skill"
                 ],
                 "description" : [
-                    "Vous racontez une courte histoire ou commencez à narrer un conte plus long. C'est plus utile lorsque vous voulez faire la démonstration de votre crédibilité en tant qu'érudit ou pour impressionner quelqu'un rapidement. Faites un test avec une compétence qui peut être utilisée pour Vous souvenir dans laquelle vous avez un rang d'expert, en utilisant l'entrée de l'action Représentation. Comme donner une Représentation, Conter a rarement un effet en lui-même, mais pourrait avoir une incidence sur les DD de tests de Diplomatie subséquents contre les observateurs — voire de changer leur attitude — si le MJ pense que c'est approprié. Cette action n'est pas une Représentation et ne peut être utilisée à sa place pour tout ce qui nécessite que vous donniez une Représentation."
+                    "Vous racontez une courte histoire ou commencez à narrer un conte plus long. C'est plus utile lorsque vous voulez faire la démonstration de votre crédibilité en tant qu'érudit ou pour impressionner quelqu'un rapidement. Faites un test avec une compétence qui peut être utilisée pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> dans laquelle vous avez un rang d'expert, en utilisant l'entrée de l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>. Comme donner une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, Conter a rarement un effet en lui-même, mais pourrait avoir une incidence sur les DD de tests de Diplomatie subséquents contre les observateurs — voire de changer leur attitude — si le MJ pense que c'est approprié. Cette action n'est pas une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> et ne peut être utilisée à sa place pour tout ce qui nécessite que vous donniez une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>."
                 ]
             },
             {
@@ -3156,7 +3156,7 @@ DON.SKILL = {
                     "qualifié en Legal Lore"
                 ],
                 "description" : [
-                    "Votre expérience dans la négociation et la détermination des conditions au sein des guildes de Heaume vous aide à conclure un accord dans d'autres situations. Lorsque vous négociez des affaires ou des accords, vous pouvez utiliser Connaissance juridiques à la place de Diplomatie pour Faire bonne impression ou une Sollicitation, même s'il n'y a pas de schéma légal sous lequel vous êtes en train de négocier. Si vous êtes un expert en Diplomatie, vous obtenez un bonus de circonstances de +1 sur ces tests. Ce bonus est de +2 si vous êtes maître en Diplomatie et de +3 si vous êtes légendaire."
+                    "Votre expérience dans la négociation et la détermination des conditions au sein des guildes de Heaume vous aide à conclure un accord dans d'autres situations. Lorsque vous négociez des affaires ou des accords, vous pouvez utiliser Connaissance juridiques à la place de Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> ou une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Sollicitation</div>, même s'il n'y a pas de schéma légal sous lequel vous êtes en train de négocier. Si vous êtes un expert en Diplomatie, vous obtenez un bonus de circonstances de +1 sur ces tests. Ce bonus est de +2 si vous êtes maître en Diplomatie et de +3 si vous êtes légendaire."
                 ]
             },
             {
@@ -3170,7 +3170,7 @@ DON.SKILL = {
                     "légende en Diplomatie"
                 ],
                 "description" : [
-                    "Vous pouvez négocier incroyablement rapidement dans des situations défavorables. Vous tentez de Faire bonne impression puis de Solliciter votre adversaire pour qu'il cesse son activité actuelle et engage des négociations. Vous subissez une pénalité de -5 à votre test de Diplomatie. Généralement, le DD de ce test est le DD de Volonté de la créature, bien que le MJ puisse les modifier en fonction de la situation. Certaines créatures pourraient être incapables de cesser quels que soient leurs désirs personnels et même celles qui acceptent de parlementer pourraient finalement trouver vos arguments faibles et retourner à la violence."
+                    "Vous pouvez négocier incroyablement rapidement dans des situations défavorables. Vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> puis de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> votre adversaire pour qu'il cesse son activité actuelle et engage des négociations. Vous subissez une pénalité de -5 à votre test de Diplomatie. Généralement, le DD de ce test est le DD de Volonté de la créature, bien que le MJ puisse les modifier en fonction de la situation. Certaines créatures pourraient être incapables de cesser quels que soient leurs désirs personnels et même celles qui acceptent de parlementer pourraient finalement trouver vos arguments faibles et retourner à la violence."
                 ]
             },
             {
@@ -3187,8 +3187,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Membre des Agitateurs au rang de seconde marque ou supérieur",
-                    "Déclencheur Un allié que vous pouvez voir et entendre est sur le point de tenter un test de Duperie pour Se faire passer pour quelqu'un ou Mentir.",
-                    "En imitant Shensen lorsqu'elle assiste à un spectacle, vous partagez votre connaissance de la région et lâchez quelques noms de personnes importantes pour faire une bonne impression et aider vos alliés à faire de même. Faites un test de Société pour Aider votre allié. En cas de succès, vous parvenez à vous souvenir de quelques détails à propos de la culture et des personnalités locales pour aider à soutenir la Duperie de votre allié. En plus des avantages de votre Aide, l'allié déclencheur lance son test de Duperie deux fois et conserve le meilleur résultat. C'est un effet de fortune."
+                    "Déclencheur Un allié que vous pouvez voir et entendre est sur le point de tenter un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Se faire passer pour</div> quelqu'un ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div>.",
+                    "En imitant Shensen lorsqu'elle assiste à un spectacle, vous partagez votre connaissance de la région et lâchez quelques noms de personnes importantes pour faire une bonne impression et aider vos alliés à faire de même. Faites un test de Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HCl3pzVefiv9ZKQW', 'param__object__label': this.textContent})\">Aider</div> votre allié. En cas de succès, vous parvenez à vous souvenir de quelques détails à propos de la culture et des personnalités locales pour aider à soutenir la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> de votre allié. En plus des avantages de votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HCl3pzVefiv9ZKQW', 'param__object__label': this.textContent})\">Aide</div>, l'allié déclencheur lance son test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> deux fois et conserve le meilleur résultat. C'est un effet de fortune."
                 ]
             },
             {
@@ -3203,7 +3203,7 @@ DON.SKILL = {
                     "maître en a skill with the Recall Knowledge action"
                 ],
                 "description" : [
-                    "Vous avez maîtrisé l'art de tromper les autres dans votre champ d'étude. Lorsque vous obtenez ce don, choisissez une compétence de Connaissance disposant de l'action Se souvenir dans laquelle vous êtes maître. Vous pouvez tenter de tromper les autres sur la vérité des faits et les connaissances liés à cette compétence, comme prétendre par exemple savoir quelque chose que vous ne connaissez pas, donner de fausses informations ou autre chose, en utilisant l'action Mentir de la compétence Duperie. Lorsque vous Mentez de cette manière, effectuez un test en utilisant la compétence que vous avez choisie lorsque vous avez obtenu ce don au lieu de Duperie, appliquez tous les bonus ou pénalités relatifs à la compétence sélectionnée lors du test.",
+                    "Vous avez maîtrisé l'art de tromper les autres dans votre champ d'étude. Lorsque vous obtenez ce don, choisissez une compétence de Connaissance disposant de l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> dans laquelle vous êtes maître. Vous pouvez tenter de tromper les autres sur la vérité des faits et les connaissances liés à cette compétence, comme prétendre par exemple savoir quelque chose que vous ne connaissez pas, donner de fausses informations ou autre chose, en utilisant l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> de la compétence <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentez</div> de cette manière, effectuez un test en utilisant la compétence que vous avez choisie lorsque vous avez obtenu ce don au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, appliquez tous les bonus ou pénalités relatifs à la compétence sélectionnée lors du test.",
                     "Bien qu'il soit plus facile de convaincre quelqu'un qui ne sait rien de la fausse information que vous avez choisie, en cas de succès critique, vous pouvez même convaincre quelqu'un qui a entendu quelque chose de contraire, à moins qu'il n'ait des raisons d'en être certain du fait d'une expérience directe. Par exemple, vous pourriez dire : \"Je sais que vous avez entendu parler de l'utilisation d'armes en argent contre les vampires mais c'est une idée fausse que vous vous faites basée sur l'amalgame avec les loups-garous. Selon tous les érudits crédibles, du fer froid fera l'affaire.\" Une fois qu'une créature réalise que vous avez utilisé Obscurcissement magistral pour lui mentir, soit à cause d'un test raté, soit parce qu'elle a découvert plus tard le mensonge, vous ne pouvez pas utiliser ce don contre elle de nouveau car son utilisation repose sur la confiance aveugle en vos connaissances supérieures. Cependant, vous pouvez toujours lui mentir normalement."
                 ]
             },
@@ -3220,7 +3220,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Choisissez un type de terrain sur la liste suivante : aquatique, arctique, ciel, désert, forêt, marais, montagne, plaines ou souterrains. Vous pouvez utiliser Survie au lieu de Perception pour déterminer l'initiative lorsque vous êtes sur le terrain choisi dans un lieu naturel (pas dans une structure) même si vous n'étiez pas en train de pister ou d'utiliser Survie avant la rencontre.",
-                    "Vous pouvez également utiliser Survie au lieu de Perception pour remarquer des pièges dans les lieux naturels sur le terrain choisi ; Si vous trouvez un piège artisanal de cette manière, vous pouvez utiliser aussi la Survie plutôt que Vol pour Désamorcer le dispositif.",
+                    "Vous pouvez également utiliser Survie au lieu de Perception pour remarquer des pièges dans les lieux naturels sur le terrain choisi ; Si vous trouvez un piège artisanal de cette manière, vous pouvez utiliser aussi la Survie plutôt que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cYdz2grcOcRt4jk6', 'param__object__label': this.textContent})\">Désamorcer le dispositif</div>.",
                     "Spécial Vous pouvez choisir ce don plus d'une fois. Chaque fois que vous le sélectionnez, le don s'appliquer à un nouveau type de terrain."
                 ]
             },
@@ -3235,7 +3235,7 @@ DON.SKILL = {
                     "qualifié en Survie"
                 ],
                 "description" : [
-                    "Vous pouvez étudier les détails des régions sauvages pour déterminer la présence de créatures proches. Vous pouvez passer 10 minutes à évaluer la zone autour de vous pour découvrir quelles créatures se trouvent à proximité, en vous basant sur les nids, les excréments et les marques sur la végétation. Faites un test de Survie contre un DD déterminé par le MJ en fonction de l'évidence des signes. En cas de succès, vous pouvez tenter un test pour Vous souvenir avec une pénalité de -2 pour en apprendre plus au sujet des créatures juste à partir de ces signes. Si vous êtes maître en Survie, vous ne subissez pas la pénalité."
+                    "Vous pouvez étudier les détails des régions sauvages pour déterminer la présence de créatures proches. Vous pouvez passer 10 minutes à évaluer la zone autour de vous pour découvrir quelles créatures se trouvent à proximité, en vous basant sur les nids, les excréments et les marques sur la végétation. Faites un test de Survie contre un DD déterminé par le MJ en fonction de l'évidence des signes. En cas de succès, vous pouvez tenter un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> avec une pénalité de -2 pour en apprendre plus au sujet des créatures juste à partir de ces signes. Si vous êtes maître en Survie, vous ne subissez pas la pénalité."
                 ]
             },
             {
@@ -3273,11 +3273,11 @@ DON.SKILL = {
                     "Fréquence Une fois par jour",
                     "Accès Vous êtes membre des Seigneurs de l'Arc du Nex.",
                     "Un troisième œil incandescent s'ouvre sur votre front. Il peut rester ouvert jusqu'à une minute. Vous pouvez le fermer avant cela avec une action unique dotée du trait concentration. Il peut rester ouvert 2 minutes si vous êtes maître en Arcanes et 5 minutes si vous êtes légendaire. Tant que l'œil est ouvert, vous bénéficiez des avantages suivants :",
-                    "Vous gagnez les effets du sort arcanique inné Détection de la magie issu de votre Sens arcanique au début de chacun de vos tours, sans avoir besoin de le lancer",
-                    "Vous gagnez Vision dans le noir",
-                    "Vous obtenez un bonus de statut de +2 aux tests de Perception pour Chercher une créature non détectée ou Cachée et au DD de vos tests de Perception contre Se cacher et Être furtif.",
-                    "Effet : Œil des Seigneurs de l'Arc",
-                    "Une fois que votre troisième œil se ferme, vous êtes Ébloui pendant aussi longtemps que vous l'avez gardé ouvert."
+                    "Vous gagnez les effets du sort arcanique inné <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Yb0C1uLzeHrVLl7a', 'param__object__label': this.textContent})\">Détection de la magie</div> issu de votre Sens arcanique au début de chacun de vos tours, sans avoir besoin de le lancer",
+                    "Vous gagnez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pZTqGY1MLRjgKasV', 'param__object__label': this.textContent})\">Vision dans le noir</div>",
+                    "Vous obtenez un bonus de statut de +2 aux tests de Perception pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Chercher</div> une créature non détectée ou Cachée et au DD de vos tests de Perception contre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Se cacher</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div>.",
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5IGz4iheaiUWm5KR', 'param__object__label': this.textContent})\">Effet : Œil des Seigneurs de l'Arc</div>",
+                    "Une fois que votre troisième œil se ferme, vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TkIyaNPgTZFBCCuh', 'param__object__label': this.textContent})\">Ébloui</div> pendant aussi longtemps que vous l'avez gardé ouvert."
                 ]
             },
             {
@@ -3292,8 +3292,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous avez appris à estimer rapidement le nombre d'objets dans un groupe avec une précision relative en un coup d'œil. Vous apprenez immédiatement le nombre d'objets visuellement semblables dans un groupe que vous pouvez voir, arrondi au premier chiffre du nombre total. Par exemple, vous pourriez regarder une valise de flacons de potions et apprendre qu'il contient environ 30 fioles, mais vous ne pourriez savoir qu'il en contient exactement 33, combien de types différents de potions il y avait, ou combien de quel type. De la même manière vous pourriez regarder une pile de 2.805 pièces et savoir qu'il y avait environ 3.000 pièces en tout.",
-                    "Si vous comptez un nombre spécifique d'objets en possession d'un ennemi, tels que le nombre de pièces ou d'éléments d'équipement qu'il porte, vous pouvez utiliser cette information la prochaine fois que vous Feintez ou Créez une diversion contre cette cible, pendant 1 minute. Si vous le faites, vous bénéficiez d'un bonus de circonstances de +1 à votre test et pouvez utiliser Société au lieu de Duperie pour le faire.",
-                    "Vous pouvez utiliser cette action lorsque vous essayez de Déchiffrer un texte qui est essentiellement numérique ou mathématique, pour obtenir un bonus de circonstances de +2 à votre test."
+                    "Si vous comptez un nombre spécifique d'objets en possession d'un ennemi, tels que le nombre de pièces ou d'éléments d'équipement qu'il porte, vous pouvez utiliser cette information la prochaine fois que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QNAVeNKtHA0EUw4X', 'param__object__label': this.textContent})\">Feintez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Créez une diversion</div> contre cette cible, pendant 1 minute. Si vous le faites, vous bénéficiez d'un bonus de circonstances de +1 à votre test et pouvez utiliser Société au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour le faire.",
+                    "Vous pouvez utiliser cette action lorsque vous essayez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrer un texte</div> qui est essentiellement numérique ou mathématique, pour obtenir un bonus de circonstances de +2 à votre test."
                 ]
             },
             {
@@ -3309,7 +3309,7 @@ DON.SKILL = {
                     "Dévouement : Dompteur"
                 ],
                 "description" : [
-                    "Lorsque vous obtenez un succès pour Diriger un animal, vous obtenez un succès critique. Si vous obtenez un échec critique, vous obtenez un échec."
+                    "Lorsque vous obtenez un succès pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div>, vous obtenez un succès critique. Si vous obtenez un échec critique, vous obtenez un échec."
                 ]
             },
             {
@@ -3323,7 +3323,7 @@ DON.SKILL = {
                     "qualifié en Duperie"
                 ],
                 "description" : [
-                    "Vous pouvez utiliser Duperie pour semer des embûches pour découvrir que quelqu'un essaie de vous tromper. Si vous pouvez engager la conversation avec quelqu'un qui essaie de vous Mentir, utilisez votre DD de Duperie s'il est supérieur à votre DD de Perception pour déterminer s'il y parvient. Cela ne s'applique pas si vous ne dialoguez pas l'un avec l'autre, comme lorsque quelqu'un tente de Mentir pendant un long discours."
+                    "Vous pouvez utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour semer des embûches pour découvrir que quelqu'un essaie de vous tromper. Si vous pouvez engager la conversation avec quelqu'un qui essaie de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div>, utilisez votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> s'il est supérieur à votre DD de Perception pour déterminer s'il y parvient. Cela ne s'applique pas si vous ne dialoguez pas l'un avec l'autre, comme lorsque quelqu'un tente de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> pendant un long discours."
                 ]
             },
             {
@@ -3337,8 +3337,8 @@ DON.SKILL = {
                     "qualifié en Artisanat"
                 ],
                 "description" : [
-                    "Vous pouvez bricoler des solutions lorsque vous ne disposez pas des outils appropriés. Vous pouvez tenter de Réparer les objets endommagés sans disposer d'une trousse de réparation.",
-                    "Si vous disposez de matériaux bruts accessibles, vous pouvez Fabriquer des Chausses trappes basiques, des Bougies, une Boussole, un pied-de-biche, des Articles de pêche, un silex et amorce, un Marteau, une Échelle, un Piton, de la Corde, une Perche de 3 m, des Crochets de remplacement pour la trousse du voleur, un outil long ou un Outil court ou encore une Torche comme si vous disposiez de leurs formules."
+                    "Vous pouvez bricoler des solutions lorsque vous ne disposez pas des outils appropriés. Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer</div> les objets endommagés sans disposer d'une trousse de réparation.",
+                    "Si vous disposez de matériaux bruts accessibles, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> des <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7fSnvJ2xoSfa6JXD', 'param__object__label': this.textContent})\">Chausses trappes</div> basiques, des <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Ti4gWILk69LPxKuU', 'param__object__label': this.textContent})\">Bougies</div>, une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wob6DB1FFdWs0mbp', 'param__object__label': this.textContent})\">Boussole</div>, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '44F1mfJei4GY8f2X', 'param__object__label': this.textContent})\">pied-de-biche</div>, des <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3tOyV4VZEZhwnAMO', 'param__object__label': this.textContent})\">Articles de pêche</div>, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UlIxxLm71UdRgCFE', 'param__object__label': this.textContent})\">silex et amorce</div>, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ML0GR2cIEdMn2hoD', 'param__object__label': this.textContent})\">Marteau</div>, une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '5j5KyZsGOfbrJNUZ', 'param__object__label': this.textContent})\">Échelle</div>, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oX39xqMLVB8kNrY0', 'param__object__label': this.textContent})\">Piton</div>, de la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fyYnQf1NAx9fWFaS', 'param__object__label': this.textContent})\">Corde</div>, une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ccsgob2TZ7WqTrp7', 'param__object__label': this.textContent})\">Perche de 3 m</div>, des <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Sw7MBLASN3xK4Y44', 'param__object__label': this.textContent})\">Crochets de remplacement pour la trousse du voleur</div>, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wrpI5z7iWB8XvflQ', 'param__object__label': this.textContent})\">outil long</div> ou un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Zr4PwTEuBLE30kkn', 'param__object__label': this.textContent})\">Outil court</div> ou encore une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '8Jdw4yAzWYylGePS', 'param__object__label': this.textContent})\">Torche</div> comme si vous disposiez de leurs formules."
                 ]
             },
             {
@@ -3372,7 +3372,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous savez que lorsqu'un animal meurt, son esprit s'attarde brièvement avant de partir. En utilisant des chants sourds, un langage corporel qui dénote votre respect et des mouvements spéciaux qui démontrent à l'esprit que vous êtes un allié, vous glanez des informations auprès de cet esprit avant qu'il ne parte. Cette activité dure une minute. Vous devez commencer l'activité en étant adjacent au corps d'un animal ou d'une bête qui est mort au cours de la dernière minute.",
-                    "Dans le cadre de cette activité, vous posez une question simple à l'esprit. Tentez un test de Nature contre un DD déterminé par le MJ (normalement, il s'agit du DD correspondant au niveau de l'animal ou de la bête lorsqu'il était vivant). Quel que soit le résultat de votre test, l'esprit s'en va immédiatement après et ne peut plus être utilisé pour Parle-esprit. Si la créature avait l'état Confus ou Effrayé quand elle est morte, vous ne pouvez pas obtenir un résultat meilleur qu'un échec critique.",
+                    "Dans le cadre de cette activité, vous posez une question simple à l'esprit. Tentez un test de Nature contre un DD déterminé par le MJ (normalement, il s'agit du DD correspondant au niveau de l'animal ou de la bête lorsqu'il était vivant). Quel que soit le résultat de votre test, l'esprit s'en va immédiatement après et ne peut plus être utilisé pour Parle-esprit. Si la créature avait l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yblD8fOR1J8rDwEQ', 'param__object__label': this.textContent})\">Confus</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> quand elle est morte, vous ne pouvez pas obtenir un résultat meilleur qu'un échec critique.",
                     "Seule une créature peut utiliser Parle-esprit sur un animal mort donné, puisque l'effort nécessite l'attention complète de l'esprit.",
                     "Succès critique L'esprit vous répond sincèrement. La réponse de l'esprit est susceptible d'être laconique ou cryptique par rapport à une communication normale avec un animal, et elle ne peut concerner que des choses que la créature a directement vécues ou considérées comme importantes. L'esprit ne se souvient pas de ce qui s'est passé il y a plus d'un jour.",
                     "Succès Comme en cas de succès critique, mais l'esprit ne se souvient pas de ce qui s'est passé il y a plus d'une heure.",
@@ -3396,7 +3396,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Conditions La cible alliée a perdu des points d'Endurance au cours du dernier round.",
-                    "Vous tenez à un allié dans les 9 mètres un bref discours d'encouragement, l'aidant à récupérer. Faites un test de Diplomatie. Le DD est habituellement de 15, bien que le MJ puisse l'ajuster en fonction des circonstances. Si vous êtes expert en Diplomatie, vous pouvez faire un test contre un DD 20 pour augmenter le nombre de points d'Endurance récupérés de 5 ; si vous êtes maître, vous pouvez tenter un test contre un DD 30 pour augmenter le nombre de points d'Endurance de 15 ; si vous êtes légendaire, vous pouvez faire un test contre un DD 40 pour augmenter les points d'Endurance de 25. Quel que soit le résultat, l'allié est temporairement immunisé aux Paroles d'encouragement jusqu'à ce qu'il ait soit Repris son souffle ou qu'il se soit reposé au cours de la journée.",
+                    "Vous tenez à un allié dans les 9 mètres un bref discours d'encouragement, l'aidant à récupérer. Faites un test de Diplomatie. Le DD est habituellement de 15, bien que le MJ puisse l'ajuster en fonction des circonstances. Si vous êtes expert en Diplomatie, vous pouvez faire un test contre un DD 20 pour augmenter le nombre de points d'Endurance récupérés de 5 ; si vous êtes maître, vous pouvez tenter un test contre un DD 30 pour augmenter le nombre de points d'Endurance de 15 ; si vous êtes légendaire, vous pouvez faire un test contre un DD 40 pour augmenter les points d'Endurance de 25. Quel que soit le résultat, l'allié est temporairement immunisé aux Paroles d'encouragement jusqu'à ce qu'il ait soit <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qc0VsZ0UesnurUUB', 'param__object__label': this.textContent})\">Repris son souffle</div> ou qu'il se soit reposé au cours de la journée.",
                     "Succès critique L'allié récupère 2d8 points d'Endurance",
                     "Succès L'allié récupère 1d8 Points d'Endurance.",
                     "Échec critique L'allié subit 1d8 dégâts mentaux, mais cela ne peut que réduire les Points d'Endurance, jamais les Points de vie."
@@ -3418,7 +3418,7 @@ DON.SKILL = {
                     "qualifié en Diplomatie"
                 ],
                 "description" : [
-                    "Vous tentez de réduire la panique. Faites un test de et comparez le au DD de Volonté des créatures dans une émanation de 3 mètres autour de vous qui sont Effrayées. Chacune d'entre elle est ensuite temporairement immunisée pendant 1 heure à l'utilisation de ce don.",
+                    "Vous tentez de réduire la panique. Faites un test de et comparez le au DD de Volonté des créatures dans une émanation de 3 mètres autour de vous qui sont <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayées</div>. Chacune d'entre elle est ensuite temporairement immunisée pendant 1 heure à l'utilisation de ce don.",
                     "Succès critique Réduisez l'état Effrayé de la créature de 2.",
                     "Succès Réduisez l'état Effrayé de la créature de 1."
                 ]
@@ -3437,7 +3437,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès membre des Agitateurs au rang de seconde marque ou supérieur",
-                    "Ishii Bunji est un cascadeur accompli et apprendre sa technique vous permet de vous propulser sur le champ de bataille avant même que vos ennemis n'aient pu réagir. Lorsque vous réalisez un Déplacement acrobatique, vous Marchez rapidement jusqu'à deux fois votre Vitesse."
+                    "Ishii Bunji est un cascadeur accompli et apprendre sa technique vous permet de vous propulser sur le champ de bataille avant même que vos ennemis n'aient pu réagir. Lorsque vous réalisez un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '21WIfSu7Xd7uKqV8', 'param__object__label': this.textContent})\">Déplacement acrobatique</div>, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marchez rapidement</div> jusqu'à deux fois votre Vitesse."
                 ]
             },
             {
@@ -3452,7 +3452,7 @@ DON.SKILL = {
                     "Dévouement : Sentinelle"
                 ],
                 "description" : [
-                    "Vous portez votre armure comme une seconde peau, trouvant confort dans la protection qu'elle offre. Vous ne devenez pas Fatigué si vous dormez avec votre armure."
+                    "Vous portez votre armure comme une seconde peau, trouvant confort dans la protection qu'elle offre. Vous ne devenez pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw', 'param__object__label': this.textContent})\">Fatigué</div> si vous dormez avec votre armure."
                 ]
             },
             {
@@ -3461,11 +3461,11 @@ DON.SKILL = {
                 "traits" : [],
                 "required" : [],
                 "description" : [
-                    "Lorsque vous utilisez une action de déplacement pour Marcher rapidement, vous pouvez tenter un test d' pour faire une roulade avant.",
-                    "Succès critique Vous obtenez 1,50 mètre de déplacement supplémentaire à vos Vitesses et pouvez passer au travers d'obstacles solides tels que des murs jusqu'à la fin de votre action de Marche rapide.",
-                    "Succès Vous obtenez 1,50 mètre de déplacement supplémentaire à vos Vitesses jusqu'à la fin de votre action de Marche rapide.",
-                    "Échec Vous perdez 1,50 mètre de déplacement à vos Vitesses jusqu'à la fin de votre action de Marche rapide.",
-                    "Échec critique Votre personnage se bloque et est Paralysé de manière permanente. Seul un rituel de Souhait ou une magie similaire peut inverser cet effet."
+                    "Lorsque vous utilisez une action de déplacement pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div>, vous pouvez tenter un test d' pour faire une roulade avant.",
+                    "Succès critique Vous obtenez 1,50 mètre de déplacement supplémentaire à vos Vitesses et pouvez passer au travers d'obstacles solides tels que des murs jusqu'à la fin de votre action de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div>.",
+                    "Succès Vous obtenez 1,50 mètre de déplacement supplémentaire à vos Vitesses jusqu'à la fin de votre action de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div>.",
+                    "Échec Vous perdez 1,50 mètre de déplacement à vos Vitesses jusqu'à la fin de votre action de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marche rapide</div>.",
+                    "Échec critique Votre personnage se bloque et est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6uEgoh53GbXuHpTF', 'param__object__label': this.textContent})\">Paralysé</div> de manière permanente. Seul un rituel de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '6dDtGIUerazSHIOu', 'param__object__label': this.textContent})\">Souhait</div> ou une magie similaire peut inverser cet effet."
                 ]
             },
             {
@@ -3479,7 +3479,7 @@ DON.SKILL = {
                     "Dévouement : Duelliste Aldori"
                 ],
                 "description" : [
-                    "Vous êtes toujours prêt pour un nouveau duel et vous avez été entraîné à démarrer et terminer les combats rapidement. Lorsque vous êtes dans un duel ou pouvez voir exactement une créature, vous pouvez toujours déterminer l'initiative en lançant Connaissance des duels. Si vous le faites pendant un duel, vous devez choisir parmi Duperie, Intimidation ou Perception lorsque vous déterminez l'initiative. Vous êtes considéré comme ayant utilisé la compétence choisie pour déterminer l'initiative pour les besoins des actions de duel."
+                    "Vous êtes toujours prêt pour un nouveau duel et vous avez été entraîné à démarrer et terminer les combats rapidement. Lorsque vous êtes dans un duel ou pouvez voir exactement une créature, vous pouvez toujours déterminer l'initiative en lançant Connaissance des duels. Si vous le faites pendant un duel, vous devez choisir parmi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, Intimidation ou Perception lorsque vous déterminez l'initiative. Vous êtes considéré comme ayant utilisé la compétence choisie pour déterminer l'initiative pour les besoins des actions de duel."
                 ]
             },
             {
@@ -3494,8 +3494,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous comprenez les principes de la médecine forensique, ce qui vous rend plus à même d'examiner un corps à la recherche des causes de la mort ou d'une blessure.",
-                    "Vous pouvez réaliser un examen forensique sur un corps, comme indiqué sous Se souvenir de connaissances dans la compétence de Médecine en la moitié du temps normal (avec un minimum de 5 minutes). Si vous réussissez ce test, vous pouvez effectuer immédiatement un test de Se souvenir de connaissances pour Suivre une piste que vous venez de trouver et ce, avec un bonus de circonstances de +2.",
-                    "Ce test correspond généralement à la cause de la mort ou de la blessure, comme un test d'Artisanat pour identifier le poison ou l'arme utilisée ou un second test de Médecine pour identifier une maladie précise. Si vous préférez, au lieu de cela, vous pouvez tenter de Vous souvenir de connaissances au sujet du type de créature dont vous venez d'examiner le corps, en utilisant la compétence correspondante et en profitant du même bonus de circonstances.",
+                    "Vous pouvez réaliser un examen forensique sur un corps, comme indiqué sous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> de connaissances dans la compétence de Médecine en la moitié du temps normal (avec un minimum de 5 minutes). Si vous réussissez ce test, vous pouvez effectuer immédiatement un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> de connaissances pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xTK2zsWFyxSJvYbX', 'param__object__label': this.textContent})\">Suivre une piste</div> que vous venez de trouver et ce, avec un bonus de circonstances de +2.",
+                    "Ce test correspond généralement à la cause de la mort ou de la blessure, comme un test d'Artisanat pour identifier le poison ou l'arme utilisée ou un second test de Médecine pour identifier une maladie précise. Si vous préférez, au lieu de cela, vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> de connaissances au sujet du type de créature dont vous venez d'examiner le corps, en utilisant la compétence correspondante et en profitant du même bonus de circonstances.",
                     "Le bonus de circonstances passe à +3 si vous êtes maître en Médecine et à +4 si vous êtes légendaire."
                 ]
             },
@@ -3513,8 +3513,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois toutes les 10 minutes",
-                    "Déclencheur Vous réussissez à Démoraliser un ennemi.",
-                    "Vous incrustez une peur divine dans l'ennemi déclencheur qui dure 10 minutes. Au cours de cette période, vous ignorez l'immunité temporaire de cette créature à vos tentatives de la Démoraliser et chaque fois que vous réussissez à Démoraliser l'ennemi déclencheur, vous pouvez à la place augmenter la valeur de son état Effrayé existant de 1 (ou de 2 sur un succès critique) jusqu'à un maximum d'Effrayé 4."
+                    "Déclencheur Vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un ennemi.",
+                    "Vous incrustez une peur divine dans l'ennemi déclencheur qui dure 10 minutes. Au cours de cette période, vous ignorez l'immunité temporaire de cette créature à vos tentatives de la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> et chaque fois que vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> l'ennemi déclencheur, vous pouvez à la place augmenter la valeur de son état Effrayé existant de 1 (ou de 2 sur un succès critique) jusqu'à un maximum d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé 4</div>."
                 ]
             },
             {
@@ -3545,7 +3545,7 @@ DON.SKILL = {
                     "expert en Athlétisme"
                 ],
                 "description" : [
-                    "Vous connaissez les secrets pour vous déplacer sur votre Terrain de prédilection. Vous obtenez un bonus de circonstances de +2 aux tests de compétence pour vous déplacer sur votre terrain de prédilection, tels que les tests d'Acrobaties pour Garder l'équilibre sur la glace, ceux d'Athlétisme pour Nager dans les eaux agitées, les tests d'Acrobaties pour Voler dans les conditions venteuses, etc."
+                    "Vous connaissez les secrets pour vous déplacer sur votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sgo7J9BVofBqwlsF', 'param__object__label': this.textContent})\">Terrain de prédilection</div>. Vous obtenez un bonus de circonstances de +2 aux tests de compétence pour vous déplacer sur votre terrain de prédilection, tels que les tests d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Garder l'équilibre</div> sur la glace, ceux d'Athlétisme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx', 'param__object__label': this.textContent})\">Nager</div> dans les eaux agitées, les tests d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Voler</div> dans les conditions venteuses, etc."
                 ]
             },
             {
@@ -3576,7 +3576,7 @@ DON.SKILL = {
                     "qualifié en Survie"
                 ],
                 "description" : [
-                    "Pister est une seconde nature pour vous et, quand cela est nécessaire, vous pouvez suivre une piste sans relâche. Vous pouvez Pister en vous déplaçant à votre pleine Vitesse en subissant une pénalité de -5 à votre test de Survie. Si vous êtes maître en Survie, vous ne subissez pas la pénalité de -5. Si vous êtes légendaire, vous n'avez plus besoin d'effectuer de nouveau test de Survie toutes les heures quand vous pistez, bien que vous deviez toujours en effectuer un chaque fois que des changements importants se produisent sur le parcours."
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD', 'param__object__label': this.textContent})\">Pister</div> est une seconde nature pour vous et, quand cela est nécessaire, vous pouvez suivre une piste sans relâche. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD', 'param__object__label': this.textContent})\">Pister</div> en vous déplaçant à votre pleine Vitesse en subissant une pénalité de -5 à votre test de Survie. Si vous êtes maître en Survie, vous ne subissez pas la pénalité de -5. Si vous êtes légendaire, vous n'avez plus besoin d'effectuer de nouveau test de Survie toutes les heures quand vous pistez, bien que vous deviez toujours en effectuer un chaque fois que des changements importants se produisent sur le parcours."
                 ]
             },
             {
@@ -3592,7 +3592,7 @@ DON.SKILL = {
                 "description" : [
                     "Vous êtes constamment en train de faire des plans et des scénarios de bataille, déterminant des stratégies et recueillant des renseignement pour les utiliser par la suite. Lorsque vous reconnaissez une position ennemie ou recevez un rapport détaillé d'un allié qui a recueilli du renseignement sur la position ennemie, si vous obtenez des indications claires de leur nombre, de leur position et de l'identité des potentiels adversaires, vous pouvez passer 1 minute à établir un plan de bataille qui prend en compte les facteurs potentiels et réduit le rôle de la chance dans l'équation.",
                     "Faites un test de Connaissance de la guerre. Tant que l'information a été précise et le reste, lorsque vous déterminez l'initiative contre ces ennemis,vous pouvez utiliser le résultat du test de Connaissance de la guerre que vous avez précédemment obtenu pour votre test d'initiative. Si vous faites ainsi, c'est un effet de fortune.",
-                    "Effet : Planificateur de bataille"
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZkYDgSSlKML9BUjg', 'param__object__label': this.textContent})\">Effet : Planificateur de bataille</div>"
                 ]
             },
             {
@@ -3667,7 +3667,7 @@ DON.SKILL = {
                     "qualifié en Athlétisme"
                 ],
                 "description" : [
-                    "Vous êtes autant chez vous sur la cime des arbres qu'en dessous de leurs branches. Vous obtenez une vitesse d'escalade de 4,50 mètres lorsque vous vous déplacez à travers les arbres, les lianes et tout autre feuillage. Lorsque vous réussissez un test d'Athlétisme pour Escalader un arbre ou un test d'Acrobaties pour Garder l'équilibre sur une branche, il devient un succès critique. Vous n'êtes pas Pris au dépourvu lorsque vous Escaladez ou Gardez l'équilibre sur un arbre."
+                    "Vous êtes autant chez vous sur la cime des arbres qu'en dessous de leurs branches. Vous obtenez une vitesse d'escalade de 4,50 mètres lorsque vous vous déplacez à travers les arbres, les lianes et tout autre feuillage. Lorsque vous réussissez un test d'Athlétisme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div> un arbre ou un test d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Garder l'équilibre</div> sur une branche, il devient un succès critique. Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escaladez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'M76ycLAqHoAgbcej', 'param__object__label': this.textContent})\">Gardez l'équilibre</div> sur un arbre."
                 ]
             },
             {
@@ -3720,7 +3720,7 @@ DON.SKILL = {
                     "expert en Athlétisme"
                 ],
                 "description" : [
-                    "Lorsque vous grimpez, vous pouvez préparer la route pour que les autres vous suivent et vous pouvez assurer vos alliés pour éviter un désastre. Lorsque vos alliés tentent d'Escalader en suivant la route que vous avez tracée en utilisant l'activité d'exploration Suivre l'expert, en cas d'échec critique pour Escalader, vous pouvez tenter un test d'Athlétisme contre le même DD. Si vous réussissez, votre allié subit qu'un échec au lieu d'un échec critique. Si vous obtenez aussi un échec critique, vous faites tous les deux l'expérience des conséquences de l'échec critique."
+                    "Lorsque vous grimpez, vous pouvez préparer la route pour que les autres vous suivent et vous pouvez assurer vos alliés pour éviter un désastre. Lorsque vos alliés tentent d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div> en suivant la route que vous avez tracée en utilisant l'activité d'exploration <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tfa4Sh7wcxCEqL29', 'param__object__label': this.textContent})\">Suivre l'expert</div>, en cas d'échec critique pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div>, vous pouvez tenter un test d'Athlétisme contre le même DD. Si vous réussissez, votre allié subit qu'un échec au lieu d'un échec critique. Si vous obtenez aussi un échec critique, vous faites tous les deux l'expérience des conséquences de l'échec critique."
                 ]
             },
             {
@@ -3736,7 +3736,7 @@ DON.SKILL = {
                     "maître en Médecine"
                 ],
                 "description" : [
-                    "Vous utilisez vos qualifications médicales pour améliorer l'état des malades et pour dissiper les peurs. Lorsque vous utilisez Médecine pour Prodiguer les premiers soins, au lieu de Stabiliser un personnage ou d'Arrêter un saignement, vous pouvez réduire l'état d'un allié Effrayé ou Nauséeux de 2 ou de dissiper un de ces états entièrement en cas de succès critique. Vous ne pouvez mettre un terme qu'à un état à la fois. Le DD pour le test de Médecine est habituellement le DD de l'effet à l'origine de l'état."
+                    "Vous utilisez vos qualifications médicales pour améliorer l'état des malades et pour dissiper les peurs. Lorsque vous utilisez Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div>, au lieu de Stabiliser un personnage ou d'Arrêter un saignement, vous pouvez réduire l'état d'un allié <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18', 'param__object__label': this.textContent})\">Nauséeux</div> de 2 ou de dissiper un de ces états entièrement en cas de succès critique. Vous ne pouvez mettre un terme qu'à un état à la fois. Le DD pour le test de Médecine est habituellement le DD de l'effet à l'origine de l'état."
                 ]
             },
             {
@@ -3751,7 +3751,7 @@ DON.SKILL = {
                     "maître en Société"
                 ],
                 "description" : [
-                    "Vous avez l'habitude de créer des faux qui établissent vos références de hors-la-loi ou augmentent votre autorité légale. Vous pouvez Contrefaire comme une activité d'exploration. Cela vous prend environ 1 heure par page du document que vous contrefaites. Ce temps est réduit à 10 minutes par page si vous êtes légendaire en Société."
+                    "Vous avez l'habitude de créer des faux qui établissent vos références de hors-la-loi ou augmentent votre autorité légale. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ftG89SjTSa9DYDOD', 'param__object__label': this.textContent})\">Contrefaire</div> comme une activité d'exploration. Cela vous prend environ 1 heure par page du document que vous contrefaites. Ce temps est réduit à 10 minutes par page si vous êtes légendaire en Société."
                 ]
             },
             {
@@ -3768,14 +3768,14 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Accès Originaire du Tian Xia",
-                    "L'herboristerie Pei Zing crée des consommables pour des utilisations prophylactiques ou pour traiter les afflictions à long terme. Ce n'est pas adapté pour les situations pressantes, comme soigner des blessures au cours d'un combat mais à accorder des bonus aux patients qui les aident à se protéger ou à récupérer d'afflictions variées. Un personnage qui souhaite utiliser l'herboristerie Pei Zing pour soigner des patients peut le faire en utilisant l'activité Préparer lu remède élémentaire.",
-                    "Vous diagnostiquez votre patient, puis préparez et administrez une dose de remède élémentaire à une créature. Le Matériel de guérisseur contient les ingrédients basiques permettant de fabriquer le remède élémentaire, bien que vous pourriez aussi avoir besoin de réunir de plus puissants ingrédients issus de votre environnement. Les effets du remède durent 24 heures et aucun personnage ne peut bénéficier de plus d'un remède élémentaire au même instant. Faites un test d', de Connaissance de l'herboristerie ou de contre un DD simple du niveau du bénéficiaire (dans le cas d'afflictions particulièrement bien connues ou obscures, le MJ devrait appliquer un ajustement pour respectivement baisser ou augmenter le DD). Comme les moindres caractéristiques de l'état du patient peuvent varier d'un jour à l'autre, vous devez tenter un nouveau test pour préparer un remède élémentaire chaque jour au cours duquel vous soignez un patient, même si l'affliction que vous traitez ne change pas. Vous pouvez diagnostiquer et traiter jusqu'à 6 créatures au cours de vos préparatifs quotidiens, en faisant un test séparé pour chaque patient.",
+                    "L'herboristerie Pei Zing crée des consommables pour des utilisations prophylactiques ou pour traiter les afflictions à long terme. Ce n'est pas adapté pour les situations pressantes, comme soigner des blessures au cours d'un combat mais à accorder des bonus aux patients qui les aident à se protéger ou à récupérer d'afflictions variées. Un personnage qui souhaite utiliser l'herboristerie Pei Zing pour soigner des patients peut le faire en utilisant l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dLgAMt3TbkmLkUqE', 'param__object__label': this.textContent})\">Préparer</div> lu remède élémentaire.",
+                    "Vous diagnostiquez votre patient, puis préparez et administrez une dose de remède élémentaire à une créature. Le <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's1vB3HdXjMigYAnY', 'param__object__label': this.textContent})\">Matériel de guérisseur</div> contient les ingrédients basiques permettant de fabriquer le remède élémentaire, bien que vous pourriez aussi avoir besoin de réunir de plus puissants ingrédients issus de votre environnement. Les effets du remède durent 24 heures et aucun personnage ne peut bénéficier de plus d'un remède élémentaire au même instant. Faites un test d', de Connaissance de l'herboristerie ou de contre un DD simple du niveau du bénéficiaire (dans le cas d'afflictions particulièrement bien connues ou obscures, le MJ devrait appliquer un ajustement pour respectivement baisser ou augmenter le DD). Comme les moindres caractéristiques de l'état du patient peuvent varier d'un jour à l'autre, vous devez tenter un nouveau test pour préparer un remède élémentaire chaque jour au cours duquel vous soignez un patient, même si l'affliction que vous traitez ne change pas. Vous pouvez diagnostiquer et traiter jusqu'à 6 créatures au cours de vos préparatifs quotidiens, en faisant un test séparé pour chaque patient.",
                     "Succès critique Vous diagnostiquez avec précision votre patient. Le MJ décide quel est le déséquilibre élémentaire provoquant les symptômes du patient (quels éléments, ainsi que leur excès ou leur manque) et puis, en utilisant l'information à l'aide de la table des associations élémentaires de Pei Zing ci-dessous, il vous indique quel remède élémentaire est nécessaire pour le combler. À l'aide de cette information, vous identifiez avec précision la propriété élémentaire d'un ingrédient donné et puis vous l'utilisez pour préparer un excellent remède élémentaire qui accorde au bénéficiaire un bonus de circonstances de +2 aux jets de sauvegarde contre l'affliction.",
                     "Succès Comme en cas de succès critique mais le bonus est de +1.",
                     "Échec Vous ne parvenez pas à émettre un diagnostic pour votre patient. Le MJ ne vous indique pas quel déséquilibre élémentaire provoque les symptômes de votre patient, de sorte que vous ne pouvez pas préparer de remède élémentaire.",
                     "Échec critique Votre diagnostic du patient n'est pas exact. Le MJ décide quel déséquilibre élémentaire provoque les symptômes du patient mais vous donne une indication différente, un faux diagnostic et vous indique avec quels ingrédients vous pouvez tenter de soigner les symptômes qui sont en réalité incorrects. De la sorte, votre traitement erroné provoque une pénalité de circonstances de -1 aux jets de sauvegarde contre l'affliction.",
-                    "Effet : Préparer un remède élémentaire",
-                    "De plus, les personnages qui ont accès à Préparer un reède élémentaire possèdent aussi la capacité d'utiliser Artisanat, Connaissance de l'herboristerie ou Médecine pour Se souvenir à propos des afflictions élémentaires et de leurs associations ce qu'ils peuvent faire même s'ils sont inexpérimentés, comme avec les autres utilisations de Se souvenir.",
+                    "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ZqEOsqnGFLI2ob9m', 'param__object__label': this.textContent})\">Effet : Préparer un remède élémentaire</div>",
+                    "De plus, les personnages qui ont accès à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dLgAMt3TbkmLkUqE', 'param__object__label': this.textContent})\">Préparer</div> un reède élémentaire possèdent aussi la capacité d'utiliser Artisanat, Connaissance de l'herboristerie ou Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> à propos des afflictions élémentaires et de leurs associations ce qu'ils peuvent faire même s'ils sont inexpérimentés, comme avec les autres utilisations de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div>.",
                     "Association élémentaire Bois Feu Terre Métal Eau",
                     "Saison Printemps Début de l'été Fin de l'été Chute Hiver",
                     "Goût Aigre Amer Sucré Piquant Salé",
@@ -3804,7 +3804,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Déclencheur Un allié adjacent devient Effrayé ou Stupéfié.",
-                    "Vous utilisez le lien occulte avec vos alliés pour attraper la peur et la confusion qu'ils ressentent. Concentrez vous sur votre calme et tirez sur les émotions de vos alliés à proximité. Réduisez les valeurs des états Effrayé et Stupéfié des alliés adjacents de 1 et augmentez les valeurs de vos états Effrayé et Stupéfié du même montant."
+                    "Vous utilisez le lien occulte avec vos alliés pour attraper la peur et la confusion qu'ils ressentent. Concentrez vous sur votre calme et tirez sur les émotions de vos alliés à proximité. Réduisez les valeurs des états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié</div> des alliés adjacents de 1 et augmentez les valeurs de vos états Effrayé et Stupéfié du même montant."
                 ]
             },
             {
@@ -3839,7 +3839,7 @@ DON.SKILL = {
                     "qualifié en Connaissance"
                 ],
                 "description" : [
-                    "Vous protégez soigneusement vos activités professionnelles pour éviter les catastrophes. Quand vous utilisez Connaissances pour Gagner de l'argent, si vous obtenez un échec critique, il devient un échec. Si vous êtes expert en Connaissance, vous gagnez deux fois plus de revenus suite à un test raté pour Gagner de l'argent, à moins qu'il ne s'agisse au départ d'un échec critique."
+                    "Vous protégez soigneusement vos activités professionnelles pour éviter les catastrophes. Quand vous utilisez Connaissances pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div>, si vous obtenez un échec critique, il devient un échec. Si vous êtes expert en Connaissance, vous gagnez deux fois plus de revenus suite à un test raté pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div>, à moins qu'il ne s'agisse au départ d'un échec critique."
                 ]
             },
             {
@@ -3854,7 +3854,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Votre renommée s'est répandue à travers les territoires (par exemple, si vous avez Connaissance de la guerre, vous pourriez être un général ou un tacticien légendaire).",
-                    "Votre renommée s'est répandue à travers les territoires. Les PNJ qui ont n'importe quelle compétence indiquée en Société ont généralement une attitude envers vous d'un échelon meilleure que la normale, en fonction de votre réputation et de la disposition de la créature. Par exemple, si vous êtes réputé pour votre comportement cruel et exigeant, les créatures pourraient être intimidées par vous plutôt qu'amicales envers vous. Quand vous Gagnez de l'argent avec Connaissance, vous obtenez des métiers égaux à votre niveau ou augmenté de 2 niveaux, si c'est plus élevé."
+                    "Votre renommée s'est répandue à travers les territoires. Les PNJ qui ont n'importe quelle compétence indiquée en Société ont généralement une attitude envers vous d'un échelon meilleure que la normale, en fonction de votre réputation et de la disposition de la créature. Par exemple, si vous êtes réputé pour votre comportement cruel et exigeant, les créatures pourraient être intimidées par vous plutôt qu'amicales envers vous. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagnez de l'argent</div> avec Connaissance, vous obtenez des métiers égaux à votre niveau ou augmenté de 2 niveaux, si c'est plus élevé."
                 ]
             },
             {
@@ -3868,7 +3868,7 @@ DON.SKILL = {
                     "qualifié en Acrobaties ou Athlétisme"
                 ],
                 "description" : [
-                    "Vous êtes capable de vous défaire des liens plus facilement que les autres. Lorsque vous faites un test pour Vous échapper en utilisant Acrobaties ou Athlétisme, vous réduisez la pénalité d'attaques multiples lors des tentatives répétées à -4 et -8 si vous êtes qualifié dans la compétence. Les pénalités passent à -3 et -6 si vous êtes maître dans la compétence appropriée. Si vous êtes légendaire dans la compétence, vous ne subissez pas de pénalité pour les tentatives multiples au cours du même tour. quelle que soit votre maîtrise, vos tentatives pour Vous échapper ont toujours le trait attaque et continuent de compter pour calculer la pénalité d'attaques multiples pour les autres actions."
+                    "Vous êtes capable de vous défaire des liens plus facilement que les autres. Lorsque vous faites un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">Vous échapper</div> en utilisant Acrobaties ou Athlétisme, vous réduisez la pénalité d'attaques multiples lors des tentatives répétées à -4 et -8 si vous êtes qualifié dans la compétence. Les pénalités passent à -3 et -6 si vous êtes maître dans la compétence appropriée. Si vous êtes légendaire dans la compétence, vous ne subissez pas de pénalité pour les tentatives multiples au cours du même tour. quelle que soit votre maîtrise, vos tentatives pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">Vous échapper</div> ont toujours le trait attaque et continuent de compter pour calculer la pénalité d'attaques multiples pour les autres actions."
                 ]
             },
             {
@@ -3883,7 +3883,7 @@ DON.SKILL = {
                     "expert en Intimidation"
                 ],
                 "description" : [
-                    "Dans les situations où vous pouvez physiquement menacer la cible quand vous Contraignez ou Démoralisez, vous obtenez un bonus de circonstances de +1 à votre test d'Intimidation et vous ignorez la pénalité induite par le fait de ne pas partager une langue. Si votre score de Force est de +5 ou supérieur et que vous êtes maître en Intimidation, ce bonus passe à +2."
+                    "Dans les situations où vous pouvez physiquement menacer la cible quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tHCqgwjtQtzNqVvd', 'param__object__label': this.textContent})\">Contraignez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoralisez</div>, vous obtenez un bonus de circonstances de +1 à votre test d'Intimidation et vous ignorez la pénalité induite par le fait de ne pas partager une langue. Si votre score de Force est de +5 ou supérieur et que vous êtes maître en Intimidation, ce bonus passe à +2."
                 ]
             },
             {
@@ -3897,7 +3897,7 @@ DON.SKILL = {
                     "Dévouement : Orateur du crépuscule"
                 ],
                 "description" : [
-                    "Tous les orateurs du crépuscule sont entraînés à résister aux coutumes séduisantes des peuples plus jeunes, mais vous vous êtes donné pour mission de maintenir inchangée la façon de faire des Ilvéranis. Un tel acharnement vous a permis d'acquérir un sens aigu de la subtilité et de la tromperie. Lorsque vous tentez de Deviner les intentions d'une créature humanoïde non-elfe et que vous obtenez un échec critique, il devient un échec."
+                    "Tous les orateurs du crépuscule sont entraînés à résister aux coutumes séduisantes des peuples plus jeunes, mais vous vous êtes donné pour mission de maintenir inchangée la façon de faire des Ilvéranis. Un tel acharnement vous a permis d'acquérir un sens aigu de la subtilité et de la tromperie. Lorsque vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1xRFPTFtWtGJ9ELw', 'param__object__label': this.textContent})\">Deviner les intentions</div> d'une créature humanoïde non-elfe et que vous obtenez un échec critique, il devient un échec."
                 ]
             },
             {
@@ -3912,7 +3912,7 @@ DON.SKILL = {
                     "expert en Gambling Lore"
                 ],
                 "description" : [
-                    "Que ce soit du donneur ou d'un joueur, vous avez appris à repérer les tricheurs. Lorsqu'une autre créature tente de Dissimuler un objet à votre regard, utilisez votre DD de Connaissance du jeu s'il est plus élevé que votre DD de Perception pour déterminer s'il y parvient. Lorsque vous fouillez une créature à la recherche d'un objet Dissimulé, vous pouvez utiliser connaissance du jeu à la place de la Perception."
+                    "Que ce soit du donneur ou d'un joueur, vous avez appris à repérer les tricheurs. Lorsqu'une autre créature tente de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV', 'param__object__label': this.textContent})\">Dissimuler un objet</div> à votre regard, utilisez votre DD de Connaissance du jeu s'il est plus élevé que votre DD de Perception pour déterminer s'il y parvient. Lorsque vous fouillez une créature à la recherche d'un objet <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Dissimulé</div>, vous pouvez utiliser connaissance du jeu à la place de la Perception."
                 ]
             },
             {
@@ -3945,7 +3945,7 @@ DON.SKILL = {
                     "expert en Acrobaties ou Athlétisme"
                 ],
                 "description" : [
-                    "Vous Dirigez un animal pour ordonner à votre monture de Marcher rapidement (ou de Creuser, Escalader, Nager ou Voler si elle possède le type de déplacement correspondant). À tout moment au cours de ce déplacement, elle doit passer à côté de vous. Lorsqu'elle le fait, vous Chevauchez votre monture. Vous pouvez augmenter le nombre d'actions que vous utilisez avec Ramassage au passage à 2 pour faire Marcher rapidement votre monture deux fois ou à 3 pour faire MArcher rapidement votre monture quatre fois. Vous devez utiliser suffisamment d'actions pour vous assurer que votre monture soit capable de se déplacer jusqu'à vous être adjacente à un moment au cours de ce déplacement et vous ne pouvez pas utiliser cette activité si il n'st pas possible pour votre monture de l'être."
+                    "Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Dirigez un animal</div> pour ordonner à votre monture de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> (ou de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'H6v1VgowHaKHnVlG', 'param__object__label': this.textContent})\">Creuser</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pprgrYQ1QnIDGZiy', 'param__object__label': this.textContent})\">Escalader</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8TGiZ48ygoSPofx', 'param__object__label': this.textContent})\">Nager</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> si elle possède le type de déplacement correspondant). À tout moment au cours de ce déplacement, elle doit passer à côté de vous. Lorsqu'elle le fait, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PM5jvValFkbFH3TV', 'param__object__label': this.textContent})\">Chevauchez</div> votre monture. Vous pouvez augmenter le nombre d'actions que vous utilisez avec Ramassage au passage à 2 pour faire <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> votre monture deux fois ou à 3 pour faire MArcher rapidement votre monture quatre fois. Vous devez utiliser suffisamment d'actions pour vous assurer que votre monture soit capable de se déplacer jusqu'à vous être adjacente à un moment au cours de ce déplacement et vous ne pouvez pas utiliser cette activité si il n'st pas possible pour votre monture de l'être."
                 ]
             },
             {
@@ -3959,7 +3959,7 @@ DON.SKILL = {
                     "expert en Acrobaties"
                 ],
                 "description" : [
-                    "Vous pouvez Ramper incroyablement rapidement - jusqu'à la moitié de votre Vitesse au lieu de 1,50 mètre. Si vous êtes maître en Acrobaties, vous pouvez Ramper à votre pleine Vitesse et si vous êtes légendaire, vous n'êtes pas Pris au dépourvu en étant À terre."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Tj055UcNm6UEgtCg', 'param__object__label': this.textContent})\">Ramper</div> incroyablement rapidement - jusqu'à la moitié de votre Vitesse au lieu de 1,50 mètre. Si vous êtes maître en Acrobaties, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Tj055UcNm6UEgtCg', 'param__object__label': this.textContent})\">Ramper</div> à votre pleine Vitesse et si vous êtes légendaire, vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJh5ex99aV6VTggg', 'param__object__label': this.textContent})\">Pris au dépourvu</div> en étant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>."
                 ]
             },
             {
@@ -3973,7 +3973,7 @@ DON.SKILL = {
                     "Dévouement : Agent des Éclaireurs"
                 ],
                 "description" : [
-                    "Vos rapports sont détaillés et instructifs et coucher vos pensées sur le papier vous aide à retenir les informations. Prenez note de chaque type de créature que vous parvenez à identifier en utilisant Se souvenir. Lorsque vous tentez des tests pour Vous souvenir sur des créatures figurant sur la liste de vos dernières rencontres, vous obtenez un bonus de circonstances de +2 et vous apprenez aussi un fait supplémentaire à propos de ce type de créatures en cas de succès."
+                    "Vos rapports sont détaillés et instructifs et coucher vos pensées sur le papier vous aide à retenir les informations. Prenez note de chaque type de créature que vous parvenez à identifier en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div>. Lorsque vous tentez des tests pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> sur des créatures figurant sur la liste de vos dernières rencontres, vous obtenez un bonus de circonstances de +2 et vous apprenez aussi un fait supplémentaire à propos de ce type de créatures en cas de succès."
                 ]
             },
             {
@@ -4004,8 +4004,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous pouvez prétendre avoir accompli une action de manière si convaincante que vous obtenez tous les avantages tangibles d'être parvenu à l'accomplir effectivement.",
-                    "Vous pouvez utiliser la Duperie au lieu d'une autre compétence lorsque vous tentez de Gagner de l'argent, Faire bonne impression, Solliciter ou Subsister.",
-                    "Vous pouvez utiliser Réalisations inventées pour Faire bonne impression ou Solliciter une fois par jour et vous pouvez aussi l'utiliser une fois par semaine pour Gagner de l'argent ou Subsister."
+                    "Vous pouvez utiliser la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> au lieu d'une autre compétence lorsque vous tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div>.",
+                    "Vous pouvez utiliser Réalisations inventées pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> une fois par jour et vous pouvez aussi l'utiliser une fois par semaine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div>."
                 ]
             },
             {
@@ -4021,8 +4021,8 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois par round",
-                    "Déclencheur Vous réussissez à Vous souvenir de connaissances à propos d'une créature que vous pouvez voir, en utilisant une compétence dans laquelle vous êtes maître.",
-                    "Votre entraînement d'Éclaireur vous permet d'appréhender rapidement plusieurs menaces. Tentez de Vous souvenir contre une espèce de créature différente que vous pouvez voir en utilisant la même compétence. Vous devez toujours remplir les conditions pour faire ce test."
+                    "Déclencheur Vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> de connaissances à propos d'une créature que vous pouvez voir, en utilisant une compétence dans laquelle vous êtes maître.",
+                    "Votre entraînement d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kV3XM0YJeS2KCSOb', 'param__object__label': this.textContent})\">Éclaireur</div> vous permet d'appréhender rapidement plusieurs menaces. Tentez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> contre une espèce de créature différente que vous pouvez voir en utilisant la même compétence. Vous devez toujours remplir les conditions pour faire ce test."
                 ]
             },
             {
@@ -4037,7 +4037,7 @@ DON.SKILL = {
                     "Reconnaître des sorts"
                 ],
                 "description" : [
-                    "Vous Reconnaissez les sorts rapidement. Une fois par round, vous pouvez Reconnaître un sort en utilisant une compétence dans laquelle vous êtes maître par une action gratuite."
+                    "Vous Reconnaissez les sorts rapidement. Une fois par round, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MjQyTcV8Jiv1Jtln', 'param__object__label': this.textContent})\">Reconnaître un sort</div> en utilisant une compétence dans laquelle vous êtes maître par une action gratuite."
                 ]
             },
             {
@@ -4052,7 +4052,7 @@ DON.SKILL = {
                     "qualifié en Arcanes, Nature, Occultisme ou Religion"
                 ],
                 "description" : [
-                    "Déclencheur Une créature dans votre ligne de mire Lance un sort que vous n'avez pas préparé ou qui ne figure pas dans votre répertoire ou un piège ou un objet similaire lance un tel sort. Vous devez être conscient de l'incantation.",
+                    "Déclencheur Une créature dans votre ligne de mire <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aBQ8ajvEBByv45yz', 'param__object__label': this.textContent})\">Lance un sort</div> que vous n'avez pas préparé ou qui ne figure pas dans votre répertoire ou un piège ou un objet similaire lance un tel sort. Vous devez être conscient de l'incantation.",
                     "Si vous êtes qualifié dans la compétence appropriée pour la tradition du sort et qu'il s'agit d'un sort courant de rang inférieur ou égal à 2, vous l'identifiez automatiquement (vous devez toujours effectuer un jet pour tenter d'obtenir un succès critique mais vous ne pouvez obtenir un résultat moins bon qu'un succès). Le plus haut rang du sort que vous identifiez automatiquement passe à 4 si vous êtes expert, à 6 si vous êtes un maître et à 10 si vous êtes légendaire. Le MJ fait un test secret d'Arcanes, de Nature, d'Occultisme ou de Religion, en fonction de ce qui correspond à la tradition du sort incanté. Si vous n'êtes pas qualifié dans la compétence, vous ne pouvez pas obtenir de résultat meilleur qu'un échec.",
                     "Succès critique Vous reconnaissez correctement le sort et gagnez un bonus de circonstances de +1 à votre jet de sauvegarde ou à votre CA contre le sort.",
                     "Succès Vous reconnaissez correctement le sort.",
@@ -4074,7 +4074,7 @@ DON.SKILL = {
                 "description" : [
                     "Conditions Vous êtes maître dans une compétence utilisée pour identifier la créature déclencheuse.",
                     "Déclencheur Votre premier tour d'une rencontre débute et vous pouvez voir une créature.",
-                    "Vous estimez rapidement la menace de manière à relayer l'information à votre équipe. Faites un test pour Vous souvenir contre la créature déclencheuse."
+                    "Vous estimez rapidement la menace de manière à relayer l'information à votre équipe. Faites un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> contre la créature déclencheuse."
                 ]
             },
             {
@@ -4088,7 +4088,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "Vous pouvez utiliser Soigner les blessures pour redonner des Points de vie aux créatures mortes-vivantes, pas juste aux vivants. Les techniques que vous utilisez pour le faire varient, mais toutes requièrent des sutures, des bandages et d'autres instruments trouvés dans la trousse du guérisseur. Certains états qui pourraient augmenter le DD pour Soigner les blessures des morts-vivants diffèrent de celles des créatures vivantes. Par exemple, le MJ pourrait augmenter le DD si le mort-vivant qui doit être traité est dans une église de Pharasma ou si les blessures ont été provoquées par une puissante énergie de vitalité."
+                    "Vous pouvez utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> pour redonner des Points de vie aux créatures mortes-vivantes, pas juste aux vivants. Les techniques que vous utilisez pour le faire varient, mais toutes requièrent des sutures, des bandages et d'autres instruments trouvés dans la trousse du guérisseur. Certains états qui pourraient augmenter le DD pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> des morts-vivants diffèrent de celles des créatures vivantes. Par exemple, le MJ pourrait augmenter le DD si le mort-vivant qui doit être traité est dans une église de Pharasma ou si les blessures ont été provoquées par une puissante énergie de vitalité."
                 ]
             },
             {
@@ -4102,7 +4102,7 @@ DON.SKILL = {
                     "expert en Médecine"
                 ],
                 "description" : [
-                    "Vous surveillez avec zèle l'évolution du patient pour administrer plus vite son traitement. Quand vous Soignez les blessures, votre patient devient immunisé uniquement pendant 10 minutes au lieu de 1 heure. Cela ne s'applique qu'à vos seules activités visant à Soigner les blessures, pas aux autres que le patient reçoit."
+                    "Vous surveillez avec zèle l'évolution du patient pour administrer plus vite son traitement. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soignez les blessures</div>, votre patient devient immunisé uniquement pendant 10 minutes au lieu de 1 heure. Cela ne s'applique qu'à vos seules activités visant à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, pas aux autres que le patient reçoit."
                 ]
             },
             {
@@ -4116,7 +4116,7 @@ DON.SKILL = {
                     "expert en Médecine"
                 ],
                 "description" : [
-                    "Vous avez appris la médecine traditionnelle pour vous aider à récupérer des maladies et du poison et son utilisation assidue vous a rendu particulièrement résistant. Quand vous Soignez une maladie ou un poison, ou si quelqu'un d'autre utilise une de ces actions sur vous, augmentez à +4 le bonus de circonstances accordé sur un succès et si le résultat du jet de sauvegarde du patient est un succès, il obtient un succès critique."
+                    "Vous avez appris la médecine traditionnelle pour vous aider à récupérer des maladies et du poison et son utilisation assidue vous a rendu particulièrement résistant. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soignez une maladie</div> ou un poison, ou si quelqu'un d'autre utilise une de ces actions sur vous, augmentez à +4 le bonus de circonstances accordé sur un succès et si le résultat du jet de sauvegarde du patient est un succès, il obtient un succès critique."
                 ]
             },
             {
@@ -4130,7 +4130,7 @@ DON.SKILL = {
                     "qualifié en Intimidation"
                 ],
                 "description" : [
-                    "Vous pouvez Démoraliser d'un simple regard. Quand vous le faites, Démoraliser perd le trait audible et obtient le trait visuel et vous ne subissez pas de pénalité si la créature ne comprend pas votre langue."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> d'un simple regard. Quand vous le faites, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> perd le trait audible et obtient le trait visuel et vous ne subissez pas de pénalité si la créature ne comprend pas votre langue."
                 ]
             },
             {
@@ -4144,7 +4144,7 @@ DON.SKILL = {
                     "qualifié en Artisanat"
                 ],
                 "description" : [
-                    "Pour vous, l'activité Réparer un objet perd le trait exploration et prend 1 minute au lieu de 10. Si vous êtes maître en Artisanat, cela vous prend 3 actions. Si vous êtes légendaire, cela prend 1 action."
+                    "Pour vous, l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparer un objet</div> perd le trait exploration et prend 1 minute au lieu de 10. Si vous êtes maître en Artisanat, cela vous prend 3 actions. Si vous êtes légendaire, cela prend 1 action."
                 ]
             },
             {
@@ -4159,8 +4159,8 @@ DON.SKILL = {
                     "expert en Athlétisme"
                 ],
                 "description" : [
-                    "Déclencheur Un adversaire obtient un échec critique lorsqu'il tente de vous Démoraliser ou de vous Mentir.",
-                    "Le monde est rempli d'odieuses fouines qui pensent pouvoir vous tromper - remettez-les à leur place ! Lorsqu'une créature adjacente tente de vous Mentir ou de vous Démoraliser et qu'elle obtient un échec critique sur le jet, vous pouvez utiliser votre réaction pour tenter de Pousser cet adversaire. Si un combat en résulte, vous pouvez effectuer un test d'Intimidation pour votre test d'initiative."
+                    "Déclencheur Un adversaire obtient un échec critique lorsqu'il tente de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> ou de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div>.",
+                    "Le monde est rempli d'odieuses fouines qui pensent pouvoir vous tromper - remettez-les à leur place ! Lorsqu'une créature adjacente tente de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Mentir</div> ou de vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> et qu'elle obtient un échec critique sur le jet, vous pouvez utiliser votre réaction pour tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731', 'param__object__label': this.textContent})\">Pousser</div> cet adversaire. Si un combat en résulte, vous pouvez effectuer un test d'Intimidation pour votre test d'initiative."
                 ]
             },
             {
@@ -4188,7 +4188,7 @@ DON.SKILL = {
                     "qualifié en Acrobaties"
                 ],
                 "description" : [
-                    "Vous êtes un acrobate incroyable, une merveille d'évocation et vous êtes capable de capter l'attention du public avec vos prouesses. Vous pouvez utiliser un test d'Acrobaties au lieu d'un test de Représentation lorsque vous utilisez l'action Se produire. Si vous êtes qualifié à la fois en Acrobaties et en Représentation, vous bénéficiez d'un bonus de circonstances de +1 au test d'Acrobaties pour Vous produire."
+                    "Vous êtes un acrobate incroyable, une merveille d'évocation et vous êtes capable de capter l'attention du public avec vos prouesses. Vous pouvez utiliser un test d'Acrobaties au lieu d'un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> lorsque vous utilisez l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Se produire</div>. Si vous êtes qualifié à la fois en Acrobaties et en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, vous bénéficiez d'un bonus de circonstances de +1 au test d'Acrobaties pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Vous produire</div>."
                 ]
             },
             {
@@ -4202,7 +4202,7 @@ DON.SKILL = {
                     "expert en Représentation"
                 ],
                 "description" : [
-                    "Vos représentations sont plus particulièrement divertissantes, permettant à vos alliés de se faufiler plus facilement. Vous Créez une diversion, à la différence que vous lancez un test de Représentation au lieu de Duperie et que les avantages du succès s'applique à l'allié de votre choix plutôt qu'à vous. Les effets d'une réussite durent jusqu'à la fin du tour de cet allié et peuvent se terminer plus tôt en fonction des actions de l'allié. Vous n'avez pas besoin d'observer votre allié ou de savoir où il se trouve, mais vous devez savoir qu'il est présent pour le choisir."
+                    "Vos représentations sont plus particulièrement divertissantes, permettant à vos alliés de se faufiler plus facilement. Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Créez une diversion</div>, à la différence que vous lancez un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> au lieu de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> et que les avantages du succès s'applique à l'allié de votre choix plutôt qu'à vous. Les effets d'une réussite durent jusqu'à la fin du tour de cet allié et peuvent se terminer plus tôt en fonction des actions de l'allié. Vous n'avez pas besoin d'observer votre allié ou de savoir où il se trouve, mais vous devez savoir qu'il est présent pour le choisir."
                 ]
             },
             {
@@ -4216,8 +4216,8 @@ DON.SKILL = {
                     "qualifié en Représentation"
                 ],
                 "description" : [
-                    "Quand vous Vous produisez, comparez votre résultat au DD de Volonté d'un observateur. Si vous obtenez un succès, la cible est Fascinée pendant 1 round. Si l'observateur est dans une situation qui nécessite une attention immédiate, telle qu'un combat, vous devez obtenir un succès critique pour le fasciner et l'action Représentation obtient le trait mise hors de combat. Vous devez choisir quelle créature vous tentez de fasciner avant d'effectuer votre test et la cible est ensuite temporairement immunisée pendant 1 heure.",
-                    "Si vous êtes expert en Représentation, vous pouvez fasciner jusqu'à quatre observateurs. Si vous êtes maître, vous pouvez fasciner jusqu'à dix observateurs et si vous êtes légendaire, vous pouvez fasciner n'importe quel nombre d'observateurs en même temps."
+                    "Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Vous produisez</div>, comparez votre résultat au DD de Volonté d'un observateur. Si vous obtenez un succès, la cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AdPVz7rbaVSRxHFg', 'param__object__label': this.textContent})\">Fascinée</div> pendant 1 round. Si l'observateur est dans une situation qui nécessite une attention immédiate, telle qu'un combat, vous devez obtenir un succès critique pour le fasciner et l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> obtient le trait mise hors de combat. Vous devez choisir quelle créature vous tentez de fasciner avant d'effectuer votre test et la cible est ensuite temporairement immunisée pendant 1 heure.",
+                    "Si vous êtes expert en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, vous pouvez fasciner jusqu'à quatre observateurs. Si vous êtes maître, vous pouvez fasciner jusqu'à dix observateurs et si vous êtes légendaire, vous pouvez fasciner n'importe quel nombre d'observateurs en même temps."
                 ]
             },
             {
@@ -4231,7 +4231,7 @@ DON.SKILL = {
                     "qualifié en Représentation"
                 ],
                 "description" : [
-                    "Votre représentation inspire l'admiration et vous fait gagner des fans. Vous pouvez Faire bonne impression en utilisant Représentation au lieu de Diplomatie. Si vous passez au moins 10 minutes à vous produire devant un public, vous pouvez faire une Représentation en ciblant jusqu'à 10 membres du public qui étaient présents pendant toute la durée de la représentation, sans subir la pénalité normale. Le nombre de cibles passe à 20 lors d'une représentation d'une heure et à 50 lors d'une représentation de deux heures."
+                    "Votre représentation inspire l'admiration et vous fait gagner des fans. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> au lieu de Diplomatie. Si vous passez au moins 10 minutes à vous produire devant un public, vous pouvez faire une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> en ciblant jusqu'à 10 membres du public qui étaient présents pendant toute la durée de la représentation, sans subir la pénalité normale. Le nombre de cibles passe à 20 lors d'une représentation d'une heure et à 50 lors d'une représentation de deux heures."
                 ]
             },
             {
@@ -4246,7 +4246,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous pouvez minimiser les conséquences ou le caractère outrageant de vos requêtes en utilisant l'effronterie pure et le charme.",
-                    "Lorsque vous Sollicitez quelque chose, vous réduisez l'augmentation de tout DD liée au fait de faire des demandes outrageantes de 2 et si vous subissez un échec critique à votre sollicitation, il devient un échec. Bien que cela signifie que vous ne pouvez jamais provoquer la dégradation de l'attitude de votre cible à votre égard en présentant des Sollicitations, elles finissent par être lassées de ces dernières, même si elles conservent toujours une attitude positive à votre endroit."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Sollicitez</div> quelque chose, vous réduisez l'augmentation de tout DD liée au fait de faire des demandes outrageantes de 2 et si vous subissez un échec critique à votre sollicitation, il devient un échec. Bien que cela signifie que vous ne pouvez jamais provoquer la dégradation de l'attitude de votre cible à votre égard en présentant des <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Sollicitations</div>, elles finissent par être lassées de ces dernières, même si elles conservent toujours une attitude positive à votre endroit."
                 ]
             },
             {
@@ -4278,8 +4278,8 @@ DON.SKILL = {
                     "Savoir urbain"
                 ],
                 "description" : [
-                    "Vous êtes lié à des groupes qui savent ce qui se passe dans les rues et vous pouvez en tirer rapidement des informations. Lorsque vous utilisez Société pour Recueillir des informations dans une zone où vous disposez d'un réseau (typiquement dans un endroit où vous avez passé au moins une semaine ou passé une journée d'intermède pour construire plus vite un réseau), vous pouvez contacter un membre de ces groupes pour obtenir des informations directement de leur part. Cela vous prend habituellement une heure et n'attire pas autant l'attention que Recueillir des informations en public le pourrait. Le test et l'information que vous obtenez de la sorte suivent les règles habituelles pour Recueillir des informations.",
-                    "De plus, si vous avez réussi à consulter ce réseau souterrain, vous obtenez un bonus de circonstances de +1 au prochain test pour Vous souvenir que vous ferez à propos du sujet sur lequel vous avez recueilli des informations ou un bonus de circonstances de +2 si vous utilisez Connaissance de la pègre pour le test. Le MJ pourrait changer la connaissance liée au réseau en fonction du lieu ou des spécificités du réseau auquel vous faites appel."
+                    "Vous êtes lié à des groupes qui savent ce qui se passe dans les rues et vous pouvez en tirer rapidement des informations. Lorsque vous utilisez Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> dans une zone où vous disposez d'un réseau (typiquement dans un endroit où vous avez passé au moins une semaine ou passé une journée d'intermède pour construire plus vite un réseau), vous pouvez contacter un membre de ces groupes pour obtenir des informations directement de leur part. Cela vous prend habituellement une heure et n'attire pas autant l'attention que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> en public le pourrait. Le test et l'information que vous obtenez de la sorte suivent les règles habituelles pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>.",
+                    "De plus, si vous avez réussi à consulter ce réseau souterrain, vous obtenez un bonus de circonstances de +1 au prochain test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> que vous ferez à propos du sujet sur lequel vous avez recueilli des informations ou un bonus de circonstances de +2 si vous utilisez Connaissance de la pègre pour le test. Le MJ pourrait changer la connaissance liée au réseau en fonction du lieu ou des spécificités du réseau auquel vous faites appel."
                 ]
             },
             {
@@ -4293,7 +4293,7 @@ DON.SKILL = {
                     "expert en Intimidation"
                 ],
                 "description" : [
-                    "Les sorts de ceux que vous avez Démoralisés sont moins efficaces contre vous. Si vous réussissez à Démoraliser une créature, durant les 24 heures suivantes, vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les sorts de cette créature."
+                    "Les sorts de ceux que vous avez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoralisés</div> sont moins efficaces contre vous. Si vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> une créature, durant les 24 heures suivantes, vous obtenez un bonus de circonstances de +1 aux jets de sauvegarde contre les sorts de cette créature."
                 ]
             },
             {
@@ -4308,7 +4308,7 @@ DON.SKILL = {
                     "Dévouement : Maître des parchemins"
                 ],
                 "description" : [
-                    "Vous pouvez comprendre la véritable signification des textes rapidement et même lorsque vous êtes perdu ou aboutissez à une impasse, cela ne vous décourage en rien de faire de nouveaux essais en reprenant du début. Lorsque vous Déchiffrez un texte, vous n'avez besoin que de la moitié du temps habituel (réduisant le temps d'une minute par page à une demi-minute) et si vous échouez vous ne subissez pas la pénalité habituelle de circonstances de -2 aux tests ultérieurs pour Déchiffrer ce texte."
+                    "Vous pouvez comprendre la véritable signification des textes rapidement et même lorsque vous êtes perdu ou aboutissez à une impasse, cela ne vous décourage en rien de faire de nouveaux essais en reprenant du début. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd9gbpiQjChYDYA2L', 'param__object__label': this.textContent})\">Déchiffrez un texte</div>, vous n'avez besoin que de la moitié du temps habituel (réduisant le temps d'une minute par page à une demi-minute) et si vous échouez vous ne subissez pas la pénalité habituelle de circonstances de -2 aux tests ultérieurs pour Déchiffrer ce texte."
                 ]
             },
             {
@@ -4322,7 +4322,7 @@ DON.SKILL = {
                     "maître en Intimidation"
                 ],
                 "description" : [
-                    "Quand vous obtenez un succès critique lors d'une action pour Démoraliser, si le niveau de la cible est inférieur au vôtre, la cible est En fuite pendant 1 round."
+                    "Quand vous obtenez un succès critique lors d'une action pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div>, si le niveau de la cible est inférieur au vôtre, la cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'sDPxOjQ9kx2RZE8D', 'param__object__label': this.textContent})\">En fuite</div> pendant 1 round."
                 ]
             },
             {
@@ -4363,8 +4363,8 @@ DON.SKILL = {
                     "légende en Duperie"
                 ],
                 "description" : [
-                    "Vous révélez que vous avez joué un rôle mineur mais récurrent dans la vie d'un autre humanoïde — ou vous tentez au moins de le convaincre que c'est le cas. Faites un test de contre le DD de Volonté de la cible. En cas de succès, la révélation la rend Effrayée 2 et sur un succès critique elle est Effrayée 3.",
-                    "De plus vous obtenez des informations sur le sujet comme si vous aviez tenté un test pour vous Souvenir le concernant en utilisant la compétence appropriée et aviez obtenu le même résultat que celui de votre dé. Vous ne pouvez pas utiliser cette capacité contre le même humanoïde de nouveau avant qu'une journée ne se soit passée et que ayez obtenu un succès pour vous déguiser en une personne différente."
+                    "Vous révélez que vous avez joué un rôle mineur mais récurrent dans la vie d'un autre humanoïde — ou vous tentez au moins de le convaincre que c'est le cas. Faites un test de contre le DD de Volonté de la cible. En cas de succès, la révélation la rend <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 2</div> et sur un succès critique elle est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 3</div>.",
+                    "De plus vous obtenez des informations sur le sujet comme si vous aviez tenté un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">vous Souvenir</div> le concernant en utilisant la compétence appropriée et aviez obtenu le même résultat que celui de votre dé. Vous ne pouvez pas utiliser cette capacité contre le même humanoïde de nouveau avant qu'une journée ne se soit passée et que ayez obtenu un succès pour vous déguiser en une personne différente."
                 ]
             },
             {
@@ -4395,7 +4395,7 @@ DON.SKILL = {
                     "Traqueur de terrain"
                 ],
                 "description" : [
-                    "Vous êtes adepte de l'utilisation des éléments naturels du paysage pour trouver des endroits où vous cacher. Lorsque vous êtes sur du terrain difficile sur le terrain que vous avez choisi pour le don Traqueur de terrain, vous pouvez vous Cacher et Être furtif même sans disposer d'un abri ou sans être Masqué."
+                    "Vous êtes adepte de l'utilisation des éléments naturels du paysage pour trouver des endroits où vous cacher. Lorsque vous êtes sur du terrain difficile sur le terrain que vous avez choisi pour le don Traqueur de terrain, vous pouvez vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Cacher</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> même sans disposer d'un abri ou sans être <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div>."
                 ]
             },
             {
@@ -4413,9 +4413,9 @@ DON.SKILL = {
                 "description" : [
                     "Conditions Vous disposez d'une main libre et avez un adversaire dans votre allonge au corps-à-corps.",
                     "Vous accrochez les lacets des chaussures d'un ennemi, vous tirez son chapeau sur ses yeux, vous desserrez sa ceinture ou vous perturbez sa mobilité par une tactique déloyale. Faites un test de contre le DD de Réflexes de la cible.",
-                    "Succès critique La cible est Maladroite 1 jusqu'à ce qu'elle utilise une action Interagir pour mettre un terme à l'empêchement.",
+                    "Succès critique La cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm', 'param__object__label': this.textContent})\">Maladroite 1</div> jusqu'à ce qu'elle utilise une action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'pvQ5rY2zrtPI614F', 'param__object__label': this.textContent})\">Interagir</div> pour mettre un terme à l'empêchement.",
                     "Succès Comme en cas de succès critique mais l'état cesse automatiquement après 1 round.",
-                    "Échec critique Vous vous retrouvez À terre lorsque votre tentative se retourne contre vous."
+                    "Échec critique Vous vous retrouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div> lorsque votre tentative se retourne contre vous."
                 ]
             },
             {
@@ -4430,7 +4430,7 @@ DON.SKILL = {
                     "must worship a deity that lists \"holy\" or \"unholy\" in their sanctification"
                 ],
                 "description" : [
-                    "Vous imprégnez l'eau de la bénédiction de votre divinité. Choisissez un contenant d'eau d'Encombrement léger dont vous ou un allié dans votre allonge êtes en possession. Jusqu'à la fin de votre prochain tour, cela devient de l'eau sainte ou de l'Eau impie. Vous pouvez choisir entre eau sainte si votre divinité permet la sanctification sainte ou eau impie si votre divinité permet la sanctification impie un soit l'un soit l'autre si vote divinité admet les deux sanctifications. C'est un effet temporaire et ne donne aucune valeur monétaire ou ne permet pas d'utiliser l'eau pour servir de coût pour les rituels ou autres. Si vous êtes maître en Religion, vous pouvez sanctifier deux contenants lorsque vous faites cette action et trois si vous êtes légendaire."
+                    "Vous imprégnez l'eau de la bénédiction de votre divinité. Choisissez un contenant d'eau d'Encombrement léger dont vous ou un allié dans votre allonge êtes en possession. Jusqu'à la fin de votre prochain tour, cela devient de l'eau sainte ou de l'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EGhUorZhB7nV73Ev', 'param__object__label': this.textContent})\">Eau impie</div>. Vous pouvez choisir entre eau sainte si votre divinité permet la sanctification sainte ou eau impie si votre divinité permet la sanctification impie un soit l'un soit l'autre si vote divinité admet les deux sanctifications. C'est un effet temporaire et ne donne aucune valeur monétaire ou ne permet pas d'utiliser l'eau pour servir de coût pour les rituels ou autres. Si vous êtes maître en Religion, vous pouvez sanctifier deux contenants lorsque vous faites cette action et trois si vous êtes légendaire."
                 ]
             },
             {
@@ -4458,7 +4458,7 @@ DON.SKILL = {
                     "maître en Athlétisme"
                 ],
                 "description" : [
-                    "Vous pouvez utiliser l'impulsion conférée par un saut pour vous propulser d'un mur. Si vous êtes adjacent à un mur à la fin d'un saut (que vous Sautiez en hauteur, en longueur ou que vous Bondissiez), vous ne tombez pas tant que votre prochaine action est un autre saut. De plus, comme votre saut précédent vous donne de l'élan, vous pouvez utiliser Sauter en hauteur ou en longueur comme une action unique, mais vous ne pouvez pas Marcher rapidement pendant l'activité.",
+                    "Vous pouvez utiliser l'impulsion conférée par un saut pour vous propulser d'un mur. Si vous êtes adjacent à un mur à la fin d'un saut (que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Sautiez en hauteur</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">en longueur</div> ou que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondissiez</div>), vous ne tombez pas tant que votre prochaine action est un autre saut. De plus, comme votre saut précédent vous donne de l'élan, vous pouvez utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Sauter en hauteur</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">en longueur</div> comme une action unique, mais vous ne pouvez pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> pendant l'activité.",
                     "Vous pouvez utiliser Saut de mur une seule fois par tour, à moins que vous ne soyez légendaire en Athlétisme, auquel cas vous pouvez utiliser Saut de mur autant de fois que vous pouvez utiliser des actions de saut consécutives durant ce tour."
                 ]
             },
@@ -4473,7 +4473,7 @@ DON.SKILL = {
                     "légende en Athlétisme"
                 ],
                 "description" : [
-                    "Votre habilité athlétique sans pareille vous permet de sauter sur des distances impossibles. Triplez la distance de votre saut sur un Saut en longueur réussi (vous pourriez donc sauter sur une distance de 18 mètres avec un test d'Athlétisme de 30). Quand vous réussissez un Saut en hauteur, vous utilisez le mode de calcul pour un Saut en longueur pour la distance de saut et la limite de saut, mais vous ne triplez pas la distance.",
+                    "Votre habilité athlétique sans pareille vous permet de sauter sur des distances impossibles. Triplez la distance de votre saut sur un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Saut en longueur</div> réussi (vous pourriez donc sauter sur une distance de 18 mètres avec un test d'Athlétisme de 30). Quand vous réussissez un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Saut en hauteur</div>, vous utilisez le mode de calcul pour un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Saut en longueur</div> pour la distance de saut et la limite de saut, mais vous ne triplez pas la distance.",
                     "Vous pouvez aussi sauter à une distance supérieure en dépensant des actions supplémentaires. Pour chaque action supplémentaire, ajoutez votre Vitesse à la limite de distance."
                 ]
             },
@@ -4488,7 +4488,7 @@ DON.SKILL = {
                     "qualifié en Athlétisme"
                 ],
                 "description" : [
-                    "Vous pouvez Sauter en hauteur ou Sauter en longueur par une action unique au lieu de 2 actions. Si vous le faites, vous n'avez pas besoin de Marcher rapidement (ni n'échouez si vous ne Marchez pas rapidement sur 3 m)."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Sauter en hauteur</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Sauter en longueur</div> par une action unique au lieu de 2 actions. Si vous le faites, vous n'avez pas besoin de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> (ni n'échouez si vous ne Marchez pas rapidement sur 3 m)."
                 ]
             },
             {
@@ -4504,7 +4504,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "La masse et les muscles sont sans intérêt lorsque vous vous projetez dans les airs. Seuls la grâce et l'équilibre importent.",
-                    "Vous pouvez faire un test d'Acrobaties au lieu d'un test d'Athlétisme lorsque vous effectuez un Saut en hauteur ou un Saut en longueur."
+                    "Vous pouvez faire un test d'Acrobaties au lieu d'un test d'Athlétisme lorsque vous effectuez un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Saut en hauteur</div> ou un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Saut en longueur</div>."
                 ]
             },
             {
@@ -4519,7 +4519,7 @@ DON.SKILL = {
                     "Assurance in that skill"
                 ],
                 "description" : [
-                    "Vous connaissez des faits de base par coeur. Choisissez une compétence dans laquelle vous êtes expert, qui possède l'action Se souvenir et pour laquelle vous possédez le don Assurance. Vous pouvez utiliser l'action Se souvenir avec cette compétence comme un action gratuite une fois par round. Si vous le faites, vous devez utiliser Assurance au test de compétence.",
+                    "Vous connaissez des faits de base par coeur. Choisissez une compétence dans laquelle vous êtes expert, qui possède l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> et pour laquelle vous possédez le don Assurance. Vous pouvez utiliser l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> avec cette compétence comme un action gratuite une fois par round. Si vous le faites, vous devez utiliser Assurance au test de compétence.",
                     "Spécial Vous pouvez sélectionner ce don plusieurs fois en choisissant une nouvelle compétence à chaque fois. Vous pouvez utiliser Savoir automatique avec toutes les compétences que vous avez choisies, mais vous ne pouvez toujours utiliser Savoir automatique qu'une seule fois par round."
                 ]
             },
@@ -4534,7 +4534,7 @@ DON.SKILL = {
                     "qualifié en a skill with the Recall Knowledge action"
                 ],
                 "description" : [
-                    "Vous êtes une mine d'informations, mais toutes ne proviennent pas de sources fiables. Quand vous obtenez un échec (mais pas un échec critique) sur un test pour Vous souvenir en utilisant n'importe quelle compétence, vous apprenez la réponse correcte et une fausse information, mais n'avez aucun moyen de les différencier entre elles. Cela peut vous amener à apprendre quelque chose d'important, mais sans savoir si c'est pour le meilleur ou le pire."
+                    "Vous êtes une mine d'informations, mais toutes ne proviennent pas de sources fiables. Quand vous obtenez un échec (mais pas un échec critique) sur un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> en utilisant n'importe quelle compétence, vous apprenez la réponse correcte et une fausse information, mais n'avez aucun moyen de les différencier entre elles. Cela peut vous amener à apprendre quelque chose d'important, mais sans savoir si c'est pour le meilleur ou le pire."
                 ]
             },
             {
@@ -4548,7 +4548,7 @@ DON.SKILL = {
                     "qualifié en Société"
                 ],
                 "description" : [
-                    "Vous connaissez parfaitement la vie dans les rues et savez prendre le pouls des lieux avoisinants. Vous pouvez utiliser votre modificateur de Société à la place de votre modificateur de Diplomatie pour Recueillir des informations. Dans toute communauté que vous fréquentez régulièrement, vous pouvez utiliser l'action Se souvenir en utilisant Société pour obtenir le même genre d'informations que vous pourriez découvrir en utilisant Diplomatie pour Recueillir des informations. Le DD est généralement significativement supérieur, mais vous obtenez les informations sans devoir passer de temps à les recueillir. Si vous obtenez un échec pour recueillir des informations de la sorte, vous pouvez toujours tenter par la suite de Recueillir des informations normalement."
+                    "Vous connaissez parfaitement la vie dans les rues et savez prendre le pouls des lieux avoisinants. Vous pouvez utiliser votre modificateur de Société à la place de votre modificateur de Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>. Dans toute communauté que vous fréquentez régulièrement, vous pouvez utiliser l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> en utilisant Société pour obtenir le même genre d'informations que vous pourriez découvrir en utilisant Diplomatie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>. Le DD est généralement significativement supérieur, mais vous obtenez les informations sans devoir passer de temps à les recueillir. Si vous obtenez un échec pour recueillir des informations de la sorte, vous pouvez toujours tenter par la suite de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> normalement."
                 ]
             },
             {
@@ -4562,7 +4562,7 @@ DON.SKILL = {
                     "qualifié en Acrobaties"
                 ],
                 "description" : [
-                    "Vous vous Faufilez de 1,50 mètre par round (3 mètres en cas de succès critique). Si vous êtes légendaire en Acrobaties, vous vous Faufilez à votre pleine Vitesse."
+                    "Vous vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kMcV8e5EZUxa6evt', 'param__object__label': this.textContent})\">Faufilez</div> de 1,50 mètre par round (3 mètres en cas de succès critique). Si vous êtes légendaire en Acrobaties, vous vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kMcV8e5EZUxa6evt', 'param__object__label': this.textContent})\">Faufilez</div> à votre pleine Vitesse."
                 ]
             },
             {
@@ -4577,8 +4577,8 @@ DON.SKILL = {
                     "expert en a skill used to Recall Knowledge"
                 ],
                 "description" : [
-                    "Conditions Vous combattez une créature de votre niveau ou d'un niveau inférieur qui pourrait être identifiée par une action pour Se souvenir avec une compétence dans laquelle vous êtes expert.",
-                    "Vous avez été attentif au cours de vos études et vous vous souvenez de la meilleure façon d'attaquer diverses créatures. Choisissez une créature qui répond aux conditions. Vous apprenez les résistances, les immunités ou les faiblesses de la créature (au choix) sans avoir besoin d'effectuer l'action Se souvenir."
+                    "Conditions Vous combattez une créature de votre niveau ou d'un niveau inférieur qui pourrait être identifiée par une action pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div> avec une compétence dans laquelle vous êtes expert.",
+                    "Vous avez été attentif au cours de vos études et vous vous souvenez de la meilleure façon d'attaquer diverses créatures. Choisissez une créature qui répond aux conditions. Vous apprenez les résistances, les immunités ou les faiblesses de la créature (au choix) sans avoir besoin d'effectuer l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Se souvenir</div>."
                 ]
             },
             {
@@ -4611,7 +4611,7 @@ DON.SKILL = {
                     "maître en Duperie"
                 ],
                 "description" : [
-                    "Vous esquivez ou déjouez les tentatives pour découvrir votre vraie nature ou vos véritables intentions. Quand un sort ou un effet magique essaient de lire vos pensées, détecter si vous mentez ou révéler votre identité, vous pouvez tenter un test de Duperie contre le DD du sort ou de l'effet. Si vous réussissez, l'effet ne révèle rien."
+                    "Vous esquivez ou déjouez les tentatives pour découvrir votre vraie nature ou vos véritables intentions. Quand un sort ou un effet magique essaient de lire vos pensées, détecter si vous mentez ou révéler votre identité, vous pouvez tenter un test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> contre le DD du sort ou de l'effet. Si vous réussissez, l'effet ne révèle rien."
                 ]
             },
             {
@@ -4627,11 +4627,11 @@ DON.SKILL = {
                     "expert en Duperie"
                 ],
                 "description" : [
-                    "Vous répandez des rumeurs qui peuvent ou non être vraies sur un sujet spécifique. Si le sujet de votre rumeur n'est pas actuellement le sujet de rumeurs contradictoires, cela prend aussi longtemps qu'il vous en faudrait normalement pour Recueillir des informations (typiquement 2 heures) au terme desquelles le MJ fait un test secret de Duperie contre un DD qu'il détermine pour voir comment se répand la rumeur. Si votre rumeur correspond à n'importe quelle rumeur actuelle sur le sujet, il faut moins de temps pour la répandre alors que si vous tentez de surpasser une rumeur particulièrement populaire contradictoire, il vous faut beaucoup plus longtemps et cela pourrait être impossible. Le DD augmente ou décroît de la même manière selon le caractère plus ou moins plausible de votre rumeur. Par exemple, il pourrait s'avérer plus difficile de répandre la rumeur que le maire, généreux et aimé de tous, est à la tête d'un culte de démonistes meurtriers.",
-                    "Succès critique Votre rumeur se répand comme un feu de paille. Quiconque réussit un test pour Recueillir des informations sur le sujet spécifique apprend votre rumeur de préférence aux autres rumeurs sur le sujet. Votre rumeur persiste pendant 1 mois. vous obtenez un bonus de circonstances de +2 aux tests de Duperie, de Diplomatie et d'Intimidation dans une situation appropriée lorsque vous invoquez votre rumeur.",
-                    "Succès Vous répandez avec succès la rumeur. Quiconque réussit un test pour Recueillir des informations sur le sujet spécifique ajoute votre rumeur à la liste des rumeurs qu'il pourrait apprendre sur le sujet. Votre rumeur persiste pendant 1 semaine. vous obtenez un bonus de circonstances de +1 aux tests de Duperie, de Diplomatie et d'Intimidation dans une situation appropriée lorsque vous invoquez votre rumeur.",
+                    "Vous répandez des rumeurs qui peuvent ou non être vraies sur un sujet spécifique. Si le sujet de votre rumeur n'est pas actuellement le sujet de rumeurs contradictoires, cela prend aussi longtemps qu'il vous en faudrait normalement pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> (typiquement 2 heures) au terme desquelles le MJ fait un test secret de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> contre un DD qu'il détermine pour voir comment se répand la rumeur. Si votre rumeur correspond à n'importe quelle rumeur actuelle sur le sujet, il faut moins de temps pour la répandre alors que si vous tentez de surpasser une rumeur particulièrement populaire contradictoire, il vous faut beaucoup plus longtemps et cela pourrait être impossible. Le DD augmente ou décroît de la même manière selon le caractère plus ou moins plausible de votre rumeur. Par exemple, il pourrait s'avérer plus difficile de répandre la rumeur que le maire, généreux et aimé de tous, est à la tête d'un culte de démonistes meurtriers.",
+                    "Succès critique Votre rumeur se répand comme un feu de paille. Quiconque réussit un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> sur le sujet spécifique apprend votre rumeur de préférence aux autres rumeurs sur le sujet. Votre rumeur persiste pendant 1 mois. vous obtenez un bonus de circonstances de +2 aux tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, de Diplomatie et d'Intimidation dans une situation appropriée lorsque vous invoquez votre rumeur.",
+                    "Succès Vous répandez avec succès la rumeur. Quiconque réussit un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div> sur le sujet spécifique ajoute votre rumeur à la liste des rumeurs qu'il pourrait apprendre sur le sujet. Votre rumeur persiste pendant 1 semaine. vous obtenez un bonus de circonstances de +1 aux tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, de Diplomatie et d'Intimidation dans une situation appropriée lorsque vous invoquez votre rumeur.",
                     "Échec Votre rumeur s'éteint, ne devenant pas assez populaire pour que d'autres gens l'apprennent en Recueillant des informations.",
-                    "Échec critique Vous êtes incapable de répandre cette rumeur et subissez une pénalité de circonstances de –4 aux tests de Duperie pour Semer des rumeurs sur le même sujet dans la même région pendant 1 semaine. De plus, une rumeur se répand à propos de quelqu'un essayant de répandre de fausses rumeurs sur le sujet."
+                    "Échec critique Vous êtes incapable de répandre cette rumeur et subissez une pénalité de circonstances de –4 aux tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> pour Semer des rumeurs sur le même sujet dans la même région pendant 1 semaine. De plus, une rumeur se répand à propos de quelqu'un essayant de répandre de fausses rumeurs sur le sujet."
                 ]
             },
             {
@@ -4645,7 +4645,7 @@ DON.SKILL = {
                     "qualifié en Arcanes"
                 ],
                 "description" : [
-                    "Votre apprentissage de la magie vous permet de sentir instinctivement sa présence. Vous pouvez Lancer Détection de la magie au rang 1 à volonté comme si c'était un sort inné arcanique. Si vous êtes maître en Arcanes, le sort est intensifié au rang 3. Si vous êtes légendaire, il est intensifié au rang 4."
+                    "Votre apprentissage de la magie vous permet de sentir instinctivement sa présence. Vous pouvez Lancer <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gpzpAAAJ1Lza2JVl', 'param__object__label': this.textContent})\">Détection de la magie</div> au rang 1 à volonté comme si c'était un sort inné arcanique. Si vous êtes maître en Arcanes, le sort est intensifié au rang 3. Si vous êtes légendaire, il est intensifié au rang 4."
                 ]
             },
             {
@@ -4681,7 +4681,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous fournissez des soins émotionnels et spirituels.",
-                    "Ajoutez Effrayé, Stupéfiée et Étourdi à la liste des états que vous pouvez réduire avec Soigner un état. Si l'état Étourdi possède une durée au lieu d'une valeur, vous ne pouvez pas utiliser Soigner un état pour la réduire."
+                    "Ajoutez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdi</div> à la liste des états que vous pouvez réduire avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rfnEcjxIFqwlJwJT', 'param__object__label': this.textContent})\">Soigner un état</div>. Si l'état Étourdi possède une durée au lieu d'une valeur, vous ne pouvez pas utiliser Soigner un état pour la réduire."
                 ]
             },
             {
@@ -4696,7 +4696,7 @@ DON.SKILL = {
                     "You follow the Laws of Mortality"
                 ],
                 "description" : [
-                    "Vous dispensez de meilleurs soins lorsque les dieux n'interfèrent pas. Lorsque vous obtenez un succès pour Soigner les blessures d'une créature qui n'a pas regagné des Points de vie par la magie divine au cours des dernières 24 heures, vous bénéficiez d'un succès critique sur votre test à la place et restaurez le montant correspondant de Points de vie."
+                    "Vous dispensez de meilleurs soins lorsque les dieux n'interfèrent pas. Lorsque vous obtenez un succès pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> d'une créature qui n'a pas regagné des Points de vie par la magie divine au cours des dernières 24 heures, vous bénéficiez d'un succès critique sur votre test à la place et restaurez le montant correspondant de Points de vie."
                 ]
             },
             {
@@ -4711,7 +4711,7 @@ DON.SKILL = {
                     "qualifié en Survie"
                 ],
                 "description" : [
-                    "Vous pouvez trouver ce que vous cherchez à l'aide d'une baguette de sourcier ou d'un pendule. Si vous Cherchez en tenant une baguette de sourcier ou un pendule, en plus des tests normaux pour Chercher, le MJ lance un test de Survie secret pour que vous puissiez détecter la plus grande source d'eau, de pétrole ou de toute autre liquide naturel non corporel dans la zone. Même si le liquide vous est Masqué - par exemple, s'il provient d'une source souterraine ou est canalisé à travers un mur - cette technique vous indique la bonne direction. Le MJ détermine le DD qui est généralement le DD simple qualifié avec un ajustement difficile ou très difficile si la source d'eau est petite.",
+                    "Vous pouvez trouver ce que vous cherchez à l'aide d'une baguette de sourcier ou d'un pendule. Si vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Cherchez</div> en tenant une baguette de sourcier ou un pendule, en plus des tests normaux pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Chercher</div>, le MJ lance un test de Survie secret pour que vous puissiez détecter la plus grande source d'eau, de pétrole ou de toute autre liquide naturel non corporel dans la zone. Même si le liquide vous est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> - par exemple, s'il provient d'une source souterraine ou est canalisé à travers un mur - cette technique vous indique la bonne direction. Le MJ détermine le DD qui est généralement le DD simple qualifié avec un ajustement difficile ou très difficile si la source d'eau est petite.",
                     "Si vous êtes expert en Survie, le MJ effectue également un test de Survie pour vous permettre de détecter des gisements importants de métaux, de minéraux et de tombes proches. Le DD est généralement le DD simple expert, avec des ajustements de DD pour des gisements plus modestes."
                 ]
             },
@@ -4726,8 +4726,8 @@ DON.SKILL = {
                     "expert en Arcanes, Nature, Occultisme ou or Religion"
                 ],
                 "description" : [
-                    "Apprendre des sorts vous vient aisément. Lorsque vous obtenez un succès pour Apprendre un sort, vous mettez 10 minutes quel que soit le rang du sort. Si vous obtenez un succès sur le test, il devient un succès critique. Si vous obtenez un échec, vous pouvez essayer de nouveau après 1 semaine ou après avoir gagné un niveau selon ce qui se produit en premier.",
-                    "Vous pouvez utiliser l'intermède pour apprendre et inscrire de nouveaux sorts. Cela fonctionne comme si vous aviez utilisé Gagner de l'argent avec la compétence associée à la tradition, mais au lieu de gagner de l'argent, vous choisissez un sort disponible que vous pouvez apprendre et obtenez une remise pour l'apprendre, en l'apprenant gratuitement si vous gagnez un revenu supérieur ou égal à son coût."
+                    "Apprendre des sorts vous vient aisément. Lorsque vous obtenez un succès pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Q5iIYCFdqJFM31GW', 'param__object__label': this.textContent})\">Apprendre un sort</div>, vous mettez 10 minutes quel que soit le rang du sort. Si vous obtenez un succès sur le test, il devient un succès critique. Si vous obtenez un échec, vous pouvez essayer de nouveau après 1 semaine ou après avoir gagné un niveau selon ce qui se produit en premier.",
+                    "Vous pouvez utiliser l'intermède pour apprendre et inscrire de nouveaux sorts. Cela fonctionne comme si vous aviez utilisé <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'QyzlsLrqM0EEwd7j', 'param__object__label': this.textContent})\">Gagner de l'argent</div> avec la compétence associée à la tradition, mais au lieu de gagner de l'argent, vous choisissez un sort disponible que vous pouvez apprendre et obtenez une remise pour l'apprendre, en l'apprenant gratuitement si vous gagnez un revenu supérieur ou égal à son coût."
                 ]
             },
             {
@@ -4744,7 +4744,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Déclencheur Une créature détecte votre tentative pour Vous faire passer pour et vous êtes dans les 9 mètres d'au moins une autre créature.",
+                    "Déclencheur Une créature détecte votre tentative pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AJstokjdG6iDjVjE', 'param__object__label': this.textContent})\">Vous faire passer pour</div> et vous êtes dans les 9 mètres d'au moins une autre créature.",
                     "Vous possédez un lien occulte avec le monde qui vous aide à vous fondre dans la cacophonie de la vie qui vous entoure. Faites un test d' contre le DD de Perception de la créature. En cas de succès, la créature identifie par erreur une autre créature dans les 9 mètres à votre place."
                 ]
             },
@@ -4759,7 +4759,7 @@ DON.SKILL = {
                     "maître en Survie"
                 ],
                 "description" : [
-                    "Vous pouvez Subsister en utilisant la Survie sur différents plans, même ceux sans ressources ou phénomènes naturels dont vous avez normalement besoin. Par exemple, vous pouvez trouver de la nourriture même si le plan ne dispose d'aucune nourriture qui pourrait normalement vous convenir. Un succès sur votre test pour Subsister empêche les dégâts infligés par le plan et à quiconque vous aidez à Subsister. Cela ne s'applique qu'aux conditions générales du Plan, pas aux plus petits dangers."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> en utilisant la Survie sur différents plans, même ceux sans ressources ou phénomènes naturels dont vous avez normalement besoin. Par exemple, vous pouvez trouver de la nourriture même si le plan ne dispose d'aucune nourriture qui pourrait normalement vous convenir. Un succès sur votre test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> empêche les dégâts infligés par le plan et à quiconque vous aidez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div>. Cela ne s'applique qu'aux conditions générales du Plan, pas aux plus petits dangers."
                 ]
             },
             {
@@ -4832,7 +4832,7 @@ DON.SKILL = {
                     "légende en Arcanes"
                 ],
                 "description" : [
-                    "Vous comprenez les fondements communs des quatre traditions de magie et des essences magiques, ce qui vous permet de les comprendre à travers un prisme arcanique. Lorsque vous utilisez une action de compétence ou un don de compétence qui nécessite un test de Nature, d'Occultisme ou de Religion, en fonction de la tradition magique, vous pouvez utiliser Arcanes à la place. Si vous devriez normalement subir une pénalité ou battre un DD plus élevé en utilisant Arcanes à la place d'une autre magie (comme quand vous utilisez Identifier la magie), ce n'est plus désormais le cas."
+                    "Vous comprenez les fondements communs des quatre traditions de magie et des essences magiques, ce qui vous permet de les comprendre à travers un prisme arcanique. Lorsque vous utilisez une action de compétence ou un don de compétence qui nécessite un test de Nature, d'Occultisme ou de Religion, en fonction de la tradition magique, vous pouvez utiliser Arcanes à la place. Si vous devriez normalement subir une pénalité ou battre un DD plus élevé en utilisant Arcanes à la place d'une autre magie (comme quand vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'eReSHVEPCsdkSL4G', 'param__object__label': this.textContent})\">Identifier la magie</div>), ce n'est plus désormais le cas."
                 ]
             },
             {
@@ -4848,7 +4848,7 @@ DON.SKILL = {
                     "deity who grants heal divine font"
                 ],
                 "description" : [
-                    "Vous canalisez l'énergie de vitalité dans des fortifiants qui vous protègent contre les maux. Lorsque vous Fabriquez un objet alchimique qui restaure des Points de vie (plutôt que de le créer avec Alchimie avancée, Alchimie rapide ou d'autres moyens), il devient un objet alchimique béni et obtient le trait vitalité. Par exemple, un Élixir de vie va devenir un élixir de vie béni. Lorsqu'une créature regagne des Points de vie en utilisant un objet alchimique béni, l'énergie débordante lui accorde une résistance 5 contre l'énergie du vide pendant 1 round ou une résistance 10 contre l'énergie du vide 10 si vous êtes légendaire en Artisanat."
+                    "Vous canalisez l'énergie de vitalité dans des fortifiants qui vous protègent contre les maux. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquez</div> un objet alchimique qui restaure des Points de vie (plutôt que de le créer avec <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Pe0zmIqyTBc2Td0I', 'param__object__label': this.textContent})\">Alchimie avancée</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yzNJgwzV9XqEhKc6', 'param__object__label': this.textContent})\">Alchimie rapide</div> ou d'autres moyens), il devient un objet alchimique béni et obtient le trait vitalité. Par exemple, un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'hDLbR56Id2OtU318', 'param__object__label': this.textContent})\">Élixir de vie</div> va devenir un élixir de vie béni. Lorsqu'une créature regagne des Points de vie en utilisant un objet alchimique béni, l'énergie débordante lui accorde une résistance 5 contre l'énergie du vide pendant 1 round ou une résistance 10 contre l'énergie du vide 10 si vous êtes légendaire en Artisanat."
                 ]
             },
             {
@@ -4863,7 +4863,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Plutôt que de cacher un objet quelque part ou un observateur ne le cherchera pas, vous avez appris à conserver l'objet en mouvement de manière à ce qu'il ne soit jamais où il regarde.",
-                    "Lorsque vous Dissimulez un objet d'Encombrement léger ou inférieur, vous pouvez utiliser Vol au lieu de Discrétion pour vos tests et pour le DD d'un test de Perception d'un observateur actif. Vous lancez le test seulement une fois, mais vous devez continuez d'utilisez les actions pour Dissimuler un objet tout au long du processus."
+                    "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV', 'param__object__label': this.textContent})\">Dissimulez un objet</div> d'Encombrement léger ou inférieur, vous pouvez utiliser <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div> au lieu de Discrétion pour vos tests et pour le DD d'un test de Perception d'un observateur actif. Vous lancez le test seulement une fois, mais vous devez continuez d'utilisez les actions pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'qVNVSmsgpKFGk9hV', 'param__object__label': this.textContent})\">Dissimuler un objet</div> tout au long du processus."
                 ]
             },
             {
@@ -4878,7 +4878,7 @@ DON.SKILL = {
                     "qualifié en Survie"
                 ],
                 "description" : [
-                    "Vous savez comment faire le meilleur et le plus efficace usage de la carcasse de l'animal chassé. Choisissez un cadavre de taille Grande ou supérieure d'un animal qui est mort au cours de la journée passée. Lorsque vous utilisez Survie pour Subsister à proximité de la carcasse, vous obtenez suffisamment de nourriture pour vous-même et une créature supplémentaire de taille Moyenne, en utilisant la viande de la carcasse pour y parvenir. Comme vous utilisez tout de l'animal, les autres ne peuvent pas utiliser la viande de la carcasse pour aucun autre objectif, y compris leur propre utilisation de Tout de l'animal."
+                    "Vous savez comment faire le meilleur et le plus efficace usage de la carcasse de l'animal chassé. Choisissez un cadavre de taille Grande ou supérieure d'un animal qui est mort au cours de la journée passée. Lorsque vous utilisez Survie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> à proximité de la carcasse, vous obtenez suffisamment de nourriture pour vous-même et une créature supplémentaire de taille Moyenne, en utilisant la viande de la carcasse pour y parvenir. Comme vous utilisez tout de l'animal, les autres ne peuvent pas utiliser la viande de la carcasse pour aucun autre objectif, y compris leur propre utilisation de Tout de l'animal."
                 ]
             },
             {
@@ -4894,7 +4894,7 @@ DON.SKILL = {
                     "deity who grants harm divine font"
                 ],
                 "description" : [
-                    "Vous emplissez d'énergie du vide les toxines que vous créez pour affaiblir davantage vos cibles. Lorsque vous Fabriquez un poison alchimique (plutôt que de le créer avec alchimie avancée, Alchimie rapide ou par d'autres moyens), il devient un poison alchimique béni et obtient le trait vide. Lorsqu'une créature est affligée avec un poison alchimique béni, pendant 1 round, tous les Points de vie qu'elle regagnerait du fait d'un effet de vitalité sont réduits de 5 ou de 10 si vous êtes légendaire en Artisanat."
+                    "Vous emplissez d'énergie du vide les toxines que vous créez pour affaiblir davantage vos cibles. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquez</div> un poison alchimique (plutôt que de le créer avec alchimie avancée, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yzNJgwzV9XqEhKc6', 'param__object__label': this.textContent})\">Alchimie rapide</div> ou par d'autres moyens), il devient un poison alchimique béni et obtient le trait vide. Lorsqu'une créature est affligée avec un poison alchimique béni, pendant 1 round, tous les Points de vie qu'elle regagnerait du fait d'un effet de vitalité sont réduits de 5 ou de 10 si vous êtes légendaire en Artisanat."
                 ]
             },
             {
@@ -4910,8 +4910,8 @@ DON.SKILL = {
                     "expert en Représentation"
                 ],
                 "description" : [
-                    "Grâce à votre expérience en tant qu'artiste, vous gardez toujours un Matériel de guérisseur à portée de la main. Vous pouvez manier le Matériel de guérisseur avec tout costume ou déguisement. Les créatures ne remarqueront le matériel que si elles utilisent une action Chercher et obtiennent un succès à un test secret de contre votre DD de Représentation. De plus, vous pouvez vous rendre compte au dernier moment que vous devriez simplement faire semblant pour éviter de causer des dégâts durables.",
-                    "Lorsque vous obtenez un échec critique à un test de Médecine pour Prodiguer les premiers soins, Soigner une maladie, Soigner un poison ou Soigner les blessures, vous pouvez tenter un test de contre le DD de Perception du patient. En cas de succès, votre échec critique au test de Médecine devient un échec."
+                    "Grâce à votre expérience en tant qu'artiste, vous gardez toujours un Matériel de guérisseur à portée de la main. Vous pouvez manier le Matériel de guérisseur avec tout costume ou déguisement. Les créatures ne remarqueront le matériel que si elles utilisent une action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Chercher</div> et obtiennent un succès à un test secret de contre votre DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>. De plus, vous pouvez vous rendre compte au dernier moment que vous devriez simplement faire semblant pour éviter de causer des dégâts durables.",
+                    "Lorsque vous obtenez un échec critique à un test de Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KjoCEEmPGTeFE4hh', 'param__object__label': this.textContent})\">Soigner un poison</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, vous pouvez tenter un test de contre le DD de Perception du patient. En cas de succès, votre échec critique au test de Médecine devient un échec."
                 ]
             },
             {
@@ -4925,7 +4925,7 @@ DON.SKILL = {
                     "expert en Médecine"
                 ],
                 "description" : [
-                    "Votre qualification médicale s'étend aux états moins évidents à soigner. Lorsque vous obtenez un succès sur un DD 20 pour Soigner les blessures, vous pouvez également réduire la valeur de l'état Maladroit, Affaibli ou Stupéfié de votre patient de 1. Si vous êtes capable de soigner plus d'une créature à la fois, vous choisissez celui qui pourra bénéficier de cette capacité. Une créature peut bénéficier de Traitement inhabituel seulement une fois par jour. Si l'état est le résultat d'une affliction, cette affliction n'est pas guérie, bien que l'état soit réduit tant que l'affliction reste à ce stade. Si vous êtes maître en Médecine, ajoutez l'état Drainé à la liste des états que vous pouvez réduire si vous obtenez un succès contre un DD 30. Si vous êtes légendaire en Médecine, vous réduisez l'état choisi de 2 au lieu de 1."
+                    "Votre qualification médicale s'étend aux états moins évidents à soigner. Lorsque vous obtenez un succès sur un DD 20 pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, vous pouvez également réduire la valeur de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'i3OJZU2nk64Df3xm', 'param__object__label': this.textContent})\">Maladroit</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7', 'param__object__label': this.textContent})\">Affaibli</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfié</div> de votre patient de 1. Si vous êtes capable de soigner plus d'une créature à la fois, vous choisissez celui qui pourra bénéficier de cette capacité. Une créature peut bénéficier de Traitement inhabituel seulement une fois par jour. Si l'état est le résultat d'une affliction, cette affliction n'est pas guérie, bien que l'état soit réduit tant que l'affliction reste à ce stade. Si vous êtes maître en Médecine, ajoutez l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé</div> à la liste des états que vous pouvez réduire si vous obtenez un succès contre un DD 30. Si vous êtes légendaire en Médecine, vous réduisez l'état choisi de 2 au lieu de 1."
                 ]
             },
             {
@@ -4939,8 +4939,8 @@ DON.SKILL = {
                     "qualifié en Discrétion"
                 ],
                 "description" : [
-                    "Choisissez un type de terrain difficile dans la liste suivante : décombres, neige ou sous-bois. Tant que vous êtes non détecté par tous les non-alliés sur ce type de terrain, vous pouvez Être furtif sans faire de test de Discrétion tant que vous ne vous déplacez pas de plus de 1,50 mètre et que vous ne vous rapprochez pas à moins de 3 mètres d'un ennemi au cours de votre déplacement.",
-                    "Durant l'exploration, cela vous permet aussi d'approcher automatiquement des créatures à moins de 4,50 mètres tout en Échappant à leurs regards, tant qu'elles ne sont pas activement en train de Chercher ou sur leurs gardes.",
+                    "Choisissez un type de terrain difficile dans la liste suivante : décombres, neige ou sous-bois. Tant que vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VRSef5y1LmL2Hkjf', 'param__object__label': this.textContent})\">non détecté</div> par tous les non-alliés sur ce type de terrain, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> sans faire de test de Discrétion tant que vous ne vous déplacez pas de plus de 1,50 mètre et que vous ne vous rapprochez pas à moins de 3 mètres d'un ennemi au cours de votre déplacement.",
+                    "Durant l'exploration, cela vous permet aussi d'approcher automatiquement des créatures à moins de 4,50 mètres tout en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échappant à leurs regards</div>, tant qu'elles ne sont pas activement en train de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Chercher</div> ou sur leurs gardes.",
                     "Spécial Vous pouvez choisir ce don à plusieurs reprises. À chaque fois, choisissez un type de terrain différent"
                 ]
             },
@@ -4956,8 +4956,8 @@ DON.SKILL = {
                     "maître en Intimidation"
                 ],
                 "description" : [
-                    "Déclencheur Vous vous relevez après avoir été À terre après vous être réveillé d'avoir été Inconscient",
-                    "Vous refusez de céder la victoire, même après avoir été renversé et presque tué. Pour vous, une telle rencontre avec la mort est moins quelque chose à craindre qu'une chose qui vous rend furieux. Lorsque vous vous relevez, vous poussez un rugissement en signe de défi et pouvez tenter de Démoraliser un ennemi."
+                    "Déclencheur Vous vous relevez après avoir été <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div> après vous être réveillé d'avoir été <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf', 'param__object__label': this.textContent})\">Inconscient</div>",
+                    "Vous refusez de céder la victoire, même après avoir été renversé et presque tué. Pour vous, une telle rencontre avec la mort est moins quelque chose à craindre qu'une chose qui vous rend furieux. Lorsque vous vous relevez, vous poussez un rugissement en signe de défi et pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un ennemi."
                 ]
             },
             {
@@ -4972,7 +4972,7 @@ DON.SKILL = {
                     "qualifié en Représentation"
                 ],
                 "description" : [
-                    "Votre gorge possède plusieurs chambres séparées qui donnent à votre voix un écho inquiétant. Vous pouvez être clairement entendu à des distances de plus de 100 mètres quel que soit le niveau sonore de votre environnement, bien que votre voix ne puisse pénétrer un effet de Silence magique."
+                    "Votre gorge possède plusieurs chambres séparées qui donnent à votre voix un écho inquiétant. Vous pouvez être clairement entendu à des distances de plus de 100 mètres quel que soit le niveau sonore de votre environnement, bien que votre voix ne puisse pénétrer un effet de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'gIdDLrbswTV3OBJy', 'param__object__label': this.textContent})\">Silence</div> magique."
                 ]
             },
             {
@@ -5008,7 +5008,7 @@ DON.SKILL = {
                     "Manières courtoises or Savoir urbain"
                 ],
                 "description" : [
-                    "Vous connaissez les gens idéaux pour obtenir que des choses soient faites au sein de certains cercles. Une fois par semaine, Lorsque vous êtes dans une zone au sein de laquelle existe des nobles influents, des élites marchandes ou autre groupe équivalent (si vous avez Manières courtoises) ou un réseau de personnages plus louches comme une guilde de voleur (si vous avez Savoir urbain), vous pouvez utiliser Société pour Solliciter une faveur ou l'aider de ces gens comme s'ils étaient amicaux à votre égard. Votre demande doit faire sens par rapport au type de gens que vous contactez. Par exemple, un membre de la cour royale pourrait vous garantir une invitation valable pour un bal sophistiqué ball, alors qu'un cambrioleur local pourrait vous indiquer une manière d'infiltrer discrètement la même fête. Si vous obtenez un succès critique à ce test, votre relation vous donne un conseil utile ou vous fait part d'un petit secret, vous accordant ou à un membre de votre groupe un bonus de circonstances de +2 au premier test de compétence que vous tentez lorsque vous mettez à profit la faveur. Si vous obtenez un échec critique à ce test, vous pourriez avoir à rendre un certain service pour votre relation pour rentrer de nouveau dans se bonnes grâces, comme indiqué par le MJ."
+                    "Vous connaissez les gens idéaux pour obtenir que des choses soient faites au sein de certains cercles. Une fois par semaine, Lorsque vous êtes dans une zone au sein de laquelle existe des nobles influents, des élites marchandes ou autre groupe équivalent (si vous avez Manières courtoises) ou un réseau de personnages plus louches comme une guilde de voleur (si vous avez Savoir urbain), vous pouvez utiliser Société pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DCb62iCBrJXy0Ik6', 'param__object__label': this.textContent})\">Solliciter</div> une faveur ou l'aider de ces gens comme s'ils étaient amicaux à votre égard. Votre demande doit faire sens par rapport au type de gens que vous contactez. Par exemple, un membre de la cour royale pourrait vous garantir une invitation valable pour un bal sophistiqué ball, alors qu'un cambrioleur local pourrait vous indiquer une manière d'infiltrer discrètement la même fête. Si vous obtenez un succès critique à ce test, votre relation vous donne un conseil utile ou vous fait part d'un petit secret, vous accordant ou à un membre de votre groupe un bonus de circonstances de +2 au premier test de compétence que vous tentez lorsque vous mettez à profit la faveur. Si vous obtenez un échec critique à ce test, vous pourriez avoir à rendre un certain service pour votre relation pour rentrer de nouveau dans se bonnes grâces, comme indiqué par le MJ."
                 ]
             },
             {
@@ -5024,7 +5024,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Vous êtes aguerri à combattre les épidémies et vos patients sont moins à même de succomber à la même maladie par la suite pendant un temps.",
-                    "Lorsque vous réussissez à Soigner une maladie sur quelqu'un et qu'il récupère complètement de la maladie, il obtient par la suite un bonus de circonstances de +2 aux jets de sauvegarde contre cette même maladie qui dure 1 semaine."
+                    "Lorsque vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div> sur quelqu'un et qu'il récupère complètement de la maladie, il obtient par la suite un bonus de circonstances de +2 aux jets de sauvegarde contre cette même maladie qui dure 1 semaine."
                 ]
             },
             {
@@ -5039,7 +5039,7 @@ DON.SKILL = {
                     "expert en Représentation"
                 ],
                 "description" : [
-                    "Vous racontez un récit puissant et impressionnant de votre triomphe sur un ennemi redoutable. Quand vous Vous produisez, choisissez une cible unique dans un rayon de 9 mètres autour de vous et comparez le résultat de votre test de Représentation au DD de Volonté de cet observateur. Si vous êtes maître en Représentation, vous pouvez choisir jusqu'à quatre cibles et si vous êtes légendaire, vous pouvez choisir n'importe quel nombre de cibles. Si vous obtenez un succès, toute tentative que vous faites pour Démoraliser cette créature au cours des 24 heures suivantes bénéficie d'un bonus de circonstances de +1. Si votre score de Charisme est de 20 ou plus et que vous êtes maître en Représentation, ce bonus passe à +2. Une fois qu'une créature a été impressionnée de cette manière, elle devient temporairement immunisée contre toute autre Vantardise Triomphante pendant 24 heures."
+                    "Vous racontez un récit puissant et impressionnant de votre triomphe sur un ennemi redoutable. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Vous produisez</div>, choisissez une cible unique dans un rayon de 9 mètres autour de vous et comparez le résultat de votre test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div> au DD de Volonté de cet observateur. Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, vous pouvez choisir jusqu'à quatre cibles et si vous êtes légendaire, vous pouvez choisir n'importe quel nombre de cibles. Si vous obtenez un succès, toute tentative que vous faites pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> cette créature au cours des 24 heures suivantes bénéficie d'un bonus de circonstances de +1. Si votre score de Charisme est de 20 ou plus et que vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EEDElIyin4z60PXx', 'param__object__label': this.textContent})\">Représentation</div>, ce bonus passe à +2. Une fois qu'une créature a été impressionnée de cette manière, elle devient temporairement immunisée contre toute autre Vantardise Triomphante pendant 24 heures."
                 ]
             },
             {
@@ -5052,7 +5052,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "En utilisant le pouvoir de votre propre sang, vous amenez le flux sanguin à nourrir les tissus endommagés ou à étouffer le flux pour coaguler les blessures ou empêcher la propagation du poison et des maladies. Vous n'avez plus besoin d'un Matériel de guérisseur pour Prodiguer les premiers soins, Soigner une maladie, Soigner un empoisonnement ou Soigner les blessures, bien que vous subissiez ]{1 dégât} à chaque fois que vous tentez une de ces actions sans les instruments adaptés en ponctionnant votre sang. Vous ne pouvez ni réduire ni empêcher ce dégât.",
+                    "En utilisant le pouvoir de votre propre sang, vous amenez le flux sanguin à nourrir les tissus endommagés ou à étouffer le flux pour coaguler les blessures ou empêcher la propagation du poison et des maladies. Vous n'avez plus besoin d'un Matériel de guérisseur pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KjoCEEmPGTeFE4hh', 'param__object__label': this.textContent})\">Soigner un empoisonnement</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, bien que vous subissiez ]{1 dégât} à chaque fois que vous tentez une de ces actions sans les instruments adaptés en ponctionnant votre sang. Vous ne pouvez ni réduire ni empêcher ce dégât.",
                     "Vous obtenez un bonus d'objet de +1 lorsque vous accomplissez ces actions en utilisant votre sang, qui passe à +2 si vous êtes maître en Médecine et à +3 si vous êtes légendaire."
                 ]
             },
@@ -5068,7 +5068,7 @@ DON.SKILL = {
                     "Dévouement : Justicier"
                 ],
                 "description" : [
-                    "Vos identités différentes vous permettent de tromper la magie qui détecte les mensonges. Tant que ce que vous dites est vrai du point de vue de votre identité actuelle, vous tromper les effets du Cercle de vérité qui révèlent les mensonges."
+                    "Vos identités différentes vous permettent de tromper la magie qui détecte les mensonges. Tant que ce que vous dites est vrai du point de vue de votre identité actuelle, vous tromper les effets du <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aewxsale5xWEPKLk', 'param__object__label': this.textContent})\">Cercle de vérité</div> qui révèlent les mensonges."
                 ]
             },
             {
@@ -5083,7 +5083,7 @@ DON.SKILL = {
                     "expert en Nature"
                 ],
                 "description" : [
-                    "En tenant compte des sages conseils des anciens de votre horde - et aidé par votre propre expérience - vous avez appris à prodiguer des soins médicaux à la mégafaune de la horde du Seigneur des mammouths. Vous pouvez tenter un test de Nature au lieu d'un test de Médecine pour n'importe quelle utilisation qualifiée ou non de Médecine, à condition que le sujet de vos soins médicaux soit un mégafaune. Si vous tentez une action qui requiert un rang de compétence particulier en Médecine (comme Soigner les blessures), utilisez votre rang de compétence en Nature à la place. Si le sujet de vos soins est votre mégafaune et que vous obtenez un succès sur votre test, il devient un succès critique."
+                    "En tenant compte des sages conseils des anciens de votre horde - et aidé par votre propre expérience - vous avez appris à prodiguer des soins médicaux à la mégafaune de la horde du Seigneur des mammouths. Vous pouvez tenter un test de Nature au lieu d'un test de Médecine pour n'importe quelle utilisation qualifiée ou non de Médecine, à condition que le sujet de vos soins médicaux soit un mégafaune. Si vous tentez une action qui requiert un rang de compétence particulier en Médecine (comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>), utilisez votre rang de compétence en Nature à la place. Si le sujet de vos soins est votre mégafaune et que vous obtenez un succès sur votre test, il devient un succès critique."
                 ]
             },
             {
@@ -5106,7 +5106,7 @@ DON.SKILL = {
                     "L'attitude apparente actuelle de la cible à votre égard (amicale, indifférente, etc.).",
                     "L'état émotionnel apparent actuel de la cible.",
                     "Une évaluation générale de la santé physique de la cible, comme les états ou les afflictions dont elle souffre. Vous pourriez devoir réussir un test d'Occultisme contre le DD de l'affliction ou de l'état pour détecter la présence d'un état ou d'une affliction spécifiquement cachée ou subtile.",
-                    "De plus, le MJ lance un test secret d' pour vous contre le DD de Duperie de la cible. Si votre résultat dépasse celui de votre cible, vous pouvez identifier si elle tente de vous tromper d'une manière ou d'une autre (comme exprimer une fausse attitude à votre égard ou simuler un état émotionnel). Cela ne vous permet pas d'identifier automatiquement la nature exacte de cette supercherie, mais seulement de savoir que l'apparence extérieure est factice."
+                    "De plus, le MJ lance un test secret d' pour vous contre le DD de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> de la cible. Si votre résultat dépasse celui de votre cible, vous pouvez identifier si elle tente de vous tromper d'une manière ou d'une autre (comme exprimer une fausse attitude à votre égard ou simuler un état émotionnel). Cela ne vous permet pas d'identifier automatiquement la nature exacte de cette supercherie, mais seulement de savoir que l'apparence extérieure est factice."
                 ]
             },
             {
@@ -5122,7 +5122,7 @@ DON.SKILL = {
                     "maître en Discrétion"
                 ],
                 "description" : [
-                    "Vous vous enveloppez de cendres qui cachent l'essence vitale recherchée par les morts-vivants qui détectent la vie. Vous prenez toujours des précautions en Échappant aux regards, en Vous cachant et en Étant furtif pour déjouer Perception de la vie et vous êtes Masqué contre toute créature utilisant uniquement Perception de la vie précis pour vous observer."
+                    "Vous vous enveloppez de cendres qui cachent l'essence vitale recherchée par les morts-vivants qui détectent la vie. Vous prenez toujours des précautions en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'IE2nThCmoyhQA0Jn', 'param__object__label': this.textContent})\">Échappant aux regards</div>, en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Vous cachant</div> et en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Étant furtif</div> pour déjouer Perception de la vie et vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> contre toute créature utilisant uniquement Perception de la vie précis pour vous observer."
                 ]
             },
             {
@@ -5138,7 +5138,7 @@ DON.SKILL = {
                 ],
                 "description" : [
                     "Conditions Vous êtes adjacent à une créature qui est d'au moins une taille de plus que vous et qui accepte d'être votre monture.",
-                    "Vous et votre monture pouvez passer à l'action en un clin d'œil. Vous Vous mettez en selle sur la créature et Dirigez un animal pour lui donner un ordre de votre choix."
+                    "Vous et votre monture pouvez passer à l'action en un clin d'œil. Vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PM5jvValFkbFH3TV', 'param__object__label': this.textContent})\">Vous mettez en selle</div> sur la créature et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Dirigez un animal</div> pour lui donner un ordre de votre choix."
                 ]
             },
             {
@@ -5153,7 +5153,7 @@ DON.SKILL = {
                     "expert en Diplomatie"
                 ],
                 "description" : [
-                    "Vous pouvez tirer parti de votre vœu lors de plus nombreuses interactions sociales. Le bonus de circonstances de Respecter sa parole s'applique également aux tentatives pour Recueillir des informations, Faire bonne impression ou pour Démoraliser que vous réalisez directement dans le but d'accomplir le vœu."
+                    "Vous pouvez tirer parti de votre vœu lors de plus nombreuses interactions sociales. Le bonus de circonstances de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9X80J5RN21Uoaeiw', 'param__object__label': this.textContent})\">Respecter sa parole</div> s'applique également aux tentatives pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'plBGdZhqq5JBl1D8', 'param__object__label': this.textContent})\">Recueillir des informations</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'OX4fy22hQgUHDr0q', 'param__object__label': this.textContent})\">Faire bonne impression</div> ou pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> que vous réalisez directement dans le but d'accomplir le vœu."
                 ]
             },
             {
@@ -5170,7 +5170,7 @@ DON.SKILL = {
                     "maître en Discrétion"
                 ],
                 "description" : [
-                    "En enduisant votre peau et votre armure de cendres ou de terre souillée, vous vous protégez des morts. Vous êtes Masqué pour les morts-vivants qui utilisent la vision ou perception de la vie, vous permettant de vous Cacher et d'Être furtif sans autre source d'abri ou de camouflage. Cet effet ne dure que tant que vous continuez à ne prendre d'autre action que vous Cacher, Être furtif ou d'autres actions pour rester discret. Le MJ détermine quelles actions mettent un terme à l'effet, mais attaquer, Lancer des sorts, activer des objets et les choses du genre le font toujours."
+                    "En enduisant votre peau et votre armure de cendres ou de terre souillée, vous vous protégez des morts. Vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> pour les morts-vivants qui utilisent la vision ou perception de la vie, vous permettant de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">vous Cacher</div> et d'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> sans autre source d'abri ou de camouflage. Cet effet ne dure que tant que vous continuez à ne prendre d'autre action que <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">vous Cacher</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VMozDqMMuK5kpoX4', 'param__object__label': this.textContent})\">Être furtif</div> ou d'autres actions pour rester discret. Le MJ détermine quelles actions mettent un terme à l'effet, mais attaquer, Lancer des sorts, activer des objets et les choses du genre le font toujours."
                 ]
             },
             {
@@ -5190,9 +5190,9 @@ DON.SKILL = {
                     "maître en Intimidation"
                 ],
                 "description" : [
-                    "Conditions Vous n'êtes pas Fatigué.",
-                    "En canalisant l'énergie du Serment écarlate dans votre voix, vous prononcez une menace avec un ton si glacial qu'il gèle le sang. Tentez un test d'Intimidation pour Démoraliser ; vous ne subissez pas de pénalité lorsque la cible ne comprend pas la langue que vous parlez, mais cela fonctionne autrement comme à l'ordinaire. Vous ne pouvez utiliser Regard intimidant ou tout autre effet qui devrait faire perdre à votre tentative pour Démoraliser le trait audible lorsque vous utilisez ce don.",
-                    "Si vous obtenez un succès critique à votre test d'Intimidation, la cible est Étourdie 1 ou Étourdie 2 si la cible est un mort-vivant. Après avoir utilisé ce don, vous êtes fatigué jusqu'à la fin de votre prochain tour et vous ne pouvez utiliser de nouveau ce don jusqu'à la fin de votre prochain tour."
+                    "Conditions Vous n'êtes pas <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw', 'param__object__label': this.textContent})\">Fatigué</div>.",
+                    "En canalisant l'énergie du Serment écarlate dans votre voix, vous prononcez une menace avec un ton si glacial qu'il gèle le sang. Tentez un test d'Intimidation pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> ; vous ne subissez pas de pénalité lorsque la cible ne comprend pas la langue que vous parlez, mais cela fonctionne autrement comme à l'ordinaire. Vous ne pouvez utiliser Regard intimidant ou tout autre effet qui devrait faire perdre à votre tentative pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> le trait audible lorsque vous utilisez ce don.",
+                    "Si vous obtenez un succès critique à votre test d'Intimidation, la cible est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdie 1</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdie 2</div> si la cible est un mort-vivant. Après avoir utilisé ce don, vous êtes fatigué jusqu'à la fin de votre prochain tour et vous ne pouvez utiliser de nouveau ce don jusqu'à la fin de votre prochain tour."
                 ]
             },
             {
@@ -5206,7 +5206,7 @@ DON.SKILL = {
                     "qualifié en Vol"
                 ],
                 "description" : [
-                    "Vous pouvez Voler ou Escamoter un objet étroitement gardé, tel que dans une poche, sans subir la pénalité de -5. Vous ne pouvez pas voler des objets qui seraient extrêmement visibles ou qui prendraient du temps à retirer (tels que des chaussures ou une armure portées ou des objets activement utilisés). Si vous êtes maître en Vol, vous pouvez tenter de Voler une créature en combat ou sur ses gardes. Quand vous le faites, Voler nécessite 2 actions au lieu de 1 et vous subissez une pénalité de -5."
+                    "Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ijZ0DDFpMkWqaShd', 'param__object__label': this.textContent})\">Escamoter un objet</div> étroitement gardé, tel que dans une poche, sans subir la pénalité de -5. Vous ne pouvez pas voler des objets qui seraient extrêmement visibles ou qui prendraient du temps à retirer (tels que des chaussures ou une armure portées ou des objets activement utilisés). Si vous êtes maître en <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div>, vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> une créature en combat ou sur ses gardes. Quand vous le faites, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> nécessite 2 actions au lieu de 1 et vous subissez une pénalité de -5."
                 ]
             },
             {
@@ -5220,7 +5220,7 @@ DON.SKILL = {
                     "qualifié en Vol"
                 ],
                 "description" : [
-                    "Quand vous réussissez à Voler quelque chose, les observateurs (les créatures autres que la créature que vous avez volée) subissent une pénalité de circonstances de -2 à leurs DD de Perception pour détecter votre larcin. De plus, si vous commencez par Faire diversion en utilisant Duperie, effectuer une seule action pour Escamoter un objet ou Voler ne met pas fin à votre état Non détecté."
+                    "Quand vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> quelque chose, les observateurs (les créatures autres que la créature que vous avez volée) subissent une pénalité de circonstances de -2 à leurs DD de Perception pour détecter votre larcin. De plus, si vous commencez par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'GkmbTGfg8KcgynOA', 'param__object__label': this.textContent})\">Faire diversion</div> en utilisant <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div>, effectuer une seule action pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ijZ0DDFpMkWqaShd', 'param__object__label': this.textContent})\">Escamoter un objet</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> ne met pas fin à votre état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VRSef5y1LmL2Hkjf', 'param__object__label': this.textContent})\">Non détecté</div>."
                 ]
             },
             {
@@ -5235,7 +5235,7 @@ DON.SKILL = {
                     "Vol à la tire"
                 ],
                 "description" : [
-                    "Votre capacité à Voler dépasse l'entendement. Vous pouvez tenter de Voler quelque chose qui est activement manié ou qui serait extrêmement visible ou prendrait beaucoup de temps à retirer (comme des chaussures ou une armure portées). Vous devez le faire lentement et avec précaution, en y passant au moins 1 minute (et beaucoup plus pour des objets qui prennent normalement du temps à retirer, tels qu'une armure). Tout au long de cette durée, vous devez posséder un moyen de rester Caché en utilisant par exemple le couvert des ténèbres ou en utilisant une foule animée. Vous subissez une pénalité de -5 à votre test de Vol. Même si vous réussissez, si l'objet est extrêmement proéminent - comme un harnois, les observateurs remarqueront rapidement sa disparition après le vol."
+                    "Votre capacité à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> dépasse l'entendement. Vous pouvez tenter de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'RDXXE7wMrSPCLv5k', 'param__object__label': this.textContent})\">Voler</div> quelque chose qui est activement manié ou qui serait extrêmement visible ou prendrait beaucoup de temps à retirer (comme des chaussures ou une armure portées). Vous devez le faire lentement et avec précaution, en y passant au moins 1 minute (et beaucoup plus pour des objets qui prennent normalement du temps à retirer, tels qu'une armure). Tout au long de cette durée, vous devez posséder un moyen de rester <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'iU0fEDdBp3rXpTMC', 'param__object__label': this.textContent})\">Caché</div> en utilisant par exemple le couvert des ténèbres ou en utilisant une foule animée. Vous subissez une pénalité de -5 à votre test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Vol</div>. Même si vous réussissez, si l'objet est extrêmement proéminent - comme un harnois, les observateurs remarqueront rapidement sa disparition après le vol."
                 ]
             },
             {
@@ -5249,12 +5249,15 @@ DON.SKILL = {
                     "qualifié en Diplomatie ou Société"
                 ],
                 "description" : [
-                    "Vous pouvez pister des cibles avec l'aide des habitants. Vous pouvez utiliser Diplomatie ou Société, dès lors que vous êtes qualifié, pour Pister les créatures au sein des communautés. Vous discutez avec les habitants pour vous aider à suivre la trace des créatures que vous Pistez. À la discrétion du MJ, il pourrait ne pas y avoir suffisamment de gens à qui parler pour continuer à suivre la piste."
+                    "Vous pouvez pister des cibles avec l'aide des habitants. Vous pouvez utiliser Diplomatie ou Société, dès lors que vous êtes qualifié, pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD', 'param__object__label': this.textContent})\">Pister</div> les créatures au sein des communautés. Vous discutez avec les habitants pour vous aider à suivre la trace des créatures que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EA5vuSgJfiHH7plD', 'param__object__label': this.textContent})\">Pistez</div>. À la discrétion du MJ, il pourrait ne pas y avoir suffisamment de gens à qui parler pour continuer à suivre la piste."
                 ]
             }
         ]
     ]
 };
+
+
+
 
 
 

@@ -105,6 +105,81 @@ function linkifyUuids( html ) {
     } );
 }
 
+// The French descriptions of the source link the actions by @UUID with
+// CONJUGATED labels ("Vous souvenir", "Sollicitez"...) while the plain-text
+// prose of the feat descriptions carries the same forms unlinked : the
+// labels seen in the French descriptions of the loaded packs become
+// linkable names, mapped to the uuid of their action entry
+var ACTION_UUID_RE = /@UUID\[Compendium\.pf2e\.[\w-]*action[\w-]*\.Item\.(\w+)\]\{([^}]*)\}/g;
+
+var ACTION_LABEL_TO_UUID = null;
+var ACTION_LINK_RE       = null;
+
+function escapeRegExp( text ) {
+    return text.replace( /[.*+?^${}()|[\]\\]/g, "\\$&" );
+}
+
+function buildActionLinkIndex() {
+    if ( ACTION_LABEL_TO_UUID ) {
+        return;
+    }
+    var label_to_uuid = {};
+    var pack_lists    = [ SPELLS, FEATS, EQUIP, ACTIONS, CLASS_FEATURES, ANC_FEATURES, BACKGROUNDS, ARCHETYPES, CONDITIONS, EFFECTS ];
+    for ( var p = 0, _size_p = pack_lists.length; p < _size_p; p++ ) {
+        var list = pack_lists[ p ];
+        if ( !list ) {
+            continue;
+        }
+        for ( var i = 0, _size_i = list.length; i < _size_i; i++ ) {
+            var fr_desc = frOf( list[ i ] ).description;
+            if ( !fr_desc ) {
+                continue;
+            }
+            ACTION_UUID_RE.lastIndex = 0;
+            var m;
+            while ( ( m = ACTION_UUID_RE.exec( fr_desc ) ) !== null ) {
+                if ( m[ 2 ].length > 1 && !label_to_uuid[ m[ 2 ] ] ) {
+                    label_to_uuid[ m[ 2 ] ] = m[ 1 ];
+                }
+            }
+        }
+    }
+    var labels = Object.keys( label_to_uuid ).sort( function ( a, b ) { return b.length - a.length; } );
+    ACTION_LABEL_TO_UUID = label_to_uuid;
+    ACTION_LINK_RE       = labels.length ? new RegExp( "(?<![\\p{L}\\p{N}_])(?:" + labels.map( escapeRegExp ).join( "|" ) + ")(?![\\p{L}\\p{N}_])", "gu" ) : null;
+}
+
+function makeLinkDiv( id, label ) {
+    return "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '" + id + "', 'param__object__label': this.textContent})\">" + label + "</div>";
+}
+
+function linkifyActionLabels( html ) {
+    buildActionLinkIndex();
+    if ( !ACTION_LINK_RE ) {
+        return html;
+    }
+    return html.replace( ACTION_LINK_RE, function ( match ) {
+        return makeLinkDiv( ACTION_LABEL_TO_UUID[ match ], match );
+    } );
+}
+
+// The flatten strips every tag at the end : the information links ride the
+// strip as placeholders and are restored once the text is plain
+var LINK_DIV_RE = /<div class="gs-link-information"[\s\S]*?<\/div>/g;
+
+function protectLinks( html, links ) {
+    return html.replace( LINK_DIV_RE, function ( match ) {
+        links.push( match );
+        return "\u0000" + ( links.length - 1 ) + "\u0000";
+    } );
+}
+
+function restoreLinks( html, links ) {
+    return html.replace( /\u0000(\d+)\u0000/g, function ( match, index ) {
+        return links[ parseInt( index, 10 ) ];
+    } );
+}
+
 // The other Foundry inline tags (@Damage, @Check, @Template...) collapse to
 // their label, the [[/act ...]]{label} links to the plain label
 var GENERIC_TAG_RE = /@\w+(?:\[[^\]]*\])+\{([^}]*)\}/g;
@@ -140,7 +215,10 @@ function flattenHtml( html ) {
     if ( !html ) {
         return "";
     }
-    var out = linkifyUuids( html );
+    // The information links ride the tag strip as placeholders
+    var links = [];
+    var out = protectLinks( linkifyUuids( html ), links );
+    out = protectLinks( linkifyActionLabels( out ), links );
     out = out.replace( GENERIC_TAG_RE, " $1" );
     out = out.replace( ACT_LINK_RE, "$1" );
     out = out.replace( STRONG_RE, "$1" );
@@ -162,6 +240,7 @@ function flattenHtml( html ) {
     out = out.replace( /[ \t]+\n/g, "\n" ).replace( /\n[ \t]+/g, "\n" );
     out = out.replace( /[ ]{2,}/g, " " );
     out = out.replace( /\n{3,}/g, "\n\n" ).replace( /^\n+|\n+$/g, "" );
+    out = restoreLinks( out, links );
     return out;
 }
 

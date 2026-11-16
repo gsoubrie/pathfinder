@@ -10,7 +10,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Vous obtenez un animal de compagnie de taille Très Petite, d'un type que vous choisissez, comme par exemple un chat, un oiseau ou un rongeur. Il possède le trait sbire, ce qui signifie qu'il obtient 2 actions lors de votre tour si vous utilisez l'action Diriger un animal pour lui donner un ordre. Ceci remplace les effets habituels de Diriger un animal et vous n'avez pas à tenter un test de Nature. Un animal de compagnie ne peut entreprendre d'actions d'attaque sauf pour S'Échapper ou Ouvrir de force.",
+                "Vous obtenez un animal de compagnie de taille Très Petite, d'un type que vous choisissez, comme par exemple un chat, un oiseau ou un rongeur. Il possède le trait sbire, ce qui signifie qu'il obtient 2 actions lors de votre tour si vous utilisez l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div> pour lui donner un ordre. Ceci remplace les effets habituels de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Diriger un animal</div> et vous n'avez pas à tenter un test de Nature. Un animal de compagnie ne peut entreprendre d'actions d'attaque sauf pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">S'Échapper</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SjmKHgI7a5Z9JzBx', 'param__object__label': this.textContent})\">Ouvrir de force</div>.",
                 "Niveau Le niveau de votre animal de compagnie est égal au vôtre.",
                 "Modificateurs et CA Les modificateurs aux jets de sauvegarde et à la CA de votre animal de compagnie sont les mêmes que les vôtres avant d'appliquer les bonus et les pénalités de circonstances. Il utilise 3 + votre niveau pour déterminer ses modificateurs de Perception, d'Acrobaties et de Discrétion, et juste votre niveau comme modificateur pour ses autres tests de compétence. Il n'a pas ou n'utilise pas ses propres modificateurs d'attribut et ne peut jamais bénéficier de bonus d'objet.",
                 "Points de vie Votre animal de compagnie possède 5 Points de vie par niveau.",
@@ -26,7 +26,7 @@ DON.GENERAL = {
                 "Odorat Votre animal de compagnie peut utiliser son odorat en tant que sens imprécis dans un rayon de 9 mètres.",
                 "Rapide Augmentation d'une de ses vitesses de 7,50 mètres à 12 mètres.",
                 "Vision dans le noir Il obtient vision dans le noir.",
-                "Volant Il obtient une vitesse de vol de 7,50 mètres.",
+                "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'cS9nfDRGD83bNU1p', 'param__object__label': this.textContent})\">Volant</div> Il obtient une vitesse de vol de 7,50 mètres.",
                 "Spécial Vous pouvez obtenir un nouvel animal de compagnie en opérant le réapprentissage de ce don, libérant tout animal de compagnie que vous possédiez auparavant. Si vous obtenez plus tard un familier ou un autre compagnon qui utilise le don Animal de compagnie, vous pouvez immédiatement opérer le réapprentissage de ce don."
             ]
         },
@@ -63,7 +63,7 @@ DON.GENERAL = {
                 "Pic de guerre Up the Pace"
             ],
             "description" : [
-                "Vous savez comment tirer le plus gros effort de vos alliés sur la route. Votre groupe peut S'empresser pour 20 minutes de plus au delà du temps que le membre du groupe qui pourrait S'empresser le plus longtemps s'il était seul."
+                "Vous savez comment tirer le plus gros effort de vos alliés sur la route. Votre groupe peut <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JuqmIAnkL9hVGai8', 'param__object__label': this.textContent})\">S'empresser</div> pour 20 minutes de plus au delà du temps que le membre du groupe qui pourrait <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JuqmIAnkL9hVGai8', 'param__object__label': this.textContent})\">S'empresser</div> le plus longtemps s'il était seul."
             ]
         },
         {
@@ -87,7 +87,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Lorsque vous Dirigez un animal sur lequel vous êtes monté pour effectuer une action de déplacement (comme Marcher rapidement), vous obtenez automatiquement un succès au lieu de devoir tenter un test. Tout animal sur lequel vous êtes monté agit à votre tour, comme un sbire. Si vous Montez un animal au milieu d'une rencontre, il passe son prochain tour puis agit ensuite à votre prochain tour."
+                "Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'q9nbyIF0PEBqMtYe', 'param__object__label': this.textContent})\">Dirigez un animal</div> sur lequel vous êtes monté pour effectuer une action de déplacement (comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div>), vous obtenez automatiquement un succès au lieu de devoir tenter un test. Tout animal sur lequel vous êtes monté agit à votre tour, comme un sbire. Si vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PM5jvValFkbFH3TV', 'param__object__label': this.textContent})\">Montez</div> un animal au milieu d'une rencontre, il passe son prochain tour puis agit ensuite à votre prochain tour."
             ]
         },
         {
@@ -100,7 +100,7 @@ DON.GENERAL = {
                 "Planificateur prescient"
             ],
             "description" : [
-                "Vous pouvez prédire quels sont les consommables dont vous pourriez avoir besoin à l'avance. Lorsque vous utilisez Planificateur prescient, vous pouvez tirer un objet consommable de votre sac à dos, au lieu d'un élément d'équipement d'aventurier. L'objet consommable doit toujours être courant et d'un niveau qui n'est pas supérieur à la moitié de votre niveau et son Encombrement doit être suffisamment faible pour que le porter ne vous ait pas rendu Surchargé."
+                "Vous pouvez prédire quels sont les consommables dont vous pourriez avoir besoin à l'avance. Lorsque vous utilisez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bh2jHyyYrkLMsIdX', 'param__object__label': this.textContent})\">Planificateur prescient</div>, vous pouvez tirer un objet consommable de votre sac à dos, au lieu d'un élément d'équipement d'aventurier. L'objet consommable doit toujours être courant et d'un niveau qui n'est pas supérieur à la moitié de votre niveau et son Encombrement doit être suffisamment faible pour que le porter ne vous ait pas rendu Surchargé."
             ]
         },
         {
@@ -124,7 +124,7 @@ DON.GENERAL = {
                 "Constitution +2"
             ],
             "description" : [
-                "Vous menez par l'exemple et pouvez aider les autres à dépasser leurs limites habituelles. Lorsque vous vous trouvez dans un groupe qui S'empresse durant le mode d'exploration, votre groupe peut S'empresser aussi longtemps que le membre du groupe qui peut S'empresser le plus longtemps par lui-même."
+                "Vous menez par l'exemple et pouvez aider les autres à dépasser leurs limites habituelles. Lorsque vous vous trouvez dans un groupe qui S'empresse durant le mode d'exploration, votre groupe peut <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JuqmIAnkL9hVGai8', 'param__object__label': this.textContent})\">S'empresser</div> aussi longtemps que le membre du groupe qui peut <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JuqmIAnkL9hVGai8', 'param__object__label': this.textContent})\">S'empresser</div> le plus longtemps par lui-même."
             ]
         },
         {
@@ -135,7 +135,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Il en faut plus pour vous tuer que la plupart des gens. Vous mourez de l'état mourant à mourant 5 plutôt qu'à mourant 4."
+                "Il en faut plus pour vous tuer que la plupart des gens. Vous mourez de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yZRUzMqrMmfLu0V1', 'param__object__label': this.textContent})\">mourant</div> à mourant 5 plutôt qu'à mourant 4."
             ]
         },
         {
@@ -149,8 +149,8 @@ DON.GENERAL = {
                 "maître en Perception"
             ],
             "description" : [
-                "Lorsque vous partez en reconnaissance, vous êtes particulièrement attentif au danger, offrant à vos alliés de précieux instants pour se préparer au combat. Lorsque vous utilisez l'activité d'exploration Reconnaître, vous accordez à vos alliés un bonus de circonstances de +2 à leurs jets d'initiative au lieu d'un bonus de circonstances de +1.",
-                "Effet : Reconnaître (Éclaireur incroyable)"
+                "Lorsque vous partez en reconnaissance, vous êtes particulièrement attentif au danger, offrant à vos alliés de précieux instants pour se préparer au combat. Lorsque vous utilisez l'activité d'exploration <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kV3XM0YJeS2KCSOb', 'param__object__label': this.textContent})\">Reconnaître</div>, vous accordez à vos alliés un bonus de circonstances de +2 à leurs jets d'initiative au lieu d'un bonus de circonstances de +1.",
+                "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'la8rWwUtReElgTS6', 'param__object__label': this.textContent})\">Effet : Reconnaître (Éclaireur incroyable)</div>"
             ]
         },
         {
@@ -177,7 +177,7 @@ DON.GENERAL = {
                 "maître en Perception"
             ],
             "description" : [
-                "Vous disposez d'un système qui vous permet d'effectuer des recherches très rapidement, en trouvant les détails et les secrets deux fois plus vite que les autres. Quand vous Cherchez, vous mettez la moitié de la durée habituelle pour Chercher dans une zone donnée. Cela signifie que pendant que vous explorez, vous doublez la Vitesse à laquelle vous pouvez vous déplacer, tout en ayant l'assurance que vous avez bien Fouillé une zone avant d'y pénétrer (jusqu'à la moitié de votre Vitesse). Si vous êtes légendaire en Perception, vous Fouillez des zones quatre fois plus rapidement."
+                "Vous disposez d'un système qui vous permet d'effectuer des recherches très rapidement, en trouvant les détails et les secrets deux fois plus vite que les autres. Quand vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Cherchez</div>, vous mettez la moitié de la durée habituelle pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Chercher</div> dans une zone donnée. Cela signifie que pendant que vous explorez, vous doublez la Vitesse à laquelle vous pouvez vous déplacer, tout en ayant l'assurance que vous avez bien Fouillé une zone avant d'y pénétrer (jusqu'à la moitié de votre Vitesse). Si vous êtes légendaire en Perception, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Fouillez</div> des zones quatre fois plus rapidement."
             ]
         },
         {
@@ -190,7 +190,7 @@ DON.GENERAL = {
                 "expert en Perception"
             ],
             "description" : [
-                "Vous prenez votre temps pour chercher de façon à vous assurer de tout trouver. Lorsque vous Fouillez, vous pouvez passer deux fois plus de temps à chercher. Normalement cela signifie que vous Fouillez à un quart de votre Vitesse, jusqu'à un maximum de 45 mètres par minute pour tout vérifier ou 22,50 mètres par minute pour tout vérifier avant de vous avancer dans une zone. Si vous le faites et que le MJ lance votre test secret de l'action Chercher pour remarquer quelque chose, vous obtenez un bonus de circonstances de +2 à ce test de Perception et si c'est un succès, il devient un succès critique."
+                "Vous prenez votre temps pour chercher de façon à vous assurer de tout trouver. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Fouillez</div>, vous pouvez passer deux fois plus de temps à chercher. Normalement cela signifie que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TiNDYUGlMmxzxBYU', 'param__object__label': this.textContent})\">Fouillez</div> à un quart de votre Vitesse, jusqu'à un maximum de 45 mètres par minute pour tout vérifier ou 22,50 mètres par minute pour tout vérifier avant de vous avancer dans une zone. Si vous le faites et que le MJ lance votre test secret de l'action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'BlAOM2X92SI6HMtJ', 'param__object__label': this.textContent})\">Chercher</div> pour remarquer quelque chose, vous obtenez un bonus de circonstances de +2 à ce test de Perception et si c'est un succès, il devient un succès critique."
             ]
         },
         {
@@ -204,7 +204,7 @@ DON.GENERAL = {
                 "Vélocité"
             ],
             "description" : [
-                "Vous pouvez filer rapidement sur le sol. Vous pouvez Ramper à la moitié de votre Vitesse."
+                "Vous pouvez filer rapidement sur le sol. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Tj055UcNm6UEgtCg', 'param__object__label': this.textContent})\">Ramper</div> à la moitié de votre Vitesse."
             ]
         },
         {
@@ -292,7 +292,7 @@ DON.GENERAL = {
                 "ability to select ancestry feats from multiple ancestries"
             ],
             "description" : [
-                "Vos expériences distinctes dans différentes sociétés ont évolué en des vies parfaitement séparées. Créez une seconde identité pour vous-même avec un nom, une histoire et un historique entièrement différents. Cette identité doit correspondre à un des héritages dont vous pouvez sélectionner un don ancestral. Vous êtes qualifié dans la compétence de connaissance du second historique que vous choisissez (mais pas les autres bénéfices de ce second historique) et vous obtenez un bonus de circonstances de +4 aux tests de Duperie lorsque vous déclarez que votre seconde identité est véritable ou lorsque vous vous déguisez pour prendre cette seconde identité.",
+                "Vos expériences distinctes dans différentes sociétés ont évolué en des vies parfaitement séparées. Créez une seconde identité pour vous-même avec un nom, une histoire et un historique entièrement différents. Cette identité doit correspondre à un des héritages dont vous pouvez sélectionner un don ancestral. Vous êtes qualifié dans la compétence de connaissance du second historique que vous choisissez (mais pas les autres bénéfices de ce second historique) et vous obtenez un bonus de circonstances de +4 aux tests de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ewwCglB7XOPLUz72', 'param__object__label': this.textContent})\">Duperie</div> lorsque vous déclarez que votre seconde identité est véritable ou lorsque vous vous déguisez pour prendre cette seconde identité.",
                 "Spécial À la discrétion du MJ, ce don peut être utilisé contre les non-humanoïdes s'ils ont des contacts réguliers avec des humanoïdes ou si vous êtes capable de vous déguiser vous-même en un membre de l'ascendance ou du même type de créature que votre cible."
             ]
         },
@@ -331,7 +331,7 @@ DON.GENERAL = {
                 "Dexterity +2"
             ],
             "description" : [
-                "Vous faites un pas prudent et rapide. Vous pouvez Faire un pas sur un terrain difficile."
+                "Vous faites un pas prudent et rapide. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> sur un terrain difficile."
             ]
         },
         {
@@ -358,7 +358,7 @@ DON.GENERAL = {
                 "légende en Perception"
             ],
             "description" : [
-                "Vos facultés de perception et votre capacité à interpréter les informations sensorielles sont tellement au-delà des limites que vous remarquez les moindres divergences dans toutes sortes d'illusions et de transformations physiques. Vous êtes constamment sous l'effet d'un sort de Vision véritable au rang 6, en utilisant votre modificateur de Perception pour le test de contre."
+                "Vos facultés de perception et votre capacité à interpréter les informations sensorielles sont tellement au-delà des limites que vous remarquez les moindres divergences dans toutes sortes d'illusions et de transformations physiques. Vous êtes constamment sous l'effet d'un sort de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'uqlxMQQeSGWEVjki', 'param__object__label': this.textContent})\">Vision véritable</div> au rang 6, en utilisant votre modificateur de Perception pour le test de contre."
             ]
         },
         {
@@ -396,7 +396,7 @@ DON.GENERAL = {
             "description" : [
                 "Coût 1 Point de Persévérance",
                 "Vous regagnez des Points d'Endurance égaux à la moitié de votre maximum.",
-                "Puiser dans votre résolution"
+                "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oxowCzHbxSGOWRke', 'param__object__label': this.textContent})\">Puiser dans votre résolution</div>"
             ]
         },
         {
@@ -420,7 +420,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Vous pouvez rapiécer à la hâte une pièce d'équipement endommagé, mais la réparation temporaire n'est pas aussi soignée qu'il le faudrait pour une réparation durable. Vous rafistolez un objet cassé que vous possédez ou que possède une créature adjacente consentante. Jusqu'à ce que l'objet subisse à nouveau des dégâts, il fonctionne toujours comme un objet défectueux de son type. S'il s'agit d'un objet magique ou d'un autre objet avec des activations, il ne peut pas être activé pendant qu'il est réparé, mais peut être utilisé pour des fonctions normales (comme Frapper avec une arme ou utiliser Blocage au bouclier avec un bouclier). Cette activité ne restaure aucun Point de vie, l'objet est donc facile à détruire. Une fois que l'objet est Réparé normalement de sorte qu'il n'est plus brisé, il n'est plus davantage considéré comme de mauvaise qualité."
+                "Vous pouvez rapiécer à la hâte une pièce d'équipement endommagé, mais la réparation temporaire n'est pas aussi soignée qu'il le faudrait pour une réparation durable. Vous rafistolez un objet cassé que vous possédez ou que possède une créature adjacente consentante. Jusqu'à ce que l'objet subisse à nouveau des dégâts, il fonctionne toujours comme un objet défectueux de son type. S'il s'agit d'un objet magique ou d'un autre objet avec des activations, il ne peut pas être activé pendant qu'il est réparé, mais peut être utilisé pour des fonctions normales (comme <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frapper</div> avec une arme ou utiliser Blocage au bouclier avec un bouclier). Cette activité ne restaure aucun Point de vie, l'objet est donc facile à détruire. Une fois que l'objet est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'bT3skovyLUtP22ME', 'param__object__label': this.textContent})\">Réparé</div> normalement de sorte qu'il n'est plus brisé, il n'est plus davantage considéré comme de mauvaise qualité."
             ]
         },
         {
@@ -442,7 +442,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Votre physiologie répond particulièrement bien aux premiers soins. Vous obtenez un bonus de circonstances au nombre de Points de vie que vous regagnez égal à votre niveau lors d'une tentative réussie pour Soigner vos blessures ou d'utilisation Médecine militaire sur vous. Après une utilisation de Médecine militaire sur vous par vous-même ou un allié, vous êtes temporairement immunisé à cette Médecine militaire pendant seulement 1 heure, au lieu d'un jour."
+                "Votre physiologie répond particulièrement bien aux premiers soins. Vous obtenez un bonus de circonstances au nombre de Points de vie que vous regagnez égal à votre niveau lors d'une tentative réussie pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner vos blessures</div> ou d'utilisation <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wYerMk6F1RZb0Fwt', 'param__object__label': this.textContent})\">Médecine militaire</div> sur vous. Après une utilisation de Médecine militaire sur vous par vous-même ou un allié, vous êtes temporairement immunisé à cette Médecine militaire pendant seulement 1 heure, au lieu d'un jour."
             ]
         },
         {
@@ -453,7 +453,7 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "L'observation assidue de vos alliés vous a rendu meilleur lorsqu'il s'agit de suivre leurs traces. Lorsque vous utilisez l'activité Suivre l'expert en mode exploration, vous obtenez un bonus de circonstances de +3 si l'allié que vous suivez est expert et de +4 si votre allié est un maître.",
+                "L'observation assidue de vos alliés vous a rendu meilleur lorsqu'il s'agit de suivre leurs traces. Lorsque vous utilisez l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tfa4Sh7wcxCEqL29', 'param__object__label': this.textContent})\">Suivre l'expert</div> en mode exploration, vous obtenez un bonus de circonstances de +3 si l'allié que vous suivez est expert et de +4 si votre allié est un maître.",
                 "Vous pouvez partager vos observations avec les autres pour aider à mieux coordonner le groupe. Si l'allié que vous suivez dispose de Alliés silencieux ou d'une autre compétence qui permet au groupe de faire un seul test de compétence pour une activité d'exploration et d'utiliser le modificateur le plus bas, il peut utiliser votre modificateur, même s'il n'est pas le plus bas."
             ]
         },
@@ -468,7 +468,7 @@ DON.GENERAL = {
             ],
             "description" : [
                 "Vous avez raffiné votre palais et possédez un sens de discernement du goût qui peut détecter la moindre anomalie dans la saveur et la texture de la nourriture et de la boisson. Lorsque vous mangez de la nourriture ou buvez un breuvage, vous tentez automatiquement d'identifier les ingrédients, ce qui pourrait vous alerter sur la présence d'altérations ou d'ajouts, comme les poisons. Le MJ lance un test secret de Perception contre un DD déterminé par le niveau du poison. Si la nourriture ou la boisson sont empoisonnés, en cas de succès, vous apprenez qu'ils ont été empoisonnées mais pas quel poison a été utilisé. Si vous réussissez à détecter que la nourriture ou la boisson a été empoisonnée, vous pouvez le recracher à temps pour ne pas être exposé à cette dose de poison (à moins que vous ne continuiez à manger ou à boire la nourriture ou la boisson empoisonnée).",
-                "Si vous léchez ou goûtez quelque chose alors que vous Enquêtez ou essayez de Vous souvenir pour identifier quelque chose, et si le goût pourrait vous fournir des informations supplémentaires (à la discrétion du MJ), vous obtenez un bonus de circonstances de +2 à votre test."
+                "Si vous léchez ou goûtez quelque chose alors que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EwgTZBWsc8qKaViP', 'param__object__label': this.textContent})\">Enquêtez</div> ou essayez de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1OagaWtBpVXExToo', 'param__object__label': this.textContent})\">Vous souvenir</div> pour identifier quelque chose, et si le goût pourrait vous fournir des informations supplémentaires (à la discrétion du MJ), vous obtenez un bonus de circonstances de +2 à votre test."
             ]
         },
         {
@@ -481,7 +481,7 @@ DON.GENERAL = {
                 "Constitution +4"
             ],
             "description" : [
-                "Votre sang possède des propriétés régénératrices permanentes. Les pénalités provenant de l'état Affaibli et les pénalités et la perte de Points de vie de l'état Drainé vous affecte comme si la valeur de l'état était de 1 inférieur à son montant actuel. Vous obtenez aussi une résistance 5 contre les dégâts de saignement et vous réduisez le DD des tests pour récupérer de dégâts de saignement à 11 ou à 6 si vous bénéficiez d'une aide particulièrement efficace."
+                "Votre sang possède des propriétés régénératrices permanentes. Les pénalités provenant de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MIRkyAjyBeXivMa7', 'param__object__label': this.textContent})\">Affaibli</div> et les pénalités et la perte de Points de vie de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé</div> vous affecte comme si la valeur de l'état était de 1 inférieur à son montant actuel. Vous obtenez aussi une résistance 5 contre les dégâts de saignement et vous réduisez le DD des tests pour récupérer de dégâts de saignement à 11 ou à 6 si vous bénéficiez d'une aide particulièrement efficace."
             ]
         },
         {
@@ -520,11 +520,14 @@ DON.GENERAL = {
             ],
             "required" : [],
             "description" : [
-                "Votre vigueur accorde à toute personne utilisant des tests de Médecine pour vous Prodiguer les premiers soins ou utilisant l'une des actions Soigner sur vous, un bonus de circonstances de +2 à son test. Durant l'activité de Repos long, vous guérissez deux fois plus vite que la normale."
+                "Votre vigueur accorde à toute personne utilisant des tests de Médecine pour vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div> ou utilisant l'une des actions Soigner sur vous, un bonus de circonstances de +2 à son test. Durant l'activité de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DXIZ4DHGxhZiWNWb', 'param__object__label': this.textContent})\">Repos long</div>, vous guérissez deux fois plus vite que la normale."
             ]
         }
     ]
 };
+
+
+
 
 
 
