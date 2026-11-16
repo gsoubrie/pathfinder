@@ -30,6 +30,11 @@ ADJUSTMENT.KINDS = [
         value_picker: "selector"
     },
     {
+        key         : "deity",
+        label       : "Divinité",
+        value_picker: "selector"
+    },
+    {
         key               : "sense",
         label             : "Sens",
         value_picker      : "input",

@@ -40,6 +40,19 @@ CHARACTER.Adjustments.prototype = {
                 }
                 return;
             }
+            // The manual deity of the adjustments ALWAYS wins over the
+            // class line of the Progression (routed before, overwritten here)
+            case "event__get__deity_choice": {
+                let deity_entries = this.getEntriesByKind( "deity" );
+                if ( deity_entries.length ) {
+                    let deity_data = OBJECT.getDeityInformation( deity_entries[ 0 ].value );
+                    params[ "param__deity_choice" ] = {
+                        "name": deity_entries[ 0 ].value,
+                        "uuid": deity_data ? deity_data.id : null
+                    };
+                }
+                return;
+            }
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

@@ -5346,14 +5346,13 @@ DON.getAvailableSkillFeats = function ( rank_by_label, max_level ) {
 };
 
 /**
- * Popup data of a feat, by name. The feat category matches the line type:
- * "skill" for the skill feats, "class" for the class feats.
+ * The raw scraped entry of a feat, by name and category.
  *
  * @param {string} feat_category  "skill" | "class" | "race"
- * @param {string} feat_name       Display name of the feat
- * @returns {Object|null}         Popup-shaped object, or null when unknown
+ * @param {string} feat_name      Display name of the feat
+ * @returns {Object|null}        The entry { name, level, traits, ... }, or null
  */
-DON.getFeatInformation = function ( feat_category, feat_name ) {
+DON.getFeatEntry = function ( feat_category, feat_name ) {
     let feats = null;
     if ( feat_category === "skill" ) {
         feats = DON.SKILL.ENUM[ 0 ];
@@ -5368,20 +5367,35 @@ DON.getFeatInformation = function ( feat_category, feat_name ) {
         return null;
     }
     for ( let i = 0, _size_i = feats.length; i < _size_i; i++ ) {
-        if ( feats[ i ].name !== feat_name ) {
-            continue;
+        if ( feats[ i ].name === feat_name ) {
+            return feats[ i ];
         }
-        return {
-            "id"          : "feat__" + feat_category + "__" + feat_name,
-            "category"    : "feat",
-            "text"        : feats[ i ].name,
-            "element_type": "Niveau " + feats[ i ].level,
-            "required"    : feats[ i ].required,
-            "traits"      : feats[ i ].traits,
-            "description" : feats[ i ].description ? feats[ i ].description.join( "<br>" ) : ""
-        };
     }
     return null;
+};
+
+/**
+ * Popup data of a feat, by name. The feat category matches the line type:
+ * "skill" for the skill feats, "class" for the class feats.
+ *
+ * @param {string} feat_category  "skill" | "class" | "race"
+ * @param {string} feat_name       Display name of the feat
+ * @returns {Object|null}         Popup-shaped object, or null when unknown
+ */
+DON.getFeatInformation = function ( feat_category, feat_name ) {
+    let feat = DON.getFeatEntry( feat_category, feat_name );
+    if ( !feat ) {
+        return null;
+    }
+    return {
+        "id"          : "feat__" + feat_category + "__" + feat_name,
+        "category"    : "feat",
+        "text"        : feat.name,
+        "element_type": "Niveau " + feat.level,
+        "required"    : feat.required,
+        "traits"      : feat.traits,
+        "description" : feat.description ? feat.description.join( "<br>" ) : ""
+    };
 };
 
 /**

@@ -29,6 +29,9 @@ CHARACTER.AncestryLevelHistory.prototype = {
                 }
                 return;
             }
+            case "event__get__active_feats":
+                this.doActionAfterContentChildren( event_name, params );
+                return;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

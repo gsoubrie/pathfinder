@@ -18,15 +18,16 @@
     grid-template-areas   :
         "name     ancestry class  level historic"
         "player   legacy  archetype pv size"
+        ".        .       .       .      deity"
         "FOR      jets    jets    ancestry-info actions"
         "DEX      jets    jets    ancestry-info actions"
         "CON      jets    jets    ancestry-info actions"
         "INT      jets    jets    ancestry-info actions"
         "SAG      jets    jets    ancestry-info actions"
-        "CHA      jets    jets    ancestry-info actions"
-        ".        jets    jets    ancestry-info actions"
-        ".        jets    jets    ancestry-info actions"
-        ".        jets    jets    ancestry-info actions";
+        "CHA      jets    jets    ancestry-info feats"
+        ".        jets    jets    ancestry-info feats"
+        ".        jets    jets    ancestry-info feats"
+        ".        jets    jets    ancestry-info feats";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -35,6 +36,8 @@
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
 .property-tab-pane[data-name="general_sheet"] .area-ancestry-info { grid-area : ancestry-info; }
 .property-tab-pane[data-name="general_sheet"] .area-actions { grid-area : actions; }
+.property-tab-pane[data-name="general_sheet"] .area-feats { grid-area : feats; }
+.property-tab-pane[data-name="general_sheet"] .area-deity { grid-area : deity; }
 .property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
 .property-tab-pane[data-name="general_sheet"] .area-body_size { grid-area : size; }
@@ -57,6 +60,12 @@
 }
 
 .property-tab-pane[data-name="general_sheet"] .area-level .level-link {
+    cursor : pointer;
+}
+
+/* Le champ Divinité est une ligne de lecture : le clic ouvre la popup
+   d'information de la divinité choisie */
+.property-tab-pane[data-name="general_sheet"] .area-deity .deity-link {
     cursor : pointer;
 }
 
@@ -357,6 +366,31 @@
 }
 
 .actions-list-entry-empty:hover {
+    color: var(--c-text-muted);
+}
+
+.feats-info-list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 2px;
+}
+
+.feats-list-entry {
+    color    : var(--c-text);
+    cursor   : pointer;
+    font-size: 13px;
+}
+
+.feats-list-entry:hover {
+    color: var(--c-gold-light);
+}
+
+.feats-list-entry-empty {
+    color : var(--c-text-muted);
+    cursor: default;
+}
+
+.feats-list-entry-empty:hover {
     color: var(--c-text-muted);
 }
 

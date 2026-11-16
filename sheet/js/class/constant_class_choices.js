@@ -167,8 +167,8 @@ CLASSES.CHOICES = {
     "Prêtre": {
         "doctrine": {
             "entries": [
-                { "name": "Prêtre cloîtré" },
-                { "name": "Prêtre combattant" }
+                { "name": "Prêtre cloîtré",      "uuid": "ZZzLMOUAtBVgV1DF" },
+                { "name": "Prêtre combattant",   "uuid": "0Aocw3igLwna9cjp" }
             ]
         }
     },
@@ -478,7 +478,9 @@ CLASSES.getAbilityKey = function ( label ) {
 };
 
 // Choices shared by every class: the skill increase line picks any skill of
-// the game, the entries derive from SKILLS.LIST (single source)
+// the game, the entries derive from SKILLS.LIST (single source); the deity
+// line (Prêtre, Champion...) picks any deity of the compendium (single
+// source), each entry carrying its compendium uuid for the "?" popup
 CLASSES.COMMON_CHOICES = {
     "amelioration_de_competence": {
         "entries": ( function () {
@@ -491,6 +493,9 @@ CLASSES.COMMON_CHOICES = {
             }
             return entries;
         } )()
+    },
+    "divinite": {
+        "entries": OBJECT.getKnownDeities()
     }
 };
 

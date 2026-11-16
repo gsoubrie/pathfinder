@@ -158,3 +158,41 @@ TEST.RUNNER.register( "[SAVE COMPLET] reset page → affichage rechargé depuis 
         }
     } );
 } );
+
+TEST.RUNNER.register( "[SAVE COMPLET] onglet Général = zone Dons dédupliquée avec niveaux", function () {
+    let _character   = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage recharge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.equal( _character.getLevel(), 10, "Pre-condition : niveau 10, obtenu : " + _character.getLevel() );
+    if ( _character.getLevel() !== 10 ) {
+        return;
+    }
+    let _expected    = _character.getGifts().getActiveFeats( _character );
+    TEST.ASSERT.ok( _expected.length > 0, "Pre-condition : des dons actifs apres validation complete, obtenu : " + _expected.length );
+    let _seen        = {};
+    for ( let i = 0, _size_i = _expected.length; i < _size_i; i++ ) {
+        TEST.ASSERT.notOk( _seen[ _expected[ i ].name ], "Le domaine devrait dédupliquer les dons par nom, doublon : " + _expected[ i ].name );
+        _seen[ _expected[ i ].name ] = true;
+        TEST.ASSERT.ok( _expected[ i ].level !== null && _expected[ i ].level !== undefined && _expected[ i ].level !== "", "Chaque don actif devrait porter son niveau, obtenu : [" + _expected[ i ].level + "] pour " + _expected[ i ].name );
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-feats .feats-list-entry:not(.feats-list-entry-empty)" );
+        TEST.ASSERT.equal( _entries.length, _expected.length, "La zone Dons devrait lister les dons actifs dédupliqués, attendu : " + _expected.length + ", obtenu : " + _entries.length );
+        for ( let i = 0, _size_i = _expected.length; i < _size_i; i++ ) {
+            let _match = null;
+            for ( let d = 0, _size_d = _entries.length; d < _size_d; d++ ) {
+                if ( _entries[ d ].getAttribute( "data-value" ) === _expected[ i ].name ) {
+                    _match = _entries[ d ];
+                }
+            }
+            TEST.ASSERT.notNull( _match, "La zone Dons devrait contenir [" + _expected[ i ].name + "]" );
+            if ( _match ) {
+                TEST.ASSERT.equal( _match.textContent, _expected[ i ].name + " (niv " + _expected[ i ].level + ")", "La ligne du don devrait porter son niveau, attendu [" + _expected[ i ].name + " (niv " + _expected[ i ].level + ")], obtenu [" + _match.textContent + "]" );
+            }
+        }
+    } );
+} );

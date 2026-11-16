@@ -33,6 +33,39 @@ CHARACTER.Gifts.prototype = {
     getSelectedList: function () {
         return Object.keys( this.selected );
     },
+    // The active feats of the character: the validated feat lines of the
+    // Progression (class levels + ancestry tiers), collected by event. A
+    // feat taken on several lines is displayed once, with its level (PF2:
+    // a repeated feat is a higher-level one)
+    getActiveFeats: function ( character_object ) {
+        let params    = { "param__active_feats": [] };
+        character_object.doActionAfter( "event__get__active_feats", params );
+        let seen      = {};
+        let to_return = [];
+        let collected = params[ "param__active_feats" ];
+        for ( let i = 0, _size_i = collected.length; i < _size_i; i++ ) {
+            if ( seen[ collected[ i ].name ] ) {
+                continue;
+            }
+            seen[ collected[ i ].name ] = true;
+            let entry = DON.getFeatEntry( collected[ i ].category, collected[ i ].name );
+            to_return.push( {
+                "name"    : collected[ i ].name,
+                "category": collected[ i ].category,
+                "level"   : entry ? entry.level : null,
+                "source"  : collected[ i ].source
+            } );
+        }
+        to_return.sort( function ( feat_a, feat_b ) {
+            let level_a = parseInt( feat_a.level, 10 ) || 0;
+            let level_b = parseInt( feat_b.level, 10 ) || 0;
+            if ( level_a !== level_b ) {
+                return level_a - level_b;
+            }
+            return feat_a.name.localeCompare( feat_b.name, "fr" );
+        } );
+        return to_return;
+    },
     //********************************************  HTML   **************************************************//
     refreshCheckbox: function ( name ) {
         var id  = "gift-cb-" + name.replace( /[^a-zA-Z0-9]/g, "_" );

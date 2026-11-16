@@ -759,7 +759,20 @@ function generateCompendium() {
     addAll( loadCache( "familiar-abilities" ), "familiar-ability", "/familiar-abilities/" );
     addAll( loadCache( "npc-abilities" ), "npc-ability", "/npc-abilities/" );
     addAll( loadCache( "creatures" ), "creature", "/creatures/" );
-    writeGenerated( "sheet/js/object/constant_objects.js", emitJs( "OBJECT.COMPENDIUM", out ) );
+    // The accessor tail of the compendium file (getKnownActions,
+    // getActionInformation...) is hand-written : it survives the re-scrap,
+    // copied verbatim after the regenerated OBJECT.COMPENDIUM object
+    var compendium_tail = "";
+    var compendium_full = path.join( ROOT, "sheet/js/object/constant_objects.js" );
+    if ( fs.existsSync( compendium_full ) ) {
+        var compendium_content = fs.readFileSync( compendium_full, "utf8" );
+        var compendium_at      = compendium_content.indexOf( "OBJECT.COMPENDIUM" );
+        var compendium_close   = compendium_content.indexOf( "\n};", compendium_at );
+        if ( compendium_close !== -1 ) {
+            compendium_tail = compendium_content.slice( compendium_close + 3 );
+        }
+    }
+    writeGenerated( "sheet/js/object/constant_objects.js", emitJs( "OBJECT.COMPENDIUM", out ) + compendium_tail );
     console.log( "compendium: " + Object.keys( out ).length + " entrées" );
 }
 

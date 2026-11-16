@@ -221,6 +221,16 @@ CHARACTER.Current.prototype = {
                 this.levels_history.doActionAfterContentChildren( event_name, params );
                 this.adjustments.doActionAfter( event_name, params );
                 break;
+            case "event__get__active_feats":
+                this.levels_history.doActionAfterContentChildren( event_name, params );
+                this.ancestry_history.doActionAfterContentChildren( event_name, params );
+                break;
+            case "event__get__deity_choice":
+                // The adjustment of kind "deity" is routed LAST : it always
+                // overrides the class line of the Progression
+                this.levels_history.doActionAfterContentChildren( event_name, params );
+                this.adjustments.doActionAfter( event_name, params );
+                break;
             case "event__get__slot_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
                 this.levels_history.doActionAfterContentChildren( event_name, params );
@@ -567,6 +577,13 @@ CHARACTER.Current.prototype = {
     },
     getHealth         : function () {
         return this.health;
+    },
+    // The chosen deity: { name, uuid } from the validated class line of the
+    // Progression, overridden by a manual "deity" adjustment when it exists
+    getDeityChoice    : function () {
+        let params = { "param__deity_choice": null };
+        this.doActionAfter( "event__get__deity_choice", params );
+        return params[ "param__deity_choice" ];
     },
     getGifts          : function () {
         return this.gifts;

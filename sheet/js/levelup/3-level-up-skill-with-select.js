@@ -34,6 +34,37 @@ CHARACTER.LevelUpSkillWithSelect.prototype = {
             case "event__level_up__qualifier_filter_enter":
                 this.setQualifierValue( this._canonicalQualifierValue( params[ "param__filter_value" ] ) );
                 return;
+            // A validated feat line feeds the active feats of the character
+            case "event__get__active_feats": {
+                if ( !this.isActive() || LEVELUP.FEAT_TYPES.indexOf( this.type ) === -1 ) {
+                    return;
+                }
+                let feat_name = this.getSelectedValue();
+                if ( feat_name ) {
+                    params[ "param__active_feats" ].push( {
+                        "name"    : feat_name,
+                        "category": LEVELUP.FEAT_CATEGORIES[ this.type ],
+                        "source"  : this.getSourceLabel()
+                    } );
+                }
+                return;
+            }
+            // A validated deity line feeds the deity choice of the character
+            // (the adjustment of the same kind overrides it, routed after)
+            case "event__get__deity_choice": {
+                if ( !this.isActive() || this.ability_key !== "divinite" ) {
+                    return;
+                }
+                let deity_name = this.getSelectedValue();
+                if ( deity_name ) {
+                    let deity_data = OBJECT.getDeityInformation( deity_name );
+                    params[ "param__deity_choice" ] = {
+                        "name": deity_name,
+                        "uuid": deity_data ? deity_data.id : null
+                    };
+                }
+                return;
+            }
         }
         CHARACTER.LevelUpSkillBasic.prototype.doActionAfter.call( this, event_name, params );
     },

@@ -243,6 +243,9 @@ CHARACTER.AdjustmentsWindow.prototype = {
         if ( kind_key === "action" ) {
             return OBJECT.getKnownActions();
         }
+        if ( kind_key === "deity" ) {
+            return OBJECT.getKnownDeities();
+        }
         if ( kind_key === "feat" ) {
             return DON.getKnownFeats();
         }

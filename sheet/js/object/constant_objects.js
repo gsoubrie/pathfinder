@@ -448570,3 +448570,41 @@ OBJECT.getActionInformation = function ( action_name ) {
     }
     return null;
 };
+
+/**
+ * The known deities (compendium category "deity") as selector options:
+ * French display name + compendium uuid, sorted.
+ *
+ * @returns {Array}  [ { name, uuid } ] of the deities
+ */
+OBJECT.getKnownDeities = function () {
+    let to_return = [];
+    for ( let key in OBJECT.COMPENDIUM ) {
+        let object_data = OBJECT.COMPENDIUM[ key ];
+        if ( object_data && object_data.category === "deity" ) {
+            to_return.push( { "name": object_data.text, "uuid": object_data.id } );
+        }
+    }
+    to_return.sort( function ( deity_a, deity_b ) {
+        return deity_a.name.localeCompare( deity_b.name, "fr" );
+    } );
+    return to_return;
+};
+
+/**
+ * The compendium entry of a deity by its NAME (category "deity"): the
+ * information popup of the Divinity field of the General tab. Null when the
+ * name lives nowhere in the data.
+ *
+ * @param {string} deity_name  Display name, ex. "Abydar"
+ * @returns {Object|null}     The compendium entry of the deity, or null when unknown
+ */
+OBJECT.getDeityInformation = function ( deity_name ) {
+    for ( let key in OBJECT.COMPENDIUM ) {
+        let object_data = OBJECT.COMPENDIUM[ key ];
+        if ( object_data && object_data.category === "deity" && object_data.text === deity_name ) {
+            return object_data;
+        }
+    }
+    return null;
+};

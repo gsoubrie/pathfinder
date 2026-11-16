@@ -24,6 +24,7 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__adjustment__remove":
                 this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                 this.computeArea__actions( CONTROLLER.Character.current_character );
+                this.computeArea__deity( CONTROLLER.Character.current_character );
                 break;
             case "click_on__window_navigation__done":
                 // Les prises de niveau et validations vivent dans l'onglet Passage de
@@ -34,6 +35,8 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                     this.computeArea__actions( CONTROLLER.Character.current_character );
+                    this.computeArea__feats( CONTROLLER.Character.current_character );
+                    this.computeArea__deity( CONTROLLER.Character.current_character );
                     this.computeArea__healthPoints( CONTROLLER.Character.current_character );
                     this.computeArea__level( CONTROLLER.Character.current_character );
                 }
@@ -60,6 +63,8 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent( character_object.getRace().getBodySize() );
         this.computeArea__ancestryInfo( character_object );
         this.computeArea__actions( character_object );
+        this.computeArea__feats( character_object );
+        this.computeArea__deity( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
         this.computeArea__level( character_object );
@@ -358,6 +363,50 @@ CHARACTER.GeneralWindow.prototype = {
     },
     
     
+    // Zone des dons actifs de la colonne 5, sous les actions : collectés par
+    // événement depuis les lignes validées de la Progression (un don pris
+    // sur deux lignes n'apparait qu'une fois, avec son niveau). Chaque
+    // entrée ouvre la popup DON du type de la ligne par catégorie + nom lus
+    // en data attributes (jamais inline : les noms portent des apostrophes)
+    computeArea__feats: function ( character_object ) {
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        if ( !this.area_feats ) {
+            this.area_feats = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-feats" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_feats );
+        let property = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "property vertical feats-info-property" } ),
+            this.area_feats
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Dons" ), property );
+        let list         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-info-list" } ), property );
+        let active_feats = character_object.getGifts().getActiveFeats( character_object );
+        if ( !active_feats.length ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-list-entry feats-list-entry-empty" }, "—" ), list );
+            return;
+        }
+        for ( let i = 0, _size_i = active_feats.length; i < _size_i; i++ ) {
+            let feat  = active_feats[ i ];
+            let label = feat.name + ( feat.level ? " (niv " + feat.level + ")" : "" );
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class         : "feats-list-entry",
+                    "data-value"  : feat.name,
+                    "data-category": feat.category,
+                    title         : "Informations du don",
+                    onclick       : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__feat',{'param__feat_category':this.getAttribute('data-category'),'param__feat_name':this.getAttribute('data-value')})"
+                }, label ),
+                list
+            );
+        }
+    },
+
+
     // Champ Niveau du General : le niveau total du personnage. Le clic
     // bascule sur l'onglet Progression, la ou vivent les prises de niveau
     computeArea__level: function ( character_object ) {
@@ -380,6 +429,41 @@ CHARACTER.GeneralWindow.prototype = {
         }
         this.dom_element_level.value = "" + ( character_object ? character_object.getLevel() : 0 );
     },
+
+    // Champ Divinité du General : lu par collecte (ligne "divinité" validée
+    // de la Progression, écrasée par un ajustement "deity" manuel). Le clic
+    // ouvre la popup d'information de la divinité (uuid compendium lu en
+    // data attribute, jamais inline)
+    computeArea__deity: function ( character_object ) {
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        if ( !this.area_deity ) {
+            this.area_deity = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-deity" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_deity );
+        let property = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "property vertical", "data-name": "deity" } ),
+            this.area_deity
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Divinité" ), property );
+        let deity_choice = character_object.getDeityChoice();
+        SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "input", {
+                class      : "value deity-link",
+                readOnly   : "",
+                "data-value": deity_choice ? deity_choice.name : "",
+                "data-uuid" : deity_choice && deity_choice.uuid ? deity_choice.uuid : "",
+                title      : deity_choice ? "Informations de la divinité" : "",
+                onclick    : "if ( this.getAttribute('data-uuid') ) { MANAGER.EventManagerV2.doActionAfter(event,'event__show_information',{'param__object__uuid':this.getAttribute('data-uuid'),'param__object__label':this.getAttribute('data-value')}) }"
+            } ),
+            property
+        ).value = deity_choice ? deity_choice.name : "";
+    },
+
 
     // Champ PV du General (demande utilisateur : UN CHAMP — le suivi vit
     // dans l'onglet Combat). Le clic bascule sur l'onglet Combat, la ou

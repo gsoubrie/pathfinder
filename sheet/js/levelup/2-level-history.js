@@ -76,6 +76,18 @@ CHARACTER.LevelHistory.prototype = {
                 params[ "param__class_name" ] = this.getClassName();
                 this.doActionAfterContentChildren( event_name, params );
                 return;
+            case "event__get__active_feats":
+                if ( !this.isEnabled() ) {
+                    return;
+                }
+                this.doActionAfterContentChildren( event_name, params );
+                return;
+            case "event__get__deity_choice":
+                if ( !this.isEnabled() ) {
+                    return;
+                }
+                this.doActionAfterContentChildren( event_name, params );
+                return;
         }
     },
     //********************************************  GETTER SETTER  **************************************************//

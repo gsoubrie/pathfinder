@@ -267,3 +267,60 @@ TEST.RUNNER.register( "[DONS ASCENDANCE][SAVE] save → load = don du palier 1 r
         TEST.ASSERT.notOk( _reloaded_line_5.isActive(), "Le palier 5 devrait rester en attente apres relecture, obtenu : " + _reloaded_line_5.isActive() );
     }
 } );
+
+TEST.RUNNER.register( "[DONS ASCENDANCE] onglet Général = zone Dons liste le don actif avec son niveau", function () {
+    let _character   = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _line        = _character.getAncestryHistory().getContentByUUID( "1" ).getContentByUUID( "1__ancestry_feat" );
+    TEST.ASSERT.notNull( _line, "Pre-condition : ligne Don ancestral du palier 1" );
+    if ( !_line ) {
+        return;
+    }
+    let _feat_name   = _line.getSelectedValue();
+    TEST.ASSERT.ok( _feat_name, "Pre-condition : un don d'ascendance choisi au palier 1, obtenu : " + _feat_name );
+    if ( !_feat_name ) {
+        return;
+    }
+    let _expected    = _character.getGifts().getActiveFeats( _character );
+    let _expected_feat = null;
+    for ( let i = 0, _size_i = _expected.length; i < _size_i; i++ ) {
+        if ( _expected[ i ].name === _feat_name ) {
+            _expected_feat = _expected[ i ];
+        }
+    }
+    TEST.ASSERT.notNull( _expected_feat, "Le don choisi devrait etre dans les dons actifs du domaine" );
+    TEST.ASSERT.equal( _expected_feat ? _expected_feat.category : null, "race", "Le don d'ascendance devrait porter la catégorie race, obtenu : " + ( _expected_feat ? _expected_feat.category : null ) );
+    if ( !_expected_feat ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-feats .feats-list-entry:not(.feats-list-entry-empty)" );
+        TEST.ASSERT.equal( _entries.length, _expected.length, "La zone Dons du Général devrait lister tous les dons actifs, attendu : " + _expected.length + ", obtenu : " + _entries.length );
+        let _dom_feat = null;
+        for ( let i = 0, _size_i = _entries.length; i < _size_i; i++ ) {
+            if ( _entries[ i ].getAttribute( "data-value" ) === _feat_name ) {
+                _dom_feat = _entries[ i ];
+            }
+        }
+        TEST.ASSERT.notNull( _dom_feat, "La zone Dons devrait contenir le don choisi" );
+        if ( _dom_feat ) {
+            TEST.ASSERT.equal( _dom_feat.getAttribute( "data-category" ), "race", "L'entrée de la zone devrait porter la catégorie race, obtenu : " + _dom_feat.getAttribute( "data-category" ) );
+            let _expected_label = _feat_name + " (niv " + _expected_feat.level + ")";
+            TEST.ASSERT.equal( _dom_feat.textContent, _expected_label, "La ligne devrait porter le niveau du don, attendu [" + _expected_label + "], obtenu [" + _dom_feat.textContent + "]" );
+            _dom_feat.click();
+            let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+            TEST.ASSERT.notNull( _overlay, "Le clic sur le don de la zone devrait ouvrir sa popup" );
+            if ( _overlay ) {
+                let _title = _overlay.querySelector( ".popup-title" );
+                TEST.ASSERT.ok( _title && _title.textContent === _feat_name, "Le titre de la popup devrait etre le nom du don, obtenu : " + ( _title ? _title.textContent : null ) );
+                CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "feat__race__" + _feat_name } );
+            }
+        }
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
+    } );
+} );
