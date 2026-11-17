@@ -40,6 +40,18 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   titre de chaque partie CENTRÉ en doré clair (`--c-text-gold`, pas de gras
   ni de majuscules). Toute décision de mise en page de ce genre se consigne
   ici.
+- L'interface doit être BELLE et un minimum AÉRÉE : jamais de contenu collé
+  bord à bord — espacements visibles entre les blocs, les groupes et les
+  lignes (padding/gap exprimés en variables `--s-*`), décision utilisateur
+  (Round 88). Toute décision d'affichage de ce genre se consigne ici.
+- Les bonus conditionnels (héritage, dons, objets magiques) s'affichent en
+  LECTURE SEULE : une astérisque dorée à côté de la valeur concernée (ex.
+  sauvegarde de l'onglet Combat) ouvre une popup explicative avec les actions
+  cliquables ; le jet affiché reste le jet BRUT, le bonus ne s'applique que
+  contre des tentatives précises (le MJ l'applique) — décision utilisateur
+  (Round 88). Carte écrite à la main `COMBAT.CONDITIONAL_BONUSES`
+  (multi-sources : `legacy` câblé, `feat`/`stuff` à venir), popup catégorie
+  `save_bonus`.
 - Les variables, événements et clés de données sont en anglais, mots collés
   sans underscore superflu : `event__level_up__toggle_skill` (pas
   `event__level_up__toggle_skill`), `save__fortitude` (pas `save__vigueur`),

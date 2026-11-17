@@ -268,6 +268,43 @@ TEST.RUNNER.register( "[DONS ASCENDANCE][SAVE] save → load = don du palier 1 r
     }
 } );
 
+TEST.RUNNER.register( "[DONS ASCENDANCE] Général = Dons et Actions dans le MÊME container, Dons d'abord", function () {
+    let _character = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage chargé" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane  = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Général rendu" );
+        if ( !_pane ) {
+            return;
+        }
+        let _areas = _pane.querySelectorAll( ".grid-area.area-actions" );
+        TEST.ASSERT.equal( _areas.length, 1, "Un seul container area-actions devrait exister (Dons + Actions mergés), obtenu : " + _areas.length );
+        TEST.ASSERT.equal( _pane.querySelectorAll( ".area-feats" ).length, 0, "L'ancienne area-feats ne devrait plus exister dans le Général" );
+        if ( !_areas.length ) {
+            return;
+        }
+        let _area = _areas[ 0 ];
+        TEST.ASSERT.notNull( _area.querySelector( ".feats-info-list" ), "Le container unique devrait porter la liste des dons" );
+        TEST.ASSERT.notNull( _area.querySelector( ".actions-info-list" ), "Le container unique devrait porter la liste des actions" );
+        let _labels      = _area.querySelectorAll( ".label" );
+        let _label_texts = [];
+        for ( let i = 0, _size_i = _labels.length; i < _size_i; i++ ) {
+            _label_texts.push( _labels[ i ].textContent );
+        }
+        TEST.ASSERT.deepEqual( _label_texts, [ "Dons", "Actions" ], "Le container devrait porter Dons puis Actions dans cet ordre, obtenu : " + JSON.stringify( _label_texts ) );
+        // Aération (règle AGENTS.md : jamais de contenu collé bord à bord)
+        let _property = _area.querySelector( ".property" );
+        TEST.ASSERT.equal( getComputedStyle( _property ).padding, "8px", "Le container devrait avoir un padding intérieur de 8px, obtenu : " + getComputedStyle( _property ).padding );
+        TEST.ASSERT.equal( getComputedStyle( _area.querySelector( ".label--second-group" ) ).marginTop, "8px", "Le second groupe devrait être séparé de 8px, obtenu : " + getComputedStyle( _area.querySelector( ".label--second-group" ) ).marginTop );
+        TEST.ASSERT.equal( getComputedStyle( _area.querySelector( ".feats-info-list" ) ).gap, "4px", "Les entrées de dons devraient être espacées de 4px, obtenu : " + getComputedStyle( _area.querySelector( ".feats-info-list" ) ).gap );
+    } );
+} );
+
 TEST.RUNNER.register( "[DONS ASCENDANCE] onglet Général = zone Dons liste le don actif avec son niveau", function () {
     let _character   = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
@@ -299,7 +336,7 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] onglet Général = zone Dons liste le d
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
         return TEST.wait();
     } ).then( function () {
-        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-feats .feats-list-entry:not(.feats-list-entry-empty)" );
+        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-actions .feats-list-entry:not(.feats-list-entry-empty)" );
         TEST.ASSERT.equal( _entries.length, _expected.length, "La zone Dons du Général devrait lister tous les dons actifs, attendu : " + _expected.length + ", obtenu : " + _entries.length );
         let _dom_feat = null;
         for ( let i = 0, _size_i = _entries.length; i < _size_i; i++ ) {
@@ -319,6 +356,90 @@ TEST.RUNNER.register( "[DONS ASCENDANCE] onglet Général = zone Dons liste le d
                 let _title = _overlay.querySelector( ".popup-title" );
                 TEST.ASSERT.ok( _title && _title.textContent === _feat_name, "Le titre de la popup devrait etre le nom du don, obtenu : " + ( _title ? _title.textContent : null ) );
                 CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "feat__race__" + _feat_name } );
+            }
+        }
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );
+    } );
+} );
+
+// Les dons GENERAUX se choisissent eux aussi : la ligne "don général" d'un
+// niveau de classe porte un sélecteur rempli par le sync — "Blocage au
+// bouclier" (don général niveau 1, sans prérequis) en fait partie. Le choix
+// valide la ligne (phase SELECTED), part au save, la zone Dons du Général
+// l'affiche avec sa catégorie "general" et son niveau, et sa popup s'ouvre
+TEST.RUNNER.register( "[DONS GÉNÉRAUX] ligne don général = sélecteur rempli (Blocage au bouclier niv 1), choix validant, zone Dons + popup", function () {
+    let _character = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage chargé" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.equal( _character.getLevel(), 5, "Pre-condition : Magicien niveau 5, obtenu : " + _character.getLevel() );
+    let _entry     = _character.getLevelHistory().getContentByUUID( "3" );
+    TEST.ASSERT.notNull( _entry, "Pre-condition : entrée du niveau 3 (le Magicien y gagne un don général)" );
+    if ( !_entry ) {
+        return;
+    }
+    let _line      = null;
+    for ( let i = 0, _size_i = _entry.getSize(); i < _size_i; i++ ) {
+        if ( _entry.getContent( i ).getSlotKey().indexOf( "general_feat" ) === 0 ) {
+            _line = _entry.getContent( i );
+        }
+    }
+    let _slots = [];
+    for ( let i = 0, _size_i = _entry.getSize(); i < _size_i; i++ ) {
+        _slots.push( _entry.getContent( i ).getSlotKey() + "/" + _entry.getContent( i ).label );
+    }
+    TEST.ASSERT.notNull( _line, "La ligne don général du niveau 3 devrait exister, slots : " + JSON.stringify( _slots ) );
+    if ( !_line ) {
+        return;
+    }
+    let _slot              = _line.getSlotKey();
+    let _has_shield_block  = false;
+    for ( let i = 0, _size_i = _line.options.length; i < _size_i; i++ ) {
+        if ( _line.options[ i ].name === "Blocage au bouclier" ) {
+            _has_shield_block = true;
+        }
+    }
+    TEST.ASSERT.ok( _has_shield_block, "Le sélecteur de la ligne don général devrait proposer Blocage au bouclier (niv 1), options : " + _line.options.length );
+    TEST.ASSERT.notOk( _line.isActive(), "La ligne devrait être en attente avant le choix, obtenu : " + _line.isActive() );
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane   = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        let _option = _pane.querySelector( ".level-up-block[data-level-name='3'] .single-select-option[data-value='Blocage au bouclier']" );
+        TEST.ASSERT.notNull( _option, "L'option Blocage au bouclier devrait être rendue dans le bloc du niveau 3" );
+        if ( !_option ) {
+            return;
+        }
+        _option.click();
+        return TEST.wait();
+    } ).then( function () {
+        TEST.ASSERT.ok( _line.isActive(), "Le choix devrait valider la ligne (phase SELECTED), obtenu : " + _line.isActive() );
+        TEST.ASSERT.equal( _line.getSelectedValue(), "Blocage au bouclier", "La valeur choisie devrait être Blocage au bouclier, obtenu : " + _line.getSelectedValue() );
+        let _saved  = _character.getDataToSave();
+        let _saved_entry_3 = null;
+        for ( let i = 0, _size_i = _saved.levels_history.length; i < _size_i; i++ ) {
+            if ( _saved.levels_history[ i ][ "level_name" ] === "3" ) {
+                _saved_entry_3 = _saved.levels_history[ i ];
+            }
+        }
+        TEST.ASSERT.ok( _saved_entry_3 && _saved_entry_3[ "level_skill" ] && _saved_entry_3[ "level_skill" ][ _slot ] === "Blocage au bouclier", "Le don général choisi devrait partir au save sous son slot, obtenu : " + JSON.stringify( _saved_entry_3 ? _saved_entry_3[ "level_skill" ] : null ) );
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME );
+    } ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _dom_feat = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-actions .feats-list-entry[data-value='Blocage au bouclier']" );
+        TEST.ASSERT.notNull( _dom_feat, "La zone Dons du Général devrait lister le don général choisi" );
+        if ( _dom_feat ) {
+            TEST.ASSERT.equal( _dom_feat.getAttribute( "data-category" ), "general", "L'entrée devrait porter la catégorie general, obtenu : " + _dom_feat.getAttribute( "data-category" ) );
+            TEST.ASSERT.equal( _dom_feat.textContent, "Blocage au bouclier (niv 1)", "La ligne devrait porter le niveau du don, obtenu : [" + _dom_feat.textContent + "]" );
+            _dom_feat.click();
+            let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+            TEST.ASSERT.notNull( _overlay, "Le clic sur le don général de la zone devrait ouvrir sa popup" );
+            if ( _overlay ) {
+                let _title = _overlay.querySelector( ".popup-title" );
+                TEST.ASSERT.ok( _title && _title.textContent === "Blocage au bouclier", "Le titre de la popup devrait être le nom du don, obtenu : " + ( _title ? _title.textContent : null ) );
+                CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "feat__general__Blocage au bouclier" } );
             }
         }
         return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME );

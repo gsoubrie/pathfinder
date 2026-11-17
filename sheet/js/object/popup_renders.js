@@ -287,6 +287,48 @@ SERVICE.CLASS.addPrototype( OBJECT.ArmorClassPopupRenderer, OBJECT.BasePopupRend
 
 
 /**
+ * @class OBJECT.SaveBonusPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * The conditional bonuses of one save slot (the "*" marker of the Combat
+ * tab): one row per bonus, value + type + source + label, the action names
+ * are clickable (popup ACTION by name, read from the data-value — never
+ * inline, the names carry apostrophes)
+ */
+OBJECT.SaveBonusPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.SaveBonusPopupRenderer.prototype = {
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        const bonuses     = object_data.bonuses || [];
+        let rows          = "";
+        for ( let i = 0; i < bonuses.length; i++ ) {
+            const bonus   = bonuses[ i ];
+            const actions = ( bonus.actions || [] ).map( ( action_name ) =>
+                `<span class="gs-link-information popup-save-bonus-action" data-value="${action_name}" onclick="CONTROLLER.Main.doActionAfter('event__show_information__action',{'param__action__name':this.getAttribute('data-value')})">${action_name}</span>`
+            ).join( " · " );
+            rows += `<div class="popup-save-bonus-row">
+              <div class="popup-save-bonus-head"><span class="popup-save-bonus-value">+${bonus.value} (${bonus.type})</span><span class="popup-save-bonus-source">${bonus.source_label}</span></div>
+              <div class="popup-save-bonus-label">${bonus.label}</div>
+              ${actions ? `<div class="popup-save-bonus-actions">${actions}</div>` : ""}
+            </div>`;
+        }
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--save-bonus">
+            <div class="popup-header__left">
+              <div class="popup-category-label">BONUS CONDITIONNEL</div>
+              <h2 class="popup-title">${text}</h2>
+            </div>
+          </div>
+          <div class="popup-save-bonus-list">${rows}</div>
+          <div class="popup-save-bonus-hint">Affichage seul : le jet de sauvegarde affiché reste le jet brut, le bonus s'applique contre les tentatives précises (le MJ l'applique).</div>` );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.SaveBonusPopupRenderer, OBJECT.BasePopupRenderer );
+
+
+/**
  * @class OBJECT.ActionPopupRenderer
  * @extends OBJECT.BasePopupRenderer
  */

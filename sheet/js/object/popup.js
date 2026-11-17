@@ -51,6 +51,8 @@ OBJECT.PopupRenderer.prototype = {
                 return new OBJECT.HealthPopupRenderer( object_data );
             case "armor_class":
                 return new OBJECT.ArmorClassPopupRenderer( object_data );
+            case "save_bonus":
+                return new OBJECT.SaveBonusPopupRenderer( object_data );
             default:
                 return new OBJECT.DefaultPopupRenderer( object_data );
         }

@@ -24,10 +24,11 @@
         "CON      jets    jets    ancestry-info actions"
         "INT      jets    jets    ancestry-info actions"
         "SAG      jets    jets    ancestry-info actions"
-        "CHA      jets    jets    ancestry-info feats"
-        ".        jets    jets    ancestry-info feats"
-        ".        jets    jets    ancestry-info feats"
-        ".        jets    jets    ancestry-info feats";
+        "CHA      jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions"
+        ".        jets    jets    ancestry-info actions";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -36,7 +37,6 @@
 .property-tab-pane[data-name="general_sheet"] .area-race { grid-area : ancestry; }
 .property-tab-pane[data-name="general_sheet"] .area-ancestry-info { grid-area : ancestry-info; }
 .property-tab-pane[data-name="general_sheet"] .area-actions { grid-area : actions; }
-.property-tab-pane[data-name="general_sheet"] .area-feats { grid-area : feats; }
 .property-tab-pane[data-name="general_sheet"] .area-deity { grid-area : deity; }
 .property-tab-pane[data-name="general_sheet"] .area-legacy { grid-area : legacy; }
 .property-tab-pane[data-name="general_sheet"] .area-class { grid-area : class; }
@@ -333,21 +333,26 @@
     font-size: 13px;
 }
 
-/* Zone des actions (colonne 5) : le même langage que les infos d'ascendance,
-   chaque entree ouvre sa popup au clic */
+/* Zone de la colonne 5 : Dons + Actions dans le même container (décision
+   utilisateur), chaque entree ouvre sa popup au clic */
 .property-tab-pane[data-name="general_sheet"] .area-actions .property {
     background : transparent;
     border     : none;
-    padding    : 4px;
+    padding    : var(--s-md, 8px);
     box-shadow : none;
     margin     : 0;
     min-height : 0;
 }
 
+/* Le second groupe (Actions) du container est séparé du premier (Dons) */
+.property-tab-pane[data-name="general_sheet"] .area-actions .label--second-group {
+    margin-top : var(--s-md, 8px);
+}
+
 .actions-info-list {
     display       : flex;
     flex-direction: column;
-    gap           : 2px;
+    gap           : var(--s-sm, 4px);
 }
 
 .actions-list-entry {
@@ -372,7 +377,7 @@
 .feats-info-list {
     display       : flex;
     flex-direction: column;
-    gap           : 2px;
+    gap           : var(--s-sm, 4px);
 }
 
 .feats-list-entry {

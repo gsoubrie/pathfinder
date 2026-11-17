@@ -39,11 +39,22 @@ COMBAT.ARMOR_CATEGORY_SLOTS = {
 COMBAT.UNARMORED_DEFENSE_SLOT = "defense__unarmored";
 
 // The bombs roll on the alchemical slot, the shields ride the same kind as
-// the armors : their scraped group tells them apart
+// the armors : the scraped group "Bouclier" belongs to the shield ATTACHMENTS
+// (weapons), a shield itself is told apart by its Solidité (no armor wears one)
 COMBAT.BOMB_GROUP       = "Bombe";
 COMBAT.BOMB_SLOT       = "attack__alchemical_bombs";
-COMBAT.SHIELD_GROUP    = "Bouclier";
 COMBAT.SHIELD_CA_BONUS = 2;
+
+/**
+ * Whether a worn armor-kind entry is a shield : the Solidité field is the
+ * scraped tell (every shield wears one, no armor does).
+ *
+ * @param {CHARACTER.Stuff} entry  A worn entry of kind "armor"
+ * @returns {boolean}              True when the entry is a shield
+ */
+COMBAT.isShieldEntry = function ( entry ) {
+    return !!entry.getCharacteristicValue( COMBAT.STURDINESS_FIELD );
+};
 
 // The scraped field names (the same labels the equipment lines read)
 COMBAT.RANGE_FIELD      = "Portée";
@@ -156,3 +167,24 @@ COMBAT.getActionSectionKey = function ( action_data ) {
     }
     return "other";
 };
+
+//********************************************  CONDITIONAL BONUSES  **************************************************//
+
+// Hand-written card of the CONDITIONAL bonuses (survives the re-scrap, same
+// pattern as MASTERY_UPGRADES) : each entry names its source ("legacy"
+// today, "feat"/"stuff" when their structured data arrive), the save slots
+// it applies to, and the display label with the clickable action names
+// (resolved in the compendium, popup ACTION by name). DISPLAY ONLY : the
+// save roll stays raw, the bonus applies against specific attempts (the GM
+// owns it)
+COMBAT.CONDITIONAL_BONUSES = [
+    {
+        "source"     : "legacy",
+        "source_name": "Nain des roches",
+        "value"      : 2,
+        "type"       : "circonstance",
+        "slots"      : [ "save__fortitude", "save__reflex" ],
+        "label"      : "contre Pousser, Croc-en-jambe, Repositionner et les effets vous faisant tomber À terre",
+        "actions"    : [ "Pousser", "Croc-en-jambe", "Repositionner" ]
+    }
+];

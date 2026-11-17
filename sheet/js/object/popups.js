@@ -172,6 +172,24 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             }
+            // Les bonus conditionnels d'une sauvegarde sont un état du
+            // personnage : la popup est reconstruite à chaque ouverture,
+            // jamais servie du cache (patron health / armor_class)
+            case "event__show_information__save_bonus": {
+                let bonus_character = CONTROLLER.Character.current_character;
+                let bonus_data      = bonus_character && params[ "param__save__slot" ] ? bonus_character.getCombat().getSaveBonusInformationData( bonus_character, params[ "param__save__slot" ] ) : null;
+                if ( !bonus_data ) {
+                    return;
+                }
+                if ( this.getContentByUUID( bonus_data[ "id" ] ) ) {
+                    this.removeContent( bonus_data[ "id" ], null, true );
+                }
+                let bonus_popup = this._openPopup( bonus_data );
+                if ( bonus_popup ) {
+                    bonus_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
             case "event__popup__close":
                 this.getContentByUUID( params[ "param__popup__uuid" ] ).doActionAfter( event_name, params );
                 return;

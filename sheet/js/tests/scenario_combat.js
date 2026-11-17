@@ -268,6 +268,38 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long" } );
 } );
 
+// Un bouclier équipé vit dans sa PROPRE ligne : le critère scrapé est sa
+// Solidité (le groupe "Bouclier" appartient aux armes de bouclier), il ne
+// compte PAS comme armure — la CA ne prend pas son +2 (la feuille ne le
+// brandit pas toute seule)
+TEST.RUNNER.register( "[COMBAT] bouclier équipé = ligne Bouclier remplie, pas pris pour armure, CA sans le +2", function () {
+    let _character = CONTROLLER.Character.current_character;
+    let _pane      = TEST_combatPane();
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Combat ouvert" );
+    if ( !_pane || !_character ) {
+        return;
+    }
+    CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en acier", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
+    let _combat   = _character.getCombat();
+    let _shield   = _combat.getWornShield( _character );
+    TEST.ASSERT.notNull( _shield, "Le bouclier équipé devrait être reconnu (critère Solidité)" );
+    TEST.ASSERT.equal( _combat.getWornArmor( _character ), null, "Le bouclier ne devrait PAS compter comme armure, obtenu : " + ( _combat.getWornArmor( _character ) || "null" ) );
+    let _names    = _pane.querySelectorAll( ".combat-equipment-value" );
+    let _stats    = _pane.querySelectorAll( ".combat-equipment-stats" );
+    TEST.ASSERT.equal( _names[ 0 ].textContent, "—", "Sans armure la ligne Armure reste vide même avec un bouclier porté, obtenu : [" + _names[ 0 ].textContent + "]" );
+    TEST.ASSERT.equal( _names[ 1 ].textContent, "Bouclier en acier", "La ligne Bouclier devrait porter le bouclier, obtenu : [" + _names[ 1 ].textContent + "]" );
+    if ( _shield ) {
+        TEST.ASSERT.equal( _stats[ 1 ].textContent, "Solidité " + _shield.getCharacteristicValue( COMBAT.STURDINESS_FIELD ) + ", CA +" + COMBAT.SHIELD_CA_BONUS + " brandi", "La ligne Bouclier devrait citer sa Solidité et le CA brandi, obtenu : [" + _stats[ 1 ].textContent + "]" );
+    }
+    let _armor_data = _combat.getArmorClassData( _character );
+    TEST.ASSERT.equal( _armor_data.armor, null, "La CA devrait se calculer sans armure (défense non armée)" );
+    let _armor_cell = _pane.querySelector( ".combat-reference-cell[data-name='armor_class'] .combat-reference-value" );
+    TEST.ASSERT.equal( _armor_cell.textContent, "" + _armor_data.value, "La CA affichée devrait suivre le domaine (sans le +2 du bouclier), obtenu : [" + _armor_cell.textContent + "] vs " + _armor_data.value );
+    // La suite reprend un inventaire VIERGE (règle : laisser la suite propre)
+    CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en acier" } );
+    TEST.ASSERT.equal( _combat.getWornShield( _character ), null, "Après retrait le bouclier ne devrait plus être porté" );
+} );
+
 // Le Magicien porte ses rangs d'incantation : la zone rend l'attaque de sort
 // (niveau + mod INT + bonus de rang) et le DD des sorts (10 + les memes)
 TEST.RUNNER.register( "[COMBAT] incantation = attaque de sort + DD des sorts", function () {

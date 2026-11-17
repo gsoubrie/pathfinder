@@ -24,6 +24,7 @@ LEVELUP.ADDITIONAL_LANGUAGE_LABEL = "Langue supplémentaire";
 // Feat lines: chosen through a selector, the options come by sync (they
 // depend on the character state: feat level and skill prerequisites)
 LEVELUP.FEAT_TYPES = [
+    "general_feat",
     "skill_feat",
     "class_feat",
     "ancestry_feat"
@@ -31,6 +32,7 @@ LEVELUP.FEAT_TYPES = [
 
 // Gift category of each feat type, for the information popup (DON domain)
 LEVELUP.FEAT_CATEGORIES = {
+    "general_feat" : "general",
     "skill_feat"   : "skill",
     "class_feat"   : "class",
     "ancestry_feat": "race"

@@ -180,7 +180,7 @@ TEST.RUNNER.register( "[SAVE COMPLET] onglet Général = zone Dons dédupliquée
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
         return TEST.wait();
     } ).then( function () {
-        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-feats .feats-list-entry:not(.feats-list-entry-empty)" );
+        let _entries = document.querySelectorAll( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "'] .area-actions .feats-list-entry:not(.feats-list-entry-empty)" );
         TEST.ASSERT.equal( _entries.length, _expected.length, "La zone Dons devrait lister les dons actifs dédupliqués, attendu : " + _expected.length + ", obtenu : " + _entries.length );
         for ( let i = 0, _size_i = _expected.length; i < _size_i; i++ ) {
             let _match = null;

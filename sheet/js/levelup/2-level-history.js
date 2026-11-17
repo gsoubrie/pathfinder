@@ -201,7 +201,10 @@ CHARACTER.LevelHistory.prototype = {
             if ( line.getSlotKey().indexOf( LEVELUP.ADDITIONAL_SKILL_KEY ) === 0 ) {
                 continue;
             }
-            if ( line.type === "skill_feat" ) {
+            if ( line.type === "general_feat" ) {
+                line.setOptions( DON.getAvailableGeneralFeats( skill_ranks, level_number ) );
+            }
+            else if ( line.type === "skill_feat" ) {
                 line.setOptions( DON.getAvailableSkillFeats( skill_ranks, level_number ) );
             }
             else if ( line.type === "class_feat" ) {

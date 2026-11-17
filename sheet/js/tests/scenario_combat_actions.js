@@ -58,12 +58,14 @@ TEST.RUNNER.register( "[COMBAT ACTIONS] zone = sections titrées + carte de base
         let _main_column = _pane.querySelector( ".combat-main-column" );
         TEST.ASSERT.notNull( _main_column, "La colonne principale du Combat devrait exister" );
         TEST.ASSERT.equal( getComputedStyle( _zone ).width, "250px", "La zone Actions devrait faire 250px de large, obtenu : " + getComputedStyle( _zone ).width );
-        // Le fond panneau vit sur la LISTE seule (sans cadre : pas de bordure,
-        // les parties cartes ont la leur), pas sur la zone
+        // Pas de fond panneau sur la zone ni sur la liste (édition manuelle) :
+        // seules les parties portent le fond carte --g-card, sans cadre sur la liste
         let _list            = _zone.querySelector( ".combat-actions-list" );
-        TEST.ASSERT.ok( getComputedStyle( _list ).backgroundImage.indexOf( "rgb(61, 40, 23)" ) !== -1, "La liste devrait porter le fond --g-panel, obtenu : " + getComputedStyle( _list ).backgroundImage );
-        TEST.ASSERT.equal( getComputedStyle( _list ).borderTopWidth, "0px", "La liste ne devrait pas avoir de cadre panneau (bordure), obtenu : " + getComputedStyle( _list ).borderTopWidth );
-        TEST.ASSERT.equal( getComputedStyle( _zone ).backgroundImage, "none", "La zone ne devrait plus porter de fond, obtenu : " + getComputedStyle( _zone ).backgroundImage );
+        TEST.ASSERT.equal( getComputedStyle( _list ).backgroundImage, "none", "La liste ne devrait pas porter de fond, obtenu : " + getComputedStyle( _list ).backgroundImage );
+        TEST.ASSERT.equal( getComputedStyle( _list ).borderTopWidth, "0px", "La liste ne devrait pas avoir de cadre (bordure), obtenu : " + getComputedStyle( _list ).borderTopWidth );
+        TEST.ASSERT.equal( getComputedStyle( _zone ).backgroundImage, "none", "La zone ne devrait pas porter de fond, obtenu : " + getComputedStyle( _zone ).backgroundImage );
+        let _first_part      = _zone.querySelector( ".combat-actions-section" );
+        TEST.ASSERT.ok( getComputedStyle( _first_part ).backgroundImage.indexOf( "rgb(61, 40, 23)" ) !== -1, "Chaque partie devrait porter le fond carte --g-card, obtenu : " + getComputedStyle( _first_part ).backgroundImage );
         if ( _main_column ) {
             TEST.ASSERT.equal( _zone.offsetHeight, _main_column.offsetHeight, "La zone Actions devrait s'étirer sur toute la hauteur de l'onglet (" + _main_column.offsetHeight + "px), obtenu : " + _zone.offsetHeight + "px" );
         }
@@ -73,7 +75,8 @@ TEST.RUNNER.register( "[COMBAT ACTIONS] zone = sections titrées + carte de base
         TEST.ASSERT.equal( _zone.querySelectorAll( ".combat-actions-title" ).length, 0, "La zone Actions ne devrait pas porter de titre de zone" );
         let _parts           = _zone.querySelectorAll( ".combat-actions-section" );
         TEST.ASSERT.equal( _parts.length, COMBAT.ACTION_SECTIONS.length, "Chaque catégorie devrait être une partie (bloc .combat-actions-section), attendu " + COMBAT.ACTION_SECTIONS.length + ", obtenu : " + _parts.length );
-        TEST.ASSERT.equal( getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).gap, "8px", "Les parties devraient être séparées d'un espace (gap 8px), obtenu : " + getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).gap );
+        TEST.ASSERT.equal( getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).gap, "12px", "Les parties devraient être aérées (gap 12px entre elles), obtenu : " + getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).gap );
+        TEST.ASSERT.equal( getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).padding, "4px", "La liste devrait avoir un padding intérieur (aération, règle AGENTS.md), obtenu : " + getComputedStyle( _zone.querySelector( ".combat-actions-list" ) ).padding );
         TEST.ASSERT.equal( getComputedStyle( _parts[ 0 ] ).borderTopWidth, "1px", "Chaque partie devrait être un bloc carte bordé, obtenu : " + getComputedStyle( _parts[ 0 ] ).borderTopWidth );
         let _titles          = _zone.querySelectorAll( ".combat-actions-section-title" );
         let _expected_labels = COMBAT.ACTION_SECTIONS.map( function ( section_data ) { return section_data.label; } );

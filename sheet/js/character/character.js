@@ -181,6 +181,8 @@ CHARACTER.Current.prototype = {
                 // La grille des caractéristiques consomme les boosts de
                 // l'onglet : sa colonne Autre et la valeur finale suivent
                 this.characteristics.doActionAfter( "event__adjustments__changed", { "param__current_character__object": this } );
+                // Un boost de Constitution change les PV : recalcul avant le broadcast
+                this.computeTotalLife();
                 // The displays consuming the adjustments refresh with the entry
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
@@ -246,6 +248,11 @@ CHARACTER.Current.prototype = {
                     this.archetype_history.doActionAfter( "event__level_up__sync_lines", { "param__current_character__object": this } );
                     // The Strength modifier moves the maximum bulk
                     this.stuffs.pushBulkCounters( this );
+                    // The Constitution modifier moves the total life points :
+                    // recompute BEFORE the windows broadcast, they read the
+                    // fresh state (PV field of the General, band of the Combat,
+                    // life line of the Progression)
+                    this.computeTotalLife();
                     // The characteristics grid lives IN the Progression
                     // window : its additional lines (skills N + INT,
                     // languages INT) follow the domain here, but no tab

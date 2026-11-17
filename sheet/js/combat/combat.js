@@ -21,14 +21,14 @@ CHARACTER.Combat.prototype = {
         }
         return to_return;
     },
-    // The worn ARMOR : the shields ride the same kind, their scraped group
-    // tells them apart ; several armors worn at once : the best item bonus
+    // The worn ARMOR : the shields ride the same kind, their Solidité tells
+    // them apart ; several armors worn at once : the best item bonus
     // wins (the sheet wears ONE armor, the pick stays deterministic)
     getWornArmor: function ( character_object ) {
         let to_return = null;
         let worn      = this._getEquippedByKind( character_object, "armor" );
         for ( let i = 0, _size_i = worn.length; i < _size_i; i++ ) {
-            if ( worn[ i ].getCharacteristicValue( COMBAT.GROUP_FIELD ) === COMBAT.SHIELD_GROUP ) {
+            if ( COMBAT.isShieldEntry( worn[ i ] ) ) {
                 continue;
             }
             if ( !to_return ) {
@@ -46,7 +46,7 @@ CHARACTER.Combat.prototype = {
     getWornShield: function ( character_object ) {
         let worn = this._getEquippedByKind( character_object, "armor" );
         for ( let i = 0, _size_i = worn.length; i < _size_i; i++ ) {
-            if ( worn[ i ].getCharacteristicValue( COMBAT.GROUP_FIELD ) === COMBAT.SHIELD_GROUP ) {
+            if ( COMBAT.isShieldEntry( worn[ i ] ) ) {
                 return worn[ i ];
             }
         }
@@ -280,6 +280,54 @@ CHARACTER.Combat.prototype = {
             to_return.push( section );
         }
         return to_return;
+    },
+    //********************************************  CONDITIONAL SAVE BONUSES  **************************************************//
+    // The active conditional bonuses of a save slot (display only : the
+    // roll stays raw). The source is active when the character owns it :
+    // the legacy by name today, feats/stuffs when their data arrive
+    getSaveBonusMarkers: function ( character_object, save_slot ) {
+        let to_return = [];
+        for ( let i = 0, _size_i = COMBAT.CONDITIONAL_BONUSES.length; i < _size_i; i++ ) {
+            let bonus = COMBAT.CONDITIONAL_BONUSES[ i ];
+            if ( bonus.slots.indexOf( save_slot ) === -1 ) {
+                continue;
+            }
+            if ( !this._isBonusSourceActive( character_object, bonus ) ) {
+                continue;
+            }
+            to_return.push( {
+                "value"       : bonus.value,
+                "type"        : bonus.type,
+                "source_label": bonus.source_name,
+                "label"       : bonus.label,
+                "actions"     : bonus.actions
+            } );
+        }
+        return to_return;
+    },
+    _isBonusSourceActive: function ( character_object, bonus ) {
+        if ( bonus.source === "legacy" ) {
+            let legacy = character_object.getRace().getLegacy();
+            return !!legacy && legacy.getValue() === bonus.source_name;
+        }
+        return false;
+    },
+    // The popup data of the "*" marker of a save slot : rebuilt at each
+    // opening (character state), patron of the health popup
+    getSaveBonusInformationData: function ( character_object, save_slot ) {
+        let save_data = null;
+        for ( let i = 0, _size_i = COMBAT.SAVES.length; i < _size_i; i++ ) {
+            if ( COMBAT.SAVES[ i ].slot === save_slot ) {
+                save_data = COMBAT.SAVES[ i ];
+            }
+        }
+        return {
+            "id"      : "character__save_bonus__" + save_slot,
+            "category": "save_bonus",
+            "text"    : save_data ? save_data.label : save_slot,
+            "slot"    : save_slot,
+            "bonuses" : this.getSaveBonusMarkers( character_object, save_slot )
+        };
     },
     _pushActionLine: function ( sections_by_key, seen_names, action_name ) {
         let seen_key = action_name.toLowerCase();

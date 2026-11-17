@@ -436,3 +436,47 @@
 .popup-health-source-text {
     color: var(--pf-text-muted);
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   BONUS CONDITIONNEL D'UNE SAUVEGARDE (astérisque de l'onglet Combat)
+   ════════════════════════════════════════════════════════════════════ */
+
+.popup-save-bonus-row {
+    border-bottom : 1px solid var(--pf-border-subtle);
+    padding       : 6px 2px;
+}
+
+.popup-save-bonus-row:last-child {
+    border-bottom : none;
+}
+
+.popup-save-bonus-head {
+    align-items : center;
+    display     : flex;
+    gap         : 10px;
+}
+
+.popup-save-bonus-value {
+    color : var(--pf-gold);
+}
+
+.popup-save-bonus-source {
+    color     : var(--pf-text-muted);
+    font-size : 12px;
+}
+
+.popup-save-bonus-label {
+    color     : var(--pf-text-muted);
+    font-size : 13px;
+    margin-top : 2px;
+}
+
+.popup-save-bonus-actions {
+    margin-top : 4px;
+}
+
+.popup-save-bonus-hint {
+    color     : var(--pf-text-muted);
+    font-size : 12px;
+    margin-top : 8px;
+}

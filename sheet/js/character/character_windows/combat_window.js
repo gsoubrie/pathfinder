@@ -31,9 +31,20 @@ CHARACTER.CombatWindow.prototype = {
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
             // Les actions du personnage (ajustements) bougent : la zone
-            // Actions de combat suit
+            // Actions de combat suit ; un boost de caractéristique change
+            // aussi les PV et les jets (CA, attaques, sauvegardes)
             case "event__adjustment__add":
             case "event__adjustment__remove":
+            case "event__more_button":
+            case "event__less_button":
+                this._refreshHealthBand( CONTROLLER.Character.current_character );
+                this._refreshCombatZones( CONTROLLER.Character.current_character );
+                break;
+            // Changement de race/héritage/classe : la vitesse, la CA et les
+            // astérisques de bonus conditionnel suivent (l'héritage peut
+            // porter ou retirer un bonus)
+            case "event__form__element_changed":
+                this._refreshHealthBand( CONTROLLER.Character.current_character );
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
             case "click_on__window_navigation__done":
@@ -168,6 +179,7 @@ CHARACTER.CombatWindow.prototype = {
             } ), zone );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-save-label" }, save.label ), cell );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-save-value", "data-name": save.slot }, "" ), cell );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-save-bonus", "data-name": save.slot } ), cell );
         }
     },
 
@@ -267,15 +279,34 @@ CHARACTER.CombatWindow.prototype = {
 
     _refreshSavesZone: function ( character_object ) {
         let masteries = character_object.getMasteries();
+        let combat     = character_object.getCombat();
         for ( let i = 0, _size_i = COMBAT.SAVES.length; i < _size_i; i++ ) {
-            let value_element = this.content_dom_element_target.querySelector( ".combat-save-value[data-name='" + COMBAT.SAVES[ i ].slot + "']" );
+            let save          = COMBAT.SAVES[ i ];
+            let value_element = this.content_dom_element_target.querySelector( ".combat-save-value[data-name='" + save.slot + "']" );
             if ( !value_element ) {
                 continue;
             }
+            // Le jet affiché reste le jet BRUT : les bonus conditionnels ne
+            // s'appliquent que contre des tentatives précises (le MJ les applique)
             value_element.textContent = masteries.getRollModifier( character_object, {
-                "slot"         : COMBAT.SAVES[ i ].slot,
-                "characteristic": COMBAT.SAVES[ i ].characteristic
+                "slot"         : save.slot,
+                "characteristic": save.characteristic
             } );
+            // L'astérisque n'apparaît que quand un bonus conditionnel actif
+            // vise cette sauvegarde : il ouvre la popup explicative
+            let bonus_cell = this.content_dom_element_target.querySelector( ".combat-save-bonus[data-name='" + save.slot + "']" );
+            if ( !bonus_cell ) {
+                continue;
+            }
+            SERVICE.DOM.empty( bonus_cell );
+            if ( combat.getSaveBonusMarkers( character_object, save.slot ).length ) {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                    class      : "combat-save-bonus-marker",
+                    "data-slot": save.slot,
+                    title      : "Bonus conditionnel",
+                    onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__save_bonus',{'param__save__slot':this.getAttribute('data-slot')})"
+                }, "*" ), bonus_cell );
+            }
         }
     },
 

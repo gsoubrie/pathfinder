@@ -23,8 +23,15 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__adjustment__add":
             case "event__adjustment__remove":
                 this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
-                this.computeArea__actions( CONTROLLER.Character.current_character );
+                this.computeArea__actionsFeats( CONTROLLER.Character.current_character );
                 this.computeArea__deity( CONTROLLER.Character.current_character );
+                this._updateHealthPointsField( CONTROLLER.Character.current_character );
+                break;
+            // A +/− on a characteristic moves the Constitution modifier and
+            // so the max HP : the PV field follows without tab activation
+            case "event__more_button":
+            case "event__less_button":
+                this._updateHealthPointsField( CONTROLLER.Character.current_character );
                 break;
             case "click_on__window_navigation__done":
                 // Les prises de niveau et validations vivent dans l'onglet Passage de
@@ -34,8 +41,7 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__saves( CONTROLLER.Character.current_character );
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
-                    this.computeArea__actions( CONTROLLER.Character.current_character );
-                    this.computeArea__feats( CONTROLLER.Character.current_character );
+                    this.computeArea__actionsFeats( CONTROLLER.Character.current_character );
                     this.computeArea__deity( CONTROLLER.Character.current_character );
                     this.computeArea__healthPoints( CONTROLLER.Character.current_character );
                     this.computeArea__level( CONTROLLER.Character.current_character );
@@ -62,8 +68,7 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeComponent( character_object.getRace().getLegacy() );
         this.computeComponent( character_object.getRace().getBodySize() );
         this.computeArea__ancestryInfo( character_object );
-        this.computeArea__actions( character_object );
-        this.computeArea__feats( character_object );
+        this.computeArea__actionsFeats( character_object );
         this.computeArea__deity( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
@@ -323,11 +328,14 @@ CHARACTER.GeneralWindow.prototype = {
         }
     },
 
-    // Zone des actions de la colonne 5, a droite des infos d'ascendance : la
-    // liste vit sur les ajustements de l'onglet Ajustements, chaque entree
-    // ouvre la popup ACTION du compendium par son nom (jamais inline : les
-    // noms portent des apostrophes)
-    computeArea__actions: function ( character_object ) {
+    // Zone de la colonne 5 : DONS et ACTIONS mergés dans le MEME container
+    // (décision utilisateur) — Dons d'abord, puis Actions. Les dons actifs
+    // sont collectés par événement depuis les lignes validées de la
+    // Progression (un don pris sur deux lignes n'apparait qu'une fois, avec
+    // son niveau), les actions vivent sur les ajustements de l'onglet
+    // Ajustements. Chaque entrée ouvre sa popup (don par catégorie+nom,
+    // action par nom) lus en data attributes, jamais inline (apostrophes)
+    computeArea__actionsFeats: function ( character_object ) {
         if ( !this.content_dom_element_target ) {
             return;
         }
@@ -342,53 +350,11 @@ CHARACTER.GeneralWindow.prototype = {
             SERVICE.DOM.createElement( "div", { class: "property vertical actions-info-property" } ),
             this.area_actions
         );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Actions" ), property );
-        let list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-info-list" } ), property );
-        let action_values = character_object.getAdjustments().getValuesByKind( "action" );
-        if ( !action_values.length ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-list-entry actions-list-entry-empty" }, "—" ), list );
-            return;
-        }
-        for ( let i = 0, _size_i = action_values.length; i < _size_i; i++ ) {
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class      : "actions-list-entry",
-                    "data-value": action_values[ i ],
-                    title      : "Informations de l'action",
-                    onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__action',{'param__action__name':this.getAttribute('data-value')})"
-                }, action_values[ i ] ),
-                list
-            );
-        }
-    },
-    
-    
-    // Zone des dons actifs de la colonne 5, sous les actions : collectés par
-    // événement depuis les lignes validées de la Progression (un don pris
-    // sur deux lignes n'apparait qu'une fois, avec son niveau). Chaque
-    // entrée ouvre la popup DON du type de la ligne par catégorie + nom lus
-    // en data attributes (jamais inline : les noms portent des apostrophes)
-    computeArea__feats: function ( character_object ) {
-        if ( !this.content_dom_element_target ) {
-            return;
-        }
-        if ( !this.area_feats ) {
-            this.area_feats = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "grid-area area-feats" } ),
-                this.content_dom_element_target
-            );
-        }
-        SERVICE.DOM.empty( this.area_feats );
-        let property = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "property vertical feats-info-property" } ),
-            this.area_feats
-        );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Dons" ), property );
-        let list         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-info-list" } ), property );
+        let feats_list   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-info-list" } ), property );
         let active_feats = character_object.getGifts().getActiveFeats( character_object );
         if ( !active_feats.length ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-list-entry feats-list-entry-empty" }, "—" ), list );
-            return;
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "feats-list-entry feats-list-entry-empty" }, "—" ), feats_list );
         }
         for ( let i = 0, _size_i = active_feats.length; i < _size_i; i++ ) {
             let feat  = active_feats[ i ];
@@ -401,7 +367,24 @@ CHARACTER.GeneralWindow.prototype = {
                     title         : "Informations du don",
                     onclick       : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__feat',{'param__feat_category':this.getAttribute('data-category'),'param__feat_name':this.getAttribute('data-value')})"
                 }, label ),
-                list
+                feats_list
+            );
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label label--second-group" }, "Actions" ), property );
+        let actions_list  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-info-list" } ), property );
+        let action_values = character_object.getAdjustments().getValuesByKind( "action" );
+        if ( !action_values.length ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "actions-list-entry actions-list-entry-empty" }, "—" ), actions_list );
+        }
+        for ( let i = 0, _size_i = action_values.length; i < _size_i; i++ ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class      : "actions-list-entry",
+                    "data-value": action_values[ i ],
+                    title      : "Informations de l'action",
+                    onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__action',{'param__action__name':this.getAttribute('data-value')})"
+                }, action_values[ i ] ),
+                actions_list
             );
         }
     },

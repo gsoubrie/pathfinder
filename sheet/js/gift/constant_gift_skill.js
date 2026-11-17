@@ -5346,15 +5346,42 @@ DON.getAvailableSkillFeats = function ( rank_by_label, max_level ) {
 };
 
 /**
+ * General feats open to the character: level low enough and prerequisites
+ * held (the same rule as the skill feats: a skill prerequisite is checked
+ * against the ranks, anything else is permissive).
+ *
+ * @param {Object} rank_by_label  Skill label -> current rank letter
+ * @param {number} max_level      Level of the line choosing the feat
+ * @returns {Array}               [ { name } ] of the available feats
+ */
+DON.getAvailableGeneralFeats = function ( rank_by_label, max_level ) {
+    let to_return = [];
+    let feats     = DON.GENERAL.ENUM;
+    for ( let i = 0, _size_i = feats.length; i < _size_i; i++ ) {
+        if ( parseInt( feats[ i ].level, 10 ) > max_level ) {
+            continue;
+        }
+        if ( !DON.isSkillFeatAvailable( feats[ i ], rank_by_label ) ) {
+            continue;
+        }
+        to_return.push( { "name": feats[ i ].name } );
+    }
+    return to_return;
+};
+
+/**
  * The raw scraped entry of a feat, by name and category.
  *
- * @param {string} feat_category  "skill" | "class" | "race"
+ * @param {string} feat_category  "general" | "skill" | "class" | "race"
  * @param {string} feat_name      Display name of the feat
  * @returns {Object|null}        The entry { name, level, traits, ... }, or null
  */
 DON.getFeatEntry = function ( feat_category, feat_name ) {
     let feats = null;
-    if ( feat_category === "skill" ) {
+    if ( feat_category === "general" ) {
+        feats = DON.GENERAL.ENUM;
+    }
+    else if ( feat_category === "skill" ) {
         feats = DON.SKILL.ENUM[ 0 ];
     }
     else if ( feat_category === "class" ) {
@@ -5376,9 +5403,10 @@ DON.getFeatEntry = function ( feat_category, feat_name ) {
 
 /**
  * Popup data of a feat, by name. The feat category matches the line type:
- * "skill" for the skill feats, "class" for the class feats.
+ * "general" for the general feats, "skill" for the skill feats, "class"
+ * for the class feats.
  *
- * @param {string} feat_category  "skill" | "class" | "race"
+ * @param {string} feat_category  "general" | "skill" | "class" | "race"
  * @param {string} feat_name       Display name of the feat
  * @returns {Object|null}         Popup-shaped object, or null when unknown
  */
@@ -5407,7 +5435,7 @@ DON.getFeatInformation = function ( feat_category, feat_name ) {
 DON.getKnownFeats = function () {
     let to_return = [];
     let seen      = {};
-    let feat_lists = [ DON.RACE.ENUM[ 0 ], DON.SKILL.ENUM[ 0 ], DON.CLASS.ENUM ];
+    let feat_lists = [ DON.RACE.ENUM[ 0 ], DON.SKILL.ENUM[ 0 ], DON.CLASS.ENUM, DON.GENERAL.ENUM ];
     for ( let i = 0, _size_i = feat_lists.length; i < _size_i; i++ ) {
         for ( let f = 0, _size_f = feat_lists[ i ].length; f < _size_f; f++ ) {
             let feat_name = feat_lists[ i ][ f ].name;

@@ -261,6 +261,18 @@
     color : var( --c-text, #E8D4A8 );
 }
 
+/* L'astérisque n'apparaît que quand un bonus conditionnel actif vise la
+   sauvegarde : il ouvre la popup explicative (le jet affiché reste brut) */
+.combat-save-bonus {
+    margin-left : var( --s-xs, 2px );
+}
+
+.combat-save-bonus-marker {
+    color   : var( --c-gold, #D4AF37 );
+    cursor  : pointer;
+    padding : 0 2px;
+}
+
 /* ===== Attaques ===== */
 .combat-attacks-zone,
 .combat-spellcasting-zone {
@@ -342,17 +354,18 @@
     flex-direction : column;
 }
 
-/* La liste remplit la colonne sur toute la hauteur et porte SEULEMENT le
-   fond --g-panel (pas de cadre panneau : les parties cartes posées dessus
-   ont déjà leur propre bordure, un double cadre était moche) ; les parties
-   se suivent avec un espace entre elles (séparation visuelle, comme les
-   sections de l'onglet Équipement) */
+/* La liste remplit la colonne sur toute la hauteur, AÉRÉE (règle AGENTS.md :
+   jamais de contenu collé bord à bord) : padding intérieur sans fond ni
+   bordure (édition manuelle : pas de cadre panneau, les parties ont déjà
+   leur propre bloc) ; les parties se suivent avec un espace entre elles
+   (séparation visuelle, comme les sections de l'onglet Équipement) */
 .combat-actions-list {
     flex           : 1 1 auto;
     min-height     : 0;
     display        : flex;
     flex-direction : column;
-    gap            : var( --s-md, 8px );
+    gap            : var( --s-lg, 12px );
+    padding        : var( --s-sm, 4px );
 }
 
 /* Une partie = un bloc carte, titre CENTRÉ en doré clair (petite différence
@@ -367,7 +380,7 @@
 .combat-actions-section-title {
     border-bottom : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
     color         : var( --c-text-gold, #F0D890 );
-    padding       : 4px 2px 6px;
+    padding       : var( --s-sm, 4px ) 2px var( --s-md, 8px );
     text-align    : center;
 }
 
@@ -378,7 +391,7 @@
     grid-template-columns : 1fr 2.2em;
     grid-auto-rows        : auto;
     align-items           : center;
-    padding               : var( --s-xs, 2px ) var( --s-sm, 4px );
+    padding               : var( --s-xs, 2px ) var( --s-sm, 4px ) var( --s-sm, 4px );
     border-top            : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
 }
 
