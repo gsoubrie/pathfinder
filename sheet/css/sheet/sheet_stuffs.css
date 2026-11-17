@@ -34,12 +34,80 @@
 /* L'encombrement total vit à côté du +, discrètement : « porté / max »,
    la couleur suit l'état poussé en data-bulk-state (warning au-delà du
    max, erreur au-delà du double) */
+.stuffs-bulk {
+    align-items   : center;
+    display       : flex;
+    flex          : 1 1 auto;
+    gap           : var(--s-sm);
+    justify-content: flex-end;
+}
+
+/* Jauge d'encombrement : range en LECTURE SEULE (non déplaçable), la
+   piste va de 0 à 2×max donc le max tombe à mi-piste ; la moitié droite
+   est la zone de surcharge, colorée selon l'état poussé en data-bulk-state */
+.stuffs-bulk-range {
+    -webkit-appearance: none;
+    appearance        : none;
+    background        : transparent;
+    cursor            : default;
+    height            : 12px;
+    margin            : 0;
+    pointer-events    : none;
+    width             : 140px;
+}
+
+.stuffs-bulk-range::-webkit-slider-runnable-track {
+    background   : linear-gradient(to right, var(--c-health-heal) 0%, var(--c-health-heal) 50%, var(--c-bulk-warning) 50%, var(--c-bulk-warning) 100%);
+    border-radius: 2px;
+    height       : 6px;
+}
+
+.stuffs-bulk-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background   : var(--c-health-heal);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: 2px;
+    height       : 12px;
+    margin-top   : -3px;
+    width        : 12px;
+}
+
+.stuffs-bulk-range::-moz-range-track {
+    background   : linear-gradient(to right, var(--c-health-heal) 0%, var(--c-health-heal) 50%, var(--c-bulk-warning) 50%, var(--c-bulk-warning) 100%);
+    border-radius: 2px;
+    height       : 6px;
+}
+
+.stuffs-bulk-range::-moz-range-thumb {
+    background   : var(--c-health-heal);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: 2px;
+    height       : 12px;
+    width        : 12px;
+}
+
+.stuffs-bulk[data-bulk-state="over"] .stuffs-bulk-range::-webkit-slider-thumb,
+.stuffs-bulk[data-bulk-state="over"] .stuffs-bulk-range::-moz-range-thumb {
+    background: var(--c-bulk-warning);
+}
+
+.stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-webkit-slider-runnable-track,
+.stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-moz-range-track {
+    background: linear-gradient(to right, var(--c-health-heal) 0%, var(--c-health-heal) 50%, var(--c-bulk-error) 50%, var(--c-bulk-error) 100%);
+}
+
+.stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-webkit-slider-thumb,
+.stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-moz-range-thumb {
+    background: var(--c-bulk-error);
+}
+
 .stuffs-bulk-total {
     color       : var(--c-text-muted);
-    flex        : 1 1 auto;
+    flex        : 0 0 auto;
     font-size   : 12px;
     padding     : 0 2px;
     text-align  : right;
+    white-space : nowrap;
 }
 
 .stuffs-bulk-total[data-bulk-state="over"] {

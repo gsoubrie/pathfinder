@@ -129,7 +129,7 @@ TEST.RUNNER.register( "[HISTORIQUES] clic champ → Bibliothèque, sujet Histori
     }
     TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-filter-btn" ).length, 0, "Le sujet Historiques ne devrait porter aucune chip de type, obtenu : " + _window_dom.querySelectorAll( ".library-filter-btn" ).length );
     let _expected                       = TEST_historicMatchingCount( "" );
-    let _cards                          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards                          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le sujet devrait rendre une carte par historique scrape (" + _expected + "), obtenu : " + _cards.length );
     TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card-add" ).length, _expected, "Chaque carte devrait porter son bouton « + »" );
 } );
@@ -143,7 +143,7 @@ TEST.RUNNER.register( "[HISTORIQUES] « + » de la carte → personnage + bascul
     }
     TEST_libraryCommitFilterByEnter( "acolyte" );
     let _expected                       = TEST_historicMatchingCount( "acolyte" );
-    let _cards                          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards                          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le filtre « acolyte » devrait laisser les " + _expected + " historique(s) correspondants, obtenu : " + _cards.length );
     if ( !_expected || !_cards.length ) {
         return;
@@ -207,7 +207,7 @@ TEST.RUNNER.register( "[HISTORIQUES] recherche par contenu = compétence, don, b
             _active_tags[ _i ].click();
         }
         TEST_libraryCommitFilterByEnter( filter_value );
-        let _cards                      = _window_dom.querySelectorAll( ".library-card" );
+        let _cards                      = TEST_libraryCards();
         TEST.ASSERT.equal( _cards.length, TEST_historicMatchingCount( filter_value ), "Le filtre « " + filter_value + " » devrait laisser les " + TEST_historicMatchingCount( filter_value ) + " historique(s) correspondants, obtenu : " + _cards.length );
         return _cards;
     };
@@ -295,7 +295,7 @@ TEST.RUNNER.register( "[HISTORIQUES] don de la carte = lien de popup feat", func
     }
     TEST_libraryCommitFilterByEnter( "Criminel" );
     return TEST.wait().then( function () {
-        let _cards                      = _window_dom.querySelectorAll( ".library-card" );
+        let _cards                      = TEST_libraryCards();
         TEST.ASSERT.ok( _cards.length >= 1, "Le filtre Criminel devrait laisser au moins la carte de l'historique, obtenu : " + _cards.length );
         let _criminel_card              = null;
         for ( let _i = 0, _size_i = _cards.length; _size_i && _i < _size_i; _i++ ) {

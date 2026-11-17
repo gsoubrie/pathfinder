@@ -70,9 +70,6 @@ CONTROLLER.Character = (function ( self ) {
             case "event__spell__commit_remove":
                 this.edition_popup.doActionAfter( event_name, params );
                 break;
-            case "event__stuff__open_add_popup":
-                this.edition_popup = new CHARACTER.StuffAddPopup();
-                break;
             // The gear of an entry opens its edit popup : the entry
             // identity travels by the plat, never inline (apostrophes)
             case "event__stuff__open_edit_popup":

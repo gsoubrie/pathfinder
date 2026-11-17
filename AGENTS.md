@@ -2548,6 +2548,64 @@ ajustement gagne puis retrait → Progression reprend). PIÈGE : une
 VIDER sa zone (`SERVICE.DOM.empty`) sinon les rendus s'empilent et le
 querySelector lit le premier (vide). Run headless : 163 OK / 0 ECHEC.
 
+Round 88 = ÉQUIPEMENT via la BIBLIOTHÈQUE + jauge d'encombrement + bonus
+d'historique en jetons (demandes utilisateur). (a) Le « + » de la barre
+de l'onglet Équipement bascule sur la Bibliothèque, sujet Équipement
+(`CHARACTER.LibraryWindow.goToStuffsSubject()` : `pending_subject_key =
+"stuffs"`, aucun filtre posé) — le « + » de la CARTE pose l'objet au Sac à
+dos (`event__stuff__add` existant) et revient sur l'onglet
+(`goToSheet(StuffsWindow.NAME)`). La popup d'ajout est SUPPRIMÉE :
+`stuffs/stuff-add-popup.js` effacé, balises `<script>` retirées de
+index.html/tests.html, case `event__stuff__open_add_popup` du contrôleur
+retiré — la création au NOM LIBRE hors dataset disparaît avec elle (un
+filtre sans carte ne pose rien). Emplacement/lieu/commentaire se règlent
+par la roue crantée (popup d'édition, inchangée). (b) Jauge d'encombrement
+dans la barre : `input[type=range]` en lecture seule (`pointer-events:
+none`), piste 0 → 2×max (le max à mi-piste, moitié droite = surcharge),
+curseur carré (border-radius 2px), couleurs d'état via
+`data-bulk-state` sur `.stuffs-bulk` ; le max pousse dans un compteur
+`bulk_max` SÉPARÉ (le compteur `bulk` de la fenêtre somme ses fils et ne
+porte que le total) pour rafraîchir l'affichage quand seule la Force
+bouge ; `pushBulkCounters` aussi appelé sur `event__adjustment__add/remove`.
+(d) Bibliothèque en chargement PROGRESSIF (demande utilisateur : le
+contenu peut prendre du temps à charger) : `LIBRARY.RENDER_BATCH_SIZE = 20`,
+les listes se rendent par lots via `_renderInBatches`/`_renderNextBatch`
+(`library_window.js`) — le lot suivant au scroll quand le sentinel
+`.library-list-sentinel` approche du viewport (listener scroll en phase
+capture sur document, n'importe quel ancêtre scrollable) ou au clic sur le
+sentinel (« Afficher 20 de plus (N restants) », puis « N résultats » en
+`done`) ; un filtre/sujet qui change re-rend depuis le lot 1. Les sections
+(niveau/nature) se construisent dans la closure du builder, l'état de
+section survit aux lots. Tests : `TEST_libraryLoadAll()` draine les lots au
+clic du sentinel, `TEST_libraryCards()` = comptage après drain (jamais le
+lot partiel). Run headless : 186 OK / 0 ECHEC ×2.
+(c) Bonus d'historique en JETONS : `number` = poses totales, chaque carac
+listée a son propre jeton (posable une fois, Manoeuvre [FOR,CON,FRE] accepte
+FOR+CON), chaque FRE un jeton hors liste (CHA+INT bloqué) ; le + est gardé
+par `event__ask_can_place_bonus` + cellule EDITED ; `param__key` posé au
+rechargement pour consommer le bon jeton. Run headless : 185 OK / 0 ECHEC
+×2, run se termine sur l'onglet Équipement en état encombré (over) pour
+inspection visuelle.
+
+Round 89 = SCROLLBAR GRADUÉE de la liste Bibliothèque (demande utilisateur,
+mockup ASCII « 0 10 20 30 » au-dessus d'une piste avec pouce `<>`). La
+scrollbar native de `.library-list` est masquée (`scrollbar-width:none` +
+`::-webkit-scrollbar{display:none}`), la liste est enveloppée dans
+`.library-list-wrap` (flex row) avec à droite `.library-scrollbar` :
+colonne de labels `.library-scrollbar-ticks` + piste
+`.library-scrollbar-track` + pouce `.library-scrollbar-thumb` (poignée
+`<>` en `::after`). Labels = nombres de résultats 0…total, pas « beau »
+1/2/2,5/5×10ⁿ (`_niceScrollbarStep`), re-rendus quand total OU hauteur
+change (`_scrollbar_ticks_key = total + "x" + hauteur`, remis à null quand
+la scrollbar se masque). Pouce : hauteur ∝ clientHeight/scrollHeight
+(min 28px), top ∝ scrollTop, drag par pointerdown/move/up sur le pouce,
+clic sur la piste = saut (pouce centré sur le clic), scrollbar masquée
+(classe `hidden`) quand la liste tient sans défiler. `_updateListScrollbar()`
+appelé au scroll de la liste, à chaque lot progressif (`_renderNextBatch`),
+à chaque `_renderList`, au resize fenêtre. Test : labels 0/total, pouce en
+haut puis en bas au scroll, drag, clic piste, masquée sur filtre sans
+résultat. Run headless : 187 OK / 0 ECHEC ×2.
+
 ### Style, commentaires, nommage
 
 - Pas de prose descriptive dans le bloc JSDoc d'une classe : seul

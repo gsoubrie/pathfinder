@@ -536,7 +536,9 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] grille : entêtes, colonne Historique,
         // sa colonne, les cellules hors choix portent FORBIDDEN
         CONTROLLER.Character.doActionAfter( "event__historic__select", { "param__historic__name": "Acolyte" } );
         let _characteristics            = _character.getCharacteristics();
-        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getFreeNumber(), 2, "L'Acolyte devrait porter 2 bonus d'historique a placer, obtenu : " + _characteristics.getHistoricBonus().bonus.getFreeNumber() );
+        // Jetons : 2 poses au total (number), dont au plus 1 hors liste (le FRE)
+        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getFreeNumber(), 1, "L'Acolyte devrait porter 1 jeton libre (le FRE des donnees), obtenu : " + _characteristics.getHistoricBonus().bonus.getFreeNumber() );
+        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getRemaining(), 2, "L'Acolyte devrait porter 2 poses au total (number), obtenu : " + _characteristics.getHistoricBonus().bonus.getRemaining() );
         let _int                        = _characteristics.getContentByUUID( "INT" );
         let _for                        = _characteristics.getContentByUUID( "FOR" );
         TEST.ASSERT.equal( _int.historic_bonus.getCurrentPhase(), GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, "INT (choix de l'Acolyte) devrait etre modifiable, obtenu : " + _int.historic_bonus.getCurrentPhase() );
@@ -552,7 +554,8 @@ TEST.RUNNER.register( "[CARACTERISTIQUES] grille : entêtes, colonne Historique,
         _int_more.click();
         TEST.ASSERT.equal( _int.historic_bonus.getValue(), 2, "Le bonus d'historique devrait etre pose sur INT, obtenu : " + _int.historic_bonus.getValue() );
         TEST.ASSERT.equal( _int.getModifierValue(), 1, "Le modificateur de INT devrait valoir +1, obtenu : " + _int.getModifierValue() );
-        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getFreeNumber(), 1, "Un bonus d'historique devrait rester a placer, obtenu : " + _characteristics.getHistoricBonus().bonus.getFreeNumber() );
+        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getFreeNumber(), 1, "Le jeton libre ne devrait PAS etre consomme par INT (choix liste), obtenu : " + _characteristics.getHistoricBonus().bonus.getFreeNumber() );
+        TEST.ASSERT.equal( _characteristics.getHistoricBonus().bonus.getRemaining(), 1, "Une pose devrait rester a placer, obtenu : " + _characteristics.getHistoricBonus().bonus.getRemaining() );
         // Autre : un boost pose dans l'onglet Ajustements se lit et compte
         CONTROLLER.Character.doActionAfter( "event__adjustment__add", { "param__adjustment__kind": "characteristic_boost", "param__adjustment__value": "Force", "param__adjustment__explanation": "Ceremonie d'ogre" } );
         TEST.ASSERT.equal( _for.getModifierValue(), 1, "Le boost d'ajustement devrait compter dans la valeur finale de FOR, obtenu : " + _for.getModifierValue() );

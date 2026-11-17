@@ -113,6 +113,12 @@ CHARACTER.Stuffs.prototype = {
         let bulk_total = this.getBulkTotal( STUFF.CARRIED_LOCATIONS );
         let bulk_max   = this.getBulkMax( character_object );
         this.setCounterValue( "bulk", "carried_bulk", bulk_total );
+        // Le max accompagne le total dans un compteur SÉPARÉ (le compteur
+        // « bulk » de la fenêtre somme ses fils et ne doit porter QUE le
+        // total) : un changement de Force qui ne bouge pas le total doit
+        // quand meme rafraichir l'affichage (un compteur ne repousse que
+        // sur changement de valeur)
+        this.setCounterValue( "bulk_max", "carried_max", bulk_max );
         this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "bulk_over", bulk_total > bulk_max ? 1 : 0 );
         this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.ERRORS, "bulk_critical", bulk_total > 2 * bulk_max ? 1 : 0 );
     },

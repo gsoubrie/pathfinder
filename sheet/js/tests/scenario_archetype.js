@@ -107,7 +107,7 @@ TEST.RUNNER.register( "[ARCHETYPE] clic champ → Bibliothèque, sujet Archétyp
             _expected++;
         }
     }
-    let _cards                          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards                          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le sujet devrait rendre une carte par archétype scrape (" + _expected + "), obtenu : " + _cards.length );
     TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card-add" ).length, _expected, "Chaque carte devrait porter son bouton « + »" );
 } );
@@ -120,7 +120,7 @@ TEST.RUNNER.register( "[ARCHETYPE] « + » de la carte → personnage + bascule 
         return;
     }
     TEST_libraryCommitFilterByEnter( "acolyte draconique" );
-    let _cards                          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards                          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, 1, "Le filtre « acolyte draconique » devrait laisser l'unique archétype correspondant, obtenu : " + _cards.length );
     if ( _cards.length !== 1 ) {
         return;

@@ -73,6 +73,12 @@ CHARACTERISTICS.Bonuses.prototype = {
                 }
                 this._broadcastMalusPending( params );
                 break;
+            case "event__ask_can_place_bonus":
+                // Ne PAS ecraser param__characteristics__object (le conteneur
+                // Characteristics pose en amont) : le recompute des cellules
+                // repart de lui apres la pose
+                ( params[ "param__is_malus" ] ? this.malus : this.bonus ).doActionAfter( event_name, params );
+                return;
         }
         this.computeCounters();
     },
@@ -85,7 +91,7 @@ CHARACTERISTICS.Bonuses.prototype = {
     },
     //********************************************  GETTER SETTER  *****************************************************//
     computeCounters: function () {
-        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.key_name, this.bonus.getFreeNumber() );
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, this.key_name, this.bonus.getRemaining() );
     }
 };
 SERVICE.CLASS.addPrototype( CHARACTERISTICS.Bonuses, GS.OBJECT.CounterInterfaceV2 );
@@ -99,14 +105,16 @@ CHARACTERISTICS.Bonus = function ( is_bonus ) {
 CHARACTERISTICS.Bonus.prototype = {
     init        : function ( is_bonus ) {
         this.initContents();
-        this.is_bonus    = !!is_bonus;
-        this.number      = 0;
-        this.number_free = 0;
+        this.is_bonus         = !!is_bonus;
+        this.number           = 0;
+        this.number_free      = 0;
+        this.number_remaining = 0;
     },
     initWithData: function ( data ) {
         this.initContents();
-        this.number      = 0;
-        this.number_free = 0;
+        this.number           = 0;
+        this.number_free      = 0;
+        this.number_remaining = 0;
         if ( !data ) {
             return;
         }
@@ -117,7 +125,7 @@ CHARACTERISTICS.Bonus.prototype = {
     doActionAfter: function ( event_name, params ) {
         switch ( event_name ) {
             case "event__ask_compute_settable_value":
-                if ( this.number_free ) {
+                if ( this.number_remaining > 0 ) {
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus", params );
                 }
                 else {
@@ -128,6 +136,9 @@ CHARACTERISTICS.Bonus.prototype = {
             case "event__ask_set_forced_value":
                 params[ "param__is_malus" ] = !this.is_bonus;
                 if ( this.number === this.getSize() ) {
+                    // Branche forcée : les choix listés se posent d'office,
+                    // il ne reste à placer que les jetons LIBRES
+                    this.setRemaining( this.number_free );
                     for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
                         if ( !this.isFreeChoice( this.getContent( i ).getUUID() ) ) {
                             params[ "param__characteristics__object" ].getContentByUUID( this.getContent( i ).getUUID() ).doActionAfter( "event__ask_set_forced_value_1", params );
@@ -135,19 +146,35 @@ CHARACTERISTICS.Bonus.prototype = {
                     }
                 }
                 else {
+                    // Branche à choix : on choisit `number` jetons parmi les
+                    // choix — chaque carac listée est un jeton posable UNE
+                    // fois (Manoeuvre [FOR,CON,FRE] number 2 accepte FOR+CON),
+                    // chaque FRE est un jeton sur n'importe quelle carac (un
+                    // seul FRE bloque CHA+INT)
                     params[ "param__bonuses__object" ] = this;
                     params[ "param__characteristics__object" ].doActionAfter( "event__set_forbidden_bonus", params );
-                    this.setFreeNumber( this.number );
                 }
                 return;
             case "event__set_free_bonus_done":
-                this.setFreeNumber( this.number_free - 1 );
-                if ( !this.number_free ) {
-                    CONTROLLER.Character.doActionAfter( "event__free_bonus_is_zero", params );
+                // Toute pose consomme le total restant ; seules les poses
+                // HORS liste consomment en plus un jeton LIBRE
+                this.setRemaining( Math.max( 0, this.number_remaining - 1 ) );
+                if ( !this._isListedChoice( params[ "param__key" ] ) ) {
+                    this.setFreeNumber( Math.max( 0, this.number_free - 1 ) );
                 }
+                this._emitPools( params );
                 return;
             case "event__unset_free_bonus_done":
-                this.setFreeNumber( this.number_free + 1 );
+                this.setRemaining( this.number_remaining + 1 );
+                if ( !this._isListedChoice( params[ "param__key" ] ) ) {
+                    this.setFreeNumber( this.number_free + 1 );
+                }
+                this._emitPools( params );
+                return;
+            // Le geste + demande d'abord si les jetons de SA cellule le
+            // permettent : total restant > 0, et jeton libre si hors liste
+            case "event__ask_can_place_bonus":
+                params[ "param__can_place" ] = this.number_remaining > 0 && ( this._isListedChoice( params[ "param__key" ] ) || this.number_free > 0 );
                 return;
             // La penalite libre se pose depuis son pool : le pool vide
             // n'accepte rien, la caracteristique appelante se pose elle-meme
@@ -174,6 +201,28 @@ CHARACTERISTICS.Bonus.prototype = {
     setNumber    : function ( to_set ) {
         this.number = to_set;
     },
+    getRemaining : function () {
+        return this.number_remaining;
+    },
+    setRemaining : function ( to_set ) {
+        this.number_remaining = to_set;
+    },
+    // Une carac LISTEE (choix nommé hors FREE) a son propre jeton, posable une
+    // fois ; hors liste, la pose consomme un jeton LIBRE (le placeholder FREE)
+    _isListedChoice      : function ( choice_key ) {
+        let choice = this.getContentByUUID( choice_key );
+        return !!choice && !this.isFreeChoice( choice_key );
+    },
+    // Après chaque pose/retrait, chaque cellule reevalue sa phase selon les
+    // jetons restants (marqueur data-listedchoice posé au deploy)
+    _emitPools           : function ( params ) {
+        params[ "param__remaining" ]      = this.number_remaining;
+        params[ "param__free_remaining" ] = this.number_free;
+        params[ "param__characteristics__object" ].doActionAfter( "event__recompute_settable", params );
+        if ( !this.number_remaining ) {
+            CONTROLLER.Character.doActionAfter( "event__free_bonus_is_zero", params );
+        }
+    },
     setChoices   : function ( to_set ) {
         // Un choix LIBRE peut se REPTER dans les donnees (les races
         // d'extension accordent DEUX primes libres) : le conteneur dedupe
@@ -194,7 +243,10 @@ CHARACTERISTICS.Bonus.prototype = {
             } ) );
             free_repeats++;
         }
-        this.setFreeNumber( number_free );
+        // Jetons : `number` poses au total, dont au plus nb FREE hors liste
+        // (la branche forcée resserre ensuite le total aux seuls libres)
+        this.setFreeNumber( Math.min( number_free, this.number ) );
+        this.setRemaining( this.number );
     },
     // Un placeholder libre se reconnait a sa cle (FREE, FREE_1, ...) : les
     // repetes ne se forcent JAMAIS

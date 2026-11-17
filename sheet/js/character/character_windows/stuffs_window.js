@@ -3,8 +3,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // CHARACTER.StuffsWindow
 // Onglet "Équipement" : l'inventaire du personnage. Le « + » en TÊTE de
-// la barre ouvre la POPUP D'AJOUT (CHARACTER.StuffAddPopup : type,
-// modèle, emplacement, lieu si entreposé, commentaire), les CATÉGORIES
+// la barre bascule sur la BIBLIOTHÈQUE (sujet Équipement : le « + » d'une
+// carte pose l'objet au sac à dos et revient ici), les CATÉGORIES
 // (Équipé / Sac à dos / Entreposé) filtrent les sections affichées —
 // l'état du filtre vit sur la fenêtre, rien ne change dans le
 // domaine — et l'encombrement total de la barre ne compte que le
@@ -36,7 +36,10 @@ CHARACTER.StuffsWindow.prototype = {
     initSpecific: function ( name, parent_name, label ) {
         WINDOW_V2.ElementFromData.prototype.initSpecific.call( this, name, parent_name, label );
         // The domain bulk counter lands on the window's own bulk counter
+        // (the max rides on its own counter, so a Force change refreshes
+        // the display even when the carried total does not move)
         this.initCounter( "bulk" );
+        this.initCounter( "bulk_max" );
     },
 
     //********************************************  EVENT LISTENER  **************************************************//
@@ -136,15 +139,15 @@ CHARACTER.StuffsWindow.prototype = {
         }
     },
 
-    // The bar of the window : the « + » FIRST opens the add popup, the
-    // location categories filter the sections, the carried bulk sits
-    // at the right
+    // The bar of the window : the « + » FIRST lands the sheet on the
+    // LIBRARY (stuffs subject), the location categories filter the
+    // sections, the carried bulk sits at the right
     _buildAddBar: function ( parent, stuffs ) {
         let add_bar = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-add-bar" } ), parent );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
             class  : "stuffs-add-button",
-            title  : "Ajouter un équipement",
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__open_add_popup',{})"
+            title  : "Ajouter un équipement (Bibliothèque)",
+            onclick: "CHARACTER.LibraryWindow.goToStuffsSubject()"
         }, "+" ), add_bar );
         let location_filters = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-location-filters" } ), add_bar );
         this._buildLocationFilter( location_filters, STUFF.FILTER_ALL, "Tous", stuffs.getSize() );
@@ -152,9 +155,20 @@ CHARACTER.StuffsWindow.prototype = {
             let location_data = STUFF.LOCATIONS[ l ];
             this._buildLocationFilter( location_filters, location_data.key, location_data.label, stuffs.getStuffsByLocation( location_data.key ).length );
         }
+        // La jauge visuelle de l'encombrement vit à droite de la barre :
+        // un range en lecture seule (pointer-events none en CSS),borné à
+        // 2× le max — la moitié de la piste est donc exactement le max
+        let bulk_box             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk" } ), add_bar );
+        this.bulk_range_element  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            "class"   : "stuffs-bulk-range",
+            "type"    : "range",
+            "min"     : "0",
+            "step"    : "0.1",
+            "tabindex": "-1"
+        } ), bulk_box );
         this.bulk_dom_element = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-total" } ),
-            add_bar
+            bulk_box
         );
         // The bulk counter of the domain feeds the window : every counter
         // lands on the window's own counters (warnings/errors ride to the
@@ -163,6 +177,7 @@ CHARACTER.StuffsWindow.prototype = {
         // render is safe
         stuffs.setCountersParent( this );
         stuffs.getCounter( "bulk" ).setParent( this );
+        stuffs.getCounter( "bulk_max" ).setParent( this );
         this._updateBulkTotal();
     },
 
@@ -315,6 +330,12 @@ CHARACTER.StuffsWindow.prototype = {
         // One decimal at most, French style (0,1 light bulk steps)
         this.bulk_dom_element.textContent = "Encombrement : " + String( bulk_total ).replace( ".", "," ) + " / " + bulk_max;
         SERVICE.DOM.setDataSet( this.bulk_dom_element, "bulkState", bulk_state );
+        SERVICE.DOM.setDataSet( this.bulk_dom_element.parentElement, "bulkState", bulk_state );
+        // La jauge suit : piste 0 → 2×max (le max tombe à mi-piste), le
+        // curseur est clampé en bout de piste au-delà du double
+        this.bulk_range_element.setAttribute( "max", "" + ( 2 * bulk_max ) );
+        this.bulk_range_element.value = "" + Math.min( bulk_total, 2 * bulk_max );
+        this.bulk_range_element.setAttribute( "aria-label", "Encombrement porté : " + String( bulk_total ).replace( ".", "," ) + " sur " + bulk_max );
         let for_modifier = character.getCharacteristics().getContentByUUID( CHARACTERISTICS.FOR.key ).getModifierValue();
         let title        = "Encombrement max : " + bulk_max + " (10 + modificateur de Force " + ( for_modifier >= 0 ? "+" : "" ) + for_modifier + ")";
         if ( bulk_state === "over" ) {

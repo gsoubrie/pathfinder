@@ -79,6 +79,10 @@ CHARACTERISTICS.Characteristics.prototype = {
             case "event__set_free_bonus_done":
                 this.getObjectForDoActionAfter( event_name, params ).doActionAfter( "event__set_free_bonus_done", params );
                 break;
+            case "event__ask_can_place_bonus":
+                params[ "param__characteristics__object" ] = this;
+                this.getObjectForDoActionAfter( event_name, params ).doActionAfter( event_name, params );
+                return;
         }
         CHARACTER.ContainerComponentInterface.prototype.doActionAfter.call( this, event_name, params );
     },

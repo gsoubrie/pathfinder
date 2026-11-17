@@ -91,6 +91,30 @@ function TEST_libraryCommitFilterByButton ( text_value ) {
     return _window_dom;
 }
 
+// Le chargement progressif rend un lot de LIBRARY.RENDER_BATCH_SIZE cartes,
+// le sentinel en charge un autre au clic : on draine les lots jusqu'au bout
+// (synchrone, déterministe en test — aucun scroll ne se produit en headless)
+function TEST_libraryLoadAll() {
+    let _window_dom = TEST_libraryWindowDom();
+    if ( !_window_dom ) {
+        return;
+    }
+    let _guard    = 0;
+    let _sentinel = _window_dom.querySelector( ".library-list-sentinel:not(.done)" );
+    while ( _sentinel && _guard++ < 100000 ) {
+        _sentinel.click();
+        _sentinel = _window_dom.querySelector( ".library-list-sentinel:not(.done)" );
+    }
+}
+
+// Toutes les cartes affichables (draine les lots progressifs d'abord) :
+// pour les comptages, jamais le lot partiel
+function TEST_libraryCards() {
+    TEST_libraryLoadAll();
+    let _window_dom = TEST_libraryWindowDom();
+    return _window_dom ? _window_dom.querySelectorAll( ".library-card" ) : [];
+}
+
 // Le matcher du domaine reconduit par le test (comptes calcules, jamais
 // figes) : un filtre passe quand il vit dans le nom, dans un trait ou
 // dans le texte de la carte
@@ -224,7 +248,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] onglet = Bibliothèque, sujets = Dons, So
         TEST.ASSERT.notNull( _commit_button, "Le bouton « + » de commit devrait etre rendu (clavier virtuel sans Entree)" );
         TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-search" ).length, 1, "Une seule zone de filtre devrait exister (nom, trait et contenu fusionnes), obtenu : " + _window_dom.querySelectorAll( ".library-search" ).length );
         TEST.ASSERT.notNull( _window_dom.querySelector( ".library-list" ), "La zone de liste devrait etre rendue" );
-        TEST.ASSERT.ok( _window_dom.querySelectorAll( ".library-card" ).length > 0, "Des cartes de dons devraient etre rendues" );
+        TEST.ASSERT.ok( TEST_libraryCards().length > 0, "Des cartes de dons devraient etre rendues" );
         // Consultation pure : la case a cocher de selection des dons a
         // disparu, la carte porte le texte, le « ? » de popup est parti
         TEST.ASSERT.equal( _window_dom.querySelectorAll( "input[type='checkbox']" ).length, 0, "Aucune case a cocher de selection ne devrait exister (consultation pure), obtenu : " + _window_dom.querySelectorAll( "input[type='checkbox']" ).length );
@@ -268,14 +292,14 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Dons = le filtre texte matche le ta
         }
     }
     TEST_libraryCommitFilterByEnter( "ascendance" );
-    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le tag « ascendance » devrait laisser les " + _expected + " don(s) d'ascendance de la race posee, obtenu : " + _cards.length );
     if ( _expected > 0 ) {
         TEST.ASSERT.notNull( _window_dom.querySelector( ".library-card .library-tag--race" ), "La carte passee devrait porter son tag de type Ascendance en evidence" );
     }
     // le filtre retire laisse la suite propre
     TEST_libraryRemoveTag( "ascendance" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le retrait du tag ne devrait rien changer au compte de la chip Ascendance, obtenu : " + _cards.length );
 } );
 
@@ -291,35 +315,35 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Dons = tags cumulatifs sur nom, tra
         return;
     }
     _general_chip.click();
-    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, DON.GENERAL.ENUM.length, "La chip Généraux devrait laisser exactement les dons generaux (" + DON.GENERAL.ENUM.length + "), obtenu : " + _cards.length );
     // Tag par TRAIT : l'Entree commit
     TEST_libraryCommitFilterByEnter( "général" );
     TEST.ASSERT.ok( TEST_libraryTagPresent( "général" ), "Le filtre pose devrait vivre en tag dans la rangee des filtres actifs" );
     let _expected_trait = TEST_libraryCountGeneralFeats( [ "général" ] );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_trait, "Le tag « général » devrait laisser " + _expected_trait + " don(s), obtenu : " + _cards.length );
     // Tag par NOM : le bouton « + » commit (le geste du tactile)
     TEST_libraryCommitFilterByButton( "animal" );
     TEST.ASSERT.ok( TEST_libraryTagPresent( "animal" ), "Le second filtre pose devrait vivre en tag lui aussi" );
     let _expected_and   = TEST_libraryCountGeneralFeats( [ "général", "animal" ] );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_and, "Les deux tags cumules en ET devraient laisser " + _expected_and + " carte(s), obtenu : " + _cards.length );
     // Tag par CONTENU : le mot ne vit que dans la description de la carte
     TEST_libraryCommitFilterByEnter( "rongeur" );
     TEST.ASSERT.ok( TEST_libraryTagPresent( "rongeur" ), "Le troisieme filtre pose devrait vivre en tag lui aussi" );
     let _expected_content = TEST_libraryCountGeneralFeats( [ "général", "animal", "rongeur" ] );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_content, "Le tag de contenu cumule devrait laisser " + _expected_content + " carte(s), obtenu : " + _cards.length );
     TEST.ASSERT.ok( _expected_content > 0, "La description de Animal de compagnie cite un rongeur : au moins une carte devrait passer (obtenu : " + _expected_content + ")" );
     // Un tag qui ne matche RIEN vide la liste (ET cumulatif)
     TEST_libraryCommitFilterByEnter( "zzzzz" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, 0, "Le tag qui ne matche rien devrait vider la liste (ET cumulatif), obtenu : " + _cards.length );
     TEST.ASSERT.notNull( _window_dom.querySelector( ".library-empty" ), "La liste vide devrait afficher l'invitation" );
     // Le × retire SON tag seul
     TEST_libraryRemoveTag( "zzzzz" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_content, "Le × de SON tag devrait restaurer les " + _expected_content + " carte(s) d'avant, obtenu : " + _cards.length );
     TEST.ASSERT.notOk( TEST_libraryTagPresent( "zzzzz" ), "Le tag retire ne devrait plus vivre dans la rangee" );
 } );
@@ -337,7 +361,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag p
         return;
     }
     let _spell_list     = SPELLS.getSpellListData();
-    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _spell_list.length, "Le sujet Sorts devrait rendre les " + _spell_list.length + " sorts scraping, obtenu : " + _cards.length );
     let _first_nature   = SPELLS.getNatureKeyOfName( _spell_list[ 0 ].name );
     let _first_header   = _window_dom.querySelector( ".library-level-header" );
@@ -361,7 +385,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag p
     }
     TEST_libraryCommitFilterByButton( _trait_text );
     TEST.ASSERT.ok( TEST_libraryTagPresent( _trait_text ), "Le filtre pose devrait vivre en tag dans la rangee des filtres actifs" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_trait, "Le tag devrait laisser " + _expected_trait + " sort(s) portant « " + _trait_text + " » (nom, trait ou contenu), obtenu : " + _cards.length );
     // LE BOUTON « + » : la carte ajoute le sort AU REPERTOIRE du
     // personnage (le plat des popups d'ajout du repertoire, la valeur
@@ -409,7 +433,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom 
         }
     }
     TEST_libraryCommitFilterByEnter( "épée longue" );
-    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards          = TEST_libraryCards();
     TEST.ASSERT.ok( _cards.length > 0 && _cards.length < _expected_all, "Le tag de nom devrait ecreter la liste (obtenu : " + _cards.length + " sur " + _expected_all + ")" );
     let _expected       = 0;
     let _first_entry    = null;
@@ -433,7 +457,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom 
         }
     }
     TEST_libraryRemoveTag( "épée longue" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_all, "Le × du tag devrait restaurer toute la liste (" + _expected_all + "), obtenu : " + _cards.length );
     TEST_libraryCommitFilterByButton( STUFF.CONSUMABLE_TRAIT.toLowerCase() );
     let _expected_trait = 0;
@@ -442,7 +466,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom 
             _expected_trait++;
         }
     }
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_trait, "Le tag de trait devrait laisser " + _expected_trait + " objet(s) Consommable, obtenu : " + _cards.length );
     // Le PRIX vit sur la ligne clé (retour utilisateur : « le filtre par
     // le prix ne marche pas ») : la ligne clé est cherchable comme le
@@ -459,7 +483,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom 
         }
         TEST_libraryCommitFilterByEnter( _price_text );
         TEST.ASSERT.ok( TEST_libraryTagPresent( _price_text ), "Le tag de prix pose devrait vivre dans la rangee des filtres actifs" );
-        _cards          = _window_dom.querySelectorAll( ".library-card" );
+        _cards          = TEST_libraryCards();
         TEST.ASSERT.equal( _cards.length, _expected_price, "Le tag de prix « " + _price_text + " » devrait laisser " + _expected_price + " objet(s), obtenu : " + _cards.length );
         TEST_libraryRemoveTag( _price_text );
     }
@@ -518,7 +542,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Archétypes = liste alphabétique, 
             _expected++;
         }
     }
-    let _cards          = _window_dom.querySelectorAll( ".library-card" );
+    let _cards          = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le sujet devrait rendre une carte par archétype scrape (" + _expected + "), obtenu : " + _cards.length );
     // Ordre alphabétique brut : la premiere carte ne suit pas la dernière
     if ( _cards.length > 1 ) {
@@ -542,10 +566,10 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Archétypes = liste alphabétique, 
         }
     }
     TEST_libraryCommitFilterByEnter( "dévouement" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_feats, "Le tag « dévouement » devrait laisser les " + _expected_feats + " archétype(s) dont un don le porte, obtenu : " + _cards.length );
     TEST_libraryRemoveTag( "dévouement" );
-    _cards              = _window_dom.querySelectorAll( ".library-card" );
+    _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected, "Le × du tag devrait restaurer la liste complete (" + _expected + "), obtenu : " + _cards.length );
 } );
 
@@ -576,4 +600,119 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] changement de sujet = vue et filtres rein
         TEST.ASSERT.equal( _search_input.value, "", "La zone de filtre devrait etre vide apres un changement de sujet, obtenu : " + _search_input.value );
     }
     TEST.ASSERT.ok( _window_dom.querySelectorAll( ".library-card" ).length > 0, "Les cartes de dons devraient etre rendues apres le retour au sujet Dons" );
+} );
+
+// Le chargement progressif : la liste se rend par lots de
+// LIBRARY.RENDER_BATCH_SIZE cartes, le sentinel en queue charge le lot
+// suivant au clic (et au scroll proche du viewport en vrai navigateur)
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] chargement progressif : premier lot de 20, sentinel lot par lot, filtre qui repart au lot 1", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _window_dom = TEST_libraryWindowDom();
+        TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre Bibliothèque rendue" );
+        if ( !_window_dom ) {
+            return;
+        }
+        // Premier lot : au plus RENDER_BATCH_SIZE cartes, sentinel en queue
+        let _first  = _window_dom.querySelectorAll( ".library-card" ).length;
+        TEST.ASSERT.ok( _first > 0 && _first <= LIBRARY.RENDER_BATCH_SIZE, "Le premier lot devrait rendre au plus " + LIBRARY.RENDER_BATCH_SIZE + " cartes, obtenu : " + _first );
+        let _sentinel = _window_dom.querySelector( ".library-list-sentinel" );
+        TEST.ASSERT.notNull( _sentinel, "Le sentinel devrait etre rendu en queue de liste" );
+        if ( _sentinel ) {
+            TEST.ASSERT.ok( _sentinel.textContent.indexOf( "restants" ) !== -1 || _sentinel.classList.contains( "done" ), "Le sentinel devrait annoncer les restants ou le total, obtenu : [" + _sentinel.textContent + "]" );
+        }
+        // Drain complet au clic du sentinel
+        TEST_libraryLoadAll();
+        let _all = _window_dom.querySelectorAll( ".library-card" ).length;
+        TEST.ASSERT.ok( _all >= _first, "Le drain devrait rendre au moins le premier lot, obtenu : " + _all + " (premier lot : " + _first + ")" );
+        _sentinel = _window_dom.querySelector( ".library-list-sentinel" );
+        TEST.ASSERT.ok( _sentinel && _sentinel.classList.contains( "done" ), "Le sentinel devrait porter la classe done une fois tout rendu" );
+        if ( _sentinel ) {
+            TEST.ASSERT.ok( _sentinel.textContent.indexOf( "" + _all ) !== -1, "Le sentinel devrait annoncer le total (" + _all + " résultats), obtenu : [" + _sentinel.textContent + "]" );
+        }
+        // Un clic de sentinel en cours de chargement ajoute UN lot
+        TEST_libraryCommitFilterByEnter( "zzzzz" );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card" ).length, 0, "Un filtre sans correspondance ne devrait rendre aucune carte" );
+        TEST.ASSERT.notNull( _window_dom.querySelector( ".library-empty" ), "La liste vide devrait porter son marqueur .library-empty" );
+        let _remove = _window_dom.querySelector( ".library-active-tag-remove" );
+        if ( _remove ) {
+            _remove.click();
+        }
+        let _back = _window_dom.querySelectorAll( ".library-card" ).length;
+        TEST.ASSERT.ok( _back > 0 && _back <= LIBRARY.RENDER_BATCH_SIZE, "Le retrait du filtre devrait revenir au premier lot (≤ " + LIBRARY.RENDER_BATCH_SIZE + "), obtenu : " + _back );
+        if ( _all > _back ) {
+            let _sentinel2 = _window_dom.querySelector( ".library-list-sentinel:not(.done)" );
+            TEST.ASSERT.notNull( _sentinel2, "Le sentinel devrait proposer le lot suivant" );
+            if ( _sentinel2 ) {
+                _sentinel2.click();
+                let _second = _window_dom.querySelectorAll( ".library-card" ).length;
+                TEST.ASSERT.equal( _second, Math.min( _all, _back + LIBRARY.RENDER_BATCH_SIZE ), "Un clic sur le sentinel devrait charger exactement le lot suivant, obtenu : " + _second + " (attendu " + Math.min( _all, _back + LIBRARY.RENDER_BATCH_SIZE ) + ")" );
+            }
+        }
+    } );
+} );
+
+// La scrollbar graduée de la liste : scrollbar native masquée (CSS),
+// piste + pouce draggable + labels 0…total en nombre de résultats,
+// masquée quand la liste tient sans défiler
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar graduée : labels 0…total, pouce suit le scroll et se drague, clic piste, masquée si la liste tient", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _stuffs_subject = TEST_librarySubjectChip( "Équipement" );
+        TEST.ASSERT.notNull( _stuffs_subject, "Pre-condition : puce sujet Équipement rendue" );
+        if ( !_stuffs_subject ) {
+            return;
+        }
+        _stuffs_subject.click();
+        let _window_dom     = TEST_libraryWindowDom();
+        TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre Bibliothèque rendue" );
+        if ( !_window_dom ) {
+            return;
+        }
+        TEST_libraryLoadAll();
+        let _list      = _window_dom.querySelector( ".library-list" );
+        let _scrollbar = _window_dom.querySelector( ".library-scrollbar" );
+        let _track     = _window_dom.querySelector( ".library-scrollbar-track" );
+        let _thumb     = _window_dom.querySelector( ".library-scrollbar-thumb" );
+        TEST.ASSERT.ok( _list && _scrollbar && _track && _thumb, "La liste devrait porter sa scrollbar graduée (piste + pouce)" );
+        if ( !_list || !_scrollbar || !_track || !_thumb ) {
+            return;
+        }
+        let _total = _window_dom.querySelectorAll( ".library-card" ).length;
+        TEST.ASSERT.ok( _total > LIBRARY.RENDER_BATCH_SIZE, "Le sujet Équipement devrait déborder après le drain (" + _total + " cartes)" );
+        TEST.ASSERT.ok( _list.scrollHeight > _list.clientHeight, "La liste devrait déborder (scrollHeight " + _list.scrollHeight + " > clientHeight " + _list.clientHeight + ")" );
+        TEST.ASSERT.ok( !_scrollbar.classList.contains( "hidden" ), "La scrollbar devrait être visible quand la liste déborde" );
+        let _ticks = _window_dom.querySelectorAll( ".library-scrollbar-tick" );
+        TEST.ASSERT.ok( _ticks.length >= 2, "La scrollbar devrait porter au moins 2 labels, obtenu : " + _ticks.length );
+        if ( _ticks.length >= 2 ) {
+            TEST.ASSERT.equal( _ticks[ 0 ].textContent, "0", "Le premier label devrait être 0, obtenu : [" + _ticks[ 0 ].textContent + "]" );
+            TEST.ASSERT.equal( _ticks[ _ticks.length - 1 ].textContent, String( _total ), "Le dernier label devrait être le total " + _total + ", obtenu : [" + _ticks[ _ticks.length - 1 ].textContent + "]" );
+        }
+        TEST.ASSERT.ok( parseInt( _thumb.style.height, 10 ) > 0, "Le pouce devrait avoir une hauteur posée, obtenu : [" + _thumb.style.height + "]" );
+        TEST.ASSERT.equal( _thumb.style.top, "0px", "Le pouce devrait être en haut au départ, obtenu : [" + _thumb.style.top + "]" );
+        // Scroll au fond : le pouce descend au bout de la piste
+        _list.scrollTop = _list.scrollHeight;
+        _list.dispatchEvent( new Event( "scroll" ) );
+        let _max_top = Math.max( 0, _track.clientHeight - _thumb.offsetHeight );
+        TEST.ASSERT.ok( parseInt( _thumb.style.top, 10 ) >= _max_top - 1, "Le pouce devrait être en bas après un scroll au fond (top [" + _thumb.style.top + "], max " + _max_top + ")" );
+        // Drag du pouce vers le haut : la liste remonte
+        let _before     = _list.scrollTop;
+        let _thumb_rect = _thumb.getBoundingClientRect();
+        _thumb.dispatchEvent( new PointerEvent( "pointerdown", { "clientY": _thumb_rect.top + _thumb_rect.height / 2, "bubbles": true } ) );
+        document.dispatchEvent( new PointerEvent( "pointermove", { "clientY": _thumb_rect.top - 300, "bubbles": true } ) );
+        document.dispatchEvent( new PointerEvent( "pointerup", { "bubbles": true } ) );
+        TEST.ASSERT.ok( _list.scrollTop < _before, "Le drag du pouce vers le haut devrait remonter la liste (avant " + _before + ", après " + _list.scrollTop + ")" );
+        // Clic en bas de piste : saut vers le bas
+        let _track_rect = _track.getBoundingClientRect();
+        _track.dispatchEvent( new PointerEvent( "pointerdown", { "clientY": _track_rect.bottom - 4, "bubbles": true } ) );
+        TEST.ASSERT.ok( _list.scrollTop > _list.clientHeight, "Le clic en bas de piste devrait sauter vers le bas (scrollTop " + _list.scrollTop + ")" );
+        // Filtre sans résultat : la liste ne déborde plus, scrollbar masquée
+        TEST_libraryCommitFilterByEnter( "zzzzz" );
+        _scrollbar = _window_dom.querySelector( ".library-scrollbar" );
+        TEST.ASSERT.ok( _scrollbar && _scrollbar.classList.contains( "hidden" ), "La scrollbar devrait être masquée quand la liste tient sans défiler" );
+        TEST_libraryRemoveTag( "zzzzz" );
+        TEST_libraryLoadAll();
+    } );
 } );

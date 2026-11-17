@@ -172,19 +172,86 @@
 
 /* --- LISTE --- */
 
+.library-window .library-list-wrap {
+    flex        : 1;
+    min-height  : 0;
+    display     : flex;
+    gap         : 8px;
+}
+
 .library-window .library-list {
     flex            : 1;
+    min-width       : 0;
     overflow-y      : auto;
     display         : flex;
     flex-direction  : column;
     gap             : 10px;
-    scrollbar-width : thin;
-    scrollbar-color : #8b6914 #2c1810;
+    scrollbar-width : none;
 }
 
-.library-window .library-list::-webkit-scrollbar       { width: 6px; }
-.library-window .library-list::-webkit-scrollbar-track  { background: #2c1810; border-radius: 4px; }
-.library-window .library-list::-webkit-scrollbar-thumb  { background: #8b6914; border-radius: 4px; }
+.library-window .library-list::-webkit-scrollbar { display: none; }
+
+/* --- SCROLLBAR GRADUÉE (scrollbar native masquée : piste + pouce + labels
+   en nombre de résultats) --- */
+
+.library-window .library-scrollbar {
+    display     : flex;
+    align-items : stretch;
+    gap         : 4px;
+    padding     : 10px 0;
+    user-select : none;
+}
+
+.library-window .library-scrollbar.hidden {
+    display: none;
+}
+
+.library-window .library-scrollbar-ticks {
+    position : relative;
+    width    : 34px;
+}
+
+.library-window .library-scrollbar-tick {
+    position    : absolute;
+    right       : 0;
+    transform   : translateY(-50%);
+    font-size   : 10px;
+    color       : var(--c-text-muted, #7a6040);
+    white-space : nowrap;
+}
+
+.library-window .library-scrollbar-track {
+    position      : relative;
+    width         : 8px;
+    background    : #2c1810;
+    border        : 1px solid #6b4e2a;
+    border-radius : 4px;
+}
+
+.library-window .library-scrollbar-thumb {
+    position       : absolute;
+    left           : 1px;
+    right          : 1px;
+    top            : 0;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #8b6914;
+    border-radius  : 3px;
+    color          : #1a0f08;
+    font-size      : 8px;
+    cursor         : grab;
+    touch-action   : none;
+}
+
+.library-window .library-scrollbar-thumb::after {
+    content: "<>";
+}
+
+.library-window .library-scrollbar-thumb:active {
+    background : #d4af37;
+    cursor     : grabbing;
+}
 
 /* --- SECTION --- */
 
@@ -340,4 +407,25 @@
     font-style : italic;
     padding    : 20px;
     text-align : center;
+}
+
+/* --- SENTINEL : chargement progressif par lots (le lot suivant au clic,
+   ou au scroll quand le sentinel approche du viewport) --- */
+
+.library-window .library-list-sentinel {
+    color      : var(--c-text-muted);
+    cursor     : pointer;
+    font-size  : 12px;
+    padding    : var(--s-sm) 0;
+    text-align : center;
+}
+
+.library-window .library-list-sentinel:hover {
+    color: var(--c-text-gold);
+}
+
+.library-window .library-list-sentinel.done,
+.library-window .library-list-sentinel.done:hover {
+    color : var(--c-text-muted);
+    cursor: default;
 }

@@ -41,6 +41,11 @@ LIBRARY.DEFAULT_SUBJECT_KEY = "feats";
 LIBRARY.FILTER_ALL_KEY      = "all";
 LIBRARY.FILTER_ALL_LABEL    = "Tous";
 
+// Progressive rendering : the lists render in batches of cards (the
+// datasets are big — thousands of equipment entries), the next batch loads
+// on scroll near the sentinel or on a click on it
+LIBRARY.RENDER_BATCH_SIZE   = 20;
+
 // The type chips of the feats subject : each one filters the sources of
 // the cards (the living types of the old Dons tab)
 LIBRARY.FEAT_TYPES = [

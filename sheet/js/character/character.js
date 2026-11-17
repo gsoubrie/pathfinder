@@ -181,7 +181,9 @@ CHARACTER.Current.prototype = {
                 // La grille des caractéristiques consomme les boosts de
                 // l'onglet : sa colonne Autre et la valeur finale suivent
                 this.characteristics.doActionAfter( "event__adjustments__changed", { "param__current_character__object": this } );
-                // Un boost de Constitution change les PV : recalcul avant le broadcast
+                // Un boost de Force change l'encombrement max, un boost de
+                // Constitution change les PV : recalcul avant le broadcast
+                this.stuffs.pushBulkCounters( this );
                 this.computeTotalLife();
                 // The displays consuming the adjustments refresh with the entry
                 this.windows.doActionAfterContentChildren( event_name, params );

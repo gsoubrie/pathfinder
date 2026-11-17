@@ -53,7 +53,9 @@ CHARACTER.LibraryWindow.prototype = {
         // flow while it carries tags (the CSS hides it once empty)
         this.active_filters_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-active-filters" } ), this.content_dom_element_target );
         this._renderActiveFilters();
-        this.list_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-list" } ), this.content_dom_element_target );
+        let list_wrap             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-list-wrap" } ), this.content_dom_element_target );
+        this.list_dom_element     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-list" } ), list_wrap );
+        this._buildListScrollbar( list_wrap );
         this._renderList( this.list_dom_element, character_object );
     },
 
@@ -267,25 +269,210 @@ CHARACTER.LibraryWindow.prototype = {
         return kind_data ? kind_data.label : "";
     },
 
+    // Scrollbar graduée de la liste : la scrollbar native est masquée en
+    // CSS, une piste verticale à droite de la liste porte un pouce
+    // draggable et des labels en nombre de résultats (0 … total)
+    _buildListScrollbar: function ( parent ) {
+        let self                 = this;
+        this.scrollbar_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar" } ), parent );
+        this.scrollbar_ticks_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-ticks" } ), this.scrollbar_dom_element );
+        this.scrollbar_track_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-track" } ), this.scrollbar_dom_element );
+        this.scrollbar_thumb_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-thumb" } ), this.scrollbar_track_dom );
+        this.list_dom_element.addEventListener( "scroll", function () {
+            self._updateListScrollbar();
+        } );
+        if ( this._list_resize_handler ) {
+            window.removeEventListener( "resize", this._list_resize_handler );
+        }
+        this._list_resize_handler = function () {
+            self._updateListScrollbar();
+        };
+        window.addEventListener( "resize", this._list_resize_handler );
+        this.scrollbar_thumb_dom.addEventListener( "pointerdown", function ( event ) {
+            event.preventDefault();
+            event.stopPropagation();
+            self._dragListScrollbar( event );
+        } );
+        this.scrollbar_track_dom.addEventListener( "pointerdown", function ( event ) {
+            self._jumpListScrollbar( event );
+        } );
+    },
+
+    _dragListScrollbar: function ( event ) {
+        let list         = this.list_dom_element;
+        let thumb_height = this.scrollbar_thumb_dom.offsetHeight;
+        let start_y      = event.clientY;
+        let start_scroll = list.scrollTop;
+        let max_scroll   = Math.max( 1, list.scrollHeight - list.clientHeight );
+        let track_range  = Math.max( 1, this.scrollbar_track_dom.clientHeight - thumb_height );
+        function on_move ( move_event ) {
+            list.scrollTop = start_scroll + ( move_event.clientY - start_y ) / track_range * max_scroll;
+        }
+        function on_up () {
+            document.removeEventListener( "pointermove", on_move );
+            document.removeEventListener( "pointerup", on_up );
+        }
+        document.addEventListener( "pointermove", on_move );
+        document.addEventListener( "pointerup", on_up );
+    },
+
+    // Clic sur la piste : le pouce se centre sur le clic
+    _jumpListScrollbar: function ( event ) {
+        let list         = this.list_dom_element;
+        let track_rect   = this.scrollbar_track_dom.getBoundingClientRect();
+        let thumb_height = this.scrollbar_thumb_dom.offsetHeight;
+        let max_scroll   = Math.max( 1, list.scrollHeight - list.clientHeight );
+        let track_range  = Math.max( 1, track_rect.height - thumb_height );
+        let ratio        = ( event.clientY - track_rect.top - thumb_height / 2 ) / track_range;
+        list.scrollTop   = Math.max( 0, Math.min( 1, ratio ) ) * max_scroll;
+    },
+
+    _updateListScrollbar: function () {
+        if ( !this.list_dom_element || !this.scrollbar_dom_element || !this.scrollbar_track_dom || !this.scrollbar_thumb_dom ) {
+            return;
+        }
+        let list       = this.list_dom_element;
+        let max_scroll = list.scrollHeight - list.clientHeight;
+        if ( max_scroll <= 0 ) {
+            this.scrollbar_dom_element.classList.add( "hidden" );
+            this._scrollbar_ticks_key = null;
+            return;
+        }
+        this.scrollbar_dom_element.classList.remove( "hidden" );
+        let track_height = this.scrollbar_track_dom.clientHeight;
+        let thumb_height = Math.max( 28, Math.round( track_height * list.clientHeight / list.scrollHeight ) );
+        this.scrollbar_thumb_dom.style.height = thumb_height + "px";
+        let track_range = Math.max( 0, track_height - thumb_height );
+        let ratio       = track_range > 0 ? list.scrollTop / max_scroll : 0;
+        this.scrollbar_thumb_dom.style.top    = Math.round( ratio * track_range ) + "px";
+        this._renderScrollbarTicks();
+    },
+
+    // Labels 0 … total répartis le long de la piste, pas « beau » 1/2/2,5/5×10ⁿ
+    _renderScrollbarTicks: function () {
+        let total  = this._list_progressive ? this._list_progressive.items.length : 0;
+        let height = this.scrollbar_ticks_dom.clientHeight;
+        let key    = total + "x" + height;
+        if ( key === this._scrollbar_ticks_key ) {
+            return;
+        }
+        this._scrollbar_ticks_key = key;
+        SERVICE.DOM.empty( this.scrollbar_ticks_dom );
+        if ( total <= 0 || height <= 0 ) {
+            return;
+        }
+        let step  = this._niceScrollbarStep( total / 4 );
+        let ticks = [];
+        for ( let value = 0; value < total; value += step ) {
+            ticks.push( value );
+        }
+        ticks.push( total );
+        for ( let t = 0, _size_t = ticks.length; t < _size_t; t++ ) {
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "library-scrollbar-tick", style: "top:" + Math.round( ticks[ t ] / total * height ) + "px" }, String( ticks[ t ] ) ),
+                this.scrollbar_ticks_dom
+            );
+        }
+    },
+
+    _niceScrollbarStep: function ( raw_step ) {
+        if ( raw_step < 1 ) {
+            return 1;
+        }
+        let pow10 = Math.pow( 10, Math.floor( Math.log10( raw_step ) ) );
+        let norm  = raw_step / pow10;
+        let nice  = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 2.5 ? 2.5 : norm <= 5 ? 5 : 10;
+        return Math.max( 1, Math.round( nice * pow10 ) );
+    },
+
     _renderList: function ( list_dom, character_object ) {
         SERVICE.DOM.empty( list_dom );
         if ( this.current_subject === "feats" ) {
             this._renderFeatList( list_dom, character_object );
-            return;
         }
-        if ( this.current_subject === "spells" ) {
+        else if ( this.current_subject === "spells" ) {
             this._renderSpellList( list_dom, character_object );
-            return;
         }
-        if ( this.current_subject === "archetypes" ) {
+        else if ( this.current_subject === "archetypes" ) {
             this._renderArchetypeList( list_dom, character_object );
-            return;
         }
-        if ( this.current_subject === "historics" ) {
+        else if ( this.current_subject === "historics" ) {
             this._renderHistoricList( list_dom, character_object );
+        }
+        else {
+            this._renderStuffList( list_dom, character_object );
+        }
+        this._updateListScrollbar();
+    },
+
+    // Chargement progressif : la liste se rend par lots de
+    // LIBRARY.RENDER_BATCH_SIZE cartes — le lot suivant se charge quand le
+    // sentinel approche du viewport (scroll, phase capture : n'importe quel
+    // ancêtre scrollable) ou au clic sur le sentinel (tactile). Un filtre ou
+    // un sujet qui change re-rend depuis le premier lot.
+    _renderInBatches: function ( list_dom, items, build_fn ) {
+        let self  = this;
+        let state = {
+            list_dom : list_dom,
+            items    : items,
+            build_fn : build_fn,
+            index    : 0,
+            done     : false,
+            sentinel : null
+        };
+        this._list_progressive = state;
+        if ( this._list_scroll_handler ) {
+            document.removeEventListener( "scroll", this._list_scroll_handler, true );
+            this._list_scroll_handler = null;
+        }
+        if ( !items.length ) {
+            this._renderEmpty( list_dom );
             return;
         }
-        this._renderStuffList( list_dom, character_object );
+        state.sentinel = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-list-sentinel" } ), list_dom );
+        state.sentinel.addEventListener( "click", function () {
+            self._renderNextBatch();
+        } );
+        this._list_scroll_handler = function () {
+            if ( state.done || !state.sentinel.isConnected ) {
+                document.removeEventListener( "scroll", self._list_scroll_handler, true );
+                self._list_scroll_handler = null;
+                return;
+            }
+            if ( state.sentinel.getBoundingClientRect().top < window.innerHeight + 400 ) {
+                self._renderNextBatch();
+            }
+        };
+        document.addEventListener( "scroll", this._list_scroll_handler, true );
+        this._renderNextBatch();
+    },
+
+    _renderNextBatch: function () {
+        let state = this._list_progressive;
+        if ( !state || state.done ) {
+            return;
+        }
+        let end = Math.min( state.index + LIBRARY.RENDER_BATCH_SIZE, state.items.length );
+        for ( ; state.index < end; state.index++ ) {
+            state.build_fn( state.list_dom, state.items[ state.index ] );
+        }
+        // Le sentinel reste en queue de liste
+        state.list_dom.appendChild( state.sentinel );
+        let remaining = state.items.length - state.index;
+        if ( remaining > 0 ) {
+            state.sentinel.textContent = "Afficher " + Math.min( LIBRARY.RENDER_BATCH_SIZE, remaining ) + " de plus (" + remaining + " restants)";
+            state.sentinel.classList.remove( "done" );
+        }
+        else {
+            state.done               = true;
+            state.sentinel.textContent = state.items.length + " résultats";
+            state.sentinel.classList.add( "done" );
+            if ( this._list_scroll_handler ) {
+                document.removeEventListener( "scroll", this._list_scroll_handler, true );
+                this._list_scroll_handler = null;
+            }
+        }
+        this._updateListScrollbar();
     },
 
     _renderFeatList: function ( list_dom, character_object ) {
@@ -312,20 +499,17 @@ CHARACTER.LibraryWindow.prototype = {
             }
             return ( source_a.feat.name || "" ).localeCompare( source_b.feat.name || "" );
         } );
-        if ( !filtered.length ) {
-            this._renderEmpty( list_dom );
-            return;
-        }
+        let self          = this;
         let current_level = null;
         let section       = null;
-        for ( let f = 0, _size_f = filtered.length; f < _size_f; f++ ) {
-            let level = parseInt( filtered[ f ].feat.level ) || 0;
+        this._renderInBatches( list_dom, filtered, function ( parent, source ) {
+            let level = parseInt( source.feat.level ) || 0;
             if ( level !== current_level ) {
                 current_level = level;
-                section       = this._addSection( list_dom, "Niveau " + level );
+                section       = self._addSection( parent, "Niveau " + level );
             }
-            this._buildFeatCard( section, filtered[ f ] );
-        }
+            self._buildFeatCard( section, source );
+        } );
     },
 
     _collectFeatSources: function ( character_object ) {
@@ -449,20 +633,17 @@ CHARACTER.LibraryWindow.prototype = {
             }
             filtered.push( spells[ i ] );
         }
-        if ( !filtered.length ) {
-            this._renderEmpty( list_dom );
-            return;
-        }
+        let self                  = this;
         let current_section_label = null;
         let section               = null;
-        for ( let s = 0, _size_s = filtered.length; s < _size_s; s++ ) {
-            let section_label = this._getSpellSectionLabel( filtered[ s ] );
+        this._renderInBatches( list_dom, filtered, function ( parent, spell_list_entry ) {
+            let section_label = self._getSpellSectionLabel( spell_list_entry );
             if ( section_label !== current_section_label ) {
                 current_section_label = section_label;
-                section               = this._addSection( list_dom, section_label );
+                section               = self._addSection( parent, section_label );
             }
-            this._buildSpellCard( section, filtered[ s ] );
-        }
+            self._buildSpellCard( section, spell_list_entry );
+        } );
     },
 
     // The spellbook reads by nature : the cantrips group together, the
@@ -477,7 +658,8 @@ CHARACTER.LibraryWindow.prototype = {
     },
 
     _renderStuffList: function ( list_dom, character_object ) {
-        let count = 0;
+        let self     = this;
+        let filtered = [];
         for ( let i = 0, _size_i = STUFFS.length; i < _size_i; i++ ) {
             let entry = STUFFS[ i ];
             if ( !entry || !entry.name ) {
@@ -489,12 +671,11 @@ CHARACTER.LibraryWindow.prototype = {
             if ( !this._matchesSearchFilters( entry.name, entry.traits, entry.description, this._getStuffTypeText( entry ), STUFFS.getKeyLineText( entry ) ) ) {
                 continue;
             }
-            this._buildStuffCard( list_dom, entry );
-            count++;
+            filtered.push( entry );
         }
-        if ( !count ) {
-            this._renderEmpty( list_dom );
-        }
+        this._renderInBatches( list_dom, filtered, function ( parent, entry ) {
+            self._buildStuffCard( parent, entry );
+        } );
     },
 
     //********************************************  CARDS  **************************************************//
@@ -519,13 +700,10 @@ CHARACTER.LibraryWindow.prototype = {
         archetypes.sort( function ( entry_a, entry_b ) {
             return ( entry_a.name || "" ).localeCompare( entry_b.name || "" );
         } );
-        if ( !archetypes.length ) {
-            this._renderEmpty( list_dom );
-            return;
-        }
-        for ( let a = 0, _size_a = archetypes.length; a < _size_a; a++ ) {
-            this._buildArchetypeCard( list_dom, archetypes[ a ], character_object );
-        }
+        let self = this;
+        this._renderInBatches( list_dom, archetypes, function ( parent, entry ) {
+            self._buildArchetypeCard( parent, entry, character_object );
+        } );
     },
 
     // The archetype card : traits, description clampée, its feats one per
@@ -594,13 +772,10 @@ CHARACTER.LibraryWindow.prototype = {
         historics.sort( function ( entry_a, entry_b ) {
             return ( entry_a.name || "" ).localeCompare( entry_b.name || "" );
         } );
-        if ( !historics.length ) {
-            this._renderEmpty( list_dom );
-            return;
-        }
-        for ( let h = 0, _size_h = historics.length; h < _size_h; h++ ) {
-            this._buildHistoricCard( list_dom, historics[ h ], character_object );
-        }
+        let self = this;
+        this._renderInBatches( list_dom, historics, function ( parent, entry ) {
+            self._buildHistoricCard( parent, entry, character_object );
+        } );
     },
 
     // The historic card : its lines render ONE point per line under the
@@ -852,6 +1027,14 @@ CHARACTER.LibraryWindow.goToArchetypesSubject = function ( character_object ) {
     let archetype_name = character_object.getArchetypeHistory().getArchetypeName( character_object );
     CHARACTER.LibraryWindow.pending_subject_key = "archetypes";
     CHARACTER.LibraryWindow.pending_filters     = archetype_name ? [ archetype_name ] : [];
+    CHARACTER.LibraryWindow.goToSheet( CHARACTER.LibraryWindow.NAME );
+};
+
+// The « + » of the Équipement tab lands the sheet HERE : subject
+// Équipement, no posed filter (the full scraped dataset)
+CHARACTER.LibraryWindow.goToStuffsSubject = function () {
+    CHARACTER.LibraryWindow.pending_subject_key = "stuffs";
+    CHARACTER.LibraryWindow.pending_filters     = [];
     CHARACTER.LibraryWindow.goToSheet( CHARACTER.LibraryWindow.NAME );
 };
 

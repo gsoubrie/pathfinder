@@ -43,6 +43,10 @@ CHARACTERISTICS.Characteristic.prototype = {
         switch ( event_name ) {
             case "event__ask_set_data": {
                 let _saved = params[ "param__set_data_value" ];
+                // La cle de la cellule : au rechargement, la pose rejouée doit
+                // savoir si le boost etait un choix LISTE (jeton propre) ou un
+                // libre (jeton FREE)
+                params[ "param__key" ] = this.getUUID();
                 // Une valeur FORCED derive de la donnee (la prime imposee de
                 // la race ou de la classe) : le save n'a pas autorite dessus
                 // — un vieux fichier peut porter le zero d'avant l'ecriture
@@ -119,11 +123,32 @@ CHARACTERISTICS.Characteristic.prototype = {
                 if ( object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_FORCED ) ) {
                     return;
                 }
-                let bonus_choice = params[ "param__bonuses__object" ].getContentByUUID( this.getUUID() );
-                if ( !bonus_choice ) {
-                    bonus_choice = params[ "param__bonuses__object" ].getContentByUUID( CHARACTERISTICS.FREE.key );
+                let direct_choice = params[ "param__bonuses__object" ].getContentByUUID( this.getUUID() );
+                let bonus_choice  = direct_choice ? direct_choice : params[ "param__bonuses__object" ].getContentByUUID( CHARACTERISTICS.FREE.key );
+                // Marqueur du jeton concerné par CETTE cellule : listée si la
+                // carac a son propre choix nommé, libre sinon (fallback FREE)
+                // — posé sur l'objet (la grille peut ne pas etre rendue) et
+                // en dataset (la cellule reevalue sa phase au recompute)
+                object.listed_choice = !!direct_choice;
+                if ( object.dom_element_characteristics ) {
+                    SERVICE.DOM.setDataSet( object.dom_element_characteristics, "listedchoice", !!direct_choice );
                 }
                 object.setPhaseOrPhase( bonus_choice, GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN );
+                return;
+            // Après chaque pose/retrait, la cellule reevalue sa phase selon
+            // ses jetons : posable si total restant > 0 ET (carac listée OU
+            // jeton libre restant) — non posable → EDITION_FULL (+ grisé),
+            // jetons revenus → TO_EDIT (+ actif)
+            case "event__recompute_settable":
+                let cell_object = this.getObjectForDoActionAfter( params );
+                let is_listed   = cell_object.listed_choice !== undefined ? cell_object.listed_choice : !!( cell_object.dom_element_characteristics && cell_object.dom_element_characteristics.dataset.listedchoice === "true" );
+                let placeable   = params[ "param__remaining" ] > 0 && ( is_listed || params[ "param__free_remaining" ] > 0 );
+                if ( cell_object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT ) && !placeable ) {
+                    cell_object.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL );
+                }
+                if ( cell_object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITION_FULL ) && placeable ) {
+                    cell_object.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_TO_EDIT );
+                }
                 return;
             case "event__set_free_bonus":
                 if ( this.getObjectForDoActionAfter( params ).isInPhase( [GS.OBJECT.CONST.PHASE.SETTINGS_FORCED, GS.OBJECT.CONST.PHASE.SETTINGS_FORBIDDEN, GS.OBJECT.CONST.PHASE.SETTINGS_EDITED] ) ) {
@@ -174,6 +199,17 @@ CHARACTERISTICS.Characteristic.prototype = {
     },
     moreBonus                : function ( params ) {
         let object = this.getObjectForDoActionAfter( params );
+        // Un jeton ne se pose qu'une fois sur la meme cellule
+        if ( object.isPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED ) ) {
+            return;
+        }
+        // Garde des jetons : total restant > 0, et jeton libre si la carac
+        // est hors liste — sinon le + ne pose rien
+        params[ "param__can_place" ] = false;
+        params[ "param__characteristics__object" ].doActionAfter( "event__ask_can_place_bonus", params );
+        if ( !params[ "param__can_place" ] ) {
+            return;
+        }
         object.setValue( this.computeBonusDelta( params ) );
         object.setPhase( GS.OBJECT.CONST.PHASE.SETTINGS_EDITED );
         params[ "param__characteristics__object" ].doActionAfter( "event__set_free_bonus_done", params );

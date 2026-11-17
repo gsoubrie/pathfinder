@@ -5,46 +5,51 @@
  * termine avec UNE DIZAINE D'OBJETS CONFIGURÉS pour tester l'onglet
  * Équipement a la main ; il ne se RESET pas, il part de la feuille
  * Magicien niveau 10 rechargée du save et la GARDE pleine). Chaque
- * objet se pose par les GESTES RÉELS de la popup d'ajout (les "?",
+ * objet se pose par les GESTES RÉELS de la BIBLIOTHÈQUE (le « + » de
+ * l'onglet Équipement y bascule, le « + » de la carte pose ; les "?",
  * les éditions et les filtres restent a l'utilisateur) : deux armes
  * (dont une équipée), deux armures (une équipée, une entreposée avec
  * son lieu), trois ajouts d'un meme consommable qui empilent, un
  * objet d'autre type entreposé, un objet d'autre type au sac (le nom
  * porte une APOSTROPHE si le dataset en propose une — la fermeture
- * des popups s'y teste a la main) et une création au NOM LIBRE (hors
- * dataset, par le filtre). Le compte attendu se CALCULE (les objets
+ * des popups s'y teste a la main). L'emplacement, le lieu et le
+ * commentaire se règlent par la roue crantée (popup d'édition).
+ * Le compte attendu se CALCULE (les objets
  * dupliqués ne créent pas d'entrée), l'encombrement porté croise le
  * domaine, le save part en console GSOU (l'utilisateur copie le
  * JSON) et le run se termine sur la feuille vivante — les objets
  * restent posés.
  */
+// Ajoute un objet du dataset par la BIBLIOTHÈQUE (le + de la barre de
+// l'Équipement y bascule, le « + » de la carte pose au Sac à dos), puis
+// règle l'emplacement / le lieu / le commentaire par la roue crantée
+// (popup d'édition)
 function TEST_equipementCompletAddExisting( kind, value, location, place, comment ) {
-    TEST_stuffsOpenAddPopup();
-    return TEST.wait().then( function () {
-        TEST_stuffsPickType( kind );
-        return TEST.wait();
-    } ).then( function () {
-        TEST_stuffsPickModel( value );
-        return TEST.wait();
-    } ).then( function () {
-        if ( location ) {
-            TEST_stuffsPickLocation( location );
-            return TEST.wait();
-        }
-        return;
-    } ).then( function () {
-        let _popup = document.querySelector( "body > .popup .stuffs-add-popup" );
-        if ( !_popup ) {
+    return TEST_stuffsAddViaLibrary( value ).then( function () {
+        if ( !location && !place && !comment ) {
             return;
         }
-        if ( place ) {
-            _popup.querySelector( ".stuffs-form-popup-place-input" ).value = place;
-        }
-        if ( comment ) {
-            _popup.querySelector( ".stuffs-form-popup-comment-input" ).value = comment;
-        }
-        TEST_stuffsValidateAddPopup();
-        return TEST.wait();
+        TEST_stuffsOpenEditPopup( kind, value );
+        return TEST.wait().then( function () {
+            if ( location ) {
+                TEST_stuffsEditPickLocation( location );
+                return TEST.wait();
+            }
+            return;
+        } ).then( function () {
+            let _popup = document.querySelector( "body > .popup .stuffs-edit-popup" );
+            if ( !_popup ) {
+                return;
+            }
+            if ( place ) {
+                _popup.querySelector( ".stuffs-form-popup-place-input" ).value = place;
+            }
+            if ( comment ) {
+                _popup.querySelector( ".stuffs-form-popup-comment-input" ).value = comment;
+            }
+            TEST_stuffsValidateEditPopup();
+            return TEST.wait();
+        } );
     } );
 }
 
@@ -95,10 +100,8 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
     if ( !_other_apostrophe || !_other_plain ) {
         return;
     }
-    let _free_name = "Fiole de souvenirs de la Guerre des Nains";
-    // Les gestes d'ajout : trois ajouts du meme consommable (il
-    // empile), une création libre par le FILTRE (hors dataset), le
-    // reste au picker de modèle
+    // Les gestes d'ajout : trois ajouts du meme consommable (il empile
+    // via le « + » de sa carte), le reste au « + » des cartes du dataset
     let _start_size = _character.getStuffs().getSize();
     let _stuffs     = _character.getStuffs();
     let _promise    = TEST_equipementCompletAddExisting( "weapon", _weapon_options[ 0 ].name, "backpack", null, "Trouvée sur un bandit de la côte" )
@@ -109,23 +112,7 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
         .then( function () { return TEST_equipementCompletAddExisting( "other", _consumable_name, "backpack" ); } )
         .then( function () { return TEST_equipementCompletAddExisting( "other", _consumable_name, "backpack" ); } )
         .then( function () { return TEST_equipementCompletAddExisting( "other", _other_plain, "stored", "Chapelle du quartier" ); } )
-        .then( function () { return TEST_equipementCompletAddExisting( "other", _other_apostrophe, "backpack" ); } )
-        .then( function () {
-            TEST_stuffsOpenAddPopup();
-            return TEST.wait();
-        } )
-        .then( function () {
-            TEST_stuffsPickType( "other" );
-            return TEST.wait();
-        } )
-        .then( function () {
-            TEST_stuffsFilterEnter( _free_name );
-            return TEST.wait();
-        } )
-        .then( function () {
-            TEST_stuffsValidateAddPopup();
-            return TEST.wait();
-        } );
+        .then( function () { return TEST_equipementCompletAddExisting( "other", _other_apostrophe, "backpack" ); } );
     return _promise.then( function () {
         // Le compte attendu se CALCULE : les objets dupliqués ne créent
         // pas d'entrée (le consommable empile, les non-consommables
@@ -138,7 +125,6 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
         _expected_keys[ "other__" + _consumable_name ]            = true;
         _expected_keys[ "other__" + _other_plain ]                 = true;
         _expected_keys[ "other__" + _other_apostrophe ]           = true;
-        _expected_keys[ "other__" + _free_name ]                  = true;
         let _expected_size = Object.keys( _expected_keys ).length;
         TEST.ASSERT.equal( _stuffs.getSize(), _start_size + _expected_size, "Le run devrait laisser " + _expected_size + " entrées d'équipement, obtenu : " + ( _stuffs.getSize() - _start_size ) + " — fenêtre : " + TEST_stuffsDiagnosis() );
         TEST.ASSERT.equal( _stuffs.getContentByUUID( "weapon__" + _weapon_options[ 0 ].name ).location, "backpack", "La premiere arme vit au Sac à dos" );
@@ -149,7 +135,6 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
         TEST.ASSERT.equal( _stored_armor ? _stored_armor.place : null, "Coffre de l'auberge du Pont Brisé", "La deuxieme armure porte son lieu d'entreposage" );
         TEST.ASSERT.ok( _stuffs.getContentByUUID( "other__" + _consumable_name ).isConsumable(), "Le consommable empilé devrait porter sa quantité" );
         TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity, 3, "Le consommable empilé trois fois porte la quantité 3, obtenu : " + _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity );
-        TEST.ASSERT.ok( _stuffs.getContentByUUID( "other__" + _free_name ), "La création au nom libre devrait vivre dans le conteneur" );
         // L'encombrement porté : équipé + sac à dos, calculé des
         // entrées, l'entreposé reste hors compte
         let _bulk_expected = 0;
@@ -166,9 +151,62 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
         _reloaded.updateData( _character.getDataToSave() );
         TEST.ASSERT.equal( _reloaded.getStuffs().getSize(), _start_size + _expected_size, "La relecture devrait restaurer toutes les entrées, obtenu : " + _reloaded.getStuffs().getSize() );
         TEST.ASSERT.equal( _reloaded.getStuffs().getContentByUUID( "other__" + _consumable_name ).quantity, 3, "La quantité empilée devrait survivre a la relecture" );
-        TEST.ASSERT.equal( _reloaded.getStuffs().getContentByUUID( "other__" + _free_name ) ? _reloaded.getStuffs().getContentByUUID( "other__" + _free_name ).location : null, "backpack", "La création libre devrait survivre a la relecture au Sac à dos" );
         // Le save part en console GSOU pour l'utilisateur (il garde le
         // JSON avec l'équipement)
         CONTROLLER.Character.save();
+    } );
+} );
+
+// FIN DU RUN (demande utilisateur : terminer sur l'affichage encombré pour
+// l'inspecter dans le navigateur) : on pousse le poids porté juste au-delà
+// du max par la quantité d'un petit objet (geste bus réel), l'onglet
+// Équipement devient actif, la jauge s'affiche en warning (curseur dans
+// la moitié orange de la piste). Le save est reparti en console GSOU avec
+// cet état.
+TEST.RUNNER.register( "[EQUIPEMENT COMPLET] fin du run : onglet Équipement actif, jauge encombrée (over) à inspecter", function () {
+    let _character = CONTROLLER.Character.current_character;
+    let _stuffs    = _character.getStuffs();
+    TEST.ASSERT.notNull( _character, "Pre-condition : la feuille du run doit exister" );
+    if ( !_character ) {
+        return;
+    }
+    let _bulk_max   = _stuffs.getBulkMax( _character );
+    let _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    TEST.ASSERT.ok( _bulk_total <= _bulk_max, "Pre-condition : le run devrait partir sous le max, obtenu : " + _bulk_total + " / " + _bulk_max );
+    // Le plus petit objet positif du dataset, posé au sac à dos
+    let _heavy      = null;
+    let _heavy_bulk = Infinity;
+    for ( let _i = 0, _size_i = STUFFS.length; _i < _size_i; _i++ ) {
+        let _bulk = STUFFS.parseBulk( STUFFS[ _i ].name );
+        if ( _bulk > 0 && _bulk < _heavy_bulk ) {
+            _heavy_bulk = _bulk;
+            _heavy      = STUFFS[ _i ];
+        }
+    }
+    TEST.ASSERT.notNull( _heavy, "Le dataset devrait proposer un objet avec un petit bulk" );
+    if ( !_heavy ) {
+        return;
+    }
+    let _heavy_kind = STUFFS.getKindKeyOfData( _heavy );
+    CONTROLLER.Character.doActionAfter( "event__stuff__add", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name, "param__stuff__location": "backpack" } );
+    let _quantity      = 1;
+    while ( _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ) <= _bulk_max && _quantity < 1000 ) {
+        _quantity++;
+        CONTROLLER.Character.doActionAfter( "event__stuff__edit_quantity", { "param__stuff__kind": _heavy_kind, "param__stuff__value": _heavy.name, "param__stuff__quantity": _quantity } );
+    }
+    _bulk_total = _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS );
+    TEST.ASSERT.ok( _bulk_total > _bulk_max && _bulk_total <= 2 * _bulk_max, "Le personnage devrait finir encombré (entre max et 2×max), obtenu : " + _bulk_total + " / " + _bulk_max );
+    // Le save repart en console GSOU avec l'état encombré
+    CONTROLLER.Character.save();
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.StuffsWindow.NAME ).then( function () {
+        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.StuffsWindow.NAME, "L'onglet Équipement devrait etre actif en fin de run, obtenu : " + _character.windows.getActiveWindow().getName() );
+        let _pane  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "']" );
+        let _range = _pane ? _pane.querySelector( ".stuffs-bulk-range" ) : null;
+        let _box   = _pane ? _pane.querySelector( ".stuffs-bulk" ) : null;
+        let _text  = _pane ? _pane.querySelector( ".stuffs-bulk-total" ) : null;
+        TEST.ASSERT.equal( _box ? _box.getAttribute( "data-bulk-state" ) : null, "over", "La jauge devrait etre en état over en fin de run, obtenu : [" + ( _box ? _box.getAttribute( "data-bulk-state" ) : "null" ) + "]" );
+        TEST.ASSERT.equal( _range ? _range.getAttribute( "max" ) : null, "" + ( 2 * _bulk_max ), "La piste devrait aller à 2×max, obtenu : [" + ( _range ? _range.getAttribute( "max" ) : "null" ) + "]" );
+        TEST.ASSERT.equal( _range ? parseFloat( _range.value ) : null, Math.min( _bulk_total, 2 * _bulk_max ), "Le curseur devrait valoir le total encombré, obtenu : [" + ( _range ? _range.value : "null" ) + "] pour " + _bulk_total );
+        TEST.ASSERT.equal( _text ? _text.textContent : null, "Encombrement : " + String( _bulk_total ).replace( ".", "," ) + " / " + _bulk_max, "La barre devrait lire le total encombré, obtenu : [" + ( _text ? _text.textContent : "null" ) + "]" );
     } );
 } );
