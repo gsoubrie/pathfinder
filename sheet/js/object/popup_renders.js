@@ -144,8 +144,8 @@ OBJECT.SpellPopupRenderer = function ( object_data ) {
 };
 OBJECT.SpellPopupRenderer.prototype = {
     _actionCostLabel: function ( cost ) {
-        const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "f": "⟳", "r": "⟲" };
-        return map[ cost ] !== undefined ? map[ cost ] : "—";
+        const label = OBJECT.ACTION_COST_LABELS[ cost ];
+        return label !== undefined ? label : "—";
     },
 
     computeHtml: function () {
@@ -295,8 +295,8 @@ OBJECT.ActionPopupRenderer = function ( object_data ) {
 };
 OBJECT.ActionPopupRenderer.prototype = {
     _actionCostLabel: function ( cost ) {
-        const map = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "f": "⟳", "r": "⟲" };
-        return map[ cost ] !== undefined ? map[ cost ] : cost;
+        const label = OBJECT.ACTION_COST_LABELS[ cost ];
+        return label !== undefined ? label : cost;
     },
     
     computeHtml: function () {

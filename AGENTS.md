@@ -33,6 +33,13 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   titres, séparateurs, badges ou libellés. Le rendu par défaut de la fonte
   suffit. Même discipline dans les réponses de l'agent : pas de gras
   systématique.
+- Pas de titre de zone quand le contenu se suffit à lui-même : la colonne
+  Actions de l'onglet Combat n'a pas de titre « Actions » (décision
+  utilisateur, Round 88). Ses catégories sont des PARTIES : blocs carte
+  séparés les uns des autres (pattern des sections de l'onglet Équipement),
+  titre de chaque partie CENTRÉ en doré clair (`--c-text-gold`, pas de gras
+  ni de majuscules). Toute décision de mise en page de ce genre se consigne
+  ici.
 - Les variables, événements et clés de données sont en anglais, mots collés
   sans underscore superflu : `event__level_up__toggle_skill` (pas
   `event__level_up__toggle_skill`), `save__fortitude` (pas `save__vigueur`),

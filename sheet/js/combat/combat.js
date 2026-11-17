@@ -243,5 +243,59 @@ CHARACTER.Combat.prototype = {
             }
         }
         return CHARACTERISTICS.INT.key;
+    },
+    //********************************************  ACTIONS  **************************************************//
+    // The lines of the Actions zone : the basic combat actions plus the
+    // character's own "action" adjustments the compendium identifies as
+    // combat actions, deduplicated by name, grouped by section. An
+    // adjustment the compendium does not know is not identifiable as a
+    // combat action : it stays on the General tab only
+    getActionLines: function ( character_object ) {
+        let sections_by_key = {};
+        let seen_names      = {};
+        for ( let i = 0, _size_i = COMBAT.ACTION_SECTIONS.length; i < _size_i; i++ ) {
+            let section_data = COMBAT.ACTION_SECTIONS[ i ];
+            sections_by_key[ section_data.key ] = { "key": section_data.key, "label": section_data.label, "lines": [] };
+        }
+        for ( let i = 0, _size_i = COMBAT.BASIC_ACTIONS.length; i < _size_i; i++ ) {
+            this._pushActionLine( sections_by_key, seen_names, COMBAT.BASIC_ACTIONS[ i ] );
+        }
+        let action_values = character_object.getAdjustments().getValuesByKind( "action" );
+        for ( let i = 0, _size_i = action_values.length; i < _size_i; i++ ) {
+            let action_data = OBJECT.getActionInformation( action_values[ i ] );
+            if ( !action_data || !OBJECT.isCombatAction( action_data ) ) {
+                continue;
+            }
+            this._pushActionLine( sections_by_key, seen_names, action_values[ i ] );
+        }
+        let to_return = [];
+        for ( let i = 0, _size_i = COMBAT.ACTION_SECTIONS.length; i < _size_i; i++ ) {
+            let section = sections_by_key[ COMBAT.ACTION_SECTIONS[ i ].key ];
+            if ( !section.lines.length ) {
+                continue;
+            }
+            section.lines.sort( function ( line_a, line_b ) {
+                return line_a.name.localeCompare( line_b.name, "fr" );
+            } );
+            to_return.push( section );
+        }
+        return to_return;
+    },
+    _pushActionLine: function ( sections_by_key, seen_names, action_name ) {
+        let seen_key = action_name.toLowerCase();
+        if ( seen_names[ seen_key ] ) {
+            return;
+        }
+        seen_names[ seen_key ] = true;
+        let action_data  = OBJECT.getActionInformation( action_name );
+        let cost_label   = action_data && OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] !== undefined ? OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] : "—";
+        let section_key = COMBAT.getActionSectionKey( action_data );
+        sections_by_key[ section_key ].lines.push( {
+            "name"       : action_name,
+            "section_key": section_key,
+            "cost_label" : cost_label,
+            "traits"     : action_data && action_data.traits ? action_data.traits : [],
+            "known"      : !!action_data
+        } );
     }
 };

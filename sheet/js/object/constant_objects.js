@@ -448572,6 +448572,33 @@ OBJECT.getActionInformation = function ( action_name ) {
 };
 
 /**
+ * The display glyph of a scraped action cost : "1"/"2"/"3" read as action
+ * diamonds, "r" as a reaction, "f" as a free action.
+ */
+OBJECT.ACTION_COST_LABELS = { "1": "◆", "2": "◆◆", "3": "◆◆◆", "f": "⟳", "r": "⟲" };
+
+/**
+ * Whether a compendium action is a combat action : it costs actions or a
+ * reaction ("1"/"2"/"3"/"f"/"r") and carries neither the Exploration nor
+ * the Intermède trait (those two mark the out-of-combat activities).
+ *
+ * @param {Object} object_data  A compendium entry of category "action"
+ * @returns {boolean}           True when the action can be used in a fight
+ */
+OBJECT.isCombatAction = function ( object_data ) {
+    if ( !object_data || OBJECT.ACTION_COST_LABELS[ object_data.action_cost ] === undefined ) {
+        return false;
+    }
+    let traits = object_data.traits || [];
+    for ( let i = 0, _size_i = traits.length; i < _size_i; i++ ) {
+        if ( traits[ i ] === "Exploration" || traits[ i ] === "Intermède" ) {
+            return false;
+        }
+    }
+    return true;
+};
+
+/**
  * The known deities (compendium category "deity") as selector options:
  * French display name + compendium uuid, sorted.
  *

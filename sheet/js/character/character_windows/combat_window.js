@@ -30,6 +30,12 @@ CHARACTER.CombatWindow.prototype = {
             case "event__stuff__set_location":
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
+            // Les actions du personnage (ajustements) bougent : la zone
+            // Actions de combat suit
+            case "event__adjustment__add":
+            case "event__adjustment__remove":
+                this._refreshCombatZones( CONTROLLER.Character.current_character );
+                break;
             case "click_on__window_navigation__done":
                 if ( this.name === params[ "window_name" ] ) {
                     this._refreshHealthBand( CONTROLLER.Character.current_character );
@@ -46,22 +52,26 @@ CHARACTER.CombatWindow.prototype = {
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "combat-window" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
+            // Deux colonnes : le contenu de combat à gauche, la liste des
+            // actions à droite sur TOUTE la hauteur de l'onglet
+            this.main_column = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-main-column" } ), this.content_dom_element_target );
             this._computeHealthBand( character_object );
             this._computeReferenceZone( character_object );
             this._computeEquipmentZone( character_object );
             this._computeSavesZone( character_object );
-            this._computeAttacksZone( character_object );
+            this._computeAttacksZone( this.main_column );
             this._computeSpellcastingZone( character_object );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history-title" }, "Journal" ), this.content_dom_element_target );
-            let journal = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history" } ), this.content_dom_element_target );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history-title" }, "Journal" ), this.main_column );
+            let journal = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history" } ), this.main_column );
             character_object.getHealth().getHistoryEntries().renderInto( journal );
+            this._computeActionsZone( this.content_dom_element_target );
         }
         this._refreshHealthBand( character_object );
         this._refreshCombatZones( character_object );
     },
 
     _computeHealthBand: function ( character_object ) {
-        this.band_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-band" } ), this.content_dom_element_target );
+        this.band_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-band" } ), this.main_column );
         let points        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-points" } ), this.band_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-label" }, "Points de vie" ), points );
         this.dom_element_current_hp          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-points-value" } ), points );
@@ -90,7 +100,7 @@ CHARACTER.CombatWindow.prototype = {
     // sur Perception) et classe d'armure — tout s'affiche des le debut, la
     // classe d'armure ouvre sa popup de sources
     _computeReferenceZone: function ( character_object ) {
-        let zone     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-reference-zone" } ), this.content_dom_element_target );
+        let zone     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-reference-zone" } ), this.main_column );
         let speed    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-reference-cell", "data-name": "speed" } ), zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-reference-label" }, "Vitesse" ), speed );
         this.dom_element_speed = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-reference-value" } ), speed );
@@ -116,7 +126,7 @@ CHARACTER.CombatWindow.prototype = {
     // — the "?" opens the item popup of the piece (jamais inline, les
     // apostrophes des noms d'objets)
     _computeEquipmentZone: function ( character_object ) {
-        this.equipment_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-zone" } ), this.content_dom_element_target );
+        this.equipment_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-zone" } ), this.main_column );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-title" }, "Équipement" ), this.equipment_zone );
         this.equipment_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-list" } ), this.equipment_zone );
     },
@@ -148,7 +158,7 @@ CHARACTER.CombatWindow.prototype = {
     //********************************************  SAVES ZONE   **************************************************//
 
     _computeSavesZone: function ( character_object ) {
-        let zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-saves-zone" } ), this.content_dom_element_target );
+        let zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-saves-zone" } ), this.main_column );
         for ( let i = 0, _size_i = COMBAT.SAVES.length; i < _size_i; i++ ) {
             let save = COMBAT.SAVES[ i ];
             let cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
@@ -166,8 +176,8 @@ CHARACTER.CombatWindow.prototype = {
     // Un en-tête et une ligne par attaque : les mains nues plus chaque arme
     // EQUIPÉE — les colonnes partagent la meme grille fractionnaire (regle
     // de la zone jets, jamais d'auto)
-    _computeAttacksZone: function ( character_object ) {
-        this.attacks_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-zone" } ), this.content_dom_element_target );
+    _computeAttacksZone: function ( parent_element ) {
+        this.attacks_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-zone" } ), parent_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-title" }, "Attaques" ), this.attacks_zone );
         this.attacks_header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attack-row combat-attack-row--header" } ), this.attacks_zone );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attack-col combat-attack-col-name" }, "Arme" ), this.attacks_header );
@@ -178,10 +188,56 @@ CHARACTER.CombatWindow.prototype = {
         this.attacks_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-list" } ), this.attacks_zone );
     },
 
+    //********************************************  ACTIONS ZONE   **************************************************//
+
+    // Les actions de combat en colonne à droite de l'onglet : la carte de
+    // base plus les actions du personnage identifiées comme combat — pas de
+    // titre de zone (décision utilisateur Round 88), mais un titre par
+    // catégorie avec une séparation visuelle entre les types ; une ligne
+    // Nom | Coût, le NOM ouvre la popup ACTION (traits en infobulle de la ligne)
+    _computeActionsZone: function ( parent_element ) {
+        this.actions_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-zone" } ), parent_element );
+        this.actions_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-list" } ), this.actions_zone );
+    },
+
+    _refreshActionsZone: function ( character_object ) {
+        SERVICE.DOM.empty( this.actions_list );
+        let sections = character_object.getCombat().getActionLines( character_object );
+        for ( let i = 0, _size_i = sections.length; i < _size_i; i++ ) {
+            // Chaque catégorie est une PARTIE : bloc carte séparé des autres
+            // (pattern de l'onglet Équipement), titre centré en tête
+            let section_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-section", "data-section": sections[ i ].key } ), this.actions_list );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-section-title" }, sections[ i ].label ), section_element );
+            let lines = sections[ i ].lines;
+            for ( let j = 0, _size_j = lines.length; j < _size_j; j++ ) {
+                this._buildActionLine( section_element, lines[ j ] );
+            }
+        }
+    },
+
+    // La grille est partagée entre les lignes (regle des colonnes zone jets) :
+    // chaque cellule porte sa classe de colonne, le DOM suit l'ordre des
+    // colonnes (nom, coût). Le nom connu est cliquable : il ouvre la popup
+    // ACTION (le nom part en data-value, jamais inline — les apostrophes)
+    _buildActionLine: function ( parent, line ) {
+        let row       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-action-row", "data-section": line.section_key } ), parent );
+        let name_attrs = {
+            class : "combat-action-col combat-action-col-name",
+            title : line.traits.join( ", " )
+        };
+        if ( line.known ) {
+            name_attrs[ "class" ]     += " combat-action-col-name--known";
+            name_attrs[ "data-value" ] = line.name;
+            name_attrs[ "onclick" ]    = "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__action',{'param__action__name':this.getAttribute('data-value')})";
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", name_attrs, line.name ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-action-col combat-action-col-cost" }, line.cost_label ), row );
+    },
+
     //********************************************  SPELLCASTING ZONE   **************************************************//
 
     _computeSpellcastingZone: function ( character_object ) {
-        this.spellcasting_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-spellcasting-zone" } ), this.content_dom_element_target );
+        this.spellcasting_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-spellcasting-zone" } ), this.main_column );
     },
 
     //********************************************  REFRESH   **************************************************//
@@ -197,6 +253,7 @@ CHARACTER.CombatWindow.prototype = {
         this._refreshEquipmentZone( character_object );
         this._refreshSavesZone( character_object );
         this._refreshAttacksZone( character_object );
+        this._refreshActionsZone( character_object );
         this._refreshSpellcastingZone( character_object );
     },
 

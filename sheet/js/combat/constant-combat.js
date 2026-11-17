@@ -82,3 +82,77 @@ COMBAT.parseSignedNumber = function ( text_value ) {
     let parsed = parseInt( String( text_value ).replace( "+", "" ), 10 );
     return isNaN( parsed ) ? null : parsed;
 };
+
+//********************************************  ACTIONS  **************************************************//
+
+// The sections of the Actions zone, in display order. The key of a line is
+// derived from the scraped traits of its compendium entry (see
+// getActionSectionKey), the hand-written card below only picks WHICH basic
+// actions the zone always shows — the names are the exact labels of the
+// scraped compendium
+COMBAT.ACTION_SECTIONS = [
+    { "key": "attack",     "label": "Attaques" },
+    { "key": "move",       "label": "Déplacements" },
+    { "key": "manipulate", "label": "Manipulation" },
+    { "key": "stealth",    "label": "Discrétion" },
+    { "key": "reaction",   "label": "Réactions" },
+    { "key": "other",      "label": "Autres" }
+];
+
+// The basic combat actions every character owns (PF2 remaster labels of the
+// scraped compendium, verified against OBJECT.COMPENDIUM)
+COMBAT.BASIC_ACTIONS = [
+    "Frapper",
+    "Saisir",
+    "Pousser",
+    "Désarmer",
+    "Croc-en-jambe",
+    "Repositionner",
+    "S'échapper",
+    "Ouvrir de force",
+    "Marcher rapidement",
+    "Bondir",
+    "Escalader",
+    "Nager",
+    "Ramper",
+    "Se jeter à terre",
+    "Se relever",
+    "Être furtif",
+    "Interagir",
+    "Mise à l'abri",
+    "Se cacher",
+    "Chercher",
+    "Se souvenir",
+    "Aider"
+];
+
+/**
+ * The section key of a compendium action, derived from its scraped traits :
+ * a reaction rides its cost, then Attaque / Déplacement / Manipulation /
+ * Secret win over the remaining traits, anything else lands in "other".
+ *
+ * @param {Object|null} action_data  A compendium entry of category "action"
+ * @returns {string}                 A key of COMBAT.ACTION_SECTIONS
+ */
+COMBAT.getActionSectionKey = function ( action_data ) {
+    if ( !action_data ) {
+        return "other";
+    }
+    if ( action_data.action_cost === "r" ) {
+        return "reaction";
+    }
+    let traits = action_data.traits || [];
+    if ( traits.indexOf( "Attaque" ) !== -1 ) {
+        return "attack";
+    }
+    if ( traits.indexOf( "Déplacement" ) !== -1 ) {
+        return "move";
+    }
+    if ( traits.indexOf( "Manipulation" ) !== -1 ) {
+        return "manipulate";
+    }
+    if ( traits.indexOf( "Secret" ) !== -1 ) {
+        return "stealth";
+    }
+    return "other";
+};
