@@ -18,6 +18,15 @@ CHARACTER.Spells.prototype = {
                 this.addSpell( params[ "param__spell__value" ], params[ "param__spell__comment" ] );
                 return;
             }
+            // Mass add from the Bibliothèque : the names ride the bus
+            // params (never inline), each already-owned spell is a no-op
+            case "event__spell__add_many": {
+                let values = params[ "param__spell__values" ] || [];
+                for ( let i = 0, _size_i = values.length; i < _size_i; i++ ) {
+                    this.addSpell( values[ i ], null );
+                }
+                return;
+            }
             case "event__spell__remove": {
                 let removed_spell = this.getContentByUUID( "spell__" + params[ "param__spell__value" ] );
                 if ( removed_spell ) {

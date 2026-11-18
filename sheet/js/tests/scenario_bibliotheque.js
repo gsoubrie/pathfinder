@@ -249,9 +249,18 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] onglet = Bibliothèque, sujets = Dons, So
         TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-search" ).length, 1, "Une seule zone de filtre devrait exister (nom, trait et contenu fusionnes), obtenu : " + _window_dom.querySelectorAll( ".library-search" ).length );
         TEST.ASSERT.notNull( _window_dom.querySelector( ".library-list" ), "La zone de liste devrait etre rendue" );
         TEST.ASSERT.ok( TEST_libraryCards().length > 0, "Des cartes de dons devraient etre rendues" );
-        // Consultation pure : la case a cocher de selection des dons a
-        // disparu, la carte porte le texte, le « ? » de popup est parti
-        TEST.ASSERT.equal( _window_dom.querySelectorAll( "input[type='checkbox']" ).length, 0, "Aucune case a cocher de selection ne devrait exister (consultation pure), obtenu : " + _window_dom.querySelectorAll( "input[type='checkbox']" ).length );
+        // Consultation pure : aucune case a cocher de SELECTION sur les
+        // cartes (la carte porte le texte, le « ? » de popup est parti) ;
+        // seule la case « Mes dons » de la barre de filtres existe (filtre
+        // de vue, pas une selection)
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card input[type='checkbox']" ).length, 0, "Aucune case a cocher de selection sur les cartes (consultation pure), obtenu : " + _window_dom.querySelectorAll( ".library-card input[type='checkbox']" ).length );
+        let _owned_checkbox                     = _window_dom.querySelector( ".library-owned-checkbox" );
+        TEST.ASSERT.notNull( _owned_checkbox, "La case « Mes dons » devrait exister dans la barre de filtres du sujet Dons" );
+        if ( _owned_checkbox ) {
+            let _owned_label   = _window_dom.querySelector( ".library-owned-label" );
+            let _active_count  = _character.getGifts().getActiveFeats( _character ).length;
+            TEST.ASSERT.equal( _owned_label ? _owned_label.textContent : null, "Mes dons (" + _active_count + ")", "Le label de la case devrait porter le compte de dons actifs (" + _active_count + "), obtenu : [" + ( _owned_label ? _owned_label.textContent : "null" ) + "]" );
+        }
         TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card-info" ).length, 0, "Aucune carte ne devrait porter de « ? » (le texte vit sur la carte), obtenu : " + _window_dom.querySelectorAll( ".library-card-info" ).length );
         // Les dons restent en consultation pure : le sujet ne porte AUCUN
         // bouton « + » tant que la possession d'un don n'est pas tranchee
@@ -368,7 +377,8 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag p
     TEST.ASSERT.notNull( _first_header, "Le sujet Sorts devrait rendre ses sections par nature" );
     if ( _first_header ) {
         let _expected_label = SPELL.getNatureData( _first_nature )[ "label" ];
-        TEST.ASSERT.equal( _first_header.textContent, _expected_label, "La premiere section devrait porter le libelle de la nature du premier sort (" + _expected_label + "), obtenu : " + _first_header.textContent );
+        let _first_header_label = _first_header.querySelector( ".library-level-header-label" );
+        TEST.ASSERT.equal( _first_header_label ? _first_header_label.textContent : null, _expected_label, "La premiere section devrait porter le libelle de la nature du premier sort (" + _expected_label + "), obtenu : " + ( _first_header_label ? _first_header_label.textContent : "null" ) );
     }
     let _first_data     = SPELLS.getSpellData( _spell_list[ 0 ].name );
     if ( !( _first_data && _first_data[ "traits" ] && _first_data[ "traits" ].length ) ) {
@@ -379,7 +389,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag p
     for ( let i = 0, _size_i = _spell_list.length; i < _size_i; i++ ) {
         let _spell_data = SPELLS.getSpellData( _spell_list[ i ].name );
         let _traits     = _spell_data ? _spell_data[ "traits" ] : [];
-        if ( TEST_libraryEntryMatchesFilter( _spell_list[ i ].name, _traits, _spell_list[ i ].description, SPELLS.getFullTypeLabel( _spell_list[ i ].name ), "", _trait_text ) ) {
+        if ( TEST_libraryEntryMatchesFilter( _spell_list[ i ].name, _traits, _spell_list[ i ].description, SPELLS.getFullTypeLabel( _spell_list[ i ].name ) + " rang " + _spell_list[ i ].rank, "", _trait_text ) ) {
             _expected_trait++;
         }
     }
@@ -865,5 +875,336 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar graduée : labels 0…total, po
         TEST.ASSERT.ok( _scrollbar && _scrollbar.classList.contains( "hidden" ), "La scrollbar devrait être masquée quand la liste tient sans défiler" );
         TEST_libraryRemoveTag( "zzzzz" );
         TEST_libraryLoadAll();
+    } );
+} );
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] « Mes dons » : enlève les filtres, tag « Mon don », carte dépliable au clic", function () {
+    let _character = CONTROLLER.Character.current_character;
+    let _active    = null;
+    let _feat_name = null;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    // Pre-condition : au moins un don actif (race posée si besoin, don
+    // d'ascendance du palier 1 validé par le geste reel en Progression)
+    let _ensure_feat = function () {
+        if ( _character.getGifts().getActiveFeats( _character ).length > 0 ) {
+            return Promise.resolve();
+        }
+        if ( !_character.getRace().isSet() ) {
+            TEST_openRacePopup();
+            return TEST.clickTab( "body > .popup", "Elfe" ).then( function () {
+                CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
+                return TEST.wait();
+            } );
+        }
+        return Promise.resolve();
+    };
+    return _ensure_feat().then( function () {
+        if ( _character.getGifts().getActiveFeats( _character ).length > 0 ) {
+            return;
+        }
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+            return TEST.wait();
+        } ).then( function () {
+            let _row = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .ancestry-up-block[data-ancestry-level-name='1'] .level-up-row[data-slot-key='ancestry_feat']" );
+            TEST.ASSERT.notNull( _row, "Pre-condition : la ligne don d'ascendance du palier 1 devrait etre rendue" );
+            if ( !_row ) {
+                return;
+            }
+            let _option = _row.querySelector( ".single-select-option:not([data-value=''])" );
+            TEST.ASSERT.notNull( _option, "Pre-condition : une option de don d'ascendance" );
+            if ( _option ) {
+                _option.click();
+            }
+            return TEST.wait( 300 );
+        } );
+    } ).then( function () {
+        _active     = _character.getGifts().getActiveFeats( _character );
+        TEST.ASSERT.ok( _active.length > 0, "Pre-condition : au moins un don actif, obtenu : " + _active.length );
+        _feat_name  = _active.length ? _active[ 0 ].name : null;
+        // Sujet Dons en vue vierge (changement de sujet = reset des filtres)
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+            return TEST.wait();
+        } ).then( function () {
+            let _sorts_chip = TEST_librarySubjectChip( "Sorts" );
+            if ( _sorts_chip ) {
+                _sorts_chip.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            let _dons_chip = TEST_librarySubjectChip( "Dons" );
+            if ( _dons_chip ) {
+                _dons_chip.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            // Un tag qui vide la liste + la chip Généraux : la case « Mes
+            // dons » devra enlever les deux
+            TEST_libraryCommitFilterByEnter( "zzzzz" );
+            let _chip = TEST_libraryFilterChip( "Généraux" );
+            if ( _chip ) {
+                _chip.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            TEST.ASSERT.equal( TEST_libraryCards().length, 0, "Le tag zzzzz + chip Généraux devraient vider la liste avant le test, obtenu : " + TEST_libraryCards().length );
+            let _checkbox = TEST_libraryWindowDom() ? TEST_libraryWindowDom().querySelector( ".library-owned-checkbox" ) : null;
+            TEST.ASSERT.notNull( _checkbox, "La case « Mes dons » devrait exister" );
+            if ( !_checkbox ) {
+                return;
+            }
+            _checkbox.click();
+            return TEST.wait();
+        } ).then( function () {
+            let _window_dom = TEST_libraryWindowDom();
+            TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre rendue" );
+            if ( !_window_dom || !_active ) {
+                return;
+            }
+            let _active_chip = _window_dom.querySelector( ".library-filter-btn.active" );
+            TEST.ASSERT.equal( _active_chip ? _active_chip.textContent : null, LIBRARY.FILTER_ALL_LABEL, "Cocher « Mes dons » devrait remettre la chip sur Tous, obtenu : [" + ( _active_chip ? _active_chip.textContent : "null" ) + "]" );
+            TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-active-tag" ).length, 0, "Cocher « Mes dons » devrait enlever tous les tags posés, obtenu : " + _window_dom.querySelectorAll( ".library-active-tag" ).length );
+            let _search = _window_dom.querySelector( ".library-search" );
+            TEST.ASSERT.equal( _search ? _search.value : null, "", "Cocher « Mes dons » devrait vider la zone de recherche, obtenu : [" + ( _search ? _search.value : "null" ) + "]" );
+            let _cards = TEST_libraryCards();
+            TEST.ASSERT.equal( _cards.length, _active.length, "La liste ne devrait plus porter que les dons actifs (" + _active.length + "), obtenu : " + _cards.length );
+            TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length, _active.length, "Chaque carte de don actif devrait porter le tag « Mon don », obtenu : " + _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length );
+            // La carte du don actif se déplie au clic, se replie au second
+            let _owned_card = null;
+            for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
+                let _name_dom = _cards[ i ].querySelector( ".library-card-name" );
+                if ( _name_dom && _name_dom.textContent === _feat_name ) {
+                    _owned_card = _cards[ i ];
+                }
+            }
+            TEST.ASSERT.notNull( _owned_card, "La carte du don actif devrait etre dans la liste" );
+            if ( _owned_card ) {
+                _owned_card.click();
+                TEST.ASSERT.ok( _owned_card.classList.contains( "library-card--expanded" ), "Le clic sur la carte devrait la déplier" );
+                _owned_card.click();
+                TEST.ASSERT.ok( !_owned_card.classList.contains( "library-card--expanded" ), "Le second clic devrait replier la carte" );
+            }
+            // Décocher : la liste revient complète, les tags « Mon don » restent
+            let _checkbox2 = TEST_libraryWindowDom() ? TEST_libraryWindowDom().querySelector( ".library-owned-checkbox" ) : null;
+            if ( _checkbox2 ) {
+                _checkbox2.click();
+            }
+            return TEST.wait();
+        } ).then( function () {
+            let _window_dom = TEST_libraryWindowDom();
+            if ( !_window_dom || !_active ) {
+                return;
+            }
+            let _cards = TEST_libraryCards();
+            TEST.ASSERT.ok( _cards.length > _active.length, "Décocher devrait restaurer la liste complète, obtenu : " + _cards.length + " cartes pour " + _active.length + " don actif" );
+            TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length, _active.length, "Le tag « Mon don » devrait rester même case décochée, obtenu : " + _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length );
+        } );
+    } );
+} );
+
+// Le label FR d'un coût d'action, même carte que la fenêtre (constante
+// publique LIBRARY.ACTION_COST_SECTIONS)
+function TEST_libraryActionCostLabel ( cost_key ) {
+    if ( !cost_key ) {
+        return LIBRARY.ACTION_NO_COST_LABEL;
+    }
+    for ( let c = 0, _size_c = LIBRARY.ACTION_COST_SECTIONS.length; c < _size_c; c++ ) {
+        if ( LIBRARY.ACTION_COST_SECTIONS[ c ][ "key" ] === cost_key ) {
+            return LIBRARY.ACTION_COST_SECTIONS[ c ][ "label" ];
+        }
+    }
+    return cost_key;
+}
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Actions = sections par coût, recherche nom/trait/contenu/coût, carte dépliable", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _actions_chip = TEST_librarySubjectChip( "Actions" );
+        TEST.ASSERT.notNull( _actions_chip, "Le sujet Actions devrait exister dans la rangée de sujets" );
+        if ( !_actions_chip ) {
+            return;
+        }
+        _actions_chip.click();
+        return TEST.wait();
+    } ).then( function () {
+        let _window_dom = TEST_libraryWindowDom();
+        TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre rendue" );
+        if ( !_window_dom ) {
+            return;
+        }
+        let _search = _window_dom.querySelector( ".library-search" );
+        TEST.ASSERT.equal( _search ? _search.getAttribute( "placeholder" ) : null, "Rechercher une action...", "Le placeholder du sujet Actions, obtenu : [" + ( _search ? _search.getAttribute( "placeholder" ) : "null" ) + "]" );
+        // Pas de chips de type sur ce sujet (les sections portent les coûts)
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-filter-btn" ).length, 0, "Le sujet Actions ne devrait porter aucune chip de type, obtenu : " + _window_dom.querySelectorAll( ".library-filter-btn" ).length );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-owned-checkbox" ).length, 0, "La case « Mes dons » ne vit que sur le sujet Dons, obtenu : " + _window_dom.querySelectorAll( ".library-owned-checkbox" ).length );
+        // Toutes les actions du compendium (compte calculé, jamais figé)
+        let _expected_count = OBJECT.getKnownActions().length;
+        let _cards          = TEST_libraryCards();
+        TEST.ASSERT.equal( _cards.length, _expected_count, "Toutes les actions devraient etre rendues (" + _expected_count + "), obtenu : " + _cards.length );
+        // Sections par coût + tag de coût + ligne clé, consultation pure (pas de « + »)
+        let _sections = _window_dom.querySelectorAll( ".library-level-header" );
+        TEST.ASSERT.ok( _sections.length >= 2, "Plusieurs sections de coût devraient exister, obtenu : " + _sections.length );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card .library-tag--action" ).length, _cards.length, "Chaque carte devrait porter son tag de coût, obtenu : " + _window_dom.querySelectorAll( ".library-card .library-tag--action" ).length );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card-add" ).length, 0, "Les actions sont en consultation pure : aucun bouton « + », obtenu : " + _window_dom.querySelectorAll( ".library-card-add" ).length );
+        // Recherche par le coût en mots ("réaction") : compte calculé du dataset
+        TEST_libraryCommitFilterByEnter( "réaction" );
+        let _expected_reaction = 0;
+        let _actions           = OBJECT.getKnownActions();
+        for ( let i = 0, _size_i = _actions.length; i < _size_i; i++ ) {
+            let _entry      = OBJECT.getActionInformation( _actions[ i ].name );
+            let _cost_label = TEST_libraryActionCostLabel( _entry ? _entry.action_cost : null );
+            let _key_line   = _entry && _entry.action_cost ? "Coût " + OBJECT.ACTION_COST_LABELS[ _entry.action_cost ] : "";
+            if ( _entry && TEST_libraryEntryMatchesFilter( _entry.text, _entry.traits, _entry.description, _cost_label, _key_line, "réaction" ) ) {
+                _expected_reaction++;
+            }
+        }
+        TEST.ASSERT.ok( _expected_reaction > 0, "Pre-condition : des réactions devraient exister dans le dataset, obtenu : " + _expected_reaction );
+        TEST.ASSERT.equal( TEST_libraryCards().length, _expected_reaction, "Le filtre « réaction » ne devrait garder que les réactions (coût cherchable), attendu : " + _expected_reaction + ", obtenu : " + TEST_libraryCards().length );
+        TEST_libraryRemoveTag( "réaction" );
+        // Recherche par nom : premier nom du dataset, compte calculé
+        let _first_name = _actions[ 0 ].name;
+        TEST_libraryCommitFilterByButton( _first_name.toLowerCase() );
+        let _expected_name = 0;
+        for ( let i = 0, _size_i = _actions.length; i < _size_i; i++ ) {
+            let _entry = OBJECT.getActionInformation( _actions[ i ].name );
+            if ( _entry && TEST_libraryEntryMatchesFilter( _entry.text, _entry.traits, _entry.description, "", "", _first_name.toLowerCase() ) ) {
+                _expected_name++;
+            }
+        }
+        TEST.ASSERT.equal( TEST_libraryCards().length, _expected_name, "Le filtre par nom devrait ne garder que les actions matchant [" + _first_name + "], attendu : " + _expected_name + ", obtenu : " + TEST_libraryCards().length );
+        TEST_libraryRemoveTag( _first_name.toLowerCase() );
+        // Carte dépliable : la première carte du sujet se déplie au clic
+        let _cards2 = TEST_libraryCards();
+        TEST.ASSERT.ok( _cards2.length > 0, "Pre-condition : des cartes rendues" );
+        if ( _cards2.length ) {
+            _cards2[ 0 ].click();
+            TEST.ASSERT.ok( _cards2[ 0 ].classList.contains( "library-card--expanded" ), "Le clic sur une carte action devrait la déplier" );
+        }
+        // Retour sujet Dons pour laisser la suite propre
+        let _dons_chip = TEST_librarySubjectChip( "Dons" );
+        if ( _dons_chip ) {
+            _dons_chip.click();
+        }
+        return TEST.wait();
+    } );
+} );
+
+// Le label de section d'un sort, même calcul que la fenêtre
+function TEST_spellSectionLabel ( spell_list_entry ) {
+    let _nature_key = SPELLS.getNatureKeyOfName( spell_list_entry.name );
+    if ( _nature_key === "spell" ) {
+        return "Rang " + spell_list_entry.rank;
+    }
+    let _nature_data = SPELL.getNatureData( _nature_key );
+    return _nature_data && _nature_data.label ? _nature_data.label : _nature_key;
+}
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = ajout en masse (« Tout ajouter (N) » + « + » de section), rang cherchable", function () {
+    let _character = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    let _domain = _character.getSpells();
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        // Sur le sujet Dons : ni bouton « Tout ajouter » ni « + » de section
+        let _dons_chip = TEST_librarySubjectChip( "Dons" );
+        if ( _dons_chip ) {
+            _dons_chip.click();
+        }
+        return TEST.wait();
+    } ).then( function () {
+        let _window_dom = TEST_libraryWindowDom();
+        TEST.ASSERT.equal( _window_dom ? _window_dom.querySelectorAll( ".library-add-all" ).length : null, 0, "Le bouton « Tout ajouter » ne devrait exister que sur le sujet Sorts, obtenu : " + ( _window_dom ? _window_dom.querySelectorAll( ".library-add-all" ).length : "null" ) );
+        TEST.ASSERT.equal( _window_dom ? _window_dom.querySelectorAll( ".library-section-add" ).length : null, 0, "Le « + » de section ne devrait exister que sur le sujet Sorts, obtenu : " + ( _window_dom ? _window_dom.querySelectorAll( ".library-section-add" ).length : "null" ) );
+        let _sorts_chip = TEST_librarySubjectChip( "Sorts" );
+        if ( _sorts_chip ) {
+            _sorts_chip.click();
+        }
+        return TEST.wait();
+    } ).then( function () {
+        // Le rang est cherchable : tag « rang 1 »
+        TEST_libraryCommitFilterByEnter( "rang 1" );
+        return TEST.wait();
+    } ).then( function () {
+        let _window_dom  = TEST_libraryWindowDom();
+        let _spell_list  = SPELLS.getSpellListData();
+        let _expected_r1 = [];
+        for ( let i = 0, _size_i = _spell_list.length; i < _size_i; i++ ) {
+            let _spell_data = SPELLS.getSpellData( _spell_list[ i ].name );
+            let _traits     = _spell_data ? _spell_data[ "traits" ] : [];
+            let _key_line   = _spell_list[ i ].cost_label !== SPELL.NO_COST_LABEL ? "Coût " + _spell_list[ i ].cost_label : "";
+            if ( TEST_libraryEntryMatchesFilter( _spell_list[ i ].name, _traits, _spell_list[ i ].description, SPELLS.getFullTypeLabel( _spell_list[ i ].name ) + " rang " + _spell_list[ i ].rank, _key_line, "rang 1" ) ) {
+                _expected_r1.push( _spell_list[ i ].name );
+            }
+        }
+        TEST.ASSERT.ok( _expected_r1.length > 0, "Pre-condition : des sorts de rang 1, obtenu : " + _expected_r1.length );
+        let _cards = TEST_libraryCards();
+        TEST.ASSERT.equal( _cards.length, _expected_r1.length, "Le tag « rang 1 » ne devrait garder que les sorts de rang 1, attendu : " + _expected_r1.length + ", obtenu : " + _cards.length );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card .library-tag--rank" ).length, _cards.length, "Chaque carte de sort devrait porter son tag de rang, obtenu : " + _window_dom.querySelectorAll( ".library-card .library-tag--rank" ).length );
+        let _add_all = _window_dom.querySelector( ".library-add-all" );
+        TEST.ASSERT.notNull( _add_all, "Le bouton « Tout ajouter » devrait exister sur le sujet Sorts" );
+        TEST.ASSERT.equal( _add_all ? _add_all.textContent : null, "Tout ajouter (" + _expected_r1.length + ")", "Le bouton devrait porter le compte filtré, obtenu : [" + ( _add_all ? _add_all.textContent : "null" ) + "]" );
+        // Clic « Tout ajouter » : tous les sorts filtrés partent au répertoire
+        if ( _add_all ) {
+            _add_all.click();
+        }
+        return TEST.wait().then( function () {
+            TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.SpellsWindow.NAME, "La feuille devrait basculer sur l'onglet Sorts après l'ajout en masse, obtenu : " + _character.windows.getActiveWindow().getName() );
+            for ( let i = 0, _size_i = _expected_r1.length; i < _size_i; i++ ) {
+                TEST.ASSERT.notNull( _domain.getContentByUUID( "spell__" + _expected_r1[ i ] ), "Le sort « " + _expected_r1[ i ] + " » devrait etre possede apres l'ajout en masse" );
+            }
+            // Second « Tout ajouter » : no-op (les possédés ne doublent pas)
+            return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+                return TEST.wait();
+            } ).then( function () {
+                let _size_mid = _domain.getSize();
+                let _btn2     = TEST_libraryWindowDom() ? TEST_libraryWindowDom().querySelector( ".library-add-all" ) : null;
+                TEST.ASSERT.notNull( _btn2, "Le bouton « Tout ajouter » devrait etre de retour sur le sujet Sorts (filtre conservé)" );
+                if ( _btn2 ) {
+                    _btn2.click();
+                }
+                return TEST.wait().then( function () {
+                    TEST.ASSERT.equal( _domain.getSize(), _size_mid, "Le second « Tout ajouter » ne devrait rien ajouter (répertoire = ensemble), avant " + _size_mid + ", après " + _domain.getSize() );
+                    // « + » d'une section sans filtre : retirer le tag rang 1 d'abord
+                    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+                        return TEST.wait();
+                    } ).then( function () {
+                        if ( TEST_libraryTagPresent( "rang 1" ) ) {
+                            TEST_libraryRemoveTag( "rang 1" );
+                        }
+                        return TEST.wait();
+                    } ).then( function () {
+                        let _window_dom2  = TEST_libraryWindowDom();
+                        let _first_header = _window_dom2 ? _window_dom2.querySelector( ".library-level-header" ) : null;
+                        let _add_btn      = _first_header ? _first_header.querySelector( ".library-section-add" ) : null;
+                        TEST.ASSERT.notNull( _add_btn, "Chaque section du sujet Sorts devrait porter son « + »" );
+                        if ( !_add_btn ) {
+                            return;
+                        }
+                        let _section_label = _add_btn.getAttribute( "data-section" );
+                        let _section_names = [];
+                        for ( let i = 0, _size_i = _spell_list.length; i < _size_i; i++ ) {
+                            if ( TEST_spellSectionLabel( _spell_list[ i ] ) === _section_label ) {
+                                _section_names.push( _spell_list[ i ].name );
+                            }
+                        }
+                        TEST.ASSERT.ok( _section_names.length > 0, "Pre-condition : la section [" + _section_label + "] devrait avoir des sorts, obtenu : " + _section_names.length );
+                        _add_btn.click();
+                        return TEST.wait().then( function () {
+                            for ( let i = 0, _size_i = _section_names.length; i < _size_i; i++ ) {
+                                TEST.ASSERT.notNull( _domain.getContentByUUID( "spell__" + _section_names[ i ] ), "Le sort « " + _section_names[ i ] + " » de la section [" + _section_label + "] devrait etre possede" );
+                            }
+                            TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.SpellsWindow.NAME, "Le « + » de section devrait aussi basculer sur l'onglet Sorts" );
+                        } );
+                    } );
+                } );
+            } );
+        } );
     } );
 } );

@@ -2650,6 +2650,66 @@ données derrière : aucun "?". Scénario ajustements : test dédié (un "?" par
 option non vide sur les 3 kinds, zéro sur language, clic → popup RUNNING
 avec le bon titre, fermeture par uuid). Run headless : 196 OK / 0 ECHEC ×2.
 
+Round 93 = « MES DONS » DANS LA BIBLIOTHÈQUE (demande utilisateur, maquette
+validée : case à cocher + tag par carte + carte dépliable). Sujet Dons :
+une case « Mes dons (N) » à droite des chips de type
+(`.library-owned-checkbox` + `.library-owned-label`, N =
+`getGifts().getActiveFeats( character ).length`). COCHÉE, elle enlève tous
+les filtres (chip → Tous, tags vidés, zone de recherche vidée — décision
+utilisateur « mes dons enlève tous les filtres ») et ne liste que les dons
+actifs ; l'état `owned_only` de la fenêtre est reset au changement de sujet
+comme les autres filtres. Chaque carte de don actif porte le tag « Mon don »
+(`library-tag--owned`, même classe que « Mon historique »), cochée ou non.
+Carte dépliable : clic sur la carte = classe `library-card--expanded`
+(état en classe, aucun re-render ; le « + » des cartes a son propre handler,
+le bus stoppe la propagation) qui retire le clamp 4 lignes de la
+description ; l'indicateur `.library-card-more` (« ▾ suite » / « ▴ replier »
+en `::after`) n'apparaît que si le texte déborde (classe `clamped` posée au
+rendu par mesure scrollHeight > clientHeight). CSS scopé `.library-window`
+(palette brute du fichier, comme les chips). Scénario bibliothèque : test 1
+réajusté (plus de checkbox de SÉLECTION sur les cartes, la case « Mes dons »
+du filtre existe avec son compte) + test dédié (don d'ascendance validé par
+geste réel, tag zzzzz + chip posés puis case cochée → filtres enlevés, liste
+= dons actifs taggés « Mon don », dépliage au clic, décochage restaure la
+liste avec les tags). Run headless : 197 OK / 0 ECHEC ×2.
+
+Round 94 = SUJET « ACTIONS » DANS LA BIBLIOTHÈQUE (demande utilisateur).
+Nouveau sujet `actions` en fin de `LIBRARY.SUBJECTS` (label « Actions",
+placeholder « Rechercher une action... »), rendu par `_renderActionList` :
+entrées compendium catégorie `action` dédupliquées par nom (même règle que
+`OBJECT.getKnownActions`, entrées complètes gardées), sections par coût
+d'après `LIBRARY.ACTION_COST_SECTIONS` (1/2/3 actions, Réaction, Gratuite,
+puis « Sans coût » `ACTION_NO_COST_LABEL`), tri nom dans la section. Carte
+`_buildActionCard` : tag de coût `library-tag--action` + traits, ligne clé
+« Coût ◆◆ » (`OBJECT.ACTION_COST_LABELS`), description strippée, dépliable
+au clic comme toutes les cartes ; consultation pure (pas de « + »). Pas de
+chips de type sur ce sujet, pas de case « Mes dons ». Le coût en mots est
+cherchable (type_text = label FR de la section). Scénario bibliothèque :
+test dédié (sujet rendu, placeholder, zéro chip/checkbox, compte = getKnownActions,
+sections, tags, filtres « réaction » et par nom calculés du dataset, carte
+dépliable, retour sujet Dons). Run headless : 198 OK / 0 ECHEC ×2.
+
+Round 95 = AJOUT EN MASSE DE SORTS DEPUIS LA BIBLIOTHÈQUE (demande
+utilisateur, maquette validée : « Tout ajouter (N) » + « + » par section,
+sujet Sorts uniquement, bascule sur l'onglet Sorts). Bouton
+`.library-add-all` « Tout ajouter (N) » dans la barre de filtres du sujet
+Sorts (N = résultats affichés, filtres posés compris, masqué à 0) :
+`event__spell__add_many` avec `param__spell__values` (liste de noms en param
+JS du bus, jamais inline) → domaine `CHARACTER.Spells` (case ajouté, no-op
+sur un sort déjà possédé) → `goToSheet( SpellsWindow.NAME )`. « + » par
+section `.library-section-add` dans le header (label dans un span
+`.library-level-header-label` à part), map `section → noms` posée par
+`_renderSpellList` (`_section_spell_names`), même flux. Le rang des sorts
+est cherchable et affiché : tag « Rang N » (`library-tag--rank`) sur la
+carte, `" rang N"` rejoint le type_text du matcher — « divin » + « rang 1 »
+filtrent les sorts divins de niveau 1. Le bouton n'existe que sur le sujet
+Sorts (asserts à 0 ailleurs). Événement `event__spell__add_many` déclaré
+dans la liste PERSONNAGE du contrôleur + case character.js. Scénario
+bibliothèque : test dédié (absence sur Dons, tag « rang 1 » compte calculé,
+« Tout ajouter (N) » → tous les filtrés possédés + bascule Sorts, second
+clic = no-op, « + » de section → toute la section possédée). Run headless :
+199 OK / 0 ECHEC ×2.
+
 ### Style, commentaires, nommage
 
 - Pas de prose descriptive dans le bloc JSDoc d'une classe : seul

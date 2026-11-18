@@ -201,6 +201,7 @@ CHARACTER.Current.prototype = {
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__spell__add":
+            case "event__spell__add_many":
             case "event__spell__remove":
                 this.spells.doActionAfter( event_name, params );
                 // The spellbook refreshes with its entries

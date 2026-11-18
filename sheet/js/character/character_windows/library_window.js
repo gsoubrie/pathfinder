@@ -7,6 +7,7 @@ CHARACTER.LibraryWindow = function ( parent_name ) {
     this.current_subject    = LIBRARY.DEFAULT_SUBJECT_KEY;
     this.filter_type        = LIBRARY.FILTER_ALL_KEY;
     this.search_filters     = [];
+    this.owned_only         = false;
     this.initSpecific( CHARACTER.LibraryWindow.NAME, parent_name, "Bibliothèque" );
 };
 CHARACTER.LibraryWindow.prototype = {
@@ -41,6 +42,7 @@ CHARACTER.LibraryWindow.prototype = {
             this.current_subject = CHARACTER.LibraryWindow.pending_subject_key;
             this.filter_type      = LIBRARY.FILTER_ALL_KEY;
             this.search_filters   = [].concat( CHARACTER.LibraryWindow.pending_filters || [] );
+            this.owned_only       = false;
             CHARACTER.LibraryWindow.pending_subject_key = null;
             CHARACTER.LibraryWindow.pending_filters      = null;
         }
@@ -80,6 +82,46 @@ CHARACTER.LibraryWindow.prototype = {
         commit_button.addEventListener( "click", function () {
             self._addSearchFilter( input_dom.value, input_dom );
         } );
+        // Mass add, Sorts subject only : adds every spell the current
+        // filters leave visible to the repertoire, then lands on the
+        // Sorts tab (same tour as a real tab click)
+        if ( this.current_subject === "spells" ) {
+            this.add_all_dom = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "library-add-all", title: "Ajouter tous les sorts affichés au répertoire" } ),
+                parent
+            );
+            this.add_all_dom.addEventListener( "click", function () {
+                self._addAllSpells();
+            } );
+            this._updateAddAllButton();
+        }
+    },
+
+    _updateAddAllButton: function () {
+        if ( !this.add_all_dom ) {
+            return;
+        }
+        let count = ( this._current_filtered_spells || [] ).length;
+        this.add_all_dom.textContent = "Tout ajouter (" + count + ")";
+        this.add_all_dom.classList.toggle( "hidden", count === 0 );
+    },
+
+    _addAllSpells: function () {
+        let names = this._current_filtered_spells || [];
+        if ( !names.length ) {
+            return;
+        }
+        CONTROLLER.Character.current_character.doActionAfter( "event__spell__add_many", { "param__spell__values": names } );
+        CHARACTER.LibraryWindow.goToSheet( CHARACTER.SpellsWindow.NAME );
+    },
+
+    _addSpellSection: function ( section_label ) {
+        let names = ( this._section_spell_names || {} )[ section_label ] || [];
+        if ( !names.length ) {
+            return;
+        }
+        CONTROLLER.Character.current_character.doActionAfter( "event__spell__add_many", { "param__spell__values": names } );
+        CHARACTER.LibraryWindow.goToSheet( CHARACTER.SpellsWindow.NAME );
     },
 
     _addSearchFilter: function ( raw_value, input_dom ) {
@@ -140,6 +182,7 @@ CHARACTER.LibraryWindow.prototype = {
                 self.current_subject    = subject_key;
                 self.filter_type        = LIBRARY.FILTER_ALL_KEY;
                 self.search_filters     = [];
+                self.owned_only         = false;
                 self.computeContent( CONTROLLER.Character.current_character );
             } );
         }
@@ -167,6 +210,25 @@ CHARACTER.LibraryWindow.prototype = {
                 btn.classList.add( "active" );
                 self.filter_type = chip_key;
                 self._renderList( self.list_dom_element, CONTROLLER.Character.current_character );
+            } );
+        }
+        // La case « Mes dons » du sujet Dons : cochée, elle enlève tous les
+        // filtres (chip, recherche, tags) et ne liste que les dons actifs
+        // du personnage (décision utilisateur)
+        if ( this.current_subject === "feats" ) {
+            let character_object = CONTROLLER.Character.current_character;
+            let active_count     = character_object && character_object.getGifts() ? character_object.getGifts().getActiveFeats( character_object ).length : 0;
+            let owned_dom        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "label", { class: "library-owned-filter", title: "Ne voir que les dons du personnage (enlève les autres filtres)" } ), chips_dom );
+            let checkbox         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", { class: "library-owned-checkbox", type: "checkbox" } ), owned_dom );
+            checkbox.checked     = this.owned_only;
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-owned-label" }, "Mes dons (" + active_count + ")" ), owned_dom );
+            checkbox.addEventListener( "change", function () {
+                self.owned_only = checkbox.checked;
+                if ( self.owned_only ) {
+                    self.filter_type    = LIBRARY.FILTER_ALL_KEY;
+                    self.search_filters = [];
+                }
+                self.computeContent( CONTROLLER.Character.current_character );
             } );
         }
     },
@@ -399,9 +461,16 @@ CHARACTER.LibraryWindow.prototype = {
         else if ( this.current_subject === "historics" ) {
             this._renderHistoricList( list_dom, character_object );
         }
+        else if ( this.current_subject === "actions" ) {
+            this._renderActionList( list_dom, character_object );
+        }
         else {
             this._renderStuffList( list_dom, character_object );
         }
+        if ( this.current_subject !== "spells" ) {
+            this._current_filtered_spells = [];
+        }
+        this._updateAddAllButton();
         this._updateListScrollbar();
     },
 
@@ -477,17 +546,32 @@ CHARACTER.LibraryWindow.prototype = {
 
     _renderFeatList: function ( list_dom, character_object ) {
         let sources = this._collectFeatSources( character_object );
+        // Les dons actifs du personnage portent le tag « Mon don » sur leur
+        // carte (cochée ou non la case « Mes dons ») ; la case cochée filtre
+        // la liste sur eux et enlève la chip de type et les tags
+        let active_names = {};
+        let active_feats = character_object && character_object.getGifts() ? character_object.getGifts().getActiveFeats( character_object ) : [];
+        for ( let a = 0, _size_a = active_feats.length; a < _size_a; a++ ) {
+            active_names[ active_feats[ a ].name ] = true;
+        }
         let filtered = [];
         for ( let i = 0, _size_i = sources.length; i < _size_i; i++ ) {
             let source = sources[ i ];
             if ( !source || !source.feat || !source.feat.name ) {
                 continue;
             }
-            if ( this.filter_type !== LIBRARY.FILTER_ALL_KEY && source.type !== this.filter_type ) {
-                continue;
+            if ( this.owned_only ) {
+                if ( !active_names[ source.feat.name ] ) {
+                    continue;
+                }
             }
-            if ( !this._matchesSearchFilters( source.feat.name, source.feat.traits, this._formatFeatSearchText( source.feat.description ), this._getFeatTypeText( source ), "" ) ) {
-                continue;
+            else {
+                if ( this.filter_type !== LIBRARY.FILTER_ALL_KEY && source.type !== this.filter_type ) {
+                    continue;
+                }
+                if ( !this._matchesSearchFilters( source.feat.name, source.feat.traits, this._formatFeatSearchText( source.feat.description ), this._getFeatTypeText( source ), "" ) ) {
+                    continue;
+                }
             }
             filtered.push( source );
         }
@@ -508,7 +592,7 @@ CHARACTER.LibraryWindow.prototype = {
                 current_level = level;
                 section       = self._addSection( parent, "Niveau " + level );
             }
-            self._buildFeatCard( section, source );
+            self._buildFeatCard( section, source, active_names );
         } );
     },
 
@@ -627,11 +711,26 @@ CHARACTER.LibraryWindow.prototype = {
             if ( this.search_filters.length ) {
                 let spell_data = SPELLS.getSpellData( spells[ i ].name );
                 let key_line   = spells[ i ].cost_label !== SPELL.NO_COST_LABEL ? "Coût " + spells[ i ].cost_label : "";
-                if ( !this._matchesSearchFilters( spells[ i ].name, spell_data ? spell_data[ "traits" ] : [], spells[ i ].description, SPELLS.getFullTypeLabel( spells[ i ].name ), key_line ) ) {
+                // The rank rides the searchable type text ("rang 1" filters
+                // the rank-1 spells) and the card tag
+                let type_text  = SPELLS.getFullTypeLabel( spells[ i ].name ) + " rang " + spells[ i ].rank;
+                if ( !this._matchesSearchFilters( spells[ i ].name, spell_data ? spell_data[ "traits" ] : [], spells[ i ].description, type_text, key_line ) ) {
                     continue;
                 }
             }
             filtered.push( spells[ i ] );
+        }
+        // The names of the filtered spells and of each section feed the
+        // mass-add buttons (« Tout ajouter » and the « + » of a section)
+        this._current_filtered_spells = [];
+        this._section_spell_names     = {};
+        for ( let i = 0, _size_i = filtered.length; i < _size_i; i++ ) {
+            let entry_label = this._getSpellSectionLabel( filtered[ i ] );
+            this._current_filtered_spells.push( filtered[ i ].name );
+            if ( !this._section_spell_names[ entry_label ] ) {
+                this._section_spell_names[ entry_label ] = [];
+            }
+            this._section_spell_names[ entry_label ].push( filtered[ i ].name );
         }
         let self                  = this;
         let current_section_label = null;
@@ -640,7 +739,7 @@ CHARACTER.LibraryWindow.prototype = {
             let section_label = self._getSpellSectionLabel( spell_list_entry );
             if ( section_label !== current_section_label ) {
                 current_section_label = section_label;
-                section               = self._addSection( parent, section_label );
+                section               = self._addSection( parent, section_label, true );
             }
             self._buildSpellCard( section, spell_list_entry );
         } );
@@ -655,6 +754,101 @@ CHARACTER.LibraryWindow.prototype = {
         }
         let nature_data = SPELL.getNatureData( nature_key );
         return nature_data && nature_data.label ? nature_data.label : nature_key;
+    },
+
+    // The compendium actions, deduplicated by name like getKnownActions but
+    // keeping the full entries (traits, cost, description ride the card)
+    _collectActionEntries: function () {
+        let to_return = [];
+        let seen      = {};
+        let _keys     = Object.keys( OBJECT.COMPENDIUM );
+        for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+            let object_data = OBJECT.COMPENDIUM[ _keys[ i ] ];
+            if ( !object_data || object_data.category !== "action" || !object_data.text ) {
+                continue;
+            }
+            let seen_key = object_data.text.toLowerCase();
+            if ( seen[ seen_key ] ) {
+                continue;
+            }
+            seen[ seen_key ] = true;
+            to_return.push( object_data );
+        }
+        to_return.sort( function ( entry_a, entry_b ) {
+            return entry_a.text.localeCompare( entry_b.text, "fr" );
+        } );
+        return to_return;
+    },
+
+    // The French label of an action cost key, for the section, the card tag
+    // and the searchable type text ("réaction" filters the reactions)
+    _getActionCostLabel: function ( cost_key ) {
+        if ( !cost_key ) {
+            return LIBRARY.ACTION_NO_COST_LABEL;
+        }
+        for ( let c = 0, _size_c = LIBRARY.ACTION_COST_SECTIONS.length; c < _size_c; c++ ) {
+            if ( LIBRARY.ACTION_COST_SECTIONS[ c ][ "key" ] === cost_key ) {
+                return LIBRARY.ACTION_COST_SECTIONS[ c ][ "label" ];
+            }
+        }
+        return cost_key;
+    },
+
+    _getActionCostOrder: function ( cost_key ) {
+        for ( let c = 0, _size_c = LIBRARY.ACTION_COST_SECTIONS.length; c < _size_c; c++ ) {
+            if ( LIBRARY.ACTION_COST_SECTIONS[ c ][ "key" ] === cost_key ) {
+                return c;
+            }
+        }
+        return LIBRARY.ACTION_COST_SECTIONS.length;
+    },
+
+    _renderActionList: function ( list_dom, character_object ) {
+        let actions  = this._collectActionEntries();
+        let filtered = [];
+        for ( let i = 0, _size_i = actions.length; i < _size_i; i++ ) {
+            let entry      = actions[ i ];
+            let cost_label = this._getActionCostLabel( entry.action_cost );
+            let key_line   = entry.action_cost ? "Coût " + OBJECT.ACTION_COST_LABELS[ entry.action_cost ] : "";
+            if ( !this._matchesSearchFilters( entry.text, entry.traits, entry.description, cost_label, key_line ) ) {
+                continue;
+            }
+            filtered.push( entry );
+        }
+        let self = this;
+        filtered.sort( function ( entry_a, entry_b ) {
+            let order_a = self._getActionCostOrder( entry_a.action_cost || "" );
+            let order_b = self._getActionCostOrder( entry_b.action_cost || "" );
+            if ( order_a !== order_b ) {
+                return order_a - order_b;
+            }
+            return entry_a.text.localeCompare( entry_b.text, "fr" );
+        } );
+        let current_section_label = null;
+        let section               = null;
+        this._renderInBatches( list_dom, filtered, function ( parent, entry ) {
+            let section_label = self._getActionCostLabel( entry.action_cost || "" );
+            if ( section_label !== current_section_label ) {
+                current_section_label = section_label;
+                section               = self._addSection( parent, section_label );
+            }
+            self._buildActionCard( section, entry );
+        } );
+    },
+
+    _buildActionCard: function ( parent, entry ) {
+        let tags = [ { "label": this._getActionCostLabel( entry.action_cost || "" ), "css": "library-tag--action" } ];
+        if ( entry.traits && entry.traits.length ) {
+            for ( let t = 0, _size_t = entry.traits.length; t < _size_t; t++ ) {
+                tags.push( { "label": entry.traits[ t ], "css": "library-tag--trait" } );
+            }
+        }
+        this._buildCard( parent, {
+            "name"       : entry.text,
+            "tags"       : tags,
+            "key_line"   : entry.action_cost ? "Coût " + OBJECT.ACTION_COST_LABELS[ entry.action_cost ] : null,
+            "description": this._formatScrapedDescription( entry.description )
+        } );
     },
 
     _renderStuffList: function ( list_dom, character_object ) {
@@ -885,9 +1079,23 @@ CHARACTER.LibraryWindow.prototype = {
         return to_return;
     },
 
-    _addSection: function ( parent, label ) {
+    // with_add poses a « + » on the section header (Sorts subject) : it mass
+    // adds every spell of the section to the repertoire
+    _addSection: function ( parent, label, with_add ) {
+        let self    = this;
         let section = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-level-section" } ), parent );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-level-header" }, label ), section );
+        let header  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-level-header" } ), section );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-level-header-label" }, label ), header );
+        if ( with_add ) {
+            let add_btn = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class        : "library-section-add",
+                title        : "Ajouter toute la section au répertoire",
+                "data-section": label
+            }, "+" ), header );
+            add_btn.addEventListener( "click", function () {
+                self._addSpellSection( label );
+            } );
+        }
         return section;
     },
 
@@ -899,7 +1107,10 @@ CHARACTER.LibraryWindow.prototype = {
     // information popup, the "?" of the old Dons tab is gone (user
     // decision — the popups stay reachable from their own windows)
     _buildCard: function ( parent, card_data ) {
-        let card    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card" } ), parent );
+        // Clic sur la carte = déplier/replier la description (état en
+        // classe, aucun re-render ; le « + » des cartes a son propre handler,
+        // le bus stoppe sa propagation)
+        let card    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card", onclick: "this.classList.toggle('library-card--expanded')" } ), parent );
         let content = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-content" } ), card );
         let top_line = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-top-line" } ), content );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-name" }, card_data[ "name" ] ), top_line );
@@ -926,12 +1137,18 @@ CHARACTER.LibraryWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-required-value" }, card_data[ "required" ].join( " | " ) ), required_dom );
         }
         if ( card_data[ "description" ] ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, card_data[ "description" ] ), content );
+            let description_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, card_data[ "description" ] ), content );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-more" } ), content );
+            // L'indicateur « suite » n'apparaît que si le texte déborde du
+            // clamp (mesuré au rendu, la fenêtre est visible à ce moment)
+            if ( description_dom.scrollHeight > description_dom.clientHeight + 1 ) {
+                card.classList.add( "clamped" );
+            }
         }
         return card;
     },
 
-    _buildFeatCard: function ( parent, source ) {
+    _buildFeatCard: function ( parent, source, active_names ) {
         let feat            = source.feat;
         let type_label      = LIBRARY.FEAT_TYPE_LABELS[ source.type ] || source.type;
         let tags            = [ { "label": type_label, "css": "library-tag--" + source.type } ];
@@ -943,6 +1160,11 @@ CHARACTER.LibraryWindow.prototype = {
                 tags.push( { "label": feat.traits[ t ], "css": "library-tag--trait" } );
             }
         }
+        // Un don actif du personnage porte le tag « Mon don » (même classe
+        // que « Mon historique »), cochée ou non la case « Mes dons »
+        if ( active_names && active_names[ feat.name ] ) {
+            tags.push( { "label": "Mon don", "css": "library-tag--owned" } );
+        }
         this._buildCard( parent, {
             "name"       : feat.name,
             "tags"       : tags,
@@ -953,7 +1175,10 @@ CHARACTER.LibraryWindow.prototype = {
 
     _buildSpellCard: function ( parent, spell_list_entry ) {
         let spell_data  = SPELLS.getSpellData( spell_list_entry.name );
-        let tags        = [ { "label": SPELLS.getFullTypeLabel( spell_list_entry.name ), "css": "library-tag--spell" } ];
+        let tags        = [
+            { "label": SPELLS.getFullTypeLabel( spell_list_entry.name ), "css": "library-tag--spell" },
+            { "label": "Rang " + spell_list_entry.rank, "css": "library-tag--rank" }
+        ];
         if ( spell_data && spell_data[ "traits" ] ) {
             for ( let t = 0, _size_t = spell_data[ "traits" ].length; t < _size_t; t++ ) {
                 tags.push( { "label": spell_data[ "traits" ][ t ], "css": "library-tag--trait" } );

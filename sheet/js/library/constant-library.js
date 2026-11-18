@@ -34,12 +34,29 @@ LIBRARY.SUBJECTS = [
         "key"        : "historics",
         "label"      : "Historiques",
         "placeholder": "Rechercher un historique..."
+    },
+    {
+        "key"        : "actions",
+        "label"      : "Actions",
+        "placeholder": "Rechercher une action..."
     }
 ];
 
 LIBRARY.DEFAULT_SUBJECT_KEY = "feats";
 LIBRARY.FILTER_ALL_KEY      = "all";
 LIBRARY.FILTER_ALL_LABEL    = "Tous";
+
+// The cost sections of the Actions subject : the scraped cost key
+// ("1"/"2"/"3"/"r"/"f") with its French label, the array order drives the
+// sections of the list (the costless entries close it)
+LIBRARY.ACTION_COST_SECTIONS = [
+    { "key": "1", "label": "1 action" },
+    { "key": "2", "label": "2 actions" },
+    { "key": "3", "label": "3 actions" },
+    { "key": "r", "label": "Réaction" },
+    { "key": "f", "label": "Gratuite" }
+];
+LIBRARY.ACTION_NO_COST_LABEL = "Sans coût";
 
 // Progressive rendering : the lists render in batches of cards (the
 // datasets are big — thousands of equipment entries), the next batch loads

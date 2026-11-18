@@ -31,6 +31,7 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__add":
             case "event__stuff__remove":
             case "event__spell__add":
+            case "event__spell__add_many":
             case "event__spell__remove":
             case "event__archetype__select":
             case "event__historic__select":
