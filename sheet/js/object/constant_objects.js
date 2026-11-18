@@ -448635,3 +448635,140 @@ OBJECT.getDeityInformation = function ( deity_name ) {
     }
     return null;
 };
+
+/**
+ * Normalisation de comparaison d'un nom du compendium : casse, accents,
+ * ligatures, pluriels naïfs ("-aux" -> "-al", "s" final retiré) et espaces.
+ *
+ * @param {string} text  Display name to normalize
+ * @returns {string}     The comparison key
+ */
+OBJECT._compendiumSearchKey = function ( text ) {
+    return String( text || "" ).toLowerCase()
+        .normalize( "NFD" )
+        .replace( /[̀-ͯ]/g, "" )
+        .replace( /œ/g, "oe" )
+        .replace( /æ/g, "ae" )
+        .replace( /aux\b/g, "al" )
+        .replace( /s\b/g, "" )
+        .replace( /\s+/g, " " )
+        .trim();
+};
+
+/**
+ * Whether a compendium entry carries the Archetype trait.
+ *
+ * @param {Object} object_data  A compendium entry
+ * @returns {boolean}           True when the Archetype trait is present
+ */
+OBJECT._hasArchetypeTrait = function ( object_data ) {
+    let traits = object_data.traits || [];
+    for ( let i = 0, _size_i = traits.length; i < _size_i; i++ ) {
+        if ( traits[ i ].toLowerCase() === "archétype" ) {
+            return true;
+        }
+    }
+    return false;
+};
+
+// Index lazy du compendium pour la résolution par nom : construit UNE fois
+// (le compendium fait 27k entrées, la résolution itère sinon à chaque appel)
+OBJECT._compendiumFeatIndex = null;
+
+OBJECT._buildCompendiumFeatIndex = function () {
+    let index = { "by_key": {}, "feats": [], "archetypes": [] };
+    for ( let key in OBJECT.COMPENDIUM ) {
+        let object_data = OBJECT.COMPENDIUM[ key ];
+        if ( !object_data || !object_data.text ) {
+            continue;
+        }
+        let record = { "data": object_data, "key": OBJECT._compendiumSearchKey( object_data.text ) };
+        if ( object_data.category === "feat" ) {
+            if ( !index.by_key[ record.key ] ) {
+                index.by_key[ record.key ] = [];
+            }
+            index.by_key[ record.key ].push( record );
+            index.feats.push( record );
+        }
+        else if ( object_data.category === "archetype" ) {
+            index.archetypes.push( record );
+        }
+    }
+    return index;
+};
+
+/**
+ * L'entrée compendium d'un don par son NOM : le lien d'information des
+ * lignes de dons d'une carte d'archétype (les dons d'archétype ne vivent
+ * pas dans DON.*, exclus du scrap des dons). Match exact d'abord, puis par
+ * inclusion (la page d'archétype allonge parfois le nom scrapé, ex.
+ * "Entraînement croisé de l'ordre de Chevalier infernal" contre
+ * "Entraînement croisé de l'Ordre"), le trait Archétype gagne quand
+ * plusieurs dons correspondent. La ligne de niveau nul "Archétypes de X"
+ * retombe sur l'entrée archetype elle-même (la plus spécifique). Null
+ * quand le nom ne vit pas dans les données.
+ *
+ * @param {string} feat_name  Display name, ex. "Blocage désarmant"
+ * @returns {Object|null}     The compendium entry of the feat, or null when unknown
+ */
+OBJECT.getFeatCompendiumEntry = function ( feat_name ) {
+    if ( !OBJECT._compendiumFeatIndex ) {
+        OBJECT._compendiumFeatIndex = OBJECT._buildCompendiumFeatIndex();
+    }
+    let index    = OBJECT._compendiumFeatIndex;
+    let name_key = OBJECT._compendiumSearchKey( feat_name );
+    // Match exact, le trait Archétype gagne
+    let exact_records = index.by_key[ name_key ] || [];
+    let exact_arch    = null;
+    let exact         = null;
+    for ( let i = 0, _size_i = exact_records.length; i < _size_i; i++ ) {
+        if ( OBJECT._hasArchetypeTrait( exact_records[ i ].data ) && !exact_arch ) {
+            exact_arch = exact_records[ i ].data;
+        }
+        if ( !exact ) {
+            exact = exact_records[ i ].data;
+        }
+    }
+    if ( exact_arch || exact ) {
+        return exact_arch || exact;
+    }
+    // Match par inclusion : la page d'archétype allonge parfois le nom scrapé,
+    // on n'accepte que si les deux clés sont de longueur comparable, jamais
+    // un mot isolé
+    let partial      = null;
+    let partial_arch = null;
+    for ( let i = 0, _size_i = index.feats.length; i < _size_i; i++ ) {
+        let record = index.feats[ i ];
+        if ( record.key.indexOf( name_key ) === -1 && name_key.indexOf( record.key ) === -1 ) {
+            continue;
+        }
+        let ratio = Math.min( name_key.length, record.key.length ) / Math.max( name_key.length, record.key.length );
+        if ( ratio < 0.45 ) {
+            continue;
+        }
+        if ( OBJECT._hasArchetypeTrait( record.data ) && !partial_arch ) {
+            partial_arch = record.data;
+        }
+        if ( !partial ) {
+            partial = record.data;
+        }
+    }
+    if ( partial_arch || partial ) {
+        return partial_arch || partial;
+    }
+    // La ligne de niveau nul "Archétypes de X" pointe sur l'archétype
+    // lui-même (le plus spécifique contenu dans le nom)
+    if ( name_key.indexOf( "archetype" ) === 0 ) {
+        let archetype_of = null;
+        for ( let i = 0, _size_i = index.archetypes.length; i < _size_i; i++ ) {
+            let record = index.archetypes[ i ];
+            if ( name_key.indexOf( record.key ) !== -1 && ( !archetype_of || record.key.length > archetype_of.key.length ) ) {
+                archetype_of = record;
+            }
+        }
+        if ( archetype_of ) {
+            return archetype_of.data;
+        }
+    }
+    return null;
+};

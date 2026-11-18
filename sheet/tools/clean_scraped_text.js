@@ -35,6 +35,7 @@ var FILES = [
     "sheet/js/spell/spells_constant.js",
     "sheet/js/stuffs/constant_stuffs.js",
     "sheet/js/object/constant_objects.js",
+    "sheet/js/object/constant_objects_srd.js",
     "sheet/js/historics/constant_historic.js",
     "sheet/js/legacy/legacy_enum.js",
     "sheet/js/archetype/constant_archetype.js"

@@ -410,18 +410,18 @@ niveau 5, "expertise en réflexes" validée) :
 
 ### État au moment de la pause
 
-- **ÉQUIPEMENT livré et validé** (run utilisateur OK, Rounds 45-49) :
-  onglet avec barre «+» en tête ouvrant la POPUP d'ajout
-  (CHARACTER.StuffAddPopup : type, modèle, commentaire, Valider ;
-  le filtre + Entrée des Rounds 40-41 conservés), sections par type avec
-  info inline (Dégâts / CA bonus), encombrement par entrée + total dans
-  la barre, popup objet enrichie des champs scrapés du type,
-  commentaire au domaine + infobulle. Les Rounds 46-49 documentent le
-  détail et les pièges (fallthrough partagé du contrôleur, close() du
-  slot edition_popup, constructeur à nouveau paramètre, apostrophes
-  dans les sélecteurs par valeur, popup.css charge après les feuilles
-  de fenêtre, badges de compteur débouncés vs throttling d'onglet en
-  arrière-plan).
+- **ÉQUIPEMENT via la BIBLIOTHÈQUE, livré et validé** (run utilisateur OK,
+  Rounds 88-89) : le « + » de la barre de l'onglet Équipement bascule sur
+  la Bibliothèque, sujet Équipement (`goToStuffsSubject()`) ; le « + »
+  de la CARTE pose l'objet au Sac à dos (`event__stuff__add`) et revient
+  sur l'onglet Équipement (`goToSheet`). La POPUP d'ajout est SUPPRIMÉE
+  (`stuffs/stuff-add-popup.js` effacé — la création au NOM LIBRE hors
+  dataset disparaît avec, un filtre sans carte ne pose rien) ;
+  emplacement/lieu/commentaire se règlent par la roue crantée (popup
+  d'édition). Jauge d'encombrement dans la barre : range lecture seule,
+  piste 0 → 2×max (max à mi-piste, moitié droite = surcharge), curseur
+  carré, couleurs via `data-bulk-state` ok/over/critical ; le max vit dans
+  un compteur `bulk_max` SÉPARÉ (refresh quand seule la Force bouge).
 - **Le rapport complet passe chez l'utilisateur Y COMPRIS les badges
   de compteur** (Round 49) : TEST.waitCounterValue remplace les
   lectures à date fixe (règle : TOUTE lecture de badge perdue à date

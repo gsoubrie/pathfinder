@@ -14,76 +14,76 @@ CLASSES.CHOICES = {
     "Alchimiste": {
         "champ_de_recherche": {
             "entries": [
-                { "name": "Bombardier" },
-                { "name": "Chirurgien" },
-                { "name": "Mutagéniste" },
-                { "name": "Toxicologiste" }
+                { "name": "Bombardier",    "uuid": "7JbiaZ8bxODM5mzS" },
+                { "name": "Chirurgien",    "uuid": "eNZnx4LISDNftbx2" },
+                { "name": "Mutagéniste",   "uuid": "tvdb1jkjl2bRZjSp" },
+                { "name": "Toxicologiste", "uuid": "P9quO9XZi3OWFe1k" }
             ]
         }
     },
     "Barbare": {
         "instinct": {
             "entries": [
-                { "name": "Instinct animal" },
-                { "name": "Instinct de décomposition" },
-                { "name": "Instinct de géant" },
-                { "name": "Instinct de la furie" },
-                { "name": "Instinct du dragon" },
-                { "name": "Instinct élémentaire" },
-                { "name": "Instinct ligneux" },
-                { "name": "Instinct spirituel" },
-                { "name": "Instinct superstitieux" }
+                { "name": "Instinct animal",           "uuid": "0FtzFbUrN56KA67z" },
+                { "name": "Instinct de décomposition", "uuid": "znxs0soGlusvRP39" },
+                { "name": "Instinct de géant",         "uuid": "JuKD6k7nDwfO0Ckv" },
+                { "name": "Instinct de la furie",      "uuid": "k7M9jedvt31AJ5ZR" },
+                { "name": "Instinct du dragon",        "uuid": "VDot7CDcXElxmkkz" },
+                { "name": "Instinct élémentaire",      "uuid": "0jSS6pgNXsC8k4o7" },
+                { "name": "Instinct ligneux",          "uuid": "qVAeSFTI1dq64bB8" },
+                { "name": "Instinct spirituel",        "uuid": "TQqv9Q5mB4PW6LH9" },
+                { "name": "Instinct superstitieux",    "uuid": "SCYSjUbMmw8JD9P9" }
             ]
         }
     },
     "Barde": {
         "muse": {
             "entries": [
-                { "name": "Combattante" },
-                { "name": "Énigmatique" },
-                { "name": "Maestro" },
-                { "name": "Touche-à-tout" },
-                { "name": "Zoophonie" }
+                { "name": "Combattante",   "uuid": "N03BtRvjX9TeHRa4" },
+                { "name": "Énigmatique",   "uuid": "4ripp6EfdVpS0d60" },
+                { "name": "Maestro",       "uuid": "YMBsi4bndRAk5CX4" },
+                { "name": "Touche-à-tout", "uuid": "y0jGimYdMGDJWrEq" },
+                { "name": "Zoophonie",     "uuid": "jHOlcSnGyjCnwoPP" }
             ]
         }
     },
     "Bretteur": {
         "style_de_bretteur": {
             "entries": [
-                { "name": "Danseur de combat" },
-                { "name": "Escrimeur" },
-                { "name": "Esprit" },
-                { "name": "Fanfaron" },
-                { "name": "Fripouille" },
-                { "name": "Gymnaste" }
+                { "name": "Danseur de combat", "uuid": "5HoEwzLDJGTCZtFa" },
+                { "name": "Escrimeur",         "uuid": "Jgid6Ja6Y879COlN" },
+                { "name": "Esprit",            "uuid": "4lGhbEjlEoGP4scl" },
+                { "name": "Fanfaron",          "uuid": "KBhwFjdptrKyN5EM" },
+                { "name": "Fripouille",        "uuid": "XKhg55V7WmpLrvqL" },
+                { "name": "Gymnaste",          "uuid": "B7RMnrHwQHlezlJT" }
             ]
         }
     },
     "Champion": {
         "cause": {
             "entries": [
-                { "name": "Grandeur" },
-                { "name": "Iniquité" },
-                { "name": "Justice" },
-                { "name": "Libération" },
-                { "name": "Obéissance" },
-                { "name": "Profanation" },
-                { "name": "Rédemption" }
+                { "name": "Grandeur",    "uuid": "h1NGH4TVeBljftni" },
+                { "name": "Iniquité",    "uuid": "EQ6DVIQHAUXUhY6Y" },
+                { "name": "Justice",     "uuid": "peEXunfbSD8WcMFk" },
+                { "name": "Libération",  "uuid": "FCoMFUsth4xB4veC" },
+                { "name": "Obéissance",  "uuid": "HiIvez0TqESbleB5" },
+                { "name": "Profanation", "uuid": "8YIA0jh64Ecz0TG6" },
+                { "name": "Rédemption",  "uuid": "UyuwFp0jQqYL2AdF" }
             ]
         }
     },
     "Druide": {
         "ordre_druidique": {
             "entries": [
-                { "name": "Ordre animal" },
-                { "name": "Ordre de la feuille" },
-                { "name": "Ordre des spores" },
-                { "name": "Ordre du cultivateur" },
-                { "name": "Ordre de la flamme" },
-                { "name": "Ordre de la pierre" },
-                { "name": "Ordre de la tempête" },
-                { "name": "Ordre de la vague" },
-                { "name": "Ordre indompté" }
+                { "name": "Ordre animal",         "uuid": "POBvoXifa9HaejAg" },
+                { "name": "Ordre de la feuille",  "uuid": "u4nlOzPj2WHkIj9l" },
+                { "name": "Ordre des spores",     "uuid": "X0k3njLOLX0322Po" },
+                { "name": "Ordre du cultivateur", "uuid": "IiYUhFGqq2Nw0b5Y" },
+                { "name": "Ordre de la flamme",   "uuid": "NdeFvIXdHwKYLiUj" },
+                { "name": "Ordre de la pierre",   "uuid": "fKTewWlYgFuhl4KA" },
+                { "name": "Ordre de la tempête",  "uuid": "acqqlYmti8D9QJi0" },
+                { "name": "Ordre de la vague",    "uuid": "FuUXyv2yBs7zRgqT" },
+                { "name": "Ordre indompté",       "uuid": "v0EjtiwdeMj8ykI0" }
             ]
         }
     },
@@ -100,24 +100,24 @@ CLASSES.CHOICES = {
     "Ensorceleur": {
         "lignage": {
             "entries": [
-                { "name": "Aberrant" },
-                { "name": "Aesir" },
-                { "name": "Angélique" },
-                { "name": "Béni du ver" },
-                { "name": "Démoniaque" },
-                { "name": "Diabolique" },
-                { "name": "Draconique" },
-                { "name": "Élémentaire" },
-                { "name": "Féerique" },
-                { "name": "Génie" },
-                { "name": "Guenaude" },
-                { "name": "Impérial" },
-                { "name": "Mort-vivant" },
-                { "name": "Nymphe" },
-                { "name": "Ombre" },
-                { "name": "Phénix" },
-                { "name": "Psychopompe" },
-                { "name": "Tourment" }
+                { "name": "Aberrant",    "uuid": "3qqvnC2U8W26yae7" },
+                { "name": "Aesir",       "uuid": "TFihgf3jDhmKd0fa" },
+                { "name": "Angélique",   "uuid": "vhW3glAaEfq2DKrw" },
+                { "name": "Béni du ver", "uuid": "dKTb959aCQIzSIXj" },
+                { "name": "Démoniaque",  "uuid": "w5koctOVrEcpxTIq" },
+                { "name": "Diabolique",  "uuid": "o39zQMIdERWtmBSB" },
+                { "name": "Draconique",  "uuid": "ZHabYxSgYK0XbjhM" },
+                { "name": "Élémentaire", "uuid": "RXRnJcG4XSabZ35a" },
+                { "name": "Féerique",    "uuid": "eW3cfCH7Wpx2vik2" },
+                { "name": "Génie",       "uuid": "tYOMBiH3HbViNWwn" },
+                { "name": "Guenaude",    "uuid": "O0uXZRWMNliDbkxU" },
+                { "name": "Impérial",    "uuid": "ZEtJJ5UOlV5oTWWp" },
+                { "name": "Mort-vivant", "uuid": "7WBZ2kkhZ7JorWu2" },
+                { "name": "Nymphe",      "uuid": "5Wxjghw7lHuCxjZz" },
+                { "name": "Ombre",       "uuid": "uoQOm41BVdSo6pAS" },
+                { "name": "Phénix",      "uuid": "TWR1wbPJuCLnGdFZ" },
+                { "name": "Psychopompe", "uuid": "PpzH9tJULk5ksX9w" },
+                { "name": "Tourment",    "uuid": "b6hyZTs1rVGHDexz" }
             ]
         }
     },
@@ -139,28 +139,28 @@ CLASSES.CHOICES = {
         },
         "these_arcanique": {
             "entries": [
-                { "name": "Bâton nexus" },
-                { "name": "Expérimentation mutamagique" },
-                { "name": "Harmonisation avec le familier améliorée" },
-                { "name": "Mélange de sorts" },
-                { "name": "Substitution de sort" }
+                { "name": "Bâton nexus",                              "uuid": "Klb35AwlkNrq1gpB" },
+                { "name": "Expérimentation mutamagique",              "uuid": "89zWKD2CN7nRu2xp" },
+                { "name": "Harmonisation avec le familier améliorée", "uuid": "SNZ46g3u7U6x0XJj" },
+                { "name": "Mélange de sorts",                         "uuid": "OAcxS625AXSGrQIC" },
+                { "name": "Substitution de sort",                     "uuid": "QzWXMCSGNfvvpYgF" }
             ]
         }
     },
     "Oracle": {
         "mystere": {
             "entries": [
-                { "name": "Ancêtres" },
-                { "name": "Cendres" },
-                { "name": "Combat" },
-                { "name": "Cosmos" },
-                { "name": "Décrépitude" },
-                { "name": "Flammes" },
-                { "name": "Ossements" },
-                { "name": "Savoir" },
-                { "name": "Tempête" },
-                { "name": "Temps" },
-                { "name": "Vie" }
+                { "name": "Ancêtres",    "uuid": "qvRlih3u7vK3FYUR" },
+                { "name": "Cendres",     "uuid": "g3HTg0z3doXZZzAV" },
+                { "name": "Combat",      "uuid": "gjOGOR30Czpnx3tM" },
+                { "name": "Cosmos",      "uuid": "RI2EMRBBPNSoTJXu" },
+                { "name": "Décrépitude", "uuid": "1PHDn7WJFtR3NgTr" },
+                { "name": "Flammes",     "uuid": "GTSvbFb36InvuH0w" },
+                { "name": "Ossements",   "uuid": "IaxmCkdsPlA52spu" },
+                { "name": "Savoir",      "uuid": "tZBb3Kh4nJcNoUFI" },
+                { "name": "Tempête",     "uuid": "W9cF7wZztLDb1WGY" },
+                { "name": "Temps",       "uuid": "EslxR2sbDK9XJaAl" },
+                { "name": "Vie",         "uuid": "o1gGG36wpn9mxeop" }
             ]
         }
     },
@@ -175,40 +175,40 @@ CLASSES.CHOICES = {
     "Rôdeur": {
         "specialite_du_chasseur": {
             "entries": [
-                { "name": "Déluge" },
-                { "name": "Précision" },
-                { "name": "Ruse" }
+                { "name": "Déluge",    "uuid": "6v4Rj7wWfOH1882r" },
+                { "name": "Précision", "uuid": "u6cBjqz2fiRBadBt" },
+                { "name": "Ruse",      "uuid": "NBHyoTrI8q62uDsU" }
             ]
         }
     },
     "Roublard": {
         "trafic_de_roublard": {
             "entries": [
-                { "name": "Mystificateur" },
-                { "name": "Scélérat" },
-                { "name": "Stratège" },
-                { "name": "Voleur" },
-                { "name": "Voyou" }
+                { "name": "Mystificateur", "uuid": "D8qtAo2w4jsqjBrM" },
+                { "name": "Scélérat",      "uuid": "ZvfxtUMtfIOLYHyg" },
+                { "name": "Stratège",      "uuid": "RyOkmu0W9svavuAB" },
+                { "name": "Voleur",        "uuid": "wAh2riuFRzz0edPl" },
+                { "name": "Voyou",         "uuid": "3KPZ7svIO6kmmEKH" }
             ]
         }
     },
     "Sorcier": {
         "patron": {
             "entries": [
-                { "name": "Chœur politique" },
-                { "name": "Dévoreur de pourriture" },
-                { "name": "Gardien de la flamme de la foi" },
-                { "name": "Intendant de la nature" },
-                { "name": "L'inscrit" },
-                { "name": "Le courtier invisible" },
-                { "name": "Le ressentiment" },
-                { "name": "Murmure des ailes" },
-                { "name": "Moustique" },
-                { "name": "Ombre sans étoile" },
-                { "name": "Ondulation dans les profondeurs" },
-                { "name": "Paradoxe des opposés" },
-                { "name": "Silence dans la neige" },
-                { "name": "Tisseur de fils" }
+                { "name": "Chœur politique",                 "uuid": "v2JQB6j3VIKWqPpQ" },
+                { "name": "Dévoreur de pourriture",          "uuid": "T9wA833bzZVlB3Lo" },
+                { "name": "Gardien de la flamme de la foi",  "uuid": "mFqMSQoNl0NMDklv" },
+                { "name": "Intendant de la nature",          "uuid": "e0VhUyjz1clW3sC4" },
+                { "name": "L'inscrit",                       "uuid": "FdLx4VODZEYLGOK9" },
+                { "name": "Le courtier invisible",           "uuid": "ydI39ViUy22nBRn6" },
+                { "name": "Le ressentiment",                 "uuid": "9OwWgOP8ZWxTAqbg" },
+                { "name": "Murmure des ailes",               "uuid": "4zE3seVFtLPNw9EQ" },
+                { "name": "Moustique",                       "uuid": "zy0toWeGIeQstbT4" },
+                { "name": "Ombre sans étoile",               "uuid": "r2ZPRAw9c3VGZi8A" },
+                { "name": "Ondulation dans les profondeurs", "uuid": "lgv4VIoj5TLhm9u0" },
+                { "name": "Paradoxe des opposés",            "uuid": "RdOzBNPKLTMUWrJs" },
+                { "name": "Silence dans la neige",           "uuid": "9c57R18pfgfqlBCD" },
+                { "name": "Tisseur de fils",                 "uuid": "ghIsqhEsJTvjJiNl" }
             ]
         }
     }

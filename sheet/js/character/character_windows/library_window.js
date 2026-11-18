@@ -735,7 +735,10 @@ CHARACTER.LibraryWindow.prototype = {
         this._buildArchetypeFeatsLines( card, entry );
     },
 
-    // The feats of the archetype, one point per line under the description
+    // The feats of the archetype, one point per line under the description.
+    // A feat indexed in the compendium carries its information link (the
+    // uuid rides a data attribute, read at click time — never inline), an
+    // unknown name stays plain text
     _buildArchetypeFeatsLines: function ( card, entry ) {
         if ( !entry.skills || !entry.skills.length ) {
             return;
@@ -745,11 +748,24 @@ CHARACTER.LibraryWindow.prototype = {
             return;
         }
         for ( let i = 0, _size_i = entry.skills.length; i < _size_i; i++ ) {
-            let feat = entry.skills[ i ];
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "library-card-key-line" }, feat.name + " (Don " + ( feat.level || 0 ) + ")" ),
-                content
-            );
+            let feat       = entry.skills[ i ];
+            let line       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-key-line" } ), content );
+            let feat_entry = OBJECT.getFeatCompendiumEntry( feat.name );
+            if ( feat_entry ) {
+                SERVICE.DOM.addElementTo(
+                    SERVICE.DOM.createElement( "span", {
+                        class       : "library-card-feat-link gs-link-information",
+                        "data-uuid" : feat_entry.id,
+                        title       : "Informations du don",
+                        onclick     : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information',{'param__object__uuid':this.getAttribute('data-uuid'),'param__object__label':this.textContent})"
+                    }, feat.name ),
+                    line
+                );
+            }
+            else {
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, feat.name ), line );
+            }
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {}, " (Don " + ( feat.level || 0 ) + ")" ), line );
         }
     },
 

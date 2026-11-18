@@ -573,6 +573,157 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Archétypes = liste alphabétique, 
     TEST.ASSERT.equal( _cards.length, _expected, "Le × du tag devrait restaurer la liste complete (" + _expected + "), obtenu : " + _cards.length );
 } );
 
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] archétype = lignes de dons avec lien de popup", function () {
+    // Un don d'archétype indexé dans le compendium ET un nom hors compendium,
+    // calculés du dataset (jamais figés)
+    let _linked = null;
+    let _plain  = null;
+    for ( let i = 0, _size_i = ARCHETYPES.ENUM.length; i < _size_i && ( !_linked || !_plain ); i++ ) {
+        let _entry = ARCHETYPES.ENUM[ i ];
+        if ( !_entry.skills ) {
+            continue;
+        }
+        for ( let s = 0, _size_s = _entry.skills.length; s < _size_s; s++ ) {
+            let _compendium_entry = OBJECT.getFeatCompendiumEntry( _entry.skills[ s ].name );
+            if ( !_linked && _compendium_entry ) {
+                _linked = { "arch": _entry.name, "feat": _entry.skills[ s ].name, "uuid": _compendium_entry.id };
+            }
+            else if ( !_plain && !_compendium_entry ) {
+                _plain = { "arch": _entry.name, "feat": _entry.skills[ s ].name };
+            }
+        }
+    }
+    TEST.ASSERT.notNull( _linked, "Pre-condition : un don d'archétype devrait etre indexé dans le compendium" );
+    if ( !_linked ) {
+        return;
+    }
+    let _archetypes_subject = TEST_librarySubjectChip( "Archétypes" );
+    TEST.ASSERT.notNull( _archetypes_subject, "Pre-condition : puce sujet Archétypes rendue" );
+    if ( !_archetypes_subject ) {
+        return;
+    }
+    _archetypes_subject.click();
+    let _cards = TEST_libraryCards();
+    let _card  = null;
+    for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
+        let _name_dom = _cards[ i ].querySelector( ".library-card-name" );
+        if ( _name_dom && _name_dom.textContent === _linked.arch ) {
+            _card = _cards[ i ];
+        }
+    }
+    TEST.ASSERT.notNull( _card, "La carte de l'archétype « " + _linked.arch + " » devrait etre rendue" );
+    if ( !_card ) {
+        return;
+    }
+    // La ligne du don indexé porte son lien : uuid en data-uuid (lu au clic,
+    // jamais embarqué inline), le « (Don N) » reste à côté en texte
+    let _links = _card.querySelectorAll( ".library-card-key-line .library-card-feat-link" );
+    TEST.ASSERT.ok( _links.length > 0, "La carte devrait porter au moins un lien de don, obtenu : " + _links.length );
+    let _link  = null;
+    for ( let i = 0, _size_i = _links.length; i < _size_i; i++ ) {
+        if ( _links[ i ].textContent === _linked.feat ) {
+            _link = _links[ i ];
+        }
+    }
+    TEST.ASSERT.notNull( _link, "La ligne « " + _linked.feat + " » devrait porter son lien" );
+    if ( _link ) {
+        TEST.ASSERT.equal( _link.getAttribute( "data-uuid" ), _linked.uuid, "Le lien devrait porter l'uuid compendium du don en data-uuid, obtenu : " + _link.getAttribute( "data-uuid" ) );
+        TEST.ASSERT.ok( _link.getAttribute( "onclick" ).indexOf( "event__show_information" ) !== -1, "Le lien devrait ouvrir la popup d'information, obtenu : " + _link.getAttribute( "onclick" ) );
+        TEST.ASSERT.ok( _link.getAttribute( "onclick" ).indexOf( _linked.uuid ) === -1, "L'uuid ne devrait pas etre embarqué inline dans le handler" );
+        let _line = _link.closest( ".library-card-key-line" );
+        TEST.ASSERT.ok( _line && _line.textContent.indexOf( "(Don " ) !== -1, "Le niveau du don devrait rester affiché à côté du lien, obtenu : " + ( _line ? _line.textContent : "" ) );
+        _link.click();
+        let _overlay = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _overlay, "Le clic sur le lien devrait ouvrir la popup du don" );
+        if ( _overlay ) {
+            let _title = _overlay.querySelector( ".popup-title" );
+            TEST.ASSERT.equal( _title ? _title.textContent : null, _linked.feat, "Le titre de la popup devrait etre le nom du don, obtenu : " + ( _title ? _title.textContent : "pas de titre" ) );
+            CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _linked.uuid } );
+            TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup devrait etre refermee par son uuid" );
+        }
+    }
+    // Un don hors compendium reste du texte brut dans sa ligne (si le
+    // dataset en porte un)
+    if ( _plain ) {
+        let _plain_card = null;
+        for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
+            let _name_dom = _cards[ i ].querySelector( ".library-card-name" );
+            if ( _name_dom && _name_dom.textContent === _plain.arch ) {
+                _plain_card = _cards[ i ];
+            }
+        }
+        let _plain_line = null;
+        if ( _plain_card ) {
+            let _lines = _plain_card.querySelectorAll( ".library-card-key-line" );
+            for ( let i = 0, _size_i = _lines.length; i < _size_i; i++ ) {
+                if ( _lines[ i ].textContent.indexOf( _plain.feat ) !== -1 && !_lines[ i ].querySelector( ".library-card-feat-link" ) ) {
+                    _plain_line = _lines[ i ];
+                }
+            }
+        }
+        TEST.ASSERT.notNull( _plain_line, "La ligne du don « " + _plain.feat + " » hors compendium devrait rester du texte brut sans lien" );
+    }
+} );
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] archétype Chevalier infernal = chaque ligne de don porte son lien quand le compendium l'indexe", function () {
+    let _entry = ARCHETYPES.getDataByName( "Chevalier infernal" );
+    TEST.ASSERT.notNull( _entry, "Pre-condition : l'archétype Chevalier infernal devrait exister dans les données" );
+    if ( !_entry ) {
+        return;
+    }
+    let _archetypes_subject = TEST_librarySubjectChip( "Archétypes" );
+    TEST.ASSERT.notNull( _archetypes_subject, "Pre-condition : puce sujet Archétypes rendue" );
+    if ( !_archetypes_subject ) {
+        return;
+    }
+    _archetypes_subject.click();
+    let _cards = TEST_libraryCards();
+    let _card  = null;
+    for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
+        let _name_dom = _cards[ i ].querySelector( ".library-card-name" );
+        if ( _name_dom && _name_dom.textContent === _entry.name ) {
+            _card = _cards[ i ];
+        }
+    }
+    TEST.ASSERT.notNull( _card, "La carte Chevalier infernal devrait etre rendue" );
+    if ( !_card ) {
+        return;
+    }
+    let _lines = _card.querySelectorAll( ".library-card-key-line" );
+    TEST.ASSERT.equal( _lines.length, _entry.skills.length, "La carte devrait rendre une ligne par don (" + _entry.skills.length + "), obtenu : " + _lines.length );
+    // Chaque ligne porte son lien exactement quand le compendium indexe le
+    // nom (résolution du domaine, calculée ici — jamais figée)
+    for ( let i = 0, _size_i = _entry.skills.length; i < _size_i; i++ ) {
+        let _skill  = _entry.skills[ i ];
+        let _expect = OBJECT.getFeatCompendiumEntry( _skill.name );
+        let _link   = _lines[ i ] ? _lines[ i ].querySelector( ".library-card-feat-link" ) : null;
+        if ( _expect ) {
+            TEST.ASSERT.notNull( _link, "La ligne « " + _skill.name + " » devrait porter son lien (uuid " + _expect.id + ")" );
+            if ( _link ) {
+                TEST.ASSERT.equal( _link.getAttribute( "data-uuid" ), _expect.id, "Le lien de « " + _skill.name + " » devrait porter l'uuid attendu, obtenu : " + _link.getAttribute( "data-uuid" ) );
+                TEST.ASSERT.equal( _link.textContent, _skill.name, "Le lien devrait afficher le nom du don, obtenu : " + _link.textContent );
+            }
+        }
+        else {
+            TEST.ASSERT.isNull( _link, "La ligne « " + _skill.name + " » hors compendium devrait rester du texte brut sans lien" );
+        }
+    }
+} );
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] don SRD « Perception du chaos » = entrée compendium enrichie (niveau, traits, description)", function () {
+    // Cas utilisateur : don du Chevalier infernal absent du scrap pf2e, ajouté
+    // par le scrap SRD (constant_objects_srd.js, id dérivé srd__<slug>)
+    let _entry = OBJECT.getFeatCompendiumEntry( "Perception du chaos" );
+    TEST.ASSERT.notNull( _entry, "Le don « Perception du chaos » devrait etre indexé dans le compendium (scrap SRD)" );
+    if ( !_entry ) {
+        return;
+    }
+    TEST.ASSERT.equal( _entry.category, "feat", "L'entrée SRD devrait etre de catégorie feat, obtenu : " + _entry.category );
+    TEST.ASSERT.ok( _entry.element_type && _entry.element_type.indexOf( "DON " ) === 0, "L'entrée devrait porter son niveau (badge DON N), obtenu : " + _entry.element_type );
+    TEST.ASSERT.ok( _entry.description && _entry.description.length > 50, "L'entrée devrait porter la description SRD" );
+    TEST.ASSERT.ok( _entry.href && _entry.href.indexOf( "pathfinder-fr.org/srd/pf2/dons/" ) !== -1, "L'entrée devrait porter son lien SRD, obtenu : " + _entry.href );
+} );
+
 TEST.RUNNER.register( "[BIBLIOTHÈQUE] changement de sujet = vue et filtres reinitialisees", function () {
     let _dons_subject   = TEST_librarySubjectChip( "Dons" );
     TEST.ASSERT.notNull( _dons_subject, "Pre-condition : puce sujet Dons rendue" );
