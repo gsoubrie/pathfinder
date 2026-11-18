@@ -13,6 +13,7 @@ CONTROLLER.Main = (function ( self ) {
             case "event__show_information__masteries":
             case "event__show_information__skill_actions":
             case "event__show_information__feat":
+            case "event__show_information__deity":
             case "event__show_information__choice":
             case "event__show_information__item":
             case "event__show_information__action":

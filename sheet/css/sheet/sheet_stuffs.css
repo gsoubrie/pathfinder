@@ -42,6 +42,41 @@
     justify-content: flex-end;
 }
 
+/* La jauge est en colonne : les graduations 0 / max / 2×max surplombent la
+   piste, aux seuils de changement de couleur (le max tombe à mi-piste) */
+.stuffs-bulk-gauge {
+    display       : flex;
+    flex-direction: column;
+}
+
+/* Le padding de 6px (moitié du curseur) aligne les graduations sur la piste
+   elle-même, pas sur les bords du input */
+.stuffs-bulk-ticks {
+    box-sizing  : border-box;
+    color       : var(--c-text-muted);
+    font-size   : 10px;
+    height      : 11px;
+    line-height : 11px;
+    padding     : 0 6px;
+    position    : relative;
+    width       : 140px;
+}
+
+.stuffs-bulk-tick {
+    position   : absolute;
+    top        : 0;
+    white-space: nowrap;
+}
+
+.stuffs-bulk-tick-start { left: 0; }
+
+.stuffs-bulk-tick-mid {
+    left     : 50%;
+    transform: translateX( -50% );
+}
+
+.stuffs-bulk-tick-end { right: 0; }
+
 /* Jauge d'encombrement : range en LECTURE SEULE (non déplaçable), la
    piste va de 0 à 2×max donc le max tombe à mi-piste ; la moitié droite
    est la zone de surcharge, colorée selon l'état poussé en data-bulk-state */

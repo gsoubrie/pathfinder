@@ -44,6 +44,12 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   bord à bord — espacements visibles entre les blocs, les groupes et les
   lignes (padding/gap exprimés en variables `--s-*`), décision utilisateur
   (Round 88). Toute décision d'affichage de ce genre se consigne ici.
+- La jauge d'encombrement de la barre Équipement porte ses graduations
+  AU-DESSUS de la piste, aux seuils de changement de couleur : 0 en début de
+  piste, max à mi-piste, 2×max en fin (les valeurs suivent le max, donc la
+  Force) — décision utilisateur (Round 90). Le padding des graduations vaut
+  la moitié du curseur (6px) pour les aligner sur la piste, pas sur les
+  bords du input.
 - Les bonus conditionnels (héritage, dons, objets magiques) s'affichent en
   LECTURE SEULE : une astérisque dorée à côté de la valeur concernée (ex.
   sauvegarde de l'onglet Combat) ouvre une popup explicative avec les actions
@@ -2605,6 +2611,44 @@ appelé au scroll de la liste, à chaque lot progressif (`_renderNextBatch`),
 à chaque `_renderList`, au resize fenêtre. Test : labels 0/total, pouce en
 haut puis en bas au scroll, drag, clic piste, masquée sur filtre sans
 résultat. Run headless : 187 OK / 0 ECHEC ×2.
+
+Round 91 = DIVINITÉS STRUCTURÉES (demande utilisateur sur `deities.json` du
+cache — les langues zh/pl de `translations` n'ont jamais été émises, seule
+`translations.fr` passe par `frOf`). Les entrées `deity` du compendium
+portent désormais leurs données structurées en FR, écrites par
+`deityExtras` dans `rescrap_pf2e.js` (re-scrap `compendium` offline) :
+`deity_attribute` (boosts en labels FR, carte `DEITY_ABILITY_FR`),
+`deity_skill`, `deity_domains` `{ primary, alternate }` (slug → « Domaine
+de… » via domains.json, 3 clés remaster en carte à la main
+`DEITY_DOMAIN_FR_OVERRIDE` : void/wyrmkin/delirium), `deity_font`
+(Dégâts/Soins), `deity_sanctification` (« peut/doit sanctifier (sacré,
+impie) »), `deity_weapons` (armes de prédilection résolues via
+base-weapons.json), `deity_spells` (sorts divins `[{ rank, name FR, uuid }]`,
+uuid résolu via spells.json, triés par rang). Popup : catégorie `deity` dans
+popup.js → `OBJECT.DeityPopupRenderer` (meta rows + une ligne cliquable par
+sort divin, lien `gs-link-information` — l'uuid Foundry est sûr en inline,
+le nom à apostrophes se lit en `textContent`). CSS `popup_object.css` :
+`--pf-deity-accent`, `.popup-header--deity`, `.popup-deity-spells`.
+Scénario doctrine : test dédié (divinité riche calculée depuis les données,
+asserts sur les champs + la popup + clic du lien → popup du sort, popups
+refermées par uuid). Run headless : 195 OK / 0 ECHEC ×2.
+
+Round 92 = « ? » PAR OPTION dans l'onglet Ajustements (retour utilisateur).
+Les sélecteurs à liste (`feat`, `deity`, `action`) posent `setInfoEvent` sur
+leur composant : chaque option non vide rend un "?" (classe
+`level-up-row-info gs-link-information` de la lib, stylé scopé
+`.adjustments-window` dans sheet_adjustments.css) qui dispatche l'événement
+popup avec la valeur lue du `data-value` de l'option au clic — feat →
+`event__show_information__feat` (sans `param__feat_category` : la catégorie
+est résolue par nom via `DON.getFeatCategoryByName`, ajouté dans le tail
+préservé de constant_gift_skill.js), deity → nouvel
+`event__show_information__deity` (`param__deity_name` résolu en entrée
+compendium par `OBJECT.getDeityInformation`, déclaré dans la liste POPUPS de
+Main), action → `event__show_information__action`. Les autres kinds
+(langue, vitesse, sense, maîtrise, boost, note, lore) n'ont pas de popup de
+données derrière : aucun "?". Scénario ajustements : test dédié (un "?" par
+option non vide sur les 3 kinds, zéro sur language, clic → popup RUNNING
+avec le bon titre, fermeture par uuid). Run headless : 196 OK / 0 ECHEC ×2.
 
 ### Style, commentaires, nommage
 

@@ -470,6 +470,64 @@ OBJECT.DefaultPopupRenderer.prototype = {
 };
 SERVICE.CLASS.addPrototype( OBJECT.DefaultPopupRenderer, OBJECT.BasePopupRenderer );
 
+
+/**
+ * @class OBJECT.DeityPopupRenderer
+ * @extends OBJECT.BasePopupRenderer
+ * Divinity of the compendium : the structured data scraped along (attribute
+ * boosts, skill, domains, divine font, sanctification, favored weapons,
+ * granted divine spells) as meta rows, one clickable line per spell.
+ */
+OBJECT.DeityPopupRenderer = function ( object_data ) {
+    this.init( object_data );
+};
+OBJECT.DeityPopupRenderer.prototype = {
+    _spellLink: function ( spell ) {
+        // The uuid is a Foundry id (word chars only) : safe inline, unlike
+        // the spell name which may carry apostrophes (read from textContent)
+        return `<div class="gs-link-information" onclick="CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '${spell.uuid}', 'param__object__label': this.textContent})">${spell.name}</div>`;
+    },
+
+    computeHtml: function () {
+        const object_data = this.object_data;
+        const text        = object_data.text ? object_data.text : "";
+        const domains     = object_data.deity_domains || {};
+        const spells      = object_data.deity_spells || [];
+        this.dom_element  = SERVICE.DOM.createElement( "div", {}, `
+          <div class="popup-header popup-header--deity">
+            <div class="popup-header__left">
+              <div class="popup-category-label">DIVINITÉ</div>
+              <h2 class="popup-title">${text}</h2>
+            </div>
+          </div>
+
+          ${this._traitsList()}
+
+          <div class="popup-item-stats">
+            ${this._metaRow( "💪", "Attributs", ( object_data.deity_attribute || [] ).join( ", " ) )}
+            ${this._metaRow( "📖", "Compétence", ( object_data.deity_skill || [] ).join( ", " ) )}
+            ${this._metaRow( "⛩️", "Domaines", ( domains.primary || [] ).join( ", " ) )}
+            ${this._metaRow( "🌀", "Domaines alternés", ( domains.alternate || [] ).join( ", " ) )}
+            ${this._metaRow( "✨", "Font divine", ( object_data.deity_font || [] ).join( ", " ) )}
+            ${this._metaRow( "⚖️", "Sanctification", object_data.deity_sanctification )}
+            ${this._metaRow( "⚔️", "Armes de prédilection", ( object_data.deity_weapons || [] ).join( ", " ) )}
+          </div>
+
+          ${spells.length ? `
+          <div class="popup-deity-spells">
+            <span class="popup-section-title">Sorts divins</span>
+            ${spells.map( s => `
+            <div class="popup-meta-row">
+              <span class="popup-meta-label">Rang ${s.rank}</span>
+              <span class="popup-meta-value">${this._spellLink( s )}</span>
+            </div>` ).join( "" )}
+          </div>` : ""}
+
+          ${this._description()}` );
+    }
+};
+SERVICE.CLASS.addPrototype( OBJECT.DeityPopupRenderer, OBJECT.BasePopupRenderer );
+
 /**
  * @class OBJECT.SkillActionsPopupRenderer
  * @extends OBJECT.BasePopupRenderer

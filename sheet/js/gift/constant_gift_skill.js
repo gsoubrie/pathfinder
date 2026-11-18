@@ -5451,3 +5451,29 @@ DON.getKnownFeats = function () {
     } );
     return to_return;
 };
+
+/**
+ * The category of a feat by its NAME (the adjustments selector lists the
+ * union of every category, the "?" of an option needs the category to open
+ * the feat popup).
+ *
+ * @param {string} feat_name  Display name of the feat
+ * @returns {string|null}    "general" | "skill" | "class" | "race", or null
+ */
+DON.getFeatCategoryByName = function ( feat_name ) {
+    let feat_lists = [
+        [ "general", DON.GENERAL.ENUM ],
+        [ "skill", DON.SKILL.ENUM[ 0 ] ],
+        [ "class", DON.CLASS.ENUM ],
+        [ "race", DON.RACE.ENUM[ 0 ] ]
+    ];
+    for ( let i = 0, _size_i = feat_lists.length; i < _size_i; i++ ) {
+        let feats = feat_lists[ i ][ 1 ];
+        for ( let f = 0, _size_f = feats.length; f < _size_f; f++ ) {
+            if ( feats[ f ].name === feat_name ) {
+                return feat_lists[ i ][ 0 ];
+            }
+        }
+    }
+    return null;
+};

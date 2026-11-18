@@ -177,6 +177,74 @@ TEST.RUNNER.register( "[DOCTRINE] ligne divinité = sélecteur des divinités, c
     } );
 } );
 
+TEST.RUNNER.register( "[DOCTRINE] divinité : données structurées FR (sorts divins, armes de prédilection) + popup", function () {
+    // Une divinité "riche" (sorts divins + armes de prédilection), calculée
+    // depuis les données — jamais figée
+    let _deities = OBJECT.getKnownDeities();
+    let _rich    = null;
+    for ( let i = 0, _size_i = _deities.length; i < _size_i; i++ ) {
+        let _data = OBJECT.getDeityInformation( _deities[ i ].name );
+        if ( _data && ( _data.deity_spells || [] ).length > 0 && ( _data.deity_weapons || [] ).length > 0 ) {
+            _rich = { "name": _deities[ i ].name, "uuid": _deities[ i ].uuid, "data": _data };
+            break;
+        }
+    }
+    TEST.ASSERT.notNull( _rich, "Pre-condition : une divinité avec sorts divins et armes de prédilection" );
+    if ( !_rich ) {
+        return;
+    }
+    let _data = _rich.data;
+    TEST.ASSERT.ok( ( _data.deity_attribute || [] ).length > 0, "La divinité devrait porter ses attributs, obtenu : " + JSON.stringify( _data.deity_attribute ) );
+    TEST.ASSERT.ok( ( _data.deity_skill || [] ).length > 0, "La divinité devrait porter sa compétence, obtenu : " + JSON.stringify( _data.deity_skill ) );
+    TEST.ASSERT.ok( _data.deity_domains && ( _data.deity_domains.primary || [] ).length > 0, "La divinité devrait porter ses domaines primaires" );
+    TEST.ASSERT.ok( ( _data.deity_font || [] ).length > 0, "La divinité devrait porter sa font divine" );
+    for ( let s = 0, _size_s = _data.deity_spells.length; s < _size_s; s++ ) {
+        TEST.ASSERT.ok( typeof _data.deity_spells[ s ].rank === "number" && !!_data.deity_spells[ s ].name && !!_data.deity_spells[ s ].uuid, "Chaque sort divin devrait porter rang + nom FR + uuid, obtenu : " + JSON.stringify( _data.deity_spells[ s ] ) );
+    }
+    // La popup rend les champs structurés, un lien cliquable par sort divin
+    CONTROLLER.Main.doActionAfter( "event__show_information", { "param__object__uuid": _rich.uuid } );
+    let _overlay = document.querySelector( ".popup-overlay[data-popup-uuid='" + _rich.uuid + "'][data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _overlay, "La popup de la divinité devrait s'ouvrir (RUNNING)" );
+    if ( !_overlay ) {
+        return;
+    }
+    TEST.ASSERT.ok( !!_overlay.querySelector( ".popup-header--deity" ), "Le header devrait porter la catégorie divinité" );
+    let _meta = {};
+    let _rows = _overlay.querySelectorAll( ".popup-item-stats .popup-meta-row" );
+    for ( let r = 0, _size_r = _rows.length; r < _size_r; r++ ) {
+        let _label = _rows[ r ].querySelector( ".popup-meta-label" );
+        let _value = _rows[ r ].querySelector( ".popup-meta-value" );
+        if ( _label && _value ) {
+            _meta[ _label.textContent ] = _value.textContent;
+        }
+    }
+    TEST.ASSERT.equal( _meta[ "Attributs" ] || null, _data.deity_attribute.join( ", " ), "La ligne Attributs devrait lister les boosts, obtenu : [" + _meta[ "Attributs" ] + "]" );
+    TEST.ASSERT.equal( _meta[ "Armes de prédilection" ] || null, _data.deity_weapons.join( ", " ), "La ligne Armes de prédilection devrait lister les armes FR, obtenu : [" + _meta[ "Armes de prédilection" ] + "]" );
+    TEST.ASSERT.equal( _meta[ "Font divine" ] || null, _data.deity_font.join( ", " ), "La ligne Font divine, obtenu : [" + _meta[ "Font divine" ] + "]" );
+    TEST.ASSERT.ok( ( _meta[ "Domaines" ] || "" ).indexOf( _data.deity_domains.primary[ 0 ] ) !== -1, "La ligne Domaines devrait citer le premier domaine primaire, obtenu : [" + _meta[ "Domaines" ] + "]" );
+    let _spell_rows = _overlay.querySelectorAll( ".popup-deity-spells .popup-meta-row" );
+    TEST.ASSERT.equal( _spell_rows.length, _data.deity_spells.length, "Une ligne par sort divin, attendu : " + _data.deity_spells.length + ", obtenu : " + _spell_rows.length );
+    let _link = _spell_rows.length ? _spell_rows[ 0 ].querySelector( ".gs-link-information" ) : null;
+    TEST.ASSERT.notNull( _link, "Le premier sort divin devrait etre un lien cliquable" );
+    if ( !_link ) {
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _rich.uuid } );
+        return;
+    }
+    TEST.ASSERT.equal( _link.textContent, _data.deity_spells[ 0 ].name, "Le lien devrait porter le nom FR du sort, obtenu : [" + _link.textContent + "]" );
+    let _first_spell = _data.deity_spells[ 0 ];
+    _link.click();
+    return TEST.wait().then( function () {
+        let _spell_overlay = document.querySelector( ".popup-overlay[data-popup-uuid='" + _first_spell.uuid + "'][data-current-phase='RUNNING']" );
+        TEST.ASSERT.notNull( _spell_overlay, "Le clic sur le sort divin devrait ouvrir sa popup" );
+        if ( _spell_overlay ) {
+            let _spell_title = _spell_overlay.querySelector( ".popup-title" );
+            TEST.ASSERT.equal( _spell_title ? _spell_title.textContent : null, _first_spell.name, "La popup du sort devrait porter son nom, obtenu : [" + ( _spell_title ? _spell_title.textContent : "null" ) + "]" );
+            CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _first_spell.uuid } );
+        }
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _rich.uuid } );
+    } );
+} );
+
 TEST.RUNNER.register( "[DOCTRINE] ajustement Divinité gagne toujours sur la Progression", function () {
     let _character   = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );

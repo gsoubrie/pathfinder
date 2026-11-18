@@ -238,6 +238,14 @@
     pointer-events: none;
 }
 
+/* Le "?" d'une option (dons, divinité, actions) : même allure que le lien
+   d'info du levelup, scopé à cette fenêtre */
+.adjustments-window .single-select-option .level-up-row-info {
+    flex        : 0 0 auto;
+    font-size   : 11px;
+    padding-left: var(--s-sm);
+}
+
 .adjustments-window .single-select-option-label {
     flex         : 1 1 auto;
     overflow     : hidden;

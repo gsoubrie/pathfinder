@@ -102,6 +102,88 @@ TEST.RUNNER.register( "[AJUSTEMENTS] onglet = une section par catégorie avec sa
     } );
 } );
 
+// Le "?" par option des sélecteurs avec une popup de données derrière (dons,
+// divinité, actions) ouvre la bonne popup ; les autres kinds n'en portent pas
+function TEST_runningOverlayByUuid( uuid ) {
+    let _overlays = document.querySelectorAll( ".popup-overlay[data-current-phase='RUNNING']" );
+    for ( let i = 0, _size_i = _overlays.length; i < _size_i; i++ ) {
+        if ( _overlays[ i ].getAttribute( "data-popup-uuid" ) === uuid ) {
+            return _overlays[ i ];
+        }
+    }
+    return null;
+}
+
+TEST.RUNNER.register( "[AJUSTEMENTS] ? par option (dons, divinité, actions) → popup d'info", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Ajustements rendu" );
+        if ( !_pane ) {
+            return;
+        }
+        let _info_kinds = [ "feat", "deity", "action" ];
+        let _first      = {};
+        for ( let k = 0, _size_k = _info_kinds.length; k < _size_k; k++ ) {
+            let _kind    = _info_kinds[ k ];
+            let _options = _pane.querySelectorAll( ".adjustments-section[data-kind='" + _kind + "'] .single-select-option:not([data-value=''])" );
+            let _infos   = _pane.querySelectorAll( ".adjustments-section[data-kind='" + _kind + "'] .single-select-option:not([data-value='']) .level-up-row-info" );
+            TEST.ASSERT.ok( _options.length > 0, "Pre-condition : la section " + _kind + " devrait avoir des options" );
+            TEST.ASSERT.equal( _infos.length, _options.length, "La section " + _kind + " devrait porter un ? par option non vide, obtenu : " + _infos.length + " pour " + _options.length + " options" );
+            if ( _options.length ) {
+                _first[ _kind ] = _options[ 0 ];
+            }
+        }
+        let _no_info = _pane.querySelectorAll( ".adjustments-section[data-kind='language'] .single-select-option:not([data-value='']) .level-up-row-info" );
+        TEST.ASSERT.equal( _no_info.length, 0, "La section language (pas de popup derrière) ne devrait porter aucun ?, obtenu : " + _no_info.length );
+        // Un clic sur le ? de chaque kind
+        if ( !_first.feat || !_first.deity || !_first.action ) {
+            return;
+        }
+        _first.feat.querySelector( ".level-up-row-info" ).click();
+        _first.deity.querySelector( ".level-up-row-info" ).click();
+        _first.action.querySelector( ".level-up-row-info" ).click();
+        return TEST.wait();
+    } ).then( function () {
+        let _pane = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        // Don : popup feat, catégorie résolue par nom
+        let _feat_name     = _pane.querySelector( ".adjustments-section[data-kind='feat'] .single-select-option:not([data-value=''])" ).getAttribute( "data-value" );
+        let _feat_category = DON.getFeatCategoryByName( _feat_name );
+        TEST.ASSERT.notNull( _feat_category, "La catégorie du don devrait se résoudre par son nom [" + _feat_name + "]" );
+        if ( _feat_category ) {
+            let _feat_uuid    = "feat__" + _feat_category + "__" + _feat_name;
+            let _feat_overlay = TEST_runningOverlayByUuid( _feat_uuid );
+            TEST.ASSERT.notNull( _feat_overlay, "Le ? du don devrait ouvrir sa popup feat" );
+            if ( _feat_overlay ) {
+                let _title = _feat_overlay.querySelector( ".popup-title" );
+                TEST.ASSERT.equal( _title ? _title.textContent : null, _feat_name, "Le titre de la popup devrait etre le don, obtenu : [" + ( _title ? _title.textContent : "null" ) + "]" );
+                CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _feat_uuid } );
+            }
+        }
+        // Divinité : popup compendium (uuid résolu par nom)
+        let _deity_name     = _pane.querySelector( ".adjustments-section[data-kind='deity'] .single-select-option:not([data-value=''])" ).getAttribute( "data-value" );
+        let _deity_data     = OBJECT.getDeityInformation( _deity_name );
+        let _deity_overlay  = _deity_data ? TEST_runningOverlayByUuid( _deity_data.id ) : null;
+        TEST.ASSERT.notNull( _deity_overlay, "Le ? de la divinité devrait ouvrir sa popup compendium" );
+        if ( _deity_overlay ) {
+            let _title = _deity_overlay.querySelector( ".popup-title" );
+            TEST.ASSERT.equal( _title ? _title.textContent : null, _deity_name, "Le titre de la popup devrait etre la divinité, obtenu : [" + ( _title ? _title.textContent : "null" ) + "]" );
+            CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _deity_data.id } );
+        }
+        // Action : popup compendium de l'action
+        let _action_name    = _pane.querySelector( ".adjustments-section[data-kind='action'] .single-select-option:not([data-value=''])" ).getAttribute( "data-value" );
+        let _action_data    = OBJECT.getActionInformation( _action_name );
+        let _action_overlay = _action_data ? TEST_runningOverlayByUuid( _action_data.id ) : null;
+        TEST.ASSERT.notNull( _action_overlay, "Le ? de l'action devrait ouvrir sa popup action" );
+        if ( _action_overlay ) {
+            let _title = _action_overlay.querySelector( ".popup-title" );
+            TEST.ASSERT.equal( _title ? _title.textContent : null, _action_name, "Le titre de la popup devrait etre l'action, obtenu : [" + ( _title ? _title.textContent : "null" ) + "]" );
+            CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _action_data.id } );
+        }
+    } );
+} );
+
 TEST.RUNNER.register( "[AJUSTEMENTS] bonus de caractéristique par le sélecteur", function () {
     let _character                      = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );

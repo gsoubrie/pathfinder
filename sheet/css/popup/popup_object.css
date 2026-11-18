@@ -24,6 +24,7 @@
     --pf-item-accent       : #2A5C3A;
     --pf-action-accent     : #3A2060;
     --pf-class-accent      : #1A3A5C;
+    --pf-deity-accent      : #6B4FA1;
     --pf-red               : #8B2020;
     --popup-width          : 640px;
 }
@@ -186,6 +187,7 @@
 .popup-header--item { border-left : 4px solid var(--pf-item-accent); }
 .popup-header--action { border-left : 4px solid var(--pf-action-accent); }
 .popup-header--class-feature { border-left : 4px solid var(--pf-class-accent); }
+.popup-header--deity { border-left : 4px solid var(--pf-deity-accent); }
 .popup-header--default { border-left : 4px solid var(--pf-border-gold); }
 
 /* Badge niveau (DON 1, OBJET 0…) */
@@ -266,6 +268,26 @@
 .popup-meta-icon { font-size : 14px; }
 .popup-meta-label { color : var(--pf-text-muted); font-style : italic; }
 .popup-meta-value { color : var(--pf-gold); font-weight : 600; }
+
+/* ══════════════════════════════════════════
+   DIVINITY  (granted divine spells, one
+   clickable line per rank)
+   ══════════════════════════════════════════ */
+.popup-deity-spells {
+    padding       : 10px 20px;
+    border-bottom : 1px solid var(--pf-border-subtle);
+    background    : var(--pf-bg-inset);
+}
+
+.popup-deity-spells .gs-link-information {
+    color         : var(--pf-gold-bright);
+    cursor        : pointer;
+    border-bottom : 1px dotted var(--pf-border-gold);
+}
+
+.popup-deity-spells .gs-link-information:hover {
+    color : #FFFFFF;
+}
 
 /* ══════════════════════════════════════════
    PRÉREQUIS

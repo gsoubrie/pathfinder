@@ -292854,7 +292854,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aakriti",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine du Destin",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine du Savoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 3,
+                "name" : "Forme d'insecte",
+                "uuid" : "XI6Lzd2B5pernkPd"
+            },
+            {
+                "rank" : 9,
+                "name" : "Métamorphose",
+                "uuid" : "pswdik31kuHEvdno"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "d56paSkcwvll2OhR" : {
         "action_cost" : null,
@@ -292867,7 +292911,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Abadar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Terre",
+                "Domaine du Voyage",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine du Devoir",
+                "Domaine du Métal",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Objet illusoire",
+                "uuid" : "2oH5IufzdESuYxat"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète"
+        ]
     },
     "bLI1JMpI2GXQT5AC" : {
         "action_cost" : null,
@@ -292880,7 +292970,79 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Abraxas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine du Dragon"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Porteur fantomatique",
+                "uuid" : "rthC6dGm3nNrt1xN"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nid de serpent",
+                "uuid" : "xFp4EwVcYwSG336t"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            },
+            {
+                "rank" : 8,
+                "name" : "Observation implacable",
+                "uuid" : "y2cQYLr5mljDSu1G"
+            },
+            {
+                "rank" : 9,
+                "name" : "Magie détonante",
+                "uuid" : "kUSShxXzY1sPtJA0"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "XP0SPRL92tAPMV0K" : {
         "action_cost" : null,
@@ -292893,7 +293055,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Acavna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Famille",
+                "Domaine de la Lune",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Savoir",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arbre protecteur",
+                "uuid" : "K9gI08enGtmih5X1"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "51kMMWaT6CqpGlGk" : {
         "action_cost" : null,
@@ -292906,7 +293111,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Achaékek",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Puissance",
+                "Domaine de la Tromperie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine du Destin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            }
+        ],
+        "deity_weapons" : [
+            "Sabre dentelé"
+        ]
     },
     "gutbzYTZvRTnq4on" : {
         "action_cost" : null,
@@ -292919,7 +293167,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Adanye",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Feu"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Atterrissage en douceur",
+                "uuid" : "TTwOKGqmZeKSyNMH"
+            },
+            {
+                "rank" : 2,
+                "name" : "Magie déguisée",
+                "uuid" : "PRrZ7anETWPm90YY"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Kukri"
+        ]
     },
     "4Rjj2SA7xSxT1ftC" : {
         "action_cost" : null,
@@ -292932,7 +293224,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aegirran",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine des Rêves",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "gndfKuUTVDOubob2" : {
         "action_cost" : null,
@@ -292945,7 +293277,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aerekostes",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Guérison",
+                "Domaine du Savoir",
+                "Domaine du Métal"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lecture d'objet",
+                "uuid" : "5LYi9Efs6cko4GGL"
+            },
+            {
+                "rank" : 2,
+                "name" : "Assaut animé",
+                "uuid" : "WqPhJNzLa8vSjrH6"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            }
+        ],
+        "deity_weapons" : [
+            "Falcata"
+        ]
     },
     "JXAg05NcjHZbDqxl" : {
         "action_cost" : null,
@@ -292958,7 +293331,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aésocar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Guérison",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine du Savoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "dkKnv37c8RBPblgV" : {
         "action_cost" : null,
@@ -292971,7 +293386,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ah Pook",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Mort",
+                "Domaine de la Destruction",
+                "Domaine de la Lune"
+            ],
+            "alternate" : [
+                "Domaine de la Souffrance",
+                "Domaine de la Confidentialité",
+                "Domaine du Chagrin",
+                "Domaine de la Tromperie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 3,
+                "name" : "Souper du papillon de nuit",
+                "uuid" : "xabHqik5SoyDc5Db"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Macuahuitl"
+        ]
     },
     "pCtJONJlhAugUXaG" : {
         "action_cost" : null,
@@ -292984,7 +293444,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ahriman",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Mort",
+                "Domaine de la Destruction",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fracassement",
+                "uuid" : "1xbFBQDRs0hT5xZ9"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "yxttKoBEx93T3dWl" : {
         "action_cost" : null,
@@ -292997,7 +293499,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Alazhra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Rêves",
+                "Domaine des Cauchemars",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Délire",
+                "Domaine de l'Anéantissement",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 4,
+                "name" : "Cauchemar",
+                "uuid" : "Uqj344bezBq3ESdq"
+            },
+            {
+                "rank" : 8,
+                "name" : "Conseil onirique",
+                "uuid" : "rwCh2qTYPA44KEoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "2XM5clKBu67zJEwW" : {
         "action_cost" : null,
@@ -293010,7 +293556,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aleth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine des Rêves",
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'ombres",
+                "uuid" : "DeF63UTmr7rchF60"
+            },
+            {
+                "rank" : 7,
+                "name" : "Raid de l'ombre",
+                "uuid" : "VTb0yI6P1bLkzuRr"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "uXkMGx0OD896ZQlT" : {
         "action_cost" : null,
@@ -293023,7 +293612,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Alglenweis",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine de la Création",
+                "Domaine de la Puissance",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Agitation",
+                "uuid" : "r8g7oSumKOHDqJsd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Blizzard hurlant",
+                "uuid" : "xxWhyl81w3ckslAU"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "VRPVppdQ4W0oXeB1" : {
         "action_cost" : null,
@@ -293036,7 +293668,44 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Alocer",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Souffrance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "9n2CI0B3EA4y3BuU" : {
         "action_cost" : null,
@@ -293049,7 +293718,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Alséta",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Magie",
+                "Domaine de la Protection",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "iFF8oXwt6yePcwko" : {
         "action_cost" : null,
@@ -293062,7 +293773,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Amaznen",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes",
+                "Domaine du Métal",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 6,
+                "name" : "Arbre des saisons",
+                "uuid" : "u5FAOOXuqK7fLqKW"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "JFyAEoCo32fl3b74" : {
         "action_cost" : null,
@@ -293075,7 +293831,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aminara (homme-vert)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine du Changement",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Machette"
+        ]
     },
     "hT2prXTvejvNoCPB" : {
         "action_cost" : null,
@@ -293088,7 +293884,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ananshéa",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Souffrance",
+                "Domaine des Nuées",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction",
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Kukri"
+        ]
     },
     "CDkr6eXR1lgu7g6A" : {
         "action_cost" : null,
@@ -293101,7 +293940,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Andoletta",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Protection",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Atterrissage en douceur",
+                "uuid" : "TTwOKGqmZeKSyNMH"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            },
+            {
+                "rank" : 6,
+                "name" : "Transposition collective",
+                "uuid" : "c3XygMbzrZMgV1y3"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "cHAbE86pto5bvIWo" : {
         "action_cost" : null,
@@ -293114,7 +293993,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Angazhan",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine des Petits plaisirs",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Poing",
+            "Lance"
+        ]
     },
     "Xb1N5YfxboJH26Jh" : {
         "action_cost" : null,
@@ -293127,7 +294050,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Angradd",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine du Feu",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine du Savoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invectives torrides",
+                "uuid" : "hoR6w8BqX2F35Tdx"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "rXtm3Jbs7BBrxjk4" : {
         "action_cost" : null,
@@ -293140,7 +294106,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Anogetz",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Liberté",
+                "Domaine des Petits plaisirs",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "edfGQKkGBODi2BN0" : {
         "action_cost" : null,
@@ -293153,7 +294162,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Anras",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine du Destin",
+                "Domaine de la Lune",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine de la Foudre"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Foudroiement",
+                "uuid" : "zDJS8E66UI0himqV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur de vent",
+                "uuid" : "it4ZsAi6XgvGcodc"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Bô"
+        ]
     },
     "5YUNikBpJZ596MRD" : {
         "action_cost" : null,
@@ -293166,7 +294217,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Anubis",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Protection",
+                "Domaine de l'Âme",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 3,
+                "name" : "Sable mouvant",
+                "uuid" : "HcIAQZjNXHemoXSU"
+            },
+            {
+                "rank" : 5,
+                "name" : "Mur de pierre",
+                "uuid" : "kOa055FIrO9Smnya"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "BlHzQ693N9UdLVrR" : {
         "action_cost" : null,
@@ -293179,7 +294273,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aonaurious",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Mort",
+                "Domaine de la Puissance",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Destin",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "8xrpo05lZvTQaAkJ" : {
         "action_cost" : null,
@@ -293192,7 +294329,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Apep",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Destruction",
+                "Domaine du Dragon",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme monstrueuse",
+                "uuid" : "8AMvNVOUEtxBCDvJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "oJPwMa9xG8oMnC14" : {
         "action_cost" : null,
@@ -293205,7 +294382,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Apollyon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Décomposition",
+                "Domaine du Fléau",
+                "Domaine des Nuées"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "o8ayCv3LAHWlu0vQ" : {
         "action_cost" : null,
@@ -293218,7 +294435,56 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Apsu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Dragon",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation de dragon",
+                "uuid" : "kghwmH3tQjMIhdH1"
+            },
+            {
+                "rank" : 9,
+                "name" : "Chute d'étoiles",
+                "uuid" : "jrBa9deU2ULFWvSl"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Bâton"
+        ]
     },
     "HtRxo4J3elFteIqu" : {
         "action_cost" : null,
@@ -293231,7 +294497,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Arazni",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Liberté",
+                "Domaine de la Souffrance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mine psychique",
+                "uuid" : "fWU7Qjp1JiX9g6eg"
+            },
+            {
+                "rank" : 5,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "uydTiyN5AzhBnQY8" : {
         "action_cost" : null,
@@ -293244,7 +294553,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ardad Lili",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine des Ténèbres",
+                "Domaine du Dragon",
+                "Domaine de la Passion"
+            ],
+            "alternate" : [
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "BRqiW7ZvzhFDuiIw" : {
         "action_cost" : null,
@@ -293257,7 +294608,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Areshkagal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine du Voyage",
+                "Domaine de la Tromperie",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Embrouiller",
+                "uuid" : "pBevG6bSQOiyflev"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "neoMBrfYuNsmQagi" : {
         "action_cost" : null,
@@ -293270,7 +294664,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Aroden",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Création",
+                "Domaine du Destin",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Voyage",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "akcmQbvNWfhEfEhf" : {
         "action_cost" : null,
@@ -293283,7 +294722,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Arqueros",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Puissance",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 5,
+                "name" : "Mur de pierre",
+                "uuid" : "kOa055FIrO9Smnya"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "KDFujU3Yug6AwCOz" : {
         "action_cost" : null,
@@ -293296,7 +294777,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Arshéa",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Liberté",
+                "Domaine de la Passion",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "jrPmEfubRDzMKbxl" : {
         "action_cost" : null,
@@ -293309,7 +294830,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Arundhat",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Magie",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Passion"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Uni avec les plantes",
+                "uuid" : "dileJ0Yxqg76LMvu"
+            },
+            {
+                "rank" : 8,
+                "name" : "Pétales brûlants",
+                "uuid" : "kWDt0JcKPgX6MvdD"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "DJ7LDFTtns6YFodT" : {
         "action_cost" : null,
@@ -293322,7 +294885,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ashava",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Lune",
+                "Domaine de la Quiétude",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            },
+            {
+                "rank" : 8,
+                "name" : "Danse incontrôlable",
+                "uuid" : "Jvyy6oVIQsD34MHB"
+            }
+        ],
+        "deity_weapons" : [
+            "Écharpe tranchante"
+        ]
     },
     "RbslST0RZPXj6Eby" : {
         "action_cost" : null,
@@ -293335,7 +294940,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ashukharma",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Puissance",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Gemme explosive",
+                "uuid" : "0uRpypf1Hi7ahvTl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Façonnage de la pierre",
+                "uuid" : "McnPlLFvKtQVXNcG"
+            },
+            {
+                "rank" : 5,
+                "name" : "Mur de pierre",
+                "uuid" : "kOa055FIrO9Smnya"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "QRkcFciCOmFoxF1B" : {
         "action_cost" : null,
@@ -293348,7 +294994,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Asmodéus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Feu",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine des Glyphes",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "JDbrj8aKkLzdn8BU" : {
         "action_cost" : null,
@@ -293361,7 +295048,17 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Athéistes et agents libres",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "R0DvoLO8WbYIYhb3" : {
         "action_cost" : null,
@@ -293374,7 +295071,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Atréia",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine de la Guérison",
+                "Domaine de la Protection",
+                "Domaine du Soleil"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            }
+        ],
+        "deity_weapons" : [
+            "Katar"
+        ]
     },
     "ChiKlaNDNYgGqtF7" : {
         "action_cost" : null,
@@ -293387,7 +295124,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Atrogine",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malchance du miroir",
+                "uuid" : "A7w3YQBrFNH8KYsB"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Ongles",
+            "Serpe"
+        ]
     },
     "IY6fWfuIwSSIBb0Y" : {
         "action_cost" : null,
@@ -293400,7 +295181,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Atropos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Rêves",
+                "Domaine du Destin",
+                "Domaine de la Quiétude",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Famille",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Rétrécissement",
+                "uuid" : "PjhUmyKnq6K5uDby"
+            },
+            {
+                "rank" : 5,
+                "name" : "Stagnation du temps",
+                "uuid" : "3E1p58MNQMO4GAxt"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "aChBtIDfA59QQ7SN" : {
         "action_cost" : null,
@@ -293413,7 +295238,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ayrzul",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine de la Puissance",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine de la Poussière",
+                "Domaine du Métal",
+                "Domaine de la Mort-vivance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 6,
+                "name" : "Pétrifier",
+                "uuid" : "znv4ECL7ZtuiagtA"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "sILda7I8Ak20Ioj9" : {
         "action_cost" : null,
@@ -293426,7 +295296,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Azathoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Destruction",
+                "Domaine des Cauchemars",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : [
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            },
+            {
+                "rank" : 9,
+                "name" : "Chant énigmatique",
+                "uuid" : "FmNDwqMEjeTEGPrY"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "9WD0hbUT0IbnuTiM" : {
         "action_cost" : null,
@@ -293439,7 +295351,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Baalzébul",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de l'Ambition",
+                "Domaine de la Magie",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Confidentialité",
+                "Domaine des Nuées",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "cSakUTwOtxe6Y0rH" : {
         "action_cost" : null,
@@ -293452,7 +295408,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Baékho",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Foudroiement",
+                "uuid" : "zDJS8E66UI0himqV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Vision animale",
+                "uuid" : "1HfusQ8NDWutGvMx"
+            },
+            {
+                "rank" : 6,
+                "name" : "Arbre des saisons",
+                "uuid" : "u5FAOOXuqK7fLqKW"
+            }
+        ],
+        "deity_weapons" : [
+            "Katana"
+        ]
     },
     "1fmTXGRPa8fLXZKL" : {
         "action_cost" : null,
@@ -293465,7 +295465,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Balumbdar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Perfection",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme de dinosaure",
+                "uuid" : "KhM8MhoUgoUjBMIz"
+            }
+        ],
+        "deity_weapons" : [
+            "Massue"
+        ]
     },
     "aj4ChTlDcZCmrtJD" : {
         "action_cost" : null,
@@ -293478,7 +295518,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Baphomet",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance",
+                "Domaine de la Confidentialité",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 8,
+                "name" : "Dilemme",
+                "uuid" : "Oj1PJBMQD9vuwCv7"
+            }
+        ],
+        "deity_weapons" : [
+            "Coutille"
+        ]
     },
     "oiEo6tDP3gICHtfZ" : {
         "action_cost" : null,
@@ -293491,7 +295573,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Barbatos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Morsure d'araignée",
+                "uuid" : "DYdvMZ8G2LiSLVWw"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            },
+            {
+                "rank" : 4,
+                "name" : "Clairvoyance",
+                "uuid" : "zvKWclOZ7A53DObE"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "UUcAqU3KeJSMNxGF" : {
         "action_cost" : null,
@@ -293504,7 +295628,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Barzahk",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Savoir",
+                "Domaine du Voyage",
+                "Domaine de la Veille"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 6,
+                "name" : "Téléportation",
+                "uuid" : "69L70wKfGDY66Mk9"
+            }
+        ],
+        "deity_weapons" : [
+            "Gourdin"
+        ]
     },
     "zRmAXj7FSlrMfDeA" : {
         "action_cost" : null,
@@ -293517,7 +295681,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bastet",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Nature",
+                "Domaine de la Passion",
+                "Domaine de la Protection",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Forme de nuisible",
+                "uuid" : "gfPjmG6Fe6D3MFjl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Vision animale",
+                "uuid" : "1HfusQ8NDWutGvMx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bulle paisible",
+                "uuid" : "onjZCEHs3JJJRTD0"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Tekko-kagi"
+        ]
     },
     "fbpYf8NcLTzuBjua" : {
         "action_cost" : null,
@@ -293530,7 +295735,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Belech",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Maillet"
+        ]
     },
     "remyY1BwhEVmBwya" : {
         "action_cost" : null,
@@ -293543,7 +295789,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bélial",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Passion",
+                "Domaine de la Tromperie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "30uY6NkhYmPI3Oii" : {
         "action_cost" : null,
@@ -293556,7 +295844,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bergelmir",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Quiétude",
+                "Domaine de la Veille"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déjà vu",
+                "uuid" : "rerNA6YZsdxuJYt3"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Réécriture de la mémoire",
+                "uuid" : "FhOaQDTSnsY7tiam"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "eyGEoggFlTEUQmvJ" : {
         "action_cost" : null,
@@ -293569,7 +295897,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bès",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Chance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            }
+        ],
+        "deity_weapons" : [
+            "Mambele"
+        ]
     },
     "wkDOeK7ENz1ra8IC" : {
         "action_cost" : null,
@@ -293582,7 +295952,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Besmara",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Tromperie",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 5,
+                "name" : "Malédiction du marin",
+                "uuid" : "z2mfh3oPnfYqXflY"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "bc2B53BGQ7OOwZg6" : {
         "action_cost" : null,
@@ -293595,7 +296008,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bharnarol",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine du Devoir",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "oKuNQPNRHGong4jo" : {
         "action_cost" : null,
@@ -293608,7 +296063,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bifrons",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la confiance en soi",
+                "Domaine du Destin",
+                "Domaine de la Chance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vision faussée",
+                "uuid" : "RCbLd7dfquHnuvrZ"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "c9NFjRR8gr6CWpjl" : {
         "action_cost" : null,
@@ -293621,7 +296116,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Papillon noir",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Liberté",
+                "Domaine de la Confidentialité",
+                "Domaine des Étoiles",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flou",
+                "uuid" : "3JG1t3T4mWn6vTke"
+            },
+            {
+                "rank" : 4,
+                "name" : "Oscillation",
+                "uuid" : "zR67Rt3UMHKC5evy"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "aUkAP1fVqOjtRzkc" : {
         "action_cost" : null,
@@ -293634,7 +296169,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Fleurs de la Forêt Étendue",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine du Bois"
+            ],
+            "alternate" : [
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Flore florissante",
+                "uuid" : "b6AQvzs8EotmlK56"
+            },
+            {
+                "rank" : 2,
+                "name" : "Résilience du chêne",
+                "uuid" : "YWrfKetOqDwVFut7"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "Tqk5xJpDKI2MXO1R" : {
         "action_cost" : null,
@@ -293647,7 +296224,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bokrug",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine des Rêves",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            },
+            {
+                "rank" : 9,
+                "name" : "Tempête courroucée",
+                "uuid" : "yLJROsQtyrPIKcDx"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "HD7g8T8ioy1EH3M8" : {
         "action_cost" : null,
@@ -293660,7 +296278,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Bolka",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine de la Passion"
+            ],
+            "alternate" : [
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 6,
+                "name" : "Transposition collective",
+                "uuid" : "c3XygMbzrZMgV1y3"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "q8DsNpcH49PxObcd" : {
         "action_cost" : null,
@@ -293673,7 +296333,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Souffle du Ciel Infini",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Poussière",
+                "Domaine de la Liberté",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Froid",
+                "Domaine de la Foudre"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur de vent",
+                "uuid" : "it4ZsAi6XgvGcodc"
+            },
+            {
+                "rank" : 8,
+                "name" : "Vents punitifs",
+                "uuid" : "wi405lBjPcbF1DeR"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "vEMCpm7iidycRT5D" : {
         "action_cost" : null,
@@ -293686,7 +296390,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Brigh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine du Métal",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine du Feu"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Dupliquer l'ennemi",
+                "uuid" : "73rToy0v5Ra9NvL6"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "ColsorVmocw5Plmg" : {
         "action_cost" : null,
@@ -293699,7 +296447,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Brixori",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine de l'Introspection",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déjà vu",
+                "uuid" : "rerNA6YZsdxuJYt3"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation de dragon",
+                "uuid" : "kghwmH3tQjMIhdH1"
+            },
+            {
+                "rank" : 8,
+                "name" : "Dilemme",
+                "uuid" : "Oj1PJBMQD9vuwCv7"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "AlL9GtlTldbqNoVm" : {
         "action_cost" : null,
@@ -293712,7 +296506,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Calistria",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Souffrance",
+                "Domaine de la Passion",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "Byw9omVSNwYKcauw" : {
         "action_cost" : null,
@@ -293725,7 +296560,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Camazotz",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Abomination",
+                "Domaine des Ténèbres",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine de la Lune"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Tasse de poussière",
+                "uuid" : "10siFBMF4pIDhVmf"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Javelot"
+        ]
     },
     "soiVh53y9RAeSLEk" : {
         "action_cost" : null,
@@ -293738,7 +296616,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Casandalee",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Liberté",
+                "Domaine du Savoir",
+                "Domaine du Métal"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Foudre",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Porte tout",
+                "uuid" : "LvezN4a3kYf1OHMg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Outil universel"
+        ]
     },
     "v67fHklTZ6LoU54q" : {
         "action_cost" : null,
@@ -293751,7 +296674,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cayden Cailéan",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Liberté",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Abrutir",
+                "uuid" : "CQb8HtQ1BPeZmu9h"
+            },
+            {
+                "rank" : 5,
+                "name" : "Hallucination",
+                "uuid" : "U58aQWJ47VrI36yP"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "EE8sNM4JraOPN669" : {
         "action_cost" : null,
@@ -293764,7 +296727,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cernunnos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Foudre",
+                "Domaine de la Nature",
+                "Domaine de la Passion",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 3,
+                "name" : "Éclair",
+                "uuid" : "9AAkVUCwF6WVNNY2"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "SeD3n4VMk5EQJ2CI" : {
         "action_cost" : null,
@@ -293777,7 +296780,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ceyannan",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Quiétude",
+                "Domaine de l'Âme",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Message implanté",
+                "uuid" : "eIQ86FOXK34HiNLs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Espion de l'ombre",
+                "uuid" : "aq76wpgsVEENDyau"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "4GO4iT585ynLJnc8" : {
         "action_cost" : null,
@@ -293790,7 +296837,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chaldira",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Chance",
+                "Domaine de la Tromperie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "W7GPA9QiSrcbN7bX" : {
         "action_cost" : null,
@@ -293803,7 +296892,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chamiaholom",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Magie",
+                "Domaine des Cauchemars",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "yiKle2URZ43KYVKQ" : {
         "action_cost" : null,
@@ -293816,7 +296948,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chamidu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Foudre",
+                "Domaine de la Nature",
+                "Domaine des Cauchemars"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 3,
+                "name" : "Éclair",
+                "uuid" : "9AAkVUCwF6WVNNY2"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "kKdvt2m8MdsJ5aFb" : {
         "action_cost" : null,
@@ -293829,7 +297004,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Charg",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Abomination",
+                "Domaine du Délire",
+                "Domaine de la Puissance",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypnotiser",
+                "uuid" : "K2WpC3FFoHrqX9Q5"
+            },
+            {
+                "rank" : 5,
+                "name" : "Stagnation du temps",
+                "uuid" : "3E1p58MNQMO4GAxt"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre à deux mains"
+        ]
     },
     "tcXrtRYCOr2EmgGB" : {
         "action_cost" : null,
@@ -293842,7 +297060,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Charon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Savoir",
+                "Domaine de l'Âme",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            },
+            {
+                "rank" : 9,
+                "name" : "Fantasmagorie",
+                "uuid" : "MJx7DmjsWYzDZ3a4"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "zQbb1kAQJkPfiDIh" : {
         "action_cost" : null,
@@ -293855,7 +297113,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chavazvug",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Poussière",
+                "Domaine du Feu",
+                "Domaine de la Souffrance"
+            ],
+            "alternate" : [
+                "Domaine de l'Abomination",
+                "Domaine de la Mort"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            },
+            {
+                "rank" : 7,
+                "name" : "Éruption volcanique",
+                "uuid" : "O7ZEqWjwdKyo2CUv"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "BjOTP1lUHouAQzt4" : {
         "action_cost" : null,
@@ -293868,7 +297169,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Enfants de la Nuit",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Confidentialité",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'ombres",
+                "uuid" : "DeF63UTmr7rchF60"
+            },
+            {
+                "rank" : 7,
+                "name" : "Raid de l'ombre",
+                "uuid" : "VTb0yI6P1bLkzuRr"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "LidhlajmOHnmWDze" : {
         "action_cost" : null,
@@ -293881,7 +297225,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chinostes",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Mort",
+                "Domaine de la Chance",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 2,
+                "name" : "Adhérence du gecko",
+                "uuid" : "5KobTMrZeZxuXMgl"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "OlVCyRgOaPJji4qt" : {
         "action_cost" : null,
@@ -293894,7 +297279,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Chohar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine de la Famille",
+                "Domaine des Villes",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine du Labeur",
+                "Domaine de la Veille",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "fZ5caXxpdV1MErsa" : {
         "action_cost" : null,
@@ -293907,7 +297337,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cihua Coatl",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Puissance",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Quiétude",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "q4SyvGotD0LprYar" : {
         "action_cost" : null,
@@ -293920,7 +297395,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cixyron",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Foudre",
+                "Domaine du Métal",
+                "Domaine du Labeur"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction",
+                "Domaine du Feu"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arme conductrice",
+                "uuid" : "fkUCvynklBGb4LaI"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Mousquet à silex"
+        ]
     },
     "LqJkd54Vtq9yMduS" : {
         "action_cost" : null,
@@ -293933,7 +297452,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cong",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Liberté",
+                "Domaine de la Chance",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Graisse",
+                "uuid" : "Wu0xFpewMKRK3HG8"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 3,
+                "name" : "Singes fous",
+                "uuid" : "tFKJCPvOQZxKq6ON"
+            }
+        ],
+        "deity_weapons" : [
+            "Poële à frire"
+        ]
     },
     "yX5U1Uvdug9i08nU" : {
         "action_cost" : null,
@@ -293946,7 +297506,46 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ver conquérant",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la Terre"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 5,
+                "name" : "Sonde mentale",
+                "uuid" : "9BnhadUO8FMLmeZ3"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "YLftgCdyOyF22Gt6" : {
         "action_cost" : null,
@@ -293959,7 +297558,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cormigus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            },
+            {
+                "rank" : 9,
+                "name" : "Chant énigmatique",
+                "uuid" : "FmNDwqMEjeTEGPrY"
+            }
+        ],
+        "deity_weapons" : [
+            "Flissa"
+        ]
     },
     "KMS0QEsoh4nzKkmu" : {
         "action_cost" : null,
@@ -293972,7 +297614,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cormion",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Chance",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Hachette"
+        ]
     },
     "Adk14fcM9UHCQWb1" : {
         "action_cost" : null,
@@ -293985,7 +297667,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Corosbel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Confidentialité",
+                "Domaine de l'Âme",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Tyrannie",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Cauchemar",
+                "uuid" : "Uqj344bezBq3ESdq"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "oV5cnlPJQS8JfMIg" : {
         "action_cost" : null,
@@ -293998,7 +297724,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Caravane cosmique",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine du Destin",
+                "Domaine de la Liberté",
+                "Domaine de la Lune"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 9,
+                "name" : "Chute d'étoiles",
+                "uuid" : "jrBa9deU2ULFWvSl"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "vSUz97Y29l1O50bC" : {
         "action_cost" : null,
@@ -294011,7 +297781,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Comte Ranalc",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Ténèbres",
+                "Domaine du Chagrin",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bulle paisible",
+                "uuid" : "onjZCEHs3JJJRTD0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "tnAmR9WxWoEehDZw" : {
         "action_cost" : null,
@@ -294024,7 +297837,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cthulhu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Délire",
+                "Domaine des Cauchemars",
+                "Domaine de l'Anéantissement",
+                "Domaine des Étoiles"
+            ],
+            "alternate" : [
+                "Domaine de l'Eau"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 4,
+                "name" : "Cauchemar",
+                "uuid" : "Uqj344bezBq3ESdq"
+            },
+            {
+                "rank" : 5,
+                "name" : "Géométrie étrange",
+                "uuid" : "m4Mc5XbdML92BKOE"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "gXHoxuuiAD54LnWV" : {
         "action_cost" : null,
@@ -294037,7 +297892,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Cyth-V'sug",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Décomposition",
+                "Domaine de la Nature",
+                "Domaine du Fléau"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Hyphe fongique",
+                "uuid" : "oNUyCqbpGWHifS02"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "qfbZbNGQiiJ9hciP" : {
         "action_cost" : null,
@@ -294050,7 +297948,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dachzérul",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Chance",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Mort",
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Saut temporel",
+                "uuid" : "qJGW6BbIcU6sfA1d"
+            },
+            {
+                "rank" : 5,
+                "name" : "Hallucination",
+                "uuid" : "U58aQWJ47VrI36yP"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "AHX89nhuVhmg8k6w" : {
         "action_cost" : null,
@@ -294063,7 +298004,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dagon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Destruction",
+                "Domaine de l'Eau",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Abomination"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "Bzfc5mIUfMxOnQWu" : {
         "action_cost" : null,
@@ -294076,7 +298059,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dahak",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Dragon",
+                "Domaine de la Destruction",
+                "Domaine du Feu",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation de dragon",
+                "uuid" : "kghwmH3tQjMIhdH1"
+            },
+            {
+                "rank" : 9,
+                "name" : "Implosion",
+                "uuid" : "4WS7HrFjwNvTn8T2"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Fouet"
+        ]
     },
     "M3eb94Nd6uXti2IK" : {
         "action_cost" : null,
@@ -294089,7 +298118,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Daikitsu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine de la Nature"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Forme de nuisible",
+                "uuid" : "gfPjmG6Fe6D3MFjl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "XaaDDVS4sEJd4m99" : {
         "action_cost" : null,
@@ -294102,7 +298171,54 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dajermube",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Liberté",
+                "Domaine de la Lune",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine de la Liberté",
+                "Domaine de l'Introspection",
+                "Domaine des Étoiles",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déguisement pénombral",
+                "uuid" : "QZ7OHptO1xnwaruq"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Grand pic de guerre"
+        ]
     },
     "hV4OjuhTOFG7jUB4" : {
         "action_cost" : null,
@@ -294115,7 +298231,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dalenydra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Entrée liminaire",
+                "uuid" : "OM5NeD7a1CYNqy8S"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse légère"
+        ]
     },
     "eTzCA17qD0Tabq3i" : {
         "action_cost" : null,
@@ -294128,7 +298287,34 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dammar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Chance",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : [
+                "Domaine de la Protection",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "H1VrZ1QX0d2aPXT8" : {
         "action_cost" : null,
@@ -294141,7 +298327,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dammerich",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Devoir",
+                "Domaine de la Vérité",
+                "Domaine de la Veille"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "y3RlZ3FnbZN8wv8j" : {
         "action_cost" : null,
@@ -294154,7 +298381,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Porteurs de démons",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Armure mystique",
+                "uuid" : "aAbfKn8maGjJjk2W"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Khopesh"
+        ]
     },
     "w4aANcazJr1dSH0c" : {
         "action_cost" : null,
@@ -294167,7 +298437,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Deshto",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine du Voyage",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Malédiction du marin",
+                "uuid" : "z2mfh3oPnfYqXflY"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "JgqH3BhuEuA4Zyqs" : {
         "action_cost" : null,
@@ -294180,7 +298492,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Desna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Rêves",
+                "Domaine de la Chance",
+                "Domaine de la Lune",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement",
+                "Domaine de la Quiétude",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "dcbf3pBSNa2q1Kkq" : {
         "action_cost" : null,
@@ -294193,7 +298549,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dhalavei",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée du temple"
+        ]
     },
     "XHDlP7o1jNz9851v" : {
         "action_cost" : null,
@@ -294206,7 +298603,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Diomazul",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine de l'Eau",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mues de peau",
+                "uuid" : "X3dYByf3YmkcdwG0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "CzHjFLx4hpIEIoWt" : {
         "action_cost" : null,
@@ -294219,7 +298658,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dispater",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la confiance en soi",
+                "Domaine du Devoir",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Relier",
+                "uuid" : "MVrxZarUTnJxAUN8"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 6,
+                "name" : "Pétrifier",
+                "uuid" : "znv4ECL7ZtuiagtA"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "BYx7QoQhCBUGlWpl" : {
         "action_cost" : null,
@@ -294232,7 +298713,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dolok Noirpelage",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Puissance",
+                "Domaine de la Nature"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Heurtoir de guerre"
+        ]
     },
     "AMFkYKUNQ3kCD0ob" : {
         "action_cost" : null,
@@ -294245,7 +298767,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Doloras",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Souffrance",
+                "Domaine de la Quiétude",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cloué à terre",
+                "uuid" : "gPvtmKMRpg9I9D7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            }
+        ],
+        "deity_weapons" : [
+            "Kukri"
+        ]
     },
     "f890Kbsk5dxrmU5h" : {
         "action_cost" : null,
@@ -294258,7 +298822,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dramindyr",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Anéantissement",
+                "Domaine de la Perfection",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Terre interposée",
+                "uuid" : "HokKyQl5g655xx9U"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 5,
+                "name" : "Passage magique",
+                "uuid" : "115Xp9E38CJENhNS"
+            }
+        ],
+        "deity_weapons" : [
+            "Pointes de bouclier"
+        ]
     },
     "oyp2E685VsQFKMXi" : {
         "action_cost" : null,
@@ -294271,7 +298876,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dranngvit",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Puissance",
+                "Domaine du Voyage",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Destin",
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 5,
+                "name" : "Passage magique",
+                "uuid" : "115Xp9E38CJENhNS"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic léger"
+        ]
     },
     "DUaWAIn8nUMx5AIE" : {
         "action_cost" : null,
@@ -294284,7 +298933,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Drokalion",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Nature",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 5,
+                "name" : "Couverture caméléon",
+                "uuid" : "xPrbxyOEwy9QaPVn"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Pic"
+        ]
     },
     "39z55kowQFOUH2v0" : {
         "action_cost" : null,
@@ -294297,7 +298988,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Droskar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Terre",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine du Feu",
+                "Domaine du Métal"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "aVyxfqY9GBjTqQul" : {
         "action_cost" : null,
@@ -294310,7 +299045,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Eiseth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Feu"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "29jHeZ1jA23AnZrV" : {
         "action_cost" : null,
@@ -294323,7 +299100,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Élion",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Famille",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 7,
+                "name" : "Récupération momentanée",
+                "uuid" : "ggtZTxeyEnDYbt6f"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "hDNLCRnDjYqmPYv6" : {
         "action_cost" : null,
@@ -294336,7 +299154,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Embaral",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Chagrin",
+                "Domaine de la Veille",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Couteau à souhait"
+        ]
     },
     "K4s8a6gI1OmuWhMk" : {
         "action_cost" : null,
@@ -294349,7 +299210,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Emmeton Galardaria",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine du Devoir",
+                "Domaine de la Famille",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Voyage",
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Poële à frire"
+        ]
     },
     "upRQcwjjaksc1g7h" : {
         "action_cost" : null,
@@ -294362,7 +299266,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Enkaar, le Prisonnier malformé (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lecture des pensées",
+                "uuid" : "KHnhPHL4x1AQHfbC"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "mm1j6UbHqFCI8fwB" : {
         "action_cost" : null,
@@ -294375,7 +299319,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Érastil",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Nature",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "Dm8qlzpUj7g82QFv" : {
         "action_cost" : null,
@@ -294388,7 +299374,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Érécura",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse légère"
+        ]
     },
     "8DXel4AvpyUy6oJ0" : {
         "action_cost" : null,
@@ -294401,7 +299428,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Éritrice",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 2,
+                "name" : "Message implanté",
+                "uuid" : "eIQ86FOXK34HiNLs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "3lgzcg84J0fsVqjh" : {
         "action_cost" : null,
@@ -294414,7 +299483,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ordre ésotérique de l'Oeil palatin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Devoir",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes",
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Poche de temps",
+                "uuid" : "0Rl3W7kiq9xVZRcr"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée canne"
+        ]
     },
     "1wKxFamTt3A3ZohD" : {
         "action_cost" : null,
@@ -294427,7 +299540,57 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Danseurs d'Essence",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Dragon",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : [
+                "Domaine de la Nature",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation de dragon",
+                "uuid" : "kghwmH3tQjMIhdH1"
+            },
+            {
+                "rank" : 8,
+                "name" : "Dilemme",
+                "uuid" : "Oj1PJBMQD9vuwCv7"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Tekko-kagi"
+        ]
     },
     "AEj745gVsRehu2EL" : {
         "action_cost" : null,
@@ -294440,7 +299603,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Étaris",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Nature",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine de l'Abomination",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Communication avec les animaux",
+                "uuid" : "BBvV7qoXGdw09q1C"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nid de serpent",
+                "uuid" : "xFp4EwVcYwSG336t"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "pqrmviqboqjeS4z8" : {
         "action_cost" : null,
@@ -294453,7 +299659,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yeux veilleurs (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lecture des pensées",
+                "uuid" : "KHnhPHL4x1AQHfbC"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "8xYnD5FuLI4RSJN8" : {
         "action_cost" : null,
@@ -294466,7 +299712,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Foi envers les Tombés",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine du Destin",
+                "Domaine du Chagrin",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Souffrance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 6,
+                "name" : "Balancer dans le temps",
+                "uuid" : "OdqM06M0wDUqZWiR"
+            }
+        ],
+        "deity_weapons" : [
+            "Coutille"
+        ]
     },
     "IXLzDSMGndFb5rGY" : {
         "action_cost" : null,
@@ -294479,7 +299769,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Falayna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "9vcKBv8h5vugb8lL" : {
         "action_cost" : null,
@@ -294492,7 +299825,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Fandarra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Nature"
+            ],
+            "alternate" : [
+                "Domaine de la Terre"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pustule",
+                "uuid" : "59NR1hA2jPSgg2sW"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "RnS5P7zX0HRPsDnt" : {
         "action_cost" : null,
@@ -294505,7 +299880,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ferrumnestra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Destruction",
+                "Domaine du Métal",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : [
+                "Domaine du Chagrin",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arme conductrice",
+                "uuid" : "fkUCvynklBGb4LaI"
+            },
+            {
+                "rank" : 3,
+                "name" : "Métaux nocifs",
+                "uuid" : "3A3ueS9Q0s3U8KXE"
+            },
+            {
+                "rank" : 4,
+                "name" : "Nuage de rouille",
+                "uuid" : "yy2K51kK3a60rRIe"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic"
+        ]
     },
     "0BH54ZVR8NcrGlMu" : {
         "action_cost" : null,
@@ -294518,7 +299936,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Findeladlara",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine des Étoiles"
+            ],
+            "alternate" : [
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Façonnage de la pierre",
+                "uuid" : "McnPlLFvKtQVXNcG"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "VEyowuhC4FsBnG8c" : {
         "action_cost" : null,
@@ -294531,7 +299991,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Folgrit",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Famille",
+                "Domaine de la Quiétude",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            },
+            {
+                "rank" : 9,
+                "name" : "Manoir resplendissant",
+                "uuid" : "KPDHmmjJiw7PhTYF"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "zhXBavaHMCwnVpYA" : {
         "action_cost" : null,
@@ -294544,7 +300047,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Destin de la Fortune",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Rêves",
+                "Domaine du Destin",
+                "Domaine de la Chance"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine du Délirium"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Éventail de combat"
+        ]
     },
     "6O4UGWcYERDEugzk" : {
         "action_cost" : null,
@@ -294557,7 +300103,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Fumeiyoshi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine des Petits plaisirs"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 2,
+                "name" : "Festin de cendres",
+                "uuid" : "siU9xRlqWXeKT0mH"
+            },
+            {
+                "rank" : 7,
+                "name" : "Possession",
+                "uuid" : "wU6hNzK8Yfqdmc8m"
+            }
+        ],
+        "deity_weapons" : [
+            "Naginata"
+        ]
     },
     "qmAMERMn2FvvvQwc" : {
         "action_cost" : null,
@@ -294570,7 +300158,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Furcas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine de la Nature",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "f3DIcotFvBkldMUO" : {
         "action_cost" : null,
@@ -294583,7 +300214,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gaasham",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Création",
+                "Domaine du Dragon",
+                "Domaine du Labeur"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lecture d'objet",
+                "uuid" : "5LYi9Efs6cko4GGL"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            },
+            {
+                "rank" : 9,
+                "name" : "Manoir resplendissant",
+                "uuid" : "KPDHmmjJiw7PhTYF"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Marteau de guerre léger"
+        ]
     },
     "yyqLBsREH5PGMPxm" : {
         "action_cost" : null,
@@ -294596,7 +300271,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Garzaazh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine du Dragon",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Nature",
+                "Domaine de la Passion"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vapeurs nocives",
+                "uuid" : "1meVElIu1CEVYWkv"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pique empaleuse",
+                "uuid" : "oXeEbcUdgJGWHGEJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Lance"
+        ]
     },
     "3ffVxwgtvR1imHm8" : {
         "action_cost" : null,
@@ -294609,7 +300329,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gendowyn",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Chance",
+                "Domaine de la Nature"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de fée",
+                "uuid" : "hs7h8f4Z1ZNdUt3s"
+            },
+            {
+                "rank" : 2,
+                "name" : "Résilience du chêne",
+                "uuid" : "YWrfKetOqDwVFut7"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "Zi1UARhode3FSFLr" : {
         "action_cost" : null,
@@ -294622,7 +300382,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Général Susumu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur de vent",
+                "uuid" : "it4ZsAi6XgvGcodc"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long",
+            "Arc court"
+        ]
     },
     "auHS1P7mXJjO2QlY" : {
         "action_cost" : null,
@@ -294635,7 +300436,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Genzaéri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine du Savoir",
+                "Domaine de la Perfection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet à lame"
+        ]
     },
     "WOiSJ4IWjaRsSgRO" : {
         "action_cost" : null,
@@ -294648,7 +300492,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Géryon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Vérité",
+                "Domaine de l'Eau",
+                "Domaine du Dragon"
+            ],
+            "alternate" : [
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Explosion d'acide",
+                "uuid" : "rnNGALRtsjspFTws"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "oRvuLq3o2FxXizt9" : {
         "action_cost" : null,
@@ -294661,7 +300548,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ghlaunder",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Décomposition",
+                "Domaine du Fléau",
+                "Domaine des Nuées"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 3,
+                "name" : "Forme d'insecte",
+                "uuid" : "XI6Lzd2B5pernkPd"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "oduHa5yyTisFsIRD" : {
         "action_cost" : null,
@@ -294674,7 +300604,17 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Appelle-dieu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "RUzMtIQal0drPwQY" : {
         "action_cost" : null,
@@ -294687,7 +300627,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gogunta",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance",
+                "Domaine de la Tyrannie",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nid de serpent",
+                "uuid" : "xFp4EwVcYwSG336t"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "kqO3mcoq1EVRSYxF" : {
         "action_cost" : null,
@@ -294700,7 +300680,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Les Bons Voisins",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Guérison",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine des Villes"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 5,
+                "name" : "Transport télékinésique",
+                "uuid" : "tpLTLbJUrYcMWGld"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "88vRw2ZVPax4hhga" : {
         "action_cost" : null,
@@ -294713,7 +300735,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gorum",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "swwwP7eVmlNuWTb7" : {
         "action_cost" : null,
@@ -294726,7 +300789,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gozreh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Éclair",
+                "uuid" : "9AAkVUCwF6WVNNY2"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "fuPTR1laXO6EionS" : {
         "action_cost" : null,
@@ -294739,7 +300842,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Grand-mère araignée",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine du Destin",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine des Ténèbres"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Forme de nuisible",
+                "uuid" : "gfPjmG6Fe6D3MFjl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Toile d'araignée",
+                "uuid" : "9s5tqqXNzcoKamWx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            }
+        ],
+        "deity_weapons" : [
+            "Bolas"
+        ]
     },
     "1TDsbM52mkWBxlur" : {
         "action_cost" : null,
@@ -294752,7 +300899,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Grand'oncle Primeracine (Homme-vert)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine des Rêves",
+                "Domaine de la Terre"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Uni avec la pierre",
+                "uuid" : "vh1RpbWfqdNC4L3P"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "6gxC5awANDFs1kLM" : {
         "action_cost" : null,
@@ -294765,7 +300952,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Grask Uldeth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Villes",
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine de la Tyrannie",
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "XxIxEaW8NG952Bc0" : {
         "action_cost" : null,
@@ -294778,7 +301009,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Iovett la Prise (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lecture des pensées",
+                "uuid" : "KHnhPHL4x1AQHfbC"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "QArqJ387HeYgGZxG" : {
         "action_cost" : null,
@@ -294791,7 +301062,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La garde de la Dame des tombes",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Mort",
+                "Domaine du Destin",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Salve de force",
+                "uuid" : "gKKqvLohtrSJj3BM"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "KT7HKL7vbZEwbzX4" : {
         "action_cost" : null,
@@ -294804,7 +301115,57 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Verte religion",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Terre",
+                "Domaine du Feu",
+                "Domaine du Métal",
+                "Domaine de la Nature",
+                "Domaine de l'Eau",
+                "Domaine du Bois"
+            ],
+            "alternate" : [
+                "Domaine du Froid",
+                "Domaine de la Décomposition",
+                "Domaine de la Foudre",
+                "Domaine de la Lune",
+                "Domaine du Soleil"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Communication avec les animaux",
+                "uuid" : "BBvV7qoXGdw09q1C"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe",
+            "Griffe"
+        ]
     },
     "McUqN13BGLTpYWCg" : {
         "action_cost" : null,
@@ -294817,7 +301178,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Homme vert",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flore enchevêtrante",
+                "uuid" : "J6vNvrUT3b1hx2iA"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Gourdin"
+        ]
     },
     "WloVxo6HXJdS4YTt" : {
         "action_cost" : null,
@@ -294830,7 +301231,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Groétus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Destruction",
+                "Domaine des Cauchemars",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            },
+            {
+                "rank" : 9,
+                "name" : "Magie détonante",
+                "uuid" : "kUSShxXzY1sPtJA0"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "tcvobm8O84qv0aO5" : {
         "action_cost" : null,
@@ -294843,7 +301286,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gruhastha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Perfection",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Nature",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Télépathie",
+                "uuid" : "HqTI6wRrck1YXp3F"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "tk7gRxXsqvBwQrUF" : {
         "action_cost" : null,
@@ -294856,7 +301343,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Grundinnar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "0uKqA42aPdHEqESI" : {
         "action_cost" : null,
@@ -294869,7 +301398,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gardiens du Moi Sacré",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 4,
+                "name" : "Oscillation",
+                "uuid" : "zR67Rt3UMHKC5evy"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "zlJGKpeLBwajP91o" : {
         "action_cost" : null,
@@ -294882,7 +301454,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gyronna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Cauchemars",
+                "Domaine de la Souffrance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Paranoïa",
+                "uuid" : "Mkbq9xlAUxHUHyR2"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "Y6tbAWlcccGlUH0z" : {
         "action_cost" : null,
@@ -294895,7 +301507,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Haagenti",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Puissance",
+                "Domaine du Labeur",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de créature artificielle",
+                "uuid" : "lKcsmeOrgHtK4xQa"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malédiction bestiale",
+                "uuid" : "VuPDHoVEPLbMfCJC"
+            }
+        ],
+        "deity_weapons" : [
+            "Hache d'armes"
+        ]
     },
     "JEZ6ZZc2aCzWyu8P" : {
         "action_cost" : null,
@@ -294908,7 +301564,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Haborym",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine de la Protection",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Puissance",
+                "Domaine du Labeur",
+                "Domaine de la Tyrannie",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Foudroiement",
+                "uuid" : "zDJS8E66UI0himqV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Prison ectoplasmique",
+                "uuid" : "Pwq6T7xpfAJXV5aj"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Pique"
+        ]
     },
     "3c15mKInre8c2iRo" : {
         "action_cost" : null,
@@ -294921,7 +301622,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hadregash",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Puissance",
+                "Domaine de la Souffrance",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fracassement",
+                "uuid" : "1xbFBQDRs0hT5xZ9"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme monstrueuse",
+                "uuid" : "8AMvNVOUEtxBCDvJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "xpny4ZzlExIbGs6a" : {
         "action_cost" : null,
@@ -294934,7 +301677,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Haggakal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Bouc émissaire",
+                "uuid" : "lONs4r14LEBZRLLw"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme d'aberration",
+                "uuid" : "Fu8Ml47ZfXpSYe7E"
+            }
+        ],
+        "deity_weapons" : [
+            "Massue"
+        ]
     },
     "K1tzUClsozKcdpIe" : {
         "action_cost" : null,
@@ -294947,7 +301730,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Halcamora",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Chance",
+                "Domaine de la Nature",
+                "Domaine des Nuées"
+            ],
+            "alternate" : [
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Abrutir",
+                "uuid" : "CQb8HtQ1BPeZmu9h"
+            },
+            {
+                "rank" : 4,
+                "name" : "Communication avec les plantes",
+                "uuid" : "qvwIwJ9QBihy8R0t"
+            }
+        ],
+        "deity_weapons" : [
+            "Gourdin"
+        ]
     },
     "QlDnoOwf0PppymTn" : {
         "action_cost" : null,
@@ -294960,7 +301785,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hanspur",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Voyage",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "WvoMr86bSSYxXKtI" : {
         "action_cost" : null,
@@ -294973,7 +301841,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hastur",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine de l'Anéantissement",
+                "Domaine de la Confidentialité",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Confusion",
+                "uuid" : "LiGbewa9pO0yjbsY"
+            },
+            {
+                "rank" : 5,
+                "name" : "Hallucination",
+                "uuid" : "U58aQWJ47VrI36yP"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "19qKU9wPd0JctskB" : {
         "action_cost" : null,
@@ -294986,7 +301894,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hataam",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Foudre",
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Froid",
+                "Domaine de la Poussière"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Bolas"
+        ]
     },
     "TpAMy8tb5LrRgvqN" : {
         "action_cost" : null,
@@ -294999,7 +301950,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hathor",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Passion",
+                "Domaine du Soleil",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Uni avec les plantes",
+                "uuid" : "dileJ0Yxqg76LMvu"
+            },
+            {
+                "rank" : 8,
+                "name" : "Danse incontrôlable",
+                "uuid" : "Jvyy6oVIQsD34MHB"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "w7B4HD5XOFaLb3ZG" : {
         "action_cost" : null,
@@ -295012,7 +302005,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Foyer et Récolte",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Famille",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine de la Guérison"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 2,
+                "name" : "Façonnage du bois",
+                "uuid" : "CXICME10TkEJxz0P"
+            },
+            {
+                "rank" : 4,
+                "name" : "Communication avec les plantes",
+                "uuid" : "qvwIwJ9QBihy8R0t"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "DEKKbg6riAdL2ARf" : {
         "action_cost" : null,
@@ -295025,7 +302061,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hei Feng",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Foudre",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Jiu huan dao"
+        ]
     },
     "rRuxBgC58PxrLzRv" : {
         "action_cost" : null,
@@ -295038,7 +302118,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Horus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Lune",
+                "Domaine de la Protection",
+                "Domaine du Soleil"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Porte tout",
+                "uuid" : "LvezN4a3kYf1OHMg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur de vent",
+                "uuid" : "it4ZsAi6XgvGcodc"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            }
+        ],
+        "deity_weapons" : [
+            "Khopesh"
+        ]
     },
     "A37XqON6QRPzQhp7" : {
         "action_cost" : null,
@@ -295051,7 +302171,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Hshurha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine du Froid",
+                "Domaine de la Destruction",
+                "Domaine de la Poussière"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "Gy78DCwfY4ltBGI6" : {
         "action_cost" : null,
@@ -295064,7 +302224,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dépouille (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lecture des pensées",
+                "uuid" : "KHnhPHL4x1AQHfbC"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "bmOKsNOZymMijc4m" : {
         "action_cost" : null,
@@ -295077,7 +302277,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Iapholi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de l'Introspection",
+                "Domaine de la Puissance",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Peau épaisse",
+                "uuid" : "3TuGuGZqyOBmWp7N"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme monstrueuse",
+                "uuid" : "8AMvNVOUEtxBCDvJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "EDmAlxCXJHv8rZs2" : {
         "action_cost" : null,
@@ -295090,7 +302331,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Iggeret",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de l'Anéantissement",
+                "Domaine de la Protection",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de la Mort",
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            },
+            {
+                "rank" : 7,
+                "name" : "Projection d'image",
+                "uuid" : "0873MWM0qKDDv81O"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "i79OCvsFlDGqYjTk" : {
         "action_cost" : null,
@@ -295103,7 +302387,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Il'Surrish",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine de la Nature",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais chemin",
+                "uuid" : "iohRnd4gUCmJlh54"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            },
+            {
+                "rank" : 7,
+                "name" : "Possession",
+                "uuid" : "wU6hNzK8Yfqdmc8m"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Poing"
+        ]
     },
     "VvxEvEKhCGRwrMJp" : {
         "action_cost" : null,
@@ -295116,7 +302445,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Imbrex",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Rêves",
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 7,
+                "name" : "Dupliquer l'ennemi",
+                "uuid" : "73rToy0v5Ra9NvL6"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "CnEpvcfRgtAp1V31" : {
         "action_cost" : null,
@@ -295129,7 +302501,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Croissance Immaculée",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de la Perfection",
+                "Domaine du Bois"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Terre"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flore enchevêtrante",
+                "uuid" : "J6vNvrUT3b1hx2iA"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "smGfeOk8Jgcz0Qkv" : {
         "action_cost" : null,
@@ -295142,7 +302557,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Immonhiel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Hachette"
+        ]
     },
     "KIEgpcmHYtFu1dpg" : {
         "action_cost" : null,
@@ -295155,7 +302610,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Imot",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Destruction",
+                "Domaine du Destin",
+                "Domaine des Glyphes"
+            ],
+            "alternate" : [
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Paranoïa",
+                "uuid" : "Mkbq9xlAUxHUHyR2"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "pEm6tEGOhUbnwX4p" : {
         "action_cost" : null,
@@ -295168,7 +302666,36 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Inna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Métal",
+                "Domaine des Étoiles",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine du Feu",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : [
+            "Bombe alchimique"
+        ]
     },
     "eErEiVmBqltYXFJ6" : {
         "action_cost" : null,
@@ -295181,7 +302708,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Iomédae",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance",
+                "Domaine de la Vérité",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "lSciGZGcbU9PJxQy" : {
         "action_cost" : null,
@@ -295194,7 +302763,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Irèz",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine des Glyphes",
+                "Domaine de la Chance",
+                "Domaine de la Magie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 2,
+                "name" : "Extraction ombrale",
+                "uuid" : "EDwakYQTS1t6XHD4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléchette"
+        ]
     },
     "qqqrbq4uCrelQvgH" : {
         "action_cost" : null,
@@ -295207,7 +302816,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Irori",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Puissance",
+                "Domaine de la Perfection",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de l'Introspection",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Poing"
+        ]
     },
     "EFyDjlH7XjGq7Erd" : {
         "action_cost" : null,
@@ -295220,7 +302874,77 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Isis",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine de la Magie",
+                "Domaine de la Passion"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Vision animale",
+                "uuid" : "1HfusQ8NDWutGvMx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            },
+            {
+                "rank" : 8,
+                "name" : "Migration",
+                "uuid" : "U0hL0LLaprcnAyzC"
+            },
+            {
+                "rank" : 9,
+                "name" : "Métamorphose",
+                "uuid" : "pswdik31kuHEvdno"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "Ig2ZSxvJ0K7F2Bb7" : {
         "action_cost" : null,
@@ -295233,7 +302957,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Isph-Aun-Vuln",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine du Délire",
+                "Domaine du Fléau",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Confidentialité",
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "LJr99kbbzzgh4IZm" : {
         "action_cost" : null,
@@ -295246,7 +303013,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Izuyaku",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Puissance",
+                "Domaine de la Quiétude",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 5,
+                "name" : "Geyser",
+                "uuid" : "i88Vi47PDDoP6gQv"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau météore"
+        ]
     },
     "aLCfEgt48SRUHnMC" : {
         "action_cost" : null,
@@ -295259,7 +303069,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Jaïdi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arbre protecteur",
+                "uuid" : "K9gI08enGtmih5X1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "bF77ydtptI54STl9" : {
         "action_cost" : null,
@@ -295272,7 +303125,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Jaidz",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Cauchemars",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "5QjycohRhMIejeN7" : {
         "action_cost" : null,
@@ -295285,7 +303181,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Jézelda",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine de la Lune",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Ombres sauvages",
+                "uuid" : "Ru9v8U9IRk3LtWx8"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Cimeterre"
+        ]
     },
     "w9vtltygWNG4eZDR" : {
         "action_cost" : null,
@@ -295298,7 +303238,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Jin Li",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Changement",
+                "Domaine de la Puissance",
+                "Domaine du Labeur"
+            ],
+            "alternate" : [
+                "Domaine de l'Eau",
+                "Domaine de la Chance"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            }
+        ],
+        "deity_weapons" : [
+            "Sansetsukon"
+        ]
     },
     "sezTnLBBCYv3ZrZN" : {
         "action_cost" : null,
@@ -295311,7 +303294,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Jukha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de l'Introspection",
+                "Domaine de la Lune",
+                "Domaine de la Nature"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cloué à terre",
+                "uuid" : "gPvtmKMRpg9I9D7H"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "V5PbbkZUP9N7kl6h" : {
         "action_cost" : null,
@@ -295324,7 +303347,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kabriri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine du Savoir",
+                "Domaine de la Mort-vivance",
+                "Domaine de la Veille"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 2,
+                "name" : "Excavation expéditive",
+                "uuid" : "aXoh6OQAL57lgh0a"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Fléau"
+        ]
     },
     "GFDsfRLFINnaHDTw" : {
         "action_cost" : null,
@@ -295337,7 +303400,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kagia",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Nature",
+                "Domaine de la Quiétude",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "hLq1IF3mT8zOfUaE" : {
         "action_cost" : null,
@@ -295350,7 +303456,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kaldemash",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Savoir",
+                "Domaine de la Chance",
+                "Domaine des Étoiles"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison",
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Clairvoyance",
+                "uuid" : "zvKWclOZ7A53DObE"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Pistolet de duel"
+        ]
     },
     "kiTcZxmKxGPCwDpg" : {
         "action_cost" : null,
@@ -295363,7 +303513,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kalekot",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Nature",
+                "Domaine des Cauchemars",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine des Ténèbres",
+                "Domaine du Dragon"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Dague"
+        ]
     },
     "iXvyp9rGnqvFfy4q" : {
         "action_cost" : null,
@@ -295376,7 +303570,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kazutal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Machette"
+        ]
     },
     "AJ7Wgpj5Ext9wbtj" : {
         "action_cost" : null,
@@ -295389,7 +303626,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gardiens du foyer",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Armure mystique",
+                "uuid" : "aAbfKn8maGjJjk2W"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "u0H9wcgttBI9Ef1j" : {
         "action_cost" : null,
@@ -295402,7 +303679,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kélinahat",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 4,
+                "name" : "Surcharge oculaire",
+                "uuid" : "HvBpSeUDg0KcK2Hg"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "14GLsVobnZTEmJrs" : {
         "action_cost" : null,
@@ -295415,7 +303734,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kélizandre",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine des Cauchemars",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Tyrannie",
+                "Domaine du Zèle",
+                "Domaine du Dragon"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "u5z1YYlpuBGdTzS9" : {
         "action_cost" : null,
@@ -295428,7 +303791,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Keltheald",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de l'Introspection",
+                "Domaine de la Nature",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Fosse de boue",
+                "uuid" : "yAiSNmz39qXOIlco"
+            },
+            {
+                "rank" : 4,
+                "name" : "Don élémentaire",
+                "uuid" : "e36Z2t6tLdW3RUzZ"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Hallebarde"
+        ]
     },
     "s81N9hxffmRuy3ik" : {
         "action_cost" : null,
@@ -295441,7 +303844,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kerkamoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Décomposition",
+                "Domaine de la Destruction",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 5,
+                "name" : "Siphon d'ombre",
+                "uuid" : "tcwT97RWKxsJiefG"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "wjXNXFWBLbJaeZQR" : {
         "action_cost" : null,
@@ -295454,7 +303898,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kétéphys",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Lune",
+                "Domaine de la Nature",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 3,
+                "name" : "Vision animale",
+                "uuid" : "1HfusQ8NDWutGvMx"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "OkEJdnT0HyjLjrg9" : {
         "action_cost" : null,
@@ -295467,7 +303955,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Khépri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Guérison",
+                "Domaine de la Protection",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine de la Tromperie"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Flore florissante",
+                "uuid" : "b6AQvzs8EotmlK56"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 3,
+                "name" : "Absorption élémentaire",
+                "uuid" : "9TauMFkIsmvKJNzZ"
+            }
+        ],
+        "deity_weapons" : [
+            "Fronde"
+        ]
     },
     "TW7Q6O928YWNME9r" : {
         "action_cost" : null,
@@ -295480,7 +304010,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kitumu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine des Petits plaisirs",
+                "Domaine des Cauchemars",
+                "Domaine des Nuées"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 3,
+                "name" : "Forme d'insecte",
+                "uuid" : "XI6Lzd2B5pernkPd"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "AIcDyoff265z9285" : {
         "action_cost" : null,
@@ -295493,7 +304063,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kofusachi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Chance",
+                "Domaine de la Passion",
+                "Domaine du Voyage",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Destin"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 8,
+                "name" : "Danse incontrôlable",
+                "uuid" : "Jvyy6oVIQsD34MHB"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "zhPhYge7VJbIlJvA" : {
         "action_cost" : null,
@@ -295506,7 +304118,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kols",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Puissance",
+                "Domaine du Devoir",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Glyphes",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 8,
+                "name" : "Observation implacable",
+                "uuid" : "y2cQYLr5mljDSu1G"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "5ZIvg8CkqRMepVcX" : {
         "action_cost" : null,
@@ -295519,7 +304176,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Korada",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Guérison",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            }
+        ],
+        "deity_weapons" : [
+            "Poing"
+        ]
     },
     "JcIf4uwKLxEWdplI" : {
         "action_cost" : null,
@@ -295532,7 +304231,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kostchtchie",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Aspersion de froid",
+                "uuid" : "8TQiFzGf4feoHeH0"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cône de froid",
+                "uuid" : "3puDanGfpEt6jK5k"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "r5vooG7NfvA9prJK" : {
         "action_cost" : null,
@@ -295545,7 +304284,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kurgess",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Puissance",
+                "Domaine de la Vérité",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            }
+        ],
+        "deity_weapons" : [
+            "Javelot"
+        ]
     },
     "zI3qO0KCBKxe0Ui1" : {
         "action_cost" : null,
@@ -295558,7 +304340,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Kzininn (homme-vert)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Nature",
+                "Domaine de la Protection",
+                "Domaine de la Souffrance",
+                "Domaine du Bois"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vendetta du sang",
+                "uuid" : "TaaMEYdZXQXF0Sks"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "xu05XGotyT5st56H" : {
         "action_cost" : null,
@@ -295571,7 +304394,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dame Jingxi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la Lune",
+                "Domaine de la Nature",
+                "Domaine du Soleil"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Couleurs vertigineuses",
+                "uuid" : "UKsIOWmMx4hSpafl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 7,
+                "name" : "Projection d'image",
+                "uuid" : "0873MWM0qKDDv81O"
+            }
+        ],
+        "deity_weapons" : [
+            "Éventail de combat"
+        ]
     },
     "r6SFB1PzKsagDXff" : {
         "action_cost" : null,
@@ -295584,7 +304451,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dame Nanbyo",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Feu",
+                "Domaine du Fléau",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière",
+                "Domaine de la Terre",
+                "Domaine de la Foudre",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "1LiO5bDQIlJmXk35" : {
         "action_cost" : null,
@@ -295597,7 +304509,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Dame Couperet (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "ItYptsfjV8XvfhOV" : {
         "action_cost" : null,
@@ -295610,7 +304562,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lahkgya",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Nature",
+                "Domaine des Nuées",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 3,
+                "name" : "Singes fous",
+                "uuid" : "tFKJCPvOQZxKq6ON"
+            },
+            {
+                "rank" : 4,
+                "name" : "Confusion",
+                "uuid" : "LiGbewa9pO0yjbsY"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Hache d'armes"
+        ]
     },
     "Mum7kJFrNOpVrxxP" : {
         "action_cost" : null,
@@ -295623,7 +304618,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Laivatiniel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie",
+                "Domaine du Délire"
+            ],
+            "alternate" : [
+                "Domaine de la Protection",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Agitation",
+                "uuid" : "r8g7oSumKOHDqJsd"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète"
+        ]
     },
     "xyHhtBdNQGyldsKQ" : {
         "action_cost" : null,
@@ -295636,7 +304675,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lalaci",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de l'Introspection",
+                "Domaine de la Chance",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine des Ténèbres"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Couleurs vertigineuses",
+                "uuid" : "UKsIOWmMx4hSpafl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypnotiser",
+                "uuid" : "K2WpC3FFoHrqX9Q5"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bulle paisible",
+                "uuid" : "onjZCEHs3JJJRTD0"
+            }
+        ],
+        "deity_weapons" : [
+            "Fronde"
+        ]
     },
     "aipkJQxP4GBsTaGq" : {
         "action_cost" : null,
@@ -295649,7 +304730,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lamashtu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Puissance",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de l'Abomination",
+                "Domaine du Changement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Morsure d'araignée",
+                "uuid" : "DYdvMZ8G2LiSLVWw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 4,
+                "name" : "Cauchemar",
+                "uuid" : "Uqj344bezBq3ESdq"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre à deux mains"
+        ]
     },
     "MbJ93Nw39h2cBYi5" : {
         "action_cost" : null,
@@ -295662,7 +304787,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lao Shu Po",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Chance",
+                "Domaine des Nuées",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 3,
+                "name" : "Voile de confidentialité",
+                "uuid" : "EoKBlgf6Smt8opaU"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague",
+            "Shuriken Drone"
+        ]
     },
     "xLbSMedLDFyb8sFw" : {
         "action_cost" : null,
@@ -295675,7 +304841,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Laudimio",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine du Métal"
+            ],
+            "alternate" : [
+                "Domaine de la Richesse",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Métal plié",
+                "uuid" : "yD819yTgbBFcCh5M"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pique empaleuse",
+                "uuid" : "oXeEbcUdgJGWHGEJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Bombe alchimique"
+        ]
     },
     "4I1aVKED08cwcC4H" : {
         "action_cost" : null,
@@ -295688,7 +304897,22 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lois de la mortalité",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "H3qCK0Qq1bK0uM9o" : {
         "action_cost" : null,
@@ -295701,7 +304925,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lumière de la Flamme Éternelle",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Feu",
+                "Domaine du Soleil",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Passion"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            },
+            {
+                "rank" : 7,
+                "name" : "Éruption volcanique",
+                "uuid" : "O7ZEqWjwdKyo2CUv"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "t6Vn590vTLDlVUdo" : {
         "action_cost" : null,
@@ -295714,7 +304981,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Liisglan",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Perfection",
+                "Domaine du Temps",
+                "Domaine du Labeur"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Force gravitationnelle",
+                "uuid" : "F1fQC9SarAkjNxpP"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 9,
+                "name" : "Magie détonante",
+                "uuid" : "kUSShxXzY1sPtJA0"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance d'arçon du danseur"
+        ]
     },
     "lUFMwdv1UOyzFhIM" : {
         "action_cost" : null,
@@ -295727,7 +305035,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Likha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de la Passion",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de la Quiétude",
+                "Domaine de la Vérité"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Hachette"
+        ]
     },
     "w66gCNiZ7dslqG8K" : {
         "action_cost" : null,
@@ -295740,7 +305091,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lissala",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine des Glyphes",
+                "Domaine de la Magie",
+                "Domaine du Labeur"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "CewJyduCTUyW7x2u" : {
         "action_cost" : null,
@@ -295753,7 +305144,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lissala (L'Ordre de la Vertu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Devoir",
+                "Domaine du Destin",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mine psychique",
+                "uuid" : "fWU7Qjp1JiX9g6eg"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "ykqWA3pS0045DRs4" : {
         "action_cost" : null,
@@ -295766,7 +305200,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lorris",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Labeur",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 4,
+                "name" : "Atterissage en douceur",
+                "uuid" : "TLmkJ8ga8s057HBp"
+            },
+            {
+                "rank" : 6,
+                "name" : "Transposition collective",
+                "uuid" : "c3XygMbzrZMgV1y3"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "idAu7puhPp3kFTnl" : {
         "action_cost" : null,
@@ -295779,7 +305256,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lorthact",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine du Temps",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Salve de force",
+                "uuid" : "gKKqvLohtrSJj3BM"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "CnDEoo6WruQCXo1o" : {
         "action_cost" : null,
@@ -295792,7 +305309,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lubaiko",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Feu",
+                "Domaine de la Foudre",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps enflammé",
+                "uuid" : "XS7Wyh5YC0NWeWyB"
+            }
+        ],
+        "deity_weapons" : [
+            "Pique"
+        ]
     },
     "ub0PJ5QkrdoGzzb2" : {
         "action_cost" : null,
@@ -295805,7 +305366,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Luhar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine des Ténèbres",
+                "Domaine des Rêves",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine du Destin",
+                "Domaine de l'Âme",
+                "Domaine des Étoiles",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Invisibilité partagée",
+                "uuid" : "I0j56TNRmGcTyoqJ"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "VVUS4JWxWDd5ByJC" : {
         "action_cost" : null,
@@ -295818,7 +305424,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lurlup",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine des Petits plaisirs",
+                "Domaine de l'Anéantissement",
+                "Domaine du Fléau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Graisse",
+                "uuid" : "Wu0xFpewMKRK3HG8"
+            },
+            {
+                "rank" : 3,
+                "name" : "Estomac sans fond",
+                "uuid" : "F9mA2Bg27QKniIdv"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "QibpLccM5bLUMopj" : {
         "action_cost" : null,
@@ -295831,7 +305477,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lymniéris",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Passion",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas de plomb",
+                "uuid" : "2tHYKoVc5YhSewDO"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "SCMlQDcoU1QcF3AS" : {
         "action_cost" : null,
@@ -295844,7 +305530,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Lysianassa",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine du Destin",
+                "Domaine de la Nature",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine des Rêves",
+                "Domaine de la Protection",
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "ArmPZQrl0SFAKvrY" : {
         "action_cost" : null,
@@ -295857,7 +305587,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Maât",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Protection",
+                "Domaine des Étoiles",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Atterrissage en douceur",
+                "uuid" : "TTwOKGqmZeKSyNMH"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 5,
+                "name" : "Sonde mentale",
+                "uuid" : "9BnhadUO8FMLmeZ3"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "iMRXc519Uepf8yH3" : {
         "action_cost" : null,
@@ -295870,7 +305640,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Magdh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 6,
+                "name" : "Scrutation",
+                "uuid" : "r784cIz17eWujtQj"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "nsiDGdgbAzkTQzOt" : {
         "action_cost" : null,
@@ -295883,7 +305696,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Magrim",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Devoir",
+                "Domaine du Destin",
+                "Domaine des Glyphes"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine du Métal",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 2,
+                "name" : "Excavation expéditive",
+                "uuid" : "aXoh6OQAL57lgh0a"
+            },
+            {
+                "rank" : 8,
+                "name" : "Tremblement de terre",
+                "uuid" : "x7SPrsRxGb2Vy2nu"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "Af4TSJjutVi9Vdwi" : {
         "action_cost" : null,
@@ -295896,7 +305753,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mahathallah",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine de la Tromperie",
+                "Domaine de la Vérité",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flou",
+                "uuid" : "3JG1t3T4mWn6vTke"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Bolas"
+        ]
     },
     "rdA9jbvUZdT1Zr8Q" : {
         "action_cost" : null,
@@ -295909,7 +305808,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mahja Cheveux de feu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Feu",
+                "Domaine de la Perfection",
+                "Domaine du Labeur"
+            ],
+            "alternate" : [
+                "Domaine du Soleil"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Plongeon ardent",
+                "uuid" : "KEkPxx7Sm6Xf4W3s"
+            },
+            {
+                "rank" : 5,
+                "name" : "Manteau du coeur magmatique",
+                "uuid" : "j2kfNBFpLa0JjVr8"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "qMwLAXcjZ16qkMml" : {
         "action_cost" : null,
@@ -295922,7 +305864,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Malthus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Villes",
+                "Domaine de la Création",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière",
+                "Domaine du Savoir",
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Atterrissage en douceur",
+                "uuid" : "TTwOKGqmZeKSyNMH"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète"
+        ]
     },
     "sNjPI1iaS8Z43YJf" : {
         "action_cost" : null,
@@ -295935,7 +305921,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mammon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Création",
+                "Domaine du Labeur",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine du Métal"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Gemme explosive",
+                "uuid" : "0uRpypf1Hi7ahvTl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "9LwncUwHbG1f6qIt" : {
         "action_cost" : null,
@@ -295948,7 +305977,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Marishi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine des Petits plaisirs",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Applaudissements rugissants",
+                "uuid" : "czO0wbT1i320gcu9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Série victorieuse",
+                "uuid" : "EGTTGI1pkmsVPqHp"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "hWTTS0e7J9hJfsp3" : {
         "action_cost" : null,
@@ -295961,7 +306033,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Matravash",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "v1fsLP6nTkiy5ghB" : {
         "action_cost" : null,
@@ -295974,7 +306086,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mazludeh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Façonnage de la pierre",
+                "uuid" : "McnPlLFvKtQVXNcG"
+            },
+            {
+                "rank" : 5,
+                "name" : "Mur de pierre",
+                "uuid" : "kOa055FIrO9Smnya"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "KWVdoAm3b01M8Lcp" : {
         "action_cost" : null,
@@ -295987,7 +306141,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Méphistophélès",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invectives torrides",
+                "uuid" : "hoR6w8BqX2F35Tdx"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "Cme0TBL9QeusAUKE" : {
         "action_cost" : null,
@@ -296000,7 +306196,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mestama",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine des Cauchemars",
+                "Domaine de la Souffrance",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Passion",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            }
+        ],
+        "deity_weapons" : [
+            "Katar"
+        ]
     },
     "FHZ2DZEJzjrPfyjH" : {
         "action_cost" : null,
@@ -296013,7 +306252,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mhar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine du Feu"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Nuage de cendres",
+                "uuid" : "23cv1p49NFd0Onng"
+            },
+            {
+                "rank" : 7,
+                "name" : "Éruption volcanique",
+                "uuid" : "O7ZEqWjwdKyo2CUv"
+            }
+        ],
+        "deity_weapons" : [
+            "Grand pic de guerre"
+        ]
     },
     "fTJLgTfEMZreJ19r" : {
         "action_cost" : null,
@@ -296026,7 +306307,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Milani",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Destruction",
+                "Domaine de la Liberté",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison",
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "bIl8GkwYltjsAMcm" : {
         "action_cost" : null,
@@ -296039,7 +306363,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Minderhal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Devoir",
+                "Domaine de la Terre",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de créature artificielle",
+                "uuid" : "lKcsmeOrgHtK4xQa"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 4,
+                "name" : "Réplique",
+                "uuid" : "srEKUvym9kDVbEhD"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "g1VxllMjs2YRIJAm" : {
         "action_cost" : null,
@@ -296052,7 +306418,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Moloch",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 5,
+                "name" : "Tempête d'acide",
+                "uuid" : "ZW8ovbu1etdfMre3"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps enflammé",
+                "uuid" : "XS7Wyh5YC0NWeWyB"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "W4QGkdn9V5ACRpkh" : {
         "action_cost" : null,
@@ -296065,7 +306474,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Monade",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de l'Anéantissement",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 2,
+                "name" : "Porteur fantomatique",
+                "uuid" : "rthC6dGm3nNrt1xN"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            }
+        ],
+        "deity_weapons" : [
+            "Poing"
+        ]
     },
     "E1dUhoSEf2XfklU2" : {
         "action_cost" : null,
@@ -296078,7 +306528,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mère Vautour",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Mort",
+                "Domaine de la Décomposition",
+                "Domaine de la Nature"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "01liRoMjNR5XgorX" : {
         "action_cost" : null,
@@ -296091,7 +306583,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mrtyu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Passion",
+                "Domaine de la Quiétude",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "omUWo1TQ6PDm5oeW" : {
         "action_cost" : null,
@@ -296104,7 +306640,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mugura et Nrithu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Liberté",
+                "Domaine de la Passion",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypnotiser",
+                "uuid" : "K2WpC3FFoHrqX9Q5"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malchance du miroir",
+                "uuid" : "A7w3YQBrFNH8KYsB"
+            }
+        ],
+        "deity_weapons" : [
+            "Poing"
+        ]
     },
     "FktAD5GCv60OdSAB" : {
         "action_cost" : null,
@@ -296117,7 +306693,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Myr",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Famille",
+                "Domaine du Devoir",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 6,
+                "name" : "Réprésailles de la nature",
+                "uuid" : "YtBZq49N4Um1cwm7"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "pm8H2DbtrHM01KNV" : {
         "action_cost" : null,
@@ -296130,7 +306748,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nadéri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Passion",
+                "Domaine du Chagrin",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Voile de confidentialité",
+                "uuid" : "EoKBlgf6Smt8opaU"
+            },
+            {
+                "rank" : 8,
+                "name" : "Conseil onirique",
+                "uuid" : "rwCh2qTYPA44KEoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "gsFaxWHbZmc1moY6" : {
         "action_cost" : null,
@@ -296143,7 +306801,82 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nalinivati",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine de la Passion",
+                "Domaine du Dragon",
+                "Domaine du Naga"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 3,
+                "name" : "Éclair",
+                "uuid" : "9AAkVUCwF6WVNNY2"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            },
+            {
+                "rank" : 8,
+                "name" : "Couleurs déroutantes",
+                "uuid" : "uEyfLoFQsRKBRIcB"
+            },
+            {
+                "rank" : 9,
+                "name" : "Tempête courroucée",
+                "uuid" : "yLJROsQtyrPIKcDx"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Urumi"
+        ]
     },
     "Tn8rVCvsjrPyzKWC" : {
         "action_cost" : null,
@@ -296156,7 +306889,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sans-Nom",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine des Glyphes",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 3,
+                "name" : "Clairaudience",
+                "uuid" : "HXhWYJviWalN5tQ2"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "hhV2g6aU8jKLEca1" : {
         "action_cost" : null,
@@ -296169,7 +306945,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Narakaas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Mort",
+                "Domaine de la Souffrance",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mues de peau",
+                "uuid" : "X3dYByf3YmkcdwG0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Réécriture de la mémoire",
+                "uuid" : "FhOaQDTSnsY7tiam"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "65o189p2eUPbqaDK" : {
         "action_cost" : null,
@@ -296182,7 +307000,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Narriseminek",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Délire",
+                "Domaine de la Liberté",
+                "Domaine du Savoir",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 4,
+                "name" : "Confusion",
+                "uuid" : "LiGbewa9pO0yjbsY"
+            },
+            {
+                "rank" : 5,
+                "name" : "Synesthésie",
+                "uuid" : "OAt2ZEns1gIOCgrn"
+            }
+        ],
+        "deity_weapons" : [
+            "Hachette"
+        ]
     },
     "BVF5L71JblkYUW5E" : {
         "action_cost" : null,
@@ -296195,7 +307054,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Neith",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Destin",
+                "Domaine de la Nature",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Mort",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            },
+            {
+                "rank" : 6,
+                "name" : "Salve de flèches",
+                "uuid" : "7PnjDM52lb4LEqHR"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "EbiJVJN86Q5SfDOt" : {
         "action_cost" : null,
@@ -296208,7 +307111,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Néphthys",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière",
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Extraction ombrale",
+                "uuid" : "EDwakYQTS1t6XHD4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse légère"
+        ]
     },
     "VlgaeJlpl2ubDv4a" : {
         "action_cost" : null,
@@ -296221,7 +307167,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nergal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Décomposition",
+                "Domaine du Fléau",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine des Petits plaisirs",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Compagnon venimeux",
+                "uuid" : "gWmLT5SkA0qH2mNE"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "uTRswfDyjndlQZJ1" : {
         "action_cost" : null,
@@ -296234,7 +307223,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Neshen",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Liberté",
+                "Domaine de l'Introspection",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            },
+            {
+                "rank" : 6,
+                "name" : "Motif éclatant",
+                "uuid" : "RQjSQVZRG497cJhX"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "9EKyWmjLUu42evxC" : {
         "action_cost" : null,
@@ -296247,7 +307277,81 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Néthys",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Délirium",
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Salve de force",
+                "uuid" : "gKKqvLohtrSJj3BM"
+            },
+            {
+                "rank" : 2,
+                "name" : "Message implanté",
+                "uuid" : "eIQ86FOXK34HiNLs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lévitation",
+                "uuid" : "fI20AVwOzJMHXRdo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Oscillation",
+                "uuid" : "zR67Rt3UMHKC5evy"
+            },
+            {
+                "rank" : 5,
+                "name" : "Transport télékinésique",
+                "uuid" : "tpLTLbJUrYcMWGld"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            },
+            {
+                "rank" : 8,
+                "name" : "Dilemme",
+                "uuid" : "Oj1PJBMQD9vuwCv7"
+            },
+            {
+                "rank" : 9,
+                "name" : "Magie détonante",
+                "uuid" : "kUSShxXzY1sPtJA0"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "RzTd9PmgnfHNlFVf" : {
         "action_cost" : null,
@@ -296260,7 +307364,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ng",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Confidentialité",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 4,
+                "name" : "Oscillation",
+                "uuid" : "zR67Rt3UMHKC5evy"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet"
+        ]
     },
     "8Oy4qHylOOp79JxD" : {
         "action_cost" : null,
@@ -296273,7 +307420,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nhimbaloth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Nature",
+                "Domaine de l'Anéantissement",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flore enchevêtrante",
+                "uuid" : "J6vNvrUT3b1hx2iA"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "4HJKRGYIVKeUdOwf" : {
         "action_cost" : null,
@@ -296286,7 +307473,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Perfection",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Télépathie",
+                "uuid" : "HqTI6wRrck1YXp3F"
+            },
+            {
+                "rank" : 5,
+                "name" : "Sonde mentale",
+                "uuid" : "9BnhadUO8FMLmeZ3"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée canne"
+        ]
     },
     "Mv6uTJLh3VGEoGLH" : {
         "action_cost" : null,
@@ -296299,7 +307529,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nivi Rhomboéblouissante",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Chance",
+                "Domaine de la Tromperie",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Terre"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 4,
+                "name" : "Entrée liminaire",
+                "uuid" : "OM5NeD7a1CYNqy8S"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "jL1qiVOZBKXETtVD" : {
         "action_cost" : null,
@@ -296312,7 +307586,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nocticula",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine des Ténèbres",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Protection",
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Voile de confidentialité",
+                "uuid" : "EoKBlgf6Smt8opaU"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "GX6PF9ifR47Xyjg9" : {
         "action_cost" : null,
@@ -296325,7 +307642,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Norgorber",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "psUfw455soFiUNlF" : {
         "action_cost" : null,
@@ -296338,7 +307695,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Les Nornes",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Destin",
+                "Domaine du Savoir",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 2,
+                "name" : "Toile d'araignée",
+                "uuid" : "9s5tqqXNzcoKamWx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Clairvoyance",
+                "uuid" : "zvKWclOZ7A53DObE"
+            }
+        ],
+        "deity_weapons" : [
+            "Cisailles"
+        ]
     },
     "0cimyk6ZbdvGOmwC" : {
         "action_cost" : null,
@@ -296351,7 +307749,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nulgreth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance",
+                "Domaine de la Souffrance"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 3,
+                "name" : "Souper du papillon de nuit",
+                "uuid" : "xabHqik5SoyDc5Db"
+            },
+            {
+                "rank" : 9,
+                "name" : "Implosion",
+                "uuid" : "4WS7HrFjwNvTn8T2"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "SAuFz101iP6VVwvw" : {
         "action_cost" : null,
@@ -296364,7 +307804,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nurgal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Poussière",
+                "Domaine du Feu",
+                "Domaine du Soleil"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 3,
+                "name" : "Tasse de poussière",
+                "uuid" : "10siFBMF4pIDhVmf"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "iKgERiIc8rt3fatf" : {
         "action_cost" : null,
@@ -296377,7 +307857,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nyarlathotep (Celui qui hante les ténèbres)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine du Savoir",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 4,
+                "name" : "Cauchemar",
+                "uuid" : "Uqj344bezBq3ESdq"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation d'entité",
+                "uuid" : "i1TvBID5QLyXrUCa"
+            }
+        ],
+        "deity_weapons" : [
+            "Kukri"
+        ]
     },
     "3nxIpMGeCvcBIVov" : {
         "action_cost" : null,
@@ -296390,7 +307910,77 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nyarlathotep (Le Chaos Rampant)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme humanoïde",
+                "uuid" : "2qGqa33E4GPUCbMV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation d'entité",
+                "uuid" : "i1TvBID5QLyXrUCa"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            },
+            {
+                "rank" : 7,
+                "name" : "Projection d'image",
+                "uuid" : "0873MWM0qKDDv81O"
+            },
+            {
+                "rank" : 8,
+                "name" : "Conseil onirique",
+                "uuid" : "rwCh2qTYPA44KEoK"
+            },
+            {
+                "rank" : 9,
+                "name" : "Fantasmagorie",
+                "uuid" : "MJx7DmjsWYzDZ3a4"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "PYQnJe4ZXPzEnukx" : {
         "action_cost" : null,
@@ -296403,7 +307993,80 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nyarlathotep (Le Sphinx sans Visage)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine des Villes",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : [
+                "Domaine des Rêves",
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mine psychique",
+                "uuid" : "fWU7Qjp1JiX9g6eg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            },
+            {
+                "rank" : 8,
+                "name" : "Esprit dissimulé",
+                "uuid" : "C2w3YfBKjIRS07DP"
+            },
+            {
+                "rank" : 9,
+                "name" : "Fantasmagorie",
+                "uuid" : "MJx7DmjsWYzDZ3a4"
+            }
+        ],
+        "deity_weapons" : [
+            "Katar"
+        ]
     },
     "NXmqXck4jUfSY2ns" : {
         "action_cost" : null,
@@ -296416,7 +308079,80 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nyarlathotep (La Voix voilée)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Destin",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction",
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flou",
+                "uuid" : "3JG1t3T4mWn6vTke"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            },
+            {
+                "rank" : 8,
+                "name" : "Disparition",
+                "uuid" : "wfleiawxsfhpRRwf"
+            },
+            {
+                "rank" : 9,
+                "name" : "Fantasmagorie",
+                "uuid" : "MJx7DmjsWYzDZ3a4"
+            }
+        ],
+        "deity_weapons" : [
+            "Bô"
+        ]
     },
     "2mZmXeokndl2ocWK" : {
         "action_cost" : null,
@@ -296429,7 +308165,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Nyuo-Ogh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine du Délire",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Embrouiller",
+                "uuid" : "pBevG6bSQOiyflev"
+            },
+            {
+                "rank" : 4,
+                "name" : "Fausse nature",
+                "uuid" : "5z1700cfG8Ybm0e6"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance d'arçon"
+        ]
     },
     "Y6EnZjtBOHBs5O8D" : {
         "action_cost" : null,
@@ -296442,7 +308221,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Oathos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Passion",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bulle paisible",
+                "uuid" : "onjZCEHs3JJJRTD0"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "6YX5wtiLvDhwk1iZ" : {
         "action_cost" : null,
@@ -296455,7 +308277,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Oaur-Ooung",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Guérison",
+                "Domaine des Nuées",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de la Nature",
+                "Domaine des Petits plaisirs"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Explosion d'acide",
+                "uuid" : "rnNGALRtsjspFTws"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme monstrueuse",
+                "uuid" : "8AMvNVOUEtxBCDvJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "8hsVGRyq0dKMwwXT" : {
         "action_cost" : null,
@@ -296468,7 +308334,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Obari",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Passion",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Voyage",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "dQb1y00PCsWIFcX4" : {
         "action_cost" : null,
@@ -296481,7 +308391,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Olhéon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Devoir",
+                "Domaine de la Protection",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Attirer la colère",
+                "uuid" : "jsWthW1Qy6tg3SwD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Lueur de charme",
+                "uuid" : "ftZ750SD2iIJKIy3"
+            }
+        ],
+        "deity_weapons" : [
+            "Hallebarde"
+        ]
     },
     "tOXJ90TOPlzfNdql" : {
         "action_cost" : null,
@@ -296494,7 +308446,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ongalte",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Destruction",
+                "Domaine du Destin",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Paranoïa",
+                "uuid" : "Mkbq9xlAUxHUHyR2"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "IAGkKOJ0Pu0Bous3" : {
         "action_cost" : null,
@@ -296507,7 +308499,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Onos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Terre",
+                "Domaine du Feu",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine du Voyage",
+                "Domaine du Bois"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Uni avec la pierre",
+                "uuid" : "vh1RpbWfqdNC4L3P"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme élémentaire",
+                "uuid" : "1K6AYGisvo9gqdhs"
+            }
+        ],
+        "deity_weapons" : [
+            "Chakram"
+        ]
     },
     "b7H379HnCOv9UZtd" : {
         "action_cost" : null,
@@ -296520,7 +308557,44 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Orcus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine de la Puissance",
+                "Domaine de la Mort-vivance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 2,
+                "name" : "Ombres sauvages",
+                "uuid" : "Ru9v8U9IRk3LtWx8"
+            },
+            {
+                "rank" : 9,
+                "name" : "Mot de pouvoir mortel",
+                "uuid" : "m3lcOFm400lQCUps"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "gUyP9Ir8FTaZeV9D" : {
         "action_cost" : null,
@@ -296533,7 +308607,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Orgesh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine de la Terre",
+                "Domaine des Petits plaisirs",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine de la Mort-vivance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Estomac sans fond",
+                "uuid" : "F9mA2Bg27QKniIdv"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "nuvfUC4TcOvFbKxx" : {
         "action_cost" : null,
@@ -296546,7 +308663,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Osiris",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "SHSMB0WvrJB4E8rU" : {
         "action_cost" : null,
@@ -296559,7 +308716,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Otilaz",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Mort",
+                "Domaine de l'Introspection",
+                "Domaine de l'Âme"
+            ],
+            "alternate" : [
+                "Domaine de l'Abomination",
+                "Domaine du Dragon",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Malédiction du temps perdu",
+                "uuid" : "B3eLlbaPxOYHcs1o"
+            },
+            {
+                "rank" : 8,
+                "name" : "Cantique du chagrin éternel",
+                "uuid" : "qlxM7Ik3uUeUIOcv"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Masse"
+        ]
     },
     "JgDqFUB1NtQkGmzp" : {
         "action_cost" : null,
@@ -296572,7 +308775,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Otolmens",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Destin",
+                "Domaine du Savoir",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Puits de gravité",
+                "uuid" : "06pzGkKTyPE3tHR8"
+            },
+            {
+                "rank" : 7,
+                "name" : "Inversion de la gravité",
+                "uuid" : "37ESlJzUvVbOudOT"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "wXRJe0QsebyqQ1L0" : {
         "action_cost" : null,
@@ -296585,7 +308828,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ozranvial",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Délire",
+                "Domaine de la Quiétude",
+                "Domaine du Chagrin"
+            ],
+            "alternate" : [
+                "Domaine de l'Âme",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "mIoXpTRhcCs4PTdN" : {
         "action_cost" : null,
@@ -296598,7 +308884,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pahti Coatl",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Guérison",
+                "Domaine de la Vérité",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Devoir",
+                "Domaine du Savoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "0UunUljPt3uZGuMj" : {
         "action_cost" : null,
@@ -296611,7 +308942,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pavnuri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine de la Tromperie",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 2,
+                "name" : "Festin de cendres",
+                "uuid" : "siU9xRlqWXeKT0mH"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vision faussée",
+                "uuid" : "RCbLd7dfquHnuvrZ"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "IZcdF1G8ZsnMotaM" : {
         "action_cost" : null,
@@ -296624,7 +308998,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pazuzu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine des Nuées",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            },
+            {
+                "rank" : 8,
+                "name" : "Migration",
+                "uuid" : "U0hL0LLaprcnAyzC"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "QZD0u1jxwz0kj8uI" : {
         "action_cost" : null,
@@ -296637,7 +309051,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pharasma",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Destin",
+                "Domaine de la Guérison",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine de l'Âme",
+                "Domaine du Temps",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "0Hc2HqseslZifEk6" : {
         "action_cost" : null,
@@ -296650,7 +309108,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pharimia",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "0EXQHfNN11AfDqNm" : {
         "action_cost" : null,
@@ -296663,7 +309161,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Phi Deva",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Oscillation",
+                "uuid" : "zR67Rt3UMHKC5evy"
+            },
+            {
+                "rank" : 7,
+                "name" : "Projection d'image",
+                "uuid" : "0873MWM0qKDDv81O"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "e6IGAMPvaGqwZPkI" : {
         "action_cost" : null,
@@ -296676,7 +309217,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Phlégyas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Devoir",
+                "Domaine du Savoir",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine du Destin"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Objet illusoire",
+                "uuid" : "2oH5IufzdESuYxat"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "CeBP002LcMfqgIRl" : {
         "action_cost" : null,
@@ -296689,7 +309273,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Picopéri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la confiance en soi",
+                "Domaine du Délire",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Graisse",
+                "uuid" : "Wu0xFpewMKRK3HG8"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Sarbacane"
+        ]
     },
     "WO9UsCY41oTtC2G0" : {
         "action_cost" : null,
@@ -296702,7 +309326,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Piliers de la connaissance",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes",
+                "Domaine de la Perfection",
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 9,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "lZ74P8kUA1ti808w" : {
         "action_cost" : null,
@@ -296715,7 +309384,22 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Prohéties de Kalistrade",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "RoBL67dQIQgIahtY" : {
         "action_cost" : null,
@@ -296728,7 +309412,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ptah",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Feu",
+                "Domaine du Métal",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Savoir"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de métal",
+                "uuid" : "CB5TlGv5ZghtMifi"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme ferreuse",
+                "uuid" : "89Hj5QuqvcwVXcqj"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "Vzxm5FyIA40b2OSP" : {
         "action_cost" : null,
@@ -296741,7 +309467,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Pulura",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine des Ténèbres",
+                "Domaine du Chagrin",
+                "Domaine des Étoiles"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Couleurs vertigineuses",
+                "uuid" : "UKsIOWmMx4hSpafl"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            },
+            {
+                "rank" : 6,
+                "name" : "Téléportation",
+                "uuid" : "69L70wKfGDY66Mk9"
+            }
+        ],
+        "deity_weapons" : [
+            "Fronde"
+        ]
     },
     "giAsBYiL2omr0x2L" : {
         "action_cost" : null,
@@ -296754,7 +309520,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Qi Zhong",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine de la Terre",
+                "Domaine du Feu",
+                "Domaine de la Nature",
+                "Domaine de l'Eau"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "woDEgBs1MznhzpJ4" : {
         "action_cost" : null,
@@ -296767,7 +309579,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Râ",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine de la Nature",
+                "Domaine du Soleil",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 3,
+                "name" : "Triple aspect",
+                "uuid" : "MNiT0dHol5fEcKlz"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "JxigqtJO2juuBh8V" : {
         "action_cost" : null,
@@ -296780,7 +309634,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Prisme Radieux",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Lune",
+                "Domaine de la Protection",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "XYJupIPx0GW4s7eu" : {
         "action_cost" : null,
@@ -296793,7 +309691,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ragadahn",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Veille",
+                "Domaine de l'Eau",
+                "Domaine du Dragon"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 2,
+                "name" : "Bile de dragon de saumure",
+                "uuid" : "eidmNlfl2DUVIclc"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "GEBaoeiv5CB9h2Bn" : {
         "action_cost" : null,
@@ -296806,7 +309745,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ragathiel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée bâtarde"
+        ]
     },
     "o9tK1T28LNEVzpFV" : {
         "action_cost" : null,
@@ -296819,7 +309803,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ragdya",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Singes fous",
+                "uuid" : "tFKJCPvOQZxKq6ON"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "Ij1KRM8ufkEjGnR3" : {
         "action_cost" : null,
@@ -296832,7 +309858,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ranginori",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Liberté",
+                "Domaine de la Foudre",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "u3YfcJh1C4w6n75j" : {
         "action_cost" : null,
@@ -296845,7 +309911,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Raumya",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance",
+                "Domaine du Savoir",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "1nQVLOyWv5kC0bCU" : {
         "action_cost" : null,
@@ -296858,7 +309965,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ravithra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine du Naga",
+                "Domaine du Chagrin",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 4,
+                "name" : "Clairvoyance",
+                "uuid" : "zvKWclOZ7A53DObE"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Masse légère"
+        ]
     },
     "hv7poWIKVN1AT51p" : {
         "action_cost" : null,
@@ -296871,7 +310022,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Razmir",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Magie",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 2,
+                "name" : "Abrutir",
+                "uuid" : "CQb8HtQ1BPeZmu9h"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lecture des pensées",
+                "uuid" : "KHnhPHL4x1AQHfbC"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "FeMWwhaVbaoqu3q6" : {
         "action_cost" : null,
@@ -296884,7 +310075,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Reshmit Voix forte (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Réécriture de la mémoire",
+                "uuid" : "FhOaQDTSnsY7tiam"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "baMgw2Jw17dlmMzj" : {
         "action_cost" : null,
@@ -296897,7 +310128,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Reymenda",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Quiétude",
+                "Domaine du Labeur",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Puissance",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vision de mort",
+                "uuid" : "Jmxru8zMdYMRuO5n"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre à deux mains"
+        ]
     },
     "7Gs5SnHEd4IciJIw" : {
         "action_cost" : null,
@@ -296910,7 +310186,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rhan-Tégoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine des Cauchemars",
+                "Domaine de l'Anéantissement",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Uni avec la pierre",
+                "uuid" : "vh1RpbWfqdNC4L3P"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "GYmwlpH8zou0Mkap" : {
         "action_cost" : null,
@@ -296923,7 +310241,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ristrentho",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Liberté",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine du Froid"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme élémentaire",
+                "uuid" : "1K6AYGisvo9gqdhs"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "eayZ9moMzAGotO01" : {
         "action_cost" : null,
@@ -296936,7 +310298,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rivethun",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Terre",
+                "Domaine de la Nature",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine de l'Âme",
+                "Domaine de l'Eau"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Frappe de débris",
+                "uuid" : "Rn2LkoSq1XhLsODV"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "7l8fDCLz8fo4qEib" : {
         "action_cost" : null,
@@ -296949,7 +310356,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rokoga Gin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Liberté",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Couleuvrine"
+        ]
     },
     "Bhxji0kxIbMKqdkw" : {
         "action_cost" : null,
@@ -296962,7 +310410,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rovagug",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "44fcXgp3fnkoyb4R" : {
         "action_cost" : null,
@@ -296975,7 +310466,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rowdrosh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Nature",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Communication avec les animaux",
+                "uuid" : "BBvV7qoXGdw09q1C"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "BlLaiS1cWDhmXcBf" : {
         "action_cost" : null,
@@ -296988,7 +310519,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rull",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine du Froid",
+                "Domaine de la Destruction",
+                "Domaine de la Foudre"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Foudroiement",
+                "uuid" : "zDJS8E66UI0himqV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Éclair",
+                "uuid" : "9AAkVUCwF6WVNNY2"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre à deux mains"
+        ]
     },
     "1NxkZf6ndijKeufX" : {
         "action_cost" : null,
@@ -297001,7 +310572,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Saïrazul",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine du Labeur",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Gemme explosive",
+                "uuid" : "0uRpypf1Hi7ahvTl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Excavation expéditive",
+                "uuid" : "aXoh6OQAL57lgh0a"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic"
+        ]
     },
     "1xHnoMlCyCV70TnT" : {
         "action_cost" : null,
@@ -297014,7 +310628,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Saloc",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Mort",
+                "Domaine de la Liberté",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Guisarme"
+        ]
     },
     "WfqLY2Fm1LGCcG5X" : {
         "action_cost" : null,
@@ -297027,7 +310683,22 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sangpotshi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Religion"
+        ],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "BNycwu3I21dTh4D9" : {
         "action_cost" : null,
@@ -297040,7 +310711,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sarenrae",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine de la Guérison",
+                "Domaine du Soleil",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "Em8MqxFDNofBUuBH" : {
         "action_cost" : null,
@@ -297053,7 +310766,59 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sarshallatu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Dragon",
+                "Domaine du Destin",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine du Chagrin",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Convocation de dragon",
+                "uuid" : "kghwmH3tQjMIhdH1"
+            },
+            {
+                "rank" : 9,
+                "name" : "Chant énigmatique",
+                "uuid" : "FmNDwqMEjeTEGPrY"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Fronde"
+        ]
     },
     "LIqW0cgGWFQln1Lk" : {
         "action_cost" : null,
@@ -297066,7 +310831,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Scal",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine de la Liberté",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de la Quiétude",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau météore"
+        ]
     },
     "Vk1FM54rJx1RHtUA" : {
         "action_cost" : null,
@@ -297079,7 +310888,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "L'espoir des marins",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de la Tromperie",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "0nQItOlce5ua6Eaf" : {
         "action_cost" : null,
@@ -297092,7 +310942,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sekhmet",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Guérison",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Hache d'armes"
+        ]
     },
     "xTD0XFaguBX6QQ2L" : {
         "action_cost" : null,
@@ -297105,7 +310997,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Selket",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Guérison",
+                "Domaine de la Magie",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 3,
+                "name" : "Paralysie",
+                "uuid" : "DCQHaLrYXMI37dvW"
+            }
+        ],
+        "deity_weapons" : [
+            "Fouet"
+        ]
     },
     "ctTBqyrSRpfL33jE" : {
         "action_cost" : null,
@@ -297118,7 +311050,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Séramaydiel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la confiance en soi",
+                "Domaine de la Création",
+                "Domaine de la Passion"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coquillage de son volé",
+                "uuid" : "q5vbYgLztQ04FQZg"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mélodie contagieuse",
+                "uuid" : "mUz3wqbMQ5JQ06M5"
+            },
+            {
+                "rank" : 5,
+                "name" : "Hallucination",
+                "uuid" : "U58aQWJ47VrI36yP"
+            }
+        ],
+        "deity_weapons" : [
+            "Sarbacane"
+        ]
     },
     "EfHlurXdqkdRXaqv" : {
         "action_cost" : null,
@@ -297131,7 +311103,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Seth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine des Ténèbres",
+                "Domaine de la Poussière",
+                "Domaine de la Foudre"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Tasse de poussière",
+                "uuid" : "10siFBMF4pIDhVmf"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "Rz7C08TWmj87WNR6" : {
         "action_cost" : null,
@@ -297144,7 +311158,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Conseil de l'Ombre",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine du Délirium"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Clairvoyance",
+                "uuid" : "zvKWclOZ7A53DObE"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "D8lFcjLj5sd25BRk" : {
         "action_cost" : null,
@@ -297157,7 +311213,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Formes de l'Éclat Fané",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Décomposition",
+                "Domaine du Savoir",
+                "Domaine du Métal"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine de la Foudre"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Métal plié",
+                "uuid" : "yD819yTgbBFcCh5M"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pique empaleuse",
+                "uuid" : "oXeEbcUdgJGWHGEJ"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme ferreuse",
+                "uuid" : "89Hj5QuqvcwVXcqj"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "58gSanY90BSz9Uwa" : {
         "action_cost" : null,
@@ -297170,7 +311269,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shawnari",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine du Savoir",
+                "Domaine de l'Anéantissement",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Malédiction du temps perdu",
+                "uuid" : "B3eLlbaPxOYHcs1o"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Matraque"
+        ]
     },
     "zzhYFcShT9JoE2Mp" : {
         "action_cost" : null,
@@ -297183,7 +311325,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shax",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Mort",
+                "Domaine de la Souffrance",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "ra7mnjAZcEuJxI37" : {
         "action_cost" : null,
@@ -297196,7 +311378,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sheï",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Guérison",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "gxwmzxUWBOhdgFSN" : {
         "action_cost" : null,
@@ -297209,7 +311433,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shélyn",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat",
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine de la Passion",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Couleurs vertigineuses",
+                "uuid" : "UKsIOWmMx4hSpafl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Coutille"
+        ]
     },
     "p4tkVSULWGHhYPGU" : {
         "action_cost" : null,
@@ -297222,7 +311489,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shivaska",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Abomination",
+                "Domaine des Ténèbres",
+                "Domaine de la Souffrance",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Relier",
+                "uuid" : "MVrxZarUTnJxAUN8"
+            },
+            {
+                "rank" : 3,
+                "name" : "Prison ectoplasmique",
+                "uuid" : "Pwq6T7xpfAJXV5aj"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nid de serpent",
+                "uuid" : "xFp4EwVcYwSG336t"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "s9opv94lGDRKnw6W" : {
         "action_cost" : null,
@@ -297235,7 +311545,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shizuru",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Perfection",
+                "Domaine du Soleil",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Dragon",
+                "Domaine du Chagrin"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Katana"
+        ]
     },
     "s1PgIQ8Oi35oS2Et" : {
         "action_cost" : null,
@@ -297248,7 +311601,17 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Animisme shoanti",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [],
+        "deity_skill" : [],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "hAoVzkeFjTwh5Ykl" : {
         "action_cost" : null,
@@ -297261,7 +311624,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shumunue",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Passion",
+                "Domaine des Nuées",
+                "Domaine du Bois"
+            ],
+            "alternate" : [
+                "Domaine de la Perfection",
+                "Domaine de la Quiétude"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Tisser le bois",
+                "uuid" : "idcBYnj4DUHL0IJt"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Gourdin"
+        ]
     },
     "3INt1X4ijBYnZYbU" : {
         "action_cost" : null,
@@ -297274,7 +311680,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Shyka",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine du Destin",
+                "Domaine du Temps",
+                "Domaine du Délire"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 7,
+                "name" : "Repère temporel",
+                "uuid" : "G56DJkxlUjFv0C4Z"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse légère"
+        ]
     },
     "YnOxUUJz1dzocG6N" : {
         "action_cost" : null,
@@ -297287,7 +311734,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sicva",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Nature",
+                "Domaine du Fléau",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation d'animal",
+                "uuid" : "4YnON9JHYqtLzccu"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flore enchevêtrante",
+                "uuid" : "J6vNvrUT3b1hx2iA"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "BrbXGyzCeORNyJT5" : {
         "action_cost" : null,
@@ -297300,7 +311790,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sifkesh",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Cauchemars",
+                "Domaine de la Souffrance",
+                "Domaine du Chagrin",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Rasoir de combat"
+        ]
     },
     "Uz7DDxMvWjSXUrmX" : {
         "action_cost" : null,
@@ -297313,7 +311843,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sithud",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Froid",
+                "Domaine de la Mort-vivance",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Labeur",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Aspersion de froid",
+                "uuid" : "8TQiFzGf4feoHeH0"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 5,
+                "name" : "Blizzard hurlant",
+                "uuid" : "xxWhyl81w3ckslAU"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "iJyhAFmHOLZBvWnJ" : {
         "action_cost" : null,
@@ -297326,7 +311899,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sivanah",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Délire",
+                "Domaine de la Magie",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flou",
+                "uuid" : "3JG1t3T4mWn6vTke"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Écharpe tranchante"
+        ]
     },
     "IK2AL3bL6htrrnnC" : {
         "action_cost" : null,
@@ -297339,7 +311955,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Skode",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "Y0TY7oerRZ0pLbOB" : {
         "action_cost" : null,
@@ -297352,7 +312008,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Skrymir",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Magie",
+                "Domaine du Voyage",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            },
+            {
+                "rank" : 7,
+                "name" : "Cible verrouillée",
+                "uuid" : "AlbpWWN87yGegoAF"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "yIfdsL1788boOOYk" : {
         "action_cost" : null,
@@ -297365,7 +312061,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Gardiens du ciel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine du Changement",
+                "Domaine de la Protection",
+                "Domaine du Dragon"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de la Foudre"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 4,
+                "name" : "Vol",
+                "uuid" : "A2JfEKe6BZcTG1S8"
+            },
+            {
+                "rank" : 9,
+                "name" : "Tempête vengeresse",
+                "uuid" : "r4HLQcYwB62bTayl"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "5dhBYY6sWOJotbpU" : {
         "action_cost" : null,
@@ -297378,7 +312117,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Smiad",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Dragon",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "TvxsVRztDlGcWpcI" : {
         "action_cost" : null,
@@ -297391,7 +312172,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sobek",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Protection",
+                "Domaine de l'Eau",
+                "Domaine du Dragon"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme de dinosaure",
+                "uuid" : "KhM8MhoUgoUjBMIz"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre à deux mains"
+        ]
     },
     "vnmoAGURp8oWCY6R" : {
         "action_cost" : null,
@@ -297404,7 +312226,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Soralyon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Terre",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de créature artificielle",
+                "uuid" : "lKcsmeOrgHtK4xQa"
+            },
+            {
+                "rank" : 3,
+                "name" : "Uni avec la pierre",
+                "uuid" : "vh1RpbWfqdNC4L3P"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic"
+        ]
     },
     "gpS3hv7LP2IRwEHT" : {
         "action_cost" : null,
@@ -297417,7 +312281,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Épée du chagrin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Puissance",
+                "Domaine du Chagrin",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée bâtarde"
+        ]
     },
     "3vzvggkPuLkTF6So" : {
         "action_cost" : null,
@@ -297430,7 +312335,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Conclave Sovyrien",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Magie",
+                "Domaine de la Lune",
+                "Domaine de la Nature"
+            ],
+            "alternate" : [
+                "Domaine de la Passion",
+                "Domaine du Bois"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Façonnage du bois",
+                "uuid" : "CXICME10TkEJxz0P"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long",
+            "Arc court"
+        ]
     },
     "ox0AaGLIyzCUrre2" : {
         "action_cost" : null,
@@ -297443,7 +312392,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Srikalis, Sritaming et Sribaril",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Passion",
+                "Domaine de la Perfection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Liberté",
+                "Domaine de la Souffrance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Kris",
+            "Arquebuse"
+        ]
     },
     "9MhgyxTfsffWzDbU" : {
         "action_cost" : null,
@@ -297456,7 +312450,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ssila'meshnik",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine de la Liberté",
+                "Domaine du Savoir",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Ordre libérateur",
+                "uuid" : "0Dcd4iEXqCrkm4Jn"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malchance du miroir",
+                "uuid" : "A7w3YQBrFNH8KYsB"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "fTs56epghXwclPcX" : {
         "action_cost" : null,
@@ -297469,7 +312507,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mère Élaphe de la Forêt de pierres",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de la Souffrance"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 6,
+                "name" : "Pétrifier",
+                "uuid" : "znv4ECL7ZtuiagtA"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "2uY2CDR2DyBqxbVU" : {
         "action_cost" : null,
@@ -297482,7 +312563,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sang de la pierre",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine des Glyphes"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charge de fourmi",
+                "uuid" : "X9dkmh23lFwMjrYd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "97Qe42wJN5EVUS14" : {
         "action_cost" : null,
@@ -297495,7 +312619,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sturovenen",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la confiance en soi",
+                "Domaine de la Passion",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine du Dragon",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur rayonnant",
+                "uuid" : "HWrNMQENi9WSGbnF"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Main-gauche"
+        ]
     },
     "BLNXYqvzmLgjMq2p" : {
         "action_cost" : null,
@@ -297508,7 +312675,53 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Sun Wukong",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Liberté",
+                "Domaine de la Magie",
+                "Domaine de la Protection",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 3,
+                "name" : "Singes fous",
+                "uuid" : "tFKJCPvOQZxKq6ON"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Bô"
+        ]
     },
     "u2tnG7fKkZ2KHMcT" : {
         "action_cost" : null,
@@ -297521,7 +312734,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Suyuddha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Perfection",
+                "Domaine de la Tromperie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine des Nuées",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 5,
+                "name" : "Géométrie étrange",
+                "uuid" : "m4Mc5XbdML92BKOE"
+            }
+        ],
+        "deity_weapons" : [
+            "Tekko-kagi"
+        ]
     },
     "rDTXcBJ8LyqA2TkL" : {
         "action_cost" : null,
@@ -297534,7 +312791,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Szuriel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Destruction",
+                "Domaine du Feu",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "Pq9PT7dqRrQ3nnNx" : {
         "action_cost" : null,
@@ -297547,7 +312844,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Serres du Dieu Griffu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Puissance",
+                "Domaine de la Perfection",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Tyrannie",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 6,
+                "name" : "Vortex de flammes",
+                "uuid" : "Gn5deIoobHpd3SiR"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "DFxbPmQLOqcmbPTz" : {
         "action_cost" : null,
@@ -297560,7 +312901,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tanagaar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine du Devoir",
+                "Domaine de la Nature",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Vision animale",
+                "uuid" : "1HfusQ8NDWutGvMx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            }
+        ],
+        "deity_weapons" : [
+            "Kukri"
+        ]
     },
     "vjG96N3HYdK7xvh6" : {
         "action_cost" : null,
@@ -297573,7 +312956,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Téki Stronggut",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Message implanté",
+                "uuid" : "eIQ86FOXK34HiNLs"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "OoPq9MtnAcrHBumx" : {
         "action_cost" : null,
@@ -297586,7 +313012,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Télastmar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine de la Nature",
+                "Domaine de l'Anéantissement",
+                "Domaine des Étoiles"
+            ],
+            "alternate" : [
+                "Domaine de la Lune",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Force gravitationnelle",
+                "uuid" : "F1fQC9SarAkjNxpP"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Gravité variable",
+                "uuid" : "DcmWrD0V5PWQQyDm"
+            }
+        ],
+        "deity_weapons" : [
+            "Bolas"
+        ]
     },
     "f8fQIrsOdKVucT1G" : {
         "action_cost" : null,
@@ -297599,7 +313069,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Telvrys (homme-vert)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Destruction",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Poigne acide",
+                "uuid" : "9h9YCncqah6VNsKf"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Briseterre"
+        ]
     },
     "nawnLEk0rr7BgF1K" : {
         "action_cost" : null,
@@ -297612,7 +313122,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Teshallas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Décomposition",
+                "Domaine de la Guérison",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Dragon",
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Morsure d'araignée",
+                "uuid" : "DYdvMZ8G2LiSLVWw"
+            },
+            {
+                "rank" : 3,
+                "name" : "Compagnon venimeux",
+                "uuid" : "gWmLT5SkA0qH2mNE"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps corrosif",
+                "uuid" : "9aFg4EuOBVz0i3Lb"
+            }
+        ],
+        "deity_weapons" : [
+            "Chakram"
+        ]
     },
     "9Z1vOSaLsEiAs2yN" : {
         "action_cost" : null,
@@ -297625,7 +313179,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thalaphyrr (Déchu)",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine des Cauchemars",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Lenteur",
+                "uuid" : "WsUwpfmhKrKwoIe3"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "PFp4Sdp2TDDKD62l" : {
         "action_cost" : null,
@@ -297638,7 +313232,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thamir",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Tromperie",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Invisibilité partagée",
+                "uuid" : "I0j56TNRmGcTyoqJ"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "bNEq1DQKYUVHVKC1" : {
         "action_cost" : null,
@@ -297651,7 +313286,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "L'Onction des rois",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine du Devoir",
+                "Domaine du Destin"
+            ],
+            "alternate" : [
+                "Domaine du Dragon",
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "HR563VdVbW8aUdqM" : {
         "action_cost" : null,
@@ -297664,7 +313342,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le rappel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Famille",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Passion"
+            ],
+            "alternate" : [
+                "Domaine du Changement"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée canne"
+        ]
     },
     "zgM2jsxw52HjALV0" : {
         "action_cost" : null,
@@ -297677,7 +313397,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Voyage délibéré",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine du Savoir",
+                "Domaine de la Chance",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de la Confidentialité",
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 9,
+                "name" : "Manoir resplendissant",
+                "uuid" : "KPDHmmjJiw7PhTYF"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète"
+        ]
     },
     "Iwgr8NVomfEuX4WR" : {
         "action_cost" : null,
@@ -297690,7 +313453,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Dévoreur",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de l'Anéantissement",
+                "Domaine des Étoiles",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Liberté"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Frappe de débris",
+                "uuid" : "Rn2LkoSq1XhLsODV"
+            },
+            {
+                "rank" : 2,
+                "name" : "Poigne acide",
+                "uuid" : "9h9YCncqah6VNsKf"
+            },
+            {
+                "rank" : 6,
+                "name" : "Désintégration",
+                "uuid" : "r7ihOgKv19eJQnik"
+            }
+        ],
+        "deity_weapons" : [
+            "Maillet"
+        ]
     },
     "PIMd4yRGj8XQgGbW" : {
         "action_cost" : null,
@@ -297703,7 +313509,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Défi divin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Destin",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Saut",
+                "uuid" : "Q7QQ91vQtyi1Ux36"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Série victorieuse",
+                "uuid" : "EGTTGI1pkmsVPqHp"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "p4TbCVOwHB4ccmT4" : {
         "action_cost" : null,
@@ -297716,7 +313565,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La route sans fin",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Savoir",
+                "Domaine du Voyage",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "Oci540vcXkJKR0gW" : {
         "action_cost" : null,
@@ -297729,7 +313618,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Voie de l'érudit éclairé",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes",
+                "Domaine de la Passion"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Page secrète",
+                "uuid" : "VVAZPCvd4d90qVA1"
+            },
+            {
+                "rank" : 5,
+                "name" : "Géométrie étrange",
+                "uuid" : "m4Mc5XbdML92BKOE"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "KPrtgoIcgiBSKzS3" : {
         "action_cost" : null,
@@ -297742,7 +313674,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La flamme libératrice",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Destruction",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée canne"
+        ]
     },
     "JndhOIHnQoMwnsw3" : {
         "action_cost" : null,
@@ -297755,7 +313732,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le dieu griffu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Perfection",
+                "Domaine de la Protection",
+                "Domaine de la Tyrannie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            },
+            {
+                "rank" : 6,
+                "name" : "Domination",
+                "uuid" : "OsOhx3TGIZ7AhD0P"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "pVQzTL5elNTxvffu" : {
         "action_cost" : null,
@@ -297768,7 +313788,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Mère verte",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Nature",
+                "Domaine de la Passion"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "GBdxyS79vTozcv3P" : {
         "action_cost" : null,
@@ -297781,7 +313842,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Bastion du travailleur",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Liberté",
+                "Domaine de la Puissance",
+                "Domaine de la Vérité",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine des Petits plaisirs"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "JzaazIXXvAW02Cip" : {
         "action_cost" : null,
@@ -297794,7 +313898,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Dame de l'étoile polaire",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine des Ténèbres",
+                "Domaine de la Confidentialité",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Voile pénombral",
+                "uuid" : "zdb8cjOIDVKYMWdr"
+            },
+            {
+                "rank" : 2,
+                "name" : "Abrutir",
+                "uuid" : "CQb8HtQ1BPeZmu9h"
+            },
+            {
+                "rank" : 6,
+                "name" : "Couverture d'étoiles",
+                "uuid" : "m34WOIGZCEg1h76G"
+            }
+        ],
+        "deity_weapons" : [
+            "Coutille"
+        ]
     },
     "nuqIimigyt986WLE" : {
         "action_cost" : null,
@@ -297807,7 +313955,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Roi Lanterne",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Passion",
+                "Domaine de la Tromperie",
+                "Domaine du Délire"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "7zyxg8TlXCDzHGMf" : {
         "action_cost" : null,
@@ -297820,7 +314009,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Dernier Souffle",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Liberté",
+                "Domaine de la Souffrance",
+                "Domaine de la Protection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Destruction",
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 7,
+                "name" : "Sphère prismatique",
+                "uuid" : "PngDCmU0MXZkbu0v"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "HbuynQRCjGKtbhcC" : {
         "action_cost" : null,
@@ -297833,7 +314067,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le prince perdu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Quiétude",
+                "Domaine du Chagrin",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Réécriture de la mémoire",
+                "uuid" : "FhOaQDTSnsY7tiam"
+            },
+            {
+                "rank" : 5,
+                "name" : "Vague de désespoir",
+                "uuid" : "GaRQlC9Yw1BGKHfN"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "YeUhlOt3c98ocwjZ" : {
         "action_cost" : null,
@@ -297846,7 +314123,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Plateau d'offrandes",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Liberté",
+                "Domaine de la Guérison",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 5,
+                "name" : "Coffre secret",
+                "uuid" : "BoA00y45uDlmou07"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau"
+        ]
     },
     "cICflsnWTdwTtxx0" : {
         "action_cost" : null,
@@ -297859,7 +314179,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Cheval Pâle",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Devoir",
+                "Domaine de la Souffrance",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Ombres sauvages",
+                "uuid" : "Ru9v8U9IRk3LtWx8"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "XFqgtfxc47LPFjLZ" : {
         "action_cost" : null,
@@ -297872,7 +314235,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Pandémonia",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine du Délirium",
+                "Domaine de la Chance",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine des Rêves",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Embrouiller",
+                "uuid" : "pBevG6bSQOiyflev"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypnotiser",
+                "uuid" : "K2WpC3FFoHrqX9Q5"
+            },
+            {
+                "rank" : 6,
+                "name" : "Motif éclatant",
+                "uuid" : "RQjSQVZRG497cJhX"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse-yoyo gnome"
+        ]
     },
     "VG51y4FbTLdeGHZB" : {
         "action_cost" : null,
@@ -297885,7 +314292,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Chemin des cieux",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Lune",
+                "Domaine des Étoiles",
+                "Domaine du Soleil",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Labeur",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Vent arrière",
+                "uuid" : "KcLVELhCUcKXxiKE"
+            },
+            {
+                "rank" : 2,
+                "name" : "Flamme flottante",
+                "uuid" : "2ZdHjnpEQJuqOYSG"
+            },
+            {
+                "rank" : 3,
+                "name" : "Puits de gravité",
+                "uuid" : "06pzGkKTyPE3tHR8"
+            }
+        ],
+        "deity_weapons" : [
+            "Lamétoile"
+        ]
     },
     "Ons4JwstcXOlkaRF" : {
         "action_cost" : null,
@@ -297898,7 +314348,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Plaisanterie Perplexe",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Liberté",
+                "Domaine du Changement",
+                "Domaine du Délire",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine de la confiance en soi",
+                "Domaine de la Destruction"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Graisse",
+                "uuid" : "Wu0xFpewMKRK3HG8"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 8,
+                "name" : "Danse incontrôlable",
+                "uuid" : "Jvyy6oVIQsD34MHB"
+            }
+        ],
+        "deity_weapons" : [
+            "Rasoir de combat"
+        ]
     },
     "QTvR7ZqUrNMG56Nr" : {
         "action_cost" : null,
@@ -297911,7 +314406,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Coup Préparé",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Savoir",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 4,
+                "name" : "Télépathie",
+                "uuid" : "HqTI6wRrck1YXp3F"
+            },
+            {
+                "rank" : 6,
+                "name" : "Transposition collective",
+                "uuid" : "c3XygMbzrZMgV1y3"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance d'arçon"
+        ]
     },
     "RlOuyadtreI7pht1" : {
         "action_cost" : null,
@@ -297924,7 +314462,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "La Cour Resplendissante",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la confiance en soi",
+                "Domaine de la Liberté",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Passion",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Gemme explosive",
+                "uuid" : "0uRpypf1Hi7ahvTl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Tenue adéquate",
+                "uuid" : "q5qmNn144ZJGxnvJ"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Écharpe tranchante"
+        ]
     },
     "G5g4Xa0KjKA2T65I" : {
         "action_cost" : null,
@@ -297937,7 +314519,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Frontière de la Force",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Terre",
+                "Domaine de la Protection",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Ombon"
+        ]
     },
     "IDOd8Ph9tbVAkHBV" : {
         "action_cost" : null,
@@ -297950,7 +314577,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Les marées du chaos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine des Ténèbres",
+                "Domaine de la Destruction",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine des Cauchemars"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "m6UYxDnwGkOo8IY5" : {
         "action_cost" : null,
@@ -297963,7 +314633,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thisamet",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine du Délire",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine du Feu"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Couleurs vertigineuses",
+                "uuid" : "UKsIOWmMx4hSpafl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée courte"
+        ]
     },
     "aievwuZalZ2abs2q" : {
         "action_cost" : null,
@@ -297976,7 +314689,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Lune"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 3,
+                "name" : "Océan de pensées",
+                "uuid" : "tSosbMsftXcRaQgT"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "y7aYkVd72Kh6ydWi" : {
         "action_cost" : null,
@@ -297989,7 +314743,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thrémyr",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine de la Création",
+                "Domaine de l'Eau",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 5,
+                "name" : "Manteau du coeur gelé",
+                "uuid" : "CcXtbTxtdV9MKQfu"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rafale glacée",
+                "uuid" : "vFkz0gVBUT2gGnm1"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "mwqdXCX19j7ammfh" : {
         "action_cost" : null,
@@ -298002,7 +314796,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Thuskchoon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine des Petits plaisirs",
+                "Domaine du Savoir",
+                "Domaine de l'Anéantissement"
+            ],
+            "alternate" : [
+                "Domaine de la Poussière",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 2,
+                "name" : "Festin de cendres",
+                "uuid" : "siU9xRlqWXeKT0mH"
+            },
+            {
+                "rank" : 5,
+                "name" : "Tempête d'acide",
+                "uuid" : "ZW8ovbu1etdfMre3"
+            }
+        ],
+        "deity_weapons" : [
+            "Massue"
+        ]
     },
     "2fVbLwfQjyHSoSVy" : {
         "action_cost" : null,
@@ -298015,7 +314852,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Titivilus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité"
+            ],
+            "alternate" : [
+                "Domaine de la Tromperie",
+                "Domaine de la Vérité",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Conversation distrayante",
+                "uuid" : "JHntYF0SbaWKq7wR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "wtXlsIbYRjwuCexX" : {
         "action_cost" : null,
@@ -298028,7 +314909,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tjasse",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine de la Nature"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Alliés animaux",
+                "uuid" : "Aap7nGpC7neTWm78"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "0R2BjVb7d9tYCIbk" : {
         "action_cost" : null,
@@ -298041,7 +314962,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tléhar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Guérison",
+                "Domaine de la Passion",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine de la Veille",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 3,
+                "name" : "Discours captivant",
+                "uuid" : "IihxWhRfpsBgQ5jS"
+            },
+            {
+                "rank" : 5,
+                "name" : "Potentiel onirique",
+                "uuid" : "y0Vy7iNL3ET8K00C"
+            }
+        ],
+        "deity_weapons" : [
+            "Morgenstern"
+        ]
     },
     "wyKJRFrEJdRFtsha" : {
         "action_cost" : null,
@@ -298054,7 +315020,34 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tolte Coatl",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine de l'Introspection",
+                "Domaine de la Confidentialité",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [],
+        "deity_weapons" : [
+            "Arbaleste"
+        ]
     },
     "sZrdzh0ANQnZGXJb" : {
         "action_cost" : null,
@@ -298067,7 +315060,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Torag",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine du Métal"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cloué à terre",
+                "uuid" : "gPvtmKMRpg9I9D7H"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "LGOkWwN6AZhLiZpl" : {
         "action_cost" : null,
@@ -298080,7 +315116,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Caresse du soleil",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Guérison",
+                "Domaine de la Passion",
+                "Domaine du Soleil"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Veille",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps enflammé",
+                "uuid" : "XS7Wyh5YC0NWeWyB"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "bOnXaO1xTvkvCBoN" : {
         "action_cost" : null,
@@ -298093,7 +315173,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Trésors de l'Excavation Éternelle",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Puissance",
+                "Domaine du Labeur",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine de la Protection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Frappe de débris",
+                "uuid" : "Rn2LkoSq1XhLsODV"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cloué à terre",
+                "uuid" : "gPvtmKMRpg9I9D7H"
+            },
+            {
+                "rank" : 8,
+                "name" : "Tremblement de terre",
+                "uuid" : "x7SPrsRxGb2Vy2nu"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic"
+        ]
     },
     "ENzMYuzBZGIujSMx" : {
         "action_cost" : null,
@@ -298106,7 +315229,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Fléau des arbres",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Nature",
+                "Domaine des Cauchemars",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sinistres volutes",
+                "uuid" : "k34hDOfIIMAxNL4a"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "9eltBjLngkR9x1Xm" : {
         "action_cost" : null,
@@ -298119,7 +315285,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Trelmarixian",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Poussière",
+                "Domaine de la Terre",
+                "Domaine des Cauchemars"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Graisse",
+                "uuid" : "Wu0xFpewMKRK3HG8"
+            },
+            {
+                "rank" : 2,
+                "name" : "Festin de cendres",
+                "uuid" : "siU9xRlqWXeKT0mH"
+            },
+            {
+                "rank" : 5,
+                "name" : "Tempête d'acide",
+                "uuid" : "ZW8ovbu1etdfMre3"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "81EbN765Clkvwyqi" : {
         "action_cost" : null,
@@ -298132,7 +315338,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tresmalvos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Petits plaisirs",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Fléau",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Alliés animaux",
+                "uuid" : "Aap7nGpC7neTWm78"
+            },
+            {
+                "rank" : 4,
+                "name" : "Torrent hydraulique",
+                "uuid" : "Y3G6Y6EDgCY0s3fq"
+            },
+            {
+                "rank" : 8,
+                "name" : "Dessécher",
+                "uuid" : "M0jQlpQYUr0pp2Sv"
+            }
+        ],
+        "deity_weapons" : [
+            "Hallebarde"
+        ]
     },
     "N8a76dkGfUvxvSW0" : {
         "action_cost" : null,
@@ -298145,7 +315395,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Trudd",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Devoir",
+                "Domaine de la Puissance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre"
+        ]
     },
     "aTYy1WHwAZiuei4h" : {
         "action_cost" : null,
@@ -298158,7 +315451,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Tsukiyo",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Lune",
+                "Domaine de la Quiétude",
+                "Domaine de l'Âme",
+                "Domaine du Délire"
+            ],
+            "alternate" : [
+                "Domaine du Changement"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bulle paisible",
+                "uuid" : "onjZCEHs3JJJRTD0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Hallucination",
+                "uuid" : "U58aQWJ47VrI36yP"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "RKCISPRJMRz9FR4n" : {
         "action_cost" : null,
@@ -298171,7 +315506,52 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Turvu",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Religion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Liberté",
+                "Domaine de l'Introspection",
+                "Domaine du Savoir",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Dragon",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 4,
+                "name" : "Translocation",
+                "uuid" : "VlNcjmYyu95vOUe8"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Bâton"
+        ]
     },
     "DnBpqbMjRe2TwVZF" : {
         "action_cost" : null,
@@ -298184,7 +315564,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Uirch",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine du Devoir",
+                "Domaine de la Liberté",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Famille",
+                "Domaine du Soleil",
+                "Domaine de la Veille"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arbre protecteur",
+                "uuid" : "K9gI08enGtmih5X1"
+            },
+            {
+                "rank" : 2,
+                "name" : "Résilience du chêne",
+                "uuid" : "YWrfKetOqDwVFut7"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            }
+        ],
+        "deity_weapons" : [
+            "Tekko-kagi"
+        ]
     },
     "lvCryIEcfy7XIbAc" : {
         "action_cost" : null,
@@ -298197,7 +315621,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ulon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 2,
+                "name" : "Paranoïa",
+                "uuid" : "Mkbq9xlAUxHUHyR2"
+            },
+            {
+                "rank" : 4,
+                "name" : "Suggestion",
+                "uuid" : "qwlh6aDgi86U3Q7H"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète"
+        ]
     },
     "hUuM7HI7bw5aYUVr" : {
         "action_cost" : null,
@@ -298210,7 +315677,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Umarik",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Destruction",
+                "Domaine de la Nature",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Froid",
+                "Domaine de la Foudre"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 5,
+                "name" : "Blizzard hurlant",
+                "uuid" : "xxWhyl81w3ckslAU"
+            },
+            {
+                "rank" : 8,
+                "name" : "Vents punitifs",
+                "uuid" : "wi405lBjPcbF1DeR"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "xDHJU43e9Bw7GwYm" : {
         "action_cost" : null,
@@ -298223,7 +315733,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Upion et Warrik",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Puissance",
+                "Domaine de la Passion",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Lien mental",
+                "uuid" : "D442XMADp01qJ7Cs"
+            },
+            {
+                "rank" : 2,
+                "name" : "Accès de rigolade",
+                "uuid" : "tlSE7Ly8vi1Dgddv"
+            },
+            {
+                "rank" : 6,
+                "name" : "Mur de force",
+                "uuid" : "7Iela4GgVeO3LfAo"
+            }
+        ],
+        "deity_weapons" : [
+            "Ombon"
+        ]
     },
     "Qr8BqULcaBAiIKUY" : {
         "action_cost" : null,
@@ -298236,7 +315786,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Urazra",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine de la Souffrance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Attirer la colère",
+                "uuid" : "jsWthW1Qy6tg3SwD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mues de peau",
+                "uuid" : "X3dYByf3YmkcdwG0"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "KB6O6dvwJj7wuwO7" : {
         "action_cost" : null,
@@ -298249,7 +315839,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Prospérité urbaine",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine des Villes",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison",
+                "Domaine de la Richesse"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déblocage",
+                "uuid" : "6Ot4N22t5tPD51BO"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "22n3N47sqbqbDxbp" : {
         "action_cost" : null,
@@ -298262,7 +315896,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Urgathoa",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Magie",
+                "Domaine de la Puissance",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine du Fléau",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fausse vitalité",
+                "uuid" : "8ViwItUgwT4lOvvb"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "v03ImN8VkF3cz7MI" : {
         "action_cost" : null,
@@ -298275,7 +315953,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Uskyéria",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Nature",
+                "Domaine de la Veille",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Protection",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais chemin",
+                "uuid" : "iohRnd4gUCmJlh54"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 6,
+                "name" : "Réprésailles de la nature",
+                "uuid" : "YtBZq49N4Um1cwm7"
+            }
+        ],
+        "deity_weapons" : [
+            "Cimeterre"
+        ]
     },
     "w8Pfl5syV0vaEuTM" : {
         "action_cost" : null,
@@ -298288,7 +316009,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ussharassim",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Représentation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la confiance en soi",
+                "Domaine de la Passion",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            },
+            {
+                "rank" : 5,
+                "name" : "Cape colorée",
+                "uuid" : "TCk2MDwf5L5OYjFC"
+            }
+        ],
+        "deity_weapons" : [
+            "Pistolet de duel"
+        ]
     },
     "w4fDrwL8VIqJDPfR" : {
         "action_cost" : null,
@@ -298301,7 +316062,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Uvuko",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine de la Guérison",
+                "Domaine du Dragon"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine du Froid"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 3,
+                "name" : "Rapidité",
+                "uuid" : "o6YCGx4lycsYpww4"
+            },
+            {
+                "rank" : 6,
+                "name" : "Forme de dragon",
+                "uuid" : "5c692cCcTDXjSEzk"
+            }
+        ],
+        "deity_weapons" : [
+            "Maillet"
+        ]
     },
     "fFoqdiTV2YuITZSd" : {
         "action_cost" : null,
@@ -298314,7 +316118,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Valani",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Terre",
+                "Domaine du Feu",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Foudroiement",
+                "uuid" : "zDJS8E66UI0himqV"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme de dinosaure",
+                "uuid" : "KhM8MhoUgoUjBMIz"
+            },
+            {
+                "rank" : 6,
+                "name" : "Confluence élémentaire",
+                "uuid" : "Cpj05laa7ogqGwS3"
+            }
+        ],
+        "deity_weapons" : [
+            "Gourdin"
+        ]
     },
     "F7Y83d8keV9CAhP2" : {
         "action_cost" : null,
@@ -298327,7 +316175,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vale",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine du Destin",
+                "Domaine du Savoir",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Vérité",
+                "Domaine du Zèle"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 6,
+                "name" : "Image chromatique",
+                "uuid" : "FgRpddPORsRFwNoX"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléau de guerre"
+        ]
     },
     "9FWBJcADLEeP8Krf" : {
         "action_cost" : null,
@@ -298340,7 +316232,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Valmallos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Armure mystique",
+                "uuid" : "aAbfKn8maGjJjk2W"
+            },
+            {
+                "rank" : 6,
+                "name" : "Écervelé",
+                "uuid" : "5BbU1V6wGSGbrmRD"
+            },
+            {
+                "rank" : 7,
+                "name" : "Contingence",
+                "uuid" : "WG91Z5TiR6oO5FOw"
+            }
+        ],
+        "deity_weapons" : [
+            "Kukri"
+        ]
     },
     "DWIGqLu8iQnZYS26" : {
         "action_cost" : null,
@@ -298353,7 +316286,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vapula",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de la Protection",
+                "Domaine de la Confidentialité",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : [
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Objet illusoire",
+                "uuid" : "2oH5IufzdESuYxat"
+            },
+            {
+                "rank" : 3,
+                "name" : "Estomac sans fond",
+                "uuid" : "F9mA2Bg27QKniIdv"
+            },
+            {
+                "rank" : 4,
+                "name" : "Entrée liminaire",
+                "uuid" : "OM5NeD7a1CYNqy8S"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "Up2Wv097dRjoClSw" : {
         "action_cost" : null,
@@ -298366,7 +316341,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Varg",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Destruction",
+                "Domaine du Savoir",
+                "Domaine du Labeur"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Anticipation du danger",
+                "uuid" : "EUMjrJJwSgsqNidi"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pique empaleuse",
+                "uuid" : "oXeEbcUdgJGWHGEJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Grande hache"
+        ]
     },
     "KIbuRCeRdfOwxUXX" : {
         "action_cost" : null,
@@ -298379,7 +316394,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vavaalrav",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Religion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude",
+                "Domaine de la Veille"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            },
+            {
+                "rank" : 7,
+                "name" : "Récupération momentanée",
+                "uuid" : "ggtZTxeyEnDYbt6f"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc court"
+        ]
     },
     "NkKdZor1FAePE5z9" : {
         "action_cost" : null,
@@ -298392,7 +316451,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Velgaas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de l'Anéantissement",
+                "Domaine de la Passion",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine de la Magie",
+                "Domaine du Naga"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 3,
+                "name" : "Conversation distrayante",
+                "uuid" : "JHntYF0SbaWKq7wR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Suggestion subconsciente",
+                "uuid" : "GP3wewkQXEPrLxYj"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "jCryzaFDLRL192Vv" : {
         "action_cost" : null,
@@ -298405,7 +316507,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Venkelvore",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine de la Souffrance",
+                "Domaine de la Passion",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Déguisement illusoire",
+                "uuid" : "i35dpZFI7jZcRoBo"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "pafYqAGj47TmGBib" : {
         "action_cost" : null,
@@ -298418,7 +316560,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vérilorn",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Nature",
+                "Domaine de la Protection",
+                "Domaine du Bois"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Arbre protecteur",
+                "uuid" : "K9gI08enGtmih5X1"
+            },
+            {
+                "rank" : 2,
+                "name" : "Résilience du chêne",
+                "uuid" : "YWrfKetOqDwVFut7"
+            },
+            {
+                "rank" : 6,
+                "name" : "Réprésailles de la nature",
+                "uuid" : "YtBZq49N4Um1cwm7"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "boSRWIodYDIPlZ4W" : {
         "action_cost" : null,
@@ -298431,7 +316616,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Mère Écarlate",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine du Délire",
+                "Domaine de la Nature",
+                "Domaine des Cauchemars"
+            ],
+            "alternate" : [
+                "Domaine de la Terre",
+                "Domaine de la Passion"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme de plante",
+                "uuid" : "zCcfPS4y5SrZzU2x"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "y93whGnGZjFyw5A0" : {
         "action_cost" : null,
@@ -298444,7 +316673,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vildéïs",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Souffrance",
+                "Domaine du Chagrin",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mues de peau",
+                "uuid" : "X3dYByf3YmkcdwG0"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pulsation synaptique",
+                "uuid" : "BilnTGuXrof9Dt9D"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "d47XTSODGAKANu3d" : {
         "action_cost" : null,
@@ -298457,7 +316727,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vineshvakhi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Devoir",
+                "Domaine de la Foudre",
+                "Domaine de la Souffrance",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine du Savoir",
+                "Domaine de la Confidentialité"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas de plomb",
+                "uuid" : "2tHYKoVc5YhSewDO"
+            },
+            {
+                "rank" : 2,
+                "name" : "Agrandissement",
+                "uuid" : "wzctak6BxOW8xvFV"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "iB7v8EkkQzCmdZ5X" : {
         "action_cost" : null,
@@ -298470,7 +316784,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vonymos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Destruction",
+                "Domaine du Chagrin",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de la Nature",
+                "Domaine de l'Âme"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "libre",
+                "uuid" : "4c1c6eNzU1PFGkAy"
+            },
+            {
+                "rank" : 3,
+                "name" : "Plongeon ardent",
+                "uuid" : "KEkPxx7Sm6Xf4W3s"
+            },
+            {
+                "rank" : 8,
+                "name" : "Chute du ciel",
+                "uuid" : "vm9O7ne48NM72yrJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "q5Rov9T1KTA0nJnm" : {
         "action_cost" : null,
@@ -298483,7 +316840,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vorasha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Magie",
+                "Domaine de l'Eau",
+                "Domaine du Dragon"
+            ],
+            "alternate" : [
+                "Domaine du Naga",
+                "Domaine de la Souffrance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Morsure d'araignée",
+                "uuid" : "DYdvMZ8G2LiSLVWw"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            },
+            {
+                "rank" : 8,
+                "name" : "Forme monstrueuse",
+                "uuid" : "8AMvNVOUEtxBCDvJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "JMRGy8Fb1ZYeSbcK" : {
         "action_cost" : null,
@@ -298496,7 +316896,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vudravati",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine de la Famille",
+                "Domaine de la Protection",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : [
+                "Domaine de la Guérison",
+                "Domaine de la Nature"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Façonnage de la pierre",
+                "uuid" : "McnPlLFvKtQVXNcG"
+            },
+            {
+                "rank" : 7,
+                "name" : "Palais planaire",
+                "uuid" : "vPWMEyVTreMOoFnm"
+            }
+        ],
+        "deity_weapons" : [
+            "Pique"
+        ]
     },
     "J33L1nYGD06FcxYF" : {
         "action_cost" : null,
@@ -298509,7 +316952,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vulot",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine de la Confidentialité",
+                "Domaine de la Tromperie",
+                "Domaine du Délire"
+            ],
+            "alternate" : [
+                "Domaine des Cauchemars",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Embrouiller",
+                "uuid" : "pBevG6bSQOiyflev"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            },
+            {
+                "rank" : 5,
+                "name" : "Portrait de l'artiste",
+                "uuid" : "CuRat8IXBUu9C3Yw"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "GUmYLD7PGmE2TOx6" : {
         "action_cost" : null,
@@ -298522,7 +317009,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Wadjet",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Protection",
+                "Domaine du Voyage",
+                "Domaine de l'Eau",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 4,
+                "name" : "Écailles réfléchisantes",
+                "uuid" : "Mv5L4201uk8hnAtD"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse légère"
+        ]
     },
     "g1AVEGi8QibhS007" : {
         "action_cost" : null,
@@ -298535,7 +317062,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Walkéna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine du Soleil",
+                "Domaine de la Tyrannie"
+            ],
+            "alternate" : [
+                "Domaine du Feu",
+                "Domaine du Devoir"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "ZynnoQJFz12FD0Xn" : {
         "action_cost" : null,
@@ -298548,7 +317118,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Glyphes du pharaon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine du Savoir",
+                "Domaine de la Magie",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine des Glyphes",
+                "Domaine de la Guérison"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Apaiser",
+                "uuid" : "szIyEsvihc5e1w8n"
+            },
+            {
+                "rank" : 4,
+                "name" : "Claustration",
+                "uuid" : "qJQADktwD0x8kLAy"
+            },
+            {
+                "rank" : 9,
+                "name" : "Disjonction",
+                "uuid" : "ihbRf964JDXztcy3"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "avyBK4NbMllCvRj8" : {
         "action_cost" : null,
@@ -298561,7 +317175,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Vagues de la Mer Infinie",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Destin",
+                "Domaine de la Quiétude",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine du Froid"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Orbe aqueux",
+                "uuid" : "oUDNCArkQTdhllxD"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Trident"
+        ]
     },
     "JeGR8YCpbmQAhxhF" : {
         "action_cost" : null,
@@ -298574,7 +317231,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Le Poids du Monde",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Foudre",
+                "Domaine de la Nature",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : [
+                "Domaine de l'Air",
+                "Domaine du Froid"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 5,
+                "name" : "Blizzard hurlant",
+                "uuid" : "xxWhyl81w3ckslAU"
+            },
+            {
+                "rank" : 6,
+                "name" : "Éclairs multiples",
+                "uuid" : "TDNlDWbYb58Y55Da"
+            }
+        ],
+        "deity_weapons" : [
+            "Javelot"
+        ]
     },
     "rji8c4S3dZJIy4VU" : {
         "action_cost" : null,
@@ -298587,7 +317287,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Rouages de l'Innovation",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine du Changement",
+                "Domaine de la Création",
+                "Domaine du Savoir"
+            ],
+            "alternate" : [
+                "Domaine du Métal",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 9,
+                "name" : "Métamorphose",
+                "uuid" : "pswdik31kuHEvdno"
+            }
+        ],
+        "deity_weapons" : [
+            "Outil universel"
+        ]
     },
     "EUOAV02rHz96jMPh" : {
         "action_cost" : null,
@@ -298600,7 +317343,22 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Voie du murmure",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [],
+            "alternate" : []
+        },
+        "deity_font" : [],
+        "deity_sanctification" : null,
+        "deity_spells" : [],
+        "deity_weapons" : []
     },
     "8wOAwLMgB1HFLo9n" : {
         "action_cost" : null,
@@ -298613,7 +317371,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Winlas",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Protection",
+                "Domaine de la Veille"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "doit sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Voile de confidentialité",
+                "uuid" : "EoKBlgf6Smt8opaU"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mélodie contagieuse",
+                "uuid" : "mUz3wqbMQ5JQ06M5"
+            }
+        ],
+        "deity_weapons" : [
+            "Masse"
+        ]
     },
     "GuUn4gElGNAT3Rbc" : {
         "action_cost" : null,
@@ -298626,7 +317424,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Wulgren",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine de la Création",
+                "Domaine de la Liberté",
+                "Domaine de la Perfection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Briseur de barricade"
+        ]
     },
     "mebdNVKeKuTmDDHj" : {
         "action_cost" : null,
@@ -298639,7 +317478,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Xhamen-dor",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine de la Décomposition",
+                "Domaine des Rêves",
+                "Domaine de la Nature"
+            ],
+            "alternate" : [
+                "Domaine du Délire"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Convocation de plante ou de champignon",
+                "uuid" : "jSRAyd57kd4WZ4yE"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "DikXombRpmC8P1Lc" : {
         "action_cost" : null,
@@ -298652,7 +317533,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Xiquiripat",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Labeur",
+                "Domaine de la Tyrannie"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Bourrasque de vent",
+                "uuid" : "g8QqHpv2CWDwmIm1"
+            },
+            {
+                "rank" : 3,
+                "name" : "Plongeon ardent",
+                "uuid" : "KEkPxx7Sm6Xf4W3s"
+            },
+            {
+                "rank" : 5,
+                "name" : "Pique empaleuse",
+                "uuid" : "oXeEbcUdgJGWHGEJ"
+            }
+        ],
+        "deity_weapons" : [
+            "Macuahuitl"
+        ]
     },
     "FREFauCaKxzGNuxE" : {
         "action_cost" : null,
@@ -298665,7 +317589,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Xovéron",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Villes",
+                "Domaine de la Destruction",
+                "Domaine de la Terre",
+                "Domaine des Petits plaisirs"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Puissance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Frappe de débris",
+                "uuid" : "Rn2LkoSq1XhLsODV"
+            },
+            {
+                "rank" : 2,
+                "name" : "Festin de cendres",
+                "uuid" : "siU9xRlqWXeKT0mH"
+            },
+            {
+                "rank" : 4,
+                "name" : "Résilience du rocher",
+                "uuid" : "2BV2yYPfVJ5zirZt"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "OLHByk9LF3QG2x41" : {
         "action_cost" : null,
@@ -298678,7 +317645,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Xsistaid",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Souffrance",
+                "Domaine du Fléau",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine de la Mort",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Variole gobeline",
+                "uuid" : "zJQnkKEKbJqGB3iB"
+            },
+            {
+                "rank" : 2,
+                "name" : "Vomir une nuée",
+                "uuid" : "cB17yFc9456Pyfec"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps corrosif",
+                "uuid" : "9aFg4EuOBVz0i3Lb"
+            }
+        ],
+        "deity_weapons" : [
+            "Fléchette"
+        ]
     },
     "83jKKHQPoqVylmrF" : {
         "action_cost" : null,
@@ -298691,7 +317701,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yaezhing",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Discrétion"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Devoir",
+                "Domaine de la Souffrance",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine des Ténèbres"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 6,
+                "name" : "Double illusoire",
+                "uuid" : "WPXzPl7YbMEIGWfi"
+            }
+        ],
+        "deity_weapons" : [
+            "Shuriken"
+        ]
     },
     "6j37TAv5BdOmrsUV" : {
         "action_cost" : null,
@@ -298704,7 +317756,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yamasoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Abomination",
+                "Domaine du Changement",
+                "Domaine de la Terre",
+                "Domaine de la Souffrance"
+            ],
+            "alternate" : [
+                "Domaine des Villes",
+                "Domaine du Labeur"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Attirer la colère",
+                "uuid" : "jsWthW1Qy6tg3SwD"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malédiction bestiale",
+                "uuid" : "VuPDHoVEPLbMfCJC"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Hallebarde"
+        ]
     },
     "tb0oADxOoMhyrYRA" : {
         "action_cost" : null,
@@ -298717,7 +317813,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yamatsumi",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Froid",
+                "Domaine de la Terre",
+                "Domaine du Feu",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Sable mouvant",
+                "uuid" : "HcIAQZjNXHemoXSU"
+            },
+            {
+                "rank" : 7,
+                "name" : "Éruption volcanique",
+                "uuid" : "O7ZEqWjwdKyo2CUv"
+            }
+        ],
+        "deity_weapons" : [
+            "Massue"
+        ]
     },
     "iEt6idGIEPXY2HzV" : {
         "action_cost" : null,
@@ -298730,7 +317867,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ydajisk",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine des Glyphes",
+                "Domaine du Savoir",
+                "Domaine de la Tromperie"
+            ],
+            "alternate" : [
+                "Domaine du Temps"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Rune messagère",
+                "uuid" : "Z7N5IxJCwrAdIgSg"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invectives torrides",
+                "uuid" : "hoR6w8BqX2F35Tdx"
+            },
+            {
+                "rank" : 4,
+                "name" : "Paroles mielleuses",
+                "uuid" : "JyxTmqjYYn63V5LY"
+            }
+        ],
+        "deity_weapons" : [
+            "Morsure",
+            "Massue"
+        ]
     },
     "4bEPoujxhYdUyUOg" : {
         "action_cost" : null,
@@ -298743,7 +317924,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ydersius",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Duperie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Puissance",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Forme de nuisible",
+                "uuid" : "gfPjmG6Fe6D3MFjl"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nuage toxique",
+                "uuid" : "MlpbeZ61Euhl0d60"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "1xG0PDxn0rhmJhMS" : {
         "action_cost" : null,
@@ -298756,7 +317977,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yélayne",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Création",
+                "Domaine de la Protection",
+                "Domaine du Labeur"
+            ],
+            "alternate" : [
+                "Domaine de la confiance en soi",
+                "Domaine du Voyage"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 3,
+                "name" : "Cabane douillette",
+                "uuid" : "mwPfoYfVGSMAaUec"
+            },
+            {
+                "rank" : 6,
+                "name" : "Motif éclatant",
+                "uuid" : "RQjSQVZRG497cJhX"
+            }
+        ],
+        "deity_weapons" : [
+            "Bâton"
+        ]
     },
     "kvMjvTyMNODBA1N2" : {
         "action_cost" : null,
@@ -298769,7 +318033,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yhidothrus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Sagesse",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine de la Décomposition",
+                "Domaine du Destin",
+                "Domaine du Temps"
+            ],
+            "alternate" : [
+                "Domaine de la Mort-vivance",
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Déjà vu",
+                "uuid" : "rerNA6YZsdxuJYt3"
+            },
+            {
+                "rank" : 4,
+                "name" : "Épreuve des âges",
+                "uuid" : "D6BcAoWFxHYTKwVZ"
+            },
+            {
+                "rank" : 6,
+                "name" : "Balancer dans le temps",
+                "uuid" : "OdqM06M0wDUqZWiR"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "oxORi6rZmqZNdJyJ" : {
         "action_cost" : null,
@@ -298782,7 +318089,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yig",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Nature"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : [
+                "Domaine du Dragon"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Alliés animaux",
+                "uuid" : "Aap7nGpC7neTWm78"
+            },
+            {
+                "rank" : 2,
+                "name" : "Mues de peau",
+                "uuid" : "X3dYByf3YmkcdwG0"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            }
+        ],
+        "deity_weapons" : [
+            "Katar",
+            "Crocs"
+        ]
     },
     "YXmeBdOZfWgUljW1" : {
         "action_cost" : null,
@@ -298795,7 +318146,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ylimancha",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Air",
+                "Domaine de la Nature",
+                "Domaine du Voyage",
+                "Domaine de l'Eau"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Atterrissage en douceur",
+                "uuid" : "TTwOKGqmZeKSyNMH"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme aérienne",
+                "uuid" : "NzXpEzcZAjuDTZjK"
+            }
+        ],
+        "deity_weapons" : [
+            "Arc long"
+        ]
     },
     "DHqB2r4JEJPs16Ek" : {
         "action_cost" : null,
@@ -298808,7 +318200,51 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yluma",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la confiance en soi",
+                "Domaine des Glyphes",
+                "Domaine de la Magie",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Savoir",
+                "Domaine de la Perfection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sbire fantasmagorique",
+                "uuid" : "xqmHD8JIjak15lRk"
+            },
+            {
+                "rank" : 2,
+                "name" : "Manoeuvre télékinésique",
+                "uuid" : "mrDi3v933gsmnw25"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Griffe",
+            "Khakkhara"
+        ]
     },
     "7L9KIqixgseSCY3X" : {
         "action_cost" : null,
@@ -298821,7 +318257,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yméri",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Poussière",
+                "Domaine du Feu",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 2,
+                "name" : "Convocation d'élémentaire",
+                "uuid" : "lpT6LotUaQPfinjj"
+            },
+            {
+                "rank" : 4,
+                "name" : "Mur de feu",
+                "uuid" : "IarZrgCeaiUqOuRu"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée longue"
+        ]
     },
     "SUaGdvQXxSAQAw03" : {
         "action_cost" : null,
@@ -298834,7 +318310,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yog-Sothoth",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Savoir",
+                "Domaine de l'Anéantissement",
+                "Domaine du Temps",
+                "Domaine du Voyage"
+            ],
+            "alternate" : [
+                "Domaine du Destin"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 5,
+                "name" : "Nid de serpent",
+                "uuid" : "xFp4EwVcYwSG336t"
+            },
+            {
+                "rank" : 7,
+                "name" : "Repère temporel",
+                "uuid" : "G56DJkxlUjFv0C4Z"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "HCBsEO4bxbAxSWEN" : {
         "action_cost" : null,
@@ -298847,7 +318365,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yrmidar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Famille",
+                "Domaine de la Liberté",
+                "Domaine des Petits plaisirs",
+                "Domaine de la Lune"
+            ],
+            "alternate" : [
+                "Domaine du Changement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Pas rapide",
+                "uuid" : "aEM2cttJ2eYcLssW"
+            },
+            {
+                "rank" : 2,
+                "name" : "Forme animale",
+                "uuid" : "wp09USMB3GIW1qbp"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            }
+        ],
+        "deity_weapons" : [
+            "Marteau de guerre léger"
+        ]
     },
     "y1aoHudIXFqYwWXP" : {
         "action_cost" : null,
@@ -298860,7 +318421,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Ytildos",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Délire",
+                "Domaine de la Confidentialité",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Poussée hydraulique",
+                "uuid" : "jfVCuOpzC6mUrf6f"
+            },
+            {
+                "rank" : 3,
+                "name" : "Fléau corallien",
+                "uuid" : "ZIk1EYbG6l4JuUkO"
+            },
+            {
+                "rank" : 8,
+                "name" : "Tourbillon",
+                "uuid" : "0fjz8qc9NfkmWmJZ"
+            }
+        ],
+        "deity_weapons" : [
+            "Macuahuitl"
+        ]
     },
     "uYpxTi4byHc5w78R" : {
         "action_cost" : null,
@@ -298873,7 +318474,77 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Yuelral",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Arcanes"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine de la Terre",
+                "Domaine du Savoir",
+                "Domaine de la Magie"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Gemme explosive",
+                "uuid" : "0uRpypf1Hi7ahvTl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Façonnage du bois",
+                "uuid" : "CXICME10TkEJxz0P"
+            },
+            {
+                "rank" : 3,
+                "name" : "Uni avec la pierre",
+                "uuid" : "vh1RpbWfqdNC4L3P"
+            },
+            {
+                "rank" : 4,
+                "name" : "Façonnage de la pierre",
+                "uuid" : "McnPlLFvKtQVXNcG"
+            },
+            {
+                "rank" : 5,
+                "name" : "Chemin de la nature",
+                "uuid" : "F1qxaqsEItmBura2"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            },
+            {
+                "rank" : 8,
+                "name" : "Pétales brûlants",
+                "uuid" : "kWDt0JcKPgX6MvdD"
+            },
+            {
+                "rank" : 9,
+                "name" : "Hostilité naturelle",
+                "uuid" : "Tc5NLaMu71vrGTJQ"
+            }
+        ],
+        "deity_weapons" : [
+            "Dague"
+        ]
     },
     "lDYntNcMZ8AKdlIU" : {
         "action_cost" : null,
@@ -298886,7 +318557,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zarongel",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine du Savoir",
+                "Domaine de la Nature",
+                "Domaine du Voyage"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Traces évanescentes",
+                "uuid" : "zlnXpME1T2uvn8Lr"
+            },
+            {
+                "rank" : 3,
+                "name" : "Boule de feu",
+                "uuid" : "sxQZ6yqTn0czJxVd"
+            },
+            {
+                "rank" : 7,
+                "name" : "Meute sans entrave",
+                "uuid" : "bVtkBJvGLP69qVGI"
+            }
+        ],
+        "deity_weapons" : [
+            "Tranchechien"
+        ]
     },
     "v1HIqHBRvpUUbKgY" : {
         "action_cost" : null,
@@ -298899,7 +318610,78 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zeaki",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Charisme",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Occultisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Changement",
+                "Domaine du Destin",
+                "Domaine de la Magie",
+                "Domaine de la Lune"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Messager animal",
+                "uuid" : "yhz9fF69uwRhnHix"
+            },
+            {
+                "rank" : 3,
+                "name" : "Pieds en nageoires",
+                "uuid" : "RvBlSIJmxiqfCpR9"
+            },
+            {
+                "rank" : 4,
+                "name" : "Malédiction bestiale",
+                "uuid" : "VuPDHoVEPLbMfCJC"
+            },
+            {
+                "rank" : 5,
+                "name" : "Frénésie lunaire",
+                "uuid" : "YtesyvfAIwXOqISq"
+            },
+            {
+                "rank" : 6,
+                "name" : "Métamorphose maudite",
+                "uuid" : "dN8QBNuTiaBHCKUe"
+            },
+            {
+                "rank" : 7,
+                "name" : "Déformer l'esprit",
+                "uuid" : "8kJbiBEjMWG4VUjs"
+            },
+            {
+                "rank" : 8,
+                "name" : "Migration",
+                "uuid" : "U0hL0LLaprcnAyzC"
+            },
+            {
+                "rank" : 9,
+                "name" : "Métamorphose",
+                "uuid" : "pswdik31kuHEvdno"
+            }
+        ],
+        "deity_weapons" : [
+            "Chakri"
+        ]
     },
     "1CqGgDeEuaVOgFFE" : {
         "action_cost" : null,
@@ -298912,7 +318694,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zélishkar",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine du Devoir",
+                "Domaine du Feu",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine de l'Ambition",
+                "Domaine des Étoiles"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 4,
+                "name" : "Bouclier de feu",
+                "uuid" : "YrzBLPLd3r9m6t1p"
+            },
+            {
+                "rank" : 7,
+                "name" : "Corps enflammé",
+                "uuid" : "XS7Wyh5YC0NWeWyB"
+            }
+        ],
+        "deity_weapons" : [
+            "Corsèque"
+        ]
     },
     "8roijlQ03l9rWFFe" : {
         "action_cost" : null,
@@ -298925,7 +318750,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zevgavizeb",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Destruction",
+                "Domaine de la Puissance",
+                "Domaine de la Nature",
+                "Domaine du Dragon"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Forme de nuisible",
+                "uuid" : "gfPjmG6Fe6D3MFjl"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme de dinosaure",
+                "uuid" : "KhM8MhoUgoUjBMIz"
+            },
+            {
+                "rank" : 8,
+                "name" : "Tremblement de terre",
+                "uuid" : "x7SPrsRxGb2Vy2nu"
+            }
+        ],
+        "deity_weapons" : [
+            "Gantelet clouté"
+        ]
     },
     "DN0urKdPPqhXFzTq" : {
         "action_cost" : null,
@@ -298938,7 +318803,48 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zibik",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Médecine"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Décomposition",
+                "Domaine de la Guérison",
+                "Domaine de la Nature",
+                "Domaine de la Protection"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts",
+            "Soins"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Flore florissante",
+                "uuid" : "b6AQvzs8EotmlK56"
+            },
+            {
+                "rank" : 4,
+                "name" : "Racines draineuses de vie",
+                "uuid" : "FHfrCABOmGVaEpPx"
+            },
+            {
+                "rank" : 6,
+                "name" : "Entraves végétales",
+                "uuid" : "JbAcSLu62TU1OgNF"
+            }
+        ],
+        "deity_weapons" : [
+            "Faux"
+        ]
     },
     "jGENfggMNVR9ObAb" : {
         "action_cost" : null,
@@ -298951,7 +318857,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zipacna",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Constitution"
+        ],
+        "deity_skill" : [
+            "Survie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Terre",
+                "Domaine des Petits plaisirs",
+                "Domaine du Feu",
+                "Domaine de la Puissance"
+            ],
+            "alternate" : [
+                "Domaine du Temps",
+                "Domaine de la Décomposition"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Onde de choc",
+                "uuid" : "dgCH2E0gMLMUgyFl"
+            },
+            {
+                "rank" : 3,
+                "name" : "Sable mouvant",
+                "uuid" : "HcIAQZjNXHemoXSU"
+            },
+            {
+                "rank" : 5,
+                "name" : "Transport télékinésique",
+                "uuid" : "tpLTLbJUrYcMWGld"
+            }
+        ],
+        "deity_weapons" : [
+            "Lance"
+        ]
     },
     "kBuCFUp4KYJEnMLk" : {
         "action_cost" : null,
@@ -298964,7 +318913,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zjar-Tovan",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Dextérité",
+            "Force"
+        ],
+        "deity_skill" : [
+            "Athlétisme"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Métal",
+                "Domaine de la Puissance",
+                "Domaine de l'Introspection",
+                "Domaine du Zèle"
+            ],
+            "alternate" : [
+                "Domaine du Changement",
+                "Domaine de la Création"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré, impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Coup assuré",
+                "uuid" : "Gb7SeieEvd0pL2Eh"
+            },
+            {
+                "rank" : 3,
+                "name" : "Arme fantomatique",
+                "uuid" : "AMEu5zzLN7uCX645"
+            },
+            {
+                "rank" : 4,
+                "name" : "Tempête d'armes",
+                "uuid" : "8M03UxGXjYyDFAoy"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "OS9vZh5GYrNHahZq" : {
         "action_cost" : null,
@@ -298977,7 +318969,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zogmugot",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Création",
+                "Domaine du Savoir",
+                "Domaine de l'Eau",
+                "Domaine de la Richesse"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Outil temporaire",
+                "uuid" : "TPI9fRCAYsDqpAe4"
+            },
+            {
+                "rank" : 4,
+                "name" : "Création",
+                "uuid" : "TUj8eugNqAvB1vVR"
+            },
+            {
+                "rank" : 5,
+                "name" : "Contrôle de l'eau",
+                "uuid" : "zfn5RqAdF63neqpP"
+            }
+        ],
+        "deity_weapons" : [
+            "Serpe"
+        ]
     },
     "SCGdJmm7Wzle9jFP" : {
         "action_cost" : null,
@@ -298990,7 +319022,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zohls",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Société"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Villes",
+                "Domaine du Savoir",
+                "Domaine de la Vérité"
+            ],
+            "alternate" : [
+                "Domaine du Devoir",
+                "Domaine de l'Introspection"
+            ]
+        },
+        "deity_font" : [
+            "Soins"
+        ],
+        "deity_sanctification" : "peut sanctifier (sacré)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Connaissance partagée",
+                "uuid" : "nXmC2Xx9WmS5NsAo"
+            },
+            {
+                "rank" : 3,
+                "name" : "Hypercognition",
+                "uuid" : "ZYoC630tNGutgbE0"
+            },
+            {
+                "rank" : 7,
+                "name" : "Rétrocognition",
+                "uuid" : "rsZ5c0AUyywe5yoK"
+            }
+        ],
+        "deity_weapons" : [
+            "Arbalète lourde"
+        ]
     },
     "ZfN7jkK6boU1FuiS" : {
         "action_cost" : null,
@@ -299003,7 +319078,49 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zon-Kuthon",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Intimidation"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de l'Ambition",
+                "Domaine des Ténèbres",
+                "Domaine de la Destruction",
+                "Domaine de la Souffrance"
+            ],
+            "alternate" : [
+                "Domaine de l'Anéantissement"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Douleur fantôme",
+                "uuid" : "R8bqnYiThB6MYTxD"
+            },
+            {
+                "rank" : 3,
+                "name" : "Mur d'épines",
+                "uuid" : "KsWhliKfUs3IpW3c"
+            },
+            {
+                "rank" : 5,
+                "name" : "Voyage ombral",
+                "uuid" : "rxvS7EMJ7qmexAyA"
+            }
+        ],
+        "deity_weapons" : [
+            "Chaîne cloutée"
+        ]
     },
     "lPU0bl88a7cWWuyu" : {
         "action_cost" : null,
@@ -299016,7 +319133,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zugéro",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Intelligence",
+            "Sagesse"
+        ],
+        "deity_skill" : [
+            "Acrobaties"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Ténèbres",
+                "Domaine des Petits plaisirs",
+                "Domaine du Savoir",
+                "Domaine de la Quiétude"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : null,
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Sommeil",
+                "uuid" : "o4lRVTwSxnOOn5vl"
+            },
+            {
+                "rank" : 2,
+                "name" : "Invisibilité",
+                "uuid" : "XXqE1eY3w3z6xJCB"
+            },
+            {
+                "rank" : 5,
+                "name" : "Scène illusoire",
+                "uuid" : "Ucf8eynbZMfUucjE"
+            }
+        ],
+        "deity_weapons" : [
+            "Bolas"
+        ]
     },
     "8ZSywyo8YQPduo92" : {
         "action_cost" : null,
@@ -299029,7 +319186,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zura",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Charisme"
+        ],
+        "deity_skill" : [
+            "Diplomatie"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine des Petits plaisirs",
+                "Domaine des Cauchemars",
+                "Domaine de la Mort-vivance",
+                "Domaine du Délire"
+            ],
+            "alternate" : [
+                "Domaine de la Décomposition",
+                "Domaine des Nuées"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Charme",
+                "uuid" : "vLA0q0WOK2YPuJs6"
+            },
+            {
+                "rank" : 4,
+                "name" : "Forme vaporeuse",
+                "uuid" : "V8wXOsoejQhe6CyG"
+            },
+            {
+                "rank" : 7,
+                "name" : "Masque terrifiant",
+                "uuid" : "O6VQC1Bs4aSYDa6R"
+            }
+        ],
+        "deity_weapons" : [
+            "Rapière"
+        ]
     },
     "CezU0sI58mzkvAz3" : {
         "action_cost" : null,
@@ -299042,7 +319242,47 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zursvaater",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Force",
+            "Intelligence"
+        ],
+        "deity_skill" : [
+            "Artisanat"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine du Feu",
+                "Domaine de la Tromperie",
+                "Domaine de la Tyrannie",
+                "Domaine du Zèle"
+            ],
+            "alternate" : []
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "peut sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Cracher du feu",
+                "uuid" : "y6rAdMK6EFlV6U0t"
+            },
+            {
+                "rank" : 3,
+                "name" : "Plongeon ardent",
+                "uuid" : "KEkPxx7Sm6Xf4W3s"
+            },
+            {
+                "rank" : 5,
+                "name" : "Forme élémentaire",
+                "uuid" : "1K6AYGisvo9gqdhs"
+            }
+        ],
+        "deity_weapons" : [
+            "Épée à deux mains"
+        ]
     },
     "LLMTMgARSTlO7S9U" : {
         "action_cost" : null,
@@ -299055,7 +319295,50 @@ OBJECT.COMPENDIUM = {
         "price" : null,
         "required" : [],
         "text" : "Zyphus",
-        "traits" : []
+        "traits" : [],
+        "deity_attribute" : [
+            "Constitution",
+            "Dextérité"
+        ],
+        "deity_skill" : [
+            "Vol"
+        ],
+        "deity_domains" : {
+            "primary" : [
+                "Domaine de la Mort",
+                "Domaine du Chagrin",
+                "Domaine de l'Âme",
+                "Domaine de la Mort-vivance"
+            ],
+            "alternate" : [
+                "Domaine de la Création",
+                "Domaine de la Souffrance"
+            ]
+        },
+        "deity_font" : [
+            "Dégâts"
+        ],
+        "deity_sanctification" : "doit sanctifier (impie)",
+        "deity_spells" : [
+            {
+                "rank" : 1,
+                "name" : "Mauvais présage",
+                "uuid" : "6ZIKB0151LUR19Rw"
+            },
+            {
+                "rank" : 2,
+                "name" : "Fracassement",
+                "uuid" : "1xbFBQDRs0hT5xZ9"
+            },
+            {
+                "rank" : 6,
+                "name" : "Calamité imaginaire",
+                "uuid" : "0XP2XOxT9VSiXFDr"
+            }
+        ],
+        "deity_weapons" : [
+            "Pic"
+        ]
     },
     "6egx1zhQx2s6BEa1" : {
         "action_cost" : null,
@@ -448520,6 +468803,7 @@ OBJECT.COMPENDIUM = {
         ]
     }
 };
+
 
 /**
  * Actions connues du compendium (catégorie "action"), triées par nom et

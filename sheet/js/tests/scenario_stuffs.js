@@ -197,6 +197,20 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtres catégories + Bibl
             TEST.ASSERT.equal( _bulk_range.value, "0", "Le curseur devrait etre à 0 sur page vide, obtenu : [" + _bulk_range.value + "]" );
             TEST.ASSERT.equal( _bulk_range.parentElement.getAttribute( "data-bulk-state" ), "ok", "L'état de la jauge devrait etre ok, obtenu : [" + _bulk_range.parentElement.getAttribute( "data-bulk-state" ) + "]" );
         }
+        // Les graduations surplombent les seuils de couleur de la piste :
+        // 0, max (mi-piste), 2×max (fin de piste)
+        let _ticks = _pane.querySelector( ".stuffs-bulk-ticks" );
+        TEST.ASSERT.notNull( _ticks, "Les graduations devraient surplomber la jauge" );
+        if ( _ticks ) {
+            let _tick_spans = _ticks.querySelectorAll( ".stuffs-bulk-tick" );
+            let _max_gauge  = CONTROLLER.Character.current_character.getStuffs().getBulkMax( CONTROLLER.Character.current_character );
+            TEST.ASSERT.equal( _tick_spans.length, 3, "Trois graduations devraient exister (0 / max / 2×max), obtenu : " + _tick_spans.length );
+            if ( _tick_spans.length === 3 ) {
+                TEST.ASSERT.equal( _tick_spans[ 0 ].textContent, "0", "La graduation de début devrait lire 0, obtenu : [" + _tick_spans[ 0 ].textContent + "]" );
+                TEST.ASSERT.equal( _tick_spans[ 1 ].textContent, "" + _max_gauge, "La graduation du milieu devrait lire le max (" + _max_gauge + "), obtenu : [" + _tick_spans[ 1 ].textContent + "]" );
+                TEST.ASSERT.equal( _tick_spans[ 2 ].textContent, "" + ( 2 * _max_gauge ), "La graduation de fin devrait lire 2×max (" + ( 2 * _max_gauge ) + "), obtenu : [" + _tick_spans[ 2 ].textContent + "]" );
+            }
+        }
         // Les catégories : Tous + une puce par emplacement, comptes à 0,
         // la puce Tous active par défaut (la data porte l'état)
         let _filters = _pane.querySelectorAll( ".stuffs-add-bar .stuffs-location-filter" );
@@ -927,11 +941,14 @@ TEST.RUNNER.register( "[STUFFS] jauge d'encombrement : valeur, max à mi-piste, 
     let _max_after      = _stuffs.getBulkMax( _character );
     TEST.ASSERT.equal( _max_after, 10 + _for_mod_before + 1, "Le max devrait monter de 1 avec le boost de Force, obtenu : " + _max_after );
     TEST.ASSERT.equal( _range.getAttribute( "max" ), "" + ( 2 * _max_after ), "La piste de la jauge devrait suivre le nouveau max, obtenu : [" + _range.getAttribute( "max" ) + "]" );
+    let _tick_mid = _pane.querySelector( ".stuffs-bulk-tick-mid" );
+    TEST.ASSERT.equal( _tick_mid ? _tick_mid.textContent : null, "" + _max_after, "La graduation du milieu devrait suivre le nouveau max, obtenu : [" + ( _tick_mid ? _tick_mid.textContent : "null" ) + "]" );
     let _bulk_text = _pane.querySelector( ".stuffs-bulk-total" );
     TEST.ASSERT.equal( _bulk_text ? _bulk_text.textContent : null, TEST_stuffsBulkText( _total ), "Le texte 'porté / max' devrait suivre le nouveau max, obtenu : [" + ( _bulk_text ? _bulk_text.textContent : "null" ) + "]" );
     // Retrait du boost : le max redescend
     CONTROLLER.Character.doActionAfter( "event__adjustment__remove", { "param__adjustment__kind": "characteristic_boost", "param__adjustment__value": "Force" } );
     TEST.ASSERT.equal( _range.getAttribute( "max" ), "" + ( 2 * _max ), "Le retrait du boost devrait rendre le max à sa valeur, obtenu : [" + _range.getAttribute( "max" ) + "]" );
+    TEST.ASSERT.equal( _tick_mid ? _tick_mid.textContent : null, "" + _max, "La graduation du milieu devrait revenir à l'ancien max, obtenu : [" + ( _tick_mid ? _tick_mid.textContent : "null" ) + "]" );
 } );
 
 // Affichage encombré (over) : la jauge à mi-piste+, onglet Équipement actif

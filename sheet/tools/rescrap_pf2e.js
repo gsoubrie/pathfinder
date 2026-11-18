@@ -42,6 +42,8 @@ var ANC_FEATURES   = loadCache( "ancestry-features" );
 var BACKGROUNDS    = loadCache( "backgrounds" );
 var ARCHETYPES     = loadCache( "archetypes" );
 var DEITIES        = loadCache( "deities" );
+var DOMAINS        = loadCache( "domains" );
+var BASE_WEAPONS   = loadCache( "base-weapons" );
 var LANGUAGES      = loadCache( "languages" );
 var WEAPON_GROUPS  = loadCache( "weapon-groups" );
 var ARMOR_GROUPS   = loadCache( "armor-groups" );
@@ -686,6 +688,103 @@ function generateFeats() {
     emitGift( "sheet/js/gift/constant_gift_skill.js", "DON.SKILL", [ skill ], false );
 }
 
+//********************************************  DEITY EXTRAS  **************************************************//
+
+// Hand-written maps that survive the re-scrap : the source keys are English
+// slugs, the sheet displays French labels
+var DEITY_ABILITY_FR = {
+    "str": "Force", "dex": "Dextérité", "con": "Constitution",
+    "int": "Intelligence", "wis": "Sagesse", "cha": "Charisme"
+};
+var DEITY_FONT_FR           = { "harm": "Dégâts", "heal": "Soins" };
+var DEITY_SANCTIFICATION_FR = {
+    "can"   : "peut sanctifier",
+    "must"  : "doit sanctifier",
+    "holy"  : "sacré",
+    "unholy": "impie"
+};
+// Domain keys whose slug no longer matches a "X Domain" entry of
+// domains.json (remaster renames), resolved by hand
+var DEITY_DOMAIN_FR_OVERRIDE = {
+    "void"    : "Domaine de l'Anéantissement",
+    "wyrmkin" : "Domaine du Dragon",
+    "delirium": "Domaine du Délire"
+};
+
+var DOMAIN_BY_SLUG = null;
+var SPELL_BY_ID    = null;
+
+function domainSlugOf( name_en ) {
+    return name_en.toLowerCase().replace( / domain$/, "" ).replace( /[^a-z0-9]+/g, "-" ).replace( /^-+|-+$/g, "" );
+}
+
+function deityDomainFr( key ) {
+    if ( DEITY_DOMAIN_FR_OVERRIDE[ key ] ) {
+        return DEITY_DOMAIN_FR_OVERRIDE[ key ];
+    }
+    if ( !DOMAIN_BY_SLUG ) {
+        DOMAIN_BY_SLUG = {};
+        for ( var i = 0, _size_i = DOMAINS.length; i < _size_i; i++ ) {
+            DOMAIN_BY_SLUG[ domainSlugOf( DOMAINS[ i ].name ) ] = DOMAINS[ i ];
+        }
+    }
+    var entry = DOMAIN_BY_SLUG[ key ];
+    return entry ? ( frOf( entry ).name || entry.name ) : key;
+}
+
+function deitySpellFr( uuid ) {
+    if ( !SPELL_BY_ID ) {
+        SPELL_BY_ID = {};
+        for ( var i = 0, _size_i = SPELLS.length; i < _size_i; i++ ) {
+            SPELL_BY_ID[ SPELLS[ i ]._id ] = SPELLS[ i ];
+        }
+    }
+    var entry = SPELL_BY_ID[ uuid ];
+    return entry ? ( frOf( entry ).name || entry.name ) : null;
+}
+
+// Structured deity data in French : attribute boosts, skill, domains, divine
+// font, sanctification, favored weapons and the granted divine spells (one
+// per rank, uuid resolved to the French spell name, sorted by rank)
+function deityExtras( e ) {
+    var attribute = ( e.attribute || [] ).map( function ( a ) { return DEITY_ABILITY_FR[ a ] || a; } );
+    var skill     = ( e.skill || [] ).map( function ( s ) {
+        var entry = SKILLS[ s ];
+        return entry ? ( frOf( entry ).name || entry.name ) : s;
+    } );
+    var domains   = e.domains || {};
+    var font      = ( e.font || [] ).map( function ( f ) { return DEITY_FONT_FR[ f ] || f; } );
+    var weapons   = ( e.weapons || [] ).map( function ( w ) {
+        var entry = BASE_WEAPONS[ w ];
+        return entry ? ( frOf( entry ).name || entry.name ) : w;
+    } );
+    var sanctification = null;
+    if ( e.sanctification ) {
+        var what = ( e.sanctification.what || [] ).map( function ( w ) { return DEITY_SANCTIFICATION_FR[ w ] || w; } );
+        sanctification = ( DEITY_SANCTIFICATION_FR[ e.sanctification.modal ] || e.sanctification.modal ) + " (" + what.join( ", " ) + ")";
+    }
+    var spells = [];
+    for ( var rank in ( e.spells || {} ) ) {
+        var spell_name = deitySpellFr( e.spells[ rank ] );
+        if ( spell_name ) {
+            spells.push( { "rank": parseInt( rank, 10 ), "name": spell_name, "uuid": e.spells[ rank ] } );
+        }
+    }
+    spells.sort( function ( spell_a, spell_b ) { return spell_a.rank - spell_b.rank; } );
+    return {
+        "deity_attribute"     : attribute,
+        "deity_skill"         : skill,
+        "deity_domains"       : {
+            "primary"  : ( domains.primary || [] ).map( deityDomainFr ),
+            "alternate": ( domains.alternate || [] ).map( deityDomainFr )
+        },
+        "deity_font"          : font,
+        "deity_sanctification": sanctification,
+        "deity_spells"        : spells,
+        "deity_weapons"       : weapons
+    };
+}
+
 //********************************************  COMPENDIUM  **************************************************//
 
 var ITEM_TYPE_FR = {
@@ -710,7 +809,7 @@ function compendiumEntry( e, category, href_prefix ) {
     else if ( category === "creature" ) {
         element_type = e.level !== undefined && e.level !== null ? "Niveau " + e.level : null;
     }
-    return {
+    var entry = {
         "action_cost" : e.actionType === "action" ? String( e.actions ) : ( e.actionType === "reaction" ? "r" : ( e.actionType === "free" ? "f" : null ) ),
         "bulk"        : e.bulk === undefined || e.bulk === null ? null : ( e.bulk === 0.1 ? "L" : ( e.bulk === 0 ? null : String( e.bulk ) ) ),
         "category"    : category,
@@ -723,6 +822,12 @@ function compendiumEntry( e, category, href_prefix ) {
         "text"        : fr.name || e.name,
         "traits"      : mapTraits( e )
     };
+    // The deities carry structured data the generic entry drops : scraped
+    // here in French, they feed the divinity popup
+    if ( category === "deity" ) {
+        Object.assign( entry, deityExtras( e ) );
+    }
+    return entry;
 }
 
 function generateCompendium() {
@@ -753,7 +858,7 @@ function generateCompendium() {
     addAll( ARCHETYPES, "archetype", "/archetypes/" );
     addAll( loadCache( "hazards" ), "hazard", "/hazards/" );
     addAll( loadCache( "vehicles" ), "vehicle", "/vehicles/" );
-    addAll( loadCache( "domains" ), "domain", "/domains/" );
+    addAll( DOMAINS, "domain", "/domains/" );
     addAll( loadCache( "boons-and-curses" ), "boon", "/boons-and-curses/" );
     addAll( loadCache( "companions" ), "companion", "/companions/" );
     addAll( loadCache( "familiar-abilities" ), "familiar-ability", "/familiar-abilities/" );

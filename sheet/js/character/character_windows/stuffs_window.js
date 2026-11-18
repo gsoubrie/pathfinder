@@ -156,17 +156,23 @@ CHARACTER.StuffsWindow.prototype = {
             this._buildLocationFilter( location_filters, location_data.key, location_data.label, stuffs.getStuffsByLocation( location_data.key ).length );
         }
         // La jauge visuelle de l'encombrement vit à droite de la barre :
-        // un range en lecture seule (pointer-events none en CSS),borné à
-        // 2× le max — la moitié de la piste est donc exactement le max
-        let bulk_box             = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk" } ), add_bar );
-        this.bulk_range_element  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+        // un range en lecture seule (pointer-events none en CSS), borné à
+        // 2× le max — la moitié de la piste est donc exactement le max. Ses
+        // graduations (0 / max / 2×max) surplombent les seuils de couleur
+        let bulk_box            = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk" } ), add_bar );
+        let bulk_gauge          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-gauge" } ), bulk_box );
+        this.bulk_ticks_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-ticks" } ), bulk_gauge );
+        this.bulk_tick_start    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-bulk-tick stuffs-bulk-tick-start" } ), this.bulk_ticks_element );
+        this.bulk_tick_mid      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-bulk-tick stuffs-bulk-tick-mid" } ), this.bulk_ticks_element );
+        this.bulk_tick_end      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-bulk-tick stuffs-bulk-tick-end" } ), this.bulk_ticks_element );
+        this.bulk_range_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             "class"   : "stuffs-bulk-range",
             "type"    : "range",
             "min"     : "0",
             "step"    : "0.1",
             "tabindex": "-1"
-        } ), bulk_box );
-        this.bulk_dom_element = SERVICE.DOM.addElementTo(
+        } ), bulk_gauge );
+        this.bulk_dom_element   = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-total" } ),
             bulk_box
         );
@@ -336,6 +342,12 @@ CHARACTER.StuffsWindow.prototype = {
         this.bulk_range_element.setAttribute( "max", "" + ( 2 * bulk_max ) );
         this.bulk_range_element.value = "" + Math.min( bulk_total, 2 * bulk_max );
         this.bulk_range_element.setAttribute( "aria-label", "Encombrement porté : " + String( bulk_total ).replace( ".", "," ) + " sur " + bulk_max );
+        // Les graduations suivent le max : 0, max à mi-piste, 2×max en bout
+        // de piste ; l'état se pose aussi sur le parent du range (la jauge)
+        this.bulk_tick_start.textContent = "0";
+        this.bulk_tick_mid.textContent   = "" + bulk_max;
+        this.bulk_tick_end.textContent   = "" + ( 2 * bulk_max );
+        SERVICE.DOM.setDataSet( this.bulk_range_element.parentElement, "bulkState", bulk_state );
         let for_modifier = character.getCharacteristics().getContentByUUID( CHARACTERISTICS.FOR.key ).getModifierValue();
         let title        = "Encombrement max : " + bulk_max + " (10 + modificateur de Force " + ( for_modifier >= 0 ? "+" : "" ) + for_modifier + ")";
         if ( bulk_state === "over" ) {

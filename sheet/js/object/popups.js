@@ -75,10 +75,23 @@ OBJECT.PopupRenderers.prototype = {
                 }
                 return;
             case "event__show_information__feat": {
-                let feat_data = params[ "param__feat_name" ] ? DON.getFeatInformation( params[ "param__feat_category" ], params[ "param__feat_name" ] ) : null;
-                let feat_popup = feat_data ? this._openPopup( feat_data ) : null;
+                // Without a category (adjustments selector : the union of
+                // every category), the category is resolved by name
+                let feat_category = params[ "param__feat_category" ] || DON.getFeatCategoryByName( params[ "param__feat_name" ] );
+                let feat_data     = params[ "param__feat_name" ] ? DON.getFeatInformation( feat_category, params[ "param__feat_name" ] ) : null;
+                let feat_popup    = feat_data ? this._openPopup( feat_data ) : null;
                 if ( feat_popup ) {
                     feat_popup.doActionAfter( "event__show_information", params );
+                }
+                return;
+            }
+            // The deity options of the adjustments selector carry the NAME :
+            // resolved to its compendium entry, the same popup opens
+            case "event__show_information__deity": {
+                let deity_data  = params[ "param__deity_name" ] ? OBJECT.getDeityInformation( params[ "param__deity_name" ] ) : null;
+                let deity_popup = deity_data ? this._openPopup( deity_data ) : null;
+                if ( deity_popup ) {
+                    deity_popup.doActionAfter( "event__show_information", params );
                 }
                 return;
             }

@@ -179,6 +179,18 @@ CHARACTER.AdjustmentsWindow.prototype = {
         component.setToggleEventName( "event__adjustment__toggle_selector" );
         component.setClickEventName( "event__adjustment__pick" );
         component.setFilterEnterEventName( "event__adjustment__filter_enter" );
+        // Le "?" par option quand une popup de données existe derrière le kind
+        // (dons, divinité, actions) — la valeur de l'option part par
+        // data-value au clic, jamais inline
+        if ( kind_key === "feat" ) {
+            component.setInfoEvent( "event__show_information__feat", {}, "param__feat_name" );
+        }
+        else if ( kind_key === "deity" ) {
+            component.setInfoEvent( "event__show_information__deity", {}, "param__deity_name" );
+        }
+        else if ( kind_key === "action" ) {
+            component.setInfoEvent( "event__show_information__action", {}, "param__action__name" );
+        }
         component.setOptions( this._getKindOptions( kind_key ) );
         component.setSelectedName( this.pending_values[ kind_key ] );
         component.computeHtml();
