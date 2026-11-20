@@ -148,6 +148,7 @@
 }
 
 .health-history-entry__icon {
+    color       : var(--c-text-gold);
     font-size   : 14px;
     flex-shrink : 0;
 }
@@ -324,6 +325,14 @@
 .combat-attack-col-modifier,
 .combat-attack-col-roll {
     text-align : center;
+}
+
+/* Les cellules Mod/Jet/Dégâts portent leur couleur : aucun ancêtre
+   jusqu'au body n'en pose une, sinon elles rendent en noir */
+.combat-attack-col-modifier,
+.combat-attack-col-roll,
+.combat-attack-col-damage {
+    color : var(--c-text);
 }
 
 .combat-attack-name {

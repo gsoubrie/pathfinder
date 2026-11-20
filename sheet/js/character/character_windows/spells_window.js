@@ -42,6 +42,23 @@ CHARACTER.SpellsWindow.prototype = {
             case "event__spell__remove":
                 this._refreshContent();
                 return;
+            // L'ouverture du sélecteur d'un emplacement est un geste d'interface :
+            // la fenêtre retrouve SON composant par rang + index et l'ouvre
+            case "event__daily_spell__toggle_selector": {
+                let component = this._preparation_components[ params[ "param__daily_spell__rank" ] + "__" + params[ "param__daily_spell__index" ] ];
+                if ( component ) {
+                    component.toggleState();
+                }
+                return;
+            }
+            // Le domaine a déjà traité (le personnage route puis broadcast) : la
+            // fenêtre se reconstruit sur l'état frais (zone + badges du répertoire)
+            case "event__daily_spell__select_choice":
+            case "event__daily_spell__toggle_spent":
+            case "event__daily_spell__long_rest":
+            case "event__daily_spell__new_day":
+                this._refreshContent();
+                return;
             // The comment lives on its entry state : the domain owns the
             // truth, the display follows in place (nothing recalculates,
             // the rebuild would cost too much per keystroke)
@@ -63,7 +80,7 @@ CHARACTER.SpellsWindow.prototype = {
             // sur l'etat frais du personnage
             case "click_on__window_navigation__done":
                 if ( this.name === params[ "window_name" ] ) {
-                    this._refreshSlotsArea();
+                    this._refreshContent();
                 }
                 break;
         }
@@ -73,6 +90,7 @@ CHARACTER.SpellsWindow.prototype = {
     //********************************************  HTML   **************************************************//
 
     computeHtmlWithData: function ( character_object ) {
+        this._preparation_components      = {};
         this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "spells-window" } );
         SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
         this._buildContent();
@@ -84,9 +102,12 @@ CHARACTER.SpellsWindow.prototype = {
     },
 
     _buildContent: function () {
-        let spells = CONTROLLER.Character.current_character.getSpells();
+        let character_object  = CONTROLLER.Character.current_character;
+        let spells            = character_object.getSpells();
+        this._prepared_counts = character_object.getDailyPreparation().getPreparedCounts();
         this._buildAddBar( this.content_dom_element_target, spells );
         this._buildSlotsArea();
+        this._buildPreparationArea();
         // Une section par nature, les rangs de la nature "sort" entre les
         // tours de magie et les focalisés : seules les sections HABITÉES
         // se rendent (une page vide n'affiche aucune coquille vide)
@@ -180,6 +201,14 @@ CHARACTER.SpellsWindow.prototype = {
                 title  : "Information",
                 onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell',{'param__spell__value':this.closest('.spells-entry').getAttribute('data-value')})"
             }, "?" ), name_cell );
+        }
+        // Le badge de préparation compte les emplacements du jour (pas les dépenses)
+        let prepared_count = this._prepared_counts[ spell.value ] || 0;
+        if ( prepared_count ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class: "spells-entry-prepared",
+                title: "Préparé dans " + prepared_count + " emplacement" + ( prepared_count > 1 ? "s" : "" )
+            }, "Préparé ×" + prepared_count ), name_cell );
         }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class: "spells-entry-rank spells-col-rank",
@@ -302,8 +331,125 @@ CHARACTER.SpellsWindow.prototype = {
     _computeSlotsData: function () {
         let character_object = CONTROLLER.Character.current_character;
         return character_object && character_object.getSpellSlots() ? character_object.getSpellSlots().getSlotsData( character_object ) : null;
+    },
+    //********************************************  PREPARATION AREA   **************************************************//
+
+    // La zone "Préparation du jour" : une partie par rang d'emplacement ouvert,
+    // une ligne par emplacement (coche de dépense + sélecteur du sort + "?").
+    // Le domaine synchronise sa structure aux rangs ouverts à chaque rendu.
+    _buildPreparationArea: function () {
+        this._preparation_components = {};
+        let character_object         = CONTROLLER.Character.current_character;
+        let slots_data               = this._computeSlotsData();
+        let empty_count              = 0;
+        if ( slots_data && Object.keys( slots_data.ranks ).length ) {
+            let spells = character_object.getSpells();
+            let daily  = character_object.getDailyPreparation();
+            daily.syncWithSlots( slots_data, spells );
+            empty_count = daily.getEmptySlotsCount( slots_data );
+            let area   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation" } ), this.content_dom_element_target );
+            let header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation-header" } ), area );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation-title" }, "Préparation du jour" ), header );
+            let actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation-actions" } ), header );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class  : "spells-preparation-button",
+                title  : "Repos long : réallume tous les emplacements dépensés (la préparation reste)",
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__daily_spell__long_rest',{})"
+            }, "Repos long" ), actions );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class  : "spells-preparation-button",
+                title  : "Nouveau jour : vide la préparation et les dépenses",
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__daily_spell__new_day',{})"
+            }, "Nouveau jour" ), actions );
+            let _ranks = Object.keys( slots_data.ranks ).sort( function ( rank_a, rank_b ) {
+                return parseInt( rank_a, 10 ) - parseInt( rank_b, 10 );
+            } );
+            for ( let r = 0, _size_r = _ranks.length; r < _size_r; r++ ) {
+                let rank        = _ranks[ r ];
+                let count       = slots_data.ranks[ rank ].count;
+                let spent_count = daily.getSpentCountOfRank( rank );
+                let section     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation-rank", "data-rank": rank } ), area );
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "spells-preparation-rank-title" },
+                    "Rang " + rank + " — " + count + ( count > 1 ? " emplacements" : " emplacement" ) + ( spent_count ? ", " + spent_count + " dépensé" + ( spent_count > 1 ? "s" : "" ) : "" ) ), section );
+                for ( let i = 0; i < count; i++ ) {
+                    this._buildPreparationSlot( section, rank, i, daily, spells );
+                }
+            }
+        }
+        // Le badge de l'onglet porte les emplacements de préparation laissés vides
+        this.setCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS, "daily_preparation", empty_count );
+    },
+
+    _buildPreparationSlot: function ( parent, rank, index, daily, spells ) {
+        let slot_value = daily.getSlotValue( rank, index );
+        let slot_spent = daily.isSpent( rank, index );
+        let slot       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class      : "spells-preparation-slot",
+            "data-rank" : "" + rank,
+            "data-index": "" + index,
+            "data-spent": slot_spent ? "1" : "0"
+        } ), parent );
+        // La coche de dépense : l'état vit dans le data-spent (jamais une
+        // classe), un emplacement sans sort ne se coche pas côté domaine. Les
+        // rang/index partent du DOM au clic, jamais inline
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class  : "spells-preparation-spent",
+            title  : !slot_value ? "Choisissez un sort d'abord" : ( slot_spent ? "Emplacement dépensé — clic pour réallumer" : "Marquer l'emplacement comme dépensé" ),
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__daily_spell__toggle_spent',{'param__daily_spell__rank':this.closest('.spells-preparation-slot').getAttribute('data-rank'),'param__daily_spell__index':this.closest('.spells-preparation-slot').getAttribute('data-index')})"
+        } ), slot );
+        // Le sélecteur du sort préparé dans cet emplacement (composant lib)
+        let component = new COMPONENT.SingleSelectFromData();
+        component.addParamsForEvents( { "param__daily_spell__rank": "" + rank, "param__daily_spell__index": "" + index } );
+        component.setToggleEventName( "event__daily_spell__toggle_selector" );
+        component.setClickEventName( "event__daily_spell__select_choice" );
+        component.setInfoEvent( "event__show_information__spell", {}, "param__spell__value" );
+        component.setOptions( this._getPreparationOptions( rank, spells ) );
+        component.setSelectedName( slot_value );
+        component.computeHtml();
+        SERVICE.DOM.addElementTo( component.getDomElement(), slot );
+        this._preparation_components[ rank + "__" + index ] = component;
+        // Le "?" de la valeur choisie, posé APRÈS le composant (l'ordre d'appel
+        // est l'ordre du DOM) : masqué sans sélection par son data-value, la
+        // valeur se lit au clic (les noms portent des apostrophes)
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class      : "spells-preparation-info gs-link-information",
+            "data-value": slot_value,
+            title      : "Information du sort",
+            onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell',{'param__spell__value':this.getAttribute('data-value')})"
+        }, "?" ), slot );
+    },
+
+    // Les options d'un emplacement de rang N : les sorts de rang du répertoire
+    // dont le rang vaut au plus N (sort surclassé autorisé) — ni tours de
+    // magie, ni focalisés, ni rituels, ni entrées hors dataset. Le libellé
+    // porte le rang du sort quand il est surclassé
+    _getPreparationOptions: function ( rank, spells ) {
+        let to_return = [];
+        for ( let i = 0, _size_i = spells.getSize(); i < _size_i; i++ ) {
+            let spell = spells.getContent( i );
+            if ( SPELLS.getNatureKeyOfName( spell.value ) !== "spell" ) {
+                continue;
+            }
+            let spell_rank = SPELLS.getRankOfName( spell.value );
+            if ( !spell_rank || spell_rank > rank ) {
+                continue;
+            }
+            to_return.push( {
+                "name" : spell.value,
+                "label": spell_rank < rank ? spell.value + " (rang " + spell_rank + ")" : spell.value,
+                "rank" : spell_rank
+            } );
+        }
+        to_return.sort( function ( option_a, option_b ) {
+            if ( option_a.rank !== option_b.rank ) {
+                return option_a.rank - option_b.rank;
+            }
+            return option_a.name.localeCompare( option_b.name, "fr" );
+        } );
+        return to_return;
     }
 };
+
 
 SERVICE.CLASS.addPrototype( CHARACTER.SpellsWindow, WINDOW_V2.ElementFromData );
 CHARACTER.SpellsWindow.NAME = "spells_sheet";

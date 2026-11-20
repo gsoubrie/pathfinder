@@ -481,3 +481,243 @@
     border-color: var(--c-gold-dark);
     color       : var(--c-gold-dark);
 }
+
+/* ── Sélecteur simple (composant lib) : header + liste d'options, un "?"
+      par option, état ouvert dans le data-state-selector ── */
+.spells-window .single-select-container {
+    flex-shrink: 0;
+    position   : relative;
+}
+
+.spells-window .single-select-selector {
+    align-items  : center;
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text);
+    cursor       : pointer;
+    display      : flex;
+    font-size    : 12px;
+    gap          : var(--s-sm);
+    justify-content: space-between;
+    max-width    : 260px;
+    min-width    : 190px;
+    padding      : 2px 6px;
+    transition   : all 0.15s ease;
+    white-space  : nowrap;
+}
+
+.spells-window .single-select-selector:hover {
+    border-color : var(--c-gold-dark);
+}
+
+/* Caret en triangle CSS */
+.spells-window .single-select-selector-chevron {
+    border-left : 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top  : 4px solid var(--c-text-muted);
+    flex        : 0 0 auto;
+    height      : 0;
+    width       : 0;
+}
+
+.spells-window .single-select-selector-label {
+    flex         : 1 1 auto;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
+
+/* La liste épouse la largeur de son conteneur (jamais de min-width : la
+   liste ancrée à gauche dépasserait alors du conteneur vers la droite,
+   hors du bloc qui ne clippe plus ses enfants) — les libellés ellipsent
+   comme ceux du header */
+
+/* Ligne de filtre en tête de liste ouverte (pattern shinken-list
+   STRING_INPUT) : saisie qui masque les options non correspondantes */
+.spells-window .single-select-filter {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    box-sizing   : border-box;
+    color        : var(--c-text);
+    font-size    : 12px;
+    margin-bottom: 2px;
+    padding      : 2px 6px;
+    width        : 100%;
+}
+
+.spells-window .single-select-filter:focus {
+    border-color: var(--c-gold-dark);
+    outline     : none;
+}
+
+.spells-window .single-select-list {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-gold-dark);
+    border-radius: var(--r-sm);
+    box-shadow   : var(--sh-lg);
+    display      : none;
+    left         : 0;
+    max-height   : 250px;
+    overflow-x   : hidden;
+    overflow-y   : auto;
+    padding      : 2px;
+    position     : absolute;
+    right        : 0;
+    top          : 100%;
+    z-index      : 100;
+}
+
+.spells-window .single-select-container[data-state-selector='1'] .single-select-list {
+    display: block;
+}
+
+.spells-window .single-select-option {
+    align-items: center;
+    border-radius: var(--r-sm);
+    color       : var(--c-text);
+    cursor      : pointer;
+    display     : flex;
+    gap         : var(--s-sm);
+    justify-content: space-between;
+    padding     : 3px 8px;
+}
+
+.spells-window .single-select-option:hover {
+    background : var(--c-bg-card-light);
+}
+
+/* L'option déjà choisie se tinte et ne se re-choisit pas */
+.spells-window .single-select-option.selected {
+    background    : var(--c-bg-card-light);
+    color         : var(--c-gold);
+    pointer-events: none;
+}
+
+.spells-window .single-select-option-label {
+    flex         : 1 1 auto;
+    font-size    : 12px;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+
+/* Le "?" reste dedans : le libellé ellipsé, le lien d'info fixe */
+.spells-window .single-select-option .level-up-row-info {
+    flex        : 0 0 auto;
+    padding-left: var(--s-sm);
+}
+
+/* Le ? de la valeur choisie d'une ligne de don : à côté du sélecteur, la
+   data-value porte l'état (masqué sans sélection), jamais une classe posée
+   par le JS */
+.spells-window .spells-preparation-slot > .spells-preparation-info {
+    flex-shrink: 0;
+}
+
+.spells-window .spells-preparation-slot > .spells-preparation-info[data-value=''] {
+    display: none;
+}
+/* ── Zone "Préparation du jour" : une partie par rang d'emplacement, une
+      ligne par emplacement (coche de dépense + sélecteur + "?") ── */
+.spells-preparation {
+    align-self   : start;
+    background   : var(--g-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-lg);
+    display      : flex;
+    flex-direction: column;
+    gap          : var(--s-sm);
+    padding      : var(--s-sm) var(--s-md);
+}
+
+.spells-preparation-header {
+    align-items : center;
+    border-bottom: 1px solid var(--c-border-dark);
+    display     : flex;
+    gap         : var(--s-md);
+    padding     : 2px 2px 6px;
+}
+
+.spells-preparation-title {
+    color     : var(--c-text);
+    flex      : 1 1 auto;
+    font-size : 14px;
+}
+
+.spells-preparation-actions {
+    display : flex;
+    gap     : var(--s-sm);
+}
+
+.spells-preparation-button {
+    align-items    : center;
+    background     : var(--g-gold);
+    border         : var(--b-thin) solid var(--c-gold-light);
+    border-radius  : var(--r-sm);
+    color          : var(--c-text-dark);
+    cursor         : pointer;
+    display        : flex;
+    font-size      : 12px;
+    min-height     : 22px;
+    padding        : 0 10px;
+}
+
+.spells-preparation-button:hover {
+    background: var(--c-gold-light);
+}
+
+.spells-preparation-rank-title {
+    color     : var(--c-text-muted);
+    font-size : 12px;
+    padding   : 4px 2px 2px;
+}
+
+.spells-preparation-slot {
+    align-items : center;
+    display     : flex;
+    gap         : var(--s-md);
+    padding     : 2px 2px;
+}
+
+/* La coche de dépense : carré vide, rempli quand data-spent=1 (l'état vit
+   dans le data attribute, jamais une classe) */
+.spells-preparation-spent {
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    box-sizing   : border-box;
+    cursor       : pointer;
+    flex         : 0 0 auto;
+    height       : 14px;
+    transition   : var(--t-normal);
+    width        : 14px;
+}
+
+.spells-preparation-slot[data-spent='1'] .spells-preparation-spent {
+    background   : var(--c-gold);
+    border-color : var(--c-gold-light);
+}
+
+.spells-preparation-slot[data-spent='1'] .single-select-selector-label {
+    color          : var(--c-text-muted);
+    text-decoration: line-through;
+}
+
+/* Le "?" de la valeur choisie masqué sans sélection (la data porte l'état) */
+.spells-preparation-slot > .spells-preparation-info[data-value=''] {
+    display: none;
+}
+
+/* Le badge "Préparé ×N" d'une ligne du répertoire */
+.spells-entry-prepared {
+    background   : var(--c-bg-card-light);
+    border       : var(--b-thin) solid var(--c-gold-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text-gold);
+    flex         : 0 0 auto;
+    font-size    : 10px;
+    padding      : 1px 5px;
+    white-space  : nowrap;
+}
+

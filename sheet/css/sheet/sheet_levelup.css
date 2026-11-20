@@ -123,6 +123,7 @@
 }
 
 .level-up-window .level-up-row-icon {
+    color       : var(--c-text-gold);
     flex-shrink : 0;
     font-size   : 15px;
     width       : 20px;

@@ -24,6 +24,7 @@ CHARACTER.Current = function () {
     this.stuffs            = new CHARACTER.Stuffs();
     this.spells            = new CHARACTER.Spells();
     this.spell_slots       = new CHARACTER.SpellSlots();
+    this.daily_preparation = new CHARACTER.DailyPreparation();
     this.gifts             = new CHARACTER.Gifts();
     this.masteries         = new CHARACTER.Masteries();
     this.combat            = new CHARACTER.Combat();
@@ -41,6 +42,8 @@ CHARACTER.Current = function () {
     this.children.add( this.adjustments );
     this.children.add( this.stuffs );
     this.children.add( this.spells );
+
+    this.children.add( this.daily_preparation );
 };
 CHARACTER.Current.prototype = {
     init: function ( uuid ) {
@@ -229,6 +232,22 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__spell__edit_comment":
                 this.spells.doActionAfter( event_name, params );
+                break;
+
+            // La préparation journalière des sorts atterrit sur son domaine,
+            // puis les fenêtres se rafraîchissent sur l'état frais
+            case "event__daily_spell__select_choice":
+
+            case "event__daily_spell__toggle_spent":
+
+            case "event__daily_spell__long_rest":
+
+            case "event__daily_spell__new_day":
+
+                this.daily_preparation.doActionAfter( event_name, params );
+
+                this.windows.doActionAfterContentChildren( event_name, params );
+
                 break;
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
@@ -469,6 +488,10 @@ CHARACTER.Current.prototype = {
             case "spells":
                 this.spells.updateData( value );
                 break;
+
+            case "daily_preparation":
+                this.daily_preparation.updateData( value );
+                break;
             case this.player.getKey():
                 this.player.setValue( value );
                 break;
@@ -593,6 +616,12 @@ CHARACTER.Current.prototype = {
      */
     getSpellSlots: function () {
         return this.spell_slots;
+    },
+    /**
+     * @returns {CHARACTER.DailyPreparation}
+     */
+    getDailyPreparation: function () {
+        return this.daily_preparation;
     },
     getHealth         : function () {
         return this.health;

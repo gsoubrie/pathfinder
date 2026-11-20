@@ -1,234 +1,235 @@
-/* PATHFINDER - MAIN STYLES */
-
-* {
-    outline: none !important;
-}
-
-body {
-    background: var(--g-bg-body);
-    margin: 0;
-    padding: var(--s-2xl);
-}
-
-.character-content {
-    width: var(--size-sheet-width);
-    height: var(--size-sheet-height);
-    margin: auto;
-    background: var(--g-bg-paper);
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    background-repeat: repeat;
-    font-family: var(--font-family-primary);
-    box-shadow: var(--sh-lg);
-    border: var(--b-thick) solid var(--c-gold-dark);
-    border-radius: var(--r-2xl);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.character-sheet-windows {
-    background: var(--g-panel-dark);
-    border-bottom: var(--b-thick) solid var(--c-gold-dark);
-    padding: var(--s-lg);
-    display: flex;
-    align-items: center;
-    gap: var(--s-sm);
-}
-
-.character-sheet-windows .gs-window-group-V2 {
-    display: flex;
-    gap: var(--s-sm);
-    justify-content: center;
-    flex: 1;
-}
-
-.character-sheet-windows .gs-window-element-V2 {
-    cursor: pointer;
-}
-
-.character-sheet-windows .gs-window-element-V2 .gs-div-tab {
-    background: var(--g-card);
-    border: var(--b-normal) solid var(--c-border-dark);
-    border-radius: var(--r-lg);
-    padding: var(--s-lg) var(--s-3xl);
-    transition: var(--t-normal);
-}
-
-.character-sheet-windows .gs-window-element-V2:hover .gs-div-tab {
-    background: var(--g-card-hover);
-    border-color: var(--c-gold-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--sh-gold-sm);
-}
-
-.gs-window-element-V2 {
-    background: transparent !important;
-    border: none !important;
-}
-
-.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
-    background: var(--g-gold);
-    border-color: var(--c-gold-light);
-    box-shadow: var(--sh-gold-lg);
-}
-
-.character-sheet-windows .gs-label {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    color: var(--c-text);
-    text-shadow: var(--text-shadow-md);
-}
-
-.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
-    color: var(--c-text-dark);
-    text-shadow: none;
-}
-
-.characters-sheet-content {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    padding: var(--s-xl);
-}
-
-.characters-sheet-content .gs-window-targets-V2 {
-    height: 100%;
-}
-
-/* BUTTONS */
-
-.gs-button[data-name="event__less_button"],
-.gs-button[data-name="event__more_button"] {
-    background: var(--g-button);
-    border: var(--b-normal) solid var(--c-gold);
-    color: var(--c-text-dark);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-bold);
-    font-family: var(--font-family-primary);
-    width: var(--size-button-sm);
-    height: var(--size-button-sm);
-    line-height: 16px;
-    padding: 0;
-    border-radius: var(--r-full);
-    cursor: pointer;
-    box-shadow: var(--sh-sm);
-    text-align: center;
-    text-shadow: none;
-    transition: var(--t-normal);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gs-button[data-name="event__less_button"]:hover,
-.gs-button[data-name="event__more_button"]:hover {
-    background: var(--g-button-hover);
-    border-color: var(--c-gold-light);
-    transform: scale(1.1);
-    box-shadow: var(--sh-gold-md);
-}
-
-.gs-button[data-name="event__less_button"]:active,
-.gs-button[data-name="event__more_button"]:active {
-    transform: scale(0.95);
-}
-
-/* PROPERTY COMPONENTS */
-
-.property-tab-pane .property {
-    border-radius: var(--r-md);
-    padding: var(--s-sm);
-    display: flex;
-}
-
-.property-tab-pane .property.horizontal {
-    justify-content: center;
-    align-items: center;
-    height: 24px;
-}
-
-.property-tab-pane .property.vertical {
-    flex-direction: column;
-    justify-content: center;
-}
-
-.property-tab-pane .property .label {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: var(--c-gold);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-base);
-    text-shadow: var(--text-shadow-md);
-    padding: 0 var(--s-xs);
-}
-
-.property-tab-pane .property.horizontal .label {
-    width: 100px;
-}
-
-.property-tab-pane .property.vertical .label {
-    font-size: var(--font-size-xs);
-    position: relative;
-    top: -3px;
-}
-
-.property-tab-pane .property .value {
-    background: var(--g-value);
-    border: none;
-    color: var(--c-text-dark);
-    font-weight: var(--font-weight-bold);
-    font-family: inherit;
-    font-size: inherit;
-    min-height: 24px;
-    height: 100%;
-    border-radius: var(--r-sm);
-    padding: var(--s-xs) var(--s-md);
-    box-shadow: var(--sh-inset-sm);
-    text-align: left;
-    outline: none;
-}
-
-.property-tab-pane .property .value:focus {
-    background: white;
-}
-
-.property-tab-pane .property.horizontal .value {
-    height: 100%;
-    width: calc(100% - 100px);
-}
-
-.property-tab-pane .property .value[contenteditable="true"] {
-    cursor: text;
-}
-
-.property-tab-pane .property .value[contenteditable="false"] {
-    cursor: pointer;
-}
-
-.gs-link-information {
-    display: inline-block;
-    color: #C5C5F5;
-}
-
-.gs-link-information:before {
-    content: '"';
-}
-
-.gs-link-information:after {
-    content: '"';
-}
-
-.character-sheet-windows .save-button {
-    font-size : 22px;
-    line-height : 1;
-    cursor     : pointer;
-    transition : transform 0.3s ease;
-}
-
-.character-sheet-windows .save-button:hover {
-    transform : scale(1.1);
-}
+/* PATHFINDER - MAIN STYLES */
+
+* {
+    outline: none !important;
+}
+
+body {
+    background: var(--g-bg-body);
+    margin: 0;
+    padding: var(--s-2xl);
+}
+
+.character-content {
+    width: var(--size-sheet-width);
+    height: var(--size-sheet-height);
+    margin: auto;
+    background: var(--g-bg-paper);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat: repeat;
+    font-family: var(--font-family-primary);
+    box-shadow: var(--sh-lg);
+    border: var(--b-thick) solid var(--c-gold-dark);
+    border-radius: var(--r-2xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.character-sheet-windows {
+    background: var(--g-panel-dark);
+    border-bottom: var(--b-thick) solid var(--c-gold-dark);
+    padding: var(--s-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--s-sm);
+}
+
+.character-sheet-windows .gs-window-group-V2 {
+    display: flex;
+    gap: var(--s-sm);
+    justify-content: center;
+    flex: 1;
+}
+
+.character-sheet-windows .gs-window-element-V2 {
+    cursor: pointer;
+}
+
+.character-sheet-windows .gs-window-element-V2 .gs-div-tab {
+    background: var(--g-card);
+    border: var(--b-normal) solid var(--c-border-dark);
+    border-radius: var(--r-lg);
+    padding: var(--s-lg) var(--s-3xl);
+    transition: var(--t-normal);
+}
+
+.character-sheet-windows .gs-window-element-V2:hover .gs-div-tab {
+    background: var(--g-card-hover);
+    border-color: var(--c-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--sh-gold-sm);
+}
+
+.gs-window-element-V2 {
+    background: transparent !important;
+    border: none !important;
+}
+
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
+    background: var(--g-gold);
+    border-color: var(--c-gold-light);
+    box-shadow: var(--sh-gold-lg);
+}
+
+.character-sheet-windows .gs-label {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--c-text);
+    text-shadow: var(--text-shadow-md);
+}
+
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
+    color: var(--c-text-dark);
+    text-shadow: none;
+}
+
+.characters-sheet-content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: var(--s-xl);
+}
+
+.characters-sheet-content .gs-window-targets-V2 {
+    height: 100%;
+}
+
+/* BUTTONS */
+
+.gs-button[data-name="event__less_button"],
+.gs-button[data-name="event__more_button"] {
+    background: var(--g-button);
+    border: var(--b-normal) solid var(--c-gold);
+    color: var(--c-text-dark);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-primary);
+    width: var(--size-button-sm);
+    height: var(--size-button-sm);
+    line-height: 16px;
+    padding: 0;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    box-shadow: var(--sh-sm);
+    text-align: center;
+    text-shadow: none;
+    transition: var(--t-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gs-button[data-name="event__less_button"]:hover,
+.gs-button[data-name="event__more_button"]:hover {
+    background: var(--g-button-hover);
+    border-color: var(--c-gold-light);
+    transform: scale(1.1);
+    box-shadow: var(--sh-gold-md);
+}
+
+.gs-button[data-name="event__less_button"]:active,
+.gs-button[data-name="event__more_button"]:active {
+    transform: scale(0.95);
+}
+
+/* PROPERTY COMPONENTS */
+
+.property-tab-pane .property {
+    border-radius: var(--r-md);
+    padding: var(--s-sm);
+    display: flex;
+}
+
+.property-tab-pane .property.horizontal {
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+}
+
+.property-tab-pane .property.vertical {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.property-tab-pane .property .label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--c-gold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    text-shadow: var(--text-shadow-md);
+    padding: 0 var(--s-xs);
+}
+
+.property-tab-pane .property.horizontal .label {
+    width: 100px;
+}
+
+.property-tab-pane .property.vertical .label {
+    font-size: var(--font-size-xs);
+    position: relative;
+    top: -3px;
+}
+
+.property-tab-pane .property .value {
+    background: var(--g-value);
+    border: none;
+    color: var(--c-text-dark);
+    font-weight: var(--font-weight-bold);
+    font-family: inherit;
+    font-size: inherit;
+    min-height: 24px;
+    height: 100%;
+    border-radius: var(--r-sm);
+    padding: var(--s-xs) var(--s-md);
+    box-shadow: var(--sh-inset-sm);
+    text-align: left;
+    outline: none;
+}
+
+.property-tab-pane .property .value:focus {
+    background: white;
+}
+
+.property-tab-pane .property.horizontal .value {
+    height: 100%;
+    width: calc(100% - 100px);
+}
+
+.property-tab-pane .property .value[contenteditable="true"] {
+    cursor: text;
+}
+
+.property-tab-pane .property .value[contenteditable="false"] {
+    cursor: pointer;
+}
+
+.gs-link-information {
+    display: inline-block;
+    color: #C5C5F5;
+}
+
+.gs-link-information:before {
+    content: '"';
+}
+
+.gs-link-information:after {
+    content: '"';
+}
+
+.character-sheet-windows .save-button {
+    color     : var(--c-text-gold);
+    font-size : 22px;
+    line-height : 1;
+    cursor     : pointer;
+    transition : transform 0.3s ease;
+}
+
+.character-sheet-windows .save-button:hover {
+    transform : scale(1.1);
+}
 
 /* RESPONSIVE - tablet and phone, the A4 paper keeps its fixed size on desktop
    only : under 1100px the sheet takes the available width and grows downward,
