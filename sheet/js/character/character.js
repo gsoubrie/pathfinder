@@ -218,6 +218,15 @@ CHARACTER.Current.prototype = {
                 this.stuffs.doActionAfter( event_name, params );
                 this.stuffs.pushBulkCounters( this );
                 break;
+            // The body slot and the current HP live on their entry : the
+            // controller routes them here FIRST (like add/remove), the
+            // domain lands, then the windows broadcast refreshes with
+            // the fresh state (the Combat schema reads the new slot/HP)
+            case "event__stuff__set_slot":
+            case "event__stuff__edit_current_hp":
+                this.stuffs.doActionAfter( event_name, params );
+                this.windows.doActionAfterContentChildren( event_name, params );
+                break;
             case "event__spell__edit_comment":
                 this.spells.doActionAfter( event_name, params );
                 break;

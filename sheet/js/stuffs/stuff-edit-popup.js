@@ -39,14 +39,17 @@ CHARACTER.StuffEditPopup.prototype = {
         this.value                   = value;
         this.selector_components     = {};
         this.pending_location        = null;
+        this.pending_slot            = null;
         this.body_dom_element        = null;
         this.place_input             = null;
         this.comment_input           = null;
         this.quantity_input          = null;
+        this.current_hp_input        = null;
         this.characteristic_inputs   = {};
         let entry                    = CONTROLLER.Character.current_character.getStuffs().getContentByUUID( kind + "__" + value );
         if ( entry ) {
             this.pending_location = entry.location;
+            this.pending_slot     = entry.getSlot();
         }
         this.computeHtml();
     },
@@ -62,6 +65,14 @@ CHARACTER.StuffEditPopup.prototype = {
             }
             case "event__stuff__pick_edit_location": {
                 this._pickLocation( params[ "param__choice_value" ] );
+                return;
+            }
+            case "event__stuff__toggle_edit_slot_selector": {
+                this.selector_components[ "slot" ].toggleState();
+                return;
+            }
+            case "event__stuff__pick_edit_slot": {
+                this._pickSlot( params[ "param__choice_value" ] );
                 return;
             }
             case "event__stuff__commit_edit": {
@@ -107,6 +118,41 @@ CHARACTER.StuffEditPopup.prototype = {
         location_component.computeHtml();
         SERVICE.DOM.addElementTo( location_component.getDomElement(), location_row );
         this.selector_components[ "location" ] = location_component;
+
+        // The body slot of the equipped piece (the Combat schema draws
+        // the character with it) : the selector offers the body slots
+        // then the host slots ("Sur armure"...), the default is the
+        // scraped usage of the model
+        let slot_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-form-popup-row stuffs-form-popup-slot" } ), body );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-form-popup-label" }, "Emplacement du corps" ), slot_row );
+        let slot_options = STUFF.SLOTS.map( function ( slot_data ) { return { "name": slot_data.key, "label": slot_data.label }; } );
+        for ( let h = 0, _size_h = STUFF.HOST_SLOTS.length; h < _size_h; h++ ) {
+            slot_options.push( { "name": STUFF.HOST_SLOTS[ h ].key, "label": STUFF.HOST_SLOTS[ h ].label } );
+        }
+        let slot_component = new COMPONENT.SingleSelectFromData();
+        slot_component.setToggleEventName( "event__stuff__toggle_edit_slot_selector" );
+        slot_component.setClickEventName( "event__stuff__pick_edit_slot" );
+        slot_component.setOptions( slot_options );
+        slot_component.setSelectedName( this.pending_slot );
+        slot_component.computeHtml();
+        SERVICE.DOM.addElementTo( slot_component.getDomElement(), slot_row );
+        this.selector_components[ "slot" ] = slot_component;
+
+        // The current HP of a piece with durability (the shields) : the
+        // row only lives when the piece owns HP, the Combat schema edits
+        // it with its −/+ buttons too
+        if ( entry && entry.hasDurability() ) {
+            let hp_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-form-popup-row stuffs-edit-popup-hp-row" } ), body );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-form-popup-label" }, "PV actuels" ), hp_row );
+            this.current_hp_input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+                "class"     : "stuffs-form-popup-input stuffs-edit-popup-hp-input",
+                "type"      : "number",
+                "min"       : "0",
+                "max"       : String( entry.getMaxHp() ),
+                "title"     : "PV restants de l'objet (max " + entry.getMaxHp() + ", 0 = détruit)"
+            }, "" ), hp_row );
+            this.current_hp_input.value = String( entry.getCurrentHp() );
+        }
 
         // The quantity of every entry : the inline one of the line and
         // this one read and write the same entry state
@@ -189,6 +235,15 @@ CHARACTER.StuffEditPopup.prototype = {
         SERVICE.DOM.setDataSet( this.body_dom_element, "stored", location_key === "stored" );
     },
 
+    _pickSlot: function ( slot_key ) {
+        if ( !STUFF.getSlotData( slot_key ) ) {
+            return;
+        }
+        this.pending_slot = slot_key;
+        this.selector_components[ "slot" ].setSelectedName( slot_key );
+        this.selector_components[ "slot" ].hidePopup();
+    },
+
     _commit: function () {
         if ( !STUFF.getLocationData( this.pending_location ) ) {
             return;
@@ -216,6 +271,12 @@ CHARACTER.StuffEditPopup.prototype = {
         }
         CONTROLLER.Character.doActionAfter( "event__stuff__edit_characteristics", Object.assign( {}, stuffs_params, { "param__stuff__characteristics": characteristics_to_commit } ) );
         CONTROLLER.Character.doActionAfter( "event__stuff__set_location", Object.assign( {}, stuffs_params, { "param__stuff__location": this.pending_location } ) );
+        if ( this.pending_slot ) {
+            CONTROLLER.Character.doActionAfter( "event__stuff__set_slot", Object.assign( {}, stuffs_params, { "param__stuff__slot": this.pending_slot } ) );
+        }
+        if ( this.current_hp_input ) {
+            CONTROLLER.Character.doActionAfter( "event__stuff__edit_current_hp", Object.assign( {}, stuffs_params, { "param__stuff__current_hp": this.current_hp_input.value } ) );
+        }
         if ( this.pending_location === "stored" ) {
             CONTROLLER.Character.doActionAfter( "event__stuff__edit_place", Object.assign( {}, stuffs_params, { "param__stuff__place": this.place_input ? this.place_input.value : null } ) );
         }

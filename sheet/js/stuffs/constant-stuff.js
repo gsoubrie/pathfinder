@@ -20,34 +20,34 @@ STUFF.KINDS = [
         "label"        : "Armes",
         "scraped_field": "Dégâts",
         "inline_fields": [ "Dégâts", "Mains" ],
-        "detail_fields": [ "Dégâts", "Mains", "Catégorie", "Groupe" ]
+        "detail_fields": [ "Dégâts", "Mains", "Catégorie", "Groupe", "Emplacement" ]
     },
     {
         "key"          : "armor",
         "label"        : "Armures/Boucliers",
         "scraped_field": "CA bonus",
-        "inline_fields": [ "CA bonus", "Mod. de dex. max.", "Solidité" ],
-        "detail_fields": [ "Base", "CA bonus", "Mod. de dex. max.", "Solidité", "Pénalité d'armure au test", "Pénalité à la vitesse", "Force requise", "Catégorie", "Groupe" ]
+        "inline_fields": [ "CA bonus", "Mod. de dex. max.", "Solidité", "PV", "SR" ],
+        "detail_fields": [ "Base", "CA bonus", "Mod. de dex. max.", "Solidité", "PV", "SR", "Pénalité d'armure au test", "Pénalité à la vitesse", "Force requise", "Catégorie", "Groupe", "Emplacement" ]
     },
     {
         "key"          : "other",
         "label"        : "Autres objets",
         "inline_fields": [],
-        "detail_fields": []
+        "detail_fields": [ "Emplacement" ]
     },
     {
         "key"          : "wand",
         "label"        : "Baguettes",
         "name_prefixes": [ "Baguette" ],
         "inline_fields": [ "Niveau" ],
-        "detail_fields": []
+        "detail_fields": [ "Emplacement" ]
     },
     {
         "key"          : "scroll",
         "label"        : "Parchemins",
         "name_prefixes": [ "Parchemin" ],
         "inline_fields": [ "Niveau" ],
-        "detail_fields": []
+        "detail_fields": [ "Emplacement" ]
     },
     {
         "key"          : "potion",
@@ -55,7 +55,7 @@ STUFF.KINDS = [
         "name_prefixes": [ "Potion", "Élixir", "Poison", "Huile" ],
         "excluded_names": [ "Huile (1/2 l)" ],
         "inline_fields": [ "Niveau" ],
-        "detail_fields": []
+        "detail_fields": [ "Emplacement" ]
     }
 ];
 
@@ -119,6 +119,90 @@ STUFF.CARRIED_LOCATIONS = [ "equipped", "backpack" ];
 // enters the backpack ; the categories bar shows them ALL at once
 STUFF.DEFAULT_LOCATION = "backpack";
 STUFF.FILTER_ALL       = "all";
+
+// The body slots of the equipment schema (the Combat tab draws the
+// character with them) : the array order drives the schema rows and the
+// slot selector of the edit popup. The scraped "Emplacement" field of an
+// entry carries one of these keys (or a host_* key, see STUFF.HOST_SLOTS)
+STUFF.SLOTS = [
+    { "key": "main",      "label": "Main"            },
+    { "key": "off_hand",  "label": "Main secondaire" },
+    { "key": "shield",    "label": "Bouclier"        },
+    { "key": "armor",     "label": "Armure"          },
+    { "key": "head",      "label": "Tête"            },
+    { "key": "eyes",      "label": "Yeux"            },
+    { "key": "neck",      "label": "Cou"             },
+    { "key": "shoulders", "label": "Épaules"         },
+    { "key": "cape",      "label": "Cape"            },
+    { "key": "garment",   "label": "Vêtements"       },
+    { "key": "gloves",    "label": "Gants"           },
+    { "key": "ring",      "label": "Doigts"          },
+    { "key": "belt",      "label": "Taille"          },
+    { "key": "boots",     "label": "Bottes"          },
+    { "key": "backpack",  "label": "Sac à dos"       },
+    { "key": "tattoo",    "label": "Tatouage"        },
+    { "key": "implant",   "label": "Implant"         },
+    { "key": "invested",  "label": "Investi"         }
+];
+
+// The "affixed/etched/applied" scraped usages land on a HOST slot : the
+// schema lists them under their host row (host key → host slot key,
+// plus the selector labels)
+STUFF.HOST_SLOTS = [
+    { "key": "host_armor",   "label": "Sur armure",    "host_key": "armor"    },
+    { "key": "host_shield",  "label": "Sur bouclier",  "host_key": "shield"   },
+    { "key": "host_weapon",  "label": "Sur arme",      "host_key": "main"     },
+    { "key": "host_head",    "label": "Sur tête",      "host_key": "head"     },
+    { "key": "host_garment", "label": "Sur vêtements", "host_key": "garment"  },
+    { "key": "host_boots",   "label": "Sur bottes",    "host_key": "boots"    },
+    { "key": "host_bag",     "label": "Sur sac",       "host_key": "backpack" }
+];
+
+// The default slot of a kind when the scraped usage says nothing
+STUFF.KIND_DEFAULT_SLOTS = {
+    "weapon": "main",
+    "armor" : "armor",
+    "other" : "invested"
+};
+
+/**
+ * @param {string} slot_key  Slot key, ex: "armor"
+ * @returns {Object|null}    The slot data { key, label } (body slots and host slots)
+ */
+STUFF.getSlotData = function ( slot_key ) {
+    for ( let i = 0, _size_i = STUFF.SLOTS.length; i < _size_i; i++ ) {
+        if ( STUFF.SLOTS[ i ].key === slot_key ) {
+            return STUFF.SLOTS[ i ];
+        }
+    }
+    for ( let h = 0, _size_h = STUFF.HOST_SLOTS.length; h < _size_h; h++ ) {
+        if ( STUFF.HOST_SLOTS[ h ].key === slot_key ) {
+            return STUFF.HOST_SLOTS[ h ];
+        }
+    }
+    return null;
+};
+
+/**
+ * @param {string} slot_key  Host slot key, ex: "host_armor"
+ * @returns {string|null}    The host body slot key, ex: "armor"
+ */
+STUFF.getHostBodySlot = function ( slot_key ) {
+    for ( let h = 0, _size_h = STUFF.HOST_SLOTS.length; h < _size_h; h++ ) {
+        if ( STUFF.HOST_SLOTS[ h ].key === slot_key ) {
+            return STUFF.HOST_SLOTS[ h ].host_key;
+        }
+    }
+    return null;
+};
+
+/**
+ * @param {Object} entry  A scraped dataset entry
+ * @returns {string}      Its scraped slot key, ex: "main"
+ */
+STUFFS.getSlotKeyOfData = function ( entry ) {
+    return entry && entry[ "Emplacement" ] !== undefined ? entry[ "Emplacement" ] : null;
+};
 
 /**
  * @param {string} location_key  Location key, ex: "backpack"
@@ -302,7 +386,13 @@ STUFFS.getItemInformation = function ( name ) {
     let kind_of_entry      = STUFF.getKindData( STUFFS.getKindKeyOfData( entry ) ) || STUFF.getKindData( "other" );
     for ( let i = 0, _size_i = kind_of_entry.detail_fields.length; i < _size_i; i++ ) {
         if ( entry[ kind_of_entry.detail_fields[ i ] ] !== undefined ) {
-            details.push( { "label": kind_of_entry.detail_fields[ i ], "value": String( entry[ kind_of_entry.detail_fields[ i ] ] ) } );
+            let field_label = kind_of_entry.detail_fields[ i ];
+            let field_value = String( entry[ field_label ] );
+            if ( field_label === "Emplacement" ) {
+                let slot_data = STUFF.getSlotData( field_value );
+                field_value   = slot_data ? slot_data.label : field_value;
+            }
+            details.push( { "label": field_label, "value": field_value } );
         }
     }
     return {

@@ -57,6 +57,10 @@
     font-size : 12px;
 }
 
+.combat-health-temp--hidden {
+    display : none;
+}
+
 .combat-health-temp-value {
     color     : var( --c-health-temp, #5B9BD5 );
     font-size : 16px;
@@ -422,39 +426,118 @@
     color : var( --c-text-gold, #F0D890 );
 }
 
-/* ===== Équipement : l'armure et le bouclier portés ===== */
+/* ===== Équipement : le schéma du personnage (emplacements + durabilité) ===== */
 .combat-equipment-zone {
     display        : flex;
     flex-direction : column;
     gap            : var( --s-xs, 2px );
+    padding        : var( --s-md, 8px );
+    background     : var( --g-panel-dark, linear-gradient(135deg, #2C1810 0%, #1A0F08 100%) );
+    border         : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius  : var( --r-sm, 4px );
 }
 
-.combat-equipment-list {
+.combat-schema {
+    display        : flex;
+    flex-direction : column;
+}
+
+/* Une rangée par emplacement du corps, séparées par un filet */
+.combat-schema-row {
+    display              : grid;
+    grid-template-columns : 110px 1fr;
+    gap                  : var( --s-sm, 4px );
+    align-items          : start;
+    padding              : var( --s-xs, 2px ) var( --s-sm, 4px );
+    border-top           : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+}
+
+.combat-schema-row:first-child {
+    border-top : none;
+}
+
+.combat-schema-slot-label {
+    color          : var( --c-text-muted, #C8B89A );
+    font-size      : 12px;
+    letter-spacing : 0.3px;
+    padding-top    : var( --s-sm, 4px );
+}
+
+.combat-schema-empty {
+    color      : var( --c-text-muted, #C8B89A );
+    font-style : italic;
+    padding    : var( --s-xs, 2px ) var( --s-sm, 4px );
+}
+
+.combat-schema-slot-items {
     display        : flex;
     flex-direction : column;
     gap            : var( --s-xs, 2px );
 }
 
-.combat-equipment-row {
-    display              : grid;
-    grid-template-columns : 90px 1.2fr 1.6fr;
-    gap                  : var( --s-sm, 4px );
-    align-items          : center;
-    padding              : var( --s-xs, 2px ) var( --s-sm, 4px );
+/* Une pièce équipée rend en carte en retrait dans son emplacement */
+.combat-schema-item {
+    display        : flex;
+    flex-direction : column;
+    gap            : var( --s-xs, 2px );
+    padding        : var( --s-sm, 4px ) var( --s-md, 8px );
+    background     : var( --g-panel, linear-gradient(135deg, #3D2817 0%, #2A1B10 100%) );
+    border         : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius  : var( --r-sm, 4px );
 }
 
-.combat-equipment-label {
-    color        : var( --c-text-muted, #C8B89A );
-    font-size     : 12px;
-    letter-spacing : 0.3px;
+.combat-schema-item-name {
+    display     : flex;
+    align-items : center;
+    gap         : var( --s-xs, 2px );
 }
 
-.combat-equipment-value {
+.combat-schema-item-value {
     color : var( --c-text, #E8D4A8 );
 }
 
-.combat-equipment-stats {
-    color : var( --c-text-muted, #C8B89A );
+/* La durabilité en ligne compacte sous le nom : Solidité · PV −/+ · SR */
+.combat-schema-item-hp {
+    display     : flex;
+    align-items : center;
+    gap         : var( --s-xs, 2px );
+    color       : var( --c-text-muted, #C8B89A );
+    font-size   : 12px;
+}
+
+.combat-schema-item-hp--destroyed .combat-schema-hp-value {
+    color           : var( --c-danger, #e07070 );
+    text-decoration : line-through;
+}
+
+.combat-schema-hp-buttons {
+    display     : flex;
+    align-items : center;
+    gap         : 2px;
+}
+
+.combat-schema-hp-btn {
+    border        : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius : var( --r-sm, 4px );
+    cursor        : pointer;
+    line-height   : 1.4;
+    padding       : 0 6px;
+}
+
+.combat-schema-hp-btn:hover {
+    border-color : var( --c-gold, #D4AF37 );
+    color        : var( --c-gold, #D4AF37 );
+}
+
+/* La pièce fixée se lit en retrait sous son hôte, filet d'accentuation */
+.combat-schema-host {
+    display      : flex;
+    align-items  : center;
+    gap          : var( --s-xs, 2px );
+    padding-left : var( --s-md, 8px );
+    border-left  : var( --b-normal, 2px ) solid var( --c-gold-dark, #8B6914 );
+    color        : var( --c-text-muted, #C8B89A );
+    font-size    : 12px;
 }
 
 /* ===== Incantation ===== */
@@ -484,11 +567,7 @@
         grid-template-columns : 1.6fr 0.5fr 0.5fr 0.4fr 1.1fr;
     }
 
-    .combat-equipment-row {
-        grid-template-columns : 70px 1fr;
-    }
-
-    .combat-equipment-stats {
-        grid-column : 2;
+    .combat-schema-row {
+        grid-template-columns : 90px 1fr;
     }
 }

@@ -100,49 +100,76 @@ CHARACTER.Combat.prototype = {
         };
     },
     //********************************************  EQUIPMENT  **************************************************//
-    // The worn pieces of protection the Combat tab displays : ONE armor and
-    // ONE shield (several worn : the best bonus wins), their scraped stats
-    // ride with them — the strike weapons live in the attacks zone
-    getEquipmentLines: function ( character_object ) {
-        let armor  = this.getWornArmor( character_object );
-        let shield = this.getWornShield( character_object );
-        return [
-            {
-                "label": "Armure",
-                "entry": armor,
-                "stats": armor ? this._formatArmorStats( armor ) : null
-            },
-            {
-                "label": "Bouclier",
-                "entry": shield,
-                "stats": shield ? this._formatShieldStats( shield ) : null
+    // The Combat tab draws the character schema : one row per body slot
+    // (STUFF.SLOTS order, every slot shows, empty ones read "—"), the
+    // equipped entries grouped by their slot, the "affixed/etched" pieces
+    // listed under their host. Each item carries its durability when it
+    // owns HP (the shields) : current/max/hardness/BT
+    getEquipmentSlotsData: function ( character_object ) {
+        let equipped  = character_object.getStuffs().getStuffsByLocation( "equipped" );
+        let by_slot   = {};
+        for ( let i = 0, _size_i = equipped.length; i < _size_i; i++ ) {
+            let slot_key = equipped[ i ].getSlot();
+            let host_key = STUFF.getHostBodySlot( slot_key );
+            if ( host_key ) {
+                slot_key = host_key;
             }
-        ];
-    },
-    // The displayed stats of a worn armor : the pieces the total counts (the
-    // item bonus, the dexterity cap), the rest lives in its item popup
-    _formatArmorStats: function ( armor ) {
-        let parts = [];
-        let bonus = armor.getCharacteristicValue( COMBAT.ARMOR_BONUS_FIELD );
-        if ( bonus ) {
-            parts.push( "CA " + bonus );
+            if ( !by_slot[ slot_key ] ) {
+                by_slot[ slot_key ] = [];
+            }
+            by_slot[ slot_key ].push( {
+                "entry"    : equipped[ i ],
+                "is_host"  : !!host_key,
+                "slot_key" : equipped[ i ].getSlot()
+            } );
         }
-        let cap = armor.getCharacteristicValue( COMBAT.DEX_CAP_FIELD );
-        if ( cap ) {
-            parts.push( "Mod. de dex. max. " + cap );
+        let to_return = [];
+        for ( let s = 0, _size_s = STUFF.SLOTS.length; s < _size_s; s++ ) {
+            let slot_data = STUFF.SLOTS[ s ];
+            let items     = by_slot[ slot_data.key ] || [];
+            // The hosts ride under their host item, the direct pieces first
+            items.sort( function ( item_a, item_b ) {
+                return ( item_a.is_host ? 1 : 0 ) - ( item_b.is_host ? 1 : 0 );
+            } );
+            let slot_items = [];
+            for ( let m = 0, _size_m = items.length; m < _size_m; m++ ) {
+                if ( items[ m ].is_host ) {
+                    continue;
+                }
+                let hosts = [];
+                for ( let h = 0, _size_h = items.length; h < _size_h; h++ ) {
+                    if ( items[ h ].is_host && STUFF.getHostBodySlot( items[ h ].slot_key ) === slot_data.key ) {
+                        hosts.push( items[ h ].entry );
+                    }
+                }
+                slot_items.push( {
+                    "entry": items[ m ].entry,
+                    "hosts": hosts,
+                    "hp"   : items[ m ].entry.hasDurability() ? {
+                        "current"  : items[ m ].entry.getCurrentHp(),
+                        "max"      : items[ m ].entry.getMaxHp(),
+                        "hardness" : items[ m ].entry.getHardness(),
+                        "bt"       : items[ m ].entry.getBreakThreshold()
+                    } : null
+                } );
+            }
+            // A host slot with no direct piece still shows (the rune on an
+            // armor the character carries in the backpack does not — only
+            // the EQUIPPED pieces are here)
+            let orphan_hosts = [];
+            for ( let m = 0, _size_m = items.length; m < _size_m; m++ ) {
+                if ( items[ m ].is_host ) {
+                    orphan_hosts.push( items[ m ].entry );
+                }
+            }
+            to_return.push( {
+                "slot_key": slot_data.key,
+                "label"   : slot_data.label,
+                "items"   : slot_items,
+                "orphan_hosts": orphan_hosts.length && !slot_items.length ? orphan_hosts : []
+            } );
         }
-        return parts.join( ", " );
-    },
-    // A shield adds its CA only when raised : the sheet never raises it for
-    // the player, the hint spells the rule out
-    _formatShieldStats: function ( shield ) {
-        let parts     = [];
-        let solidite  = shield.getCharacteristicValue( COMBAT.STURDINESS_FIELD );
-        if ( solidite ) {
-            parts.push( "Solidité " + solidite );
-        }
-        parts.push( "CA +" + COMBAT.SHIELD_CA_BONUS + " brandi" );
-        return parts.join( ", " );
+        return to_return;
     },
 
     //********************************************  ATTACKS  **************************************************//

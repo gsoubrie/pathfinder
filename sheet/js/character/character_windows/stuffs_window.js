@@ -59,6 +59,14 @@ CHARACTER.StuffsWindow.prototype = {
                 this._refreshContent();
                 return;
             }
+            // The body slot and the current HP are routed to the domain by
+            // the character BEFORE the windows broadcast (like add/remove)
+            // : this window only refreshes, a re-dispatch would apply an HP
+            // delta twice. The current HP is not displayed here (the Combat
+            // schema owns it), so it falls through to the default handler
+            case "event__stuff__set_slot":
+                this._refreshContent();
+                return;
             // The place free text, the comment and the quantity live on
             // their entry state : the domain owns the truth, the display
             // follows in place (nothing recalculates, the rebuild would

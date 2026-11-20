@@ -37,7 +37,9 @@ CHARACTER.Stuffs.prototype = {
             case "event__stuff__edit_place":
             case "event__stuff__edit_comment":
             case "event__stuff__edit_characteristics":
-            case "event__stuff__edit_quantity": {
+            case "event__stuff__edit_quantity":
+            case "event__stuff__set_slot":
+            case "event__stuff__edit_current_hp": {
                 let entry = this.getContentByUUID( params[ "param__stuff__kind" ] + "__" + params[ "param__stuff__value" ] );
                 if ( entry ) {
                     if ( event_name === "event__stuff__set_location" ) {
@@ -51,6 +53,19 @@ CHARACTER.Stuffs.prototype = {
                     }
                     else if ( event_name === "event__stuff__edit_characteristics" ) {
                         entry.setData( "characteristics", params[ "param__stuff__characteristics" ] );
+                    }
+                    else if ( event_name === "event__stuff__set_slot" ) {
+                        entry.setSlot( params[ "param__stuff__slot" ] );
+                    }
+                    else if ( event_name === "event__stuff__edit_current_hp" ) {
+                        // The −/+ buttons of the Combat schema send a
+                        // delta, the edit popup sends an absolute value
+                        if ( params[ "param__delta" ] !== undefined ) {
+                            entry.setCurrentHp( entry.getCurrentHp() + parseInt( params[ "param__delta" ], 10 ) );
+                        }
+                        else {
+                            entry.setCurrentHp( params[ "param__stuff__current_hp" ] );
+                        }
                     }
                     else {
                         entry.setData( "quantity", params[ "param__stuff__quantity" ] );
@@ -150,6 +165,12 @@ CHARACTER.Stuffs.prototype = {
             current.setData( "place", data[ i ][ "place" ] );
             if ( data[ i ][ "comment" ] !== undefined ) {
                 current.setData( "comment", data[ i ][ "comment" ] );
+            }
+            if ( data[ i ][ "slot" ] !== undefined ) {
+                current.setData( "slot", data[ i ][ "slot" ] );
+            }
+            if ( data[ i ][ "current_hp" ] !== undefined ) {
+                current.setData( "current_hp", data[ i ][ "current_hp" ] );
             }
         }
     }

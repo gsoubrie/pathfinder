@@ -4,10 +4,12 @@
  * @extends WINDOW_V2.ElementFromData
  */
 CHARACTER.LibraryWindow = function ( parent_name ) {
-    this.current_subject    = LIBRARY.DEFAULT_SUBJECT_KEY;
-    this.filter_type        = LIBRARY.FILTER_ALL_KEY;
-    this.search_filters     = [];
-    this.owned_only         = false;
+    this.current_subject        = LIBRARY.DEFAULT_SUBJECT_KEY;
+    this.filter_type            = LIBRARY.FILTER_ALL_KEY;
+    this.search_filters         = [];
+    this.owned_only             = false;
+    this.spell_tradition_filter = LIBRARY.FILTER_ALL_KEY;
+    this.spell_rank_filter      = LIBRARY.FILTER_ALL_KEY;
     this.initSpecific( CHARACTER.LibraryWindow.NAME, parent_name, "Bibliothèque" );
 };
 CHARACTER.LibraryWindow.prototype = {
@@ -39,10 +41,12 @@ CHARACTER.LibraryWindow.prototype = {
         // and filters apply ONCE, the visits afterwards keep the state the
         // user left
         if ( CHARACTER.LibraryWindow.pending_subject_key ) {
-            this.current_subject = CHARACTER.LibraryWindow.pending_subject_key;
-            this.filter_type      = LIBRARY.FILTER_ALL_KEY;
-            this.search_filters   = [].concat( CHARACTER.LibraryWindow.pending_filters || [] );
-            this.owned_only       = false;
+            this.current_subject        = CHARACTER.LibraryWindow.pending_subject_key;
+            this.filter_type            = LIBRARY.FILTER_ALL_KEY;
+            this.search_filters         = [].concat( CHARACTER.LibraryWindow.pending_filters || [] );
+            this.owned_only             = false;
+            this.spell_tradition_filter = LIBRARY.FILTER_ALL_KEY;
+            this.spell_rank_filter      = LIBRARY.FILTER_ALL_KEY;
             CHARACTER.LibraryWindow.pending_subject_key = null;
             CHARACTER.LibraryWindow.pending_filters      = null;
         }
@@ -50,6 +54,7 @@ CHARACTER.LibraryWindow.prototype = {
         this._buildSubjectChips( this.content_dom_element_target );
         let filters_container = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-filters" } ), this.content_dom_element_target );
         this._buildFilterChips( filters_container );
+        this._buildSpellFilterRows( filters_container );
         this._buildSearchZone( filters_container );
         // The row of the posed filters : the container only lives in the
         // flow while it carries tags (the CSS hides it once empty)
@@ -179,11 +184,62 @@ CHARACTER.LibraryWindow.prototype = {
                 chips
             );
             btn.addEventListener( "click", function () {
-                self.current_subject    = subject_key;
-                self.filter_type        = LIBRARY.FILTER_ALL_KEY;
-                self.search_filters     = [];
-                self.owned_only         = false;
+                self.current_subject        = subject_key;
+                self.filter_type            = LIBRARY.FILTER_ALL_KEY;
+                self.search_filters         = [];
+                self.owned_only             = false;
+                self.spell_tradition_filter = LIBRARY.FILTER_ALL_KEY;
+                self.spell_rank_filter      = LIBRARY.FILTER_ALL_KEY;
                 self.computeContent( CONTROLLER.Character.current_character );
+            } );
+        }
+    },
+
+    // The Tradition and Rank chip rows of the Sorts subject : they cross
+    // (AND) with each other and with the posed search tags, the chips reuse
+    // the type-chip look. Only rendered for the spells subject
+    _buildSpellFilterRows: function ( parent ) {
+        if ( this.current_subject !== "spells" ) {
+            return;
+        }
+        let self = this;
+        let rows = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-spell-filters" } ), parent );
+        let tradition_chips = [{ "key": LIBRARY.FILTER_ALL_KEY, "label": LIBRARY.FILTER_ALL_LABEL }];
+        for ( let t = 0, _size_t = SPELL.TRADITIONS.length; t < _size_t; t++ ) {
+            tradition_chips.push( { "key": SPELL.TRADITIONS[ t ].key, "label": SPELL.TRADITIONS[ t ].label } );
+        }
+        this._buildSpellFilterRow( rows, "Tradition :", tradition_chips, this.spell_tradition_filter, function ( chip_key ) {
+            self.spell_tradition_filter = chip_key;
+            self._renderList( self.list_dom_element, CONTROLLER.Character.current_character );
+        } );
+        let rank_chips = [{ "key": LIBRARY.FILTER_ALL_KEY, "label": LIBRARY.FILTER_ALL_LABEL }];
+        for ( let rank = 1; rank <= 10; rank++ ) {
+            rank_chips.push( { "key": String( rank ), "label": String( rank ) } );
+        }
+        this._buildSpellFilterRow( rows, "Rang :", rank_chips, this.spell_rank_filter, function ( chip_key ) {
+            self.spell_rank_filter = chip_key;
+            self._renderList( self.list_dom_element, CONTROLLER.Character.current_character );
+        } );
+    },
+
+    _buildSpellFilterRow: function ( parent, row_label, chips, current_key, on_pick ) {
+        let row_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-spell-filter-row" } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-spell-filter-label" }, row_label ), row_dom );
+        let chips_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-filter-types" } ), row_dom );
+        for ( let c = 0, _size_c = chips.length; c < _size_c; c++ ) {
+            let chip_key = chips[ c ][ "key" ];
+            let btn      = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class: "library-filter-btn" + ( current_key === chip_key ? " active" : "" )
+                }, chips[ c ][ "label" ] ),
+                chips_dom
+            );
+            btn.addEventListener( "click", function () {
+                chips_dom.querySelectorAll( ".library-filter-btn" ).forEach( function ( other_btn ) {
+                    other_btn.classList.remove( "active" );
+                } );
+                btn.classList.add( "active" );
+                on_pick( chip_key );
             } );
         }
     },
@@ -703,17 +759,33 @@ CHARACTER.LibraryWindow.prototype = {
 
     _renderSpellList: function ( list_dom, character_object ) {
         let spells = SPELLS.getSpellListData();
+        // The Tradition and Rank chips cross (AND) with the search tags
+        let tradition_source_key = null;
+        if ( this.spell_tradition_filter !== LIBRARY.FILTER_ALL_KEY ) {
+            let tradition_data = SPELL.getTraditionDataByKey( this.spell_tradition_filter );
+            tradition_source_key = tradition_data ? tradition_data.source_key : null;
+        }
+        let rank_filter = this.spell_rank_filter !== LIBRARY.FILTER_ALL_KEY ? parseInt( this.spell_rank_filter, 10 ) : null;
         let filtered = [];
         for ( let i = 0, _size_i = spells.length; i < _size_i; i++ ) {
+            if ( tradition_source_key && ( spells[ i ].traditions || [] ).indexOf( tradition_source_key ) === -1 ) {
+                continue;
+            }
+            if ( rank_filter !== null && spells[ i ].rank !== rank_filter ) {
+                continue;
+            }
             // The content of a spell rides with its list entry, its traits
             // come from the by-name dataset accessor (a full-map scan) :
             // never fetched while no filter is posed
             if ( this.search_filters.length ) {
                 let spell_data = SPELLS.getSpellData( spells[ i ].name );
                 let key_line   = spells[ i ].cost_label !== SPELL.NO_COST_LABEL ? "Coût " + spells[ i ].cost_label : "";
-                // The rank rides the searchable type text ("rang 1" filters
-                // the rank-1 spells) and the card tag
+                // The rank and the tradition labels ride the searchable type
+                // text ("rang 1" and "divin" filter from the search zone)
                 let type_text  = SPELLS.getFullTypeLabel( spells[ i ].name ) + " rang " + spells[ i ].rank;
+                for ( let t = 0, _size_t = ( spells[ i ].traditions || [] ).length; t < _size_t; t++ ) {
+                    type_text += " " + SPELLS.getTraditionLabelOfSource( spells[ i ].traditions[ t ] );
+                }
                 if ( !this._matchesSearchFilters( spells[ i ].name, spell_data ? spell_data[ "traits" ] : [], spells[ i ].description, type_text, key_line ) ) {
                     continue;
                 }
@@ -1107,17 +1179,21 @@ CHARACTER.LibraryWindow.prototype = {
     // information popup, the "?" of the old Dons tab is gone (user
     // decision — the popups stay reachable from their own windows)
     _buildCard: function ( parent, card_data ) {
-        // Clic sur la carte = déplier/replier la description (état en
-        // classe, aucun re-render ; le « + » des cartes a son propre handler,
-        // le bus stoppe sa propagation)
-        let card    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card", onclick: "this.classList.toggle('library-card--expanded')" } ), parent );
+        // La description se rend ENTIERE sous la ligne du haut, sur toute la
+        // largeur : pas de clamp, pas d'indicateur « suite », la carte n'est
+        // pas cliquable (le « + » a son propre handler)
+        let card    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card" } ), parent );
         let content = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-content" } ), card );
         let top_line = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-top-line" } ), content );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-name" }, card_data[ "name" ] ), top_line );
         let tags_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-tags" } ), top_line );
         for ( let t = 0, _size_t = card_data[ "tags" ].length; t < _size_t; t++ ) {
+            let tag_attributes = { class: "library-tag " + ( card_data[ "tags" ][ t ][ "css" ] || "" ) };
+            if ( card_data[ "tags" ][ t ][ "data-value" ] ) {
+                tag_attributes[ "data-value" ] = card_data[ "tags" ][ t ][ "data-value" ];
+            }
             SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "span", { class: "library-tag " + ( card_data[ "tags" ][ t ][ "css" ] || "" ) }, card_data[ "tags" ][ t ][ "label" ] ),
+                SERVICE.DOM.createElement( "span", tag_attributes, card_data[ "tags" ][ t ][ "label" ] ),
                 tags_dom
             );
         }
@@ -1137,13 +1213,7 @@ CHARACTER.LibraryWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-required-value" }, card_data[ "required" ].join( " | " ) ), required_dom );
         }
         if ( card_data[ "description" ] ) {
-            let description_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, card_data[ "description" ] ), content );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-more" } ), content );
-            // L'indicateur « suite » n'apparaît que si le texte déborde du
-            // clamp (mesuré au rendu, la fenêtre est visible à ce moment)
-            if ( description_dom.scrollHeight > description_dom.clientHeight + 1 ) {
-                card.classList.add( "clamped" );
-            }
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, card_data[ "description" ] ), content );
         }
         return card;
     },
@@ -1179,6 +1249,15 @@ CHARACTER.LibraryWindow.prototype = {
             { "label": SPELLS.getFullTypeLabel( spell_list_entry.name ), "css": "library-tag--spell" },
             { "label": "Rang " + spell_list_entry.rank, "css": "library-tag--rank" }
         ];
+        // Each magic tradition rides its own tag, keyed Tradition_* (the
+        // data-value carries the tag key, the label speaks French)
+        for ( let t = 0, _size_t = ( spell_list_entry.traditions || [] ).length; t < _size_t; t++ ) {
+            tags.push( {
+                "label"     : SPELLS.getTraditionLabelOfSource( spell_list_entry.traditions[ t ] ),
+                "css"       : "library-tag--tradition",
+                "data-value": SPELLS.getTraditionKeyOfSource( spell_list_entry.traditions[ t ] )
+            } );
+        }
         if ( spell_data && spell_data[ "traits" ] ) {
             for ( let t = 0, _size_t = spell_data[ "traits" ].length; t < _size_t; t++ ) {
                 tags.push( { "label": spell_data[ "traits" ][ t ], "css": "library-tag--trait" } );

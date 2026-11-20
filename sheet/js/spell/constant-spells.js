@@ -40,6 +40,17 @@ SPELL.NATURES = [
     }
 ];
 
+// The magic traditions of the spells : the scraped entries carry the raw
+// source keys ("divine", "arcane"...), this hand-written map resolves them
+// to the Tradition_* tag keys and their French labels (it survives the
+// re-scrap). The array order drives the tradition filter chips
+SPELL.TRADITIONS = [
+    { "key": "Tradition_arcanique", "label": "Arcanique", "source_key": "arcane"   },
+    { "key": "Tradition_divin",      "label": "Divin",      "source_key": "divine"  },
+    { "key": "Tradition_occulte",    "label": "Occulte",    "source_key": "occult"  },
+    { "key": "Tradition_primordial", "label": "Primordial", "source_key": "primal"  }
+];
+
 // The action cost glyphs (mêmes mappings que la popup d'action : la carte
 // parle la langue RÉELLE des données scrapées)
 SPELL.ACTION_COST_LABELS = {
@@ -80,6 +91,50 @@ SPELL.getNatureData = function ( nature_key ) {
         }
     }
     return null;
+};
+
+/**
+ * @param {string} source_key  Raw scraped tradition key, ex: "divine"
+ * @returns {Object|null}      The tradition data { key, label, source_key }
+ */
+SPELL.getTraditionData = function ( source_key ) {
+    for ( let i = 0, _size_i = SPELL.TRADITIONS.length; i < _size_i; i++ ) {
+        if ( SPELL.TRADITIONS[ i ].source_key === source_key ) {
+            return SPELL.TRADITIONS[ i ];
+        }
+    }
+    return null;
+};
+
+/**
+ * @param {string} key  Tag key, ex: "Tradition_divin"
+ * @returns {Object|null}  The tradition data { key, label, source_key }
+ */
+SPELL.getTraditionDataByKey = function ( key ) {
+    for ( let i = 0, _size_i = SPELL.TRADITIONS.length; i < _size_i; i++ ) {
+        if ( SPELL.TRADITIONS[ i ].key === key ) {
+            return SPELL.TRADITIONS[ i ];
+        }
+    }
+    return null;
+};
+
+/**
+ * @param {string} source_key  Raw scraped tradition key, ex: "divine"
+ * @returns {string}           The tag key, ex: "Tradition_divin"
+ */
+SPELLS.getTraditionKeyOfSource = function ( source_key ) {
+    let tradition_data = SPELL.getTraditionData( source_key );
+    return tradition_data ? tradition_data.key : source_key;
+};
+
+/**
+ * @param {string} source_key  Raw scraped tradition key, ex: "divine"
+ * @returns {string}           The French label, ex: "Divin"
+ */
+SPELLS.getTraditionLabelOfSource = function ( source_key ) {
+    let tradition_data = SPELL.getTraditionData( source_key );
+    return tradition_data ? tradition_data.label : source_key;
 };
 
 // The scraped element_type designates the nature and the rank ("SORT 3",
@@ -190,7 +245,8 @@ SPELLS.getSpellListData = function () {
             "type_label" : SPELL.LIST_TYPE_LABELS[ nature_key ] || "",
             "rank"       : parsed ? parsed.rank : 0,
             "cost_label" : cost_label,
-            "description": entry[ "description" ]
+            "description": entry[ "description" ],
+            "traditions" : entry[ "traditions" ] || []
         } );
     }
     to_return.sort( function ( spell_a, spell_b ) {

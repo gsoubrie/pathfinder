@@ -379,11 +379,21 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         // Les champs de type scrapés vivent dans la popup : croisés
         // avec le domaine
         let _popup_text     = _overlay ? _overlay.textContent : "";
+        // La popup affiche les valeurs DU DOMAINE (l'emplacement scrapé y
+        // est traduit en libellé) : on compare au rendu, pas au brut
+        let _item_info      = STUFFS.getItemInformation( "Épée longue" );
+        let _item_details   = _item_info ? _item_info.details : [];
         let _detail_fields  = STUFF.getKindData( "weapon" ).detail_fields;
         for ( let _f = 0, _size_f = _detail_fields.length; _f < _size_f; _f++ ) {
-            let _expected = STUFFS.getFieldValue( "Épée longue", _detail_fields[ _f ] );
+            let _expected = null;
+            for ( let _d = 0, _size_d = _item_details.length; _d < _size_d; _d++ ) {
+                if ( _item_details[ _d ].label === _detail_fields[ _f ] ) {
+                    _expected = _item_details[ _d ].value;
+                    break;
+                }
+            }
             if ( _expected ) {
-                TEST.ASSERT.ok( _popup_text.indexOf( _expected ) !== -1, "La popup devrait porter le champ scrapé " + _detail_fields[ _f ] + " [" + _expected + "]" );
+                TEST.ASSERT.ok( _popup_text.indexOf( String( _expected ) ) !== -1, "La popup devrait porter le champ " + _detail_fields[ _f ] + " affiché [" + _expected + "]" );
             }
         }
         CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "stuff__Épée longue" } );

@@ -339,7 +339,11 @@ function generateSpells() {
             "id"          : s._id,
             "required"    : [],
             "text"        : fr.name || s.name,
-            "traits"      : mapTraits( s )
+            "traits"      : mapTraits( s ),
+            // The magic traditions ride as their raw source keys ("divine",
+            // "arcane"...) : the sheet resolves them to the Tradition_* tags
+            // through its hand-written map, the re-scrap stays stable
+            "traditions"  : ( s.traits && s.traits.traditions ) || []
         };
         out[ s._id ] = entry;
     }
@@ -398,6 +402,65 @@ function mapUsage( usage ) {
         return "2";
     }
     return undefined;
+}
+
+// The scraped usage maps to the body slot key of the equipment schema
+// (hand-written map, it survives the re-scrap ; the French labels live in
+// STUFF.SLOTS of the sheet). The weapon/armor/shield types own their slot
+// by type, the usage rules the rest ; the "affixed/etched/applied" usages
+// land on their host slot ("host_*")
+var USAGE_SLOT = {
+    "wornheadwear": "head", "worncirclet": "head", "wornmask": "head",
+    "worneyepiece": "eyes", "worneyeglasses": "eyes",
+    "wornnecklace": "neck", "worncollar": "neck", "wornamulet": "neck",
+    "wornepaulet": "shoulders", "wornarmbands": "shoulders", "wornbracers": "shoulders",
+    "worncloak": "cape", "worncape": "cape",
+    "worngarment": "garment", "wornclothing": "garment", "worn-under-armor": "garment", "sewn-into-clothing": "garment",
+    "worngloves": "gloves",
+    "wornring": "ring",
+    "wornbelt": "belt",
+    "wornshoes": "boots", "wornanklets": "boots", "wornhorseshoes": "boots",
+    "wornbackpack": "backpack",
+    "tattooed-on-the-body": "tattoo",
+    "implanted": "implant"
+};
+
+function slotOf( e ) {
+    if ( e.type === "armor" ) {
+        return "armor";
+    }
+    if ( e.type === "shield" ) {
+        return "shield";
+    }
+    if ( e.type === "weapon" ) {
+        return "main";
+    }
+    var u = ( e.usage && e.usage.type ) || e.usage || "";
+    if ( USAGE_SLOT[ u ] ) {
+        return USAGE_SLOT[ u ];
+    }
+    if ( /armor/.test( u ) ) {
+        return "host_armor";
+    }
+    if ( /shield|buckler|dueling-cape/.test( u ) ) {
+        return "host_shield";
+    }
+    if ( /weapon|firearm|crossbow|thrown|dagger/.test( u ) ) {
+        return "host_weapon";
+    }
+    if ( /headgear/.test( u ) ) {
+        return "host_head";
+    }
+    if ( /clothing|garment/.test( u ) ) {
+        return "host_garment";
+    }
+    if ( /footwear|boots/.test( u ) ) {
+        return "host_boots";
+    }
+    if ( /basket|bag|container|backpack/.test( u ) ) {
+        return "host_bag";
+    }
+    return "invested";
 }
 
 function mapRange( range, fr ) {
@@ -494,10 +557,17 @@ function stuffEntry( e ) {
                 out[ "Groupe" ] = trName( ARMOR_GROUPS, e.group ) || "Inconnu";
             }
         }
-        if ( e.type === "shield" && e.hardness ) {
-            out[ "Solidité" ] = e.hardness + " PV " + e.hp + " (SR " + ( e.hp / 2 ) + ")";
-        }
     }
+    // In remaster only the shields carry their own durability (hardness,
+    // HP, break threshold as separate fields — the weapons and armors have
+    // hardness 0, they break by other rules)
+    if ( e.type === "shield" && e.hardness > 0 ) {
+        out[ "Solidité" ] = String( e.hardness );
+        out[ "PV" ]       = String( e.hp );
+        out[ "SR" ]       = String( Math.floor( e.hp / 2 ) );
+    }
+    // The default body slot of the piece, from its scraped usage
+    out[ "Emplacement" ] = slotOf( e );
     var b = mapBulk( e.bulk );
     if ( b !== undefined ) {
         out[ "bulk" ] = b;

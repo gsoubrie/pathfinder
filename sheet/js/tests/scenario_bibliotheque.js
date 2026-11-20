@@ -422,6 +422,104 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag p
     }
 } );
 
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = chips Tradition/Rang croisées, tag Tradition_* sur les cartes", function () {
+    let _spells_subject = TEST_librarySubjectChip( "Sorts" );
+    TEST.ASSERT.notNull( _spells_subject, "Pre-condition : puce sujet Sorts rendue" );
+    if ( !_spells_subject ) {
+        return;
+    }
+    _spells_subject.click();
+    let _window_dom = TEST_libraryWindowDom();
+    TEST.ASSERT.notNull( _window_dom, "Pre-condition : fenêtre Bibliothèque rendue" );
+    if ( !_window_dom ) {
+        return;
+    }
+    // Les deux rangées n'existent que sur le sujet Sorts
+    let _rows       = _window_dom.querySelectorAll( ".library-spell-filter-row" );
+    TEST.ASSERT.equal( _rows.length, 2, "Le sujet Sorts devrait porter 2 rangées de chips (Tradition, Rang), obtenu : " + _rows.length );
+    let _row_labels = _window_dom.querySelectorAll( ".library-spell-filter-label" );
+    TEST.ASSERT.equal( _row_labels.length >= 2 ? _row_labels[ 0 ].textContent : null, "Tradition :", "La première rangée devrait s'appeler « Tradition : »" );
+    TEST.ASSERT.equal( _row_labels.length >= 2 ? _row_labels[ 1 ].textContent : null, "Rang :", "La seconde rangée devrait s'appeler « Rang : »" );
+    // Chips Tradition = Tous + les SPELL.TRADITIONS, chips Rang = Tous + 1..10
+    let _tradition_chips = _rows.length ? _rows[ 0 ].querySelectorAll( ".library-filter-btn" ) : [];
+    TEST.ASSERT.equal( _tradition_chips.length, SPELL.TRADITIONS.length + 1, "La rangée Tradition devrait porter Tous + " + SPELL.TRADITIONS.length + " traditions, obtenu : " + _tradition_chips.length );
+    let _rank_chips      = _rows.length > 1 ? _rows[ 1 ].querySelectorAll( ".library-filter-btn" ) : [];
+    TEST.ASSERT.equal( _rank_chips.length, 11, "La rangée Rang devrait porter Tous + les rangs 1 à 10, obtenu : " + _rank_chips.length );
+    // Comptes calculés du dataset (jamais figés)
+    let _spell_list     = SPELLS.getSpellListData();
+    let _expected_divin = 0;
+    let _expected_divin_rank1 = 0;
+    for ( let i = 0, _size_i = _spell_list.length; i < _size_i; i++ ) {
+        if ( ( _spell_list[ i ].traditions || [] ).indexOf( "divine" ) !== -1 ) {
+            _expected_divin++;
+            if ( _spell_list[ i ].rank === 1 ) {
+                _expected_divin_rank1++;
+            }
+        }
+    }
+    // Clic chip « Divin » : seules les cartes divines, chacune taguée Tradition_divin
+    let _divin_chip = TEST_libraryFilterChip( "Divin" );
+    TEST.ASSERT.notNull( _divin_chip, "La chip « Divin » devrait être rendue" );
+    if ( _divin_chip ) {
+        _divin_chip.click();
+        let _cards = TEST_libraryCards();
+        TEST.ASSERT.equal( _cards.length, _expected_divin, "La chip Divin devrait laisser " + _expected_divin + " sorts divins, obtenu : " + _cards.length );
+        let _divin_tags = _window_dom.querySelectorAll( ".library-tag--tradition[data-value='Tradition_divin']" );
+        TEST.ASSERT.equal( _divin_tags.length, _cards.length, "Chaque carte divine devrait porter le tag Tradition_divin, obtenu : " + _divin_tags.length + " pour " + _cards.length + " cartes" );
+        // Croisement avec le rang : chip « 1 »
+        let _rank_chip = TEST_libraryFilterChip( "1" );
+        TEST.ASSERT.notNull( _rank_chip, "La chip rang « 1 » devrait être rendue" );
+        if ( _rank_chip ) {
+            _rank_chip.click();
+            _cards = TEST_libraryCards();
+            TEST.ASSERT.equal( _cards.length, _expected_divin_rank1, "Divin + rang 1 devrait laisser " + _expected_divin_rank1 + " sorts, obtenu : " + _cards.length );
+            let _add_all = _window_dom.querySelector( ".library-add-all" );
+            TEST.ASSERT.equal( _add_all ? _add_all.textContent : null, "Tout ajouter (" + _expected_divin_rank1 + ")", "Le bouton « Tout ajouter » devrait refléter le croisement des chips, obtenu : " + ( _add_all ? _add_all.textContent : "null" ) );
+        }
+    }
+    // Reset des deux chips (le « Tous » de chaque rangée)
+    if ( _rows.length > 1 ) {
+        _rows[ 1 ].querySelector( ".library-filter-btn" ).click();
+        _rows[ 0 ].querySelector( ".library-filter-btn" ).click();
+    }
+    let _cards = TEST_libraryCards();
+    TEST.ASSERT.equal( _cards.length, _spell_list.length, "Après reset des chips, tous les sorts devraient revenir, obtenu : " + _cards.length + " contre " + _spell_list.length );
+    // Le label de tradition est cherchable dans la zone de texte (« divin »)
+    // : le compte attendu se recalcule avec le matcher de la fenêtre (le
+    // contenu des cartes peut aussi contenir « divin », ex. « divination »)
+    let _expected_divin_text = 0;
+    for ( let i = 0, _size_i = _spell_list.length; i < _size_i; i++ ) {
+        let _spell_data  = SPELLS.getSpellData( _spell_list[ i ].name );
+        let _type_text   = SPELLS.getFullTypeLabel( _spell_list[ i ].name ) + " rang " + _spell_list[ i ].rank;
+        let _traditions  = _spell_list[ i ].traditions || [];
+        for ( let t = 0, _size_t = _traditions.length; t < _size_t; t++ ) {
+            _type_text += " " + SPELLS.getTraditionLabelOfSource( _traditions[ t ] );
+        }
+        let _key_line    = _spell_list[ i ].cost_label !== SPELL.NO_COST_LABEL ? "Coût " + _spell_list[ i ].cost_label : "";
+        if ( TEST_libraryEntryMatchesFilter( _spell_list[ i ].name, _spell_data ? _spell_data[ "traits" ] : [], _spell_list[ i ].description, _type_text, _key_line, "divin" ) ) {
+            _expected_divin_text++;
+        }
+    }
+    TEST_libraryCommitFilterByEnter( "divin" );
+    _cards = TEST_libraryCards();
+    TEST.ASSERT.equal( _cards.length, _expected_divin_text, "Le tag texte « divin » devrait laisser " + _expected_divin_text + " sorts (label de tradition + contenu cherchables), obtenu : " + _cards.length );
+    TEST_libraryRemoveTag( "divin" );
+    _cards = TEST_libraryCards();
+    TEST.ASSERT.equal( _cards.length, _spell_list.length, "Après retrait du tag, tous les sorts devraient revenir, obtenu : " + _cards.length );
+    // Changement de sujet : les rangées disparaissent, retour sur Sorts = filtres reset
+    let _dons_subject = TEST_librarySubjectChip( "Dons" );
+    if ( _dons_subject ) {
+        _dons_subject.click();
+        TEST.ASSERT.equal( TEST_libraryWindowDom() ? TEST_libraryWindowDom().querySelectorAll( ".library-spell-filter-row" ).length : null, 0, "Les rangées Tradition/Rang ne devraient exister que sur le sujet Sorts" );
+        let _back = TEST_librarySubjectChip( "Sorts" );
+        if ( _back ) {
+            _back.click();
+            let _active = TEST_libraryWindowDom().querySelectorAll( ".library-spell-filter-row .library-filter-btn.active" );
+            TEST.ASSERT.equal( _active.length, 2, "De retour sur Sorts, seuls les deux « Tous » devraient être actifs, obtenu : " + _active.length );
+        }
+    }
+} );
+
 TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Équipement = chips + tags par nom et par trait", function () {
     let _stuffs_subject = TEST_librarySubjectChip( "Équipement" );
     TEST.ASSERT.notNull( _stuffs_subject, "Pre-condition : puce sujet Équipement rendue" );
@@ -971,7 +1069,8 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] « Mes dons » : enlève les filtres, tag
             let _cards = TEST_libraryCards();
             TEST.ASSERT.equal( _cards.length, _active.length, "La liste ne devrait plus porter que les dons actifs (" + _active.length + "), obtenu : " + _cards.length );
             TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length, _active.length, "Chaque carte de don actif devrait porter le tag « Mon don », obtenu : " + _window_dom.querySelectorAll( ".library-card .library-tag--owned" ).length );
-            // La carte du don actif se déplie au clic, se replie au second
+            // La description se rend en entier sous la ligne : pas de
+            // « suite », pas de dépli au clic
             let _owned_card = null;
             for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
                 let _name_dom = _cards[ i ].querySelector( ".library-card-name" );
@@ -981,10 +1080,12 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] « Mes dons » : enlève les filtres, tag
             }
             TEST.ASSERT.notNull( _owned_card, "La carte du don actif devrait etre dans la liste" );
             if ( _owned_card ) {
+                let _desc = _owned_card.querySelector( ".library-card-description" );
+                TEST.ASSERT.notNull( _desc, "La carte devrait porter sa description sous la ligne du haut" );
+                TEST.ASSERT.isNull( _owned_card.querySelector( ".library-card-more" ), "Aucun indicateur « suite » ne devrait exister" );
+                TEST.ASSERT.ok( _desc && _desc.scrollHeight <= _desc.clientHeight + 1, "La description devrait être entièrement visible (pas de clamp), obtenu : scrollHeight " + ( _desc ? _desc.scrollHeight : "null" ) + " vs clientHeight " + ( _desc ? _desc.clientHeight : "null" ) );
                 _owned_card.click();
-                TEST.ASSERT.ok( _owned_card.classList.contains( "library-card--expanded" ), "Le clic sur la carte devrait la déplier" );
-                _owned_card.click();
-                TEST.ASSERT.ok( !_owned_card.classList.contains( "library-card--expanded" ), "Le second clic devrait replier la carte" );
+                TEST.ASSERT.notOk( _owned_card.classList.contains( "library-card--expanded" ), "Le clic sur la carte ne devrait plus rien déplier" );
             }
             // Décocher : la liste revient complète, les tags « Mon don » restent
             let _checkbox2 = TEST_libraryWindowDom() ? TEST_libraryWindowDom().querySelector( ".library-owned-checkbox" ) : null;
@@ -1076,12 +1177,13 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Actions = sections par coût, reche
         }
         TEST.ASSERT.equal( TEST_libraryCards().length, _expected_name, "Le filtre par nom devrait ne garder que les actions matchant [" + _first_name + "], attendu : " + _expected_name + ", obtenu : " + TEST_libraryCards().length );
         TEST_libraryRemoveTag( _first_name.toLowerCase() );
-        // Carte dépliable : la première carte du sujet se déplie au clic
+        // Description en entier : pas de « suite », pas de dépli au clic
         let _cards2 = TEST_libraryCards();
         TEST.ASSERT.ok( _cards2.length > 0, "Pre-condition : des cartes rendues" );
         if ( _cards2.length ) {
+            TEST.ASSERT.isNull( _cards2[ 0 ].querySelector( ".library-card-more" ), "Aucun indicateur « suite » sur les cartes action" );
             _cards2[ 0 ].click();
-            TEST.ASSERT.ok( _cards2[ 0 ].classList.contains( "library-card--expanded" ), "Le clic sur une carte action devrait la déplier" );
+            TEST.ASSERT.notOk( _cards2[ 0 ].classList.contains( "library-card--expanded" ), "Le clic sur une carte ne devrait plus déplier" );
         }
         // Retour sujet Dons pour laisser la suite propre
         let _dons_chip = TEST_librarySubjectChip( "Dons" );

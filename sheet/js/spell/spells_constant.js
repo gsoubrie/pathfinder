@@ -12,6 +12,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "c8R2fpk88fBwJ1ie" : {
@@ -31,7 +35,8 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "CQb8HtQ1BPeZmu9h" : {
         "action_cost" : "2",
@@ -46,6 +51,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "LoBjvguamA12iyW0" : {
@@ -61,7 +70,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "9TauMFkIsmvKJNzZ" : {
         "action_cost" : "2",
@@ -75,6 +85,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Tx8OqkBFA2QlaldW" : {
@@ -91,6 +105,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "LbPLNWlLCxKCo5gF" : {
@@ -108,7 +126,8 @@ SPELLS.CONST = {
             "Fortune",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "tlSE7Ly8vi1Dgddv" : {
         "action_cost" : "2",
@@ -124,6 +143,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "mnhuvqTIELcpJOFX" : {
@@ -141,6 +164,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "vZSWzkw0uF4iFWSM" : {
@@ -159,6 +186,10 @@ SPELLS.CONST = {
             "Good",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "yUM5OYeMY8971b2S" : {
@@ -172,7 +203,8 @@ SPELLS.CONST = {
         "text" : "Achever une lignée",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "fTK6ysisGhy3hRvz" : {
         "action_cost" : "2",
@@ -186,6 +218,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "5KobTMrZeZxuXMgl" : {
@@ -200,6 +235,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jJphHQlENHFlSElH" : {
@@ -221,7 +260,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "J7Y7tl0bbdz7TcCc" : {
         "action_cost" : "2",
@@ -235,6 +275,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "SUKaxVZW2TlM8lu0" : {
@@ -250,6 +295,11 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "XIgvCPaSy5WXStVD" : {
@@ -266,7 +316,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "lOZhcvtej10TqlQm" : {
         "action_cost" : "1",
@@ -284,7 +335,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Conjurateur",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "r8g7oSumKOHDqJsd" : {
         "action_cost" : "2",
@@ -300,6 +352,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Non-létal"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "wzctak6BxOW8xvFV" : {
@@ -315,6 +371,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8rj45fKzCFcB0fxs" : {
@@ -333,7 +393,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Métamorphose",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "CIjj9CU5ekeq1oLT" : {
         "action_cost" : "2",
@@ -347,6 +408,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "aEitTTb9PnOyidRf" : {
@@ -365,7 +431,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "kRsmUlSWhi6PJvZ7" : {
         "action_cost" : "2",
@@ -383,7 +450,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "HWJODX2zPg5cg34F" : {
         "action_cost" : "2",
@@ -401,7 +469,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "9ZwpT9RDwCxhYQXd" : {
         "action_cost" : "2",
@@ -418,7 +487,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "gxK5XW4WAXOgY1mN" : {
         "action_cost" : "r",
@@ -435,7 +505,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "4WAib3GichxLjp5p" : {
         "action_cost" : null,
@@ -449,6 +520,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "qzsQmpiQodHBBWYI" : {
@@ -467,7 +544,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "JEMSVySuS4jvTepQ" : {
         "action_cost" : "3",
@@ -483,6 +561,10 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "BBw5oGFvoQc3gg52" : {
@@ -497,7 +579,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Épreuve"
-        ]
+        ],
+        "traditions" : []
     },
     "IQchIYUwbsVTa9Mc" : {
         "action_cost" : "1",
@@ -516,7 +599,8 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "VNv96dJPi0WXKSFN" : {
         "action_cost" : "1",
@@ -536,7 +620,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "q9QGc0PJMFWxFOCz" : {
         "action_cost" : null,
@@ -550,7 +635,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "Aap7nGpC7neTWm78" : {
         "action_cost" : "2",
@@ -564,6 +650,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "6DfLZBl8wKIV03Iq" : {
@@ -581,6 +670,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "aFd00WT266VYPqOG" : {
@@ -597,7 +690,8 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "3GXU3ugrwLv0P7AH" : {
         "action_cost" : "2",
@@ -613,6 +707,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "h8zxY9hTeHtWsBVW" : {
@@ -627,6 +725,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "1QMjWGq1DPOQr4VL" : {
@@ -644,7 +745,8 @@ SPELLS.CONST = {
             "Émotion",
             "Terreur",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "MLdMUOdwSKegOGlo" : {
         "action_cost" : "2",
@@ -661,6 +763,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Infortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "Dj44lViYKvOJ8a53" : {
@@ -680,7 +787,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mental",
             "Subtil"
-        ]
+        ],
+        "traditions" : []
     },
     "a5uwCgOe7ayHPtHe" : {
         "action_cost" : "2",
@@ -695,6 +803,12 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "rdTEF1hfAWbN58NE" : {
@@ -709,6 +823,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "8eOMAIvT7S1CJSit" : {
@@ -725,7 +843,8 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "1lmzILdCFENln8Cy" : {
         "action_cost" : "1",
@@ -741,7 +860,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "qdfV4y8B6mbg4Fnm" : {
         "action_cost" : null,
@@ -755,6 +875,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "pHrVvoTKygXeczVG" : {
@@ -772,7 +895,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "Jli9WBjQZ2MmKJ8y" : {
         "action_cost" : "2",
@@ -788,6 +912,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "DcUGLLyaa9tHH1kN" : {
@@ -802,7 +930,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Attaque"
-        ]
+        ],
+        "traditions" : []
     },
     "sLzPzk7DJnfuORJ0" : {
         "action_cost" : null,
@@ -815,7 +944,8 @@ SPELLS.CONST = {
         "text" : "Animation d'objet",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "rVANhQgB8Uqi9PTl" : {
         "action_cost" : "2",
@@ -829,6 +959,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "L1JnU3RepQiWxysc" : {
@@ -845,6 +979,10 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "KRcccPeNZOZ5Nweh" : {
@@ -859,6 +997,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "EUMjrJJwSgsqNidi" : {
@@ -873,6 +1017,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "b515AZlB0sridKSq" : {
@@ -890,6 +1038,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "szIyEsvihc5e1w8n" : {
@@ -907,6 +1059,9 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "cNnHV97gPqxJ3Rrr" : {
@@ -923,7 +1078,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "Juk3cD5385Ftybct" : {
         "action_cost" : "2",
@@ -939,6 +1095,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Olfactif"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "dqaCLzINHBiKjh4J" : {
@@ -959,7 +1118,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "gsYEuWv04XTDxe91" : {
         "action_cost" : null,
@@ -972,7 +1132,8 @@ SPELLS.CONST = {
         "text" : "Appel d'un esprit",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "i6GUJCWdNu2278oA" : {
         "action_cost" : "3",
@@ -988,6 +1149,11 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "CzMCiFbgLj1irnP4" : {
@@ -1006,7 +1172,8 @@ SPELLS.CONST = {
             "Composition",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "HG4afO9EOGEU9bZN" : {
         "action_cost" : "r",
@@ -1022,7 +1189,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "BH3sUerzMb2bWnv1" : {
         "action_cost" : "2",
@@ -1040,7 +1208,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "nzbnTqHgNKiGZkrZ" : {
         "action_cost" : null,
@@ -1054,7 +1223,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "REBo9wSxDDx7Qdcc" : {
         "action_cost" : "3",
@@ -1070,7 +1240,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "lbrWMnS2pecKaSVB" : {
         "action_cost" : "2",
@@ -1086,6 +1257,9 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "PztLrElcZfLwRnEq" : {
@@ -1106,7 +1280,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "S1Msrwi990FE7uMO" : {
         "action_cost" : "2",
@@ -1123,6 +1298,11 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "pZc8ZwtsyWnxUUW0" : {
@@ -1136,7 +1316,8 @@ SPELLS.CONST = {
         "text" : "Appel primordial",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "czO0wbT1i320gcu9" : {
         "action_cost" : "2",
@@ -1152,6 +1333,11 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "lsR3RLEdBG4rcSzd" : {
@@ -1170,7 +1356,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Téléportation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "s7ILzY2xh1tc9U1v" : {
         "action_cost" : "2",
@@ -1187,6 +1374,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "GYmXvS9NJ7QwfWGg" : {
@@ -1203,6 +1394,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Impie"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "EqdSKqr8Qj5TUhMR" : {
@@ -1219,6 +1414,12 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "u5FAOOXuqK7fLqKW" : {
@@ -1235,6 +1436,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "K9gI08enGtmih5X1" : {
@@ -1251,6 +1455,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "kBhaPuzLUSwS6vVf" : {
@@ -1267,6 +1474,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "lyJDBD9OFW11vLyT" : {
@@ -1287,7 +1498,8 @@ SPELLS.CONST = {
             "Émotion",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "it4wx2mDIJDlZGqS" : {
         "action_cost" : "2",
@@ -1303,6 +1515,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Vitalité",
             "Vide"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "vtCCVe869shMCJMj" : {
@@ -1318,6 +1533,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "W37iBXLsY2trJ1rS" : {
@@ -1335,7 +1555,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Sanctifié"
-        ]
+        ],
+        "traditions" : []
     },
     "fkUCvynklBGb4LaI" : {
         "action_cost" : "2",
@@ -1351,6 +1572,10 @@ SPELLS.CONST = {
             "Électricité",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ZqmP9gijBmK7y8Xy" : {
@@ -1367,6 +1592,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "AMEu5zzLN7uCX645" : {
@@ -1381,6 +1609,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "sUr5KCpeE6AXfvPp" : {
@@ -1400,7 +1632,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "IWUe32Y5k2QFd7YQ" : {
         "action_cost" : "1",
@@ -1415,7 +1648,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Focalisation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "TFitdEOpQC4SzKQQ" : {
         "action_cost" : "2",
@@ -1429,6 +1663,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "Fq9yCbqI2RDt6Orw" : {
@@ -1445,6 +1685,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "hvKtmoHwekDZ5iOH" : {
@@ -1464,6 +1708,10 @@ SPELLS.CONST = {
             "Mental",
             "Ombre",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "y1dcR5unn2UwlUR9" : {
@@ -1479,6 +1727,11 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "WfImUYSXyW3YdyY9" : {
@@ -1493,7 +1746,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Ténèbres"
-        ]
+        ],
+        "traditions" : []
     },
     "HEuvZAjD1q0J8Y5i" : {
         "action_cost" : "3",
@@ -1509,6 +1763,10 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Impie"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "aHu20NHj7YIqxr80" : {
@@ -1527,7 +1785,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "NBSBFHxBm88qxQUy" : {
         "action_cost" : null,
@@ -1542,6 +1801,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "EPTmSiURVp2ldkVB" : {
@@ -1558,6 +1821,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "pSNLufPPsReKQtJR" : {
@@ -1574,7 +1840,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "uiv8FKuxE8HOWTxW" : {
         "action_cost" : null,
@@ -1591,6 +1858,12 @@ SPELLS.CONST = {
             "Extradimensionnel",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "aAbfKn8maGjJjk2W" : {
@@ -1605,6 +1878,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "4nEY2BcV85wavKLO" : {
@@ -1620,6 +1899,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3JQPqtE7fkscP3f6" : {
@@ -1638,7 +1921,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "1bw6XJMOERcbC5Iq" : {
         "action_cost" : "1",
@@ -1652,6 +1936,10 @@ SPELLS.CONST = {
         "traits" : [
             "Mort",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "NQk8Cabhhw7jXkg0" : {
@@ -1666,7 +1954,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "ywHwnXihTnXbm9Xq" : {
         "action_cost" : "2",
@@ -1681,6 +1970,11 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "WPu3UE3kTXSLqO40" : {
@@ -1698,6 +1992,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "LmtwcpYmrJfhGIZY" : {
@@ -1711,7 +2009,8 @@ SPELLS.CONST = {
         "text" : "Artifice antimagique",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "b6UnLNikoq2Std1f" : {
         "action_cost" : "2",
@@ -1728,7 +2027,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "gISYsBFby1TiXfBt" : {
         "action_cost" : "2",
@@ -1745,6 +2045,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "mlNYROcFrUF8nFgk" : {
@@ -1764,7 +2068,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "S708JF3E0kuhuRzG" : {
         "action_cost" : "2",
@@ -1779,6 +2084,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "8TQiFzGf4feoHeH0" : {
@@ -1794,6 +2104,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zhDIiQlJmrd4UDNC" : {
@@ -1810,6 +2124,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "tlcrVRqW1MSKJ5IC" : {
@@ -1829,6 +2147,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "WqPhJNzLa8vSjrH6" : {
@@ -1843,6 +2165,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "5p9Y4ACrtRM4gTpN" : {
@@ -1860,7 +2186,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "3MzuRDc7ccylpW2e" : {
         "action_cost" : "1",
@@ -1876,7 +2203,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "izcxFQFwf3woCnFs" : {
         "action_cost" : "1",
@@ -1890,6 +2218,11 @@ SPELLS.CONST = {
         "traits" : [
             "Tour de magie",
             "Concentration"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "oiUhJbJ3YCKF62Fu" : {
@@ -1908,7 +2241,8 @@ SPELLS.CONST = {
             "Ténèbres",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "a9og2ZYfr8kAeltU" : {
         "action_cost" : null,
@@ -1921,7 +2255,8 @@ SPELLS.CONST = {
         "text" : "Assurer les armes de siège",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "KG7amdeXWc7MjGXe" : {
         "action_cost" : "3",
@@ -1939,7 +2274,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Lumière",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "eexkxcqnkXazsGfK" : {
         "action_cost" : "2",
@@ -1954,6 +2290,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "rzcXUF5YmJYxgxEa" : {
@@ -1970,7 +2311,8 @@ SPELLS.CONST = {
             "Animiste",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "UGJzJRJDoonfWqqI" : {
         "action_cost" : "1",
@@ -1986,7 +2328,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "B4p4cD9Q71mHTpOP" : {
         "action_cost" : "2",
@@ -2002,6 +2345,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "yuhhRjqBzFgkKYrq" : {
@@ -2018,7 +2365,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "eW7DqGEvU50CDHqc" : {
         "action_cost" : "2",
@@ -2034,6 +2382,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "Ww4cPZ3QHTSpaM1m" : {
@@ -2050,7 +2402,8 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "XhgMx9WC6NfXd9RP" : {
         "action_cost" : "2",
@@ -2067,7 +2420,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "TLmkJ8ga8s057HBp" : {
         "action_cost" : "2",
@@ -2081,6 +2435,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "TTwOKGqmZeKSyNMH" : {
@@ -2095,6 +2454,10 @@ SPELLS.CONST = {
         "traits" : [
             "Air",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jsWthW1Qy6tg3SwD" : {
@@ -2111,6 +2474,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "n7OgbKme4hNwxVwQ" : {
@@ -2127,6 +2494,10 @@ SPELLS.CONST = {
             "Électricité",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "fRUxp4G9kG816XAt" : {
@@ -2143,6 +2514,9 @@ SPELLS.CONST = {
             "Concentration",
             "Rêve",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "7dKtMehJ6YrXwJLR" : {
@@ -2158,6 +2532,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "FyOgUkq71LNC143w" : {
@@ -2172,6 +2550,12 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "KR8WgdazifDBjDkW" : {
@@ -2190,7 +2574,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "a0MfDnUa33oWM74s" : {
         "action_cost" : "2",
@@ -2206,6 +2591,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "41TZEjhO6D1nWw2X" : {
@@ -2221,6 +2610,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "floDCUOSzT0F6r77" : {
@@ -2238,7 +2631,8 @@ SPELLS.CONST = {
             "Feu",
             "Focalisation",
             "Guérison"
-        ]
+        ],
+        "traditions" : []
     },
     "7d4DUTDIlzDa8OvX" : {
         "action_cost" : "2",
@@ -2256,7 +2650,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "nsQvjNyg4Whw2mek" : {
         "action_cost" : "2",
@@ -2271,6 +2666,9 @@ SPELLS.CONST = {
             "Aura",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "KPGGkyBFbKse7KpK" : {
@@ -2292,7 +2690,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "AspA30tzKCHFWRf0" : {
         "action_cost" : "2",
@@ -2311,7 +2710,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "VUMtDHr8CRwwr3Mj" : {
         "action_cost" : "2",
@@ -2328,6 +2728,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "GUnw9YXaW3YyaCAU" : {
@@ -2345,7 +2749,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "xTpp8dHZsNMDm75B" : {
         "action_cost" : "2",
@@ -2364,7 +2769,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "4Sg6ZngswhphxiBD" : {
         "action_cost" : "2",
@@ -2382,6 +2788,11 @@ SPELLS.CONST = {
             "Ténèbres",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "ytboJsyZEbE1MLeV" : {
@@ -2398,7 +2809,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "VNAOHrWhNYX3jKdy" : {
         "action_cost" : null,
@@ -2416,7 +2828,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Métamorphose",
             "Spirituel"
-        ]
+        ],
+        "traditions" : []
     },
     "NOB92Wpn7jXvtyVW" : {
         "action_cost" : "1",
@@ -2434,7 +2847,8 @@ SPELLS.CONST = {
             "Émotion",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "ckUOoqOM7Kg7VqxB" : {
         "action_cost" : "2",
@@ -2449,6 +2863,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "EX6gTy8s4wNyhOnl" : {
@@ -2467,6 +2884,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "s0SerOrkkUd7SAH9" : {
@@ -2482,6 +2903,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Émotion",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "bRW61IbjaFea0wcv" : {
@@ -2495,7 +2920,8 @@ SPELLS.CONST = {
         "text" : "Baignade de sang",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "OdqM06M0wDUqZWiR" : {
         "action_cost" : "2",
@@ -2509,6 +2935,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "l4bHFR9UW2XiY3kH" : {
@@ -2526,7 +2956,8 @@ SPELLS.CONST = {
             "Concentration",
             "Psychiste",
             "Scrutation"
-        ]
+        ],
+        "traditions" : []
     },
     "0JigNJDRwevZOyjI" : {
         "action_cost" : "2",
@@ -2547,7 +2978,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "ALuvl9GYawnsZZCx" : {
         "action_cost" : "2",
@@ -2563,7 +2995,8 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "D4kArD91fFiREvC6" : {
         "action_cost" : "2",
@@ -2581,7 +3014,8 @@ SPELLS.CONST = {
             "Transformation",
             "Poison",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "Hp2wmnRS6TUGZlZ2" : {
         "action_cost" : "2",
@@ -2599,6 +3033,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "bay4AfSu2iIozNNW" : {
@@ -2614,6 +3052,12 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "S6Kkk15MWGqzC00a" : {
@@ -2631,7 +3075,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "y7Tusv3CieZktkkV" : {
         "action_cost" : "r",
@@ -2647,7 +3092,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "YtJXpiu4ijkB6nP2" : {
         "action_cost" : "1",
@@ -2663,7 +3109,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "peCF6VArm8urfwxZ" : {
         "action_cost" : "3",
@@ -2678,6 +3125,9 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "5p8naLYjFcG13OkU" : {
@@ -2692,6 +3142,10 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "oOFilBgsXTVIbJpN" : {
@@ -2706,7 +3160,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "KAapTzGKJMbMQCL1" : {
         "action_cost" : "1",
@@ -2722,7 +3177,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magus"
-        ]
+        ],
+        "traditions" : []
     },
     "Q56HLIHVKY6bC5W3" : {
         "action_cost" : "1",
@@ -2741,7 +3197,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ensorceleur",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "ghIoycTH6gxxAw3w" : {
         "action_cost" : "2",
@@ -2758,6 +3215,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "sPHcuLIKj9SDaDAD" : {
@@ -2772,6 +3233,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Force"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "wdb4XIZw1xmki5nr" : {
@@ -2787,6 +3252,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "qVXraYXlTjissCaG" : {
@@ -2803,6 +3273,9 @@ SPELLS.CONST = {
             "Bête",
             "Consécration",
             "Vitalité"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "FedTjedva2rYk33r" : {
@@ -2820,7 +3293,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ensorceleur",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "HGSCofGACf1TVH55" : {
         "action_cost" : "2",
@@ -2836,6 +3310,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "1b55SgYTV65JvmQd" : {
@@ -2847,7 +3324,11 @@ SPELLS.CONST = {
         "id" : "1b55SgYTV65JvmQd",
         "required" : [],
         "text" : "Bénédiction du défi",
-        "traits" : []
+        "traits" : [],
+        "traditions" : [
+            "divine",
+            "primal"
+        ]
     },
     "rhJyqB9g3ziImQgM" : {
         "action_cost" : "1",
@@ -2863,7 +3344,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "XSujb7EsSwKl19Uu" : {
         "action_cost" : "2",
@@ -2879,6 +3361,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "SzKkzq3Rr6vKIxbp" : {
@@ -2896,7 +3382,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "rVRyA7UQog633nTe" : {
         "action_cost" : "2",
@@ -2910,6 +3397,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "TjWHgXqPv5jywMti" : {
@@ -2926,6 +3417,10 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "eidmNlfl2DUVIclc" : {
@@ -2942,6 +3437,10 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "PrlR2sLWeiuTcPF2" : {
@@ -2959,7 +3458,8 @@ SPELLS.CONST = {
             "Terre",
             "Feu",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "HHCgEEkeeShVQf8d" : {
         "action_cost" : "2",
@@ -2973,6 +3473,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "xxWhyl81w3ckslAU" : {
@@ -2989,6 +3493,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "g4MAIQodRDVfNp1B" : {
@@ -3006,7 +3514,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "avEutOjF2ox947fp" : {
         "action_cost" : "3",
@@ -3021,6 +3530,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "f9duI5d8xNYqxI8d" : {
@@ -3037,6 +3550,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "uc4I1diSSX6XYzb3" : {
@@ -3051,6 +3569,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3qx1axryNbl97ker" : {
@@ -3066,6 +3588,10 @@ SPELLS.CONST = {
             "Concentration",
             "Maladie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "HStu2Yhw3iQER9tY" : {
@@ -3082,7 +3608,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "lONs4r14LEBZRLLw" : {
         "action_cost" : "r",
@@ -3096,6 +3623,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "TVKNbcgTee19PXZR" : {
@@ -3111,6 +3642,11 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Force"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "8Hw3P6eurX1MYm7L" : {
@@ -3125,6 +3661,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "YrzBLPLd3r9m6t1p" : {
@@ -3140,6 +3682,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "cgfl9Qr46bKaA59e" : {
@@ -3155,6 +3701,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Terre"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "AlCFTjSBaCHuRHBv" : {
@@ -3170,6 +3720,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Lumière"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ZL97DcoJ8us6EwAF" : {
@@ -3188,7 +3742,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Sanctifié",
             "Spirituel"
-        ]
+        ],
+        "traditions" : []
     },
     "BlfOg9Ceymgjstjm" : {
         "action_cost" : "2",
@@ -3203,6 +3758,10 @@ SPELLS.CONST = {
             "Acide",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "D7ZEhTNIDWDLC2J4" : {
@@ -3219,6 +3778,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "kvZCQz4NoMAfjvif" : {
@@ -3235,6 +3798,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "sxQZ6yqTn0czJxVd" : {
@@ -3250,6 +3817,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "W6QlRwQLPoBSw6PZ" : {
@@ -3267,6 +3838,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ZL8NTvB22NeEWhVG" : {
@@ -3283,7 +3858,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "24JgGrYx7ixgP4kn" : {
         "action_cost" : "3",
@@ -3299,6 +3875,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "87zLUuTMmZ9zc7gH" : {
@@ -3316,6 +3897,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "5XUn9NADr05IyiVw" : {
@@ -3332,6 +3918,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "myC2EIrsjmB8xosi" : {
@@ -3350,7 +3940,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "g8QqHpv2CWDwmIm1" : {
         "action_cost" : "2",
@@ -3365,6 +3956,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "1Yoipc5jNcMehtEW" : {
@@ -3382,6 +3977,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "3ygqSJYWZM1UV76Z" : {
@@ -3397,6 +3996,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "IhwREVWG0OzzrbWA" : {
@@ -3410,6 +4013,10 @@ SPELLS.CONST = {
         "text" : "Boyaux de fer",
         "traits" : [
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4k99nOJudmeNnBTF" : {
@@ -3425,6 +4032,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "yRf59eFtZ50cGlem" : {
@@ -3438,7 +4050,8 @@ SPELLS.CONST = {
         "text" : "Breuvage fortifiant",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "ksLCg62cLOojw3gN" : {
         "action_cost" : "2",
@@ -3452,6 +4065,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "jlOAXuIOM3YxZKmn" : {
@@ -3467,6 +4085,10 @@ SPELLS.CONST = {
             "Air",
             "Manipulation",
             "Déplacement"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "cGGEi67G1RStR9cD" : {
@@ -3485,7 +4107,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "piMJO6aYeDJbrhEo" : {
         "action_cost" : "3",
@@ -3500,6 +4123,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "nOVSmPZsCm1C1sI3" : {
@@ -3515,6 +4142,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "I2fwPslQth0DTPQD" : {
@@ -3531,6 +4162,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "IN46qySRdMdpcd0y" : {
@@ -3548,6 +4183,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9XHmC2JgTUIQ1CCm" : {
@@ -3563,6 +4202,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "RGBZrVRIEDb2G48h" : {
@@ -3582,7 +4225,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Rôdeur",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "xh6hPMDx2n4OaBU7" : {
         "action_cost" : "3",
@@ -3600,6 +4244,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sommeil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "5zeSxzDxMSr0wgSF" : {
@@ -3616,6 +4264,11 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "IERHT6v4o5ISvuJG" : {
@@ -3633,7 +4286,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "mAdxOQUA2cHgKViU" : {
         "action_cost" : "2",
@@ -3651,6 +4305,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "W69zswpj0Trdy5rj" : {
@@ -3665,6 +4323,11 @@ SPELLS.CONST = {
         "traits" : [
             "Air",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "8rAcQOvm0nFrqAUt" : {
@@ -3680,6 +4343,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Air",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "onjZCEHs3JJJRTD0" : {
@@ -3695,6 +4363,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ILoXUDP84ru1hYLg" : {
@@ -3709,6 +4381,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "AXpqBdbQ66RWyZYk" : {
@@ -3725,6 +4401,11 @@ SPELLS.CONST = {
             "Concentration",
             "Mythique",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "mwPfoYfVGSMAaUec" : {
@@ -3740,6 +4421,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ro0omoBKiJiMuDRa" : {
@@ -3755,6 +4440,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "F1nlmqOIucch3Cmt" : {
@@ -3769,6 +4458,12 @@ SPELLS.CONST = {
         "traits" : [
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "XhfsRLfQjN3ed1zI" : {
@@ -3784,7 +4479,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Malédiction",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "FM3SmEW8N1FCRjqt" : {
         "action_cost" : null,
@@ -3799,6 +4495,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "qTr2oCgIXl703Whb" : {
@@ -3813,6 +4513,11 @@ SPELLS.CONST = {
         "traits" : [
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "HES5jvGiNZZnJycK" : {
@@ -3829,6 +4534,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Vitalité",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "wykbu2KW9tMBRySr" : {
@@ -3848,7 +4557,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "Cbwhd4m7qrRoRjot" : {
         "action_cost" : "2",
@@ -3863,6 +4573,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "0XP2XOxT9VSiXFDr" : {
@@ -3879,6 +4593,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "1RxPW9I70Nd7wokz" : {
@@ -3896,7 +4614,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "CVvkveEH7lonSTZd" : {
         "action_cost" : "1",
@@ -3912,6 +4631,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "qlxM7Ik3uUeUIOcv" : {
@@ -3931,6 +4654,10 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "TCk2MDwf5L5OYjFC" : {
@@ -3946,6 +4673,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Nun72GTmb31YqSKh" : {
@@ -3963,7 +4694,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "ba1RyDpwq6tfW8VM" : {
         "action_cost" : "2",
@@ -3980,6 +4712,10 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "D5ZAWGqxml5xOiZb" : {
@@ -3994,6 +4730,10 @@ SPELLS.CONST = {
         "traits" : [
             "Air",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "FrKPwgFxWIGMGgs4" : {
@@ -4013,7 +4753,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "70BjbNRVc4OTLAgN" : {
         "action_cost" : "2",
@@ -4028,6 +4769,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "NIop4eI2i7cKFGad" : {
@@ -4044,6 +4789,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "oPVyu2a0K3aTVIR8" : {
@@ -4061,6 +4810,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "vGEgI8e7AW6FQ3tP" : {
@@ -4079,7 +4833,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "5gophZ4AOKW4VW27" : {
         "action_cost" : "2",
@@ -4095,6 +4850,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "8lZhUreL1bRk1v4Z" : {
@@ -4111,6 +4870,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jOWQ5wPd4xvSkjI5" : {
@@ -4124,7 +4887,8 @@ SPELLS.CONST = {
         "text" : "Carrosse mystique",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "PEGECeEtEmXEzwBT" : {
         "action_cost" : "2",
@@ -4139,6 +4903,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "DZ9bzXYqMjAK9TzC" : {
@@ -4155,6 +4923,9 @@ SPELLS.CONST = {
             "Saint",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "rtisvvvhkpZPdgXc" : {
@@ -4171,7 +4942,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "E80SrXuBdZViPGiH" : {
         "action_cost" : "2",
@@ -4188,7 +4960,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "wLIvH0AT1u7oa64N" : {
         "action_cost" : "2",
@@ -4209,6 +4982,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Uqj344bezBq3ESdq" : {
@@ -4225,6 +5002,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "DU5daB09xwfE1y38" : {
@@ -4245,7 +5026,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "skvgOWNTitLehL0b" : {
         "action_cost" : "2",
@@ -4265,7 +5047,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "sBSalosrt7C4IXas" : {
         "action_cost" : "2",
@@ -4281,6 +5064,11 @@ SPELLS.CONST = {
             "Feu",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "VosLNn2M8S7JH67D" : {
@@ -4296,6 +5084,12 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "OTd17oXwJH9qb1cS" : {
@@ -4314,7 +5108,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "guHLRnTL1OBUYh0V" : {
         "action_cost" : "2",
@@ -4333,7 +5128,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "2ykmAVKrsAWcazcC" : {
         "action_cost" : null,
@@ -4346,7 +5142,8 @@ SPELLS.CONST = {
         "text" : "Cercle de négociation",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "mpGCMTldMVa0pWYs" : {
         "action_cost" : "3",
@@ -4361,6 +5158,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "5ZW1w9f4gWlSIuWA" : {
@@ -4375,7 +5176,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "aewxsale5xWEPKLk" : {
         "action_cost" : "2",
@@ -4392,6 +5194,10 @@ SPELLS.CONST = {
             "Détection",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "eCniO6INHNfc9Svr" : {
@@ -4413,7 +5219,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "DgNOpb8H9MTAu9KL" : {
         "action_cost" : "2",
@@ -4429,6 +5236,9 @@ SPELLS.CONST = {
             "Concentration",
             "Good",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "My7FvAoLYgGDDBzy" : {
@@ -4444,6 +5254,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "vuehhQN8gPSpqcEK" : {
@@ -4460,6 +5275,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "MLYTWHfewOpI3Cz7" : {
@@ -4475,6 +5294,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "x5rGOmhDRDVQPrnW" : {
@@ -4491,6 +5314,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "2RhZkHNv8ajq0yLq" : {
@@ -4509,7 +5336,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "v3vFzGazNSFEDdRB" : {
         "action_cost" : "3",
@@ -4524,6 +5352,12 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "lY9fOk1qBDDhBT8s" : {
@@ -4541,7 +5375,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "GfrKNJ9pNeATiKCc" : {
         "action_cost" : "f",
@@ -4558,7 +5393,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "n2CM3NeRuq5RSY19" : {
         "action_cost" : "r",
@@ -4573,6 +5409,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "DnVTBGCsai6zqMwL" : {
@@ -4592,7 +5432,8 @@ SPELLS.CONST = {
             "Oracle",
             "Poison",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "VJgSQBYwXGDbMmiW" : {
         "action_cost" : null,
@@ -4606,7 +5447,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "Xxdwkt0EEDgP1LGc" : {
         "action_cost" : "1",
@@ -4625,7 +5467,8 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "LTUaK3smfm5eDiFK" : {
         "action_cost" : "1",
@@ -4643,7 +5486,8 @@ SPELLS.CONST = {
             "Composition",
             "Concentration",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "IGXGs9PlqUCvODcH" : {
         "action_cost" : "2",
@@ -4660,7 +5504,8 @@ SPELLS.CONST = {
             "Composition",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "HYXyMFsH0K80etBI" : {
         "action_cost" : null,
@@ -4673,7 +5518,8 @@ SPELLS.CONST = {
         "text" : "Chant d'argent",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "7OFKYR1VY6EXDuiR" : {
         "action_cost" : "2",
@@ -4687,6 +5533,10 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Concentration"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "FmNDwqMEjeTEGPrY" : {
@@ -4706,6 +5556,9 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "FCfd1zUrqPaLEtau" : {
@@ -4722,6 +5575,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "1xLVcA8Y1onw7toT" : {
@@ -4742,7 +5599,8 @@ SPELLS.CONST = {
             "Émotion",
             "Terreur",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "Ht35SDf9PDStJfoC" : {
         "action_cost" : "2",
@@ -4757,6 +5615,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "occult",
+            "divine"
         ]
     },
     "TDaMnCtZ72uyYrz8" : {
@@ -4773,6 +5635,11 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "X9dkmh23lFwMjrYd" : {
@@ -4787,6 +5654,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "vLA0q0WOK2YPuJs6" : {
@@ -4805,6 +5676,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "k0qJfSZH5xUEggwU" : {
@@ -4822,6 +5698,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "s3LISC5Z55urpBgU" : {
@@ -4837,7 +5717,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "F1qxaqsEItmBura2" : {
         "action_cost" : null,
@@ -4855,6 +5736,9 @@ SPELLS.CONST = {
             "Mental",
             "Plante",
             "Téléportation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "Y3qZrvZrqPuGJ2hk" : {
@@ -4875,6 +5759,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "M5dp7ILSCKID9fDK" : {
@@ -4893,6 +5781,11 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "TSyFZNAbqfkRrcq0" : {
@@ -4907,6 +5800,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Son"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "TPN3Z6VGau6Od9rG" : {
@@ -4923,6 +5820,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "jrBa9deU2ULFWvSl" : {
@@ -4937,6 +5837,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "vm9O7ne48NM72yrJ" : {
@@ -4952,6 +5856,10 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "AlbpWWN87yGegoAF" : {
@@ -4967,6 +5875,10 @@ SPELLS.CONST = {
             "Concentration",
             "Fortune",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Zvg0FWzClGbzucFd" : {
@@ -4984,7 +5896,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "HXhWYJviWalN5tQ2" : {
         "action_cost" : null,
@@ -4999,6 +5912,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zvKWclOZ7A53DObE" : {
@@ -5014,6 +5931,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "EfFMLVbmkBWmzoLF" : {
@@ -5030,6 +5951,11 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "qJQADktwD0x8kLAy" : {
@@ -5045,6 +5971,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "pZr1xrCpaSu6qrXU" : {
@@ -5058,7 +5988,8 @@ SPELLS.CONST = {
         "text" : "Clone",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "gPvtmKMRpg9I9D7H" : {
         "action_cost" : "2",
@@ -5073,6 +6004,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "k6f5nvSv0XIhbiHj" : {
@@ -5093,7 +6028,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "yfCykJ6cs0uUL79b" : {
         "action_cost" : "2",
@@ -5109,6 +6045,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "ZyREiMaul0VhDYh3" : {
@@ -5127,7 +6067,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "BoA00y45uDlmou07" : {
         "action_cost" : null,
@@ -5141,6 +6082,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "PERUlvKPtF7dMzN4" : {
@@ -5156,6 +6101,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "crF4g9jRN1y84MSD" : {
@@ -5173,7 +6122,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "hVU9msO9yGkxKZ3J" : {
         "action_cost" : "2",
@@ -5189,6 +6139,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "E3X2RbzWHCdz7gsk" : {
@@ -5204,6 +6157,9 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "Z3kJty995FkrsZRb" : {
@@ -5221,7 +6177,8 @@ SPELLS.CONST = {
             "Feu",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "R9xqCBblkS5KE4y7" : {
         "action_cost" : "3",
@@ -5236,6 +6193,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "BBvV7qoXGdw09q1C" : {
@@ -5250,6 +6212,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "qvwIwJ9QBihy8R0t" : {
@@ -5266,6 +6231,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "7DN13ILADW2N9Z1t" : {
@@ -5280,7 +6250,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Prédiction"
-        ]
+        ],
+        "traditions" : []
     },
     "zIAvj7V6BTuQMAIi" : {
         "action_cost" : null,
@@ -5293,7 +6264,8 @@ SPELLS.CONST = {
         "text" : "Communion avec Corazal",
         "traits" : [
             "Unique"
-        ]
+        ],
+        "traditions" : []
     },
     "WRmh1aKEo0dI0NJs" : {
         "action_cost" : null,
@@ -5306,7 +6278,8 @@ SPELLS.CONST = {
         "text" : "Communion de cadavre",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "qqQYrXaRJXr7uc4i" : {
         "action_cost" : "2",
@@ -5324,7 +6297,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "A0sMo1L0271yLeDA" : {
         "action_cost" : "3",
@@ -5338,6 +6312,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "KFpBT6FPfSFhxQ27" : {
@@ -5353,6 +6330,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "gWmLT5SkA0qH2mNE" : {
@@ -5368,6 +6348,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "6TudR1rDkxWMj1cv" : {
@@ -5386,7 +6369,8 @@ SPELLS.CONST = {
             "Émotion",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "kF0rs9mCPvJGfAZE" : {
         "action_cost" : "f",
@@ -5403,7 +6387,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mutamagie"
-        ]
+        ],
+        "traditions" : []
     },
     "irTdhxTixU9u9YUm" : {
         "action_cost" : "f",
@@ -5420,7 +6405,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mutamagie"
-        ]
+        ],
+        "traditions" : []
     },
     "ReUoodsqUYSTwSgE" : {
         "action_cost" : "2",
@@ -5438,6 +6424,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "3puDanGfpEt6jK5k" : {
@@ -5453,6 +6443,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "VJW3IzDpAFio7uls" : {
@@ -5470,6 +6464,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "9j35xXKVVtHCh1Pe" : {
@@ -5489,7 +6487,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mental",
             "Infortune"
-        ]
+        ],
+        "traditions" : []
     },
     "YZnLggKDHkMY4cnw" : {
         "action_cost" : null,
@@ -5504,6 +6503,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Cpj05laa7ogqGwS3" : {
@@ -5524,6 +6527,10 @@ SPELLS.CONST = {
             "Métal",
             "Eau",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Di9gL6KIZ9eFgbs1" : {
@@ -5538,6 +6545,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "LiGbewa9pO0yjbsY" : {
@@ -5554,6 +6567,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "iAmHJbFN3lOoOkNG" : {
@@ -5572,7 +6589,8 @@ SPELLS.CONST = {
             "Linguistique",
             "Mental",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "nXmC2Xx9WmS5NsAo" : {
         "action_cost" : null,
@@ -5587,6 +6605,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "L6kr9AUZ8iwuxIip" : {
@@ -5603,6 +6625,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "tXa5vOu5giBNCjdR" : {
@@ -5619,6 +6646,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "l6zjNysNedpJcmDT" : {
@@ -5636,7 +6668,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "6TKGaQm4PfEMkeRd" : {
         "action_cost" : null,
@@ -5649,7 +6682,8 @@ SPELLS.CONST = {
         "text" : "Connection suprème",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "HIY4XUJZKmFLAJTn" : {
         "action_cost" : null,
@@ -5664,6 +6698,10 @@ SPELLS.CONST = {
             "Concentration",
             "Contingence",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "Dbd5W6G8U2vzWolN" : {
@@ -5678,7 +6716,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Consécration"
-        ]
+        ],
+        "traditions" : []
     },
     "rwCh2qTYPA44KEoK" : {
         "action_cost" : null,
@@ -5695,6 +6734,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sommeil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ut9IhJ9jSZSHDUop" : {
@@ -5715,7 +6758,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Subtil"
-        ]
+        ],
+        "traditions" : []
     },
     "WFSazGLCUuPsBv1p" : {
         "action_cost" : "1",
@@ -5731,6 +6775,9 @@ SPELLS.CONST = {
             "Tour de magie",
             "Froid",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "oXCwHBeDja4e0Mx0" : {
@@ -5748,7 +6795,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Lumière",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "9vDmTCHyAWdWWPIs" : {
         "action_cost" : null,
@@ -5761,7 +6809,8 @@ SPELLS.CONST = {
         "text" : "Contacter les amis",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "3mQkAjexj6hhAnkR" : {
         "action_cost" : "2",
@@ -5777,6 +6826,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "WG91Z5TiR6oO5FOw" : {
@@ -5791,6 +6844,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "fHawnhOHwzr4Mwr7" : {
@@ -5806,6 +6862,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Tour de magie",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "WILXkjU5Yq3yw10r" : {
@@ -5826,7 +6886,8 @@ SPELLS.CONST = {
             "Fortune",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "h47yv6j6x1pUtzlr" : {
         "action_cost" : "r",
@@ -5842,7 +6903,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "zfn5RqAdF63neqpP" : {
         "action_cost" : "2",
@@ -5857,6 +6919,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "XkDCzMIyc0YOjw05" : {
@@ -5870,7 +6936,8 @@ SPELLS.CONST = {
         "text" : "Contrôle du climat",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "oahqARSgOGDRybBQ" : {
         "action_cost" : "2",
@@ -5886,6 +6953,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "JHntYF0SbaWKq7wR" : {
@@ -5902,6 +6973,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "GYD0XZ4t3tQq6shc" : {
@@ -5918,6 +6993,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "4YnON9JHYqtLzccu" : {
@@ -5933,6 +7012,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "lpT6LotUaQPfinjj" : {
@@ -5948,6 +7031,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "i1TvBID5QLyXrUCa" : {
@@ -5963,6 +7050,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "yvs1zN5Pai5U4CJX" : {
@@ -5978,6 +7068,11 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "4ONjK2hoMBmuAAyk" : {
@@ -5994,6 +7089,10 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "lTDixrrNKaCvLKwX" : {
@@ -6009,6 +7108,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "lKcsmeOrgHtK4xQa" : {
@@ -6024,6 +7126,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "kghwmH3tQjMIhdH1" : {
@@ -6039,6 +7144,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "hs7h8f4Z1ZNdUt3s" : {
@@ -6054,6 +7165,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "29ytKctjg7qSW2ff" : {
@@ -6070,6 +7185,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Convocation",
             "Impie"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "tgJTm276cikEL8vU" : {
@@ -6086,6 +7204,10 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "e9UJoVYUd5kJWUpi" : {
@@ -6101,6 +7223,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "kVNo3ga0lwLKPrem" : {
@@ -6116,6 +7241,11 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "n8ckecJpatSBEp7M" : {
@@ -6130,6 +7260,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "ba12fO37w7O37gim" : {
@@ -6144,6 +7277,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "XWqxMJpCT95A0dZs" : {
@@ -6159,6 +7295,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "9WGeBwIIbbUuWKq0" : {
@@ -6174,6 +7313,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "jSRAyd57kd4WZ4yE" : {
@@ -6189,6 +7333,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "B0FZLkoHsiRgw7gv" : {
@@ -6204,6 +7351,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "3r897dYO8oYvuyn5" : {
@@ -6222,6 +7372,10 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "ZbEHglw5tkJ3grQZ" : {
@@ -6237,6 +7391,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "l2YoqVPoFE7jpTLe" : {
@@ -6253,6 +7410,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "tWzxuJdbXqvskdIo" : {
@@ -6269,7 +7429,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "BcqJqxIKYE0aoDiS" : {
         "action_cost" : "2",
@@ -6286,6 +7447,11 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "kwlKUxEuT8T15YW6" : {
@@ -6302,7 +7468,8 @@ SPELLS.CONST = {
             "Concentration",
             "Druide",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "FQd6Jc3CU6wiS2U7" : {
         "action_cost" : "3",
@@ -6319,6 +7486,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "q5vbYgLztQ04FQZg" : {
@@ -6333,6 +7504,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "GzdgM0m7wXKuFSho" : {
@@ -6349,6 +7525,10 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "sbTxe4CGP4tn6y51" : {
@@ -6364,6 +7544,10 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Einy9RNTGVq1kY3j" : {
@@ -6379,6 +7563,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Tour de magie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "vQuwLqtFFYt0K15N" : {
@@ -6399,7 +7588,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "pSepsfCrrAKuwA0N" : {
         "action_cost" : "1",
@@ -6416,7 +7606,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Transformation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "Et8RSCLx8w7uOLvo" : {
         "action_cost" : "2",
@@ -6432,6 +7623,11 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "XcMObj2p9nIBp53b" : {
@@ -6449,7 +7645,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "9aFg4EuOBVz0i3Lb" : {
         "action_cost" : "2",
@@ -6465,6 +7662,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "XS7Wyh5YC0NWeWyB" : {
@@ -6481,6 +7682,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8ifpNZkaxrbs3dBJ" : {
@@ -6497,7 +7702,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "EE7Q5BHIrfWNCPtT" : {
         "action_cost" : "2",
@@ -6511,6 +7717,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "CxpFy4HJHf4ACbxF" : {
@@ -6525,6 +7737,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "Popa5umI3H33levx" : {
@@ -6541,6 +7757,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "uEyfLoFQsRKBRIcB" : {
@@ -6558,6 +7778,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Subtil",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "UKsIOWmMx4hSpafl" : {
@@ -6575,6 +7799,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Gb7SeieEvd0pL2Eh" : {
@@ -6589,6 +7817,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Fortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "7OwZHalOdRCRnFmZ" : {
@@ -6606,7 +7838,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "G0T1xv1FoZ23Jxvt" : {
         "action_cost" : "1",
@@ -6623,7 +7856,8 @@ SPELLS.CONST = {
             "Concentration",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "dDiOnjcsBFbAvP6t" : {
         "action_cost" : "2",
@@ -6639,6 +7873,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "GQopUYTuhmtb7WMG" : {
@@ -6655,7 +7893,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "PHVHBbdHeQRfjLmE" : {
         "action_cost" : "2",
@@ -6670,6 +7909,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "QozxgBbcmktLKdBs" : {
@@ -6687,7 +7930,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "s7kVnr0EdljCamuR" : {
         "action_cost" : null,
@@ -6704,6 +7948,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "h2DLv8TQV0Z83tQp" : {
@@ -6720,7 +7968,8 @@ SPELLS.CONST = {
             "Animiste",
             "Focalisation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "kuZnUNrhXHRYQ2eM" : {
         "action_cost" : "2",
@@ -6738,7 +7987,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "wTYxxYJWN348oV15" : {
         "action_cost" : "2",
@@ -6755,7 +8005,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "8TBgEzjZxPaOJOm1" : {
         "action_cost" : "1",
@@ -6774,7 +8025,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "xPrbxyOEwy9QaPVn" : {
         "action_cost" : "3",
@@ -6789,6 +8041,9 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "m34WOIGZCEg1h76G" : {
@@ -6804,6 +8059,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "hWtB81P2KGzGHKAJ" : {
@@ -6822,7 +8081,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Poison",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "Hycyiw9xVzoIY4Dy" : {
         "action_cost" : "2",
@@ -6839,6 +8099,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "y6rAdMK6EFlV6U0t" : {
@@ -6854,6 +8118,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "vctIUOOgSmxAF0KG" : {
@@ -6868,6 +8136,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "XjNROFtWnwovhCsq" : {
@@ -6885,7 +8159,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Déplacement"
-        ]
+        ],
+        "traditions" : []
     },
     "TUj8eugNqAvB1vVR" : {
         "action_cost" : null,
@@ -6899,6 +8174,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "WzLKjSw6hsBhuklC" : {
@@ -6914,6 +8193,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "ZwwIUavMbEwcZz35" : {
@@ -6929,7 +8213,8 @@ SPELLS.CONST = {
             "Rare",
             "Mythique",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "6nPc5CPRUbSSRDP1" : {
         "action_cost" : null,
@@ -6942,7 +8227,8 @@ SPELLS.CONST = {
         "text" : "Création de gardien fongique",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "NCUXsaj2yFxOVhrK" : {
         "action_cost" : null,
@@ -6955,7 +8241,8 @@ SPELLS.CONST = {
         "text" : "Création de maille-peaux",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "c3b6LdLlQDPngNIb" : {
         "action_cost" : null,
@@ -6969,7 +8256,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Impie"
-        ]
+        ],
+        "traditions" : []
     },
     "Mt6ZzkVX8Q4xigFq" : {
         "action_cost" : null,
@@ -6983,6 +8271,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "f8SBoXiXQjlCKqly" : {
@@ -7001,6 +8294,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Olfactif",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "AUZPwEorddewm0x1" : {
@@ -7018,6 +8315,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0H1ozccQGGFLUwFI" : {
@@ -7036,7 +8337,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "t4hGPdh6vAEgBFgZ" : {
         "action_cost" : "r",
@@ -7053,7 +8355,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "i7u6gAdNcyIyyo3h" : {
         "action_cost" : "2",
@@ -7070,6 +8373,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9mPEoOPN0AMuixIv" : {
@@ -7087,7 +8394,8 @@ SPELLS.CONST = {
             "Force",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "1B8BLEQBQn9aEMoY" : {
         "action_cost" : "2",
@@ -7106,7 +8414,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "KEagmnwgsSbGmkme" : {
         "action_cost" : "2",
@@ -7121,6 +8430,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "wLWMswY7aBHEFTRb" : {
@@ -7136,6 +8449,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "xFY9RtDE4DQKlWNR" : {
@@ -7153,6 +8469,9 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "91ZbBll8M7IXQ4yw" : {
@@ -7171,7 +8490,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "ZhJ8d9Uk4lwIx86b" : {
         "action_cost" : null,
@@ -7187,7 +8507,8 @@ SPELLS.CONST = {
             "Plante",
             "Vitalité",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "z39jFoNJrobyn3MQ" : {
         "action_cost" : "2",
@@ -7204,6 +8525,10 @@ SPELLS.CONST = {
             "Mort",
             "Evil",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "qXTB7Ec9yYh5JPPV" : {
@@ -7218,6 +8543,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "wneYzMFUWreyqWHD" : {
@@ -7231,7 +8560,8 @@ SPELLS.CONST = {
         "text" : "Cuite du papillon",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "me5E8UvbBrHe3dZh" : {
         "action_cost" : null,
@@ -7245,7 +8575,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Émotion"
-        ]
+        ],
+        "traditions" : []
     },
     "m2i7N8tnqar3gZDZ" : {
         "action_cost" : "2",
@@ -7261,6 +8592,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "gMbrNFKz9NP3TR4s" : {
@@ -7277,6 +8612,11 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "jBGAYmR0BkkbpJvG" : {
@@ -7294,6 +8634,9 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "HisaZTk67YAxLGBq" : {
@@ -7314,7 +8657,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "9BGEf9Sv5rgNBCk0" : {
         "action_cost" : "2",
@@ -7331,7 +8675,8 @@ SPELLS.CONST = {
             "Ténèbres",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Jvyy6oVIQsD34MHB" : {
         "action_cost" : "2",
@@ -7347,6 +8692,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "RcZbmSZf2bFYQtTj" : {
@@ -7363,6 +8712,10 @@ SPELLS.CONST = {
             "Concentration",
             "Saint",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "p6ebe2PliRkGbmiV" : {
@@ -7378,6 +8731,11 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "oryfsRK27jAUnziw" : {
@@ -7395,6 +8753,10 @@ SPELLS.CONST = {
             "Evil",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "IoHxAkK0uGqrgtWl" : {
@@ -7411,6 +8773,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ayRXv0wQH00TTNZe" : {
@@ -7426,6 +8792,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "9sofMbyYL80shsHH" : {
@@ -7445,6 +8815,12 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "6Ot4N22t5tPD51BO" : {
@@ -7459,6 +8835,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3ZxaIw1FOOocJboH" : {
@@ -7475,6 +8855,10 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "kcelf6IHl3L9VXXg" : {
@@ -7491,6 +8875,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "r3NeUnsgt9mS03Sn" : {
@@ -7507,6 +8895,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zK0e9d9DSnxC4eAD" : {
@@ -7523,6 +8915,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "EFLXGyIz2HZVSmll" : {
@@ -7542,7 +8938,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "yyz029C9eqfY38PT" : {
         "action_cost" : "2",
@@ -7559,7 +8956,8 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "rqoWAxQv4RWbwyAr" : {
         "action_cost" : "2",
@@ -7577,7 +8975,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "sX2o0HH4RjJDAZ8C" : {
         "action_cost" : "2",
@@ -7593,6 +8992,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "qOeBQyC1z7OScHvP" : {
@@ -7611,6 +9013,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "oK8P3l5VvNKKDkZe" : {
@@ -7627,6 +9033,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "J5KrjQKCg2PrF1vz" : {
@@ -7645,7 +9055,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "PIdXUPtE6ZGpFpXV" : {
         "action_cost" : "2",
@@ -7663,6 +9074,11 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "caehfpQz7yp9yNzz" : {
@@ -7680,7 +9096,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "uGXWkR2h8q9MRzEM" : {
         "action_cost" : "f",
@@ -7698,7 +9115,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "xyRjD52YZl3DBsiy" : {
         "action_cost" : "2",
@@ -7717,6 +9135,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Qlp8G3knwLGhAxQ0" : {
@@ -7734,7 +9156,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "g2V4ID0pl1ZGAxZj" : {
         "action_cost" : "2",
@@ -7749,6 +9172,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8kJbiBEjMWG4VUjs" : {
@@ -7766,6 +9193,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "XFtO4BBI22Uox2QP" : {
@@ -7781,6 +9212,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "i35dpZFI7jZcRoBo" : {
@@ -7797,6 +9232,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "QZ7OHptO1xnwaruq" : {
@@ -7813,6 +9252,10 @@ SPELLS.CONST = {
             "Ténèbres",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "rerNA6YZsdxuJYt3" : {
@@ -7829,6 +9272,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "K4LXpaBWrGy6jIER" : {
@@ -7847,7 +9294,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "K8vvrOgW4bGakXxm" : {
         "action_cost" : "2",
@@ -7865,7 +9313,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "8fEfjvC01gNclDKJ" : {
         "action_cost" : "2",
@@ -7881,6 +9330,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jW2asKFchuoxniSH" : {
@@ -7895,6 +9348,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Up4zLmZDgciUDpIv" : {
@@ -7913,7 +9370,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "ma3sndEAZdz0Cy2H" : {
         "action_cost" : "2",
@@ -7929,6 +9387,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "PEfSofHm73IT3Khc" : {
@@ -7948,7 +9410,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "YKexU7BkwNq4ESCc" : {
         "action_cost" : "1",
@@ -7965,7 +9428,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métal"
-        ]
+        ],
+        "traditions" : []
     },
     "WV2aMNN9DO5ZBjSv" : {
         "action_cost" : "2",
@@ -7981,6 +9445,10 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "rMOI8JFJ0nT2mrCF" : {
@@ -7998,7 +9466,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "HmKajQS0DP23bipp" : {
         "action_cost" : null,
@@ -8012,7 +9481,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "gwOYh5zMVZB0HNcT" : {
         "action_cost" : "1",
@@ -8028,7 +9498,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "P9bqJsF3WkxGAJKJ" : {
         "action_cost" : "r",
@@ -8044,7 +9515,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "avT46uIH3xYJPSv4" : {
         "action_cost" : "2",
@@ -8062,6 +9534,9 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "8THDHP0UC7SgOYYF" : {
@@ -8078,6 +9553,10 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "nplNt08TvokZUxtR" : {
@@ -8095,6 +9574,11 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "f9m9DayyGy3meqUX" : {
@@ -8110,6 +9594,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "r7ihOgKv19eJQnik" : {
@@ -8125,6 +9613,9 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "UirEIHILQgip87qv" : {
@@ -8141,6 +9632,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "PVXqMko4yGgw90uo" : {
@@ -8161,7 +9657,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "JhRuR7Jj3ViShpq7" : {
         "action_cost" : "2",
@@ -8177,6 +9674,10 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "M0jQlpQYUr0pp2Sv" : {
@@ -8192,6 +9693,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "7CUgqHunmHfW2lC5" : {
@@ -8210,7 +9715,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "bIz6QnUIxu5Z7vEH" : {
         "action_cost" : "3",
@@ -8227,6 +9733,12 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "fMnjP4hpNRV9EfVM" : {
@@ -8244,7 +9756,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "XGB77j7m0SLky8U1" : {
         "action_cost" : "2",
@@ -8260,6 +9773,11 @@ SPELLS.CONST = {
             "Mort",
             "Son",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "QnTtGCAvdWRU4spv" : {
@@ -8276,6 +9794,10 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "gpzpAAAJ1Lza2JVl" : {
@@ -8292,6 +9814,12 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "AnWCohzPgK4L9GVl" : {
@@ -8308,6 +9836,10 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "vJZ83ehQiM906lea" : {
@@ -8325,6 +9857,12 @@ SPELLS.CONST = {
             "Détection",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "kREpsv78anJpIiq2" : {
@@ -8341,6 +9879,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "uNsliWpl8Q1JdFcM" : {
@@ -8358,6 +9901,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Révélation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "QqxwHeYEVylkYjsO" : {
@@ -8374,6 +9922,10 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "CeSh8QcVnqP5OlLj" : {
@@ -8390,6 +9942,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "dQGn0eAyvYMDdj0h" : {
@@ -8403,7 +9960,8 @@ SPELLS.CONST = {
         "text" : "Détruire un paysage mental",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "PgLvO8UNHSj5f61m" : {
         "action_cost" : "2",
@@ -8421,6 +9979,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "zEAblSSbfu1246JL" : {
@@ -8437,6 +9999,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "AWxS2lr86qNNQVDT" : {
@@ -8455,6 +10020,12 @@ SPELLS.CONST = {
             "Manipulation",
             "Mythique",
             "Sanctifié"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "VmqdVWCb8zAUCW8S" : {
@@ -8474,7 +10045,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "Oj1PJBMQD9vuwCv7" : {
         "action_cost" : "2",
@@ -8490,6 +10062,10 @@ SPELLS.CONST = {
             "Extradimensionnel",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "6UafOE1ZUbHamsZJ" : {
@@ -8507,7 +10083,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "ADwX87fWrpB8cQ5Q" : {
         "action_cost" : "2",
@@ -8525,6 +10102,9 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "jwK43yKsHTkJQvQ9" : {
@@ -8540,6 +10120,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Révélation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "UmXhuKrYZR3W16mQ" : {
@@ -8557,7 +10142,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "IihxWhRfpsBgQ5jS" : {
         "action_cost" : "2",
@@ -8573,6 +10159,10 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "aF7RiG7c8GzSQLYt" : {
@@ -8589,7 +10179,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "YIMampGpij4Y30yE" : {
         "action_cost" : "2",
@@ -8604,6 +10195,11 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ihbRf964JDXztcy3" : {
@@ -8619,6 +10215,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "wfleiawxsfhpRRwf" : {
@@ -8634,6 +10234,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "L8pzCOi7Jzx5ALs9" : {
@@ -8652,7 +10256,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "mBojKJatf9PTYC38" : {
         "action_cost" : "1",
@@ -8668,7 +10273,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "YgbYvkLvnWJ4WfEA" : {
         "action_cost" : "2",
@@ -8684,6 +10290,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9HpwDN4MYQJnW0LG" : {
@@ -8698,6 +10308,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "GoKkejPj5yWJPIPK" : {
@@ -8714,7 +10330,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "mAMEt4FFbdqoRnkN" : {
         "action_cost" : "2",
@@ -8730,6 +10347,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "UbHK19RYbxRXWgWX" : {
@@ -8746,7 +10368,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "jXcsCpko8qNrWZ4x" : {
         "action_cost" : "r",
@@ -8762,7 +10385,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "uuoPmbjEtqzWZs0v" : {
         "action_cost" : null,
@@ -8775,7 +10399,8 @@ SPELLS.CONST = {
         "text" : "Domestiques fantasmatiques",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "OsOhx3TGIZ7AhD0P" : {
         "action_cost" : "2",
@@ -8792,6 +10417,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "mMgLHTLHjjGa206q" : {
@@ -8807,6 +10437,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "AsRd1gNRSkHDq2Jx" : {
@@ -8822,6 +10456,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "x2Gf3lt64eoMocMd" : {
@@ -8839,7 +10477,8 @@ SPELLS.CONST = {
             "Animiste",
             "Aura",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "txxm6Rj6jNxcFSQ9" : {
         "action_cost" : "2",
@@ -8856,6 +10495,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "e36Z2t6tLdW3RUzZ" : {
@@ -8870,6 +10513,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "4j0FQ1mkidBAXuQV" : {
@@ -8889,7 +10535,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "h5UqEdeqK8iTcU0J" : {
         "action_cost" : null,
@@ -8903,7 +10550,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Illusion"
-        ]
+        ],
+        "traditions" : []
     },
     "aUMmmtPmBdCdVDed" : {
         "action_cost" : "r",
@@ -8917,6 +10565,11 @@ SPELLS.CONST = {
         "traits" : [
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "WPXzPl7YbMEIGWfi" : {
@@ -8932,6 +10585,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "C0D2eqzTAhiKm4j9" : {
@@ -8949,6 +10606,11 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "HreHc5elibW9hVK8" : {
@@ -8965,6 +10627,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "R8bqnYiThB6MYTxD" : {
@@ -8982,6 +10647,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Non-létal"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "TRpUjBNPQz3Eshaq" : {
@@ -9000,7 +10668,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "BRtKFk0PKfWIlCAB" : {
         "action_cost" : "2",
@@ -9021,7 +10690,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sommeil"
-        ]
+        ],
+        "traditions" : []
     },
     "cqdmSmQnM0q6wbWG" : {
         "action_cost" : "1",
@@ -9038,7 +10708,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ensorceleur",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "k2QrUk7jWMAWozMh" : {
         "action_cost" : "2",
@@ -9056,7 +10727,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "Jte2jlX59a1yQPp8" : {
         "action_cost" : null,
@@ -9069,7 +10741,8 @@ SPELLS.CONST = {
         "text" : "Drainer le lien planaire",
         "traits" : [
             "Unique"
-        ]
+        ],
+        "traditions" : []
     },
     "crf7EL1JtBYwvAEg" : {
         "action_cost" : "2",
@@ -9084,6 +10757,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "73rToy0v5Ra9NvL6" : {
@@ -9098,6 +10775,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zaZieDHguhahmM2z" : {
@@ -9111,7 +10792,8 @@ SPELLS.CONST = {
         "text" : "Eaux de prédiction",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "Mv5L4201uk8hnAtD" : {
         "action_cost" : "2",
@@ -9125,6 +10807,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "5BbU1V6wGSGbrmRD" : {
@@ -9142,6 +10828,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "RWwiFnjxoJXn7H6D" : {
@@ -9157,7 +10847,8 @@ SPELLS.CONST = {
             "Rare",
             "Mental",
             "Possession"
-        ]
+        ],
+        "traditions" : []
     },
     "rSpGzCyYrTMiWQoG" : {
         "action_cost" : "2",
@@ -9173,6 +10864,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "4U2ZV1v38D0y2CRl" : {
@@ -9191,7 +10887,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "znMvKqcRDilIVMwA" : {
         "action_cost" : "2",
@@ -9208,6 +10905,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "gasOL6a0WhOhUsgL" : {
@@ -9223,6 +10924,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "k9x6bXXpIgAXMDsx" : {
@@ -9238,6 +10943,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "LpMeT0CW1OEKdaQL" : {
@@ -9255,6 +10964,10 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9AAkVUCwF6WVNNY2" : {
@@ -9270,6 +10983,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zul5cBTfr7NXHBZf" : {
@@ -9289,7 +11006,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "e9tVGZhYW37CtbHA" : {
         "action_cost" : "2",
@@ -9306,6 +11024,10 @@ SPELLS.CONST = {
             "Good",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "oLylenH2jlP5UbRT" : {
@@ -9322,6 +11044,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "TDNlDWbYb58Y55Da" : {
@@ -9337,6 +11063,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0jadeyQIItIuRgeH" : {
@@ -9354,6 +11084,11 @@ SPELLS.CONST = {
             "Ténèbres",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "EDABphKEPUBiMmQC" : {
@@ -9370,6 +11105,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "UkXTcJAeTOF2inPy" : {
@@ -9386,6 +11124,9 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "a0AMgATvQGwDR5dR" : {
@@ -9403,7 +11144,8 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "Vctwx1ewa8HUOA94" : {
         "action_cost" : "1",
@@ -9419,7 +11161,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "Tw9e2rPaNdxcM1Rp" : {
         "action_cost" : "2",
@@ -9434,6 +11177,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "3ipOKanMLnJrPwbr" : {
@@ -9447,7 +11193,8 @@ SPELLS.CONST = {
         "text" : "Égide du gardien",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "m2xFMNyQiUKQDRaj" : {
         "action_cost" : null,
@@ -9461,6 +11208,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "hW9pgce6vTme61g1" : {
@@ -9478,7 +11231,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "rVhHaWqUsVUO4GuY" : {
         "action_cost" : "2",
@@ -9496,7 +11250,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mise hors de combat",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "6AqH5SGchbdhOJxA" : {
         "action_cost" : "3",
@@ -9511,6 +11266,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CQWTyDxiVSW4uRn7" : {
@@ -9526,6 +11285,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "UK349cSOljQVYpcu" : {
@@ -9541,6 +11304,12 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "KADeCawMG6WAzYHa" : {
@@ -9556,7 +11325,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Feu",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "mau1Olq58ECF0ZPi" : {
         "action_cost" : "2",
@@ -9573,7 +11343,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "pBevG6bSQOiyflev" : {
         "action_cost" : "2",
@@ -9589,6 +11360,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "LEMfFL551YB120RN" : {
@@ -9603,7 +11378,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Mort"
-        ]
+        ],
+        "traditions" : []
     },
     "m5QS8q5M6K0euKcT" : {
         "action_cost" : "1",
@@ -9618,6 +11394,9 @@ SPELLS.CONST = {
             "Tour de magie",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "2CNqkt2s2IYkVnv6" : {
@@ -9632,7 +11411,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "HOj2YsTpkoMpYJH9" : {
         "action_cost" : "r",
@@ -9648,7 +11428,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Pmhlv3fzPTuIhTrT" : {
         "action_cost" : "2",
@@ -9668,6 +11449,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "DdXKfIjDtORUtUvY" : {
@@ -9686,7 +11471,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "axYqY70kYu2lN20R" : {
         "action_cost" : "3",
@@ -9703,7 +11489,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mise hors de combat",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "5esP2GVzvxWsMgaX" : {
         "action_cost" : null,
@@ -9717,6 +11504,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "GeUbPvwdZ4B4l0up" : {
@@ -9735,7 +11527,8 @@ SPELLS.CONST = {
             "Émotion",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "qDjeG6dxT4aEEC6J" : {
         "action_cost" : "2",
@@ -9754,6 +11547,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "oYBIs8MICYkFwtXD" : {
@@ -9771,6 +11568,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "VACvA5VRbddjt5s9" : {
@@ -9788,6 +11589,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "2ZPqcM9wNoVnpwkK" : {
@@ -9804,6 +11609,10 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "JbAcSLu62TU1OgNF" : {
@@ -9820,6 +11629,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "OM5NeD7a1CYNqy8S" : {
@@ -9836,6 +11649,10 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "11haL5O9KMpY5Fv7" : {
@@ -9852,6 +11669,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ZjbVgIIqMstmdkqP" : {
@@ -9870,7 +11691,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Révélation"
-        ]
+        ],
+        "traditions" : []
     },
     "ZMvplR106Jxl7B15" : {
         "action_cost" : "3",
@@ -9884,6 +11706,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "6XscENSWyYRHqK0A" : {
@@ -9899,6 +11726,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "5pwK2FZX6QwgtfqX" : {
@@ -9913,7 +11744,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "MS60WhVifb45qORJ" : {
         "action_cost" : "2",
@@ -9929,6 +11761,10 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "gBJtUhewnihlqxm7" : {
@@ -9945,6 +11781,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "nnSipUPNd3sm5vYL" : {
@@ -9964,7 +11803,8 @@ SPELLS.CONST = {
             "Transformation",
             "Plante",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "D6BcAoWFxHYTKwVZ" : {
         "action_cost" : "2",
@@ -9979,6 +11819,10 @@ SPELLS.CONST = {
             "Aura",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "J5MNC4xq3CHH31qT" : {
@@ -9997,7 +11841,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "h7RtKSKGViNtD5o4" : {
         "action_cost" : "3",
@@ -10011,6 +11856,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Shiuhdb2nO6Qgk3k" : {
@@ -10028,6 +11877,10 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "a3aQxCpoj1q1NQxC" : {
@@ -10045,6 +11898,10 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "O7ZEqWjwdKyo2CUv" : {
@@ -10060,6 +11917,9 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "aq76wpgsVEENDyau" : {
@@ -10074,6 +11934,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "wgAsL86ji5hulh7x" : {
@@ -10090,7 +11954,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "fPlFRu4dp09qJs3K" : {
         "action_cost" : null,
@@ -10108,6 +11973,12 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "C2w3YfBKjIRS07DP" : {
@@ -10123,6 +11994,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "cDFAQN7Z3es07WSA" : {
@@ -10139,7 +12014,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "kcYCWMd1NVCJ5Zbu" : {
         "action_cost" : "2",
@@ -10154,6 +12030,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "LyqqvufOUIh8U25d" : {
@@ -10171,7 +12051,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Ensorceleur",
             "Mutamagie"
-        ]
+        ],
+        "traditions" : []
     },
     "F9mA2Bg27QKniIdv" : {
         "action_cost" : "3",
@@ -10186,6 +12067,11 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "1aXX52MnVbBvT9S7" : {
@@ -10200,7 +12086,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Consécration"
-        ]
+        ],
+        "traditions" : []
     },
     "XlQBVvlDWGrGlApl" : {
         "action_cost" : "2",
@@ -10218,7 +12105,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "wrm1zIiLyFD1Is6h" : {
         "action_cost" : null,
@@ -10232,6 +12120,9 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Intangible"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "CR8OKDbeFJoZbOCu" : {
@@ -10249,7 +12140,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mutamagie",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "L10q1ng6U3sega9S" : {
         "action_cost" : "2",
@@ -10265,6 +12157,10 @@ SPELLS.CONST = {
             "Détection",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "nVfP43Xbs6I1PO8v" : {
@@ -10281,7 +12177,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magus"
-        ]
+        ],
+        "traditions" : []
     },
     "Yrek2Yd4k3DPC2zV" : {
         "action_cost" : "2",
@@ -10299,7 +12196,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Lumière",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ddKBoCjmSyPSHcws" : {
         "action_cost" : "1",
@@ -10316,7 +12214,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Métamorphose",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "IT1aaqDBAISlHDUV" : {
         "action_cost" : "2",
@@ -10334,7 +12233,8 @@ SPELLS.CONST = {
             "Mort",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ilGsyGLGjjIPHbyP" : {
         "action_cost" : "1",
@@ -10351,7 +12251,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Transformation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "2YIr0S2Gt14PMMQp" : {
         "action_cost" : "2",
@@ -10368,7 +12269,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "5Pc55FGGqVpIAJ62" : {
         "action_cost" : "f",
@@ -10386,7 +12288,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "B4dDkYsHFo1H0CIF" : {
         "action_cost" : null,
@@ -10400,7 +12303,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "9lz67JCNCLDfIEy3" : {
         "action_cost" : null,
@@ -10414,7 +12318,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "AkF4yFcSCdhoULyZ" : {
         "action_cost" : null,
@@ -10427,7 +12332,8 @@ SPELLS.CONST = {
         "text" : "Éveiller un portail",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "aXoh6OQAL57lgh0a" : {
         "action_cost" : "2",
@@ -10442,6 +12348,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "GurWFDj4IjKv73kL" : {
@@ -10459,6 +12369,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "MFPvs0ARxtThYPFq" : {
@@ -10475,6 +12389,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "PgDFDvX64eswapSS" : {
@@ -10491,6 +12410,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "Z9OrRXKgAPv6Hn5l" : {
@@ -10507,6 +12429,10 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "H481wmQUtEUhxHzi" : {
@@ -10525,7 +12451,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Champignon",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "KY2xyMavZHAoG69D" : {
         "action_cost" : "2",
@@ -10543,7 +12470,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "thAHF1zxNplLCJPO" : {
         "action_cost" : "2",
@@ -10559,6 +12487,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "rnNGALRtsjspFTws" : {
@@ -10574,6 +12506,10 @@ SPELLS.CONST = {
             "Acide",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "fprqWKUc0jnMIyGU" : {
@@ -10589,6 +12525,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Air",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "IqJ9URobmJ9L9UBG" : {
@@ -10604,6 +12544,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "PaHxcqXihXkkXPsB" : {
@@ -10621,7 +12565,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "EgkypvUZIZkx1UlQ" : {
         "action_cost" : "2",
@@ -10637,6 +12582,11 @@ SPELLS.CONST = {
             "Concentration",
             "Maladie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "wzLkNU3AAqOSKFPR" : {
@@ -10652,6 +12602,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "1OiPVy1wuoXi6LR5" : {
@@ -10667,6 +12622,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "oo7YcRC2gcez81PV" : {
@@ -10685,7 +12643,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "Ifc2b6bNVdjKV7Si" : {
         "action_cost" : "2",
@@ -10701,6 +12660,9 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "LFSwMtQVP05EzlZe" : {
@@ -10720,7 +12682,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "QIjc7Zyej0P3b9v5" : {
         "action_cost" : null,
@@ -10734,7 +12697,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "GxxnhRIaoGKtu1iO" : {
         "action_cost" : "1",
@@ -10751,7 +12715,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Ensorceleur",
             "Mutamagie"
-        ]
+        ],
+        "traditions" : []
     },
     "02J0rDTk37KN2sjt" : {
         "action_cost" : "2",
@@ -10766,6 +12731,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "hdzyDrRdHSse88XM" : {
@@ -10779,7 +12747,8 @@ SPELLS.CONST = {
         "text" : "Extraction du cerveau",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "CLThxp8Qf43IQ3Sb" : {
         "action_cost" : "2",
@@ -10793,6 +12762,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "EDwakYQTS1t6XHD4" : {
@@ -10810,6 +12783,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "4ZGte0i9YbLh4dRi" : {
@@ -10826,6 +12803,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "nA0XlPsnMNrQMpio" : {
@@ -10840,7 +12821,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Illusion"
-        ]
+        ],
+        "traditions" : []
     },
     "McnPlLFvKtQVXNcG" : {
         "action_cost" : "2",
@@ -10855,6 +12837,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CXICME10TkEJxz0P" : {
@@ -10871,6 +12857,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "mSM659xN2VIAHiF3" : {
@@ -10888,7 +12878,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "C2GYCH3TtUFqPfdX" : {
         "action_cost" : "2",
@@ -10903,6 +12894,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "QE9f3OxvvBThymD4" : {
@@ -10920,7 +12915,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "wJi0lq4yA5Mlj0MY" : {
         "action_cost" : "1",
@@ -10938,7 +12934,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Vide",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "udZEKwUryIsobjBG" : {
         "action_cost" : "2",
@@ -10954,6 +12951,10 @@ SPELLS.CONST = {
             "Feu",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ikSb3LRGnrwXJBVX" : {
@@ -10970,6 +12971,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "MJx7DmjsWYzDZ3a4" : {
@@ -10987,6 +12992,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "0zU8CPejjQFnhZFI" : {
@@ -11004,6 +13013,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "W0YqtSVwfFImGgdK" : {
@@ -11018,6 +13031,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "5z1700cfG8Ybm0e6" : {
@@ -11034,6 +13051,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "8ViwItUgwT4lOvvb" : {
@@ -11048,6 +13069,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "0qA4MfMkFklOz2Lk" : {
@@ -11066,7 +13091,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "siU9xRlqWXeKT0mH" : {
         "action_cost" : "3",
@@ -11081,6 +13107,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "bS3DW0MptpnZl5Zr" : {
@@ -11094,7 +13125,8 @@ SPELLS.CONST = {
         "text" : "Festin de supplique",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "ES6FkwXXqYr4ujQH" : {
         "action_cost" : "2",
@@ -11110,6 +13142,11 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "5y3RlXMDPovOmrhp" : {
@@ -11124,7 +13161,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "N1Z1oLPdBxaSgrEE" : {
         "action_cost" : "2",
@@ -11140,6 +13178,11 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "fxRaWoeOGyi6THYH" : {
@@ -11159,7 +13202,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "Vseo7VIy8mzINUES" : {
         "action_cost" : "2",
@@ -11175,6 +13219,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "3q9tBMWsWQKlXPPJ" : {
@@ -11190,6 +13238,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jks2h5pMsm8pCi8e" : {
@@ -11207,7 +13259,8 @@ SPELLS.CONST = {
             "Feu",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "J8pL8yTshga8QOk8" : {
         "action_cost" : "2",
@@ -11226,7 +13279,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "1dsahW4g1ggXtypx" : {
         "action_cost" : "3",
@@ -11240,6 +13294,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "qjUcAMgcSLIamjEq" : {
@@ -11257,7 +13315,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Vbj8bTQ1nwrOBbYF" : {
         "action_cost" : "2",
@@ -11275,6 +13334,10 @@ SPELLS.CONST = {
             "Électricité",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "GgrrcKQgJH2Eykq1" : {
@@ -11291,6 +13354,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "QqMlN9VSHfD2v4Qv" : {
@@ -11306,7 +13374,8 @@ SPELLS.CONST = {
             "Rare",
             "Mort",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "eb4FXf62NYArTqek" : {
         "action_cost" : "2",
@@ -11323,7 +13392,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "OYOCWWefZPEfp8Nl" : {
         "action_cost" : "2",
@@ -11339,6 +13409,10 @@ SPELLS.CONST = {
             "Terre",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "2ZdHjnpEQJuqOYSG" : {
@@ -11354,6 +13428,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ZClfmMoKG3E926Uq" : {
@@ -11372,6 +13450,11 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "5KmyO4YSGEAUdgAS" : {
@@ -11388,6 +13471,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "tf4PMMMzR5xxJDun" : {
@@ -11407,7 +13494,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "lZx8jZfKrMEtyGY0" : {
         "action_cost" : "2",
@@ -11426,7 +13514,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "Wi2HcreCfujKiCvW" : {
         "action_cost" : "2",
@@ -11444,7 +13533,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "ZIk1EYbG6l4JuUkO" : {
         "action_cost" : "2",
@@ -11460,6 +13550,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "dNpIc5k1aCI3bHIg" : {
@@ -11474,7 +13568,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Maladie"
-        ]
+        ],
+        "traditions" : []
     },
     "f8hRqLJaxBVhF1u0" : {
         "action_cost" : "2",
@@ -11490,6 +13585,10 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "iYRDFxeVpJ5KIjmr" : {
@@ -11507,6 +13606,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "7yWXx3qC4eFNHhxD" : {
@@ -11522,7 +13627,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Plante",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "vGMbpV7GWIFPNUaZ" : {
         "action_cost" : "2",
@@ -11538,6 +13644,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "2TVc8NabmGpc092W" : {
@@ -11555,6 +13665,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "J6vNvrUT3b1hx2iA" : {
@@ -11571,6 +13685,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "b6AQvzs8EotmlK56" : {
@@ -11587,6 +13705,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "3JG1t3T4mWn6vTke" : {
@@ -11603,6 +13725,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Um0aaJotqMKGmAlR" : {
@@ -11623,7 +13749,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Mental",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "lV8FkHZtzZu7Cy6j" : {
         "action_cost" : "2",
@@ -11641,7 +13768,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "CgekONDD5jIxL8oM" : {
         "action_cost" : "3",
@@ -11656,6 +13784,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "8VzbumNyMEdSzZSz" : {
@@ -11671,6 +13802,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "yH13KXUK2x093NUv" : {
@@ -11688,7 +13823,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "smiVuoFMSgY2FTOO" : {
         "action_cost" : "3",
@@ -11703,6 +13839,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "yY1H5zhO5dHmD8lz" : {
@@ -11722,7 +13862,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "aMvjaIuPIWN7pbc3" : {
         "action_cost" : "1",
@@ -11737,6 +13878,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "F1fQC9SarAkjNxpP" : {
@@ -11748,7 +13894,11 @@ SPELLS.CONST = {
         "id" : "F1fQC9SarAkjNxpP",
         "required" : [],
         "text" : "Force gravitationnelle",
-        "traits" : []
+        "traits" : [],
+        "traditions" : [
+            "arcane",
+            "occult"
+        ]
     },
     "53Kw9WQtvrEtABEu" : {
         "action_cost" : "2",
@@ -11768,6 +13918,12 @@ SPELLS.CONST = {
             "Mental",
             "True",
             "Nom véritable"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "oKC36WjFD1jgqUN5" : {
@@ -11784,6 +13940,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "BNkgZi1bcQcVmBHp" : {
@@ -11798,7 +13958,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Plante"
-        ]
+        ],
+        "traditions" : []
     },
     "FTR8m4qrhYzTRyrD" : {
         "action_cost" : "2",
@@ -11812,6 +13973,10 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Feu"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "6QEWTuCKRQQTyoeS" : {
@@ -11830,7 +13995,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "NzXpEzcZAjuDTZjK" : {
         "action_cost" : "2",
@@ -11845,6 +14011,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "xEjGEBvTfDJECSki" : {
@@ -11862,7 +14032,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "wp09USMB3GIW1qbp" : {
         "action_cost" : "2",
@@ -11877,6 +14048,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "SDkIFrrO1PsE02Kd" : {
@@ -11894,7 +14068,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "IHUs4qn27RrdFQ5Y" : {
         "action_cost" : "2",
@@ -11909,6 +14084,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "Fu8Ml47ZfXpSYe7E" : {
@@ -11924,6 +14103,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "E3zIZ4pjlOuWeGRz" : {
@@ -11940,6 +14122,9 @@ SPELLS.CONST = {
             "Saint",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "zjYQyuBNT5VjV4mz" : {
@@ -11956,6 +14141,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "XI6Lzd2B5pernkPd" : {
@@ -11971,6 +14159,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal",
+            "arcane"
         ]
     },
     "2B0C22OuX9YrIJ5y" : {
@@ -11989,7 +14181,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "aSDfGcUOUVGU5m1g" : {
         "action_cost" : "2",
@@ -12005,6 +14198,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métamorphose",
             "Impie"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "dKbv80rlAWVpz83C" : {
@@ -12021,6 +14218,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métamorphose",
             "Impie"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "dR53f0p15EW7D0xC" : {
@@ -12037,6 +14238,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métamorphose",
             "Impie"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "FKtPRWcs4zhwn9N1" : {
@@ -12052,7 +14257,8 @@ SPELLS.CONST = {
             "Rare",
             "Evil",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "KhM8MhoUgoUjBMIz" : {
         "action_cost" : "2",
@@ -12067,6 +14273,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "5c692cCcTDXjSEzk" : {
@@ -12082,6 +14291,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "CHZQJg7O7991Vl4m" : {
@@ -12099,7 +14314,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "Qu4IThrk1wpONwjT" : {
         "action_cost" : "2",
@@ -12114,6 +14330,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "BhJtCTLbngvZm8EA" : {
@@ -12130,7 +14350,8 @@ SPELLS.CONST = {
             "Animiste",
             "Focalisation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "bKDsmKVosexwJ80i" : {
         "action_cost" : "2",
@@ -12147,7 +14368,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "Pd2M1XY8EXrSfWgJ" : {
         "action_cost" : "2",
@@ -12165,7 +14387,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "gfPjmG6Fe6D3MFjl" : {
         "action_cost" : "2",
@@ -12180,6 +14403,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zCcfPS4y5SrZzU2x" : {
@@ -12197,6 +14424,9 @@ SPELLS.CONST = {
             "Plante",
             "Métamorphose",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "KjC2ya8HD5AENeHI" : {
@@ -12212,6 +14442,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0gdZrT9lwO17EIxc" : {
@@ -12227,6 +14461,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3qz32XdiugYhsr32" : {
@@ -12242,6 +14480,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "B3tbO85GBpzQ3u8l" : {
@@ -12259,7 +14501,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "1K6AYGisvo9gqdhs" : {
         "action_cost" : "2",
@@ -12274,6 +14517,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "D2nPKbIS67m9199U" : {
@@ -12290,6 +14537,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "89Hj5QuqvcwVXcqj" : {
@@ -12306,6 +14557,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "9kOI14Jep97TzGO7" : {
@@ -12326,7 +14581,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "2qGqa33E4GPUCbMV" : {
         "action_cost" : "2",
@@ -12341,6 +14597,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "HBxsMKXzZM0HviEE" : {
@@ -12354,7 +14615,8 @@ SPELLS.CONST = {
         "text" : "Forme incarnée",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "8RWfKConLYFZpQ9X" : {
         "action_cost" : "2",
@@ -12372,7 +14634,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "8AMvNVOUEtxBCDvJ" : {
         "action_cost" : "2",
@@ -12387,6 +14650,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "YDMOqndvYFu3OjA6" : {
@@ -12404,7 +14671,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Moine",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "Ey4pKybxyPAxq0ew" : {
         "action_cost" : "1",
@@ -12419,6 +14687,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "MMCQsh12TPaDdPbV" : {
@@ -12434,6 +14706,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "wTldMJx0vyBAehrI" : {
@@ -12450,7 +14725,8 @@ SPELLS.CONST = {
             "Animiste",
             "Focalisation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "zhqnMOVPzVvWSUbC" : {
         "action_cost" : "2",
@@ -12468,7 +14744,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "V8wXOsoejQhe6CyG" : {
         "action_cost" : "2",
@@ -12484,6 +14761,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "FA55Fxf8MBXhje95" : {
@@ -12499,6 +14781,9 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "wQDrc0LDWaBA5Xa8" : {
@@ -12514,6 +14799,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "yAiSNmz39qXOIlco" : {
@@ -12530,6 +14819,10 @@ SPELLS.CONST = {
             "Terre",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zDJS8E66UI0himqV" : {
@@ -12546,6 +14839,10 @@ SPELLS.CONST = {
             "Électricité",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4DaHIgtMBTyxebY3" : {
@@ -12565,7 +14862,8 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "WfINystwLv9ohYpS" : {
         "action_cost" : "2",
@@ -12581,6 +14879,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "WkqamCF8r4O5Gh0n" : {
@@ -12597,7 +14899,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "1xbFBQDRs0hT5xZ9" : {
         "action_cost" : "2",
@@ -12612,6 +14915,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "BqJAOPimCq5uCcEJ" : {
@@ -12630,7 +14937,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "53NqGTJOf4LcjVyD" : {
         "action_cost" : "1",
@@ -12646,7 +14954,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magus"
-        ]
+        ],
+        "traditions" : []
     },
     "Rn2LkoSq1XhLsODV" : {
         "action_cost" : "2",
@@ -12661,6 +14970,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "x9RIFhquazom4p02" : {
@@ -12676,6 +14989,9 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "zCLyETFoPqCQXLVy" : {
@@ -12691,6 +15007,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "r82rqcm0MmGaBFkM" : {
@@ -12708,7 +15028,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "YtesyvfAIwXOqISq" : {
         "action_cost" : "2",
@@ -12723,6 +15044,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "jj5d830iUi2ZlQfs" : {
@@ -12739,6 +15063,9 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Sanctifié"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "3KiM09e8DN9AdTPA" : {
@@ -12757,6 +15084,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Sommeil"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "0AZOIMRvZtePuGOw" : {
@@ -12774,6 +15105,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "NhGXgmI3AjkkwnPk" : {
@@ -12791,6 +15126,11 @@ SPELLS.CONST = {
             "Émotion",
             "Mise hors de combat",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "uhEjKSFdEhXzszh6" : {
@@ -12805,6 +15145,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "LrFUj76CHDBV0vHW" : {
@@ -12822,7 +15166,8 @@ SPELLS.CONST = {
             "Feu",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ZrRhweQ7KQ0wKN3m" : {
         "action_cost" : "3",
@@ -12838,6 +15183,11 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "bynT1UKaDqr8dLNM" : {
@@ -12856,7 +15206,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "fAlzXtQAASaJx0mY" : {
         "action_cost" : "1",
@@ -12875,7 +15226,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Vitalité",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "MFtXn7t5vApQXqlq" : {
         "action_cost" : "1",
@@ -12889,6 +15241,10 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "jQdm301h6e8hIY4U" : {
@@ -12905,6 +15261,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "mFHQ2u4LWiejqKQG" : {
@@ -12922,7 +15281,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Lr737SofpsFtLpEo" : {
         "action_cost" : "2",
@@ -12939,6 +15299,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "0uRpypf1Hi7ahvTl" : {
@@ -12954,6 +15318,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "JUJYVbtNNFdvyrBS" : {
@@ -12969,6 +15337,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "vSSKyUdrHu86E5Gk" : {
@@ -12987,7 +15359,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "m4Mc5XbdML92BKOE" : {
         "action_cost" : "3",
@@ -13002,6 +15375,9 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "kuoYff1csM5eAcAP" : {
@@ -13018,6 +15394,9 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "drmvQJETA3WZzXyw" : {
@@ -13035,6 +15414,10 @@ SPELLS.CONST = {
             "Mort",
             "Evil",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "i88Vi47PDDoP6gQv" : {
@@ -13051,6 +15434,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "MraZBLJ4Be3ogmWL" : {
@@ -13069,7 +15456,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "FL1OxeOUDzsJYfY4" : {
         "action_cost" : "r",
@@ -13084,6 +15472,10 @@ SPELLS.CONST = {
             "Air",
             "Manipulation",
             "Déplacement"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "JOdOpbPDl7nqvJUm" : {
@@ -13099,6 +15491,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "nXoc5YbcynmhZcQs" : {
@@ -13115,6 +15512,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "YVK3JUkPVzHIeGXQ" : {
@@ -13132,7 +15533,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "57ulIxg3Of2wCbEh" : {
         "action_cost" : "2",
@@ -13148,7 +15550,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "YWuyjhWbdoTiA1pw" : {
         "action_cost" : "3",
@@ -13162,6 +15565,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "MPxbKoR54gkYkqLO" : {
@@ -13179,6 +15588,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "s3abwDbTV43pGFFW" : {
@@ -13194,6 +15607,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "2uEuYmlyx1R7zQeH" : {
@@ -13210,6 +15626,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "SAmyaiVKTDrUNjot" : {
@@ -13230,7 +15650,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Mental",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "opXqASAY37ltENB8" : {
         "action_cost" : null,
@@ -13244,7 +15665,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Épreuve"
-        ]
+        ],
+        "traditions" : []
     },
     "Wu0xFpewMKRK3HG8" : {
         "action_cost" : "2",
@@ -13258,6 +15680,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "DcmWrD0V5PWQQyDm" : {
@@ -13272,6 +15698,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "P1iqzEIidRagUs7W" : {
@@ -13287,6 +15717,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "juzb53CW6Uzz5pFY" : {
@@ -13303,6 +15737,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "yNTfght6fu9WYKmx" : {
@@ -13318,6 +15756,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "yrsgOdj5oqp7lEQY" : {
@@ -13331,7 +15773,8 @@ SPELLS.CONST = {
         "text" : "Grignoter la lune",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "6WZgtQ2Iw9CTbv2c" : {
         "action_cost" : null,
@@ -13346,7 +15789,8 @@ SPELLS.CONST = {
             "Rare",
             "Mythique",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "rfZpqmj0AIIdkVIs" : {
         "action_cost" : "1",
@@ -13361,6 +15805,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "KIV2LqzS5KtqOItV" : {
@@ -13378,7 +15826,8 @@ SPELLS.CONST = {
             "Guérison",
             "Rôdeur",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "1H3T9UwxW44Y0YaS" : {
         "action_cost" : "2",
@@ -13396,7 +15845,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Spirituel"
-        ]
+        ],
+        "traditions" : []
     },
     "Zmh4ynfnCtwKeAYl" : {
         "action_cost" : null,
@@ -13414,7 +15864,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "X3RUan7TVqo6UpUG" : {
         "action_cost" : "2",
@@ -13431,6 +15882,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "ppA1StEigPLKEQqR" : {
@@ -13445,6 +15900,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "yo1eB5Xz21AYfWCI" : {
@@ -13462,6 +15921,10 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "MMIPT6jfwHfLPkm5" : {
@@ -13478,6 +15941,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "s8gTmnNMg4H4bHEF" : {
@@ -13495,6 +15962,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "U58aQWJ47VrI36yP" : {
@@ -13512,6 +15983,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "w3uGXDVEdbLFZVO0" : {
@@ -13530,7 +16005,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Saint",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "qJZZdYBdNaWRJFER" : {
         "action_cost" : "1",
@@ -13548,7 +16024,8 @@ SPELLS.CONST = {
             "Guérison",
             "Moine",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "9iJaD4S7ptUeq5vO" : {
         "action_cost" : "2",
@@ -13564,6 +16041,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "GjmMFEJcDd6MDG2P" : {
@@ -13578,6 +16059,10 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "4gBIw4IDrSfFHik4" : {
@@ -13595,6 +16080,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Non-létal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "bK7EZFCxZgDcko6D" : {
@@ -13612,7 +16102,8 @@ SPELLS.CONST = {
             "Audible",
             "Illusion",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "KqvqNAfGIE5a9wSv" : {
         "action_cost" : "2",
@@ -13627,6 +16118,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "y5amezSt82FYu9HG" : {
@@ -13642,6 +16137,12 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "Z82DvtSXafPmh4KV" : {
@@ -13660,7 +16161,8 @@ SPELLS.CONST = {
             "Evil",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "d9sBzPOXX3KT8uTu" : {
         "action_cost" : "2",
@@ -13674,6 +16176,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Tc5NLaMu71vrGTJQ" : {
@@ -13690,6 +16196,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "SE3MddYAUyPKABuF" : {
@@ -13708,6 +16217,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "z9pIChNg9PmPmn31" : {
@@ -13723,7 +16236,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "IAjvwqgiDr3qGYxY" : {
         "action_cost" : "1",
@@ -13742,7 +16256,8 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "gSUQlTDYoLDGAsCP" : {
         "action_cost" : "2",
@@ -13761,7 +16276,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "bH0kPuf7UKxRvi2P" : {
         "action_cost" : "1",
@@ -13780,7 +16296,8 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "b5BQbwmuBhgPXTyi" : {
         "action_cost" : "2",
@@ -13797,6 +16314,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "nRsBM1zkhMmV3VST" : {
@@ -13815,7 +16336,8 @@ SPELLS.CONST = {
             "Émotion",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "ZYoC630tNGutgbE0" : {
         "action_cost" : "1",
@@ -13828,6 +16350,9 @@ SPELLS.CONST = {
         "text" : "Hypercognition",
         "traits" : [
             "Concentration"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "oNUyCqbpGWHifS02" : {
@@ -13843,6 +16368,9 @@ SPELLS.CONST = {
             "Concentration",
             "Champignon",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "K2WpC3FFoHrqX9Q5" : {
@@ -13859,6 +16387,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Subtil",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Dby1eQ7y5dXBWlyc" : {
@@ -13878,7 +16410,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "QLTgY1AqFvX82vq2" : {
         "action_cost" : null,
@@ -13893,6 +16426,11 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "qCkxBOLMCCXEjBWo" : {
@@ -13908,6 +16446,12 @@ SPELLS.CONST = {
             "Tour de magie",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "EOWh6VVcSjB3WPjX" : {
@@ -13928,7 +16472,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "FgRpddPORsRFwNoX" : {
         "action_cost" : "2",
@@ -13944,6 +16489,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "j8vIoIEWElvpwkcI" : {
@@ -13960,6 +16509,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HkjeegDsA5Wq0hR2" : {
@@ -13978,7 +16531,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "2a8wiTxvBhcMbMU5" : {
         "action_cost" : "r",
@@ -13993,6 +16547,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "M6HsK7W6JMkJXeog" : {
@@ -14007,7 +16565,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "s0i3S4fg2XDQX4a7" : {
         "action_cost" : "2",
@@ -14028,7 +16587,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "xlRv8vCTHh1NeMpw" : {
         "action_cost" : "2",
@@ -14042,6 +16602,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "bAxjHBi37CVwInfU" : {
@@ -14058,6 +16622,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "A16eFTRh82xIjMu8" : {
@@ -14075,6 +16643,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "tgIhRUFtgDSELpJE" : {
@@ -14089,6 +16660,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "iG1USiSRXMjCDGAr" : {
@@ -14106,6 +16682,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "RS1nrqEjEi1ZlC53" : {
@@ -14121,6 +16702,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "WJOQryAODgYmrL6g" : {
@@ -14135,6 +16720,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "wZ1rsLrWfYtMZfgv" : {
@@ -14152,6 +16740,12 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "Yph1UqZU8vMc9bJG" : {
@@ -14168,7 +16762,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Do0pe0gn8OFdCOnN" : {
         "action_cost" : null,
@@ -14181,7 +16776,8 @@ SPELLS.CONST = {
         "text" : "Implorer l'oiseau-tonnerre",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "Vg4K3dTDswNQf4Bx" : {
         "action_cost" : "2",
@@ -14197,7 +16793,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "7GZVTtzN7H4Jujc1" : {
         "action_cost" : "2",
@@ -14212,6 +16809,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "4WS7HrFjwNvTn8T2" : {
@@ -14226,6 +16827,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "mriIWoSDtJTJIBjX" : {
@@ -14242,6 +16847,12 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "zNN9212H2FGfM7VS" : {
@@ -14260,7 +16871,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "7ZinJNzxq0XF0oMx" : {
         "action_cost" : "2",
@@ -14276,6 +16888,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "UJmKPm1FC6pf6txP" : {
@@ -14292,6 +16908,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "oOaEfsdVpgTXRhrY" : {
@@ -14308,7 +16928,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Xrz6wPXDBUr27izR" : {
         "action_cost" : null,
@@ -14323,6 +16944,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "9bOqFkewRz7Z3HZ5" : {
@@ -14340,6 +16965,11 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "sGenGMmE1ntkXCtN" : {
@@ -14356,7 +16986,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "X4On99Nti8gjWywG" : {
         "action_cost" : "1",
@@ -14371,7 +17002,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Animiste",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "ZXwxs5tRjEGrjAJT" : {
         "action_cost" : "2",
@@ -14386,6 +17018,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "vQMAdnIwnV9prPiG" : {
@@ -14401,6 +17036,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "3VxVbZqIRvpKkg3O" : {
@@ -14417,6 +17055,9 @@ SPELLS.CONST = {
             "Champignon",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "2iQKhCQBijhj5Rf3" : {
@@ -14432,6 +17073,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "v4QHuVOhFD1JMAqu" : {
@@ -14449,7 +17093,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "aIHY2DArKFweIrpf" : {
         "action_cost" : "2",
@@ -14466,6 +17111,11 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "cokeXkDHUAo4zHsw" : {
@@ -14481,7 +17131,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "KtTGLbLG9nqMbUYL" : {
         "action_cost" : "2",
@@ -14496,6 +17147,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "C2DwamKrW6QHoDQg" : {
@@ -14511,6 +17165,10 @@ SPELLS.CONST = {
             "Air",
             "Tour de magie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4MOew29Z1oCX8O28" : {
@@ -14526,6 +17184,10 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "NxOYiKCqcuAHVRCj" : {
@@ -14541,7 +17203,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "1hLxZznnA2kvXlIt" : {
         "action_cost" : "2",
@@ -14561,6 +17224,9 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "RbORUmnwlB8b3mNf" : {
@@ -14577,6 +17243,10 @@ SPELLS.CONST = {
             "Concentration",
             "Maladie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "GzlVI3qYdCtUigLz" : {
@@ -14590,7 +17260,8 @@ SPELLS.CONST = {
         "text" : "Interdiction des fées",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "M9TiCE1vlG1j2faM" : {
         "action_cost" : "r",
@@ -14605,6 +17276,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Guérison"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "R569jdqpNry8m0TJ" : {
@@ -14623,7 +17299,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "hoR6w8BqX2F35Tdx" : {
         "action_cost" : "2",
@@ -14641,6 +17318,9 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "37ESlJzUvVbOudOT" : {
@@ -14656,6 +17336,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "XXqE1eY3w3z6xJCB" : {
@@ -14671,6 +17355,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "I0j56TNRmGcTyoqJ" : {
@@ -14687,6 +17375,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "X0t0gr7S7CeCt2Q5" : {
@@ -14700,7 +17392,8 @@ SPELLS.CONST = {
         "text" : "Invocation d'anima modifiée",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "Ywe64VHwcBOAWBtq" : {
         "action_cost" : "2",
@@ -14717,6 +17410,10 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "09C2wvWZLCxwjINk" : {
@@ -14734,6 +17431,12 @@ SPELLS.CONST = {
             "Concentration",
             "True",
             "Nom véritable"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "AsKLseOo8hwv5Jha" : {
@@ -14750,7 +17453,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "82gDiXTKsCmdIF6Q" : {
         "action_cost" : "2",
@@ -14767,7 +17471,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "hghGRzOSzEl4UXdS" : {
         "action_cost" : "2",
@@ -14785,6 +17490,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "UG0SmRYSdbrx2rTA" : {
@@ -14799,6 +17509,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "mer4V7vWdTs1oLbG" : {
@@ -14817,7 +17533,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Illusion",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "eSL5hVT9gXrnRLtd" : {
         "action_cost" : "2",
@@ -14833,6 +17550,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "h6VoHgPC0JCTVzgP" : {
@@ -14849,6 +17570,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "w4M6Vqvq8k6MOFvj" : {
@@ -14868,7 +17594,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "jQgX7zChqjFrU7Q1" : {
         "action_cost" : "3",
@@ -14885,6 +17612,10 @@ SPELLS.CONST = {
             "Incarnation",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "nEXkk85BQu1cREa4" : {
@@ -14901,7 +17632,8 @@ SPELLS.CONST = {
             "Consécration",
             "Plante",
             "Poison"
-        ]
+        ],
+        "traditions" : []
     },
     "g1eY1vN44mgluE33" : {
         "action_cost" : "2",
@@ -14920,7 +17652,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "MiTFNcqCI9f34A2V" : {
         "action_cost" : "2",
@@ -14937,6 +17670,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "pRKaEXnjGJXbPHPC" : {
@@ -14955,7 +17692,8 @@ SPELLS.CONST = {
             "Terre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "29JyWqqZ0thCFr1C" : {
         "action_cost" : "2",
@@ -14971,6 +17709,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "8E97SA9KAWCNdXfO" : {
@@ -14986,6 +17728,11 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "8bdt1TvNKzsCu9Ct" : {
@@ -15002,6 +17749,9 @@ SPELLS.CONST = {
             "Tour de magie",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "VMABZdZyplCKTAAP" : {
@@ -15017,7 +17767,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ZhLYJlOZzUB1OKoe" : {
         "action_cost" : "2",
@@ -15036,7 +17787,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "1bXLp8cyIKFjZtVx" : {
         "action_cost" : "2",
@@ -15051,6 +17803,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "V05lB4VsSMiMMsZJ" : {
@@ -15068,6 +17824,11 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "1NLMPmyCB2MBoCuR" : {
@@ -15082,6 +17843,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "BI4iwu3nApyIG0zY" : {
@@ -15098,6 +17863,11 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "NacrNSvfODxpZena" : {
@@ -15116,6 +17886,10 @@ SPELLS.CONST = {
             "Feu",
             "Saint",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "ViqzVEprQVzCXZ9f" : {
@@ -15133,7 +17907,8 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "pMTltbI3S3UIuFaR" : {
         "action_cost" : "2",
@@ -15153,7 +17928,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "T90ij2uu6ZaBaSXV" : {
         "action_cost" : "2",
@@ -15173,7 +17949,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "LjLSvAqnR03EnITX" : {
         "action_cost" : "2",
@@ -15191,6 +17968,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "y5pzaNfb17CM1slC" : {
@@ -15207,6 +17988,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "dQ7LrD2HxJoCzi2M" : {
@@ -15225,7 +18010,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "ECApRjIIxD0JogOa" : {
         "action_cost" : "2",
@@ -15243,7 +18029,8 @@ SPELLS.CONST = {
             "Terre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "qwZBXN6zBoB9BHXE" : {
         "action_cost" : "2",
@@ -15261,6 +18048,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "lXxP1ziyf4ozkpmv" : {
@@ -15276,7 +18066,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "cnRltZAjU9aCklqz" : {
         "action_cost" : "2",
@@ -15290,6 +18081,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "dxOF7d5kAWusLKWF" : {
@@ -15307,6 +18101,11 @@ SPELLS.CONST = {
             "Mort",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "lmHmKGs1N3yNAvln" : {
@@ -15323,6 +18122,10 @@ SPELLS.CONST = {
             "Concentration",
             "Fortune",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "2C0ftvzTwYgzb3Qt" : {
@@ -15339,7 +18142,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "5xf9wK9xyAeGFPw7" : {
         "action_cost" : null,
@@ -15353,7 +18157,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Épreuve"
-        ]
+        ],
+        "traditions" : []
     },
     "3DB3F2hIx2dMbX8n" : {
         "action_cost" : null,
@@ -15367,7 +18172,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "8NK5HtDxM3Qktu8H" : {
         "action_cost" : "2",
@@ -15383,6 +18189,10 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "5LYi9Efs6cko4GGL" : {
@@ -15397,6 +18207,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "OhD2Z6rIGGD5ocZA" : {
@@ -15413,6 +18226,12 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "BX5UIAUarWG43Fg2" : {
@@ -15429,6 +18248,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "KHnhPHL4x1AQHfbC" : {
@@ -15446,6 +18269,10 @@ SPELLS.CONST = {
             "Détection",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "WsUwpfmhKrKwoIe3" : {
@@ -15460,6 +18287,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "WOM9alxiTdp0HEVD" : {
@@ -15476,7 +18308,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "EdRYr7HmLm9wr71X" : {
         "action_cost" : "1",
@@ -15493,6 +18326,10 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "LX4pCagYLpc9hEji" : {
@@ -15511,6 +18348,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "z8bHh8KVttslQIU9" : {
@@ -15528,7 +18369,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Rôdeur",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "fI20AVwOzJMHXRdo" : {
         "action_cost" : "2",
@@ -15542,6 +18384,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "cQgPIohUja0DUiRL" : {
@@ -15561,7 +18407,8 @@ SPELLS.CONST = {
             "Plante",
             "Magicien",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "uZK2BYzPnxUBnDjr" : {
         "action_cost" : "2",
@@ -15579,6 +18426,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "kCgkreCT6g0dipMd" : {
@@ -15596,6 +18447,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "NeoRkU7C4BIz8fUM" : {
@@ -15611,6 +18465,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "4ddJSjC9Zz5DX0oG" : {
@@ -15625,7 +18483,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "4c1c6eNzU1PFGkAy" : {
         "action_cost" : "1",
@@ -15639,6 +18498,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "dZV8nZUKRhGIr6g9" : {
@@ -15652,7 +18515,8 @@ SPELLS.CONST = {
         "text" : "Lien du coeur",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "obVA6duK5fGbfFUY" : {
         "action_cost" : null,
@@ -15669,6 +18533,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "D442XMADp01qJ7Cs" : {
@@ -15684,6 +18552,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "yHujiDQPdtXW797e" : {
@@ -15700,6 +18572,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "gfVXAW95YWRz0pJC" : {
@@ -15716,6 +18592,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "2gQYrCPwBmwau26O" : {
@@ -15734,7 +18614,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "GUeRTriJkMlMlVrk" : {
         "action_cost" : "2",
@@ -15748,6 +18629,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "B0Ng2VlhEJMuUXUH" : {
@@ -15764,6 +18650,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "u0AtDZs6BhBPtjEs" : {
@@ -15779,6 +18670,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "2hMy9ROM2dOZB8Jq" : {
@@ -15795,6 +18691,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "lg73SvJZno1ypPAj" : {
@@ -15810,6 +18710,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "Vvxgn7saUPW2bJhb" : {
@@ -15828,7 +18732,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Prédiction"
-        ]
+        ],
+        "traditions" : []
     },
     "pkcOby5prOausy1k" : {
         "action_cost" : null,
@@ -15844,6 +18749,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Prédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "LQzlKbYjZSMFQawP" : {
@@ -15860,6 +18769,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "ftZ750SD2iIJKIy3" : {
@@ -15878,6 +18792,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "HRb2doyaLtaoCfi3" : {
@@ -15893,6 +18812,11 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "WBmvzNDfpwka3qT4" : {
@@ -15909,6 +18833,12 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ynm8JIU3sc3qUMpa" : {
@@ -15924,6 +18854,12 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "11P3KgDTMIeQIJD7" : {
@@ -15941,6 +18877,10 @@ SPELLS.CONST = {
             "Good",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "ou56ShiFH7GWF8hX" : {
@@ -15959,7 +18899,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Révélation"
-        ]
+        ],
+        "traditions" : []
     },
     "sFwoKj0TsacsmoWj" : {
         "action_cost" : "3",
@@ -15977,7 +18918,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ombre"
-        ]
+        ],
+        "traditions" : []
     },
     "0qaqksrGGDj74HXE" : {
         "action_cost" : "2",
@@ -15992,6 +18934,12 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "DyiD239dNS7RIxZE" : {
@@ -16010,6 +18958,10 @@ SPELLS.CONST = {
             "Saint",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "8XuNn0h0rHE24m3B" : {
@@ -16029,7 +18981,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "VDWIZuLOJqwBthHc" : {
         "action_cost" : "2",
@@ -16046,6 +18999,11 @@ SPELLS.CONST = {
             "Evil",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "SdXFiQ4Py8761sNO" : {
@@ -16064,7 +19022,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "PRrZ7anETWPm90YY" : {
         "action_cost" : null,
@@ -16079,6 +19038,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "kUSShxXzY1sPtJA0" : {
@@ -16094,6 +19057,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "rMGkk23qWvxTmgA8" : {
@@ -16109,6 +19076,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "bSDTWUIvgXkBaEv8" : {
@@ -16126,7 +19097,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "JIphJbkWHndtFk72" : {
         "action_cost" : "1",
@@ -16142,7 +19114,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "V4jrHiaMh4XuANOP" : {
         "action_cost" : "2",
@@ -16161,7 +19134,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "A7w3YQBrFNH8KYsB" : {
         "action_cost" : "2",
@@ -16176,6 +19150,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "VuPDHoVEPLbMfCJC" : {
@@ -16192,6 +19170,11 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "hvV6IruyW4MAr0Ub" : {
@@ -16208,6 +19191,10 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "S7ylpCJyq0CYkux9" : {
@@ -16226,6 +19213,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Infortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "CGB3a9gJU5S8gjKk" : {
@@ -16242,7 +19233,8 @@ SPELLS.CONST = {
             "Malédiction",
             "Infortune",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "93SjFTGJUTTmAt6j" : {
         "action_cost" : "2",
@@ -16257,6 +19249,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Infortune"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "1VOjUKd1pacI67RZ" : {
@@ -16274,6 +19270,9 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Infortune"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "nQS4vPm5zprqkzFZ" : {
@@ -16295,7 +19294,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Vide",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "AdZ2rWJStZ5unxzq" : {
         "action_cost" : "2",
@@ -16311,6 +19311,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "z2mfh3oPnfYqXflY" : {
@@ -16326,6 +19329,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "KSAEhNfZyXMO7Z7V" : {
@@ -16343,6 +19351,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Infortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "9uSBfK8EUVBrcNYx" : {
@@ -16357,6 +19370,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Malédiction"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "dARE6VfJ3Uoq5M53" : {
@@ -16375,6 +19392,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Infortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "BokwLLK7OjK6ggHs" : {
@@ -16392,6 +19413,10 @@ SPELLS.CONST = {
             "Malédiction",
             "Champignon",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "VXUrO8TwRqBpNzdU" : {
@@ -16407,6 +19432,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "APDrC83QljsyHenB" : {
@@ -16425,6 +19455,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Infortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "B3eLlbaPxOYHcs1o" : {
@@ -16441,6 +19475,11 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "6P2fzrYkaiiptxlY" : {
@@ -16455,7 +19494,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "X8PSYw6WC2ePYSXd" : {
         "action_cost" : "1",
@@ -16473,7 +19513,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "kvm68hVtmADiIvN4" : {
         "action_cost" : "1",
@@ -16490,7 +19531,8 @@ SPELLS.CONST = {
             "Malédiction",
             "Focalisation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "CmZCq4htcZ6W0TKk" : {
         "action_cost" : "2",
@@ -16507,6 +19549,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "rfFZKfeCSweFv7P3" : {
@@ -16526,6 +19573,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "N9KjnGyVMKgqKcCw" : {
@@ -16541,6 +19593,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "FWuLUKIbkJZjBiuA" : {
@@ -16556,6 +19613,11 @@ SPELLS.CONST = {
             "Tour de magie",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "X3fWP6YCSzcdtg93" : {
@@ -16571,6 +19633,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "AuIiqc7jjiy1GZ75" : {
@@ -16585,6 +19652,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "O1ZLfeOJpHbG9G6B" : {
@@ -16601,6 +19674,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "IqBfoUaWDennHYoZ" : {
@@ -16619,7 +19696,8 @@ SPELLS.CONST = {
             "Concentration",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "pwzdSlJgYqN7bs2w" : {
         "action_cost" : "2",
@@ -16634,6 +19712,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "mrDi3v933gsmnw25" : {
@@ -16650,6 +19732,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "KPDHmmjJiw7PhTYF" : {
@@ -16665,6 +19751,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Structure"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3x6eUCm17n6ROzUa" : {
@@ -16680,6 +19770,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "SE0fbgBj7atuukdv" : {
@@ -16699,7 +19792,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ombre"
-        ]
+        ],
+        "traditions" : []
     },
     "vF52ktg0wUIAlf57" : {
         "action_cost" : "2",
@@ -16714,6 +19808,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "UcS6Tw9OuOAEDfzg" : {
@@ -16730,6 +19827,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CcXtbTxtdV9MKQfu" : {
@@ -16746,6 +19847,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "3526YUgCvB5ZsKuX" : {
@@ -16763,6 +19868,10 @@ SPELLS.CONST = {
             "Transformation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "j2kfNBFpLa0JjVr8" : {
@@ -16779,6 +19888,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "28kgh0JzBO6pt38C" : {
@@ -16793,6 +19906,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "iQD8OhhkwhvD8Blw" : {
@@ -16811,7 +19928,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Olfactif",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "b5sGjGlBf58f8jn0" : {
         "action_cost" : "2",
@@ -16826,6 +19944,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "pLEhF3f7KRxFo0vp" : {
@@ -16843,6 +19965,10 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "OuZY7VYeylub5K7l" : {
@@ -16859,6 +19985,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "ik0bjmAJse9PSECL" : {
@@ -16875,6 +20006,11 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "Seaah9amXg70RKw2" : {
@@ -16890,6 +20026,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "3SJEBgXHolrSAFqD" : {
@@ -16904,6 +20045,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "eCwsj7wGQK1uBwiH" : {
@@ -16921,7 +20068,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Magus",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "TYydobaLN4U7Ol3M" : {
         "action_cost" : null,
@@ -16934,7 +20082,8 @@ SPELLS.CONST = {
         "text" : "Marque affranchie",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "9WlTR9JlEcjRmGiD" : {
         "action_cost" : "1",
@@ -16951,7 +20100,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "6gEKZaGdH842RF3J" : {
         "action_cost" : "2",
@@ -16968,6 +20118,11 @@ SPELLS.CONST = {
             "Détection",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "LFcGNGLMkGlsnEKQ" : {
@@ -16983,6 +20138,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Oy6qBhzayCnqOiEO" : {
@@ -16998,6 +20157,11 @@ SPELLS.CONST = {
             "Rare",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "LegaamqrflbArbWN" : {
@@ -17015,7 +20179,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Sanctifié"
-        ]
+        ],
+        "traditions" : []
     },
     "Y8cSjhU33oUqccxJ" : {
         "action_cost" : "2",
@@ -17030,6 +20195,9 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "YQWq1DZuLRk32M3h" : {
@@ -17048,7 +20216,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ombre"
-        ]
+        ],
+        "traditions" : []
     },
     "3mINzPzup2m9qzFU" : {
         "action_cost" : "2",
@@ -17068,7 +20237,8 @@ SPELLS.CONST = {
             "Mental",
             "Ensorceleur",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "O6VQC1Bs4aSYDa6R" : {
         "action_cost" : "2",
@@ -17087,6 +20257,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "10VcmSYNBrvBphu1" : {
@@ -17103,6 +20278,11 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "iohRnd4gUCmJlh54" : {
@@ -17119,6 +20299,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "f45JpY7Ph2cAJGW2" : {
@@ -17137,7 +20321,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "6ZIKB0151LUR19Rw" : {
         "action_cost" : "2",
@@ -17153,6 +20338,9 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Infortune"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "eob29LrDMH2IoeAj" : {
@@ -17170,7 +20358,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "mUz3wqbMQ5JQ06M5" : {
         "action_cost" : "2",
@@ -17186,6 +20375,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "3DY4vbXj0BYSWA7z" : {
@@ -17204,6 +20396,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "i8PBZsnoCrK7IWph" : {
@@ -17221,7 +20417,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "LJHrndGJRmLdxgXD" : {
         "action_cost" : "2",
@@ -17238,6 +20435,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zu40ATlcCjtfWBnj" : {
@@ -17254,6 +20455,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "RztmhJrLLQWoGVdB" : {
@@ -17271,7 +20477,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ddqmGnShyoRBKFkZ" : {
         "action_cost" : null,
@@ -17287,6 +20494,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "hp6Q64dl7xbdn4gQ" : {
@@ -17300,7 +20511,8 @@ SPELLS.CONST = {
         "text" : "Mémoires collectives",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "vLzFcIaSXs7YTIqJ" : {
         "action_cost" : "1",
@@ -17319,6 +20531,11 @@ SPELLS.CONST = {
             "Linguistique",
             "Mental",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "eIQ86FOXK34HiNLs" : {
@@ -17334,6 +20551,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "yM3KTTSAIHhyuP14" : {
@@ -17349,6 +20570,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "joEruBVz31Uxczzq" : {
@@ -17362,7 +20588,8 @@ SPELLS.CONST = {
         "text" : "Messager angélique",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "yhz9fF69uwRhnHix" : {
         "action_cost" : null,
@@ -17377,6 +20604,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "v4KzRPol5XQOOmk0" : {
@@ -17392,6 +20622,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "yD819yTgbBFcCh5M" : {
@@ -17407,6 +20641,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "pswdik31kuHEvdno" : {
@@ -17422,6 +20659,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "dN8QBNuTiaBHCKUe" : {
@@ -17439,6 +20680,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "3A3ueS9Q0s3U8KXE" : {
@@ -17455,6 +20701,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "APTMURAW1N0Wpk4w" : {
@@ -17472,7 +20721,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métal"
-        ]
+        ],
+        "traditions" : []
     },
     "bVtkBJvGLP69qVGI" : {
         "action_cost" : "2",
@@ -17486,6 +20736,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "6nTBr5XNuKOuPM5m" : {
@@ -17504,7 +20757,8 @@ SPELLS.CONST = {
             "Maladie",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "PGVhjDbzC4lf6aXF" : {
         "action_cost" : null,
@@ -17518,6 +20772,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "U0hL0LLaprcnAyzC" : {
@@ -17533,6 +20793,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "fWU7Qjp1JiX9g6eg" : {
@@ -17548,6 +20811,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "YfJTXyVGzLhM6V8U" : {
@@ -17562,6 +20828,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "HBJPsonQnWcC3qdX" : {
@@ -17578,6 +20847,11 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "wdA52JJnsuQWeyqz" : {
@@ -17592,6 +20866,9 @@ SPELLS.CONST = {
         "traits" : [
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "dLdRqT6UxTKlsPgp" : {
@@ -17607,6 +20884,10 @@ SPELLS.CONST = {
             "Concentration",
             "Mort",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "B8aCUMCHCIMUCEVK" : {
@@ -17624,7 +20905,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "MkHshwYy2UOeEHRR" : {
         "action_cost" : null,
@@ -17638,7 +20920,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Attaque"
-        ]
+        ],
+        "traditions" : []
     },
     "P7AToTm0ulueRk63" : {
         "action_cost" : "1",
@@ -17655,6 +20938,10 @@ SPELLS.CONST = {
             "Concentration",
             "Linguistique",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "NjK0kWRC6FYsPwXC" : {
@@ -17671,7 +20958,8 @@ SPELLS.CONST = {
             "Malédiction",
             "Mythique",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "pCvJ4yoZJxDtgUMI" : {
         "action_cost" : "2",
@@ -17689,7 +20977,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "bODHqeXoEc8GVU6a" : {
         "action_cost" : null,
@@ -17704,7 +20993,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Ténèbres",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "ThE5zPYKF4weiljj" : {
         "action_cost" : null,
@@ -17719,6 +21009,10 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "WPKJOhEihhcIm2uQ" : {
@@ -17733,6 +21027,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "DYdvMZ8G2LiSLVWw" : {
@@ -17748,6 +21048,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "IxhGEKl63R4QBvkj" : {
@@ -17764,6 +21068,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "2jB9eyX7YekwoCvA" : {
@@ -17781,7 +21089,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "Yk3t4ekEiFIoEz9c" : {
         "action_cost" : "1",
@@ -17797,6 +21106,9 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "7PJSqUeKxTqOVrPk" : {
@@ -17813,6 +21125,9 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "m3lcOFm400lQCUps" : {
@@ -17830,6 +21145,9 @@ SPELLS.CONST = {
             "Concentration",
             "Mort",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "BazbvgNmK46XjrVc" : {
@@ -17845,6 +21163,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Fortune"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "RQjSQVZRG497cJhX" : {
@@ -17862,6 +21184,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Subtil",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "yafsV0ni7rFgqJBj" : {
@@ -17880,6 +21206,9 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "7uL4XhHpxZpgNJPh" : {
@@ -17898,6 +21227,11 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "aqRYNoSvxsVfqglH" : {
@@ -17912,6 +21246,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "X3dYByf3YmkcdwG0" : {
@@ -17926,6 +21265,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "X56VdA98VedAfGTU" : {
@@ -17942,6 +21285,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "NjN6md0KpdelWpu7" : {
@@ -17956,7 +21303,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Maladie"
-        ]
+        ],
+        "traditions" : []
     },
     "LNOwaJAkCfsgTKgV" : {
         "action_cost" : "3",
@@ -17971,6 +21319,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "forsqeofEszBNtLq" : {
@@ -17985,6 +21337,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "KsWhliKfUs3IpW3c" : {
@@ -18001,6 +21357,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "DeF63UTmr7rchF60" : {
@@ -18016,6 +21376,10 @@ SPELLS.CONST = {
             "Concentration",
             "Ténèbres",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "XQSPJHOf3TyfqvgS" : {
@@ -18031,6 +21395,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ZLLY6ThJXCCrO0rL" : {
@@ -18045,6 +21415,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "IarZrgCeaiUqOuRu" : {
@@ -18060,6 +21435,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "7Iela4GgVeO3LfAo" : {
@@ -18075,6 +21454,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "R5FHRv7VqyRnxg2t" : {
@@ -18091,6 +21474,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CB5TlGv5ZghtMifi" : {
@@ -18106,6 +21493,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "eONVFSbBiqaDLGey" : {
@@ -18121,6 +21512,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "kOa055FIrO9Smnya" : {
@@ -18136,6 +21531,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "it4ZsAi6XgvGcodc" : {
@@ -18151,6 +21550,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ZJOQBqkNErZu1QAa" : {
@@ -18168,6 +21571,10 @@ SPELLS.CONST = {
             "Saint",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "iL6TujgTCtRRa0Y0" : {
@@ -18183,6 +21590,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HWrNMQENi9WSGbnF" : {
@@ -18200,6 +21611,10 @@ SPELLS.CONST = {
             "Feu",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4EmLum6EdvXxbxCj" : {
@@ -18218,7 +21633,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Son",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "qhJfRnkCRrMI4G1O" : {
         "action_cost" : "1",
@@ -18236,7 +21652,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mental",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "t1e3U2eluRsp2izf" : {
         "action_cost" : "1",
@@ -18254,7 +21671,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Infortune",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "i06YFOtfGfpUvcD7" : {
         "action_cost" : null,
@@ -18273,7 +21691,8 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "FwW2asotQE8dH1WP" : {
         "action_cost" : "2",
@@ -18289,6 +21708,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "32NpJbPblay77K6v" : {
@@ -18305,7 +21728,8 @@ SPELLS.CONST = {
             "Audible",
             "Linguistique",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "bOf5WuLh6ZJloi7F" : {
         "action_cost" : null,
@@ -18318,7 +21742,8 @@ SPELLS.CONST = {
         "text" : "Murs recouverts d'huile",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "lrFKkzgz80B5vTBb" : {
         "action_cost" : "2",
@@ -18333,6 +21758,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "BWvGBx51RevizICD" : {
@@ -18347,6 +21776,11 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "6lO6uMQxbqmYho0e" : {
@@ -18362,6 +21796,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "YNAthsgsJjQIXbc8" : {
@@ -18382,7 +21821,8 @@ SPELLS.CONST = {
             "Linguistique",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "xFp4EwVcYwSG336t" : {
         "action_cost" : "3",
@@ -18397,6 +21837,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "GabRQPc9qD86jDGI" : {
@@ -18413,6 +21857,10 @@ SPELLS.CONST = {
             "Concentration",
             "Saint",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "23cv1p49NFd0Onng" : {
@@ -18429,6 +21877,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CI7F5qdwp6YngyFt" : {
@@ -18442,6 +21894,10 @@ SPELLS.CONST = {
         "text" : "Nuage de confettis",
         "traits" : [
             "Peu courant"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "kJKSLfCgqxmN2FY8" : {
@@ -18458,6 +21914,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "yy2K51kK3a60rRIe" : {
@@ -18473,6 +21933,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "GKpEcy9WId6NJvtx" : {
@@ -18488,6 +21952,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "MlpbeZ61Euhl0d60" : {
@@ -18504,6 +21972,10 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "bVvGpSOg2WaTUItS" : {
@@ -18519,6 +21991,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "LVwmAH5NGvTuuQSU" : {
@@ -18535,6 +22011,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "fRqHDOWmgcUTeT03" : {
@@ -18551,6 +22031,11 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "rDDYGY2ekZ1yVv7q" : {
@@ -18566,6 +22051,11 @@ SPELLS.CONST = {
             "Concentration",
             "Contingence",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "SnBc7Gl5VormWzS1" : {
@@ -18580,7 +22070,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "yp4w9SG4RuqRM8KD" : {
         "action_cost" : "1",
@@ -18597,7 +22088,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "2oH5IufzdESuYxat" : {
         "action_cost" : "2",
@@ -18613,6 +22105,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "nX85Brzax9f650aK" : {
@@ -18628,6 +22124,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HMTloW1hvRFJ5Z2D" : {
@@ -18646,7 +22146,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "y2cQYLr5mljDSu1G" : {
         "action_cost" : "2",
@@ -18661,6 +22162,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "h7h0wMxu4WOpveQ3" : {
@@ -18677,6 +22182,12 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "oCdcZ8EqoC1K0Drq" : {
@@ -18695,6 +22206,10 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "tSosbMsftXcRaQgT" : {
@@ -18709,6 +22224,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "K2bTUhucPyhXlzjw" : {
@@ -18724,6 +22243,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "DgCS456mXKw97vNy" : {
@@ -18741,7 +22264,8 @@ SPELLS.CONST = {
             "Composition",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "SXmEI4kVWVSagK4H" : {
         "action_cost" : "2",
@@ -18759,7 +22283,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "mMyMOxYzMxADdO5M" : {
         "action_cost" : "r",
@@ -18775,7 +22300,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "pfFxj4NI5KwO119I" : {
         "action_cost" : null,
@@ -18791,6 +22317,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Ek5XI0aEdZhBgm21" : {
@@ -18806,6 +22336,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "Y9w4TYnb8cXU4UKY" : {
@@ -18821,7 +22356,8 @@ SPELLS.CONST = {
             "Rare",
             "Illusion",
             "Ombre"
-        ]
+        ],
+        "traditions" : []
     },
     "rTvNWcKNpOnGklGF" : {
         "action_cost" : "3",
@@ -18837,6 +22373,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "hq57j7Nif1zuQ2Ab" : {
@@ -18858,6 +22397,10 @@ SPELLS.CONST = {
             "Mental",
             "Ombre",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "vhMCd15ZwNJn0zen" : {
@@ -18878,7 +22421,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "Ru9v8U9IRk3LtWx8" : {
         "action_cost" : "2",
@@ -18892,6 +22436,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "dgCH2E0gMLMUgyFl" : {
@@ -18907,6 +22454,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ho1jSoYKrHUNnM90" : {
@@ -18926,7 +22477,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "cf7Jkm39uEjUFtHt" : {
         "action_cost" : "2",
@@ -18942,6 +22494,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "k1apwY0ROoMKlvLt" : {
@@ -18958,6 +22514,12 @@ SPELLS.CONST = {
             "Manipulation",
             "Scrutation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "oUDNCArkQTdhllxD" : {
@@ -18973,6 +22535,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "qO4xOJ0kAvhVGDpX" : {
@@ -18988,6 +22554,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "7idCEYHnPpVNL9vX" : {
@@ -19004,6 +22573,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "0Dcd4iEXqCrkm4Jn" : {
@@ -19019,6 +22593,9 @@ SPELLS.CONST = {
             "Audible",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "ItZgGznUBhgWBwFG" : {
@@ -19036,6 +22613,11 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "V4IpjSlefultlOuY" : {
@@ -19051,6 +22633,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "zR67Rt3UMHKC5evy" : {
@@ -19066,6 +22653,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "BINaRykHRLGn4Qfm" : {
@@ -19082,6 +22673,10 @@ SPELLS.CONST = {
             "Saint",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "sUvTGELaggrBSgGm" : {
@@ -19099,6 +22694,10 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "TPI9fRCAYsDqpAe4" : {
@@ -19112,6 +22711,9 @@ SPELLS.CONST = {
         "text" : "Outil temporaire",
         "traits" : [
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "ffz6wlSMzhaDpjg6" : {
@@ -19130,7 +22732,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "PvkEzzCaDT07DcJb" : {
         "action_cost" : null,
@@ -19144,7 +22747,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Consécration"
-        ]
+        ],
+        "traditions" : []
     },
     "u3G7KX1qpFJlSeWm" : {
         "action_cost" : null,
@@ -19157,7 +22761,8 @@ SPELLS.CONST = {
         "text" : "Pacte avec un owb",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "tsKnoBuBbKMXkiz5" : {
         "action_cost" : null,
@@ -19171,7 +22776,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Impie"
-        ]
+        ],
+        "traditions" : []
     },
     "Vpohy4XH1DaH95hT" : {
         "action_cost" : null,
@@ -19184,7 +22790,8 @@ SPELLS.CONST = {
         "text" : "Pacte daémoniaque",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "30BBep9U4BDV0EgQ" : {
         "action_cost" : null,
@@ -19198,7 +22805,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Impie"
-        ]
+        ],
+        "traditions" : []
     },
     "D8cWhrzcsd43OlIX" : {
         "action_cost" : null,
@@ -19211,7 +22819,8 @@ SPELLS.CONST = {
         "text" : "Pacte du div",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "vvbS69EHZuUTq0dr" : {
         "action_cost" : null,
@@ -19227,6 +22836,11 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "VVAZPCvd4d90qVA1" : {
@@ -19243,6 +22857,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "vPWMEyVTreMOoFnm" : {
@@ -19259,6 +22877,10 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "19V9aVrn8OAHsn4Q" : {
@@ -19275,6 +22897,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Non-létal"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "DCQHaLrYXMI37dvW" : {
@@ -19291,6 +22917,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Mkbq9xlAUxHUHyR2" : {
@@ -19307,6 +22937,9 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "NeyyAPwa639WjYGG" : {
@@ -19321,7 +22954,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Linguistique"
-        ]
+        ],
+        "traditions" : []
     },
     "YGRpHU5yxw73mls8" : {
         "action_cost" : "1",
@@ -19339,7 +22973,8 @@ SPELLS.CONST = {
             "Émotion",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "JyxTmqjYYn63V5LY" : {
         "action_cost" : "2",
@@ -19354,6 +22989,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "GdN5YQE47gd79k7X" : {
@@ -19371,7 +23009,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "d7Lwx6KAs47MtF0q" : {
         "action_cost" : "2",
@@ -19385,6 +23024,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "TRlI5zAbNW2hDiH9" : {
@@ -19402,7 +23044,8 @@ SPELLS.CONST = {
             "Concentration",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "cJq5NarY0eOZN74A" : {
         "action_cost" : "r",
@@ -19419,7 +23062,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "xCfOskoogDf9LBlD" : {
         "action_cost" : "2",
@@ -19436,7 +23080,8 @@ SPELLS.CONST = {
             "Druide",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "2tHYKoVc5YhSewDO" : {
         "action_cost" : "2",
@@ -19452,6 +23097,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Métal",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "sX2g6WFSQPNW9jzx" : {
@@ -19467,6 +23116,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zjG6NncHyAKqSF7m" : {
@@ -19484,7 +23137,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Téléportation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "aEM2cttJ2eYcLssW" : {
         "action_cost" : "2",
@@ -19498,6 +23152,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "EeEgzWYcAY7ZQkS6" : {
@@ -19513,6 +23171,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "LbqunTurwXB3u9Vp" : {
@@ -19529,7 +23191,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "115Xp9E38CJENhNS" : {
         "action_cost" : "2",
@@ -19545,6 +23208,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "nnYxDWU3Vzg9WenB" : {
@@ -19562,6 +23229,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "IFuEzfmmWyNwVbhY" : {
@@ -19576,6 +23247,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "mS3p6BR3LcG1WmHs" : {
@@ -19591,6 +23267,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Pp88ueeq4AlkaL6g" : {
@@ -19605,7 +23285,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Illusion"
-        ]
+        ],
+        "traditions" : []
     },
     "KAWQ5x2j4tUJ91ry" : {
         "action_cost" : "2",
@@ -19620,6 +23301,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "BA143r8fCqmSjdRf" : {
@@ -19636,6 +23322,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "3TuGuGZqyOBmWp7N" : {
@@ -19650,6 +23339,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "u2uSeH6YSbK1ajTy" : {
@@ -19666,7 +23359,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "7Fd4lxozd11MQ55N" : {
         "action_cost" : null,
@@ -19679,7 +23373,8 @@ SPELLS.CONST = {
         "text" : "Pénitence",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "lpoWfblSMLcJfxsZ" : {
         "action_cost" : "2",
@@ -19697,7 +23392,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "73gohsek77nLGPWC" : {
         "action_cost" : "2",
@@ -19713,6 +23409,12 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "5wjl0ZwEvvUh7sor" : {
@@ -19730,7 +23432,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "3ehSrqTAm7IPqbIZ" : {
         "action_cost" : "2",
@@ -19746,6 +23449,10 @@ SPELLS.CONST = {
             "Détection",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "EAYViUegegttJF1u" : {
@@ -19761,6 +23468,11 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "BvNbDwFYaidKJG9j" : {
@@ -19775,6 +23487,10 @@ SPELLS.CONST = {
         "traits" : [
             "Tour de magie",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "wfqBbQ2RXj4VjKUZ" : {
@@ -19790,6 +23506,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Révélation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "QlivnxstGjlzaluf" : {
@@ -19807,6 +23527,11 @@ SPELLS.CONST = {
             "Fortune",
             "Mythique",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "kExRMPVI07iIFCaa" : {
@@ -19821,7 +23546,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Épreuve"
-        ]
+        ],
+        "traditions" : []
     },
     "2jWVNdVlbJq84dfT" : {
         "action_cost" : "r",
@@ -19837,7 +23563,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "LrRyNA2bo5UwBxud" : {
         "action_cost" : "1",
@@ -19855,6 +23582,11 @@ SPELLS.CONST = {
             "Émotion",
             "Terreur",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "vJuaxTd6q11OjGqA" : {
@@ -19872,6 +23604,10 @@ SPELLS.CONST = {
             "Maladie",
             "Evil",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "kWDt0JcKPgX6MvdD" : {
@@ -19888,6 +23624,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "znv4ECL7ZtuiagtA" : {
@@ -19903,6 +23643,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ru3YdXajUREbKQDV" : {
@@ -19919,6 +23663,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "2SYq0ZTsOtJEigFx" : {
@@ -19935,7 +23683,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "MLNeD5sAunV0E23j" : {
         "action_cost" : "3",
@@ -19949,6 +23698,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "4cEDhvchskRvxSw6" : {
@@ -19966,6 +23718,11 @@ SPELLS.CONST = {
             "Concentration",
             "Good",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "nKR6Xt5cPGDumX66" : {
@@ -19983,6 +23740,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "hYK4ByCVN1ALc5gR" : {
@@ -20001,6 +23764,12 @@ SPELLS.CONST = {
             "Manipulation",
             "Mythique",
             "Spirituel"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal",
+            "occult"
         ]
     },
     "Z2oSFY2fT8zLkK4P" : {
@@ -20017,6 +23786,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "cOjlzWerBwbPWVkX" : {
@@ -20033,7 +23807,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "RvBlSIJmxiqfCpR9" : {
         "action_cost" : "2",
@@ -20048,6 +23823,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "5JGSo1tgDEehqbWm" : {
@@ -20063,6 +23842,9 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "dDt8VFuLuhznT19v" : {
@@ -20081,7 +23863,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Rôdeur",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "xKHq2Eisapixvj6q" : {
         "action_cost" : null,
@@ -20096,7 +23879,8 @@ SPELLS.CONST = {
             "Rare",
             "Consécration",
             "Saint"
-        ]
+        ],
+        "traditions" : []
     },
     "Pr1ruNTbzGn3H9w5" : {
         "action_cost" : "2",
@@ -20111,6 +23895,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "9u6X9ykhzG11NK1n" : {
@@ -20126,6 +23914,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "UVLiBXLLAoWhUU4R" : {
@@ -20141,6 +23933,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "eIPIZp2FUbFcLNdj" : {
@@ -20156,6 +23953,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "R5r4vtmlvOA8hDiF" : {
@@ -20172,6 +23973,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "9DtuMEyHhtHFRp5a" : {
@@ -20188,7 +23993,8 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "qr0HOiiuqj5LKlDt" : {
         "action_cost" : "3",
@@ -20204,6 +24010,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "oXeEbcUdgJGWHGEJ" : {
@@ -20219,6 +24029,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "jyYBuGRfpkZz2kxs" : {
@@ -20236,7 +24050,8 @@ SPELLS.CONST = {
             "Concentration",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "QVMjPfXlpnmeuWKS" : {
         "action_cost" : "2",
@@ -20252,6 +24067,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ZMY58Yk5hnyfeE3q" : {
@@ -20269,6 +24088,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "BItahht2hEHvR9Bt" : {
@@ -20286,7 +24109,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "QpjHqxwTGdILLvjD" : {
         "action_cost" : "2",
@@ -20303,7 +24127,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "BQMEaeJiEFC1nepg" : {
         "action_cost" : "2",
@@ -20319,6 +24144,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "NkeLctXo9FLGnDhi" : {
@@ -20337,7 +24166,8 @@ SPELLS.CONST = {
             "Maladie",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "FEsuyf203wTNE2et" : {
         "action_cost" : "2",
@@ -20354,6 +24184,10 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "7dBxguCNWCoPYxIi" : {
@@ -20369,6 +24203,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "I7oklLZy4aTHIdc3" : {
@@ -20387,6 +24226,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "1xM9muPRa8hiyJtI" : {
@@ -20403,6 +24246,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Téléportation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "KEkPxx7Sm6Xf4W3s" : {
@@ -20419,6 +24266,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "nUSi2B7RhIKjaiXQ" : {
@@ -20437,7 +24288,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "9AZEObUdLI2fwmPl" : {
         "action_cost" : "3",
@@ -20453,6 +24305,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "2wT21v3NjLXdmE5W" : {
@@ -20471,6 +24327,12 @@ SPELLS.CONST = {
             "Manipulation",
             "Mythique",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "0Rl3W7kiq9xVZRcr" : {
@@ -20485,6 +24347,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Llx0xKvtu8S4z6TI" : {
@@ -20499,6 +24365,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "9h9YCncqah6VNsKf" : {
@@ -20514,6 +24385,10 @@ SPELLS.CONST = {
             "Acide",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "7tp97g0UCJ9wOrd5" : {
@@ -20533,7 +24408,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "Tl1QAqre7H0sQEXt" : {
         "action_cost" : "2",
@@ -20549,6 +24425,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "rwWtpZpkNYvypknx" : {
@@ -20565,6 +24445,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0fYE64odlKqISzft" : {
@@ -20579,6 +24463,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "IHjiWCouSacC5b3g" : {
@@ -20595,6 +24482,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Transformation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "98gJvb8Xtn8OLIY7" : {
@@ -20611,6 +24502,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3xD8DYrr8YDVYGg7" : {
@@ -20626,6 +24521,9 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "PtX16vbWzDehj8qc" : {
@@ -20640,6 +24538,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "VUUWjeapcyLZabVA" : {
@@ -20657,6 +24559,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "In2A7GCyxxaqZdPI" : {
@@ -20675,7 +24581,8 @@ SPELLS.CONST = {
             "Lumière",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "Yv3AFIO55FONQYMH" : {
         "action_cost" : "2",
@@ -20691,6 +24598,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "U13bC0tNgrlHoeTK" : {
@@ -20707,6 +24617,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "ER1LOEgCLtmEKd05" : {
@@ -20721,6 +24636,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "8MAHUK6jphbME4BR" : {
@@ -20735,7 +24654,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Illusion"
-        ]
+        ],
+        "traditions" : []
     },
     "LvezN4a3kYf1OHMg" : {
         "action_cost" : "2",
@@ -20750,6 +24670,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "iMmexY6ZosLS4I5R" : {
@@ -20767,7 +24691,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "W02bHXylIpoXbO4e" : {
         "action_cost" : "2",
@@ -20784,6 +24709,11 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "rthC6dGm3nNrt1xN" : {
@@ -20798,6 +24728,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Z60JRD78wT3afOEJ" : {
@@ -20812,7 +24746,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Malédiction"
-        ]
+        ],
+        "traditions" : []
     },
     "CuRat8IXBUu9C3Yw" : {
         "action_cost" : null,
@@ -20828,6 +24763,9 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "wU6hNzK8Yfqdmc8m" : {
@@ -20846,6 +24784,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Possession"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "uJXs4M6IeixfPBLc" : {
@@ -20864,7 +24805,8 @@ SPELLS.CONST = {
             "Moine",
             "Ombre",
             "Posture"
-        ]
+        ],
+        "traditions" : []
     },
     "SkarN4VlNxSJSJNw" : {
         "action_cost" : "1",
@@ -20882,7 +24824,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Moine",
             "Posture"
-        ]
+        ],
+        "traditions" : []
     },
     "y0Vy7iNL3ET8K00C" : {
         "action_cost" : null,
@@ -20897,6 +24840,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "bZMwSGc9t5K7uxZV" : {
@@ -20916,7 +24862,8 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "ET2BYfeNaHqfZIWs" : {
         "action_cost" : null,
@@ -20931,6 +24878,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ivKnEtI1z4UqEKIA" : {
@@ -20949,7 +24900,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Scrutation"
-        ]
+        ],
+        "traditions" : []
     },
     "aq1yonHeYpbaj3XI" : {
         "action_cost" : "f",
@@ -20965,7 +24917,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "mtxMpGWpwwWSbySj" : {
         "action_cost" : "3",
@@ -20982,7 +24935,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "cCFDnmFB1EGeQUeA" : {
         "action_cost" : "1",
@@ -20999,7 +24953,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "KMFRKzNCq7hVNH7H" : {
         "action_cost" : "1",
@@ -21017,7 +24972,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Mental",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "jfVCuOpzC6mUrf6f" : {
         "action_cost" : "2",
@@ -21033,6 +24989,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "OJ91rm1FkJSlf3nk" : {
@@ -21050,6 +25010,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "wjJW9hWY5CkkMvY5" : {
@@ -21069,7 +25033,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "IkS3lDGUpIOMug7v" : {
         "action_cost" : "1",
@@ -21087,7 +25052,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "cwXiKPkZrIupjwlQ" : {
         "action_cost" : null,
@@ -21102,6 +25068,12 @@ SPELLS.CONST = {
             "Concentration",
             "Contingence",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "9W2Qv0wXLg6tQg3y" : {
@@ -21115,6 +25087,11 @@ SPELLS.CONST = {
         "text" : "Précaution scintillante",
         "traits" : [
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ovx7O2FHvkjXhMcA" : {
@@ -21132,6 +25109,10 @@ SPELLS.CONST = {
             "Fortune",
             "Manipulation",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "v14zLiiSc4sl9RrK" : {
@@ -21150,7 +25131,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "f0Z5mqGA6Yu79B8x" : {
         "action_cost" : "1",
@@ -21169,7 +25151,8 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "qsNeG9KZpODSACMq" : {
         "action_cost" : "2",
@@ -21185,6 +25168,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Prédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "WUNZizIe6rnVHGcr" : {
@@ -21201,6 +25189,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "bfdiKEZQLVvslcDi" : {
@@ -21219,6 +25211,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "fkDeKktdmbeplYRY" : {
@@ -21237,6 +25233,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "Qw3fnUlaUbnn7ipC" : {
@@ -21252,6 +25252,12 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "AYN0UihkU8Fa8yC6" : {
@@ -21268,7 +25274,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "s4HTepjhQWV1yfBs" : {
         "action_cost" : "1",
@@ -21284,7 +25291,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "QGfVFyQhoalZbE9s" : {
         "action_cost" : null,
@@ -21298,7 +25306,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "z0ffligcrkVtKZd6" : {
         "action_cost" : "2",
@@ -21315,7 +25324,8 @@ SPELLS.CONST = {
             "Druide",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Pwq6T7xpfAJXV5aj" : {
         "action_cost" : "3",
@@ -21333,6 +25343,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "WRRbNyGam4ytTRgr" : {
@@ -21348,7 +25362,8 @@ SPELLS.CONST = {
             "Rare",
             "Mythique",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "0EzLXIpPPH0LOKqt" : {
         "action_cost" : "3",
@@ -21364,6 +25379,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Vide",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8cuqRFB3mWBOgy61" : {
@@ -21380,6 +25399,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "0JUOgbbFCapp3HlW" : {
@@ -21397,7 +25420,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "60sgbuMWN0268dB7" : {
         "action_cost" : "2",
@@ -21413,6 +25437,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "4Cntq9odgW6xMpAs" : {
@@ -21426,7 +25454,8 @@ SPELLS.CONST = {
         "text" : "Projection astrale",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "zA0jNIBRgLsyTpbm" : {
         "action_cost" : "2",
@@ -21442,6 +25471,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0873MWM0qKDDv81O" : {
@@ -21458,6 +25491,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "IKb9EOfsrhScO3GO" : {
@@ -21475,6 +25512,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "gMODOGamz88rgHuf" : {
@@ -21489,6 +25530,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "YvXKGlHOt7mdW2jZ" : {
@@ -21503,6 +25548,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "bgX4Zfhavahu8lyN" : {
@@ -21518,6 +25568,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "nxnGKgcVii5KTwtM" : {
@@ -21532,7 +25586,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "Er9XNUlL0wB0PM36" : {
         "action_cost" : null,
@@ -21545,7 +25600,8 @@ SPELLS.CONST = {
         "text" : "Protection de domaine",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "FPnkOYyWIaOzkmqn" : {
         "action_cost" : "1",
@@ -21560,7 +25616,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "VrhCpCIQB8PFax77" : {
         "action_cost" : "1",
@@ -21576,7 +25633,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "lJdAvY1sJyEmNDc6" : {
         "action_cost" : "2",
@@ -21591,6 +25649,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "dFejDNEmVj3CwYLL" : {
@@ -21608,7 +25670,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "kLxJx7BECVgHh2vb" : {
         "action_cost" : "3",
@@ -21623,6 +25686,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "AfOpnnwdZwHi2Tnc" : {
@@ -21637,6 +25705,12 @@ SPELLS.CONST = {
         "traits" : [
             "Tour de magie",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "otdzpPYzWMJt76Rh" : {
@@ -21651,7 +25725,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Épreuve"
-        ]
+        ],
+        "traditions" : []
     },
     "eG1fBodYwolaXK98" : {
         "action_cost" : "r",
@@ -21667,7 +25742,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "06pzGkKTyPE3tHR8" : {
         "action_cost" : "2",
@@ -21681,6 +25757,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "CzjQtkRuRlzRvwzg" : {
@@ -21697,6 +25777,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "N91EI7H1p7YXKX0o" : {
@@ -21714,7 +25798,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "TLqMFgCewxuricJw" : {
         "action_cost" : "2",
@@ -21729,6 +25814,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "BilnTGuXrof9Dt9D" : {
@@ -21745,6 +25834,9 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "CBPcGH1FFDG9vf4Z" : {
@@ -21763,7 +25855,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Poison"
-        ]
+        ],
+        "traditions" : []
     },
     "ElpqHitq4FqwLURV" : {
         "action_cost" : "2",
@@ -21778,6 +25871,11 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "66xBcxqzYcpbItBU" : {
@@ -21791,7 +25889,8 @@ SPELLS.CONST = {
         "text" : "Purifier le chemin de l'âme",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "ZVdKM0HkgpWykrqf" : {
         "action_cost" : null,
@@ -21805,7 +25904,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Consécration"
-        ]
+        ],
+        "traditions" : []
     },
     "59NR1hA2jPSgg2sW" : {
         "action_cost" : "2",
@@ -21819,6 +25919,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "TUbXnR4RAuYzRx1u" : {
@@ -21834,6 +25939,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "FHfrCABOmGVaEpPx" : {
@@ -21850,6 +25959,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "9o5aG5025ZczjkPb" : {
@@ -21866,7 +25979,8 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "VDK5cQ94BszDrMiJ" : {
         "action_cost" : null,
@@ -21881,6 +25995,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "29p7NMY2OTpaINzt" : {
@@ -21896,6 +26014,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "vFkz0gVBUT2gGnm1" : {
@@ -21912,6 +26035,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "TT9owkeMBXJxcERB" : {
@@ -21928,6 +26055,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "nuE9qsY2HfPFEgAo" : {
@@ -21941,7 +26072,8 @@ SPELLS.CONST = {
         "text" : "Râga de la commémoration",
         "traits" : [
             "Unique"
-        ]
+        ],
+        "traditions" : []
     },
     "VTb0yI6P1bLkzuRr" : {
         "action_cost" : "3",
@@ -21957,6 +26089,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "scTRIrTfXquVYHGw" : {
@@ -21974,6 +26110,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Subtil",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "o6YCGx4lycsYpww4" : {
@@ -21988,6 +26129,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "IkGYwHRLhkuoGReG" : {
@@ -22004,6 +26150,9 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "onvFdBWAsQp0CsAy" : {
@@ -22020,6 +26169,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HTou8cG05yuSkesj" : {
@@ -22035,6 +26188,11 @@ SPELLS.CONST = {
             "Concentration",
             "Détection",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "2LsiiZZIZEKD23VQ" : {
@@ -22048,7 +26206,8 @@ SPELLS.CONST = {
         "text" : "rations renforcées",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "8Umt1AzYfFbC4fui" : {
         "action_cost" : "2",
@@ -22064,6 +26223,11 @@ SPELLS.CONST = {
             "Malédiction",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "Hb8GdAhP0zBCv3zU" : {
@@ -22080,6 +26244,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "uToa7ksKAzmEpkKC" : {
@@ -22096,6 +26264,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Non-létal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "mtlyAyf30JnIvxVn" : {
@@ -22114,6 +26286,10 @@ SPELLS.CONST = {
             "Saint",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "nPxYYID5JARKouSV" : {
@@ -22131,6 +26307,10 @@ SPELLS.CONST = {
             "Champignon",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "oJKZi8OQgmVXHOc0" : {
@@ -22150,7 +26330,8 @@ SPELLS.CONST = {
             "Feu",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "gYjPm7YwGtEa1oxh" : {
         "action_cost" : "2",
@@ -22167,6 +26348,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "SuBtUJiU6DbSJYIw" : {
@@ -22187,7 +26372,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Lumière",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "BKIet436snMNcnez" : {
         "action_cost" : "2",
@@ -22203,6 +26389,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "d6o52BnjViNz7Gub" : {
@@ -22218,6 +26408,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "5LGDygjRxURUOKGR" : {
@@ -22236,6 +26430,10 @@ SPELLS.CONST = {
             "Saint",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "iAnpxrLaBU4V6Sej" : {
@@ -22253,7 +26451,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "u3pdkfmy0AWICdoM" : {
         "action_cost" : null,
@@ -22267,7 +26466,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Evil"
-        ]
+        ],
+        "traditions" : []
     },
     "hiVL8qsnTJtpouw0" : {
         "action_cost" : "2",
@@ -22282,6 +26482,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "u4FGIUQgruLjml7J" : {
@@ -22298,7 +26501,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "wYSLTNvmxbe78l2c" : {
         "action_cost" : "2",
@@ -22315,7 +26519,8 @@ SPELLS.CONST = {
             "Good",
             "Guérison",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "0OFFXFdnMmFVlt8W" : {
         "action_cost" : "r",
@@ -22329,6 +26534,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "5OcZ3HBkrRFhSWCz" : {
@@ -22343,6 +26553,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "GzN9bG6cKZ96YC6l" : {
@@ -22361,7 +26575,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "dMKP4fkWx8V2cqAy" : {
         "action_cost" : null,
@@ -22376,6 +26591,12 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "O6BIfXsbiisKfLTe" : {
@@ -22392,6 +26613,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Subtil",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "6RNymgUvS87lmQOj" : {
@@ -22409,7 +26635,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "ggtZTxeyEnDYbt6f" : {
         "action_cost" : "2",
@@ -22424,6 +26651,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "TjrZGl8z2INgf3vi" : {
@@ -22440,6 +26671,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "BAu5AgqoO556clyK" : {
@@ -22459,7 +26694,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "ifXNOhtmU4fKL68v" : {
         "action_cost" : "2",
@@ -22476,7 +26712,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "FhOaQDTSnsY7tiam" : {
         "action_cost" : "2",
@@ -22492,6 +26729,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "SspI4ijjR7N7r4Cc" : {
@@ -22508,6 +26748,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "cuKVbWWNzJj1GDpZ" : {
@@ -22526,7 +26770,8 @@ SPELLS.CONST = {
             "Illusion",
             "Mental",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "xM35hJacTM1BSXUl" : {
         "action_cost" : "1",
@@ -22543,7 +26788,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Composition",
             "Concentration"
-        ]
+        ],
+        "traditions" : []
     },
     "FQZaQXiKtHdVjSc5" : {
         "action_cost" : null,
@@ -22556,7 +26802,8 @@ SPELLS.CONST = {
         "text" : "Régaler les perdus",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "mOUwbIN1SUp8FyPR" : {
         "action_cost" : null,
@@ -22574,7 +26821,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Prédiction"
-        ]
+        ],
+        "traditions" : []
     },
     "8uVMoiYDzhzWJEZ2" : {
         "action_cost" : "1",
@@ -22590,7 +26838,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "2Vkd1IxylPceUAAF" : {
         "action_cost" : "2",
@@ -22606,6 +26855,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "kIwA7kwp5E0AC3yM" : {
@@ -22623,6 +26876,11 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "gIVaSCrLhhBzGHQY" : {
@@ -22636,7 +26894,8 @@ SPELLS.CONST = {
         "text" : "Réincarnation",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "mLAYvbafVKfBgEhz" : {
         "action_cost" : "2",
@@ -22650,6 +26909,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "USKnG2ZSzVs4xn85" : {
@@ -22668,7 +26932,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "MVrxZarUTnJxAUN8" : {
         "action_cost" : "2",
@@ -22682,6 +26947,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "buhP7vfetUxQJlIJ" : {
@@ -22696,6 +26965,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "l194BTf9cAFlSQ96" : {
@@ -22711,6 +26986,11 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "nrW6lGV4xDMqLS3P" : {
@@ -22729,7 +27009,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "BCuHKrDeJ4eq53M6" : {
         "action_cost" : "2",
@@ -22744,6 +27025,11 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "11pQoPJpSH2jp7h6" : {
@@ -22759,6 +27045,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9gMQPCaFM27PEIh4" : {
@@ -22776,7 +27066,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "TYbCj4dgXDOZou9k" : {
         "action_cost" : "1",
@@ -22792,7 +27083,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Conjurateur"
-        ]
+        ],
+        "traditions" : []
     },
     "XnpRRUVAVoY6z88H" : {
         "action_cost" : null,
@@ -22805,7 +27097,8 @@ SPELLS.CONST = {
         "text" : "Renforcer la ligne tellurique",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "QjdvYC1QkpMaemoX" : {
         "action_cost" : "2",
@@ -22820,6 +27113,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "mTpPZIJ2sdgusPP1" : {
@@ -22837,7 +27135,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "tBC1QmB33KWIuBFX" : {
         "action_cost" : "2",
@@ -22854,6 +27153,9 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "OOELvfkTedBMlWtq" : {
@@ -22869,6 +27171,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "dINQzhqGmIsqGMUY" : {
@@ -22883,6 +27188,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "oND3oFBjxrhyVvyG" : {
@@ -22897,7 +27208,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Émotion"
-        ]
+        ],
+        "traditions" : []
     },
     "92JNBuY5pfFmywOd" : {
         "action_cost" : "r",
@@ -22910,6 +27222,10 @@ SPELLS.CONST = {
         "text" : "Réparation désespérée",
         "traits" : [
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "aYn7Xgrz4vIMNeIc" : {
@@ -22923,7 +27239,8 @@ SPELLS.CONST = {
         "text" : "Repas communautaire",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "H4oF5szC7aogqtvw" : {
         "action_cost" : "2",
@@ -22938,6 +27255,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "G56DJkxlUjFv0C4Z" : {
@@ -22951,6 +27272,10 @@ SPELLS.CONST = {
         "text" : "Repère temporel",
         "traits" : [
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "srEKUvym9kDVbEhD" : {
@@ -22967,6 +27292,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "MTNlvZ0A9xY5sOg1" : {
@@ -22980,7 +27309,8 @@ SPELLS.CONST = {
         "text" : "Repos éternel",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "xRgU9rrhmGAgG4Rc" : {
         "action_cost" : "2",
@@ -22994,6 +27324,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "7tR29sQt35NfIWqN" : {
@@ -23009,6 +27345,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "YtBZq49N4Um1cwm7" : {
@@ -23026,6 +27365,9 @@ SPELLS.CONST = {
             "Plante",
             "Poison",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "JkyUu62rLxcNT4K9" : {
@@ -23043,7 +27385,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "xnh2NBOGs4hcH9B3" : {
         "action_cost" : "r",
@@ -23059,6 +27402,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Déplacement"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4nHYSMHito1GUXlm" : {
@@ -23077,7 +27424,8 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "yrZA4k2VAqEP8xx7" : {
         "action_cost" : "2",
@@ -23093,6 +27441,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "pZBovpzdBNLQQQmE" : {
@@ -23111,7 +27464,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métal"
-        ]
+        ],
+        "traditions" : []
     },
     "24U1b9K4Lj94cgaj" : {
         "action_cost" : "2",
@@ -23126,6 +27480,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "YWrfKetOqDwVFut7" : {
@@ -23142,6 +27500,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "2BV2yYPfVJ5zirZt" : {
@@ -23157,6 +27519,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Fr58LDSrbndgld9n" : {
@@ -23171,6 +27537,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "CPNlhDQP3aDmLzB3" : {
@@ -23188,7 +27560,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "MZGkMsPBztFN0pUO" : {
         "action_cost" : null,
@@ -23203,6 +27576,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "fr1AGcQo7WuvLvUi" : {
@@ -23219,7 +27597,8 @@ SPELLS.CONST = {
             "Rêve",
             "Illusion",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "SnaLVgxZ9ryUFmUr" : {
         "action_cost" : null,
@@ -23234,6 +27613,11 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ljo9CEmnCMZXqfOQ" : {
@@ -23250,6 +27634,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "kqhPt9344UkcGVYO" : {
@@ -23264,7 +27652,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Guérison"
-        ]
+        ],
+        "traditions" : []
     },
     "ziHDISWkFSwz3pmn" : {
         "action_cost" : "2",
@@ -23283,7 +27672,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "3wmX7htzOXiHLdAn" : {
         "action_cost" : "r",
@@ -23299,7 +27689,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "v8VnSMzaSYwkq6c7" : {
         "action_cost" : "2",
@@ -23314,6 +27705,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "5tpk4Q2QI3FVhm99" : {
@@ -23328,6 +27724,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "wSK0wtn8iHShYT9y" : {
@@ -23344,6 +27745,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "6sNjsNPipZvQ3BGe" : {
@@ -23360,7 +27765,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Téléportation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "D4Rxud1DBr52Dmdo" : {
         "action_cost" : null,
@@ -23375,7 +27781,8 @@ SPELLS.CONST = {
             "Rare",
             "Mental",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "Az3PmWnlWSb5ELX9" : {
         "action_cost" : "1",
@@ -23392,7 +27799,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Moine",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "kWh8sJH7yawidMyW" : {
         "action_cost" : null,
@@ -23407,6 +27815,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "PjhUmyKnq6K5uDby" : {
@@ -23422,6 +27833,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "rsZ5c0AUyywe5yoK" : {
@@ -23436,6 +27851,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "YuCBhE9tGgN8G2zU" : {
@@ -23450,6 +27868,10 @@ SPELLS.CONST = {
         "traits" : [
             "Air",
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "OmhnoYOzFhrp6rXv" : {
@@ -23466,7 +27888,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "0JWyMwVnLxX9CDYQ" : {
         "action_cost" : "2",
@@ -23480,6 +27903,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "VBNevVovTCpn04vL" : {
@@ -23495,7 +27923,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "jLc8tHSNeXm0RvMQ" : {
         "action_cost" : "2",
@@ -23513,7 +27942,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "ZeftDoh0nFAXBAWY" : {
         "action_cost" : "2",
@@ -23531,7 +27961,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Illusion",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "a8xXWCQhIR7o6IvP" : {
         "action_cost" : "3",
@@ -23546,6 +27977,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ehd9PtifLMwjk4ep" : {
@@ -23561,7 +27996,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Malédiction",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "0aoRcxRyIPHfbifk" : {
         "action_cost" : "3",
@@ -23577,6 +28013,10 @@ SPELLS.CONST = {
             "Concentration",
             "Extradimensionnel",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9igi8LcrNQKwljK7" : {
@@ -23591,6 +28031,11 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "KwDyrUIlnOrpdxYi" : {
@@ -23606,7 +28051,8 @@ SPELLS.CONST = {
             "Rare",
             "Consécration",
             "Feu"
-        ]
+        ],
+        "traditions" : []
     },
     "w00PBRjENqJa7Vxu" : {
         "action_cost" : null,
@@ -23619,7 +28065,8 @@ SPELLS.CONST = {
         "text" : "Rite de rapatriement",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "fLiowSDQXo3vCQDh" : {
         "action_cost" : null,
@@ -23633,7 +28080,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "ew4ToaTU3o8ahKio" : {
         "action_cost" : "1",
@@ -23649,7 +28097,8 @@ SPELLS.CONST = {
             "Animiste",
             "Focalisation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "A7NXFVgENRVtYoe3" : {
         "action_cost" : "2",
@@ -23664,6 +28113,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "oGV6YdpZLIG4G4gH" : {
@@ -23683,7 +28136,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
-        ]
+        ],
+        "traditions" : []
     },
     "KktHf7zIAWOr499h" : {
         "action_cost" : "2",
@@ -23701,7 +28155,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "IDkEuq5jLEDhJ31C" : {
         "action_cost" : "3",
@@ -23717,6 +28172,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "vM8oBYaEPgEXBimM" : {
@@ -23733,6 +28192,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "X4T5RlQBrdpmA35n" : {
@@ -23751,7 +28215,8 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "tvO6Kmc2pQve9DC5" : {
         "action_cost" : "1",
@@ -23766,7 +28231,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "ps0nmhclT6aIXgd8" : {
         "action_cost" : "1",
@@ -23782,7 +28248,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "FSu6ZKxr3xdS75wq" : {
         "action_cost" : "2",
@@ -23802,7 +28269,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "4LSf04FFvDgMyDk6" : {
         "action_cost" : "1",
@@ -23818,7 +28286,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "Z7N5IxJCwrAdIgSg" : {
         "action_cost" : null,
@@ -23834,6 +28303,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "o0l57UfBm9ScEUMW" : {
@@ -23847,7 +28320,8 @@ SPELLS.CONST = {
         "text" : "Rune piégée",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "DOBs5ALM1titPYxe" : {
         "action_cost" : "2",
@@ -23866,6 +28340,10 @@ SPELLS.CONST = {
             "Mental",
             "Mythique",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HGmBY8KjgLV97nUp" : {
@@ -23882,6 +28360,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "HcIAQZjNXHemoXSU" : {
@@ -23897,6 +28379,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "dgMauNKWeRIu8pMN" : {
@@ -23912,6 +28398,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ksJFGSGlNpUhwcsp" : {
@@ -23926,7 +28416,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Ténèbres"
-        ]
+        ],
+        "traditions" : []
     },
     "flKde7BHrZnRheMl" : {
         "action_cost" : "r",
@@ -23943,6 +28434,10 @@ SPELLS.CONST = {
             "Concentration",
             "Émotion",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "USM530HlzZ1RMd99" : {
@@ -23959,7 +28454,8 @@ SPELLS.CONST = {
             "Champion",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "rQYob0QMJ0I1U2sU" : {
         "action_cost" : "r",
@@ -23975,7 +28471,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "x0rWq0wS06dns4G2" : {
         "action_cost" : "2",
@@ -23990,6 +28487,12 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "4cv1cuBHjYmVfBGI" : {
@@ -24006,6 +28509,12 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "fd31tAHSSGXyOxW6" : {
@@ -24022,6 +28531,11 @@ SPELLS.CONST = {
             "Mort",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "bTFWSpHEvXq8IK37" : {
@@ -24037,7 +28551,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Malédiction",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "7PnjDM52lb4LEqHR" : {
         "action_cost" : "2",
@@ -24052,6 +28567,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "gKKqvLohtrSJj3BM" : {
@@ -24067,6 +28586,10 @@ SPELLS.CONST = {
             "Concentration",
             "Force",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ZvB9sV7NLdpDeoTw" : {
@@ -24083,6 +28606,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8xRzLhwGL7Dgy3EZ" : {
@@ -24097,6 +28624,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "fBoiPXmcIO50OFFR" : {
@@ -24112,6 +28643,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "CXpOlv2ZZq2jVbRX" : {
@@ -24131,7 +28666,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Spirituel",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "T5Mt4jXFuh14uREv" : {
         "action_cost" : "2",
@@ -24146,6 +28682,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "YiIOsc8T6E2iDxgh" : {
@@ -24164,6 +28704,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Q7QQ91vQtyi1Ux36" : {
@@ -24178,6 +28722,10 @@ SPELLS.CONST = {
         "traits" : [
             "Manipulation",
             "Déplacement"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "5ttAVJbWg2GVKmrN" : {
@@ -24196,7 +28744,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "kRxlkPPe6Gr7Du59" : {
         "action_cost" : "1",
@@ -24213,7 +28762,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "qJGW6BbIcU6sfA1d" : {
         "action_cost" : "1",
@@ -24226,6 +28776,10 @@ SPELLS.CONST = {
         "text" : "Saut temporel",
         "traits" : [
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "xn0V2HDrmDWNzPEt" : {
@@ -24244,7 +28798,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Non-létal"
-        ]
+        ],
+        "traditions" : []
     },
     "xqmHD8JIjak15lRk" : {
         "action_cost" : "3",
@@ -24259,6 +28814,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Convocation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "RA7VKcen3p56rVyZ" : {
@@ -24274,6 +28833,10 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "XZE4BawIlTf88Yl9" : {
@@ -24289,6 +28852,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "gfKhtVsXF3HKSdmY" : {
@@ -24305,6 +28873,11 @@ SPELLS.CONST = {
             "Malédiction",
             "Mort",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "Ucf8eynbZMfUucjE" : {
@@ -24323,6 +28896,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Olfactif",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "C8HWMMuB5tMhqJ5W" : {
@@ -24343,7 +28920,8 @@ SPELLS.CONST = {
             "Mental",
             "Visuel",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "dKWc83KKiXoIJkhp" : {
         "action_cost" : "2",
@@ -24358,6 +28936,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métal"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "XEhzFKNTSARsofav" : {
@@ -24373,6 +28954,10 @@ SPELLS.CONST = {
             "Concentration",
             "Maladie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "r784cIz17eWujtQj" : {
@@ -24389,6 +28974,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "HHGUBGle4OjoxvNR" : {
@@ -24403,6 +28992,9 @@ SPELLS.CONST = {
         "traits" : [
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "VGK9s6LCMMS027zP" : {
@@ -24421,7 +29013,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "Eed8QBWBtpufl1iP" : {
         "action_cost" : "1",
@@ -24439,7 +29032,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "bqx1tJeOZq1Ufhcc" : {
         "action_cost" : null,
@@ -24452,7 +29046,8 @@ SPELLS.CONST = {
         "text" : "Se souvenir de vies antérieures",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "zdNUbHqqZzjA07oM" : {
         "action_cost" : null,
@@ -24465,6 +29060,11 @@ SPELLS.CONST = {
         "text" : "Secoueur d'os",
         "traits" : [
             "Peu courant"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "OsrtOeG0TvDNnEFH" : {
@@ -24483,7 +29083,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "XULNb8ItUsfupxqH" : {
         "action_cost" : "2",
@@ -24503,7 +29104,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "XYhU3Wi94n1RKxTa" : {
         "action_cost" : "2",
@@ -24522,7 +29124,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "cBUuG1yJHGeKffpg" : {
         "action_cost" : "2",
@@ -24540,7 +29143,8 @@ SPELLS.CONST = {
             "Terre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "FFBYPZEmAQoll09t" : {
         "action_cost" : "2",
@@ -24555,6 +29159,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "rOwOLlfVgLMg1FND" : {
@@ -24568,7 +29176,8 @@ SPELLS.CONST = {
         "text" : "Sentinelle élémentaire",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "EGTTGI1pkmsVPqHp" : {
         "action_cost" : "1",
@@ -24581,6 +29190,10 @@ SPELLS.CONST = {
         "text" : "Série victorieuse",
         "traits" : [
             "Concentration"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Q690d3mw3TUrKX7E" : {
@@ -24596,7 +29209,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Malédiction",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "5NReCnDFFuThEAHB" : {
         "action_cost" : null,
@@ -24609,7 +29223,8 @@ SPELLS.CONST = {
         "text" : "Serviteur élémentaire",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "qCmihBL0G0G5ExPF" : {
         "action_cost" : null,
@@ -24623,6 +29238,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "vgy00hnqxN9VoeoF" : {
@@ -24636,7 +29255,8 @@ SPELLS.CONST = {
         "text" : "Serviteur planaire",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "U7415tttUO8JLvpf" : {
         "action_cost" : "3",
@@ -24651,6 +29271,11 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "7Ahssy0KDLzcQ2Ex" : {
@@ -24668,6 +29293,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "SxRVCc1Q2MtVuPMo" : {
@@ -24683,6 +29313,9 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "sYd3hqv2ZQqa0PSc" : {
@@ -24699,7 +29332,8 @@ SPELLS.CONST = {
             "Air",
             "Illusion",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "gIdDLrbswTV3OBJy" : {
         "action_cost" : "2",
@@ -24714,6 +29348,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "k43PIYwuQqjeJ3S3" : {
@@ -24730,7 +29368,8 @@ SPELLS.CONST = {
             "Prêtre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "EiE1A8TCeJGVzzV2" : {
         "action_cost" : "2",
@@ -24749,7 +29388,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Rôdeur",
             "Son"
-        ]
+        ],
+        "traditions" : []
     },
     "tFKJCPvOQZxKq6ON" : {
         "action_cost" : "2",
@@ -24763,6 +29403,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "KkimKrhDxEJVm6TH" : {
@@ -24776,7 +29419,8 @@ SPELLS.CONST = {
         "text" : "Singularité vitale",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "k34hDOfIIMAxNL4a" : {
         "action_cost" : "2",
@@ -24791,6 +29435,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "4y2DMq9DV5HvmnxC" : {
@@ -24805,6 +29453,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "D6T17BdazhNy3KPm" : {
@@ -24822,7 +29473,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "tcwT97RWKxsJiefG" : {
         "action_cost" : "r",
@@ -24837,6 +29489,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zvvHOQV78WKUB33l" : {
@@ -24854,7 +29510,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "AiWtiVmyasyL42J8" : {
         "action_cost" : "2",
@@ -24871,7 +29528,8 @@ SPELLS.CONST = {
             "Terre",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "4bFxUA59xeq6Snhw" : {
         "action_cost" : "2",
@@ -24890,7 +29548,8 @@ SPELLS.CONST = {
             "Saint",
             "Manipulation",
             "Vitalité"
-        ]
+        ],
+        "traditions" : []
     },
     "ion3VOiLan6ga3QC" : {
         "action_cost" : "3",
@@ -24906,6 +29565,10 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "wAJ8mXPYbyAg0qWX" : {
@@ -24919,7 +29582,8 @@ SPELLS.CONST = {
         "text" : "Solstice plus sucré",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "o4lRVTwSxnOOn5vl" : {
         "action_cost" : "2",
@@ -24936,6 +29600,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sommeil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "atlgGNI1E1Ox3O3a" : {
@@ -24953,6 +29621,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9BnhadUO8FMLmeZ3" : {
@@ -24970,6 +29642,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "aVqsE5OedOwdHQvF" : {
@@ -24983,7 +29659,8 @@ SPELLS.CONST = {
         "text" : "Sort estival",
         "traits" : [
             "Unique"
-        ]
+        ],
+        "traditions" : []
     },
     "6wLY5LnehCo3tHlr" : {
         "action_cost" : "1",
@@ -24999,6 +29676,11 @@ SPELLS.CONST = {
             "Attaque",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "5QD75UbyB5EiG3yz" : {
@@ -25015,6 +29697,11 @@ SPELLS.CONST = {
             "Attaque",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "JcobNl4iE9HmMYtE" : {
@@ -25032,7 +29719,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "94eJHyFPNM1Z3TZp" : {
         "action_cost" : "3",
@@ -25050,6 +29738,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Vitalité",
             "Vide"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "oYxxcgszpT242sEi" : {
@@ -25063,7 +29755,8 @@ SPELLS.CONST = {
         "text" : "Souffle de l'hiver",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "Wt94cw03L77sbud7" : {
         "action_cost" : "2",
@@ -25079,6 +29772,9 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "Hnc7eGi7vyZenAIm" : {
@@ -25094,6 +29790,9 @@ SPELLS.CONST = {
             "Concentration",
             "Guérison",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "bZ8BibvvYOKAbYjn" : {
@@ -25110,6 +29809,11 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "ExQk8AwDphmckEmZ" : {
@@ -25125,6 +29829,11 @@ SPELLS.CONST = {
             "Rare",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "fg5ZlSVXzGHNJfbO" : {
@@ -25139,6 +29848,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "SSsUC7rZo0CwayPn" : {
@@ -25157,7 +29870,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Non-létal"
-        ]
+        ],
+        "traditions" : []
     },
     "6dDtGIUerazSHIOu" : {
         "action_cost" : null,
@@ -25170,7 +29884,8 @@ SPELLS.CONST = {
         "text" : "Souhait",
         "traits" : [
             "Rare"
-        ]
+        ],
+        "traditions" : []
     },
     "xxhS66k68u5iIOHC" : {
         "action_cost" : "2",
@@ -25186,6 +29901,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "yWySiasyPZcRoe4d" : {
@@ -25201,6 +29920,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "xabHqik5SoyDc5Db" : {
@@ -25215,6 +29938,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "fH08MI4KP0KH2EQ9" : {
@@ -25232,6 +29959,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Vitalité",
             "Eau"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "h5cMTygLpjY3IEF0" : {
@@ -25248,6 +29979,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "dtOUkMC57izf93z5" : {
@@ -25264,7 +29998,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "dXIRotMLsABDQQSB" : {
         "action_cost" : "r",
@@ -25281,7 +30016,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "8Uzc9WKqRr755S5d" : {
         "action_cost" : "2",
@@ -25297,6 +30033,10 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "DH9Y3RQGWO0GzXGU" : {
@@ -25315,7 +30055,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "PngDCmU0MXZkbu0v" : {
         "action_cost" : "2",
@@ -25330,6 +30071,10 @@ SPELLS.CONST = {
             "Concentration",
             "Lumière",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "SnjhtQYexDtNDdEg" : {
@@ -25347,6 +30092,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "3E1p58MNQMO4GAxt" : {
@@ -25361,6 +30110,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "9Ga1AOQdHKYXUY4O" : {
@@ -25379,6 +30132,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "cOwSsSXRsBaXUvlr" : {
@@ -25397,7 +30154,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mise hors de combat",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "dhpXpzt7TCm8TbHM" : {
         "action_cost" : "1",
@@ -25413,7 +30171,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "29AyhknPKiDBcy8s" : {
         "action_cost" : null,
@@ -25427,7 +30186,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "Cd6Crl4wpQaMSYrF" : {
         "action_cost" : "3",
@@ -25444,7 +30204,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "qGWORxQ0aSsH2taf" : {
         "action_cost" : "2",
@@ -25461,7 +30222,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Non-létal"
-        ]
+        ],
+        "traditions" : []
     },
     "qwlh6aDgi86U3Q7H" : {
         "action_cost" : "2",
@@ -25479,6 +30241,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "GP3wewkQXEPrLxYj" : {
@@ -25497,6 +30263,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ZeHeNQ5BNq6m5F1j" : {
@@ -25514,7 +30284,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "JAaETUBg0xlttpCH" : {
         "action_cost" : "3",
@@ -25529,6 +30300,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "kIRWUBxocERjIBni" : {
@@ -25544,6 +30318,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "2EIUqc8TCTQimggQ" : {
@@ -25559,6 +30336,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "WRP8TDf36hqHyGv1" : {
@@ -25575,6 +30355,9 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "0fKHBh5goe2eiFYL" : {
@@ -25589,6 +30372,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "PcmFpaHPCReNp1BD" : {
@@ -25608,7 +30395,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "PesUKf0lIt5zRofj" : {
         "action_cost" : "1",
@@ -25626,7 +30414,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "HvBpSeUDg0KcK2Hg" : {
         "action_cost" : null,
@@ -25644,6 +30433,11 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "fZPCv2VHuM2yPbC8" : {
@@ -25658,6 +30452,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "BBiO9ZdwyEJ581ES" : {
@@ -25676,6 +30476,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Sanctifié",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "pt3gEnzA159uHcJC" : {
@@ -25692,6 +30495,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "AUctDF2fqPZN2w4W" : {
@@ -25707,6 +30514,12 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "ZAX0OOcKtYMQlquR" : {
@@ -25725,7 +30538,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "DgcSiOCR1uDXGaEA" : {
         "action_cost" : "2",
@@ -25739,6 +30553,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "OAt2ZEns1gIOCgrn" : {
@@ -25754,6 +30574,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "10siFBMF4pIDhVmf" : {
@@ -25769,6 +30592,11 @@ SPELLS.CONST = {
             "Concentration",
             "Malédiction",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "HqTI6wRrck1YXp3F" : {
@@ -25785,6 +30613,10 @@ SPELLS.CONST = {
             "Linguistique",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "69L70wKfGDY66Mk9" : {
@@ -25801,6 +30633,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "5bTt2CvYHPvaR7QQ" : {
@@ -25817,6 +30653,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "JLdbyGKhjwAAoRLs" : {
@@ -25832,6 +30674,11 @@ SPELLS.CONST = {
             "Concentration",
             "Incarnation",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "yLJROsQtyrPIKcDx" : {
@@ -25849,6 +30696,9 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "ZW8ovbu1etdfMre3" : {
@@ -25864,6 +30714,10 @@ SPELLS.CONST = {
             "Acide",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8M03UxGXjYyDFAoy" : {
@@ -25878,6 +30732,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "JyT346VmGtRLsDnV" : {
@@ -25893,6 +30751,9 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "kHyjQbibRGPNCixx" : {
@@ -25908,6 +30769,10 @@ SPELLS.CONST = {
             "Froid",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "D31YX7zvRBvenTAz" : {
@@ -25925,6 +30790,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "K1wmI4qPmRhFczmy" : {
@@ -25944,7 +30812,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Non-létal"
-        ]
+        ],
+        "traditions" : []
     },
     "vfHr1N8Rf2bBpdgn" : {
         "action_cost" : "1",
@@ -25961,7 +30830,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Mutamagie",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "VUwpDY4Z91s9QCg0" : {
         "action_cost" : "r",
@@ -25978,7 +30848,8 @@ SPELLS.CONST = {
             "Électricité",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "r4HLQcYwB62bTayl" : {
         "action_cost" : "3",
@@ -25994,6 +30865,9 @@ SPELLS.CONST = {
             "Concentration",
             "Électricité",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "lETZeqBPoj2htGVk" : {
@@ -26008,6 +30882,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "FZMVLL7HvasjiM6D" : {
@@ -26023,7 +30901,8 @@ SPELLS.CONST = {
             "Peu courant",
             "Animiste",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "4GE2ZdODgIQtg51c" : {
         "action_cost" : "3",
@@ -26038,6 +30917,12 @@ SPELLS.CONST = {
             "Concentration",
             "Ténèbres",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "g1dDUKsIrdlpdqy9" : {
@@ -26055,6 +30940,11 @@ SPELLS.CONST = {
             "Concentration",
             "Ténèbres",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "sRfSBHWHdbIa0aGc" : {
@@ -26073,6 +30963,9 @@ SPELLS.CONST = {
             "Ténèbres",
             "Manipulation",
             "Impie"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "2w4OpAGihn1JSHFD" : {
@@ -26088,6 +30981,10 @@ SPELLS.CONST = {
             "Attaque",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "GqvKSxzN7A7kuFk4" : {
@@ -26105,7 +31002,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "q5qmNn144ZJGxnvJ" : {
         "action_cost" : "2",
@@ -26121,6 +31019,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "fXdADBwxmBsU9xPk" : {
@@ -26140,7 +31042,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Visuel",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "I2IgZu4Rd2dz0J6v" : {
         "action_cost" : "2",
@@ -26156,6 +31059,11 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "Wpgt5TYcTHLDei6J" : {
@@ -26171,6 +31079,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "XOs8C2eZJAO3go0N" : {
@@ -26188,6 +31100,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "v89KwyaBd6g5rWVS" : {
@@ -26204,6 +31120,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "eyKkLp8V55ydA64J" : {
@@ -26219,6 +31139,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "HokKyQl5g655xx9U" : {
@@ -26233,6 +31157,10 @@ SPELLS.CONST = {
         "traits" : [
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "4koZzrnMXhhosn0D" : {
@@ -26250,6 +31178,12 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "AzTFMy9E9HQcLNRg" : {
@@ -26269,7 +31203,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Mental",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "TvZiwZRianfTSbEg" : {
         "action_cost" : "2",
@@ -26289,6 +31224,9 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "zPVJI8Jltt3ERkaU" : {
@@ -26307,6 +31245,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "ofAQyLtLEGnOIs3N" : {
@@ -26321,7 +31263,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "UtINSoEJ0u630ia4" : {
         "action_cost" : "r",
@@ -26337,6 +31280,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "lXsFKdaOz9t9w11U" : {
@@ -26353,6 +31299,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "primal"
         ]
     },
     "dL3A7H4LlRH26Imo" : {
@@ -26366,7 +31317,8 @@ SPELLS.CONST = {
         "text" : "Tissage arcanique",
         "traits" : [
             "Peu courant"
-        ]
+        ],
+        "traditions" : []
     },
     "idcBYnj4DUHL0IJt" : {
         "action_cost" : null,
@@ -26381,6 +31333,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "9s5tqqXNzcoKamWx" : {
@@ -26395,6 +31351,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "HqZ1VWIcXXZXWm3K" : {
@@ -26409,7 +31369,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Détection"
-        ]
+        ],
+        "traditions" : []
     },
     "n8eEXXAtguoErW0y" : {
         "action_cost" : "2",
@@ -26426,7 +31387,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "eSEmqOBuywoJ6tYd" : {
         "action_cost" : "2",
@@ -26440,6 +31402,10 @@ SPELLS.CONST = {
         "traits" : [
             "Force",
             "Lumière"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "Y3G6Y6EDgCY0s3fq" : {
@@ -26455,6 +31421,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "Y1YysjZ40ft0aLFN" : {
@@ -26470,6 +31439,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "d2pi7laQkzlr3wrS" : {
@@ -26489,7 +31462,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "MmQiEc7aM9PDLO2J" : {
         "action_cost" : "1",
@@ -26506,7 +31480,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "GYI4xloAgkm6tTrT" : {
         "action_cost" : "1",
@@ -26523,7 +31498,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "Ovvflf5aFbmBxqq8" : {
         "action_cost" : "2",
@@ -26541,7 +31517,8 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "jFmWSIpJGGebim6y" : {
         "action_cost" : "1",
@@ -26558,7 +31535,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Vide"
-        ]
+        ],
+        "traditions" : []
     },
     "EzB9i7R6aBRAtJCh" : {
         "action_cost" : "1",
@@ -26576,7 +31554,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Oracle",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "eAOClJ1KRSPik8SX" : {
         "action_cost" : "3",
@@ -26591,6 +31570,12 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "0fjz8qc9NfkmWmJZ" : {
@@ -26606,6 +31591,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8hKW4mWQyLnkHVta" : {
@@ -26621,6 +31610,9 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "m1vKX4xxWQJXfupu" : {
@@ -26637,6 +31629,12 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "zlnXpME1T2uvn8Lr" : {
@@ -26651,6 +31649,9 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "vTQvfYu2llKQedmY" : {
@@ -26665,6 +31666,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "WVc30DGbM7TRLLul" : {
@@ -26681,6 +31687,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "f9uqHnNBMU0774SF" : {
@@ -26698,7 +31708,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Maléfice",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "DeNz6eAUlE0IE9U3" : {
         "action_cost" : "2",
@@ -26717,7 +31728,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Hu38hoAUSYeFpkVa" : {
         "action_cost" : "1",
@@ -26734,7 +31746,8 @@ SPELLS.CONST = {
             "Force",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "ZxHC7V7HtjUsB8zH" : {
         "action_cost" : "1",
@@ -26750,6 +31763,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "8OWA91bgm5r6QPaH" : {
@@ -26765,6 +31782,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "vhe9DduqaivMs8FV" : {
@@ -26783,7 +31804,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "RpGB961b8FjXbGHi" : {
         "action_cost" : "1",
@@ -26799,7 +31821,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "5WM3WjshXgrkVCg6" : {
         "action_cost" : "3",
@@ -26816,7 +31839,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "jSJz4vx0fXPHa3d6" : {
         "action_cost" : "2",
@@ -26833,6 +31857,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Téléportation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "tp4K7mYDL5MRHvJc" : {
@@ -26850,7 +31878,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Métamorphose"
-        ]
+        ],
+        "traditions" : []
     },
     "JqHAxsMUZ4Mr5bTr" : {
         "action_cost" : "1",
@@ -26866,7 +31895,8 @@ SPELLS.CONST = {
             "Tour de magie",
             "Concentration",
             "Psychiste"
-        ]
+        ],
+        "traditions" : []
     },
     "0xR9vrt6uDFl0Umo" : {
         "action_cost" : null,
@@ -26884,7 +31914,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Transformation"
-        ]
+        ],
+        "traditions" : []
     },
     "VlNcjmYyu95vOUe8" : {
         "action_cost" : "2",
@@ -26899,6 +31930,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "8Lk9K3tRnV68MQPW" : {
@@ -26913,7 +31948,8 @@ SPELLS.CONST = {
         "traits" : [
             "Unique",
             "Guérison"
-        ]
+        ],
+        "traditions" : []
     },
     "LzfrBDxxPTiuN7uL" : {
         "action_cost" : "3",
@@ -26928,6 +31964,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "6o75SEEYjdaMDkoG" : {
@@ -26944,6 +31984,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     },
     "tpLTLbJUrYcMWGld" : {
@@ -26958,6 +32001,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "c3XygMbzrZMgV1y3" : {
@@ -26973,6 +32020,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "rtA3HRGoy7PQTOhq" : {
@@ -26991,7 +32042,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Rôdeur",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "OOMQ8Z6EIrGt5NJ6" : {
         "action_cost" : "r",
@@ -27005,6 +32057,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "2DFtBRLyYMPrimp7" : {
@@ -27021,6 +32077,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zHSp4PzoOE72DV4o" : {
@@ -27038,6 +32098,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Non-létal"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "gzvRDpM6EvcfYHeu" : {
@@ -27056,7 +32120,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Guérison",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "x7SPrsRxGb2Vy2nu" : {
         "action_cost" : "2",
@@ -27071,6 +32136,10 @@ SPELLS.CONST = {
             "Concentration",
             "Terre",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "L0GoJpHxSD0wRY5k" : {
@@ -27088,6 +32157,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "F23T5tHPo3WsFiHW" : {
@@ -27102,6 +32175,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "MNiT0dHol5fEcKlz" : {
@@ -27117,6 +32196,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "9I8mp7RkjeXbkYfx" : {
@@ -27133,6 +32216,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "pmP8HhXvvEKP3LqU" : {
@@ -27148,6 +32235,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "x2LALaHXO7644GQA" : {
@@ -27168,7 +32258,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "rnFAHvKpcsU4BJD4" : {
         "action_cost" : "1",
@@ -27184,7 +32275,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Guérison"
-        ]
+        ],
+        "traditions" : []
     },
     "U5dw9SiuVcLmdHoi" : {
         "action_cost" : "2",
@@ -27200,6 +32292,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Z1MoMTcgFQiCI90t" : {
@@ -27218,7 +32314,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Psychiste",
             "Téléportation"
-        ]
+        ],
+        "traditions" : []
     },
     "rsYeiz2V2KeEfjpr" : {
         "action_cost" : null,
@@ -27232,7 +32329,8 @@ SPELLS.CONST = {
         "traits" : [
             "Peu courant",
             "Terre"
-        ]
+        ],
+        "traditions" : []
     },
     "OhgfPzB5gymZ0IZM" : {
         "action_cost" : "1",
@@ -27246,6 +32344,10 @@ SPELLS.CONST = {
         "traits" : [
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "gtWxTfMbIN5RHQw6" : {
@@ -27261,6 +32363,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "Fr2CGvWcgSyLcUi7" : {
@@ -27279,7 +32385,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "TbYqDhlNRiWHe146" : {
         "action_cost" : "2",
@@ -27295,6 +32402,9 @@ SPELLS.CONST = {
             "Terre",
             "Manipulation",
             "Plante"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "vh1RpbWfqdNC4L3P" : {
@@ -27311,6 +32421,10 @@ SPELLS.CONST = {
             "Terre",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "dileJ0Yxqg76LMvu" : {
@@ -27328,6 +32442,9 @@ SPELLS.CONST = {
             "Plante",
             "Métamorphose",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "tYLBjOTvBVn9JtRb" : {
@@ -27345,7 +32462,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Fortune"
-        ]
+        ],
+        "traditions" : []
     },
     "NyxQAazFBdBAqZGX" : {
         "action_cost" : "2",
@@ -27363,6 +32481,10 @@ SPELLS.CONST = {
             "Feu",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "GaRQlC9Yw1BGKHfN" : {
@@ -27379,6 +32501,10 @@ SPELLS.CONST = {
             "Émotion",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "T4QKmtYPeCgYxVGe" : {
@@ -27394,6 +32520,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Eau"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zTN6zuruDUKOea6h" : {
@@ -27411,7 +32541,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Déplacement",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "qxJE2iSJwPFLZrcK" : {
         "action_cost" : "2",
@@ -27430,6 +32561,11 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "ZQk2cGBCkATO25w0" : {
@@ -27446,7 +32582,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "1meVElIu1CEVYWkv" : {
         "action_cost" : "2",
@@ -27461,6 +32598,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Poison"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "zJQnkKEKbJqGB3iB" : {
@@ -27476,6 +32617,10 @@ SPELLS.CONST = {
             "Concentration",
             "Maladie",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "INEAWirvb8c1eAFD" : {
@@ -27490,7 +32635,8 @@ SPELLS.CONST = {
         "traits" : [
             "Rare",
             "Guérison"
-        ]
+        ],
+        "traditions" : []
     },
     "TaaMEYdZXQXF0Sks" : {
         "action_cost" : "r",
@@ -27503,6 +32649,11 @@ SPELLS.CONST = {
         "text" : "Vendetta du sang",
         "traits" : [
             "Malédiction"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "T7N0LrYOLk3SwrFW" : {
@@ -27520,6 +32671,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Plante",
             "Bois"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "KcLVELhCUcKXxiKE" : {
@@ -27535,6 +32689,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "NtzNCW32UlPdY2xS" : {
@@ -27552,7 +32710,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "yV7Ouzaoe7DHLESI" : {
         "action_cost" : "2",
@@ -27568,6 +32727,12 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "Z4X5whSqSvgiiJ05" : {
@@ -27587,6 +32752,11 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "wi405lBjPcbF1DeR" : {
@@ -27602,6 +32772,9 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "xGFAGlonNySXrunq" : {
@@ -27618,6 +32791,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Non-létal"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "6s0UW4bujggma9TC" : {
@@ -27634,6 +32810,9 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "occult"
         ]
     },
     "Azoh0BSoCASrA1lr" : {
@@ -27648,6 +32827,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "qFO9HgplrShoaAPY" : {
@@ -27662,6 +32846,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "qTzvVnAMWL05VitC" : {
@@ -27677,6 +32865,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "uMADQaASgYNsSDDM" : {
@@ -27693,6 +32885,12 @@ SPELLS.CONST = {
             "Terre",
             "Manipulation",
             "Subtil"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "tPtTKe0X1dDwoDmQ" : {
@@ -27711,6 +32909,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Son"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "kk7JKox6MdGAWmCH" : {
@@ -27727,6 +32929,10 @@ SPELLS.CONST = {
             "Concentration",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "0cF9HvHzzWSbCFBP" : {
@@ -27744,7 +32950,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "EAuUxxnDV4v3KDAC" : {
         "action_cost" : "3",
@@ -27760,6 +32967,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "divine"
         ]
     },
     "L37RTc7K79OUpZ7X" : {
@@ -27778,7 +32990,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "07xYlmGX32XtHGEt" : {
         "action_cost" : "2",
@@ -27793,6 +33006,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Vide"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "MT8usUfwudDVUm5H" : {
@@ -27812,7 +33030,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "9WMEO6JEcAulgUv3" : {
         "action_cost" : null,
@@ -27828,7 +33047,8 @@ SPELLS.CONST = {
             "Émotion",
             "Mental",
             "Mythique"
-        ]
+        ],
+        "traditions" : []
     },
     "vb2dFNtbofJ7A9BW" : {
         "action_cost" : "2",
@@ -27843,6 +33063,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Métamorphose"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "9GkOWDFDEMuV3hJr" : {
@@ -27858,6 +33084,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "aZg3amDcrXz3cLCz" : {
@@ -27880,7 +33112,8 @@ SPELLS.CONST = {
             "Mental",
             "Ensorceleur",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "1HfusQ8NDWutGvMx" : {
         "action_cost" : null,
@@ -27895,6 +33128,9 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "primal"
         ]
     },
     "pZTqGY1MLRjgKasV" : {
@@ -27909,6 +33145,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "NhNKzq1DvFxkvTEc" : {
@@ -27926,7 +33168,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Oracle"
-        ]
+        ],
+        "traditions" : []
     },
     "jqb52wy7A0Eqwuzx" : {
         "action_cost" : "2",
@@ -27945,6 +33188,10 @@ SPELLS.CONST = {
             "Mise hors de combat",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "Jmxru8zMdYMRuO5n" : {
@@ -27963,6 +33210,10 @@ SPELLS.CONST = {
             "Terreur",
             "Manipulation",
             "Mental"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "bH9cH9aDByY91l1d" : {
@@ -27978,6 +33229,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Révélation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "Irlpzl1YBSJ6xF5e" : {
@@ -27993,6 +33250,12 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "tj86Rnq3QuQnDtG3" : {
@@ -28009,7 +33272,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Rôdeur"
-        ]
+        ],
+        "traditions" : []
     },
     "oFwmdb6LlRrh9AUT" : {
         "action_cost" : "1",
@@ -28026,7 +33290,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "RCbLd7dfquHnuvrZ" : {
         "action_cost" : null,
@@ -28042,6 +33307,10 @@ SPELLS.CONST = {
             "Concentration",
             "Illusion",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "ErCsWsqXe8ccRjgO" : {
@@ -28058,6 +33327,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "occult",
+            "primal"
         ]
     },
     "2WNFbvToMsEGxmeK" : {
@@ -28076,7 +33349,8 @@ SPELLS.CONST = {
             "Ténèbres",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "jrlCEw9rqBi4qU6g" : {
         "action_cost" : "1",
@@ -28092,7 +33366,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Moine"
-        ]
+        ],
+        "traditions" : []
     },
     "uqlxMQQeSGWEVjki" : {
         "action_cost" : "2",
@@ -28107,6 +33382,12 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Révélation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "HpIJTVqgXorH9X0L" : {
@@ -28123,6 +33404,10 @@ SPELLS.CONST = {
             "Guérison",
             "Manipulation",
             "Vitalité"
+        ],
+        "traditions" : [
+            "divine",
+            "primal"
         ]
     },
     "Q25JQAgnJSGgFDKZ" : {
@@ -28140,7 +33425,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "EoKBlgf6Smt8opaU" : {
         "action_cost" : null,
@@ -28155,6 +33441,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "Q1OWufw6dUiY8yEI" : {
@@ -28173,7 +33464,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "VVigI4uNdWr1XZgG" : {
         "action_cost" : "2",
@@ -28190,7 +33482,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Magicien"
-        ]
+        ],
+        "traditions" : []
     },
     "cE7PRAX8Up7fmYef" : {
         "action_cost" : "1",
@@ -28208,7 +33501,8 @@ SPELLS.CONST = {
             "Maléfice",
             "Manipulation",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "NNoKWiWKqJkdD2ln" : {
         "action_cost" : "1",
@@ -28226,7 +33520,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Sorcier"
-        ]
+        ],
+        "traditions" : []
     },
     "lQbfgAu9uVJQC7x4" : {
         "action_cost" : "3",
@@ -28242,6 +33537,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Spirituel"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "OyiKIbWllLZC6sGz" : {
@@ -28258,7 +33558,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "kLyyJayja75K9rXX" : {
         "action_cost" : "2",
@@ -28275,6 +33576,10 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "zdb8cjOIDVKYMWdr" : {
@@ -28291,6 +33596,10 @@ SPELLS.CONST = {
             "Ténèbres",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "3ySPK8qwNcuESwa0" : {
@@ -28311,7 +33620,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Spirituel",
             "Eau"
-        ]
+        ],
+        "traditions" : []
     },
     "pQ3NIzZXeIIcU81C" : {
         "action_cost" : "2",
@@ -28329,7 +33639,8 @@ SPELLS.CONST = {
             "Illusion",
             "Manipulation",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "d18m4AAaxJQqUEh2" : {
         "action_cost" : "2",
@@ -28344,6 +33655,11 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "zVfTMpkXJDRESkl5" : {
@@ -28360,6 +33676,10 @@ SPELLS.CONST = {
             "Malédiction",
             "Manipulation",
             "Transformation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "A2JfEKe6BZcTG1S8" : {
@@ -28374,6 +33694,12 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult",
+            "primal"
         ]
     },
     "uopaLE01meX11Mbw" : {
@@ -28392,6 +33718,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "0chL1b4OFIZxpN3v" : {
@@ -28410,7 +33740,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Ensorceleur"
-        ]
+        ],
+        "traditions" : []
     },
     "uGi6t3cypb93mgyV" : {
         "action_cost" : "2",
@@ -28425,6 +33756,10 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine"
         ]
     },
     "gSFg9zKwgcNZLMEs" : {
@@ -28443,7 +33778,8 @@ SPELLS.CONST = {
             "Druide",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "Bc6QqTmFV4q7G7L0" : {
         "action_cost" : null,
@@ -28459,6 +33795,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Bois"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "5LrQIlimsPXK2xAG" : {
@@ -28476,6 +33816,11 @@ SPELLS.CONST = {
             "Malédiction",
             "Mise hors de combat",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "zoY0fQYTF1NzezTg" : {
@@ -28492,7 +33837,8 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Focalisation"
-        ]
+        ],
+        "traditions" : []
     },
     "9LHr9SuDLTicdbXs" : {
         "action_cost" : "2",
@@ -28511,7 +33857,8 @@ SPELLS.CONST = {
             "Manipulation",
             "Ensorceleur",
             "Spirituel"
-        ]
+        ],
+        "traditions" : []
     },
     "cB17yFc9456Pyfec" : {
         "action_cost" : "2",
@@ -28525,6 +33872,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "Gn5deIoobHpd3SiR" : {
@@ -28541,6 +33893,10 @@ SPELLS.CONST = {
             "Concentration",
             "Feu",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "dk3XIx0ExDRMcN5z" : {
@@ -28557,6 +33913,10 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Mythique"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "rxvS7EMJ7qmexAyA" : {
@@ -28574,6 +33934,10 @@ SPELLS.CONST = {
             "Manipulation",
             "Ombre",
             "Téléportation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult"
         ]
     },
     "e4vxRJ4sjUXMEIGP" : {
@@ -28589,6 +33953,10 @@ SPELLS.CONST = {
             "Rare",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine",
+            "occult"
         ]
     },
     "LrhTFHUtSS9ahogL" : {
@@ -28606,7 +33974,8 @@ SPELLS.CONST = {
             "Concentration",
             "Focalisation",
             "Manipulation"
-        ]
+        ],
+        "traditions" : []
     },
     "6GjJtLJnwC18Y0aZ" : {
         "action_cost" : "2",
@@ -28625,7 +33994,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Visuel"
-        ]
+        ],
+        "traditions" : []
     },
     "SwUiVavHKMWG7t5K" : {
         "action_cost" : "2",
@@ -28640,6 +34010,11 @@ SPELLS.CONST = {
             "Peu courant",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "DLFupJuCfzyLCQcO" : {
@@ -28657,7 +34032,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Manipulation",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "Vw2CNwlRRKABsuZi" : {
         "action_cost" : "2",
@@ -28674,6 +34050,9 @@ SPELLS.CONST = {
             "Manipulation",
             "Mental",
             "Visuel"
+        ],
+        "traditions" : [
+            "arcane"
         ]
     },
     "ykyKclKTCMp2SFXa" : {
@@ -28688,6 +34067,11 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "occult",
+            "primal"
         ]
     },
     "coKiMMBLESkaLNVa" : {
@@ -28703,6 +34087,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Scrutation"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "I8CPe9Pp7GABqOyB" : {
@@ -28722,7 +34111,8 @@ SPELLS.CONST = {
             "Focalisation",
             "Fortune",
             "Mental"
-        ]
+        ],
+        "traditions" : []
     },
     "4Gl3WSUqYjVVIsOg" : {
         "action_cost" : "2",
@@ -28738,6 +34128,11 @@ SPELLS.CONST = {
             "Concentration",
             "Manipulation",
             "Ombre"
+        ],
+        "traditions" : [
+            "arcane",
+            "divine",
+            "occult"
         ]
     },
     "e4c73RBCQAZdYxau" : {
@@ -28753,6 +34148,10 @@ SPELLS.CONST = {
             "Air",
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "kMffb6SvhCBMMI4k" : {
@@ -28767,6 +34166,10 @@ SPELLS.CONST = {
         "traits" : [
             "Concentration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "arcane",
+            "primal"
         ]
     },
     "y3jlOfgsQH1JjkJE" : {
@@ -28782,6 +34185,9 @@ SPELLS.CONST = {
             "Concentration",
             "Consécration",
             "Manipulation"
+        ],
+        "traditions" : [
+            "divine"
         ]
     }
 };

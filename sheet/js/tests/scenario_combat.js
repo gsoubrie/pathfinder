@@ -52,7 +52,7 @@ TEST.RUNNER.register( "[COMBAT] bande PV + journal vide + les trois gestes dispo
     let _expected                        = _health.getCurrentHP() + " / " + _health.getMaxHP();
     TEST.ASSERT.equal( _pane.querySelector( ".combat-health-points-value" ).textContent, _expected, "La bande PV devrait afficher " + _expected + ", obtenu : [" + _pane.querySelector( ".combat-health-points-value" ).textContent + "]" );
     TEST.ASSERT.equal( _pane.querySelector( ".combat-health-percentage" ).textContent, "100%", "La bande PV devrait afficher 100% au PV maximum" );
-    TEST.ASSERT.equal( _pane.querySelector( ".combat-health-temp-value" ).textContent, "0", "Les PV temporaires devraient valoir 0" );
+    TEST.ASSERT.ok( _pane.querySelector( ".combat-health-temp" ).classList.contains( "combat-health-temp--hidden" ), "La cellule PV temporaires devrait être masquée à 0" );
     TEST.ASSERT.equal( _pane.querySelectorAll( ".combat-health-history .health-history-entry" ).length, 0, "Le journal devrait être vide, obtenu : " + _pane.querySelectorAll( ".combat-health-history .health-history-entry" ).length );
     TEST.ASSERT.notNull( _pane.querySelector( ".combat-health-button--heal" ), "Le bouton Soigner devrait être rendu" );
     TEST.ASSERT.notNull( _pane.querySelector( ".combat-health-button--temp" ), "Le bouton + PV Temp devrait être rendu" );
@@ -118,6 +118,7 @@ TEST.RUNNER.register( "[COMBAT] soins puis PV temporaires : les dégâts suivant
     document.querySelectorAll( "body > .modal .modal-button" )[ 1 ].click();
     TEST.ASSERT.equal( _health.getTempHP(), 10, "Les PV temporaires devraient valoir 10, obtenu : " + _health.getTempHP() );
     TEST.ASSERT.equal( _pane.querySelector( ".combat-health-temp-value" ).textContent, "10", "La bande PV devrait afficher les PV temporaires" );
+    TEST.ASSERT.notOk( _pane.querySelector( ".combat-health-temp" ).classList.contains( "combat-health-temp--hidden" ), "La cellule PV temporaires devrait réapparaître avec des PV temporaires" );
 
     // Frontière PF2 : les dégâts mangent d'abord les PV temporaires, le
     // courant ne bouge pas tant que le temp couvre
@@ -214,12 +215,14 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     let _masteries    = _character.getMasteries();
     let _rows         = _pane.querySelectorAll( ".combat-attack-row:not(.combat-attack-row--header)" );
     TEST.ASSERT.equal( _rows.length, 1, "Sans arme équipée la zone ne devrait porter que les mains nues, obtenu : " + _rows.length );
-    // La zone Équipement vit toujours : sans pièce portée, chaque ligne
-    // affiche sa valeur vide, jamais une ligne manquante
-    let _equipment_values = _pane.querySelectorAll( ".combat-equipment-value" );
-    TEST.ASSERT.equal( _equipment_values.length, 2, "La zone Équipement devrait porter ses deux lignes Armure et Bouclier, obtenu : " + _equipment_values.length );
-    TEST.ASSERT.equal( _equipment_values[ 0 ].textContent, "—", "Sans armure portée la ligne Armure devrait afficher une valeur vide" );
-    TEST.ASSERT.equal( _equipment_values[ 1 ].textContent, "—", "Sans bouclier porté la ligne Bouclier devrait afficher une valeur vide" );
+    // La zone Équipé vit toujours : sans objet équipé le schéma ne rend
+    // AUCUNE rangée (les emplacements vides sont masqués), seule une ligne
+    // « Rien d'équipé » répond sous le titre
+    let _schema_rows = _pane.querySelectorAll( ".combat-schema-row" );
+    TEST.ASSERT.equal( _schema_rows.length, 0, "Sans objet équipé le schéma ne devrait rendre aucune rangée, obtenu : " + _schema_rows.length );
+    let _empty_line  = _pane.querySelector( ".combat-equipment-zone .combat-schema-empty" );
+    TEST.ASSERT.equal( _empty_line ? _empty_line.textContent : null, "Rien d'équipé", "Sans objet équipé la zone devrait afficher « Rien d'équipé », obtenu : [" + ( _empty_line ? _empty_line.textContent : "null" ) + "]" );
+    TEST.ASSERT.equal( _pane.querySelector( ".combat-equipment-zone .combat-attacks-title" ).textContent, "Équipé", "Le titre de la zone devrait être « Équipé »" );
     let _fist_roll    = _masteries.getRollModifier( _character, { "slot": COMBAT.UNARMED_SLOT, "characteristic": COMBAT.UNARMED_CHARACTERISTIC } );
     TEST.ASSERT.equal( _rows[ 0 ].querySelector( ".combat-attack-col-roll" ).textContent, "" + _fist_roll, "Le jet des mains nues devrait valoir le calcul du domaine, obtenu : [" + _rows[ 0 ].querySelector( ".combat-attack-col-roll" ).textContent + "]" );
     // Le plat des popups d'ajout porte l'inventaire réel : une armure et une
@@ -229,6 +232,8 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
     let _rows_after   = _pane.querySelectorAll( ".combat-attack-row:not(.combat-attack-row--header)" );
     TEST.ASSERT.equal( _rows_after.length, 3, "Chaque arme équipée devrait rejoindre les mains nues, obtenu : " + _rows_after.length );
+    // Dès qu'un objet est équipé la ligne « Rien d'équipé » disparaît
+    TEST.ASSERT.isNull( _pane.querySelector( ".combat-equipment-zone .combat-schema-empty" ), "La ligne « Rien d'équipé » devrait disparaître dès le premier objet équipé" );
     // L'épée longue roule en mêlée sur la Force, l'arc long porte sa Portée
     // scrapée : il roule sur la Dextérité
     let _for_value    = _character.getCharacteristics().getContentByUUID( COMBAT.MELEE_CHARACTERISTIC );
@@ -243,14 +248,18 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     let _armor_data   = _combat.getArmorClassData( _character );
     TEST.ASSERT.equal( _armor_cell.textContent, "" + _armor_data.value, "La classe d'armure devrait suivre l'armure équipée, obtenu : [" + _armor_cell.textContent + "]" );
     TEST.ASSERT.equal( _armor_data.dex_used, Math.min( _dex_value ? _dex_value.getModifierValue() : 0, COMBAT.parseSignedNumber( _armor_data.armor.getCharacteristicValue( COMBAT.DEX_CAP_FIELD ) ) ), "La dextérité devrait se plafonner au Mod. de dex. max. de l'armure, obtenu : " + _armor_data.dex_used );
-    // La zone Équipement porte l'armure ÉQUIPÉE : nom, stats du domaine, "?"
+    // Le schéma porte les pièces ÉQUIPÉES à leur emplacement : l'armure en
+    // « armor », les deux armes en « main » (usage scrapé), chacune avec son "?"
     let _armor_entry  = _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" );
-    let _equipment_names  = _pane.querySelectorAll( ".combat-equipment-value" );
-    let _equipment_stats  = _pane.querySelectorAll( ".combat-equipment-stats" );
-    TEST.ASSERT.equal( _equipment_names[ 0 ].textContent, "Armure d'écailles", "La ligne Armure devrait porter l'armure équipée, obtenu : [" + _equipment_names[ 0 ].textContent + "]" );
-    TEST.ASSERT.equal( _equipment_stats[ 0 ].textContent, "CA " + _armor_entry.getCharacteristicValue( COMBAT.ARMOR_BONUS_FIELD ) + ", Mod. de dex. max. " + _armor_entry.getCharacteristicValue( COMBAT.DEX_CAP_FIELD ), "La ligne Armure devrait citer les stats de sa pièce, obtenu : [" + _equipment_stats[ 0 ].textContent + "]" );
-    TEST.ASSERT.ok( _pane.querySelectorAll( ".combat-equipment-row" )[ 0 ].querySelector( ".combat-attack-info" ), "La ligne Armure devrait porter son ? de popup" );
-    TEST.ASSERT.equal( _equipment_names[ 1 ].textContent, "—", "Sans bouclier équipé la ligne Bouclier reste vide, obtenu : [" + _equipment_names[ 1 ].textContent + "]" );
+    TEST.ASSERT.notNull( _armor_entry, "Pre-condition : armure ajoutée au domaine" );
+    let _armor_row    = _pane.querySelector( ".combat-schema-row[data-slot='armor']" );
+    TEST.ASSERT.equal( _armor_row ? _armor_row.querySelector( ".combat-schema-item-value" ).textContent : null, "Armure d'écailles", "La rangée Armure devrait porter l'armure équipée, obtenu : [" + ( _armor_row ? _armor_row.querySelector( ".combat-schema-item-value" ).textContent : "null" ) + "]" );
+    TEST.ASSERT.ok( _armor_row && _armor_row.querySelector( ".combat-attack-info" ), "La rangée Armure devrait porter le ? de popup de la pièce" );
+    let _main_row     = _pane.querySelector( ".combat-schema-row[data-slot='main']" );
+    let _main_values  = _main_row ? _main_row.querySelectorAll( ".combat-schema-item-value" ) : [];
+    TEST.ASSERT.equal( _main_values.length, 2, "La rangée Main devrait porter les deux armes équipées, obtenu : " + _main_values.length );
+    TEST.ASSERT.equal( _armor_entry ? _armor_entry.getSlot() : null, "armor", "L'armure devrait prendre son emplacement par défaut (usage scrapé), obtenu : " + ( _armor_entry ? _armor_entry.getSlot() : "null" ) );
+    TEST.ASSERT.isNull( _pane.querySelector( ".combat-schema-row[data-slot='shield']" ), "Sans bouclier équipé la rangée Bouclier ne devrait pas exister" );
     // Le "?" d'une arme ouvre la popup d'objet (uuid = stuff__<nom>)
     _rows_after[ 1 ].querySelector( ".combat-attack-info" ).click();
     let _popup = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
@@ -284,12 +293,15 @@ TEST.RUNNER.register( "[COMBAT] bouclier équipé = ligne Bouclier remplie, pas 
     let _shield   = _combat.getWornShield( _character );
     TEST.ASSERT.notNull( _shield, "Le bouclier équipé devrait être reconnu (critère Solidité)" );
     TEST.ASSERT.equal( _combat.getWornArmor( _character ), null, "Le bouclier ne devrait PAS compter comme armure, obtenu : " + ( _combat.getWornArmor( _character ) || "null" ) );
-    let _names    = _pane.querySelectorAll( ".combat-equipment-value" );
-    let _stats    = _pane.querySelectorAll( ".combat-equipment-stats" );
-    TEST.ASSERT.equal( _names[ 0 ].textContent, "—", "Sans armure la ligne Armure reste vide même avec un bouclier porté, obtenu : [" + _names[ 0 ].textContent + "]" );
-    TEST.ASSERT.equal( _names[ 1 ].textContent, "Bouclier en acier", "La ligne Bouclier devrait porter le bouclier, obtenu : [" + _names[ 1 ].textContent + "]" );
+    let _shield_row = _pane.querySelector( ".combat-schema-row[data-slot='shield']" );
+    TEST.ASSERT.isNull( _pane.querySelector( ".combat-schema-row[data-slot='armor']" ), "Sans armure la rangée Armure ne devrait pas exister même avec un bouclier porté" );
+    TEST.ASSERT.equal( _shield_row ? _shield_row.querySelector( ".combat-schema-item-value" ).textContent : null, "Bouclier en acier", "La rangée Bouclier devrait porter le bouclier, obtenu : [" + ( _shield_row ? _shield_row.querySelector( ".combat-schema-item-value" ).textContent : "null" ) + "]" );
+    // La durabilité du bouclier s'affiche : Solidité · PV cur/max · SR
     if ( _shield ) {
-        TEST.ASSERT.equal( _stats[ 1 ].textContent, "Solidité " + _shield.getCharacteristicValue( COMBAT.STURDINESS_FIELD ) + ", CA +" + COMBAT.SHIELD_CA_BONUS + " brandi", "La ligne Bouclier devrait citer sa Solidité et le CA brandi, obtenu : [" + _stats[ 1 ].textContent + "]" );
+        TEST.ASSERT.equal( _shield_row.querySelector( ".combat-schema-item-hardness" ).textContent, "Solidité " + _shield.getCharacteristicValue( "Solidité" ), "La rangée Bouclier devrait citer la Solidité, obtenu : [" + _shield_row.querySelector( ".combat-schema-item-hardness" ).textContent + "]" );
+        TEST.ASSERT.equal( _shield_row.querySelector( ".combat-schema-hp-value" ).textContent, _shield.getCurrentHp() + " / " + _shield.getMaxHp(), "La rangée Bouclier devrait afficher PV actuels / max, obtenu : [" + _shield_row.querySelector( ".combat-schema-hp-value" ).textContent + "]" );
+        TEST.ASSERT.equal( _shield_row.querySelector( ".combat-schema-item-bt" ).textContent, "SR " + _shield.getCharacteristicValue( "SR" ), "La rangée Bouclier devrait citer le SR, obtenu : [" + _shield_row.querySelector( ".combat-schema-item-bt" ).textContent + "]" );
+        TEST.ASSERT.equal( _shield_row.querySelectorAll( ".combat-schema-hp-btn" ).length, 2, "La durabilité devrait porter ses deux boutons −/+" );
     }
     let _armor_data = _combat.getArmorClassData( _character );
     TEST.ASSERT.equal( _armor_data.armor, null, "La CA devrait se calculer sans armure (défense non armée)" );
@@ -298,6 +310,75 @@ TEST.RUNNER.register( "[COMBAT] bouclier équipé = ligne Bouclier remplie, pas 
     // La suite reprend un inventaire VIERGE (règle : laisser la suite propre)
     CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en acier" } );
     TEST.ASSERT.equal( _combat.getWornShield( _character ), null, "Après retrait le bouclier ne devrait plus être porté" );
+} );
+
+// Le schéma suit la destruction : les boutons −/+ du bouclier éditent ses
+// PV actuels (clamp [0, max], état sauvegardé), le slot se règle par
+// événement et déplace la pièce dans le schéma
+TEST.RUNNER.register( "[COMBAT] schéma = PV du bouclier −/+, slot réglable, save/load", function () {
+    let _character = CONTROLLER.Character.current_character;
+    let _pane      = TEST_combatPane();
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Combat ouvert" );
+    if ( !_pane || !_character ) {
+        return;
+    }
+    CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en bois", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
+    CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
+    let _stuffs   = _character.getStuffs();
+    let _shield   = _stuffs.getContentByUUID( "armor__Bouclier en bois" );
+    let _sword    = _stuffs.getContentByUUID( "weapon__Épée longue" );
+    TEST.ASSERT.notNull( _shield, "Pre-condition : bouclier ajouté" );
+    TEST.ASSERT.notNull( _sword, "Pre-condition : épée ajoutée" );
+    if ( !_shield || !_sword ) {
+        return;
+    }
+    // Emplacement par défaut : bouclier en "shield", épée en "main"
+    TEST.ASSERT.equal( _shield.getSlot(), "shield", "Le bouclier devrait prendre l'emplacement scrapé « shield », obtenu : " + _shield.getSlot() );
+    TEST.ASSERT.equal( _sword.getSlot(), "main", "L'épée devrait prendre l'emplacement scrapé « main », obtenu : " + _sword.getSlot() );
+    // Le slot se règle : l'épée part en main secondaire
+    CONTROLLER.Character.doActionAfter( "event__stuff__set_slot", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue", "param__stuff__slot": "off_hand" } );
+    TEST.ASSERT.equal( _sword.getSlot(), "off_hand", "Le slot de l'épée devrait passer en main secondaire, obtenu : " + _sword.getSlot() );
+    TEST.ASSERT.ok( _pane.querySelector( ".combat-schema-row[data-slot='off_hand'] .combat-schema-item-value" ), "La rangée Main secondaire devrait porter l'épée déplacée" );
+    TEST.ASSERT.isNull( _pane.querySelector( ".combat-schema-row[data-slot='main']" ), "La rangée Main devrait disparaître une fois l'épée déplacée en main secondaire" );
+    // Les −/+ éditent les PV actuels du bouclier (clamp [0, max]) —
+    // chaque clic rafraîchit la zone, on re-questionne le bouton à chaque fois
+    let _click_hp_btn = function ( delta ) {
+        let _btn = _pane.querySelector( ".combat-schema-row[data-slot='shield'] .combat-schema-hp-btn[data-delta='" + delta + "']" );
+        if ( _btn ) {
+            _btn.click();
+        }
+        return _btn;
+    };
+    TEST.ASSERT.notNull( _click_hp_btn( "-1" ), "Le bouton − devrait exister" );
+    _click_hp_btn( "-1" );
+    TEST.ASSERT.equal( _shield.getCurrentHp(), _shield.getMaxHp() - 2, "Deux clics sur − devraient retirer 2 PV, obtenu : " + _shield.getCurrentHp() + " contre " + ( _shield.getMaxHp() - 2 ) );
+    let _hp_value_dom = _pane.querySelector( ".combat-schema-row[data-slot='shield'] .combat-schema-hp-value" );
+    TEST.ASSERT.equal( _hp_value_dom ? _hp_value_dom.textContent : null, ( _shield.getMaxHp() - 2 ) + " / " + _shield.getMaxHp(), "L'affichage devrait suivre les PV actuels, obtenu : [" + ( _hp_value_dom ? _hp_value_dom.textContent : "null" ) + "]" );
+    _click_hp_btn( "1" );
+    TEST.ASSERT.equal( _shield.getCurrentHp(), _shield.getMaxHp() - 1, "Un clic sur + devrait rendre 1 PV, obtenu : " + _shield.getCurrentHp() );
+    // Le clamp bas : on descend sous 0, l'état ne descend pas sous 0 et la ligne passe « détruit »
+    for ( let i = 0; i < 30; i++ ) {
+        _click_hp_btn( "-1" );
+    }
+    TEST.ASSERT.equal( _shield.getCurrentHp(), 0, "Les PV devraient être clampés à 0, obtenu : " + _shield.getCurrentHp() );
+    TEST.ASSERT.ok( _pane.querySelector( ".combat-schema-row[data-slot='shield'] .combat-schema-item-hp--destroyed" ), "À 0 PV la durabilité devrait porter le style détruit" );
+    // Le clamp haut : on remonte au-delà du max
+    for ( let i = 0; i < 30; i++ ) {
+        _click_hp_btn( "1" );
+    }
+    TEST.ASSERT.equal( _shield.getCurrentHp(), _shield.getMaxHp(), "Les PV devraient être clampés au max, obtenu : " + _shield.getCurrentHp() + " contre " + _shield.getMaxHp() );
+    // Save → load : le slot et les PV actuels survivent
+    CONTROLLER.Character.doActionAfter( "event__stuff__edit_current_hp", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en bois", "param__stuff__current_hp": 7 } );
+    let _saved     = _character.getDataToSave();
+    let _reloaded  = new CHARACTER.Current();
+    _reloaded.updateData( JSON.parse( JSON.stringify( _saved ) ) );
+    let _shield_r  = _reloaded.getStuffs().getContentByUUID( "armor__Bouclier en bois" );
+    let _sword_r   = _reloaded.getStuffs().getContentByUUID( "weapon__Épée longue" );
+    TEST.ASSERT.equal( _shield_r ? _shield_r.getCurrentHp() : null, 7, "Après relecture le bouclier devrait garder ses 7 PV, obtenu : " + ( _shield_r ? _shield_r.getCurrentHp() : "null" ) );
+    TEST.ASSERT.equal( _sword_r ? _sword_r.getSlot() : null, "off_hand", "Après relecture l'épée devrait garder son slot main secondaire, obtenu : " + ( _sword_r ? _sword_r.getSlot() : "null" ) );
+    // La suite reprend un inventaire VIERGE (règle : laisser la suite propre)
+    CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en bois" } );
+    CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue" } );
 } );
 
 // Le Magicien porte ses rangs d'incantation : la zone rend l'attaque de sort

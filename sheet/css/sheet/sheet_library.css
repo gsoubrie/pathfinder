@@ -117,6 +117,27 @@
     margin       : 0;
 }
 
+/* Rangées de chips Tradition / Rang du sujet Sorts : elles occupent toute
+   la largeur de la barre de filtres et passent à la ligne au besoin */
+.library-window .library-spell-filters {
+    display        : flex;
+    flex-direction : column;
+    gap            : 6px;
+    flex-basis     : 100%;
+}
+
+.library-window .library-spell-filter-row {
+    align-items : center;
+    display     : flex;
+    gap         : 8px;
+}
+
+.library-window .library-spell-filter-label {
+    color      : #c8b090;
+    font-size  : 12px;
+    font-weight: 600;
+}
+
 .library-window .library-search {
     background    : linear-gradient(135deg, #3d2817 0%, #2a1b10 100%);
     border        : 1px solid #6b4e2a;
@@ -302,24 +323,26 @@
     text-shadow   : 1px 1px 2px rgba(0,0,0,0.8);
 }
 
-/* « + » d'une section (sujet Sorts) : ajout en masse de toute la section */
+/* « + » d'une section (sujet Sorts) : ajout en masse de toute la section —
+   état de repos visible (fond panneau + bordure or), comme « Tout ajouter » */
 .library-window .library-section-add {
-    border        : 1px solid #6b4e2a;
-    border-radius : 4px;
-    color         : #f0d890;
+    background    : var( --g-panel, linear-gradient(135deg, #3D2817 0%, #2A1B10 100%) );
+    border        : var( --b-thin, 1px ) solid var( --c-gold, #D4AF37 );
+    border-radius : var( --r-sm, 4px );
+    color         : var( --c-text-gold, #F0D890 );
     cursor        : pointer;
     font-size     : 12px;
     font-weight   : 600;
     line-height   : 1;
     margin-left   : auto;
-    padding       : 1px 8px;
+    padding       : 2px 9px;
     text-transform: none;
 }
 
 .library-window .library-section-add:hover {
-    background   : #d4af37;
-    border-color : #ffd700;
-    color        : #1a0f08;
+    background   : var( --g-gold, linear-gradient(135deg, #D4AF37 0%, #B8941F 100%) );
+    border-color : var( --c-gold-light, #FFD700 );
+    color        : var( --c-text-dark, #1A0F08 );
 }
 
 /* « Tout ajouter (N)» : barre de filtres du sujet Sorts, N = résultats
@@ -434,6 +457,7 @@
 .library-window .library-tag--owned { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0a0d0; font-style: italic; }
 .library-window .library-tag--trait     { background: #2a3a3a; border: 1px solid #4a6a6a; color: #90c8c8; }
 .library-window .library-tag--spell     { background: #4a3a4a; border: 1px solid #8a6a8a; color: #d8a8d8; }
+.library-window .library-tag--tradition { background: #4a4a2a; border: 1px solid #8a8a4a; color: #e0e0a0; }
 .library-window .library-tag--stuff     { background: #3a3242; border: 1px solid #6a5a3a; color: #c8b890; }
 .library-window .library-tag--action    { background: #2a3a2a; border: 1px solid #4a7a4a; color: #90d890; }
 .library-window .library-tag--rank      { background: #2a2a3a; border: 1px solid #4a4a6a; color: #a0b0d0; }
@@ -470,45 +494,15 @@
 
 /* --- DESCRIPTION --- */
 
+/* La description se rend ENTIERE sous la ligne du haut, sur toute la
+   largeur de la carte : pas de clamp, pas de repli */
 .library-window .library-card-description {
     color       : #c8b090;
+    display     : block;
     font-size   : 12px;
     line-height : 1.5;
     opacity     : 0.85;
-    display        : -webkit-box;
-    -webkit-line-clamp : 4;
-    -webkit-box-orient : vertical;
-    overflow         : hidden;
-}
-
-/* Carte dépliable : clic = la description entière (hors clamp 4 lignes).
-   L'indicateur « suite » n'apparaît que quand le texte déborde (classe
-   « clamped » posée au rendu), il devient « replier » une fois déplié */
-.library-window .library-card {
-    cursor : pointer;
-}
-
-.library-window .library-card-more {
-    display : none;
-}
-
-.library-window .library-card-more::after {
-    color     : #d4af37;
-    content   : " ▾ suite";
-    font-size : 11px;
-}
-
-.library-window .library-card.clamped:not(.library-card--expanded) .library-card-more {
-    display : inline;
-}
-
-.library-window .library-card--expanded .library-card-more::after {
-    content : " ▴ replier";
-}
-
-.library-window .library-card--expanded .library-card-description {
-    -webkit-line-clamp : unset;
-    display            : block;
+    width       : 100%;
 }
 
 /* --- VIDE --- */

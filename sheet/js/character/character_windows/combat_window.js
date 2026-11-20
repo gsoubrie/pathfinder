@@ -28,6 +28,8 @@ CHARACTER.CombatWindow.prototype = {
             case "event__stuff__add":
             case "event__stuff__remove":
             case "event__stuff__set_location":
+            case "event__stuff__set_slot":
+            case "event__stuff__edit_current_hp":
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
             // Les actions du personnage (ajustements) bougent : la zone
@@ -87,9 +89,10 @@ CHARACTER.CombatWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-label" }, "Points de vie" ), points );
         this.dom_element_current_hp          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-points-value" } ), points );
         this.dom_element_health_percentage   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-percentage between-parentheses" } ), points );
-        let temp = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-temp" } ), this.band_element );
+        let temp = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-temp combat-health-temp--hidden" } ), this.band_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-label" }, "PV temporaires" ), temp );
-        this.dom_element_temp_hp = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-temp-value" } ), temp );
+        this.dom_element_temp_cell = temp;
+        this.dom_element_temp_hp   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-temp-value" } ), temp );
         let actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-actions" } ), this.band_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", {
             class  : "combat-health-button combat-health-button--heal",
@@ -133,37 +136,100 @@ CHARACTER.CombatWindow.prototype = {
 
     //********************************************  EQUIPMENT ZONE  **************************************************//
 
-    // The worn protection : ONE armor and ONE shield, one property line each
-    // — the "?" opens the item popup of the piece (jamais inline, les
-    // apostrophes des noms d'objets)
+    // The character schema : one row per body slot (STUFF.SLOTS order,
+    // every slot shows, the empty ones read "—"), the equipped pieces
+    // grouped by slot, the affixed/etched pieces under their host, the
+    // durability (Solidité · PV −/+ · SR) of the pieces that own HP
     _computeEquipmentZone: function ( character_object ) {
         this.equipment_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-zone" } ), this.main_column );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-title" }, "Équipement" ), this.equipment_zone );
-        this.equipment_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-list" } ), this.equipment_zone );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-title" }, "Équipé" ), this.equipment_zone );
+        this.equipment_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-list combat-schema" } ), this.equipment_zone );
     },
 
     _refreshEquipmentZone: function ( character_object ) {
         SERVICE.DOM.empty( this.equipment_list );
-        let lines = character_object.getCombat().getEquipmentLines( character_object );
-        for ( let i = 0, _size_i = lines.length; i < _size_i; i++ ) {
-            this._buildEquipmentLine( this.equipment_list, lines[ i ] );
+        let rows = character_object.getCombat().getEquipmentSlotsData( character_object );
+        let rendered = 0;
+        for ( let i = 0, _size_i = rows.length; i < _size_i; i++ ) {
+            // Un emplacement vide ne rend aucune rangée
+            if ( !rows[ i ].items.length && !rows[ i ].orphan_hosts.length ) {
+                continue;
+            }
+            this._buildSchemaRow( this.equipment_list, rows[ i ] );
+            rendered++;
+        }
+        // Rien d'équipé : une ligne grisée le dit sous le titre
+        if ( !rendered ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-empty" }, "Rien d'équipé" ), this.equipment_list );
         }
     },
 
-    _buildEquipmentLine: function ( parent, line ) {
-        let row       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-row" } ), parent );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-label" }, line.label ), row );
-        let name_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-name" } ), row );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-equipment-value" }, line.entry ? line.entry.value : "—" ), name_cell );
-        if ( line.entry ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
-                class      : "combat-attack-info",
-                "data-value": line.entry.value,
-                title      : "Détails de l'équipement",
-                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__item',{'param__stuff__value':this.getAttribute('data-value')})"
-            }, "?" ), name_cell );
+    _buildSchemaRow: function ( parent, row ) {
+        let row_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-row", "data-slot": row.slot_key } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-slot-label" }, row.label ), row_dom );
+        let items_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-slot-items" } ), row_dom );
+        for ( let i = 0, _size_i = row.items.length; i < _size_i; i++ ) {
+            this._buildSchemaItem( items_dom, row.items[ i ] );
         }
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-equipment-stats" }, line.stats || "" ), row );
+        // The affixed pieces whose host is not equipped still list under
+        // their slot
+        for ( let h = 0, _size_h = row.orphan_hosts.length; h < _size_h; h++ ) {
+            this._buildSchemaHost( items_dom, row.orphan_hosts[ h ] );
+        }
+    },
+
+    _buildSchemaItem: function ( parent, item ) {
+        let entry    = item.entry;
+        let item_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-item" } ), parent );
+        let name_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-item-name" } ), item_dom );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-item-value" }, entry.value ), name_dom );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class      : "combat-attack-info",
+            "data-value": entry.value,
+            title      : "Détails de l'équipement",
+            onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__item',{'param__stuff__value':this.getAttribute('data-value')})"
+        }, "?" ), name_dom );
+        // The durability of the piece : Solidité · PV −/+ · SR — the −/+
+        // send a delta, the identity rides the data attributes (the names
+        // carry apostrophes, jamais inline)
+        if ( item.hp ) {
+            let hp_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-item-hp" + ( item.hp.current <= 0 ? " combat-schema-item-hp--destroyed" : "" ) } ), item_dom );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-item-hardness" }, "Solidité " + item.hp.hardness ), hp_dom );
+            let hp_buttons = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-hp-buttons" } ), hp_dom );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class      : "combat-schema-hp-btn",
+                "data-kind": entry.getKind(),
+                "data-value": entry.value,
+                "data-delta": "-1",
+                title      : "Un dégât de plus (l'objet perd 1 PV au-delà de sa Solidité)",
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__edit_current_hp',{'param__stuff__kind':this.getAttribute('data-kind'),'param__stuff__value':this.getAttribute('data-value'),'param__delta':this.getAttribute('data-delta')})"
+            }, "−" ), hp_buttons );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-hp-value" }, item.hp.current + " / " + item.hp.max ), hp_buttons );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                class      : "combat-schema-hp-btn",
+                "data-kind": entry.getKind(),
+                "data-value": entry.value,
+                "data-delta": "1",
+                title      : "Réparer (1 PV de plus)",
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__edit_current_hp',{'param__stuff__kind':this.getAttribute('data-kind'),'param__stuff__value':this.getAttribute('data-value'),'param__delta':this.getAttribute('data-delta')})"
+            }, "+" ), hp_buttons );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-item-bt" }, "SR " + item.hp.bt ), hp_dom );
+        }
+        // The affixed/etched pieces ride under their host
+        for ( let h = 0, _size_h = item.hosts.length; h < _size_h; h++ ) {
+            this._buildSchemaHost( item_dom, item.hosts[ h ] );
+        }
+    },
+
+    _buildSchemaHost: function ( parent, host_entry ) {
+        let host_dom = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-schema-host" } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-schema-host-name" }, host_entry.value ), host_dom );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class      : "combat-attack-info",
+            "data-value": host_entry.value,
+            title      : "Détails de l'équipement",
+            onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__item',{'param__stuff__value':this.getAttribute('data-value')})"
+        }, "?" ), host_dom );
     },
 
     //********************************************  SAVES ZONE   **************************************************//
@@ -366,6 +432,8 @@ CHARACTER.CombatWindow.prototype = {
         this.dom_element_current_hp.textContent        = health.getCurrentHP() + " / " + health.getMaxHP();
         this.dom_element_health_percentage.textContent = health.getHealthPercentage() + "%";
         this.dom_element_temp_hp.textContent           = "" + health.getTempHP();
+        // La cellule ne se montre qu'avec des PV temporaires (0 = masquée)
+        this.dom_element_temp_cell.classList.toggle( "combat-health-temp--hidden", health.getTempHP() <= 0 );
     }
 };
 

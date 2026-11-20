@@ -17,7 +17,9 @@
 param(
     [string] $ProjectDir    = "C:\dev\workspace\Perso\Pathfinder",
     [int]    $MaxWaitSeconds = 220,
-    [int]    $PollMs         = 1000
+    [int]    $PollMs         = 1000,
+    [int]    $VirtualTimeBudgetMs = 180000,
+    [int]    $EdgeTimeoutMs       = 240000
 )
 
 $ErrorActionPreference = "Stop"
@@ -46,13 +48,18 @@ foreach ( $testProcess in $testProcesses ) {
 if ( Test-Path $dumpFile ) { Remove-Item $dumpFile -Force -ErrorAction SilentlyContinue }
 if ( Test-Path $errFile )  { Remove-Item $errFile -Force -ErrorAction SilentlyContinue }
 
+# A profile left half-written by a killed run makes headless Edge start
+# but never dump : always start on a fresh profile (the page is a local
+# file, the cold start costs a few seconds only)
+if ( Test-Path $profileDir ) { Remove-Item $profileDir -Recurse -Force -ErrorAction SilentlyContinue }
+
 # Launch DETACHED : cmd owns the redirections and returns at once (start /b),
 # the dump handles belong to the headless Edge tree - Start-Process with
 # redirect blocks until the child exits and must not carry this launch
 # --window-size pins a desktop viewport : the responsive breakpoints of style.css
 # must NOT apply during the scenario run (the default headless viewport is narrower
 # than the sheet, 1240px)
-$edgeArguments = "--headless=new --disable-gpu --window-size=1400,2400 --user-data-dir=`"$profileDir`" --virtual-time-budget=180000 --timeout=240000 --dump-dom $testsUrl"
+$edgeArguments = "--headless=new --disable-gpu --window-size=1400,2400 --user-data-dir=`"$profileDir`" --virtual-time-budget=$VirtualTimeBudgetMs --timeout=$EdgeTimeoutMs --dump-dom $testsUrl"
 $cmdArguments  = "/c start `"`" /b `"$edgeExe`" $edgeArguments > `"$dumpFile`" 2> `"$errFile`""
 Start-Process -FilePath "cmd.exe" -ArgumentList $cmdArguments -WindowStyle Hidden
 

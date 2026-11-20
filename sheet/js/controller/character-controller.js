@@ -35,6 +35,14 @@ CONTROLLER.Character = (function ( self ) {
             case "event__spell__remove":
             case "event__archetype__select":
             case "event__historic__select":
+            // The body slot and the current HP land on the character
+            // FIRST (like add/remove) : the domain updates, then the
+            // character broadcasts to the windows, which refresh with
+            // the fresh state (the Combat schema reads it) — routing
+            // straight to the windows would refresh the Combat before
+            // the domain, and a re-dispatch from a window would loop
+            case "event__stuff__set_slot":
+            case "event__stuff__edit_current_hp":
                 self.current_character.doActionAfter( event_name, params );
                 break;
             case "event__level_up__select_class":
@@ -62,6 +70,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__filter_enter":
             case "event__stuff__toggle_edit_location_selector":
             case "event__stuff__pick_edit_location":
+            case "event__stuff__toggle_edit_slot_selector":
+            case "event__stuff__pick_edit_slot":
             case "event__stuff__commit_edit":
             case "event__stuff__commit_remove":
             case "event__spell__pick":
