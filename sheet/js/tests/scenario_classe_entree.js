@@ -1,8 +1,8 @@
 "use strict";
 /**
- * Scenario : CLASSE - clic sur une entree de classe de l'onglet General
- * Le personnage possede deja une classe (entree .class-entry dans la zone
- * Classe). Un clic sur cette entree ouvre le popup de la classe en
+ * Scenario : CLASSE - clic sur le champ classe de l'onglet General
+ * Le personnage possede deja une classe (champ input dans la zone
+ * Classe). Un clic sur ce champ ouvre le popup de la classe en
  * consultation : menu d'onglets pour lire les autres classes, bouton Quitter,
  * mais pas de bouton Valider (aucune classe ne peut etre ajoutee depuis ce
  * popup, contrairement au popup d'ajout du bouton +). Quitter ferme le popup
@@ -10,7 +10,7 @@
  * Depart : feuille vide (TEST.RESET.sheet()) puis race Elfe (necessaire
  * pour activer la zone Classe) et classe Magicien niveau 1.
  */
-TEST.RUNNER.register( "[CLASSE] clic entrée Magicien → popup consultation sans Valider", function () {
+TEST.RUNNER.register( "[CLASSE] clic champ Magicien → popup consultation sans Valider", function () {
     TEST.RESET.sheet();
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Un nouveau personnage devrait etre instancie apres le reset" );
@@ -25,16 +25,17 @@ TEST.RUNNER.register( "[CLASSE] clic entrée Magicien → popup consultation san
     } ).then( function () {
         CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
         TEST.ASSERT.equal( _character.getClasses().getLevel(), 1, "Pre-condition : Magicien niveau 1 pose, obtenu : " + _character.getClasses().getLevel() );
-        let _entry                      = document.querySelector( ".grid-area.area-class .class-entry[data-name='Magicien']" );
-        TEST.ASSERT.notNull( _entry, "L'entree de classe Magicien devrait etre rendue dans la zone Classe" );
-        if ( !_entry ) {
+        let _field                      = document.querySelector( ".grid-area.area-class input.value" );
+        TEST.ASSERT.notNull( _field, "Le champ classe devrait etre rendu dans la zone Classe" );
+        if ( !_field ) {
             return;
         }
-        let _onclick                    = _entry.getAttribute( "onclick" ) || "";
-        TEST.ASSERT.ok( _onclick.indexOf( "event__property_popup__open" ) !== -1, "L'entree de classe devrait etre câblee sur event__property_popup__open, obtenu : [" + _onclick + "]" );
-        TEST.ASSERT.ok( _onclick.indexOf( "Magicien" ) !== -1, "L'entree de classe devrait porter le nom de la classe cliquee dans son câblage, obtenu : [" + _onclick + "]" );
-        _entry.click();
-        TEST.ASSERT.notNull( CONTROLLER.Character.edition_popup, "Le clic sur l'entree devrait ouvrir le popup de classe (edition_popup)" );
+        TEST.ASSERT.equal( _field.value, "Magicien", "Le champ classe devrait afficher la classe possedee, obtenu : [" + _field.value + "]" );
+        let _onclick                    = _field.getAttribute( "onclick" ) || "";
+        TEST.ASSERT.ok( _onclick.indexOf( "event__property_popup__open" ) !== -1, "Le champ classe devrait etre cable sur event__property_popup__open, obtenu : [" + _onclick + "]" );
+        TEST.ASSERT.ok( _onclick.indexOf( "param__class_name" ) === -1, "Le champ classe ne devrait PAS porter de param__class_name (la consultation vient de la classe posee, pas du cable), obtenu : [" + _onclick + "]" );
+        _field.click();
+        TEST.ASSERT.notNull( CONTROLLER.Character.edition_popup, "Le clic sur le champ devrait ouvrir le popup de classe (edition_popup)" );
         return TEST.wait().then( function () {
             let _popup                  = document.querySelector( "body > .popup" );
             TEST.ASSERT.notNull( _popup, "Le popup de classe devrait etre ouvert dans le body" );

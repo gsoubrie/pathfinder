@@ -436,34 +436,23 @@ CLASSES.CharacterClasses.prototype = {
         this.dom_element_general = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "grid-area area-" + CLASSES.key_element } ), dom_element_parent );
         let div                  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: " property vertical", "data-name": CLASSES.key_element } ), this.dom_element_general );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, CLASSES.label_element ), div );
-        this.dom_element__class_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "class-list" } ), div );
-        this.dom_element__add_button = SERVICE.DOM.createElement( "div", {
-            class  : "button class-add-button",
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "'})"
-        }, "+" );
+        // Comme le champ ascendance : le champ lui-meme est cliquable, plus
+        // de bouton « + » — sans classe posée le popup est la sélection, avec
+        // une classe posée c'est la consultation (classe unique, Round 81)
+        this.dom_element__input = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class   : "value",
+            readOnly: "",
+            onclick : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "'})"
+        } ), div );
         this.updateHtmlData();
     },
     updateHtmlData: function () {
-        if ( !this.dom_element__class_list ) {
+        if ( !this.dom_element__input ) {
             return;
         }
-        SERVICE.DOM.empty( this.dom_element__class_list );
-        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            let _class = this.getContent( i );
-            let _entry = SERVICE.DOM.createElement( "div", {
-                class     : "class-entry",
-                "data-name": _class.getName(),
-                title      : _class.getName() + " — Niveau " + _class.getLevel(),
-                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__property_popup__open',{'property_name':'" + CLASSES.key_element + "','param__class_name':'" + _class.getName() + "'})"
-            }, _class.getName() );
-            SERVICE.DOM.addElementTo( _entry, this.dom_element__class_list );
-        }
-        // Le + ne se rend que sans classe posee (geste de selection) : une
-        // classe posee se consulte au clic sur son nom, le niveau vit dans
-        // la zone level
-        if ( this.isEmpty() ) {
-            SERVICE.DOM.addElementTo( this.dom_element__add_button, this.dom_element__class_list );
-        }
+        let class_name                = this.getHighestClassName();
+        this.dom_element__input.value = class_name || "";
+        this.dom_element__input.title = class_name ? class_name + " — Niveau " + this.getLevel() : "";
     },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {

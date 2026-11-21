@@ -17,7 +17,7 @@ function TEST_openRacePopup() {
 
 function TEST_openClassPopup() {
     MANAGER.EventManagerV2.doActionAfter(
-        { target: document.querySelector( ".grid-area.area-class .class-add-button" ), button: 0, stopPropagation: function () {} },
+        { target: document.querySelector( ".grid-area.area-class input.value" ), button: 0, stopPropagation: function () {} },
         "event__property_popup__open",
         { "property_name": "class" }
     );

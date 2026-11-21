@@ -33,11 +33,16 @@ CHARACTER.GeneralWindow.prototype = {
             case "event__less_button":
                 this._updateHealthPointsField( CONTROLLER.Character.current_character );
                 break;
+            case "event__photo__set":
+            case "event__photo__remove":
+                this.computeArea__photo( CONTROLLER.Character.current_character );
+                break;
             case "click_on__window_navigation__done":
                 // Les prises de niveau et validations vivent dans l'onglet Passage de
                 // niveau, apres cette fenetre dans le groupe : recalcul des jets a
                 // l'activation de l'onglet, toujours sur l'etat frais du personnage
                 if ( this.name === params[ "window_name" ] ) {
+                    this.computeArea__photo( CONTROLLER.Character.current_character );
                     this.computeArea__saves( CONTROLLER.Character.current_character );
                     this.computeArea__skills( CONTROLLER.Character.current_character );
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
@@ -62,6 +67,7 @@ CHARACTER.GeneralWindow.prototype = {
         // tout s'affiche des le debut, meme vide) : l'heritage, les
         // caracteristiques et la zone Classe ne dependent plus de l'ascendance
         // posee, les jets et competences ne dependent plus de la classe
+        this.computeArea__photo( character_object );
         this.computeComponent(character_object.getNameObject());
         this.computeComponent(character_object.getPlayer());
         this.computeComponent(character_object.getRace());
@@ -390,6 +396,56 @@ CHARACTER.GeneralWindow.prototype = {
     },
 
 
+    // Zone photo du personnage (en haut a gauche, style CV) : cadre cliquable,
+    // « + » sans photo, image + « × » avec. La source est un fichier local lu
+    // en dataURL (voir readPhotoFile), jamais une URL externe
+    computeArea__photo: function ( character_object ) {
+        if ( !this.content_dom_element_target ) {
+            return;
+        }
+        if ( !this.area_photo ) {
+            this.area_photo = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-photo neutral" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_photo );
+        let _photo = character_object ? character_object.getPhoto() : null;
+        let _frame = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", {
+                class   : "photo-frame",
+                title   : _photo ? "Changer la photo" : "Ajouter une photo",
+                onclick : "document.getElementById('photo-file-input').click()"
+            } ),
+            this.area_photo
+        );
+        if ( _photo ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "img", { class: "photo-img", src: _photo, alt: "Photo du personnage" } ), _frame );
+            SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", {
+                    class   : "photo-remove",
+                    title   : "Retirer la photo",
+                    onclick : "event.stopPropagation(); MANAGER.EventManagerV2.doActionAfter(event,'event__photo__remove',{})"
+                }, "×" ),
+                _frame
+            );
+        }
+        else {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "photo-add" }, "+" ), _frame );
+        }
+        // L'input file vit hors de la fenetre (unique dans la page), le cadre
+        // se contente de le cliquer
+        if ( !document.getElementById( "photo-file-input" ) ) {
+            document.body.appendChild( SERVICE.DOM.createElement( "input", {
+                id      : "photo-file-input",
+                class   : "photo-file-input",
+                type    : "file",
+                accept  : "image/*",
+                onchange: "CHARACTER.GeneralWindow.readPhotoFile(event)"
+            } ) );
+        }
+    },
+
     // Champ Niveau du General : le niveau total du personnage. Le clic
     // bascule sur l'onglet Progression, la ou vivent les prises de niveau
     computeArea__level: function ( character_object ) {
@@ -482,5 +538,32 @@ CHARACTER.GeneralWindow.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.GeneralWindow, WINDOW_V2.ElementFromData );
+
+// Lecture du fichier choisi dans le sélecteur de fichiers : dataURL -> image
+// -> canvas redimensionné (max 600 px de côté, JPEG 0.85 pour ne pas alourdir
+// le save) -> pose sur le personnage par événement
+CHARACTER.GeneralWindow.readPhotoFile = function ( event ) {
+    let _input    = event.target;
+    let _file     = _input.files && _input.files[ 0 ];
+    if ( !_file ) {
+        return;
+    }
+    let _reader   = new FileReader();
+    _reader.onload = function () {
+        let _image    = new Image();
+        _image.onload = function () {
+            let _max    = 600;
+            let _scale  = Math.min( 1, _max / Math.max( _image.width, _image.height ) );
+            let _canvas = SERVICE.DOM.createElement( "canvas", {} );
+            _canvas.width  = Math.max( 1, Math.round( _image.width * _scale ) );
+            _canvas.height = Math.max( 1, Math.round( _image.height * _scale ) );
+            _canvas.getContext( "2d" ).drawImage( _image, 0, 0, _canvas.width, _canvas.height );
+            CONTROLLER.Main.doActionAfter( "event__photo__set", { "param__photo__data": _canvas.toDataURL( "image/jpeg", 0.85 ) } );
+        };
+        _image.src = _reader.result;
+    };
+    _reader.readAsDataURL( _file );
+    _input.value = "";
+};
 
 CHARACTER.GeneralWindow.NAME = "general_sheet";

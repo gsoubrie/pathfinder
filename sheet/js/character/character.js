@@ -9,6 +9,7 @@ CHARACTER.Current = function () {
     this.name_object       = new CHARACTER.Name();
     this.player            = new CHARACTER.Player();
     this.alignment         = null;
+    this.photo             = null;
     this.level             = null;
     this.point_heroism     = null;
     this.race              = new RACES.Race();
@@ -249,6 +250,24 @@ CHARACTER.Current.prototype = {
                 this.windows.doActionAfterContentChildren( event_name, params );
 
                 break;
+            // La photo (dataURL) vit sur le personnage, pas dans les
+            // children : pose/retrait puis broadcast aux fenetres
+            case "event__photo__set":
+
+                this.photo = params[ "param__photo__data" ] || null;
+
+                this.windows.doActionAfterContentChildren( event_name, params );
+
+                break;
+
+            case "event__photo__remove":
+
+                this.photo = null;
+
+                this.windows.doActionAfterContentChildren( event_name, params );
+
+                break;
+
             case "event__get__rank_contributions":
                 this.class.doActionAfterContentChildren( event_name, params );
                 this.levels_history.doActionAfterContentChildren( event_name, params );
@@ -360,7 +379,10 @@ CHARACTER.Current.prototype = {
     // aucune diffusion d'evenement) : sa cle rejoint le save explicitement
     getDataToSave: function () {
         let to_return = CHARACTER.ComponentInterface.prototype.getDataToSave.call( this );
-        return Object.assign( to_return, this.health.getDataToSave() );
+        to_return = Object.assign( to_return, this.health.getDataToSave() );
+        // La photo (dataURL) ne vit pas dans les children : sa cle rejoint le save explicitement, comme health
+        to_return[ "photo" ] = this.photo || null;
+        return to_return;
     },
     //********************************************  UPDATE DATA   **************************************************//
     setData: function ( key, value ) {
@@ -511,6 +533,10 @@ CHARACTER.Current.prototype = {
             case "health":
                 this.health.updateData( value );
                 break;
+
+            case "photo":
+                this.photo = value || null;
+                break;
             case "gifts":
                 this.gifts.updateData( value );
                 break;
@@ -625,6 +651,13 @@ CHARACTER.Current.prototype = {
     },
     getHealth         : function () {
         return this.health;
+    },
+
+    /**
+     * @returns {string|null} dataURL de la photo du personnage
+     */
+    getPhoto          : function () {
+        return this.photo;
     },
     // The chosen deity: { name, uuid } from the validated class line of the
     // Progression, overridden by a manual "deity" adjustment when it exists

@@ -145,12 +145,13 @@ TEST.RUNNER.register( "[ASCENDANCE] validation Elfe → champ Classe affiché", 
     TEST.ASSERT.notNull( _class_area, "Le champ Classe devrait etre affiche apres le choix de l'ascendance (div.grid-area.area-class)" );
     if ( _class_area ) {
         TEST.ASSERT.notNull( _class_area.querySelector( ".property[data-name='class']" ), "La propriete class devrait exister" );
-        TEST.ASSERT.equal( _class_area.querySelectorAll( ".class-entry" ).length, 0, "Aucune entree de classe ne devrait etre affichee (aucune classe choisie)" );
-        let _add_button                = _class_area.querySelector( ".class-add-button" );
-        TEST.ASSERT.notNull( _add_button, "Le bouton d'ajout de classe devrait etre rendu (.class-add-button)" );
-        if ( _add_button ) {
-            TEST.ASSERT.ok( _add_button.getAttribute( "onclick" ) !== null && _add_button.getAttribute( "onclick" ).indexOf( "event__property_popup__open" ) !== -1, "Le bouton d'ajout devrait ouvrir le popup au clic" );
+        let _class_input               = _class_area.querySelector( "input.value" );
+        TEST.ASSERT.notNull( _class_input, "Le champ classe devrait etre rendu (input cliquable)" );
+        if ( _class_input ) {
+            TEST.ASSERT.equal( _class_input.value, "", "Le champ classe devrait etre vide (aucune classe choisie), obtenu : [" + _class_input.value + "]" );
+            TEST.ASSERT.ok( ( _class_input.getAttribute( "onclick" ) || "" ).indexOf( "event__property_popup__open" ) !== -1, "Le champ classe devrait ouvrir le popup au clic, obtenu : [" + _class_input.getAttribute( "onclick" ) + "]" );
         }
+        TEST.ASSERT.isNull( _class_area.querySelector( ".class-add-button" ), "Plus de bouton « + » (le champ lui-meme est cliquable)" );
     }
     TEST.ASSERT.ok( _character.getClasses().isEmpty(), "Aucune classe ne devrait etre posee" );
 } );

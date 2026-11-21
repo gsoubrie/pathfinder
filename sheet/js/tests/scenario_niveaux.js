@@ -26,9 +26,9 @@
  */
 
 function TEST_AjouterClasse( class_name ) {
-    // le onclick reel du bouton d'ajout de classe (cf CharacterClasses)
+    // le onclick reel du champ classe (input cliquable, cf CharacterClasses)
     MANAGER.EventManagerV2.doActionAfter(
-        { target: document.querySelector( ".grid-area.area-class .class-add-button" ), button: 0, stopPropagation: function () {} },
+        { target: document.querySelector( ".grid-area.area-class input.value" ), button: 0, stopPropagation: function () {} },
         "event__property_popup__open",
         { "property_name": "class" }
     );
@@ -81,9 +81,9 @@ TEST.RUNNER.register( "[NIVEAUX] suppression dernière classe → Progression al
             TEST.ASSERT.notEqual( _progression_tab.getAttribute( "data-visibility-state" ), "disabled", "L'onglet Progression devrait rester allume sans classe (ascendance posee)" );
             TEST.ASSERT.notEqual( getComputedStyle( _progression_tab ).opacity, "0.4", "L'onglet Progression ne devrait pas etre grise, obtenu : " + getComputedStyle( _progression_tab ).opacity );
         }
-        let _entries                   = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
-        TEST.ASSERT.equal( _entries.length, 0, "Aucune entree de classe ne devrait rester affichee, obtenu : " + _entries.length );
-        TEST.ASSERT.notNull( document.querySelector( ".characters-sheet-content .grid-area.area-class .class-add-button" ), "Le bouton d'ajout de classe devrait rester rendu" );
+        let _class_input               = document.querySelector( ".characters-sheet-content .grid-area.area-class input.value" );
+        TEST.ASSERT.notNull( _class_input, "Le champ classe devrait rester rendu (input cliquable)" );
+        TEST.ASSERT.equal( _class_input ? _class_input.value : null, "", "Le champ classe devrait etre vide apres le retrait complet, obtenu : [" + ( _class_input ? _class_input.value : "null" ) + "]" );
     } );
 } );
 

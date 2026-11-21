@@ -1,138 +1,138 @@
-"use strict";
-/**
- * Scenario : CLASSE
- * Meme principe que le scenario ASCENDANCE : clic sur le champ Classe,
- * verification du popup (Guerrier actif par defaut), selection de Champion,
- * validation (champ Archetype affiche) et re-activation de l'onglet
- * Progression.
- */
+"use strict";
+/**
+ * Scenario : CLASSE
+ * Meme principe que le scenario ASCENDANCE : clic sur le champ Classe,
+ * verification du popup (Guerrier actif par defaut), selection de Champion,
+ * validation (champ Archetype affiche) et re-activation de l'onglet
+ * Progression.
+ */
+
+function TEST_openClassPopup() {
+    // le onclick reel du bouton d'ajout de classe (cf CharacterClasses)
+    MANAGER.EventManagerV2.doActionAfter(
+        { target: document.querySelector( ".grid-area.area-class input.value" ), button: 0, stopPropagation: function () {} },
+        "event__property_popup__open",
+        { "property_name": "class" }
+    );
+}
+
+TEST.RUNNER.register( "[CLASSE] clic sur le champ → popup ouvert", function () {
+    TEST_openClassPopup();
+    let _popup                          = document.querySelector( "body > .popup" );
+    TEST.ASSERT.notNull( _popup, "Le popup d'edition devrait etre ouvert dans le body" );
+    TEST.ASSERT.notNull( CONTROLLER.Character.edition_popup, "Le controleur devrait avoir une edition_popup" );
+    if ( !_popup || !CONTROLLER.Character.edition_popup ) {
+        return;
+    }
+    let _container                      = _popup.querySelector( ".edition-property-popup" );
+    TEST.ASSERT.notNull( _container, "Le popup devrait contenir son conteneur d'edition" );
+    let _title                          = _popup.querySelector( ".title" );
+    TEST.ASSERT.notNull( _title, "Le popup devrait avoir un titre" );
+    if ( _title ) {
+        TEST.ASSERT.ok( _title.textContent.indexOf( CLASSES.label ) === 0, "Le titre du popup devrait commencer par le libelle, obtenu : " + _title.textContent );
+    }
+    TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-valid" ), "Le bouton Valider devrait etre rendu" );
+    TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-cancel" ), "Le bouton Quitter devrait etre rendu" );
+    let _tabs                           = _popup.querySelectorAll( ".gs-window-element-V2" );
+    TEST.ASSERT.equal( _tabs.length, CLASSES.ENUM.length, "Le popup devrait afficher toutes les classes en onglets, obtenu : " + _tabs.length );
+} );
+
+TEST.RUNNER.register( "[CLASSE] popup : Guerrier actif par defaut", function () {
+    let _edition_popup                  = CONTROLLER.Character.edition_popup;
+    TEST.ASSERT.notNull( _edition_popup && _edition_popup.windows, "Pre-condition : popup de classe ouvert" );
+    if ( !_edition_popup || !_edition_popup.windows ) {
+        return;
+    }
+    TEST.ASSERT.equal( _edition_popup.windows.getActiveWindow().getName(), CLASSES.default_value, "La classe active par defaut devrait etre Guerrier" );
+    let _running_tabs                   = document.querySelectorAll( "body > .popup .gs-window-element-V2[data-current-phase='RUNNING']" );
+    TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING dans le popup" );
+    if ( _running_tabs.length === 1 ) {
+        TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), "Guerrier", "L'onglet RUNNING du popup devrait etre Guerrier" );
+    }
+    let _pane                           = document.querySelector( "body > .popup .gs-tab-pane[data-name='Guerrier']" );
+    TEST.ASSERT.notNull( _pane, "Le panneau Guerrier devrait exister" );
+    if ( !_pane ) {
+        return;
+    }
+    TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Guerrier devrait etre visible (gs-hidden encore present)" );
+    let _edition                        = _pane.querySelector( ".class-edition" );
+    TEST.ASSERT.notNull( _edition, "Les infos de la classe devraient etre rendues (.class-edition)" );
+    if ( !_edition ) {
+        return;
+    }
+    TEST.ASSERT.notNull( _edition.querySelector( ".class-header-block" ), "L'entete de la classe devrait etre rendu" );
+    TEST.ASSERT.notNull( _edition.querySelector( ".class-general-desc" ), "La description de la classe devrait etre affichee" );
+    TEST.ASSERT.notNull( _edition.querySelector( ".class-stat-hp .stat-chip-number" ), "Les pv par niveau de la classe devraient etre affiches" );
+} );
+
+TEST.RUNNER.register( "[CLASSE] selection Champion → actif = Champion", function () {
+    return TEST.clickTab( "body > .popup", "Champion" ).then( function () {
+        let _edition_popup              = CONTROLLER.Character.edition_popup;
+        TEST.ASSERT.notNull( _edition_popup && _edition_popup.windows, "Pre-condition : popup de classe ouvert" );
+        if ( !_edition_popup || !_edition_popup.windows ) {
+            return;
+        }
+        TEST.ASSERT.equal( _edition_popup.windows.getActiveWindow().getName(), "Champion", "Fenetre active apres selection" );
+        let _running_tabs               = document.querySelectorAll( "body > .popup .gs-window-element-V2[data-current-phase='RUNNING']" );
+        TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING dans le popup" );
+        if ( _running_tabs.length === 1 ) {
+            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), "Champion", "L'onglet RUNNING du popup devrait etre Champion" );
+        }
+        let _pane                       = document.querySelector( "body > .popup .gs-tab-pane[data-name='Champion']" );
+        TEST.ASSERT.notNull( _pane, "Le panneau Champion devrait exister" );
+        if ( _pane ) {
+            TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Champion devrait etre visible apres selection" );
+            TEST.ASSERT.notNull( _pane.querySelector( ".class-edition" ), "Les infos de Champion devraient etre rendues (.class-edition)" );
+        }
+        let _guerrier_pane              = document.querySelector( "body > .popup .gs-tab-pane[data-name='Guerrier']" );
+        if ( _guerrier_pane ) {
+            TEST.ASSERT.ok( _guerrier_pane.classList.contains( "gs-hidden" ), "Le panneau Guerrier devrait etre masque apres la selection de Champion" );
+        }
+    } );
+} );
+
+TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affiché", function () {
+    // le onclick reel du bouton Valider (cf popup.js)
+    CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
+    let _popup                          = document.querySelector( "body > .popup" );
+    TEST.ASSERT.isNull( _popup, "Le popup devrait etre ferme apres validation" );
+    TEST.ASSERT.isNull( CONTROLLER.Character.edition_popup, "edition_popup devrait etre reinitialisee" );
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "La classe devrait etre posee apres validation" );
+    TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Champion" ).getLevel(), 1, "Champion devrait etre posee a niveau 1 par defaut" );
+    TEST.ASSERT.equal( _character.getLevel(), 1, "Le niveau total devrait etre 1 apres la posee de la classe" );
+    TEST.ASSERT.equal( document.body.dataset.isClassSet, "1", "data-is-class-set devrait passer a 1" );
+    // Le champ classe affiche la classe posée (input readOnly cliquable,
+    // comme ascendance) : plus de liste d'entrées ni de bouton « + »
+    let _class_input                  = document.querySelector( ".characters-sheet-content .grid-area.area-class input.value" );
+    TEST.ASSERT.notNull( _class_input, "Le champ classe devrait exister (input.value)" );
+    if ( _class_input ) {
+        TEST.ASSERT.equal( _class_input.value, "Champion", "Le champ classe devrait afficher la classe posée, obtenu : [" + _class_input.value + "]" );
+        TEST.ASSERT.ok( ( _class_input.getAttribute( "title" ) || "" ).indexOf( "Champion" ) !== -1, "Le champ classe devrait porter une infobulle avec son nom, obtenu : [" + _class_input.getAttribute( "title" ) + "]" );
+        TEST.ASSERT.ok( _class_input.readOnly, "Le champ classe devrait etre en lecture seule" );
+    }
+    TEST.ASSERT.isNull( document.querySelector( ".characters-sheet-content .grid-area.area-class .class-add-button" ), "Le bouton « + » ne devrait plus exister (le champ lui-meme est cliquable)" );
+    TEST.ASSERT.equal( document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" ).length, 0, "Plus de liste d'entrées de classe, obtenu : " + document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" ).length );
 
-function TEST_openClassPopup() {
-    // le onclick reel du bouton d'ajout de classe (cf CharacterClasses)
-    MANAGER.EventManagerV2.doActionAfter(
-        { target: document.querySelector( ".grid-area.area-class .class-add-button" ), button: 0, stopPropagation: function () {} },
-        "event__property_popup__open",
-        { "property_name": "class" }
-    );
-}
-
-TEST.RUNNER.register( "[CLASSE] clic sur le champ → popup ouvert", function () {
-    TEST_openClassPopup();
-    let _popup                          = document.querySelector( "body > .popup" );
-    TEST.ASSERT.notNull( _popup, "Le popup d'edition devrait etre ouvert dans le body" );
-    TEST.ASSERT.notNull( CONTROLLER.Character.edition_popup, "Le controleur devrait avoir une edition_popup" );
-    if ( !_popup || !CONTROLLER.Character.edition_popup ) {
-        return;
-    }
-    let _container                      = _popup.querySelector( ".edition-property-popup" );
-    TEST.ASSERT.notNull( _container, "Le popup devrait contenir son conteneur d'edition" );
-    let _title                          = _popup.querySelector( ".title" );
-    TEST.ASSERT.notNull( _title, "Le popup devrait avoir un titre" );
-    if ( _title ) {
-        TEST.ASSERT.ok( _title.textContent.indexOf( CLASSES.label ) === 0, "Le titre du popup devrait commencer par le libelle, obtenu : " + _title.textContent );
-    }
-    TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-valid" ), "Le bouton Valider devrait etre rendu" );
-    TEST.ASSERT.notNull( _popup.querySelector( ".popup-up-cancel" ), "Le bouton Quitter devrait etre rendu" );
-    let _tabs                           = _popup.querySelectorAll( ".gs-window-element-V2" );
-    TEST.ASSERT.equal( _tabs.length, CLASSES.ENUM.length, "Le popup devrait afficher toutes les classes en onglets, obtenu : " + _tabs.length );
-} );
-
-TEST.RUNNER.register( "[CLASSE] popup : Guerrier actif par defaut", function () {
-    let _edition_popup                  = CONTROLLER.Character.edition_popup;
-    TEST.ASSERT.notNull( _edition_popup && _edition_popup.windows, "Pre-condition : popup de classe ouvert" );
-    if ( !_edition_popup || !_edition_popup.windows ) {
-        return;
-    }
-    TEST.ASSERT.equal( _edition_popup.windows.getActiveWindow().getName(), CLASSES.default_value, "La classe active par defaut devrait etre Guerrier" );
-    let _running_tabs                   = document.querySelectorAll( "body > .popup .gs-window-element-V2[data-current-phase='RUNNING']" );
-    TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING dans le popup" );
-    if ( _running_tabs.length === 1 ) {
-        TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), "Guerrier", "L'onglet RUNNING du popup devrait etre Guerrier" );
-    }
-    let _pane                           = document.querySelector( "body > .popup .gs-tab-pane[data-name='Guerrier']" );
-    TEST.ASSERT.notNull( _pane, "Le panneau Guerrier devrait exister" );
-    if ( !_pane ) {
-        return;
-    }
-    TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Guerrier devrait etre visible (gs-hidden encore present)" );
-    let _edition                        = _pane.querySelector( ".class-edition" );
-    TEST.ASSERT.notNull( _edition, "Les infos de la classe devraient etre rendues (.class-edition)" );
-    if ( !_edition ) {
-        return;
-    }
-    TEST.ASSERT.notNull( _edition.querySelector( ".class-header-block" ), "L'entete de la classe devrait etre rendu" );
-    TEST.ASSERT.notNull( _edition.querySelector( ".class-general-desc" ), "La description de la classe devrait etre affichee" );
-    TEST.ASSERT.notNull( _edition.querySelector( ".class-stat-hp .stat-chip-number" ), "Les pv par niveau de la classe devraient etre affiches" );
-} );
-
-TEST.RUNNER.register( "[CLASSE] selection Champion → actif = Champion", function () {
-    return TEST.clickTab( "body > .popup", "Champion" ).then( function () {
-        let _edition_popup              = CONTROLLER.Character.edition_popup;
-        TEST.ASSERT.notNull( _edition_popup && _edition_popup.windows, "Pre-condition : popup de classe ouvert" );
-        if ( !_edition_popup || !_edition_popup.windows ) {
-            return;
-        }
-        TEST.ASSERT.equal( _edition_popup.windows.getActiveWindow().getName(), "Champion", "Fenetre active apres selection" );
-        let _running_tabs               = document.querySelectorAll( "body > .popup .gs-window-element-V2[data-current-phase='RUNNING']" );
-        TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING dans le popup" );
-        if ( _running_tabs.length === 1 ) {
-            TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), "Champion", "L'onglet RUNNING du popup devrait etre Champion" );
-        }
-        let _pane                       = document.querySelector( "body > .popup .gs-tab-pane[data-name='Champion']" );
-        TEST.ASSERT.notNull( _pane, "Le panneau Champion devrait exister" );
-        if ( _pane ) {
-            TEST.ASSERT.notOk( _pane.classList.contains( "gs-hidden" ), "Le panneau Champion devrait etre visible apres selection" );
-            TEST.ASSERT.notNull( _pane.querySelector( ".class-edition" ), "Les infos de Champion devraient etre rendues (.class-edition)" );
-        }
-        let _guerrier_pane              = document.querySelector( "body > .popup .gs-tab-pane[data-name='Guerrier']" );
-        if ( _guerrier_pane ) {
-            TEST.ASSERT.ok( _guerrier_pane.classList.contains( "gs-hidden" ), "Le panneau Guerrier devrait etre masque apres la selection de Champion" );
-        }
-    } );
-} );
-
-TEST.RUNNER.register( "[CLASSE] validation Champion → champ Archétype affiché", function () {
-    // le onclick reel du bouton Valider (cf popup.js)
-    CONTROLLER.Character.doActionAfter( "event__form__element_changed" );
-    let _popup                          = document.querySelector( "body > .popup" );
-    TEST.ASSERT.isNull( _popup, "Le popup devrait etre ferme apres validation" );
-    TEST.ASSERT.isNull( CONTROLLER.Character.edition_popup, "edition_popup devrait etre reinitialisee" );
-    let _character                      = CONTROLLER.Character.current_character;
-    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
-    if ( !_character ) {
-        return;
-    }
-    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "La classe devrait etre posee apres validation" );
-    TEST.ASSERT.equal( _character.getClasses().getContentByUUID( "Champion" ).getLevel(), 1, "Champion devrait etre posee a niveau 1 par defaut" );
-    TEST.ASSERT.equal( _character.getLevel(), 1, "Le niveau total devrait etre 1 apres la posee de la classe" );
-    TEST.ASSERT.equal( document.body.dataset.isClassSet, "1", "data-is-class-set devrait passer a 1" );
-    let _class_entries                 = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
-    TEST.ASSERT.equal( _class_entries.length, 1, "Une entree de classe devrait etre affichee apres la posee de la classe, obtenu : " + _class_entries.length );
-    let _champion_entry                = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-entry[data-name='Champion']" );
-    TEST.ASSERT.notNull( _champion_entry, "L'entree de la classe Champion devrait exister (.class-entry[data-name])" );
-    if ( _champion_entry ) {
-        TEST.ASSERT.equal( _champion_entry.textContent, "Champion", "L'entree Champion devrait afficher son nom seul, obtenu : " + _champion_entry.textContent );
-        TEST.ASSERT.isNull( _champion_entry.querySelector( ".class-entry-icon" ), "L'entree ne devrait plus afficher d'icone" );
-        TEST.ASSERT.isNull( _champion_entry.querySelector( ".class-entry-level" ), "L'entree ne devrait plus afficher de badge de niveau (le niveau vit dans la zone level)" );
-        TEST.ASSERT.ok( ( _champion_entry.getAttribute( "title" ) || "" ).indexOf( "Champion" ) !== -1, "L'entree Champion devrait porter une info-bulle avec son nom, obtenu : " + _champion_entry.getAttribute( "title" ) );
-    }
-    let _add_button                   = document.querySelector( ".characters-sheet-content .grid-area.area-class .class-add-button" );
-    TEST.ASSERT.isNull( _add_button, "Le bouton d'ajout ne devrait plus etre rendu quand une classe est posee (le nom seul est cliquable)" );
-    let _archetype_area                 = document.querySelector( ".characters-sheet-content .grid-area.area-archetype" );
-    TEST.ASSERT.notNull( _archetype_area, "Le champ Archetype devrait etre affiche apres le choix de la classe (div.grid-area.area-archetype)" );
-    if ( _archetype_area ) {
-        TEST.ASSERT.notNull( _archetype_area.querySelector( ".property[data-name='archetype']" ), "La propriete archetype devrait exister" );
-        let _archetype_input            = _archetype_area.querySelector( "input.value" );
-        TEST.ASSERT.notNull( _archetype_input, "Le champ Archetype devrait avoir un input" );
-        if ( _archetype_input ) {
-            TEST.ASSERT.equal( _archetype_input.value, "", "Le champ Archetype devrait etre vide (aucun archetype choisi)" );
-            // Le popup des 246 archétypes est supprimé : le clic bascule sur
-            // la Bibliothèque, sujet Archétypes (verrouillé par scenario_archetype)
-            TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__archetype__goto_library" ) !== -1, "Le champ Archetype devrait etre câblé sur la Bibliothèque" );
-        }
-    }
-} );
-
+    let _archetype_area                 = document.querySelector( ".characters-sheet-content .grid-area.area-archetype" );
+    TEST.ASSERT.notNull( _archetype_area, "Le champ Archetype devrait etre affiche apres le choix de la classe (div.grid-area.area-archetype)" );
+    if ( _archetype_area ) {
+        TEST.ASSERT.notNull( _archetype_area.querySelector( ".property[data-name='archetype']" ), "La propriete archetype devrait exister" );
+        let _archetype_input            = _archetype_area.querySelector( "input.value" );
+        TEST.ASSERT.notNull( _archetype_input, "Le champ Archetype devrait avoir un input" );
+        if ( _archetype_input ) {
+            TEST.ASSERT.equal( _archetype_input.value, "", "Le champ Archetype devrait etre vide (aucun archetype choisi)" );
+            // Le popup des 246 archétypes est supprimé : le clic bascule sur
+            // la Bibliothèque, sujet Archétypes (verrouillé par scenario_archetype)
+            TEST.ASSERT.ok( _archetype_input.getAttribute( "onclick" ) !== null && _archetype_input.getAttribute( "onclick" ).indexOf( "event__archetype__goto_library" ) !== -1, "Le champ Archetype devrait etre câblé sur la Bibliothèque" );
+        }
+    }
+} );
+
 TEST.RUNNER.register( "[CLASSE] zone level : niveau affiche + clic bascule sur Progression", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
@@ -155,69 +155,69 @@ TEST.RUNNER.register( "[CLASSE] zone level : niveau affiche + clic bascule sur P
     TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur le champ Niveau devrait activer l'onglet Progression, obtenu : " + _character.windows.getActiveWindow().getName() );
 } );
 
-TEST.RUNNER.register( "[CLASSE][SAVE] contenu = Champion 1 + 1 niveau actif", function () {
-    let _character                     = CONTROLLER.Character.current_character;
-    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
-    if ( !_character ) {
-        return;
-    }
-    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "Pre-condition : une classe posee" );
-    let _saved                         = _character.getDataToSave();
-    TEST.ASSERT.isArray( _saved.classes, "La sauvegarde devrait contenir un tableau de classes" );
-    if ( _saved.classes ) {
-        TEST.ASSERT.equal( _saved.classes.length, 1, "La sauvegarde devrait contenir 1 classe, obtenu : " + _saved.classes.length );
-        if ( _saved.classes.length === 1 ) {
-            TEST.ASSERT.equal( _saved.classes[ 0 ].name, "Champion", "La classe sauvegardee devrait etre Champion, obtenu : " + _saved.classes[ 0 ].name );
-            TEST.ASSERT.equal( _saved.classes[ 0 ].level, 1, "Le niveau sauvegarde de Champion devrait etre 1, obtenu : " + _saved.classes[ 0 ].level );
-        }
-    }
-    TEST.ASSERT.isArray( _saved.levels_history, "La sauvegarde devrait contenir un tableau d'historique" );
-    if ( _saved.levels_history ) {
-        TEST.ASSERT.equal( _saved.levels_history.length, 1, "La sauvegarde devrait contenir 1 niveau, obtenu : " + _saved.levels_history.length );
-        if ( _saved.levels_history.length === 1 ) {
-            TEST.ASSERT.equal( _saved.levels_history[ 0 ].class_name, "Champion", "Le niveau sauvegarde devrait porter la classe Champion, obtenu : " + _saved.levels_history[ 0 ].class_name );
-            TEST.ASSERT.ok( _saved.levels_history[ 0 ].enabled !== false, "Le niveau sauvegarde devrait etre actif par defaut" );
-        }
-    }
-} );
-
-TEST.RUNNER.register( "[CLASSE] ligne Points de vie de la Progression (l'ancien onglet Niveau)", function () {
-    // La fenetre Niveau a disparu : sa donnée vivante (le total PV et son
-    // detail par niveau) vit dans la Progression — une ligne, le DETAIL
-    // s'ouvre en popup au clic (decision utilisateur)
-    let _levelup_pane                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _levelup_pane, "Pre-condition : panneau Progression rendu" );
-    if ( !_levelup_pane ) {
-        return;
-    }
-    let _life_line                       = _levelup_pane.querySelector( ".level-up-life-total" );
-    TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue des la premiere classe validee" );
-    if ( !_life_line ) {
-        return;
-    }
-    let _expected                        = CONTROLLER.Character.current_character.getHealth().getMaxHP();
-    TEST.ASSERT.equal( _life_line.textContent, "Points de vie : " + _expected, "La ligne devrait porter le total PV du domaine, obtenu : " + _life_line.textContent );
-    _life_line.click();
-    let _health_overlay                  = document.querySelector( ".popup-overlay[data-popup-uuid='character__health'][data-current-phase='RUNNING']" );
-    TEST.ASSERT.notNull( _health_overlay, "Le clic devrait ouvrir la popup du detail des PV" );
-    if ( _health_overlay ) {
-        TEST.ASSERT.equal( _health_overlay.getAttribute( "data-current-phase" ), "RUNNING", "L'overlay de la popup PV devrait etre RUNNING" );
-        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
-    }
-} );
-
-TEST.RUNNER.register( "[CLASSE] onglet Progression re-active", function () {
-    let _tab                            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
-    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
-    if ( !_tab ) {
-        return;
-    }
-    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression ne devrait plus porter l'etat disabled apres le choix de la classe" );
-    let _style                          = getComputedStyle( _tab );
-    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Progression ne devrait plus etre grise, obtenu : " + _style.opacity );
-    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Progression devrait intercepter les clics, obtenu : " + _style.pointerEvents );
-    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
-        let _character                   = CONTROLLER.Character.current_character;
-        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur Progression devrait l'activer apres le choix de la classe" );
-    } );
-} );
+TEST.RUNNER.register( "[CLASSE][SAVE] contenu = Champion 1 + 1 niveau actif", function () {
+    let _character                     = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.notOk( _character.getClasses().isEmpty(), "Pre-condition : une classe posee" );
+    let _saved                         = _character.getDataToSave();
+    TEST.ASSERT.isArray( _saved.classes, "La sauvegarde devrait contenir un tableau de classes" );
+    if ( _saved.classes ) {
+        TEST.ASSERT.equal( _saved.classes.length, 1, "La sauvegarde devrait contenir 1 classe, obtenu : " + _saved.classes.length );
+        if ( _saved.classes.length === 1 ) {
+            TEST.ASSERT.equal( _saved.classes[ 0 ].name, "Champion", "La classe sauvegardee devrait etre Champion, obtenu : " + _saved.classes[ 0 ].name );
+            TEST.ASSERT.equal( _saved.classes[ 0 ].level, 1, "Le niveau sauvegarde de Champion devrait etre 1, obtenu : " + _saved.classes[ 0 ].level );
+        }
+    }
+    TEST.ASSERT.isArray( _saved.levels_history, "La sauvegarde devrait contenir un tableau d'historique" );
+    if ( _saved.levels_history ) {
+        TEST.ASSERT.equal( _saved.levels_history.length, 1, "La sauvegarde devrait contenir 1 niveau, obtenu : " + _saved.levels_history.length );
+        if ( _saved.levels_history.length === 1 ) {
+            TEST.ASSERT.equal( _saved.levels_history[ 0 ].class_name, "Champion", "Le niveau sauvegarde devrait porter la classe Champion, obtenu : " + _saved.levels_history[ 0 ].class_name );
+            TEST.ASSERT.ok( _saved.levels_history[ 0 ].enabled !== false, "Le niveau sauvegarde devrait etre actif par defaut" );
+        }
+    }
+} );
+
+TEST.RUNNER.register( "[CLASSE] ligne Points de vie de la Progression (l'ancien onglet Niveau)", function () {
+    // La fenetre Niveau a disparu : sa donnée vivante (le total PV et son
+    // detail par niveau) vit dans la Progression — une ligne, le DETAIL
+    // s'ouvre en popup au clic (decision utilisateur)
+    let _levelup_pane                    = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _levelup_pane, "Pre-condition : panneau Progression rendu" );
+    if ( !_levelup_pane ) {
+        return;
+    }
+    let _life_line                       = _levelup_pane.querySelector( ".level-up-life-total" );
+    TEST.ASSERT.notNull( _life_line, "La ligne Points de vie devrait etre rendue des la premiere classe validee" );
+    if ( !_life_line ) {
+        return;
+    }
+    let _expected                        = CONTROLLER.Character.current_character.getHealth().getMaxHP();
+    TEST.ASSERT.equal( _life_line.textContent, "Points de vie : " + _expected, "La ligne devrait porter le total PV du domaine, obtenu : " + _life_line.textContent );
+    _life_line.click();
+    let _health_overlay                  = document.querySelector( ".popup-overlay[data-popup-uuid='character__health'][data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _health_overlay, "Le clic devrait ouvrir la popup du detail des PV" );
+    if ( _health_overlay ) {
+        TEST.ASSERT.equal( _health_overlay.getAttribute( "data-current-phase" ), "RUNNING", "L'overlay de la popup PV devrait etre RUNNING" );
+        CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": "character__health" } );
+    }
+} );
+
+TEST.RUNNER.register( "[CLASSE] onglet Progression re-active", function () {
+    let _tab                            = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _tab, "L'onglet Progression devrait exister" );
+    if ( !_tab ) {
+        return;
+    }
+    TEST.ASSERT.notEqual( _tab.getAttribute( "data-visibility-state" ), GS.CONST.VISIBILITY_STATE.DISABLED, "L'onglet Progression ne devrait plus porter l'etat disabled apres le choix de la classe" );
+    let _style                          = getComputedStyle( _tab );
+    TEST.ASSERT.ok( parseFloat( _style.opacity ) >= 1, "L'onglet Progression ne devrait plus etre grise, obtenu : " + _style.opacity );
+    TEST.ASSERT.notEqual( _style.pointerEvents, "none", "L'onglet Progression devrait intercepter les clics, obtenu : " + _style.pointerEvents );
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        let _character                   = CONTROLLER.Character.current_character;
+        TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LevelUpWindow.NAME, "Le clic sur Progression devrait l'activer apres le choix de la classe" );
+    } );
+} );

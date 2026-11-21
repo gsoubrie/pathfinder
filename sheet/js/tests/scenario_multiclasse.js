@@ -51,9 +51,9 @@ TEST.RUNNER.register( "[CLASSE UNIQUE] + avec classe posée → consultation san
             }
             TEST.ASSERT.equal( _character.getLevel(), 1, "Le niveau total devrait rester a 1, obtenu : " + _character.getLevel() );
             TEST.ASSERT.isNull( _character.getClasses().getContentByUUID( "Guerrier" ), "Guerrier ne devrait pas exister dans le conteneur" );
-            let _class_entries          = document.querySelectorAll( ".characters-sheet-content .grid-area.area-class .class-entry" );
-            TEST.ASSERT.equal( _class_entries.length, 1, "Une seule entree de classe devrait etre affichee, obtenu : " + _class_entries.length );
-            TEST.ASSERT.isNull( document.querySelector( ".characters-sheet-content .grid-area.area-class .class-entry[data-name='Guerrier']" ), "L'entree Guerrier ne devrait pas etre affichee" );
+            let _class_input            = document.querySelector( ".characters-sheet-content .grid-area.area-class input.value" );
+            TEST.ASSERT.notNull( _class_input, "Le champ classe devrait exister (input cliquable)" );
+            TEST.ASSERT.equal( _class_input ? _class_input.value : null, "Champion", "Le champ classe devrait afficher la seule classe posée (Champion), obtenu : [" + ( _class_input ? _class_input.value : "null" ) + "]" );
         } );
     } );
 } );

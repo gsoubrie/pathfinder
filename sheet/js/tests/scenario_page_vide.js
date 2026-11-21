@@ -96,12 +96,17 @@ TEST.RUNNER.register( "[PAGE VIDE] zones cachees : jamais implementees", functio
 } );
 
 TEST.RUNNER.register( "[PAGE VIDE] tout s'affiche : classe, caracteristiques, jets, infos ascendance", function () {
-    // La zone Classe vit DES LE DEBUT : liste vide + bouton d'ajout
+    // La zone Classe vit DES LE DEBUT : un input readOnly cliquable (vide)
     let _class_area                      = document.querySelector( ".characters-sheet-content .grid-area.area-class" );
     TEST.ASSERT.notNull( _class_area, "La zone Classe devrait etre rendue sur une page vide" );
     if ( _class_area ) {
-        TEST.ASSERT.notNull( _class_area.querySelector( ".class-add-button" ), "Le bouton d'ajout de classe devrait etre rendu sans ascendance" );
-        TEST.ASSERT.equal( _class_area.querySelectorAll( ".class-entry" ).length, 0, "Aucune classe ne devrait etre listee sur une page vide, obtenu : " + _class_area.querySelectorAll( ".class-entry" ).length );
+        let _class_input                  = _class_area.querySelector( "input.value" );
+        TEST.ASSERT.notNull( _class_input, "Le champ classe devrait etre rendu (input cliquable) sans ascendance" );
+        if ( _class_input ) {
+            TEST.ASSERT.equal( _class_input.value, "", "Le champ classe devrait etre vide sur une page vide, obtenu : [" + _class_input.value + "]" );
+            TEST.ASSERT.ok( ( _class_input.getAttribute( "onclick" ) || "" ).indexOf( "event__property_popup__open" ) !== -1, "Le champ classe devrait ouvrir le popup au clic, obtenu : [" + _class_input.getAttribute( "onclick" ) + "]" );
+        }
+        TEST.ASSERT.isNull( _class_area.querySelector( ".class-add-button" ), "Plus de bouton « + » (le champ lui-meme est cliquable)" );
     }
     // Les caracteristiques vivent des le debut : une zone par caractenstique
     let _characteristic_keys             = [];

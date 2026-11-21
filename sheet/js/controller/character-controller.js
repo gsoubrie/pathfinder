@@ -45,6 +45,8 @@ CONTROLLER.Character = (function ( self ) {
             // the fresh state (the Combat schema reads it) — routing
             // straight to the windows would refresh the Combat before
             // the domain, and a re-dispatch from a window would loop
+            case "event__photo__set":
+            case "event__photo__remove":
             case "event__stuff__set_slot":
             case "event__stuff__edit_current_hp":
                 self.current_character.doActionAfter( event_name, params );
