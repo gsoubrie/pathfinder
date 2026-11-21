@@ -53,7 +53,16 @@ ADJUSTMENT.KINDS = [
     {
         key         : "mastery",
         label       : "Compétences",
-        value_picker: "mastery"
+        value_picker: "mastery",
+        part_label  : "Ajout"
+    },
+    {
+        key               : "skill_bonus",
+        label             : "Bonus de compétence",
+        value_picker      : "skill_bonus",
+        value_placeholder : "Compétence",
+        in_section        : "mastery",
+        part_label        : "Bonus"
     },
     {
         key         : "characteristic_boost",

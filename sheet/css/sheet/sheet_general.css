@@ -18,17 +18,17 @@
     grid-template-areas   :
         "photo name     ancestry class  level "
         "photo player   legacy   archetype size"
-        "photo deity        historic        pv      size"
-        "FOR   jets        jets     ancestry-info actions"
-        "DEX   jets        jets     ancestry-info actions"
-        "CON   jets        jets     ancestry-info actions"
-        "INT   jets        jets     ancestry-info actions"
-        "SAG   jets        jets     ancestry-info actions"
-        "CHA   jets        jets     ancestry-info actions"
-        ".     jets        jets     ancestry-info actions"
-        ".     jets        jets     ancestry-info actions"
-        ".     jets        jets     ancestry-info actions"
-        ".     jets        jets     ancestry-info actions";
+        "photo .        historic deity   pv    "
+        "FOR   jets     .          ancestry-info actions"
+        "DEX   jets     .          ancestry-info actions"
+        "CON   jets     .          ancestry-info actions"
+        "INT   jets     .          ancestry-info actions"
+        "SAG   jets     .          ancestry-info actions"
+        "CHA   jets     .          ancestry-info actions"
+        ".     jets     .          ancestry-info actions"
+        ".     jets     .          ancestry-info actions"
+        ".     jets     .          ancestry-info actions"
+        ".     jets     .          ancestry-info actions";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -134,6 +134,17 @@
 
 .property-tab-pane[data-name="general_sheet"] .jets-grid .jets-saves-block {
     margin-bottom : var(--s-sm);
+}
+
+/* Blocs jets et compétences du Général en format compact (décision
+   utilisateur) : libellé + bonus + rang seuls, 3 colonnes, en-tête
+   Bonus | Rang — les tableaux complets (Mod, Niv, Bonus) vivent dans
+   l'onglet Progression. La zone jets ne couvre plus qu'une colonne de
+   la grille : l'ancienne seconde colonne reste VIDE (cellule « . »),
+   pour le moment */
+.property-tab-pane[data-name="general_sheet"] .jets-grid .jets-saves-block .saves-row,
+.property-tab-pane[data-name="general_sheet"] .jets-grid .jets-skills-block .saves-row {
+    grid-template-columns : minmax( 0, 1.5fr ) minmax( 0, 1fr ) minmax( 0, 1fr );
 }
 
 .property-tab-pane[data-name="general_sheet"] .grid-area {
@@ -444,9 +455,8 @@
 
         grid-template-areas :
             "photo photo name name player player"
-            "photo photo ancestry ancestry legacy size"
-            "class class class archetype archetype archetype"
-            "pv pv pv pv pv pv"
+            "photo photo ancestry ancestry archetype size"
+            "class class legacy legacy deity pv"
             "historic historic historic historic historic historic"
             "FOR FOR DEX DEX CON CON"
             "INT INT SAG SAG CHA CHA"
@@ -469,9 +479,10 @@
             "ancestry ancestry"
             "legacy legacy"
             "size size"
+            "pv pv"
             "class class"
             "archetype archetype"
-            "pv pv"
+            "deity deity"
             "historic historic"
             "FOR DEX"
             "CON INT"

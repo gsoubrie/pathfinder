@@ -3,17 +3,30 @@
  * Scenario : COMPETENCES
  * Depart : etat de fin du scenario SAUVEGARDES (feuille Elfe + Magicien
  * niveau 5, capacite "expertise en reflexes" validee, onglet General actif).
- * 1. Bloc Compétences, a la suite du bloc des jets dans la meme zone elargie
- *    (grid-area jets) : separation titree "Competences" (pas de second
- *    en-tete, le titre Jet | Rang | Mod | Niv n'est qu'en haut), une ligne par
- *    compétence du jeu (SKILLS.LIST, 17), triées par libellé, sans la
- *    caractéristique associée (le nom suffit). Jet complet
- *    "niveau + modificateur de caractéristique + bonus de rang", rang I
- *    (bonus 0) pour les compétences non maîtrisées : Arcanes seule Qualifiée
- *    du Magicien. Clic sur une ligne → popup des maîtrises (source du rang).
+ * 1. Bloc Compétences du Général, a la suite du bloc des jets dans la meme
+ *    zone elargie (grid-area jets), en format COMPACT (decision utilisateur) :
+ *    separation titree "Competences" (pas de second en-tete), une ligne par
+ *    compétence du jeu (SKILLS.LIST, 17), triées par libellé, avec seulement
+ *    le jet complet et le badge de rang (3 colonnes, pas de Mod ni Niv). Jet
+ *    complet "niveau + modificateur de caractéristique + bonus de rang",
+ *    rang I (bonus 0) pour les compétences non maîtrisées : Arcanes seule
+ *    Qualifiée du Magicien. Clic sur une ligne → popup des actions.
+ * 2. Le tableau COMPLET (Jet | Rang | Mod | Niv | Bonus) vit dans l'onglet
+ *    Progression (.level-up-jets-table, apres la barre de classe) : les 4
+ *    lignes de jets + les 17 compétences avec les colonnes Mod, Niv et
+ *    Bonus, valeurs croisées avec le domaine.
  */
 
-TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac associée", function () {
+// Compte les pistes d'un grid-template-columns calculé : forme résolue en
+// px (panneau visible) ou forme spécifiée avec minmax (panneau masqué)
+function TEST_countGridTracks( computed_value ) {
+    if ( computed_value.indexOf( "minmax(" ) !== -1 ) {
+        return ( computed_value.match( /minmax\(/g ) || [] ).length;
+    }
+    return computed_value.trim().split( /\s+/ ).length;
+}
+
+TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées, format compact (jet + rang seuls)", function () {
     let _character                     = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
     if ( !_character ) {
@@ -46,6 +59,10 @@ TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac asso
     if ( _rows.length !== 17 ) {
         return;
     }
+    let _saves_columns                 = TEST_countGridTracks( getComputedStyle( _saves_area.querySelector( ".saves-row[data-slot]" ) ).gridTemplateColumns );
+    TEST.ASSERT.equal( _saves_columns, 3, "Les lignes de jets devraient aussi être compactes au Général (3 colonnes : libellé | jet | rang), obtenu : " + _saves_columns );
+    let _skills_columns                = TEST_countGridTracks( getComputedStyle( _rows[ 0 ] ).gridTemplateColumns );
+    TEST.ASSERT.equal( _skills_columns, 3, "Les lignes de compétences devraient être compactes (3 colonnes : libellé | jet | rang), obtenu : " + _skills_columns );
     let _labels                        = [];
     for ( let _i = 0; _i < _rows.length; _i++ ) {
         _labels.push( _rows[ _i ].querySelector( ".saves-label" ).textContent );
@@ -75,9 +92,8 @@ TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac asso
         TEST.ASSERT.equal( _row.querySelector( ".saves-rank" ).textContent, _expected_rank, "Le rang de " + _label + " devrait être " + _expected_rank + " (Arcanes seule Qualifiée du Magicien), obtenu : " + _row.querySelector( ".saves-rank" ).textContent );
         let _modifier                  = _character.getCharacteristics().getContentByUUID( _skill_data.characteristic ).getModifierValue();
         let _expected_value            = _level + _modifier + _expected_bonus;
-        TEST.ASSERT.equal( _row.querySelector( ".saves-value" ).textContent, ( "" + _expected_value ), "Le jet de " + _label + " devrait valoir niveau + mod " + _skill_data.characteristic + " + bonus de rang (" + _expected_value + "), obtenu : " + _row.querySelector( ".saves-value" ).textContent );
-        TEST.ASSERT.equal( _row.querySelector( ".saves-cell[data-name='modifier']" ).textContent, ( "" + _modifier ), "La colonne Mod de " + _label + " devrait afficher le modificateur de " + _skill_data.characteristic + ", obtenu : " + _row.querySelector( ".saves-cell[data-name='modifier']" ).textContent );
-        TEST.ASSERT.equal( _row.querySelector( ".saves-cell[data-name='level']" ).textContent, "" + _level, "La colonne Niv de " + _label + " devrait afficher le niveau (" + _level + "), obtenu : " + _row.querySelector( ".saves-cell[data-name='level']" ).textContent );
+        TEST.ASSERT.equal( _row.querySelector( ".saves-value" ).textContent, TEST_jetDisplayValue( _expected_value ), "Le bonus de " + _label + " devrait valoir niveau + mod " + _skill_data.characteristic + " + bonus de rang, affiché avec + (" + TEST_jetDisplayValue( _expected_value ) + "), obtenu : " + _row.querySelector( ".saves-value" ).textContent );
+        TEST.ASSERT.isNull( _row.querySelector( ".saves-cell" ), "La ligne " + _label + " du Général ne devrait porter que jet + rang, sans colonnes Mod/Niv (le tableau complet vit dans l'onglet Progression)" );
         let _row_onclick               = _row.getAttribute( "onclick" ) || "";
         TEST.ASSERT.ok( _row_onclick.indexOf( "event__show_information__skill_actions" ) !== -1, "La ligne " + _label + " devrait être cliquable vers la popup des actions de la compétence, obtenu : " + _row_onclick );
         TEST.ASSERT.ok( _row_onclick.indexOf( "'param__skill'" ) !== -1, "La ligne " + _label + " devrait passer la clé de la compétence au clic, obtenu : " + _row_onclick );
@@ -103,4 +119,55 @@ TEST.RUNNER.register( "[COMPETENCES] affichage = 17 lignes triées + charac asso
             TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup des actions devrait être masquée après fermeture" );
         }
     }
+} );
+
+TEST.RUNNER.register( "[COMPETENCES] Progression = tableau complet (Mod, Niv), croisé domaine", function () {
+    let _character                     = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                      = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Progression rendu" );
+        if ( !_pane ) {
+            return;
+        }
+        let _table                     = _pane.querySelector( ".level-up-jets-table" );
+        TEST.ASSERT.notNull( _table, "Le tableau complet des jets/compétences devrait être rendu dans l'onglet Progression (.level-up-jets-table)" );
+        if ( !_table ) {
+            return;
+        }
+        let _separators                = _table.querySelectorAll( ".saves-separator" );
+        TEST.ASSERT.equal( _separators.length, 2, "Le tableau devrait porter les séparations Jets de sauvegarde et Compétences, obtenu : " + _separators.length );
+        let _all_rows                  = _table.querySelectorAll( ".saves-row[data-slot]" );
+        TEST.ASSERT.equal( _all_rows.length, 4 + 17, "Le tableau devrait rendre les 4 jets + les 17 compétences, obtenu : " + _all_rows.length );
+        let _rows                      = _table.querySelectorAll( ".saves-row[data-slot^='skill__']" );
+        TEST.ASSERT.equal( _rows.length, 17, "Le tableau devrait rendre les 17 compétences (SKILLS.LIST), obtenu : " + _rows.length );
+        if ( !_rows.length ) {
+            return;
+        }
+        let _columns                   = TEST_countGridTracks( getComputedStyle( _rows[ 0 ] ).gridTemplateColumns );
+        TEST.ASSERT.equal( _columns, 6, "Les lignes du tableau complet devraient avoir 6 colonnes (libellé | Jet | Rang | Mod | Niv | Bonus), obtenu : " + _columns );
+        let _level                     = _character.getLevel();
+        let _arcanes                   = _table.querySelector( ".saves-row[data-slot='skill__arcana']" );
+        TEST.ASSERT.notNull( _arcanes, "La ligne Arcanes devrait être rendue dans le tableau complet" );
+        if ( _arcanes ) {
+            let _expected              = _character.getMasteries().getRollModifier( _character, { "slot": "skill__arcana", "characteristic": CHARACTERISTICS.INT.key } );
+            TEST.ASSERT.equal( _arcanes.querySelector( ".saves-value" ).textContent, "" + _expected, "Le jet d'Arcanes devrait valoir le jet complet du domaine (" + _expected + "), obtenu : " + _arcanes.querySelector( ".saves-value" ).textContent );
+            TEST.ASSERT.equal( _arcanes.querySelector( ".saves-rank" ).textContent, "Q", "Le rang d'Arcanes devrait être Q, obtenu : " + _arcanes.querySelector( ".saves-rank" ).textContent );
+            let _modifier              = _character.getCharacteristics().getContentByUUID( CHARACTERISTICS.INT.key ).getModifierValue();
+            TEST.ASSERT.equal( _arcanes.querySelector( ".saves-cell[data-name='modifier']" ).textContent, "" + _modifier, "La colonne Mod d'Arcanes devrait afficher le modificateur d'INT (" + _modifier + "), obtenu : " + _arcanes.querySelector( ".saves-cell[data-name='modifier']" ).textContent );
+            TEST.ASSERT.equal( _arcanes.querySelector( ".saves-cell[data-name='level']" ).textContent, "" + _level, "La colonne Niv d'Arcanes devrait afficher le niveau (" + _level + "), obtenu : " + _arcanes.querySelector( ".saves-cell[data-name='level']" ).textContent );
+            TEST.ASSERT.equal( _arcanes.querySelector( ".saves-cell[data-name='bonus']" ).textContent, "—", "La colonne Bonus d'Arcanes devrait être vide sans ajustement, obtenu : " + _arcanes.querySelector( ".saves-cell[data-name='bonus']" ).textContent );
+            let _onclick               = _arcanes.getAttribute( "onclick" ) || "";
+            TEST.ASSERT.ok( _onclick.indexOf( "event__show_information__skill_actions" ) !== -1, "La ligne du tableau devrait rester cliquable vers la popup des actions, obtenu : " + _onclick );
+        }
+        // retour sur le Général pour laisser la chaîne propre
+        return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+            return TEST.wait();
+        } );
+    } );
 } );

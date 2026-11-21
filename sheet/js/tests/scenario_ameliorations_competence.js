@@ -89,7 +89,7 @@ TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] jets Général = badge E et je
         }
         TEST.ASSERT.equal( _arcana_row.querySelector( ".saves-rank" ).textContent, "E", "Le badge Arcanes devrait etre E (experte) après l'amélioration, obtenu : " + _arcana_row.querySelector( ".saves-rank" ).textContent );
         let _expected                     = _character.getMasteries().getRollModifier( _character, { "slot": "skill__arcana", "characteristic": CHARACTERISTICS.INT.key } );
-        TEST.ASSERT.equal( _arcana_row.querySelector( ".saves-value" ).textContent, "" + _expected, "Le jet Arcanes devrait valoir le jet complet du domaine (niveau + mod INT + 4 = " + _expected + "), obtenu : " + _arcana_row.querySelector( ".saves-value" ).textContent );
+        TEST.ASSERT.equal( _arcana_row.querySelector( ".saves-value" ).textContent, TEST_jetDisplayValue( _expected ), "Le bonus Arcanes devrait valoir le jet complet du domaine (niveau + mod INT + 4 = " + _expected + ", affiché avec +), obtenu : " + _arcana_row.querySelector( ".saves-value" ).textContent );
     } );
 } );
 

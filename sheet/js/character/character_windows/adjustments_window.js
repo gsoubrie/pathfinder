@@ -52,7 +52,7 @@ CHARACTER.AdjustmentsWindow.prototype = {
                 // Le sous-sélecteur du rang (mastery__rank) vit dans la
                 // section mastery : on passe par le composant quand il existe
                 let component = this.selector_components[ kind ];
-                let container = component ? component.getDomElement() : this.content_dom_element_target.querySelector( ".adjustments-section[data-kind='" + kind + "']" );
+                let container = component ? component.getDomElement() : this._getKindContainer( kind );
                 if ( !container ) {
                     return;
                 }
@@ -90,17 +90,62 @@ CHARACTER.AdjustmentsWindow.prototype = {
         let adjustments = CONTROLLER.Character.current_character.getAdjustments();
         for ( let k = 0, _size_k = ADJUSTMENT.KINDS.length; k < _size_k; k++ ) {
             let kind_data = ADJUSTMENT.KINDS[ k ];
-            let section   = SERVICE.DOM.addElementTo(
+            // Un kind "in_section" ne rend pas sa propre section : il vit
+            // comme sous-partie de sa section groupée (le bonus de
+            // compétence dans la partie Compétences)
+            if ( kind_data.in_section ) {
+                continue;
+            }
+            let section = SERVICE.DOM.addElementTo(
                 SERVICE.DOM.createElement( "div", { class: "adjustments-section", "data-kind": kind_data.key } ),
                 this.content_dom_element_target
             );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "adjustments-section-title" }, kind_data.label ), section );
-            let entries = adjustments.getEntriesByKind( kind_data.key );
-            for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
-                this._buildEntry( section, entries[ e ] );
+            // Une section peut contenir plusieurs parties (Compétences :
+            // Ajout de maîtrise + Bonus)
+            let parts = [ kind_data ];
+            for ( let p = 0, _size_p = ADJUSTMENT.KINDS.length; p < _size_p; p++ ) {
+                if ( ADJUSTMENT.KINDS[ p ].in_section === kind_data.key ) {
+                    parts.push( ADJUSTMENT.KINDS[ p ] );
+                }
             }
-            this._buildAddRow( section, kind_data );
+            if ( parts.length > 1 ) {
+                for ( let p = 0, _size_p = parts.length; p < _size_p; p++ ) {
+                    this._buildKindPart( section, parts[ p ], adjustments );
+                }
+            }
+            else {
+                let entries = adjustments.getEntriesByKind( kind_data.key );
+                for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
+                    this._buildEntry( section, entries[ e ] );
+                }
+                this._buildAddRow( section, kind_data );
+            }
         }
+    },
+
+    // Une sous-partie de section (décision utilisateur : la partie
+    // Compétences est unique, avec une sous-partie Ajout et une Bonus) :
+    // titre de partie, entrées du kind, ligne d'ajout du kind
+    _buildKindPart: function ( section, kind_data, adjustments ) {
+        let part    = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "adjustments-subsection", "data-kind": kind_data.key } ),
+            section
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "adjustments-part-title" }, kind_data.part_label ), part );
+        let entries = adjustments.getEntriesByKind( kind_data.key );
+        for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
+            this._buildEntry( part, entries[ e ] );
+        }
+        this._buildAddRow( part, kind_data );
+    },
+
+    // Le conteneur d'un kind : sa section, ou sa sous-partie quand le kind
+    // vit dans une section groupée
+    _getKindContainer: function ( kind_key ) {
+        return this.content_dom_element_target.querySelector(
+            ".adjustments-section[data-kind='" + kind_key + "'], .adjustments-subsection[data-kind='" + kind_key + "']"
+        );
     },
 
     _buildEntry: function ( section, adjustment ) {
@@ -135,7 +180,7 @@ CHARACTER.AdjustmentsWindow.prototype = {
             SERVICE.DOM.createElement( "div", { class: "adjustments-add-row" } ),
             section
         );
-        if ( kind_data.value_picker === "selector" || kind_data.value_picker === "speed" ) {
+        if ( kind_data.value_picker === "selector" || kind_data.value_picker === "speed" || kind_data.value_picker === "skill_bonus" ) {
             this._buildSelector( add_row, kind_data.key );
         }
         if ( kind_data.value_picker === "mastery" ) {
@@ -152,6 +197,13 @@ CHARACTER.AdjustmentsWindow.prototype = {
                 class      : "adjustments-add-input",
                 placeholder: "Mètres",
                 "data-name": "adjustment-meters"
+            } ), add_row );
+        }
+        if ( kind_data.value_picker === "skill_bonus" ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+                class      : "adjustments-add-input",
+                placeholder: "+2",
+                "data-name": "adjustment-bonus"
             } ), add_row );
         }
         if ( kind_data.value_picker === "input" ) {
@@ -284,6 +336,10 @@ CHARACTER.AdjustmentsWindow.prototype = {
         if ( kind_key === "mastery__rank" ) {
             return ADJUSTMENT.MASTERY_RANKS;
         }
+        // Skill bonus: the 17 skills (same list as the manual mastery)
+        if ( kind_key === "skill_bonus" ) {
+            return CLASSES.getChoices( null, "amelioration_de_competence" ).entries;
+        }
         return [];
     },
 
@@ -292,7 +348,7 @@ CHARACTER.AdjustmentsWindow.prototype = {
     // (the explanations carry apostrophes)
     _commitAddRow: function ( kind_key ) {
         let kind_data  = ADJUSTMENT.getKindData( kind_key );
-        let section    = this.content_dom_element_target.querySelector( ".adjustments-section[data-kind='" + kind_key + "']" );
+        let section    = this._getKindContainer( kind_key );
         if ( !kind_data || !section ) {
             return;
         }
@@ -318,6 +374,17 @@ CHARACTER.AdjustmentsWindow.prototype = {
             if ( skill && ( !needs_type || qualifier ) ) {
                 let skill_value = needs_type ? skill + " (" + qualifier + ")" : skill;
                 value = rank ? skill_value + " — " + rank : skill_value;
+            }
+        }
+        else if ( kind_data.value_picker === "skill_bonus" ) {
+            // "Arcanes — +2" : la compétence choisie, puis le bonus saisi
+            // (nombre signé) ; l'explication porte la source (objet, sort,
+            // autre) — le bonus reste en lecture seule, le jet affiché
+            // reste le jet brut
+            let bonus_input = section.querySelector( '[data-name="adjustment-bonus"]' );
+            let bonus_text  = bonus_input ? bonus_input.value.trim() : "";
+            if ( this.pending_values[ kind_key ] && /^[+-]?\d+$/.test( bonus_text ) ) {
+                value = this.pending_values[ kind_key ] + " — " + bonus_text;
             }
         }
         else {

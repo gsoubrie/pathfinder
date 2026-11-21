@@ -103,6 +103,11 @@ CHARACTER.LevelUpWindow.prototype = {
         // de classe, un conteneur unique porte la barre
         this._buildClassBar( character_object, history.getSize() > 0 );
 
+        // Tableau complet des jets et compétences (Jet | Rang | Mod | Niv |
+        // Bonus) : le Général n'y affiche plus que le jet et le rang
+        // (blocs partagés, with_details = true ici)
+        this._buildJetsTable( character_object );
+
         // Une section par niveau de l'historique, y compris desactive :
         // la section desactivee porte l'interrupteur de re-activation. Les
         // sections d'ascendance s'intercalent AU niveau de leur palier,
@@ -138,6 +143,15 @@ CHARACTER.LevelUpWindow.prototype = {
         for ( ; archetype_index < archetype_history.getSize(); archetype_index++ ) {
             this._buildArchetypeSection( character_object, archetype_history.getContent( archetype_index ), archetype_name );
         }
+    },
+
+    _buildJetsTable: function ( character_object ) {
+        var table = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", { class: "level-up-jets-table" } ),
+            this.content_dom_element_target
+        );
+        CHARACTER.GeneralWindow.computeSavesBlock( table, character_object, true );
+        CHARACTER.GeneralWindow.computeSkillsBlock( table, character_object, true );
     },
 
     _buildAncestrySection: function ( ancestry_entry, race_name ) {

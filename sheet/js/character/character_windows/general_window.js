@@ -94,6 +94,10 @@ CHARACTER.GeneralWindow.prototype = {
 
     // Zone dédiée des jets et compétences (une seule colonne de grille
     // élargie) : le bloc des jets puis le bloc des compétences, à la suite.
+    // Bloc des jets (Perception + sauvegardes) du Général, en format COMPACT
+    // (décision utilisateur) : en-tête Jet | Rang, lignes libellé + jet +
+    // rang seules. Le tableau complet (Mod, Niv, Bonus) vit dans l'onglet
+    // Progression — même bloc partagé, with_details = true
     computeArea__saves: function ( character_object ) {
         if ( !this.content_dom_element_target || !character_object ) {
             return;
@@ -102,45 +106,13 @@ CHARACTER.GeneralWindow.prototype = {
             this.block_saves = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "jets-block jets-saves-block" } ), this._computeJetsArea() );
         }
         SERVICE.DOM.empty( this.block_saves );
-        this._computeJetsHeader( this.block_saves );
-        var masteries = character_object.getMasteries();
-        for ( var i = 0; i < MASTERY.SAVES.length; i++ ) {
-            var save           = MASTERY.SAVES[ i ];
-            var rank           = masteries.getFinalRank( character_object, save.slot );
-            var rank_data      = rank ? MASTERY.getByShort( rank ) : MASTERY.LIST.UNKNOWN;
-            var save_value     = masteries.getRollModifier( character_object, save );
-            var characteristic = character_object.getCharacteristics().getContentByUUID( save.characteristic );
-            var modifier       = characteristic ? characteristic.getModifierValue() : 0;
-            var row            = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class  : "saves-row",
-                    "data-slot": save.slot,
-                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})"
-                } ),
-                this.block_saves
-            );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, save.label ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, save_value ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-                class: "saves-rank class-mastery-badge " + rank_data.css,
-                title: rank ? rank_data.label : "?"
-            }, rank ? rank_data.short : "?" ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-                class      : "saves-cell",
-                "data-name": "modifier",
-                title      : "Modificateur de " + this._getCharacteristicLabel( save.characteristic )
-            }, modifier ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
-            if ( save.slot === "perception" ) {
-                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Jets de sauvegarde" ), this.block_saves );
-            }
-        }
+        CHARACTER.GeneralWindow.computeSavesBlock( this.block_saves, character_object, false );
     },
 
-    // Bloc des compétences, à la suite des jets dans la même zone : une ligne
-    // par compétence du jeu (SKILLS.LIST), charac associée au libellé, jet au
-    // même format que les jets, rang I (bonus 0) quand le personnage ne l'a
-    // pas maîtrisée
+    // Bloc des compétences du Général, à la suite des jets dans la même
+    // zone, en format COMPACT (décision utilisateur) : libellé + jet +
+    // rang seuls. Le tableau complet (Mod et Niv en plus) vit dans
+    // l'onglet Progression — même bloc partagé, with_details = true
     computeArea__skills: function ( character_object ) {
         if ( !this.content_dom_element_target || !character_object ) {
             return;
@@ -149,89 +121,7 @@ CHARACTER.GeneralWindow.prototype = {
             this.block_skills = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "jets-block jets-skills-block" } ), this._computeJetsArea() );
         }
         SERVICE.DOM.empty( this.block_skills );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Compétences" ), this.block_skills );
-        var masteries = character_object.getMasteries();
-        var skill_keys = Object.keys( SKILLS.LIST ).sort( function ( key_a, key_b ) {
-            return SKILLS.LIST[ key_a ].label.localeCompare( SKILLS.LIST[ key_b ].label );
-        } );
-        for ( var i = 0; i < skill_keys.length; i++ ) {
-            var skill_data    = SKILLS.LIST[ skill_keys[ i ] ];
-            var skill_key     = CLASSES.getAbilityKey( skill_data.label );
-            var slot          = MASTERY.getSkillSlot( skill_data.label );
-            var rank          = masteries.getFinalRank( character_object, slot ) || "I";
-            var rank_data     = MASTERY.getByShort( rank );
-            var skill_value   = masteries.getRollModifier( character_object, { "slot": slot, "characteristic": skill_data.characteristic } );
-            var characteristic = character_object.getCharacteristics().getContentByUUID( skill_data.characteristic );
-            var modifier      = characteristic ? characteristic.getModifierValue() : 0;
-            var row           = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class  : "saves-row",
-                    "data-slot": slot,
-                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__skill_actions',{'param__skill':'" + skill_key + "'})"
-                } ),
-                this.block_skills
-            );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, skill_data.label ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, skill_value ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-rank class-mastery-badge " + rank_data.css, title: rank_data.label }, rank_data.short ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-                class      : "saves-cell",
-                "data-name": "modifier",
-                title      : "Modificateur de " + this._getCharacteristicLabel( skill_data.characteristic )
-            }, modifier ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
-        }
-        // Les compétences qualifiées (Artisanat/Connaissance + type) vivent
-        // sur leurs propres slots : une ligne par slot qualifié possédé,
-        // le clic ouvre la popup maîtrises (un type ne possède pas
-        // d'actions dans nos données)
-        var qualified_slots = this._getQualifiedSkillSlots( character_object, masteries );
-        for ( var q = 0; q < qualified_slots.length; q++ ) {
-            var qualified_slot = qualified_slots[ q ];
-            var qualified_data = SKILLS.LIST[ qualified_slot.slice( "skill__".length ).split( "__" )[ 0 ].toUpperCase() ];
-            var qualified_rank         = masteries.getFinalRank( character_object, qualified_slot ) || "I";
-            var qualified_rank_data    = MASTERY.getByShort( qualified_rank );
-            var qualified_value        = masteries.getRollModifier( character_object, { "slot": qualified_slot, "characteristic": qualified_data.characteristic } );
-            var qualified_characteristic = character_object.getCharacteristics().getContentByUUID( qualified_data.characteristic );
-            var qualified_modifier     = qualified_characteristic ? qualified_characteristic.getModifierValue() : 0;
-            var qualified_row          = SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", {
-                    class  : "saves-row",
-                    "data-slot": qualified_slot,
-                    onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})"
-                } ),
-                this.block_skills
-            );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, MASTERY.getSlotLabel( qualified_slot ) ), qualified_row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, qualified_value ), qualified_row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-                class: "saves-rank class-mastery-badge " + qualified_rank_data.css,
-                title: qualified_rank_data.label
-            }, qualified_rank_data.short ), qualified_row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-                class      : "saves-cell",
-                "data-name": "modifier",
-                title      : "Modificateur de " + this._getCharacteristicLabel( qualified_data.characteristic )
-            }, qualified_modifier ), qualified_row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), qualified_row );
-        }
-    },
-
-    // Slots des compétences qualifiées possédées (Progression ou
-    // Ajustements), tries par libellé : leur rang vit dans la collecte
-    _getQualifiedSkillSlots: function ( character_object, masteries ) {
-        let to_return = [];
-        let slot_data = masteries.getDataBySlot( character_object );
-        let _slots    = Object.keys( slot_data );
-        for ( let s = 0, _size_s = _slots.length; s < _size_s; s++ ) {
-            if ( _slots[ s ].indexOf( "skill__" ) === 0 && _slots[ s ].split( "__" ).length > 2 ) {
-                to_return.push( _slots[ s ] );
-            }
-        }
-        to_return.sort( function ( slot_a, slot_b ) {
-            return MASTERY.getSlotLabel( slot_a ).localeCompare( MASTERY.getSlotLabel( slot_b ) );
-        } );
-        return to_return;
+        CHARACTER.GeneralWindow.computeSkillsBlock( this.block_skills, character_object, false );
     },
 
     _computeJetsArea: function () {
@@ -241,22 +131,8 @@ CHARACTER.GeneralWindow.prototype = {
         return this.area_jets;
     },
 
-    _computeJetsHeader: function ( dom_element_parent ) {
-        var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-row saves-header-row" } ), dom_element_parent );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" } ), header );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Jet" ), header );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Rang" ), header );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Mod" ), header );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Niv" ), header );
-    },
-
     _getCharacteristicLabel: function ( characteristic_key ) {
-        for ( var i = 0; i < CHARACTERISTICS.ENUM.length; i++ ) {
-            if ( CHARACTERISTICS.ENUM[ i ].key === characteristic_key ) {
-                return CHARACTERISTICS.ENUM[ i ].label;
-            }
-        }
-        return characteristic_key;
+        return CHARACTER.GeneralWindow.getCharacteristicLabel( characteristic_key );
     },
 
     // Zone des donnees de l'ascendance (sous le champ ascendance) : traits,
@@ -538,6 +414,138 @@ CHARACTER.GeneralWindow.prototype = {
 };
 
 SERVICE.CLASS.addPrototype( CHARACTER.GeneralWindow, WINDOW_V2.ElementFromData );
+
+// Libellé d'une caractéristique par sa clé
+CHARACTER.GeneralWindow.getCharacteristicLabel = function ( characteristic_key ) {
+    for ( var i = 0; i < CHARACTERISTICS.ENUM.length; i++ ) {
+        if ( CHARACTERISTICS.ENUM[ i ].key === characteristic_key ) {
+            return CHARACTERISTICS.ENUM[ i ].label;
+        }
+    }
+    return characteristic_key;
+};
+
+// En-tête du tableau des jets, partagé : Jet | Rang seuls au Général
+// (with_details = false), Jet | Rang | Mod | Niv | Bonus en Progression
+CHARACTER.GeneralWindow.computeJetsHeader = function ( dom_element_parent, with_details ) {
+    var header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-row saves-header-row" } ), dom_element_parent );
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" } ), header );
+    // Au Général compact la valeur du jet se lit comme un bonus : titre
+    // "Bonus" et "+" devant la valeur (le tableau complet garde "Jet")
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, with_details ? "Jet" : "Bonus" ), header );
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Rang" ), header );
+    if ( with_details ) {
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Mod" ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Niv" ), header );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell" }, "Bonus" ), header );
+    }
+};
+
+// Bloc des jets (Perception / Initiative + les 3 sauvegardes), partagé entre
+// deux onglets : en-tête + lignes, compact au Général (with_details = false),
+// complet en Progression (with_details = true)
+CHARACTER.GeneralWindow.computeSavesBlock = function ( dom_element_parent, character_object, with_details ) {
+    CHARACTER.GeneralWindow.computeJetsHeader( dom_element_parent, with_details );
+    for ( var i = 0; i < MASTERY.SAVES.length; i++ ) {
+        var save = MASTERY.SAVES[ i ];
+        CHARACTER.GeneralWindow._addJetRow( dom_element_parent, character_object,
+            save.slot, save.label, save.characteristic,
+            "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})",
+            with_details );
+        if ( save.slot === "perception" ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Jets de sauvegarde" ), dom_element_parent );
+        }
+    }
+};
+
+// Bloc des compétences partagé entre deux onglets : le Général n'y rend que
+// le jet et le rang (with_details = false — la place gagnée dans la zone
+// jets reste vide), la Progression rend le tableau complet avec Mod, Niv
+// et Bonus (with_details = true). Une ligne par compétence du jeu (SKILLS.LIST, triées
+// par libellé), puis une ligne par compétence qualifiée possédée ; le clic
+// ouvre la popup des actions de la compétence (ou des maîtrises pour une
+// ligne qualifiée, un type n'a pas d'actions dans nos données)
+CHARACTER.GeneralWindow.computeSkillsBlock = function ( dom_element_parent, character_object, with_details ) {
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "saves-separator" }, "Compétences" ), dom_element_parent );
+    var masteries  = character_object.getMasteries();
+    var skill_keys = Object.keys( SKILLS.LIST ).sort( function ( key_a, key_b ) {
+        return SKILLS.LIST[ key_a ].label.localeCompare( SKILLS.LIST[ key_b ].label );
+    } );
+    for ( var i = 0, _size_i = skill_keys.length; i < _size_i; i++ ) {
+        var skill_data = SKILLS.LIST[ skill_keys[ i ] ];
+        var skill_key  = CLASSES.getAbilityKey( skill_data.label );
+        CHARACTER.GeneralWindow._addJetRow( dom_element_parent, character_object,
+            MASTERY.getSkillSlot( skill_data.label ), skill_data.label, skill_data.characteristic,
+            "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__skill_actions',{'param__skill':'" + skill_key + "'})",
+            with_details );
+    }
+    var qualified_slots = CHARACTER.GeneralWindow._getQualifiedSkillSlots( character_object, masteries );
+    for ( var q = 0, _size_q = qualified_slots.length; q < _size_q; q++ ) {
+        var qualified_slot = qualified_slots[ q ];
+        var qualified_data = SKILLS.LIST[ qualified_slot.slice( "skill__".length ).split( "__" )[ 0 ].toUpperCase() ];
+        CHARACTER.GeneralWindow._addJetRow( dom_element_parent, character_object,
+            qualified_slot, MASTERY.getSlotLabel( qualified_slot ), qualified_data.characteristic,
+            "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__masteries',{})",
+            with_details );
+    }
+};
+
+CHARACTER.GeneralWindow._addJetRow = function ( dom_element_parent, character_object, slot, label, characteristic_key, onclick, with_details ) {
+    var masteries      = character_object.getMasteries();
+    var rank           = masteries.getFinalRank( character_object, slot );
+    if ( !rank && slot.indexOf( "skill__" ) === 0 ) {
+        rank = "I";
+    }
+    var rank_data      = rank ? MASTERY.getByShort( rank ) : MASTERY.LIST.UNKNOWN;
+    var value          = masteries.getRollModifier( character_object, { "slot": slot, "characteristic": characteristic_key } );
+    var characteristic = character_object.getCharacteristics().getContentByUUID( characteristic_key );
+    var modifier       = characteristic ? characteristic.getModifierValue() : 0;
+    var row            = SERVICE.DOM.addElementTo(
+        SERVICE.DOM.createElement( "div", { class: "saves-row", "data-slot": slot, onclick: onclick } ),
+        dom_element_parent
+    );
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-label" }, label ), row );
+    var value_text = with_details ? value : ( value >= 0 ? "+" : "" ) + value;
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-value" }, value_text ), row );
+    SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+        class: "saves-rank class-mastery-badge " + rank_data.css,
+        title: rank ? rank_data.label : "?"
+    }, rank ? rank_data.short : "?" ), row );
+    if ( with_details ) {
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class      : "saves-cell",
+            "data-name": "modifier",
+            title      : "Modificateur de " + CHARACTER.GeneralWindow.getCharacteristicLabel( characteristic_key )
+        }, modifier ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "saves-cell", "data-name": "level" }, character_object.getLevel() ), row );
+        // Colonne Bonus : bonus conditionnel (objet, sort, ajustement...) lu
+        // dans le domaine — lecture seule, le jet affiché reste le jet brut
+        var bonus_data  = character_object.getAdjustments().getBonusBySlot( slot );
+        var bonus_text  = bonus_data.value ? ( bonus_data.value > 0 ? "+" : "" ) + bonus_data.value : "—";
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class      : "saves-cell saves-bonus" + ( bonus_data.value ? " has-bonus" : "" ),
+            "data-name": "bonus",
+            title      : bonus_data.sources.length ? bonus_data.sources.join( "\n" ) : ""
+        }, bonus_text ), row );
+    }
+};
+
+// Slots des compétences qualifiées possédées (Progression ou Ajustements),
+// triés par libellé : leur rang vit dans la collecte
+CHARACTER.GeneralWindow._getQualifiedSkillSlots = function ( character_object, masteries ) {
+    let to_return = [];
+    let slot_data = masteries.getDataBySlot( character_object );
+    let _slots    = Object.keys( slot_data );
+    for ( let s = 0, _size_s = _slots.length; s < _size_s; s++ ) {
+        if ( _slots[ s ].indexOf( "skill__" ) === 0 && _slots[ s ].split( "__" ).length > 2 ) {
+            to_return.push( _slots[ s ] );
+        }
+    }
+    to_return.sort( function ( slot_a, slot_b ) {
+        return MASTERY.getSlotLabel( slot_a ).localeCompare( MASTERY.getSlotLabel( slot_b ) );
+    } );
+    return to_return;
+};
 
 // Lecture du fichier choisi dans le sélecteur de fichiers : dataURL -> image
 // -> canvas redimensionné (max 600 px de côté, JPEG 0.85 pour ne pas alourdir

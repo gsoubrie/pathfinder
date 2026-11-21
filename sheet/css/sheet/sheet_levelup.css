@@ -51,6 +51,88 @@
 }
 
 
+/* ── Tableau complet des jets et compétences (déplacé du Général, qui n'y
+      affiche plus que jet + rang) : en-tête Jet | Rang | Mod | Niv | Bonus,
+      partie carte comme les blocs de niveau, mêmes classes de lignes que
+      la zone jets du Général ── */
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table {
+    background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    border        : 1px solid #6b4e2a;
+    border-radius : 8px;
+    padding       : var(--s-sm);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-row {
+    display               : grid;
+    grid-template-columns : minmax( 0, 1.3fr ) minmax( 0, 1fr ) minmax( 0, 1fr ) minmax( 0, 1fr ) minmax( 0, 1fr ) minmax( 0, 0.8fr );
+    align-items           : center;
+    justify-items         : center;
+    gap                   : var(--s-xs);
+    padding               : var(--s-xs) var(--s-sm);
+    border-bottom         : var(--b-thin) solid var(--c-border-dark);
+    cursor                : pointer;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-row:last-child {
+    border-bottom : none;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-separator {
+    align-items     : center;
+    color           : var(--c-text-gold);
+    display         : flex;
+    font-size       : 11px;
+    gap             : var(--s-sm);
+    justify-content : center;
+    margin          : var(--s-sm) 0;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-separator::before,
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-separator::after {
+    background : var(--c-border-dark);
+    content    : "";
+    flex       : 1;
+    height     : 1px;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-label {
+    color        : var(--c-text-muted);
+    font-size    : 12px;
+    justify-self : start;
+    text-align   : left;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-cell {
+    color      : var(--c-text);
+    font-size  : 12px;
+    text-align : center;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-value {
+    color       : var(--c-text);
+    font-size   : 14px;
+    font-weight : var(--font-weight-bold);
+    text-align  : center;
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-header-row {
+    color         : var(--c-text-muted);
+    font-size     : 10px;
+    border-bottom : var(--b-thin) solid var(--c-border-dark);
+    cursor        : default;
+}
+
+/* Colonne Bonus : bonus conditionnel (objet, sort, ajustement), lecture
+   seule — le jet affiché reste le jet brut, la source est en infobulle */
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-bonus {
+    color : var(--c-text-muted);
+}
+
+.property-tab-pane[data-name="levelup_sheet"] .level-up-jets-table .saves-bonus.has-bonus {
+    color       : var(--c-text-gold);
+    font-weight : var(--font-weight-bold);
+}
+
 /* ── Bloc niveau ── */
 .level-up-window .level-up-block {
     background    : linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);

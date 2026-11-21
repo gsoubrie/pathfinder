@@ -31,20 +31,51 @@ TEST.RUNNER.register( "[AJUSTEMENTS] onglet = une section par catégorie avec sa
             return;
         }
         let _sections                   = _pane.querySelectorAll( ".adjustments-section" );
-        TEST.ASSERT.equal( _sections.length, ADJUSTMENT.KINDS.length, "L'onglet devrait rendre une section par catégorie (" + ADJUSTMENT.KINDS.length + "), obtenu : " + _sections.length );
+        let _grouped_count              = 0;
+        for ( let _g = 0, _size_g = ADJUSTMENT.KINDS.length; _g < _size_g; _g++ ) {
+            if ( ADJUSTMENT.KINDS[ _g ].in_section ) {
+                _grouped_count++;
+            }
+        }
+        TEST.ASSERT.equal( _sections.length, ADJUSTMENT.KINDS.length - _grouped_count, "L'onglet devrait rendre une section par catégorie non groupée (" + ( ADJUSTMENT.KINDS.length - _grouped_count ) + "), obtenu : " + _sections.length );
+        // La partie Compétences est unique et contient deux sous-parties
+        let _mastery_section            = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
+        TEST.ASSERT.notNull( _mastery_section, "La section Compétences devrait etre rendue" );
+        if ( _mastery_section ) {
+            let _parts                  = _mastery_section.querySelectorAll( ".adjustments-subsection" );
+            TEST.ASSERT.equal( _parts.length, 2, "La partie Compétences devrait contenir deux sous-parties (Ajout, Bonus), obtenu : " + _parts.length );
+            let _part_labels            = [];
+            for ( let _p = 0, _size_p = _parts.length; _p < _size_p; _p++ ) {
+                _part_labels.push( _parts[ _p ].querySelector( ".adjustments-part-title" ).textContent );
+            }
+            TEST.ASSERT.equal( _part_labels.join( "|" ), "Ajout|Bonus", "Les sous-parties de Compétences devraient être Ajout puis Bonus, obtenu : " + _part_labels.join( "|" ) );
+        }
         for ( let _i = 0, _size_i = ADJUSTMENT.KINDS.length; _i < _size_i; _i++ ) {
             let _kind_data              = ADJUSTMENT.KINDS[ _i ];
-            let _section                = _pane.querySelector( ".adjustments-section[data-kind='" + _kind_data.key + "']" );
+            // Un kind groupé (ou partie d'une section groupée) se teste sur sa
+            // sous-partie, les autres sur leur section
+            let _has_parts              = false;
+            for ( let _p = 0, _size_p = ADJUSTMENT.KINDS.length; _p < _size_p; _p++ ) {
+                if ( ADJUSTMENT.KINDS[ _p ].in_section === _kind_data.key ) {
+                    _has_parts = true;
+                }
+            }
+            let _is_part                = _kind_data.in_section || _has_parts;
+            let _section                = _is_part
+                ? ( _pane.querySelector( ".adjustments-subsection[data-kind='" + _kind_data.key + "']" ) || _pane.querySelector( ".adjustments-section[data-kind='" + _kind_data.key + "']" ) )
+                : _pane.querySelector( ".adjustments-section[data-kind='" + _kind_data.key + "']" );
             TEST.ASSERT.notNull( _section, "La section " + _kind_data.key + " devrait etre rendue" );
             if ( !_section ) {
                 continue;
             }
-            TEST.ASSERT.equal( _section.querySelector( ".adjustments-section-title" ).textContent, _kind_data.label, "Le titre de la section " + _kind_data.key + " devrait afficher " + _kind_data.label + ", obtenu : " + _section.querySelector( ".adjustments-section-title" ).textContent );
+            let _expected_title         = _section.classList.contains( "adjustments-subsection" ) ? _kind_data.part_label : _kind_data.label;
+            let _title_el               = _section.querySelector( ".adjustments-section-title" ) || _section.querySelector( ".adjustments-part-title" );
+            TEST.ASSERT.equal( _title_el.textContent, _expected_title, "Le titre de " + _kind_data.key + " devrait afficher " + _expected_title + ", obtenu : " + _title_el.textContent );
             // La valeur se choisit dans un sélecteur quand une liste existe,
             // en champ libre sinon ; l'explication reste toujours libre
             let _expected_selectors     = ( _kind_data.value_picker === "input" ) ? 0 : ( _kind_data.value_picker === "mastery" ? 2 : 1 );
             TEST.ASSERT.equal( _section.querySelectorAll( ".single-select-container" ).length, _expected_selectors, "La section " + _kind_data.key + " devrait porter " + _expected_selectors + " sélecteur de valeur, obtenu : " + _section.querySelectorAll( ".single-select-container" ).length );
-            let _expected_inputs        = ( _kind_data.value_picker === "input" ) ? 2 : ( _kind_data.value_picker === "speed" ? 2 : 1 );
+            let _expected_inputs        = ( _kind_data.value_picker === "input" ) ? 2 : ( ( _kind_data.value_picker === "speed" || _kind_data.value_picker === "skill_bonus" ) ? 2 : 1 );
             TEST.ASSERT.equal( _section.querySelectorAll( ".adjustments-add-input" ).length, _expected_inputs, "La section " + _kind_data.key + " devrait porter " + _expected_inputs + " champ(s) libre(s), obtenu : " + _section.querySelectorAll( ".adjustments-add-input" ).length );
             TEST.ASSERT.notNull( _section.querySelector( ".adjustments-add-button" ), "La section " + _kind_data.key + " devrait porter son bouton d'ajout" );
         }
@@ -480,8 +511,8 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang cho
         return TEST.wait();
     } ).then( function () {
         let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
-        let _section                    = _pane.querySelector( ".adjustments-section[data-kind='mastery']" );
-        TEST.ASSERT.notNull( _section, "La section Compétences devrait etre rendue" );
+        let _section                    = _pane.querySelector( ".adjustments-subsection[data-kind='mastery']" );
+        TEST.ASSERT.notNull( _section, "La sous-partie Ajout de la section Compétences devrait etre rendue" );
         if ( !_section ) {
             return;
         }
@@ -500,7 +531,7 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang cho
             _rank_option.click();
             return TEST.wait();
         } ).then( function () {
-            let _fresh_section          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-section[data-kind='mastery']" );
+            let _fresh_section          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-subsection[data-kind='mastery']" );
             _fresh_section.querySelector( '[data-name="adjustment-explanation"]' ).value = "Don de classe";
             _fresh_section.querySelector( ".adjustments-add-button" ).click();
             return TEST.wait();
@@ -524,6 +555,95 @@ TEST.RUNNER.register( "[AJUSTEMENTS] maîtrise manuelle = compétence + rang cho
             return TEST.wait();
         } ).then( function () {
             TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "mastery" ).length, 0, "Nettoyage : aucune maîtrise ne devrait rester pour le test suivant, obtenu : " + _character.getAdjustments().getValuesByKind( "mastery" ).length );
+        } );
+    } );
+} );
+
+TEST.RUNNER.register( "[AJUSTEMENTS] bonus de compétence = sélecteur + champ bonus, colonne Bonus en Progression", function () {
+    let _character                      = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                       = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+        let _section                    = _pane.querySelector( ".adjustments-subsection[data-kind='skill_bonus']" );
+        TEST.ASSERT.notNull( _section, "La section Bonus de compétence devrait etre rendue" );
+        if ( !_section ) {
+            return;
+        }
+        let _container                  = _section.querySelector( ".single-select-container" );
+        TEST.ASSERT.notNull( _container, "La section devrait porter son sélecteur de compétence" );
+        TEST.ASSERT.equal( _section.querySelectorAll( ".single-select-option" ).length, 1 + 17, "Le sélecteur devrait proposer option vide + les 17 compétences, obtenu : " + _section.querySelectorAll( ".single-select-option" ).length );
+        let _bonus_input                = _section.querySelector( '[data-name="adjustment-bonus"]' );
+        TEST.ASSERT.notNull( _bonus_input, "La ligne d'ajout devrait porter le champ bonus (placeholder +2)" );
+        if ( !_container || !_bonus_input ) {
+            return;
+        }
+        let _skill_option               = _container.querySelector( ".single-select-option[data-value='Arcanes']" );
+        TEST.ASSERT.notNull( _skill_option, "Le sélecteur devrait proposer Arcanes" );
+        if ( !_skill_option ) {
+            return;
+        }
+        _skill_option.click();
+        return TEST.wait().then( function () {
+            let _fresh_section          = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-subsection[data-kind='skill_bonus']" );
+            _fresh_section.querySelector( '[data-name="adjustment-bonus"]' ).value = "+2";
+            _fresh_section.querySelector( '[data-name="adjustment-explanation"]' ).value = "Anneau de protection (objet)";
+            _fresh_section.querySelector( ".adjustments-add-button" ).click();
+            return TEST.wait();
+        } ).then( function () {
+            let _fresh2                 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "']" );
+            let _entry                  = _fresh2.querySelector( ".adjustments-subsection[data-kind='skill_bonus'] .adjustments-entry[data-value='Arcanes — +2']" );
+            TEST.ASSERT.notNull( _entry, "L'entrée devrait porter la valeur assemblée 'Arcanes — +2', obtenu : " + ( _fresh2.querySelector( ".adjustments-subsection[data-kind='skill_bonus'] .adjustments-entry" ) ? _fresh2.querySelector( ".adjustments-subsection[data-kind='skill_bonus'] .adjustments-entry" ).getAttribute( "data-value" ) : "aucune entrée" ) );
+            TEST.ASSERT.ok( _character.getAdjustments().getValuesByKind( "skill_bonus" ).indexOf( "Arcanes — +2" ) !== -1, "La valeur assemblée devrait etre dans le domaine, obtenu : " + JSON.stringify( _character.getAdjustments().getValuesByKind( "skill_bonus" ) ) );
+            let _arcana_slot            = MASTERY.getSkillSlot( "Arcanes" );
+            let _bonus                  = _character.getAdjustments().getBonusBySlot( _arcana_slot );
+            TEST.ASSERT.equal( _bonus.value, 2, "Le bonus d'Arcanes devrait sommer à +2 dans le domaine, obtenu : " + _bonus.value );
+            TEST.ASSERT.ok( _bonus.sources.indexOf( "Anneau de protection (objet)" ) !== -1, "La source du bonus devrait porter l'explication, obtenu : " + JSON.stringify( _bonus.sources ) );
+            let _saved                  = _character.getDataToSave();
+            TEST.ASSERT.ok( _saved.adjustments && _saved.adjustments.some( function ( a ) { return a.kind === "skill_bonus" && a.value === "Arcanes — +2"; } ), "Le save devrait porter le bonus de compétence, obtenu : " + JSON.stringify( _saved.adjustments ) );
+            // Le bonus reste en lecture seule : il s'affiche dans la colonne
+            // Bonus du tableau Progression, le jet affiché reste le jet brut
+            return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+                return TEST.wait();
+            } ).then( function () {
+                let _table             = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .level-up-jets-table" );
+                TEST.ASSERT.notNull( _table, "Le tableau complet devrait être rendu en Progression" );
+                if ( !_table ) {
+                    return;
+                }
+                let _arcanes_row       = _table.querySelector( ".saves-row[data-slot='skill__arcana']" );
+                TEST.ASSERT.notNull( _arcanes_row, "La ligne Arcanes devrait être rendue dans le tableau" );
+                if ( _arcanes_row ) {
+                    let _bonus_cell    = _arcanes_row.querySelector( ".saves-cell[data-name='bonus']" );
+                    TEST.ASSERT.notNull( _bonus_cell, "La ligne Arcanes devrait porter la colonne Bonus" );
+                    if ( _bonus_cell ) {
+                        TEST.ASSERT.equal( _bonus_cell.textContent, "+2", "La colonne Bonus d'Arcanes devrait afficher +2, obtenu : " + _bonus_cell.textContent );
+                        TEST.ASSERT.ok( _bonus_cell.classList.contains( "has-bonus" ), "La cellule Bonus d'Arcanes devrait porter la classe has-bonus" );
+                        TEST.ASSERT.ok( ( _bonus_cell.getAttribute( "title" ) || "" ).indexOf( "Anneau de protection (objet)" ) !== -1, "L'infobulle de la cellule Bonus devrait citer la source, obtenu : " + _bonus_cell.getAttribute( "title" ) );
+                    }
+                    let _expected_jet  = _character.getMasteries().getRollModifier( _character, { "slot": "skill__arcana", "characteristic": CHARACTERISTICS.INT.key } );
+                    TEST.ASSERT.equal( _arcanes_row.querySelector( ".saves-value" ).textContent, "" + _expected_jet, "Le jet affiché devrait rester le jet brut du domaine (sans le +2), obtenu : " + _arcanes_row.querySelector( ".saves-value" ).textContent );
+                    let _acrobaties_row = _table.querySelector( ".saves-row[data-slot='skill__acrobatics']" );
+                    TEST.ASSERT.equal( _acrobaties_row.querySelector( ".saves-cell[data-name='bonus']" ).textContent, "—", "La colonne Bonus d'Acrobaties devrait rester vide, obtenu : " + _acrobaties_row.querySelector( ".saves-cell[data-name='bonus']" ).textContent );
+                }
+                // retour sur Ajustements pour le retrait
+                return TEST.clickTab( ".character-sheet-windows", CHARACTER.AdjustmentsWindow.NAME ).then( function () {
+                    return TEST.wait();
+                } );
+            } ).then( function () {
+                let _remove             = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.AdjustmentsWindow.NAME + "'] .adjustments-subsection[data-kind='skill_bonus'] .adjustments-entry[data-value='Arcanes — +2'] .adjustments-entry-remove" );
+                TEST.ASSERT.notNull( _remove, "Le bouton de retrait de l'entrée bonus devrait être rendu" );
+                if ( _remove ) {
+                    _remove.click();
+                }
+                return TEST.wait();
+            } ).then( function () {
+                TEST.ASSERT.equal( _character.getAdjustments().getValuesByKind( "skill_bonus" ).length, 0, "Nettoyage : aucun bonus de compétence ne devrait rester, obtenu : " + _character.getAdjustments().getValuesByKind( "skill_bonus" ).length );
+            } );
         } );
     } );
 } );

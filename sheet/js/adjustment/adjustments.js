@@ -77,6 +77,23 @@ CHARACTER.Adjustments.prototype = {
         }
         return to_return;
     },
+    // Sum of the manual skill bonuses (kind "skill_bonus") on a mastery
+    // slot, with their sources for the tooltip (column "Bonus" of the
+    // Progression table — display only, the roll stays brut)
+    getBonusBySlot: function ( slot ) {
+        let to_return = { "value": 0, "sources": [] };
+        let entries   = this.getEntriesByKind( "skill_bonus" );
+        for ( let i = 0, _size_i = entries.length; i < _size_i; i++ ) {
+            let contribution = entries[ i ].getBonusContribution();
+            if ( contribution && contribution.slot === slot ) {
+                to_return[ "value" ] += contribution.bonus;
+                if ( contribution.source ) {
+                    to_return[ "sources" ].push( contribution.source );
+                }
+            }
+        }
+        return to_return;
+    },
     //********************************************  DATA   **************************************************//
     addAdjustment: function ( kind, value, explanation ) {
         if ( !value || this.getContentByUUID( kind + "__" + value ) ) {

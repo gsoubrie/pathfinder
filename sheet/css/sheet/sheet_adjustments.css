@@ -27,6 +27,20 @@
     padding      : 4px 2px 6px;
 }
 
+/* Une section peut contenir des sous-parties (Compétences = Ajout + Bonus),
+   séparées visiblement du reste de la section */
+.adjustments-subsection {
+    border-top : 1px solid var(--c-border-dark);
+    margin-top : var(--s-sm);
+    padding-top: var(--s-xs);
+}
+
+.adjustments-part-title {
+    color     : var(--c-text-gold);
+    font-size : 12px;
+    padding   : 2px;
+}
+
 .adjustments-entry {
     align-items    : center;
     color          : var(--c-text);

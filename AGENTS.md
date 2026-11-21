@@ -50,6 +50,14 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   Force) — décision utilisateur (Round 90). Le padding des graduations vaut
   la moitié du curseur (6px) pour les aligner sur la piste, pas sur les
   bords du input.
+- Onglet Général (grille desktop) : Divinité sous Archétype (colonne 4,
+  ligne 3), Points de vie sous Taille (colonne 5, ligne 3), Taille ne fait
+  plus qu'une ligne de grille de haut, l'ancien emplacement de Divinité
+  (colonne 2, ligne 3) reste vide pour le moment — décision utilisateur.
+  Les variantes responsive suivent le même contrat (divinité sous archétype,
+  PV sous taille). Le déplacement ne touche que le `grid-template-areas` de
+  `sheet_general.css` : les noms d'areas (`deity`, `pv`, `size`) ne changent
+  pas, aucun JS n'est impacté.
 - Les bonus conditionnels (héritage, dons, objets magiques) s'affichent en
   LECTURE SEULE : une astérisque dorée à côté de la valeur concernée (ex.
   sauvegarde de l'onglet Combat) ouvre une popup explicative avec les actions
@@ -202,16 +210,37 @@ lignes un jour), et le warning global de la fenêtre.
 
 ### Zone jets + compétences de l'onglet Général (`general_window.js`)
 
-- Une seule zone de grille `jets` (7 colonnes, la zone couvre 3.25fr : col 2
-  2fr + division fine 1.25fr), class partagée `jets-grid`, `align-self: start`.
-  Contenu : UN en-tête `Jet | Rang | Mod | Niv` en haut, ligne
-  `Perception / Initiative`, séparateur titré `Jets de sauvegarde`, les 3
-  sauvegardes, séparateur `Compétences`, les 17 compétences (SKILLS.LIST,
-  triées par libellé, nom seul). Pas de titre de zone, pas de gras ni
-  majuscules, valeurs SANS "+" (le moins s'affiche seul au besoin).
+- Une seule zone de grille `jets` (class partagée `jets-grid`,
+  `align-self: start`) qui ne couvre PLUS QU'UNE colonne de la grille
+  (col 2, 2fr — décision utilisateur : l'ancienne seconde colonne,
+  1.25fr, reste VIDE, cellule « . » des lignes 4+, pour le moment). Contenu EN FORMAT COMPACT — décision utilisateur :
+  en-tête `Bonus | Rang`, ligne `Perception / Initiative`, séparateur
+  titré `Jets de sauvegarde`, les 3 sauvegardes, séparateur `Compétences`,
+  les 17 compétences (SKILLS.LIST, triées par libellé, nom seul). Chaque
+  ligne ne porte que libellé + bonus + rang (3 colonnes) ; la valeur du
+  jet s'affiche AVEC un "+" devant au Général (le moins reste seul au
+  besoin), le titre de la colonne est « Bonus ». Pas de titre de zone,
+  pas de gras ni majuscules.
+- Le TABLEAU COMPLET (libellé | Jet | Rang | Mod | Niv | Bonus) vit dans
+  l'onglet Progression, après la barre de classe (`.level-up-jets-table`,
+  `_buildJetsTable` de `levelup_window.js`). Les deux onglets rendent les
+  MÊMES blocs partagés `CHARACTER.GeneralWindow.computeSavesBlock( dom,
+  perso, with_details )` (en-tête + Perception + 3 sauvegardes) et
+  `computeSkillsBlock( dom, perso, with_details )` (séparateur + 17
+  compétences + qualifiées), lignes construites par `_addJetRow` :
+  `with_details = false` au Général (pas de cellules Mod/Niv/Bonus),
+  `true` en Progression.
+- Colonne `Bonus` (Progression seule) : bonus conditionnel d'un objet, sort
+  ou autre, saisi dans l'onglet Ajustements (kind `skill_bonus`, valeur
+  assemblée « <compétence> — +<N> », explication = source). Lecture seule :
+  la cellule affiche la somme par slot (`Adjustments.getBonusBySlot`, classe
+  `has-bonus` + infobulle des sources), le jet affiché reste le jet BRUT
+  (décision Round 88). Aujourd'hui seul les compétences sont saisissables
+  (les bonus de sauvegardes restent le chantier `COMBAT.CONDITIONAL_BONUSES`).
 - Chaque ligne : valeur du jet en premier, badge de rang à l'initiale
-  (rang I + bonus 0 si non maîtrisée), modificateur, niveau. Jet complet
-  PF2 = niveau + modificateur de caractéristique + bonus de rang
+  (rang I + bonus 0 si non maîtrisée pour les compétences, "?" si inconnu
+  pour les saves), modificateur, niveau, bonus (Progression seule). Jet
+  complet PF2 = niveau + modificateur de caractéristique + bonus de rang
   (`MASTERY.LIST[*].bonus`), calcul domaine dans
   `CHARACTER.Masteries.getRollModifier( { slot, characteristic } )`.
 - Clic : ligne de jet → popup maîtrises (`event__show_information__masteries`),
@@ -980,10 +1009,18 @@ Nouveau domaine `sheet/js/adjustment/` (namespace `ADJUSTMENT`, ajouté au
 `explanation` — uuid `kind__value`, dédupliqué par kind+value, hérite
 `OBJECT.InterfaceHtml`) et `CHARACTER.Adjustments` (conteneur, enfant du
 personnage, save clé `adjustments`, accès `getEntriesByKind` /
-`getValuesByKind`). Les catégories = `ADJUSTMENT.KINDS` écrit à la main :
-`language`, `sense`, `speed`, `feat`, `mastery`, `note` (la liste grandit
-sans toucher au modèle ; `characteristic_boost` attend la décision). Pas
-d'interrupteur (décision utilisateur) : sections par catégorie + retrait
+`getValuesByKind` / `getBonusBySlot`). Les catégories = `ADJUSTMENT.KINDS`
+écrit à la main : `language`, `lore`, `action`, `deity`, `sense`, `speed`,
+`feat`, `mastery`, `skill_bonus`, `characteristic_boost`, `note` (la liste
+grandit sans toucher au modèle). La partie **Compétences est unique**
+(décision utilisateur) : une seule section `mastery` contenant deux
+sous-parties `.adjustments-subsection` — « Ajout » (`mastery`) et
+« Bonus » (`skill_bonus`, `in_section: "mastery"`). `skill_bonus` =
+modification manuelle d'une compétence : sélecteur des 17 compétences +
+champ bonus signé, valeur assemblée « <compétence> — +<N> », explication =
+source (objet, sort, autre) — consommée en lecture seule par la colonne
+Bonus du tableau Progression.
+Pas d'interrupteur (décision utilisateur) : sections par catégorie + retrait
 par « × ». Fenêtre `CHARACTER.AdjustmentsWindow`
 (`adjustments_window.js`, NAME `adjustments_sheet`, entre Dons et
 Progression) : une section par catégorie, entrées = valeur + explication

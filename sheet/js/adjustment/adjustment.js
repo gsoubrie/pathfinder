@@ -39,6 +39,26 @@ CHARACTER.Adjustment.prototype = {
             source: this.explanation || "Ajustement"
         };
     },
+    // A skill bonus entry assembles "<compétence> — <bonus>" (ex "Arcanes —
+    // +2") : the bonus is display-only (the shown roll stays the brut roll,
+    // the MJ applies it against specific attempts), the explanation cites
+    // the source (objet, sort, autre)
+    getBonusContribution: function () {
+        if ( this.kind !== "skill_bonus" || this.value.indexOf( " — " ) === -1 ) {
+            return null;
+        }
+        let value_parts = this.value.split( " — " );
+        let bonus_match = value_parts[ 1 ].match( /^([+-]?\d+)$/ );
+        if ( !bonus_match ) {
+            return null;
+        }
+        let slot = MASTERY.getSkillSlot( value_parts[ 0 ] );
+        return {
+            slot  : slot,
+            bonus : parseInt( bonus_match[ 1 ], 10 ),
+            source: this.explanation || "Ajustement"
+        };
+    },
     //********************************************  SAVE   **************************************************//
     getDataToSave: function () {
         return {

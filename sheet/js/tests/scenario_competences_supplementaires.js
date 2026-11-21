@@ -135,7 +135,7 @@ TEST.RUNNER.register( "[COMPETENCES SUPPLEMENTAIRES] jets Général = badge Q su
         }
         TEST.ASSERT.equal( _diplomacy_row.querySelector( ".saves-rank" ).textContent, "Q", "Le badge Diplomatie devrait etre Q (Qualifiée) après le choix, obtenu : " + _diplomacy_row.querySelector( ".saves-rank" ).textContent );
         let _expected                     = _character.getMasteries().getRollModifier( _character, { "slot": "skill__diplomacy", "characteristic": CHARACTERISTICS.CHA.key } );
-        TEST.ASSERT.equal( _diplomacy_row.querySelector( ".saves-value" ).textContent, "" + _expected, "Le jet Diplomatie devrait valoir le jet complet du domaine (niveau + mod CHA + 2 = " + _expected + "), obtenu : " + _diplomacy_row.querySelector( ".saves-value" ).textContent );
+        TEST.ASSERT.equal( _diplomacy_row.querySelector( ".saves-value" ).textContent, TEST_jetDisplayValue( _expected ), "Le bonus Diplomatie devrait valoir le jet complet du domaine (niveau + mod CHA + 2 = " + _expected + ", affiché avec +), obtenu : " + _diplomacy_row.querySelector( ".saves-value" ).textContent );
     } );
 } );
 

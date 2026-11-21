@@ -168,3 +168,95 @@ TEST.RUNNER.register( "[PAGE VIDE] tout s'affiche : classe, caracteristiques, je
         TEST.ASSERT.equal( _ancestry_area.querySelectorAll( ".ancestry-list-entry" ).length, 0, "Aucune langue ne devrait etre affichee sans ascendance, obtenu : " + _ancestry_area.querySelectorAll( ".ancestry-list-entry" ).length );
     }
 } );
+
+// Placement dans la grille du General (decision utilisateur) : Divinité sous
+// Archétype, PV sous Taille, Taille sur une seule ligne de grille, l'ancien
+// emplacement de Divinité reste vide. Vérifié par style calculé (lignes et
+// colonnes de grille résolues), valable en desktop comme en responsive
+TEST.RUNNER.register( "[PAGE VIDE] grille = Divinité sous Archétype, PV sous Taille (1 ligne)", function () {
+    let _pane                            = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : le panneau Général devrait etre rendu" );
+    if ( !_pane ) {
+        return;
+    }
+    let _archetype_area                  = _pane.querySelector( ".grid-area.area-archetype" );
+    let _deity_area                      = _pane.querySelector( ".grid-area.area-deity" );
+    let _size_area                       = _pane.querySelector( ".grid-area.area-body_size" );
+    let _pv_area                         = _pane.querySelector( ".grid-area.area-pv" );
+    TEST.ASSERT.notNull( _archetype_area, "Pre-condition : zone Archétype rendue" );
+    TEST.ASSERT.notNull( _deity_area, "Pre-condition : zone Divinité rendue" );
+    TEST.ASSERT.notNull( _size_area, "Pre-condition : zone Taille rendue" );
+    TEST.ASSERT.notNull( _pv_area, "Pre-condition : zone PV rendue" );
+    if ( !_archetype_area || !_deity_area || !_size_area || !_pv_area ) {
+        return;
+    }
+    // gridColumnStart/gridRowStart renvoient le NOM de la ligne avec des aires
+    // nommées : la position se lit dans le gridTemplateAreas résolu du conteneur
+    let _grid                            = _pane.querySelector( ".character-sheet-grid" );
+    TEST.ASSERT.notNull( _grid, "Pre-condition : la grille du Général devrait etre rendue" );
+    if ( !_grid ) {
+        return;
+    }
+    let _template                        = getComputedStyle( _grid ).gridTemplateAreas;
+    let _rows                            = _template.split( '"' ).filter( function ( row_text ) {
+        return row_text.trim().length > 0;
+    } );
+    let _position_of                     = function ( area_name ) {
+        for ( let r = 0, _size_r = _rows.length; r < _size_r; r++ ) {
+            let _cells                   = _rows[ r ].trim().split( /\s+/ );
+            for ( let c = 0, _size_c = _cells.length; c < _size_c; c++ ) {
+                if ( _cells[ c ] === area_name ) {
+                    return { row: r, col: c };
+                }
+            }
+        }
+        return null;
+    };
+    let _archetype_pos                   = _position_of( "archetype" );
+    let _deity_pos                       = _position_of( "deity" );
+    let _size_pos                        = _position_of( "size" );
+    let _pv_pos                          = _position_of( "pv" );
+    TEST.ASSERT.notNull( _archetype_pos, "Pre-condition : l'aire archetype devrait etre placée dans la grille, template obtenu : " + _template );
+    TEST.ASSERT.notNull( _deity_pos, "Pre-condition : l'aire deity devrait etre placée dans la grille, template obtenu : " + _template );
+    TEST.ASSERT.notNull( _size_pos, "Pre-condition : l'aire size devrait etre placée dans la grille, template obtenu : " + _template );
+    TEST.ASSERT.notNull( _pv_pos, "Pre-condition : l'aire pv devrait etre placée dans la grille, template obtenu : " + _template );
+    if ( !_archetype_pos || !_deity_pos || !_size_pos || !_pv_pos ) {
+        return;
+    }
+    TEST.ASSERT.equal( _deity_pos.col, _archetype_pos.col, "Divinité dans la même colonne qu'Archétype (colonne attendue " + ( _archetype_pos.col + 1 ) + ", obtenue " + ( _deity_pos.col + 1 ) + ")" );
+    TEST.ASSERT.equal( _deity_pos.row, _archetype_pos.row + 1, "Divinité directement sous Archétype (ligne attendue " + ( _archetype_pos.row + 2 ) + ", obtenue " + ( _deity_pos.row + 1 ) + ")" );
+    TEST.ASSERT.equal( _pv_pos.col, _size_pos.col, "PV dans la même colonne que Taille (colonne attendue " + ( _size_pos.col + 1 ) + ", obtenue " + ( _pv_pos.col + 1 ) + ")" );
+    TEST.ASSERT.equal( _pv_pos.row, _size_pos.row + 1, "PV directement sous Taille (ligne attendue " + ( _size_pos.row + 2 ) + ", obtenue " + ( _pv_pos.row + 1 ) + ")" );
+    let _size_rows                       = _rows.filter( function ( row_text ) {
+        return row_text.trim().split( /\s+/ ).indexOf( "size" ) !== -1;
+    } );
+    TEST.ASSERT.equal( _size_rows.length, 1, "Taille sur une seule ligne de grille, obtenu : " + _size_rows.length + " ligne(s)" );
+    TEST.ASSERT.ok( _rows[ _deity_pos.row ].trim().split( /\s+/ ).indexOf( "." ) !== -1, "L'ancien emplacement de Divinité devrait rester vide (cellule « . » dans la ligne de Divinité), ligne obtenue : " + _rows[ _deity_pos.row ] );
+    // La zone jets ne couvre plus qu UNE colonne de la grille (décision
+    // utilisateur) : dans chaque ligne qui la contient, une seule cellule
+    // "jets", et la colonne libérée reste VIDE (cellule « . »), pas
+    // récupérée par ancestry-info (assertion du template desktop ; en
+    // responsive la zone jets prend toute une ligne)
+    if ( window.innerWidth > 1100 ) {
+        let _jets_rows                 = 0;
+        let _jets_single_column        = true;
+        let _freed_column_empty        = true;
+        for ( let r = 0, _size_r = _rows.length; r < _size_r; r++ ) {
+            let _cells                 = _rows[ r ].trim().split( /\s+/ );
+            let _jets_in_row           = _cells.filter( function ( cell ) { return cell === "jets"; } ).length;
+            if ( _jets_in_row ) {
+                _jets_rows++;
+                let _jets_col          = _cells.indexOf( "jets" );
+                if ( _jets_in_row !== 1 ) {
+                    _jets_single_column = false;
+                }
+                if ( _cells[ _jets_col + 1 ] !== "." ) {
+                    _freed_column_empty = false;
+                }
+            }
+        }
+        TEST.ASSERT.ok( _jets_rows > 0, "La zone jets devrait apparaître dans la grille" );
+        TEST.ASSERT.ok( _jets_single_column, "La zone jets devrait couvrir une seule colonne par ligne (template : " + _template + ")" );
+        TEST.ASSERT.ok( _freed_column_empty, "La colonne libérée à droite de jets devrait rester vide (« . »), template : " + _template );
+    }
+} );
