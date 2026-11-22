@@ -6,10 +6,49 @@
 
 .combat-window {
     display        : flex;
+    flex-direction : column;
+    gap            : var( --s-md, 8px );
+    padding        : var( --s-md, 8px );
+}
+
+/* Les onglets de mode (Exploration / Combats / Intermède) en tête de
+   l'onglet, sur toute la largeur */
+.combat-mode-tabs {
+    display : flex;
+    gap     : var( --s-sm, 4px );
+    padding : 0 var( --s-sm, 4px );
+}
+
+/* Une puce de mode se voit comme un bouton (recette des puces de filtre de
+   l'onglet Équipement) : la puce active est peinte + grasse (l'actif porte
+   le gras, règle des onglets), l'état vit dans data-selected, pas une classe */
+.combat-mode-tab {
+    background     : transparent;
+    border         : var( --b-thin, 1px ) solid var( --c-border-dark, #6B4E2A );
+    border-radius  : var( --r-md, 6px );
+    color          : var( --c-text-muted, #C8B89A );
+    cursor         : pointer;
+    font-size      : 13px;
+    padding        : 3px 12px;
+    transition     : all 0.15s ease;
+}
+
+.combat-mode-tab[data-selected='true'] {
+    background   : var( --c-bg-card-light, #4A3520 );
+    border-color : var( --c-gold-dark, #8B6914 );
+    color        : var( --c-gold, #D4AF37 );
+    font-weight  : bold;
+}
+
+/* Le corps de l'onglet : deux colonnes, le contenu de combat à gauche, la
+   liste des actions du mode actif à droite sur TOUTE la hauteur de l'onglet */
+.combat-window-body {
+    flex           : 1 1 auto;
+    min-height     : 0;
+    display        : flex;
     flex-direction : row;
     align-items    : stretch;
     gap            : var( --s-md, 8px );
-    padding        : var( --s-md, 8px );
 }
 
 /* Colonne de gauche : tout le contenu de combat ; la colonne Actions à

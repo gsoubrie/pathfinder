@@ -9,6 +9,8 @@
  * compendium identifie comme des actions de combat (OBJECT.isCombatAction),
  * dédupliqués par nom. La zone est une colonne de 250px à droite de
  * l'onglet, sur toute sa hauteur ; le fond panneau vit sur la liste.
+ * Le mode par défaut de l'onglet est Exploration (scenario COMBAT MODES) :
+ * chaque test qui lit la zone clique d'abord la puce Combats.
  * PAS de titre de zone (Round 88), mais une PARTIE par catégorie (bloc carte
  * séparé, titre centré doré). Chaque ligne : nom cliquable (traits en
  * infobulle) | coût en glyphe — le clic sur le nom ouvre la popup ACTION.
@@ -34,8 +36,17 @@ var TEST_combatActionsRow = function ( action_name ) {
     return null;
 };
 
+var TEST_combatSelectMode = function ( mode_key ) {
+    let _tab = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.CombatWindow.NAME + "'] .combat-mode-tab[data-mode='" + mode_key + "']" );
+    if ( _tab ) {
+        _tab.click();
+    }
+    return _tab;
+};
+
 TEST.RUNNER.register( "[COMBAT ACTIONS] zone = sections titrées + carte de base", function () {
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.CombatWindow.NAME ).then( function () {
+        TEST.ASSERT.notNull( TEST_combatSelectMode( "combat" ), "Pre-condition : la puce Combats devrait être rendue (mode par défaut = Exploration)" );
         return TEST.wait();
     } ).then( function () {
         let _character = CONTROLLER.Character.current_character;
@@ -137,6 +148,7 @@ TEST.RUNNER.register( "[COMBAT ACTIONS] zone = sections titrées + carte de base
 } );
 
 TEST.RUNNER.register( "[COMBAT ACTIONS] clic sur le nom de Frapper = popup ACTION, le clic sur le fond referme", function () {
+    TEST_combatSelectMode( "combat" );
     let _row                           = TEST_combatActionsRow( "Frapper" );
     TEST.ASSERT.notNull( _row, "Pre-condition : ligne Frapper rendue" );
     if ( !_row ) {
@@ -171,6 +183,7 @@ TEST.RUNNER.register( "[COMBAT ACTIONS] ajustements : combat affichée, intermè
     CONTROLLER.Character.doActionAfter( "event__adjustment__add", { "param__adjustment__kind": "action", "param__adjustment__value": "Démoraliser", "param__adjustment__explanation": "test combat" } );
     CONTROLLER.Character.doActionAfter( "event__adjustment__add", { "param__adjustment__kind": "action", "param__adjustment__value": "Subsister", "param__adjustment__explanation": "test intermède" } );
     CONTROLLER.Character.doActionAfter( "event__adjustment__add", { "param__adjustment__kind": "action", "param__adjustment__value": "Frapper", "param__adjustment__explanation": "test doublon" } );
+    TEST_combatSelectMode( "combat" );
     return TEST.wait().then( function () {
         // Démoraliser (coût 1, pas de trait Exploration/Intermède) rejoint la zone Combat
         let _row                       = TEST_combatActionsRow( "Démoraliser" );

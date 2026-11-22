@@ -51,6 +51,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__edit_current_hp":
                 self.current_character.doActionAfter( event_name, params );
                 break;
+            case "event__combat__select_mode":
+
             case "event__level_up__select_class":
             case "event__level_up__take_level":
             case "event__level_up__remove_level":

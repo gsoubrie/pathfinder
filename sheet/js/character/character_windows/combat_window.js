@@ -8,7 +8,12 @@ CHARACTER.CombatWindow = function ( parent_name ) {
 };
 
 CHARACTER.CombatWindow.prototype = {
-    initSpecific: WINDOW_V2.ElementFromData.initSpecific,
+    // The current mode tab is a VIEW STATE of the window (never saved) :
+    // Exploration at load (user decision)
+    initSpecific: function ( name, parent_name, label ) {
+        WINDOW_V2.ElementFromData.prototype.initSpecific.call( this, name, parent_name, label );
+        this.current_mode = COMBAT.DEFAULT_MODE;
+    },
 
     //********************************************  EVENT LISTENER  **************************************************//
 
@@ -49,6 +54,13 @@ CHARACTER.CombatWindow.prototype = {
                 this._refreshHealthBand( CONTROLLER.Character.current_character );
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
+            // The mode tabs swap the action column on the right only, the
+            // main column stays identical
+            case "event__combat__select_mode":
+                this.current_mode = params[ "param__combat__mode" ];
+                this._updateModeTabs();
+                this._refreshActionsZone( CONTROLLER.Character.current_character );
+                break;
             case "click_on__window_navigation__done":
                 if ( this.name === params[ "window_name" ] ) {
                     this._refreshHealthBand( CONTROLLER.Character.current_character );
@@ -65,9 +77,12 @@ CHARACTER.CombatWindow.prototype = {
         if ( !this.content_dom_element_target ) {
             this.content_dom_element_target = SERVICE.DOM.createElement( "div", { class: "combat-window" } );
             SERVICE.DOM.addElementToAfterEmpty( this.content_dom_element_target, this.dom_element_target );
-            // Deux colonnes : le contenu de combat à gauche, la liste des
-            // actions à droite sur TOUTE la hauteur de l'onglet
-            this.main_column = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-main-column" } ), this.content_dom_element_target );
+            // Les onglets de mode en tête, puis deux colonnes : le contenu
+            // de combat à gauche, la liste des actions à droite sur TOUTE
+            // la hauteur de l'onglet
+            this._computeModeTabs( this.content_dom_element_target );
+            this.body_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-window-body" } ), this.content_dom_element_target );
+            this.main_column = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-main-column" } ), this.body_element );
             this._computeHealthBand( character_object );
             this._computeReferenceZone( character_object );
             this._computeEquipmentZone( character_object );
@@ -77,7 +92,7 @@ CHARACTER.CombatWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history-title" }, "Journal" ), this.main_column );
             let journal = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history" } ), this.main_column );
             character_object.getHealth().getHistoryEntries().renderInto( journal );
-            this._computeActionsZone( this.content_dom_element_target );
+            this._computeActionsZone( this.body_element );
         }
         this._refreshHealthBand( character_object );
         this._refreshCombatZones( character_object );
@@ -266,13 +281,40 @@ CHARACTER.CombatWindow.prototype = {
         this.attacks_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-list" } ), this.attacks_zone );
     },
 
+    //********************************************  MODE TABS   **************************************************//
+
+    // The three play modes in a chip row on top of the tab (same visual
+    // language as the library subjects) : the selected state rides the
+    // data-selected attribute, never a class
+    _computeModeTabs: function ( parent_element ) {
+        this.mode_tabs_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-mode-tabs" } ), parent_element );
+        for ( let i = 0, _size_i = COMBAT.MODE_TABS.length; i < _size_i; i++ ) {
+            let tab = COMBAT.MODE_TABS[ i ];
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class          : "combat-mode-tab",
+                "data-mode"    : tab.key,
+                "data-selected": this.current_mode === tab.key ? "true" : "false",
+                onclick        : "MANAGER.EventManagerV2.doActionAfter(event,'event__combat__select_mode',{'param__combat__mode':this.getAttribute('data-mode')})"
+            }, tab.label ), this.mode_tabs_element );
+        }
+    },
+
+    _updateModeTabs: function () {
+        let tabs = this.mode_tabs_element.querySelectorAll( ".combat-mode-tab" );
+        for ( let i = 0, _size_i = tabs.length; i < _size_i; i++ ) {
+            tabs[ i ].setAttribute( "data-selected", tabs[ i ].getAttribute( "data-mode" ) === this.current_mode ? "true" : "false" );
+        }
+    },
+
     //********************************************  ACTIONS ZONE   **************************************************//
 
-    // Les actions de combat en colonne à droite de l'onglet : la carte de
-    // base plus les actions du personnage identifiées comme combat — pas de
-    // titre de zone (décision utilisateur Round 88), mais un titre par
-    // catégorie avec une séparation visuelle entre les types ; une ligne
-    // Nom | Coût, le NOM ouvre la popup ACTION (traits en infobulle de la ligne)
+    // La colonne de droite affiche les actions du mode actif (onglets de mode
+    // en tête) : Combats = la carte de base plus les actions du personnage
+    // identifiées comme combat ; Exploration/Intermède = les activités du
+    // trait de mode. Pas de titre de zone (décision utilisateur Round 88),
+    // mais un titre par partie avec une séparation visuelle entre les types ;
+    // une ligne Nom | Coût, le NOM ouvre la popup ACTION (traits en infobulle
+    // de la ligne)
     _computeActionsZone: function ( parent_element ) {
         this.actions_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-zone" } ), parent_element );
         this.actions_list = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-actions-list" } ), this.actions_zone );
@@ -280,7 +322,7 @@ CHARACTER.CombatWindow.prototype = {
 
     _refreshActionsZone: function ( character_object ) {
         SERVICE.DOM.empty( this.actions_list );
-        let sections = character_object.getCombat().getActionLines( character_object );
+        let sections = character_object.getCombat().getModeSections( character_object, this.current_mode );
         for ( let i = 0, _size_i = sections.length; i < _size_i; i++ ) {
             // Chaque catégorie est une PARTIE : bloc carte séparé des autres
             // (pattern de l'onglet Équipement), titre centré en tête

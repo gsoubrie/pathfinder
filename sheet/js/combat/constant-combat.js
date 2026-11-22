@@ -168,6 +168,35 @@ COMBAT.getActionSectionKey = function ( action_data ) {
     return "other";
 };
 
+//********************************************  MODE TABS  **************************************************//
+
+// The three play modes of the Combat tab (PF2) : each tab swaps the action
+// column on the right, the main column stays identical. The order and the
+// default are user decisions (Exploration first, active at load) ; the mode
+// is a VIEW STATE of the window, never saved
+COMBAT.MODE_TABS = [
+    { "key": "exploration", "label": "Exploration", "trait": "Exploration" },
+    { "key": "combat",      "label": "Combats",      "trait": null },
+    { "key": "intermede",   "label": "Intermède",   "trait": "Intermède" }
+];
+
+COMBAT.DEFAULT_MODE = "exploration";
+
+/**
+ * The mode tab of a mode key.
+ *
+ * @param {string} mode_key  "exploration" / "combat" / "intermede"
+ * @returns {Object|null}    An entry of COMBAT.MODE_TABS
+ */
+COMBAT.getModeTab = function ( mode_key ) {
+    for ( let i = 0, _size_i = COMBAT.MODE_TABS.length; i < _size_i; i++ ) {
+        if ( COMBAT.MODE_TABS[ i ].key === mode_key ) {
+            return COMBAT.MODE_TABS[ i ];
+        }
+    }
+    return null;
+};
+
 //********************************************  CONDITIONAL BONUSES  **************************************************//
 
 // Hand-written card of the CONDITIONAL bonuses (survives the re-scrap, same

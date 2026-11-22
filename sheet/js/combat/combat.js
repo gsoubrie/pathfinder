@@ -356,21 +356,85 @@ CHARACTER.Combat.prototype = {
             "bonuses" : this.getSaveBonusMarkers( character_object, save_slot )
         };
     },
+    _buildActionLineData: function ( action_name ) {
+        let action_data = OBJECT.getActionInformation( action_name );
+        let cost_label  = action_data && OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] !== undefined ? OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] : "—";
+        return {
+            "name"      : action_name,
+            "cost_label": cost_label,
+            "traits"    : action_data && action_data.traits ? action_data.traits : [],
+            "known"     : !!action_data
+        };
+    },
+
     _pushActionLine: function ( sections_by_key, seen_names, action_name ) {
         let seen_key = action_name.toLowerCase();
         if ( seen_names[ seen_key ] ) {
             return;
         }
         seen_names[ seen_key ] = true;
-        let action_data  = OBJECT.getActionInformation( action_name );
-        let cost_label   = action_data && OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] !== undefined ? OBJECT.ACTION_COST_LABELS[ action_data.action_cost ] : "—";
-        let section_key = COMBAT.getActionSectionKey( action_data );
-        sections_by_key[ section_key ].lines.push( {
-            "name"       : action_name,
-            "section_key": section_key,
-            "cost_label" : cost_label,
-            "traits"     : action_data && action_data.traits ? action_data.traits : [],
-            "known"      : !!action_data
+        let line         = this._buildActionLineData( action_name );
+        line.section_key = COMBAT.getActionSectionKey( OBJECT.getActionInformation( action_name ) );
+        sections_by_key[ line.section_key ].lines.push( line );
+    },
+
+    //********************************************  MODE TABS  **************************************************//
+    // The activity lines of an Exploration/Intermède tab : the whole compendium
+    // list of the mode trait PLUS the character's own "action" adjustments
+    // carrying the same trait (dedup by name), sorted by name. An adjustment
+    // the compendium does not know has no mode trait : it stays on the General
+    // tab only
+    getModeActivityLines: function ( character_object, mode_key ) {
+        let tab = COMBAT.getModeTab( mode_key );
+        if ( !tab || !tab.trait ) {
+            return [];
+        }
+        let to_return  = [];
+        let seen_names = {};
+        let base_names = OBJECT.getKnownActionsByTrait( tab.trait );
+        for ( let i = 0, _size_i = base_names.length; i < _size_i; i++ ) {
+            seen_names[ base_names[ i ].toLowerCase() ] = true;
+            let line         = this._buildActionLineData( base_names[ i ] );
+            line.section_key = mode_key;
+            to_return.push( line );
+        }
+        let action_values = character_object.getAdjustments().getValuesByKind( "action" );
+        for ( let i = 0, _size_i = action_values.length; i < _size_i; i++ ) {
+            let action_data = OBJECT.getActionInformation( action_values[ i ] );
+            if ( !action_data || ( action_data.traits || [] ).indexOf( tab.trait ) === -1 ) {
+                continue;
+            }
+            let seen_key = action_values[ i ].toLowerCase();
+            if ( seen_names[ seen_key ] ) {
+                continue;
+            }
+            seen_names[ seen_key ] = true;
+            let line         = this._buildActionLineData( action_values[ i ] );
+            line.section_key = mode_key;
+            to_return.push( line );
+        }
+        to_return.sort( function ( line_a, line_b ) {
+            return line_a.name.localeCompare( line_b.name, "fr" );
         } );
+        return to_return;
+    },
+
+    // The sections of the action column for a mode tab : the combat sections
+    // for "combat", a single part for the activity modes (the count rides the
+    // title)
+    getModeSections: function ( character_object, mode_key ) {
+        if ( mode_key === "combat" ) {
+            return this.getActionLines( character_object );
+        }
+        let tab = COMBAT.getModeTab( mode_key );
+        if ( !tab ) {
+            return [];
+        }
+        let lines = this.getModeActivityLines( character_object, mode_key );
+        if ( !lines.length ) {
+            return [];
+        }
+        let label = mode_key === "exploration" ? "Activités d'exploration" : "Activités d'intermède";
+        return [ { "key": mode_key, "label": label + " (" + lines.length + ")", "lines": lines } ];
     }
 };
