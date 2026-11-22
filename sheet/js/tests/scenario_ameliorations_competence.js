@@ -93,6 +93,68 @@ TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] jets Général = badge E et je
     } );
 } );
 
+// Le tableau des jets de l'onglet Progression doit se rafraîchir EN PLACE
+// quand on modifie une ligne dans le MÊME onglet (sans re-clic d'onglet)
+TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] tableau des jets de la Progression rafraîchi en place au geste sur une ligne", function () {
+    let _character                        = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );
+    if ( !_character ) {
+        return;
+    }
+    TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, "skill__arcana" ), "E", "Pre-condition : Arcanes experte après l'amélioration (test precedent), obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__arcana" ) );
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.LevelUpWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _pane                         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        let _table                        = _pane ? _pane.querySelector( ".level-up-jets-table" ) : null;
+        TEST.ASSERT.notNull( _table, "Le tableau des jets devrait etre rendu dans l'onglet Progression actif" );
+        let _row                          = _table ? _table.querySelector( ".saves-row[data-slot='skill__arcana']" ) : null;
+        TEST.ASSERT.notNull( _row, "La ligne Arcanes devrait exister dans le tableau des jets" );
+        if ( _row ) {
+            TEST.ASSERT.equal( _row.querySelector( ".saves-rank" ).textContent, "E", "A l'activation de l'onglet le tableau devrait afficher le rang E, obtenu : " + _row.querySelector( ".saves-rank" ).textContent );
+        }
+        // Geste DANS le même onglet : on vide le choix de la ligne (option vide)
+        let _line_row                     = _pane ? _pane.querySelector( ".level-up-row[data-slot-key='amelioration_de_competence']" ) : null;
+        TEST.ASSERT.notNull( _line_row, "La ligne Amélioration de compétence devrait etre rendue dans l'onglet actif" );
+        let _empty_option                 = _line_row ? _line_row.querySelector( ".single-select-option[data-value='']" ) : null;
+        TEST.ASSERT.notNull( _empty_option, "Le sélecteur devrait proposer son option vide" );
+        if ( !_empty_option ) {
+            return;
+        }
+        _empty_option.click();
+        return TEST.wait();
+    } ).then( function () {
+        // Le domaine retombe à Q ; le tableau du MÊME onglet doit suivre sans re-clic d'onglet
+        TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, "skill__arcana" ), "Q", "Le domaine devrait retomber à qualifiée après vidage du choix, obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__arcana" ) );
+        let _pane                         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        let _row                          = _pane ? _pane.querySelector( ".level-up-jets-table .saves-row[data-slot='skill__arcana']" ) : null;
+        TEST.ASSERT.notNull( _row, "La ligne Arcanes devrait exister dans le tableau rafraîchi" );
+        if ( !_row ) {
+            return;
+        }
+        TEST.ASSERT.equal( _row.querySelector( ".saves-rank" ).textContent, "Q", "Le tableau de la Progression devrait afficher Q EN PLACE après le geste (sans re-activation de l'onglet), obtenu : " + _row.querySelector( ".saves-rank" ).textContent );
+        let _expected                     = _character.getMasteries().getRollModifier( _character, { "slot": "skill__arcana", "characteristic": CHARACTERISTICS.INT.key } );
+        TEST.ASSERT.equal( _row.querySelector( ".saves-value" ).textContent, String( _expected ), "Le jet complet du tableau devrait suivre le domaine (" + _expected + "), obtenu : [" + _row.querySelector( ".saves-value" ).textContent + "]" );
+        // Restaure le choix Arcanes pour la suite de la chaîne
+        let _line_row                     = _pane.querySelector( ".level-up-row[data-slot-key='amelioration_de_competence']" );
+        let _option                       = _line_row ? _line_row.querySelector( ".single-select-option[data-value='Arcanes']" ) : null;
+        TEST.ASSERT.notNull( _option, "L'option Arcanes devrait etre re-rendue après le vidage" );
+        if ( !_option ) {
+            return;
+        }
+        _option.click();
+        return TEST.wait();
+    } ).then( function () {
+        TEST.ASSERT.equal( _character.getMasteries().getFinalRank( _character, "skill__arcana" ), "E", "Le choix Arcanes devrait re-valider la ligne, obtenu : " + _character.getMasteries().getFinalRank( _character, "skill__arcana" ) );
+        let _pane                         = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LevelUpWindow.NAME + "']" );
+        let _row                          = _pane ? _pane.querySelector( ".level-up-jets-table .saves-row[data-slot='skill__arcana']" ) : null;
+        TEST.ASSERT.notNull( _row, "La ligne Arcanes devrait exister dans le tableau" );
+        if ( _row ) {
+            TEST.ASSERT.equal( _row.querySelector( ".saves-rank" ).textContent, "E", "Le tableau devrait ré-afficher E après restauration du choix, obtenu : " + _row.querySelector( ".saves-rank" ).textContent );
+        }
+    } );
+} );
+
 TEST.RUNNER.register( "[AMELIORATIONS COMPETENCE] save → load = choix Arcanes restauré, rang E conservé", function () {
     let _character                        = CONTROLLER.Character.current_character;
     TEST.ASSERT.notNull( _character, "Pre-condition : personnage charge" );

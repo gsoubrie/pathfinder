@@ -36,9 +36,14 @@ CHARACTER.LevelUpWindow.prototype = {
             case "event__level_up__toggle_qualifier_selector":
             case "event__level_up__qualifier_filter_enter":
             case "event__level_up__select_qualifier":
-                // The line phase updates in place, the counter chain refreshes
-                // the tab badge and the global warning: nothing to re-render
+                // The line phase updates in place and the counter chain
+                // refreshes the tab badge — but the jets table of this tab
+                // reads the ranks live: it is refilled in place, no full
+                // re-render of the tab
                 CONTROLLER.Character.current_character.doActionAfter( event_name, params );
+                if ( this._jets_table_dom ) {
+                    this._buildJetsTable( CONTROLLER.Character.current_character );
+                }
                 break;
             case "event__form__element_changed":
                 if ( params[ "param__property" ] === CLASSES.key_element || params[ "param__property" ] === RACES.key_element ) {
@@ -86,6 +91,22 @@ CHARACTER.LevelUpWindow.prototype = {
         character_object.getCharacteristics().setCountersParent( this );
         this._characteristics_dom = SERVICE.DOM.createElement( "div", { class: "characteristic-container" } );
         character_object.getCharacteristics().computeCharacteristicWindow( this._characteristics_dom );
+        // La chaîne de compteurs ligne → fenêtre est branchée DÈS la création
+        // de la fenêtre : le badge de l'onglet porte les warnings du
+        // personnage chargé sans attendre l'activation de l'onglet
+        // (setParent pousse la valeur courante au parent, et addElement
+        // déduplique : le re-branchement à chaque rendu reste sans effet)
+        this._wireHistoryCounters( character_object );
+    },
+
+    _wireHistoryCounters: function ( character_object ) {
+        let histories = [ character_object.getLevelHistory(), character_object.getAncestryHistory(), character_object.getArchetypeHistory() ];
+        for ( let h = 0, _size_h = histories.length; h < _size_h; h++ ) {
+            let history = histories[ h ];
+            for ( let e = 0, _size_e = history.getSize(); e < _size_e; e++ ) {
+                history.getContent( e ).setLinesCountersParent( this );
+            }
+        }
     },
 
     _buildContent: function ( character_object ) {
@@ -146,12 +167,16 @@ CHARACTER.LevelUpWindow.prototype = {
     },
 
     _buildJetsTable: function ( character_object ) {
-        var table = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "level-up-jets-table" } ),
-            this.content_dom_element_target
-        );
-        CHARACTER.GeneralWindow.computeSavesBlock( table, character_object, true );
-        CHARACTER.GeneralWindow.computeSkillsBlock( table, character_object, true );
+        // Le conteneur du tableau est persistant : vidé et rempli à chaque
+        // appel, il peut être rafraîchi EN PLACE quand une ligne de
+        // progression change les rangs, sans re-rendre tout l'onglet
+        if ( !this._jets_table_dom ) {
+            this._jets_table_dom = SERVICE.DOM.createElement( "div", { class: "level-up-jets-table" } );
+        }
+        SERVICE.DOM.empty( this._jets_table_dom );
+        SERVICE.DOM.addElementTo( this._jets_table_dom, this.content_dom_element_target );
+        CHARACTER.GeneralWindow.computeSavesBlock( this._jets_table_dom, character_object, true );
+        CHARACTER.GeneralWindow.computeSkillsBlock( this._jets_table_dom, character_object, true );
     },
 
     _buildAncestrySection: function ( ancestry_entry, race_name ) {

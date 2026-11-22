@@ -422,7 +422,7 @@ DON.RACE = {
                     "Léchi cactus or Léchi pin heritage"
                 ],
                 "description" : [
-                    "Votre corps est couvert de fines aiguilles ou d'épines que vous pouvez utiliser pour vous défendre vous-même. Chaque fois que vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Saisi</div> par une créature ou qu'une créature adjacente vous touche avec une attaque à mains nues, vous vous tordez et vous débattez, en infligeant )[piercing]]{2 dégâts perforants} à cette créature. Ces dégâts passent à 3 au niveau 9, à 4 au niveau 13 et à 5 au niveau 17."
+                    "Votre corps est couvert de fines aiguilles ou d'épines que vous pouvez utiliser pour vous défendre vous-même. Chaque fois que vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Saisi</div> par une créature ou qu'une créature adjacente vous touche avec une attaque à mains nues, vous vous tordez et vous débattez, en infligeant 2 dégâts perforants à cette créature. Ces dégâts passent à 3 au niveau 9, à 4 au niveau 13 et à 5 au niveau 17."
                 ]
             },
             {
@@ -435,7 +435,7 @@ DON.RACE = {
                     "irongut goblin or razortooth goblin heritage"
                 ],
                 "description" : [
-                    "Vous avez effilé vos dents en forme de pointes acérées et possédez une mâchoire inhabituellement puissante, faisant de votre bouche une arme dangereuse. Si vous êtes un gobelin boyaud'fer, vous obtenez une attaque à mains nues de mâchoire qui inflige 1d4 dégâts perforants et, si vous êtes un gobelin dentd'rasoir, votre attaque à mains nues de mâchoire inflige 1d8 dégâts perforants et perd le trait finesse. Lorsque vous obtenez un coup critique avec votre attaque à mains nues de mâchoire, votre cible subit ]{1 dégât de saignement} par dé de dégât de l'arme."
+                    "Vous avez effilé vos dents en forme de pointes acérées et possédez une mâchoire inhabituellement puissante, faisant de votre bouche une arme dangereuse. Si vous êtes un gobelin boyaud'fer, vous obtenez une attaque à mains nues de mâchoire qui inflige 1d4 dégâts perforants et, si vous êtes un gobelin dentd'rasoir, votre attaque à mains nues de mâchoire inflige 1d8 dégâts perforants et perd le trait finesse. Lorsque vous obtenez un coup critique avec votre attaque à mains nues de mâchoire, votre cible subit 1 dégât de saignement par dé de dégât de l'arme."
                 ]
             },
             {
@@ -463,9 +463,9 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Vous disposez d'une paire d'ailes draconiques suffisamment puissantes pour battre vos ennemis et les repousser. Choisissez jusqu'à deux créatures qui vous sont adjacentes. Faites un test d' et comparez-le au DD de Vigueur de chaque cible. Ceci compte comme deux attaques dans le calcul de votre pénalité d'attaques multiples, mais l'augmentation de la pénalité ne s'applique qu'après les deux attaques.",
-                    "Succès critique La cible subit des dégâts contondants égaux au double de votre niveau (]) et elle est repoussée jusqu'à 3 mètres de vous.",
-                    "Succès La cible subit des dégâts contondants égaux à votre niveau (]) et elle est repoussée jusqu'à 1,50 mètre de vous.",
-                    "Échec La cible subit des dégâts contondants égaux à la moitié de votre niveau ()[bludgeoning]]).",
+                    "Succès critique La cible subit des dégâts contondants égaux au double de votre niveau () et elle est repoussée jusqu'à 3 mètres de vous.",
+                    "Succès La cible subit des dégâts contondants égaux à votre niveau () et elle est repoussée jusqu'à 1,50 mètre de vous.",
+                    "Échec La cible subit des dégâts contondants égaux à la moitié de votre niveau ().",
                     "Échec critique Vous tombez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div> à la fin de votre action."
                 ]
             },
@@ -951,9 +951,9 @@ DON.RACE = {
                     "Venin vishkanyen inférieur (niveau 1)",
                     "Jet de sauvegarde égal au plus élevé entre votre DD de classe ou de sort",
                     "Durée maximale 6 rounds",
-                    "Stade 1 ]{1d6 dégâts de poison} (1 round)",
-                    "Stade 2 ]{1d6 dégâts de poison} (1 round)",
-                    "Stade 3 ]{2d6 dégâts de poison} (1 round)"
+                    "Stade 1 1d6 dégâts de poison (1 round)",
+                    "Stade 2 1d6 dégâts de poison (1 round)",
+                    "Stade 3 2d6 dégâts de poison (1 round)"
                 ]
             },
             {
@@ -971,9 +971,9 @@ DON.RACE = {
                     "Fréquence Une fois toutes les 10 minutes",
                     "Jet de sauvegarde contre le plus élevé entre votre DD de classe ou de sort",
                     "Durée maximale 6 rounds",
-                    "Stade 1 ]{3d6 dégâts de poison} (1 round)",
-                    "Stade 2 ]{4d6 dégâts de poison} (1 round)",
-                    "Stade 3 ]{5d6 dégâts de poison} (1 round)"
+                    "Stade 1 3d6 dégâts de poison (1 round)",
+                    "Stade 2 4d6 dégâts de poison (1 round)",
+                    "Stade 3 5d6 dégâts de poison (1 round)"
                 ]
             },
             {
@@ -991,9 +991,9 @@ DON.RACE = {
                     "Fréquence Une fois par minute",
                     "Jet de sauvegarde contre le plus élevé entre votre DD de classe ou votre DD de sort",
                     "Durée maximale 6 rounds",
-                    "Stade 1 ]{7d6 dégâts de poison} (1 round)",
-                    "Stade 2 ]{9d6 dégâts de poison} (1 round)",
-                    "Stade 3 ]{11d6 dégâts de poison} (1 round)"
+                    "Stade 1 7d6 dégâts de poison (1 round)",
+                    "Stade 2 9d6 dégâts de poison (1 round)",
+                    "Stade 3 11d6 dégâts de poison (1 round)"
                 ]
             },
             {
@@ -1211,7 +1211,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous émettez un sifflement strident et pointez du doigt et une énorme nuée de rats jaillit du terrain environnant pour remplir une explosion de 9 mètres dans les 36 mètres. Les rats courent sur le sol et grimpent sur les murs et les surfaces, mordant et griffant tout en infligeant |options:area-damage]{6d8 dégâts perforants} à tous les ennemis dans la zone. Les rats continuent de grouiller dans la zone pendant la minute suivante, infligeant ]{3d8 dégâts perforants} à tout ennemi qui termine son tour dans la zone et transformant la zone en terrain difficile (bien que les rats vous permettent, à vous ainsi qu'à vos alliés, de passer normalement). Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AjLSHZSWQ90exdLo', 'param__object__label': this.textContent})\">Révoquer</div> l'effet."
+                    "Vous émettez un sifflement strident et pointez du doigt et une énorme nuée de rats jaillit du terrain environnant pour remplir une explosion de 9 mètres dans les 36 mètres. Les rats courent sur le sol et grimpent sur les murs et les surfaces, mordant et griffant tout en infligeant 6d8 dégâts perforants à tous les ennemis dans la zone. Les rats continuent de grouiller dans la zone pendant la minute suivante, infligeant 3d8 dégâts perforants à tout ennemi qui termine son tour dans la zone et transformant la zone en terrain difficile (bien que les rats vous permettent, à vous ainsi qu'à vos alliés, de passer normalement). Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AjLSHZSWQ90exdLo', 'param__object__label': this.textContent})\">Révoquer</div> l'effet."
                 ]
             },
             {
@@ -1251,9 +1251,9 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous invoquez les krakens des profondeurs assoupis pour écraser vos ennemis. Vous ouvrez une douzaine de petits portails vers les abysses aquatiques sans lumière dans une explosion de 9 mètres dans les 36 mètres. Les tentacules puissants d'un kraken passent à travers pour agripper chaque créature dans la zone. Chaque créature affectée subit |options:area-damage]{8d6 dégâts non typés} en fonction de son jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3f5DMFu8fPiqHpRg', 'param__object__label': this.textContent})\">Maintenir</div> l'appel pendant 1 minute. La première fois que vous le Maintenez lors des rounds suivants, chaque créature dans la zone qui n'est pas déjà <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Agrippée</div> par les tentacules doit tenter le jet.",
+                    "Vous invoquez les krakens des profondeurs assoupis pour écraser vos ennemis. Vous ouvrez une douzaine de petits portails vers les abysses aquatiques sans lumière dans une explosion de 9 mètres dans les 36 mètres. Les tentacules puissants d'un kraken passent à travers pour agripper chaque créature dans la zone. Chaque créature affectée subit 8d6 dégâts non typés en fonction de son jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3f5DMFu8fPiqHpRg', 'param__object__label': this.textContent})\">Maintenir</div> l'appel pendant 1 minute. La première fois que vous le Maintenez lors des rounds suivants, chaque créature dans la zone qui n'est pas déjà <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Agrippée</div> par les tentacules doit tenter le jet.",
                     "Succès La créature n'est pas affectée.",
-                    "Échec La créature subit la totalité des dégâts et est agrippée par un tentacule. Une créature qui est toujours agrippée par un tentacule à la fin de son tour subit ]{3d6 dégâts contondants}. Le DD pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">S'Échapper</div> d'un tentacule et sa CA sont tous deux égaux au plus élevé entre votre DD de classe ou votre DD de sort. Une créature peut attaque un tentacule pour tenter de libérer la créature piégée à l'intérieur. Un tentacule est détruit s'il subit au moins 30 dégâts au cours d'un unique round.",
+                    "Échec La créature subit la totalité des dégâts et est agrippée par un tentacule. Une créature qui est toujours agrippée par un tentacule à la fin de son tour subit 3d6 dégâts contondants. Le DD pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">S'Échapper</div> d'un tentacule et sa CA sont tous deux égaux au plus élevé entre votre DD de classe ou votre DD de sort. Une créature peut attaque un tentacule pour tenter de libérer la créature piégée à l'intérieur. Un tentacule est détruit s'il subit au moins 30 dégâts au cours d'un unique round.",
                     "Échec critique Comme en cas d'échec, mais avec le double des dégâts."
                 ]
             },
@@ -1597,7 +1597,7 @@ DON.RACE = {
                 "description" : [
                     "L'influence féerique sur votre forme et vos caractéristiques devient encore plus puissante et notable. Vous gagnez l'une des caractéristiques et capacités suivantes. Il doit s'agir du même type d'animal ou de fée que celui que vous avez choisi pour Influence féerique.",
                     "Chat sinistre Vous riez des malédictions outragées de ceux que vous avez trompés ou lésés. Chaque fois qu'une créature vous cible avec un effet d'infortune, faites un . En cas de succès, vous n'êtes pas affecté.",
-                    "Dryade Vos cheveux s'entremêlent avec des feuilles délicates coupantes comme des rasoirs qui se déplacent au moindre de vos ordres. Vous obtenez une attaque à mains nues à distance qui inflige ]{1d6 dégâts tranchants}. Vos feuilles sont dans le groupe des fléchettes et possèdent les traits magique et à mains nues. Note : Aucune portée n'a été indiqué pour cette <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> dans la source. Nous sommes partie du principe que le facteur de portée est de 6 mètres dans Foundry pour être en ligne avec d'autres capacités similaires.",
+                    "Dryade Vos cheveux s'entremêlent avec des feuilles délicates coupantes comme des rasoirs qui se déplacent au moindre de vos ordres. Vous obtenez une attaque à mains nues à distance qui inflige 1d6 dégâts tranchants. Vos feuilles sont dans le groupe des fléchettes et possèdent les traits magique et à mains nues. Note : Aucune portée n'a été indiqué pour cette <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> dans la source. Nous sommes partie du principe que le facteur de portée est de 6 mètres dans Foundry pour être en ligne avec d'autres capacités similaires.",
                     "Faune Vous pouvez lancer <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'c8R2fpk88fBwJ1ie', 'param__object__label': this.textContent})\">À Trois temps</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'vLA0q0WOK2YPuJs6', 'param__object__label': this.textContent})\">Charme</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'o4lRVTwSxnOOn5vl', 'param__object__label': this.textContent})\">Sommeil</div> comme des sorts primordiaux une fois par jour chacun. Lorsque vous Lancez un de ces sorts, vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div> au cours de la même action.",
                     "Fourmilier Vous devenez expert en DD et en jets d'attaque de sorts primordiaux. Vous pouvez lancer <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'WsUwpfmhKrKwoIe3', 'param__object__label': this.textContent})\">Lenteur</div> comme un sort inné primordial une fois par jour.",
                     "Gremlin Vous devenez expert en DD et en jets d'attaque de sorts primordiaux. Vous pouvez lancer <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tFKJCPvOQZxKq6ON', 'param__object__label': this.textContent})\">Singes fous</div> comme un sort inné primordial une fois par jour.",
@@ -1748,7 +1748,7 @@ DON.RACE = {
                     "Assaut élémentaire"
                 ],
                 "description" : [
-                    "Votre Assaut élémentaire accomplit un cycle entre les quatre éléments. Lorsque vous utilisez Assaut élémentaire, au lieu de choisir un unique élément, vous pouvez choisir un élément de la liste lorsque vous utilisez l'action puis choisir un élément différent au début de chacun de vos trois prochains tours sans dépenser d'action. une fois que vous avez choisi un élément, vous ne pouvez plus le choisir au cours de cet Assaut élémentaire, ce qui signifie que vous devez choisir les quatre éléments durant le cours des 4 tours. Chaque fois que vous choisissez un élément, jusqu'au début de votre tour suivant, vos <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappes</div> infligent ]{1d6 dégâts supplémentaires} du type indiqué et possèdent le trait correspondant à cet élément."
+                    "Votre Assaut élémentaire accomplit un cycle entre les quatre éléments. Lorsque vous utilisez Assaut élémentaire, au lieu de choisir un unique élément, vous pouvez choisir un élément de la liste lorsque vous utilisez l'action puis choisir un élément différent au début de chacun de vos trois prochains tours sans dépenser d'action. une fois que vous avez choisi un élément, vous ne pouvez plus le choisir au cours de cet Assaut élémentaire, ce qui signifie que vous devez choisir les quatre éléments durant le cours des 4 tours. Chaque fois que vous choisissez un élément, jusqu'au début de votre tour suivant, vos <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappes</div> infligent 1d6 dégâts supplémentaires du type indiqué et possèdent le trait correspondant à cet élément."
                 ]
             },
             {
@@ -1876,7 +1876,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par jour",
                     "Déclencheur Votre tour commence",
-                    "Vous vous enflammez. Vos ennemis dans une émanation de 6 mètres subissent |options:area-damage]{7d6 dégâts de feu} ( contre le plus élevé entre votre DD de classe et votre DD de sort). Les alliés dans la zone sont <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'nlCjDvLMf2EkV2dl', 'param__object__label': this.textContent})\">Accélérés</div> pendant 1 round et peuvent utiliser l'action supplémentaire pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frapper</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div>."
+                    "Vous vous enflammez. Vos ennemis dans une émanation de 6 mètres subissent 7d6 dégâts de feu ( contre le plus élevé entre votre DD de classe et votre DD de sort). Les alliés dans la zone sont <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'nlCjDvLMf2EkV2dl', 'param__object__label': this.textContent})\">Accélérés</div> pendant 1 round et peuvent utiliser l'action supplémentaire pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frapper</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marcher rapidement</div>."
                 ]
             },
             {
@@ -1893,7 +1893,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Pendant une courte période, vous manifestez pleinement les attentes du dieu destructeur qui est en vous. Toutes les créatures au sein d'une émanation de 3 mètres subissent |options:area-damage]{8d6 dégâts de force} avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui obtient un échec sur son jet de sauvegarde est aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>. Pendant 1 minute, n'importe quelle créature qui termine son tour au sein de l'émanation de 3 mètres subit |options:area-damage]{5d6 dégâts de force} avec un jet de Vigueur basique. Si vous n'êtes pas Drainé, vous pouvez choisir de devenir <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé 2</div> lorsque vous utilisez votre Aura de domination pour augmenter le rayon de l'émanation qui passe de 3 à 6 mètres."
+                    "Pendant une courte période, vous manifestez pleinement les attentes du dieu destructeur qui est en vous. Toutes les créatures au sein d'une émanation de 3 mètres subissent 8d6 dégâts de force avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui obtient un échec sur son jet de sauvegarde est aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>. Pendant 1 minute, n'importe quelle créature qui termine son tour au sein de l'émanation de 3 mètres subit 5d6 dégâts de force avec un jet de Vigueur basique. Si vous n'êtes pas Drainé, vous pouvez choisir de devenir <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '4D2KBtexWXa6oUMR', 'param__object__label': this.textContent})\">Drainé 2</div> lorsque vous utilisez votre Aura de domination pour augmenter le rayon de l'émanation qui passe de 3 à 6 mètres."
                 ]
             },
             {
@@ -2073,7 +2073,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par heure",
                     "Déclencheur Vous touchez de manière critique un démon avec une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div>.",
-                    "Votre conviction contre les péchés dont sont issus tous les démons est si forte que vous pouvez forcer un démon à souffrir de ses péchés lorsque vous lui portez un coup solide. En plus de faire les dégâts ordinaires pour votre coup critique, le démon souffre également des effets de sa vulnérabilité spéciale. Si le démon ne possède pas de vulnérabilité spéciale, il subit ,3,ternary(gte(@actor.level,13),2,1)))d6[mental]]{1d6 dégâts supplémentaires}. Cela passe à 2d6 dégâts mentaux au niveau 13 et à 3d6 dégâts mentaux au niveau 17."
+                    "Votre conviction contre les péchés dont sont issus tous les démons est si forte que vous pouvez forcer un démon à souffrir de ses péchés lorsque vous lui portez un coup solide. En plus de faire les dégâts ordinaires pour votre coup critique, le démon souffre également des effets de sa vulnérabilité spéciale. Si le démon ne possède pas de vulnérabilité spéciale, il subit 1d6 dégâts supplémentaires. Cela passe à 2d6 dégâts mentaux au niveau 13 et à 3d6 dégâts mentaux au niveau 17."
                 ]
             },
             {
@@ -2126,7 +2126,7 @@ DON.RACE = {
                 "description" : [
                     "Your connection to the divine has sanctified your blood, but the power only manifests when you are shedding it. Choose holy or unholy. While you are taking persistent bleed damage, you can Interact to coat a piercing or slashing weapon you're wielding with your blood. Until the end of your turn, your Strikes with that weapon deal an additional 1d6 spirit damage with the chosen trait to creatures with the opposing trait.",
                     "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'tu36I5HWaqOjaLVu', 'param__object__label': this.textContent})\">Effect: Blood and Spirit</div>",
-                    "Alternatively, you can deal ] damage to yourself (which can't be resisted in any way) as part of that Interact action if you aren't taking persistent bleed damage."
+                    "Alternatively, you can deal damage to yourself (which can't be resisted in any way) as part of that Interact action if you aren't taking persistent bleed damage."
                 ]
             },
             {
@@ -2528,7 +2528,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous sécrétez une cape de poison concentrée qui blesse quiconque ose vous attaquer. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une attaque à mains nues ou une attaque d'arme au corps-à-corps sans le trait allonge subit ]{3d6 dégâts de poison}."
+                    "Vous sécrétez une cape de poison concentrée qui blesse quiconque ose vous attaquer. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une attaque à mains nues ou une attaque d'arme au corps-à-corps sans le trait allonge subit 3d6 dégâts de poison."
                 ]
             },
             {
@@ -3632,7 +3632,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Votre lien avec le Premier Monde s'est renforcée et les énergies de vitalité qui en proviennent affluent en vous rapidement. Si vous vous reposez pendant 10 minutes, vous obtenez une quantité de Points de vie égale à ))[vitality,healing]]{votre modificateur de Constitution multiplié par la moitié de votre niveau}. C'est un effet de guérison de vitalité et il se cumule avec toute forme de soins reçus par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>."
+                    "Votre lien avec le Premier Monde s'est renforcée et les énergies de vitalité qui en proviennent affluent en vous rapidement. Si vous vous reposez pendant 10 minutes, vous obtenez une quantité de Points de vie égale à votre modificateur de Constitution multiplié par la moitié de votre niveau. C'est un effet de guérison de vitalité et il se cumule avec toute forme de soins reçus par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>."
                 ]
             },
             {
@@ -5010,7 +5010,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par heure",
-                    "Vous poussez un cri perçant. Chaque créature dans une émanation de 3 mètres subit d6[sonic]|options:area-damage]{5d6 dégâts de son}, avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Puis, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marchez rapidement</div> et ce déplacement ne déclenche pas de réaction de la part des créatures qui ont obtenu un échec ou un échec critique sur leur jet de sauvegarde.",
+                    "Vous poussez un cri perçant. Chaque créature dans une émanation de 3 mètres subit 5d6 dégâts de son, avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Puis, vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Bcxarzksqt9ezrs6', 'param__object__label': this.textContent})\">Marchez rapidement</div> et ce déplacement ne déclenche pas de réaction de la part des créatures qui ont obtenu un échec ou un échec critique sur leur jet de sauvegarde.",
                     "Au niveau 11 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d6."
                 ]
             },
@@ -5421,7 +5421,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Aucune distance ne peut empêcher un tanuki de venir participer à une bonne fête. Vous sifflez et pointes votre doigt et 808 tanukis, sous leur forme de chien viverrin, apparaissent de nulle part du terrain environnant et emplissent une explosion de 9 mètres dans un rayon de 36 mètres. Les tanukis se déplacent sur le sol, sautent dans les airs et grimpent sur les murs et les surfaces, infligeant |options:area-damage]{6d8 dégâts contondants} à tous les ennemis dans la zone comme s'ils avaient été piétinés et qu'on leur avait dansé dessus. Les tanukis continuent à faire la fête dans la zone pendant la minute suivante, infligeant |options:area-damage]{3d8 dégâts contondants} à tout ennemi qui termine son tour dans la zone et transforment la zone en un terrain difficile (bien que les tanukis vous permettent ainsi qu'à vos alliés de passer normalement). Les créatures sous forme de chien viverrin peuvent tenter de se <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Cacher</div> au sein de la masse des tanukis. Après 1 minute, les tanukis applaudissent 30 fois et foncent à la prochaine fête. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AjLSHZSWQ90exdLo', 'param__object__label': this.textContent})\">Révoquer</div> l'effet, bien que si vous le faites, les tanukis grommellent parce que la fête se termine prématurément."
+                    "Aucune distance ne peut empêcher un tanuki de venir participer à une bonne fête. Vous sifflez et pointes votre doigt et 808 tanukis, sous leur forme de chien viverrin, apparaissent de nulle part du terrain environnant et emplissent une explosion de 9 mètres dans un rayon de 36 mètres. Les tanukis se déplacent sur le sol, sautent dans les airs et grimpent sur les murs et les surfaces, infligeant 6d8 dégâts contondants à tous les ennemis dans la zone comme s'ils avaient été piétinés et qu'on leur avait dansé dessus. Les tanukis continuent à faire la fête dans la zone pendant la minute suivante, infligeant 3d8 dégâts contondants à tout ennemi qui termine son tour dans la zone et transforment la zone en un terrain difficile (bien que les tanukis vous permettent ainsi qu'à vos alliés de passer normalement). Les créatures sous forme de chien viverrin peuvent tenter de se <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'XMcnh4cSI32tljXa', 'param__object__label': this.textContent})\">Cacher</div> au sein de la masse des tanukis. Après 1 minute, les tanukis applaudissent 30 fois et foncent à la prochaine fête. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AjLSHZSWQ90exdLo', 'param__object__label': this.textContent})\">Révoquer</div> l'effet, bien que si vous le faites, les tanukis grommellent parce que la fête se termine prématurément."
                 ]
             },
             {
@@ -5459,7 +5459,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous avez un lien avec les olethros, les psychopompes énigmatiques qui ont réussi à influencer les yamarajs pour permettre la création des premiers crépusculaires. Vous placez un doigt sur les plateaux de la balance du destin en enroulant de la soie autour de votre arc. La première fois au cours de ce tour que vous touchez une créature avec une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> en utilisant une arme du groupe des arcs que vous avez modifié de cette manière, cette créature subit ]{60 dégâts supplémentaires} ( en utilisant le plus élevé entre votre DD de classe ou votre DD de sort) lorsque la flèche contribue à couper court à son destin. Ces dégâts supplémentaires sont du même type que celui infligé par votre attaque initiale. Si vous touchez plus d'une créature en même temps, choisissez celle qui subit l'effet de votre décret."
+                    "Vous avez un lien avec les olethros, les psychopompes énigmatiques qui ont réussi à influencer les yamarajs pour permettre la création des premiers crépusculaires. Vous placez un doigt sur les plateaux de la balance du destin en enroulant de la soie autour de votre arc. La première fois au cours de ce tour que vous touchez une créature avec une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> en utilisant une arme du groupe des arcs que vous avez modifié de cette manière, cette créature subit 60 dégâts supplémentaires ( en utilisant le plus élevé entre votre DD de classe ou votre DD de sort) lorsque la flèche contribue à couper court à son destin. Ces dégâts supplémentaires sont du même type que celui infligé par votre attaque initiale. Si vous touchez plus d'une créature en même temps, choisissez celle qui subit l'effet de votre décret."
                 ]
             },
             {
@@ -5797,7 +5797,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous rendez une arme impossible à tenir. Faites un test d'Athlétisme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmer</div> une créature cible. Vous n'avez pas besoin de disposer d'une main libre pour faire ce test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmement</div>. Si la tentative de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmement</div> est un succès, la cible subit ]{4d6 dégâts de feu} à moins de laisser tomber l'arme et en cas de succès critique, elle subit ]{4d6 dégâts de feu} et lâche l'arme. Si vous êtes légendaire en Athlétisme, les dégâts passent à ]{8d6 dégâts de feu}."
+                    "Vous rendez une arme impossible à tenir. Faites un test d'Athlétisme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmer</div> une créature cible. Vous n'avez pas besoin de disposer d'une main libre pour faire ce test de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmement</div>. Si la tentative de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Dt6B1slsBy8ipJu9', 'param__object__label': this.textContent})\">Désarmement</div> est un succès, la cible subit 4d6 dégâts de feu à moins de laisser tomber l'arme et en cas de succès critique, elle subit 4d6 dégâts de feu et lâche l'arme. Si vous êtes légendaire en Athlétisme, les dégâts passent à ]{8d6 dégâts de feu}."
                 ]
             },
             {
@@ -6175,7 +6175,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous êtes né avec ou avez obtenu un lien spécial avec soit l'eau douce soit l'eau salée. Une fois prise, cette décision ne peut plus être modifiée. Chaque fois que vous prenez votre repos complet dans une étendue d'eau naturelle du type correspondant à votre lien, vous récupérez [healing]]{des Points de vie supplémentaires} égaux à votre niveau et, si vous avez l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv', 'param__object__label': this.textContent})\">Condamné</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw', 'param__object__label': this.textContent})\">Fatigué</div>, vous le réduisez de 2 au lieu de 1."
+                    "Vous êtes né avec ou avez obtenu un lien spécial avec soit l'eau douce soit l'eau salée. Une fois prise, cette décision ne peut plus être modifiée. Chaque fois que vous prenez votre repos complet dans une étendue d'eau naturelle du type correspondant à votre lien, vous récupérez des Points de vie supplémentaires égaux à votre niveau et, si vous avez l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv', 'param__object__label': this.textContent})\">Condamné</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'HL2l2VRSaQHu9lUw', 'param__object__label': this.textContent})\">Fatigué</div>, vous le réduisez de 2 au lieu de 1."
                 ]
             },
             {
@@ -6505,7 +6505,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Bien que les phéromones des athamarus soient habituellement utilisées pour la communication, vous avez développé les vôtres dans un mécanisme de défense pour vous protéger de vos ennemis. Vous émettez un jet épais de phéromones défensives sur une créature adjacente, qui subit /2)+1)d6[poison]]{1d6 dégâts de poison} avec un jet de contre votre DD de classe.",
+                    "Bien que les phéromones des athamarus soient habituellement utilisées pour la communication, vous avez développé les vôtres dans un mécanisme de défense pour vous protéger de vos ennemis. Vous émettez un jet épais de phéromones défensives sur une créature adjacente, qui subit 1d6 dégâts de poison avec un jet de contre votre DD de classe.",
                     "Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d6."
                 ]
             },
@@ -6791,7 +6791,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous libérez le chaos refoulé en vous, devenant un nexus de destruction débridé qui ravage tous ceux qui se trouvent à proximité. Chaque créature à 4,50 mètres de vous subit |options:area-damage]{14d6 dégâts d'acide}, |options:area-damage]{14d6 dégâts d'électricité} ou |options:area-damage]{14d6 dégâts de son}, choisis aléatoirement pour chaque cible. Chaque cible obtient un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort, mais toute créature qui est sujette au type de dégâts pour lequel vous possédez une résistance à travers votre lignée de type protéen subit une pénalité de -2 sur le jet de sauvegarde. Toute cible qui obtient un échec critique sur le jet de sauvegarde est aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yblD8fOR1J8rDwEQ', 'param__object__label': this.textContent})\">Confuse</div> jusqu'à la fin de son prochain tour."
+                    "Vous libérez le chaos refoulé en vous, devenant un nexus de destruction débridé qui ravage tous ceux qui se trouvent à proximité. Chaque créature à 4,50 mètres de vous subit 14d6 dégâts d'acide, 14d6 dégâts d'électricité ou 14d6 dégâts de son, choisis aléatoirement pour chaque cible. Chaque cible obtient un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort, mais toute créature qui est sujette au type de dégâts pour lequel vous possédez une résistance à travers votre lignée de type protéen subit une pénalité de -2 sur le jet de sauvegarde. Toute cible qui obtient un échec critique sur le jet de sauvegarde est aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yblD8fOR1J8rDwEQ', 'param__object__label': this.textContent})\">Confuse</div> jusqu'à la fin de son prochain tour."
                 ]
             },
             {
@@ -7056,7 +7056,7 @@ DON.RACE = {
                 "description" : [
                     "Vous régénérez votre esprit en prenant votre repos là où Mère Terre et Père Lune s'étreignent. Lorsque vous vous reposez à l'extérieur, vous pouvez choisir l'un des avantages suivants, qui dure jusqu'à votre prochain cycle de sommeil et ne peut être modifié.",
                     "Vigilance de Père Lune Lorsque vous dormez, vous ne subissez pas de pénalité aux tests de Perception du fait d'être <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf', 'param__object__label': this.textContent})\">Inconscient</div>.",
-                    "Soins de la Mère Terre Après 8 heures de sommeil, vous regagnez un nombre de [healing]]{Points de vie} supplémentaires égal à votre modificateur de Constitution modifier plus votre niveau."
+                    "Soins de la Mère Terre Après 8 heures de sommeil, vous regagnez un nombre de Points de vie supplémentaires égal à votre modificateur de Constitution modifier plus votre niveau."
                 ]
             },
             {
@@ -8726,7 +8726,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Les serpents ordinaires obéissent à votre invocation. Vous appelez une masse de serpents qui se tordent, levez vos mains pour que les serpents émergent du sol dans une explosion de 6 mètres. Les serpents apparaissent sur toutes les cases au sol dans la zone et restent pendant 1 minute. Lorsque vous utilisez Fosse de serpents, toutes les créatures de la zone doivent tenter un jet de contre le plus élevé entre votre DD de classe et votre DD de sort. Toute créature qui échoue est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Agrippée</div> par un serpent et subit ]{3d6 dégâts contondants}. Chaque fois qu'une créature termine son tour dans la zone, les serpents tentent d'attraper cette créature s'ils ne l'ont pas déjà fait. Toute créature déjà agrippée subit à la place |options:area-damage]{2d6 dégâts contondants}.",
+                    "Les serpents ordinaires obéissent à votre invocation. Vous appelez une masse de serpents qui se tordent, levez vos mains pour que les serpents émergent du sol dans une explosion de 6 mètres. Les serpents apparaissent sur toutes les cases au sol dans la zone et restent pendant 1 minute. Lorsque vous utilisez Fosse de serpents, toutes les créatures de la zone doivent tenter un jet de contre le plus élevé entre votre DD de classe et votre DD de sort. Toute créature qui échoue est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Agrippée</div> par un serpent et subit 3d6 dégâts contondants. Chaque fois qu'une créature termine son tour dans la zone, les serpents tentent d'attraper cette créature s'ils ne l'ont pas déjà fait. Toute créature déjà agrippée subit à la place 2d6 dégâts contondants.",
                     "Le DD pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SkZAQRkLLkmBQNB9', 'param__object__label': this.textContent})\">S'Échapper</div> des serpents est égal au plus élevé entre votre DD de classe ou votre DD de sort. Une créature peut attaquer un serpent pour tenter de mettre un terme à son emprise. La CA du serpent est égale au plus élevé entre votre DD de classe ou votre DD de sort et il est détruit s'il subit au moins 12 dégâts. Même si un serpent spécifique est détruit, d'autres serpents supplémentaires continuent de se tortiller dans la zone jusqu'à l'expiration de la durée du sort. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'AjLSHZSWQ90exdLo', 'param__object__label': this.textContent})\">Révoquer</div> l'effet."
                 ]
             },
@@ -9190,7 +9190,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous faites appel au sang de vos ascendants en lançant un puissant cri qui vous remplit d'une énergie revitalisante pendant 1 minute ou jusqu'à ce que vous subissiez un échec critique à une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div>, selon ce qui se produit en premier. Pendant cette durée, la première fois au cours de chaque round que vous obtenez un succès lors d'une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> contre une créature de votre niveau ou plus élevé, vous regagnez des )[healing]]{Points de vie égaux à la moitié de votre niveau}."
+                    "Vous faites appel au sang de vos ascendants en lançant un puissant cri qui vous remplit d'une énergie revitalisante pendant 1 minute ou jusqu'à ce que vous subissiez un échec critique à une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div>, selon ce qui se produit en premier. Pendant cette durée, la première fois au cours de chaque round que vous obtenez un succès lors d'une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> contre une créature de votre niveau ou plus élevé, vous regagnez des Points de vie égaux à la moitié de votre niveau."
                 ]
             },
             {
@@ -9270,7 +9270,7 @@ DON.RACE = {
                     "charhide goblin heritage"
                 ],
                 "description" : [
-                    "Vous avez passé tellement de temps en feu que vous savez comment l'utiliser à votre avantage. Vous pouvez vous enflammer complètement avec une torche tenue, une bouteille de feu grégeois ou un moyen incendiaire semblable, vous infligeant à vous-même ]{1d6 dégâts de feu persistants}. Tant que vous subissez des dégâts de feu persistants, toutes les attaques au corps-à-corps contre des créatures adjacentes infligent 1 dégât de feu supplémentaire par dé de dégât d'arme. Toute créature qui réussit à vous Agripper, à vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731', 'param__object__label': this.textContent})\">Pousser</div> ou à vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP', 'param__object__label': this.textContent})\">faire un Croc-en-jambe</div> subit ]{1d6 dégâts de feu}. Si elle utilise une arme pour cette action, l'arme subit les dégâts à la place.",
+                    "Vous avez passé tellement de temps en feu que vous savez comment l'utiliser à votre avantage. Vous pouvez vous enflammer complètement avec une torche tenue, une bouteille de feu grégeois ou un moyen incendiaire semblable, vous infligeant à vous-même 1d6 dégâts de feu persistants. Tant que vous subissez des dégâts de feu persistants, toutes les attaques au corps-à-corps contre des créatures adjacentes infligent 1 dégât de feu supplémentaire par dé de dégât d'arme. Toute créature qui réussit à vous Agripper, à vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '7blmbDrQFNfdT731', 'param__object__label': this.textContent})\">Pousser</div> ou à vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'ge56Lu1xXVFYUnLP', 'param__object__label': this.textContent})\">faire un Croc-en-jambe</div> subit 1d6 dégâts de feu. Si elle utilise une arme pour cette action, l'arme subit les dégâts à la place.",
                     "Vous devez toujours faire le test nu pour mettre un terme aux dégâts de feu persistants chaque round, comme à l'ordinaire."
                 ]
             },
@@ -9341,7 +9341,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous vous êtes vu confié une parcelle du pouvoir des yamarajs, les magistrats des morts qui ont accepté que les crépusculaires puissent exister. Vous soufflez une décharge de vent glacial et d'insectes affamés. C'est un cône de 9 mètres qui inflige ,4d6[persistent,slashing]|options:area-damage]{14d6 dégâts tranchants} et ]{4d6 dégâts tranchants persistants} ( contre le plus élevé entre votre DD de classe et votre DD de sort). En cas d'échec critique, les cibles deviennent aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18', 'param__object__label': this.textContent})\">Nauséeuses 2</div>."
+                    "Vous vous êtes vu confié une parcelle du pouvoir des yamarajs, les magistrats des morts qui ont accepté que les crépusculaires puissent exister. Vous soufflez une décharge de vent glacial et d'insectes affamés. C'est un cône de 9 mètres qui inflige 14d6 dégâts tranchants et 4d6 dégâts tranchants persistants ( contre le plus élevé entre votre DD de classe et votre DD de sort). En cas d'échec critique, les cibles deviennent aussi <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fesd1n5eVhpCSS18', 'param__object__label': this.textContent})\">Nauséeuses 2</div>."
                 ]
             },
             {
@@ -9421,7 +9421,7 @@ DON.RACE = {
                     "claw unarmed attack"
                 ],
                 "description" : [
-                    "Vos griffes portent la magie de votre mère guenaude. Lorsque vous obtenez un coup critique avec une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> de griffe, la cible subit ]{1d4 dégâts mentaux persistants} supplémentaires."
+                    "Vos griffes portent la magie de votre mère guenaude. Lorsque vous obtenez un coup critique avec une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> de griffe, la cible subit 1d4 dégâts mentaux persistants supplémentaires."
                 ]
             },
             {
@@ -9570,7 +9570,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous pouvez induire la réparation de vos blessures en faisant circuler la magie à travers votre corps. Si vous vous reposez pendant 10 minutes, vous récupérez un nombre de Points de vie égal à votre )[healing]]{Modificateur de Constitution × la moitié de votre niveau}. C'est un effet de guérison magique et c'est cumulable avec tout soin que vous recevez par le biais de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>."
+                    "Vous pouvez induire la réparation de vos blessures en faisant circuler la magie à travers votre corps. Si vous vous reposez pendant 10 minutes, vous récupérez un nombre de Points de vie égal à votre Modificateur de Constitution × la moitié de votre niveau. C'est un effet de guérison magique et c'est cumulable avec tout soin que vous recevez par le biais de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>."
                 ]
             },
             {
@@ -9624,7 +9624,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous pouvez annuler les effets de la corruption démoniaque sur les plantes. En passant 10 minutes au contact d'un arbre corrompu par une présence démoniaque, vous pouvez lui rendre sa santé d'origine. Cela n'empêche pas l'arbre d'être à nouveau corrompu à l'avenir. Vous pouvez également passer 10 minutes au contact d'une créature ayant le trait plante. Au bout de cette durée, vous redonnez [healing]]{7d8+56 Points de vie} à cette créature et soignez la moitié de ce montant de vos propres Points de vie. De plus, vous pouvez tentez de contrer n'importe quelle malédiction ou maladie affligeant cette créature plante comme si vous aviez lancé <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SUKaxVZW2TlM8lu0', 'param__object__label': this.textContent})\">Affliction purifiée</div> intensifié au rang 7. Votre rang de contre pour ceci est 7 et votre test de contre est égal au plus élevé entre votre jet de Volonté ou votre modificateur d'attaque de sort."
+                    "Vous pouvez annuler les effets de la corruption démoniaque sur les plantes. En passant 10 minutes au contact d'un arbre corrompu par une présence démoniaque, vous pouvez lui rendre sa santé d'origine. Cela n'empêche pas l'arbre d'être à nouveau corrompu à l'avenir. Vous pouvez également passer 10 minutes au contact d'une créature ayant le trait plante. Au bout de cette durée, vous redonnez 7d8+56 Points de vie à cette créature et soignez la moitié de ce montant de vos propres Points de vie. De plus, vous pouvez tentez de contrer n'importe quelle malédiction ou maladie affligeant cette créature plante comme si vous aviez lancé <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'SUKaxVZW2TlM8lu0', 'param__object__label': this.textContent})\">Affliction purifiée</div> intensifié au rang 7. Votre rang de contre pour ceci est 7 et votre test de contre est égal au plus élevé entre votre jet de Volonté ou votre modificateur d'attaque de sort."
                 ]
             },
             {
@@ -9770,7 +9770,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Déclencheur Vous ou vos alliés dans les 9 mètres récupérez des Points de vie alors que votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'PGVXjbAi1Fa4uTmD', 'param__object__label': this.textContent})\">Halo</div> est actif.",
-                    "Votre halo peut augmenter l'énergie de vitalité. Les créatures qui ont récupéré des Points de vie d'un effet de guérison positive récupèrent ]{1d6 Points de vie} supplémentaires. Les créatures qui ont bénéficié de ce pouvoir deviennent temporairement immunisées à son effet pendant les 10 minutes suivantes."
+                    "Votre halo peut augmenter l'énergie de vitalité. Les créatures qui ont récupéré des Points de vie d'un effet de guérison positive récupèrent 1d6 Points de vie supplémentaires. Les créatures qui ont bénéficié de ce pouvoir deviennent temporairement immunisées à son effet pendant les 10 minutes suivantes."
                 ]
             },
             {
@@ -9947,7 +9947,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous vous régénérez en puisant la vie de l'eau qui vous entoure. Si vous vous immergez dans l'eau et vous reposez pendant 10 minutes, vous regagnez des Points de vie égaux à votre )*(@actor.abilities.con.mod))[healing]]{modificateur de Constitution multiplié par la moitié de votre niveau}."
+                    "Vous vous régénérez en puisant la vie de l'eau qui vous entoure. Si vous vous immergez dans l'eau et vous reposez pendant 10 minutes, vous regagnez des Points de vie égaux à votre modificateur de Constitution multiplié par la moitié de votre niveau."
                 ]
             },
             {
@@ -10317,7 +10317,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par jour",
                     "Vous invoquez une aura de chaleur chatoyante, de bourrasque de neige, de vagues écrasantes ou d'éclairs et de vent tourbillonnant.",
-                    "Pendant 1 minute, vous devenez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> contre les créatures qui sont à plus de 1,50 mètre de vous et toute créature qui termine son tour dans les 1,50 mètre de vous subit ,3,ternary(gte(@actor.level,13),2,1)))d12[@item.flags.system.rulesSelections.changelingType]]{1d12 dégâts} (jet de en utilisant le plus élevé entre votre DD de classe ou votre DD de sort).",
+                    "Pendant 1 minute, vous devenez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DmAIPqOBomZ7H95W', 'param__object__label': this.textContent})\">Masqué</div> contre les créatures qui sont à plus de 1,50 mètre de vous et toute créature qui termine son tour dans les 1,50 mètre de vous subit 1d12 dégâts (jet de en utilisant le plus élevé entre votre DD de classe ou votre DD de sort).",
                     "Aux niveaux 13 et 17, ces dégâts augmentent de 1d12.",
                     "Un changelin vierge voilée peut infliger des dégâts de feu, un changelin vierge de neige des dégâts de froid, un changelin vierge de saumure des dégâts contondants et l'effet obtient le trait eau et un changelin vierge virga inflige des dégâts d'électricité."
                 ]
@@ -10687,7 +10687,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Conditions Vous êtes adjacent à un allié.",
-                    "Vous pouvez attraper vos amis avec vos cornes pour les projeter sur le champ de bataille. Choisissez un allié adjacent consentant qui est plus petit que vous et lancez le dans un espace inoccupé que vous pouvez voir dans les 6 m. Comme vous utilisez vos cornes, vous n'avez pas besoin de disposer d'une main libre pour le faire. Les déplacements de votre allié ne déclenchent pas de réactions. Votre allié termine son déplacement sur ses pieds et ne subit pas de dégâts de la chute mais subit ]{1d6 dégâts perforants} de vos cornes. Si votre allié termine ce déplacement dans l'allonge au corps-à-corps d'au moins un ennemi, il peut porter une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> contre un ennemi dans son allonge par une réaction."
+                    "Vous pouvez attraper vos amis avec vos cornes pour les projeter sur le champ de bataille. Choisissez un allié adjacent consentant qui est plus petit que vous et lancez le dans un espace inoccupé que vous pouvez voir dans les 6 m. Comme vous utilisez vos cornes, vous n'avez pas besoin de disposer d'une main libre pour le faire. Les déplacements de votre allié ne déclenchent pas de réactions. Votre allié termine son déplacement sur ses pieds et ne subit pas de dégâts de la chute mais subit 1d6 dégâts perforants de vos cornes. Si votre allié termine ce déplacement dans l'allonge au corps-à-corps d'au moins un ennemi, il peut porter une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> contre un ennemi dans son allonge par une réaction."
                 ]
             },
             {
@@ -10831,7 +10831,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par jour",
                     "Déclencheur Vous êtes réduit à 0 Point de vie et devrait obtenir l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'yZRUzMqrMmfLu0V1', 'param__object__label': this.textContent})\">Mourant</div> ou devriez autrement mourir.",
-                    "La mort vous est aussi naturelle que de respirer et vous pouvez la franchir aussi aisément que les autres ennuis dans votre vie. Vous vous empêchez de mourir et regagnez un nombre de Points de vie égal à ))[healing]]{6d8 plus la moitié de votre niveau}. Si la cause de votre mort était un état ou un effet qui devrait vous causer la mort après avoir regagné de Points de vie, comme une valeur élevée de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv', 'param__object__label': this.textContent})\">Condamné</div>, vous suspendez cet effet pendant 1 minute."
+                    "La mort vous est aussi naturelle que de respirer et vous pouvez la franchir aussi aisément que les autres ennuis dans votre vie. Vous vous empêchez de mourir et regagnez un nombre de Points de vie égal à 6d8 plus la moitié de votre niveau. Si la cause de votre mort était un état ou un effet qui devrait vous causer la mort après avoir regagné de Points de vie, comme une valeur élevée de l'état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '3uh1r86TzbQvosxv', 'param__object__label': this.textContent})\">Condamné</div>, vous suspendez cet effet pendant 1 minute."
                 ]
             },
             {
@@ -11021,7 +11021,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vos symbiotes coraliens se sont développés dans votre système sanguin et sont maintenant enroulés autour de votre cœur. Lorsque vous devriez mourir, le corail dans votre corps libère une explosion d'énergie de guérison. Cela vous empêche de mourir et vous redonne ]{4d8 Points de vie}. Une fois que cette capacité est utilisée, le coral prend une coloration gris terne et ne vous procure plus d'avantages jusqu'à ce que vous terminiez vos prochains préparatifs quotidiens."
+                    "Vos symbiotes coraliens se sont développés dans votre système sanguin et sont maintenant enroulés autour de votre cœur. Lorsque vous devriez mourir, le corail dans votre corps libère une explosion d'énergie de guérison. Cela vous empêche de mourir et vous redonne 4d8 Points de vie. Une fois que cette capacité est utilisée, le coral prend une coloration gris terne et ne vous procure plus d'avantages jusqu'à ce que vous terminiez vos prochains préparatifs quotidiens."
                 ]
             },
             {
@@ -11170,7 +11170,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Déclencheur Vous ou un allié situé dans les 9 mètres de votre familier <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd1FTY5ai9KjpkX59', 'param__object__label': this.textContent})\">Orbe étoilé</div> devrait être réduit à 0 Point de vie mais pas immédiatement tué.",
-                    "Vous drainer temporairement l'énergie de votre orbe étoilé pour sauver un allié. La cible évite d'être assommée et reste à 1 Point de vie et son état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Yl48xTdMh3aeQYL2', 'param__object__label': this.textContent})\">Blessé</div> augmente de 1. Puis la cible regagne]{un nombre de Points de vie} égal à votre niveau. Lorsque l'énergie du familier est ainsi drainée, il se met en veille jusqu'à vos prochains préparatifs quotidiens."
+                    "Vous drainer temporairement l'énergie de votre orbe étoilé pour sauver un allié. La cible évite d'être assommée et reste à 1 Point de vie et son état <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'Yl48xTdMh3aeQYL2', 'param__object__label': this.textContent})\">Blessé</div> augmente de 1. Puis la cible regagne un nombre de Points de vie égal à votre niveau. Lorsque l'énergie du familier est ainsi drainée, il se met en veille jusqu'à vos prochains préparatifs quotidiens."
                 ]
             },
             {
@@ -11707,7 +11707,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Les marins savent que la vision d'un homme-poisson en colère pourrait bien signifier qu'ils ne reverront plus jamais la rive. Vous chantez une chanson qui raconte le destin d'une créature que vous pouvez voir dans les 18 m. La peur qui agrippe l'âme de la cible provoque ]{10d10 dégâts mentaux}, en fonction d'un jet de de la cible contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui est dans l'eau ou à bord d'un vaisseau d'un vaisseau de haute mer subit une pénalité de circonstances de -4 sur son jet de sauvegarde.",
+                    "Les marins savent que la vision d'un homme-poisson en colère pourrait bien signifier qu'ils ne reverront plus jamais la rive. Vous chantez une chanson qui raconte le destin d'une créature que vous pouvez voir dans les 18 m. La peur qui agrippe l'âme de la cible provoque 10d10 dégâts mentaux, en fonction d'un jet de de la cible contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui est dans l'eau ou à bord d'un vaisseau d'un vaisseau de haute mer subit une pénalité de circonstances de -4 sur son jet de sauvegarde.",
                     "Succès critique La cible n'est pas affectée.",
                     "Succès La cible subit la moitié des dégâts et est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayée 1</div> lorsqu'elle entrevoit sa fin.",
                     "Échec La cible subit la totalité des dégâts et est Effrayée 1. De plus, elle lance deux fois les jets pour tous les tests de compétence et les jets de sauvegarde qu'elle tente jusqu'à la fin de son prochain tour et subit le pire résultat. C'est un effet d'infortune.",
@@ -11896,7 +11896,7 @@ DON.RACE = {
                 "description" : [
                     "Déclencheur Vous réussissez un test pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div>.",
                     "Conditions Vous portez votre Masque de guerre.",
-                    "Votre masque a évolué en une manifestation de votre douleur, que vous pouvez déchaîner. La créature que vous réussissez à démoraliser subit ]{2d6 dégâts mentaux} ou ]{4d6 dégâts mentaux} si vous êtes légendaire en Intimidation. La cible est alors temporairement immunisée contre les dégâts supplémentaires issus de Masque de douleur pendant 24 heures."
+                    "Votre masque a évolué en une manifestation de votre douleur, que vous pouvez déchaîner. La créature que vous réussissez à démoraliser subit 2d6 dégâts mentaux ou 4d6 dégâts mentaux si vous êtes légendaire en Intimidation. La cible est alors temporairement immunisée contre les dégâts supplémentaires issus de Masque de douleur pendant 24 heures."
                 ]
             },
             {
@@ -12808,7 +12808,7 @@ DON.RACE = {
                     "Vous êtes immunisé contre les états <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'kWc1fhmv9LBiTuei', 'param__object__label': this.textContent})\">Saisi</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div> et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VcDeM8A5oI6VqhbM', 'param__object__label': this.textContent})\">Entravé</div>.",
                     "Vous avez une faiblesse 5 contre les dégâts de zone et d'éclaboussure.",
                     "Vous pouvez occuper le même espace que d'autres créatures et devez le faire pour utiliser votre capacité à faire des dégâts.",
-                    "Par une activité à 2 actions, vous pouvez infliger ]{10d6 dégâts contondants} à toutes les créatures qui partagent votre espace ( contre le plus élevé entre votre DD de classe ou de sort).",
+                    "Par une activité à 2 actions, vous pouvez infliger 10d6 dégâts contondants à toutes les créatures qui partagent votre espace ( contre le plus élevé entre votre DD de classe ou de sort).",
                     "Vous ne pouvez ni parler, ni Lancer des sorts, ni utiliser des actions de manipulation nécessitant vos mains, ni activer des objets magiques, ni porter des frappes avec votre corps normal.",
                     "Vous ne gagnez pas la capacité esprit de la nuée, vous êtes donc toujours affecté normalement par les effets mentaux. Vous conservez également les avantages des dons de squelette qui ne nécessitent pas la communication ou l'utilisation des mains."
                 ]
@@ -12903,7 +12903,7 @@ DON.RACE = {
                     "Émettre une odeur défensive"
                 ],
                 "description" : [
-                    "Vous avez maîtrisé vos phéromones défensives et avez presqu'un contrôle parfait sur elles. Lorsque vous Émettez une odeur défensive, vous pouvez choisir soit d'augmenter les dégâts infligés à une unique cible en changeant les dés de dégâts pour des d8 (/2)+1)d8[poison]|options:area-damage]) ou de laisser les dégâts inchangés mais en répandant vos phéromones dans un cône de 4,50 mètres."
+                    "Vous avez maîtrisé vos phéromones défensives et avez presqu'un contrôle parfait sur elles. Lorsque vous Émettez une odeur défensive, vous pouvez choisir soit d'augmenter les dégâts infligés à une unique cible en changeant les dés de dégâts pour des d8 () ou de laisser les dégâts inchangés mais en répandant vos phéromones dans un cône de 4,50 mètres."
                 ]
             },
             {
@@ -12916,7 +12916,7 @@ DON.RACE = {
                     "Émettre une odeur défensive"
                 ],
                 "description" : [
-                    "Vos phéromones persistent désormais sur les créatures. Lorsqu'une cible obtient un échec sur un jet de sauvegarde contre votre capacité Émettre une odeur défensive, ils subissent aussi /4) - 1)d6[persistent,poison]]{1d6 dégâts}. Les dégâts passent à 2d6 au niveau 13 et à 3d6 au niveau 17."
+                    "Vos phéromones persistent désormais sur les créatures. Lorsqu'une cible obtient un échec sur un jet de sauvegarde contre votre capacité Émettre une odeur défensive, ils subissent aussi 1d6 dégâts. Les dégâts passent à 2d6 au niveau 13 et à 3d6 au niveau 17."
                 ]
             },
             {
@@ -13585,7 +13585,7 @@ DON.RACE = {
                 "description" : [
                     "Vous canalisez la puissance et la masse d'un kaiju. Vous pouvez lancer <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'wzctak6BxOW8xvFV', 'param__object__label': this.textContent})\">Agrandissement</div> comme un sort primordial inné deux fois par jour en vous ciblant vous-même. La première fois à chaque tour que vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2HJ4yuEFY1Cast4h', 'param__object__label': this.textContent})\">Sautez en hauteur</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'd5I6018Mci2SWokk', 'param__object__label': this.textContent})\">Bondissez</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'JUvAvruz7yRQXfz2', 'param__object__label': this.textContent})\">Sautez en longueur</div> alors que vous êtes affecté par ce sort, les créatures de votre taille ou de taille inférieure adjacentes à l'endroit où vous atterrissez doivent tenter un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort.",
                     "Échec La créature est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>.",
-                    "Échec critique La créature est Mise à terre et subit |options:area-damage]{2d6 dégâts contondants}.",
+                    "Échec critique La créature est Mise à terre et subit 2d6 dégâts contondants.",
                     "Au niveau 17, vous pouvez choisir d'intensifier ce sort Agrandissement au rang 4."
                 ]
             },
@@ -13777,7 +13777,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Alors que vous êtes plus susceptible au fer froid que la plupart des Sans ailes, vous avez aussi une incroyable résilience et un plus profond lien avec les énergies guérisseuses du Premier monde. Augmentez votre maximum de Points de vie d'un montant égal à votre niveau.",
-                    "Si vous vous reposez pendant 10 minutes, une lumière brillante du Premier monde s'écoule dans votre forme à partir de vos ailes (ou de l'endroit où vos ailes devraient se situer), vous permettant de regagner [healing]]{un nombre de Points de vie égal à votre niveau} ; cela est cumulable avec tout Point de vie que vous regagnez grâce à l'aide de la capacité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>.",
+                    "Si vous vous reposez pendant 10 minutes, une lumière brillante du Premier monde s'écoule dans votre forme à partir de vos ailes (ou de l'endroit où vos ailes devraient se situer), vous permettant de regagner un nombre de Points de vie égal à votre niveau ; cela est cumulable avec tout Point de vie que vous regagnez grâce à l'aide de la capacité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>.",
                     "Quoi qu'il en soit, vous obtenez une faiblesse 5 au fer froid."
                 ]
             },
@@ -13816,7 +13816,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par jour",
                     "Durée 1 minute",
-                    "Vous renforcez vos résistances naturelles avec du métal élémentaire, recouvrant votre peau d'un métal épais. Vous bénéficiez d'un bonus de statut de +2 à la CA et d'une résistance 10 contre les dégâts physiques (sauf l'adamantium), mais vous subissez une pénalité de -3 mètres à la Vitesse. Si vous subissez des dégâts de feu alors que cette capacité est active, jusqu'à la fin de votre prochain tour, vous infligez ]{2d6 dégâts de feu} supplémentaires avec toutes vos <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappes</div> aux corps-à-corps à mains nues."
+                    "Vous renforcez vos résistances naturelles avec du métal élémentaire, recouvrant votre peau d'un métal épais. Vous bénéficiez d'un bonus de statut de +2 à la CA et d'une résistance 10 contre les dégâts physiques (sauf l'adamantium), mais vous subissez une pénalité de -3 mètres à la Vitesse. Si vous subissez des dégâts de feu alors que cette capacité est active, jusqu'à la fin de votre prochain tour, vous infligez 2d6 dégâts de feu supplémentaires avec toutes vos <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappes</div> aux corps-à-corps à mains nues."
                 ]
             },
             {
@@ -14247,7 +14247,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Les piquants sur vos bras sont particulièrement pointus et robustes. Vous obtenez une attaque à mains nues de piquants qui inflige ]{1d6 dégâts perforants}. Vos piquants font partie du groupe des couteaux et possèdent les traits finesse et à mains nues."
+                    "Les piquants sur vos bras sont particulièrement pointus et robustes. Vous obtenez une attaque à mains nues de piquants qui inflige 1d6 dégâts perforants. Vos piquants font partie du groupe des couteaux et possèdent les traits finesse et à mains nues."
                 ]
             },
             {
@@ -14260,7 +14260,7 @@ DON.RACE = {
                     "Piquant poignard"
                 ],
                 "description" : [
-                    "Vos piquants peuvent s'enfoncer particulièrement profondément dans la chair de vos adversaires. Votre attaque à mains nues de piquants inflige ]{1d4 dégâts de saignement} en cas de coup critique."
+                    "Vos piquants peuvent s'enfoncer particulièrement profondément dans la chair de vos adversaires. Votre attaque à mains nues de piquants inflige 1d4 dégâts de saignement en cas de coup critique."
                 ]
             },
             {
@@ -14416,7 +14416,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Durant la journée, votre corps produit de puissants projectiles dans votre châssis. Vous les lancez tous d'un seul coup soit dans un cône de 9 mètres, soit dans une émanation de 3 mètres. Les adversaires dans la zone subissent )d6[piercing]|options:area-damage]{6d6 dégâts perforants} contre le plus élevé entre votre DD de classe ou de sort. Les dégâts passent à 7d6 au niveau 12, 8d6 au niveau 15 et 9d6 au niveau 18.",
+                    "Durant la journée, votre corps produit de puissants projectiles dans votre châssis. Vous les lancez tous d'un seul coup soit dans un cône de 9 mètres, soit dans une émanation de 3 mètres. Les adversaires dans la zone subissent 6d6 dégâts perforants contre le plus élevé entre votre DD de classe ou de sort. Les dégâts passent à 7d6 au niveau 12, 8d6 au niveau 15 et 9d6 au niveau 18.",
                     "Amélioration Les projectiles se régénèrent plus rapidement, ils sont beaucoup plus puissants et vous pouvez raffiner le contenu métallique pour blesser certaines créatures. Vous pouvez utiliser Pluie de carreaux une fois par heure au lieu d'une fois par jour. Les dégâts passent à 12d6 dégâts perforants et chaque fois que vous utilisez l'action, vous pouvez choisir entre l'adamantium, le fer froid ou l'argent. Les dégâts de Pluie de carreaux sont considérés comme étant faits du métal que vous avez choisi. Au niveau 20, les dégâts passent à 13d6 dégâts perforants."
                 ]
             },
@@ -14599,7 +14599,7 @@ DON.RACE = {
                     "Ponpoko"
                 ],
                 "description" : [
-                    "Que ce soit parce que vous jouez de façon particulièrement vigoureuse ou parce que vous jouez tout simplement faux, la musique de votre tambourinement sur le ventre peut blesser physiquement vos adversaires. Vous infligez )d4[sonic]|options:area-damage]{7d4 dégâts de son} à toutes les créatures dans un cône de 9 mètres, avec un jet de égal au plus élevé entre votre DD de classe ou votre DD de sort. Un tambourinement aussi vigoureux rend votre ventre un peu endolori, ce qui vous empêche d'utiliser cette capacité de nouveau avec 1d4 rounds.",
+                    "Que ce soit parce que vous jouez de façon particulièrement vigoureuse ou parce que vous jouez tout simplement faux, la musique de votre tambourinement sur le ventre peut blesser physiquement vos adversaires. Vous infligez 7d4 dégâts de son à toutes les créatures dans un cône de 9 mètres, avec un jet de égal au plus élevé entre votre DD de classe ou votre DD de sort. Un tambourinement aussi vigoureux rend votre ventre un peu endolori, ce qui vous empêche d'utiliser cette capacité de nouveau avec 1d4 rounds.",
                     "Au niveau 15 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4."
                 ]
             },
@@ -15078,7 +15078,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous pouvez retirer vos côtes pour les utiliser comme des flèches ou des carreaux. Lorsque vous ôtez une côte, vous perdez ,4,ternary(gte(@actor.level,12),3,2)))[untyped]]{2 Points de vie et le projectile inflige 2 dégâts de vide supplémentaires si vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappez</div> avec avant la fin de votre prochain tour. La perte de Points de vie et les dégâts supplémentaires passent tous deux à 3 au niveau 12 et à 4 au niveau 19. Votre cage thoracique se reconstitue magiquement et toute côte que vous tirez tombe en poussière après avoir été utilisée pour une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> ou à la fin de votre prochain tour, selon ce qui se produit en premier."
+                    "Vous pouvez retirer vos côtes pour les utiliser comme des flèches ou des carreaux. Lorsque vous ôtez une côte, vous perdez {2 Points de vie et le projectile inflige 2 dégâts de vide supplémentaires si vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappez</div> avec avant la fin de votre prochain tour. La perte de Points de vie et les dégâts supplémentaires passent tous deux à 3 au niveau 12 et à 4 au niveau 19. Votre cage thoracique se reconstitue magiquement et toute côte que vous tirez tombe en poussière après avoir été utilisée pour une <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> ou à la fin de votre prochain tour, selon ce qui se produit en premier."
                 ]
             },
             {
@@ -15092,7 +15092,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous pouvez lancer une salve de piquants sur vos adversaires. Vous projetez des piquants dans un cône de 9 mètres, infligeant )d8[piercing]|options:area-damage]{5d8 dégâts perforants}. Chaque créature dans la zone doit faire un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. En cas d'échec critique, la créature subit également )[bleed]]{5 dégâts de saignement}. Au niveau 11 et à chaque niveau pair suivant, les dégâts perforants augmentent de 1d8 et les dégâts de saignement augmentent de 1.",
+                    "Vous pouvez lancer une salve de piquants sur vos adversaires. Vous projetez des piquants dans un cône de 9 mètres, infligeant 5d8 dégâts perforants. Chaque créature dans la zone doit faire un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. En cas d'échec critique, la créature subit également 5 dégâts de saignement. Au niveau 11 et à chaque niveau pair suivant, les dégâts perforants augmentent de 1d8 et les dégâts de saignement augmentent de 1.",
                     "Note Le don ne précise par le type de jet de sauvegarde requis. Un jet de Réflexes a été ajouté, comme pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'oAWNluJaMlaGysXA', 'param__object__label': this.textContent})\">Piquants barbelés</div>."
                 ]
             },
@@ -15366,7 +15366,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous avez une queue qui sert d'arme puissante. Vous obtenez une attaque à mains nues de queue qui inflige ]{1d6 dégâts contondants}, possède le trait balayage et fait partie du groupe pugilat."
+                    "Vous avez une queue qui sert d'arme puissante. Vous obtenez une attaque à mains nues de queue qui inflige 1d6 dégâts contondants, possède le trait balayage et fait partie du groupe pugilat."
                 ]
             },
             {
@@ -15492,7 +15492,7 @@ DON.RACE = {
                     "Vous obtenez également les capacités suivantes pendant 1 minute.",
                     "40 Points de vie temporaires.",
                     "Une vitesse de vol égale à votre vitesse.",
-                    "Les effets d'un sort <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EE7Q5BHIrfWNCPtT', 'param__object__label': this.textContent})\">Corps runique</div> de rang 6 et vos cornes infligent ]{1d4 dégâts d'électricité} supplémentaires.",
+                    "Les effets d'un sort <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'EE7Q5BHIrfWNCPtT', 'param__object__label': this.textContent})\">Corps runique</div> de rang 6 et vos cornes infligent 1d4 dégâts d'électricité supplémentaires.",
                     "Perception du sang en tant que sens précis avec une portée de 18 mètres vous permettant de détecter le sang fraîchement répandu. Ceci vous permet de détecter avec précision les créatures qui subissent des dégâts de saignement, les créatures dont les Points de vie sont actuellement à la moitié ou moins du maximum de leurs points de vie et des flaques d'eau ou des gouttes de sang récemment répandues.",
                     "La rage du kishin persiste pendant 1 minute. Une fois qu'elle se termine, vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'dfCMdR4wnpbYNTix', 'param__object__label': this.textContent})\">Étourdi 3</div>, le temps de vous recharger et de vous recentrer."
                 ]
@@ -15532,7 +15532,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "L'énergie revitalisante qui coule dans vos veines vous revitalise. Vous récupérez ,6,4)d6[healing]] et obtenez 10 Points de vie temporaires qui durent 1 minute. Au niveau 15, vous récupérez à la place 6d6 Points de vie et obtenez 15 Points de vie temporaires."
+                    "L'énergie revitalisante qui coule dans vos veines vous revitalise. Vous récupérez et obtenez 10 Points de vie temporaires qui durent 1 minute. Au niveau 15, vous récupérez à la place 6d6 Points de vie et obtenez 15 Points de vie temporaires."
                 ]
             },
             {
@@ -15544,8 +15544,8 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Ghoran La chaleur et la lumière du soleil vous donnent la vie. Si vous vous reposez à l'extérieur pendant 10 minutes au cours de la journée, vous regagnez un nombre de Points de vie égal à votre *@actor.abilities.con.mod)[healing]]{modificateur de Constitution multiplié par la moitié de votre niveau}. Vous obtenez cet avantage en plus des soins apportés par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>.",
-                    "Léchi Si vous vous reposez en extérieur pendant 10 minutes durant la journée, vous regagnez des Points de vie égaux à votre *@actor.abilities.con.mod)[healing]]{modificateur de Constitution multiplié par la moitié de votre niveau}. Vous obtenez ce bénéfice en plus des soins apportés par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>. Les léchis issus de plantes dont l'alimentation ne dépend pas de la photosynthèse nécessitent un environnement adapté. Par exemple les léchis fongiques ont besoin d'obscurité, d'environnements humides et d'une pile de matière organique en décomposition."
+                    "Ghoran La chaleur et la lumière du soleil vous donnent la vie. Si vous vous reposez à l'extérieur pendant 10 minutes au cours de la journée, vous regagnez un nombre de Points de vie égal à votre modificateur de Constitution multiplié par la moitié de votre niveau. Vous obtenez cet avantage en plus des soins apportés par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>.",
+                    "Léchi Si vous vous reposez en extérieur pendant 10 minutes durant la journée, vous regagnez des Points de vie égaux à votre modificateur de Constitution multiplié par la moitié de votre niveau. Vous obtenez ce bénéfice en plus des soins apportés par <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>. Les léchis issus de plantes dont l'alimentation ne dépend pas de la photosynthèse nécessitent un environnement adapté. Par exemple les léchis fongiques ont besoin d'obscurité, d'environnements humides et d'une pile de matière organique en décomposition."
                 ]
             },
             {
@@ -15775,7 +15775,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par jour",
                     "Déclencheur Une créature vivante dans les 18 mètres devrait mourir.",
-                    "L'énergie qui coule dans votre sang peut préserver une vie dans les temps les plus difficiles. Vous empêchez la créature de mourir et lui restaurez [healing]]{6d8 + votre modificateur de Constitution} Points de vie. Vous ne pouvez pas utiliser la Récupération cantorienne si l'effet déclencheur est un effet de mort ou un effet qui ne laisse aucun reste, tel que la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik', 'param__object__label': this.textContent})\">Désintégration</div>."
+                    "L'énergie qui coule dans votre sang peut préserver une vie dans les temps les plus difficiles. Vous empêchez la créature de mourir et lui restaurez 6d8 + votre modificateur de Constitution Points de vie. Vous ne pouvez pas utiliser la Récupération cantorienne si l'effet déclencheur est un effet de mort ou un effet qui ne laisse aucun reste, tel que la <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'r7ihOgKv19eJQnik', 'param__object__label': this.textContent})\">Désintégration</div>."
                 ]
             },
             {
@@ -15896,7 +15896,7 @@ DON.RACE = {
                     "Regard orageux"
                 ],
                 "description" : [
-                    "Votre troisième œ devient plus fort et plus puissant. Lorsque vous utilisez Regard orageux, vous pouvez augmenter la zone à un cône de 9 mètres et )d4[electricity],(ceil(@actor.level/2))d4[sonic]|options:area-damage]{doubler le nombre des dés de dégâts}. La moitié sont des dégâts électriques et l'autre des dégâts de son. Si vous utilisez Regard orageux de cette manière, vous ne pouvez plus l'utiliser de nouveau avant 1 heure."
+                    "Votre troisième œ devient plus fort et plus puissant. Lorsque vous utilisez Regard orageux, vous pouvez augmenter la zone à un cône de 9 mètres et doubler le nombre des dés de dégâts. La moitié sont des dégâts électriques et l'autre des dégâts de son. Si vous utilisez Regard orageux de cette manière, vous ne pouvez plus l'utiliser de nouveau avant 1 heure."
                 ]
             },
             {
@@ -15950,7 +15950,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous pouvez ouvrir ou emplir d'énergie un troisième œil remarquable sur votre front pour frapper avec une puissance tempétueuse. Vous infligez )d4[@item.flags.system.rulesSelections.stormingGaze]|options:area-damage]{3d4 dégâts d'électricité ou 3d4 dégâts de son} dans un cône de 4,50 mètres. Regard orageux obtient ce trait. Chaque créature dans la zone doit tenter un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous ne pouvez plus utiliser de nouveau cette capacité avant 1d4 rounds.",
+                    "Vous pouvez ouvrir ou emplir d'énergie un troisième œil remarquable sur votre front pour frapper avec une puissance tempétueuse. Vous infligez 3d4 dégâts d'électricité ou 3d4 dégâts de son dans un cône de 4,50 mètres. Regard orageux obtient ce trait. Chaque créature dans la zone doit tenter un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Vous ne pouvez plus utiliser de nouveau cette capacité avant 1d4 rounds.",
                     "Au niveau 7 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4."
                 ]
             },
@@ -16018,7 +16018,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Beaucoup de fleurs sont belles à observer mais mortelles au contact - et vous êtes l'une d'entre elles. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une arme au corps-à-corps sans le trait allonge ou avec une attaque au corps-à-corps sans arme subit ]{3d6 dégâts de poison}."
+                    "Beaucoup de fleurs sont belles à observer mais mortelles au contact - et vous êtes l'une d'entre elles. Pendant 1 minute, toute créature qui vous touche ou vous blesse avec une arme au corps-à-corps sans le trait allonge ou avec une attaque au corps-à-corps sans arme subit 3d6 dégâts de poison."
                 ]
             },
             {
@@ -16311,7 +16311,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Lorsque vous terrorisez vos ennemis, vous leur causez une détresse morale douloureuse. Lorsque vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un ennemi, ce dernier subit ,3,ternary(gte(@actor.system.skills.intimidation.rank,3),2,1))d4[mental]]{1d4 dégâts mentaux} au début de chacun de ses tours tant qu'il reste <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> et continue à engager le combat avec vous. Cet effet se termine si la créature perd l'état Effrayé, si elle se trouve à plus de 9 mètres de vous ou qu'une minute ne s'écoule, selon ce qui se produit en premier. Si vous êtes maître en Intimidation, les dégâts passent à 2d4 et si vous êtes légendaire, les dégâts passent à 3d4."
+                    "Lorsque vous terrorisez vos ennemis, vous leur causez une détresse morale douloureuse. Lorsque vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> un ennemi, ce dernier subit 1d4 dégâts mentaux au début de chacun de ses tours tant qu'il reste <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TBSHQspnbcqxsmjL', 'param__object__label': this.textContent})\">Effrayé</div> et continue à engager le combat avec vous. Cet effet se termine si la créature perd l'état Effrayé, si elle se trouve à plus de 9 mètres de vous ou qu'une minute ne s'écoule, selon ce qui se produit en premier. Si vous êtes maître en Intimidation, les dégâts passent à 2d4 et si vous êtes légendaire, les dégâts passent à 3d4."
                 ]
             },
             {
@@ -16592,7 +16592,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Votre prochain sort de feu laisse des braises dans son sillage. Si votre prochaine action consiste à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aBQ8ajvEBByv45yz', 'param__object__label': this.textContent})\">Lancer un sort</div> avec le trait feu, pendant 1 minute, la zone de votre sort devient un terrain difficile et dangereux, infligeant ]{1 dégât de feu} pour chaque case traversée par une créature."
+                    "Votre prochain sort de feu laisse des braises dans son sillage. Si votre prochaine action consiste à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'aBQ8ajvEBByv45yz', 'param__object__label': this.textContent})\">Lancer un sort</div> avec le trait feu, pendant 1 minute, la zone de votre sort devient un terrain difficile et dangereux, infligeant 1 dégât de feu pour chaque case traversée par une créature."
                 ]
             },
             {
@@ -16745,7 +16745,7 @@ DON.RACE = {
                     "Kholo ricanant"
                 ],
                 "description" : [
-                    "Votre rire fit écho dans les esprits de vos ennemis. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> les créatures jusqu'à 18 mètres de distance. De plus, chaque fois que vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> une créature, elle subit ]{3d8 dégâts mentaux} (ou ]{6d8 dégâts mentaux} sur un succès critique)."
+                    "Votre rire fit écho dans les esprits de vos ennemis. Vous pouvez <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> les créatures jusqu'à 18 mètres de distance. De plus, chaque fois que vous réussissez à <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '2u915NdUyQan6uKF', 'param__object__label': this.textContent})\">Démoraliser</div> une créature, elle subit 3d8 dégâts mentaux (ou 6d8 dégâts mentaux sur un succès critique)."
                 ]
             },
             {
@@ -16843,7 +16843,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Votre vous mettez en boule et vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite dans le sens d'une pente. Si vous atteignez le bas de la pente ou touchez un obstacle durant le premier tour du déplacement, vous arrêtez de rouler sans vous faire mal. Autrement, vous continuez automatiquement à rouler à cette Vitesse durant les tours suivants jusqu'à ce que vous atteignez le bas de la pente ou qu'un obstacle mette fin à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralenti 2</div> à chaque tour après le premier qui vous a vu rouler et si vous touchez un obstacle lors d'un tour consécutif au premier, vous et l'obstacle subissez ]{4d6 dégâts contondants} et vous arrêtez de rouler."
+                    "Votre vous mettez en boule et vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite dans le sens d'une pente. Si vous atteignez le bas de la pente ou touchez un obstacle durant le premier tour du déplacement, vous arrêtez de rouler sans vous faire mal. Autrement, vous continuez automatiquement à rouler à cette Vitesse durant les tours suivants jusqu'à ce que vous atteignez le bas de la pente ou qu'un obstacle mette fin à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralenti 2</div> à chaque tour après le premier qui vous a vu rouler et si vous touchez un obstacle lors d'un tour consécutif au premier, vous et l'obstacle subissez 4d6 dégâts contondants et vous arrêtez de rouler."
                 ]
             },
             {
@@ -16856,7 +16856,7 @@ DON.RACE = {
                     "Arpenteur des roches"
                 ],
                 "description" : [
-                    "Votre carrure de nain vous permet de repousser vos adversaires alentour à la manière d'un puissant rocher fonçant à travers une caverne souterraine. <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faites un pas</div> dans la case d'un adversaire dont la taille est inférieure ou égale à la vôtre et l'ennemi doit se déplacer dans l'espace vide se trouvant directement derrière lui. L'adversaire peut tenter un jet de contre votre DD d'Athlétisme afin de vous empêcher de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div>. S'il tente ce jet de sauvegarde, il subit une quantité de [bludgeoning]]{dégâts contondants} égale à votre niveau plus votre modificateur de Force, à moins qu'il n'obtienne un succès critique.",
+                    "Votre carrure de nain vous permet de repousser vos adversaires alentour à la manière d'un puissant rocher fonçant à travers une caverne souterraine. <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faites un pas</div> dans la case d'un adversaire dont la taille est inférieure ou égale à la vôtre et l'ennemi doit se déplacer dans l'espace vide se trouvant directement derrière lui. L'adversaire peut tenter un jet de contre votre DD d'Athlétisme afin de vous empêcher de <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'UHpkTuCtyaPqiCAB', 'param__object__label': this.textContent})\">Faire un pas</div>. S'il tente ce jet de sauvegarde, il subit une quantité de dégâts contondants égale à votre niveau plus votre modificateur de Force, à moins qu'il n'obtienne un succès critique.",
                     "Si l'ennemi ne peut pas se déplacer dans un espace vide (s'il est entouré d'objets solides ou d'autres créatures, par exemple), votre Roulade du rocher n'a aucun effet."
                 ]
             },
@@ -16885,7 +16885,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Vous pouvez plus facilement naviguer dans les tunnels souterrains en vous roulant en boule. Vous vous roulez en boule et vous vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite en descendant une pente. Si vous atteignez le bas d'une pente ou touchez un obstacle au cours de ce premier tour de déplacement, vous arrêtez de rouler. Autrement, vous continuez automatiquement à rouler à cette Vitesse au cours des tours suivants jusqu'à ce que vous touchiez le bas de la pente ou si un obstacle met un terme à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralenti 2</div> chaque tour après le premier au cours duquel vous continuez à rouler. Si vous rencontrez un obstacle lors d'un tour après le premier, vous et l'obstacle subissez tous les deux ]{4d6 dégâts contondants} et vous cessez de rouler."
+                    "Vous pouvez plus facilement naviguer dans les tunnels souterrains en vous roulant en boule. Vous vous roulez en boule et vous vous déplacez jusqu'à quatre fois votre Vitesse en ligne droite en descendant une pente. Si vous atteignez le bas d'une pente ou touchez un obstacle au cours de ce premier tour de déplacement, vous arrêtez de rouler. Autrement, vous continuez automatiquement à rouler à cette Vitesse au cours des tours suivants jusqu'à ce que vous touchiez le bas de la pente ou si un obstacle met un terme à ce déplacement (ce qui peut se produire au milieu de votre tour). Vous êtes <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralenti 2</div> chaque tour après le premier au cours duquel vous continuez à rouler. Si vous rencontrez un obstacle lors d'un tour après le premier, vous et l'obstacle subissez tous les deux 4d6 dégâts contondants et vous cessez de rouler."
                 ]
             },
             {
@@ -17032,7 +17032,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Votre sang fraîchement répandu est sanctifié avec des effets similaires à ceux de l'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'z9T4c1hXwOotsMCp', 'param__object__label': this.textContent})\">Eau bénite</div>. Lorsqu'un fiélon, un mort-vivant ou une créature ayant une faiblesse contre les boissons saintes boit votre sang ou vous inflige des dégâts perforants ou tranchants avec des mâchoires, des crocs ou une attaque similaire, cette créature subit |traits:holy]{1d6 dégâts spirituels saints}. Vous obtenez un bonus de circonstances de +4 aux tests d'Artisanat pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> de l'eau bénite en utilisant votre propre sang comme ingrédient."
+                    "Votre sang fraîchement répandu est sanctifié avec des effets similaires à ceux de l'<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'z9T4c1hXwOotsMCp', 'param__object__label': this.textContent})\">Eau bénite</div>. Lorsqu'un fiélon, un mort-vivant ou une créature ayant une faiblesse contre les boissons saintes boit votre sang ou vous inflige des dégâts perforants ou tranchants avec des mâchoires, des crocs ou une attaque similaire, cette créature subit 1d6 dégâts spirituels saints. Vous obtenez un bonus de circonstances de +4 aux tests d'Artisanat pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'rmwa3OyhTZ2i2AHl', 'param__object__label': this.textContent})\">Fabriquer</div> de l'eau bénite en utilisant votre propre sang comme ingrédient."
                 ]
             },
             {
@@ -17081,7 +17081,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que celle du côté gauche est mortelle et toxique. Vous pouvez subir ]{1 point de dégât tranchant} pour nourrir quelqu'un du sang de votre côté droit et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div> ou subir ]{2d8 dégâts} pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner les maladies</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> ; dans les deux cas, vous n'avez pas besoin de trousse du guérisseur et obtenez un bonus d'objet de +1 à votre test. Le sang provenant de votre côté gauche entraîne un échec critique automatique du test."
+                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que celle du côté gauche est mortelle et toxique. Vous pouvez subir 1 point de dégât tranchant pour nourrir quelqu'un du sang de votre côté droit et <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div> ou subir 2d8 dégâts pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner les maladies</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> ; dans les deux cas, vous n'avez pas besoin de trousse du guérisseur et obtenez un bonus d'objet de +1 à votre test. Le sang provenant de votre côté gauche entraîne un échec critique automatique du test."
                 ]
             },
             {
@@ -17093,7 +17093,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par heure",
-                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que la chair du côté gauche est mortelle et empoisonnée. Vous vous infligez |immutable:true]{1 dégât tranchant} pour empoisonner une arme que vous tenez. Si vous touchez avec l'arme et infligez des dégâts, la cible subit également ]{1d4 dégâts de poison persistants}. Le poison sur votre arme devient inerte après que vous ayez touché ou à la fin de votre prochain tour, selon ce qui se produit en premier.",
+                    "On dit que la chair du côté droit d'une hyène peut guérir les maladies, mais que la chair du côté gauche est mortelle et empoisonnée. Vous vous infligez 1 dégât tranchant pour empoisonner une arme que vous tenez. Si vous touchez avec l'arme et infligez des dégâts, la cible subit également 1d4 dégâts de poison persistants. Le poison sur votre arme devient inerte après que vous ayez touché ou à la fin de votre prochain tour, selon ce qui se produit en premier.",
                     "<div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '9rUzqHni8LE19Gu5', 'param__object__label': this.textContent})\">Effet : Sang de la main gauche</div>"
                 ]
             },
@@ -17107,7 +17107,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Votre chemin vers l'illumination a permis à votre sang de posséder des propriétés presqu'immortelles, vous permettant de guérir autrui. Vous sacrifiez une partie de votre vitalité pour soigner une autre créature consentante vivante qui vous est adjacente, en couvrant ses blessures avec votre sang. Vous perdez /2))d6)[untyped]]{1d6} Points de vie plus 1d6 Points de vie supplémentaires tous les 2 niveaux que vous possédez au-delà du 10e. Il n'est pas possible de résister, d'empêcher ou d'annuler ces dégâts d'une manière ou d'une autre. La créature cible regagne un nombre de Points de vie égal aux dégâts que vous avez subis. Les créatures que vous soignez de cette manière sont alors temporairement immunisées à votre Sang de la vie pendant 24 heures."
+                    "Votre chemin vers l'illumination a permis à votre sang de posséder des propriétés presqu'immortelles, vous permettant de guérir autrui. Vous sacrifiez une partie de votre vitalité pour soigner une autre créature consentante vivante qui vous est adjacente, en couvrant ses blessures avec votre sang. Vous perdez 1d6 Points de vie plus 1d6 Points de vie supplémentaires tous les 2 niveaux que vous possédez au-delà du 10e. Il n'est pas possible de résister, d'empêcher ou d'annuler ces dégâts d'une manière ou d'une autre. La créature cible regagne un nombre de Points de vie égal aux dégâts que vous avez subis. Les créatures que vous soignez de cette manière sont alors temporairement immunisées à votre Sang de la vie pendant 24 heures."
                 ]
             },
             {
@@ -17131,7 +17131,7 @@ DON.RACE = {
                     "Envenimer"
                 ],
                 "description" : [
-                    "Votre corps peut produire une alternative à votre venin qui guérit les blessures. Vous pouvez utiliser votre action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's4V7JWSMF9JPJAeX', 'param__object__label': this.textContent})\">Envenimer</div> pour produire un reconstituant sanguin au lieu du venin vishkanyen. Vous pouvez fabriquer un reconstituant sanguin au maximum une fois toutes les 10 minutes, même si votre action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's4V7JWSMF9JPJAeX', 'param__object__label': this.textContent})\">Envenimer</div> peut être utilisée plus fréquemment. Vous ou une créature adjacente pouvez interagir pour consommer le reconstituant afin de regagner ,5,3))d6[vitality,healing]|shortLabel]{3d6 Points de vie}. Il s'agit d'un effet de guérison de vitalité. Un reconstituant se gâte au début de votre prochain tour. Lorsque vous atteignez le niveau 15, le reconstituant permet de récupérer 5d6 Points de vie à la place."
+                    "Votre corps peut produire une alternative à votre venin qui guérit les blessures. Vous pouvez utiliser votre action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's4V7JWSMF9JPJAeX', 'param__object__label': this.textContent})\">Envenimer</div> pour produire un reconstituant sanguin au lieu du venin vishkanyen. Vous pouvez fabriquer un reconstituant sanguin au maximum une fois toutes les 10 minutes, même si votre action <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 's4V7JWSMF9JPJAeX', 'param__object__label': this.textContent})\">Envenimer</div> peut être utilisée plus fréquemment. Vous ou une créature adjacente pouvez interagir pour consommer le reconstituant afin de regagner 3d6 Points de vie. Il s'agit d'un effet de guérison de vitalité. Un reconstituant se gâte au début de votre prochain tour. Lorsque vous atteignez le niveau 15, le reconstituant permet de récupérer 5d6 Points de vie à la place."
                 ]
             },
             {
@@ -17638,7 +17638,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois toutes les 10 minutes",
-                    "Vous accordez une partie de vos propres énergies vitales pour réparer les dégâts. Vous touchez un objet non magique de 2 Encombrements ou moins ou un objet magique de 1 Encombrement ou moins et vous redonnez [healing]]{des Points de vie} à la cible égal à deux fois votre niveau. Vous perdez autant de Points de vie que la cible en récupère. Ce transfert de vitalité direct signifie qu'aucun effet appliqué qui devrait augmenter les Points de vie que la cible regagne ou diminuer les Points de vie que vous perdez ne s'applique. Ce transfert ignore aussi tout Point de vie temporaire que vous ou la cible possédez. Vous ne pouvez réduire vos Points de vie en dessous de 1 en utilisant Solidarité. Vous ne pouvez remplacer des parties perdues ou réparer un objet qui a été complètement détruit.",
+                    "Vous accordez une partie de vos propres énergies vitales pour réparer les dégâts. Vous touchez un objet non magique de 2 Encombrements ou moins ou un objet magique de 1 Encombrement ou moins et vous redonnez des Points de vie à la cible égal à deux fois votre niveau. Vous perdez autant de Points de vie que la cible en récupère. Ce transfert de vitalité direct signifie qu'aucun effet appliqué qui devrait augmenter les Points de vie que la cible regagne ou diminuer les Points de vie que vous perdez ne s'applique. Ce transfert ignore aussi tout Point de vie temporaire que vous ou la cible possédez. Vous ne pouvez réduire vos Points de vie en dessous de 1 en utilisant Solidarité. Vous ne pouvez remplacer des parties perdues ou réparer un objet qui a été complètement détruit.",
                     "Spécial Si vous possédez le don <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'LKkX8Ft92u0ax6Yh', 'param__object__label': this.textContent})\">Mentoré minuscule</div>, vous pouvez utiliser Solidarité pour guérir votre familier."
                 ]
             },
@@ -17770,9 +17770,9 @@ DON.RACE = {
                     "Vous avez développé votre souffle magique. Vous soufflez le souffle de dragonnet associé à votre héritage. Souffle de dragonnet obtient les traits indiqués entre parenthèses et le DD est le plus élevé entre votre DD de classe ou votre DD de sort. Après avoir utilisé Souffle de dragonnet, vous ne pouvez plus l'utiliser avant 1d4 rounds.",
                     "Dragonnet fée (arcanique, poison) Vous soufflez un cône de 4,50 mètres de gaz euphorisant. Chaque créature dans la zone doit réussir un jet de ou être <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'e1XGnhKNSQIm5IXg', 'param__object__label': this.textContent})\">Stupéfiée 1</div> pendant 1 round.",
                     "Dragonnet de perle (arcanique, malédiction) Vous soufflez un cône de 4,50 mètres de brume dorée qui altère la chance des créatures prises en son sein. Chaque fois que vous utilisez Souffle de dragonnet, décidez s'il donne de la chance ou de la malchance. Toute créature affectée par votre Souffle de dragonnet devient temporairement immunisée pendant 1 heure. Si votre souffle accorde de la chance, chaque créature dans la zone obtient un bonus de statut de +1 à son prochain jet d'attaque ou test de compétence avant le début de votre prochain tour. Si votre souffle apporte de la malchance, chaque créature dans la zone doit tenter un jet de . Une créature qui obtient un échec sur son jet de sauvegarde subit une pénalité de statut de -1 sur son prochain jet d'attaque ou test de compétence avant le début de votre prochain tour. Sur un échec critique, la créature doit, à la place, lancer deux fois les dés et prendre le pire résultat sur le test. C'est un effet d'infortune.",
-                    "Dragonnet de la marée (feu) Vous soufflez sur une ligne de 4,50 mètres de gaz surchauffé qui inflige )d4[fire]|options:area-damage]{2d4 dégâts de feu} avec un jet de . Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4. Vous pouvez utiliser votre souffle sous l'eau bien qu'il possède le trait feu. Si vous le faites, il obtient le trait eau et émerge sous forme de cône de 6 mètres d'eau bouillante.",
-                    "Drake domestique (arcanique, mental) Vous soufflez un nuage de brume argentée dans un cône de 4,50 mètres qui inflige )d4[mental]|options:area-damage]{2d4 dégâts mentaux} avec un jet de . Il est considéré comme de l'argent par rapport aux faiblesses. Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4.",
-                    "Drake guide (acide) Vous émettez une ligne de 9 mètres de crachat d'acide qui inflige )d4[acid]|options:area-damage]{2d4 dégâts d'acide} avec un jet de . Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4."
+                    "Dragonnet de la marée (feu) Vous soufflez sur une ligne de 4,50 mètres de gaz surchauffé qui inflige 2d4 dégâts de feu avec un jet de . Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4. Vous pouvez utiliser votre souffle sous l'eau bien qu'il possède le trait feu. Si vous le faites, il obtient le trait eau et émerge sous forme de cône de 6 mètres d'eau bouillante.",
+                    "Drake domestique (arcanique, mental) Vous soufflez un nuage de brume argentée dans un cône de 4,50 mètres qui inflige 2d4 dégâts mentaux avec un jet de . Il est considéré comme de l'argent par rapport aux faiblesses. Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4.",
+                    "Drake guide (acide) Vous émettez une ligne de 9 mètres de crachat d'acide qui inflige 2d4 dégâts d'acide avec un jet de . Au niveau 3 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d4."
                 ]
             },
             {
@@ -18363,7 +18363,7 @@ DON.RACE = {
                 ],
                 "required" : [],
                 "description" : [
-                    "Lorsque vous récupérez de vos blessures, l'énergie vitale s'écoule de vous jusqu'à la terre puis de nouveau vers vous de nouveau. Au cours du mode intermède, lorsque vous utilisez l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DXIZ4DHGxhZiWNWb', 'param__object__label': this.textContent})\">Repos long</div>, vous regagnez ]{24 Points de vie supplémentaires} après les 24 premières heures de repos. Vous pouvez utiliser l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> au cours d'un repos long et n'avez as besoin de passer de temps supplémentaire pour le faire. Lorsque vous le faites, des fruits, des noix et des légumes en nombre suffisant pour nourrir 5 personnes apparaissent autour de vous, prêts à être récoltés."
+                    "Lorsque vous récupérez de vos blessures, l'énergie vitale s'écoule de vous jusqu'à la terre puis de nouveau vers vous de nouveau. Au cours du mode intermède, lorsque vous utilisez l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'DXIZ4DHGxhZiWNWb', 'param__object__label': this.textContent})\">Repos long</div>, vous regagnez 24 Points de vie supplémentaires après les 24 premières heures de repos. Vous pouvez utiliser l'activité <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '49y9Ec4bDii8pcD3', 'param__object__label': this.textContent})\">Subsister</div> au cours d'un repos long et n'avez as besoin de passer de temps supplémentaire pour le faire. Lorsque vous le faites, des fruits, des noix et des légumes en nombre suffisant pour nourrir 5 personnes apparaissent autour de vous, prêts à être récoltés."
                 ]
             },
             {
@@ -18677,7 +18677,7 @@ DON.RACE = {
                 "required" : [],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous exploitez l'eau des environs, la faisant tourbillonner en un torrent tumultueux autour de vous pour punir vos ennemis. Chaque créature dans une émanation de 3 mètres (ou de 4,50 m si vous êtes dans une étendue d'eau) subit |options:area-damage]{8d6 dégâts contondants} avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui obtient un échec sur son jet de sauvegarde est mise <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>. Au niveau 17, Les dégâts passent à 11d6."
+                    "Vous exploitez l'eau des environs, la faisant tourbillonner en un torrent tumultueux autour de vous pour punir vos ennemis. Chaque créature dans une émanation de 3 mètres (ou de 4,50 m si vous êtes dans une étendue d'eau) subit 8d6 dégâts contondants avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Une créature qui obtient un échec sur son jet de sauvegarde est mise <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'j91X7x0XSomq8d60', 'param__object__label': this.textContent})\">À terre</div>. Au niveau 17, Les dégâts passent à 11d6."
                 ]
             },
             {
@@ -18755,7 +18755,7 @@ DON.RACE = {
                     "Lorsque vous murmurez à votre pusaka, il essaie de trancher l'ombre d'un ennemi, la plongeant dans un sommeil éternel. Votre pusaka obtient l'activation suivante.",
                     "Activation - Trancher l'ombre 2 (concentration, manipulation, mental)",
                     "Fréquence Une fois par jour",
-                    "Effet Votre pusaka devient un kris fait de ténèbres qui se rend de lui-même dans une ombre d'un ennemi adjacent. Cet ennemi subit ]{80 dégâts mentaux} avec un jet de contre le plus élevé entre votre DD de sort et votre DD de classe. Si ceci réduit la créature à 0 Point de vie, la cible ne meurt pas, mais son ombre set détachée de son corps, devenant un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'clzHAfegb9Rn6DOe', 'param__object__label': this.textContent})\">Rejeton d'ombre</div> qui tente de fuir du corps de la cible. Tant que le rejeton d'ombre existe, la cible reste dans un profond sommeil sans rêve. Si le rejeton est détruit, la cible récupère son ombre et se réveille (Si son corps a été soigneusement gardé lorsqu'il était <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf', 'param__object__label': this.textContent})\">Inconscient</div>)."
+                    "Effet Votre pusaka devient un kris fait de ténèbres qui se rend de lui-même dans une ombre d'un ennemi adjacent. Cet ennemi subit 80 dégâts mentaux avec un jet de contre le plus élevé entre votre DD de sort et votre DD de classe. Si ceci réduit la créature à 0 Point de vie, la cible ne meurt pas, mais son ombre set détachée de son corps, devenant un <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'clzHAfegb9Rn6DOe', 'param__object__label': this.textContent})\">Rejeton d'ombre</div> qui tente de fuir du corps de la cible. Tant que le rejeton d'ombre existe, la cible reste dans un profond sommeil sans rêve. Si le rejeton est détruit, la cible récupère son ombre et se réveille (Si son corps a été soigneusement gardé lorsqu'il était <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'fBnFDH2MTzgFijKf', 'param__object__label': this.textContent})\">Inconscient</div>)."
                 ]
             },
             {
@@ -19001,7 +19001,7 @@ DON.RACE = {
                 ],
                 "description" : [
                     "Fréquence Une fois par jour",
-                    "Vous pouvez porter un coup au corps-à-corps à un démon, ce qui provoque une explosion de lumière sacrée pour tenter d'achever le démon. En plus des dégâts normaux de votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> au corps-à-corps, vous infligez aussi ]{10d6 dégâts spirituels} au démon. Le démon peut résister à ces dégâts supplémentaires avec un jet de contre votre DD de classe. Si le démon est tué par cette frappe, il explose dans une déflagration de lumière sainte qui remplit une émanation de 9 mètres. Toutes les créatures dans cette zone qui possèdent le trait démon subissent |options:area-damage]{10d6 dégâts spirituels} et doit tenter un jet de contre votre DD de classe.",
+                    "Vous pouvez porter un coup au corps-à-corps à un démon, ce qui provoque une explosion de lumière sacrée pour tenter d'achever le démon. En plus des dégâts normaux de votre <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'VjxZFuUXrCU94MWR', 'param__object__label': this.textContent})\">Frappe</div> au corps-à-corps, vous infligez aussi 10d6 dégâts spirituels au démon. Le démon peut résister à ces dégâts supplémentaires avec un jet de contre votre DD de classe. Si le démon est tué par cette frappe, il explose dans une déflagration de lumière sainte qui remplit une émanation de 9 mètres. Toutes les créatures dans cette zone qui possèdent le trait démon subissent 10d6 dégâts spirituels et doit tenter un jet de contre votre DD de classe.",
                     "Succès critique Le démon ne subit pas de dégâts.",
                     "Succès Le démon subit la moitié des dégâts.",
                     "Échec Le démon subit la totalité des dégâts est est <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TkIyaNPgTZFBCCuh', 'param__object__label': this.textContent})\">Ébloui</div> pendant 1 round.",
@@ -19817,7 +19817,7 @@ DON.RACE = {
                 "description" : [
                     "Fréquence Une fois par heure",
                     "Déclencheur Vous réussissez un jet de sauvegarde contre un effet magique mental.",
-                    "Vous envoyez une explosion magique en retour à la source de l'effet, lui infligeant d6[mental]]{2d6 dégâts mentaux} avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Si la cible obtient un échec critique, elle est également <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralentie 1</div> pendant 1 round. Au niveau 11 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d6."
+                    "Vous envoyez une explosion magique en retour à la source de l'effet, lui infligeant 2d6 dégâts mentaux avec un jet de contre le plus élevé entre votre DD de classe ou votre DD de sort. Si la cible obtient un échec critique, elle est également <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'xYTAsEpcJE1Ccni3', 'param__object__label': this.textContent})\">Ralentie 1</div> pendant 1 round. Au niveau 11 et tous les 2 niveaux par la suite, les dégâts augmentent de 1d6."
                 ]
             },
             {
@@ -20070,6 +20070,9 @@ DON.RACE = {
         ]
     ]
 };
+
+
+
 
 
 

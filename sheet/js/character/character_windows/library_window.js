@@ -387,13 +387,11 @@ CHARACTER.LibraryWindow.prototype = {
         return kind_data ? kind_data.label : "";
     },
 
-    // Scrollbar graduée de la liste : la scrollbar native est masquée en
-    // CSS, une piste verticale à droite de la liste porte un pouce
-    // draggable et des labels en nombre de résultats (0 … total)
+    // Scrollbar de la liste : la scrollbar native est masquée en CSS, une
+    // piste verticale à droite de la liste porte un pouce draggable
     _buildListScrollbar: function ( parent ) {
         let self                 = this;
         this.scrollbar_dom_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar" } ), parent );
-        this.scrollbar_ticks_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-ticks" } ), this.scrollbar_dom_element );
         this.scrollbar_track_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-track" } ), this.scrollbar_dom_element );
         this.scrollbar_thumb_dom   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-scrollbar-thumb" } ), this.scrollbar_track_dom );
         this.list_dom_element.addEventListener( "scroll", function () {
@@ -453,7 +451,6 @@ CHARACTER.LibraryWindow.prototype = {
         let max_scroll = list.scrollHeight - list.clientHeight;
         if ( max_scroll <= 0 ) {
             this.scrollbar_dom_element.classList.add( "hidden" );
-            this._scrollbar_ticks_key = null;
             return;
         }
         this.scrollbar_dom_element.classList.remove( "hidden" );
@@ -463,44 +460,6 @@ CHARACTER.LibraryWindow.prototype = {
         let track_range = Math.max( 0, track_height - thumb_height );
         let ratio       = track_range > 0 ? list.scrollTop / max_scroll : 0;
         this.scrollbar_thumb_dom.style.top    = Math.round( ratio * track_range ) + "px";
-        this._renderScrollbarTicks();
-    },
-
-    // Labels 0 … total répartis le long de la piste, pas « beau » 1/2/2,5/5×10ⁿ
-    _renderScrollbarTicks: function () {
-        let total  = this._list_progressive ? this._list_progressive.items.length : 0;
-        let height = this.scrollbar_ticks_dom.clientHeight;
-        let key    = total + "x" + height;
-        if ( key === this._scrollbar_ticks_key ) {
-            return;
-        }
-        this._scrollbar_ticks_key = key;
-        SERVICE.DOM.empty( this.scrollbar_ticks_dom );
-        if ( total <= 0 || height <= 0 ) {
-            return;
-        }
-        let step  = this._niceScrollbarStep( total / 4 );
-        let ticks = [];
-        for ( let value = 0; value < total; value += step ) {
-            ticks.push( value );
-        }
-        ticks.push( total );
-        for ( let t = 0, _size_t = ticks.length; t < _size_t; t++ ) {
-            SERVICE.DOM.addElementTo(
-                SERVICE.DOM.createElement( "div", { class: "library-scrollbar-tick", style: "top:" + Math.round( ticks[ t ] / total * height ) + "px" }, String( ticks[ t ] ) ),
-                this.scrollbar_ticks_dom
-            );
-        }
-    },
-
-    _niceScrollbarStep: function ( raw_step ) {
-        if ( raw_step < 1 ) {
-            return 1;
-        }
-        let pow10 = Math.pow( 10, Math.floor( Math.log10( raw_step ) ) );
-        let norm  = raw_step / pow10;
-        let nice  = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 2.5 ? 2.5 : norm <= 5 ? 5 : 10;
-        return Math.max( 1, Math.round( nice * pow10 ) );
     },
 
     _renderList: function ( list_dom, character_object ) {
@@ -601,7 +560,7 @@ CHARACTER.LibraryWindow.prototype = {
     },
 
     _renderFeatList: function ( list_dom, character_object ) {
-        let sources = this._collectFeatSources( character_object );
+        let sources = this._collectFeatSources();
         // Les dons actifs du personnage portent le tag « Mon don » sur leur
         // carte (cochée ou non la case « Mes dons ») ; la case cochée filtre
         // la liste sur eux et enlève la chip de type et les tags
@@ -652,23 +611,23 @@ CHARACTER.LibraryWindow.prototype = {
         } );
     },
 
-    _collectFeatSources: function ( character_object ) {
+    // Toutes les sources de dons, SANS filtrage par le personnage (décision
+    // utilisateur : la Bibliothèque montre TOUS les dons, pas seulement
+    // ceux accessibles) : généraux, classe, ascendance, compétence et
+    // dons d'archétype de TOUS les archétypes
+    _collectFeatSources: function () {
         let to_return = [];
         for ( let i = 0, _size_i = DON.GENERAL.ENUM.length; i < _size_i; i++ ) {
             to_return.push( { feat: DON.GENERAL.ENUM[ i ], type: "general" } );
         }
         for ( let j = 0, _size_j = DON.CLASS.ENUM.length; j < _size_j; j++ ) {
-            if ( this._hasClassTrait( character_object, DON.CLASS.ENUM[ j ] ) ) {
-                to_return.push( { feat: DON.CLASS.ENUM[ j ], type: "class" } );
-            }
+            to_return.push( { feat: DON.CLASS.ENUM[ j ], type: "class" } );
         }
         for ( let r = 0, _size_r = DON.RACE.ENUM.length; r < _size_r; r++ ) {
             let group = DON.RACE.ENUM[ r ];
             let items = Array.isArray( group ) ? group : [group];
             for ( let r2 = 0, _size_r2 = items.length; r2 < _size_r2; r2++ ) {
-                if ( this._hasTrait( items[ r2 ], this._getRaceName( character_object ) ) ) {
-                    to_return.push( { feat: items[ r2 ], type: "race" } );
-                }
+                to_return.push( { feat: items[ r2 ], type: "race" } );
             }
         }
         for ( let s = 0, _size_s = DON.SKILL.ENUM.length; s < _size_s; s++ ) {
@@ -679,10 +638,7 @@ CHARACTER.LibraryWindow.prototype = {
             }
         }
         for ( let a = 0, _size_a = ARCHETYPES.ENUM.length; a < _size_a; a++ ) {
-            let archetype = ARCHETYPES.ENUM[ a ];
-            if ( !this._hasClassArchetype( character_object, archetype.name ) ) {
-                continue;
-            }
+            let archetype        = ARCHETYPES.ENUM[ a ];
             let archetype_skills = archetype.skills || [];
             for ( let af = 0, _size_af = archetype_skills.length; af < _size_af; af++ ) {
                 to_return.push( {
@@ -697,45 +653,8 @@ CHARACTER.LibraryWindow.prototype = {
                     type : "archetype"
                 } );
             }
-            break;
         }
         return to_return;
-    },
-
-    _getRaceName: function ( character_object ) {
-        return character_object && character_object.getRace() ? character_object.getRace().getValue() : "";
-    },
-
-    _hasTrait: function ( feat, trait_name ) {
-        if ( !feat || !feat.traits ) {
-            return false;
-        }
-        for ( let i = 0, _size_i = feat.traits.length; i < _size_i; i++ ) {
-            if ( feat.traits[ i ] === trait_name ) {
-                return true;
-            }
-        }
-        return false;
-    },
-
-    _hasClassTrait: function ( character_object, feat ) {
-        if ( !character_object || !character_object.getClasses ) {
-            return false;
-        }
-        let classes = character_object.getClasses();
-        for ( let c = 0, _size_c = classes.getSize(); c < _size_c; c++ ) {
-            if ( this._hasTrait( feat, classes.getContent( c ).getName() ) ) {
-                return true;
-            }
-        }
-        return false;
-    },
-
-    _hasClassArchetype: function ( character_object, archetype_name ) {
-        if ( !character_object || !character_object.getArchetype ) {
-            return false;
-        }
-        return character_object.getArchetype().getValue() === archetype_name;
     },
 
     _formatRequired: function ( required ) {

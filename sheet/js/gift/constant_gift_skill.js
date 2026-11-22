@@ -903,7 +903,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "Votre chirurgie peut ramener un patient des portes de la mort mais peut aussi le pousser au travers. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soignez les blessures</div>, vous pouvez infliger ]{1d8 dégâts tranchants} à votre patient juste avant d'appliquer les effets de soigner les blessures. Si vous procédez de la sorte, vous obtenez un bonus de circonstances de +2 à votre test de Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> et, si vous obtenez un succès, il devient un succès critique."
+                    "Votre chirurgie peut ramener un patient des portes de la mort mais peut aussi le pousser au travers. Lorsque vous <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soignez les blessures</div>, vous pouvez infliger 1d8 dégâts tranchants à votre patient juste avant d'appliquer les effets de soigner les blessures. Si vous procédez de la sorte, vous obtenez un bonus de circonstances de +2 à votre test de Médecine pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div> et, si vous obtenez un succès, il devient un succès critique."
                 ]
             },
             {
@@ -3822,8 +3822,8 @@ DON.SKILL = {
                 "description" : [
                     "En invoquant votre divinité, vous récitez des écritures dans le but de blesser un adversaire. Lorsque vous obtenez ce don, choisissez bien, chaos, loi ou mal. Votre choix doit correspondre à une des composantes d'alignement de votre divinité. Cette action possède le trait correspondant à l'alignement choisi.",
                     "Faites un test de contre le DD de Volonté d'un adversaire situé dans les 9 mètres. L'adversaire est alors temporairement immunisé contre les Prières de bataille de votre divinité pendant 1 journée.",
-                    "Succès critique Vous infligez ,6,2))d6[untyped]]{2d6 dégâts} du type de l'alignement choisi ou 6d6 dégâts si vous êtes légendaire en Religion.",
-                    "Succès Vous infligez ,3,1))d6[untyped]]{1d6 dégâts} du type de l'alignement choisi ou 3d6 dégâts si vous êtes légendaire en Religion.",
+                    "Succès critique Vous infligez 2d6 dégâts du type de l'alignement choisi ou 6d6 dégâts si vous êtes légendaire en Religion.",
+                    "Succès Vous infligez 1d6 dégâts du type de l'alignement choisi ou 3d6 dégâts si vous êtes légendaire en Religion.",
                     "Échec Il n'y a pas d'effet.",
                     "Échec critique Le contrecoup de la volonté de votre ennemi contre votre prière vous empêche d'utiliser Prière de bataille de nouveau pendant 10 minutes."
                 ]
@@ -4174,7 +4174,7 @@ DON.SKILL = {
                     "Dévouement : Sentinelle de Dernier-Rempart"
                 ],
                 "description" : [
-                    "Aussi têtu dans la mort que dans la vie, vous avez juré de ne jamais aider vos ennemis détestés. Vous ne pouvez pas être transformé en mort-vivant, sauf par des effets qui proviennent d'un artefact ou d'une divinité. Les créatures mortes-vivantes qui touchent votre cadavre subissent ]{1 dégât de vitalité} à chaque fois qu'elles le font ou ]{1d6 dégâts de vitalité} à chaque fois qu'elles s'exposent à votre cadavre de manière plus approfondie, par exemple en le mordant ou en le transportant."
+                    "Aussi têtu dans la mort que dans la vie, vous avez juré de ne jamais aider vos ennemis détestés. Vous ne pouvez pas être transformé en mort-vivant, sauf par des effets qui proviennent d'un artefact ou d'une divinité. Les créatures mortes-vivantes qui touchent votre cadavre subissent 1 dégât de vitalité à chaque fois qu'elles le font ou 1d6 dégâts de vitalité à chaque fois qu'elles s'exposent à votre cadavre de manière plus approfondie, par exemple en le mordant ou en le transportant."
                 ]
             },
             {
@@ -5052,7 +5052,7 @@ DON.SKILL = {
                     "qualifié en Médecine"
                 ],
                 "description" : [
-                    "En utilisant le pouvoir de votre propre sang, vous amenez le flux sanguin à nourrir les tissus endommagés ou à étouffer le flux pour coaguler les blessures ou empêcher la propagation du poison et des maladies. Vous n'avez plus besoin d'un Matériel de guérisseur pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KjoCEEmPGTeFE4hh', 'param__object__label': this.textContent})\">Soigner un empoisonnement</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, bien que vous subissiez ]{1 dégât} à chaque fois que vous tentez une de ces actions sans les instruments adaptés en ponctionnant votre sang. Vous ne pouvez ni réduire ni empêcher ce dégât.",
+                    "En utilisant le pouvoir de votre propre sang, vous amenez le flux sanguin à nourrir les tissus endommagés ou à étouffer le flux pour coaguler les blessures ou empêcher la propagation du poison et des maladies. Vous n'avez plus besoin d'un Matériel de guérisseur pour <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'MHLuKy4nQO2Z4Am1', 'param__object__label': this.textContent})\">Prodiguer les premiers soins</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'TC7OcDa7JlWbqMaN', 'param__object__label': this.textContent})\">Soigner une maladie</div>, <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': 'KjoCEEmPGTeFE4hh', 'param__object__label': this.textContent})\">Soigner un empoisonnement</div> ou <div class=\"gs-link-information\" onclick=\"CONTROLLER.Main.doActionAfter('event__show_information', {'param__object__uuid': '1kGNdIIhuglAjIp9', 'param__object__label': this.textContent})\">Soigner les blessures</div>, bien que vous subissiez 1 dégât à chaque fois que vous tentez une de ces actions sans les instruments adaptés en ponctionnant votre sang. Vous ne pouvez ni réduire ni empêcher ce dégât.",
                     "Vous obtenez un bonus d'objet de +1 lorsque vous accomplissez ces actions en utilisant votre sang, qui passe à +2 si vous êtes maître en Médecine et à +3 si vous êtes légendaire."
                 ]
             },
@@ -5255,6 +5255,9 @@ DON.SKILL = {
         ]
     ]
 };
+
+
+
 
 
 

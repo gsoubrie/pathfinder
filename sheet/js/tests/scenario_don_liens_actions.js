@@ -85,3 +85,47 @@ TEST.RUNNER.register( "[DON] clic sur le lien = popup de l'action ouverte", func
     let _still_open = document.querySelectorAll( ".popup-overlay[data-current-phase='RUNNING']" );
     TEST.ASSERT.equal( _still_open.length, 0, "Toutes les popups devraient etre fermees en fin de test, reste : " + _still_open.length );
 } );
+
+// Régression : les balises inline Foundry des descriptions scrapées
+// (@Damage[formule[type]]{libellé}) doivent être réduites au libellé par le
+// scraper — aucun résidu "[type]{" ne doit subsister (vu sur "Poussée
+// punitive" qui affichait ")[bludgeoning]]{dégâts contondants...}")
+TEST.RUNNER.register( "[DON] balayage des données = aucun résidu de balise inline dans les descriptions de dons", function () {
+    let _lists    = [ DON.GENERAL.ENUM, DON.CLASS.ENUM, DON.RACE.ENUM[ 0 ], DON.SKILL.ENUM[ 0 ] ];
+    let _residues = [];
+    let _re       = /\[[a-z-]+\]\]?\{/;
+    for ( let l = 0, _size_l = _lists.length; l < _size_l; l++ ) {
+        for ( let f = 0, _size_f = _lists[ l ].length; f < _size_f; f++ ) {
+            let _feat = _lists[ l ][ f ];
+            let _desc = ( _feat.description || [] ).join( "\n" );
+            if ( _re.test( _desc ) ) {
+                _residues.push( _feat.name );
+            }
+        }
+    }
+    TEST.ASSERT.equal( _residues.length, 0, "Aucune description de don ne devrait contenir de résidu de balise inline [type]{..., dons concernés : " + _residues.slice( 0, 10 ).join( " | " ) + ( _residues.length > 10 ? "..." : "" ) );
+} );
+
+TEST.RUNNER.register( "[DON] popup Poussée punitive = jet de dégâts lisible, sans résidu brut", function () {
+    let _feat_data = DON.getFeatInformation( "class", "Poussée punitive" );
+    TEST.ASSERT.notNull( _feat_data, "Pre-condition : le don Poussée punitive devrait exister (classe)" );
+    if ( !_feat_data ) {
+        return;
+    }
+    TEST.ASSERT.ok( _feat_data.description.indexOf( "dégâts contondants égal à votre modificateur de Force" ) !== -1, "La description devrait garder le libellé du jet de dégâts, obtenu : " + _feat_data.description.slice( 0, 400 ) );
+    TEST.ASSERT.notOk( /\[[a-z-]+\]\]?\{/.test( _feat_data.description ), "La description ne devrait contenir aucun résidu [type]{..., trouvé : " + ( ( _feat_data.description.match( /.{0,30}\[[a-z-]+\]\]?\{.{0,30}/ ) || [] )[ 0 ] || "" ) );
+    CONTROLLER.Main.doActionAfter( "event__show_information__feat", { "param__feat_category": "class", "param__feat_name": "Poussée punitive" } );
+    let _overlay   = document.querySelector( ".popup-overlay[data-current-phase='RUNNING']" );
+    TEST.ASSERT.notNull( _overlay, "La popup du don devrait s'ouvrir" );
+    if ( !_overlay ) {
+        return;
+    }
+    let _desc_dom  = _overlay.querySelector( ".popup-description" );
+    TEST.ASSERT.notNull( _desc_dom, "La popup devrait rendre la description" );
+    if ( _desc_dom ) {
+        TEST.ASSERT.ok( _desc_dom.textContent.indexOf( "bludgeoning" ) === -1, "Le texte rendu ne devrait pas contenir le type de dégâts brut, obtenu : " + _desc_dom.textContent.slice( 0, 400 ) );
+        TEST.ASSERT.ok( _desc_dom.textContent.indexOf( "dégâts contondants égal à votre modificateur de Force" ) !== -1, "Le texte rendu devrait porter le libellé du jet, obtenu : " + _desc_dom.textContent.slice( 0, 400 ) );
+    }
+    CONTROLLER.Main.doActionAfter( "event__popup__close", { "param__popup__uuid": _feat_data.id } );
+    TEST.ASSERT.equal( _overlay.getAttribute( "data-current-phase" ), "HIDDEN_TO_STRING", "La popup devrait etre masquee apres fermeture" );
+} );

@@ -16,8 +16,9 @@
  *    reste a trancher), aucune rangee de filtres poses.
  * 2. Sujet Dons : le filtre texte matche AUSSI LE TAG DE TYPE (retour
  *    utilisateur : « Ascendance » sur Abajoues ne se filtrait pas) — chip
- *    Ascendance + tag « ascendance » = tous les dons d'ascendance gates
- *    par la race posee (compte calcule), le tag de la carte visible.
+ *    Ascendance + tag « ascendance » = TOUS les dons d'ascendance, sans
+ *    filtrage par la race posee (la Bibliothèque montre tous les dons,
+ *    compte calcule du dataset), le tag de la carte visible.
  * 3. Sujet Dons : chip Généraux, tag par trait (Entree) + tag par nom
  *    (bouton +) + tag par CONTENU (Entree, mot de la description), le ET
  *    cumule (comptes calcules du dataset), un tag inconnu vide la liste,
@@ -113,6 +114,86 @@ function TEST_libraryCards() {
     TEST_libraryLoadAll();
     let _window_dom = TEST_libraryWindowDom();
     return _window_dom ? _window_dom.querySelectorAll( ".library-card" ) : [];
+}
+
+// Toutes les sources de dons telles que la Bibliothèque les collecte
+// (toutes, sans filtrage par le personnage)
+function TEST_libraryFeatSources() {
+    let _sources = [];
+    for ( let i = 0, _size_i = DON.GENERAL.ENUM.length; i < _size_i; i++ ) {
+        _sources.push( { feat: DON.GENERAL.ENUM[ i ], type: "general" } );
+    }
+    for ( let j = 0, _size_j = DON.CLASS.ENUM.length; j < _size_j; j++ ) {
+        _sources.push( { feat: DON.CLASS.ENUM[ j ], type: "class" } );
+    }
+    for ( let r = 0, _size_r = DON.RACE.ENUM.length; r < _size_r; r++ ) {
+        let _group = DON.RACE.ENUM[ r ];
+        let _items = Array.isArray( _group ) ? _group : [_group];
+        for ( let k = 0, _size_k = _items.length; k < _size_k; k++ ) {
+            _sources.push( { feat: _items[ k ], type: "race" } );
+        }
+    }
+    for ( let s = 0, _size_s = DON.SKILL.ENUM.length; s < _size_s; s++ ) {
+        let _group = DON.SKILL.ENUM[ s ];
+        let _items = Array.isArray( _group ) ? _group : [_group];
+        for ( let k = 0, _size_k = _items.length; k < _size_k; k++ ) {
+            _sources.push( { feat: _items[ k ], type: "skill" } );
+        }
+    }
+    for ( let a = 0, _size_a = ARCHETYPES.ENUM.length; a < _size_a; a++ ) {
+        let _archetype = ARCHETYPES.ENUM[ a ];
+        let _skills    = _archetype.skills || [];
+        for ( let k = 0, _size_k = _skills.length; k < _size_k; k++ ) {
+            _sources.push( {
+                feat: {
+                    name       : _skills[ k ].name,
+                    level      : _skills[ k ].level,
+                    traits     : _archetype.traits || [],
+                    description: _skills[ k ].description || [],
+                    archetype  : _archetype.name
+                },
+                type: "archetype"
+            } );
+        }
+    }
+    return _sources;
+}
+
+// Le matcher de la fenêtre, reconstruit côté test : chaque filtre posé doit
+// matcher le nom, le tag de type, un trait OU le contenu aplati de la carte
+function TEST_libraryCountFeatsMatching( filters ) {
+    let _sources = TEST_libraryFeatSources();
+    let _count   = 0;
+    for ( let i = 0, _size_i = _sources.length; i < _size_i; i++ ) {
+        let _feat    = _sources[ i ].feat;
+        let _name    = String( _feat.name || "" ).toLowerCase();
+        let _type    = String( LIBRARY.FEAT_TYPE_LABELS[ _sources[ i ].type ] || _sources[ i ].type ).toLowerCase() + ( _feat.archetype ? " " + String( _feat.archetype ).toLowerCase() : "" );
+        let _content = ( _feat.description || [] ).map( function ( paragraph ) {
+            return ( Array.isArray( paragraph ) ? paragraph.join( " " ) : String( paragraph ) ).replace( /<[^>]*>/g, " " ).replace( /\s+/g, " " ).trim();
+        } ).join( " " ).toLowerCase();
+        let _traits  = ( _feat.traits || [] ).map( function ( trait ) { return String( trait ).toLowerCase(); } );
+        let _ok      = true;
+        for ( let f = 0, _size_f = filters.length; f < _size_f; f++ ) {
+            let _filter_lower = filters[ f ].toLowerCase();
+            if ( _name.indexOf( _filter_lower ) !== -1 || _content.indexOf( _filter_lower ) !== -1 || _type.indexOf( _filter_lower ) !== -1 ) {
+                continue;
+            }
+            let _carried = false;
+            for ( let t = 0, _size_t = _traits.length; t < _size_t; t++ ) {
+                if ( _traits[ t ].indexOf( _filter_lower ) !== -1 ) {
+                    _carried = true;
+                }
+            }
+            if ( !_carried ) {
+                _ok = false;
+                break;
+            }
+        }
+        if ( _ok ) {
+            _count++;
+        }
+    }
+    return _count;
 }
 
 // Le matcher du domaine reconduit par le test (comptes calcules, jamais
@@ -249,6 +330,22 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] onglet = Bibliothèque, sujets = Dons, So
         TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-search" ).length, 1, "Une seule zone de filtre devrait exister (nom, trait et contenu fusionnes), obtenu : " + _window_dom.querySelectorAll( ".library-search" ).length );
         TEST.ASSERT.notNull( _window_dom.querySelector( ".library-list" ), "La zone de liste devrait etre rendue" );
         TEST.ASSERT.ok( TEST_libraryCards().length > 0, "Des cartes de dons devraient etre rendues" );
+        // La Bibliothèque montre TOUS les dons, SANS filtrage par le
+        // personnage (décision utilisateur) : généraux + classe +
+        // ascendance + compétence + dons d'archétype de tous les archétypes
+        let _all_feats_count                = DON.GENERAL.ENUM.length + DON.CLASS.ENUM.length;
+        for ( let r = 0, _size_r = DON.RACE.ENUM.length; r < _size_r; r++ ) {
+            let _race_group                 = DON.RACE.ENUM[ r ];
+            _all_feats_count               += Array.isArray( _race_group ) ? _race_group.length : 1;
+        }
+        for ( let s = 0, _size_s = DON.SKILL.ENUM.length; s < _size_s; s++ ) {
+            let _skill_group                = DON.SKILL.ENUM[ s ];
+            _all_feats_count               += Array.isArray( _skill_group ) ? _skill_group.length : 1;
+        }
+        for ( let a = 0, _size_a = ARCHETYPES.ENUM.length; a < _size_a; a++ ) {
+            _all_feats_count               += ( ARCHETYPES.ENUM[ a ].skills || [] ).length;
+        }
+        TEST.ASSERT.equal( TEST_libraryCards().length, _all_feats_count, "Le sujet Dons devrait lister TOUS les dons du dataset (" + _all_feats_count + "), obtenu : " + TEST_libraryCards().length );
         // Consultation pure : aucune case a cocher de SELECTION sur les
         // cartes (la carte porte le texte, le « ? » de popup est parti) ;
         // seule la case « Mes dons » de la barre de filtres existe (filtre
@@ -285,24 +382,17 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Dons = le filtre texte matche le ta
         return;
     }
     _race_chip.click();
-    // Attendu : TOUS les dons d'ascendance gates par la race posee — leur
-    // tag de type « Ascendance » matche le filtre, leurs traits scrapes ne
-    // portent que le nom de la race (retour utilisateur : « Abajoues » ne
-    // se filtrait pas par son tag affiche)
-    let _race_name     = CONTROLLER.Character.current_character.getRace().getValue();
+    // Attendu : TOUS les dons d'ascendance du dataset, SANS filtrage par la
+    // race posee (décision utilisateur : la Bibliothèque montre tous les
+    // dons) — leur tag de type « Ascendance » matche le filtre
     let _expected      = 0;
     for ( let r = 0, _size_r = DON.RACE.ENUM.length; r < _size_r; r++ ) {
         let _group     = DON.RACE.ENUM[ r ];
-        let _items     = Array.isArray( _group ) ? _group : [_group];
-        for ( let i = 0, _size_i = _items.length; i < _size_i; i++ ) {
-            if ( _items[ i ].traits && _items[ i ].traits.indexOf( _race_name ) !== -1 ) {
-                _expected++;
-            }
-        }
+        _expected     += Array.isArray( _group ) ? _group.length : 1;
     }
     TEST_libraryCommitFilterByEnter( "ascendance" );
     let _cards          = TEST_libraryCards();
-    TEST.ASSERT.equal( _cards.length, _expected, "Le tag « ascendance » devrait laisser les " + _expected + " don(s) d'ascendance de la race posee, obtenu : " + _cards.length );
+    TEST.ASSERT.equal( _cards.length, _expected, "Le tag « ascendance » devrait laisser les " + _expected + " don(s) d'ascendance (tous, sans filtrage par race), obtenu : " + _cards.length );
     if ( _expected > 0 ) {
         TEST.ASSERT.notNull( _window_dom.querySelector( ".library-card .library-tag--race" ), "La carte passee devrait porter son tag de type Ascendance en evidence" );
     }
@@ -355,6 +445,35 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Dons = tags cumulatifs sur nom, tra
     _cards              = TEST_libraryCards();
     TEST.ASSERT.equal( _cards.length, _expected_content, "Le × de SON tag devrait restaurer les " + _expected_content + " carte(s) d'avant, obtenu : " + _cards.length );
     TEST.ASSERT.notOk( TEST_libraryTagPresent( "zzzzz" ), "Le tag retire ne devrait plus vivre dans la rangee" );
+} );
+
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Dons = recherche « sang-dragon » trouve les dons de l'héritage (tous les dons listés)", function () {
+    // Le changement de sujet remet la vue à zéro (chip Tous, aucun tag)
+    let _dons_chip      = TEST_librarySubjectChip( "Dons" );
+    TEST.ASSERT.notNull( _dons_chip, "Pre-condition : puce sujet Dons rendue" );
+    if ( !_dons_chip ) {
+        return;
+    }
+    _dons_chip.click();
+    let _expected       = TEST_libraryCountFeatsMatching( [ "sang-dragon" ] );
+    TEST.ASSERT.ok( _expected > 0, "Le dataset devrait contenir des dons dont le trait est Sang-dragon (attendu > 0, obtenu : " + _expected + ")" );
+    TEST_libraryCommitFilterByEnter( "sang-dragon" );
+    let _cards          = TEST_libraryCards();
+    TEST.ASSERT.equal( _cards.length, _expected, "La recherche « sang-dragon » devrait trouver les " + _expected + " don(s) portant ce trait (héritage Sang-dragon listé sans filtrage par race), obtenu : " + _cards.length );
+    let _sang_tag       = false;
+    for ( let i = 0, _size_i = _cards.length; i < _size_i; i++ ) {
+        let _tags = _cards[ i ].querySelectorAll( ".library-tag" );
+        for ( let t = 0, _size_t = _tags.length; t < _size_t; t++ ) {
+            if ( _tags[ t ].textContent === "Sang-dragon" ) {
+                _sang_tag = true;
+            }
+        }
+    }
+    TEST.ASSERT.ok( _sang_tag, "Au moins une carte trouvée devrait porter le tag « Sang-dragon »" );
+    // le filtre retiré laisse la suite propre
+    TEST_libraryRemoveTag( "sang-dragon" );
+    _cards              = TEST_libraryCards();
+    TEST.ASSERT.equal( _cards.length, TEST_libraryFeatSources().length, "Le retrait du tag devrait rendre toute la liste (" + TEST_libraryFeatSources().length + " dons), obtenu : " + _cards.length );
 } );
 
 TEST.RUNNER.register( "[BIBLIOTHÈQUE] sujet Sorts = sections par nature + tag par trait", function () {
@@ -912,10 +1031,11 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] chargement progressif : premier lot de 20
     } );
 } );
 
-// La scrollbar graduée de la liste : scrollbar native masquée (CSS),
-// piste + pouce draggable + labels 0…total en nombre de résultats,
-// masquée quand la liste tient sans défiler
-TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar graduée : labels 0…total, pouce suit le scroll et se drague, clic piste, masquée si la liste tient", function () {
+// La scrollbar de la liste : scrollbar native masquée (CSS), piste +
+// pouce draggable, masquée quand la liste tient sans défiler. Les labels
+// de graduation ont été retirés (décision utilisateur) : plus de colonne
+// de chiffres, la place revient à la liste
+TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar : sans labels, pouce suit le scroll et se drague, clic piste, masquée si la liste tient", function () {
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
         return TEST.wait();
     } ).then( function () {
@@ -935,7 +1055,7 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar graduée : labels 0…total, po
         let _scrollbar = _window_dom.querySelector( ".library-scrollbar" );
         let _track     = _window_dom.querySelector( ".library-scrollbar-track" );
         let _thumb     = _window_dom.querySelector( ".library-scrollbar-thumb" );
-        TEST.ASSERT.ok( _list && _scrollbar && _track && _thumb, "La liste devrait porter sa scrollbar graduée (piste + pouce)" );
+        TEST.ASSERT.ok( _list && _scrollbar && _track && _thumb, "La liste devrait porter sa scrollbar (piste + pouce)" );
         if ( !_list || !_scrollbar || !_track || !_thumb ) {
             return;
         }
@@ -943,12 +1063,9 @@ TEST.RUNNER.register( "[BIBLIOTHÈQUE] scrollbar graduée : labels 0…total, po
         TEST.ASSERT.ok( _total > LIBRARY.RENDER_BATCH_SIZE, "Le sujet Équipement devrait déborder après le drain (" + _total + " cartes)" );
         TEST.ASSERT.ok( _list.scrollHeight > _list.clientHeight, "La liste devrait déborder (scrollHeight " + _list.scrollHeight + " > clientHeight " + _list.clientHeight + ")" );
         TEST.ASSERT.ok( !_scrollbar.classList.contains( "hidden" ), "La scrollbar devrait être visible quand la liste déborde" );
-        let _ticks = _window_dom.querySelectorAll( ".library-scrollbar-tick" );
-        TEST.ASSERT.ok( _ticks.length >= 2, "La scrollbar devrait porter au moins 2 labels, obtenu : " + _ticks.length );
-        if ( _ticks.length >= 2 ) {
-            TEST.ASSERT.equal( _ticks[ 0 ].textContent, "0", "Le premier label devrait être 0, obtenu : [" + _ticks[ 0 ].textContent + "]" );
-            TEST.ASSERT.equal( _ticks[ _ticks.length - 1 ].textContent, String( _total ), "Le dernier label devrait être le total " + _total + ", obtenu : [" + _ticks[ _ticks.length - 1 ].textContent + "]" );
-        }
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-scrollbar-ticks" ).length, 0, "La colonne de labels ne devrait plus exister" );
+        TEST.ASSERT.equal( _window_dom.querySelectorAll( ".library-scrollbar-tick" ).length, 0, "La scrollbar ne devrait plus porter aucun chiffre" );
+        TEST.ASSERT.ok( _scrollbar.clientWidth <= _track.offsetWidth + 1, "La place des labels devrait revenir à la liste : la scrollbar se réduit à la piste (largeur " + _scrollbar.clientWidth + ", piste " + _track.offsetWidth + ")" );
         TEST.ASSERT.ok( parseInt( _thumb.style.height, 10 ) > 0, "Le pouce devrait avoir une hauteur posée, obtenu : [" + _thumb.style.height + "]" );
         TEST.ASSERT.equal( _thumb.style.top, "0px", "Le pouce devrait être en haut au départ, obtenu : [" + _thumb.style.top + "]" );
         // Scroll au fond : le pouce descend au bout de la piste

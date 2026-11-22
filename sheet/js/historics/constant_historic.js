@@ -17241,6 +17241,9 @@ var HISTORICS = {
     ]
 };
 
+
+
+
 /**
  * Every lore known in the scraped data: the qualified "Connaissance" skills
  * of the backgrounds ("de la Pègre", "des guildes"...), displayed as

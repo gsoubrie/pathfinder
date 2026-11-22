@@ -239,33 +239,17 @@
 
 .library-window .library-list::-webkit-scrollbar { display: none; }
 
-/* --- SCROLLBAR GRADUÉE (scrollbar native masquée : piste + pouce + labels
-   en nombre de résultats) --- */
+/* --- SCROLLBAR (scrollbar native masquée : piste verticale + pouce) --- */
 
 .library-window .library-scrollbar {
     display     : flex;
     align-items : stretch;
-    gap         : 4px;
     padding     : 10px 0;
     user-select : none;
 }
 
 .library-window .library-scrollbar.hidden {
     display: none;
-}
-
-.library-window .library-scrollbar-ticks {
-    position : relative;
-    width    : 34px;
-}
-
-.library-window .library-scrollbar-tick {
-    position    : absolute;
-    right       : 0;
-    transform   : translateY(-50%);
-    font-size   : 10px;
-    color       : var(--c-text-muted, #7a6040);
-    white-space : nowrap;
 }
 
 .library-window .library-scrollbar-track {

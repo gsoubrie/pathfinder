@@ -217,3 +217,56 @@ TEST.RUNNER.register( "[SAVE FICHIER] load par init( uuid ) = etat restaure + fe
         } );
     } );
 } );
+
+// Le badge warning de l'onglet Progression doit porter les lignes en attente
+// DÈS le chargement du personnage, SANS activer l'onglet : la chaîne de
+// compteurs ligne → fenêtre est branchée à la création de la fenêtre
+TEST.RUNNER.register( "[SAVE FICHIER] load = badge warning de Progression visible sans ouvrir l'onglet", function () {
+    let _character                          = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage vivant (le save a ete injecte par le test precedent)" );
+    if ( !_character ) {
+        return;
+    }
+    let _uuid                               = _character.getUUID();
+    TEST.RESET.sheet( _uuid );
+    let _loaded                             = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _loaded, "Le personnage devrait etre recharge par la voie reelle (init(uuid))" );
+    if ( !_loaded ) {
+        return;
+    }
+    // Pre-condition : au chargement l'onglet actif est le Général, la
+    // Progression n'a JAMAIS ete activée sur cette feuille
+    let _active                             = _loaded.windows.getActiveWindow();
+    TEST.ASSERT.ok( _active && _active.getName() === CHARACTER.GeneralWindow.NAME, "L'onglet actif au chargement devrait etre le Général, obtenu : " + ( _active ? _active.getName() : "null" ) );
+    // Le badge attendu = somme des compteurs du contenu de la Progression :
+    // warnings des caractéristiques + lignes non validées des historiques
+    // (une entrée désactivée ne contribue pas, règle des compteurs)
+    let _expected                           = _loaded.getCharacteristics().getCounterValue( GS.OBJECT.COUNTER_V2_CONST.TYPE.WARNINGS );
+    let _pending_lines                      = 0;
+    let _histories                          = [ _loaded.getLevelHistory(), _loaded.getAncestryHistory(), _loaded.getArchetypeHistory() ];
+    for ( let h = 0, _size_h = _histories.length; h < _size_h; h++ ) {
+        let _history                        = _histories[ h ];
+        for ( let e = 0, _size_e = _history.getSize(); e < _size_e; e++ ) {
+            let _entry                      = _history.getContent( e );
+            if ( typeof _entry.isEnabled === "function" && !_entry.isEnabled() ) {
+                continue;
+            }
+            for ( let l = 0, _size_l = _entry.getSize(); l < _size_l; l++ ) {
+                if ( !_entry.getContent( l ).isActive() ) {
+                    _expected++;
+                    _pending_lines++;
+                }
+            }
+        }
+    }
+    TEST.ASSERT.ok( _pending_lines > 0, "Le personnage recharge devrait avoir des lignes de progression en attente (sinon le test ne prouve rien), obtenu : " + _pending_lines );
+    let _badge                              = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LevelUpWindow.NAME + "'] .gs-counter.gs-warnings-counter" );
+    TEST.ASSERT.notNull( _badge, "Le badge warning devrait exister sur l'onglet Progression" );
+    if ( !_badge ) {
+        return;
+    }
+    let _expected_text                      = _expected === 0 ? "" : "" + _expected;
+    return TEST.waitCounterValue( _badge, _expected_text ).then( function () {
+        TEST.ASSERT.equal( _badge.getAttribute( "data-number" ), _expected_text, "Le badge devrait porter les " + _expected + " warnings du personnage charge SANS activer l'onglet (attendu [" + _expected_text + "]), obtenu : [" + _badge.getAttribute( "data-number" ) + "]" );
+    } );
+} );

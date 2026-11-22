@@ -1810,8 +1810,10 @@ de vue sur la fenêtre (`current_subject` / `filter_type` /
 `search_text`), `computeContent` vide et reconstruit sujets + filtres +
 liste au clic d'onglet ET au changement de sujet (le changement RESET
 chip et recherche — vue vierge par sujet, verrouillé par scénario) ;
-sujet Dons = les mêmes sources qu'avant (généraux, classe/ascendance
-gated par possession, compétences, archétype du personnage), sections
+sujet Dons = TOUS les dons, SANS filtrage par le personnage (décision
+utilisateur : la Bibliothèque montre tous les dons, pas seulement ceux
+accessibles — `_collectFeatSources` sans paramètre : généraux, classe,
+ascendance, compétence, dons d'archétype de TOUS les archétypes), sections
 Niveau ; sujet Sorts = `SPELLS.getSpellListData()` (770 sorts), sections
 par nature (Tours de magie, Rang N, Focalisés, Rituels), popup spell
 existante par « ? » ; sujet Équipement = `STUFFS` (3309 entrées) à
@@ -2746,6 +2748,74 @@ bibliothèque : test dédié (absence sur Dons, tag « rang 1 » compte calculé
 « Tout ajouter (N) » → tous les filtrés possédés + bascule Sorts, second
 clic = no-op, « + » de section → toute la section possédée). Run headless :
 199 OK / 0 ECHEC ×2.
+
+Round 96 = SCROLLBAR BIBLIOTHÈQUE SANS LABELS (retour utilisateur : « les
+chiffres font bizarre, récupère la place »). La colonne de graduations
+`.library-scrollbar-ticks` / `.library-scrollbar-tick` est supprimée du DOM
+(`_buildListScrollbar`) et du CSS, avec les méthodes mortes
+`_renderScrollbarTicks` / `_niceScrollbarStep` et le cache
+`_scrollbar_ticks_key` : `.library-scrollbar` ne contient plus que la piste
+`.library-scrollbar-track` + le pouce. La place libérée (34px + gap) revient
+à `.library-list` (flex:1 dans `.library-list-wrap`, inchangé). Test
+scénario renommé : asserts à 0 label + largeur scrollbar ≤ piste, le reste
+(pouce haut/bas, drag, clic piste, masquée si la liste tient) inchangé.
+
+Round 97 = BADGES DE COMPTEURS AU CHARGEMENT (retour utilisateur : « quand
+je charge un personnage, je n'ai pas les compteurs, ex. warning de la
+progression »). Cause : la chaîne de compteurs ligne → fenêtre de
+`LevelUpWindow` n'était branchée que dans `_buildContent` (à l'activation de
+l'onglet) — au chargement, seules les caractéristiques étaient branchées dans
+`computeHtmlWithData`. Correctif : `computeHtmlWithData` branche aussi les
+lignes des trois historiques via `_wireHistoryCounters` (levels +
+ancestry + archetype) ; `CounterV2.setParent` pousse la valeur courante au
+parent et `GS.TOOLS.ARRAY.addElement` déduplique, donc le re-branchement à
+chaque rendu (`_buildContent`) reste sans effet (pas de double compte).
+Contrôle négatif : sans le correctif le badge vaut 5 (caractéristiques
+seules) au lieu de 27 sur le Magicien 5 du scénario save. Test :
+`[SAVE FICHIER] load = badge warning de Progression visible sans ouvrir
+l'onglet` (recharge par `TEST.RESET.sheet(uuid)`, onglet actif = Général,
+badge attendu = warnings caractéristiques + lignes non validées des
+historiques, entrées désactivées exclues). Run headless : 215 OK / 0 ECHEC
+×2.
+
+Round 98 = TABLEAU DES JETS DE LA PROGRESSION RAFRAÎCHI EN PLACE (retour
+utilisateur : « quand je modifie mes compétences dans l'onglet Progression
+le tableau dans le même onglet ne se met pas à jour »). Cause : les événements
+de ligne (`event__level_up__toggle_skill` / `select_choice` / sélecteurs...)
+ne re-rendaient rien dans `LevelUpWindow`. Correctif : `_buildJetsTable`
+garde un conteneur persistant (`this._jets_table_dom`, vidé et re-rempli à
+chaque appel, ré-appendé dans la cible — l'ordre du `_buildContent` est
+conservé) et le case des événements de ligne appelle `_buildJetsTable` après
+le forward au personnage quand le tableau existe (les blocs partagés
+`computeSavesBlock`/`computeSkillsBlock` lisent les rangs en direct dans le
+domaine, la phase de ligne est posée synchro). Le Général garde son
+comportement : recalcul des jets à l'activation de l'onglet. Test :
+`[AMELIORATIONS COMPETENCE] tableau des jets de la Progression rafraîchi en
+place au geste sur une ligne` (vidage du choix Arcanes → rang Q + jet
+recalculé dans le même onglet, puis restauration E). Contrôle négatif :
+sans le correctif le tableau reste à E. Run headless : 216 OK / 0 ECHEC ×2.
+
+Round 99 = RÉSIDUS DE BALISES INLINE DANS LES DESCRIPTIONS SCRAPÉES (retour
+utilisateur : la popup du don « Poussée punitive » affichait
+« )[bludgeoning]]{dégâts contondants...} »). Cause : dans
+`sheet/tools/rescrap_pf2e.js`, `GENERIC_TAG_RE` (`\[[^\]]*\]`) ne gérait pas
+les crochets imbriqués des `@Damage[formule[type]]{libellé}` — le tag
+n'était pas reconnu, puis `BARE_TAG_RE` n'en stripait que le début, laissant
+`)[type]]{libellé}` (115+ résidus dans les fichiers générés). Correctif
+scraper : matcher de crochets à UN niveau d'imbrication
+(`NESTED_BRACKET = "(?:\\[(?:[^\\[\\]]|\\[[^\\]]*\\])*\\])+"`) partagé par
+`GENERIC_TAG_RE` et `BARE_TAG_RE`, plus `MALFORMED_TAG_RE`
+(`/@\w+\[[^@]{0,300}?\{([^}]*)\}/g`, appliqué APRÈS `stripBareTags`) pour les
+balises mal formées de la source (`@Damage[1d6[mental]{...}`, crochet interne
+jamais fermé). Re-scrap offline depuis le cache
+(`node sheet/tools/rescrap_pf2e.js all`) + `clean_scraped_text.js` relancé :
+0 résidu restant dans gift/spell/stuffs/objects. `constant_class.js` garde
+des `@Damage[...]` intacts en amont (champ « Dégâts » non aplati, comportement
+pré-existant). Tests : balayage des 4 listes de dons (aucun `[type]{` dans
+aucune description) + popup « Poussée punitive » (libellé lisible, pas de
+« bludgeoning »). Contrôle négatif : avec les anciens fichiers générés, les
+2 tests échouent sur « )[bludgeoning]]{...} ». Run headless : 218 OK /
+0 ECHEC ×2.
 
 ### Style, commentaires, nommage
 

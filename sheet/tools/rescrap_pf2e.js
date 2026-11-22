@@ -183,13 +183,21 @@ function restoreLinks( html, links ) {
 }
 
 // The other Foundry inline tags (@Damage, @Check, @Template...) collapse to
-// their label, the [[/act ...]]{label} links to the plain label
-var GENERIC_TAG_RE = /@\w+(?:\[[^\]]*\])+\{([^}]*)\}/g;
+// their label, the [[/act ...]]{label} links to the plain label. The bracket
+// matcher allows ONE level of nesting : @Damage[(1d6+2)[fire]]{...} carries
+// the damage type inside the formula bracket
+var NESTED_BRACKET = "(?:\\[(?:[^\\[\\]]|\\[[^\\]]*\\])*\\])+";
+var GENERIC_TAG_RE = new RegExp( "@\\w+" + NESTED_BRACKET + "\\{([^}]*)\\}", "g" );
 var ACT_LINK_RE    = /\[\[[^\]]*\]\]?\{([^}]*)\}/g;
 var STRONG_RE      = /<strong>([^<]*)<\/strong>/g;
 // Leftover Foundry tags without a label, including the malformed source
 // forms (@Check[fortitude|dc:27], [[/r 1d20]], @Damage[(6d6)[slashing])
-var BARE_TAG_RE    = /@\w+\[[^\])]*[\])]?|\[\[[^\]]*\]\]?/g;
+var BARE_TAG_RE    = new RegExp( "@\\w+" + NESTED_BRACKET + "|\\[\\[[^\\]]*\\]\\]?", "g" );
+// Malformed source tags whose inner bracket is never closed before the
+// label (@Damage[1d6[mental]{1d6 dégâts mentaux}) : collapse to the label.
+// Runs AFTER stripBareTags so only malformed tags remain; the lazy body is
+// bounded and cannot cross another @tag
+var MALFORMED_TAG_RE = /@\w+\[[^@]{0,300}?\{([^}]*)\}/g;
 
 function stripBareTags( html ) {
     return html.replace( BARE_TAG_RE, "" );
@@ -206,6 +214,7 @@ function cleanSpellDescription( html ) {
     out = out.replace( ACT_LINK_RE, "$1" );
     out = out.replace( STRONG_RE, "\"$1\"" );
     out = stripBareTags( out );
+    out = out.replace( MALFORMED_TAG_RE, " $1" );
     out = out.replace( /<span class="action-glyph">([^<]*)<\/span>/g, "$1" );
     out = out.replace( /<hr\s*\/?>/g, "\n" );
     return out;
@@ -225,6 +234,7 @@ function flattenHtml( html ) {
     out = out.replace( ACT_LINK_RE, "$1" );
     out = out.replace( STRONG_RE, "$1" );
     out = stripBareTags( out );
+    out = out.replace( MALFORMED_TAG_RE, " $1" );
     out = out.replace( /<span class="action-glyph">([^<]*)<\/span>/g, "$1" );
     // tables flatten to tab-separated rows
     out = out.replace( /<tr[^>]*>/g, "\n" );
