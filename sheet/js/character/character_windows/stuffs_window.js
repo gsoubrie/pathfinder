@@ -107,6 +107,40 @@ CHARACTER.StuffsWindow.prototype = {
                 this._refreshContent();
                 return;
             }
+            // The wallet refreshes on its own events (the domain already
+            // landed, the character broadcast them here)
+            case "event__coins__set_amount":
+            case "event__coins__add_journal":
+                this._refreshContent();
+                return;
+            // The + of the journal add row : the window assembles the line
+            // (location, signed amounts, label — read from the row, never
+            // inline) and re-dispatches to the character ; the refresh
+            // follows with the add_journal broadcast
+            case "event__coins__commit_journal": {
+                let add_row = this.content_dom_element_target.querySelector( ".stuffs-coins-add" );
+                if ( !add_row ) {
+                    return;
+                }
+                let commit_params = {
+                    "param__coins__location": add_row.querySelector( ".stuffs-coins-add-location" ).value,
+                    "param__coins__label"   : add_row.querySelector( ".stuffs-coins-add-label" ).value
+                };
+                let has_delta  = false;
+                let add_inputs = add_row.querySelectorAll( ".stuffs-coins-add-amount" );
+                for ( let i = 0, _size_i = add_inputs.length; i < _size_i; i++ ) {
+                    let coin_key = add_inputs[ i ].getAttribute( "data-coin" );
+                    let amount   = parseInt( add_inputs[ i ].value, 10 ) || 0;
+                    commit_params[ "param__coins__" + coin_key ] = amount;
+                    if ( amount ) {
+                        has_delta = true;
+                    }
+                }
+                if ( has_delta || commit_params[ "param__coins__label" ] ) {
+                    CONTROLLER.Character.current_character.doActionAfter( "event__coins__add_journal", commit_params );
+                }
+                return;
+            }
         }
         WINDOW_V2.Element.prototype.doActionAfter.call( this, event_name, params );
     },
@@ -127,6 +161,7 @@ CHARACTER.StuffsWindow.prototype = {
     _buildContent: function () {
         let stuffs = CONTROLLER.Character.current_character.getStuffs();
         this._buildAddBar( this.content_dom_element_target, stuffs );
+        this._buildCoinsZone( this.content_dom_element_target );
         for ( let l = 0, _size_l = STUFF.LOCATIONS.length; l < _size_l; l++ ) {
             let location_data = STUFF.LOCATIONS[ l ];
             if ( this.current_filter !== STUFF.FILTER_ALL && this.current_filter !== location_data.key ) {
@@ -150,6 +185,109 @@ CHARACTER.StuffsWindow.prototype = {
     // The bar of the window : the « + » FIRST lands the sheet on the
     // LIBRARY (stuffs subject), the location categories filter the
     // sections, the carried bulk sits at the right
+    //********************************************  COINS ZONE   **************************************************//
+    // La partie Argent en tete de l'onglet : le total converti dans le
+    // titre, un bloc de solde par emplacement (les puces de filtre actif
+    // s'appliquent comme aux sections), puis le journal append-only (chaque
+    // ligne applique son delta au solde de son emplacement a sa creation)
+    _buildCoinsZone: function ( parent ) {
+        let coins = CONTROLLER.Character.current_character.getCoins();
+        let zone  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-zone" } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-title" }, "Argent — total : " + STUFF.formatCoinsTotal( coins.getTotalCoinsMap() ) ), zone );
+        for ( let l = 0, _size_l = STUFF.LOCATIONS.length; l < _size_l; l++ ) {
+            let location_data = STUFF.LOCATIONS[ l ];
+            if ( this.current_filter !== STUFF.FILTER_ALL && this.current_filter !== location_data.key ) {
+                continue;
+            }
+            this._buildCoinsLocationRow( zone, coins, location_data );
+        }
+        this._buildCoinsJournal( zone, coins );
+    },
+
+    // Une ligne de solde : label de l'emplacement + les 4 monnaies en inputs
+    // editables (l'argent s'edite en permanence — la regle « pas d'input
+    // dans la liste » concernait les objets) ; le change part par le plat,
+    // l'identite (emplacement, monnaie) se lit du DOM, la valeur est un nombre
+    _buildCoinsLocationRow: function ( parent, coins, location_data ) {
+        let row     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-location", "data-location": location_data.key } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-location-label" }, location_data.label ), row );
+        let amounts = coins.getAmountsByLocation( location_data.key );
+        for ( let c = 0, _size_c = STUFF.COINS.length; c < _size_c; c++ ) {
+            let coin = STUFF.COINS[ c ];
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-label" }, coin.label ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+                "class"        : "stuffs-coins-input",
+                "type"         : "number",
+                "min"          : "0",
+                "step"         : "1",
+                "data-location": location_data.key,
+                "data-coin"    : coin.key,
+                "value"        : "" + amounts[ coin.key ],
+                onchange       : "MANAGER.EventManagerV2.doActionAfter(event,'event__coins__set_amount',{'param__coins__location':this.getAttribute('data-location'),'param__coins__coin':this.getAttribute('data-coin'),'param__coins__value':this.value})"
+            } ), row );
+        }
+    },
+
+    // Le journal : la ligne d'ajout (selecteur d'emplacement + 4 montants
+    // signes + libelle + « + » — les valeurs se lisent de la ligne au clic,
+    // jamais inline) puis les entrees du plus recent au plus ancien,
+    // filtrees par la puce active comme les blocs
+    _buildCoinsJournal: function ( parent, coins ) {
+        let journal         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal" } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal-title" }, "Journal" ), journal );
+        let add_row         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-add" } ), journal );
+        let location_select = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "select", { class: "stuffs-coins-add-location" } ), add_row );
+        for ( let l = 0, _size_l = STUFF.LOCATIONS.length; l < _size_l; l++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { "value": STUFF.LOCATIONS[ l ].key }, STUFF.LOCATIONS[ l ].label ), location_select );
+        }
+        for ( let c = 0, _size_c = STUFF.COINS.length; c < _size_c; c++ ) {
+            let coin = STUFF.COINS[ c ];
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-label" }, coin.label ), add_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+                "class"      : "stuffs-coins-add-amount",
+                "type"       : "number",
+                "step"       : "1",
+                "data-coin"  : coin.key,
+                "placeholder": "+/−"
+            } ), add_row );
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
+            class      : "stuffs-coins-add-label",
+            type       : "text",
+            placeholder: "Libellé (butin, achat…)"
+        } ), add_row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", {
+            class  : "stuffs-coins-add-button",
+            title  : "Ajouter au journal (applique le montant au solde de l'emplacement)",
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__coins__commit_journal',{})"
+        }, "+" ), add_row );
+        let entries = coins.getJournalEntries();
+        let list    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal-list" } ), journal );
+        for ( let i = entries.length - 1; i >= 0; i-- ) {
+            let entry = entries[ i ];
+            if ( this.current_filter !== STUFF.FILTER_ALL && entry.location !== this.current_filter ) {
+                continue;
+            }
+            this._buildCoinsJournalEntry( list, entry );
+        }
+    },
+
+    _buildCoinsJournalEntry: function ( parent, entry ) {
+        let row           = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-entry", "data-location": entry.location } ), parent );
+        let location_data = STUFF.getLocationData( entry.location );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-entry-date" }, this._formatCoinsDate( entry.timestamp ) ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-entry-location" }, location_data ? location_data.label : entry.location ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-entry-amount" }, STUFF.formatCoinsDelta( entry.coins ) ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-entry-label" }, entry.label ), row );
+    },
+
+    // JJ/MM HH:MM
+    _formatCoinsDate: function ( timestamp ) {
+        let date = new Date( timestamp );
+        let pad  = function ( nb ) { return ( nb < 10 ? "0" : "" ) + nb; };
+        return pad( date.getDate() ) + "/" + pad( date.getMonth() + 1 ) + " " + pad( date.getHours() ) + ":" + pad( date.getMinutes() );
+    },
+
     _buildAddBar: function ( parent, stuffs ) {
         let add_bar = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-add-bar" } ), parent );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {

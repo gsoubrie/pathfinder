@@ -182,6 +182,64 @@ COMBAT.MODE_TABS = [
 
 COMBAT.DEFAULT_MODE = "exploration";
 
+// The COMMON activities of an activity mode (exploration/intermède),
+// hand-written card (same pattern as BASIC_ACTIONS, survives the re-scrap) :
+// the base PF2 activities every character can undertake. The scraped
+// compendium lists far more entries with the mode trait (campaign- and
+// feat-specific activities) — those reach the tab ONLY through the
+// character's own "action" adjustments carrying the trait ; the full list
+// stays consultable in the Library (Actions subject)
+COMBAT.MODE_COMMON_ACTIONS = {
+    "exploration": [
+        "Détection de la magie",
+        "Dissimuler des traces",
+        "Échapper aux regards",
+        "Identifier l'alchimie",
+        "Identifier la magie",
+        "Recueillir des informations",
+        "Rechercher",
+        "Réparer",
+        "S'orienter",
+        "Se faufiler",
+        "Soigner les blessures",
+        "Suivre une piste"
+    ],
+    "intermede": [
+        "Bachoter",
+        "Fabriquer",
+        "Gagner de l'argent",
+        "Repos long",
+        "Réapprentissage",
+        "Soigner une maladie",
+        "Subsister"
+    ]
+};
+
+// PF2 : most exploration/downtime activities require the character to be
+// TRAINED in a skill (the scraped "required" fields are empty for them,
+// the rule lives in the rulebook prose) — hand-written card keyed by action
+// name, survives the re-scrap. "skills" lists the skill labels the activity
+// can ride (any one trained is enough, ex. Identifier la magie rides the
+// tradition skill) ; "spell" means the character must be able to cast
+// (Détection de la magie is a spell) ; "any_skill" means any trained skill
+// (Gagner de l'argent). No card entry = always available. An "action"
+// adjustment chosen by the character always shows, whatever the requirement
+COMBAT.MIN_ACTIVITY_RANK = "Q";
+
+COMBAT.MODE_ACTION_REQUIREMENTS = {
+    "Détection de la magie" : { "spell"    : true },
+    "Identifier la magie"   : { "skills"   : [ "Arcanes", "Nature", "Occultisme", "Religion" ] },
+    "Identifier l'alchimie" : { "skills"   : [ "Artisanat" ] },
+    "Réparer"               : { "skills"   : [ "Artisanat" ] },
+    "S'orienter"            : { "skills"   : [ "Survie" ] },
+    "Suivre une piste"      : { "skills"   : [ "Survie" ] },
+    "Soigner les blessures" : { "skills"   : [ "Médecine" ] },
+    "Dissimuler des traces" : { "skills"   : [ "Discrétion" ] },
+    "Fabriquer"             : { "skills"   : [ "Artisanat" ] },
+    "Gagner de l'argent"    : { "any_skill": true },
+    "Soigner une maladie"   : { "skills"   : [ "Médecine" ] }
+};
+
 /**
  * The mode tab of a mode key.
  *

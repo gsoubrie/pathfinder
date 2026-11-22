@@ -4,7 +4,7 @@
  * @extends WINDOW_V2.ElementFromData
  */
 CHARACTER.CombatWindow = function ( parent_name ) {
-    this.initSpecific( CHARACTER.CombatWindow.NAME, parent_name, "Combat" );
+    this.initSpecific( CHARACTER.CombatWindow.NAME, parent_name, "Aventure" );
 };
 
 CHARACTER.CombatWindow.prototype = {

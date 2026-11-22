@@ -120,6 +120,81 @@ STUFF.CARRIED_LOCATIONS = [ "equipped", "backpack" ];
 STUFF.DEFAULT_LOCATION = "backpack";
 STUFF.FILTER_ALL       = "all";
 
+//********************************************  COINS  **************************************************//
+// The four PF2 coins (1 pp = 10 po = 100 pa = 1000 pc) : the wallet of the
+// character rides the SAME locations as the inventory (STUFF.LOCATIONS),
+// each location owns its { pp, po, pa, pc } amounts plus the journal of its
+// operations (CHARACTER.Coins)
+STUFF.COINS = [
+    { "key": "pp", "label": "pp" },
+    { "key": "po", "label": "po" },
+    { "key": "pa", "label": "pa" },
+    { "key": "pc", "label": "pc" }
+];
+
+STUFF.COIN_VALUE_IN_PC = { "pp": 1000, "po": 100, "pa": 10, "pc": 1 };
+
+/**
+ * The total of a { coin_key: amount } map in copper pieces.
+ *
+ * @param {Object} coins_map  Ex. { "pp": 2, "po": 15, "pa": 40, "pc": 230 }
+ * @returns {number}          The value in pc
+ */
+STUFF.coinsToPc = function ( coins_map ) {
+    let to_return = 0;
+    for ( let i = 0, _size_i = STUFF.COINS.length; i < _size_i; i++ ) {
+        let coin_key = STUFF.COINS[ i ].key;
+        to_return += ( parseInt( coins_map[ coin_key ], 10 ) || 0 ) * STUFF.COIN_VALUE_IN_PC[ coin_key ];
+    }
+    return to_return;
+};
+
+/**
+ * "43 po 2 pa 10 pc" : a coin map converted in pc, rendered back with the
+ * remaining coins (the highest denominations first, zero coins skipped,
+ * "0 pc" when empty).
+ *
+ * @param {Object} coins_map  Ex. { "pp": 0, "po": 43, "pa": 2, "pc": 10 }
+ * @returns {string}          The formatted total
+ */
+STUFF.formatCoinsTotal = function ( coins_map ) {
+    let remaining = STUFF.coinsToPc( coins_map );
+    if ( !remaining ) {
+        return "0 pc";
+    }
+    let parts = [];
+    for ( let i = 0, _size_i = STUFF.COINS.length; i < _size_i; i++ ) {
+        let coin_key = STUFF.COINS[ i ].key;
+        let value    = STUFF.COIN_VALUE_IN_PC[ coin_key ];
+        let count    = Math.floor( remaining / value );
+        if ( count ) {
+            parts.push( count + " " + coin_key );
+            remaining -= count * value;
+        }
+    }
+    return parts.join( " " );
+};
+
+/**
+ * "+2 po −10 pc" : the signed, non-zero coins of a delta map joined by a
+ * space (the journal lines read their operation at a glance).
+ *
+ * @param {Object} coins_map  Ex. { "po": 2, "pc": -10 }
+ * @returns {string}          The formatted signed delta, "—" when all zero
+ */
+STUFF.formatCoinsDelta = function ( coins_map ) {
+    let parts = [];
+    for ( let i = 0, _size_i = STUFF.COINS.length; i < _size_i; i++ ) {
+        let coin_key = STUFF.COINS[ i ].key;
+        let amount   = parseInt( coins_map[ coin_key ], 10 ) || 0;
+        if ( amount ) {
+            parts.push( ( amount > 0 ? "+" : "−" ) + Math.abs( amount ) + " " + coin_key );
+        }
+    }
+    return parts.length ? parts.join( " " ) : "—";
+};
+
+
 // The body slots of the equipment schema (the Combat tab draws the
 // character with them) : the array order drives the schema rows and the
 // slot selector of the edit popup. The scraped "Emplacement" field of an

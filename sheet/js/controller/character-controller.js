@@ -2,7 +2,11 @@
 CONTROLLER.Character = (function ( self ) {
     //********************************************  INIT  **************************************************//
     self.init               = function ( uuid ) {
-        self.current_uuid      = uuid || new URLSearchParams( location.search ).get( "id" );
+        // The asked uuid resolves case-insensitively against the loaded
+        // saves (?id=Anastasia loads anastasia) : the canonical uuid is kept,
+        // a later save rewrites the same file
+        let asked_uuid         = uuid || new URLSearchParams( location.search ).get( "id" );
+        self.current_uuid      = SERVICE.DATA.getExistingUUID( asked_uuid ) || asked_uuid;
         self.current_character = new CHARACTER.Current();
         self.current_character.init( self.current_uuid );
         self.current_character.computeHTML();
@@ -30,6 +34,8 @@ CONTROLLER.Character = (function ( self ) {
             case "event__adjustment__edit_explanation":
             case "event__stuff__add":
             case "event__stuff__remove":
+            case "event__coins__set_amount":
+            case "event__coins__add_journal":
             case "event__spell__add":
             case "event__spell__add_many":
             case "event__spell__remove":
@@ -106,6 +112,7 @@ CONTROLLER.Character = (function ( self ) {
             case "event__stuff__edit_comment":
             case "event__stuff__edit_characteristics":
             case "event__stuff__filter_location":
+            case "event__coins__commit_journal":
             case "event__stuff__edit_quantity":
             case "event__spell__edit_comment":
                 self.current_character.windows.doActionAfterContentChildren( event_name, params );

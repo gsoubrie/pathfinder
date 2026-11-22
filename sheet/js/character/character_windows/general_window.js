@@ -381,7 +381,7 @@ CHARACTER.GeneralWindow.prototype = {
 
 
     // Champ PV du General (demande utilisateur : UN CHAMP — le suivi vit
-    // dans l'onglet Combat). Le clic bascule sur l'onglet Combat, la ou
+    // dans l'onglet Aventure). Le clic bascule sur l'onglet Aventure, la ou
     // vivent les gestes de jeu (Soigner, Degats, PV temporaires, journal)
     computeArea__healthPoints: function ( character_object ) {
         if ( !this.area_health_points ) {
@@ -395,7 +395,7 @@ CHARACTER.GeneralWindow.prototype = {
                 SERVICE.DOM.createElement( "input", {
                     class   : "value health-points-link",
                     readOnly: "",
-                    title   : "Ouvrir l'onglet Combat",
+                    title   : "Ouvrir l'onglet Aventure",
                     onclick : "CHARACTER.LibraryWindow.goToSheet('" + CHARACTER.CombatWindow.NAME + "')"
                 } ),
                 property

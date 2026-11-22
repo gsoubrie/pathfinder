@@ -379,11 +379,44 @@ CHARACTER.Combat.prototype = {
     },
 
     //********************************************  MODE TABS  **************************************************//
-    // The activity lines of an Exploration/Intermède tab : the whole compendium
-    // list of the mode trait PLUS the character's own "action" adjustments
-    // carrying the same trait (dedup by name), sorted by name. An adjustment
-    // the compendium does not know has no mode trait : it stays on the General
-    // tab only
+    // The activity lines of an Exploration/Intermède tab : the hand-written
+    // card of the COMMON activities of the mode (COMBAT.MODE_COMMON_ACTIONS,
+    // the scraped compendium also lists campaign/feat activities), filtered
+    // by the PF2 requirements (a trained skill most of the time, see
+    // isCommonActivityAvailable), PLUS the character's own "action"
+    // adjustments carrying the mode trait (dedup by name, never filtered :
+    // the character chose them), sorted by name. An adjustment the compendium
+    // does not know has no mode trait : it stays on the General tab only
+    // Whether a line of the common card is available to the character (PF2 :
+    // most exploration/downtime activities require a TRAINED skill — the
+    // hand-written requirement card survives the re-scrap, the scraped
+    // "required" fields are empty for these). No card entry = always available
+    isCommonActivityAvailable: function ( character_object, action_name ) {
+        let requirement = COMBAT.MODE_ACTION_REQUIREMENTS[ action_name ];
+        if ( !requirement ) {
+            return true;
+        }
+        let masteries = character_object.getMasteries();
+        if ( requirement.spell ) {
+            return !!masteries.getFinalRank( character_object, "spell_attack" ) || !!masteries.getFinalRank( character_object, "spell_dc" );
+        }
+        let skill_labels = requirement.skills;
+        if ( requirement.any_skill ) {
+            skill_labels = [];
+            let _keys = Object.keys( SKILLS.LIST );
+            for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
+                skill_labels.push( SKILLS.LIST[ _keys[ i ] ].label );
+            }
+        }
+        for ( let i = 0, _size_i = ( skill_labels || [] ).length; i < _size_i; i++ ) {
+            let rank = masteries.getFinalRank( character_object, MASTERY.getSkillSlot( skill_labels[ i ] ) );
+            if ( rank && MASTERY.ORDER[ rank ] >= MASTERY.ORDER[ COMBAT.MIN_ACTIVITY_RANK ] ) {
+                return true;
+            }
+        }
+        return false;
+    },
+
     getModeActivityLines: function ( character_object, mode_key ) {
         let tab = COMBAT.getModeTab( mode_key );
         if ( !tab || !tab.trait ) {
@@ -391,8 +424,11 @@ CHARACTER.Combat.prototype = {
         }
         let to_return  = [];
         let seen_names = {};
-        let base_names = OBJECT.getKnownActionsByTrait( tab.trait );
+        let base_names = COMBAT.MODE_COMMON_ACTIONS[ mode_key ] || [];
         for ( let i = 0, _size_i = base_names.length; i < _size_i; i++ ) {
+            if ( !this.isCommonActivityAvailable( character_object, base_names[ i ] ) ) {
+                continue;
+            }
             seen_names[ base_names[ i ].toLowerCase() ] = true;
             let line         = this._buildActionLineData( base_names[ i ] );
             line.section_key = mode_key;

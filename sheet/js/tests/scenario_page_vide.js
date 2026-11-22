@@ -129,8 +129,8 @@ TEST.RUNNER.register( "[PAGE VIDE] tout s'affiche : classe, caracteristiques, je
         }
     }
     // Le champ PV vit aussi sur le General (demande utilisateur : UN CHAMP,
-    // le suivi vit dans l'onglet Combat) : vide sur page vierge, son clic
-    // bascule sur l'onglet Combat
+    // le suivi vit dans l'onglet Aventure) : vide sur page vierge, son clic
+    // bascule sur l'onglet Aventure
     let _pv_area                          = document.querySelector( ".characters-sheet-content .grid-area.area-pv" );
     TEST.ASSERT.notNull( _pv_area, "Le champ Points de vie devrait etre rendu sur une page vide (area-pv)" );
     if ( _pv_area ) {

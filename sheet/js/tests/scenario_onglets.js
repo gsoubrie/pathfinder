@@ -66,7 +66,7 @@ TEST.RUNNER.register( "[ONGLETS] style actif = doré", function () {
 TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     let _expected_labels                 = [
         { name: CHARACTER.GeneralWindow.NAME,        label: "Général" },
-        { name: CHARACTER.CombatWindow.NAME,         label: "Combat" },
+        { name: CHARACTER.CombatWindow.NAME,         label: "Aventure" },
         { name: CHARACTER.StuffsWindow.NAME,        label: "Équipement" },
         { name: CHARACTER.LibraryWindow.NAME,          label: "Bibliothèque" },
         { name: CHARACTER.SpellsWindow.NAME,          label: "Sorts" },
@@ -89,7 +89,7 @@ TEST.RUNNER.register( "[ONGLETS] libelles en francais", function () {
     }
 } );
 
-TEST.RUNNER.register( "[ONGLETS] ordre = Général, Combat, Équipement, Bibliothèque, Sorts, Ajustements, Progression", function () {
+TEST.RUNNER.register( "[ONGLETS] ordre = Général, Aventure, Équipement, Bibliothèque, Sorts, Ajustements, Progression", function () {
     let _expected_order = [
         CHARACTER.GeneralWindow.NAME,
         CHARACTER.CombatWindow.NAME,

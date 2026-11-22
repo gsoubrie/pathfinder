@@ -270,3 +270,32 @@ TEST.RUNNER.register( "[SAVE FICHIER] load = badge warning de Progression visibl
         TEST.ASSERT.equal( _badge.getAttribute( "data-number" ), _expected_text, "Le badge devrait porter les " + _expected + " warnings du personnage charge SANS activer l'onglet (attendu [" + _expected_text + "]), obtenu : [" + _badge.getAttribute( "data-number" ) + "]" );
     } );
 } );
+
+TEST.RUNNER.register( "[SAVE FICHIER] load insensible a la casse (id=ANASTASIA charge anastasia)", function () {
+    let _character = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage du test precedent vivant" );
+    if ( !_character ) {
+        return;
+    }
+    let _uuid  = _character.getUUID();
+    // Une casse surement différente (majuscules sur les lettres)
+    let _casse = _uuid.replace( /[a-z]/g, function ( c ) { return c.toUpperCase(); } );
+    TEST.ASSERT.notEqual( _casse, _uuid, "Pre-condition : le uuid devrait contenir au moins une lettre (sinon la casse ne change rien)" );
+    // Le save est deja injecte en script inline par le test precedent :
+    // la resolution de casse passe par le scan des balises script
+    TEST.RESET.sheet( _casse );
+    let _loaded = CONTROLLER.Character.current_character;
+    TEST.ASSERT.notNull( _loaded, "Le personnage devrait etre recharge malgre la casse" );
+    if ( !_loaded ) {
+        return;
+    }
+    TEST.ASSERT.equal( _loaded.getUUID(), _uuid, "L'uuid canonique (casse du fichier) devrait etre repris, obtenu : " + _loaded.getUUID() );
+    TEST.ASSERT.equal( _loaded.getLevel(), 5, "Le niveau 5 devrait survenir au chargement par casse différente, obtenu : " + _loaded.getLevel() );
+    TEST.ASSERT.equal( _loaded.getLevelHistory().getSize(), 5, "L'historique devrait compter 5 entrees" );
+    // La resolution directe du service : loadDataByUUID accepte les deux casses
+    let _data_lower = SERVICE.DATA.loadDataByUUID( _uuid.toLowerCase() );
+    let _data_upper = SERVICE.DATA.loadDataByUUID( _uuid.toUpperCase() );
+    TEST.ASSERT.equal( _data_lower.uuid, _uuid, "loadDataByUUID en minuscules devrait retrouver le save" );
+    TEST.ASSERT.equal( _data_upper.uuid, _uuid, "loadDataByUUID en majuscules devrait retrouver le save" );
+    TEST.ASSERT.equal( SERVICE.DATA.getExistingUUID( "nope-introuvable" ), null, "Un uuid inconnu devrait ne rien resoudre" );
+} );

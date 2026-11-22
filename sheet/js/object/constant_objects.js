@@ -468841,40 +468841,6 @@ OBJECT.getKnownActions = function () {
 };
 
 /**
- * Les noms des actions connues du compendium portant un trait donné (ex.
- * "Exploration", "Intermède"), dédupliquées par nom et triées : la liste de
- * base des onglets de mode de l'onglet Combat.
- *
- * @param {string} trait_label  Ex. "Exploration"
- * @returns {Array}             [ name ] sorted by name
- */
-OBJECT.getKnownActionsByTrait = function ( trait_label ) {
-    let to_return = [];
-    let seen      = {};
-    let _keys     = Object.keys( OBJECT.COMPENDIUM );
-    for ( let i = 0, _size_i = _keys.length; i < _size_i; i++ ) {
-        let object_data = OBJECT.COMPENDIUM[ _keys[ i ] ];
-        if ( !object_data || object_data.category !== "action" || !object_data.text ) {
-            continue;
-        }
-        let traits = object_data.traits || [];
-        if ( traits.indexOf( trait_label ) === -1 ) {
-            continue;
-        }
-        let seen_key = object_data.text.toLowerCase();
-        if ( seen[ seen_key ] ) {
-            continue;
-        }
-        seen[ seen_key ] = true;
-        to_return.push( object_data.text );
-    }
-    to_return.sort( function ( name_a, name_b ) {
-        return name_a.localeCompare( name_b, "fr" );
-    } );
-    return to_return;
-};
-
-/**
  * L'entrée compendium d'une action par son NOM (catégorie "action") : la
  * popup ACTION de l'entrée de la zone Actions du Général. Null quand le nom
  * ne vit pas dans les données (valeur hors liste).

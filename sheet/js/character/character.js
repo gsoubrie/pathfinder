@@ -23,6 +23,7 @@ CHARACTER.Current = function () {
     this.archetype_history = new CHARACTER.ArchetypeHistory();
     this.adjustments       = new CHARACTER.Adjustments();
     this.stuffs            = new CHARACTER.Stuffs();
+    this.coins             = new CHARACTER.Coins();
     this.spells            = new CHARACTER.Spells();
     this.spell_slots       = new CHARACTER.SpellSlots();
     this.daily_preparation = new CHARACTER.DailyPreparation();
@@ -42,6 +43,7 @@ CHARACTER.Current = function () {
     this.children.add( this.archetype_history );
     this.children.add( this.adjustments );
     this.children.add( this.stuffs );
+    this.children.add( this.coins );
     this.children.add( this.spells );
 
     this.children.add( this.daily_preparation );
@@ -229,6 +231,13 @@ CHARACTER.Current.prototype = {
             case "event__stuff__set_slot":
             case "event__stuff__edit_current_hp":
                 this.stuffs.doActionAfter( event_name, params );
+                this.windows.doActionAfterContentChildren( event_name, params );
+                break;
+            // The wallet (coins) lands on its domain, then the windows
+            // refresh with the fresh state
+            case "event__coins__set_amount":
+            case "event__coins__add_journal":
+                this.coins.doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;
             case "event__spell__edit_comment":
@@ -507,6 +516,9 @@ CHARACTER.Current.prototype = {
                 this.stuffs.updateData( value );
                 this.stuffs.pushBulkCounters( this );
                 break;
+            case "coins":
+                this.coins.updateData( value );
+                break;
             case "spells":
                 this.spells.updateData( value );
                 break;
@@ -630,6 +642,12 @@ CHARACTER.Current.prototype = {
      */
     getStuffs: function () {
         return this.stuffs;
+    },
+    /**
+     * @returns {CHARACTER.Coins}
+     */
+    getCoins : function () {
+        return this.coins;
     },
     /**
      * @returns {CHARACTER.Spells}

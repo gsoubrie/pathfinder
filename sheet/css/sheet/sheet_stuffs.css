@@ -604,3 +604,133 @@
     text-overflow: ellipsis;
     white-space  : nowrap;
 }
+
+/* =============================== COINS ZONE =============================== */
+
+/* Partie Argent en tête de l'onglet : une carte comme les sections, le
+   total converti dans le titre, un bloc de solde par emplacement (les
+   puces de filtre actif s'appliquent comme aux sections), puis le
+   journal append-only */
+.stuffs-coins-zone {
+    background   : var(--g-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-lg);
+    display      : flex;
+    flex-direction: column;
+    gap          : var(--s-sm);
+    padding      : var(--s-sm) var(--s-md);
+}
+
+.stuffs-coins-title {
+    border-bottom: 1px solid var(--c-border-dark);
+    color        : var(--c-text);
+    font-size    : 14px;
+    padding      : 4px 2px 6px;
+}
+
+.stuffs-coins-location {
+    align-items: center;
+    display    : flex;
+    flex-wrap  : wrap;
+    gap        : var(--s-sm);
+}
+
+.stuffs-coins-location-label {
+    color    : var(--c-text-muted);
+    min-width: 90px;
+}
+
+.stuffs-coins-coin-label {
+    color: var(--c-text-muted);
+}
+
+.stuffs-coins-input,
+.stuffs-coins-add-amount,
+.stuffs-coins-add-label,
+.stuffs-coins-add-location {
+    background   : var(--c-bg-dark);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    color        : var(--c-text);
+    padding      : 2px 6px;
+}
+
+.stuffs-coins-input {
+    width: 64px;
+}
+
+.stuffs-coins-add-amount {
+    width: 56px;
+}
+
+.stuffs-coins-add-label {
+    flex    : 1 1 auto;
+    min-width: 140px;
+}
+
+.stuffs-coins-add {
+    align-items: center;
+    display    : flex;
+    flex-wrap  : wrap;
+    gap        : var(--s-sm);
+}
+
+.stuffs-coins-add-button {
+    align-items   : center;
+    background    : var(--g-gold);
+    border        : var(--b-thin) solid var(--c-gold-light);
+    border-radius : var(--r-sm);
+    color         : var(--c-text-dark);
+    cursor        : pointer;
+    display       : flex;
+    font-size     : 13px;
+    justify-content: center;
+    min-height    : 22px;
+    padding       : 0 10px;
+}
+
+.stuffs-coins-add-button:hover {
+    background: var(--c-gold-light);
+}
+
+.stuffs-coins-journal {
+    border-top : 1px solid var(--c-border-dark);
+    display    : flex;
+    flex-direction: column;
+    gap        : var(--s-sm);
+    padding-top: var(--s-sm);
+}
+
+.stuffs-coins-journal-title {
+    color    : var(--c-text-muted);
+    font-size: 12px;
+}
+
+.stuffs-coins-journal-list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 2px;
+}
+
+.stuffs-coins-entry {
+    align-items: center;
+    display    : flex;
+    gap        : var(--s-md);
+}
+
+.stuffs-coins-entry-date {
+    color: var(--c-text-muted);
+}
+
+.stuffs-coins-entry-location {
+    color    : var(--c-text-muted);
+    min-width: 90px;
+}
+
+.stuffs-coins-entry-amount {
+    color: var(--c-gold);
+}
+
+.stuffs-coins-entry-label {
+    flex: 1 1 auto;
+}
