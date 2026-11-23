@@ -143,7 +143,7 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] une dizaine d'objets configurés, la
                 _bulk_expected += STUFFS.getEntryBulk( _stuffs.getContent( _i ) );
             }
         }
-        _bulk_expected = Math.round( _bulk_expected * 10 ) / 10;
+        _bulk_expected = STUFFS.getCarriedBulk( Math.round( _bulk_expected * 10 ) / 10 );
         TEST.ASSERT.equal( _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ), _bulk_expected, "Le total porté du domaine vaut le calcul des entrées, obtenu : " + _stuffs.getBulkTotal( STUFF.CARRIED_LOCATIONS ) );
         // La relecture verrouille l'état (la feuille vivante ne se
         // détruit pas — le run se termine posé pour l'utilisateur)

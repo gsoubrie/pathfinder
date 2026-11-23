@@ -52,6 +52,10 @@ CHARACTER.Health.prototype = {
     getCurrentHP       : function () {
         return this.current_hp;
     },
+    // Mode mort : PV strictement sous 0 (règle maison, onglet Aventure)
+    isDead             : function () {
+        return this.current_hp < 0;
+    },
     setCurrentHP       : function ( to_set ) {
         this.current_hp = to_set;
     },
@@ -89,7 +93,8 @@ CHARACTER.Health.prototype = {
     // data_loaded), l'etat pose s'applique une fois le maximum connu
     applyPendingState  : function () {
         if ( this.pending_current_hp !== null ) {
-            this.setCurrentHP( Math.max( 0, Math.min( this.pending_current_hp, this.max_hp ) ) );
+            // Un état mort (négatif) se relit tel quel : seul le max borne encore
+            this.setCurrentHP( Math.min( this.pending_current_hp, this.max_hp ) );
         }
         if ( this.pending_temp_hp !== null ) {
             this.setTempHP( this.pending_temp_hp );
@@ -297,7 +302,8 @@ CHARACTER.HealthHistoryEntry.prototype = {
             case "damage":
                 let damage_overflow = Math.max( this.value - character_health__object.getTempHP(), 0 );
                 character_health__object.setTempHP( Math.max( character_health__object.getTempHP() - this.value, 0 ) );
-                character_health__object.setCurrentHP( Math.max( character_health__object.getCurrentHP() - damage_overflow, 0 ) );
+                // Les dégâts peuvent mener sous 0 (mode mort) : plus de borne à 0
+                character_health__object.setCurrentHP( character_health__object.getCurrentHP() - damage_overflow );
                 break;
             case "heal":
                 character_health__object.setCurrentHP( Math.min( character_health__object.getCurrentHP() + this.value, character_health__object.getMaxHP() ) );

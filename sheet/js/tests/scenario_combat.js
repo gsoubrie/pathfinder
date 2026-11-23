@@ -405,3 +405,53 @@ TEST.RUNNER.register( "[COMBAT] incantation = attaque de sort + DD des sorts", f
     TEST.ASSERT.equal( _values[ 0 ].textContent, "" + _attack_roll, "L'attaque de sort devrait valoir " + _attack_roll + ", obtenu : [" + _values[ 0 ].textContent + "]" );
     TEST.ASSERT.equal( _values[ 1 ].textContent, "" + _dc_value, "Le DD des sorts devrait valoir " + _dc_value + ", obtenu : [" + _values[ 1 ].textContent + "]" );
 } );
+
+// Mode mort (règle maison) : les dégâts peuvent mener les PV sous 0, la
+// bande de l'onglet Aventure passe en data-health-state="dead" et affiche
+// le badge « Mort » ; un save d'état mort se relit négatif ; un soin
+// ramène au-dessus de 0 et l'état redevient ok
+TEST.RUNNER.register( "[COMBAT] mode mort : PV < 0 = état dead + badge Mort, relecture négative, puis soin", function () {
+    let _character = CONTROLLER.Character.current_character;
+    let _pane      = TEST_combatPane();
+    TEST.ASSERT.notNull( _character, "Pre-condition : personnage chargé" );
+    TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Combat ouvert" );
+    if ( !_character || !_pane ) {
+        return;
+    }
+    let _health = _character.getHealth();
+    let _max    = _health.getMaxHP();
+
+    // Dégâts supérieurs aux PV restants (temp compris) : les PV passent sous 0
+    let _damage = _health.getCurrentHP() + _health.getTempHP() + 5;
+    _pane.querySelector( ".combat-health-button--damage" ).click();
+    document.querySelector( "body > .modal input[name='value']" ).value = String( _damage );
+    document.querySelectorAll( "body > .modal .modal-button" )[ 1 ].click();
+    TEST.ASSERT.equal( _health.getCurrentHP(), -5, "Les dégâts devraient mener les PV à -5 (plus de borne à 0), obtenu : " + _health.getCurrentHP() );
+    TEST.ASSERT.ok( _health.isDead(), "Le domaine devrait signaler l'état mort à PV < 0" );
+    let _band = _pane.querySelector( ".combat-health-band" );
+    TEST.ASSERT.equal( _band.getAttribute( "data-health-state" ), "dead", "La bande devrait porter data-health-state=dead, obtenu : [" + _band.getAttribute( "data-health-state" ) + "]" );
+    TEST.ASSERT.equal( _pane.querySelector( ".combat-health-points-value" ).textContent, "-5 / " + _max, "La bande devrait afficher -5 / max, obtenu : [" + _pane.querySelector( ".combat-health-points-value" ).textContent + "]" );
+    let _death = _pane.querySelector( ".combat-health-death" );
+    TEST.ASSERT.notNull( _death, "Le badge Mort devrait être rendu dans la bande" );
+    if ( _death ) {
+        TEST.ASSERT.ok( _death.offsetParent !== null, "Le badge Mort devrait être visible en mode mort" );
+    }
+
+    // Save → relecture d'un état mort : le négatif survit
+    let _saved    = _character.getDataToSave();
+    let _reloaded = new CHARACTER.Current();
+    _reloaded.updateData( _saved );
+    _reloaded.doActionAfter( "event__data_loaded__done", { "param__current_character__object": _reloaded } );
+    TEST.ASSERT.equal( _reloaded.getHealth().getCurrentHP(), -5, "Un save à PV négatifs devrait se relire à -5, obtenu : " + _reloaded.getHealth().getCurrentHP() );
+
+    // Soin suffisant : retour au max, état ok, badge masqué
+    _pane.querySelector( ".combat-health-button--heal" ).click();
+    document.querySelector( "body > .modal input[name='value']" ).value = String( _max + 10 );
+    document.querySelectorAll( "body > .modal .modal-button" )[ 1 ].click();
+    TEST.ASSERT.equal( _health.getCurrentHP(), _max, "Le soin devrait ramener au max, obtenu : " + _health.getCurrentHP() );
+    TEST.ASSERT.notOk( _health.isDead(), "L'état mort devrait être levé" );
+    TEST.ASSERT.equal( _band.getAttribute( "data-health-state" ), "ok", "La bande devrait repasser en data-health-state=ok, obtenu : [" + _band.getAttribute( "data-health-state" ) + "]" );
+    if ( _death ) {
+        TEST.ASSERT.ok( _death.offsetParent === null, "Le badge Mort devrait être masqué hors mode mort" );
+    }
+} );

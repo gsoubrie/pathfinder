@@ -104,6 +104,7 @@ CHARACTER.CombatWindow.prototype = {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-label" }, "Points de vie" ), points );
         this.dom_element_current_hp          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-points-value" } ), points );
         this.dom_element_health_percentage   = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-percentage between-parentheses" } ), points );
+        this.dom_element_death               = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-health-death" }, "Mort" ), points );
         let temp = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-temp combat-health-temp--hidden" } ), this.band_element );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-label" }, "PV temporaires" ), temp );
         this.dom_element_temp_cell = temp;
@@ -474,6 +475,8 @@ CHARACTER.CombatWindow.prototype = {
         this.dom_element_current_hp.textContent        = health.getCurrentHP() + " / " + health.getMaxHP();
         this.dom_element_health_percentage.textContent = health.getHealthPercentage() + "%";
         this.dom_element_temp_hp.textContent           = "" + health.getTempHP();
+        // Mode mort : PV < 0, l'état vit dans la data de la bande, le CSS peint
+        SERVICE.DOM.setDataSet( this.band_element, "healthState", health.isDead() ? "dead" : "ok" );
         // La cellule ne se montre qu'avec des PV temporaires (0 = masquée)
         this.dom_element_temp_cell.classList.toggle( "combat-health-temp--hidden", health.getTempHP() <= 0 );
     }

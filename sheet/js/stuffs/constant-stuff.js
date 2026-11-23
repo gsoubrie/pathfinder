@@ -343,6 +343,12 @@ STUFFS.getEntryBulk = function ( stuff ) {
     return STUFFS.parseBulk( stuff.value ) * stuff.quantity;
 };
 
+// Règle maison : dans le total porté, un objet porté compte pour moitié
+// moins, arrondi à l'inférieur (l'entreposé garde son poids plein)
+STUFFS.getCarriedBulk = function ( bulk_total ) {
+    return Math.floor( bulk_total / 2 );
+};
+
 STUFFS.getByName = function ( name ) {
     for ( let i = 0, _size_i = STUFFS.length; i < _size_i; i++ ) {
         if ( STUFFS[ i ].name === name ) {

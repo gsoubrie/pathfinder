@@ -234,13 +234,12 @@ TEST.RUNNER.register( "[PAGE VIDE] grille = Divinité sous Archétype, PV sous T
     TEST.ASSERT.ok( _rows[ _deity_pos.row ].trim().split( /\s+/ ).indexOf( "." ) !== -1, "L'ancien emplacement de Divinité devrait rester vide (cellule « . » dans la ligne de Divinité), ligne obtenue : " + _rows[ _deity_pos.row ] );
     // La zone jets ne couvre plus qu UNE colonne de la grille (décision
     // utilisateur) : dans chaque ligne qui la contient, une seule cellule
-    // "jets", et la colonne libérée reste VIDE (cellule « . »), pas
-    // récupérée par ancestry-info (assertion du template desktop ; en
-    // responsive la zone jets prend toute une ligne)
+    // "jets", et la colonne suivante porte informations (template
+    // desktop ; en responsive la zone jets prend toute une ligne)
     if ( window.innerWidth > 1100 ) {
         let _jets_rows                 = 0;
         let _jets_single_column        = true;
-        let _freed_column_empty        = true;
+        let _ancestry_info_column      = true;
         for ( let r = 0, _size_r = _rows.length; r < _size_r; r++ ) {
             let _cells                 = _rows[ r ].trim().split( /\s+/ );
             let _jets_in_row           = _cells.filter( function ( cell ) { return cell === "jets"; } ).length;
@@ -250,13 +249,13 @@ TEST.RUNNER.register( "[PAGE VIDE] grille = Divinité sous Archétype, PV sous T
                 if ( _jets_in_row !== 1 ) {
                     _jets_single_column = false;
                 }
-                if ( _cells[ _jets_col + 1 ] !== "." ) {
-                    _freed_column_empty = false;
+                if ( _cells[ _jets_col + 1 ] !== "informations" ) {
+                    _ancestry_info_column = false;
                 }
             }
         }
         TEST.ASSERT.ok( _jets_rows > 0, "La zone jets devrait apparaître dans la grille" );
         TEST.ASSERT.ok( _jets_single_column, "La zone jets devrait couvrir une seule colonne par ligne (template : " + _template + ")" );
-        TEST.ASSERT.ok( _freed_column_empty, "La colonne libérée à droite de jets devrait rester vide (« . »), template : " + _template );
+        TEST.ASSERT.ok( _ancestry_info_column, "La colonne à droite de jets devrait porter informations, template : " + _template );
     }
 } );

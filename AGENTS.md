@@ -52,6 +52,9 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   bords du input. Toute refonte de l'onglet Équipement CONSERVE cette jauge
   telle quelle (piste 0 → 2×max, graduations, curseur carré, couleurs
   data-bulk-state) — décision utilisateur (refonte inventaire, 2026-11-22).
+  Règle maison (2026-11-23) : dans le total PORTÉ de la barre, les objets portés (équipé + sac à dos) comptent pour moitié moins, arrondi à l'inférieur (STUFFS.getCarriedBulk, appliqué dans getBulkTotal) ; l'entreposé garde son poids plein, hors de la barre.
+  Règle maison (2026-11-23) : un objet ÉQUIPÉ a toujours quantité 1 (clampé dans CHARACTER.Stuff à l'équipement, à l'édition de quantité et à la relecture) — s'il en reste d'autres au sac à dos, seul 1 est équipé.
+  Règle maison (2026-11-23) : mode mort dans l'onglet Aventure — les dégâts ne bornent plus les PV à 0 (ils peuvent passer négatifs), PV < 0 = état mort (Health.isDead, data-health-state=dead + badge « Mort » sur la bande PV) ; un save négatif se relit tel quel.
 - Zone Argent de l'onglet Équipement : la ligne d'ajout est une
   « Opération : de → vers » — deux sélecteurs avec un 4e choix
   « Extérieur » (gain depuis l'extérieur / dépense vers l'extérieur),

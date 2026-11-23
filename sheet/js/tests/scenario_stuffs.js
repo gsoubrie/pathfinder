@@ -344,7 +344,7 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         TEST.ASSERT.notNull( _entry_dom.querySelector( ".stuffs-entry-edit" ), "L'entrée devrait porter sa roue crantée d'édition" );
         // L'encombrement porté suit l'ajout : croisé avec le domaine
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
+        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( STUFFS.getCarriedBulk( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ) ), "L'encombrement porté devrait compter l'épée, obtenu : [" + _bulk_total.textContent + "]" );
         let _bulk_range2 = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-range" );
         if ( _bulk_range2 ) {
             let _c2  = CONTROLLER.Character.current_character;
@@ -441,7 +441,7 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
                 return TEST.wait();
             } ).then( function () {
                 let _sword_object = _character.getStuffs().getContentByUUID( "weapon__Épée longue" );
-                TEST.ASSERT.equal( _sword_object ? _sword_object.quantity : null, 2, "La quantité éditée devrait vivre dans le domaine, obtenu : " + ( _sword_object ? _sword_object.quantity : "null" ) );
+                TEST.ASSERT.equal( _sword_object ? _sword_object.quantity : null, 1, "Un objet équipé reste à quantité 1 même si on édite 2, obtenu : " + ( _sword_object ? _sword_object.quantity : "null" ) );
                 TEST.ASSERT.equal( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : null, "2d6+", "La caractéristique saisie devrait surcharger le scrapé, obtenu : [" + ( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
                 let _entry_with_override = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='equipped'] .stuffs-entry[data-value='Épée longue']" );
                 TEST.ASSERT.ok( _entry_with_override && _entry_with_override.textContent.indexOf( "2d6+" ) !== -1, "La ligne devrait porter la caractéristique surchargée, obtenu : [" + ( _entry_with_override ? _entry_with_override.textContent : "null" ) + "]" );
@@ -449,14 +449,14 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
                 // utilisateur) — elle vit toujours dans le domaine (assert
                 // ci-dessus) et dans la popup d'édition
                 TEST.ASSERT.isNull( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ) : null, "La quantité ne devrait PAS s'afficher sur la carte d'un objet ÉQUIPÉ, obtenu : [" + ( _entry_with_override && _entry_with_override.querySelector( ".stuffs-entry-quantity" ) ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : "absente" ) + "]" );
-                // La quantité pèse : l'encombrement porté suit les unités
+                // Un objet équipé pèse 1 unité : l'encombrement porté suit
                 let _bulk_with_stack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                TEST.ASSERT.equal( _bulk_with_stack.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 2 * 10 ) / 10 ), "L'encombrement porté devrait compter les DEUX épées, obtenu : [" + _bulk_with_stack.textContent + "]" );
+                TEST.ASSERT.equal( _bulk_with_stack.textContent, TEST_stuffsBulkText( STUFFS.getCarriedBulk( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ) ), "L'encombrement porté devrait compter UNE seule épée équipée, obtenu : [" + _bulk_with_stack.textContent + "]" );
                 // Save → load : la surcharge et la quantité survivent
                 let _reloaded_sword_save = new CHARACTER.Current();
                 _reloaded_sword_save.updateData( _character.getDataToSave() );
                 let _reloaded_sword = _reloaded_sword_save.getStuffs().getContentByUUID( "weapon__Épée longue" );
-                TEST.ASSERT.equal( _reloaded_sword ? _reloaded_sword.quantity : null, 2, "La quantité devrait survivre a la relecture, obtenu : " + ( _reloaded_sword ? _reloaded_sword.quantity : "null" ) );
+                TEST.ASSERT.equal( _reloaded_sword ? _reloaded_sword.quantity : null, 1, "La quantité 1 de l'objet équipé devrait survivre a la relecture, obtenu : " + ( _reloaded_sword ? _reloaded_sword.quantity : "null" ) );
                 TEST.ASSERT.equal( _reloaded_sword ? _reloaded_sword.getCharacteristicValue( "Dégâts" ) : null, "2d6+", "La surcharge de caractéristique devrait survivre a la relecture, obtenu : [" + ( _reloaded_sword ? _reloaded_sword.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
                 // Un input VIDÉ retombe sur la valeur scrapée, la quantité
                 // revenue remet l'encombrement du test suivant
@@ -558,7 +558,7 @@ TEST.ASSERT.ok( _armor_chars && _armor_chars.textContent.indexOf( "CA bonus" ) !
         // L'entreposé ne pèse pas sur le total PORTÉ de la barre : seule
         // l'épée (équipée au test précédent) y compte ; la section
         let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait compter l'épée seule (l'armure entreposée ne pèse pas), obtenu : [" + _bulk_total.textContent + "]" );
+        TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( STUFFS.getCarriedBulk( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ) ), "L'encombrement porté devrait compter l'épée seule (l'armure entreposée ne pèse pas), obtenu : [" + _bulk_total.textContent + "]" );
         // La FERMETURE de la popup d'information d'un objet APOSTROPHE :
         // le « x » et le clic sur le fond referment (regression —
         // l'uuid embarquait en inline, la quote du nom cassait le
@@ -629,7 +629,7 @@ TEST.ASSERT.ok( _armor_chars && _armor_chars.textContent.indexOf( "CA bonus" ) !
             let _entry_backpack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='backpack'] .stuffs-entry[data-value=" + JSON.stringify( "Armure d'écailles" ) + "]" );
             TEST.ASSERT.notNull( _entry_backpack, "L'armure devrait vivre dans la section Sac à dos apres l'édition, fenêtre : " + TEST_stuffsDiagnosis() );
             let _bulk_with_armor = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-            let _expected        = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10;
+            let _expected        = STUFFS.getCarriedBulk( Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( "Armure d'écailles" ) ) * 10 ) / 10 );
             TEST.ASSERT.equal( _bulk_with_armor.textContent, TEST_stuffsBulkText( _expected ), "L'encombrement porté devrait compter l'armure revenue au sac, obtenu : [" + _bulk_with_armor.textContent + "]" );
             TEST.ASSERT.equal( _character.getStuffs().getContentByUUID( "armor__Armure d'écailles" ).place, _place_edited, "Le lieu devrait survivre dans le domaine hors entreposage" );
             TEST_stuffsOpenEditPopup( "armor", "Armure d'écailles" );
@@ -706,7 +706,7 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
             // L'encombrement porté suit en place : les consommables
             // comptent a l'unité, l'armure entreposée reste hors compte
             let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-            let _expected   = Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( _consumable_name ) * 5 ) * 10 ) / 10;
+            let _expected   = STUFFS.getCarriedBulk( Math.round( ( STUFFS.parseBulk( "Épée longue" ) + STUFFS.parseBulk( _consumable_name ) * 5 ) * 10 ) / 10 );
             TEST.ASSERT.equal( _bulk_total.textContent, TEST_stuffsBulkText( _expected ), "L'encombrement porté devrait suivre la quantité en place (l'armure entreposée ne compte pas), obtenu : [" + _bulk_total.textContent + "]" );
             // Les puces de la barre comptent les entrées par emplacement
             let _filters = document.querySelectorAll( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-add-bar .stuffs-location-filter" );
@@ -772,7 +772,7 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
                     TEST.ASSERT.isNull( document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" ), "Le consommable ne devrait plus etre rendu apres le retrait" );
                     TEST.ASSERT.isNull( document.querySelector( "body > .popup .stuffs-edit-popup" ), "La popup d'édition devrait etre refermée apres le retrait" );
                     let _bulk_after = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
-                    TEST.ASSERT.equal( _bulk_after.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ), "L'encombrement porté devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
+                    TEST.ASSERT.equal( _bulk_after.textContent, TEST_stuffsBulkText( STUFFS.getCarriedBulk( Math.round( STUFFS.parseBulk( "Épée longue" ) * 10 ) / 10 ) ), "L'encombrement porté devrait rendre la place du consommable au retrait, obtenu : [" + _bulk_after.textContent + "]" );
                 } );
             } );
         } );

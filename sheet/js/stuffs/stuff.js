@@ -15,6 +15,11 @@ CHARACTER.Stuff.prototype = {
         // est éditable) — the consumable trait only drives the stacking
         this.quantity        = !isNaN( parsed_quantity ) && parsed_quantity > 0 ? parsed_quantity : 1;
         this.location        = STUFF.getLocationData( location ) ? location : STUFF.DEFAULT_LOCATION;
+        // Règle maison : un objet ÉQUIPÉ a toujours quantité 1 (s'il en
+        // reste d'autres au sac à dos, seul 1 est équipé)
+        if ( this.location === "equipped" ) {
+            this.quantity = 1;
+        }
         this.place           = place || null;
         this.comment         = comment || null;
         this.slot            = STUFF.getSlotData( slot ) ? slot : null;
@@ -115,10 +120,16 @@ CHARACTER.Stuff.prototype = {
             case "quantity": {
                 let parsed = parseInt( value, 10 );
                 this.quantity = !isNaN( parsed ) && parsed > 0 ? parsed : 1;
+                if ( this.location === "equipped" ) {
+                    this.quantity = 1;
+                }
                 break;
             }
             case "location":
                 this.location = STUFF.getLocationData( value ) ? value : STUFF.DEFAULT_LOCATION;
+                if ( this.location === "equipped" ) {
+                    this.quantity = 1;
+                }
                 break;
             case "place":
                 this.place = value ? String( value ) : null;

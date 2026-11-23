@@ -96,6 +96,31 @@
     font-size : 12px;
 }
 
+/* Mode mort (PV < 0) : badge affiché et bande teintée rouge, l'état est
+   posé en data-health-state sur la bande par la fenêtre */
+.combat-health-death {
+    display       : none;
+    color         : var( --c-health-damage, #EC5757 );
+    font-size     : 14px;
+    font-weight   : bold;
+    border        : var( --b-thin, 1px ) solid var( --c-health-damage, #EC5757 );
+    border-radius : var( --r-sm, 4px );
+    padding       : 0 var( --s-sm, 4px );
+}
+
+.combat-health-band[data-health-state="dead"] {
+    border-color : var( --c-health-damage, #EC5757 );
+    background   : linear-gradient(135deg, #4A1210 0%, #2A0B08 100%);
+}
+
+.combat-health-band[data-health-state="dead"] .combat-health-death {
+    display : inline-block;
+}
+
+.combat-health-band[data-health-state="dead"] .combat-health-points-value {
+    color : var( --c-health-damage, #EC5757 );
+}
+
 .combat-health-temp--hidden {
     display : none;
 }

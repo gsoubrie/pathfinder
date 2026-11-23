@@ -11,7 +11,8 @@ body {
 }
 
 .character-content {
-    width: var(--size-sheet-width);
+    box-sizing: border-box;
+    width: min(var(--size-sheet-width), 100%);
     height: var(--size-sheet-height);
     margin: auto;
     background: var(--g-bg-paper);

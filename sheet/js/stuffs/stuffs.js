@@ -109,12 +109,23 @@ CHARACTER.Stuffs.prototype = {
     // stuff (STUFF.CARRIED_LOCATIONS), the stored section carries its own
     getBulkTotal: function ( location_keys ) {
         let bulk_total = 0;
+        let carried    = false;
         for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
-            if ( location_keys.indexOf( this.getContent( i ).location ) !== -1 ) {
+            let _location = this.getContent( i ).location;
+            if ( location_keys.indexOf( _location ) !== -1 ) {
                 bulk_total += STUFFS.getEntryBulk( this.getContent( i ) );
+                if ( STUFF.CARRIED_LOCATIONS.indexOf( _location ) !== -1 ) {
+                    carried = true;
+                }
             }
         }
-        return Math.round( bulk_total * 10 ) / 10;
+        bulk_total = Math.round( bulk_total * 10 ) / 10;
+        // Règle maison : la part portée compte pour moitié moins, arrondi
+        // à l'inférieur (l'entreposé garde son poids plein hors de la barre)
+        if ( carried ) {
+            bulk_total = STUFFS.getCarriedBulk( bulk_total );
+        }
+        return bulk_total;
     },
     // PF2 : the maximum bulk is 10 + the Strength modifier
     getBulkMax: function ( character_object ) {
