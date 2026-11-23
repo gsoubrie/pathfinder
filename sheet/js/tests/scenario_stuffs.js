@@ -154,10 +154,11 @@ function TEST_stuffsDiagnosis() {
 }
 
 function TEST_stuffsBulkText( bulk_total ) {
-    // The bar reads "porté / max", the max comes from the domain (10 + FOR)
+    // The label row under the gauge reads « Encombrement » + the value
+    // « porté / max » (the max comes from the domain, 10 + FOR)
     let _character = CONTROLLER.Character.current_character;
     let _max       = _character.getStuffs().getBulkMax( _character );
-    return "Encombrement : " + String( bulk_total ).replace( ".", "," ) + " / " + _max;
+    return String( bulk_total ).replace( ".", "," ) + " / " + _max;
 }
 
 TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtres catégories + Bibliothèque d'ajout", function () {
@@ -187,6 +188,14 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtres catégories + Bibl
         TEST.ASSERT.equal( _pane.querySelectorAll( ".stuffs-add-button" ).length, 1, "Un seul + devrait vivre dans la fenêtre, obtenu : " + _pane.querySelectorAll( ".stuffs-add-button" ).length );
         let _bulk_total = _pane.querySelector( ".stuffs-bulk-total" );
         TEST.ASSERT.equal( _bulk_total ? _bulk_total.textContent : null, TEST_stuffsBulkText( 0 ), "L'encombrement porté devrait etre 0 sur page vide, obtenu : [" + ( _bulk_total ? _bulk_total.textContent : "null" ) + "]" );
+        // La jauge surmonte une ligne de label « Encombrement … X / max »
+        // (affichage du prototype), la valeur dorée vit dans cette ligne
+        let _bulk_label = _pane.querySelector( ".stuffs-bulk-label" );
+        TEST.ASSERT.notNull( _bulk_label, "La barre d'encombrement devrait porter sa ligne de label sous la jauge" );
+        if ( _bulk_label ) {
+            TEST.ASSERT.equal( _bulk_label.querySelector( ".stuffs-bulk-label-text" ) ? _bulk_label.querySelector( ".stuffs-bulk-label-text" ).textContent : null, "Encombrement", "Le label devrait lire « Encombrement », obtenu : [" + ( _bulk_label.querySelector( ".stuffs-bulk-label-text" ) ? _bulk_label.querySelector( ".stuffs-bulk-label-text" ).textContent : "null" ) + "]" );
+            TEST.ASSERT.ok( _bulk_label.contains( _bulk_total ), "La valeur « porté / max » devrait vivre dans la ligne de label, sous la jauge" );
+        }
         // La jauge range : piste 0 → 2×max (le max à mi-piste), curseur à 0
         let _bulk_range = _pane.querySelector( ".stuffs-bulk-range" );
         TEST.ASSERT.notNull( _bulk_range, "La jauge (input range) devrait etre rendue dans la barre" );
@@ -224,14 +233,21 @@ TEST.RUNNER.register( "[STUFFS] onglet = + en tête + filtres catégories + Bibl
             }
         }
         // Une section par emplacement (STUFF.LOCATIONS = l'ordre affiché),
-        // chacune titrée avec sa ligne d'entête de colonnes (le premier
-        // titre nomme l'objet)
+        // chacune titrée ; en refonte cartes il n'y a PLUS d'entête de
+        // colonnes, et une section vide n'affiche qu'une ligne pointillée
+        // compacte « Rien ici » + « + Ajouter »
         let _sections = _pane.querySelectorAll( ".stuffs-section" );
         TEST.ASSERT.equal( _sections.length, STUFF.LOCATIONS.length, "L'onglet devrait rendre une section par emplacement (" + STUFF.LOCATIONS.length + "), obtenu : " + _sections.length );
         for ( let _s = 0; _s < _sections.length && _s < STUFF.LOCATIONS.length; _s++ ) {
             TEST.ASSERT.equal( _sections[ _s ].getAttribute( "data-location" ), STUFF.LOCATIONS[ _s ].key, "La section " + _s + " devrait porter l'emplacement " + STUFF.LOCATIONS[ _s ].key + ", obtenu : [" + _sections[ _s ].getAttribute( "data-location" ) + "]" );
-            let _header_titles = _sections[ _s ].querySelectorAll( ".stuffs-entries-header-title" );
-            TEST.ASSERT.ok( _header_titles.length >= 3 && _header_titles[ 0 ].textContent === "Objet" && _header_titles[ 1 ].textContent === "Caractéristiques" && _header_titles[ 2 ].textContent === "Commentaire", "Chaque section devrait porter son entête de colonnes (Objet, Caractéristiques, Commentaire), obtenu : " + ( _header_titles.length ? "[" + _header_titles[ 0 ].textContent + " | " + _header_titles[ 1 ].textContent + " | " + _header_titles[ 2 ].textContent + "]" : "aucun entête" ) );
+            TEST.ASSERT.equal( _sections[ _s ].querySelectorAll( ".stuffs-entries-header" ).length, 0, "Plus d'entête de colonnes en refonte cartes, obtenu : " + _sections[ _s ].querySelectorAll( ".stuffs-entries-header" ).length + " dans " + STUFF.LOCATIONS[ _s ].key );
+            TEST.ASSERT.equal( _sections[ _s ].querySelectorAll( ".stuffs-entry" ).length, 0, "Page vide : aucune carte dans la section " + STUFF.LOCATIONS[ _s ].key );
+            let _empty = _sections[ _s ].querySelector( ".stuffs-empty" );
+            TEST.ASSERT.notNull( _empty, "La section vide " + STUFF.LOCATIONS[ _s ].key + " devrait porter son état vide compact" );
+            if ( _empty ) {
+                TEST.ASSERT.equal( _empty.getAttribute( "data-location" ), STUFF.LOCATIONS[ _s ].key, "L'état vide devrait porter son emplacement" );
+                TEST.ASSERT.notNull( _empty.querySelector( ".stuffs-empty-add" ), "L'état vide devrait porter son « + Ajouter »" );
+            }
         }
         // Le filtre n'affiche que sa section, Tous les rend toutes
         TEST_stuffsClickLocationFilter( "equipped" );
@@ -301,6 +317,9 @@ TEST.RUNNER.register( "[STUFFS] épée longue = sac à dos + roue crantée équi
         if ( !_entry_dom || !_stuff_object ) {
             return;
         }
+        // Refonte cartes : l'entrée est une CARTE dans la grille de la section
+        TEST.ASSERT.ok( _entry_dom.parentElement.classList.contains( "stuffs-entries" ), "La carte devrait vivre dans la grille .stuffs-entries de sa section, obtenu : [" + _entry_dom.parentElement.className + "]" );
+        TEST.ASSERT.equal( _entry_dom.parentElement.parentElement.querySelectorAll( ".stuffs-empty" ).length, 0, "La section pleine ne devrait plus porter l'état vide" );
         TEST.ASSERT.equal( _stuff_object.location, "backpack", "L'emplacement vide au Valider devrait retomber au Sac à dos (PF2 : ce qui n'est ni équipé ni entreposé se porte), obtenu : [" + _stuff_object.location + "]" );
         let _sword_chars = _entry_dom.querySelector( ".stuffs-entry-chars" );
 TEST.ASSERT.notNull( _sword_chars, "L'entrée d'arme devrait porter sa colonne de caractéristiques" );
@@ -313,13 +332,12 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         // Le GLYPHE du type ouvre la ligne (retour utilisateur : le type
         // se lit d'un coup d'oeil), l'infobulle porte son nom
         let _kind_cell = _entry_dom.querySelector( ".stuffs-entry-kind" );
-        TEST.ASSERT.ok( _entry_dom.firstElementChild === _kind_cell, "L'icône du type devrait ouvrir la ligne, obtenu : [" + ( _entry_dom.firstElementChild ? _entry_dom.firstElementChild.className : "vide" ) + "]" );
+        TEST.ASSERT.ok( _entry_dom.querySelector( ".stuffs-entry-object" ) && _entry_dom.querySelector( ".stuffs-entry-object" ).firstElementChild === _kind_cell, "L'icône du type devrait être À CÔTÉ DU NOM (premier enfant de la cellule objet), obtenu : [" + ( _entry_dom.querySelector( ".stuffs-entry-object" ) && _entry_dom.querySelector( ".stuffs-entry-object" ).firstElementChild ? _entry_dom.querySelector( ".stuffs-entry-object" ).firstElementChild.className : "vide" ) + "]" );
         TEST.ASSERT.equal( _kind_cell ? _kind_cell.textContent : null, STUFF.ICONS.weapon, "L'icône de l'épée devrait etre le glyphe des armes, obtenu : [" + ( _kind_cell ? _kind_cell.textContent : "null" ) + "]" );
         TEST.ASSERT.equal( _kind_cell ? _kind_cell.getAttribute( "title" ) : null, "Armes", "L'infobulle de l'icône devrait porter le nom du type, obtenu : [" + ( _kind_cell ? _kind_cell.getAttribute( "title" ) : "null" ) + "]" );
-        // Le DOM de la ligne suit l'ORDRE DES COLONNES (object, quantité,
-        // encombrement, roue) : le placement automatique de la grille
-        // marche au curseur, une cellule construite en désordre rejette
-        // les suivantes sur la RANGÉE 2 (regression du run utilisateur)
+        // La carte pose ses zones par grid-area, mais le DOM garde son
+        // ordre de construction (roue en dernier) — l'assertion ci-dessous
+        // le vérifie toujours
         let _entry_cells = _entry_dom.children;
         TEST.ASSERT.ok( _entry_cells.length >= 4 && _entry_cells[ _entry_cells.length - 1 ].classList.contains( "stuffs-entry-edit" ) && _entry_cells[ _entry_cells.length - 2 ].classList.contains( "stuffs-entry-bulk" ) && _entry_cells[ _entry_cells.length - 3 ].classList.contains( "stuffs-entry-quantity" ), "La ligne devrait construire ses cellules colonne par colonne (quantité avant encombrement, roue en dernier), obtenu : [" + _entry_dom.innerHTML.slice( 0, 120 ) + "…]" );
         TEST.ASSERT.equal( _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent, STUFFS.getFieldValue( "Épée longue", "bulk" ), "L'entrée devrait porter son encombrement inline, obtenu : [" + _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent + "]" );
@@ -427,7 +445,10 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
                 TEST.ASSERT.equal( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : null, "2d6+", "La caractéristique saisie devrait surcharger le scrapé, obtenu : [" + ( _sword_object ? _sword_object.getCharacteristicValue( "Dégâts" ) : "null" ) + "]" );
                 let _entry_with_override = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-section[data-location='equipped'] .stuffs-entry[data-value='Épée longue']" );
                 TEST.ASSERT.ok( _entry_with_override && _entry_with_override.textContent.indexOf( "2d6+" ) !== -1, "La ligne devrait porter la caractéristique surchargée, obtenu : [" + ( _entry_with_override ? _entry_with_override.textContent : "null" ) + "]" );
-                TEST.ASSERT.equal( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : null, "2", "La quantité AFFICHÉE de la ligne devrait suivre l'édition, obtenu : [" + ( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : "null" ) + "]" );
+                // La quantité ne s'affiche PAS sur un objet équipé (retour
+                // utilisateur) — elle vit toujours dans le domaine (assert
+                // ci-dessus) et dans la popup d'édition
+                TEST.ASSERT.isNull( _entry_with_override ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ) : null, "La quantité ne devrait PAS s'afficher sur la carte d'un objet ÉQUIPÉ, obtenu : [" + ( _entry_with_override && _entry_with_override.querySelector( ".stuffs-entry-quantity" ) ? _entry_with_override.querySelector( ".stuffs-entry-quantity" ).textContent : "absente" ) + "]" );
                 // La quantité pèse : l'encombrement porté suit les unités
                 let _bulk_with_stack = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );
                 TEST.ASSERT.equal( _bulk_with_stack.textContent, TEST_stuffsBulkText( Math.round( STUFFS.parseBulk( "Épée longue" ) * 2 * 10 ) / 10 ), "L'encombrement porté devrait compter les DEUX épées, obtenu : [" + _bulk_with_stack.textContent + "]" );
@@ -678,13 +699,10 @@ TEST.RUNNER.register( "[STUFFS] consommable = empilement + save → load + vieux
             TEST.ASSERT.equal( _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity, 5, "La quantité modifiée devrait vivre dans le domaine, obtenu : " + _stuffs.getContentByUUID( "other__" + _consumable_name ).quantity );
             let _consumable_line = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-entry[data-value=" + JSON.stringify( _consumable_name ) + "]" );
             TEST.ASSERT.equal( _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-quantity" ).textContent : null, "5", "La ligne devrait AFFICHER la quantité éditée en lecture, obtenu : [" + ( _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-quantity" ).textContent : "null" ) + "]" );
-            // Sans caractéristiques (autre type), la roue crantée doit
-            // rester sur SA colonne : chaque cellule porte son
-            // grid-column explicite — sans lui la grille auto-place la
-            // roue dans la colonne Caractéristiques vide (regression du
-            // matériel d'entrée)
+            // Sans caractéristiques (autre type), la roue crantée garde
+            // sa zone de carte (classe stuffs-col-actions = grid-area edit)
             let _consumable_gear = _consumable_line ? _consumable_line.querySelector( ".stuffs-entry-edit" ) : null;
-            TEST.ASSERT.ok( _consumable_gear && _consumable_gear.classList.contains( "stuffs-col-actions" ), "La roue crantée d'une entrée sans caractéristiques devrait porter sa colonne explicite, obtenu : [" + ( _consumable_gear ? _consumable_gear.className : "pas de roue" ) + "]" );
+            TEST.ASSERT.ok( _consumable_gear && _consumable_gear.classList.contains( "stuffs-col-actions" ), "La roue crantée d'une entrée sans caractéristiques devrait porter sa zone de carte explicite, obtenu : [" + ( _consumable_gear ? _consumable_gear.className : "pas de roue" ) + "]" );
             // L'encombrement porté suit en place : les consommables
             // comptent a l'unité, l'armure entreposée reste hors compte
             let _bulk_total = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.StuffsWindow.NAME + "'] .stuffs-bulk-total" );

@@ -49,7 +49,46 @@ rapport**, on corrige d'après le rapport. Une décision par run.
   piste, max à mi-piste, 2×max en fin (les valeurs suivent le max, donc la
   Force) — décision utilisateur (Round 90). Le padding des graduations vaut
   la moitié du curseur (6px) pour les aligner sur la piste, pas sur les
-  bords du input.
+  bords du input. Toute refonte de l'onglet Équipement CONSERVE cette jauge
+  telle quelle (piste 0 → 2×max, graduations, curseur carré, couleurs
+  data-bulk-state) — décision utilisateur (refonte inventaire, 2026-11-22).
+- Zone Argent de l'onglet Équipement : la ligne d'ajout est une
+  « Opération : de → vers » — deux sélecteurs avec un 4e choix
+  « Extérieur » (gain depuis l'extérieur / dépense vers l'extérieur),
+  4 montants positifs dont l'unité est collée au champ (« 25pp », pas
+  « 25 pp »), un libellé optionnel (défaut « Opération : A → B ») et un
+  bouton « Valider » ; le montant est clampé au solde de départ quand il
+  sort d'un emplacement du personnage. Le journal est replié dans un
+  `<details>` fermé par défaut. Les soldes restent éditables en place
+  par emplacement (inputs) — décision utilisateur (refonte inventaire,
+  2026-11-22).
+- Onglet Équipement en CARTES (refonte validée sur prototype) : les
+  entrées d'une section vivent dans une grille `.stuffs-entries`
+  (auto-fill minmax(300px, 1fr)) ; chaque carte pose ses zones internes
+  par `grid-area` (kind / head / qty / body / cmt / bulk / edit), il n'y
+  a plus d'en-tête de colonnes titrées. Une section vide n'affiche
+  qu'une ligne pointillée compacte `.stuffs-empty` (« Rien ici pour le
+  moment. » + « + Ajouter » qui bascule sur la Bibliothèque). Le DOM
+  des cellules est inchangé (classes `stuffs-entry-*` + `stuffs-col-*`,
+  data-kind/data-value, roue crantée ⚙ et « ? » conservés) : seule la
+  présentation change — décision utilisateur (refonte inventaire,
+  2026-11-22).
+- Zone Argent : les soldes par emplacement sont en LECTURE SEULE (plus
+  d'input de solde — l'argent ne se modifie QUE par une opération de →
+  vers), chaque monnaie s'affiche en puce à icône de pièce (couleurs
+  `--coin-pp/po/pa/pc` dans `_variables.css`, dégradé radial) + montant +
+  unité collée « 25pp ». La ligne d'opération porte aussi l'icône de la
+  pièce devant chaque champ. La jauge d'encombrement de la barre
+  `stuffs-add-bar` s'affiche EN COLONNE comme le prototype : jauge
+  (graduations + piste, conservée telle quelle) surmontant une ligne de
+  label « Encombrement … X / max » (valeur dorée, vire au warning/erreur
+  selon data-bulk-state) — décision utilisateur (refonte inventaire,
+  2026-11-22).
+- Carte d'objet : l'icône du type se lit À CÔTÉ DU NOM (premier enfant de
+  la cellule objet, plus de colonne d'icône séparée), et la quantité
+  n'est PAS affichée sur un objet équipé (elle reste dans le domaine et
+  dans la popup de la roue crantée) — décision utilisateur (refonte
+  inventaire, 2026-11-22).
 - Onglet Général (grille desktop) : Divinité sous Archétype (colonne 4,
   ligne 3), Points de vie sous Taille (colonne 5, ligne 3), Taille ne fait
   plus qu'une ligne de grille de haut, l'ancien emplacement de Divinité

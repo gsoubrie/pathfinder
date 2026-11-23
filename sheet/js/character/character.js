@@ -235,8 +235,7 @@ CHARACTER.Current.prototype = {
                 break;
             // The wallet (coins) lands on its domain, then the windows
             // refresh with the fresh state
-            case "event__coins__set_amount":
-            case "event__coins__add_journal":
+            case "event__coins__operation":
                 this.coins.doActionAfter( event_name, params );
                 this.windows.doActionAfterContentChildren( event_name, params );
                 break;

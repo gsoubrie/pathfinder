@@ -134,6 +134,11 @@ STUFF.COINS = [
 
 STUFF.COIN_VALUE_IN_PC = { "pp": 1000, "po": 100, "pa": 10, "pc": 1 };
 
+// The "outside" side of a coin operation : a GAIN comes FROM the outside,
+// a EXPENSE goes TO it — the operation line of the Argent zone offers it as
+// a fourth entry of its from/to selectors
+STUFF.COIN_OPERATION_OUTSIDE = { "key": "outside", "label": "Extérieur" };
+
 /**
  * The total of a { coin_key: amount } map in copper pieces.
  *
@@ -150,7 +155,7 @@ STUFF.coinsToPc = function ( coins_map ) {
 };
 
 /**
- * "43 po 2 pa 10 pc" : a coin map converted in pc, rendered back with the
+ * "43po 2pa 10pc" : a coin map converted in pc, rendered back with the
  * remaining coins (the highest denominations first, zero coins skipped,
  * "0 pc" when empty).
  *
@@ -168,7 +173,7 @@ STUFF.formatCoinsTotal = function ( coins_map ) {
         let value    = STUFF.COIN_VALUE_IN_PC[ coin_key ];
         let count    = Math.floor( remaining / value );
         if ( count ) {
-            parts.push( count + " " + coin_key );
+            parts.push( count + coin_key );
             remaining -= count * value;
         }
     }
@@ -176,7 +181,7 @@ STUFF.formatCoinsTotal = function ( coins_map ) {
 };
 
 /**
- * "+2 po −10 pc" : the signed, non-zero coins of a delta map joined by a
+ * "+2po −10pc" : the signed, non-zero coins of a delta map joined by a
  * space (the journal lines read their operation at a glance).
  *
  * @param {Object} coins_map  Ex. { "po": 2, "pc": -10 }
@@ -188,7 +193,7 @@ STUFF.formatCoinsDelta = function ( coins_map ) {
         let coin_key = STUFF.COINS[ i ].key;
         let amount   = parseInt( coins_map[ coin_key ], 10 ) || 0;
         if ( amount ) {
-            parts.push( ( amount > 0 ? "+" : "−" ) + Math.abs( amount ) + " " + coin_key );
+            parts.push( ( amount > 0 ? "+" : "−" ) + Math.abs( amount ) + coin_key );
         }
     }
     return parts.length ? parts.join( " " ) : "—";

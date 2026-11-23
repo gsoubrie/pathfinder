@@ -207,6 +207,8 @@ TEST.RUNNER.register( "[EQUIPEMENT COMPLET] fin du run : onglet Équipement acti
         TEST.ASSERT.equal( _box ? _box.getAttribute( "data-bulk-state" ) : null, "over", "La jauge devrait etre en état over en fin de run, obtenu : [" + ( _box ? _box.getAttribute( "data-bulk-state" ) : "null" ) + "]" );
         TEST.ASSERT.equal( _range ? _range.getAttribute( "max" ) : null, "" + ( 2 * _bulk_max ), "La piste devrait aller à 2×max, obtenu : [" + ( _range ? _range.getAttribute( "max" ) : "null" ) + "]" );
         TEST.ASSERT.equal( _range ? parseFloat( _range.value ) : null, Math.min( _bulk_total, 2 * _bulk_max ), "Le curseur devrait valoir le total encombré, obtenu : [" + ( _range ? _range.value : "null" ) + "] pour " + _bulk_total );
-        TEST.ASSERT.equal( _text ? _text.textContent : null, "Encombrement : " + String( _bulk_total ).replace( ".", "," ) + " / " + _bulk_max, "La barre devrait lire le total encombré, obtenu : [" + ( _text ? _text.textContent : "null" ) + "]" );
+        TEST.ASSERT.equal( _text ? _text.textContent : null, String( _bulk_total ).replace( ".", "," ) + " / " + _bulk_max, "La ligne de label devrait lire le total encombré « porté / max », obtenu : [" + ( _text ? _text.textContent : "null" ) + "]" );
+        let _label = _pane ? _pane.querySelector( ".stuffs-bulk-label-text" ) : null;
+        TEST.ASSERT.equal( _label ? _label.textContent : null, "Encombrement", "Le label de la jauge devrait lire « Encombrement », obtenu : [" + ( _label ? _label.textContent : "null" ) + "]" );
     } );
 } );

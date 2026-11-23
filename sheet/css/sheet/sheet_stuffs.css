@@ -34,12 +34,15 @@
 /* L'encombrement total vit à côté du +, discrètement : « porté / max »,
    la couleur suit l'état poussé en data-bulk-state (warning au-delà du
    max, erreur au-delà du double) */
+/* La jauge d'encombrement à droite de la barre, en colonne comme le
+   prototype : la jauge (graduations + piste) surmonte la ligne de label
+   « Encombrement .... X / max » (valeur dorée) */
 .stuffs-bulk {
-    align-items   : center;
     display       : flex;
-    flex          : 1 1 auto;
-    gap           : var(--s-sm);
-    justify-content: flex-end;
+    flex-direction: column;
+    gap           : var(--s-xs);
+    margin-left   : auto;
+    width         : 200px;
 }
 
 /* La jauge est en colonne : les graduations 0 / max / 2×max surplombent la
@@ -47,6 +50,27 @@
 .stuffs-bulk-gauge {
     display       : flex;
     flex-direction: column;
+}
+
+.stuffs-bulk-label {
+    color          : var(--c-text-muted);
+    display        : flex;
+    font-size      : 11px;
+    justify-content: space-between;
+}
+
+.stuffs-bulk-total {
+    color      : var(--c-text-gold);
+    font-weight: 600;
+}
+
+/* La valeur d'encombrement vire au warning / erreur selon l'état */
+.stuffs-bulk-total[data-bulk-state="over"] {
+    color: var(--c-bulk-warning);
+}
+
+.stuffs-bulk-total[data-bulk-state="critical"] {
+    color: var(--c-bulk-error);
 }
 
 /* Le padding de 6px (moitié du curseur) aligne les graduations sur la piste
@@ -59,7 +83,7 @@
     line-height : 11px;
     padding     : 0 6px;
     position    : relative;
-    width       : 140px;
+    width       : 200px;
 }
 
 .stuffs-bulk-tick {
@@ -88,7 +112,7 @@
     height            : 12px;
     margin            : 0;
     pointer-events    : none;
-    width             : 140px;
+    width             : 200px;
 }
 
 .stuffs-bulk-range::-webkit-slider-runnable-track {
@@ -134,25 +158,6 @@
 .stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-webkit-slider-thumb,
 .stuffs-bulk[data-bulk-state="critical"] .stuffs-bulk-range::-moz-range-thumb {
     background: var(--c-bulk-error);
-}
-
-.stuffs-bulk-total {
-    color       : var(--c-text-muted);
-    flex        : 0 0 auto;
-    font-size   : 12px;
-    padding     : 0 2px;
-    text-align  : right;
-    white-space : nowrap;
-}
-
-.stuffs-bulk-total[data-bulk-state="over"] {
-    color       : var(--c-bulk-warning);
-    font-weight : var(--font-weight-bold);
-}
-
-.stuffs-bulk-total[data-bulk-state="critical"] {
-    color       : var(--c-bulk-error);
-    font-weight : var(--font-weight-bold);
 }
 
 /* ── Popup d'ajout (le slot CONTROLLER.Character.edition_popup, mêmes
@@ -319,43 +324,77 @@
     font-weight : bold;
 }
 
-/* Les colonnes titrées : l'entête et les lignes partagent la MÊME grille
-   fractionnaire (règle de la zone jets — jamais auto, chaque cellule se
-   dimensionnerait sur son propre contenu), la colonne Qté reste
-   réservée, vide sur les lignes non consommables */
-.stuffs-entries-header,
-.stuffs-entry {
+/* Refonte cartes (validée) : les entrées d'une section forment une
+   grille responsive de cartes ; chaque carte pose ses zones internes
+   par grid-area (jamais de placement auto, l'ordre du DOM reste libre) */
+.stuffs-entries {
     display               : grid;
-    grid-template-columns : 22px 240px minmax(120px, 1fr) minmax(90px, 0.8fr) 48px 48px 16px;
-    gap                   : var(--s-sm);
-    align-items           : center;
+    gap                   : var(--s-md);
+    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));
+    padding               : var(--s-sm) 2px 2px;
 }
 
-.stuffs-entries-header {
-    border-bottom: 1px solid var(--c-border-dark);
-    /* Same horizontal padding as the rows : the columns align vertically
-       between header and cells */
-    padding      : 2px 2px 3px;
+.stuffs-entry {
+    align-items           : stretch;
+    background            : var(--c-bg-inset);
+    border                : var(--b-thin) solid var(--c-border-dark);
+    border-radius         : var(--r-md);
+    color                 : var(--c-text);
+    display               : grid;
+    font-size             : 13px;
+    gap                   : var(--s-xs) var(--s-md);
+    grid-template-areas   :
+        "head qty  edit"
+        "body body edit"
+        "cmt  bulk edit";
+    grid-template-columns : minmax(0, 1fr) auto 22px;
+    padding               : var(--s-md);
 }
 
-.stuffs-entries-header-title {
-    color       : var(--c-text-muted);
-    font-size   : 11px;
-    overflow    : hidden;
-    white-space : nowrap;
+.stuffs-entry:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-border-gold);
 }
 
-.stuffs-col-kind {
-    grid-column: 1;
-    text-align : center;
+/* Une section vide n'occupe pas la place d'une section pleine : une
+   seule ligne pointillée compacte */
+.stuffs-empty {
+    align-items   : center;
+    border        : var(--b-thin) dashed var(--c-border-dark);
+    border-radius : var(--r-md);
+    color         : var(--c-text-muted);
+    display       : flex;
+    font-size     : 13px;
+    gap           : var(--s-md);
+    margin        : var(--s-sm) 2px 2px;
+    padding       : var(--s-md) var(--s-lg);
+}
+
+.stuffs-empty-add {
+    background   : var(--g-gold);
+    border       : var(--b-thin) solid var(--c-gold-light);
+    border-radius: var(--r-sm);
+    color        : var(--c-text-dark);
+    cursor       : pointer;
+    font-size    : 12px;
+    margin-left  : auto;
+    padding      : 3px 12px;
+}
+
+/* L'icône du type se lit À CÔTÉ DU NOM de l'objet (premier enfant de la
+   cellule objet), l'infobulle porte le nom du type */
+.stuffs-entry-kind {
+    flex       : 0 0 auto;
+    font-size  : 15px;
+    line-height: 1;
 }
 
 .stuffs-col-object {
-    display               : flex;
-    align-items           : center;
-    gap                   : var(--s-sm);
-    grid-column           : 2;
-    min-width             : 0;
+    align-items: center;
+    display    : flex;
+    gap        : var(--s-sm);
+    grid-area  : head;
+    min-width  : 0;
 }
 
 /* Le commentaire se lit dans SA colonne : ellipsé, l'infobulle porte
@@ -368,51 +407,36 @@
     white-space  : nowrap;
 }
 
-/* Un point par ligne dans la cellule des caractéristiques (retour
-   utilisateur : chaque champ se lit en colonne, pas en flux) — la
-   cellule s'agrandit en hauteur, la grille centre les autres colonnes */
+/* Les caractéristiques de la carte sont des CHIPS en flux (une par
+   champ du kind) ; la première (Dégâts d'une arme, CA bonus d'une
+   armure) est la stat principale, bordée or */
 .stuffs-col-chars {
-    display               : flex;
-    flex-direction       : column;
-    gap                   : 2px;
-    grid-column           : 3;
-    justify-content       : center;
-    min-width             : 0;
+    display    : flex;
+    flex-wrap  : wrap;
+    gap        : var(--s-xs);
+    grid-area  : body;
+    min-width  : 0;
 }
 
 .stuffs-col-comment {
-    grid-column: 4;
-    min-width   : 0;
+    grid-area: cmt;
+    min-width: 0;
 }
 
 .stuffs-col-quantity {
-    grid-column: 5;
-    text-align : center;
-    width      : 100%;
+    grid-area : qty;
+    text-align: center;
 }
 
 .stuffs-col-bulk {
-    grid-column: 6;
-    text-align : center;
+    grid-area : bulk;
+    text-align: right;
 }
 
 .stuffs-col-actions {
-    grid-column: 7;
-    text-align  : center;
-}
-
-/* Le glyphe du type ouvre la ligne : discret, l'infobulle porte le nom
-   du type */
-.stuffs-entry-kind {
-    color       : var(--c-text-muted);
-    font-size   : 13px;
-    line-height : 1;
-}
-
-.stuffs-entry {
-    color     : var(--c-text);
-    font-size : 13px;
-    padding   : 3px 2px;
+    align-self: center;
+    grid-area : edit;
+    text-align: center;
 }
 
 .stuffs-entry-value {
@@ -421,14 +445,22 @@
     white-space   : nowrap;
 }
 
-/* L'info inline du type de l'entrée (Dégâts pour une arme, CA bonus pour
-   une armure) et son encombrement : valeurs discrètes de fin de ligne */
-/* Une caractéristique = libellé discret + valeur : le libellé porte
-   la lecture (le type de la valeur dépend du type d'objet, les kinds
-   se mélangent dans un emplacement) */
+/* Une caractéristique = libellé discret + valeur, en chip */
 .stuffs-entry-char {
-    display: flex;
-    gap    : 3px;
+    background   : var(--c-bg-card);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-sm);
+    display      : flex;
+    gap          : 3px;
+    padding      : var(--s-xs) var(--s-md);
+}
+
+.stuffs-entry-char:first-child {
+    border-color: var(--c-gold-dark);
+}
+
+.stuffs-entry-char:first-child .stuffs-entry-char-value {
+    color: var(--c-text-gold);
 }
 
 .stuffs-entry-char-label {
@@ -451,21 +483,24 @@
     flex: 0 0 auto;
 }
 
-/* La quantité de la ligne reste en LECTURE : l'édition vit dans la
-   popup de la roue crantée, jamais d'input dans la liste */
+/* La quantité reste en LECTURE sur la carte (puce à côté du nom) :
+   l'édition vit dans la popup de la roue crantée, jamais d'input dans
+   la liste */
 .stuffs-entry-quantity {
-    color     : var(--c-text-muted);
-    font-size : 12px;
+    background   : var(--c-bg-card-light);
+    border-radius: var(--r-sm);
+    color        : var(--c-gold);
+    font-size    : 11px;
+    padding      : 0 var(--s-md);
 }
 
-/* La roue crantée d'une ligne ouvre la popup d'édition (emplacement,
-   lieu, commentaire, retrait) : la ligne ne garde que ses colonnes de
-   lecture */
+/* La roue crantée de la carte ouvre la popup d'édition (emplacement,
+   lieu, commentaire, retrait) */
 .stuffs-entry-edit {
-    color       : var(--c-text-muted);
-    cursor       : pointer;
-    font-size    : 15px;
-    line-height  : 1;
+    color       : var(--c-gold);
+    cursor      : pointer;
+    font-size   : 16px;
+    line-height : 1;
 }
 
 .stuffs-entry-edit:hover {
@@ -640,14 +675,45 @@
     min-width: 90px;
 }
 
-.stuffs-coins-coin-label {
-    color: var(--c-text-muted);
+/* Une puce de monnaie en LECTURE SEULE : icône de la pièce + montant +
+   unité collée (« 25pp ») — l'argent ne se modifie que par une opération */
+.stuffs-coins-coin {
+    align-items  : center;
+    background   : var(--c-bg-inset);
+    border       : var(--b-thin) solid var(--c-border-dark);
+    border-radius: var(--r-md);
+    display      : inline-flex;
+    gap          : var(--s-xs);
+    padding      : 2px var(--s-sm);
 }
 
-.stuffs-coins-input,
+.stuffs-coins-coin-icon {
+    border-radius: 50%;
+    box-shadow   : inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    flex         : 0 0 auto;
+    height       : 14px;
+    width        : 14px;
+}
+
+.stuffs-coin-pp { background: radial-gradient(circle at 35% 30%, #ffffff, var(--coin-pp) 55%, #8a93a8); }
+.stuffs-coin-po { background: radial-gradient(circle at 35% 30%, #fff3b0, var(--coin-po) 55%, #a8860b); }
+.stuffs-coin-pa { background: radial-gradient(circle at 35% 30%, #eef1f4, var(--coin-pa) 55%, #767f8c); }
+.stuffs-coin-pc { background: radial-gradient(circle at 35% 30%, #f0b285, var(--coin-pc) 55%, #7b421c); }
+
+.stuffs-coins-coin-value {
+    color    : var(--c-text-gold);
+    font-size: 13px;
+}
+
+.stuffs-coins-coin-unit {
+    color    : var(--c-text-muted);
+    font-size: 10px;
+}
+
 .stuffs-coins-add-amount,
 .stuffs-coins-add-label,
-.stuffs-coins-add-location {
+.stuffs-coins-add-from,
+.stuffs-coins-add-to {
     background   : var(--c-bg-dark);
     border       : var(--b-thin) solid var(--c-border-dark);
     border-radius: var(--r-sm);
@@ -655,12 +721,14 @@
     padding      : 2px 6px;
 }
 
-.stuffs-coins-input {
-    width: 64px;
-}
-
 .stuffs-coins-add-amount {
     width: 56px;
+}
+
+/* Dans la ligne d'opération, l'icône de la pièce precede le champ */
+.stuffs-coins-add-coin .stuffs-coins-coin-icon {
+    height: 12px;
+    width : 12px;
 }
 
 .stuffs-coins-add-label {
@@ -673,6 +741,23 @@
     display    : flex;
     flex-wrap  : wrap;
     gap        : var(--s-sm);
+}
+
+.stuffs-coins-add-operation,
+.stuffs-coins-add-arrow {
+    color: var(--c-text-muted);
+}
+
+/* Chaque montant est suivi de son unité collée : « 25pp », pas « 25 pp » */
+.stuffs-coins-add-coin {
+    align-items: center;
+    display    : inline-flex;
+    gap        : 2px;
+}
+
+.stuffs-coins-add-unit {
+    color    : var(--c-text-muted);
+    font-size: 12px;
 }
 
 .stuffs-coins-add-button {
@@ -701,9 +786,28 @@
     padding-top: var(--s-sm);
 }
 
-.stuffs-coins-journal-title {
-    color    : var(--c-text-muted);
-    font-size: 12px;
+/* Le journal se replie : le titre devient le summary du <details> */
+.stuffs-coins-journal-details {
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--s-sm);
+}
+
+.stuffs-coins-journal-details > .stuffs-coins-journal-title {
+    color     : var(--c-text-muted);
+    cursor    : pointer;
+    font-size : 12px;
+    list-style: none;
+}
+
+.stuffs-coins-journal-details > .stuffs-coins-journal-title::before {
+    content     : "▸";
+    display     : inline-block;
+    margin-right: var(--s-sm);
+}
+
+.stuffs-coins-journal-details[open] > .stuffs-coins-journal-title::before {
+    content: "▾";
 }
 
 .stuffs-coins-journal-list {
@@ -732,5 +836,6 @@
 }
 
 .stuffs-coins-entry-label {
-    flex: 1 1 auto;
+    color: var(--c-text);
+    flex : 1 1 auto;
 }

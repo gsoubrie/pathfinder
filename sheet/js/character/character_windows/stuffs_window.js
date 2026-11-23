@@ -109,35 +109,35 @@ CHARACTER.StuffsWindow.prototype = {
             }
             // The wallet refreshes on its own events (the domain already
             // landed, the character broadcast them here)
-            case "event__coins__set_amount":
-            case "event__coins__add_journal":
+            case "event__coins__operation":
                 this._refreshContent();
                 return;
-            // The + of the journal add row : the window assembles the line
-            // (location, signed amounts, label — read from the row, never
-            // inline) and re-dispatches to the character ; the refresh
-            // follows with the add_journal broadcast
-            case "event__coins__commit_journal": {
+            // The Valider of the operation row : the window assembles the
+            // operation (from, to, unsigned amounts, optional label — read
+            // from the row, never inline) and re-dispatches to the character ;
+            // the refresh follows with the operation broadcast
+            case "event__coins__commit_operation": {
                 let add_row = this.content_dom_element_target.querySelector( ".stuffs-coins-add" );
                 if ( !add_row ) {
                     return;
                 }
                 let commit_params = {
-                    "param__coins__location": add_row.querySelector( ".stuffs-coins-add-location" ).value,
-                    "param__coins__label"   : add_row.querySelector( ".stuffs-coins-add-label" ).value
+                    "param__coins__from" : add_row.querySelector( ".stuffs-coins-add-from" ).value,
+                    "param__coins__to"   : add_row.querySelector( ".stuffs-coins-add-to" ).value,
+                    "param__coins__label": add_row.querySelector( ".stuffs-coins-add-label" ).value
                 };
-                let has_delta  = false;
+                let has_amount = false;
                 let add_inputs = add_row.querySelectorAll( ".stuffs-coins-add-amount" );
                 for ( let i = 0, _size_i = add_inputs.length; i < _size_i; i++ ) {
                     let coin_key = add_inputs[ i ].getAttribute( "data-coin" );
                     let amount   = parseInt( add_inputs[ i ].value, 10 ) || 0;
                     commit_params[ "param__coins__" + coin_key ] = amount;
-                    if ( amount ) {
-                        has_delta = true;
+                    if ( amount > 0 ) {
+                        has_amount = true;
                     }
                 }
-                if ( has_delta || commit_params[ "param__coins__label" ] ) {
-                    CONTROLLER.Character.current_character.doActionAfter( "event__coins__add_journal", commit_params );
+                if ( has_amount && commit_params[ "param__coins__from" ] !== commit_params[ "param__coins__to" ] ) {
+                    CONTROLLER.Character.current_character.doActionAfter( "event__coins__operation", commit_params );
                 }
                 return;
             }
@@ -172,12 +172,20 @@ CHARACTER.StuffsWindow.prototype = {
                 this.content_dom_element_target
             );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-section-title" }, location_data.label ), section );
-            // The columns carry their titles (the entry fields alone say
-            // nothing) : the header shares the grid template of the rows
-            this._buildEntriesHeader( section );
+            // Refonte cartes : les entrées vivent dans une grille de cartes
+            // (plus d'entête de colonnes titrées) ; une section vide
+            // n'affiche qu'une ligne pointillée compacte
             let entries = stuffs.getStuffsByLocation( location_data.key );
-            for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
-                this._buildEntry( section, entries[ e ] );
+
+            if ( !entries.length ) {
+                this._buildEmptySection( section, location_data );
+            }
+            else {
+                let entries_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries" } ), section );
+
+                for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
+                    this._buildEntry( entries_box, entries[ e ] );
+                }
             }
         }
     },
@@ -204,65 +212,86 @@ CHARACTER.StuffsWindow.prototype = {
         this._buildCoinsJournal( zone, coins );
     },
 
-    // Une ligne de solde : label de l'emplacement + les 4 monnaies en inputs
-    // editables (l'argent s'edite en permanence — la regle « pas d'input
-    // dans la liste » concernait les objets) ; le change part par le plat,
-    // l'identite (emplacement, monnaie) se lit du DOM, la valeur est un nombre
+    // Une ligne de solde en LECTURE SEULE : label de l'emplacement + une
+    // puce par monnaie (icône de la pièce + montant + unité collée « 25pp ») ;
+    // l'argent ne se modifie QUE par une opération (la ligne du journal)
     _buildCoinsLocationRow: function ( parent, coins, location_data ) {
         let row     = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-location", "data-location": location_data.key } ), parent );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-location-label" }, location_data.label ), row );
         let amounts = coins.getAmountsByLocation( location_data.key );
         for ( let c = 0, _size_c = STUFF.COINS.length; c < _size_c; c++ ) {
-            let coin = STUFF.COINS[ c ];
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-label" }, coin.label ), row );
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
-                "class"        : "stuffs-coins-input",
-                "type"         : "number",
-                "min"          : "0",
-                "step"         : "1",
-                "data-location": location_data.key,
-                "data-coin"    : coin.key,
-                "value"        : "" + amounts[ coin.key ],
-                onchange       : "MANAGER.EventManagerV2.doActionAfter(event,'event__coins__set_amount',{'param__coins__location':this.getAttribute('data-location'),'param__coins__coin':this.getAttribute('data-coin'),'param__coins__value':this.value})"
-            } ), row );
+            let coin     = STUFF.COINS[ c ];
+            let coin_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin", "data-coin": coin.key } ), row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-icon stuffs-coin-" + coin.key } ), coin_box );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-value" }, "" + amounts[ coin.key ] ), coin_box );
+            // L'unité collée au montant : « 25pp », pas « 25 pp »
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-unit" }, coin.key ), coin_box );
         }
     },
 
-    // Le journal : la ligne d'ajout (selecteur d'emplacement + 4 montants
-    // signes + libelle + « + » — les valeurs se lisent de la ligne au clic,
-    // jamais inline) puis les entrees du plus recent au plus ancien,
-    // filtrees par la puce active comme les blocs
+    // Le journal : la ligne d'opération (deux sélecteurs — de / vers — avec
+    // un 4e choix « Extérieur » pour un gain ou une dépense, 4 montants
+    // positifs dont l'unité est collée au champ, un libellé optionnel et
+    // « Valider » ; les valeurs se lisent de la ligne au clic, jamais
+    // inline) puis les entrées du plus récent au plus ancien dans un
+    // <details> replié, filtrées par la puce active comme les blocs
     _buildCoinsJournal: function ( parent, coins ) {
-        let journal         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal" } ), parent );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal-title" }, "Journal" ), journal );
-        let add_row         = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-add" } ), journal );
-        let location_select = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "select", { class: "stuffs-coins-add-location" } ), add_row );
-        for ( let l = 0, _size_l = STUFF.LOCATIONS.length; l < _size_l; l++ ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { "value": STUFF.LOCATIONS[ l ].key }, STUFF.LOCATIONS[ l ].label ), location_select );
+
+        let journal = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal" } ), parent );
+
+        let add_row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-add" } ), journal );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-add-operation" }, "Opération :" ), add_row );
+
+        let from_select  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "select", { class: "stuffs-coins-add-from" } ), add_row );
+        let to_select    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "select", { class: "stuffs-coins-add-to" } ), add_row );
+        let op_locations = STUFF.LOCATIONS.concat( [ STUFF.COIN_OPERATION_OUTSIDE ] );
+        for ( let l = 0, _size_l = op_locations.length; l < _size_l; l++ ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { "value": op_locations[ l ].key }, op_locations[ l ].label ), from_select );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "option", { "value": op_locations[ l ].key }, op_locations[ l ].label ), to_select );
         }
+        from_select.value = STUFF.LOCATIONS[ 0 ].key;
+        if ( STUFF.LOCATIONS[ 1 ] ) {
+            to_select.value = STUFF.LOCATIONS[ 1 ].key;
+        }
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-add-arrow" }, "→" ), add_row );
+
         for ( let c = 0, _size_c = STUFF.COINS.length; c < _size_c; c++ ) {
-            let coin = STUFF.COINS[ c ];
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-label" }, coin.label ), add_row );
+            let coin     = STUFF.COINS[ c ];
+            let coin_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-add-coin" } ), add_row );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-coin-icon stuffs-coin-" + coin.key } ), coin_box );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
                 "class"      : "stuffs-coins-add-amount",
                 "type"       : "number",
+                "min"        : "0",
                 "step"       : "1",
                 "data-coin"  : coin.key,
-                "placeholder": "+/−"
-            } ), add_row );
+                "placeholder": "0"
+            } ), coin_box );
+            // L'unité collée au champ : « 25pp », pas « 25 pp »
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-coins-add-unit" }, coin.key ), coin_box );
         }
+
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "input", {
             class      : "stuffs-coins-add-label",
             type       : "text",
-            placeholder: "Libellé (butin, achat…)"
+            placeholder: "Libellé (optionnel)"
         } ), add_row );
+
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", {
             class  : "stuffs-coins-add-button",
-            title  : "Ajouter au journal (applique le montant au solde de l'emplacement)",
-            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__coins__commit_journal',{})"
-        }, "+" ), add_row );
+            title  : "Valider l'opération (applique les montants aux soldes)",
+            onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__coins__commit_operation',{})"
+        }, "Valider" ), add_row );
+
+        let details = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "details", { class: "stuffs-coins-journal-details" } ), journal );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "summary", { class: "stuffs-coins-journal-title" }, "Journal" ), details );
+
         let entries = coins.getJournalEntries();
-        let list    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal-list" } ), journal );
+
+        let list    = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-coins-journal-list" } ), details );
+
         for ( let i = entries.length - 1; i >= 0; i-- ) {
             let entry = entries[ i ];
             if ( this.current_filter !== STUFF.FILTER_ALL && entry.location !== this.current_filter ) {
@@ -318,9 +347,11 @@ CHARACTER.StuffsWindow.prototype = {
             "step"    : "0.1",
             "tabindex": "-1"
         } ), bulk_gauge );
+        let bulk_label          = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-label" } ), bulk_box );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-bulk-label-text" }, "Encombrement" ), bulk_label );
         this.bulk_dom_element   = SERVICE.DOM.addElementTo(
             SERVICE.DOM.createElement( "div", { class: "stuffs-bulk-total" } ),
-            bulk_box
+            bulk_label
         );
         // The bulk counter of the domain feeds the window : every counter
         // lands on the window's own counters (warnings/errors ride to the
@@ -347,25 +378,20 @@ CHARACTER.StuffsWindow.prototype = {
         }, location_label + " (" + stuffs_count + ")" ), parent );
     },
 
-    // The column titles of the entries : a shared grid template with
-    // the rows, the cells align by fractional widths (never auto —
-    // each cell would size on its own content, jets zone rule). The
-    // name column stays FIXED (every line aligns the same, whatever
-    // the type of the object), the characteristics follow the kind
-    // and ride LABELED so the mixed kinds of a location stay readable
-    _buildEntriesHeader: function ( section ) {
-        let header = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries-header" } ), section );
-        let titles  = [
-            { "column": "object",    "label": "Objet" },
-            { "column": "chars",     "label": "Caractéristiques" },
-            { "column": "comment",   "label": "Commentaire" },
-            { "column": "quantity",  "label": "Qté" },
-            { "column": "bulk",      "label": "Encomb." },
-            { "column": "actions",   "label": "" }
-        ];
-        for ( let t = 0, _size_t = titles.length; t < _size_t; t++ ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries-header-title" + ( titles[ t ].column ? " stuffs-col-" + titles[ t ].column : "" ) }, titles[ t ].label ), header );
-        }
+    // Une section vide n'occupe pas la place d'une section pleine : une
+    // seule ligne pointillée « Rien ici » + « + Ajouter » (qui bascule sur
+    // la Bibliothèque comme le + de la barre)
+    _buildEmptySection: function ( section, location_data ) {
+
+        let empty = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-empty", "data-location": location_data.key } ), section );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-empty-text" }, "Rien ici pour le moment." ), empty );
+
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "button", {
+            class  : "stuffs-empty-add",
+            title  : "Ajouter un équipement (Bibliothèque)",
+            onclick: "CHARACTER.LibraryWindow.goToStuffsSubject()"
+        }, "+ Ajouter" ), empty );
     },
 
     _buildEntry: function ( section, stuff ) {
@@ -378,17 +404,17 @@ CHARACTER.StuffsWindow.prototype = {
             } ),
             section
         );
-        // The kind glyph opens the line (retour utilisateur : le type
-        // se lit d'un coup d'oeil, l'infobulle porte son nom)
+        // The object cell carries the kind icon NEXT TO its name (retour
+        // utilisateur : l'icône se lit à côté de la valeur, l'infobulle
+        // porte le nom du type) and its "?" — the popup of information only
+        // exists for a scraped entry (a free-named model owns no data)
+        let object_cell        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entry-object stuffs-col-object" } ), entry );
         let kind_data_for_icon = STUFF.getKindData( stuff.kind );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
-            class  : "stuffs-entry-kind stuffs-col-kind",
+            class  : "stuffs-entry-kind",
             "title": kind_data_for_icon ? kind_data_for_icon.label : ""
-        }, STUFF.ICONS[ stuff.kind ] || STUFF.ICONS.other ), entry );
-        // The object cell carries its name and its "?" — the popup of
-        // information only exists for a scraped entry (a free-named
-        // model owns no data)
-        let object_cell = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entry-object stuffs-col-object" } ), entry );
+        }, STUFF.ICONS[ stuff.kind ] || STUFF.ICONS.other ), object_cell );
+
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-value" }, stuff.value ), object_cell );
         if ( STUFFS.getEntryData( stuff.value ) ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
@@ -420,18 +446,19 @@ CHARACTER.StuffsWindow.prototype = {
                 }
             }
         }
-        // The cells land column by column (retour utilisateur : la
-        // colonne Commentaire vit AVEC les autres) — the sparse
-        // auto-placement of the grid walks the DOM, a cell built out of
-        // order pushes the next ones to the ROW below (règle Round 61)
+        // La carte pose ses zones par grid-area (jamais de placement
+        // auto : l'ordre du DOM reste libre, chaque cellule porte sa zone)
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : "stuffs-entry-comment stuffs-col-comment",
             "title": stuff.comment || ""
         }, stuff.comment || "" ), entry );
-        // The quantity stays READ on the line (retour utilisateur : plus
+        // The quantity stays READ on the card (retour utilisateur : plus
         // d'input dans la liste, l'édition vit dans la popup de la roue
-        // crantée)
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-quantity stuffs-col-quantity", "title": "Quantité" }, "" + stuff.quantity ), entry );
+        // crantée) — and it is NOT displayed on an equipped item (retour
+        // utilisateur : un objet équipé n'a pas besoin de sa quantité)
+        if ( stuff.location !== "equipped" ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-quantity stuffs-col-quantity", "title": "Quantité" }, "" + stuff.quantity ), entry );
+        }
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-bulk stuffs-col-bulk", "title": "Encombrement" }, STUFFS.getFieldValue( stuff.value, "bulk" ) || "—" ), entry );
         // The gear opens the edit popup (emplacement, lieu, commentaire,
         // retrait — retour utilisateur : la ligne ne garde que ses
@@ -480,9 +507,9 @@ CHARACTER.StuffsWindow.prototype = {
             bulk_state = "over";
         }
         // One decimal at most, French style (0,1 light bulk steps)
-        this.bulk_dom_element.textContent = "Encombrement : " + String( bulk_total ).replace( ".", "," ) + " / " + bulk_max;
+        this.bulk_dom_element.textContent = String( bulk_total ).replace( ".", "," ) + " / " + bulk_max;
         SERVICE.DOM.setDataSet( this.bulk_dom_element, "bulkState", bulk_state );
-        SERVICE.DOM.setDataSet( this.bulk_dom_element.parentElement, "bulkState", bulk_state );
+        SERVICE.DOM.setDataSet( this.bulk_dom_element.closest( ".stuffs-bulk" ), "bulkState", bulk_state );
         // La jauge suit : piste 0 → 2×max (le max tombe à mi-piste), le
         // curseur est clampé en bout de piste au-delà du double
         this.bulk_range_element.setAttribute( "max", "" + ( 2 * bulk_max ) );
@@ -508,3 +535,5 @@ CHARACTER.StuffsWindow.prototype = {
 
 SERVICE.CLASS.addPrototype( CHARACTER.StuffsWindow, WINDOW_V2.ElementFromData );
 CHARACTER.StuffsWindow.NAME = "stuffs_sheet";
+
+

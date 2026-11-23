@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventaire — prototype de refonte (thème original)</title>
+<style>
+    /* ============ THÈME ORIGINAL DE LA FEUILLE (variables du projet) ============ */
+    :root {
+        --c-gold: #D4AF37;
+        --c-gold-light: #FFD700;
+        --c-gold-dark: #8B6914;
+        --c-bg-deep: #0D0604;
+        --c-bg-dark: #1A0F08;
+        --c-bg-medium: #2C1810;
+        --c-bg-card: #3D2817;
+        --c-bg-card-light: #4A3520;
+        --c-bg-inset: #2A1B10;
+        --c-text: #E8D4A8;
+        --c-text-muted: #C8B89A;
+        --c-text-dark: #1A0F08;
+        --c-text-gold: #F0D890;
+        --c-bulk-warning: #FFBA0B;
+        --c-bulk-error: #EC5757;
+        --c-border-dark: #6B4E2A;
+        --c-border-gold: #D4AF37;
+        --g-bg-body: linear-gradient(135deg, #1A0F08 0%, #0D0604 100%);
+        --g-card: linear-gradient(135deg, #3D2817 0%, #2A1B10 100%);
+        --g-card-hover: linear-gradient(135deg, #4A3520 0%, #33231A 100%);
+        --g-gold: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+        --b-thin: 1px;
+        --r-sm: 4px;
+        --r-md: 6px;
+        --r-lg: 8px;
+        --s-xs: 2px;
+        --s-sm: 4px;
+        --s-md: 8px;
+        --s-lg: 12px;
+        --s-xl: 16px;
+        --s-2xl: 20px;
+        --s-3xl: 24px;
+        --sh-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+        --sh-gold-sm: 0 4px 12px rgba(212, 175, 55, 0.2);
+        --coin-pp: #F0F2F5;
+        --coin-po: #FFD700;
+        --coin-pa: #C0C8D0;
+        --coin-pc: #D08A4E;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background : var(--g-bg-body);
+        color      : var(--c-text);
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size  : 14px;
+        line-height: 1.45;
+        min-height : 100vh;
+        padding    : var(--s-3xl);
+    }
+
+    .sheet { max-width: 1080px; margin: 0 auto; }
+
+    /* ============ EN-TÊTE ============ */
+    .sheet-header {
+        align-items  : center;
+        background   : var(--g-card);
+        border       : var(--b-thin) solid var(--c-gold-dark);
+        border-radius: var(--r-lg);
+        box-shadow   : var(--sh-md);
+        display      : flex;
+        gap          : var(--s-xl);
+        padding      : var(--s-md) var(--s-lg);
+    }
+
+    .sheet-title {
+        color      : var(--c-text-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size  : 20px;
+        white-space: nowrap;
+    }
+
+    .tabs { display: flex; flex: 1 1 auto; flex-wrap: wrap; gap: var(--s-sm); }
+
+    .tab {
+        background   : transparent;
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-sm);
+        color        : var(--c-text-muted);
+        cursor       : pointer;
+        font-size    : 13px;
+        padding      : 3px 12px;
+    }
+
+    .tab .count { font-size: 11px; margin-left: var(--s-xs); }
+    .tab:hover { background: var(--c-bg-card-light); }
+
+    .tab.active {
+        background : var(--c-bg-card-light);
+        border-color: var(--c-border-gold);
+        color      : var(--c-gold);
+        font-weight: 600;
+    }
+
+    /* jauge d'encombrement : conservée telle quelle (piste 0 -> 2x max,
+       graduations au-dessus, curseur carré, couleurs data-bulk-state) */
+    .bulk { display: flex; flex-direction: column; gap: var(--s-xs); width: 220px; }
+    .bulk-gauge { display: flex; flex-direction: column; }
+    .bulk-ticks {
+        box-sizing : border-box;
+        color      : var(--c-text-muted);
+        font-size  : 10px;
+        height     : 11px;
+        line-height: 11px;
+        padding    : 0 6px;
+        position   : relative;
+    }
+    .bulk-tick { position: absolute; top: 0; white-space: nowrap; }
+    .bulk-tick-start { left: 0; }
+    .bulk-tick-mid { left: 50%; transform: translateX(-50%); }
+    .bulk-tick-end { right: 0; }
+    .bulk-track {
+        background   : var(--c-bg-dark);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-sm);
+        height       : 12px;
+        position     : relative;
+    }
+    .bulk-fill { border-radius: var(--r-sm); height: 100%; left: 0; position: absolute; top: 0; }
+    .bulk-track[data-bulk-state="ok"] .bulk-fill { background: var(--c-gold); }
+    .bulk-track[data-bulk-state="over"] .bulk-fill { background: var(--c-bulk-warning); }
+    .bulk-track[data-bulk-state="critical"] .bulk-fill { background: var(--c-bulk-error); }
+    .bulk-cursor {
+        background   : var(--c-text-gold);
+        border-radius: 2px;
+        height       : 12px;
+        position     : absolute;
+        top          : 0;
+        transform    : translateX(-50%);
+        width        : 12px;
+    }
+    .bulk-label { color: var(--c-text-muted); display: flex; font-size: 12px; justify-content: space-between; }
+    .bulk-label strong { color: var(--c-text-gold); font-weight: 600; }
+
+    /* ============ BLOCS ============ */
+    .sheet-main { display: flex; flex-direction: column; gap: var(--s-xl); margin-top: var(--s-xl); }
+
+    .card {
+        background   : var(--g-card);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-lg);
+        box-shadow   : var(--sh-md);
+        padding      : var(--s-lg) var(--s-xl);
+    }
+
+    .card-title {
+        color        : var(--c-text-gold);
+        font-family  : Georgia, "Times New Roman", serif;
+        font-size    : 16px;
+        margin-bottom: var(--s-md);
+    }
+
+    /* ============ PORTEFEUILLE : 3 emplacements visibles + transfert ============ */
+    .wallet-total { color: var(--c-text-muted); font-size: 13px; margin-bottom: var(--s-md); }
+    .wallet-total strong { color: var(--c-text-gold); }
+
+    .coin-locations { display: flex; flex-direction: column; gap: var(--s-sm); }
+
+    .coin-location {
+        align-items : center;
+        background  : var(--c-bg-inset);
+        border      : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-md);
+        display     : flex;
+        flex-wrap   : wrap;
+        gap         : var(--s-md);
+        padding     : var(--s-sm) var(--s-md);
+    }
+
+    .coin-location-label { color: var(--c-text-muted); min-width: 90px; }
+
+    .coin-chip { align-items: center; display: flex; gap: var(--s-xs); }
+    .coin-chip .coin-icon { height: 16px; width: 16px; }
+    .coin-chip .coin-amount { color: var(--c-text-gold); font-size: 13px; font-weight: 600; min-width: 24px; }
+    .coin-chip .coin-key { color: var(--c-text-muted); font-size: 10px; }
+
+    .coin-icon { border-radius: 50%; box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4); flex: 0 0 auto; }
+    .coin-pp { background: radial-gradient(circle at 35% 30%, #ffffff, var(--coin-pp) 55%, #8a93a8); }
+    .coin-po { background: radial-gradient(circle at 35% 30%, #fff3b0, var(--coin-po) 55%, #a8860b); }
+    .coin-pa { background: radial-gradient(circle at 35% 30%, #eef1f4, var(--coin-pa) 55%, #767f8c); }
+    .coin-pc { background: radial-gradient(circle at 35% 30%, #f0b285, var(--coin-pc) 55%, #7a421c); }
+
+    /* ligne de transfert entre emplacements */
+    .transfer {
+        align-items   : center;
+        border-top   : var(--b-thin) solid var(--c-border-dark);
+        display      : flex;
+        flex-wrap    : wrap;
+        gap          : var(--s-md);
+        margin-top   : var(--s-md);
+        padding-top  : var(--s-md);
+    }
+
+    .transfer-label { color: var(--c-text-muted); font-size: 13px; }
+
+    .transfer select,
+    .transfer input {
+        background   : var(--c-bg-dark);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-sm);
+        color        : var(--c-text);
+        font-size    : 13px;
+        padding      : 3px 6px;
+    }
+
+    .transfer input { width: 56px; }
+    .transfer .coin-key { color: var(--c-text-muted); font-size: 10px; margin-right: var(--s-xs); }
+
+    .transfer-btn {
+        background   : var(--g-gold);
+        border       : var(--b-thin) solid var(--c-gold-light);
+        border-radius: var(--r-sm);
+        color        : var(--c-text-dark);
+        cursor       : pointer;
+        font-size    : 12px;
+        padding      : 3px 12px;
+    }
+
+    /* ============ JOURNAL (replié par défaut) ============ */
+    details.journal summary {
+        color      : var(--c-text-gold);
+        cursor     : pointer;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size  : 16px;
+        list-style : none;
+        user-select: none;
+    }
+
+    details.journal summary::before { content: "▸"; display: inline-block; margin-right: var(--s-md); }
+    details.journal[open] summary::before { content: "▾"; }
+    details.journal summary:hover { color: var(--c-gold-light); }
+
+    .journal-list { display: flex; flex-direction: column; gap: var(--s-sm); margin-top: var(--s-md); }
+
+    .journal-entry {
+        align-items  : center;
+        background   : var(--c-bg-inset);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-sm);
+        display      : flex;
+        flex-wrap    : wrap;
+        gap          : var(--s-md);
+        padding      : var(--s-sm) var(--s-md);
+    }
+
+    .journal-date { color: var(--c-text-muted); font-size: 12px; min-width: 92px; }
+    .journal-amount { display: flex; flex-wrap: wrap; gap: var(--s-md); }
+    .journal-amount .delta { font-size: 12px; font-weight: 600; }
+    .delta-pp { color: var(--coin-pp); }
+    .delta-po { color: var(--coin-po); }
+    .delta-pa { color: var(--coin-pa); }
+    .delta-pc { color: var(--coin-pc); }
+    .journal-label { color: var(--c-text-muted); flex: 1 1 auto; font-style: italic; text-align: right; }
+
+    /* ============ INVENTAIRE ============ */
+    .inv-section { margin-bottom: var(--s-lg); }
+    .inv-section:last-child { margin-bottom: 0; }
+
+    .inv-section-head {
+        border-bottom : var(--b-thin) solid var(--c-border-dark);
+        display       : flex;
+        gap           : var(--s-md);
+        align-items   : baseline;
+        margin-bottom : var(--s-md);
+        padding-bottom: var(--s-sm);
+    }
+
+    .inv-section-title { color: var(--c-text-gold); font-family: Georgia, "Times New Roman", serif; font-size: 14px; }
+    .inv-section-count { color: var(--c-text-muted); font-size: 12px; }
+
+    .items-grid { display: grid; gap: var(--s-md); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+    .item-card {
+        align-items  : flex-start;
+        background   : var(--c-bg-inset);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-md);
+        display      : flex;
+        gap          : var(--s-md);
+        padding      : var(--s-md);
+    }
+
+    .item-card:hover { background: var(--g-card-hover); border-color: var(--c-border-gold); }
+
+    .item-icon {
+        align-items    : center;
+        background     : var(--c-bg-card);
+        border         : var(--b-thin) solid var(--c-border-dark);
+        border-radius  : var(--r-sm);
+        color          : var(--c-gold);
+        display        : flex;
+        flex           : 0 0 auto;
+        height         : 38px;
+        justify-content: center;
+        width          : 38px;
+    }
+
+    .item-body { flex: 1 1 auto; min-width: 0; }
+    .item-name { color: var(--c-text); font-weight: 600; display: flex; align-items: center; gap: var(--s-md); }
+
+    .item-qty {
+        background   : var(--c-bg-card-light);
+        border-radius: var(--r-sm);
+        color        : var(--c-gold);
+        font-size    : 11px;
+        padding      : 0 var(--s-md);
+    }
+
+    .item-stats { display: flex; flex-wrap: wrap; gap: var(--s-xs); margin-top: var(--s-sm); }
+
+    .chip {
+        background   : var(--c-bg-card);
+        border       : var(--b-thin) solid var(--c-border-dark);
+        border-radius: var(--r-sm);
+        color        : var(--c-text-muted);
+        font-size    : 11px;
+        padding      : var(--s-xs) var(--s-md);
+    }
+
+    .chip.stat { color: var(--c-text-gold); border-color: var(--c-gold-dark); }
+
+    /* roue crantée de configuration, comme la feuille */
+    .item-edit {
+        align-self : center;
+        color      : var(--c-gold);
+        cursor     : pointer;
+        font-size  : 16px;
+        margin-left: auto;
+    }
+
+    .empty-state {
+        align-items   : center;
+        border        : var(--b-thin) dashed var(--c-border-dark);
+        border-radius : var(--r-md);
+        color         : var(--c-text-muted);
+        display       : flex;
+        font-size     : 13px;
+        gap           : var(--s-md);
+        padding       : var(--s-md) var(--s-lg);
+    }
+
+    .empty-state svg { opacity: 0.6; }
+    .empty-add {
+        background : var(--g-gold);
+        border     : var(--b-thin) solid var(--c-gold-light);
+        border-radius: var(--r-sm);
+        color      : var(--c-text-dark);
+        cursor     : pointer;
+        font-size  : 12px;
+        margin-left : auto;
+        padding    : 3px 12px;
+    }
+</style>
+</head>
+<body>
+<div class="sheet">
+    <header class="sheet-header">
+        <div class="sheet-title">Équipement</div>
+        <nav class="tabs" id="tabs"></nav>
+        <div class="bulk">
+            <div class="bulk-gauge">
+                <div class="bulk-ticks">
+                    <span class="bulk-tick bulk-tick-start">0</span>
+                    <span class="bulk-tick bulk-tick-mid" id="tick-mid"></span>
+                    <span class="bulk-tick bulk-tick-end" id="tick-end"></span>
+                </div>
+                <div class="bulk-track" id="bulk-track" data-bulk-state="ok">
+                    <div class="bulk-fill" id="bulk-fill"></div>
+                    <div class="bulk-cursor" id="bulk-cursor"></div>
+                </div>
+            </div>
+            <div class="bulk-label"><span>Encombrement</span><span><strong id="bulk-text"></strong></span></div>
+        </div>
+    </header>
+
+    <main class="sheet-main">
+        <section class="card">
+            <div class="card-title">Argent</div>
+            <div class="wallet-total" id="wallet-total"></div>
+            <div class="coin-locations" id="coin-locations"></div>
+            <div class="transfer">
+                <span class="transfer-label">Opération :</span>
+                <select id="transfer-from"></select>
+                <span>→</span>
+                <select id="transfer-to"></select>
+                <span id="transfer-coins"></span>
+                <button class="transfer-btn" id="transfer-btn">Valider</button>
+            </div>
+        </section>
+
+        <details class="card journal">
+            <summary>Journal</summary>
+            <div class="journal-list" id="journal-list"></div>
+        </details>
+
+        <section class="card">
+            <div class="card-title">Inventaire</div>
+            <div id="inventory"></div>
+        </section>
+    </main>
+</div>
+
+<script>
+"use strict";
+/* Données d'exemple — aucun lien externe, le script ne peut pas être bloqué */
+const DATA = {
+    bulk: { carried: 1.1, max: 10 },
+    coins: {
+        equipped: { pp: 25, po: 10, pa: 20, pc: 12 },
+        backpack: { pp: 0,  po: 3,  pa: 15, pc: 40 },
+        stored:   { pp: 0,  po: 100, pa: 0,  pc: 0 }
+    },
+    coinLabels: { pp: "platine", po: "or", pa: "argent", pc: "cuivre" },
+    locations: [
+        { key: "all",      label: "Tous" },
+        { key: "equipped", label: "Équipé" },
+        { key: "backpack", label: "Sac à dos" },
+        { key: "stored",   label: "Entreposé" }
+    ],
+    locationLabels: { equipped: "Équipé", backpack: "Sac à dos", stored: "Entreposé" },
+    journal: [
+        { date: "22/11 23:06", location: "equipped", coins: { pp: 25, po: 10, pa: 20, pc: 12 }, label: "dragon" }
+    ],
+    items: [
+        { name: "Rapière",     kind: "weapon", location: "equipped", qty: null, stats: ["Dégâts 1d6 P", "Finesse", "Agile"] },
+        { name: "Épée courte", kind: "weapon", location: "equipped", qty: null, stats: ["Dégâts 1d6 T", "Finesse", "Agile"] }
+    ]
+};
+
+const COIN_ORDER = ["pp", "po", "pa", "pc"];
+const COIN_PC    = { pp: 1000, po: 100, pa: 10, pc: 1 };
+let currentFilter = "all";
+
+const ICONS = {
+    weapon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 20 L14 10"/><path d="M13 5 L19 11 L15 15 L9 9 Z"/><path d="M4 20 l-1.5 1.5 M4 20 l1.5 -1.5"/></svg>',
+    armor:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 L20 7 V13 C20 18 16.5 20.5 12 21 C7.5 20.5 4 18 4 13 V7 Z"/></svg>',
+    bag:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 8 h12 l1.5 12 h-15 Z"/><path d="M9 8 a3 3 0 0 1 6 0"/></svg>',
+    chest:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M4 9 a8 4 0 0 1 16 0"/><path d="M12 9 v4"/></svg>'
+};
+
+function pad(nb) { return (nb < 10 ? "0" : "") + nb; }
+function nowDate() {
+    const d = new Date();
+    return pad(d.getDate()) + "/" + pad(d.getMonth() + 1) + " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+}
+
+function coinAmountAll(k) {
+    return DATA.locations.slice(1).reduce((acc, loc) => acc + (DATA.coins[loc.key][k] || 0), 0);
+}
+
+function formatTotal(totalPc) {
+    if (!totalPc) return "0 pc";
+    const parts = [];
+    let rest = totalPc;
+    for (const k of COIN_ORDER) {
+        const n = Math.floor(rest / COIN_PC[k]);
+        if (n) { parts.push(n + k); rest -= n * COIN_PC[k]; }
+    }
+    return parts.join(" ");
+}
+
+function renderTabs() {
+    const nav = document.getElementById("tabs");
+    nav.innerHTML = "";
+    for (const loc of DATA.locations) {
+        const btn = document.createElement("button");
+        btn.className = "tab" + (currentFilter === loc.key ? " active" : "");
+        const count = loc.key === "all" ? DATA.items.length : DATA.items.filter(i => i.location === loc.key).length;
+        btn.innerHTML = loc.label + ' <span class="count">(' + count + ')</span>';
+        btn.onclick = () => { currentFilter = loc.key; render(); };
+        nav.appendChild(btn);
+    }
+}
+
+/* Jauge identique à la feuille */
+function renderBulk() {
+    const { carried, max } = DATA.bulk;
+    const pct = Math.min(carried / (2 * max), 1) * 100;
+    document.getElementById("bulk-text").textContent = String(carried).replace(".", ",") + " / " + max;
+    document.getElementById("tick-mid").textContent = "" + max;
+    document.getElementById("tick-end").textContent = "" + (2 * max);
+    const track = document.getElementById("bulk-track");
+    track.setAttribute("data-bulk-state", carried > 2 * max ? "critical" : carried > max ? "over" : "ok");
+    document.getElementById("bulk-fill").style.width = pct + "%";
+    document.getElementById("bulk-cursor").style.left = pct + "%";
+}
+
+/* Portefeuille : une ligne PAR EMPLACEMENT (Équipé / Sac à dos / Entreposé),
+   4 monnaies visibles chacune */
+function renderWallet() {
+    let totalPc = 0;
+    for (const k of COIN_ORDER) totalPc += coinAmountAll(k) * COIN_PC[k];
+    document.getElementById("wallet-total").innerHTML = "Total : <strong>" + formatTotal(totalPc) + "</strong>";
+
+    const root = document.getElementById("coin-locations");
+    root.innerHTML = "";
+    for (const loc of DATA.locations.slice(1)) {
+        const row = document.createElement("div");
+        row.className = "coin-location";
+        row.setAttribute("data-location", loc.key);
+        let chips = "";
+        for (const k of COIN_ORDER) {
+            chips += '<span class="coin-chip"><span class="coin-icon coin-' + k + '"></span>' +
+                     '<span class="coin-amount">' + (DATA.coins[loc.key][k] || 0) + '<span class="coin-key">' + k + '</span></span></span>';
+        }
+        row.innerHTML = '<span class="coin-location-label">' + loc.label + '</span>' + chips;
+        root.appendChild(row);
+    }
+}
+
+/* Ligne de transfert : deux sélecteurs d'emplacement + un montant par devise */
+const OPERATION_LOCATIONS = DATA.locations.slice(1).concat([{ key: "outside", label: "Extérieur" }]);
+
+function renderTransfer() {
+    const fromSel = document.getElementById("transfer-from");
+    const toSel   = document.getElementById("transfer-to");
+    fromSel.innerHTML = "";
+    toSel.innerHTML = "";
+    for (const loc of OPERATION_LOCATIONS) {
+        fromSel.innerHTML += '<option value="' + loc.key + '"' + (loc.key === "equipped" ? " selected" : "") + '>' + loc.label + '</option>';
+        toSel.innerHTML   += '<option value="' + loc.key + '"' + (loc.key === "backpack" ? " selected" : "") + '>' + loc.label + '</option>';
+    }
+    const coinsBox = document.getElementById("transfer-coins");
+    coinsBox.innerHTML = "";
+    for (const k of COIN_ORDER) {
+        const span = document.createElement("span");
+        span.innerHTML = '<span class="coin-icon coin-' + k + '" style="display:inline-block;height:12px;width:12px;vertical-align:-2px;"></span> ' +
+            '<span class="coin-key">' + k + '</span> <input type="number" min="0" step="1" data-coin="' + k + '" placeholder="0">';
+        coinsBox.appendChild(span);
+    }
+    document.getElementById("transfer-btn").onclick = doOperation;
+}
+
+/* Une opération d'argent : interne (Équipé → Sac à dos) ou avec
+   l'extérieur (gain : Extérieur → Équipé, dépense : Équipé → Extérieur).
+   Le montant est clampé au solde de départ quand il sort d'un emplacement
+   du personnage */
+function doOperation() {
+    const from = document.getElementById("transfer-from").value;
+    const to   = document.getElementById("transfer-to").value;
+    if (!from || !to || from === to) return;
+    const fromLabel = (OPERATION_LOCATIONS.find(l => l.key === from) || {}).label || from;
+    const toLabel   = (OPERATION_LOCATIONS.find(l => l.key === to)   || {}).label || to;
+    const moved = {};
+    const inputs = document.querySelectorAll("#transfer-coins input");
+    for (const input of inputs) {
+        const k = input.getAttribute("data-coin");
+        let amount = parseInt(input.value, 10) || 0;
+        if (amount <= 0) continue;
+        if (from !== "outside") {
+            // clamp au solde de départ
+            amount = Math.min(amount, DATA.coins[from][k] || 0);
+        }
+        if (!amount) continue;
+        moved[k] = amount;
+        if (from !== "outside") DATA.coins[from][k] -= amount;
+        if (to   !== "outside") DATA.coins[to][k]   += amount;
+    }
+    if (Object.keys(moved).length) {
+        // l'entrée du journal porte l'emplacement du personnage concerné,
+        // avec le delta signé (négatif si l'argent sort, positif si gain)
+        const signed = {};
+        for (const k of COIN_ORDER) signed[k] = (to === "outside" ? -1 : 1) * (moved[k] || 0);
+        const journalLocation = from !== "outside" ? from : to;
+        DATA.journal.unshift({ date: nowDate(), location: journalLocation, coins: signed, label: "Opération : " + fromLabel + " → " + toLabel });
+    }
+    render();
+}
+
+function renderJournal() {
+    const list = document.getElementById("journal-list");
+    list.innerHTML = "";
+    for (const entry of DATA.journal) {
+        const div = document.createElement("div");
+        div.className = "journal-entry";
+        const deltas = COIN_ORDER.filter(k => entry.coins[k])
+            .map(k => {
+                const v = entry.coins[k];
+                return '<span class="delta delta-' + k + '">' + (v > 0 ? "+" : "−") + Math.abs(v) + k + '</span>';
+            }).join("");
+        div.innerHTML =
+            '<span class="journal-date">' + entry.date + '</span>' +
+            '<span class="journal-amount">' + deltas + '</span>' +
+            '<span class="journal-label">' + entry.label + " (" + DATA.locationLabels[entry.location] + ')</span>';
+        list.appendChild(div);
+    }
+}
+
+function renderInventory() {
+    const root = document.getElementById("inventory");
+    root.innerHTML = "";
+    const sections = currentFilter === "all" ? DATA.locations.slice(1) : DATA.locations.filter(l => l.key === currentFilter);
+    for (const loc of sections) {
+        const items = DATA.items.filter(i => i.location === loc.key);
+        const sec = document.createElement("div");
+        sec.className = "inv-section";
+        sec.innerHTML = '<div class="inv-section-head"><span class="inv-section-title">' + loc.label +
+            '</span><span class="inv-section-count">' + items.length + " objet" + (items.length > 1 ? "s" : "") + '</span></div>';
+        if (!items.length) {
+            sec.innerHTML += '<div class="empty-state">' +
+                (loc.key === "equipped" ? ICONS.armor : loc.key === "backpack" ? ICONS.bag : ICONS.chest) +
+                '<span>Rien ici pour le moment.</span><button class="empty-add">+ Ajouter</button></div>';
+        } else {
+            const grid = document.createElement("div");
+            grid.className = "items-grid";
+            for (const item of items) {
+                const card = document.createElement("div");
+                card.className = "item-card";
+                card.innerHTML =
+                    '<div class="item-icon">' + (ICONS[item.kind] || ICONS.bag) + '</div>' +
+                    '<div class="item-body"><div class="item-name">' + item.name +
+                        (item.qty ? '<span class="item-qty">×' + item.qty + '</span>' : '') +
+                    '</div><div class="item-stats">' +
+                        item.stats.map((s, i) => '<span class="chip' + (i === 0 ? " stat" : "") + '">' + s + '</span>').join("") +
+                    '</div></div><div class="item-edit" title="Modifier l’objet">⚙</div>';
+                grid.appendChild(card);
+            }
+            sec.appendChild(grid);
+        }
+        root.appendChild(sec);
+    }
+}
+
+function render() {
+    renderTabs();
+    renderBulk();
+    renderWallet();
+    renderTransfer();
+    renderJournal();
+    renderInventory();
+}
+
+render();
+</script>
+</body>
+</html>
