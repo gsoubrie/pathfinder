@@ -29,17 +29,20 @@ body {
 
 .character-sheet-windows {
     background: var(--g-panel-dark);
-    border-bottom: var(--b-thick) solid var(--c-gold-dark);
-    padding: var(--s-lg);
+    border-bottom: var(--b-thin) solid var(--c-border-dark);
+    padding: var(--s-md) var(--s-lg);
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: var(--s-sm);
+    font-family: var(--font-family-nav);
 }
 
 .character-sheet-windows .gs-window-group-V2 {
     display: flex;
-    gap: var(--s-sm);
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--s-xs);
+    justify-content: flex-start;
     flex: 1;
 }
 
@@ -48,18 +51,13 @@ body {
 }
 
 .character-sheet-windows .gs-window-element-V2 .gs-div-tab {
-    background: var(--g-card);
-    border: var(--b-normal) solid var(--c-border-dark);
-    border-radius: var(--r-lg);
-    padding: var(--s-lg) var(--s-3xl);
-    transition: var(--t-normal);
-}
-
-.character-sheet-windows .gs-window-element-V2:hover .gs-div-tab {
-    background: var(--g-card-hover);
-    border-color: var(--c-gold-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--sh-gold-sm);
+    background: transparent;
+    border: none;
+    border-radius: var(--r-full);
+    padding: 3px 14px;
+    position: relative;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
 }
 
 .gs-window-element-V2 {
@@ -67,22 +65,62 @@ body {
     border: none !important;
 }
 
-.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab {
-    background: var(--g-gold);
-    border-color: var(--c-gold-light);
-    box-shadow: var(--sh-gold-lg);
+.character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-div-tab::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 0;
+    height: 2px;
+    border-radius: var(--r-full) var(--r-full) 0 0;
+    background: var(--c-text);
 }
 
 .character-sheet-windows .gs-label {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    color: var(--c-text-muted);
+    text-shadow: none;
+    transition: color 0.2s ease;
+}
+
+.character-sheet-windows .gs-window-element-V2:hover .gs-label {
     color: var(--c-text);
-    text-shadow: var(--text-shadow-md);
 }
 
 .character-sheet-windows .gs-window-element-V2[data-current-phase="RUNNING"] .gs-label {
-    color: var(--c-text-dark);
-    text-shadow: none;
+    color: var(--c-text-gold);
+}
+
+/* Icône de chaque onglet, posée par data-name (la lib rend le label, le CSS pose le glyphe) */
+.character-sheet-windows .gs-window-element-V2[data-name="general_sheet"] .gs-label::before { content: '👤'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="combat_sheet"] .gs-label::before { content: '⚔️'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="stuffs_sheet"] .gs-label::before { content: '🎒'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="library_sheet"] .gs-label::before { content: '📚'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="spells_sheet"] .gs-label::before { content: '✨'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="adjustments_sheet"] .gs-label::before { content: '🔧'; margin-right: var(--s-sm); }
+.character-sheet-windows .gs-window-element-V2[data-name="levelup_sheet"] .gs-label::before { content: '⬆️'; margin-right: var(--s-sm); }
+
+/* Badge de compteur en pastille ronde à côté du libellé */
+.character-sheet-windows .gs-counter .gs-counter-label {
+    min-width: 17px;
+    height: 17px;
+    padding: 0;
+    margin: 0 0 0 var(--s-sm);
+    border-radius: var(--r-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+}
+
+.character-sheet-windows .gs-warnings-counter .gs-counter-label {
+    background-color: var(--c-bulk-warning);
+    color: var(--c-text-dark) !important;
+}
+
+.character-sheet-windows .gs-errors-counter .gs-counter-label {
+    background-color: var(--c-bulk-error);
+    color: var(--c-text-dark) !important;
 }
 
 .characters-sheet-content {
@@ -221,11 +259,13 @@ body {
 }
 
 .character-sheet-windows .save-button {
-    color     : var(--c-text-gold);
-    font-size : 22px;
+    order       : 1;
+    margin-left : auto;
+    color       : var(--c-text-gold);
+    font-size   : 22px;
     line-height : 1;
-    cursor     : pointer;
-    transition : transform 0.3s ease;
+    cursor      : pointer;
+    transition  : transform 0.3s ease;
 }
 
 .character-sheet-windows .save-button:hover {
@@ -260,19 +300,6 @@ body {
 
     body {
         padding: var(--s-sm);
-    }
-
-    .character-sheet-windows {
-        flex-wrap: wrap;
-    }
-
-    .character-sheet-windows .gs-window-group-V2 {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .character-sheet-windows .gs-window-element-V2 .gs-div-tab {
-        padding: var(--s-sm) var(--s-lg);
     }
 
     .characters-sheet-content {

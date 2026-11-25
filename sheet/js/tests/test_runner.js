@@ -249,6 +249,48 @@ TEST.waitCounterValue                       = function ( dom_element, expected_v
 };
 
 /**
+ * Attente de convergence de la bascule d'onglet : le clic pose la phase au
+ * tick suivant (callbackForPhase de la lib) et un onglet en arrière-plan
+ * voit ses timers throttlés — lire data-current-phase à date fixe perd la
+ * course (même règle que waitCounterValue). Polling borné jusqu'à ce qu'un
+ * seul onglet porte RUNNING avec le data-name attendu.
+ */
+TEST.waitTabActive                          = function ( window_name, timeout_ms ) {
+    let _deadline                           = Date.now() + ( timeout_ms || 3000 );
+    return new Promise( function ( resolve ) {
+        let _poll                           = function () {
+            let _running                    = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
+            if ( _running.length === 1 && _running[ 0 ].getAttribute( "data-name" ) === window_name ) {
+                let _tab_label              = _running[ 0 ].querySelector( ".gs-label" );
+                if ( _tab_label && TEST.computedStyleInstant( _tab_label, "color" ).indexOf( "240, 216, 144" ) !== -1 ) {
+                    resolve();
+                    return;
+                }
+            }
+            if ( Date.now() >= _deadline ) {
+                resolve();
+                return;
+            }
+            setTimeout( _poll, 50 );
+        };
+        _poll();
+    } );
+};
+
+/**
+ * Lit une propriété calculée SANS la transition : les couleurs sont
+ * interpolées et le headless virtual-time avance l'animation par bonds —
+ * figer la transition inline fait lire la valeur cible immédiatement.
+ */
+TEST.computedStyleInstant                   = function ( dom_element, property_name ) {
+    let _previous                           = dom_element.style.transition;
+    dom_element.style.transition            = "none";
+    let _value                              = getComputedStyle( dom_element )[ property_name ];
+    dom_element.style.transition            = _previous;
+    return _value;
+};
+
+/**
  * Reinitialisation de la feuille en cours de suite : nouveau personnage,
  * fenetres reconstruites, indicateurs data-* nettoyes, popup fermee.
  * Le character_uuid optionnel fait booter la feuille SUR un save

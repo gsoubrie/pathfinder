@@ -25,6 +25,7 @@ CHARACTER.GeneralWindow.prototype = {
                 this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                 this.computeArea__actionsFeats( CONTROLLER.Character.current_character );
                 this.computeArea__deity( CONTROLLER.Character.current_character );
+                this.computeArea__combat( CONTROLLER.Character.current_character );
                 this._updateHealthPointsField( CONTROLLER.Character.current_character );
                 break;
             // A +/− on a characteristic moves the Constitution modifier and
@@ -48,6 +49,7 @@ CHARACTER.GeneralWindow.prototype = {
                     this.computeArea__ancestryInfo( CONTROLLER.Character.current_character );
                     this.computeArea__actionsFeats( CONTROLLER.Character.current_character );
                     this.computeArea__deity( CONTROLLER.Character.current_character );
+                    this.computeArea__combat( CONTROLLER.Character.current_character );
                     this.computeArea__healthPoints( CONTROLLER.Character.current_character );
                     this.computeArea__level( CONTROLLER.Character.current_character );
                 }
@@ -76,6 +78,8 @@ CHARACTER.GeneralWindow.prototype = {
         this.computeArea__ancestryInfo( character_object );
         this.computeArea__actionsFeats( character_object );
         this.computeArea__deity( character_object );
+
+        this.computeArea__combat( character_object );
         this.computeComponent(character_object.getCharacteristics());
         this.computeComponent(character_object.getClasses());
         this.computeArea__level( character_object );
@@ -161,20 +165,6 @@ CHARACTER.GeneralWindow.prototype = {
         for ( let t = 0, _size_t = race_traits.length; t < _size_t; t++ ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "ancestry-info-trait" }, race_traits[ t ] ), traits_row );
         }
-        // Vitesse : une ligne par mode de deplacement, la marche vient de la
-        // race, les autres modes viennent des ajustements de l'onglet
-        let speed_property = SERVICE.DOM.addElementTo(
-            SERVICE.DOM.createElement( "div", { class: "property vertical ancestry-info-property", "data-name": "speed" } ),
-            this.area_ancestry_info
-        );
-        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "label" }, "Vitesse" ), speed_property );
-        let speed_modes = character_object.getAdjustments().getValuesByKind( "speed" );
-        if ( race.isSet() && race.speed !== undefined ) {
-            speed_modes.unshift( "Marche : " + race.speed + " mètres" );
-        }
-        for ( let m = 0, _size_m = speed_modes.length; m < _size_m; m++ ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "ancestry-info-value" }, speed_modes[ m ] ), speed_property );
-        }
         if ( race.sens ) {
             let senses = [ race.sens ].concat( character_object.getAdjustments().getValuesByKind( "sense" ) );
             this._computeAncestryInfoList( "sense", "Sens", senses );
@@ -209,6 +199,64 @@ CHARACTER.GeneralWindow.prototype = {
             );
         }
     },
+
+    // Zone de la colonne 5, sous les PV : lignes simples "cle : valeur"
+    // (decision utilisateur) — CA cliquable (popup armor_class) puis Vitesse.
+    // L'Initiative n'est PAS reaffichee ici : elle vit sur la ligne
+    // "Perception / Initiative" de la zone jets
+    computeArea__combat: function ( character_object ) {
+
+        if ( !this.content_dom_element_target ) {
+
+            return;
+        }
+        if ( !this.area_combat ) {
+
+            this.area_combat = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "grid-area area-combat" } ),
+                this.content_dom_element_target
+            );
+        }
+        SERVICE.DOM.empty( this.area_combat );
+        let combat          = character_object.getCombat();
+        let armor_class     = combat.getArmorClassData( character_object ).value;
+        let ca_line         = SERVICE.DOM.addElementTo(
+            SERVICE.DOM.createElement( "div", {
+                class      : "combat-line",
+                "data-name": "armor_class",
+                title      : "Détail de la classe d'armure",
+                onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__armor_class')"
+            } ),
+            this.area_combat
+        );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-key" }, "Classe d'armure : " ), ca_line );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-value" }, "" + armor_class ), ca_line );
+        // Vitesse : la marche vient de la race, les autres modes des
+        // ajustements (deja au format "mode : N mètres")
+        let race            = character_object.getRace();
+        let speed_modes     = character_object.getAdjustments().getValuesByKind( "speed" );
+        let has_speed_line  = false;
+        if ( race.isSet() && race.speed !== undefined ) {
+
+            has_speed_line = true;
+            let speed_line = SERVICE.DOM.addElementTo(
+                SERVICE.DOM.createElement( "div", { class: "combat-line", "data-name": "speed" } ),
+                this.area_combat
+            );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-key" }, "Vitesse : " ), speed_line );
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-value" }, race.speed + " m" ), speed_line );
+        }
+        for ( let m = 0, _size_m = speed_modes.length; m < _size_m; m++ ) {
+
+            has_speed_line = true;
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-line", "data-name": "speed" }, speed_modes[ m ] ), this.area_combat );
+        }
+        if ( !has_speed_line ) {
+
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-line", "data-name": "speed" }, "Vitesse : —" ), this.area_combat );
+        }
+    },
+
 
     // Zone de la colonne 5 : DONS et ACTIONS mergés dans le MEME container
     // (décision utilisateur) — Dons d'abord, puis Actions. Les dons actifs

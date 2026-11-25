@@ -1,0 +1,179 @@
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Preview — Onglet Général (Tyrane)</title>
+
+	<!-- CSS Variables & Utilities (must load first) -->
+	<link href="./sheet/css/_variables.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/_utilities.css" rel="stylesheet" type="text/css">
+	<!-- GS Library CSS -->
+	<link href="./sheet/css/libs/gs_lib_common.css" rel="stylesheet" type="text/css">
+	<!-- Main Styles -->
+	<link href="./sheet/css/style.css" rel="stylesheet" type="text/css">
+	<!-- Sheet Specific Styles -->
+	<link href="./sheet/css/sheet/sheet_general.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_combat.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_levelup.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_adjustments.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_stuffs.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_spells.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_characteristic.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/sheet/sheet_library.css" rel="stylesheet" type="text/css">
+	<!-- Popup Styles -->
+	<link href="./sheet/css/popup/popup.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/popup/popup_class.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/popup/popup_skill_actions.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/popup/popup_object.css" rel="stylesheet" type="text/css">
+	<link href="./sheet/css/popup/modal.css" rel="stylesheet" type="text/css">
+
+	<script src="./sheet/js/libs/gs_lib_common.js"></script>
+	<script src="./sheet/js/libs/gs_lib_common_V02_01.js"></script>
+
+	<script src="./sheet/js/constant.js"></script>
+	<script src="./sheet/js/constant_divers.js"></script>
+
+	<script src="./sheet/js/service/service_string.js"></script>
+	<script src="./sheet/js/service/service_data.js"></script>
+	<script src="./sheet/js/service/service_dom.js"></script>
+	<script src="./sheet/js/service/service_dom_helper.js"></script>
+
+	<script src="./sheet/js/object/constant_objects.js"></script>
+	<script src="./sheet/js/object/constant_objects_srd.js"></script>
+	<script src="./sheet/js/object/constant_skill_actions.js"></script>
+	<script src="./sheet/js/object/object-interface.js"></script>
+	<script src="./sheet/js/object/configurable_value.js"></script>
+	<script src="./sheet/js/object/popup_renders.js"></script>
+	<script src="./sheet/js/object/popup.js"></script>
+	<script src="./sheet/js/object/popups.js"></script>
+	<script src="./sheet/js/object/inline_selector.js"></script>
+
+
+	<script src="./sheet/js/component/_component_interface.js"></script>
+	<script src="./sheet/js/component/name_object.js"></script>
+	<script src="./sheet/js/component/player.js"></script>
+	<script src="./sheet/js/component/body_size.js"></script>
+
+	<script src="./sheet/js/class/constant_class.js"></script>
+	<script src="./sheet/js/class/constant_class_choices.js"></script>
+	<script src="./sheet/js/archetype/constant_archetype.js"></script>
+	<script src="./sheet/js/archetype/archetype.js"></script>
+	<script src="./sheet/js/archetype/archetypes.js"></script>
+	<script src="./sheet/js/class/class.js"></script>
+	<script src="./sheet/js/class/classes.js"></script>
+	<script src="./sheet/js/class/class_skills.js"></script>
+
+	<script src="./sheet/js/characteristic/bonuses.js"></script>
+	<script src="./sheet/js/characteristic/characteristic.js"></script>
+	<script src="./sheet/js/characteristic/characteristics.js"></script>
+
+
+	<script src="./sheet/js/historics/constant_historic.js"></script>
+	<script src="./sheet/js/historics/historics.js"></script>
+
+	<script src="./sheet/js/race/race_constant.js"></script>
+	<script src="./sheet/js/race/race_enum.js"></script>
+	<script src="./sheet/js/race/race.js"></script>
+	<script src="./sheet/js/race/races.js"></script>
+	<script src="./sheet/js/race/windows_group.js"></script>
+
+	<script src="./sheet/js/legacy/legacy_constant.js"></script>
+	<script src="./sheet/js/legacy/legacy_enum.js"></script>
+	<script src="./sheet/js/legacy/legacy.js"></script>
+	<script src="./sheet/js/legacy/legacies.js"></script>
+
+	<script src="./sheet/js/gift/constant_gift_general.js"></script>
+	<script src="./sheet/js/gift/constant_gift_class.js"></script>
+	<script src="./sheet/js/gift/constant_gift_race.js"></script>
+	<script src="./sheet/js/gift/constant_gift_skill.js"></script>
+	<script src="./sheet/js/stuffs/constant_stuffs.js"></script>
+	<script src="./sheet/js/stuffs/constant-stuff.js"></script>
+	<script src="./sheet/js/library/constant-library.js"></script>
+	<script src="./sheet/js/spell/spells_constant.js"></script>
+	<script src="./sheet/js/spell/constant-spells.js"></script>
+	<script src="./sheet/js/gift/gifts.js"></script>
+
+	<script src="./sheet/js/character/character.js"></script>
+	<script src="./sheet/js/character/health_object.js"></script>
+
+	<script src="./sheet/js/character/character_windows/character_windows.js"></script>
+	<script src="./sheet/js/character/character_windows/general_window.js"></script>
+	<script src="./sheet/js/character/character_windows/combat_window.js"></script>
+	<script src="./sheet/js/character/character_windows/stuffs_window.js"></script>
+	<script src="./sheet/js/character/character_windows/spells_window.js"></script>
+	<script src="./sheet/js/level/level.js"></script>
+	<script src="./sheet/js/level/levels.js"></script>
+	<script src="./sheet/js/levelup/constant-level-up.js"></script>
+	<script src="./sheet/js/adjustment/constant-adjustment.js"></script>
+	<script src="./sheet/js/adjustment/adjustment.js"></script>
+	<script src="./sheet/js/adjustment/adjustments.js"></script>
+	<script src="./sheet/js/stuffs/stuff.js"></script>
+	<script src="./sheet/js/stuffs/stuffs.js"></script>
+	<script src="./sheet/js/stuffs/coins.js"></script>
+	<script src="./sheet/js/stuffs/stuff-edit-popup.js"></script>
+	<script src="./sheet/js/spell/spell.js"></script>
+	<script src="./sheet/js/spell/spells.js"></script>
+	<script src="./sheet/js/spell/spell-slots.js"></script>
+	<script src="./sheet/js/spell/daily-preparation.js"></script>
+	<script src="./sheet/js/spell/spell-add-popup.js"></script>
+	<script src="./sheet/js/spell/spell-edit-popup.js"></script>
+	<script src="./sheet/js/levelup/1-levels-history.js"></script>
+	<script src="./sheet/js/levelup/2-level-history.js"></script>
+	<script src="./sheet/js/levelup/3-level-up-skill-basic.js"></script>
+	<script src="./sheet/js/levelup/3-level-up-skill-with-select.js"></script>
+	<script src="./sheet/js/levelup/4-level-history-skills.js"></script>
+	<script src="./sheet/js/levelup/5-level-history-skill.js"></script>
+	<script src="./sheet/js/levelup/6-ancestry-history.js"></script>
+	<script src="./sheet/js/levelup/7-ancestry-level-history.js"></script>
+	<script src="./sheet/js/levelup/8-archetype-history.js"></script>
+	<script src="./sheet/js/levelup/9-archetype-level-history.js"></script>
+	<script src="./sheet/js/mastery/constant_mastery.js"></script>
+	<script src="./sheet/js/mastery/masteries.js"></script>
+	<script src="./sheet/js/combat/constant-combat.js"></script>
+	<script src="./sheet/js/combat/combat.js"></script>
+	<script src="./sheet/js/character/character_windows/library_window.js"></script>
+	<script src="./sheet/js/character/character_windows/levelup_window.js"></script>
+	<script src="./sheet/js/character/character_windows/adjustments_window.js"></script>
+
+	<script src="./sheet/js/controller/main-controller.js"></script>
+	<script src="./sheet/js/controller/character-controller.js"></script>
+	<script src="./sheet/js/popup.js"></script>
+
+	<script src="./sheet/save/a9b2dfe206c0Ab01Dc3c75a66230924b.js"></script>
+	<script src="./sheet/save/U574c03fcb107edc5aef21f8a55cef9ea.js"></script>
+	<script src="./sheet/save/a9b2dfe206c0Ab01Dc3c75a66230924c.js"></script>
+	<script src="./sheet/save/Uc9f4347f460229e8fde7c209f1abce2f.js"></script>
+	<script src="./sheet/save/anastasia.js"></script>
+	<script src="./sheet/save/cobalt.js"></script>
+	<script src="./sheet/save/Tyrane_U5b14a3ec560a8d4d7807dabf8754da53.js"></script>
+	<script src="./sheet/save/Soleane_U96d97e9044c5e75d60e7a02e00543f7d.js"></script>
+	<script src="./sheet/save/Bromgar_U1650d0db070a7e7a94463dc339386dc9.js"></script>
+	<script src="./sheet/save/Thorgrim_Ub3a2e95ab4f646b41968182c6b7f5f79.js"></script>
+	<script src="./sheet/save/splinter_U99f0513b7c35225bc9d25c8bcb0242b4.js"></script>
+	<script src="./sheet/save/Alienor.js"></script>
+</head>
+
+<body class="gs-parent-event-listener" data-controller="Main" data-is-race-set="0" data-is-level-set="0">
+<div class="character-content">
+	<div class="character-sheet-windows"></div>
+	<div class="characters-sheet-content"></div>
+</div>
+
+<style>
+	/* Preview plein onglet : la barre de navigation est masquee, la feuille
+	   garde sa taille reelle (--size-sheet-width x --size-sheet-height) */
+	.character-sheet-windows { display: none; }
+</style>
+<script>
+	// Preview de l'onglet General chargee sur le save de Tyrane : le boot
+	// par defaut (sans ?id=) laisse la page vide, on re-init sur le save ici
+	window.addEventListener( "load", function () {
+		document.querySelector( ".character-sheet-windows" ).innerHTML = "";
+		document.querySelector( ".characters-sheet-content" ).innerHTML = "";
+		CONTROLLER.Character.init( "Tyrane_U5b14a3ec560a8d4d7807dabf8754da53" );
+	} );
+</script>
+</body>
+
+</html>

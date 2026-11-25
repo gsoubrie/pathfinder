@@ -51,14 +51,14 @@ TEST.RUNNER.register( "[ONGLETS] style actif = doré", function () {
     if ( !_active_div ) {
         return;
     }
-    let _active_style                    = getComputedStyle( _active_div );
-    TEST.ASSERT.ok( _active_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "Le fond de l'onglet actif devrait etre le degrade dore (var(--g-gold), #D4AF37), obtenu : " + _active_style.backgroundImage );
+    let _active_color                    = TEST.computedStyleInstant( _active_div.querySelector( ".gs-label" ), "color" );
+    TEST.ASSERT.ok( _active_color.indexOf( "240, 216, 144" ) !== -1, "Le libellé de l'onglet actif devrait etre crème (var(--c-text-gold), #F0D890), obtenu : " + _active_color );
     let _inactive_tab                    = document.querySelector( ".character-sheet-windows .gs-window-element-V2[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
     if ( _inactive_tab ) {
         let _inactive_div                = _inactive_tab.querySelector( ".gs-div-tab" );
         if ( _inactive_div ) {
-            let _inactive_style          = getComputedStyle( _inactive_div );
-            TEST.ASSERT.notEqual( _active_style.backgroundImage, _inactive_style.backgroundImage, "L'onglet actif devrait etre visuellement distinct d'un onglet inactif (meme fond, le style actif ne s'applique pas)" );
+            let _inactive_color          = TEST.computedStyleInstant( _inactive_div.querySelector( ".gs-label" ), "color" );
+            TEST.ASSERT.ok( _inactive_color.indexOf( "240, 216, 144" ) === -1, "L'onglet inactif ne devrait pas avoir le libellé crème (le style actif ne s'applique qu'au RUNNING), obtenu : " + _inactive_color );
         }
     }
 } );
@@ -153,14 +153,16 @@ TEST.RUNNER.register( "[ONGLETS] Sorts = actif sur page vide", function () {
 
 TEST.RUNNER.register( "[ONGLETS] clic Bibliothèque → actif = Bibliothèque", function () {
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.LibraryWindow.NAME ).then( function () {
+        return TEST.waitTabActive( CHARACTER.LibraryWindow.NAME );
+    } ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
         TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.LibraryWindow.NAME, "Fenetre active apres le clic" );
         let _running_tabs                = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
         TEST.ASSERT.equal( _running_tabs.length, 1, "Un seul onglet RUNNING" );
         if ( _running_tabs.length === 1 ) {
             TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.LibraryWindow.NAME, "Onglet RUNNING" );
-            let _style                   = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
-            TEST.ASSERT.ok( _style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet Bibliothèque actif devrait etre dore, obtenu : " + _style.backgroundImage );
+            let _lib_color               = TEST.computedStyleInstant( _running_tabs[ 0 ].querySelector( ".gs-label" ), "color" );
+            TEST.ASSERT.ok( _lib_color.indexOf( "240, 216, 144" ) !== -1, "L'onglet Bibliothèque actif devrait avoir le libellé crème, obtenu : " + _lib_color );
         }
         let _pane                        = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
         TEST.ASSERT.notNull( _pane, "Le panneau Bibliothèque devrait exister" );
@@ -174,6 +176,8 @@ TEST.RUNNER.register( "[ONGLETS] clic Bibliothèque → actif = Bibliothèque", 
 
 TEST.RUNNER.register( "[ONGLETS] retour sur Général → actif = Général", function () {
     return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.waitTabActive( CHARACTER.GeneralWindow.NAME );
+    } ).then( function () {
         let _character                   = CONTROLLER.Character.current_character;
         TEST.ASSERT.equal( _character.windows.getActiveWindow().getName(), CHARACTER.GeneralWindow.NAME, "Fenetre active apres le retour" );
         let _running_tabs                = document.querySelectorAll( ".character-sheet-windows .gs-window-element-V2[data-current-phase='RUNNING']" );
@@ -181,8 +185,8 @@ TEST.RUNNER.register( "[ONGLETS] retour sur Général → actif = Général", fu
         if ( _running_tabs.length === 1 ) {
             TEST.ASSERT.equal( _running_tabs[ 0 ].getAttribute( "data-name" ), CHARACTER.GeneralWindow.NAME, "L'onglet RUNNING devrait etre general_sheet" );
         }
-        let _general_style               = getComputedStyle( _running_tabs[ 0 ].querySelector( ".gs-div-tab" ) );
-        TEST.ASSERT.ok( _general_style.backgroundImage.indexOf( "212, 175, 55" ) !== -1, "L'onglet General devrait etre dore a nouveau, obtenu : " + _general_style.backgroundImage );
+        let _general_color               = TEST.computedStyleInstant( _running_tabs[ 0 ].querySelector( ".gs-label" ), "color" );
+        TEST.ASSERT.ok( _general_color.indexOf( "240, 216, 144" ) !== -1, "L'onglet Général devrait avoir le libellé crème à nouveau, obtenu : " + _general_color );
         let _library_pane                  = document.querySelector( ".gs-tab-pane[data-name='" + CHARACTER.LibraryWindow.NAME + "']" );
         if ( _library_pane ) {
             TEST.ASSERT.ok( _library_pane.classList.contains( "gs-hidden" ), "Le panneau Bibliothèque devrait etre masque a nouveau" );

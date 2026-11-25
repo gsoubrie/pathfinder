@@ -291,12 +291,13 @@ TEST.RUNNER.register( "[ASCENDANCE] infos Général = traits, vitesse, sens, lan
         if ( _size_input ) {
             TEST.ASSERT.equal( _size_input.value, "M", "Le champ Taille devrait porter la valeur d'Elfe, obtenu : " + _size_input.value );
         }
-        // Vitesse : une ligne par mode, la marche vient de la race
-        let _speed_value                   = _area.querySelector( ".property[data-name='speed'] .ancestry-info-value" );
-        TEST.ASSERT.notNull( _speed_value, "La propriété Vitesse devrait etre rendue" );
-        if ( _speed_value ) {
-            TEST.ASSERT.equal( _speed_value.textContent, "Marche : 9 mètres", "La vitesse de marche d'Elfe devrait etre affichée, obtenu : " + _speed_value.textContent );
+        // Vitesse : ligne "cle : valeur" dans la zone combat (colonne 5), plus dans la zone informations
+        let _speed_line                    = _pane.querySelector( ".area-combat .combat-line[data-name='speed']" );
+        TEST.ASSERT.notNull( _speed_line, "La ligne Vitesse devrait etre rendue dans la zone combat (.area-combat .combat-line)" );
+        if ( _speed_line ) {
+            TEST.ASSERT.equal( _speed_line.textContent, "Vitesse : 9 m", "La vitesse de marche d'Elfe devrait etre affichee en ligne cle : valeur, obtenu : " + _speed_line.textContent );
         }
+        TEST.ASSERT.isNull( _area.querySelector( ".property[data-name='speed']" ), "La zone informations ne devrait plus porter la Vitesse (déplacée en zone combat)" );
         // Sens et langues : listes — entrées gérées non retirables
         let _sens_entry                    = TEST_ancestryInfoEntry( _pane, "Vision nocturne" );
         TEST.ASSERT.notNull( _sens_entry, "Le sens d'Elfe devrait etre affiché dans la liste" );
@@ -308,6 +309,40 @@ TEST.RUNNER.register( "[ASCENDANCE] infos Général = traits, vitesse, sens, lan
         // La zone reste lecture : l'édition vit dans l'onglet Ajustements
         TEST.ASSERT.equal( _area.querySelectorAll( ".ancestry-list-input" ).length, 0, "La zone du Général ne devrait porter aucun champ d'ajout (lecture seule), obtenu : " + _area.querySelectorAll( ".ancestry-list-input" ).length );
         TEST.ASSERT.equal( _area.querySelectorAll( ".ancestry-list-remove" ).length, 0, "La zone du Général ne devrait porter aucun bouton de retrait (lecture seule), obtenu : " + _area.querySelectorAll( ".ancestry-list-remove" ).length );
+    } );
+} );
+
+TEST.RUNNER.register( "[ASCENDANCE] zone combat du Général (colonne 5) = CA et vitesse en lignes clé : valeur, sans initiative", function () {
+    return TEST.clickTab( ".character-sheet-windows", CHARACTER.GeneralWindow.NAME ).then( function () {
+        return TEST.wait();
+    } ).then( function () {
+        let _character                     = CONTROLLER.Character.current_character;
+        let _pane                          = document.querySelector( ".property-tab-pane[data-name='" + CHARACTER.GeneralWindow.NAME + "']" );
+        TEST.ASSERT.notNull( _pane, "Pre-condition : panneau Général ouvert" );
+        if ( !_pane ) {
+            return;
+        }
+        let _combat_area                   = _pane.querySelector( ".area-combat" );
+        TEST.ASSERT.notNull( _combat_area, "La zone combat devrait etre rendue (.area-combat, colonne 5 sous les PV)" );
+        if ( !_combat_area ) {
+            return;
+        }
+        // CA croisée avec le domaine Combat (jamais de valeur figée), ligne "cle : valeur" cliquable
+        let _expected_ca                   = _character.getCombat().getArmorClassData( _character ).value;
+        let _ca_value                      = _combat_area.querySelector( ".combat-line[data-name='armor_class'] .combat-value" );
+        TEST.ASSERT.notNull( _ca_value, "La ligne CA devrait etre rendue (.combat-line[data-name='armor_class'], cliquable vers la popup armor_class)" );
+        if ( _ca_value ) {
+            TEST.ASSERT.equal( _ca_value.textContent, "" + _expected_ca, "La CA affichée devrait valoir celle du domaine Combat, attendu : " + _expected_ca + ", obtenu : " + _ca_value.textContent );
+        }
+        // L'Initiative n'est plus réaffichée ici : elle vit sur la ligne "Perception / Initiative" de la zone jets
+        TEST.ASSERT.isNull( _combat_area.querySelector( "[data-name='initiative']" ), "La zone combat ne devrait plus porter d'Initiative (déjà dans la zone jets)" );
+        // Vitesse en ligne "cle : valeur", calculée depuis la race (jamais de valeur figée)
+        let _expected_speed                = _character.getRace().speed;
+        let _speed_line                    = _combat_area.querySelector( ".combat-line[data-name='speed']" );
+        TEST.ASSERT.notNull( _speed_line, "La ligne Vitesse devrait etre rendue" );
+        if ( _speed_line ) {
+            TEST.ASSERT.equal( _speed_line.textContent, "Vitesse : " + _expected_speed + " m", "La vitesse affichée devrait venir de la race, attendu : Vitesse : " + _expected_speed + " m, obtenu : " + _speed_line.textContent );
+        }
     } );
 } );
 

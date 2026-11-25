@@ -140,6 +140,7 @@
     /* FONTS */
 
     --font-family-primary: 'Uncial Antiqua', serif;
+    --font-family-nav: ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
     --font-size-xs: 10px;
     --font-size-sm: 13px;
     --font-size-base: 12px;

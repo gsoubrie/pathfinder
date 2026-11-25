@@ -19,16 +19,16 @@
         "photo name     ancestry class  level "
         "photo player   legacy   archetype size"
         "photo .        historic deity   pv    "
-        "FOR   jets     informations actions-skills ."
-        "DEX   jets     informations actions-skills ."
-        "CON   jets     informations actions-skills ."
-        "INT   jets     informations actions-skills ."
-        "SAG   jets     informations actions-skills ."
-        "CHA   jets     informations actions-skills ."
-        ".     jets     informations actions-skills ."
-        ".     jets     informations actions-skills ."
-        ".     jets     informations actions-skills ."
-        ".     jets     informations actions-skills .";
+        "FOR   jets     informations actions-skills combat"
+        "DEX   jets     informations actions-skills combat"
+        "CON   jets     informations actions-skills combat"
+        "INT   jets     informations actions-skills combat"
+        "SAG   jets     informations actions-skills combat"
+        "CHA   jets     informations actions-skills combat"
+        ".     jets     informations actions-skills combat"
+        ".     jets     informations actions-skills combat"
+        ".     jets     informations actions-skills combat"
+        ".     jets     informations actions-skills combat";
 }
 
 /* zone save supprimee : le bouton vit desormais dans la barre d'onglets (cf style.css) */
@@ -52,6 +52,7 @@
 .property-tab-pane[data-name="general_sheet"] .area-SAG { grid-area : SAG; }
 .property-tab-pane[data-name="general_sheet"] .area-CHA { grid-area : CHA; }
 .property-tab-pane[data-name="general_sheet"] .area-jets { grid-area : jets; align-self : start; }
+.property-tab-pane[data-name="general_sheet"] .area-combat { grid-area : combat; }
 
 /* =============================== Zone PHOTO (en haut à gauche, style CV) == */
 /* Cadre cliquable : « + » sans photo, image + « × » avec. La classe neutral
@@ -379,6 +380,27 @@
     font-size: 13px;
 }
 
+/* Zone de la colonne 5 sous les PV : lignes simples "cle : valeur" (décision
+   utilisateur) — CA cliquable (popup armor_class) puis Vitesse. Seule la
+   valeur porte le gras doré (valeur clé de la ligne), jamais la clé */
+.property-tab-pane[data-name="general_sheet"] .area-combat .combat-line {
+    color     : var(--c-text);
+    font-size : 13px;
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-combat .combat-line[data-name="armor_class"] {
+    cursor : pointer;
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-combat .combat-line[data-name="armor_class"]:hover {
+    color : var(--c-gold-light);
+}
+
+.property-tab-pane[data-name="general_sheet"] .area-combat .combat-line .combat-value {
+    color       : var(--c-text-gold);
+    font-weight : var(--font-weight-bold);
+}
+
 /* Zone de la colonne 5 : Dons + Actions dans le même container (décision
    utilisateur), chaque entree ouvre sa popup au clic */
 .property-tab-pane[data-name="general_sheet"] .area-actions .property {
@@ -464,7 +486,7 @@
             "FOR FOR DEX DEX CON CON"
             "INT INT SAG SAG CHA CHA"
             "jets jets jets informations informations informations"
-            "actions-skills actions-skills actions-skills actions-skills actions-skills actions-skills";
+            "actions-skills actions-skills actions-skills combat combat combat";
     }
 }
 
@@ -491,6 +513,7 @@
             "SAG CHA"
             "jets jets"
             "informations informations"
+            "combat combat"
             "actions-skills actions-skills";
     }
 }

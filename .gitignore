@@ -5,3 +5,4 @@
 .tests_dom_err_index.txt
 .tests_edge_profile/
 sheet/tools/.scrap_cache/
+.preview_tmp/
