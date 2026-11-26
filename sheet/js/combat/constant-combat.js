@@ -182,6 +182,25 @@ COMBAT.MODE_TABS = [
 
 COMBAT.DEFAULT_MODE = "exploration";
 
+// The activity modes (Exploration / Intermède) hide the combat zones of the
+// main column (Attaques, Incantation) and show the remaining spells instead ;
+// the combat mode keeps the full column (user decision). The state rides the
+// data-current-mode attribute of the main column, the CSS reads it
+COMBAT.ACTIVITY_MODES = [ "exploration", "intermede" ];
+
+/**
+ * @param {string} mode_key  "exploration" / "combat" / "intermede"
+ * @returns {boolean}        True when the mode is an activity mode
+ */
+COMBAT.isActivityMode = function ( mode_key ) {
+    return COMBAT.ACTIVITY_MODES.indexOf( mode_key ) !== -1;
+};
+
+// The remaining-spells zone of the activity modes : one line per prepared,
+// unspent daily slot (title + empty line, French display labels)
+COMBAT.REMAINING_SPELLS_TITLE = "Sorts restants";
+COMBAT.REMAINING_SPELLS_EMPTY = "Aucun sort restant";
+
 // The COMMON activities of an activity mode (exploration/intermède),
 // hand-written card (same pattern as BASIC_ACTIONS, survives the re-scrap) :
 // the base PF2 activities every character can undertake. The scraped

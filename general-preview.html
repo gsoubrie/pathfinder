@@ -155,6 +155,7 @@
 </head>
 
 <body class="gs-parent-event-listener" data-controller="Main" data-is-race-set="0" data-is-level-set="0">
+<div class="preview-banner">Preview — onglet Général — <span class="preview-banner-name"></span></div>
 <div class="character-content">
 	<div class="character-sheet-windows"></div>
 	<div class="characters-sheet-content"></div>
@@ -164,14 +165,137 @@
 	/* Preview plein onglet : la barre de navigation est masquee, la feuille
 	   garde sa taille reelle (--size-sheet-width x --size-sheet-height) */
 	.character-sheet-windows { display: none; }
+
+	.preview-banner {
+		width       : min(var(--size-sheet-width), 100%);
+		margin      : 0 auto var(--s-md);
+		padding     : var(--s-xs) var(--s-md);
+		color       : var(--c-text-muted);
+		font-size   : 12px;
+		font-family : var(--font-family-nav);
+	}
+	.preview-banner .preview-banner-name { color: var(--c-text-gold); }
+
+	/* Preview seule : PV et Taille sont retires de leurs boîtes de grille
+	   (masquees ici) et rendus en lignes "cle : valeur" DANS la zone combat,
+	   avec CA et vitesse — par le patch JS ci-dessous */
+	.property-tab-pane[data-name="general_sheet"] .area-pv,
+	.property-tab-pane[data-name="general_sheet"] .area-body_size {
+		display : none;
+	}
+
+	/* Preview seule : les lignes de la zone combat forment un tableau compact en
+	   haut de la zone (le container garde sa hauteur pleine jusqu'en bas) — cles
+	   a gauche, deux-points alignes juste apres la cle la plus longue, valeurs a
+	   la suite. Le tableau prend sa largeur de contenu (pas 100%) */
+	.property-tab-pane[data-name="general_sheet"] .area-combat .combat-table {
+		display : table;
+	}
+	.property-tab-pane[data-name="general_sheet"] .area-combat .combat-table .combat-line {
+		display : table-row;
+	}
+	.property-tab-pane[data-name="general_sheet"] .area-combat .combat-table .combat-line .combat-key,
+	.property-tab-pane[data-name="general_sheet"] .area-combat .combat-table .combat-line .combat-sep,
+	.property-tab-pane[data-name="general_sheet"] .area-combat .combat-table .combat-line .combat-value {
+		display : table-cell;
+	}
 </style>
 <script>
 	// Preview de l'onglet General chargee sur le save de Tyrane : le boot
-	// par defaut (sans ?id=) laisse la page vide, on re-init sur le save ici
+	// par defaut (sans ?id=) laisse la page vide, on re-init sur le save ici.
+	// La preview charge le VRAI code de la feuille : recharger la page suffit
+	// a voir les derniers changements de sheet_general.css / general_window.js
+	// Preview seule : la zone combat se lit comme un tableau "cle : valeur" a
+	// trois colonnes (cle centree a gauche, deux-points alignes au centre,
+	// valeur centree a droite) — le patch re-ajoute les lignes apres chaque
+	// recalcul de la zone (computeArea__combat la vide a chaque appel) ; les
+	// boîtes de grille d'origine de PV/Taille restent masquees par le CSS
+	function _previewCombatLine( area_combat, data_name, key_label, value_text, value_params, line_params ) {
+		let _line_params = Object.assign( { class: "combat-line", "data-name": data_name }, line_params || {} );
+		let _line        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", _line_params ), area_combat );
+		SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-key" }, key_label ), _line );
+		SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-sep" }, " : " ), _line );
+		let _value_params = Object.assign( { class: "combat-value" }, value_params || {} );
+		SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", _value_params, value_text ), _line );
+	}
+
+	var _preview_combat_proto = CHARACTER.GeneralWindow.prototype.computeArea__combat;
+	CHARACTER.GeneralWindow.prototype.computeArea__combat = function ( character_object ) {
+		_preview_combat_proto.call( this, character_object );
+		if ( !this.area_combat || !character_object ) {
+			return;
+		}
+		// Les lignes brutes du proto (CA, vitesses "mode : N mètres" en un seul
+		// texte) sont remplacées par des lignes tableau
+		let _old_lines = this.area_combat.querySelectorAll( ".combat-line" );
+		for ( let i = 0, _size_i = _old_lines.length; i < _size_i; i++ ) {
+			_old_lines[ i ].remove();
+		}
+		let _table = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-table" } ), this.area_combat );
+		let _ca = character_object.getCombat().getArmorClassData( character_object ).value;
+		_previewCombatLine( _table, "armor_class", "Classe d'armure", "" + _ca, {}, {
+			title  : "Détail de la classe d'armure",
+			onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__armor_class')"
+		} );
+		let _race        = character_object.getRace();
+		let _speed_modes = character_object.getAdjustments().getValuesByKind( "speed" );
+		let _modes       = {};
+		for ( let m = 0, _size_m = _speed_modes.length; m < _size_m; m++ ) {
+			let _parts = _speed_modes[ m ].split( " : " );
+			_modes[ _parts[ 0 ] ] = _parts.slice( 1 ).join( " : " );
+		}
+		let _walk      = _race.isSet() && _race.speed !== undefined ? _race.speed : null;
+		let _walk_text = _modes[ "Marche" ] || ( _walk !== null ? _walk + " m" : "—" );
+		_previewCombatLine( _table, "speed", "Marche", _walk_text );
+		// PF2 : nage et escalade = moitié de la vitesse de marche quand aucun
+		// ajustement ne les précise (au dixième, décimale française)
+		let _half_text = "—";
+		if ( _walk !== null ) {
+			let _half = Math.round( _walk * 5 ) / 10;
+			_half_text = ( "" + _half ).replace( ".", "," ) + " m";
+		}
+		_previewCombatLine( _table, "speed", "Nage", _modes[ "Nage" ] || _half_text );
+		_previewCombatLine( _table, "speed", "Escalade", _modes[ "Escalade" ] || _half_text );
+		let _known_modes = { "Marche": 1, "Nage": 1, "Escalade": 1 };
+		let _mode_keys   = Object.keys( _modes );
+		for ( let k = 0, _size_k = _mode_keys.length; k < _size_k; k++ ) {
+			if ( !_known_modes[ _mode_keys[ k ] ] ) {
+				_previewCombatLine( _table, "speed", _mode_keys[ k ], _modes[ _mode_keys[ k ] ] );
+			}
+		}
+		let _health = character_object.getHealth();
+		_previewCombatLine( _table, "health_points", "Points de vie", _health.getCurrentHP() + " / " + _health.getMaxHP(), {
+			title  : "Ouvrir l'onglet Aventure",
+			onclick: "CHARACTER.LibraryWindow.goToSheet('combat_sheet')"
+		} );
+		let _size_object = character_object.getRace().getBodySize();
+		let _size_label  = _size_object.isSet() && BODY_SIZE[ _size_object.getValue() ] ? BODY_SIZE[ _size_object.getValue() ].label : ( _size_object.isSet() ? _size_object.getValue() : "—" );
+		_previewCombatLine( _table, "body_size", "Taille", _size_label );
+	};
+
+	// Le PV change aussi hors recalcul de la zone combat (modales degats /
+	// soins, +/− de caracteristique) : la ligne preview suit la mise a jour
+	var _preview_hp_proto = CHARACTER.GeneralWindow.prototype._updateHealthPointsField;
+	CHARACTER.GeneralWindow.prototype._updateHealthPointsField = function ( character_object ) {
+		_preview_hp_proto.call( this, character_object );
+		let _value_dom = this.area_combat ? this.area_combat.querySelector( ".combat-line[data-name='health_points'] .combat-value" ) : null;
+		if ( _value_dom && character_object ) {
+			let _health = character_object.getHealth();
+			_value_dom.textContent = _health.getCurrentHP() + " / " + _health.getMaxHP();
+		}
+	};
+
 	window.addEventListener( "load", function () {
 		document.querySelector( ".character-sheet-windows" ).innerHTML = "";
 		document.querySelector( ".characters-sheet-content" ).innerHTML = "";
 		CONTROLLER.Character.init( "Tyrane_U5b14a3ec560a8d4d7807dabf8754da53" );
+		let _pane  = document.querySelector( ".property-tab-pane[data-name='general_sheet']" );
+		let _name  = _pane.querySelector( ".area-name input" ).value;
+		let _race  = _pane.querySelector( ".area-race input" ).value;
+		let _class = _pane.querySelector( ".area-class input" ).value;
+		let _level = _pane.querySelector( ".area-level input" ).value;
+		document.querySelector( ".preview-banner-name" ).textContent =
+			_name + " — " + _race + ( _class ? ", " + _class : "" ) + " niv " + _level;
 	} );
 </script>
 </body>

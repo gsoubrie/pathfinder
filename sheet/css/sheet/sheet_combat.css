@@ -344,7 +344,8 @@
 
 /* ===== Attaques ===== */
 .combat-attacks-zone,
-.combat-spellcasting-zone {
+.combat-spellcasting-zone,
+.combat-spells-remaining-zone {
     display        : flex;
     flex-direction : column;
     gap            : var( --s-xs, 2px );
@@ -626,6 +627,43 @@
 }
 
 .combat-spellcasting-value {
+    color : var( --c-text, #E8D4A8 );
+}
+
+/* ===== Sorts restants (modes activité) ===== */
+/* Les modes Exploration/Intermède masquent les zones de combat de la
+   colonne principale et montrent les sorts restants ; le mode Combats
+   garde la colonne complète. L'état vit dans data-current-mode sur la
+   colonne principale et data-has-spells sur la zone, jamais une classe */
+.combat-spells-remaining-zone {
+    display : none;
+}
+
+.combat-main-column[data-current-mode='exploration'] .combat-attacks-zone,
+.combat-main-column[data-current-mode='exploration'] .combat-spellcasting-zone,
+.combat-main-column[data-current-mode='intermede'] .combat-attacks-zone,
+.combat-main-column[data-current-mode='intermede'] .combat-spellcasting-zone {
+    display : none;
+}
+
+.combat-main-column[data-current-mode='exploration'] .combat-spells-remaining-zone[data-has-spells='true'],
+.combat-main-column[data-current-mode='intermede'] .combat-spells-remaining-zone[data-has-spells='true'] {
+    display : flex;
+}
+
+/* Une ligne par sort préparé non dépensé : rang, nom, « ? » de popup */
+.combat-spell-remaining-line {
+    display     : flex;
+    align-items : center;
+    gap         : var( --s-md, 8px );
+}
+
+.combat-spell-remaining-rank,
+.combat-spell-remaining-empty {
+    color : var( --c-text-muted, #C8B89A );
+}
+
+.combat-spell-remaining-name {
     color : var( --c-text, #E8D4A8 );
 }
 

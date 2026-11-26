@@ -54,12 +54,23 @@ CHARACTER.CombatWindow.prototype = {
                 this._refreshHealthBand( CONTROLLER.Character.current_character );
                 this._refreshCombatZones( CONTROLLER.Character.current_character );
                 break;
-            // The mode tabs swap the action column on the right only, the
-            // main column stays identical
+            // The mode tabs swap the action column on the right and the
+            // visibility of the main-column zones (Attaques/Incantation vs
+            // Sorts restants) : the state rides data-current-mode, the CSS
+            // reads it
             case "event__combat__select_mode":
                 this.current_mode = params[ "param__combat__mode" ];
+                SERVICE.DOM.setDataSet( this.main_column, "currentMode", this.current_mode );
                 this._updateModeTabs();
                 this._refreshActionsZone( CONTROLLER.Character.current_character );
+                break;
+            // La préparation du jour bouge (choix, dépense, repos, nouveau
+            // jour) : la zone des sorts restants suit sur l'état frais
+            case "event__daily_spell__select_choice":
+            case "event__daily_spell__toggle_spent":
+            case "event__daily_spell__long_rest":
+            case "event__daily_spell__new_day":
+                this._refreshRemainingSpellsZone( CONTROLLER.Character.current_character );
                 break;
             case "click_on__window_navigation__done":
                 if ( this.name === params[ "window_name" ] ) {
@@ -83,12 +94,14 @@ CHARACTER.CombatWindow.prototype = {
             this._computeModeTabs( this.content_dom_element_target );
             this.body_element = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-window-body" } ), this.content_dom_element_target );
             this.main_column = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-main-column" } ), this.body_element );
+            SERVICE.DOM.setDataSet( this.main_column, "currentMode", this.current_mode );
             this._computeHealthBand( character_object );
             this._computeReferenceZone( character_object );
             this._computeEquipmentZone( character_object );
             this._computeSavesZone( character_object );
             this._computeAttacksZone( this.main_column );
             this._computeSpellcastingZone( character_object );
+            this._computeRemainingSpellsZone( this.main_column );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history-title" }, "Journal" ), this.main_column );
             let journal = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-health-history" } ), this.main_column );
             character_object.getHealth().getHistoryEntries().renderInto( journal );
@@ -361,6 +374,18 @@ CHARACTER.CombatWindow.prototype = {
         this.spellcasting_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-spellcasting-zone" } ), this.main_column );
     },
 
+    //********************************************  REMAINING SPELLS ZONE   **************************************************//
+    // La zone des sorts restants des modes activité (Exploration/Intermède) :
+    // un conteneur persistant, rempli à chaque rafraîchissement. La visibilité
+    // suit data-current-mode sur la colonne principale + data-has-spells sur
+    // la zone (lanceur de sorts ou non), jamais une classe
+    _computeRemainingSpellsZone: function ( parent_element ) {
+        this.spells_remaining_zone = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class            : "combat-spells-remaining-zone",
+            "data-has-spells": "false"
+        } ), parent_element );
+    },
+
     //********************************************  REFRESH   **************************************************//
 
     // Les zones relisent l'etat frais du personnage a chaque activation et
@@ -376,6 +401,7 @@ CHARACTER.CombatWindow.prototype = {
         this._refreshAttacksZone( character_object );
         this._refreshActionsZone( character_object );
         this._refreshSpellcastingZone( character_object );
+        this._refreshRemainingSpellsZone( character_object );
     },
 
     _refreshReferenceZone: function ( character_object ) {
@@ -465,6 +491,44 @@ CHARACTER.CombatWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-attack-rank " + rank_data.css }, rank_data.short ), line );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-spellcasting-value" }, lines[ i ].value ), line );
         }
+    },
+
+    // La zone se reconstruit sur l'état frais du domaine : un non-lanceur ne
+    // voit jamais la zone (data-has-spells false), un lanceur la voit avec
+    // ses sorts préparés non dépensés, ou la ligne vide
+    _refreshRemainingSpellsZone: function ( character_object ) {
+        if ( !this.spells_remaining_zone || !character_object ) {
+            return;
+        }
+        SERVICE.DOM.empty( this.spells_remaining_zone );
+        let lines = character_object.getCombat().getRemainingSpellsData( character_object );
+        if ( !lines ) {
+            SERVICE.DOM.setDataSet( this.spells_remaining_zone, "hasSpells", "false" );
+            return;
+        }
+        SERVICE.DOM.setDataSet( this.spells_remaining_zone, "hasSpells", "true" );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-attacks-title" }, COMBAT.REMAINING_SPELLS_TITLE ), this.spells_remaining_zone );
+        if ( !lines.length ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-spell-remaining-empty" }, COMBAT.REMAINING_SPELLS_EMPTY ), this.spells_remaining_zone );
+            return;
+        }
+        for ( let i = 0, _size_i = lines.length; i < _size_i; i++ ) {
+            this._buildRemainingSpellLine( this.spells_remaining_zone, lines[ i ] );
+        }
+    },
+
+    // Une ligne par sort restant : rang, nom, « ? » de popup spell — le nom
+    // part en data-value lu au clic (les apostrophes), jamais inline
+    _buildRemainingSpellLine: function ( parent, line ) {
+        let row = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "combat-spell-remaining-line" } ), parent );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-spell-remaining-rank" }, "Rang " + line.rank ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "combat-spell-remaining-name" }, line.name ), row );
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+            class      : "combat-attack-info gs-link-information",
+            "data-value": line.name,
+            title      : "Information du sort",
+            onclick    : "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__spell',{'param__spell__value':this.getAttribute('data-value')})"
+        }, "?" ), row );
     },
 
     _refreshHealthBand: function ( character_object ) {

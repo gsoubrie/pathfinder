@@ -469059,3 +469059,40 @@ OBJECT.getFeatCompendiumEntry = function ( feat_name ) {
     }
     return null;
 };
+
+// Index lazy du compendium pour la résolution par nom sur TOUTES les
+// catégories : construit UNE fois (le compendium fait 27k entrées)
+OBJECT._compendiumNameIndex = null;
+
+OBJECT._buildCompendiumNameIndex = function () {
+    let index = {};
+    for ( let key in OBJECT.COMPENDIUM ) {
+        let object_data = OBJECT.COMPENDIUM[ key ];
+        if ( !object_data || !object_data.text ) {
+            continue;
+        }
+        let name_key = OBJECT._compendiumSearchKey( object_data.text );
+        if ( !index[ name_key ] ) {
+            index[ name_key ] = [];
+        }
+        index[ name_key ].push( object_data );
+    }
+    return index;
+};
+
+/**
+ * L'entrée compendium d'une carte par son NOM, toutes catégories confondues :
+ * repli de description quand l'entrée scrapée n'a pas de texte (titre de
+ * section nu dans la source, ex. les affiliations d'archétype). Null quand
+ * le nom ne vit pas dans les données.
+ *
+ * @param {string} name  Display name, ex. "Pupille"
+ * @returns {Object|null} The compendium entry, or null when unknown
+ */
+OBJECT.getInformationByName = function ( name ) {
+    if ( !OBJECT._compendiumNameIndex ) {
+        OBJECT._compendiumNameIndex = OBJECT._buildCompendiumNameIndex();
+    }
+    let records = OBJECT._compendiumNameIndex[ OBJECT._compendiumSearchKey( name ) ] || [];
+    return records.length ? records[ 0 ] : null;
+};

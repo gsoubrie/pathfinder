@@ -271,6 +271,38 @@ CHARACTER.Combat.prototype = {
         }
         return CHARACTERISTICS.INT.key;
     },
+    //********************************************  REMAINING SPELLS  **************************************************//
+    // The remaining spells of the activity modes (exploration/intermède) :
+    // one entry per PREPARED and UNSPENT daily slot (the castable ones), with
+    // its rank — the cantrips are at will, never listed. Null when the
+    // character owns no spell slot at all (a fighter never sees the zone)
+    getRemainingSpellsData: function ( character_object ) {
+
+        let spell_slots = character_object.getSpellSlots();
+        if ( !spell_slots ) {
+            return null;
+        }
+        let slots_data = spell_slots.getSlotsData( character_object );
+        if ( !slots_data ) {
+            return null;
+        }
+        let daily     = character_object.getDailyPreparation();
+        let to_return = [];
+        let _ranks    = Object.keys( slots_data.ranks ).sort( function ( rank_a, rank_b ) {
+            return parseInt( rank_a, 10 ) - parseInt( rank_b, 10 );
+        } );
+        for ( let r = 0, _size_r = _ranks.length; r < _size_r; r++ ) {
+            let rank  = _ranks[ r ];
+            let count = slots_data.ranks[ rank ].count;
+            for ( let i = 0; i < count; i++ ) {
+                let value = daily.getSlotValue( rank, i );
+                if ( value && !daily.isSpent( rank, i ) ) {
+                    to_return.push( { "rank": parseInt( rank, 10 ), "name": value } );
+                }
+            }
+        }
+        return to_return;
+    },
     //********************************************  ACTIONS  **************************************************//
     // The lines of the Actions zone : the basic combat actions plus the
     // character's own "action" adjustments the compendium identifies as

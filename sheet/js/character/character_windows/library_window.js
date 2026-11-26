@@ -330,6 +330,14 @@ CHARACTER.LibraryWindow.prototype = {
         let lower_type    = type_text ? String( type_text ).toLowerCase() : "";
         let lower_key     = key_line_text ? String( key_line_text ).toLowerCase() : "";
         let lower_content = content ? this._formatScrapedDescription( content ).toLowerCase() : "";
+        // Une entrée scrapée sans texte (titre de section nu) retombe sur
+        // l'entrée compendium de même nom : son contenu reste cherchable
+        if ( !lower_content && name ) {
+            let compendium_entry = OBJECT.getInformationByName( name );
+            if ( compendium_entry && compendium_entry.description ) {
+                lower_content = this._formatScrapedDescription( compendium_entry.description ).toLowerCase();
+            }
+        }
         let lower_traits  = [];
         if ( traits && traits.length ) {
             for ( let i = 0, _size_i = traits.length; i < _size_i; i++ ) {
@@ -838,7 +846,7 @@ CHARACTER.LibraryWindow.prototype = {
             "name"       : entry.text,
             "tags"       : tags,
             "key_line"   : entry.action_cost ? "Coût " + OBJECT.ACTION_COST_LABELS[ entry.action_cost ] : null,
-            "description": this._formatScrapedDescription( entry.description )
+            "description": entry.description
         } );
     },
 
@@ -876,7 +884,7 @@ CHARACTER.LibraryWindow.prototype = {
             if ( !entry || !entry.name ) {
                 continue;
             }
-            let search_text = this._formatScrapedDescription( entry.description ) + " " + ARCHETYPES.getFeatsSearchText( entry.name );
+            let search_text = this._cardDescription( entry.name, entry.description ) + " " + ARCHETYPES.getFeatsSearchText( entry.name );
             if ( !this._matchesSearchFilters( entry.name, entry.traits, search_text, "", "" ) ) {
                 continue;
             }
@@ -900,7 +908,7 @@ CHARACTER.LibraryWindow.prototype = {
         let card_data   = {
             "name"       : entry.name,
             "tags"       : [],
-            "description": this._formatScrapedDescription( entry.description ),
+            "description": entry.description,
             "add"        : {
                 class       : "library-card-add",
                 title       : owned ? "Retirer l'archétype" : "Choisir l'archétype",
@@ -964,7 +972,7 @@ CHARACTER.LibraryWindow.prototype = {
             if ( !entry || !entry.name ) {
                 continue;
             }
-            let search_text = this._formatScrapedDescription( entry.description ) + " " + this._getHistoricLines( entry ).join( " " );
+            let search_text = this._cardDescription( entry.name, entry.description ) + " " + this._getHistoricLines( entry ).join( " " );
             if ( !this._matchesSearchFilters( entry.name, [], search_text, "", "" ) ) {
                 continue;
             }
@@ -989,7 +997,7 @@ CHARACTER.LibraryWindow.prototype = {
         let card_data = {
             "name"       : entry.name,
             "tags"       : [],
-            "description": this._formatScrapedDescription( entry.description ),
+            "description": entry.description,
             "add"        : {
                 class       : "library-card-add",
                 title       : owned ? "Retirer l'historique" : "Choisir l'historique",
@@ -1131,8 +1139,9 @@ CHARACTER.LibraryWindow.prototype = {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-required-label" }, "Prérequis : " ), required_dom );
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "library-card-required-value" }, card_data[ "required" ].join( " | " ) ), required_dom );
         }
-        if ( card_data[ "description" ] ) {
-            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, card_data[ "description" ] ), content );
+        let description_text = this._cardDescription( card_data[ "name" ], card_data[ "description" ] );
+        if ( description_text ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "library-card-description" }, description_text ), content );
         }
         return card;
     },
@@ -1158,7 +1167,7 @@ CHARACTER.LibraryWindow.prototype = {
             "name"       : feat.name,
             "tags"       : tags,
             "required"   : Array.isArray( feat.required ) ? feat.required : ( feat.required ? this._formatRequired( feat.required ) : [] ),
-            "description": this._formatScrapedDescription( feat.description )
+            "description": feat.description
         } );
     },
 
@@ -1186,7 +1195,7 @@ CHARACTER.LibraryWindow.prototype = {
             "name"       : spell_list_entry.name,
             "tags"       : tags,
             "key_line"   : spell_list_entry.cost_label !== SPELL.NO_COST_LABEL ? "Coût " + spell_list_entry.cost_label : null,
-            "description": this._formatScrapedDescription( spell_list_entry.description ),
+            "description": spell_list_entry.description,
             "add"        : {
                 class       : "library-card-add",
                 title       : "Ajouter au répertoire",
@@ -1209,7 +1218,7 @@ CHARACTER.LibraryWindow.prototype = {
             "name"       : entry.name,
             "tags"       : tags,
             "key_line"  : STUFFS.getKeyLineText( entry ) || null,
-            "description": this._formatScrapedDescription( entry.description ),
+            "description": entry.description,
             "add"        : {
                 class          : "library-card-add",
                 title          : "Ajouter à l'inventaire",
@@ -1222,13 +1231,34 @@ CHARACTER.LibraryWindow.prototype = {
     },
 
     // The scraped descriptions carry HTML : the card owns the plain text
-    // only, the markup of the source never renders raw
+    // only, the markup of the source never renders raw. The description
+    // arrays hold paragraphs (an empty array has no first paragraph : no
+    // text, never "undefined")
     _formatScrapedDescription: function ( description ) {
         if ( !description ) {
             return "";
         }
         let text = Array.isArray( description ) ? description[ 0 ] : description;
+        if ( Array.isArray( text ) ) {
+            text = text.join( " " );
+        }
+        if ( !text ) {
+            return "";
+        }
         return String( text ).replace( /<[^>]*>/g, " " ).replace( /\s+/g, " " ).trim();
+    },
+
+    // The display text of a card description : the first scraped paragraph,
+    // or — when the scraped entry is a bare section title with no paragraph —
+    // the description of the compendium entry of the same name (several
+    // scraped entries carry no text of their own, the compendium knows them)
+    _cardDescription: function ( name, description ) {
+        let text = this._formatScrapedDescription( description );
+        if ( text || !name ) {
+            return text;
+        }
+        let compendium_entry = OBJECT.getInformationByName( name );
+        return compendium_entry && compendium_entry.description ? this._formatScrapedDescription( compendium_entry.description ) : "";
     }
 };
 
