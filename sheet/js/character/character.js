@@ -201,6 +201,8 @@ CHARACTER.Current.prototype = {
                 break;
             case "event__stuff__add":
             case "event__stuff__remove":
+
+            case "event__stuff__equip":
                 this.stuffs.doActionAfter( event_name, params );
                 this.stuffs.pushBulkCounters( this );
                 // The inventory refreshes with its entries

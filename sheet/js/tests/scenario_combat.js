@@ -229,7 +229,10 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     // arme de mêlée ÉQUIPÉES, une arme à distance ÉQUIPÉE
     CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "armor", "param__stuff__value": "Armure d'écailles", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
     CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
-    CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long", "param__stuff__location": "equipped", "param__stuff__comment": null, "param__stuff__place": null } );
+    // Une case = une pièce : l'arc long rejoint la Main secondaire PUIS est équipé
+    CONTROLLER.Main.doActionAfter( "event__stuff__add", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long", "param__stuff__location": "backpack", "param__stuff__comment": null, "param__stuff__place": null } );
+    CONTROLLER.Character.doActionAfter( "event__stuff__set_slot", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long", "param__stuff__slot": "off_hand" } );
+    CONTROLLER.Main.doActionAfter( "event__stuff__equip", { "param__stuff__kind": "weapon", "param__stuff__value": "Arc long" } );
     let _rows_after   = _pane.querySelectorAll( ".combat-attack-row:not(.combat-attack-row--header)" );
     TEST.ASSERT.equal( _rows_after.length, 3, "Chaque arme équipée devrait rejoindre les mains nues, obtenu : " + _rows_after.length );
     // Dès qu'un objet est équipé la ligne « Rien d'équipé » disparaît
@@ -257,7 +260,11 @@ TEST.RUNNER.register( "[COMBAT] attaques = mains nues + armes équipées, armure
     TEST.ASSERT.ok( _armor_row && _armor_row.querySelector( ".combat-attack-info" ), "La rangée Armure devrait porter le ? de popup de la pièce" );
     let _main_row     = _pane.querySelector( ".combat-schema-row[data-slot='main']" );
     let _main_values  = _main_row ? _main_row.querySelectorAll( ".combat-schema-item-value" ) : [];
-    TEST.ASSERT.equal( _main_values.length, 2, "La rangée Main devrait porter les deux armes équipées, obtenu : " + _main_values.length );
+    TEST.ASSERT.equal( _main_values.length, 1, "La rangée Main ne devrait porter que l'épée (une case = une pièce), obtenu : " + _main_values.length );
+    let _offhand_row    = _pane.querySelector( ".combat-schema-row[data-slot='off_hand']" );
+    let _offhand_values = _offhand_row ? _offhand_row.querySelectorAll( ".combat-schema-item-value" ) : [];
+    TEST.ASSERT.equal( _offhand_values.length, 1, "La rangée Main secondaire devrait porter l'arc long, obtenu : " + _offhand_values.length );
+    TEST.ASSERT.equal( _offhand_values.length ? _offhand_values[ 0 ].textContent : null, "Arc long", "La rangée Main secondaire devrait porter l'arc, obtenu : [" + ( _offhand_values.length ? _offhand_values[ 0 ].textContent : "null" ) + "]" );
     TEST.ASSERT.equal( _armor_entry ? _armor_entry.getSlot() : null, "armor", "L'armure devrait prendre son emplacement par défaut (usage scrapé), obtenu : " + ( _armor_entry ? _armor_entry.getSlot() : "null" ) );
     TEST.ASSERT.isNull( _pane.querySelector( ".combat-schema-row[data-slot='shield']" ), "Sans bouclier équipé la rangée Bouclier ne devrait pas exister" );
     // Le "?" d'une arme ouvre la popup d'objet (uuid = stuff__<nom>)
@@ -340,8 +347,16 @@ TEST.RUNNER.register( "[COMBAT] schéma = PV du bouclier −/+, slot réglable, 
     TEST.ASSERT.equal( _sword.getSlot(), "off_hand", "Le slot de l'épée devrait passer en main secondaire, obtenu : " + _sword.getSlot() );
     TEST.ASSERT.ok( _pane.querySelector( ".combat-schema-row[data-slot='off_hand'] .combat-schema-item-value" ), "La rangée Main secondaire devrait porter l'épée déplacée" );
     TEST.ASSERT.isNull( _pane.querySelector( ".combat-schema-row[data-slot='main']" ), "La rangée Main devrait disparaître une fois l'épée déplacée en main secondaire" );
+    // Règle de case : le bouclier occupe la Main secondaire — l'épée
+    // déplacée en main secondaire renvoie le bouclier au sac à dos
+    TEST.ASSERT.equal( _shield.location, "backpack", "Le bouclier (case Main secondaire) devrait retourner au sac quand l'épée y passe, obtenu : [" + _shield.location + "]" );
     // Les −/+ éditent les PV actuels du bouclier (clamp [0, max]) —
     // chaque clic rafraîchit la zone, on re-questionne le bouton à chaque fois
+    // On remet l'épée en main et le bouclier équipé (cases distinctes)
+    CONTROLLER.Character.doActionAfter( "event__stuff__set_slot", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue", "param__stuff__slot": "main" } );
+    CONTROLLER.Main.doActionAfter( "event__stuff__equip", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en bois" } );
+    TEST.ASSERT.equal( _sword.getSlot(), "main", "L'épée devrait revenir en main, obtenu : " + _sword.getSlot() );
+    TEST.ASSERT.equal( _shield.location, "equipped", "Le bouclier devrait revenir équipé, obtenu : [" + _shield.location + "]" );
     let _click_hp_btn = function ( delta ) {
         let _btn = _pane.querySelector( ".combat-schema-row[data-slot='shield'] .combat-schema-hp-btn[data-delta='" + delta + "']" );
         if ( _btn ) {
@@ -375,7 +390,7 @@ TEST.RUNNER.register( "[COMBAT] schéma = PV du bouclier −/+, slot réglable, 
     let _shield_r  = _reloaded.getStuffs().getContentByUUID( "armor__Bouclier en bois" );
     let _sword_r   = _reloaded.getStuffs().getContentByUUID( "weapon__Épée longue" );
     TEST.ASSERT.equal( _shield_r ? _shield_r.getCurrentHp() : null, 7, "Après relecture le bouclier devrait garder ses 7 PV, obtenu : " + ( _shield_r ? _shield_r.getCurrentHp() : "null" ) );
-    TEST.ASSERT.equal( _sword_r ? _sword_r.getSlot() : null, "off_hand", "Après relecture l'épée devrait garder son slot main secondaire, obtenu : " + ( _sword_r ? _sword_r.getSlot() : "null" ) );
+    TEST.ASSERT.equal( _sword_r ? _sword_r.getSlot() : null, "main", "Après relecture l'épée devrait garder son slot main, obtenu : " + ( _sword_r ? _sword_r.getSlot() : "null" ) );
     // La suite reprend un inventaire VIERGE (règle : laisser la suite propre)
     CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "armor", "param__stuff__value": "Bouclier en bois" } );
     CONTROLLER.Character.doActionAfter( "event__stuff__remove", { "param__stuff__kind": "weapon", "param__stuff__value": "Épée longue" } );

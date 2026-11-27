@@ -249,6 +249,32 @@ STUFF.KIND_DEFAULT_SLOTS = {
  * @param {string} slot_key  Slot key, ex: "armor"
  * @returns {Object|null}    The slot data { key, label } (body slots and host slots)
  */
+// The SCHEMA CASE of a slot : in the equipped schema a shield occupies the
+// off-hand (no dedicated shield case — a shield is held in the second hand)
+STUFF.getSlotCase = function ( slot_key ) {
+    if ( slot_key === "shield" ) {
+        return "off_hand";
+    }
+    return slot_key;
+};
+
+// The rows of the equipped body schema (the grid areas of the slots)
+STUFF.SCHEMA_AREAS = [
+    [ "head", "eyes", "neck" ],
+    [ "shoulders", "cape", "garment" ],
+    [ "main", "armor", "off_hand" ],
+    [ "gloves", "ring", "belt" ],
+    [ "boots", "backpack" ],
+    [ "tattoo", "implant", "invested" ]
+];
+
+STUFF.TWO_HANDS_LABEL = "Deux mains";
+
+// A two-handed weapon (scraped Mains = "2") occupies both hands
+STUFFS.isTwoHanded = function ( name ) {
+    return STUFFS.getFieldValue( name, "Mains" ) === "2";
+};
+
 STUFF.getSlotData = function ( slot_key ) {
     for ( let i = 0, _size_i = STUFF.SLOTS.length; i < _size_i; i++ ) {
         if ( STUFF.SLOTS[ i ].key === slot_key ) {

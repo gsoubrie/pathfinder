@@ -32,6 +32,7 @@ CHARACTER.CombatWindow.prototype = {
             // frais — la fenetre lit, elle ne calcule pas)
             case "event__stuff__add":
             case "event__stuff__remove":
+            case "event__stuff__equip":
             case "event__stuff__set_location":
             case "event__stuff__set_slot":
             case "event__stuff__edit_current_hp":

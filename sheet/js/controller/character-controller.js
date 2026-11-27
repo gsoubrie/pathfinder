@@ -70,6 +70,8 @@ CONTROLLER.Character = (function ( self ) {
 
             case "event__stuff__remove":
 
+            case "event__stuff__equip":
+
 
             case "event__coins__operation":
 

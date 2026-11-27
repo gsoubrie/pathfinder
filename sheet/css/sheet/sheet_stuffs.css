@@ -839,3 +839,157 @@
     color: var(--c-text);
     flex : 1 1 auto;
 }
+
+/* Schéma du corps (section Équipé) + vignettes cliquables (Sac à dos) */
+
+/* Le schéma : une case par emplacement, posée par grid-area (data-slot) */
+.stuffs-schema {
+    display               : grid;
+    gap                   : var(--s-md);
+    grid-template-areas   :
+        "head      eyes      neck"
+        "shoulders cape      garment"
+        "main      armor     off_hand"
+        "gloves    ring      belt"
+        "boots     backpack  ."
+        "tattoo    implant   invested";
+    grid-template-columns : repeat(3, minmax(220px, 1fr));
+    padding               : var(--s-sm) 2px 2px;
+}
+
+.stuffs-slot {
+    border        : var(--b-thin) dashed var(--c-border-dark);
+    border-radius : var(--r-md);
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--s-sm);
+    min-height    : 96px;
+    padding       : var(--s-sm);
+}
+
+.stuffs-slot[data-slot="head"]      { grid-area: head; }
+.stuffs-slot[data-slot="eyes"]      { grid-area: eyes; }
+.stuffs-slot[data-slot="neck"]      { grid-area: neck; }
+.stuffs-slot[data-slot="shoulders"] { grid-area: shoulders; }
+.stuffs-slot[data-slot="cape"]      { grid-area: cape; }
+.stuffs-slot[data-slot="garment"]   { grid-area: garment; }
+.stuffs-slot[data-slot="main"]      { grid-area: main; }
+.stuffs-slot[data-slot="armor"]     { grid-area: armor; }
+.stuffs-slot[data-slot="off_hand"]  { grid-area: off_hand; }
+.stuffs-slot[data-slot="gloves"]    { grid-area: gloves; }
+.stuffs-slot[data-slot="ring"]      { grid-area: ring; }
+.stuffs-slot[data-slot="belt"]      { grid-area: belt; }
+.stuffs-slot[data-slot="boots"]     { grid-area: boots; }
+.stuffs-slot[data-slot="backpack"]  { grid-area: backpack; }
+.stuffs-slot[data-slot="tattoo"]    { grid-area: tattoo; }
+.stuffs-slot[data-slot="implant"]   { grid-area: implant; }
+.stuffs-slot[data-slot="invested"]  { grid-area: invested; }
+
+.stuffs-slot-label {
+    color     : var(--c-text-gold);
+    font-size : 11px;
+    text-align: center;
+}
+
+/* Les pièces fixées (amulette sur armure...) se listent sous leur hôte */
+.stuffs-slot-hosts {
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--s-xs);
+}
+
+.stuffs-slot-host {
+    align-items: center;
+    color      : var(--c-text-muted);
+    display    : flex;
+    font-size  : 12px;
+    gap        : var(--s-xs);
+}
+
+/* La vignette (carte) : colonne flex, la rangée du haut porte le label de
+   l'emplacement (ou le choix de main) à gauche et les actions à droite */
+.stuffs-card {
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--s-sm);
+}
+
+.stuffs-card--clickable {
+    cursor: pointer;
+}
+
+.stuffs-card--clickable:hover {
+    background  : var(--g-card-hover);
+    border-color: var(--c-border-gold);
+}
+
+.stuffs-card-top {
+    align-items   : center;
+    border-bottom : var(--b-thin) solid var(--c-border-dark);
+    display       : flex;
+    gap           : var(--s-sm);
+    padding-bottom: var(--s-xs);
+}
+
+.stuffs-card-slot {
+    color: var(--c-text-gold);
+}
+
+.stuffs-slot-pick {
+    display: flex;
+    gap    : var(--s-xs);
+}
+
+.stuffs-slot-choice {
+    background    : transparent;
+    border        : var(--b-thin) solid var(--c-border-dark);
+    border-radius : var(--r-sm);
+    color         : var(--c-text-muted);
+    cursor        : pointer;
+    font-size     : 11px;
+    padding       : var(--s-xs) var(--s-sm);
+}
+
+.stuffs-slot-choice:hover {
+    border-color: var(--c-gold-dark);
+    color       : var(--c-text);
+}
+
+.stuffs-slot-choice[data-active='true'] {
+    background  : var(--c-bg-card-light);
+    border-color: var(--c-gold-dark);
+    color       : var(--c-gold);
+    font-weight : bold;
+}
+
+.stuffs-card-actions {
+    display    : flex;
+    gap        : var(--s-xs);
+    margin-left: auto;
+}
+
+/* La croix de déquipage vit à côté de la roue crantée, en haut à droite */
+.stuffs-entry-unequip {
+    color      : var(--c-text-muted);
+    cursor     : pointer;
+    font-size  : 13px;
+    line-height: 1;
+    padding    : var(--s-xs) var(--s-sm);
+}
+
+.stuffs-entry-unequip:hover {
+    color: var(--c-bulk-error);
+}
+
+/* Dans une vignette les caractéristiques se lisent un point par ligne */
+.stuffs-card .stuffs-col-chars {
+    align-items   : flex-start;
+    flex-direction: column;
+}
+
+/* Le bandeau du sac à dos porte le geste « cliquer pour équiper » */
+.stuffs-section-hint {
+    color        : var(--c-text-muted);
+    margin-bottom: var(--s-md);
+    text-align   : center;
+}

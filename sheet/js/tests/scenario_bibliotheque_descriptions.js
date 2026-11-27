@@ -59,13 +59,28 @@ TEST.RUNNER.register( "[BIBLIOTHEQUE DESCRIPTIONS] sujet Dons = pas de « undefi
         return TEST.wait();
     } ).then( function () {
         TEST_descNoUndefined( "Dons" );
-        // « Affiliation aux Branches d'émeraude » : titre de section nu, AUCUNE
-        // entrée compendium de ce nom -> carte présente, SANS bloc description
-        TEST.ASSERT.isNull( OBJECT.getInformationByName( "Affiliation aux Branches d'émeraude" ), "Pre-condition : aucune entrée compendium pour l'affiliation (titre de section)" );
+        // « Affiliation aux Branches d'émeraude » : titre de section nu dans la
+        // source, repli par la carte d'alias écrite à la main sur l'entrée
+        // compendium de la branche (Branches d'émeraude, class-feature)
+        let _alias_entry = OBJECT.getInformationByName( "Affiliation aux Branches d'émeraude" );
+        TEST.ASSERT.notNull( _alias_entry, "Pre-condition : l'alias devrait résoudre l'affiliation vers sa branche du compendium" );
+        TEST.ASSERT.equal( _alias_entry ? _alias_entry.text : null, "Branches d'émeraude", "L'alias devrait pointer sur l'entrée de la branche, obtenu : [" + ( _alias_entry ? _alias_entry.text : "null" ) + "]" );
         let _card = TEST_descCard( "Affiliation aux Branches d'émeraude" );
         TEST.ASSERT.notNull( _card, "La carte « Affiliation aux Branches d'émeraude » devrait être rendue dans le sujet Dons" );
-        if ( _card ) {
-            TEST.ASSERT.isNull( _card.querySelector( ".library-card-description" ), "Sans repli compendium, la carte ne devrait rendre aucun bloc (et surtout pas « undefined »), obtenu : [" + ( _card.querySelector( ".library-card-description" ) || { textContent: "" } ).textContent + "]" );
+        if ( _card && _alias_entry ) {
+            let _desc = _card.querySelector( ".library-card-description" );
+            TEST.ASSERT.notNull( _desc, "L'affiliation devrait porter le repli de sa branche (alias compendium)" );
+            if ( _desc ) {
+                TEST.ASSERT.equal( _desc.textContent, TEST_descStrip( _alias_entry.description ), "La description affichée devrait être celle de la branche, aplatie" );
+            }
+        }
+        // « Dons communs à tous les gardiens du Magaambya » : titre de section
+        // sans aucune entrée compendium derrière -> carte présente, SANS bloc
+        TEST.ASSERT.isNull( OBJECT.getInformationByName( "Dons communs à tous les gardiens du Magaambya" ), "Pre-condition : aucun repli compendium pour ce titre de section" );
+        let _header_card = TEST_descCard( "Dons communs à tous les gardiens du Magaambya" );
+        TEST.ASSERT.notNull( _header_card, "La carte « Dons communs… » devrait être rendue dans le sujet Dons" );
+        if ( _header_card ) {
+            TEST.ASSERT.isNull( _header_card.querySelector( ".library-card-description" ), "Sans repli compendium, la carte ne devrait rendre aucun bloc (et surtout pas « undefined »), obtenu : [" + ( _header_card.querySelector( ".library-card-description" ) || { textContent: "" } ).textContent + "]" );
         }
         // « Changement de costume » : description scrapée vide MAIS entrée
         // compendium connue -> le bloc description retombe sur le compendium

@@ -47,6 +47,7 @@ CHARACTER.StuffsWindow.prototype = {
         switch ( event_name ) {
             case "event__stuff__add":
             case "event__stuff__remove":
+            case "event__stuff__equip":
                 this._refreshContent();
                 return;
             // The location move and the characteristics overrides
@@ -175,16 +176,24 @@ CHARACTER.StuffsWindow.prototype = {
             // Refonte cartes : les entrées vivent dans une grille de cartes
             // (plus d'entête de colonnes titrées) ; une section vide
             // n'affiche qu'une ligne pointillée compacte
-            let entries = stuffs.getStuffsByLocation( location_data.key );
-
-            if ( !entries.length ) {
-                this._buildEmptySection( section, location_data );
+            if ( location_data.key === "equipped" ) {
+                this._buildSchemaSection( section, stuffs );
+            }
+            else if ( location_data.key === "backpack" ) {
+                this._buildBackpackSection( section, stuffs );
             }
             else {
-                let entries_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries" } ), section );
+                let entries = stuffs.getStuffsByLocation( location_data.key );
 
-                for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
-                    this._buildEntry( entries_box, entries[ e ] );
+                if ( !entries.length ) {
+                    this._buildEmptySection( section, location_data );
+                }
+                else {
+                    let entries_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries" } ), section );
+
+                    for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
+                        this._buildEntry( entries_box, entries[ e ] );
+                    }
                 }
             }
         }
@@ -404,17 +413,144 @@ CHARACTER.StuffsWindow.prototype = {
             } ),
             section
         );
-        // The object cell carries the kind icon NEXT TO its name (retour
-        // utilisateur : l'icône se lit à côté de la valeur, l'infobulle
-        // porte le nom du type) and its "?" — the popup of information only
-        // exists for a scraped entry (a free-named model owns no data)
+        this._addObjectCell( entry, stuff );
+        this._addCharsCell( entry, stuff );
+        this._addCommentCell( entry, stuff );
+        this._addQuantityCell( entry, stuff );
+        this._addBulkCell( entry, stuff );
+        this._addEditCell( entry, stuff );
+    },
+
+    // The equipped section is a BODY SCHEMA : one case per slot
+    // (STUFF.SCHEMA_AREAS), only the occupied ones render (an empty case
+    // appears when a piece lands on it), the card of the piece sits in its
+    // case, the affixed pieces list under their host
+    _buildSchemaSection: function ( section, stuffs ) {
+        let equipped = stuffs.getStuffsByLocation( "equipped" );
+        if ( !equipped.length ) {
+            this._buildEmptySection( section, STUFF.getLocationData( "equipped" ) );
+            return;
+        }
+        let by_case = {};
+        for ( let e = 0, _size_e = equipped.length; e < _size_e; e++ ) {
+            let stuff     = equipped[ e ];
+            let host_slot = STUFF.getHostBodySlot( stuff.getSlot() );
+            let case_key  = STUFF.getSlotCase( host_slot || stuff.getSlot() );
+            if ( !by_case[ case_key ] ) {
+                by_case[ case_key ] = { "main": null, "hosts": [] };
+            }
+            if ( host_slot ) {
+                by_case[ case_key ].hosts.push( stuff );
+            }
+            else {
+                by_case[ case_key ].main = stuff;
+            }
+        }
+        let schema = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-schema" } ), section );
+        for ( let r = 0, _size_r = STUFF.SCHEMA_AREAS.length; r < _size_r; r++ ) {
+            let row = STUFF.SCHEMA_AREAS[ r ];
+            for ( let c = 0, _size_c = row.length; c < _size_c; c++ ) {
+                let slot_key = row[ c ];
+                let content  = by_case[ slot_key ];
+                if ( !content || ( !content.main && !content.hosts.length ) ) {
+                    continue;
+                }
+                let slot_box  = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-slot", "data-slot": slot_key } ), schema );
+                let slot_data = STUFF.getSlotData( slot_key );
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-slot-label" }, slot_data ? slot_data.label : slot_key ), slot_box );
+                if ( content.main ) {
+                    this._buildCard( slot_box, content.main, "equipped" );
+                }
+                if ( content.hosts.length ) {
+                    let hosts_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-slot-hosts" } ), slot_box );
+                    for ( let h = 0, _size_h = content.hosts.length; h < _size_h; h++ ) {
+                        let host_line = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-slot-host" } ), hosts_box );
+                        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-kind" }, STUFF.ICONS[ content.hosts[ h ].kind ] || STUFF.ICONS.other ), host_line );
+                        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-slot-host-name" }, content.hosts[ h ].value ), host_line );
+                    }
+                }
+            }
+        }
+    },
+
+    // The backpack renders as CLICKABLE CARDS : the hint carries the
+    // gesture, a click on a card equips the piece (event__stuff__equip)
+    _buildBackpackSection: function ( section, stuffs ) {
+        let entries = stuffs.getStuffsByLocation( "backpack" );
+        if ( !entries.length ) {
+            this._buildEmptySection( section, STUFF.getLocationData( "backpack" ) );
+            return;
+        }
+        SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-section-hint" }, "Cliquer sur une vignette pour équiper (" + entries.length + " disponibles)" ), section );
+        let entries_box = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entries" } ), section );
+        for ( let e = 0, _size_e = entries.length; e < _size_e; e++ ) {
+            this._buildCard( entries_box, entries[ e ], "backpack" );
+        }
+    },
+
+    // A card (vignette) : the top row carries the slot label (or the hand
+    // picker of a one-handed weapon) on the left and the actions on the
+    // right (gear + unequip cross on an equipped piece), then the same
+    // cells as a list entry
+    _buildCard: function ( parent, stuff, mode ) {
+        let card = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+            class        : "stuffs-entry stuffs-card" + ( mode === "backpack" ? " stuffs-card--clickable" : "" ),
+            "data-kind"  : stuff.kind,
+            "data-value" : stuff.value,
+            "title"      : mode === "backpack" ? this._computeEquipTitle( stuff ) : this._computeEntryTitle( stuff )
+        } ), parent );
+        if ( mode === "backpack" ) {
+            card.setAttribute( "onclick", "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__equip',{'param__stuff__kind':this.getAttribute('data-kind'),'param__stuff__value':this.getAttribute('data-value')})" );
+        }
+        let top      = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-card-top" } ), card );
+        let slot_key = stuff.getSlot();
+        let case_key = STUFF.getSlotCase( slot_key );
+        if ( mode === "equipped" && STUFFS.getFieldValue( stuff.value, "Mains" ) === "1" && ( case_key === "main" || case_key === "off_hand" ) ) {
+            let pick       = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-slot-pick" } ), top );
+            let hand_slots = [ "main", "off_hand" ];
+            for ( let h = 0, _size_h = hand_slots.length; h < _size_h; h++ ) {
+                let hand_slot = hand_slots[ h ];
+                let hand_data = STUFF.getSlotData( hand_slot );
+                SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
+                    class         : "stuffs-slot-choice",
+                    "data-slot"   : hand_slot,
+                    "data-active" : slot_key === hand_slot ? "true" : "false",
+                    "title"       : "Équiper en " + ( hand_data ? hand_data.label.toLowerCase() : hand_slot ),
+                    onclick       : "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__set_slot',{'param__stuff__kind':this.closest('.stuffs-entry').getAttribute('data-kind'),'param__stuff__value':this.closest('.stuffs-entry').getAttribute('data-value'),'param__stuff__slot':this.getAttribute('data-slot')})"
+                }, hand_data ? hand_data.label : hand_slot ), pick );
+            }
+        }
+        else {
+            let slot_data = STUFF.getSlotData( slot_key );
+            let top_label = slot_data ? slot_data.label : slot_key;
+            if ( STUFFS.isTwoHanded( stuff.value ) ) {
+                top_label = STUFF.TWO_HANDS_LABEL;
+            }
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-card-slot" }, top_label ), top );
+        }
+        let actions = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-card-actions" } ), top );
+        this._addEditCell( actions, stuff );
+        if ( mode === "equipped" ) {
+            SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
+                class  : "stuffs-entry-unequip",
+                title  : "Déquiper (retour au sac à dos)",
+                onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__stuff__set_location',{'param__stuff__kind':this.closest('.stuffs-entry').getAttribute('data-kind'),'param__stuff__value':this.closest('.stuffs-entry').getAttribute('data-value'),'param__stuff__location':'backpack'})"
+            }, "✕" ), actions );
+        }
+        this._addObjectCell( card, stuff );
+        this._addCharsCell( card, stuff );
+        this._addCommentCell( card, stuff );
+        this._addQuantityCell( card, stuff );
+        this._addBulkCell( card, stuff );
+    },
+
+    _addObjectCell: function ( entry, stuff ) {
         let object_cell        = SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", { class: "stuffs-entry-object stuffs-col-object" } ), entry );
         let kind_data_for_icon = STUFF.getKindData( stuff.kind );
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : "stuffs-entry-kind",
             "title": kind_data_for_icon ? kind_data_for_icon.label : ""
         }, STUFF.ICONS[ stuff.kind ] || STUFF.ICONS.other ), object_cell );
-
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-value" }, stuff.value ), object_cell );
         if ( STUFFS.getEntryData( stuff.value ) ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
@@ -423,11 +559,9 @@ CHARACTER.StuffsWindow.prototype = {
                 onclick: "MANAGER.EventManagerV2.doActionAfter(event,'event__show_information__item',{'param__stuff__value':this.closest('.stuffs-entry').getAttribute('data-value')})"
             }, "?" ), object_cell );
         }
-        // The characteristics of the entry kind, LABELED (KINDS inline
-        // fields, scraped keys) : a weapon carries Dégâts/Mains, an
-        // armor its CA bonus and dex cap — only the fields the entry
-        // owns, a free-named model carries none (no scraped data
-        // behind, no empty cell)
+    },
+
+    _addCharsCell: function ( entry, stuff ) {
         let kind_data = STUFF.getKindData( stuff.kind );
         if ( kind_data && kind_data.inline_fields ) {
             let chars_values = [];
@@ -446,25 +580,28 @@ CHARACTER.StuffsWindow.prototype = {
                 }
             }
         }
-        // La carte pose ses zones par grid-area (jamais de placement
-        // auto : l'ordre du DOM reste libre, chaque cellule porte sa zone)
+    },
+
+    _addCommentCell: function ( entry, stuff ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", {
             class  : "stuffs-entry-comment stuffs-col-comment",
             "title": stuff.comment || ""
         }, stuff.comment || "" ), entry );
-        // The quantity stays READ on the card (retour utilisateur : plus
-        // d'input dans la liste, l'édition vit dans la popup de la roue
-        // crantée) — and it is NOT displayed on an equipped item (retour
-        // utilisateur : un objet équipé n'a pas besoin de sa quantité)
+    },
+
+    // The quantity stays READ on the card, never displayed on an equipped
+    // piece (the editing lives in the gear popup)
+    _addQuantityCell: function ( entry, stuff ) {
         if ( stuff.location !== "equipped" ) {
             SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-quantity stuffs-col-quantity", "title": "Quantité" }, "" + stuff.quantity ), entry );
         }
+    },
+
+    _addBulkCell: function ( entry, stuff ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "span", { class: "stuffs-entry-bulk stuffs-col-bulk", "title": "Encombrement" }, STUFFS.getFieldValue( stuff.value, "bulk" ) || "—" ), entry );
-        // The gear opens the edit popup (emplacement, lieu, commentaire,
-        // retrait — retour utilisateur : la ligne ne garde que ses
-        // colonnes de lecture, les puces et la croix partent) : the entry
-        // identity is read from the DOM at click time (stuff names carry
-        // apostrophes)
+    },
+
+    _addEditCell: function ( entry, stuff ) {
         SERVICE.DOM.addElementTo( SERVICE.DOM.createElement( "div", {
             class  : "stuffs-entry-edit stuffs-col-actions",
             title  : "Modifier",
@@ -472,6 +609,13 @@ CHARACTER.StuffsWindow.prototype = {
         }, "⚙" ), entry );
     },
 
+    _computeEquipTitle: function ( stuff ) {
+        if ( STUFFS.isTwoHanded( stuff.value ) ) {
+            return "Équiper « " + stuff.value + " » à deux mains (occupe Main + Main secondaire, le bouclier repart au sac)";
+        }
+        let slot_data = STUFF.getSlotData( stuff.getSlot() );
+        return "Équiper « " + stuff.value + " » sur « " + ( slot_data ? slot_data.label : stuff.getSlot() ) + " »";
+    },
     //********************************************  DATA   **************************************************//
     _getEntryDomElement: function ( kind, value ) {
         // The stuff names carry apostrophes : the selector by value

@@ -33,6 +33,14 @@ CHARACTER.Stuffs.prototype = {
             // comment is edited in place, the quantity and the
             // characteristics overrides land by the edit popup (tout est
             // éditable — retour utilisateur)
+            // The equip gesture (a click on a backpack card) : the entry
+            // lands equipped, the schema case rules apply (exchange with
+            // the piece on the same case, a two-handed weapon takes both
+            // hands and sends the shield back)
+            case "event__stuff__equip": {
+                this.equipStuff( params[ "param__stuff__kind" ], params[ "param__stuff__value" ] );
+                return;
+            }
             case "event__stuff__set_location":
             case "event__stuff__edit_place":
             case "event__stuff__edit_comment":
@@ -44,6 +52,9 @@ CHARACTER.Stuffs.prototype = {
                 if ( entry ) {
                     if ( event_name === "event__stuff__set_location" ) {
                         entry.setData( "location", params[ "param__stuff__location" ] );
+                        if ( params[ "param__stuff__location" ] === "equipped" ) {
+                            this._resolveEquipConflicts( entry );
+                        }
                     }
                     else if ( event_name === "event__stuff__edit_place" ) {
                         entry.setData( "place", params[ "param__stuff__place" ] );
@@ -56,6 +67,7 @@ CHARACTER.Stuffs.prototype = {
                     }
                     else if ( event_name === "event__stuff__set_slot" ) {
                         entry.setSlot( params[ "param__stuff__slot" ] );
+                        this._resolveEquipConflicts( entry );
                     }
                     else if ( event_name === "event__stuff__edit_current_hp" ) {
                         // The −/+ buttons of the Combat schema send a
@@ -89,6 +101,73 @@ CHARACTER.Stuffs.prototype = {
         return to_return;
     },
     //********************************************  DATA   **************************************************//
+    // The equip gesture : the entry lands equipped, then the schema case
+    // rules apply (see _resolveEquipConflicts)
+    equipStuff: function ( kind, value ) {
+        let entry = this.getContentByUUID( kind + "__" + value );
+        if ( !entry ) {
+            return;
+        }
+        entry.setData( "location", "equipped" );
+        this._resolveEquipConflicts( entry );
+    },
+    // Schema case rules : two equipped pieces cannot share a case, a
+    // two-handed weapon occupies Main + off-hand (the shield included) and
+    // nothing of the hands cohabits with it
+    _resolveEquipConflicts: function ( entry ) {
+        if ( entry.location !== "equipped" ) {
+            return;
+        }
+        if ( STUFFS.isTwoHanded( entry.value ) ) {
+            this._unequipCases( [ "main", "off_hand" ], entry.getUUID() );
+            return;
+        }
+        let case_key = STUFF.getSlotCase( entry.getSlot() );
+        if ( case_key === "main" || case_key === "off_hand" ) {
+            this._unequipTwoHanded( entry.getUUID() );
+        }
+        this._unequipCases( [ case_key ], entry.getUUID() );
+    },
+    _unequipCases: function ( case_keys, except_uuid ) {
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let other = this.getContent( i );
+            if ( other.location === "equipped" && other.getUUID() !== except_uuid && case_keys.indexOf( STUFF.getSlotCase( other.getSlot() ) ) !== -1 ) {
+                other.setData( "location", STUFF.DEFAULT_LOCATION );
+            }
+        }
+    },
+    _unequipTwoHanded: function ( except_uuid ) {
+        for ( let i = 0, _size_i = this.getSize(); i < _size_i; i++ ) {
+            let other = this.getContent( i );
+            if ( other.location === "equipped" && other.getUUID() !== except_uuid && STUFFS.isTwoHanded( other.value ) ) {
+                other.setData( "location", STUFF.DEFAULT_LOCATION );
+            }
+        }
+    },
+    // Relecture : applique la règle de case aux pièces équipées (vieux
+    // saves avec deux armes dans la même main) — une arme à 2 mains
+    // occupe Main + Main secondaire, sinon la première pièce de chaque
+    // case gagne, les suivantes partent au sac à dos
+    _resolveAllEquipConflicts: function () {
+        let equipped  = this.getStuffsByLocation( "equipped" );
+        let seen_case = {};
+        for ( let i = 0, _size_i = equipped.length; i < _size_i; i++ ) {
+            let entry = equipped[ i ];
+            if ( STUFFS.isTwoHanded( entry.value ) ) {
+                this._unequipCases( [ "main", "off_hand" ], entry.getUUID() );
+                seen_case[ "main" ]     = entry.getUUID();
+                seen_case[ "off_hand" ] = entry.getUUID();
+                continue;
+            }
+            let case_key = STUFF.getSlotCase( entry.getSlot() );
+            if ( seen_case[ case_key ] ) {
+                entry.setData( "location", STUFF.DEFAULT_LOCATION );
+                continue;
+            }
+            seen_case[ case_key ] = entry.getUUID();
+        }
+    },
+
     addStuff: function ( kind, value, location, comment, place ) {
         if ( !value ) {
             return;
@@ -103,7 +182,10 @@ CHARACTER.Stuffs.prototype = {
             }
             return;
         }
-        this.add( new CHARACTER.Stuff( kind, value, 1, location || STUFF.DEFAULT_LOCATION, comment, place ) );
+        let added_stuff = this.add( new CHARACTER.Stuff( kind, value, 1, location || STUFF.DEFAULT_LOCATION, comment, place ) );
+        if ( added_stuff && added_stuff.location === "equipped" ) {
+            this._resolveEquipConflicts( added_stuff );
+        }
     },
     // The bulk of the asked locations only : the bar counts the carried
     // stuff (STUFF.CARRIED_LOCATIONS), the stored section carries its own
@@ -184,6 +266,12 @@ CHARACTER.Stuffs.prototype = {
                 current.setData( "current_hp", data[ i ][ "current_hp" ] );
             }
         }
+
+        // Vieux saves : deux pièces peuvent partager une case (avant la
+        // règle « une case = une pièce ») — à la relecture la règle
+        // s'applique : la première pièce équipée de chaque case gagne,
+        // les autres retournent au sac à dos
+        this._resolveAllEquipConflicts();
     }
 };
 

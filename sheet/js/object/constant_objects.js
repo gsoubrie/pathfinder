@@ -469060,6 +469060,18 @@ OBJECT.getFeatCompendiumEntry = function ( feat_name ) {
     return null;
 };
 
+// Hand-written card : scraped entries that are bare section titles of the
+// source pages (the Magaambya branch affiliations carry no paragraph) but
+// whose branch entry exists in the compendium under a related name. The
+// alias rides on the records of its target. Survives the re-scrap.
+OBJECT.NAME_ALIASES = {
+    "Affiliation aux Branches d'émeraude"          : "Branches d'émeraude",
+    "Affiliation aux Mages de la tempête solaire"  : "Mages de la tempête solaire",
+    "Affiliation aux Scribes de la pluie"          : "Scribes de la pluie",
+    "Affiliation aux Tisseurs des flots"           : "Tisseurs des flots",
+    "Affiliation aux Uzunjati"                     : "Uzunjati"
+};
+
 // Index lazy du compendium pour la résolution par nom sur TOUTES les
 // catégories : construit UNE fois (le compendium fait 27k entrées)
 OBJECT._compendiumNameIndex = null;
@@ -469077,14 +469089,23 @@ OBJECT._buildCompendiumNameIndex = function () {
         }
         index[ name_key ].push( object_data );
     }
+    let alias_keys = Object.keys( OBJECT.NAME_ALIASES );
+    for ( let i = 0, _size_i = alias_keys.length; i < _size_i; i++ ) {
+        let alias_key  = OBJECT._compendiumSearchKey( alias_keys[ i ] );
+        let target_key = OBJECT._compendiumSearchKey( OBJECT.NAME_ALIASES[ alias_keys[ i ] ] );
+        if ( index[ target_key ] && !index[ alias_key ] ) {
+            index[ alias_key ] = index[ target_key ];
+        }
+    }
     return index;
 };
 
 /**
  * L'entrée compendium d'une carte par son NOM, toutes catégories confondues :
  * repli de description quand l'entrée scrapée n'a pas de texte (titre de
- * section nu dans la source, ex. les affiliations d'archétype). Null quand
- * le nom ne vit pas dans les données.
+ * section nu dans la source, ex. les affiliations d'archétype). Quand
+ * plusieurs entrées portent le nom, celle qui a une description gagne.
+ * Null quand le nom ne vit pas dans les données.
  *
  * @param {string} name  Display name, ex. "Pupille"
  * @returns {Object|null} The compendium entry, or null when unknown
@@ -469094,5 +469115,10 @@ OBJECT.getInformationByName = function ( name ) {
         OBJECT._compendiumNameIndex = OBJECT._buildCompendiumNameIndex();
     }
     let records = OBJECT._compendiumNameIndex[ OBJECT._compendiumSearchKey( name ) ] || [];
+    for ( let i = 0, _size_i = records.length; i < _size_i; i++ ) {
+        if ( records[ i ].description ) {
+            return records[ i ];
+        }
+    }
     return records.length ? records[ 0 ] : null;
 };

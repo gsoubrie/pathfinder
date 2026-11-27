@@ -339,7 +339,9 @@ TEST.ASSERT.ok( _sword_chars && _sword_chars.textContent.indexOf( "Mains" ) !== 
         // ordre de construction (roue en dernier) — l'assertion ci-dessous
         // le vérifie toujours
         let _entry_cells = _entry_dom.children;
-        TEST.ASSERT.ok( _entry_cells.length >= 4 && _entry_cells[ _entry_cells.length - 1 ].classList.contains( "stuffs-entry-edit" ) && _entry_cells[ _entry_cells.length - 2 ].classList.contains( "stuffs-entry-bulk" ) && _entry_cells[ _entry_cells.length - 3 ].classList.contains( "stuffs-entry-quantity" ), "La ligne devrait construire ses cellules colonne par colonne (quantité avant encombrement, roue en dernier), obtenu : [" + _entry_dom.innerHTML.slice( 0, 120 ) + "…]" );
+        TEST.ASSERT.ok( _entry_cells.length >= 5 && _entry_cells[ 0 ].classList.contains( "stuffs-card-top" ), "La vignette devrait commencer par sa rangée du haut, obtenu : [" + _entry_dom.innerHTML.slice( 0, 120 ) + "…]" );
+        TEST.ASSERT.notNull( _entry_dom.querySelector( ".stuffs-card-top .stuffs-entry-edit" ), "La roue crantée devrait vivre dans la rangée du haut (haut à droite)" );
+        TEST.ASSERT.ok( _entry_dom.querySelector( ".stuffs-entry-quantity" ) && _entry_dom.querySelector( ".stuffs-entry-bulk" ), "La vignette devrait porter sa quantité et son encombrement en lecture" );
         TEST.ASSERT.equal( _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent, STUFFS.getFieldValue( "Épée longue", "bulk" ), "L'entrée devrait porter son encombrement inline, obtenu : [" + _entry_dom.querySelector( ".stuffs-entry-bulk" ).textContent + "]" );
         TEST.ASSERT.notNull( _entry_dom.querySelector( ".stuffs-entry-edit" ), "L'entrée devrait porter sa roue crantée d'édition" );
         // L'encombrement porté suit l'ajout : croisé avec le domaine
